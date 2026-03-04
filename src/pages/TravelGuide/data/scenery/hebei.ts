@@ -1,0 +1,584 @@
+import { ScenerySpot, TravelActivity, RouteInfo, SeasonalScenery } from "../scenery.ts";
+
+// 河北省自然风光数据
+const hebeiNatureSpots: ScenerySpot[] = [
+  {
+    id: "cangyanMountain",
+    name: "苍岩山",
+    description: "河北省著名的风景区，以奇峰怪石、古刹名寺著称，有'五岳奇秀揽一山，太行群峰唯苍岩'之美誉",
+    image: "https://picsum.photos/id/1019/600/400",
+    location: "河北省石家庄市井陉县",
+    type: "nature",
+    bestTime: "秋季",
+    tags: ["自然", "山岳", "文化", "历史"],
+    rating: 4.6,
+    landscapeType: "mountain",
+    landscapeCategory: ["地理景观"],
+    landformTags: ["山地景观"]
+  },
+  {
+    id: "baiyangdian",
+    name: "白洋淀",
+    description: "华北地区最大的淡水湖泊，以其独特的湿地景观和丰富的生物多样性而闻名",
+    image: "https://picsum.photos/id/1018/600/400",
+    location: "河北省保定市安新县",
+    type: "nature",
+    bestTime: "夏季",
+    tags: ["自然", "湿地", "湖泊", "生态"],
+    rating: 4.5,
+    landscapeType: "water",
+    landscapeCategory: ["水景观"],
+    landformTags: ["湖泊景观"]
+  },
+  {
+    id: "eastTombsQing",
+    name: "清东陵",
+    description: "清朝皇帝的陵墓群，以其宏伟的建筑和丰富的历史文化而闻名",
+    image: "https://picsum.photos/id/1036/600/400",
+    location: "河北省唐山市遵化市",
+    type: "nature",
+    bestTime: "四季皆宜",
+    tags: ["历史", "文化", "建筑", "世界遗产"],
+    rating: 4.7,
+    landscapeType: "historical",
+    landscapeCategory: ["人文景观"],
+    landformTags: ["历史遗迹"]
+  },
+  {
+    id: "mountWutai",
+    name: "五台山",
+    description: "中国佛教四大名山之一，以其众多的佛教寺庙和壮丽的自然风光而闻名",
+    image: "https://picsum.photos/id/1038/600/400",
+    location: "山西省忻州市五台县（与河北交界处）",
+    type: "nature",
+    bestTime: "夏季",
+    tags: ["自然", "山岳", "宗教", "文化"],
+    rating: 4.8,
+    landscapeType: "mountain",
+    landscapeCategory: ["地理景观"],
+    landformTags: ["山地景观"]
+  },
+  {
+    id: "shanhaiguan",
+    name: "山海关",
+    description: "中国长城的起点，以其雄伟的关隘和悠久的历史而闻名",
+    image: "https://picsum.photos/id/1039/600/400",
+    location: "河北省秦皇岛市山海关区",
+    type: "nature",
+    bestTime: "秋季",
+    tags: ["历史", "文化", "建筑", "世界遗产"],
+    rating: 4.7,
+    landscapeType: "coastal",
+    landscapeCategory: ["地理景观"],
+    landformTags: ["海岸景观"]
+  },
+  {
+    id: "beidaihe",
+    name: "北戴河",
+    description: "著名的海滨度假区，拥有美丽的沙滩和清澈的海水",
+    image: "https://picsum.photos/id/1016/600/400",
+    location: "河北省秦皇岛市北戴河区",
+    type: "nature",
+    bestTime: "夏季",
+    tags: ["自然", "海滨", "度假", "休闲"],
+    rating: 4.6,
+    landscapeType: "water",
+    landscapeCategory: ["水景观"],
+    landformTags: ["海洋景观"]
+  },
+  {
+    id: "hengshuiLake",
+    name: "衡水湖",
+    description: "河北省最大的淡水湖泊之一，以其独特的湿地生态系统和丰富的鸟类资源而闻名",
+    image: "https://picsum.photos/id/1037/600/400",
+    location: "河北省衡水市桃城区",
+    type: "nature",
+    bestTime: "春季",
+    tags: ["自然", "湿地", "湖泊", "生态"],
+    rating: 4.4,
+    landscapeType: "water",
+    landscapeCategory: ["水景观"],
+    landformTags: ["湖泊景观"]
+  },
+  {
+    id: "taihangMountains",
+    name: "太行山脉",
+    description: "中国东部地区的重要山脉，以其壮丽的自然风光和丰富的历史文化而闻名",
+    image: "https://picsum.photos/id/1035/600/400",
+    location: "河北省西部太行山区",
+    type: "nature",
+    bestTime: "秋季",
+    tags: ["自然", "山脉", "户外", "历史"],
+    rating: 4.5,
+    landscapeType: "mountain",
+    landscapeCategory: ["地理景观"],
+    landformTags: ["山地景观"]
+  }
+];
+
+// 河北省人文景观数据
+const hebeiCultureSpots: ScenerySpot[] = [
+  {
+    id: "handanAncientCity",
+    name: "邯郸古城",
+    description: "中国历史文化名城，以其悠久的历史和丰富的文化遗产而闻名",
+    image: "https://picsum.photos/id/1044/600/400",
+    location: "河北省邯郸市",
+    type: "culture",
+    bestTime: "四季皆宜",
+    tags: ["历史", "文化", "建筑", "古城"],
+    rating: 4.5,
+    landscapeType: "historical",
+    landscapeCategory: ["人文景观"],
+    landformTags: ["历史遗迹"]
+  },
+  {
+    id: "zhaozhouBridge",
+    name: "赵州桥",
+    description: "中国古代著名的石拱桥，以其独特的建筑结构和悠久的历史而闻名",
+    image: "https://picsum.photos/id/1045/600/400",
+    location: "河北省石家庄市赵县",
+    type: "culture",
+    bestTime: "四季皆宜",
+    tags: ["历史", "文化", "建筑", "桥梁"],
+    rating: 4.4,
+    landscapeType: "historical",
+    landscapeCategory: ["人文景观"],
+    landformTags: ["历史遗迹"]
+  },
+  {
+    id: "chengdeSummerResort",
+    name: "承德避暑山庄",
+    description: "中国清代皇家园林，以其宏伟的建筑和优美的自然风光而闻名",
+    image: "https://picsum.photos/id/1046/600/400",
+    location: "河北省承德市双桥区",
+    type: "culture",
+    bestTime: "夏季",
+    tags: ["历史", "文化", "建筑", "园林"],
+    rating: 4.7,
+    landscapeType: "historical",
+    landscapeCategory: ["人文景观"],
+    landformTags: ["历史遗迹"]
+  },
+  {
+    id: "puningTemple",
+    name: "普宁寺",
+    description: "承德外八庙之一，以其宏伟的佛教建筑和巨大的木雕佛像而闻名",
+    image: "https://picsum.photos/id/1047/600/400",
+    location: "河北省承德市双桥区",
+    type: "culture",
+    bestTime: "四季皆宜",
+    tags: ["历史", "文化", "宗教", "建筑"],
+    rating: 4.5,
+    landscapeType: "historical",
+    landscapeCategory: ["人文景观"],
+    landformTags: ["宗教建筑"]
+  },
+  {
+    id: "tangshanEarthquakeMemorial",
+    name: "唐山地震纪念馆",
+    description: "纪念1976年唐山大地震的纪念馆，展示了地震灾害和抗震救灾的历史",
+    image: "https://picsum.photos/id/1048/600/400",
+    location: "河北省唐山市路南区",
+    type: "culture",
+    bestTime: "四季皆宜",
+    tags: ["历史", "文化", "教育", "纪念"],
+    rating: 4.3,
+    landscapeType: "historical",
+    landscapeCategory: ["人文景观"],
+    landformTags: ["纪念馆"]
+  }
+];
+
+// 河北省季节性数据
+const hebeiSeasonalData: Record<string, SeasonalScenery> = {
+  spring: {
+    name: "春季",
+    description: "春季的河北，万物复苏，是游览白洋淀、衡水湖的最佳时节",
+    image: "https://picsum.photos/id/1049/600/400",
+    activities: ["白洋淀观鸟", "衡水湖春游", "苍岩山踏青", "邯郸古城访古"]
+  },
+  summer: {
+    name: "夏季",
+    description: "夏季的河北，海滨浴场开放，承德避暑山庄是避暑的好去处",
+    image: "https://picsum.photos/id/1050/600/400",
+    activities: ["北戴河海滨度假", "承德避暑山庄避暑", "五台山朝佛", "白洋淀划船"]
+  },
+  autumn: {
+    name: "秋季",
+    description: "秋季的河北，太行山脉红叶满山，是赏秋的绝佳地点",
+    image: "https://picsum.photos/id/1051/600/400",
+    activities: ["太行山脉赏红叶", "苍岩山秋游", "山海关游览", "清东陵参观"]
+  },
+  winter: {
+    name: "冬季",
+    description: "冬季的河北，虽然寒冷，但有独特的冰雪景观和年俗活动",
+    image: "https://picsum.photos/id/1052/600/400",
+    activities: ["承德冰雪节", "张家口滑雪场滑雪", "春节庙会", "温泉度假"]
+  }
+};
+
+// 河北省活动数据
+const hebeiActivities: TravelActivity[] = [
+  {
+    id: "1",
+    name: "白洋淀水乡游",
+    description: "乘坐游船游览白洋淀，欣赏水乡风光，体验渔家生活",
+    image: "https://picsum.photos/id/1053/600/400",
+    category: "nature",
+    location: "白洋淀景区",
+    duration: "3-4小时",
+    difficulty: "简单",
+    type: "休闲体验"
+  },
+  {
+    id: "2",
+    name: "承德避暑山庄深度游",
+    description: "深入了解承德避暑山庄的历史文化和建筑艺术",
+    image: "https://picsum.photos/id/1054/600/400",
+    category: "culture",
+    location: "承德避暑山庄",
+    duration: "4-6小时",
+    difficulty: "中等",
+    type: "文化体验"
+  },
+  {
+    id: "3",
+    name: "太行山脉徒步",
+    description: "徒步太行山脉，欣赏壮丽的自然风光",
+    image: "https://picsum.photos/id/1055/600/400",
+    category: "nature",
+    location: "太行山区",
+    duration: "6-8小时",
+    difficulty: "困难",
+    type: "户外活动"
+  },
+  {
+    id: "4",
+    name: "山海关长城游",
+    description: "游览山海关长城，了解长城的历史和文化",
+    image: "https://picsum.photos/id/1056/600/400",
+    category: "culture",
+    location: "山海关景区",
+    duration: "3-4小时",
+    difficulty: "简单",
+    type: "文化体验"
+  },
+  {
+    id: "5",
+    name: "北戴河海滨休闲",
+    description: "在北戴河海滨享受阳光沙滩，体验各种水上活动",
+    image: "https://picsum.photos/id/1057/600/400",
+    category: "nature",
+    location: "北戴河海滨",
+    duration: "全天",
+    difficulty: "简单",
+    type: "休闲体验"
+  }
+];
+
+// 河北省路线数据
+const hebeiRoutes: RouteInfo[] = [
+  {
+    id: "1",
+    name: "河北经典文化之旅",
+    title: "河北经典文化之旅",
+    description: "游览河北最著名的文化景点",
+    duration: "3天",
+    difficulty: "简单",
+    highlights: ["承德避暑山庄", "山海关", "清东陵", "赵州桥"],
+    spots: ["承德避暑山庄", "山海关", "清东陵", "赵州桥"],
+    tags: ["经典", "文化", "历史"],
+    image: "https://picsum.photos/id/1058/600/400",
+    rating: 4.6,
+    bestTime: "春季",
+    traffic: "旅游大巴",
+    suitableFor: "所有游客"
+  },
+  {
+    id: "2",
+    name: "河北自然风光之旅",
+    title: "河北自然风光之旅",
+    description: "探索河北的自然风光",
+    duration: "4天",
+    difficulty: "中等",
+    highlights: ["白洋淀", "苍岩山", "太行山脉", "北戴河"],
+    spots: ["白洋淀", "苍岩山", "太行山脉", "北戴河"],
+    tags: ["自然", "户外", "休闲"],
+    image: "https://picsum.photos/id/1059/600/400",
+    rating: 4.5,
+    bestTime: "夏季",
+    traffic: "旅游大巴",
+    suitableFor: "户外爱好者"
+  }
+];
+
+// 河北省非物质文化遗产数据
+const hebeiIntangibleHeritage = [
+  {
+    id: "1",
+    name: "河北梆子",
+    description: "河北传统戏曲形式，以其高亢激昂的唱腔著称",
+    level: "national",
+    category: "传统戏剧",
+    heritageType: "传统表演艺术",
+    protectionUnit: "河北省河北梆子剧院",
+    tags: ["传统戏剧", "国家级非遗", "民间艺术"],
+    icon: "🎭",
+    image: "https://picsum.photos/id/1065/600/400",
+    features: ["高亢激昂", "表演精湛", "历史悠久"]
+  },
+  {
+    id: "2",
+    name: "吴桥杂技",
+    description: "河北吴桥传统杂技艺术，以其精湛的技艺和丰富的节目著称",
+    level: "national",
+    category: "传统杂技",
+    heritageType: "传统表演艺术",
+    protectionUnit: "河北省吴桥杂技团",
+    tags: ["传统杂技", "国家级非遗", "民间艺术"],
+    icon: "🤹",
+    image: "https://picsum.photos/id/1066/600/400",
+    features: ["技艺精湛", "节目丰富", "历史悠久"]
+  },
+  {
+    id: "3",
+    name: "曲阳石雕",
+    description: "河北曲阳传统石雕艺术，以其精湛的工艺和丰富的题材著称",
+    level: "national",
+    category: "传统美术",
+    heritageType: "传统手工艺",
+    protectionUnit: "河北省曲阳县石雕协会",
+    tags: ["传统美术", "国家级非遗", "民间艺术"],
+    icon: "🗿",
+    image: "https://picsum.photos/id/1067/600/400",
+    features: ["工艺精湛", "题材丰富", "历史悠久"]
+  },
+  {
+    id: "4",
+    name: "定瓷烧制技艺",
+    description: "河北定州传统瓷器烧制技艺，以其独特的造型和釉色著称",
+    level: "national",
+    category: "传统技艺",
+    heritageType: "传统手工艺",
+    protectionUnit: "河北省定州市定瓷协会",
+    tags: ["传统技艺", "国家级非遗", "民间艺术"],
+    icon: "🏺",
+    image: "https://picsum.photos/id/1068/600/400",
+    features: ["造型独特", "釉色精美", "工艺精湛"]
+  },
+  {
+    id: "5",
+    name: "衡水内画",
+    description: "河北衡水传统内画艺术，以其精湛的技艺和丰富的题材著称",
+    level: "national",
+    category: "传统美术",
+    heritageType: "传统手工艺",
+    protectionUnit: "河北省衡水市内画协会",
+    tags: ["传统美术", "国家级非遗", "民间艺术"],
+    icon: "🖌️",
+    image: "https://picsum.photos/id/1069/600/400",
+    features: ["技艺精湛", "题材丰富", "历史悠久"]
+  }
+];
+
+// 河北省数据
+export const hebeiData = {
+  overview: {
+    totalSpots: 13,
+    natureSpots: 8,
+    cultureSpots: 5,
+    topAttractions: [
+      {
+        name: "承德避暑山庄",
+        image: "https://picsum.photos/id/1046/600/400",
+        description: "中国清代皇家园林，以其宏伟的建筑和优美的自然风光而闻名"
+      },
+      {
+        name: "山海关",
+        image: "https://picsum.photos/id/1039/600/400",
+        description: "中国长城的起点，以其雄伟的关隘和悠久的历史而闻名"
+      },
+      {
+        name: "白洋淀",
+        image: "https://picsum.photos/id/1018/600/400",
+        description: "华北地区最大的淡水湖泊，以其独特的湿地景观和丰富的生物多样性而闻名"
+      },
+      {
+        name: "苍岩山",
+        image: "https://picsum.photos/id/1019/600/400",
+        description: "河北省著名的风景区，以奇峰怪石、古刹名寺著称"
+      },
+      {
+        name: "北戴河",
+        image: "https://picsum.photos/id/1016/600/400",
+        description: "著名的海滨度假区，拥有美丽的沙滩和清澈的海水"
+      }
+    ]
+  },
+  spots: [...hebeiNatureSpots, ...hebeiCultureSpots],
+  seasonal: [
+    hebeiSeasonalData.spring,
+    hebeiSeasonalData.summer,
+    hebeiSeasonalData.autumn,
+    hebeiSeasonalData.winter
+  ],
+  activities: hebeiActivities,
+  routes: hebeiRoutes,
+  intangibleHeritage: hebeiIntangibleHeritage
+};
+
+// 河北省风俗文化数据
+export const hebeiCustomsData = {
+  activities: [
+    {
+      id: "1",
+      name: "河北梆子表演",
+      description: "欣赏河北传统戏曲河北梆子表演，感受其高亢激昂的唱腔",
+      image: "https://picsum.photos/id/1060/600/400",
+      category: "culture",
+      location: "河北省石家庄市河北梆子剧院",
+      duration: "2-3小时",
+      difficulty: "简单",
+      type: "文化体验"
+    },
+    {
+      id: "2",
+      name: "吴桥杂技表演",
+      description: "欣赏河北吴桥传统杂技表演，感受其精湛的技艺",
+      image: "https://picsum.photos/id/1061/600/400",
+      category: "culture",
+      location: "河北省吴桥县杂技大世界",
+      duration: "2-3小时",
+      difficulty: "简单",
+      type: "文化体验"
+    },
+    {
+      id: "3",
+      name: "曲阳石雕体验",
+      description: "学习河北曲阳传统石雕技艺，体验石雕的魅力",
+      image: "https://picsum.photos/id/1062/600/400",
+      category: "culture",
+      location: "河北省曲阳县石雕艺术园",
+      duration: "3-4小时",
+      difficulty: "中等",
+      type: "文化体验"
+    },
+    {
+      id: "4",
+      name: "衡水内画体验",
+      description: "学习河北衡水传统内画技艺，体验内画的魅力",
+      image: "https://picsum.photos/id/1063/600/400",
+      category: "culture",
+      location: "河北省衡水市内画艺术园",
+      duration: "3-4小时",
+      difficulty: "中等",
+      type: "文化体验"
+    },
+    {
+      id: "5",
+      name: "河北美食之旅",
+      description: "品尝河北特色美食，如驴肉火烧、唐山麻糖、正定八大碗等",
+      image: "https://picsum.photos/id/1064/600/400",
+      category: "culture",
+      location: "河北省各地",
+      duration: "全天",
+      difficulty: "简单",
+      type: "美食体验"
+    }
+  ]
+};
+
+// 河北省民俗风情元素数据
+export const hebeiFolkCustomsElements = [
+  {
+    name: "河北庙会",
+    description: "河北传统民俗活动，春节期间举行",
+    image: "https://picsum.photos/id/1070/600/400",
+    tags: ["民俗活动", "节庆文化", "非遗文化", "河北特色", "民俗体验"]
+  },
+  {
+    name: "河北方言",
+    description: "河北独特的方言，具有浓郁的地方特色",
+    image: "https://picsum.photos/id/1071/600/400",
+    tags: ["语言文化", "地方特色", "民间文化", "文化传承", "华北特色"]
+  },
+  {
+    name: "河北传统婚礼",
+    description: "河北传统婚礼仪式，具有独特的地方特色",
+    image: "https://picsum.photos/id/1072/600/400",
+    tags: ["民俗礼仪", "传统文化", "婚俗文化", "河北特色", "民俗传承"]
+  },
+  {
+    name: "河北小吃",
+    description: "河北传统特色小吃，品种丰富",
+    image: "https://picsum.photos/id/1073/600/400",
+    tags: ["特色美食", "饮食文化", "传统技艺", "河北特色", "民间美食"]
+  },
+  {
+    name: "河北民间舞蹈",
+    description: "河北传统民间舞蹈，如井陉拉花、沧州落子等",
+    image: "https://picsum.photos/id/1074/600/400",
+    tags: ["传统舞蹈", "非遗文化", "表演艺术", "民间艺术", "河北特色"]
+  }
+];
+
+// 河北省文化节庆数据
+export const hebeiFestivals = [
+  {
+    id: "1",
+    name: "河北春节庙会",
+    description: "春节期间举行的传统民俗活动",
+    month: "2月",
+    day: "1日",
+    location: "河北省各地",
+    isUnique: true
+  },
+  {
+    id: "2",
+    name: "吴桥杂技节",
+    description: "河北吴桥举行的国际杂技艺术节",
+    month: "10月",
+    day: "15日",
+    location: "河北省吴桥县",
+    isUnique: true
+  },
+  {
+    id: "3",
+    name: "承德避暑山庄文化节",
+    description: "承德举行的文化节庆活动",
+    month: "8月",
+    day: "1日",
+    location: "河北省承德市",
+    isUnique: true
+  },
+  {
+    id: "4",
+    name: "北戴河国际观鸟节",
+    description: "北戴河举行的国际观鸟节庆活动",
+    month: "5月",
+    day: "1日",
+    location: "河北省秦皇岛市北戴河区",
+    isUnique: true
+  },
+  {
+    id: "5",
+    name: "清明节祭扫",
+    description: "传统祭祀祖先的节日",
+    month: "4月",
+    day: "5日",
+    location: "河北省各地",
+    isUnique: false
+  },
+  {
+    id: "6",
+    name: "中秋节赏月",
+    description: "传统节日，家人团聚赏月吃月饼",
+    month: "9月",
+    day: "21日",
+    location: "河北省各地",
+    isUnique: false
+  }
+];
+
+export default hebeiData;

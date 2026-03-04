@@ -44,21 +44,13 @@
 		<div class="BokeSecLine" v-for="item in BokeSecLineFooterArr" :key="item.idB">
 			<header>
 				<h3>{{ item.h3Text }}</h3>
-				<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 512 512">
-					<path
-						fill="currentColor"
-						d="M256 48C141.31 48 48 141.31 48 256s93.31 208 208 208s208-93.31 208-208S370.69 48 256 48m120 182.15a8.62 8.62 0 0 1-8.62 8.62h-59.54a8.61 8.61 0 0 1-6.09-14.71l22.17-22.17l-5.6-6.51a87.38 87.38 0 1 0-62.94 148a87.55 87.55 0 0 0 82.42-58.25A16 16 0 1 1 368 295.8a119.4 119.4 0 1 1-112.62-159.18a118.34 118.34 0 0 1 86.36 36.95l.56.62l4.31 5l14.68-14.68a8.44 8.44 0 0 1 6-2.54a8.61 8.61 0 0 1 8.68 8.63Z" />
-				</svg>
+				<MoreIcon_Common />
 			</header>
 			<footer>
 				<span v-for="it in item.idBArr" :key="it.id">
 					<h5>{{ it.playNum }}</h5>
 					<div>
-						<svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" viewBox="0 0 24 24">
-							<path
-								fill="currentColor"
-								d="M13 2.05v2c4.39.54 7.5 4.53 6.96 8.92c-.46 3.64-3.32 6.53-6.96 6.96v2c5.5-.55 9.5-5.43 8.95-10.93c-.45-4.75-4.22-8.5-8.95-8.97zM5.67 19.74A9.994 9.994 0 0 0 11 22v-2a8.002 8.002 0 0 1-3.9-1.63zm1.43-14c1.12-.9 2.47-1.48 3.9-1.68v-2c-1.95.19-3.81.94-5.33 2.2zM5.69 7.1L4.26 5.67A9.885 9.885 0 0 0 2.05 11h2c.19-1.42.75-2.77 1.64-3.9M4.06 13h-2c.2 1.96.97 3.81 2.21 5.33l1.42-1.43A8.002 8.002 0 0 1 4.06 13M10 16.5l6-4.5l-6-4.5z" />
-						</svg>
+						<PlayIcon_Boke />
 						<h4>{{ it.playName }}</h4>
 					</div>
 				</span>
@@ -68,34 +60,20 @@
 			<div class="recFiveLine">
 				<header>
 					<h3>{{ item.title }}</h3>
-					<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 512 512">
-						<path
-							fill="currentColor"
-							d="M256 48C141.31 48 48 141.31 48 256s93.31 208 208 208s208-93.31 208-208S370.69 48 256 48m120 182.15a8.62 8.62 0 0 1-8.62 8.62h-59.54a8.61 8.61 0 0 1-6.09-14.71l22.17-22.17l-5.6-6.51a87.38 87.38 0 1 0-62.94 148a87.55 87.55 0 0 0 82.42-58.25A16 16 0 1 1 368 295.8a119.4 119.4 0 1 1-112.62-159.18a118.34 118.34 0 0 1 86.36 36.95l.56.62l4.31 5l14.68-14.68a8.44 8.44 0 0 1 6-2.54a8.61 8.61 0 0 1 8.68 8.63Z" />
-					</svg>
+					<MoreIcon_Common />
 				</header>
 				<footer>
 					<span v-for="it in item.fifthArr" :key="it.id">
-						<svg class="FivePlayBtn" xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24">
-							<path
-								fill="currentColor"
-								fill-rule="evenodd"
-								d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12m8.528-4.882a1 1 0 0 1 1.027.05l6 4a1 1 0 0 1 0 1.664l-6 4A1 1 0 0 1 9 16V8a1 1 0 0 1 .528-.882"
-								clip-rule="evenodd" />
-						</svg>
+						<FivePlayBtnIcon class="FivePlayBtn" />
 						<img :src="it.imgSrc" alt="" />
 						<h4>{{ it.h4Text }}</h4>
 						<h5>{{ it.h5Text }}</h5>
 						<h6>{{ it.h6Text }}</h6>
 						<h6>{{ it.h6OtherText }}</h6>
 						<div>
-							<svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 32 32">
-								<path fill="currentColor" d="M15 4v16.563L9.719 15.28L8.28 16.72l7 7l.719.687l.719-.687l7-7l-1.438-1.438l-5.28 5.28V4zM7 26v2h18v-2z" />
-							</svg>
+							<LikeIcon_Boke />
 	
-							<svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24">
-								<path fill="currentColor" d="M5 10c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2m14 0c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2m-7 0c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2" />
-							</svg>
+							<ThreeDotIcon_Common />
 						</div>
 					</span>
 				</footer>
@@ -105,6 +83,7 @@
 </template>
 <script setup>
     import { onMounted, ref } from "vue";
+    import { MoreIcon_Common, LikeIcon_Boke, ThreeDotIcon_Common } from '../../icon-components.js';
 
     let listAct = ref(0);
     let fmActive = ref(0);

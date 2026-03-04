@@ -85,10 +85,6 @@
 <script setup>
     import router from "@/router";
 
-    /*
-    *            PC端代码
-    */
-
     //返回顶部
     const returnTop = () => {
         document.getElementById("pcCenter").scrollTo(0, document.body.scrollTop);
