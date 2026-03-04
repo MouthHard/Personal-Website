@@ -128,7 +128,6 @@ const randomRGBA = function () {
 };
 onMounted(() => {
 	let colorDom = document.querySelectorAll(".ranking footer div");
-	console.log
 	colorDom.forEach((item) => {	
 		// item.style.background = `${randomRGBA()}`
 		item.style.background = `linear-gradient(45deg, ${randomRGBA()}, ${randomRGBA()})` ;

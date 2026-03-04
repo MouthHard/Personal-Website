@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="referrer" content="no-referrer" />
+    <link rel="icon" href="/logo.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>人民万岁</title>
+    <style>   
+        html,body,#app{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        body{
+            background: black; /* 默认黑色背景 */
+        }
+    </style>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but this app doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const bgUrl = 'https://images-pc.oss-cn-hongkong.aliyuncs.com/app/bg.png';
+        const img = new Image();
+        let loaded = false;
+
+        // 5秒超时控制
+        const timer = setTimeout(() => {
+          if (!loaded) {
+            document.body.style.background = 'black';
+            img.onload = img.onerror = null; // 清除事件监听
+          }
+        }, 5000);
+
+        // 图片加载成功
+        img.onload = function() {
+          loaded = true;
+          clearTimeout(timer);
+          document.body.style.background = `url(${bgUrl}) no-repeat center center/cover`;
+        };
+
+        // 图片加载失败
+        img.onerror = function() {
+          loaded = true;
+          clearTimeout(timer);
+          document.body.style.background = 'black';
+        };
+
+        img.src = bgUrl;
+      });
+    </script>
+  </body>
+</html>

@@ -474,7 +474,6 @@
 			document.querySelector(".music-foot div:nth-child(3) svg:nth-child(3)").style.borderRadius = "50%";
 		} else if (curPlayState == false) {
 			document.querySelector(".music-center img").style.animationPlayState = "paused";
-			console.log(document.querySelector(".music-center img").style.animationPlayState);
 			attr.setAttribute("d", playAttr);
 			curPlayState = true;
 			audio.pause();

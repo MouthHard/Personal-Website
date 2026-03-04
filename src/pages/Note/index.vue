@@ -24,6 +24,7 @@
 <script setup>
 	import router from "@/router";
 	import { onMounted } from "vue";
+	 
 	let imgIdx = 0;
 	//滚动条scroll节流函数
 	const throttle = function (func, wait) {
@@ -50,7 +51,7 @@
 			noteTitle: ` 报错This request has been blocked; the content must be served over HTTPS`,
 			reason: `因为使用网易云音乐的外链iframe嵌入到前端页面时，当前页面是https协议加载的，https的请求中不允许嵌入http请求`,
 			solution: `需要将http不安全请求升级为https请求才行，这种需要申请SSL证书。`,
-			background: require("@/assets/image/NotePic/fanren.png"),
+			background:  "@/assets/image/NotePic/fanren.png",
 			src: "https://www.bilibili.com/bangumi/play/ss28747?spm_id_from=333.337.0.0",
 		},
 		{
