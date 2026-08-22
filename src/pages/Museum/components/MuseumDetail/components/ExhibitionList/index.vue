@@ -25,7 +25,7 @@
 
 <script setup lang="ts">
   import { ref, computed, watch } from 'vue';
-  import { getExhibitionsByMuseumId } from '@/pages/Museum/data/exhibitions';
+  import { useMuseumDataStore } from '@/stores/museum';
   import type { Exhibition, Museum } from '@/typesOfPages/museum/index';
 
   // 导入子组件
@@ -39,6 +39,7 @@
   }
 
   const props = defineProps<Props>();
+  const store = useMuseumDataStore();
 
   const statusFilter = ref('all');
   const themeFilter = ref('all');
@@ -55,37 +56,26 @@
     searchQuery.value = query;
   };
 
-  // 展览分类数据
-  const categories = ref([
-    {
-      id: 1,
-      name: '历史文化',
-      count: 12,
-      icon: '🏛️',
-    },
-    {
-      id: 2,
-      name: '艺术精品',
-      count: 8,
-      icon: '🎨',
-    },
-    {
-      id: 3,
-      name: '科技考古',
-      count: 5,
-      icon: '🔬',
-    },
-    {
-      id: 4,
-      name: '民俗风情',
-      count: 7,
-      icon: '🎭',
-    },
-  ]);
-
   // 获取当前博物馆的展览数据
   const allExhibitions = computed(() => {
-    return getExhibitionsByMuseumId(props.museum.id);
+    return store.getExhibitionsByMuseumId(props.museum.id);
+  });
+
+  // 展览分类数据（count 从当前博物馆真实展览数据统计）
+  const categoryConfig = [
+    { id: 1, name: '历史文化', icon: '🏛️' },
+    { id: 2, name: '艺术精品', icon: '🎨' },
+    { id: 3, name: '科技考古', icon: '🔬' },
+    { id: 4, name: '民俗风情', icon: '🎭' },
+  ];
+
+  const categories = computed(() => {
+    return categoryConfig.map((cat) => ({
+      ...cat,
+      count: allExhibitions.value.filter(
+        (item) => item.category === cat.name,
+      ).length,
+    }));
   });
 
   // 筛选后的展览

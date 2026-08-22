@@ -1,0 +1,250 @@
+{
+  "items": [
+    {
+      "id": "goubuli",
+      "name": "狗不理包子",
+      "tags": [
+        "天津特色",
+        "传统名吃",
+        "皮薄馅大",
+        "汤汁丰富",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/382/800/600",
+      "price": 38,
+      "rating": 4.7,
+      "category": "主食",
+      "badgeText": "津门三绝",
+      "isPopular": true,
+      "badgeColor": "#e91e63",
+      "description": "天津传统名吃，皮薄馅大",
+      "recommendations": {
+        "pairings": [
+          "豆浆",
+          "粥",
+          "小菜",
+          "汤品"
+        ],
+        "eatingMethod": "直接食用，作为早餐"
+      }
+    },
+    {
+      "id": "ear-hole-fried-cake",
+      "name": "耳朵眼炸糕",
+      "tags": [
+        "天津特色",
+        "传统名吃",
+        "外酥内软",
+        "香甜可口",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/383/800/600",
+      "price": 6,
+      "rating": 4.6,
+      "category": "小吃",
+      "badgeText": "津门三绝",
+      "isPopular": true,
+      "badgeColor": "#ff9800",
+      "description": "外酥内软，香甜可口",
+      "recommendations": {
+        "pairings": [
+          "豆浆",
+          "粥",
+          "茶品",
+          "饮料"
+        ],
+        "eatingMethod": "直接食用，作为早餐或零食"
+      }
+    },
+    {
+      "id": "eighteen-street-twist",
+      "name": "十八街麻花",
+      "tags": [
+        "天津特色",
+        "传统名吃",
+        "酥脆香甜",
+        "久放不绵",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/384/800/600",
+      "price": 25,
+      "rating": 4.5,
+      "category": "小吃",
+      "badgeText": "津门三绝",
+      "isPopular": true,
+      "badgeColor": "#4caf50",
+      "description": "酥脆香甜，久放不绵",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "咖啡",
+          "饮料",
+          "甜品"
+        ],
+        "eatingMethod": "直接食用，作为零食或礼品"
+      }
+    },
+    {
+      "id": "guoba-cai",
+      "name": "锅巴菜",
+      "tags": [
+        "天津特色",
+        "传统名吃",
+        "咸香可口",
+        "早餐必备",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/385/800/600",
+      "price": 8,
+      "rating": 4.4,
+      "category": "主食",
+      "badgeText": "津门早点",
+      "isPopular": true,
+      "badgeColor": "#795548",
+      "description": "天津特色早餐，咸香可口",
+      "recommendations": {
+        "pairings": [
+          "烧饼",
+          "油条",
+          "包子",
+          "小菜"
+        ],
+        "eatingMethod": "直接食用，作为早餐"
+      }
+    },
+    {
+      "id": "tianjin-shaobing",
+      "name": "天津烧饼",
+      "tags": [
+        "天津特色",
+        "传统名吃",
+        "外酥内软",
+        "层次分明",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/386/800/600",
+      "price": 4,
+      "rating": 4.2,
+      "category": "小吃",
+      "isPopular": false,
+      "description": "外酥内软，层次分明",
+      "recommendations": {
+        "pairings": [
+          "豆浆",
+          "粥",
+          "小菜",
+          "汤品"
+        ],
+        "eatingMethod": "直接食用，作为早餐或零食"
+      }
+    },
+    {
+      "id": "tianjin-shaorou",
+      "name": "天津烧肉",
+      "tags": [
+        "天津特色",
+        "传统名菜",
+        "肉质鲜嫩",
+        "香气浓郁",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/387/800/600",
+      "price": 58,
+      "rating": 4.5,
+      "category": "菜肴",
+      "isPopular": false,
+      "description": "肉质鲜嫩，香气浓郁",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "tianjin-tangbao",
+      "name": "天津糖包",
+      "tags": [
+        "天津特色",
+        "传统面点",
+        "香甜可口",
+        "软糯适中",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/389/800/600",
+      "price": 5,
+      "rating": 4,
+      "category": "甜品",
+      "isPopular": false,
+      "description": "香甜可口，传统面点",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "咖啡",
+          "水果",
+          "饮料"
+        ],
+        "eatingMethod": "直接食用，作为甜品"
+      }
+    },
+    {
+      "id": "tianjin-hongcha",
+      "name": "天津红茶",
+      "tags": [
+        "天津特色",
+        "传统饮品",
+        "香气浓郁",
+        "口感醇厚",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/388/800/600",
+      "price": 38,
+      "rating": 4.3,
+      "category": "饮品",
+      "isPopular": false,
+      "description": "香气浓郁，口感醇厚",
+      "recommendations": {
+        "pairings": [
+          "点心",
+          "小吃",
+          "甜品",
+          "菜肴"
+        ],
+        "eatingMethod": "直接饮用，可点心或小吃"
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "icon": "🛣️",
+      "name": "南市食品街",
+      "type": "美食街",
+      "foods": [
+        "goubuli",
+        "ear-hole-fried-cake",
+        "十八街麻花"
+      ],
+      "image": "https://picsum.photos/id/300/800/600",
+      "reason": "天津传统美食集中地",
+      "location": "和平区"
+    },
+    {
+      "id": 2,
+      "icon": "🏞️",
+      "name": "古文化街",
+      "type": "文化街",
+      "foods": [
+        "锅巴菜",
+        "天津烧饼",
+        "十八街麻花"
+      ],
+      "image": "https://picsum.photos/id/301/800/600",
+      "reason": "天津传统文化街区，美食丰富",
+      "location": "南开区"
+    }
+  ]
+}

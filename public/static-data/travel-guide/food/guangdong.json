@@ -1,0 +1,330 @@
+{
+  "items": [
+    {
+      "id": "dim-sum",
+      "name": "早茶点心",
+      "tags": [
+        "广东特色",
+        "早茶文化",
+        "人气美食",
+        "传统工艺",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/312/800/600",
+      "price": 88,
+      "rating": 4.9,
+      "category": "主食",
+      "badgeText": "粤式经典",
+      "isPopular": true,
+      "badgeColor": "#f44336",
+      "description": "广东特色早餐文化",
+      "recommendations": {
+        "pairings": [
+          "普洱茶",
+          "红茶",
+          "绿茶",
+          "咖啡"
+        ],
+        "eatingMethod": "作为早餐或下午茶食用，茶饮"
+      }
+    },
+    {
+      "id": "roast-goose",
+      "name": "烧鹅",
+      "tags": [
+        "广东特色",
+        "传统名菜",
+        "皮脆肉嫩",
+        "香味浓郁",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/313/800/600",
+      "price": 98,
+      "rating": 4.8,
+      "category": "菜肴",
+      "badgeText": "粤菜名品",
+      "isPopular": true,
+      "badgeColor": "#ff5722",
+      "description": "皮脆肉嫩，香味浓郁",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "粥",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "wonton-noodle",
+      "name": "云吞面",
+      "tags": [
+        "广东特色",
+        "传统面食",
+        "口感Q弹",
+        "汤鲜味美",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/314/800/600",
+      "price": 25,
+      "rating": 4.7,
+      "category": "主食",
+      "badgeText": "广式面食",
+      "isPopular": true,
+      "badgeColor": "#4caf50",
+      "description": "传统面食，口感Q弹",
+      "recommendations": {
+        "pairings": [
+          "小菜",
+          "汤品",
+          "饮料",
+          "茶品"
+        ],
+        "eatingMethod": "直接食用，趁热最佳"
+      }
+    },
+    {
+      "id": "char-siew",
+      "name": "叉烧",
+      "tags": [
+        "广东特色",
+        "传统名菜",
+        "色泽红亮",
+        "甜咸适中",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/315/800/600",
+      "price": 48,
+      "rating": 4.7,
+      "category": "菜肴",
+      "badgeText": "烧腊经典",
+      "isPopular": true,
+      "badgeColor": "#e91e63",
+      "description": "色泽红亮，甜咸适中",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "粥",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜或配菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "white-cut-chicken",
+      "name": "白切鸡",
+      "tags": [
+        "广东特色",
+        "传统名菜",
+        "皮爽肉滑",
+        "原汁原味",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/316/800/600",
+      "price": 58,
+      "rating": 4.8,
+      "category": "菜肴",
+      "badgeText": "白切鲜嫩",
+      "isPopular": true,
+      "badgeColor": "#4caf50",
+      "description": "皮爽肉滑，原汁原味",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "粥",
+          "蘸料"
+        ],
+        "eatingMethod": "蘸姜葱酱食用，米饭或面条"
+      }
+    },
+    {
+      "id": "steamed-fish",
+      "name": "清蒸鱼",
+      "tags": [
+        "广东特色",
+        "传统名菜",
+        "鲜嫩清淡",
+        "保持原味",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/317/800/600",
+      "price": 78,
+      "rating": 4.6,
+      "category": "菜肴",
+      "isPopular": false,
+      "description": "鲜嫩清淡，保持原味",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "粥",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "double-skin-milk",
+      "name": "双皮奶",
+      "tags": [
+        "广东特色",
+        "顺德甜品",
+        "奶香浓郁",
+        "口感细腻",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/318/800/600",
+      "price": 15,
+      "rating": 4.5,
+      "category": "甜品",
+      "isPopular": false,
+      "description": "顺德甜品，奶香浓郁",
+      "recommendations": {
+        "pairings": [
+          "水果",
+          "坚果",
+          "蜜饯",
+          "茶品"
+        ],
+        "eatingMethod": "直接食用，作为甜品"
+      }
+    },
+    {
+      "id": "ginger-milk-curd",
+      "name": "姜撞奶",
+      "tags": [
+        "广东特色",
+        "传统甜品",
+        "香滑嫩白",
+        "姜味浓郁",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/319/800/600",
+      "price": 12,
+      "rating": 4.4,
+      "category": "甜品",
+      "isPopular": false,
+      "description": "香滑嫩白，姜味浓郁",
+      "recommendations": {
+        "pairings": [
+          "水果",
+          "坚果",
+          "蜜饯",
+          "茶品"
+        ],
+        "eatingMethod": "直接食用，作为甜品"
+      }
+    },
+    {
+      "id": "chicken-feet",
+      "name": "凤爪",
+      "tags": [
+        "广东特色",
+        "早茶小吃",
+        "软糯入味",
+        "胶原蛋白丰富",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/320/800/600",
+      "price": 22,
+      "rating": 4.3,
+      "category": "小吃",
+      "isPopular": false,
+      "description": "软糯入味，胶原蛋白丰富",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "饮料",
+          "点心",
+          "小吃"
+        ],
+        "eatingMethod": "直接食用，作为早茶小吃"
+      }
+    },
+    {
+      "id": "rice-rolls",
+      "name": "肠粉",
+      "tags": [
+        "广东特色",
+        "传统面食",
+        "薄如蝉翼",
+        "爽滑可口",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/321/800/600",
+      "price": 18,
+      "rating": 4.6,
+      "category": "主食",
+      "isPopular": false,
+      "description": "薄如蝉翼，爽滑可口",
+      "recommendations": {
+        "pairings": [
+          "酱油",
+          "辣椒酱",
+          "小菜",
+          "茶品"
+        ],
+        "eatingMethod": "蘸酱油食用，作为早餐或午餐"
+      }
+    },
+    {
+      "id": "guangdong-hongcha",
+      "name": "广东红茶",
+      "tags": [
+        "广东特色",
+        "传统饮品",
+        "香气浓郁",
+        "口感醇厚",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/322/800/600",
+      "price": 38,
+      "rating": 4.3,
+      "category": "饮品",
+      "isPopular": false,
+      "description": "香气浓郁，口感醇厚",
+      "recommendations": {
+        "pairings": [
+          "点心",
+          "小吃",
+          "甜品",
+          "菜肴"
+        ],
+        "eatingMethod": "直接饮用，可点心或小吃"
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "icon": "🏬",
+      "name": "广州北京路",
+      "type": "商业街",
+      "foods": [
+        "dim-sum",
+        "white-cut-chicken",
+        "wonton-noodles"
+      ],
+      "image": "https://picsum.photos/id/1096/800/600",
+      "reason": "广州传统美食集中地",
+      "location": "广州市"
+    },
+    {
+      "id": 2,
+      "icon": "🛣️",
+      "name": "深圳东门美食街",
+      "type": "美食街",
+      "foods": [
+        "roast-goose",
+        "seafood",
+        "guangdong-hongcha"
+      ],
+      "image": "https://picsum.photos/id/1097/800/600",
+      "reason": "深圳特色美食聚集地",
+      "location": "深圳市"
+    }
+  ]
+}

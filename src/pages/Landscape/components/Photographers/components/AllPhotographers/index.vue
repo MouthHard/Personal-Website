@@ -24,10 +24,13 @@
     <div class="filter-container">
       <div class="filter-left">
         <div class="filter-tabs">
-          <button v-for="tag in filterTags" :key="tag.id" :class="['filter-tab', { active: selectedTag === tag.id }]" @click="selectedTag = tag.id">
+          <button v-for="tag in visibleFilterTags" :key="tag.id" :class="['filter-tab', { active: selectedTag === tag.id }]" :style="getTagStyle(tag.id)" @click="selectedTag = tag.id">
             <span class="tab-icon">{{ tag.icon }}</span>
             <span class="tab-label">{{ tag.name }}</span>
             <span v-if="tag.count" class="tab-count">{{ tag.count }}</span>
+          </button>
+          <button v-if="hasMoreTags" class="filter-tab more-btn" @click="showAllTags = !showAllTags">
+            <span class="tab-label">{{ showAllTags ? '收起' : '更多' }}</span>
           </button>
         </div>
       </div>
@@ -236,7 +239,7 @@ import { ref, computed, watch, onMounted, onUnmounted } from 'vue';
 import { showMessage } from '@/utils/landscape';
 import { useInteractionStore } from '@/stores/landscape';
 import { useFormatNumber } from '@/composables/landscape/useFormatNumber';
-import { workTypes, workTypeIcons, workTypeLabels, filterTags as filterTagsData, sortOptions as sortOptionsData } from '@/utils/landscape/constants';
+import { workTypes, workTypeIcons, workTypeLabels, sortOptions as sortOptionsData } from '@/utils/landscape/constants';
 import { usePhotographersViewData } from '@/composables/landscape';
 import ThumbUpIcon from '@/pages/Landscape/icon/common/ThumbUpIcon.vue';
 import type { Photographer } from '@/typesOfPages/landscape';
@@ -273,41 +276,104 @@ const handleClickOutside = (e: MouseEvent) => {
   }
 };
 
+const { allPhotographers } = usePhotographersViewData();
+const photographers = computed(() => allPhotographers());
+
 onMounted(() => {
   document.addEventListener('click', handleClickOutside, true);
-  
-  photographers.value.forEach(photographer => {
-    const id = getPhotographerId(photographer);
-    interactionStore.registerCount(id, {
-      likes: parseInt(photographer.likes?.replace(/[KM]/g, '') || '0') * (photographer.likes?.includes('K') ? 1000 : photographer.likes?.includes('M') ? 1000000 : 1),
-      views: parseInt(photographer.views?.replace(/[KM]/g, '') || '0') * (photographer.views?.includes('K') ? 1000 : photographer.views?.includes('M') ? 1000000 : 1),
-      loves: Math.floor(Math.random() * 500 + 100),
-      favorites: Math.floor(Math.random() * 300 + 50),
-      shares: Math.floor(Math.random() * 100 + 10)
-    });
-
-    if (photographer.worksPreview && Array.isArray(photographer.worksPreview)) {
-      interactionStore.registerBatch(
-        photographer.worksPreview.map(work => ({
-          id: work.id || `work-${Date.now()}-${Math.random()}`,
-          counts: {
-            likes: work.likes || 0,
-            loves: work.loves || 0,
-            favorites: work.favorites || 0,
-            views: work.views || 0,
-            shares: work.shares || 0,
-          }
-        }))
-      );
-    }
-  });
 });
+
+watch(
+  () => photographers.value.length,
+  (len) => {
+    if (len === 0) return;
+    photographers.value.forEach(photographer => {
+      const id = getPhotographerId(photographer);
+      interactionStore.registerCount(id, {
+        likes: parseInt(photographer.likes?.replace(/[KM]/g, '') || '0') * (photographer.likes?.includes('K') ? 1000 : photographer.likes?.includes('M') ? 1000000 : 1),
+        views: parseInt(photographer.views?.replace(/[KM]/g, '') || '0') * (photographer.views?.includes('K') ? 1000 : photographer.views?.includes('M') ? 1000000 : 1),
+        loves: 0,
+        favorites: 0,
+        shares: 0
+      });
+
+      if (photographer.worksPreview && Array.isArray(photographer.worksPreview)) {
+        interactionStore.registerBatch(
+          photographer.worksPreview.map(work => ({
+            id: work.id || `work-${photographer.id}-${Math.random()}`,
+            counts: {
+              likes: work.likes || 0,
+              loves: work.loves || 0,
+              favorites: work.favorites || 0,
+              views: work.views || 0,
+              shares: work.shares || 0,
+            }
+          }))
+        );
+      }
+    });
+  },
+  { immediate: true },
+);
 
 onUnmounted(() => {
   document.removeEventListener('click', handleClickOutside, true);
 });
 
-const filterTags = ref(filterTagsData);
+const tagColors = [
+  { main: '#D4943A', light: '#FFB74D', dark: '#B4641E' },
+  { main: '#F59E0B', light: '#FBBF24', dark: '#D97706' },
+  { main: '#06B6D4', light: '#22D3EE', dark: '#0891B2' },
+  { main: '#F43F5E', light: '#FB7185', dark: '#E11D48' },
+  { main: '#10B981', light: '#34D399', dark: '#059669' },
+  { main: '#8B5CF6', light: '#A78BFA', dark: '#7C3AED' },
+  { main: '#3B82F6', light: '#60A5FA', dark: '#2563EB' },
+  { main: '#EF4444', light: '#FCA5A5', dark: '#DC2626' },
+];
+
+const hashString = (str: string): number => {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = (hash << 5) - hash + str.charCodeAt(i);
+    hash |= 0;
+  }
+  return Math.abs(hash);
+};
+
+const getTagStyle = (tagId: string): Record<string, string> => {
+  if (tagId === 'all') return {};
+  const color = tagColors[hashString(tagId) % tagColors.length];
+  return {
+    '--tag-color': color.main,
+    '--tag-color-light': color.light,
+    '--tag-color-dark': color.dark,
+  };
+};
+
+const filterTags = computed(() => {
+  const tagCountMap = new Map<string, number>();
+  photographers.value.forEach(p => {
+    p.tags?.forEach(tag => {
+      tagCountMap.set(tag, (tagCountMap.get(tag) || 0) + 1);
+    });
+  });
+  const tags = Array.from(tagCountMap.entries())
+    .sort((a, b) => b[1] - a[1])
+    .map(([name, count]) => ({ id: name, name, icon: '🏷️', count }));
+  return [{ id: 'all', name: '全部', icon: '📷', count: photographers.value.length }, ...tags];
+});
+
+const showAllTags = ref(false);
+const MAX_TAGS_INLINE = 6;
+
+const visibleFilterTags = computed(() => {
+  if (showAllTags.value) {
+    return filterTags.value;
+  }
+  return filterTags.value.slice(0, MAX_TAGS_INLINE);
+});
+
+const hasMoreTags = computed(() => filterTags.value.length > MAX_TAGS_INLINE);
 
 const workTypesList = ref(workTypes.map(key => ({
   key,
@@ -318,8 +384,6 @@ const workTypesList = ref(workTypes.map(key => ({
 
 const sortOptions = sortOptionsData;
 
-const { allPhotographers } = usePhotographersViewData();
-const photographers = ref(allPhotographers());
 
 const parseCount = (value: string): number => {
   const num = parseFloat(value.replace(/[KMk]/gi, ''));
@@ -340,7 +404,12 @@ const filteredPhotographers = computed(() => {
     result = result.filter(p => 
       p.name.toLowerCase().includes(query) || 
       p.title.toLowerCase().includes(query) ||
-      p.tags?.some(tag => tag.toLowerCase().includes(query))
+      (p.location || '').toLowerCase().includes(query) ||
+      (p.specialty || '').toLowerCase().includes(query) ||
+      (p.bio || '').toLowerCase().includes(query) ||
+      (p.category || '').toLowerCase().includes(query) ||
+      p.tags?.some(tag => tag.toLowerCase().includes(query)) ||
+      p.worksPreview?.some(work => (work.title || '').toLowerCase().includes(query))
     );
   }
   
@@ -350,6 +419,13 @@ const filteredPhotographers = computed(() => {
     result.sort((a, b) => parseCount(b.likes) - parseCount(a.likes));
   } else if (sortBy.value === 'followers') {
     result.sort((a, b) => parseCount(b.followers) - parseCount(a.followers));
+  } else if (sortBy.value === 'active') {
+    result.sort((a, b) => {
+      const aOnline = a.isOnline ? 1 : 0;
+      const bOnline = b.isOnline ? 1 : 0;
+      if (bOnline !== aOnline) return bOnline - aOnline;
+      return parseCount(b.views) - parseCount(a.views);
+    });
   }
   
   return result;

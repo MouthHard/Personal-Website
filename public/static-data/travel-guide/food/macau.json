@@ -1,0 +1,222 @@
+{
+  "items": [
+    {
+      "id": "portuguese-egg-tart",
+      "name": "葡式蛋挞",
+      "tags": [
+        "澳门特色",
+        "葡式甜品",
+        "外酥内嫩",
+        "香甜可口",
+        "安德鲁饼店"
+      ],
+      "image": "https://picsum.photos/id/499/800/600",
+      "price": 12,
+      "rating": 4.8,
+      "category": "甜品",
+      "badgeText": "澳门招牌",
+      "isPopular": true,
+      "badgeColor": "#ffc107",
+      "description": "外酥内嫩，香甜可口",
+      "recommendations": {
+        "pairings": [
+          "咖啡",
+          "奶茶",
+          "红茶",
+          "水果"
+        ],
+        "eatingMethod": "刚出炉时趁热食用，外皮酥脆"
+      }
+    },
+    {
+      "id": "pork-chop-bun",
+      "name": "猪扒包",
+      "tags": [
+        "澳门特色",
+        "葡式猪扒",
+        "外酥内嫩",
+        "肉质鲜香",
+        "澳门必尝"
+      ],
+      "image": "https://picsum.photos/id/500/800/600",
+      "price": 25,
+      "rating": 4.7,
+      "category": "主食",
+      "badgeText": "澳门名吃",
+      "isPopular": true,
+      "badgeColor": "#ff5722",
+      "description": "外酥内嫩，肉质鲜香",
+      "recommendations": {
+        "pairings": [
+          "咖啡",
+          "奶茶",
+          "番茄",
+          "生菜"
+        ],
+        "eatingMethod": "现烤的猪扒包，趁热食用最佳"
+      }
+    },
+    {
+      "id": "macau-roast-pork",
+      "name": "澳门烧肉",
+      "tags": [
+        "澳门特色",
+        "葡式烧腊",
+        "皮脆肉嫩",
+        "香气浓郁",
+        "炭火烧烤"
+      ],
+      "image": "https://picsum.photos/id/501/800/600",
+      "price": 68,
+      "rating": 4.6,
+      "category": "菜肴",
+      "badgeText": "葡式烧味",
+      "isPopular": true,
+      "badgeColor": "#795548",
+      "description": "皮脆肉嫩，香气浓郁",
+      "recommendations": {
+        "pairings": [
+          "白饭",
+          "青菜",
+          "酸梅酱",
+          "蒜蓉"
+        ],
+        "eatingMethod": "切片后蘸特制酱料食用"
+      }
+    },
+    {
+      "id": "water-crab-porridge",
+      "name": "水蟹粥",
+      "tags": [
+        "澳门特色",
+        "海鲜粥品",
+        "鲜美可口",
+        "营养丰富",
+        "秋季佳品"
+      ],
+      "image": "https://picsum.photos/id/502/800/600",
+      "price": 48,
+      "rating": 4.5,
+      "category": "主食",
+      "isPopular": false,
+      "description": "鲜美可口，营养丰富",
+      "recommendations": {
+        "pairings": [
+          "油条",
+          "花生",
+          "咸鸭蛋",
+          "榨菜"
+        ],
+        "eatingMethod": "温热时食用，可加入姜丝去腥"
+      }
+    },
+    {
+      "id": "almond-cookie",
+      "name": "杏仁饼",
+      "tags": [
+        "澳门特产",
+        "传统糕点",
+        "香甜可口",
+        "口感酥脆",
+        "手信首选"
+      ],
+      "image": "https://picsum.photos/id/503/800/600",
+      "price": 35,
+      "rating": 4.3,
+      "category": "甜品",
+      "isPopular": false,
+      "description": "香甜可口，口感酥脆",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "咖啡",
+          "牛奶",
+          "红酒"
+        ],
+        "eatingMethod": "直接食用或配茶水、咖啡"
+      }
+    },
+    {
+      "id": "macau-milkshake",
+      "name": "澳门奶昔",
+      "tags": [
+        "澳门特色",
+        "冷饮甜品",
+        "香甜可口",
+        "口感醇厚",
+        "夏日必备"
+      ],
+      "image": "https://picsum.photos/id/504/800/600",
+      "price": 20,
+      "rating": 4.2,
+      "category": "饮品",
+      "isPopular": false,
+      "description": "香甜可口，口感醇厚",
+      "recommendations": {
+        "pairings": [
+          "杏仁饼",
+          "蛋挞",
+          "蛋糕",
+          "饼干"
+        ],
+        "eatingMethod": "冰镇后饮用，解暑消夏"
+      }
+    },
+    {
+      "id": "macau-fish-ball",
+      "name": "澳门鱼蛋",
+      "tags": [
+        "澳门特色",
+        "街头小吃",
+        "Q弹爽口",
+        "口感独特",
+        "咖喱风味"
+      ],
+      "image": "https://picsum.photos/id/505/800/600",
+      "price": 10,
+      "rating": 4.1,
+      "category": "小吃",
+      "isPopular": false,
+      "description": "Q弹爽口，口感独特",
+      "recommendations": {
+        "pairings": [
+          "河粉",
+          "面条",
+          "萝卜",
+          "咖喱酱"
+        ],
+        "eatingMethod": "可串起来吃或煮汤食用"
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "icon": "🛣️",
+      "name": "澳门官也街",
+      "type": "美食街",
+      "foods": [
+        "portuguese-egg-tart",
+        "pork-chop-bun",
+        "macau-roast-pork"
+      ],
+      "image": "https://picsum.photos/id/346/800/600",
+      "reason": "澳门特色美食集中地",
+      "location": "澳门"
+    },
+    {
+      "id": 2,
+      "icon": "🏞️",
+      "name": "澳门大三巴",
+      "type": "景区",
+      "foods": [
+        "water-crab-porridge",
+        "almond-cookie",
+        "portuguese-egg-tart"
+      ],
+      "image": "https://picsum.photos/id/347/800/600",
+      "reason": "澳门特色美食聚集地",
+      "location": "澳门"
+    }
+  ]
+}

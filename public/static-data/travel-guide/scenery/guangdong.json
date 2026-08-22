@@ -1,0 +1,326 @@
+{
+  "spots": [
+    {
+      "id": "cantontower",
+      "name": "广州塔",
+      "tags": [
+        "地标",
+        "现代",
+        "夜景",
+        "摩天塔"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1480/600/400",
+      "rating": 4.7,
+      "bestTime": "全年",
+      "location": "广东省广州市海珠区阅江西路222号",
+      "description": "广州新地标,昵称小蛮腰,是中国第一高塔和世界第三高塔",
+      "landscapeType": "urban"
+    },
+    {
+      "id": "danxiaMountain",
+      "name": "丹霞山",
+      "tags": [
+        "世界遗产",
+        "丹霞",
+        "地质",
+        "摄影"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1481/600/400",
+      "rating": 4.7,
+      "bestTime": "春秋",
+      "location": "广东省韶关市仁化县",
+      "description": "世界自然遗产,丹霞地貌的命名地,以赤壁丹崖著称",
+      "landformTags": [
+        "山地景观"
+      ],
+      "landscapeType": "mountain",
+      "landscapeCategory": [
+        "地理景观"
+      ]
+    },
+    {
+      "id": "kaipingDiaolou",
+      "name": "开平碉楼",
+      "tags": [
+        "世界遗产",
+        "侨乡",
+        "建筑",
+        "历史"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1482/600/400",
+      "rating": 4.6,
+      "bestTime": "全年",
+      "location": "广东省江门市开平市",
+      "description": "世界文化遗产,集防卫、居住和中西建筑艺术于一体的多层塔楼式民居"
+    },
+    {
+      "id": "chimelongSafariPark",
+      "name": "长隆野生动物世界",
+      "tags": [
+        "动物",
+        "亲子",
+        "科普",
+        "娱乐"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1483/600/400",
+      "rating": 4.6,
+      "bestTime": "全年",
+      "location": "广东省广州市番禺区长隆度假区",
+      "description": "中国最大的野生动物主题公园,拥有500多种动物"
+    },
+    {
+      "id": "shenzhenHappyValley",
+      "name": "深圳欢乐谷",
+      "tags": [
+        "主题公园",
+        "游乐设施",
+        "表演",
+        "亲子"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1484/600/400",
+      "rating": 4.5,
+      "bestTime": "全年",
+      "location": "广东省深圳市南山区华侨城",
+      "description": "中国知名连锁主题公园品牌,拥有众多刺激的游乐设施"
+    },
+    {
+      "id": "baiyunMountain",
+      "name": "白云山",
+      "tags": [
+        "名山",
+        "城市公园",
+        "健身",
+        "观景"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1485/600/400",
+      "rating": 4.4,
+      "bestTime": "全年",
+      "location": "广东省广州市白云区",
+      "description": "羊城第一秀,广州的城市绿肺,登顶可俯瞰全城",
+      "landformTags": [
+        "山地景观"
+      ],
+      "landscapeType": "mountain",
+      "landscapeCategory": [
+        "地理景观"
+      ]
+    },
+    {
+      "id": "xiqiaoMountain",
+      "name": "西樵山",
+      "tags": [
+        "名山",
+        "文化",
+        "宗教",
+        "自然"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1486/600/400",
+      "rating": 4.5,
+      "bestTime": "春秋",
+      "location": "广东省佛山市南海区",
+      "description": "广东四大名山之一,理学名山,以文化底蕴深厚著称",
+      "landformTags": [
+        "山地景观"
+      ],
+      "landscapeType": "mountain",
+      "landscapeCategory": [
+        "地理景观"
+      ]
+    },
+    {
+      "id": "huizhouWestLake",
+      "name": "惠州西湖",
+      "tags": [
+        "湖泊",
+        "历史",
+        "文化",
+        "风光"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1487/600/400",
+      "rating": 4.4,
+      "bestTime": "全年",
+      "location": "广东省惠州市惠城区",
+      "description": "岭南第一湖,苏东坡曾在此为官,留下许多诗篇",
+      "landformTags": [
+        "湖泊景观"
+      ],
+      "landscapeType": "lake",
+      "landscapeCategory": [
+        "水体景观"
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "id": "1",
+      "name": "广州经典之旅",
+      "tags": [
+        "城市",
+        "文化",
+        "娱乐"
+      ],
+      "image": "https://picsum.photos/id/1480/600/400",
+      "spots": [
+        "广州塔",
+        "白云山",
+        "长隆野生动物世界"
+      ],
+      "title": "广州经典之旅",
+      "rating": 4.7,
+      "traffic": "地铁",
+      "bestTime": "全年",
+      "duration": "2天",
+      "difficulty": "简单",
+      "highlights": [
+        "广州塔",
+        "白云山",
+        "长隆野生动物世界"
+      ],
+      "description": "游览广州最著名的景点",
+      "suitableFor": "所有游客"
+    }
+  ],
+  "customs": {
+    "activities": [
+      {
+        "id": "1",
+        "name": "粤菜品尝",
+        "type": "美食体验",
+        "image": "https://picsum.photos/id/1480/600/400",
+        "category": "culture",
+        "duration": "1-2小时",
+        "location": "广州",
+        "difficulty": "简单",
+        "description": "品尝广东特色粤菜"
+      }
+    ]
+  },
+  "overview": {
+    "totalSpots": 350,
+    "natureSpots": 180,
+    "cultureSpots": 170,
+    "topAttractions": [
+      {
+        "name": "广州塔",
+        "image": "https://picsum.photos/id/1480/600/400",
+        "description": "广州新地标,中国第一高塔"
+      },
+      {
+        "name": "丹霞山",
+        "image": "https://picsum.photos/id/1481/600/400",
+        "description": "世界自然遗产,丹霞地貌命名地"
+      },
+      {
+        "name": "开平碉楼",
+        "image": "https://picsum.photos/id/1482/600/400",
+        "description": "世界文化遗产,中西合璧的建筑奇迹"
+      },
+      {
+        "name": "长隆野生动物世界",
+        "image": "https://picsum.photos/id/1483/600/400",
+        "description": "中国最大的野生动物主题公园"
+      },
+      {
+        "name": "深圳欢乐谷",
+        "image": "https://picsum.photos/id/1484/600/400",
+        "description": "中国知名连锁主题公园品牌"
+      },
+      {
+        "name": "白云山",
+        "image": "https://picsum.photos/id/1485/600/400",
+        "description": "羊城第一秀,广州城市绿肺"
+      },
+      {
+        "name": "西樵山",
+        "image": "https://picsum.photos/id/1486/600/400",
+        "description": "广东四大名山之一,理学名山"
+      },
+      {
+        "name": "惠州西湖",
+        "image": "https://picsum.photos/id/1487/600/400",
+        "description": "岭南第一湖,苏东坡曾在此为官"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "name": "春季",
+      "image": "https://picsum.photos/id/1485/600/400",
+      "activities": [
+        "白云山踏青",
+        "丹霞山游览",
+        "惠州西湖游船",
+        "西樵山登山"
+      ],
+      "description": "春暖花开,白云山百花齐放,是踏青赏花的好时节"
+    },
+    {
+      "name": "夏季",
+      "image": "https://picsum.photos/id/1485/600/400",
+      "activities": [
+        "白云山避暑",
+        "西樵山避暑",
+        "长隆野生动物园",
+        "深圳欢乐谷"
+      ],
+      "description": "绿树成荫,白云山和西樵山是避暑纳凉的好去处"
+    },
+    {
+      "name": "秋季",
+      "image": "https://picsum.photos/id/1481/600/400",
+      "activities": [
+        "丹霞山赏秋",
+        "白云山秋游",
+        "惠州西湖秋景",
+        "开平碉楼参观"
+      ],
+      "description": "秋高气爽,丹霞山红叶满山,是登山赏秋的好时节"
+    },
+    {
+      "name": "冬季",
+      "image": "https://picsum.photos/id/1480/600/400",
+      "activities": [
+        "广州塔夜游",
+        "长隆野生动物园",
+        "深圳欢乐谷",
+        "开平碉楼参观"
+      ],
+      "description": "冬季温暖,是旅游的好时节,广州塔夜景别有一番风味"
+    }
+  ],
+  "festivals": [],
+  "activities": [
+    {
+      "id": "1",
+      "name": "广州塔观光",
+      "type": "文化体验",
+      "image": "https://picsum.photos/id/1480/600/400",
+      "category": "culture",
+      "duration": "2-3小时",
+      "location": "广州塔",
+      "difficulty": "简单",
+      "description": "登顶广州塔,俯瞰广州全景"
+    },
+    {
+      "id": "2",
+      "name": "长隆野生动物世界",
+      "type": "娱乐体验",
+      "image": "https://picsum.photos/id/1483/600/400",
+      "category": "culture",
+      "duration": "1天",
+      "location": "长隆野生动物世界",
+      "difficulty": "简单",
+      "description": "游览中国最大的野生动物主题公园"
+    }
+  ],
+  "intangibleHeritage": [],
+  "folkCustomsElements": []
+}

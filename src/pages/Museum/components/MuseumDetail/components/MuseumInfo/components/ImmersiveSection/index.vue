@@ -38,17 +38,18 @@
 <script setup lang="ts">
   import { computed } from 'vue';
   import type { Museum } from '@/typesOfPages/museum';
-  import { getImmersiveExperiencesByMuseumId } from '@/pages/Museum/data/immersive-experiences';
+  import { useMuseumDataStore } from '@/stores/museum';
 
   interface Props {
     museum: Museum;
   }
 
   const props = defineProps<Props>();
+  const store = useMuseumDataStore();
 
   const immersiveExperiences = computed(() => {
     if (!props.museum) return [];
-    return getImmersiveExperiencesByMuseumId(props.museum.id);
+    return store.getImmersiveByMuseumId(props.museum.id);
   });
 </script>
 

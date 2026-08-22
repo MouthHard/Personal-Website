@@ -1,0 +1,355 @@
+{
+  "spots": [
+    {
+      "id": "huangshan",
+      "name": "黄山",
+      "tags": [
+        "名山",
+        "世界遗产",
+        "奇峰",
+        "云海"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1340/600/400",
+      "rating": 4.9,
+      "bestTime": "春秋",
+      "location": "安徽省黄山市",
+      "description": "中国十大名山之一,世界文化与自然双重遗产",
+      "landformTags": [
+        "山地景观"
+      ],
+      "landscapeType": "mountain",
+      "landscapeCategory": [
+        "地理景观"
+      ]
+    },
+    {
+      "id": "jiuhuaMountain",
+      "name": "九华山",
+      "tags": [
+        "佛教",
+        "名山",
+        "圣地",
+        "文化"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1341/600/400",
+      "rating": 4.7,
+      "bestTime": "全年",
+      "location": "安徽省池州市青阳县",
+      "description": "中国四大佛教名山之一,地藏菩萨道场"
+    },
+    {
+      "id": "hongcun",
+      "name": "宏村",
+      "tags": [
+        "古村",
+        "世界遗产",
+        "徽派建筑",
+        "文化"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1342/600/400",
+      "rating": 4.8,
+      "bestTime": "春秋",
+      "location": "安徽省黄山市黟县宏村镇",
+      "description": "中国画里的乡村,世界文化遗产"
+    },
+    {
+      "id": "xidi",
+      "name": "西递",
+      "tags": [
+        "古村",
+        "世界遗产",
+        "徽派建筑",
+        "历史"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1343/600/400",
+      "rating": 4.7,
+      "bestTime": "春秋",
+      "location": "安徽省黄山市黟县西递镇",
+      "description": "明清古民居建筑群,世界文化遗产"
+    },
+    {
+      "id": "tianzhuMountain",
+      "name": "天柱山",
+      "tags": [
+        "名山",
+        "奇峰",
+        "自然",
+        "登山"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1344/600/400",
+      "rating": 4.6,
+      "bestTime": "春秋",
+      "location": "安徽省安庆市潜山市",
+      "description": "安徽三大名山之一,以奇峰怪石著称",
+      "landformTags": [
+        "山地景观"
+      ],
+      "landscapeType": "mountain",
+      "landscapeCategory": [
+        "地理景观"
+      ]
+    },
+    {
+      "id": "huizhouAncientCity",
+      "name": "徽州古城",
+      "tags": [
+        "古城",
+        "历史",
+        "文化",
+        "徽派建筑"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1345/600/400",
+      "rating": 4.6,
+      "bestTime": "全年",
+      "location": "安徽省黄山市歙县",
+      "description": "中国四大古城之一,徽州文化的发源地"
+    },
+    {
+      "id": "sanheAncientTown",
+      "name": "三河古镇",
+      "tags": [
+        "古镇",
+        "水乡",
+        "历史",
+        "民俗"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1346/600/400",
+      "rating": 4.5,
+      "bestTime": "春秋",
+      "location": "安徽省合肥市肥西县三河镇",
+      "description": "中国历史文化名镇,江南水乡古镇"
+    },
+    {
+      "id": "tiantangzhai",
+      "name": "天堂寨",
+      "tags": [
+        "名山",
+        "森林",
+        "自然",
+        "避暑"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1347/600/400",
+      "rating": 4.5,
+      "bestTime": "夏季",
+      "location": "安徽省六安市金寨县",
+      "description": "大别山第二高峰,国家森林公园",
+      "landformTags": [
+        "山地景观"
+      ],
+      "landscapeType": "mountain",
+      "landscapeCategory": [
+        "地理景观"
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "id": "1",
+      "name": "黄山之旅",
+      "tags": [
+        "名山",
+        "自然",
+        "文化"
+      ],
+      "image": "https://picsum.photos/id/1340/600/400",
+      "spots": [
+        "黄山",
+        "宏村"
+      ],
+      "title": "黄山之旅",
+      "rating": 4.9,
+      "traffic": "旅游大巴",
+      "bestTime": "春秋",
+      "duration": "2天",
+      "difficulty": "中等",
+      "highlights": [
+        "黄山",
+        "宏村"
+      ],
+      "description": "探索黄山的自然奇观",
+      "suitableFor": "自然爱好者"
+    }
+  ],
+  "customs": {
+    "activities": [
+      {
+        "id": "1",
+        "name": "徽州文化体验",
+        "type": "文化体验",
+        "image": "https://picsum.photos/id/1345/600/400",
+        "category": "culture",
+        "duration": "1天",
+        "location": "徽州古城",
+        "difficulty": "简单",
+        "description": "体验徽州独特的传统文化"
+      }
+    ]
+  },
+  "overview": {
+    "totalSpots": 220,
+    "natureSpots": 110,
+    "cultureSpots": 110,
+    "topAttractions": [
+      {
+        "name": "黄山",
+        "image": "https://picsum.photos/id/1340/600/400",
+        "description": "中国十大名山之一,世界文化与自然双重遗产"
+      },
+      {
+        "name": "九华山",
+        "image": "https://picsum.photos/id/1341/600/400",
+        "description": "中国四大佛教名山之一,地藏菩萨道场"
+      },
+      {
+        "name": "宏村",
+        "image": "https://picsum.photos/id/1342/600/400",
+        "description": "中国画里的乡村,世界文化遗产"
+      },
+      {
+        "name": "西递",
+        "image": "https://picsum.photos/id/1343/600/400",
+        "description": "明清古民居建筑群,世界文化遗产"
+      },
+      {
+        "name": "天柱山",
+        "image": "https://picsum.photos/id/1344/600/400",
+        "description": "安徽三大名山之一,以奇峰怪石著称"
+      },
+      {
+        "name": "徽州古城",
+        "image": "https://picsum.photos/id/1345/600/400",
+        "description": "中国四大古城之一,徽州文化的发源地"
+      },
+      {
+        "name": "三河古镇",
+        "image": "https://picsum.photos/id/1346/600/400",
+        "description": "中国历史文化名镇,江南水乡古镇"
+      },
+      {
+        "name": "天堂寨",
+        "image": "https://picsum.photos/id/1347/600/400",
+        "description": "大别山第二高峰,国家森林公园"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "name": "春季",
+      "image": "https://picsum.photos/id/1340/600/400",
+      "activities": [
+        "黄山踏青",
+        "宏村古镇游",
+        "九华山祈福",
+        "天柱山登山"
+      ],
+      "description": "春暖花开,黄山山花烂漫,是踏青赏花的好时节"
+    },
+    {
+      "name": "夏季",
+      "image": "https://picsum.photos/id/1340/600/400",
+      "activities": [
+        "黄山避暑",
+        "天堂寨避暑",
+        "宏村古镇游",
+        "三河古镇游"
+      ],
+      "description": "绿树成荫,黄山和天堂寨是避暑纳凉的好去处"
+    },
+    {
+      "name": "秋季",
+      "image": "https://picsum.photos/id/1340/600/400",
+      "activities": [
+        "黄山赏秋",
+        "宏村秋游",
+        "九华山秋游",
+        "西递秋景"
+      ],
+      "description": "秋高气爽,黄山红叶满山,是登山赏秋的好时节"
+    },
+    {
+      "name": "冬季",
+      "image": "https://picsum.photos/id/1340/600/400",
+      "activities": [
+        "黄山赏雪",
+        "九华山祈福",
+        "宏村雪景",
+        "温泉体验"
+      ],
+      "description": "银装素裹,黄山雪景如画,是体验北国风情的好时节"
+    }
+  ],
+  "festivals": [
+    {
+      "id": "1",
+      "day": "1日",
+      "name": "黄山国际旅游节",
+      "month": "9月",
+      "isUnique": true,
+      "location": "黄山",
+      "description": "黄山特色的旅游节庆活动"
+    }
+  ],
+  "activities": [
+    {
+      "id": "1",
+      "name": "黄山登山",
+      "type": "户外活动",
+      "image": "https://picsum.photos/id/1340/600/400",
+      "category": "nature",
+      "duration": "2天",
+      "location": "黄山",
+      "difficulty": "中等",
+      "description": "攀登中国十大名山之一,欣赏奇松怪石"
+    },
+    {
+      "id": "2",
+      "name": "宏村古村游",
+      "type": "文化体验",
+      "image": "https://picsum.photos/id/1342/600/400",
+      "category": "culture",
+      "duration": "1天",
+      "location": "宏村",
+      "difficulty": "简单",
+      "description": "游览中国画里的乡村,体验徽派建筑文化"
+    }
+  ],
+  "intangibleHeritage": [
+    {
+      "id": "1",
+      "icon": "🎭",
+      "name": "黄梅戏",
+      "image": "https://picsum.photos/id/1340/600/400",
+      "level": "national",
+      "category": "传统戏剧",
+      "features": [
+        "传统戏剧",
+        "国家级非遗",
+        "安徽文化"
+      ],
+      "description": "安徽地方戏曲,中国五大剧种之一",
+      "protectionUnit": "安徽省黄梅戏剧院"
+    }
+  ],
+  "folkCustomsElements": [
+    {
+      "name": "徽州文化",
+      "tags": [
+        "徽州文化",
+        "安徽文化",
+        "徽商文化",
+        "传统文化",
+        "非遗传承"
+      ],
+      "image": "https://picsum.photos/id/1345/600/400",
+      "description": "安徽独特的徽州文化和徽商精神"
+    }
+  ]
+}

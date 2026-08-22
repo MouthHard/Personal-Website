@@ -20,10 +20,11 @@ const ALL_IMAGE_URLS: string[] = IMAGE_NAMES.map(
 );
 
 /** 根据字符串 id 计算哈希值 */
-const hashCode = (id: string): number => {
+const hashCode = (id: string | number): number => {
+  const str = String(id);
   let hash = 0;
-  for (let i = 0; i < id.length; i++) {
-    hash = (hash << 5) - hash + id.charCodeAt(i);
+  for (let i = 0; i < str.length; i++) {
+    hash = (hash << 5) - hash + str.charCodeAt(i);
     hash = hash & hash;
   }
   return Math.abs(hash);
@@ -39,8 +40,9 @@ export function usePoemBackground(poem: Poem) {
 }
 
 /** 轻量版：仅根据 id 字符串获取背景图（无需完整 Poem 对象） */
-export function getBackgroundUrl(id: string): string {
+export function getBackgroundUrl(id: string | number): string {
   if (ALL_IMAGE_URLS.length === 0) return '';
   const index = hashCode(id) % ALL_IMAGE_URLS.length;
   return ALL_IMAGE_URLS[index];
 }
+

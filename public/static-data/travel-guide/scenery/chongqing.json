@@ -1,0 +1,318 @@
+{
+  "spots": [
+    {
+      "id": "dazuRockCarvings",
+      "name": "大足石刻",
+      "tags": [
+        "石刻",
+        "世界遗产",
+        "佛教",
+        "艺术"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1540/600/400",
+      "rating": 4.8,
+      "bestTime": "全年",
+      "location": "重庆市大足区",
+      "description": "世界文化遗产,中国石窟艺术的瑰宝"
+    },
+    {
+      "id": "wulongThreeNaturalBridges",
+      "name": "武隆天生三桥",
+      "tags": [
+        "自然",
+        "世界遗产",
+        "奇观",
+        "探险"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1541/600/400",
+      "rating": 4.7,
+      "bestTime": "春秋",
+      "location": "重庆市武隆区",
+      "description": "世界自然遗产,世界最大的天生桥群",
+      "landformTags": [
+        "峡谷景观"
+      ],
+      "landscapeType": "canyon",
+      "landscapeCategory": [
+        "地理景观"
+      ]
+    },
+    {
+      "id": "threeGorges",
+      "name": "长江三峡",
+      "tags": [
+        "峡谷",
+        "长江",
+        "世界遗产",
+        "风光"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1542/600/400",
+      "rating": 4.9,
+      "bestTime": "春秋",
+      "location": "重庆市",
+      "description": "中国十大风景名胜之一,世界著名大峡谷",
+      "landformTags": [
+        "峡谷景观"
+      ],
+      "landscapeType": "canyon",
+      "landscapeCategory": [
+        "地理景观"
+      ]
+    },
+    {
+      "id": "hongyadong",
+      "name": "洪崖洞",
+      "tags": [
+        "建筑",
+        "夜景",
+        "文化",
+        "特色"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1543/600/400",
+      "rating": 4.6,
+      "bestTime": "全年",
+      "location": "重庆市渝中区",
+      "description": "重庆最具特色的吊脚楼建筑群"
+    },
+    {
+      "id": "jiefangbei",
+      "name": "解放碑",
+      "tags": [
+        "地标",
+        "商业",
+        "历史",
+        "文化"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1544/600/400",
+      "rating": 4.5,
+      "bestTime": "全年",
+      "location": "重庆市渝中区",
+      "description": "重庆的标志性建筑,中国西部第一街"
+    },
+    {
+      "id": "ciqikouAncientTown",
+      "name": "磁器口古镇",
+      "tags": [
+        "古镇",
+        "历史",
+        "文化",
+        "民俗"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1545/600/400",
+      "rating": 4.5,
+      "bestTime": "全年",
+      "location": "重庆市沙坪坝区",
+      "description": "重庆最具特色的古镇,千年古镇"
+    },
+    {
+      "id": "baigonguan",
+      "name": "白公馆",
+      "tags": [
+        "红色",
+        "历史",
+        "教育",
+        "纪念"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1546/600/400",
+      "rating": 4.4,
+      "bestTime": "全年",
+      "location": "重庆市沙坪坝区",
+      "description": "著名的红色旅游景点,渣滓洞监狱旧址"
+    },
+    {
+      "id": "fairyMountain",
+      "name": "仙女山",
+      "tags": [
+        "名山",
+        "草原",
+        "避暑",
+        "度假"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1547/600/400",
+      "rating": 4.6,
+      "bestTime": "夏季",
+      "location": "重庆市武隆区",
+      "description": "东方瑞士,重庆的避暑胜地",
+      "landformTags": [
+        "山地景观"
+      ],
+      "landscapeType": "mountain",
+      "landscapeCategory": [
+        "地理景观"
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "id": "1",
+      "name": "重庆经典之旅",
+      "tags": [
+        "城市",
+        "文化",
+        "历史"
+      ],
+      "image": "https://picsum.photos/id/1543/600/400",
+      "spots": [
+        "洪崖洞",
+        "解放碑",
+        "磁器口古镇"
+      ],
+      "title": "重庆经典之旅",
+      "rating": 4.6,
+      "traffic": "地铁",
+      "bestTime": "全年",
+      "duration": "3天",
+      "difficulty": "简单",
+      "highlights": [
+        "洪崖洞",
+        "解放碑",
+        "磁器口古镇"
+      ],
+      "description": "游览重庆最著名的景点",
+      "suitableFor": "所有游客"
+    }
+  ],
+  "customs": {
+    "activities": [
+      {
+        "id": "1",
+        "name": "重庆火锅品尝",
+        "type": "美食体验",
+        "image": "https://picsum.photos/id/1543/600/400",
+        "category": "culture",
+        "duration": "1-2小时",
+        "location": "重庆",
+        "difficulty": "简单",
+        "description": "品尝正宗的重庆火锅"
+      }
+    ]
+  },
+  "overview": {
+    "totalSpots": 240,
+    "natureSpots": 120,
+    "cultureSpots": 120,
+    "topAttractions": [
+      {
+        "name": "大足石刻",
+        "image": "https://picsum.photos/id/1540/600/400",
+        "description": "世界文化遗产,中国石窟艺术的瑰宝"
+      },
+      {
+        "name": "武隆天生三桥",
+        "image": "https://picsum.photos/id/1541/600/400",
+        "description": "世界自然遗产,世界最大的天生桥群"
+      },
+      {
+        "name": "长江三峡",
+        "image": "https://picsum.photos/id/1542/600/400",
+        "description": "中国十大风景名胜之一,世界著名大峡谷"
+      },
+      {
+        "name": "洪崖洞",
+        "image": "https://picsum.photos/id/1543/600/400",
+        "description": "重庆最具特色的吊脚楼建筑群"
+      },
+      {
+        "name": "解放碑",
+        "image": "https://picsum.photos/id/1544/600/400",
+        "description": "重庆的标志性建筑,中国西部第一街"
+      },
+      {
+        "name": "磁器口古镇",
+        "image": "https://picsum.photos/id/1545/600/400",
+        "description": "重庆最具特色的古镇,千年古镇"
+      },
+      {
+        "name": "白公馆",
+        "image": "https://picsum.photos/id/1546/600/400",
+        "description": "著名的红色旅游景点,渣滓洞监狱旧址"
+      },
+      {
+        "name": "仙女山",
+        "image": "https://picsum.photos/id/1547/600/400",
+        "description": "东方瑞士,重庆的避暑胜地"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "name": "春季",
+      "image": "https://picsum.photos/id/1547/600/400",
+      "activities": [
+        "仙女山踏青",
+        "大足石刻参观",
+        "磁器口古镇游",
+        "解放碑逛街"
+      ],
+      "description": "春暖花开,仙女山山花烂漫,是踏青赏花的好时节"
+    },
+    {
+      "name": "夏季",
+      "image": "https://picsum.photos/id/1547/600/400",
+      "activities": [
+        "仙女山避暑",
+        "长江三峡游览",
+        "武隆天生三桥探险",
+        "洪崖洞夜游"
+      ],
+      "description": "绿树成荫,仙女山是避暑纳凉的好去处"
+    },
+    {
+      "name": "秋季",
+      "image": "https://picsum.photos/id/1547/600/400",
+      "activities": [
+        "仙女山赏秋",
+        "长江三峡秋游",
+        "大足石刻参观",
+        "磁器口古镇游"
+      ],
+      "description": "秋高气爽,仙女山秋色迷人,是游览的好时节"
+    },
+    {
+      "name": "冬季",
+      "image": "https://picsum.photos/id/1543/600/400",
+      "activities": [
+        "洪崖洞夜游",
+        "解放碑逛街",
+        "磁器口古镇游",
+        "大足石刻参观"
+      ],
+      "description": "银装素裹,是体验重庆火锅和雪景的好时节"
+    }
+  ],
+  "festivals": [],
+  "activities": [
+    {
+      "id": "1",
+      "name": "长江三峡游船",
+      "type": "自然体验",
+      "image": "https://picsum.photos/id/1542/600/400",
+      "category": "nature",
+      "duration": "3-4天",
+      "location": "长江三峡",
+      "difficulty": "简单",
+      "description": "乘坐游船游览长江三峡"
+    },
+    {
+      "id": "2",
+      "name": "洪崖洞夜游",
+      "type": "文化体验",
+      "image": "https://picsum.photos/id/1543/600/400",
+      "category": "culture",
+      "duration": "2-3小时",
+      "location": "洪崖洞",
+      "difficulty": "简单",
+      "description": "夜游洪崖洞,欣赏重庆夜景"
+    }
+  ],
+  "intangibleHeritage": [],
+  "folkCustomsElements": []
+}

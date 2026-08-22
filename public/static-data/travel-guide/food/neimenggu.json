@@ -1,0 +1,248 @@
+{
+  "items": [
+    {
+      "id": "烤全羊",
+      "name": "烤全羊",
+      "tags": [
+        "内蒙古特色",
+        "草原名菜",
+        "外焦里嫩",
+        "香飘四溢",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/392/800/600",
+      "price": 588,
+      "rating": 4.9,
+      "category": "菜肴",
+      "badgeText": "草原盛宴",
+      "isPopular": true,
+      "badgeColor": "#ff5722",
+      "description": "外焦里嫩，香飘四溢",
+      "recommendations": {
+        "pairings": [
+          "奶茶",
+          "马奶酒",
+          "小菜",
+          "主食"
+        ],
+        "eatingMethod": "作为主菜食用，奶茶或马奶酒"
+      }
+    },
+    {
+      "id": "手抓肉",
+      "name": "手抓肉",
+      "tags": [
+        "内蒙古特色",
+        "草原名菜",
+        "肉质鲜嫩",
+        "原汁原味",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/393/800/600",
+      "price": 68,
+      "rating": 4.8,
+      "category": "菜肴",
+      "badgeText": "草原风味",
+      "isPopular": true,
+      "badgeColor": "#795548",
+      "description": "肉质鲜嫩，原汁原味",
+      "recommendations": {
+        "pairings": [
+          "奶茶",
+          "马奶酒",
+          "小菜",
+          "主食"
+        ],
+        "eatingMethod": "直接用手抓食，奶茶或马奶酒"
+      }
+    },
+    {
+      "id": "奶茶",
+      "name": "奶茶",
+      "tags": [
+        "内蒙古特色",
+        "草原饮品",
+        "咸香可口",
+        "营养丰富",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/394/800/600",
+      "price": 15,
+      "rating": 4.6,
+      "category": "饮品",
+      "badgeText": "草原饮品",
+      "isPopular": true,
+      "badgeColor": "#ff9800",
+      "description": "咸香可口，营养丰富",
+      "recommendations": {
+        "pairings": [
+          "手抓肉",
+          "烤全羊",
+          "奶酪",
+          "主食"
+        ],
+        "eatingMethod": "直接饮用，可作为早餐或下午茶"
+      }
+    },
+    {
+      "id": "奶酪",
+      "name": "奶酪",
+      "tags": [
+        "内蒙古特色",
+        "草原奶制品",
+        "奶香浓郁",
+        "口感细腻",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/395/800/600",
+      "price": 45,
+      "rating": 4.4,
+      "category": "奶制品",
+      "isPopular": false,
+      "description": "奶香浓郁，口感细腻",
+      "recommendations": {
+        "pairings": [
+          "奶茶",
+          "马奶酒",
+          "水果",
+          "甜品"
+        ],
+        "eatingMethod": "直接食用，作为零食或甜品"
+      }
+    },
+    {
+      "id": "马奶酒",
+      "name": "马奶酒",
+      "tags": [
+        "内蒙古特色",
+        "草原饮品",
+        "醇香浓郁",
+        "草原特色",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/396/800/600",
+      "price": 88,
+      "rating": 4.3,
+      "category": "饮品",
+      "isPopular": false,
+      "description": "醇香浓郁，草原特色",
+      "recommendations": {
+        "pairings": [
+          "手抓肉",
+          "烤全羊",
+          "奶酪",
+          "小菜"
+        ],
+        "eatingMethod": "直接饮用，可作为敬酒或庆祝用酒"
+      }
+    },
+    {
+      "id": "inner-mongolia-mantou",
+      "name": "内蒙古馒头",
+      "tags": [
+        "内蒙古特色",
+        "传统面点",
+        "松软香甜",
+        "主食必备",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/397/800/600",
+      "price": 5,
+      "rating": 4.2,
+      "category": "主食",
+      "isPopular": false,
+      "description": "松软香甜，主食必备",
+      "recommendations": {
+        "pairings": [
+          "奶茶",
+          "手抓肉",
+          "小菜",
+          "汤品"
+        ],
+        "eatingMethod": "直接食用，作为主食"
+      }
+    },
+    {
+      "id": "inner-mongolia-youtiao",
+      "name": "内蒙古油条",
+      "tags": [
+        "内蒙古特色",
+        "传统小吃",
+        "外酥内软",
+        "早餐必备",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/398/800/600",
+      "price": 3,
+      "rating": 4.1,
+      "category": "小吃",
+      "isPopular": false,
+      "description": "外酥内软，早餐必备",
+      "recommendations": {
+        "pairings": [
+          "奶茶",
+          "粥",
+          "小菜",
+          "汤品"
+        ],
+        "eatingMethod": "直接食用，作为早餐"
+      }
+    },
+    {
+      "id": "inner-mongolia-tangbao",
+      "name": "内蒙古糖包",
+      "tags": [
+        "内蒙古特色",
+        "传统面点",
+        "香甜可口",
+        "软糯适中",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/399/800/600",
+      "price": 5,
+      "rating": 4,
+      "category": "甜品",
+      "isPopular": false,
+      "description": "香甜可口，传统面点",
+      "recommendations": {
+        "pairings": [
+          "奶茶",
+          "咖啡",
+          "水果",
+          "饮料"
+        ],
+        "eatingMethod": "直接食用，作为甜品"
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "icon": "🛣️",
+      "name": "呼和浩特美食街",
+      "type": "美食街",
+      "foods": [
+        "烤全羊",
+        "手抓肉",
+        "奶茶"
+      ],
+      "image": "https://picsum.photos/id/304/800/600",
+      "reason": "内蒙古特色美食集中地",
+      "location": "呼和浩特市"
+    },
+    {
+      "id": 2,
+      "icon": "🏞️",
+      "name": "呼伦贝尔草原餐厅",
+      "type": "餐厅",
+      "foods": [
+        "烤全羊",
+        "手抓肉",
+        "马奶酒"
+      ],
+      "image": "https://picsum.photos/id/305/800/600",
+      "reason": "草原特色美食体验",
+      "location": "呼伦贝尔市"
+    }
+  ]
+}

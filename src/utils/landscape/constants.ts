@@ -2,6 +2,16 @@ import type { Category } from '@/typesOfPages/landscape';
 
 export const OSS = 'https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/landscape'
 
+export function ossThumbnail(url: string, width = 400): string {
+  if (!url || !url.includes('aliyuncs.com')) return url
+  return `${url}?x-oss-process=image/resize,w_${width},m_lfit/format,webp`
+}
+
+export function ossPreview(url: string, width = 800): string {
+  if (!url || !url.includes('aliyuncs.com')) return url
+  return `${url}?x-oss-process=image/resize,w_${width},m_lfit/format,webp`
+}
+
 export const dimensions = [
   { id: 'theme', name: '主题', icon: '🎨' },
   { id: 'location', name: '地点', icon: '📍' },
@@ -269,7 +279,7 @@ export const profileCategories = [
   { id: 'image', name: '图片', icon: '🖼️' },
   { id: 'video', name: '视频', icon: '🎬' },
   { id: 'guide', name: '攻略', icon: '📖' },
-  { id: 'photographer', name: '摄影师', icon: '👤' },
+
 ]
 
 export const seasonMap: Record<string, string> = {

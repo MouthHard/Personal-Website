@@ -1,0 +1,224 @@
+{
+  "items": [
+    {
+      "id": "徽州毛豆腐",
+      "name": "徽州毛豆腐",
+      "tags": [
+        "安徽特色",
+        "徽州特产",
+        "外酥里嫩",
+        "香气独特",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/412/800/600",
+      "price": 38,
+      "rating": 4.6,
+      "category": "菜肴",
+      "badgeText": "徽菜特色",
+      "isPopular": true,
+      "badgeColor": "#795548",
+      "description": "外酥里嫩，香气独特",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "黄山烧饼",
+      "name": "黄山烧饼",
+      "tags": [
+        "安徽特色",
+        "黄山特产",
+        "外酥内软",
+        "咸甜适中",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/413/800/600",
+      "price": 15,
+      "rating": 4.5,
+      "category": "小吃",
+      "badgeText": "徽州名点",
+      "isPopular": true,
+      "badgeColor": "#ff9800",
+      "description": "外酥内软，咸甜适中",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "咖啡",
+          "饮料",
+          "甜品"
+        ],
+        "eatingMethod": "直接食用，作为小吃或礼品"
+      }
+    },
+    {
+      "id": "淮南牛肉汤",
+      "name": "淮南牛肉汤",
+      "tags": [
+        "安徽特色",
+        "淮南特产",
+        "汤浓肉烂",
+        "香气四溢",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/414/800/600",
+      "price": 25,
+      "rating": 4.7,
+      "category": "主食",
+      "badgeText": "淮南名吃",
+      "isPopular": true,
+      "badgeColor": "#ff5722",
+      "description": "汤浓肉烂，香气四溢",
+      "recommendations": {
+        "pairings": [
+          "烧饼",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "直接饮用，作为早餐或午餐"
+      }
+    },
+    {
+      "id": "臭鳜鱼",
+      "name": "臭鳜鱼",
+      "tags": [
+        "安徽特色",
+        "徽州特产",
+        "闻着臭吃着香",
+        "肉质鲜嫩",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/415/800/600",
+      "price": 88,
+      "rating": 4.8,
+      "category": "菜肴",
+      "badgeText": "徽菜之冠",
+      "isPopular": true,
+      "badgeColor": "#4caf50",
+      "description": "闻着臭吃着香，肉质鲜嫩",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "符离集烧鸡",
+      "name": "符离集烧鸡",
+      "tags": [
+        "安徽特色",
+        "宿州特产",
+        "肉质鲜嫩",
+        "香气浓郁",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/416/800/600",
+      "price": 68,
+      "rating": 4.4,
+      "category": "菜肴",
+      "isPopular": false,
+      "description": "肉质鲜嫩，香气浓郁",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "anhui-tangbao",
+      "name": "安徽糖包",
+      "tags": [
+        "安徽特色",
+        "传统面点",
+        "香甜可口",
+        "软糯适中",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/417/800/600",
+      "price": 5,
+      "rating": 4,
+      "category": "甜品",
+      "isPopular": false,
+      "description": "香甜可口，传统面点",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "咖啡",
+          "水果",
+          "饮料"
+        ],
+        "eatingMethod": "直接食用，作为甜品"
+      }
+    },
+    {
+      "id": "anhui-hongcha",
+      "name": "安徽红茶",
+      "tags": [
+        "安徽特色",
+        "传统饮品",
+        "香气浓郁",
+        "口感醇厚",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/418/800/600",
+      "price": 38,
+      "rating": 4.3,
+      "category": "饮品",
+      "isPopular": false,
+      "description": "香气浓郁，口感醇厚",
+      "recommendations": {
+        "pairings": [
+          "点心",
+          "小吃",
+          "甜品",
+          "菜肴"
+        ],
+        "eatingMethod": "直接饮用，可点心或小吃"
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "icon": "🏞️",
+      "name": "黄山屯溪老街",
+      "type": "文化街",
+      "foods": [
+        "黄山烧饼",
+        "徽州毛豆腐",
+        "臭鳜鱼"
+      ],
+      "image": "https://picsum.photos/id/312/800/600",
+      "reason": "徽州特色美食集中地",
+      "location": "黄山市"
+    },
+    {
+      "id": 2,
+      "icon": "🏬",
+      "name": "合肥淮河路",
+      "type": "商业街",
+      "foods": [
+        "淮南牛肉汤",
+        "合肥烤鸭",
+        "符离集烧鸡"
+      ],
+      "image": "https://picsum.photos/id/313/800/600",
+      "reason": "合肥传统美食聚集地",
+      "location": "合肥市"
+    }
+  ]
+}

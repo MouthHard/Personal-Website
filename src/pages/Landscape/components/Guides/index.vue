@@ -5,10 +5,10 @@
       <!-- 左侧列：搜索框header + 筛选结果 -->
       <div class="left-column">
         <!-- 顶部导航栏 -->
-        <TopNav @update:search-keyword="searchKeyword = $event" @search="handleSearch" />
+        <TopNav :initial-keyword="searchKeyword" @update:search-keyword="searchKeyword = $event" @search="handleSearch" />
 
         <!-- 内容展示区 -->
-        <main class="content-area">
+        <main ref="contentAreaRef" class="content-area">
           <!-- 排序栏 -->
           <div class="sort-bar">
             <div class="result-count">
@@ -75,11 +75,12 @@
 
 <script setup lang="ts">
 defineOptions({ name: 'Guides' });
-import { ref, computed, onMounted, Teleport } from 'vue';
+import { ref, computed, onMounted, watch, Teleport } from 'vue';
 import { useRoute } from 'vue-router';
 import { showMessage, createSimpleInteractionItem } from '@/utils/landscape';
 import { useInteractionStore } from '@/stores/landscape';
 import { useLandscapeDataStore } from '@/stores/landscape';
+import type { GlobalGuide } from '@/typesOfPages/landscape/data';
 import { useGuidesFilter, modeMap, seasonMap, durationMap, themeMap } from '@/composables/landscape/guides/useGuidesFilter';
 import TopNav from './components/TopNav/index.vue';
 import FilterSidebar from './components/FilterSidebar/index.vue';
@@ -107,12 +108,17 @@ import {
 
 const interactionStore = useInteractionStore();
 const dataStore = useLandscapeDataStore();
+const route = useRoute();
 
-const guidesData = dataStore.getAllGuides();
-type Guide = typeof guidesData[0];
+const guides = computed<GlobalGuide[]>(() => dataStore.getAllGuides());
+type Guide = GlobalGuide;
 
-const searchKeyword = ref('');
-const guides = ref<Guide[]>(guidesData);
+const initialQueryKeyword = (() => {
+  const q = route.query.q;
+  return q && typeof q === 'string' ? q : '';
+})();
+
+const searchKeyword = ref(initialQueryKeyword);
 
 const {
   selectedFilters,
@@ -213,8 +219,12 @@ const durationWithCount = computed(() =>
   }))
 );
 
+const contentAreaRef = ref<HTMLElement | null>(null);
+
 const handleSearch = () => {
-  // 搜索处理逻辑
+  if (contentAreaRef.value) {
+    contentAreaRef.value.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 };
 
 const openGuideDetail = (guide: Guide) => {
@@ -273,32 +283,32 @@ const shareGuide = (guide: Guide) => {
     });
   } else {
     navigator.clipboard.writeText(window.location.href);
-    alert('链接已复制到剪贴板');
+    showMessage.share.copied();
   }
 };
 
-const loadMoreGuides = async () => {
-  isLoadingMore.value = true;
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-  isLoadingMore.value = false;
+const loadMoreGuides = () => {
   hasMoreGuides.value = false;
 };
 
-onMounted(() => {
-  interactionStore.registerBatch(
-    guides.value.map((guide) => ({
-      id: getGuideId(guide.id),
-      counts: {
-        likes: guide.likes,
-        loves: guide.loves,
-        views: guide.views,
-        favorites: guide.bookmarks,
-        shares: guide.shares,
-      },
-    }))
-  );
+watch(() => guides.value.length, (len) => {
+  if (len > 0) {
+    interactionStore.registerBatch(
+      guides.value.map((guide) => ({
+        id: getGuideId(guide.id),
+        counts: {
+          likes: guide.likes,
+          loves: guide.loves,
+          views: guide.views,
+          favorites: guide.bookmarks,
+          shares: guide.shares,
+        },
+      }))
+    );
+  }
+}, { immediate: true });
 
-  const route = useRoute();
+onMounted(() => {
   initializeFromQuery(route.query);
 });
 </script>

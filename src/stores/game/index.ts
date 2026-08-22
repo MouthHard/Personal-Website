@@ -1,9 +1,14 @@
 import { defineStore } from 'pinia';
-import type { GameItem } from '@/typesOfPages/game';
 
 interface CartItem {
   gameId: string;
   addedAt: number;
+}
+
+/** 游戏 Store 最小接口——只要包含 id 和 price 即可 */
+interface GameLike {
+  id: string;
+  price: number;
 }
 
 interface GameState {
@@ -41,6 +46,13 @@ export const useGameStore = defineStore('game', {
   },
 
   actions: {
+    initializeFromData<T extends { id: string; isOwned?: boolean; isWishlisted?: boolean }>(games: T[]): void {
+      games.forEach((g) => {
+        if (g.isWishlisted) this.wishlist.add(g.id);
+        if (g.isOwned) this.owned.add(g.id);
+      });
+    },
+
     toggleWishlist(gameId: string): boolean {
       if (this.wishlist.has(gameId)) {
         this.wishlist.delete(gameId);
@@ -116,35 +128,24 @@ export const useGameStore = defineStore('game', {
       }
     },
 
-    initializeFromData(games: GameItem[]): void {
-      games.forEach(game => {
-        if (game.isWishlisted) {
-          this.wishlist.add(game.id);
-        }
-        if (game.isOwned) {
-          this.owned.add(game.id);
-        }
-      });
-    },
-
-    getCartTotal(games: GameItem[]): number {
+    getCartTotal<T extends GameLike>(games: T[]): number {
       return this.cart.reduce((total, item) => {
         const game = games.find(g => g.id === item.gameId);
         return total + (game?.price || 0);
       }, 0);
     },
 
-    getCartGames(games: GameItem[]): GameItem[] {
+    getCartGames<T extends GameLike>(games: T[]): T[] {
       return this.cart
         .map(item => games.find(g => g.id === item.gameId))
-        .filter((g): g is GameItem => g !== undefined);
+        .filter((g): g is T => g !== undefined);
     },
 
-    getWishlistGames(games: GameItem[]): GameItem[] {
+    getWishlistGames<T extends GameLike>(games: T[]): T[] {
       return games.filter(g => this.wishlist.has(g.id));
     },
 
-    getOwnedGames(games: GameItem[]): GameItem[] {
+    getOwnedGames<T extends GameLike>(games: T[]): T[] {
       return games.filter(g => this.owned.has(g.id));
     },
   },

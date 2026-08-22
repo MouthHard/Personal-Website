@@ -1,0 +1,198 @@
+{
+  "items": [
+    {
+      "id": "buddha-jumps-over-wall",
+      "name": "佛跳墙",
+      "tags": [
+        "福建特色",
+        "福州特产",
+        "食材丰富",
+        "营养美味",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/417/800/600",
+      "price": 288,
+      "rating": 4.9,
+      "category": "菜肴",
+      "badgeText": "闽菜之王",
+      "isPopular": true,
+      "badgeColor": "#ff5722",
+      "description": "食材丰富，营养美味",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "satay-noodle",
+      "name": "沙茶面",
+      "tags": [
+        "福建特色",
+        "厦门特产",
+        "鲜香可口",
+        "口感丰富",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/418/800/600",
+      "price": 25,
+      "rating": 4.7,
+      "category": "主食",
+      "badgeText": "闽南名吃",
+      "isPopular": true,
+      "badgeColor": "#ff9800",
+      "description": "鲜香可口，口感丰富",
+      "recommendations": {
+        "pairings": [
+          "小菜",
+          "汤品",
+          "饮料",
+          "茶品"
+        ],
+        "eatingMethod": "直接食用，作为主食"
+      }
+    },
+    {
+      "id": "earth-bamboo-shoot-jelly",
+      "name": "土笋冻",
+      "tags": [
+        "福建特色",
+        "泉州特产",
+        "晶莹剔透",
+        "口感独特",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/419/800/600",
+      "price": 38,
+      "rating": 4.6,
+      "category": "小吃",
+      "badgeText": "泉州名产",
+      "isPopular": true,
+      "badgeColor": "#03a9f4",
+      "description": "晶莹剔透，口感独特",
+      "recommendations": {
+        "pairings": [
+          "醋",
+          "酱油",
+          "小菜",
+          "饮料"
+        ],
+        "eatingMethod": "直接食用，作为小吃"
+      }
+    },
+    {
+      "id": "putian-braised-noodle",
+      "name": "莆田卤面",
+      "tags": [
+        "福建特色",
+        "莆田特产",
+        "面条劲道",
+        "汤汁浓郁",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/420/800/600",
+      "price": 22,
+      "rating": 4.5,
+      "category": "主食",
+      "badgeText": "兴化名面",
+      "isPopular": true,
+      "badgeColor": "#e91e63",
+      "description": "面条劲道，汤汁浓郁",
+      "recommendations": {
+        "pairings": [
+          "小菜",
+          "汤品",
+          "饮料",
+          "茶品"
+        ],
+        "eatingMethod": "直接食用，作为主食"
+      }
+    },
+    {
+      "id": "xiamen-pastry",
+      "name": "厦门馅饼",
+      "tags": [
+        "福建特色",
+        "厦门特产",
+        "皮薄馅大",
+        "香甜可口",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/421/800/600",
+      "price": 20,
+      "rating": 4.3,
+      "category": "甜品",
+      "isPopular": false,
+      "description": "皮薄馅大，香甜可口",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "咖啡",
+          "水果",
+          "饮料"
+        ],
+        "eatingMethod": "直接食用，作为甜品"
+      }
+    },
+    {
+      "id": "fujian-hongcha",
+      "name": "福建红茶",
+      "tags": [
+        "福建特色",
+        "传统饮品",
+        "香气浓郁",
+        "口感醇厚",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/422/800/600",
+      "price": 38,
+      "rating": 4.3,
+      "category": "饮品",
+      "isPopular": false,
+      "description": "香气浓郁，口感醇厚",
+      "recommendations": {
+        "pairings": [
+          "点心",
+          "小吃",
+          "甜品",
+          "菜肴"
+        ],
+        "eatingMethod": "直接饮用，可点心或小吃"
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "icon": "🏬",
+      "name": "厦门中山路",
+      "type": "商业街",
+      "foods": [
+        "沙茶面",
+        "土笋冻",
+        "厦门馅饼"
+      ],
+      "image": "https://picsum.photos/id/314/800/600",
+      "reason": "厦门传统美食聚集地",
+      "location": "厦门市"
+    },
+    {
+      "id": 2,
+      "icon": "🏞️",
+      "name": "福州三坊七巷",
+      "type": "文化街",
+      "foods": [
+        "佛跳墙",
+        "福州鱼丸",
+        "莆田卤面"
+      ],
+      "image": "https://picsum.photos/id/315/800/600",
+      "reason": "福州传统美食集中地",
+      "location": "福州市"
+    }
+  ]
+}

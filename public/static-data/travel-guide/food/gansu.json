@@ -1,0 +1,248 @@
+{
+  "items": [
+    {
+      "id": "lanzhou-lamian",
+      "name": "兰州拉面",
+      "tags": [
+        "甘肃特色",
+        "兰州名吃",
+        "一清二白三红四绿",
+        "劲道爽滑",
+        "清真美食"
+      ],
+      "image": "https://picsum.photos/id/479/800/600",
+      "price": 15,
+      "rating": 4.7,
+      "category": "主食",
+      "badgeText": "兰州名片",
+      "isPopular": true,
+      "badgeColor": "#ff5722",
+      "description": "面条劲道，汤汁鲜美",
+      "recommendations": {
+        "pairings": [
+          "茶叶蛋",
+          "小菜",
+          "牛肉",
+          "蒜苗"
+        ],
+        "eatingMethod": "拉面要趁热吃，先喝汤再吃面"
+      }
+    },
+    {
+      "id": "shouzhuayangrou",
+      "name": "手抓羊肉",
+      "tags": [
+        "甘肃特色",
+        "西北美食",
+        "肉质鲜嫩",
+        "香气浓郁",
+        "无膻味"
+      ],
+      "image": "https://picsum.photos/id/480/800/600",
+      "price": 68,
+      "rating": 4.8,
+      "category": "菜肴",
+      "badgeText": "西北珍馐",
+      "isPopular": true,
+      "badgeColor": "#795548",
+      "description": "肉质鲜嫩，香气浓郁",
+      "recommendations": {
+        "pairings": [
+          "大蒜",
+          "椒盐",
+          "洋葱",
+          "白酒"
+        ],
+        "eatingMethod": "手抓蘸椒盐和蒜片食用，热食最佳"
+      }
+    },
+    {
+      "id": "dunhuang-lvrou-huangmian",
+      "name": "敦煌驴肉黄面",
+      "tags": [
+        "甘肃特色",
+        "敦煌特产",
+        "面条劲道",
+        "驴肉鲜香",
+        "丝路美食"
+      ],
+      "image": "https://picsum.photos/id/481/800/600",
+      "price": 38,
+      "rating": 4.6,
+      "category": "主食",
+      "badgeText": "敦煌名吃",
+      "isPopular": true,
+      "badgeColor": "#ffc107",
+      "description": "面条劲道，驴肉鲜香",
+      "recommendations": {
+        "pairings": [
+          "大蒜",
+          "醋",
+          "黄瓜",
+          "啤酒"
+        ],
+        "eatingMethod": "黄面拌上驴肉片，浇上卤汁食用"
+      }
+    },
+    {
+      "id": "zhangye-chaopao",
+      "name": "张掖炒炮",
+      "tags": [
+        "甘肃特色",
+        "张掖特产",
+        "口感独特",
+        "味道鲜美",
+        "地方小吃"
+      ],
+      "image": "https://picsum.photos/id/482/800/600",
+      "price": 22,
+      "rating": 4.4,
+      "category": "主食",
+      "isPopular": false,
+      "description": "口感独特，味道鲜美",
+      "recommendations": {
+        "pairings": [
+          "小菜",
+          "汤品",
+          "大蒜",
+          "醋"
+        ],
+        "eatingMethod": "炒炮子拌上卤汤食用，热吃最佳"
+      }
+    },
+    {
+      "id": "longxi-larou",
+      "name": "陇西腊肉",
+      "tags": [
+        "甘肃特色",
+        "陇西特产",
+        "肉质紧实",
+        "香气浓郁",
+        "腌腊制品"
+      ],
+      "image": "https://picsum.photos/id/483/800/600",
+      "price": 58,
+      "rating": 4.3,
+      "category": "菜肴",
+      "isPopular": false,
+      "description": "肉质紧实，香气浓郁",
+      "recommendations": {
+        "pairings": [
+          "馒头",
+          "大米",
+          "大蒜",
+          "白酒"
+        ],
+        "eatingMethod": "蒸熟后切片食用，肥而不腻"
+      }
+    },
+    {
+      "id": "gansu-youtiao",
+      "name": "甘肃油条",
+      "tags": [
+        "甘肃特色",
+        "早餐食品",
+        "外酥内软",
+        "快捷方便",
+        "传统早点"
+      ],
+      "image": "https://picsum.photos/id/484/800/600",
+      "price": 3,
+      "rating": 4.1,
+      "category": "小吃",
+      "isPopular": false,
+      "description": "外酥内软，早餐必备",
+      "recommendations": {
+        "pairings": [
+          "豆浆",
+          "牛奶",
+          "稀饭",
+          "牛肉面"
+        ],
+        "eatingMethod": "直接食用或泡入牛奶、豆浆中"
+      }
+    },
+    {
+      "id": "gansu-tangbao",
+      "name": "甘肃糖包",
+      "tags": [
+        "甘肃特色",
+        "传统面点",
+        "香甜可口",
+        "软糯适中",
+        "老人小孩喜爱"
+      ],
+      "image": "https://picsum.photos/id/485/800/600",
+      "price": 5,
+      "rating": 4,
+      "category": "甜品",
+      "isPopular": false,
+      "description": "香甜可口，传统面点",
+      "recommendations": {
+        "pairings": [
+          "豆浆",
+          "牛奶",
+          "粥品",
+          "八宝茶"
+        ],
+        "eatingMethod": "直接食用，早餐或下午茶点心"
+      }
+    },
+    {
+      "id": "gansu-hongcha",
+      "name": "甘肃红茶",
+      "tags": [
+        "甘肃特色",
+        "陇南茶区",
+        "香气浓郁",
+        "口感醇厚",
+        "养生茶饮"
+      ],
+      "image": "https://picsum.photos/id/486/800/600",
+      "price": 38,
+      "rating": 4.3,
+      "category": "饮品",
+      "isPopular": false,
+      "description": "香气浓郁，口感醇厚",
+      "recommendations": {
+        "pairings": [
+          "点心",
+          "瓜子",
+          "核桃",
+          "红枣"
+        ],
+        "eatingMethod": "沸水冲泡，可反复冲泡3-5次"
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "icon": "🛣️",
+      "name": "兰州拉面街",
+      "type": "美食街",
+      "foods": [
+        "lanzhou-lamian",
+        "shouzhuayangrou",
+        "dunhuang-lvrou-huangmian"
+      ],
+      "image": "https://picsum.photos/id/336/800/600",
+      "reason": "兰州特色美食集中地",
+      "location": "兰州市"
+    },
+    {
+      "id": 2,
+      "icon": "🌙",
+      "name": "敦煌夜市",
+      "type": "夜市",
+      "foods": [
+        "dunhuang-lvrou-huangmian",
+        "zhangye-chaopao",
+        "longxi-larou"
+      ],
+      "image": "https://picsum.photos/id/337/800/600",
+      "reason": "敦煌特色美食夜市",
+      "location": "敦煌市"
+    }
+  ]
+}

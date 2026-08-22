@@ -1,0 +1,248 @@
+{
+  "items": [
+    {
+      "id": "ningxia-shouzhuayangrou",
+      "name": "手抓羊肉",
+      "tags": [
+        "宁夏特色",
+        "滩羊美味",
+        "肉质鲜嫩",
+        "香气浓郁",
+        "无膻味"
+      ],
+      "image": "https://picsum.photos/id/494/800/600",
+      "price": 68,
+      "rating": 4.8,
+      "category": "菜肴",
+      "badgeText": "宁夏招牌",
+      "isPopular": true,
+      "badgeColor": "#795548",
+      "description": "肉质鲜嫩，香气浓郁",
+      "recommendations": {
+        "pairings": [
+          "大蒜",
+          "椒盐",
+          "洋葱",
+          "八宝茶"
+        ],
+        "eatingMethod": "手抓蘸椒盐和蒜片食用，热食最佳"
+      }
+    },
+    {
+      "id": "ningxia-tanyang",
+      "name": "宁夏滩羊",
+      "tags": [
+        "宁夏特色",
+        "国宴食材",
+        "肉质鲜嫩",
+        "无膻味",
+        "顶级美味"
+      ],
+      "image": "https://picsum.photos/id/495/800/600",
+      "price": 128,
+      "rating": 4.9,
+      "category": "菜肴",
+      "badgeText": "国宴用羊",
+      "isPopular": true,
+      "badgeColor": "#ff5722",
+      "description": "肉质鲜嫩，无膻味",
+      "recommendations": {
+        "pairings": [
+          "枸杞",
+          "大蒜",
+          "洋葱",
+          "红酒"
+        ],
+        "eatingMethod": "适合各种烹饪方式，清蒸最能体现原味"
+      }
+    },
+    {
+      "id": "zhongwei-xishagua",
+      "name": "中卫硒砂瓜",
+      "tags": [
+        "宁夏特色",
+        "中卫特产",
+        "香甜可口",
+        "营养丰富",
+        "富硒水果"
+      ],
+      "image": "https://picsum.photos/id/496/800/600",
+      "price": 38,
+      "rating": 4.4,
+      "category": "水果",
+      "isPopular": false,
+      "description": "香甜可口，营养丰富",
+      "recommendations": {
+        "pairings": [
+          "酸奶",
+          "坚果",
+          "干果",
+          "茶品"
+        ],
+        "eatingMethod": "切块后直接食用，冷藏后更佳"
+      }
+    },
+    {
+      "id": "yinchuan-niangpi",
+      "name": "银川酿皮子",
+      "tags": [
+        "宁夏特色",
+        "银川小吃",
+        "爽滑劲道",
+        "酸辣开胃",
+        "夏季美食"
+      ],
+      "image": "https://picsum.photos/id/497/800/600",
+      "price": 12,
+      "rating": 4.5,
+      "category": "主食",
+      "badgeText": "银川名吃",
+      "isPopular": true,
+      "badgeColor": "#4caf50",
+      "description": "爽滑劲道，酸辣开胃",
+      "recommendations": {
+        "pairings": [
+          "肉夹馍",
+          "冰峰",
+          "大蒜",
+          "醋"
+        ],
+        "eatingMethod": "拌入芝麻酱、辣椒油、醋等调料食用"
+      }
+    },
+    {
+      "id": "tongxin-yanggaorou",
+      "name": "同心羊羔肉",
+      "tags": [
+        "宁夏特色",
+        "同心特产",
+        "肉质鲜嫩",
+        "香气浓郁",
+        "嫩而不膻"
+      ],
+      "image": "https://picsum.photos/id/498/800/600",
+      "price": 88,
+      "rating": 4.6,
+      "category": "菜肴",
+      "isPopular": false,
+      "description": "肉质鲜嫩，香气浓郁",
+      "recommendations": {
+        "pairings": [
+          "馒头",
+          "大蒜",
+          "洋葱",
+          "八宝茶"
+        ],
+        "eatingMethod": "清蒸或红烧均可，肉质细嫩"
+      }
+    },
+    {
+      "id": "ningxia-youtiao",
+      "name": "宁夏油条",
+      "tags": [
+        "宁夏特色",
+        "早餐食品",
+        "外酥内软",
+        "快捷方便",
+        "传统早点"
+      ],
+      "image": "https://picsum.photos/id/499/800/600",
+      "price": 3,
+      "rating": 4.1,
+      "category": "小吃",
+      "isPopular": false,
+      "description": "外酥内软，早餐必备",
+      "recommendations": {
+        "pairings": [
+          "豆浆",
+          "牛奶",
+          "稀饭",
+          "八宝茶"
+        ],
+        "eatingMethod": "直接食用或泡入牛奶、八宝茶中"
+      }
+    },
+    {
+      "id": "ningxia-tangbao",
+      "name": "宁夏糖包",
+      "tags": [
+        "宁夏特色",
+        "传统面点",
+        "香甜可口",
+        "软糯适中",
+        "老人小孩喜爱"
+      ],
+      "image": "https://picsum.photos/id/500/800/600",
+      "price": 5,
+      "rating": 4,
+      "category": "甜品",
+      "isPopular": false,
+      "description": "香甜可口，传统面点",
+      "recommendations": {
+        "pairings": [
+          "豆浆",
+          "牛奶",
+          "粥品",
+          "八宝茶"
+        ],
+        "eatingMethod": "直接食用，早餐或下午茶点心"
+      }
+    },
+    {
+      "id": "ningxia-hongcha",
+      "name": "宁夏红茶",
+      "tags": [
+        "宁夏特色",
+        "香气浓郁",
+        "口感醇厚",
+        "养生茶饮",
+        "回族茶俗"
+      ],
+      "image": "https://picsum.photos/id/501/800/600",
+      "price": 38,
+      "rating": 4.3,
+      "category": "饮品",
+      "isPopular": false,
+      "description": "香气浓郁，口感醇厚",
+      "recommendations": {
+        "pairings": [
+          "枸杞",
+          "红枣",
+          "瓜子",
+          "点心"
+        ],
+        "eatingMethod": "沸水冲泡，可加入枸杞、红枣同泡"
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "icon": "🌙",
+      "name": "银川怀远夜市",
+      "type": "夜市",
+      "foods": [
+        "ningxia-shouzhuayangrou",
+        "yinchuan-niangpi",
+        "ningxia-tanyang"
+      ],
+      "image": "https://picsum.photos/id/340/800/600",
+      "reason": "银川特色美食夜市",
+      "location": "银川市"
+    },
+    {
+      "id": 2,
+      "icon": "🛣️",
+      "name": "中卫美食街",
+      "type": "美食街",
+      "foods": [
+        "ningxia-tanyang",
+        "zhongwei-xishagua",
+        "tongxin-yanggaorou"
+      ],
+      "image": "https://picsum.photos/id/341/800/600",
+      "reason": "中卫特色美食集中地",
+      "location": "中卫市"
+    }
+  ]
+}

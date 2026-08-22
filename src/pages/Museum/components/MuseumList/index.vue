@@ -17,6 +17,14 @@
           placeholder="搜索博物馆名称、地点..."
           class="search-input"
         />
+        <button
+          v-if="searchQuery"
+          class="clear-btn"
+          @click="searchQuery = ''"
+          aria-label="清空搜索"
+        >
+          ✕
+        </button>
         <button class="search-btn">🔍</button>
       </div>
     </div>
@@ -37,7 +45,7 @@
             </div>
             <div class="visitor-count">
               <VisitorsIcon />
-              <span>{{ formatNumber(museum.visitors) }} 年访问量</span>
+              <span>{{ museum.visitors > 0 ? formatNumber(museum.visitors) + ' 年访问量' : '暂无数据' }}</span>
             </div>
           </div>
 
@@ -56,10 +64,11 @@
             <div class="image-stats">
               <span class="stat-item" title="文物数量">
                 <span class="stat-icon">🏺</span>
-                <span class="stat-value">
-                  {{ formatNumber(museum.artifacts) }}
-                </span>
-                <span>件文物</span>
+                <template v-if="museum.artifacts > 0">
+                  <span class="stat-value">{{ formatNumber(museum.artifacts) }}</span>
+                  <span>件文物</span>
+                </template>
+                <span v-else class="stat-value">暂无数据</span>
               </span>
               <span class="stat-item" title="展览数量">
                 <span class="stat-icon">🎨</span>

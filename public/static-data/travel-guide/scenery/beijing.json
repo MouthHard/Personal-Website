@@ -1,0 +1,320 @@
+{
+  "spots": [
+    {
+      "id": "forbiddenCity",
+      "name": "故宫",
+      "tags": [
+        "历史",
+        "文化",
+        "建筑",
+        "皇家"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1076/600/400",
+      "rating": 4.9,
+      "bestTime": "春季",
+      "location": "北京市东城区景山前街4号",
+      "description": "中国明清两代的皇家宫殿,是世界上现存规模最大、保存最为完整的木质结构古建筑之一"
+    },
+    {
+      "id": "greatWall",
+      "name": "长城",
+      "tags": [
+        "历史",
+        "自然",
+        "建筑",
+        "世界遗产"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1077/600/400",
+      "rating": 4.8,
+      "bestTime": "秋季",
+      "location": "北京市延庆区八达岭长城",
+      "description": "中国古代伟大的防御工程,是中华民族的象征",
+      "landformTags": [
+        "山地景观"
+      ],
+      "landscapeType": "mountain",
+      "landscapeCategory": [
+        "地理景观"
+      ]
+    },
+    {
+      "id": "summerPalace",
+      "name": "颐和园",
+      "tags": [
+        "园林",
+        "历史",
+        "皇家",
+        "建筑"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1080/600/400",
+      "rating": 4.7,
+      "bestTime": "春季",
+      "location": "北京市海淀区新建宫门路19号",
+      "description": "中国现存规模最大、保存最完整的皇家园林"
+    }
+  ],
+  "routes": [
+    {
+      "id": "1",
+      "name": "北京经典一日游",
+      "tags": [
+        "经典",
+        "文化",
+        "历史"
+      ],
+      "image": "https://picsum.photos/id/1076/600/400",
+      "spots": [
+        "故宫",
+        "天坛",
+        "颐和园"
+      ],
+      "title": "北京经典一日游",
+      "rating": 4.8,
+      "traffic": "地铁/公交",
+      "bestTime": "春季",
+      "duration": "1天",
+      "difficulty": "简单",
+      "highlights": [
+        "故宫",
+        "天坛",
+        "颐和园"
+      ],
+      "description": "游览北京最著名的景点",
+      "suitableFor": "所有游客"
+    },
+    {
+      "id": "2",
+      "name": "长城文化之旅",
+      "tags": [
+        "历史",
+        "自然",
+        "徒步"
+      ],
+      "image": "https://picsum.photos/id/1077/600/400",
+      "spots": [
+        "八达岭长城",
+        "慕田峪长城"
+      ],
+      "title": "长城文化之旅",
+      "rating": 4.7,
+      "traffic": "旅游大巴",
+      "bestTime": "秋季",
+      "duration": "2天",
+      "difficulty": "中等",
+      "highlights": [
+        "八达岭长城",
+        "慕田峪长城"
+      ],
+      "description": "探索长城的历史和文化",
+      "suitableFor": "户外爱好者"
+    }
+  ],
+  "customs": {
+    "activities": [
+      {
+        "id": "1",
+        "name": "京剧表演",
+        "type": "文化体验",
+        "image": "https://picsum.photos/id/1094/600/400",
+        "category": "culture",
+        "duration": "2-3小时",
+        "location": "长安大戏院",
+        "difficulty": "简单",
+        "description": "中国国粹京剧表演,体验传统艺术魅力"
+      },
+      {
+        "id": "2",
+        "name": "北京烤鸭制作体验",
+        "type": "美食体验",
+        "image": "https://picsum.photos/id/1080/600/400",
+        "category": "culture",
+        "duration": "3-4小时",
+        "location": "全聚德烤鸭店",
+        "difficulty": "中等",
+        "description": "学习北京烤鸭的传统制作工艺"
+      }
+    ]
+  },
+  "overview": {
+    "totalSpots": 220,
+    "natureSpots": 90,
+    "cultureSpots": 130,
+    "topAttractions": [
+      {
+        "name": "故宫",
+        "image": "https://picsum.photos/id/1076/600/400",
+        "description": "中国明清两代的皇家宫殿,是世界上现存规模最大、保存最为完整的木质结构古建筑之一"
+      },
+      {
+        "name": "长城",
+        "image": "https://picsum.photos/id/1077/600/400",
+        "description": "中国古代伟大的防御工程,是中华民族的象征"
+      },
+      {
+        "name": "颐和园",
+        "image": "https://picsum.photos/id/1080/600/400",
+        "description": "中国现存规模最大、保存最完整的皇家园林"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "name": "春季",
+      "image": "https://picsum.photos/id/1090/600/400",
+      "activities": [
+        "赏花",
+        "踏青",
+        "故宫游览",
+        "颐和园赏花"
+      ],
+      "description": "春暖花开,故宫、颐和园百花齐放,是游览皇家园林的最佳时节"
+    },
+    {
+      "name": "夏季",
+      "image": "https://picsum.photos/id/1091/600/400",
+      "activities": [
+        "长城徒步",
+        "香山避暑",
+        "天坛纳凉",
+        "北海公园游船"
+      ],
+      "description": "绿树成荫,长城、香山避暑胜地,适合户外活动和登山"
+    },
+    {
+      "name": "秋季",
+      "image": "https://picsum.photos/id/1092/600/400",
+      "activities": [
+        "香山赏红叶",
+        "长城赏秋",
+        "颐和园秋游",
+        "天坛秋游"
+      ],
+      "description": "秋高气爽,香山红叶满山,八达岭长城红叶漫天,是观赏红叶的最佳季节"
+    },
+    {
+      "name": "冬季",
+      "image": "https://picsum.photos/id/1093/600/400",
+      "activities": [
+        "故宫赏雪",
+        "什刹海滑冰",
+        "颐和园雪景",
+        "庙会体验"
+      ],
+      "description": "银装素裹,故宫雪景如画,什刹海冰场开放,体验北国风光"
+    }
+  ],
+  "festivals": [
+    {
+      "id": "1",
+      "day": "1日",
+      "name": "春节庙会",
+      "month": "2月",
+      "isUnique": true,
+      "location": "地坛公园",
+      "description": "农历新年期间举行的传统民俗活动"
+    },
+    {
+      "id": "2",
+      "day": "15日",
+      "name": "元宵节灯会",
+      "month": "2月",
+      "isUnique": true,
+      "location": "故宫",
+      "description": "农历正月十五举行的传统灯展活动"
+    },
+    {
+      "id": "3",
+      "day": "21日",
+      "name": "中秋节赏月",
+      "month": "9月",
+      "isUnique": false,
+      "location": "颐和园",
+      "description": "传统节日,家人团聚赏月吃月饼"
+    }
+  ],
+  "activities": [
+    {
+      "id": "1",
+      "name": "故宫深度游",
+      "type": "文化体验",
+      "image": "https://picsum.photos/id/1094/600/400",
+      "category": "culture",
+      "duration": "3-4小时",
+      "location": "故宫博物院",
+      "difficulty": "简单",
+      "description": "深入了解故宫的历史文化和建筑艺术"
+    },
+    {
+      "id": "2",
+      "name": "长城徒步",
+      "type": "户外活动",
+      "image": "https://picsum.photos/id/1095/600/400",
+      "category": "nature",
+      "duration": "4-6小时",
+      "location": "八达岭长城",
+      "difficulty": "中等",
+      "description": "徒步长城,感受古代防御工程的宏伟"
+    }
+  ],
+  "intangibleHeritage": [
+    {
+      "id": "1",
+      "icon": "🎭",
+      "name": "京剧",
+      "image": "https://picsum.photos/id/1094/600/400",
+      "level": "national",
+      "category": "传统戏剧",
+      "features": [
+        "传统戏剧",
+        "国家级非遗",
+        "国粹艺术"
+      ],
+      "description": "中国国粹,集唱、念、做、打于一体的传统戏曲",
+      "protectionUnit": "北京京剧团"
+    },
+    {
+      "id": "2",
+      "icon": "🍗",
+      "name": "北京烤鸭制作技艺",
+      "image": "https://picsum.photos/id/1080/600/400",
+      "level": "national",
+      "category": "传统技艺",
+      "features": [
+        "传统技艺",
+        "国家级非遗",
+        "美食文化"
+      ],
+      "description": "北京特色美食制作技艺,历史悠久",
+      "protectionUnit": "全聚德烤鸭店"
+    }
+  ],
+  "folkCustomsElements": [
+    {
+      "name": "老北京庙会",
+      "tags": [
+        "传统民俗",
+        "节庆活动",
+        "非遗文化",
+        "京味文化",
+        "民俗体验"
+      ],
+      "image": "https://picsum.photos/id/1079/600/400",
+      "description": "传统民俗活动,集祭祀、娱乐、购物于一体"
+    },
+    {
+      "name": "北京胡同",
+      "tags": [
+        "历史街区",
+        "传统民居",
+        "京味文化",
+        "城市记忆",
+        "文化遗产"
+      ],
+      "image": "https://picsum.photos/id/1078/600/400",
+      "description": "北京传统民居形式,承载着丰富的历史文化"
+    }
+  ]
+}

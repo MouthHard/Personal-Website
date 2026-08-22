@@ -122,6 +122,9 @@
 
 <script setup lang="ts">
   import { ref, computed } from 'vue';
+  import { useRouter } from 'vue-router';
+  import { useMuseumDataStore } from '@/stores/museum';
+  import type { Museum } from '@/typesOfPages/museum/index';
   import { FoodPointIcon } from '@/pages/Museum/icon/pages/CreativeProduct';
   import { ShareIcon, LikeIcon } from '@/pages/Museum/icon/common/index.ts';
 
@@ -139,62 +142,37 @@
     favorited?: boolean;
   }
 
-  const activities = ref<Activity[]>([
-    {
-      id: 1,
-      title: '非遗手工艺工作坊',
-      description: '跟随非遗传承人学习传统技艺，亲手制作文创作品',
-      image:
-        'https://images.unsplash.com/photo-1584468104715-5b8f9e8b8f4e?w=600&h=400&fit=crop',
-      type: '工作坊',
-      date: '4月10日 14:00',
-      location: '创意工坊A区',
-      status: 'upcoming',
-      quota: 30,
-      enrolled: 24,
-      favorited: false,
-    },
-    {
-      id: 2,
-      title: '新锐设计师作品展',
-      description: '汇聚10位新锐设计师的100+件原创作品',
-      image:
-        'https://images.unsplash.com/photo-1600080972464-17691c34616a?w=600&h=400&fit=crop',
-      type: '展览',
-      date: '4月15日-4月30日',
-      location: '主展厅',
-      status: 'ongoing',
-      favorited: false,
-    },
-    {
-      id: 3,
-      title: '文创产业趋势论坛',
-      description: '行业大咖齐聚，深度解析文创产业发展新机遇',
-      image:
-        'https://images.unsplash.com/photo-1573865526739-10659fec78a5?w=600&h=400&fit=crop',
-      type: '讲座',
-      date: '5月1日 10:00',
-      location: '多功能报告厅',
-      status: 'upcoming',
-      quota: 200,
-      enrolled: 167,
-      favorited: false,
-    },
-    {
-      id: 4,
-      title: '亲子文化体验日',
-      description: '专为家庭设计，让孩子在游戏中感受传统文化',
-      image:
-        'https://images.unsplash.com/photo-1524661135-423928c7931a?w=600&h=400&fit=crop',
-      type: '体验活动',
-      date: '5月15日 13:00',
-      location: '儿童活动中心',
-      status: 'upcoming',
-      quota: 50,
-      enrolled: 38,
-      favorited: false,
-    },
-  ]);
+  interface Props {
+    museum: Museum;
+  }
+
+  const props = defineProps<Props>();
+  const store = useMuseumDataStore();
+  const router = useRouter();
+
+  const activities = computed<Activity[]>(() => {
+    return store.getActivitiesByMuseumId(props.museum.id).map((item) => ({
+      id: item.id,
+      title: item.title,
+      description: item.description,
+      image: item.image,
+      type: item.time || '活动',
+      date: item.date,
+      location: item.location || '待定',
+      status: deriveStatus(item.date),
+    }));
+  });
+
+  const deriveStatus = (dateStr: string): 'upcoming' | 'ongoing' | 'ended' => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const activityDate = new Date(dateStr);
+    if (isNaN(activityDate.getTime())) return 'ongoing';
+    activityDate.setHours(0, 0, 0, 0);
+    if (activityDate > today) return 'upcoming';
+    if (activityDate < today) return 'ended';
+    return 'ongoing';
+  };
 
   const currentIndex = ref(0);
   const totalItems = computed(() => activities.value.length);
@@ -246,17 +224,18 @@
     return texts[activity.status];
   };
 
-  const handleAction = (activity: Activity) => {
-    console.log('处理活动:', activity.title);
+  const handleAction = (_activity: Activity) => {
+    router.push(`/museum/${props.museum.id}?tab=exhibitions`);
   };
 
   const toggleFavorite = (activity: Activity) => {
     activity.favorited = !activity.favorited;
-    console.log('收藏状态:', activity.favorited);
   };
 
-  const handleShare = (activity: Activity) => {
-    console.log('分享活动:', activity.title);
+  const handleShare = (_activity: Activity) => {
+    if (navigator.share) {
+      navigator.share({ title: _activity.title, text: _activity.description });
+    }
   };
 </script>
 

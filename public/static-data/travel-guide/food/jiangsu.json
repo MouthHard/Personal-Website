@@ -1,0 +1,382 @@
+{
+  "items": [
+    {
+      "id": "squirrel-mandarin-fish",
+      "name": "松鼠桂鱼",
+      "tags": [
+        "江苏特色",
+        "苏菜经典",
+        "酸甜可口",
+        "造型美观",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/322/800/600",
+      "price": 168,
+      "rating": 4.8,
+      "category": "菜肴",
+      "badgeText": "苏菜之冠",
+      "isPopular": true,
+      "badgeColor": "#e91e63",
+      "description": "苏菜经典，酸甜可口",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "汤品",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "lion-head",
+      "name": "狮子头",
+      "tags": [
+        "江苏特色",
+        "苏菜经典",
+        "肥嫩鲜美",
+        "入口即化",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/323/800/600",
+      "price": 58,
+      "rating": 4.7,
+      "category": "菜肴",
+      "badgeText": "淮扬名菜",
+      "isPopular": true,
+      "badgeColor": "#ff9800",
+      "description": "肥嫩鲜美，入口即化",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "汤品",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "water-shield-soup",
+      "name": "莼菜汤",
+      "tags": [
+        "江苏特色",
+        "江南特色",
+        "清香爽口",
+        "营养丰富",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/324/800/600",
+      "price": 38,
+      "rating": 4.5,
+      "category": "主食",
+      "badgeText": "江南清韵",
+      "isPopular": true,
+      "badgeColor": "#03a9f4",
+      "description": "清香爽口，江南特色",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "小菜",
+          "茶品"
+        ],
+        "eatingMethod": "直接饮用，作为汤品"
+      }
+    },
+    {
+      "id": "nanjing-salted-duck",
+      "name": "南京盐水鸭",
+      "tags": [
+        "江苏特色",
+        "南京特产",
+        "皮白肉嫩",
+        "肥而不腻",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/325/800/600",
+      "price": 48,
+      "rating": 4.6,
+      "category": "菜肴",
+      "badgeText": "金陵特产",
+      "isPopular": true,
+      "badgeColor": "#ff5722",
+      "description": "皮白肉嫩，肥而不腻",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "粥",
+          "小菜"
+        ],
+        "eatingMethod": "直接食用，可作为冷菜"
+      }
+    },
+    {
+      "id": "suzhou-noodles",
+      "name": "苏式面",
+      "tags": [
+        "江苏特色",
+        "苏州特产",
+        "汤清面细",
+        "浇头丰富",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/326/800/600",
+      "price": 28,
+      "rating": 4.5,
+      "category": "主食",
+      "badgeText": "苏州经典",
+      "isPopular": true,
+      "badgeColor": "#4caf50",
+      "description": "汤清面细，浇头丰富",
+      "recommendations": {
+        "pairings": [
+          "小菜",
+          "汤品",
+          "饮料",
+          "茶品"
+        ],
+        "eatingMethod": "直接食用，趁热最佳"
+      }
+    },
+    {
+      "id": "crab-powder-tofu",
+      "name": "蟹粉豆腐",
+      "tags": [
+        "江苏特色",
+        "苏菜经典",
+        "鲜香滑嫩",
+        "蟹味浓郁",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/327/800/600",
+      "price": 68,
+      "rating": 4.6,
+      "category": "菜肴",
+      "isPopular": false,
+      "description": "鲜香滑嫩，蟹味浓郁",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "粥",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "three-white-guichao",
+      "name": "三白太湖",
+      "tags": [
+        "江苏特色",
+        "太湖特产",
+        "鲜美可口",
+        "营养丰富",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/328/800/600",
+      "price": 128,
+      "rating": 4.4,
+      "category": "菜肴",
+      "isPopular": false,
+      "description": "白鱼、白虾、银鱼",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "粥",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "yangzhou-fried-rice",
+      "name": "扬州炒饭",
+      "tags": [
+        "江苏特色",
+        "扬州特产",
+        "粒粒分明",
+        "配料丰富",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/329/800/600",
+      "price": 35,
+      "rating": 4.3,
+      "category": "主食",
+      "isPopular": false,
+      "description": "粒粒分明，配料丰富",
+      "recommendations": {
+        "pairings": [
+          "汤品",
+          "小菜",
+          "饮料",
+          "茶品"
+        ],
+        "eatingMethod": "直接食用，作为主食"
+      }
+    },
+    {
+      "id": "crab-roe-bun",
+      "name": "蟹黄包",
+      "tags": [
+        "江苏特色",
+        "传统名点",
+        "皮薄馅大",
+        "蟹香浓郁",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/330/800/600",
+      "price": 48,
+      "rating": 4.7,
+      "category": "主食",
+      "isPopular": false,
+      "description": "皮薄馅大，蟹香浓郁",
+      "recommendations": {
+        "pairings": [
+          "醋",
+          "姜丝",
+          "小菜",
+          "茶品"
+        ],
+        "eatingMethod": "趁热食用，先咬一小口吸汤汁，再蘸醋食用"
+      }
+    },
+    {
+      "id": "wuxi-spare-ribs",
+      "name": "无锡排骨",
+      "tags": [
+        "江苏特色",
+        "无锡特产",
+        "色泽红亮",
+        "甜咸适中",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/331/800/600",
+      "price": 58,
+      "rating": 4.5,
+      "category": "菜肴",
+      "isPopular": false,
+      "description": "色泽红亮，甜咸适中",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "粥",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "jiangsu-youtiao",
+      "name": "江苏油条",
+      "tags": [
+        "江苏特色",
+        "传统小吃",
+        "外酥内软",
+        "早餐必备",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/332/800/600",
+      "price": 3,
+      "rating": 4.1,
+      "category": "小吃",
+      "isPopular": false,
+      "description": "外酥内软，早餐必备",
+      "recommendations": {
+        "pairings": [
+          "豆浆",
+          "粥",
+          "小菜",
+          "汤品"
+        ],
+        "eatingMethod": "直接食用，趁热最佳"
+      }
+    },
+    {
+      "id": "jiangsu-tangbao",
+      "name": "江苏糖包",
+      "tags": [
+        "江苏特色",
+        "传统面点",
+        "香甜可口",
+        "软糯适中",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/333/800/600",
+      "price": 5,
+      "rating": 4,
+      "category": "甜品",
+      "isPopular": false,
+      "description": "香甜可口，传统面点",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "咖啡",
+          "水果",
+          "饮料"
+        ],
+        "eatingMethod": "直接食用，作为甜品"
+      }
+    },
+    {
+      "id": "jiangsu-hongcha",
+      "name": "江苏红茶",
+      "tags": [
+        "江苏特色",
+        "传统饮品",
+        "香气浓郁",
+        "口感醇厚",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/334/800/600",
+      "price": 38,
+      "rating": 4.3,
+      "category": "饮品",
+      "isPopular": false,
+      "description": "香气浓郁，口感醇厚",
+      "recommendations": {
+        "pairings": [
+          "点心",
+          "小吃",
+          "甜品",
+          "菜肴"
+        ],
+        "eatingMethod": "直接饮用，可点心或小吃"
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "icon": "🏞️",
+      "name": "南京夫子庙",
+      "type": "文化街",
+      "foods": [
+        "duck-blood-fans",
+        "jiangsu-braised-meat",
+        "tangbao"
+      ],
+      "image": "https://picsum.photos/id/1088/800/600",
+      "reason": "南京传统美食集中地",
+      "location": "南京市"
+    },
+    {
+      "id": 2,
+      "icon": "🏬",
+      "name": "苏州观前街",
+      "type": "商业街",
+      "foods": [
+        "suzhou-noodles",
+        "songshu-yangzhou",
+        "jiangsu-snacks"
+      ],
+      "image": "https://picsum.photos/id/1089/800/600",
+      "reason": "苏州传统美食聚集地",
+      "location": "苏州市"
+    }
+  ]
+}

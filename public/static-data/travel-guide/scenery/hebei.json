@@ -1,0 +1,355 @@
+{
+  "spots": [
+    {
+      "id": "chengdeMountainResort",
+      "name": "承德避暑山庄",
+      "tags": [
+        "皇家",
+        "园林",
+        "世界遗产",
+        "历史"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1160/600/400",
+      "rating": 4.8,
+      "bestTime": "夏季",
+      "location": "河北省承德市双桥区",
+      "description": "中国现存最大的皇家园林,世界文化遗产"
+    },
+    {
+      "id": "shanhaiPass",
+      "name": "山海关",
+      "tags": [
+        "长城",
+        "历史",
+        "军事",
+        "世界遗产"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1161/600/400",
+      "rating": 4.7,
+      "bestTime": "春秋",
+      "location": "河北省秦皇岛市山海关区",
+      "description": "天下第一关,明长城东端起点"
+    },
+    {
+      "id": "baiyangdian",
+      "name": "白洋淀",
+      "tags": [
+        "湿地",
+        "湖泊",
+        "生态",
+        "自然"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1162/600/400",
+      "rating": 4.5,
+      "bestTime": "夏季",
+      "location": "河北省保定市安新县",
+      "description": "华北明珠,华北最大的淡水湖",
+      "landformTags": [
+        "湿地景观"
+      ],
+      "landscapeType": "wetland",
+      "landscapeCategory": [
+        "水体景观"
+      ]
+    },
+    {
+      "id": "beidaihe",
+      "name": "北戴河",
+      "tags": [
+        "海滨",
+        "避暑",
+        "度假",
+        "沙滩"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1163/600/400",
+      "rating": 4.6,
+      "bestTime": "夏季",
+      "location": "河北省秦皇岛市北戴河区",
+      "description": "中国著名的避暑胜地,海滨旅游度假胜地",
+      "landformTags": [
+        "海滨景观"
+      ],
+      "landscapeType": "coastal",
+      "landscapeCategory": [
+        "水体景观"
+      ]
+    },
+    {
+      "id": "yesanpo",
+      "name": "野三坡",
+      "tags": [
+        "地质",
+        "峡谷",
+        "自然",
+        "探险"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1164/600/400",
+      "rating": 4.5,
+      "bestTime": "夏季",
+      "location": "河北省保定市涞水县",
+      "description": "世界地质公园,以其奇特的地质景观而闻名",
+      "landformTags": [
+        "峡谷景观"
+      ],
+      "landscapeType": "canyon",
+      "landscapeCategory": [
+        "地理景观"
+      ]
+    },
+    {
+      "id": "easternTombs",
+      "name": "清东陵",
+      "tags": [
+        "皇家",
+        "陵寝",
+        "世界遗产",
+        "历史"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1165/600/400",
+      "rating": 4.6,
+      "bestTime": "春秋",
+      "location": "河北省唐山市遵化市",
+      "description": "清朝皇家陵寝,世界文化遗产"
+    },
+    {
+      "id": "wahuangPalace",
+      "name": "娲皇宫",
+      "tags": [
+        "神话",
+        "宗教",
+        "历史",
+        "文化"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1166/600/400",
+      "rating": 4.4,
+      "bestTime": "春秋",
+      "location": "河北省邯郸市涉县",
+      "description": "神话传说中女娲补天的地方"
+    },
+    {
+      "id": "xibaipo",
+      "name": "西柏坡",
+      "tags": [
+        "红色",
+        "历史",
+        "教育",
+        "革命"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1167/600/400",
+      "rating": 4.5,
+      "bestTime": "全年",
+      "location": "河北省石家庄市平山县",
+      "description": "新中国的摇篮,红色旅游胜地"
+    }
+  ],
+  "routes": [
+    {
+      "id": "1",
+      "name": "承德皇家文化之旅",
+      "tags": [
+        "皇家",
+        "文化",
+        "历史"
+      ],
+      "image": "https://picsum.photos/id/1160/600/400",
+      "spots": [
+        "承德避暑山庄",
+        "清东陵"
+      ],
+      "title": "承德皇家文化之旅",
+      "rating": 4.7,
+      "traffic": "旅游大巴",
+      "bestTime": "春秋",
+      "duration": "2天",
+      "difficulty": "简单",
+      "highlights": [
+        "承德避暑山庄",
+        "清东陵"
+      ],
+      "description": "探索清朝皇家园林和陵寝",
+      "suitableFor": "历史爱好者"
+    }
+  ],
+  "customs": {
+    "activities": [
+      {
+        "id": "1",
+        "name": "吴桥杂技",
+        "type": "文化体验",
+        "image": "https://picsum.photos/id/1164/600/400",
+        "category": "culture",
+        "duration": "2-3小时",
+        "location": "吴桥杂技大世界",
+        "difficulty": "简单",
+        "description": "观看世界著名的吴桥杂技表演"
+      }
+    ]
+  },
+  "overview": {
+    "totalSpots": 280,
+    "natureSpots": 150,
+    "cultureSpots": 130,
+    "topAttractions": [
+      {
+        "name": "承德避暑山庄",
+        "image": "https://picsum.photos/id/1160/600/400",
+        "description": "中国现存最大的皇家园林,世界文化遗产"
+      },
+      {
+        "name": "山海关",
+        "image": "https://picsum.photos/id/1161/600/400",
+        "description": "天下第一关,明长城东端起点"
+      },
+      {
+        "name": "白洋淀",
+        "image": "https://picsum.photos/id/1162/600/400",
+        "description": "华北明珠,华北最大的淡水湖"
+      },
+      {
+        "name": "北戴河",
+        "image": "https://picsum.photos/id/1163/600/400",
+        "description": "中国著名的避暑胜地,海滨旅游度假胜地"
+      },
+      {
+        "name": "野三坡",
+        "image": "https://picsum.photos/id/1164/600/400",
+        "description": "世界地质公园,以其奇特的地质景观而闻名"
+      },
+      {
+        "name": "清东陵",
+        "image": "https://picsum.photos/id/1165/600/400",
+        "description": "清朝皇家陵寝,世界文化遗产"
+      },
+      {
+        "name": "娲皇宫",
+        "image": "https://picsum.photos/id/1166/600/400",
+        "description": "神话传说中女娲补天的地方"
+      },
+      {
+        "name": "西柏坡",
+        "image": "https://picsum.photos/id/1167/600/400",
+        "description": "新中国的摇篮,红色旅游胜地"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "name": "春季",
+      "image": "https://picsum.photos/id/1160/600/400",
+      "activities": [
+        "避暑山庄踏青",
+        "山海关游览",
+        "白洋淀赏花",
+        "野三坡探险"
+      ],
+      "description": "春暖花开,避暑山庄山花烂漫,是踏青赏花的好时节"
+    },
+    {
+      "name": "夏季",
+      "image": "https://picsum.photos/id/1160/600/400",
+      "activities": [
+        "避暑山庄避暑",
+        "北戴河海滨度假",
+        "白洋淀游船",
+        "野三坡漂流"
+      ],
+      "description": "绿树成荫,避暑山庄和北戴河是避暑纳凉的好去处"
+    },
+    {
+      "name": "秋季",
+      "image": "https://picsum.photos/id/1160/600/400",
+      "activities": [
+        "避暑山庄赏秋",
+        "山海关秋游",
+        "清东陵参观",
+        "白洋淀秋景"
+      ],
+      "description": "秋高气爽,承德红叶满山,是登山赏秋的好时节"
+    },
+    {
+      "name": "冬季",
+      "image": "https://picsum.photos/id/1163/600/400",
+      "activities": [
+        "北戴河观雪",
+        "避暑山庄雪景",
+        "温泉体验",
+        "红色旅游"
+      ],
+      "description": "银装素裹,北戴河雪景如画,是体验北国风情的好时节"
+    }
+  ],
+  "festivals": [
+    {
+      "id": "1",
+      "day": "15日",
+      "name": "吴桥国际杂技节",
+      "month": "10月",
+      "isUnique": true,
+      "location": "吴桥",
+      "description": "世界著名的杂技盛会"
+    }
+  ],
+  "activities": [
+    {
+      "id": "1",
+      "name": "避暑山庄游览",
+      "type": "文化体验",
+      "image": "https://picsum.photos/id/1160/600/400",
+      "category": "culture",
+      "duration": "3-4小时",
+      "location": "承德避暑山庄",
+      "difficulty": "简单",
+      "description": "游览中国最大的皇家园林,感受皇家气派"
+    },
+    {
+      "id": "2",
+      "name": "北戴河海滨度假",
+      "type": "休闲度假",
+      "image": "https://picsum.photos/id/1163/600/400",
+      "category": "nature",
+      "duration": "1-2天",
+      "location": "北戴河",
+      "difficulty": "简单",
+      "description": "在海滨度假村享受阳光沙滩"
+    }
+  ],
+  "intangibleHeritage": [
+    {
+      "id": "1",
+      "icon": "🎪",
+      "name": "吴桥杂技",
+      "image": "https://picsum.photos/id/1164/600/400",
+      "level": "national",
+      "category": "传统体育",
+      "features": [
+        "传统体育",
+        "国家级非遗",
+        "杂技艺术"
+      ],
+      "description": "世界杂技之乡,杂技艺术历史悠久",
+      "protectionUnit": "吴桥杂技团"
+    }
+  ],
+  "folkCustomsElements": [
+    {
+      "name": "吴桥杂技",
+      "tags": [
+        "传统技艺",
+        "杂技艺术",
+        "河北文化",
+        "非遗传承",
+        "民间艺术"
+      ],
+      "image": "https://picsum.photos/id/1164/600/400",
+      "description": "世界杂技之乡,杂技艺术源远流长"
+    }
+  ]
+}

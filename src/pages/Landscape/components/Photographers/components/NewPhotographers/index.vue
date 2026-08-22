@@ -105,7 +105,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { computed, watch } from 'vue';
 import { showMessage } from '@/utils/landscape';
 import { useInteractionStore } from '@/stores/landscape';
 import { useFormatNumber } from '@/composables/landscape/useFormatNumber';
@@ -122,7 +122,7 @@ defineEmits<{
 const getWorkTypeLabel = (type?: string) => workTypeLabels[type || 'photo'] || '照片';
 
 const { newPhotographers } = usePhotographersViewData();
-const photographers = ref(newPhotographers());
+const photographers = computed(() => newPhotographers());
 const interactionStore = useInteractionStore();
 const { formatCount: formatNumber } = useFormatNumber();
 
@@ -134,33 +134,38 @@ const getPhotographerId = (photographer: Photographer): string => {
   return String(photographer.id);
 };
 
-onMounted(() => {
-  photographers.value.forEach(photographer => {
-    const id = getPhotographerId(photographer);
-    interactionStore.registerCount(id, {
-      likes: parseInt(photographer.likes?.replace(/[KM]/g, '') || '0') * (photographer.likes?.includes('K') ? 1000 : photographer.likes?.includes('M') ? 1000000 : 1),
-      views: parseInt(photographer.views?.replace(/[KM]/g, '') || '0') * (photographer.views?.includes('K') ? 1000 : photographer.views?.includes('M') ? 1000000 : 1),
-      loves: Math.floor(Math.random() * 500 + 100),
-      favorites: Math.floor(Math.random() * 300 + 50),
-      shares: Math.floor(Math.random() * 100 + 10)
-    });
+watch(
+  () => photographers.value.length,
+  (len) => {
+    if (len === 0) return;
+    photographers.value.forEach(photographer => {
+      const id = getPhotographerId(photographer);
+      interactionStore.registerCount(id, {
+        likes: parseInt(photographer.likes?.replace(/[KM]/g, '') || '0') * (photographer.likes?.includes('K') ? 1000 : photographer.likes?.includes('M') ? 1000000 : 1),
+        views: parseInt(photographer.views?.replace(/[KM]/g, '') || '0') * (photographer.views?.includes('K') ? 1000 : photographer.views?.includes('M') ? 1000000 : 1),
+        loves: 0,
+        favorites: 0,
+        shares: 0
+      });
 
-    if (photographer.worksPreview && Array.isArray(photographer.worksPreview)) {
-      interactionStore.registerBatch(
-        photographer.worksPreview.map(work => ({
-          id: work.id || `work-${Date.now()}-${Math.random()}`,
-          counts: {
-            likes: work.likes || 0,
-            loves: work.loves || 0,
-            favorites: work.favorites || 0,
-            views: work.views || 0,
-            shares: work.shares || 0,
-          }
-        }))
-      );
-    }
-  });
-});
+      if (photographer.worksPreview && Array.isArray(photographer.worksPreview)) {
+        interactionStore.registerBatch(
+          photographer.worksPreview.map(work => ({
+            id: work.id || `work-${photographer.id}-${Math.random()}`,
+            counts: {
+              likes: work.likes || 0,
+              loves: work.loves || 0,
+              favorites: work.favorites || 0,
+              views: work.views || 0,
+              shares: work.shares || 0,
+            }
+          }))
+        );
+      }
+    });
+  },
+  { immediate: true },
+);
 
 const toggleLike = (photographer: Photographer) => {
   const id = getPhotographerId(photographer);

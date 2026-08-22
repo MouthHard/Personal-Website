@@ -91,8 +91,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import type { Poem } from '../../../../typesOfPages/poetry/poem';
+import { computed, watch, onBeforeUnmount } from 'vue';
+import type { Poem } from '@/typesOfPages/aphorism/poem';
 import { useAphorismInteractionStore } from '@/stores/aphorism/interaction';
 import { showMessage } from '@/components/common/InteractionMessage';
 import './index.scss';
@@ -113,6 +113,24 @@ const interactionStore = useAphorismInteractionStore();
 const isLiked = computed(() => interactionStore.isLiked(props.poem.id));
 const isLoved = computed(() => interactionStore.isLoved(props.poem.id));
 const isFavorite = computed(() => interactionStore.isFavorite(props.poem.id));
+
+let savedOverflow = '';
+watch(
+  () => props.visible,
+  (visible) => {
+    if (visible) {
+      savedOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = savedOverflow;
+    }
+  },
+  { immediate: true },
+);
+
+onBeforeUnmount(() => {
+  document.body.style.overflow = savedOverflow;
+});
 
 const handleClose = () => {
   emit('close');

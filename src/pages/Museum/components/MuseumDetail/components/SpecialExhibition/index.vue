@@ -37,7 +37,7 @@
         <ExhibitionsSection :exhibitions="currentHall.exhibitions" />
 
         <!-- 数字体验区 -->
-        <DigitalSection />
+        <DigitalSection :museum-id="props.museum.id" />
 
         <!-- 相关推荐区 -->
         <RecommendSection :recommendations="currentHall.recommendations" />
@@ -53,7 +53,7 @@
 <script setup lang="ts">
   import { ref, computed, watch } from 'vue';
   import type { Museum } from '@/typesOfPages/museum';
-  import { getExhibitionHallsByMuseumId } from '@/pages/Museum/data/special-exhibitions';
+  import { useMuseumDataStore } from '@/stores/museum';
 
   // 引入子组件
   import HallOverview from './HallOverview/index.vue';
@@ -68,12 +68,13 @@
   }
 
   const props = defineProps<Props>();
+  const store = useMuseumDataStore();
 
   const specialTab = ref('');
 
   // 获取当前博物馆的专馆数据
   const exhibitionHalls = computed(() => {
-    return getExhibitionHallsByMuseumId(props.museum.id);
+    return store.getExhibitionHallsByMuseumId(props.museum.id);
   });
 
   // 监听专馆数据变化，自动选择第一个专馆

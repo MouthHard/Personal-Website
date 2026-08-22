@@ -43,13 +43,14 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import type { Museum } from "@/typesOfPages/museum";
-import { getExhibitionsByMuseumId } from "@/pages/Museum/data/exhibitions";
+import { useMuseumDataStore } from "@/stores/museum";
 
 interface Props {
   museum: Museum;
 }
 
 const props = defineProps<Props>();
+const store = useMuseumDataStore();
 
 const handleImageError = (e: Event) => {
   const target = e.target as HTMLImageElement;
@@ -64,7 +65,7 @@ const handleImageError = (e: Event) => {
 
 const homeExhibitions = computed(() => {
   if (!props.museum) return [];
-  return getExhibitionsByMuseumId(props.museum.id);
+  return store.getExhibitionsByMuseumId(props.museum.id);
 });
 </script>
 

@@ -53,19 +53,20 @@
 <script setup lang="ts">
   import { computed, ref } from 'vue';
   import type { Museum } from '@/typesOfPages/museum';
-  import { getArtifactsByMuseumId } from '@/pages/Museum/data/artifacts';
+  import { useMuseumDataStore } from '@/stores/museum';
 
   interface Props {
     museum: Museum;
   }
 
   const props = defineProps<Props>();
+  const store = useMuseumDataStore();
 
   const hoveredIndex = ref<number | null>(null);
 
   const homeArtifacts = computed(() => {
     if (!props.museum) return [];
-    return getArtifactsByMuseumId(props.museum.id);
+    return store.getArtifactsByMuseumId(props.museum.id);
   });
 
   const getCardStyle = (index: number) => {

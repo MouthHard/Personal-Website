@@ -1,0 +1,318 @@
+{
+  "spots": [
+    {
+      "id": "mogaoGrottoes",
+      "name": "莫高窟",
+      "tags": [
+        "石窟",
+        "世界遗产",
+        "佛教",
+        "艺术"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1660/600/400",
+      "rating": 4.9,
+      "bestTime": "春秋",
+      "location": "甘肃省酒泉市敦煌市",
+      "description": "世界文化遗产,中国石窟艺术的瑰宝"
+    },
+    {
+      "id": "jiayuguanPass",
+      "name": "嘉峪关",
+      "tags": [
+        "关隘",
+        "长城",
+        "历史",
+        "军事"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1661/600/400",
+      "rating": 4.7,
+      "bestTime": "春秋",
+      "location": "甘肃省嘉峪关市",
+      "description": "天下第一雄关,明长城的西端起点"
+    },
+    {
+      "id": "zhangyeDanxia",
+      "name": "张掖丹霞",
+      "tags": [
+        "丹霞",
+        "地质",
+        "奇观",
+        "摄影"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1662/600/400",
+      "rating": 4.8,
+      "bestTime": "秋季",
+      "location": "甘肃省张掖市临泽县",
+      "description": "世界十大神奇地理奇观之一",
+      "landformTags": [
+        "山地景观"
+      ],
+      "landscapeType": "mountain",
+      "landscapeCategory": [
+        "地理景观"
+      ]
+    },
+    {
+      "id": "maijishanGrottoes",
+      "name": "麦积山石窟",
+      "tags": [
+        "石窟",
+        "佛教",
+        "雕塑",
+        "艺术"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1663/600/400",
+      "rating": 4.6,
+      "bestTime": "全年",
+      "location": "甘肃省天水市麦积区",
+      "description": "中国四大石窟之一,东方雕塑馆"
+    },
+    {
+      "id": "mingshashanCrescentLake",
+      "name": "鸣沙山月牙泉",
+      "tags": [
+        "沙漠",
+        "泉水",
+        "奇观",
+        "自然"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1664/600/400",
+      "rating": 4.7,
+      "bestTime": "春秋",
+      "location": "甘肃省酒泉市敦煌市",
+      "description": "沙漠奇观,沙泉共存",
+      "landformTags": [
+        "沙漠景观"
+      ],
+      "landscapeType": "desert",
+      "landscapeCategory": [
+        "地理景观"
+      ]
+    },
+    {
+      "id": "kongtongMountain",
+      "name": "崆峒山",
+      "tags": [
+        "名山",
+        "道教",
+        "文化",
+        "自然"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1665/600/400",
+      "rating": 4.5,
+      "bestTime": "春秋",
+      "location": "甘肃省平凉市崆峒区",
+      "description": "西来第一山,道教圣地"
+    },
+    {
+      "id": "labrangMonastery",
+      "name": "拉卜楞寺",
+      "tags": [
+        "寺庙",
+        "佛教",
+        "藏传",
+        "文化"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1666/600/400",
+      "rating": 4.6,
+      "bestTime": "夏季",
+      "location": "甘肃省甘南藏族自治州夏河县",
+      "description": "藏传佛教格鲁派六大寺院之一"
+    },
+    {
+      "id": "yellowRiverStoneForest",
+      "name": "黄河石林",
+      "tags": [
+        "石林",
+        "黄河",
+        "自然",
+        "奇观"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1667/600/400",
+      "rating": 4.5,
+      "bestTime": "春秋",
+      "location": "甘肃省白银市景泰县",
+      "description": "中国最美的自然奇观之一",
+      "landformTags": [
+        "峡谷景观"
+      ],
+      "landscapeType": "canyon",
+      "landscapeCategory": [
+        "地理景观"
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "id": "1",
+      "name": "丝绸之路之旅",
+      "tags": [
+        "丝绸之路",
+        "文化",
+        "历史"
+      ],
+      "image": "https://picsum.photos/id/1660/600/400",
+      "spots": [
+        "莫高窟",
+        "嘉峪关",
+        "张掖丹霞"
+      ],
+      "title": "丝绸之路之旅",
+      "rating": 4.9,
+      "traffic": "旅游大巴",
+      "bestTime": "春秋",
+      "duration": "5天",
+      "difficulty": "中等",
+      "highlights": [
+        "莫高窟",
+        "嘉峪关",
+        "张掖丹霞"
+      ],
+      "description": "探索丝绸之路的文化遗产",
+      "suitableFor": "文化爱好者"
+    }
+  ],
+  "customs": {
+    "activities": [
+      {
+        "id": "1",
+        "name": "藏族文化体验",
+        "type": "文化体验",
+        "image": "https://picsum.photos/id/1666/600/400",
+        "category": "culture",
+        "duration": "1天",
+        "location": "甘南",
+        "difficulty": "简单",
+        "description": "体验藏族传统文化和生活方式"
+      }
+    ]
+  },
+  "overview": {
+    "totalSpots": 200,
+    "natureSpots": 100,
+    "cultureSpots": 100,
+    "topAttractions": [
+      {
+        "name": "莫高窟",
+        "image": "https://picsum.photos/id/1660/600/400",
+        "description": "世界文化遗产,中国石窟艺术的瑰宝"
+      },
+      {
+        "name": "嘉峪关",
+        "image": "https://picsum.photos/id/1661/600/400",
+        "description": "天下第一雄关,明长城的西端起点"
+      },
+      {
+        "name": "张掖丹霞",
+        "image": "https://picsum.photos/id/1662/600/400",
+        "description": "世界十大神奇地理奇观之一"
+      },
+      {
+        "name": "麦积山石窟",
+        "image": "https://picsum.photos/id/1663/600/400",
+        "description": "中国四大石窟之一,东方雕塑馆"
+      },
+      {
+        "name": "鸣沙山月牙泉",
+        "image": "https://picsum.photos/id/1664/600/400",
+        "description": "沙漠奇观,沙泉共存"
+      },
+      {
+        "name": "崆峒山",
+        "image": "https://picsum.photos/id/1665/600/400",
+        "description": "西来第一山,道教圣地"
+      },
+      {
+        "name": "拉卜楞寺",
+        "image": "https://picsum.photos/id/1666/600/400",
+        "description": "藏传佛教格鲁派六大寺院之一"
+      },
+      {
+        "name": "黄河石林",
+        "image": "https://picsum.photos/id/1667/600/400",
+        "description": "中国最美的自然奇观之一"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "name": "春季",
+      "image": "https://picsum.photos/id/1665/600/400",
+      "activities": [
+        "崆峒山踏青",
+        "莫高窟参观",
+        "麦积山石窟游览",
+        "黄河石林参观"
+      ],
+      "description": "春暖花开,崆峒山山花烂漫,是踏青赏花的好时节"
+    },
+    {
+      "name": "夏季",
+      "image": "https://picsum.photos/id/1666/600/400",
+      "activities": [
+        "拉卜楞寺参观",
+        "崆峒山避暑",
+        "莫高窟参观",
+        "鸣沙山月牙泉游览"
+      ],
+      "description": "绿树成荫,拉卜楞寺和崆峒山是避暑纳凉的好去处"
+    },
+    {
+      "name": "秋季",
+      "image": "https://picsum.photos/id/1662/600/400",
+      "activities": [
+        "张掖丹霞赏秋",
+        "莫高窟参观",
+        "嘉峪关游览",
+        "麦积山石窟秋游"
+      ],
+      "description": "秋高气爽,张掖丹霞秋色迷人,是游览的最佳时节"
+    },
+    {
+      "name": "冬季",
+      "image": "https://picsum.photos/id/1660/600/400",
+      "activities": [
+        "莫高窟参观",
+        "麦积山石窟游览",
+        "崆峒山冬景",
+        "温泉体验"
+      ],
+      "description": "银装素裹,是体验甘肃风情的好时节"
+    }
+  ],
+  "festivals": [],
+  "activities": [
+    {
+      "id": "1",
+      "name": "莫高窟参观",
+      "type": "文化体验",
+      "image": "https://picsum.photos/id/1660/600/400",
+      "category": "culture",
+      "duration": "3-4小时",
+      "location": "莫高窟",
+      "difficulty": "简单",
+      "description": "参观世界文化遗产莫高窟"
+    },
+    {
+      "id": "2",
+      "name": "鸣沙山月牙泉游览",
+      "type": "自然体验",
+      "image": "https://picsum.photos/id/1664/600/400",
+      "category": "nature",
+      "duration": "1天",
+      "location": "鸣沙山月牙泉",
+      "difficulty": "中等",
+      "description": "游览沙漠奇观鸣沙山月牙泉"
+    }
+  ],
+  "intangibleHeritage": [],
+  "folkCustomsElements": []
+}

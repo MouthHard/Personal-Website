@@ -136,7 +136,7 @@ export function convertPhotographerToSearchResult(photographer: GlobalPhotograph
 }
 
 export function sanitizeKeyword(keyword: string): string {
-  let sanitized = keyword
+  const sanitized = keyword
     .replace(/[\s\t\n\r]+/g, ' ')
     .replace(/[^\u4e00-\u9fa5a-zA-Z0-9\s\-_.,，。！!？?、]/g, '')
     .trim()
@@ -149,6 +149,19 @@ export function sortSearchResults(
   results: SearchResultItem[],
   sortBy: string
 ): SearchResultItem[] {
+  if (sortBy === 'latest') {
+    const timeCache = new Map<SearchResultItem, number>()
+    const getTime = (item: SearchResultItem) => {
+      let t = timeCache.get(item)
+      if (t === undefined) {
+        t = item.date ? new Date(item.date).getTime() : 0
+        timeCache.set(item, t)
+      }
+      return t
+    }
+    return [...results].sort((a, b) => getTime(b) - getTime(a))
+  }
+
   const getViews = (item: SearchResultItem) => Number(item.views || 0);
   const getLikes = (item: SearchResultItem) => Number(item.likes || 0);
   const getBookmarks = (item: SearchResultItem) => Number(item.bookmarks || 0);
@@ -157,10 +170,6 @@ export function sortSearchResults(
 
   return [...results].sort((a, b) => {
     switch (sortBy) {
-      case 'latest':
-        const dateA = a.date ? new Date(a.date).getTime() : 0;
-        const dateB = b.date ? new Date(b.date).getTime() : 0;
-        return dateB - dateA;
       case 'views':
         return getViews(b) - getViews(a);
       case 'likes':
@@ -181,25 +190,11 @@ export function sortSearchResults(
 
 export function filterSearchResults(
   results: SearchResultItem[],
-  keyword: string,
+  _keyword: string,
   type: string
 ): SearchResultItem[] {
-  let filtered = [...results];
-
   if (type !== 'all') {
-    filtered = filtered.filter(item => item.type === type);
+    return results.filter(item => item.type === type);
   }
-
-  if (keyword) {
-    const lowerQuery = keyword.toLowerCase();
-    filtered = filtered.filter(item =>
-      item.title.toLowerCase().includes(lowerQuery) ||
-      (item as any).name?.toLowerCase().includes(lowerQuery) ||
-      item.description.toLowerCase().includes(lowerQuery) ||
-      item.tags.some((tag: string) => tag.toLowerCase().includes(lowerQuery)) ||
-      (item as any).location?.toLowerCase().includes(lowerQuery)
-    );
-  }
-
-  return filtered;
+  return results;
 }

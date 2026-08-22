@@ -1,0 +1,436 @@
+[
+  {
+    "id": "dynasty",
+    "name": "朝代",
+    "icon": "👑",
+    "children": [
+      {
+        "id": 39,
+        "name": "全部诗词",
+        "icon": "📚",
+        "count": 44,
+        "sortOrder": 0
+      },
+      {
+        "id": 40,
+        "name": "先秦",
+        "icon": "🏺",
+        "count": 1,
+        "sortOrder": 1
+      },
+      {
+        "id": 41,
+        "name": "秦汉",
+        "icon": "🏛️",
+        "count": 1,
+        "sortOrder": 2
+      },
+      {
+        "id": 42,
+        "name": "魏晋",
+        "icon": "🎋",
+        "count": 3,
+        "sortOrder": 3
+      },
+      {
+        "id": 43,
+        "name": "南北朝",
+        "icon": "🏯",
+        "count": 2,
+        "sortOrder": 4
+      },
+      {
+        "id": 44,
+        "name": "隋唐",
+        "icon": "🏮",
+        "count": 22,
+        "sortOrder": 5
+      },
+      {
+        "id": 45,
+        "name": "五代十国",
+        "icon": "⚔️",
+        "count": 1,
+        "sortOrder": 6
+      },
+      {
+        "id": 46,
+        "name": "宋辽金",
+        "icon": "🏯",
+        "count": 4,
+        "sortOrder": 7
+      },
+      {
+        "id": 47,
+        "name": "元明清",
+        "icon": "👑",
+        "count": 1,
+        "sortOrder": 8
+      },
+      {
+        "id": 48,
+        "name": "近现代",
+        "icon": "📷",
+        "count": 1,
+        "sortOrder": 9
+      }
+    ]
+  },
+  {
+    "id": "emotion",
+    "name": "情感",
+    "icon": "❤️",
+    "children": [
+      {
+        "id": 69,
+        "name": "全部诗词",
+        "icon": "📚",
+        "count": 44,
+        "sortOrder": 0
+      },
+      {
+        "id": 70,
+        "name": "欢乐",
+        "icon": "😊",
+        "count": 1,
+        "sortOrder": 1
+      },
+      {
+        "id": 71,
+        "name": "悲伤",
+        "icon": "😢",
+        "count": 9,
+        "sortOrder": 2
+      },
+      {
+        "id": 72,
+        "name": "思乡",
+        "icon": "🏠",
+        "count": 5,
+        "sortOrder": 3
+      },
+      {
+        "id": 73,
+        "name": "忧愁",
+        "icon": "😔",
+        "count": 2,
+        "sortOrder": 4
+      },
+      {
+        "id": 74,
+        "name": "愤怒",
+        "icon": "😠",
+        "count": 1,
+        "sortOrder": 5
+      },
+      {
+        "id": 75,
+        "name": "仰慕",
+        "icon": "🌟",
+        "count": 1,
+        "sortOrder": 6
+      },
+      {
+        "id": 76,
+        "name": "豪迈",
+        "icon": "🦁",
+        "count": 8,
+        "sortOrder": 7
+      },
+      {
+        "id": 77,
+        "name": "恬淡",
+        "icon": "🍃",
+        "count": 4,
+        "sortOrder": 8
+      },
+      {
+        "id": 78,
+        "name": "孤独",
+        "icon": "🌑",
+        "count": 1,
+        "sortOrder": 9
+      },
+      {
+        "id": 79,
+        "name": "惆怅",
+        "icon": "🌫️",
+        "count": 1,
+        "sortOrder": 10
+      }
+    ]
+  },
+  {
+    "id": "form",
+    "name": "形式",
+    "icon": "📜",
+    "children": [
+      {
+        "id": 49,
+        "name": "全部诗词",
+        "icon": "📚",
+        "count": 44,
+        "sortOrder": 0
+      },
+      {
+        "id": 50,
+        "name": "诗",
+        "icon": "📜",
+        "count": 29,
+        "sortOrder": 1
+      },
+      {
+        "id": 51,
+        "name": "词",
+        "icon": "🎋",
+        "count": 8,
+        "sortOrder": 2
+      },
+      {
+        "id": 52,
+        "name": "曲",
+        "icon": "🎵",
+        "count": 2,
+        "sortOrder": 3
+      },
+      {
+        "id": 53,
+        "name": "其他韵文",
+        "icon": "📚",
+        "count": 2,
+        "sortOrder": 4
+      },
+      {
+        "id": 54,
+        "name": "特殊形式",
+        "icon": "✨",
+        "count": 1,
+        "sortOrder": 5
+      }
+    ]
+  },
+  {
+    "id": "school",
+    "name": "流派",
+    "icon": "🎭",
+    "children": [
+      {
+        "id": 80,
+        "name": "全部诗词",
+        "icon": "📚",
+        "count": 44,
+        "sortOrder": 0
+      },
+      {
+        "id": 81,
+        "name": "婉约派",
+        "icon": "🌸",
+        "count": 5,
+        "sortOrder": 1
+      },
+      {
+        "id": 82,
+        "name": "豪放派",
+        "icon": "🔥",
+        "count": 8,
+        "sortOrder": 2
+      },
+      {
+        "id": 83,
+        "name": "清旷派",
+        "icon": "💧",
+        "count": 2,
+        "sortOrder": 3
+      },
+      {
+        "id": 84,
+        "name": "格律派",
+        "icon": "📏",
+        "count": 0,
+        "sortOrder": 4
+      },
+      {
+        "id": 85,
+        "name": "田园派",
+        "icon": "🌾",
+        "count": 3,
+        "sortOrder": 5
+      },
+      {
+        "id": 86,
+        "name": "边塞派",
+        "icon": "⛰️",
+        "count": 0,
+        "sortOrder": 6
+      },
+      {
+        "id": 87,
+        "name": "江西诗派",
+        "icon": "🖌️",
+        "count": 1,
+        "sortOrder": 7
+      }
+    ]
+  },
+  {
+    "id": "subject",
+    "name": "题材",
+    "icon": "📝",
+    "children": [
+      {
+        "id": 55,
+        "name": "全部诗词",
+        "icon": "📚",
+        "count": 44,
+        "sortOrder": 0
+      },
+      {
+        "id": 56,
+        "name": "山水田园",
+        "icon": "🏞️",
+        "count": 7,
+        "sortOrder": 1
+      },
+      {
+        "id": 57,
+        "name": "咏物",
+        "icon": "🌸",
+        "count": 1,
+        "sortOrder": 2
+      },
+      {
+        "id": 58,
+        "name": "咏史怀古",
+        "icon": "🏛️",
+        "count": 3,
+        "sortOrder": 3
+      },
+      {
+        "id": 59,
+        "name": "边塞征战",
+        "icon": "⚔️",
+        "count": 2,
+        "sortOrder": 4
+      },
+      {
+        "id": 60,
+        "name": "离别相思",
+        "icon": "🌙",
+        "count": 10,
+        "sortOrder": 5
+      },
+      {
+        "id": 61,
+        "name": "垂钓闲适",
+        "icon": "🎣",
+        "count": 4,
+        "sortOrder": 6
+      },
+      {
+        "id": 62,
+        "name": "宫怨",
+        "icon": "👸",
+        "count": 1,
+        "sortOrder": 7
+      },
+      {
+        "id": 63,
+        "name": "羁旅",
+        "icon": "🧳",
+        "count": 3,
+        "sortOrder": 8
+      },
+      {
+        "id": 64,
+        "name": "爱情言情",
+        "icon": "💕",
+        "count": 4,
+        "sortOrder": 9
+      },
+      {
+        "id": 65,
+        "name": "哲理",
+        "icon": "🔮",
+        "count": 2,
+        "sortOrder": 10
+      },
+      {
+        "id": 66,
+        "name": "励志",
+        "icon": "💪",
+        "count": 3,
+        "sortOrder": 11
+      },
+      {
+        "id": 67,
+        "name": "饮酒",
+        "icon": "🍶",
+        "count": 1,
+        "sortOrder": 12
+      },
+      {
+        "id": 68,
+        "name": "节日",
+        "icon": "🎊",
+        "count": 3,
+        "sortOrder": 13
+      }
+    ]
+  },
+  {
+    "id": "usage",
+    "name": "用途",
+    "icon": "💡",
+    "children": [
+      {
+        "id": 88,
+        "name": "全部诗词",
+        "icon": "📚",
+        "count": 44,
+        "sortOrder": 0
+      },
+      {
+        "id": 89,
+        "name": "启蒙读物",
+        "icon": "📖",
+        "count": 1,
+        "sortOrder": 1
+      },
+      {
+        "id": 90,
+        "name": "科举应试",
+        "icon": "🎓",
+        "count": 0,
+        "sortOrder": 2
+      },
+      {
+        "id": 91,
+        "name": "酬唱赠答",
+        "icon": "🤝",
+        "count": 0,
+        "sortOrder": 3
+      },
+      {
+        "id": 92,
+        "name": "咏史纪念",
+        "icon": "🕯️",
+        "count": 1,
+        "sortOrder": 4
+      },
+      {
+        "id": 93,
+        "name": "应制",
+        "icon": "📜",
+        "count": 1,
+        "sortOrder": 5
+      },
+      {
+        "id": 94,
+        "name": "民歌",
+        "icon": "🎵",
+        "count": 2,
+        "sortOrder": 6
+      }
+    ]
+  }
+]

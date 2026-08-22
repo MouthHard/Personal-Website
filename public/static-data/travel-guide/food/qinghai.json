@@ -1,0 +1,222 @@
+{
+  "items": [
+    {
+      "id": "qinghai-suannai",
+      "name": "青海酸奶",
+      "tags": [
+        "青海特色",
+        "高原乳制品",
+        "酸甜可口",
+        "口感醇厚",
+        "益生菌丰富"
+      ],
+      "image": "https://picsum.photos/id/487/800/600",
+      "price": 12,
+      "rating": 4.6,
+      "category": "奶制品",
+      "badgeText": "高原美味",
+      "isPopular": true,
+      "badgeColor": "#03a9f4",
+      "description": "酸甜可口，口感醇厚",
+      "recommendations": {
+        "pairings": [
+          "白糖",
+          "蜂蜜",
+          "青稞麦片",
+          "水果"
+        ],
+        "eatingMethod": "可加入白糖或蜂蜜调味后食用"
+      }
+    },
+    {
+      "id": "qinghai-shouzhuayangrou",
+      "name": "手抓羊肉",
+      "tags": [
+        "青海特色",
+        "西北美食",
+        "肉质鲜嫩",
+        "香气浓郁",
+        "草原羊肉"
+      ],
+      "image": "https://picsum.photos/id/488/800/600",
+      "price": 68,
+      "rating": 4.8,
+      "category": "菜肴",
+      "badgeText": "青海名吃",
+      "isPopular": true,
+      "badgeColor": "#795548",
+      "description": "肉质鲜嫩，香气浓郁",
+      "recommendations": {
+        "pairings": [
+          "大蒜",
+          "椒盐",
+          "洋葱",
+          "青稞酒"
+        ],
+        "eatingMethod": "手抓蘸椒盐和蒜片食用，热食最佳"
+      }
+    },
+    {
+      "id": "gaxianpian",
+      "name": "尕面片",
+      "tags": [
+        "青海特色",
+        "家常面食",
+        "口感劲道",
+        "味道鲜美",
+        "快捷方便"
+      ],
+      "image": "https://picsum.photos/id/489/800/600",
+      "price": 15,
+      "rating": 4.5,
+      "category": "主食",
+      "badgeText": "青海家常",
+      "isPopular": true,
+      "badgeColor": "#ff9800",
+      "description": "口感劲道，味道鲜美",
+      "recommendations": {
+        "pairings": [
+          "醋",
+          "辣椒",
+          "大蒜",
+          "酸菜"
+        ],
+        "eatingMethod": "汤面一起食用，酸辣开胃"
+      }
+    },
+    {
+      "id": "qinghaihu-huangyu",
+      "name": "青海湖湟鱼",
+      "tags": [
+        "青海特色",
+        "湖鲜美味",
+        "肉质鲜嫩",
+        "味道鲜美",
+        "高原鱼类"
+      ],
+      "image": "https://picsum.photos/id/490/800/600",
+      "price": 88,
+      "rating": 4.4,
+      "category": "菜肴",
+      "isPopular": false,
+      "description": "肉质鲜嫩，味道鲜美",
+      "recommendations": {
+        "pairings": [
+          "馒头",
+          "米饭",
+          "大蒜",
+          "白酒"
+        ],
+        "eatingMethod": "可清蒸、红烧或煎制食用"
+      }
+    },
+    {
+      "id": "tianpei",
+      "name": "甜醅",
+      "tags": [
+        "青海特色",
+        "发酵食品",
+        "香甜可口",
+        "清凉解暑",
+        "夏日必备"
+      ],
+      "image": "https://picsum.photos/id/491/800/600",
+      "price": 8,
+      "rating": 4.3,
+      "category": "甜品",
+      "isPopular": false,
+      "description": "香甜可口，清凉解暑",
+      "recommendations": {
+        "pairings": [
+          "酸奶",
+          "牛奶",
+          "水果",
+          "奶茶"
+        ],
+        "eatingMethod": "可直接食用或兑入酸奶、牛奶中"
+      }
+    },
+    {
+      "id": "qinghai-youtiao",
+      "name": "青海油条",
+      "tags": [
+        "青海特色",
+        "早餐食品",
+        "外酥内软",
+        "快捷方便",
+        "传统早点"
+      ],
+      "image": "https://picsum.photos/id/492/800/600",
+      "price": 3,
+      "rating": 4.1,
+      "category": "小吃",
+      "isPopular": false,
+      "description": "外酥内软，早餐必备",
+      "recommendations": {
+        "pairings": [
+          "牛奶",
+          "豆浆",
+          "稀饭",
+          "奶茶"
+        ],
+        "eatingMethod": "直接食用或泡入牛奶中"
+      }
+    },
+    {
+      "id": "qinghai-hongcha",
+      "name": "青海红茶",
+      "tags": [
+        "青海特色",
+        "高原茶区",
+        "香气浓郁",
+        "口感醇厚",
+        "养生茶饮"
+      ],
+      "image": "https://picsum.photos/id/493/800/600",
+      "price": 38,
+      "rating": 4.3,
+      "category": "饮品",
+      "isPopular": false,
+      "description": "香气浓郁，口感醇厚",
+      "recommendations": {
+        "pairings": [
+          "点心",
+          "瓜子",
+          "奶酪",
+          "干果"
+        ],
+        "eatingMethod": "沸水冲泡，可反复冲泡3-5次"
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "icon": "🛣️",
+      "name": "西宁莫家街",
+      "type": "美食街",
+      "foods": [
+        "qinghai-yogurt",
+        "qinghai-shouzhuayangrou",
+        "gaxianpian"
+      ],
+      "image": "https://picsum.photos/id/338/800/600",
+      "reason": "西宁特色美食集中地",
+      "location": "西宁市"
+    },
+    {
+      "id": 2,
+      "icon": "🏞️",
+      "name": "青海湖美食区",
+      "type": "景区",
+      "foods": [
+        "qinghaihu-huangyu",
+        "qinghai-shouzhuayangrou",
+        "tianpei"
+      ],
+      "image": "https://picsum.photos/id/339/800/600",
+      "reason": "青海湖周边美食聚集地",
+      "location": "青海湖"
+    }
+  ]
+}

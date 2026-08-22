@@ -205,8 +205,14 @@ export function searchPoems(poems: Poem[], query: string): Poem[] {
       poem.title.toLowerCase().includes(lowerQuery) ||
       poem.author.toLowerCase().includes(lowerQuery) ||
       poem.dynasty.toLowerCase().includes(lowerQuery) ||
+      (poem.form?.toLowerCase().includes(lowerQuery) ?? false) ||
       poem.content.some((line) => line.toLowerCase().includes(lowerQuery)) ||
-      poem.tags?.some((tag) => tag.toLowerCase().includes(lowerQuery))
+      poem.tags?.some((tag) => tag.toLowerCase().includes(lowerQuery)) ||
+      (poem.annotation?.toLowerCase().includes(lowerQuery) ?? false) ||
+      (poem.translation?.toLowerCase().includes(lowerQuery) ?? false) ||
+      (poem.background?.toLowerCase().includes(lowerQuery) ?? false) ||
+      (poem.appreciation?.toLowerCase().includes(lowerQuery) ?? false) ||
+      (poem.poetIntroduction?.toLowerCase().includes(lowerQuery) ?? false)
     );
   });
 }

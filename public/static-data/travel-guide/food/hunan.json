@@ -1,0 +1,330 @@
+{
+  "items": [
+    {
+      "id": "stir-fried-pork",
+      "name": "辣椒炒肉",
+      "tags": [
+        "湖南特色",
+        "经典湘菜",
+        "香辣下饭",
+        "家常必备",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/362/800/600",
+      "price": 32,
+      "rating": 4.7,
+      "category": "菜肴",
+      "badgeText": "湘菜之魂",
+      "isPopular": true,
+      "badgeColor": "#f44336",
+      "description": "湖南经典家常菜，香辣下饭",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "steamed-fish-head",
+      "name": "剁椒鱼头",
+      "tags": [
+        "湖南特色",
+        "经典湘菜",
+        "鲜辣过瘾",
+        "鱼肉嫩滑",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/363/800/600",
+      "price": 68,
+      "rating": 4.8,
+      "category": "菜肴",
+      "badgeText": "湘菜代表",
+      "isPopular": true,
+      "badgeColor": "#ff5722",
+      "description": "湖南名菜代表，鲜辣过瘾鱼肉嫩滑",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "changsha-stinky-tofu",
+      "name": "长沙臭豆腐",
+      "tags": [
+        "湖南特色",
+        "长沙特产",
+        "闻着臭吃着香",
+        "传统工艺",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/364/800/600",
+      "price": 10,
+      "rating": 4.6,
+      "category": "小吃",
+      "badgeText": "长沙名片",
+      "isPopular": true,
+      "badgeColor": "#795548",
+      "description": "湖南特色小吃，闻着臭吃着香",
+      "recommendations": {
+        "pairings": [
+          "辣椒",
+          "调料",
+          "小菜",
+          "饮料"
+        ],
+        "eatingMethod": "直接食用，作为小吃"
+      }
+    },
+    {
+      "id": "dong-an-ji",
+      "name": "东安子鸡",
+      "tags": [
+        "湖南特色",
+        "经典湘菜",
+        "酸辣鲜香",
+        "色泽鲜艳",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/365/800/600",
+      "price": 58,
+      "rating": 4.7,
+      "category": "菜肴",
+      "badgeText": "湘菜经典",
+      "isPopular": true,
+      "badgeColor": "#ff9800",
+      "description": "湘菜经典名菜，酸辣鲜香色泽鲜艳",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "hunan-rice-noodles",
+      "name": "湖南米粉",
+      "tags": [
+        "湖南特色",
+        "早餐首选",
+        "爽滑劲道",
+        "汤头鲜美",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/366/800/600",
+      "price": 12,
+      "rating": 4.5,
+      "category": "主食",
+      "badgeText": "湖南早餐",
+      "isPopular": true,
+      "badgeColor": "#4caf50",
+      "description": "湖南早餐首选，爽滑劲道汤头鲜美",
+      "recommendations": {
+        "pairings": [
+          "小菜",
+          "汤品",
+          "饮料",
+          "茶品"
+        ],
+        "eatingMethod": "直接食用，趁热最佳"
+      }
+    },
+    {
+      "id": "sugar-oil-ba-ba",
+      "name": "糖油粑粑",
+      "tags": [
+        "湖南特色",
+        "长沙特产",
+        "外酥内软",
+        "甜而不腻",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/367/800/600",
+      "price": 8,
+      "rating": 4.3,
+      "category": "甜品",
+      "isPopular": false,
+      "description": "长沙传统甜品，外酥内软甜而不腻",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "咖啡",
+          "水果",
+          "饮料"
+        ],
+        "eatingMethod": "直接食用，作为甜品"
+      }
+    },
+    {
+      "id": "smoked-meat",
+      "name": "湘西腊肉",
+      "tags": [
+        "湖南特色",
+        "湘西特产",
+        "烟熏香浓",
+        "肥而不腻",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/368/800/600",
+      "price": 88,
+      "rating": 4.6,
+      "category": "菜肴",
+      "isPopular": false,
+      "description": "湘西特产，烟熏香浓肥而不腻",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "lotus-root",
+      "name": "湘莲",
+      "tags": [
+        "湖南特色",
+        "湖南特产",
+        "颗粒饱满",
+        "清香甜糯",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/369/800/600",
+      "price": 28,
+      "rating": 4.2,
+      "category": "甜品",
+      "isPopular": false,
+      "description": "湖南特产，颗粒饱满清香甜糯",
+      "recommendations": {
+        "pairings": [
+          "糖水",
+          "粥",
+          "米饭",
+          "茶品"
+        ],
+        "eatingMethod": "直接食用，或作为甜品配料"
+      }
+    },
+    {
+      "id": "changsha-baozi",
+      "name": "长沙包子",
+      "tags": [
+        "湖南特色",
+        "长沙特产",
+        "皮薄馅大",
+        "汤汁丰富",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/370/800/600",
+      "price": 6,
+      "rating": 4.1,
+      "category": "主食",
+      "isPopular": false,
+      "description": "长沙特色面点，皮薄馅大汤汁丰富",
+      "recommendations": {
+        "pairings": [
+          "豆浆",
+          "粥",
+          "小菜",
+          "汤品"
+        ],
+        "eatingMethod": "直接食用，作为早餐"
+      }
+    },
+    {
+      "id": "guangchang-beef",
+      "name": "口味虾",
+      "tags": [
+        "湖南特色",
+        "长沙特产",
+        "夜宵首选",
+        "麻辣鲜香",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/371/800/600",
+      "price": 78,
+      "rating": 4.7,
+      "category": "菜肴",
+      "isPopular": false,
+      "description": "长沙夜宵首选，麻辣鲜香",
+      "recommendations": {
+        "pairings": [
+          "啤酒",
+          "饮料",
+          "小菜",
+          "主食"
+        ],
+        "eatingMethod": "直接食用，作为夜宵或下酒菜"
+      }
+    },
+    {
+      "id": "hunan-hongcha",
+      "name": "湖南红茶",
+      "tags": [
+        "湖南特色",
+        "湖南特产",
+        "香气浓郁",
+        "口感醇厚",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/372/800/600",
+      "price": 48,
+      "rating": 4.4,
+      "category": "饮品",
+      "isPopular": false,
+      "description": "湖南特产，香气浓郁，口感醇厚",
+      "recommendations": {
+        "pairings": [
+          "点心",
+          "小吃",
+          "甜品",
+          "菜肴"
+        ],
+        "eatingMethod": "直接饮用，可点心或小吃"
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "icon": "🛣️",
+      "name": "长沙坡子街",
+      "type": "美食街",
+      "foods": [
+        "stir-fried-pork",
+        "steamed-fish-head",
+        "changsha-stinky-tofu"
+      ],
+      "image": "https://picsum.photos/id/1094/800/600",
+      "reason": "长沙传统美食集中地",
+      "location": "长沙市"
+    },
+    {
+      "id": 2,
+      "icon": "🛣️",
+      "name": "张家界美食街",
+      "type": "美食街",
+      "foods": [
+        "dong-an-ji",
+        "hunan-rice-noodles",
+        "hunan-hongcha"
+      ],
+      "image": "https://picsum.photos/id/1095/800/600",
+      "reason": "张家界特色美食聚集地",
+      "location": "张家界市"
+    }
+  ]
+}

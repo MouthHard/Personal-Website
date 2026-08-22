@@ -1,49 +1,57 @@
 <template>
   <div class="travel-guide-container">
-    <StickyHeader
-      :current-province-capital="currentProvinceCapital"
-      :weather-icon="weatherIcon"
-      :weather-description="weatherDescription"
-      :all-tags="allTags"
-      :province-description="provinceDescription"
-      :current-province-name="currentProvinceName"
-      :tabs="tabs"
-      :active-tab="activeTab"
-      @update:active-tab="activeTab = $event"
-      @back-home="router.push('/')"
-    />
+    <!-- 加载状态 -->
+    <div v-if="!ready" class="travel-guide-loading">
+      <div class="loading-spinner"></div>
+      <p>加载中...</p>
+    </div>
 
-    <ProvinceSidebar
-      :province-selector-icon="provinceSelectorIcon"
-      :search-query="searchQuery"
-      :selected-region="selectedRegion"
-      :regions="regions"
-      :filtered-provinces="filteredProvinces"
-      :selected-province-id="selectedProvinceId"
-      @update:search-query="searchQuery = $event"
-      @update:selected-region="selectedRegion = $event"
-      @select-province="selectProvince($event)"
-    />
+    <template v-else>
+      <StickyHeader
+        :current-province-capital="currentProvinceCapital"
+        :weather-icon="weatherIcon"
+        :weather-description="weatherDescription"
+        :all-tags="allTags"
+        :province-description="provinceDescription"
+        :current-province-name="currentProvinceName"
+        :tabs="tabs"
+        :active-tab="activeTab"
+        @update:active-tab="activeTab = $event"
+        @back-home="router.push('/')"
+      />
 
-    <main class="main-content">
-      <FoodModule
-        v-if="activeTab === 'food'"
-        :province-id="selectedProvinceId"
+      <ProvinceSidebar
+        :province-selector-icon="provinceSelectorIcon"
+        :search-query="searchQuery"
+        :selected-region="selectedRegion"
+        :regions="regions"
+        :filtered-provinces="filteredProvinces"
+        :selected-province-id="selectedProvinceId"
+        @update:search-query="searchQuery = $event"
+        @update:selected-region="selectedRegion = $event"
+        @select-province="selectProvince($event)"
       />
-      <SceneryModule
-        v-else-if="activeTab === 'scenery'"
-        :province-id="selectedProvinceId"
-      />
-    </main>
+
+      <main class="main-content">
+        <FoodModule
+          v-if="activeTab === 'food'"
+          :province-id="selectedProvinceId"
+        />
+        <SceneryModule
+          v-else-if="activeTab === 'scenery'"
+          :province-id="selectedProvinceId"
+        />
+      </main>
+    </template>
   </div>
 </template>
 
 <script setup lang="ts">
-  import { ref, computed, provide, type Ref } from 'vue';
+  import { ref, computed, provide, onMounted, type Ref } from 'vue';
   import { useRouter } from 'vue-router';
 
   import type { Tab } from '@/typesOfPages/travelGuide/index.ts';
-  import { provinces as provincesData } from './data/provinces.ts';
+  import { useTravelGuideStore } from '@/stores/travelGuide';
   import {
     getWeatherByProvince,
     filterProvinces,
@@ -58,10 +66,24 @@
   import { FoodIcon, SceneryIcon, ProvinceIcon } from './icons';
 
   const router = useRouter();
+  const travelStore = useTravelGuideStore();
+
+  // 省份数据（从后端加载）
+  const provincesData = computed(() => travelStore.getAllProvinces());
+
   // 默认选择第一个省份
-  const selectedProvinceId: Ref<string> = ref(provincesData[0].id);
+  const selectedProvinceId: Ref<string> = ref('');
   // 默认选择美食标签页
   const activeTab: Ref<string> = ref(DEFAULT_TAB_ID);
+
+  // 数据加载完成状态
+  const ready = ref(false);
+  onMounted(async () => {
+    await travelStore.ensureLoaded();
+    const first = travelStore.getAllProvinces()[0];
+    if (first) selectedProvinceId.value = first.id;
+    ready.value = true;
+  });
 
   // 标签页定义
   const tabs: Tab[] = [
@@ -77,7 +99,9 @@
 
   // 使用 computed 缓存当前省份
   const currentProvince = computed(() => {
-    return provincesData.find((p) => p.id === selectedProvinceId.value);
+    return provincesData.value.find(
+      (p) => p.id === selectedProvinceId.value,
+    );
   });
 
   // 计算属性：当前省份名称
@@ -118,11 +142,15 @@
   const searchQuery: Ref<string> = ref('');
 
   // ✅ 优化：使用工具函数获取地区列表
-  const regions = computed(() => extractRegions(provincesData));
+  const regions = computed(() => extractRegions(provincesData.value));
 
   // ✅ 优化：使用工具函数过滤省份（消除重复的过滤逻辑）
   const filteredProvinces = computed(() =>
-    filterProvinces(provincesData, selectedRegion.value, searchQuery.value),
+    filterProvinces(
+      provincesData.value,
+      selectedRegion.value,
+      searchQuery.value,
+    ),
   );
 
   const selectProvince = (provinceId: string): void => {

@@ -1,0 +1,362 @@
+{
+  "items": [
+    {
+      "id": "beijing-duck",
+      "name": "北京烤鸭",
+      "tags": [
+        "推荐",
+        "当地特色",
+        "人气美食",
+        "传统工艺",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/292/800/600",
+      "price": 188,
+      "rating": 4.8,
+      "category": "菜肴",
+      "badgeText": "招牌必点",
+      "isPopular": true,
+      "badgeColor": "#ff4444",
+      "description": "北京传统名菜，皮脆肉嫩",
+      "recommendations": {
+        "pairings": [
+          "荷叶饼",
+          "甜面酱",
+          "黄瓜丝",
+          "葱丝"
+        ],
+        "eatingMethod": "卷饼食用，甜面酱和葱丝"
+      }
+    },
+    {
+      "id": "zhajiangmian",
+      "name": "炸酱面",
+      "tags": [
+        "推荐",
+        "当地特色",
+        "人气美食",
+        "传统工艺",
+        "主食首选"
+      ],
+      "image": "https://picsum.photos/id/293/800/600",
+      "price": 28,
+      "rating": 4.5,
+      "category": "主食",
+      "badgeText": "当地特色",
+      "isPopular": true,
+      "badgeColor": "#ff9900",
+      "description": "老北京传统面食",
+      "recommendations": {
+        "pairings": [
+          "黄瓜丝",
+          "豆芽",
+          "青豆",
+          "大蒜"
+        ],
+        "eatingMethod": "拌匀后食用，可根据个人口味添加醋和辣椒油"
+      }
+    },
+    {
+      "id": "lamb-hotpot",
+      "name": "涮羊肉",
+      "tags": [
+        "推荐",
+        "当地特色",
+        "人气美食",
+        "冬季限定",
+        "传统工艺"
+      ],
+      "image": "https://picsum.photos/id/294/800/600",
+      "price": 158,
+      "rating": 4.7,
+      "category": "菜肴",
+      "badgeText": "冬季限定",
+      "isPopular": true,
+      "badgeColor": "#2196f3",
+      "description": "冬季传统美食",
+      "recommendations": {
+        "pairings": [
+          "芝麻酱",
+          "韭菜花",
+          "腐乳",
+          "糖蒜"
+        ],
+        "eatingMethod": "在沸水中涮煮10-15秒后食用，调料"
+      }
+    },
+    {
+      "id": "douzhi",
+      "name": "豆汁",
+      "tags": [
+        "当地特色",
+        "传统工艺",
+        "地道风味",
+        "美食文化",
+        "回味无穷"
+      ],
+      "image": "https://picsum.photos/id/295/800/600",
+      "price": 8,
+      "rating": 3.5,
+      "category": "饮品",
+      "isPopular": false,
+      "description": "北京特色小吃，口感独特",
+      "recommendations": {
+        "pairings": [
+          "焦圈",
+          "咸菜丝",
+          "芝麻烧饼",
+          "油条"
+        ],
+        "eatingMethod": "趁热饮用，可根据个人口味添加咸菜丝"
+      }
+    },
+    {
+      "id": "lvdagun",
+      "name": "驴打滚",
+      "tags": [
+        "推荐",
+        "传统工艺",
+        "地道风味",
+        "美食文化",
+        "甜而不腻"
+      ],
+      "image": "https://picsum.photos/id/296/800/600",
+      "price": 12,
+      "rating": 4,
+      "category": "甜品",
+      "isPopular": false,
+      "description": "传统糕点，香甜软糯",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "咖啡",
+          "水果",
+          "酸奶"
+        ],
+        "eatingMethod": "直接食用，可作为饭后甜点"
+      }
+    },
+    {
+      "id": "wandouhuang",
+      "name": "豌豆黄",
+      "tags": [
+        "推荐",
+        "宫廷传承",
+        "传统工艺",
+        "地道风味",
+        "甜而不腻"
+      ],
+      "image": "https://picsum.photos/id/297/800/600",
+      "price": 10,
+      "rating": 4.2,
+      "category": "甜品",
+      "badgeText": "宫廷传承",
+      "isPopular": true,
+      "badgeColor": "#9c27b0",
+      "description": "宫廷小吃，细腻爽口",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "咖啡",
+          "水果",
+          "酸奶"
+        ],
+        "eatingMethod": "直接食用，可作为饭后甜点"
+      }
+    },
+    {
+      "id": "jiaoquan",
+      "name": "焦圈",
+      "tags": [
+        "当地特色",
+        "传统工艺",
+        "地道风味",
+        "美食文化",
+        "早餐必备"
+      ],
+      "image": "https://picsum.photos/id/298/800/600",
+      "price": 3,
+      "rating": 3.8,
+      "category": "小吃",
+      "isPopular": false,
+      "description": "北京早点，酥脆可口",
+      "recommendations": {
+        "pairings": [
+          "豆汁",
+          "豆腐脑",
+          "豆浆",
+          "咸菜丝"
+        ],
+        "eatingMethod": "直接食用，作为早餐或零食"
+      }
+    },
+    {
+      "id": "shuan-yang-rou",
+      "name": "手切羊肉",
+      "tags": [
+        "推荐",
+        "人气美食",
+        "传统工艺",
+        "地道风味",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/299/800/600",
+      "price": 68,
+      "rating": 4.6,
+      "category": "菜肴",
+      "badgeText": "人气爆款",
+      "isPopular": true,
+      "badgeColor": "#4caf50",
+      "description": "铜锅涮肉的经典",
+      "recommendations": {
+        "pairings": [
+          "芝麻酱",
+          "韭菜花",
+          "腐乳",
+          "糖蒜"
+        ],
+        "eatingMethod": "在沸水中涮煮10-15秒后食用，调料"
+      }
+    },
+    {
+      "id": "mian-tang",
+      "name": "面茶",
+      "tags": [
+        "当地特色",
+        "传统工艺",
+        "地道风味",
+        "美食文化",
+        "早餐必备"
+      ],
+      "image": "https://picsum.photos/id/300/800/600",
+      "price": 6,
+      "rating": 3.9,
+      "category": "主食",
+      "isPopular": false,
+      "description": "老北京传统早点",
+      "recommendations": {
+        "pairings": [
+          "芝麻",
+          "椒盐",
+          "烧饼",
+          "油条"
+        ],
+        "eatingMethod": "趁热饮用，可根据个人口味添加芝麻和椒盐"
+      }
+    },
+    {
+      "id": "dou-fu-nao",
+      "name": "豆腐脑",
+      "tags": [
+        "当地特色",
+        "传统工艺",
+        "地道风味",
+        "美食文化",
+        "嫩滑鲜美"
+      ],
+      "image": "https://picsum.photos/id/301/800/600",
+      "price": 8,
+      "rating": 4.1,
+      "category": "主食",
+      "badgeText": "早餐必备",
+      "isPopular": false,
+      "badgeColor": "#607d8b",
+      "description": "嫩滑鲜美，配以卤汁",
+      "recommendations": {
+        "pairings": [
+          "油条",
+          "烧饼",
+          "咸菜",
+          "辣椒油"
+        ],
+        "eatingMethod": "趁热食用，可根据口味添加卤汁、辣椒油或蒜汁"
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "icon": "🏠",
+      "name": "全聚德",
+      "type": "餐厅",
+      "foods": [
+        "beijing-duck",
+        "lamb-hotpot",
+        "zhajiangmian"
+      ],
+      "image": "https://picsum.photos/id/1080/800/600",
+      "reason": "北京烤鸭的发源地，百年老店",
+      "location": "东城区"
+    },
+    {
+      "id": 2,
+      "icon": "🛣️",
+      "name": "簋街",
+      "type": "美食街",
+      "foods": [
+        "lamb-hotpot",
+        "beijing-duck",
+        "shuan-yang-rou"
+      ],
+      "image": "https://picsum.photos/id/1081/800/600",
+      "reason": "北京最著名的美食街，夜宵圣地",
+      "location": "东城区"
+    },
+    {
+      "id": 3,
+      "icon": "🛣️",
+      "name": "护国寺小吃街",
+      "type": "美食街",
+      "foods": [
+        "lvdagun",
+        "wandouhuang",
+        "jiaoquan"
+      ],
+      "image": "https://picsum.photos/id/1082/800/600",
+      "reason": "老北京传统小吃的集中地",
+      "location": "西城区"
+    },
+    {
+      "id": 4,
+      "icon": "🏬",
+      "name": "王府井大街",
+      "type": "商业区",
+      "foods": [
+        "zhajiangmian",
+        "douzhi",
+        "beijing-duck"
+      ],
+      "image": "https://picsum.photos/id/1083/800/600",
+      "reason": "北京最繁华的商业街之一",
+      "location": "东城区"
+    },
+    {
+      "id": 5,
+      "icon": "🗺️",
+      "name": "三里屯",
+      "type": "美食区",
+      "foods": [
+        "shuan-yang-rou",
+        "mian-tang",
+        "lamb-hotpot"
+      ],
+      "image": "https://picsum.photos/id/1084/800/600",
+      "reason": "北京时尚潮流美食聚集地",
+      "location": "朝阳区"
+    },
+    {
+      "id": 6,
+      "icon": "🛣️",
+      "name": "大栅栏",
+      "type": "美食街",
+      "foods": [
+        "dou-fu-nao",
+        "zhajiangmian",
+        "lvdagun"
+      ],
+      "image": "https://picsum.photos/id/1085/800/600",
+      "reason": "北京传统商业文化街区",
+      "location": "西城区"
+    }
+  ]
+}

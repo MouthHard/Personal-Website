@@ -143,6 +143,7 @@ import { useRoute, useRouter } from "vue-router";
 import { inject } from "vue";
 import { searchHots, songs, artists, playlists } from "@/stores/music";
 import { formatPlayCount, formatDuration } from "@/utils/music";
+import { highlightSearchMatch } from "@/utils/common";
 import type { Song, Artist, Playlist } from "@/typesOfPages/music";
 
 const route = useRoute();
@@ -219,9 +220,7 @@ const goPlaylist = (id: number) => {
 };
 
 const highlightText = (text: string): string => {
-  if (!searchedKeyword.value) return text;
-  const regex = new RegExp(`(${searchedKeyword.value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
-  return text.replace(regex, '<mark>$1</mark>');
+  return highlightSearchMatch(text, searchedKeyword.value);
 };
 
 watch(() => route.query.q, (newQ) => {

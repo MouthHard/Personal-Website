@@ -1,0 +1,357 @@
+{
+  "spots": [
+    {
+      "id": "westLake",
+      "name": "西湖",
+      "tags": [
+        "湖泊",
+        "世界遗产",
+        "风光",
+        "文化"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1320/600/400",
+      "rating": 4.9,
+      "bestTime": "春秋",
+      "location": "浙江省杭州市西湖区",
+      "description": "中国十大风景名胜之一,世界文化遗产",
+      "landformTags": [
+        "湖泊景观"
+      ],
+      "landscapeType": "lake",
+      "landscapeCategory": [
+        "水体景观"
+      ]
+    },
+    {
+      "id": "putuoMountain",
+      "name": "普陀山",
+      "tags": [
+        "佛教",
+        "名山",
+        "圣地",
+        "文化"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1321/600/400",
+      "rating": 4.8,
+      "bestTime": "全年",
+      "location": "浙江省舟山市普陀区",
+      "description": "中国四大佛教名山之一,海天佛国"
+    },
+    {
+      "id": "wuzhen",
+      "name": "乌镇",
+      "tags": [
+        "古镇",
+        "水乡",
+        "历史",
+        "文化"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1322/600/400",
+      "rating": 4.7,
+      "bestTime": "春秋",
+      "location": "浙江省嘉兴市桐乡市乌镇",
+      "description": "中国十大历史文化名镇之一,江南水乡的代表"
+    },
+    {
+      "id": "qiandaoLake",
+      "name": "千岛湖",
+      "tags": [
+        "湖泊",
+        "岛屿",
+        "自然",
+        "风光"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1323/600/400",
+      "rating": 4.7,
+      "bestTime": "春秋",
+      "location": "浙江省杭州市淳安县",
+      "description": "天下第一秀水,拥有1078个岛屿",
+      "landformTags": [
+        "湖泊景观"
+      ],
+      "landscapeType": "lake",
+      "landscapeCategory": [
+        "水体景观"
+      ]
+    },
+    {
+      "id": "yandangMountain",
+      "name": "雁荡山",
+      "tags": [
+        "名山",
+        "奇峰",
+        "自然",
+        "探险"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1324/600/400",
+      "rating": 4.6,
+      "bestTime": "春秋",
+      "location": "浙江省温州市乐清市",
+      "description": "东南第一山,以奇峰怪石著称",
+      "landformTags": [
+        "山地景观"
+      ],
+      "landscapeType": "mountain",
+      "landscapeCategory": [
+        "地理景观"
+      ]
+    },
+    {
+      "id": "xitangAncientTown",
+      "name": "西塘古镇",
+      "tags": [
+        "古镇",
+        "水乡",
+        "历史",
+        "民俗"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1325/600/400",
+      "rating": 4.6,
+      "bestTime": "春秋",
+      "location": "浙江省嘉兴市嘉善县西塘镇",
+      "description": "江南六大古镇之一,生活着的千年古镇"
+    },
+    {
+      "id": "lingyinTemple",
+      "name": "灵隐寺",
+      "tags": [
+        "寺庙",
+        "佛教",
+        "历史",
+        "文化"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1326/600/400",
+      "rating": 4.6,
+      "bestTime": "全年",
+      "location": "浙江省杭州市西湖区",
+      "description": "杭州著名的佛教寺院,东南佛国"
+    },
+    {
+      "id": "hengdianWorldStudios",
+      "name": "横店影视城",
+      "tags": [
+        "影视",
+        "主题公园",
+        "娱乐",
+        "文化"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1327/600/400",
+      "rating": 4.5,
+      "bestTime": "全年",
+      "location": "浙江省金华市东阳市横店镇",
+      "description": "中国最大的影视拍摄基地"
+    }
+  ],
+  "routes": [
+    {
+      "id": "1",
+      "name": "杭州西湖之旅",
+      "tags": [
+        "湖泊",
+        "文化",
+        "历史"
+      ],
+      "image": "https://picsum.photos/id/1320/600/400",
+      "spots": [
+        "西湖",
+        "灵隐寺",
+        "雷峰塔"
+      ],
+      "title": "杭州西湖之旅",
+      "rating": 4.9,
+      "traffic": "地铁/公交",
+      "bestTime": "春秋",
+      "duration": "2天",
+      "difficulty": "简单",
+      "highlights": [
+        "西湖",
+        "灵隐寺",
+        "雷峰塔"
+      ],
+      "description": "体验西湖的秀丽风光",
+      "suitableFor": "所有游客"
+    }
+  ],
+  "customs": {
+    "activities": [
+      {
+        "id": "1",
+        "name": "越剧欣赏",
+        "type": "文化体验",
+        "image": "https://picsum.photos/id/1320/600/400",
+        "category": "culture",
+        "duration": "2-3小时",
+        "location": "杭州越剧院",
+        "difficulty": "简单",
+        "description": "欣赏浙江特色越剧表演"
+      }
+    ]
+  },
+  "overview": {
+    "totalSpots": 320,
+    "natureSpots": 160,
+    "cultureSpots": 160,
+    "topAttractions": [
+      {
+        "name": "西湖",
+        "image": "https://picsum.photos/id/1320/600/400",
+        "description": "中国十大风景名胜之一,世界文化遗产"
+      },
+      {
+        "name": "普陀山",
+        "image": "https://picsum.photos/id/1321/600/400",
+        "description": "中国四大佛教名山之一,海天佛国"
+      },
+      {
+        "name": "乌镇",
+        "image": "https://picsum.photos/id/1322/600/400",
+        "description": "中国十大历史文化名镇之一,江南水乡的代表"
+      },
+      {
+        "name": "千岛湖",
+        "image": "https://picsum.photos/id/1323/600/400",
+        "description": "天下第一秀水,拥有1078个岛屿"
+      },
+      {
+        "name": "雁荡山",
+        "image": "https://picsum.photos/id/1324/600/400",
+        "description": "东南第一山,以奇峰怪石著称"
+      },
+      {
+        "name": "西塘古镇",
+        "image": "https://picsum.photos/id/1325/600/400",
+        "description": "江南六大古镇之一,生活着的千年古镇"
+      },
+      {
+        "name": "灵隐寺",
+        "image": "https://picsum.photos/id/1326/600/400",
+        "description": "杭州著名的佛教寺院,东南佛国"
+      },
+      {
+        "name": "横店影视城",
+        "image": "https://picsum.photos/id/1327/600/400",
+        "description": "中国最大的影视拍摄基地"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "name": "春季",
+      "image": "https://picsum.photos/id/1320/600/400",
+      "activities": [
+        "西湖赏花",
+        "乌镇古镇游",
+        "千岛湖游船",
+        "灵隐寺祈福"
+      ],
+      "description": "春暖花开,西湖百花齐放,是踏青赏花的好时节"
+    },
+    {
+      "name": "夏季",
+      "image": "https://picsum.photos/id/1323/600/400",
+      "activities": [
+        "千岛湖避暑",
+        "西湖游船",
+        "雁荡山避暑",
+        "乌镇夜游"
+      ],
+      "description": "绿树成荫,千岛湖是避暑纳凉的好去处"
+    },
+    {
+      "name": "秋季",
+      "image": "https://picsum.photos/id/1320/600/400",
+      "activities": [
+        "西湖赏秋",
+        "乌镇秋游",
+        "千岛湖秋景",
+        "西塘古镇秋景"
+      ],
+      "description": "秋高气爽,西湖秋色迷人,是游览西湖的好时节"
+    },
+    {
+      "name": "冬季",
+      "image": "https://picsum.photos/id/1320/600/400",
+      "activities": [
+        "西湖雪景",
+        "灵隐寺祈福",
+        "乌镇古镇游",
+        "横店影视城"
+      ],
+      "description": "冬季温暖,是旅游的好时节,西湖雪景别有一番风味"
+    }
+  ],
+  "festivals": [
+    {
+      "id": "1",
+      "day": "15日",
+      "name": "西湖国际博览会",
+      "month": "10月",
+      "isUnique": true,
+      "location": "杭州",
+      "description": "杭州特色的国际性博览会"
+    }
+  ],
+  "activities": [
+    {
+      "id": "1",
+      "name": "西湖游览",
+      "type": "自然体验",
+      "image": "https://picsum.photos/id/1320/600/400",
+      "category": "nature",
+      "duration": "1天",
+      "location": "西湖",
+      "difficulty": "简单",
+      "description": "游览中国十大风景名胜之一"
+    },
+    {
+      "id": "2",
+      "name": "乌镇古镇游",
+      "type": "文化体验",
+      "image": "https://picsum.photos/id/1322/600/400",
+      "category": "culture",
+      "duration": "1天",
+      "location": "乌镇",
+      "difficulty": "简单",
+      "description": "游览江南水乡的代表,体验水乡风情"
+    }
+  ],
+  "intangibleHeritage": [
+    {
+      "id": "1",
+      "icon": "🎭",
+      "name": "越剧",
+      "image": "https://picsum.photos/id/1320/600/400",
+      "level": "national",
+      "category": "传统戏剧",
+      "features": [
+        "传统戏剧",
+        "国家级非遗",
+        "浙江文化"
+      ],
+      "description": "浙江地方戏曲,中国第二大剧种",
+      "protectionUnit": "浙江艺术职业学院"
+    }
+  ],
+  "folkCustomsElements": [
+    {
+      "name": "江南水乡文化",
+      "tags": [
+        "水乡文化",
+        "江南文化",
+        "古镇文化",
+        "民俗文化",
+        "非遗传承"
+      ],
+      "image": "https://picsum.photos/id/1322/600/400",
+      "description": "江南独特的水乡文化和生活方式"
+    }
+  ]
+}

@@ -1,0 +1,226 @@
+{
+  "items": [
+    {
+      "id": "海南文昌鸡",
+      "name": "海南文昌鸡",
+      "tags": [
+        "海南特色",
+        "文昌特产",
+        "肉质鲜嫩",
+        "味道鲜美",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/442/800/600",
+      "price": 88,
+      "rating": 4.8,
+      "category": "菜肴",
+      "badgeText": "琼菜之首",
+      "isPopular": true,
+      "badgeColor": "#ff5722",
+      "description": "肉质鲜嫩，味道鲜美",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "清补凉",
+      "name": "清补凉",
+      "tags": [
+        "海南特色",
+        "海口特产",
+        "清凉解暑",
+        "营养丰富",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/443/800/600",
+      "price": 15,
+      "rating": 4.7,
+      "category": "甜品",
+      "badgeText": "热带甜品",
+      "isPopular": true,
+      "badgeColor": "#4caf50",
+      "description": "清凉解暑，营养丰富",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "咖啡",
+          "水果",
+          "饮料"
+        ],
+        "eatingMethod": "直接食用，作为甜品"
+      }
+    },
+    {
+      "id": "海南粉",
+      "name": "海南粉",
+      "tags": [
+        "海南特色",
+        "海口特产",
+        "口感劲道",
+        "味道鲜美",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/444/800/600",
+      "price": 12,
+      "rating": 4.6,
+      "category": "主食",
+      "badgeText": "琼州粉面",
+      "isPopular": true,
+      "badgeColor": "#ff9800",
+      "description": "口感劲道，味道鲜美",
+      "recommendations": {
+        "pairings": [
+          "小菜",
+          "汤品",
+          "饮料",
+          "茶品"
+        ],
+        "eatingMethod": "直接食用，作为主食"
+      }
+    },
+    {
+      "id": "东山羊",
+      "name": "东山羊",
+      "tags": [
+        "海南特色",
+        "万宁特产",
+        "肉质鲜嫩",
+        "香气浓郁",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/445/800/600",
+      "price": 128,
+      "rating": 4.8,
+      "category": "菜肴",
+      "badgeText": "万宁名产",
+      "isPopular": true,
+      "badgeColor": "#795548",
+      "description": "肉质鲜嫩，香气浓郁",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "和乐蟹",
+      "name": "和乐蟹",
+      "tags": [
+        "海南特色",
+        "万宁特产",
+        "蟹黄饱满",
+        "肉质鲜嫩",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/446/800/600",
+      "price": 98,
+      "rating": 4.7,
+      "category": "菜肴",
+      "badgeText": "万宁海鲜",
+      "isPopular": true,
+      "badgeColor": "#e91e63",
+      "description": "蟹黄饱满，肉质鲜嫩",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "hainan-youtiao",
+      "name": "海南油条",
+      "tags": [
+        "海南特色",
+        "传统小吃",
+        "外酥内软",
+        "早餐必备",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/447/800/600",
+      "price": 3,
+      "rating": 4.1,
+      "category": "小吃",
+      "isPopular": false,
+      "description": "外酥内软，早餐必备",
+      "recommendations": {
+        "pairings": [
+          "豆浆",
+          "粥",
+          "小菜",
+          "汤品"
+        ],
+        "eatingMethod": "直接食用，作为早餐"
+      }
+    },
+    {
+      "id": "hainan-hongcha",
+      "name": "海南红茶",
+      "tags": [
+        "海南特色",
+        "传统饮品",
+        "香气浓郁",
+        "口感醇厚",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/448/800/600",
+      "price": 38,
+      "rating": 4.3,
+      "category": "饮品",
+      "isPopular": false,
+      "description": "香气浓郁，口感醇厚",
+      "recommendations": {
+        "pairings": [
+          "点心",
+          "小吃",
+          "甜品",
+          "菜肴"
+        ],
+        "eatingMethod": "直接饮用，可点心或小吃"
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "icon": "🏞️",
+      "name": "海口骑楼老街",
+      "type": "文化街",
+      "foods": [
+        "海南粉",
+        "清补凉",
+        "海口老爸茶"
+      ],
+      "image": "https://picsum.photos/id/324/800/600",
+      "reason": "海口传统美食集中地",
+      "location": "海口市"
+    },
+    {
+      "id": 2,
+      "icon": "🏪",
+      "name": "三亚海鲜市场",
+      "type": "市场",
+      "foods": [
+        "海南文昌鸡",
+        "东山羊",
+        "和乐蟹"
+      ],
+      "image": "https://picsum.photos/id/325/800/600",
+      "reason": "三亚海鲜美食聚集地",
+      "location": "三亚市"
+    }
+  ]
+}

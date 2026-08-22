@@ -1,0 +1,250 @@
+{
+  "items": [
+    {
+      "id": "大连海鲜",
+      "name": "大连海鲜",
+      "tags": [
+        "辽宁特色",
+        "大连特产",
+        "新鲜美味",
+        "品种丰富",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/397/800/600",
+      "price": 128,
+      "rating": 4.8,
+      "category": "菜肴",
+      "badgeText": "渤海珍鲜",
+      "isPopular": true,
+      "badgeColor": "#03a9f4",
+      "description": "新鲜美味，品种丰富",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "沈阳老边饺子",
+      "name": "沈阳老边饺子",
+      "tags": [
+        "辽宁特色",
+        "沈阳特产",
+        "皮薄馅大",
+        "鲜香可口",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/398/800/600",
+      "price": 48,
+      "rating": 4.7,
+      "category": "主食",
+      "badgeText": "沈阳名吃",
+      "isPopular": true,
+      "badgeColor": "#e91e63",
+      "description": "皮薄馅大，鲜香可口",
+      "recommendations": {
+        "pairings": [
+          "醋",
+          "酱油",
+          "小菜",
+          "汤品"
+        ],
+        "eatingMethod": "直接食用，作为主食"
+      }
+    },
+    {
+      "id": "鞍山南果梨",
+      "name": "鞍山南果梨",
+      "tags": [
+        "辽宁特色",
+        "鞍山特产",
+        "果肉细腻",
+        "香气浓郁",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/399/800/600",
+      "price": 25,
+      "rating": 4.4,
+      "category": "水果",
+      "isPopular": false,
+      "description": "果肉细腻，香气浓郁",
+      "recommendations": {
+        "pairings": [
+          "甜品",
+          "沙拉",
+          "酸奶",
+          "茶品"
+        ],
+        "eatingMethod": "直接食用，或作为水果沙拉配料"
+      }
+    },
+    {
+      "id": "本溪小市羊汤",
+      "name": "本溪小市羊汤",
+      "tags": [
+        "辽宁特色",
+        "本溪特产",
+        "汤浓肉烂",
+        "营养丰富",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/400/800/600",
+      "price": 35,
+      "rating": 4.6,
+      "category": "主食",
+      "badgeText": "辽东靓汤",
+      "isPopular": true,
+      "badgeColor": "#4caf50",
+      "description": "汤浓肉烂，营养丰富",
+      "recommendations": {
+        "pairings": [
+          "饼",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "直接饮用，可作为早餐或午餐"
+      }
+    },
+    {
+      "id": "盘锦河蟹",
+      "name": "盘锦河蟹",
+      "tags": [
+        "辽宁特色",
+        "盘锦特产",
+        "肉质鲜美",
+        "蟹黄饱满",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/401/800/600",
+      "price": 98,
+      "rating": 4.8,
+      "category": "菜肴",
+      "badgeText": "盘锦名产",
+      "isPopular": true,
+      "badgeColor": "#ff5722",
+      "description": "肉质鲜美，蟹黄饱满",
+      "recommendations": {
+        "pairings": [
+          "醋",
+          "姜茶",
+          "米饭",
+          "小菜"
+        ],
+        "eatingMethod": "直接食用，作为主菜"
+      }
+    },
+    {
+      "id": "liaoning-youtiao",
+      "name": "辽宁油条",
+      "tags": [
+        "辽宁特色",
+        "传统小吃",
+        "外酥内软",
+        "早餐必备",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/402/800/600",
+      "price": 3,
+      "rating": 4.1,
+      "category": "小吃",
+      "isPopular": false,
+      "description": "外酥内软，早餐必备",
+      "recommendations": {
+        "pairings": [
+          "豆浆",
+          "粥",
+          "小菜",
+          "汤品"
+        ],
+        "eatingMethod": "直接食用，作为早餐"
+      }
+    },
+    {
+      "id": "liaoning-tangbao",
+      "name": "辽宁糖包",
+      "tags": [
+        "辽宁特色",
+        "传统面点",
+        "香甜可口",
+        "软糯适中",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/403/800/600",
+      "price": 5,
+      "rating": 4,
+      "category": "甜品",
+      "isPopular": false,
+      "description": "香甜可口，传统面点",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "咖啡",
+          "水果",
+          "饮料"
+        ],
+        "eatingMethod": "直接食用，作为甜品"
+      }
+    },
+    {
+      "id": "liaoning-hongcha",
+      "name": "辽宁红茶",
+      "tags": [
+        "辽宁特色",
+        "传统饮品",
+        "香气浓郁",
+        "口感醇厚",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/404/800/600",
+      "price": 38,
+      "rating": 4.3,
+      "category": "饮品",
+      "isPopular": false,
+      "description": "香气浓郁，口感醇厚",
+      "recommendations": {
+        "pairings": [
+          "点心",
+          "小吃",
+          "甜品",
+          "菜肴"
+        ],
+        "eatingMethod": "直接饮用，可点心或小吃"
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "icon": "🛣️",
+      "name": "大连海鲜街",
+      "type": "美食街",
+      "foods": [
+        "大连海鲜",
+        "鲅鱼水饺",
+        "海胆蒸蛋"
+      ],
+      "image": "https://picsum.photos/id/306/800/600",
+      "reason": "大连海鲜美食集中地",
+      "location": "大连市"
+    },
+    {
+      "id": 2,
+      "icon": "🏬",
+      "name": "沈阳中街",
+      "type": "商业街",
+      "foods": [
+        "沈阳老边饺子",
+        "沈阳回头",
+        "马家烧麦"
+      ],
+      "image": "https://picsum.photos/id/307/800/600",
+      "reason": "沈阳传统美食聚集地",
+      "location": "沈阳市"
+    }
+  ]
+}

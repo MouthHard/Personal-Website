@@ -61,7 +61,7 @@ const props = defineProps<{
 
 const emit = defineEmits<{
   (e: 'click', poem: Poem, backgroundImage: string): void;
-  (e: 'remove', poemId: string): void;
+  (e: 'remove', poemId: number): void;
 }>();
 
 const previewLines = computed(() => props.poem.content.slice(0, 6));

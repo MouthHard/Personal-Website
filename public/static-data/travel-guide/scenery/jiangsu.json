@@ -1,0 +1,343 @@
+{
+  "spots": [
+    {
+      "id": "suzhouGardens",
+      "name": "苏州园林",
+      "tags": [
+        "园林",
+        "世界遗产",
+        "古建",
+        "文化"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1300/600/400",
+      "rating": 4.9,
+      "bestTime": "春秋",
+      "location": "江苏省苏州市",
+      "description": "中国古典园林的代表,世界文化遗产"
+    },
+    {
+      "id": "sunYatsenMausoleum",
+      "name": "中山陵",
+      "tags": [
+        "陵墓",
+        "历史",
+        "纪念",
+        "建筑"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1301/600/400",
+      "rating": 4.7,
+      "bestTime": "春秋",
+      "location": "江苏省南京市玄武区",
+      "description": "孙中山先生的陵墓,中国近代史的重要遗迹"
+    },
+    {
+      "id": "taihuLake",
+      "name": "太湖",
+      "tags": [
+        "湖泊",
+        "自然",
+        "风光",
+        "度假"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1302/600/400",
+      "rating": 4.6,
+      "bestTime": "春秋",
+      "location": "江苏省无锡市",
+      "description": "中国第三大淡水湖,风景秀丽",
+      "landformTags": [
+        "湖泊景观"
+      ],
+      "landscapeType": "lake",
+      "landscapeCategory": [
+        "水体景观"
+      ]
+    },
+    {
+      "id": "confuciusTemple",
+      "name": "夫子庙",
+      "tags": [
+        "文庙",
+        "历史",
+        "文化",
+        "古迹"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1303/600/400",
+      "rating": 4.5,
+      "bestTime": "全年",
+      "location": "江苏省南京市秦淮区",
+      "description": "中国四大文庙之一,南京的文化地标"
+    },
+    {
+      "id": "slenderWestLake",
+      "name": "瘦西湖",
+      "tags": [
+        "园林",
+        "湖泊",
+        "古建",
+        "文化"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1304/600/400",
+      "rating": 4.6,
+      "bestTime": "春秋",
+      "location": "江苏省扬州市邗江区",
+      "description": "扬州著名的园林,被誉为园林之胜"
+    },
+    {
+      "id": "zhouzhuangAncientTown",
+      "name": "周庄古镇",
+      "tags": [
+        "古镇",
+        "水乡",
+        "明清",
+        "民俗"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1305/600/400",
+      "rating": 4.5,
+      "bestTime": "春秋",
+      "location": "江苏省苏州市昆山市周庄镇",
+      "description": "中国第一水乡,江南六大古镇之一"
+    },
+    {
+      "id": "hanshanTemple",
+      "name": "寒山寺",
+      "tags": [
+        "寺庙",
+        "佛教",
+        "历史",
+        "文化"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1306/600/400",
+      "rating": 4.4,
+      "bestTime": "春秋",
+      "location": "江苏省苏州市姑苏区",
+      "description": "苏州著名的佛教寺院,因张继的诗句而闻名"
+    },
+    {
+      "id": "humbleAdministratorsGarden",
+      "name": "拙政园",
+      "tags": [
+        "园林",
+        "世界遗产",
+        "古建",
+        "文化"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1307/600/400",
+      "rating": 4.8,
+      "bestTime": "春秋",
+      "location": "江苏省苏州市姑苏区",
+      "description": "中国四大名园之一,苏州园林的代表"
+    }
+  ],
+  "routes": [
+    {
+      "id": "1",
+      "name": "苏州园林之旅",
+      "tags": [
+        "园林",
+        "文化",
+        "艺术"
+      ],
+      "image": "https://picsum.photos/id/1300/600/400",
+      "spots": [
+        "拙政园",
+        "狮子林",
+        "留园"
+      ],
+      "title": "苏州园林之旅",
+      "rating": 4.9,
+      "traffic": "旅游大巴",
+      "bestTime": "春秋",
+      "duration": "2天",
+      "difficulty": "简单",
+      "highlights": [
+        "拙政园",
+        "狮子林",
+        "留园"
+      ],
+      "description": "体验中国古典园林艺术",
+      "suitableFor": "文化爱好者"
+    }
+  ],
+  "customs": {
+    "activities": [
+      {
+        "id": "1",
+        "name": "昆曲欣赏",
+        "type": "文化体验",
+        "image": "https://picsum.photos/id/1300/600/400",
+        "category": "culture",
+        "duration": "2-3小时",
+        "location": "苏州昆曲博物馆",
+        "difficulty": "简单",
+        "description": "欣赏中国最古老的剧种昆曲"
+      }
+    ]
+  },
+  "overview": {
+    "totalSpots": 300,
+    "natureSpots": 120,
+    "cultureSpots": 180,
+    "topAttractions": [
+      {
+        "name": "苏州园林",
+        "image": "https://picsum.photos/id/1300/600/400",
+        "description": "中国古典园林的代表,世界文化遗产"
+      },
+      {
+        "name": "中山陵",
+        "image": "https://picsum.photos/id/1301/600/400",
+        "description": "孙中山先生的陵墓,中国近代史的重要遗迹"
+      },
+      {
+        "name": "太湖",
+        "image": "https://picsum.photos/id/1302/600/400",
+        "description": "中国第三大淡水湖,风景秀丽"
+      },
+      {
+        "name": "夫子庙",
+        "image": "https://picsum.photos/id/1303/600/400",
+        "description": "中国四大文庙之一,南京的文化地标"
+      },
+      {
+        "name": "瘦西湖",
+        "image": "https://picsum.photos/id/1304/600/400",
+        "description": "扬州著名的园林,被誉为园林之胜"
+      },
+      {
+        "name": "周庄古镇",
+        "image": "https://picsum.photos/id/1305/600/400",
+        "description": "中国第一水乡,江南六大古镇之一"
+      },
+      {
+        "name": "寒山寺",
+        "image": "https://picsum.photos/id/1306/600/400",
+        "description": "苏州著名的佛教寺院,因张继的诗句而闻名"
+      },
+      {
+        "name": "拙政园",
+        "image": "https://picsum.photos/id/1307/600/400",
+        "description": "中国四大名园之一,苏州园林的代表"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "name": "春季",
+      "image": "https://picsum.photos/id/1300/600/400",
+      "activities": [
+        "苏州园林赏花",
+        "太湖踏青",
+        "瘦西湖游船",
+        "周庄古镇游"
+      ],
+      "description": "春暖花开,苏州园林百花齐放,是踏青赏花的好时节"
+    },
+    {
+      "name": "夏季",
+      "image": "https://picsum.photos/id/1302/600/400",
+      "activities": [
+        "太湖避暑",
+        "瘦西湖游船",
+        "苏州园林纳凉",
+        "夫子庙夜游"
+      ],
+      "description": "绿树成荫,太湖和瘦西湖是避暑纳凉的好去处"
+    },
+    {
+      "name": "秋季",
+      "image": "https://picsum.photos/id/1300/600/400",
+      "activities": [
+        "苏州园林赏秋",
+        "太湖秋景",
+        "瘦西湖秋游",
+        "周庄古镇秋景"
+      ],
+      "description": "秋高气爽,苏州园林秋色迷人,是游览园林的好时节"
+    },
+    {
+      "name": "冬季",
+      "image": "https://picsum.photos/id/1300/600/400",
+      "activities": [
+        "苏州园林雪景",
+        "太湖冬景",
+        "夫子庙庙会",
+        "温泉体验"
+      ],
+      "description": "冬季温暖,是旅游的好时节,苏州园林雪景别有一番风味"
+    }
+  ],
+  "festivals": [
+    {
+      "id": "1",
+      "day": "1日",
+      "name": "苏州评弹艺术节",
+      "month": "10月",
+      "isUnique": true,
+      "location": "苏州",
+      "description": "苏州评弹艺术盛会"
+    }
+  ],
+  "activities": [
+    {
+      "id": "1",
+      "name": "苏州园林游览",
+      "type": "文化体验",
+      "image": "https://picsum.photos/id/1300/600/400",
+      "category": "culture",
+      "duration": "1天",
+      "location": "苏州园林",
+      "difficulty": "简单",
+      "description": "游览中国古典园林的代表"
+    },
+    {
+      "id": "2",
+      "name": "周庄古镇游",
+      "type": "文化体验",
+      "image": "https://picsum.photos/id/1305/600/400",
+      "category": "culture",
+      "duration": "1天",
+      "location": "周庄古镇",
+      "difficulty": "简单",
+      "description": "游览中国第一水乡,体验江南水乡风情"
+    }
+  ],
+  "intangibleHeritage": [
+    {
+      "id": "1",
+      "icon": "🎭",
+      "name": "昆曲",
+      "image": "https://picsum.photos/id/1300/600/400",
+      "level": "national",
+      "category": "传统戏剧",
+      "features": [
+        "传统戏剧",
+        "国家级非遗",
+        "百戏之祖"
+      ],
+      "description": "中国最古老的剧种,被誉为百戏之祖",
+      "protectionUnit": "江苏省演艺集团昆剧院"
+    }
+  ],
+  "folkCustomsElements": [
+    {
+      "name": "江南水乡文化",
+      "tags": [
+        "水乡文化",
+        "江南文化",
+        "古镇文化",
+        "民俗文化",
+        "非遗传承"
+      ],
+      "image": "https://picsum.photos/id/1305/600/400",
+      "description": "江南独特的水乡文化和生活方式"
+    }
+  ]
+}

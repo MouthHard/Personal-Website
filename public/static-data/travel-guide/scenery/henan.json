@@ -1,0 +1,350 @@
+{
+  "spots": [
+    {
+      "id": "shaolinTemple",
+      "name": "少林寺",
+      "tags": [
+        "寺庙",
+        "佛教",
+        "武术",
+        "文化"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1420/600/400",
+      "rating": 4.8,
+      "bestTime": "春秋",
+      "location": "河南省郑州市登封市",
+      "description": "中国佛教禅宗祖庭,少林武术发源地"
+    },
+    {
+      "id": "longmenGrottoes",
+      "name": "龙门石窟",
+      "tags": [
+        "石窟",
+        "世界遗产",
+        "佛教",
+        "艺术"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1421/600/400",
+      "rating": 4.8,
+      "bestTime": "春秋",
+      "location": "河南省洛阳市洛龙区",
+      "description": "中国四大石窟之一,世界文化遗产"
+    },
+    {
+      "id": "yuntaiMountain",
+      "name": "云台山",
+      "tags": [
+        "名山",
+        "地质",
+        "自然",
+        "风光"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1422/600/400",
+      "rating": 4.7,
+      "bestTime": "夏季",
+      "location": "河南省焦作市修武县",
+      "description": "世界地质公园,以山水风光著称",
+      "landformTags": [
+        "山地景观"
+      ],
+      "landscapeType": "mountain",
+      "landscapeCategory": [
+        "地理景观"
+      ]
+    },
+    {
+      "id": "kaifengFu",
+      "name": "开封府",
+      "tags": [
+        "府衙",
+        "历史",
+        "包拯",
+        "文化"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1423/600/400",
+      "rating": 4.5,
+      "bestTime": "全年",
+      "location": "河南省开封市鼓楼区",
+      "description": "北宋时期的府衙,包拯曾在此任职"
+    },
+    {
+      "id": "qingmingShangheGarden",
+      "name": "清明上河园",
+      "tags": [
+        "主题公园",
+        "历史",
+        "文化",
+        "娱乐"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1424/600/400",
+      "rating": 4.6,
+      "bestTime": "全年",
+      "location": "河南省开封市龙亭区",
+      "description": "以北宋名画清明上河图为蓝本建造的主题公园"
+    },
+    {
+      "id": "yinxu",
+      "name": "殷墟",
+      "tags": [
+        "遗址",
+        "世界遗产",
+        "考古",
+        "历史"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1425/600/400",
+      "rating": 4.6,
+      "bestTime": "全年",
+      "location": "河南省安阳市殷都区",
+      "description": "中国考古学的诞生地,世界文化遗产"
+    },
+    {
+      "id": "songshan",
+      "name": "嵩山",
+      "tags": [
+        "名山",
+        "五岳",
+        "少林",
+        "文化"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1426/600/400",
+      "rating": 4.7,
+      "bestTime": "春秋",
+      "location": "河南省郑州市登封市",
+      "description": "中国五岳之一的中岳,少林寺所在地",
+      "landformTags": [
+        "山地景观"
+      ],
+      "landscapeType": "mountain",
+      "landscapeCategory": [
+        "地理景观"
+      ]
+    },
+    {
+      "id": "whiteHorseTemple",
+      "name": "白马寺",
+      "tags": [
+        "寺庙",
+        "佛教",
+        "历史",
+        "文化"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1427/600/400",
+      "rating": 4.5,
+      "bestTime": "全年",
+      "location": "河南省洛阳市洛龙区",
+      "description": "中国第一座古刹,佛教传入中国的第一座寺院"
+    }
+  ],
+  "routes": [
+    {
+      "id": "1",
+      "name": "中原文化之旅",
+      "tags": [
+        "文化",
+        "历史",
+        "宗教"
+      ],
+      "image": "https://picsum.photos/id/1420/600/400",
+      "spots": [
+        "少林寺",
+        "龙门石窟",
+        "云台山"
+      ],
+      "title": "中原文化之旅",
+      "rating": 4.8,
+      "traffic": "旅游大巴",
+      "bestTime": "春秋",
+      "duration": "3天",
+      "difficulty": "简单",
+      "highlights": [
+        "少林寺",
+        "龙门石窟",
+        "云台山"
+      ],
+      "description": "探索中原文化的精髓",
+      "suitableFor": "文化爱好者"
+    }
+  ],
+  "customs": {
+    "activities": [
+      {
+        "id": "1",
+        "name": "豫剧欣赏",
+        "type": "文化体验",
+        "image": "https://picsum.photos/id/1423/600/400",
+        "category": "culture",
+        "duration": "2-3小时",
+        "location": "河南豫剧院",
+        "difficulty": "简单",
+        "description": "欣赏河南地方戏曲豫剧"
+      }
+    ]
+  },
+  "overview": {
+    "totalSpots": 300,
+    "natureSpots": 140,
+    "cultureSpots": 160,
+    "topAttractions": [
+      {
+        "name": "少林寺",
+        "image": "https://picsum.photos/id/1420/600/400",
+        "description": "中国佛教禅宗祖庭,少林武术发源地"
+      },
+      {
+        "name": "龙门石窟",
+        "image": "https://picsum.photos/id/1421/600/400",
+        "description": "中国四大石窟之一,世界文化遗产"
+      },
+      {
+        "name": "云台山",
+        "image": "https://picsum.photos/id/1422/600/400",
+        "description": "世界地质公园,以山水风光著称"
+      },
+      {
+        "name": "开封府",
+        "image": "https://picsum.photos/id/1423/600/400",
+        "description": "北宋时期的府衙,包拯曾在此任职"
+      },
+      {
+        "name": "清明上河园",
+        "image": "https://picsum.photos/id/1424/600/400",
+        "description": "以北宋名画清明上河图为蓝本建造的主题公园"
+      },
+      {
+        "name": "殷墟",
+        "image": "https://picsum.photos/id/1425/600/400",
+        "description": "中国考古学的诞生地,世界文化遗产"
+      },
+      {
+        "name": "嵩山",
+        "image": "https://picsum.photos/id/1426/600/400",
+        "description": "中国五岳之一的中岳,少林寺所在地"
+      },
+      {
+        "name": "白马寺",
+        "image": "https://picsum.photos/id/1427/600/400",
+        "description": "中国第一座古刹,佛教传入中国的第一座寺院"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "name": "春季",
+      "image": "https://picsum.photos/id/1422/600/400",
+      "activities": [
+        "云台山踏青",
+        "少林寺游览",
+        "龙门石窟参观",
+        "嵩山登山"
+      ],
+      "description": "春暖花开,云台山山花烂漫,是踏青赏花的好时节"
+    },
+    {
+      "name": "夏季",
+      "image": "https://picsum.photos/id/1422/600/400",
+      "activities": [
+        "云台山避暑",
+        "少林寺参观",
+        "龙门石窟游览",
+        "嵩山避暑"
+      ],
+      "description": "绿树成荫,云台山是避暑纳凉的好去处"
+    },
+    {
+      "name": "秋季",
+      "image": "https://picsum.photos/id/1422/600/400",
+      "activities": [
+        "云台山赏秋",
+        "少林寺秋游",
+        "龙门石窟秋景",
+        "殷墟参观"
+      ],
+      "description": "秋高气爽,云台山红叶满山,是登山赏秋的好时节"
+    },
+    {
+      "name": "冬季",
+      "image": "https://picsum.photos/id/1420/600/400",
+      "activities": [
+        "少林寺雪景",
+        "龙门石窟冬景",
+        "开封府游览",
+        "白马寺参观"
+      ],
+      "description": "银装素裹,少林寺雪景如画,是体验北国风情的好时节"
+    }
+  ],
+  "festivals": [
+    {
+      "id": "1",
+      "day": "15日",
+      "name": "洛阳牡丹文化节",
+      "month": "4月",
+      "isUnique": true,
+      "location": "洛阳",
+      "description": "洛阳特色的牡丹花会"
+    }
+  ],
+  "activities": [
+    {
+      "id": "1",
+      "name": "少林武术体验",
+      "type": "文化体验",
+      "image": "https://picsum.photos/id/1420/600/400",
+      "category": "culture",
+      "duration": "2-3小时",
+      "location": "少林寺",
+      "difficulty": "中等",
+      "description": "体验少林武术,学习少林功夫"
+    },
+    {
+      "id": "2",
+      "name": "云台山登山",
+      "type": "户外活动",
+      "image": "https://picsum.photos/id/1422/600/400",
+      "category": "nature",
+      "duration": "1天",
+      "location": "云台山",
+      "difficulty": "中等",
+      "description": "攀登世界地质公园,欣赏自然风光"
+    }
+  ],
+  "intangibleHeritage": [
+    {
+      "id": "1",
+      "icon": "🎭",
+      "name": "豫剧",
+      "image": "https://picsum.photos/id/1423/600/400",
+      "level": "national",
+      "category": "传统戏剧",
+      "features": [
+        "传统戏剧",
+        "国家级非遗",
+        "河南文化"
+      ],
+      "description": "河南地方戏曲,中国第一大剧种",
+      "protectionUnit": "河南省艺术研究院"
+    }
+  ],
+  "folkCustomsElements": [
+    {
+      "name": "中原文化",
+      "tags": [
+        "中原文化",
+        "河南文化",
+        "传统文化",
+        "历史文化",
+        "非遗传承"
+      ],
+      "image": "https://picsum.photos/id/1425/600/400",
+      "description": "河南独特的中原文化和传统文化"
+    }
+  ]
+}
