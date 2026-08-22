@@ -115,7 +115,7 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, onMounted } from 'vue';
+  import { ref, computed, watch } from 'vue';
   import { useRouter } from 'vue-router';
   import RefreshIcon from '@/pages/Landscape/icon/components/home/PopularDestinations/RefreshIcon.vue';
   import ClockIcon from '@/pages/Landscape/icon/common/ClockIcon.vue';
@@ -126,33 +126,35 @@
   import HeartIcon from '@/pages/Landscape/icon/common/HeartIcon.vue';
   import BookmarkIcon from '@/pages/Landscape/icon/common/BookmarkIcon.vue';
   import ShareIcon from '@/pages/Landscape/icon/common/ShareIcon.vue';
-  import { popularDestinations as destinationsData } from '@/utils/landscape/constants';
-  import { useInteractionStore } from '@/stores/landscape';
+  import { useInteractionStore, useLandscapeDataStore } from '@/stores/landscape';
   import type { Destination } from '@/typesOfPages/landscape/home';
   import { showMessage } from '@/utils/landscape';
   import { formatNumber as fmt } from '@/utils/landscape/format';
 
   const router = useRouter();
   const interactionStore = useInteractionStore();
+  const dataStore = useLandscapeDataStore();
   const activeDestination = ref<number | null>(null);
   const localLikes = ref<Set<string>>(new Set());
 
-  const destinations = ref(destinationsData);
+  const destinations = computed(() => dataStore.getAllPopularDestinations());
 
   const getDestId = (id: string | number) => `pd-${id}`;
   const getDestCount = (id: string | number) => interactionStore.getCount(getDestId(id));
 
   const handleToggleLike = (dest: Destination) => {
     const dId = getDestId(dest.id);
-    if (localLikes.value.has(dId)) {
-      localLikes.value.delete(dId);
+    const newSet = new Set(localLikes.value);
+    if (newSet.has(dId)) {
+      newSet.delete(dId);
       interactionStore.decrementLikes(dId);
       showMessage.like.cancel();
     } else {
-      localLikes.value.add(dId);
+      newSet.add(dId);
       interactionStore.incrementLikes(dId);
       showMessage.like.success(dest.name);
     }
+    localLikes.value = newSet;
   };
 
   const handleShare = (dest: Destination) => {
@@ -177,20 +179,25 @@
     }
   };
 
-  onMounted(() => {
-    interactionStore.registerBatch(
-      destinations.value.map((dest) => ({
-        id: getDestId(dest.id),
-        counts: {
-          likes: dest.likes || 0,
-          views: parseInt(dest.views.replace(',', '')),
-          loves: dest.loves || 0,
-          favorites: dest.favorites || 0,
-          shares: dest.shares || 0,
-        },
-      }))
-    );
-  });
+  watch(
+    () => destinations.value.length,
+    (len) => {
+      if (len === 0) return;
+      interactionStore.registerBatch(
+        destinations.value.map((dest) => ({
+          id: getDestId(dest.id),
+          counts: {
+            likes: dest.likes || 0,
+            views: parseInt(dest.views.replace(/,/g, '')) || 0,
+            loves: dest.loves || 0,
+            favorites: dest.favorites || 0,
+            shares: dest.shares || 0,
+          },
+        }))
+      );
+    },
+    { immediate: true },
+  );
 </script>
 
 <style scoped lang="scss" src="./index.scss" />

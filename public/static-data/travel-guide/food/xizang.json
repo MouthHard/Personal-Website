@@ -1,0 +1,196 @@
+{
+  "items": [
+    {
+      "id": "qingkejiu",
+      "name": "青稞酒",
+      "tags": [
+        "西藏特色",
+        "青稞酿造",
+        "醇香浓郁",
+        "高原特产",
+        "藏式风情"
+      ],
+      "image": "https://picsum.photos/id/464/800/600",
+      "price": 68,
+      "rating": 4.6,
+      "category": "饮品",
+      "badgeText": "高原佳酿",
+      "isPopular": true,
+      "badgeColor": "#f44336",
+      "description": "醇香浓郁，高原特色",
+      "recommendations": {
+        "pairings": [
+          "糌粑",
+          "酥油茶",
+          "风干牛肉",
+          "奶渣"
+        ],
+        "eatingMethod": "温热后小口慢饮，不宜空腹饮用"
+      }
+    },
+    {
+      "id": "suyoucha",
+      "name": "酥油茶",
+      "tags": [
+        "西藏特色",
+        "藏族饮品",
+        "奶香浓郁",
+        "营养丰富",
+        "抗高反"
+      ],
+      "image": "https://picsum.photos/id/465/800/600",
+      "price": 15,
+      "rating": 4.5,
+      "category": "饮品",
+      "badgeText": "藏民日常",
+      "isPopular": true,
+      "badgeColor": "#ff9800",
+      "description": "奶香浓郁，营养丰富",
+      "recommendations": {
+        "pairings": [
+          "糌粑",
+          "青稞饼",
+          "风干肉",
+          "奶渣包子"
+        ],
+        "eatingMethod": "搅拌后趁热饮用，可加适量盐或糖"
+      }
+    },
+    {
+      "id": "zamba",
+      "name": "糌粑",
+      "tags": [
+        "西藏特色",
+        "青稞制成",
+        "营养丰富",
+        "高原主食",
+        "藏民主食"
+      ],
+      "image": "https://picsum.photos/id/466/800/600",
+      "price": 12,
+      "rating": 4.3,
+      "category": "主食",
+      "isPopular": false,
+      "description": "高原特色，营养丰富",
+      "recommendations": {
+        "pairings": [
+          "酥油茶",
+          "酸奶",
+          "风干牛肉",
+          "人参果"
+        ],
+        "eatingMethod": "用手捏成团状，蘸酥油茶食用"
+      }
+    },
+    {
+      "id": "maoniurou",
+      "name": "牦牛肉",
+      "tags": [
+        "西藏特色",
+        "高原肉类",
+        "肉质紧实",
+        "营养丰富",
+        "蛋白质丰富"
+      ],
+      "image": "https://picsum.photos/id/467/800/600",
+      "price": 88,
+      "rating": 4.7,
+      "category": "菜肴",
+      "badgeText": "高原珍馐",
+      "isPopular": true,
+      "badgeColor": "#4caf50",
+      "description": "肉质紧实，营养丰富",
+      "recommendations": {
+        "pairings": [
+          "糌粑",
+          "土豆",
+          "萝卜",
+          "青稞酒"
+        ],
+        "eatingMethod": "可红烧、炖煮或做成风干牦牛肉"
+      }
+    },
+    {
+      "id": "zangshi-suannai",
+      "name": "藏式酸奶",
+      "tags": [
+        "西藏特色",
+        "发酵乳制品",
+        "酸甜可口",
+        "口感醇厚",
+        "益生菌"
+      ],
+      "image": "https://picsum.photos/id/468/800/600",
+      "price": 10,
+      "rating": 4.4,
+      "category": "甜品",
+      "isPopular": false,
+      "description": "酸甜可口，口感醇厚",
+      "recommendations": {
+        "pairings": [
+          "白糖",
+          "蜂蜜",
+          "青稞麦片",
+          "水果"
+        ],
+        "eatingMethod": "可加入白糖或蜂蜜调味后食用"
+      }
+    },
+    {
+      "id": "tibet-youtiao",
+      "name": "西藏油条",
+      "tags": [
+        "西藏特色",
+        "早餐食品",
+        "外酥内软",
+        "快捷方便",
+        "藏式早点"
+      ],
+      "image": "https://picsum.photos/id/469/800/600",
+      "price": 3,
+      "rating": 4.1,
+      "category": "小吃",
+      "isPopular": false,
+      "description": "外酥内软，早餐必备",
+      "recommendations": {
+        "pairings": [
+          "酥油茶",
+          "甜茶",
+          "牛奶",
+          "粥品"
+        ],
+        "eatingMethod": "直接食用，蘸酥油茶更美味"
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "icon": "🏞️",
+      "name": "拉萨八廓街",
+      "type": "文化街",
+      "foods": [
+        "qingkejiu",
+        "suyoucha",
+        "zamba"
+      ],
+      "image": "https://picsum.photos/id/332/800/600",
+      "reason": "拉萨传统美食集中地",
+      "location": "拉萨市"
+    },
+    {
+      "id": 2,
+      "icon": "🛣️",
+      "name": "日喀则美食街",
+      "type": "美食街",
+      "foods": [
+        "maoniurou",
+        "qingkejiu",
+        "suyoucha"
+      ],
+      "image": "https://picsum.photos/id/333/800/600",
+      "reason": "西藏特色美食聚集地",
+      "location": "日喀则市"
+    }
+  ]
+}

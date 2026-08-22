@@ -1,0 +1,337 @@
+{
+  "spots": [
+    {
+      "id": "changbaiMountain",
+      "name": "长白山",
+      "tags": [
+        "名山",
+        "天池",
+        "自然",
+        "奇观"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1240/600/400",
+      "rating": 4.9,
+      "bestTime": "夏季",
+      "location": "吉林省延边朝鲜族自治州安图县",
+      "description": "中国十大名山之一,拥有天池等奇观",
+      "landformTags": [
+        "山地景观"
+      ],
+      "landscapeType": "mountain",
+      "landscapeCategory": [
+        "地理景观"
+      ]
+    },
+    {
+      "id": "puppetMansionsMuseum",
+      "name": "伪满皇宫博物院",
+      "tags": [
+        "皇宫",
+        "历史",
+        "建筑",
+        "教育"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1241/600/400",
+      "rating": 4.5,
+      "bestTime": "全年",
+      "location": "吉林省长春市宽城区",
+      "description": "清朝末代皇帝溥仪的宫殿"
+    },
+    {
+      "id": "jingyuetan",
+      "name": "净月潭",
+      "tags": [
+        "森林",
+        "湖泊",
+        "自然",
+        "休闲"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1242/600/400",
+      "rating": 4.6,
+      "bestTime": "全年",
+      "location": "吉林省长春市南关区",
+      "description": "国家森林公园,被誉为亚洲第一大人工林海",
+      "landformTags": [
+        "森林景观"
+      ],
+      "landscapeType": "forest",
+      "landscapeCategory": [
+        "生物景观"
+      ]
+    },
+    {
+      "id": "jilinRime",
+      "name": "吉林雾凇",
+      "tags": [
+        "雾凇",
+        "奇观",
+        "自然",
+        "摄影"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1243/600/400",
+      "rating": 4.7,
+      "bestTime": "冬季",
+      "location": "吉林省吉林市松花江畔",
+      "description": "中国四大自然奇观之一",
+      "landformTags": [
+        "冰雪景观"
+      ],
+      "landscapeType": "ice",
+      "landscapeCategory": [
+        "气象景观"
+      ]
+    },
+    {
+      "id": "songhuaLake",
+      "name": "松花湖",
+      "tags": [
+        "湖泊",
+        "自然",
+        "风光",
+        "度假"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1246/600/400",
+      "rating": 4.5,
+      "bestTime": "夏季",
+      "location": "吉林省吉林市丰满区",
+      "description": "吉林省最大的湖泊,风景秀丽",
+      "landformTags": [
+        "湖泊景观"
+      ],
+      "landscapeType": "lake",
+      "landscapeCategory": [
+        "水体景观"
+      ]
+    },
+    {
+      "id": "chaganLake",
+      "name": "查干湖",
+      "tags": [
+        "湖泊",
+        "冬捕",
+        "民俗",
+        "文化"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1247/600/400",
+      "rating": 4.5,
+      "bestTime": "冬季",
+      "location": "吉林省松原市前郭尔罗斯蒙古族自治县",
+      "description": "著名的冬捕胜地",
+      "landformTags": [
+        "湖泊景观"
+      ],
+      "landscapeType": "lake",
+      "landscapeCategory": [
+        "水体景观"
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "id": "1",
+      "name": "长白山之旅",
+      "tags": [
+        "名山",
+        "自然",
+        "奇观"
+      ],
+      "image": "https://picsum.photos/id/1240/600/400",
+      "spots": [
+        "长白山",
+        "天池"
+      ],
+      "title": "长白山之旅",
+      "rating": 4.9,
+      "traffic": "旅游大巴",
+      "bestTime": "夏季",
+      "duration": "2天",
+      "difficulty": "中等",
+      "highlights": [
+        "长白山",
+        "天池"
+      ],
+      "description": "探索长白山的自然奇观",
+      "suitableFor": "自然爱好者"
+    }
+  ],
+  "customs": {
+    "activities": [
+      {
+        "id": "1",
+        "name": "查干湖冬捕",
+        "type": "民俗体验",
+        "image": "https://picsum.photos/id/1247/600/400",
+        "category": "culture",
+        "duration": "3-4小时",
+        "location": "查干湖",
+        "difficulty": "简单",
+        "description": "体验传统的冬捕活动"
+      }
+    ]
+  },
+  "overview": {
+    "totalSpots": 150,
+    "natureSpots": 80,
+    "cultureSpots": 70,
+    "topAttractions": [
+      {
+        "name": "长白山",
+        "image": "https://picsum.photos/id/1240/600/400",
+        "description": "中国十大名山之一,拥有天池等奇观"
+      },
+      {
+        "name": "伪满皇宫博物院",
+        "image": "https://picsum.photos/id/1241/600/400",
+        "description": "清朝末代皇帝溥仪的宫殿"
+      },
+      {
+        "name": "净月潭",
+        "image": "https://picsum.photos/id/1242/600/400",
+        "description": "国家森林公园,被誉为亚洲第一大人工林海"
+      },
+      {
+        "name": "吉林雾凇",
+        "image": "https://picsum.photos/id/1243/600/400",
+        "description": "中国四大自然奇观之一"
+      },
+      {
+        "name": "长春世界雕塑园",
+        "image": "https://picsum.photos/id/1244/600/400",
+        "description": "中国最大的雕塑专题公园"
+      },
+      {
+        "name": "高句丽古迹",
+        "image": "https://picsum.photos/id/1245/600/400",
+        "description": "世界文化遗产,高句丽王朝遗迹"
+      },
+      {
+        "name": "松花湖",
+        "image": "https://picsum.photos/id/1246/600/400",
+        "description": "吉林省最大的湖泊,风景秀丽"
+      },
+      {
+        "name": "查干湖",
+        "image": "https://picsum.photos/id/1247/600/400",
+        "description": "著名的冬捕胜地"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "name": "春季",
+      "image": "https://picsum.photos/id/1240/600/400",
+      "activities": [
+        "长白山踏青",
+        "净月潭游览",
+        "松花湖游船",
+        "长春市区游览"
+      ],
+      "description": "春暖花开,长白山山花烂漫,是踏青赏花的好时节"
+    },
+    {
+      "name": "夏季",
+      "image": "https://picsum.photos/id/1240/600/400",
+      "activities": [
+        "长白山避暑",
+        "净月潭避暑",
+        "松花湖度假",
+        "查干湖垂钓"
+      ],
+      "description": "绿树成荫,长白山和净月潭是避暑纳凉的好去处"
+    },
+    {
+      "name": "秋季",
+      "image": "https://picsum.photos/id/1240/600/400",
+      "activities": [
+        "长白山赏秋",
+        "净月潭秋游",
+        "松花湖秋景",
+        "高句丽古迹参观"
+      ],
+      "description": "秋高气爽,长白山红叶满山,是登山赏秋的好时节"
+    },
+    {
+      "name": "冬季",
+      "image": "https://picsum.photos/id/1243/600/400",
+      "activities": [
+        "吉林雾凇观赏",
+        "查干湖冬捕",
+        "长白山滑雪",
+        "伪满皇宫雪景"
+      ],
+      "description": "银装素裹,吉林雾凇和查干湖冬捕是冬季特色体验"
+    }
+  ],
+  "festivals": [
+    {
+      "id": "1",
+      "day": "28日",
+      "name": "查干湖冬捕节",
+      "month": "12月",
+      "isUnique": true,
+      "location": "查干湖",
+      "description": "传统的冬捕节庆活动"
+    }
+  ],
+  "activities": [
+    {
+      "id": "1",
+      "name": "长白山天池游览",
+      "type": "户外活动",
+      "image": "https://picsum.photos/id/1240/600/400",
+      "category": "nature",
+      "duration": "1天",
+      "location": "长白山",
+      "difficulty": "中等",
+      "description": "游览长白山天池,欣赏高山湖泊美景"
+    },
+    {
+      "id": "2",
+      "name": "吉林雾凇观赏",
+      "type": "自然观赏",
+      "image": "https://picsum.photos/id/1243/600/400",
+      "category": "nature",
+      "duration": "2-3小时",
+      "location": "吉林市松花江畔",
+      "difficulty": "简单",
+      "description": "观赏吉林雾凇奇观"
+    }
+  ],
+  "intangibleHeritage": [
+    {
+      "id": "1",
+      "icon": "💃",
+      "name": "朝鲜族农乐舞",
+      "image": "https://picsum.photos/id/1240/600/400",
+      "level": "national",
+      "category": "传统舞蹈",
+      "features": [
+        "传统舞蹈",
+        "国家级非遗",
+        "朝鲜族文化"
+      ],
+      "description": "朝鲜族传统舞蹈,具有浓郁的民族特色",
+      "protectionUnit": "延边朝鲜族自治州艺术研究所"
+    }
+  ],
+  "folkCustomsElements": [
+    {
+      "name": "查干湖冬捕",
+      "tags": [
+        "传统民俗",
+        "冬捕文化",
+        "吉林文化",
+        "非遗传承",
+        "渔业文化"
+      ],
+      "image": "https://picsum.photos/id/1247/600/400",
+      "description": "传统的冬季捕鱼活动"
+    }
+  ]
+}

@@ -1,0 +1,252 @@
+{
+  "items": [
+    {
+      "id": "河南烩面",
+      "name": "河南烩面",
+      "tags": [
+        "河南特色",
+        "郑州特产",
+        "面条劲道",
+        "汤汁浓郁",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/432/800/600",
+      "price": 18,
+      "rating": 4.7,
+      "category": "主食",
+      "badgeText": "中原名面",
+      "isPopular": true,
+      "badgeColor": "#ff9800",
+      "description": "面条劲道，汤汁浓郁",
+      "recommendations": {
+        "pairings": [
+          "小菜",
+          "汤品",
+          "饮料",
+          "茶品"
+        ],
+        "eatingMethod": "直接食用，作为主食"
+      }
+    },
+    {
+      "id": "道口烧鸡",
+      "name": "道口烧鸡",
+      "tags": [
+        "河南特色",
+        "安阳特产",
+        "肉质鲜嫩",
+        "香气浓郁",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/433/800/600",
+      "price": 68,
+      "rating": 4.8,
+      "category": "菜肴",
+      "badgeText": "豫北名鸡",
+      "isPopular": true,
+      "badgeColor": "#e91e63",
+      "description": "肉质鲜嫩，香气浓郁",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "胡辣汤",
+      "name": "胡辣汤",
+      "tags": [
+        "河南特色",
+        "周口特产",
+        "香辣浓郁",
+        "配以油条",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/434/800/600",
+      "price": 8,
+      "rating": 4.5,
+      "category": "主食",
+      "badgeText": "中原早点",
+      "isPopular": true,
+      "badgeColor": "#f44336",
+      "description": "香辣浓郁，配以油条",
+      "recommendations": {
+        "pairings": [
+          "油条",
+          "包子",
+          "小菜",
+          "汤品"
+        ],
+        "eatingMethod": "直接食用，作为早餐"
+      }
+    },
+    {
+      "id": "开封灌汤包",
+      "name": "开封灌汤包",
+      "tags": [
+        "河南特色",
+        "开封特产",
+        "皮薄馅大",
+        "汤汁丰富",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/435/800/600",
+      "price": 25,
+      "rating": 4.6,
+      "category": "主食",
+      "badgeText": "汴京名点",
+      "isPopular": true,
+      "badgeColor": "#ff5722",
+      "description": "皮薄馅大，汤汁丰富",
+      "recommendations": {
+        "pairings": [
+          "小菜",
+          "汤品",
+          "饮料",
+          "茶品"
+        ],
+        "eatingMethod": "直接食用，作为主食"
+      }
+    },
+    {
+      "id": "洛阳水席",
+      "name": "洛阳水席",
+      "tags": [
+        "河南特色",
+        "洛阳特产",
+        "菜品丰富",
+        "味道鲜美",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/436/800/600",
+      "price": 168,
+      "rating": 4.7,
+      "category": "菜肴",
+      "badgeText": "洛阳盛宴",
+      "isPopular": true,
+      "badgeColor": "#9c27b0",
+      "description": "菜品丰富，味道鲜美",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "henan-youtiao",
+      "name": "河南油条",
+      "tags": [
+        "河南特色",
+        "传统小吃",
+        "外酥内软",
+        "早餐必备",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/437/800/600",
+      "price": 3,
+      "rating": 4.1,
+      "category": "小吃",
+      "isPopular": false,
+      "description": "外酥内软，早餐必备",
+      "recommendations": {
+        "pairings": [
+          "豆浆",
+          "粥",
+          "小菜",
+          "汤品"
+        ],
+        "eatingMethod": "直接食用，作为早餐"
+      }
+    },
+    {
+      "id": "henan-tangbao",
+      "name": "河南糖包",
+      "tags": [
+        "河南特色",
+        "传统面点",
+        "香甜可口",
+        "软糯适中",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/438/800/600",
+      "price": 5,
+      "rating": 4,
+      "category": "甜品",
+      "isPopular": false,
+      "description": "香甜可口，传统面点",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "咖啡",
+          "水果",
+          "饮料"
+        ],
+        "eatingMethod": "直接食用，作为甜品"
+      }
+    },
+    {
+      "id": "henan-hongcha",
+      "name": "河南红茶",
+      "tags": [
+        "河南特色",
+        "传统饮品",
+        "香气浓郁",
+        "口感醇厚",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/439/800/600",
+      "price": 38,
+      "rating": 4.3,
+      "category": "饮品",
+      "isPopular": false,
+      "description": "香气浓郁，口感醇厚",
+      "recommendations": {
+        "pairings": [
+          "点心",
+          "小吃",
+          "甜品",
+          "菜肴"
+        ],
+        "eatingMethod": "直接饮用，可点心或小吃"
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "icon": "🏬",
+      "name": "郑州二七广场",
+      "type": "商业区",
+      "foods": [
+        "河南烩面",
+        "胡辣汤",
+        "水煎包"
+      ],
+      "image": "https://picsum.photos/id/320/800/600",
+      "reason": "郑州传统美食聚集地",
+      "location": "郑州市"
+    },
+    {
+      "id": 2,
+      "icon": "🌙",
+      "name": "开封鼓楼夜市",
+      "type": "夜市",
+      "foods": [
+        "开封灌汤包",
+        "洛阳水席",
+        "道口烧鸡"
+      ],
+      "image": "https://picsum.photos/id/321/800/600",
+      "reason": "开封传统美食夜市",
+      "location": "开封市"
+    }
+  ]
+}

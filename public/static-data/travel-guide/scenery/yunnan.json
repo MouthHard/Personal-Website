@@ -1,0 +1,332 @@
+{
+  "spots": [
+    {
+      "id": "lijiangAncientTown",
+      "name": "丽江古城",
+      "tags": [
+        "古城",
+        "世界遗产",
+        "纳西",
+        "文化"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1600/600/400",
+      "rating": 4.8,
+      "bestTime": "春秋",
+      "location": "云南省丽江市古城区",
+      "description": "世界文化遗产,中国最美丽的古城之一"
+    },
+    {
+      "id": "daliAncientTown",
+      "name": "大理古城",
+      "tags": [
+        "古城",
+        "历史",
+        "白族",
+        "文化"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1601/600/400",
+      "rating": 4.7,
+      "bestTime": "春秋",
+      "location": "云南省大理白族自治州大理市",
+      "description": "南诏古国的都城,风花雪月的故乡"
+    },
+    {
+      "id": "jadeDragonSnowMountain",
+      "name": "玉龙雪山",
+      "tags": [
+        "雪山",
+        "自然",
+        "风光",
+        "摄影"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1602/600/400",
+      "rating": 4.8,
+      "bestTime": "冬季",
+      "location": "云南省丽江市玉龙纳西族自治县",
+      "description": "北半球最近赤道的雪山,纳西族的神山",
+      "landformTags": [
+        "山地景观"
+      ],
+      "landscapeType": "mountain",
+      "landscapeCategory": [
+        "地理景观"
+      ]
+    },
+    {
+      "id": "stoneForest",
+      "name": "石林",
+      "tags": [
+        "石林",
+        "世界遗产",
+        "地质",
+        "奇观"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1603/600/400",
+      "rating": 4.6,
+      "bestTime": "全年",
+      "location": "云南省昆明市石林彝族自治县",
+      "description": "世界自然遗产,天下第一奇观",
+      "landformTags": [
+        "喀斯特景观"
+      ],
+      "landscapeType": "karst",
+      "landscapeCategory": [
+        "地理景观"
+      ]
+    },
+    {
+      "id": "shangriLa",
+      "name": "香格里拉",
+      "tags": [
+        "仙境",
+        "自然",
+        "风光",
+        "摄影"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1604/600/400",
+      "rating": 4.7,
+      "bestTime": "春秋",
+      "location": "云南省迪庆藏族自治州香格里拉市",
+      "description": "人间仙境,世外桃源",
+      "landformTags": [
+        "山地景观"
+      ],
+      "landscapeType": "mountain",
+      "landscapeCategory": [
+        "地理景观"
+      ]
+    },
+    {
+      "id": "luguLake",
+      "name": "泸沽湖",
+      "tags": [
+        "湖泊",
+        "民族",
+        "自然",
+        "风光"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1605/600/400",
+      "rating": 4.7,
+      "bestTime": "春秋",
+      "location": "云南省丽江市宁蒗彝族自治县",
+      "description": "东方女儿国,摩梭人的家园",
+      "landformTags": [
+        "湖泊景观"
+      ],
+      "landscapeType": "lake",
+      "landscapeCategory": [
+        "水体景观"
+      ]
+    },
+    {
+      "id": "xishuangbanna",
+      "name": "西双版纳",
+      "tags": [
+        "热带",
+        "雨林",
+        "民族",
+        "自然"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1606/600/400",
+      "rating": 4.6,
+      "bestTime": "冬季",
+      "location": "云南省西双版纳傣族自治州景洪市",
+      "description": "热带雨林,中国唯一的热带雨林自然保护区",
+      "landformTags": [
+        "森林景观"
+      ],
+      "landscapeType": "forest",
+      "landscapeCategory": [
+        "生物景观"
+      ]
+    },
+    {
+      "id": "shuheAncientTown",
+      "name": "束河古镇",
+      "tags": [
+        "古镇",
+        "茶马古道",
+        "纳西",
+        "文化"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1607/600/400",
+      "rating": 4.5,
+      "bestTime": "全年",
+      "location": "云南省丽江市古城区",
+      "description": "茶马古道重镇,纳西族聚居地"
+    }
+  ],
+  "routes": [
+    {
+      "id": "1",
+      "name": "云南经典之旅",
+      "tags": [
+        "古城",
+        "文化",
+        "自然"
+      ],
+      "image": "https://picsum.photos/id/1600/600/400",
+      "spots": [
+        "丽江古城",
+        "大理古城",
+        "玉龙雪山"
+      ],
+      "title": "云南经典之旅",
+      "rating": 4.8,
+      "traffic": "旅游大巴",
+      "bestTime": "春秋",
+      "duration": "5天",
+      "difficulty": "简单",
+      "highlights": [
+        "丽江古城",
+        "大理古城",
+        "玉龙雪山"
+      ],
+      "description": "体验云南的自然风光和民族文化",
+      "suitableFor": "所有游客"
+    }
+  ],
+  "customs": {
+    "activities": [
+      {
+        "id": "1",
+        "name": "纳西族文化体验",
+        "type": "文化体验",
+        "image": "https://picsum.photos/id/1600/600/400",
+        "category": "culture",
+        "duration": "1天",
+        "location": "丽江",
+        "difficulty": "简单",
+        "description": "体验纳西族传统文化和生活方式"
+      }
+    ]
+  },
+  "overview": {
+    "totalSpots": 300,
+    "natureSpots": 160,
+    "cultureSpots": 140,
+    "topAttractions": [
+      {
+        "name": "丽江古城",
+        "image": "https://picsum.photos/id/1600/600/400",
+        "description": "世界文化遗产,中国最美丽的古城之一"
+      },
+      {
+        "name": "大理古城",
+        "image": "https://picsum.photos/id/1601/600/400",
+        "description": "南诏古国的都城,风花雪月的故乡"
+      },
+      {
+        "name": "玉龙雪山",
+        "image": "https://picsum.photos/id/1602/600/400",
+        "description": "北半球最近赤道的雪山,纳西族的神山"
+      },
+      {
+        "name": "石林",
+        "image": "https://picsum.photos/id/1603/600/400",
+        "description": "世界自然遗产,天下第一奇观"
+      },
+      {
+        "name": "香格里拉",
+        "image": "https://picsum.photos/id/1604/600/400",
+        "description": "人间仙境,世外桃源"
+      },
+      {
+        "name": "泸沽湖",
+        "image": "https://picsum.photos/id/1605/600/400",
+        "description": "东方女儿国,摩梭人的家园"
+      },
+      {
+        "name": "西双版纳",
+        "image": "https://picsum.photos/id/1606/600/400",
+        "description": "热带雨林,中国唯一的热带雨林自然保护区"
+      },
+      {
+        "name": "束河古镇",
+        "image": "https://picsum.photos/id/1607/600/400",
+        "description": "茶马古道重镇,纳西族聚居地"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "name": "春季",
+      "image": "https://picsum.photos/id/1601/600/400",
+      "activities": [
+        "大理踏青",
+        "丽江古城游览",
+        "玉龙雪山登山",
+        "石林参观"
+      ],
+      "description": "春暖花开,大理山花烂漫,是踏青赏花的好时节"
+    },
+    {
+      "name": "夏季",
+      "image": "https://picsum.photos/id/1602/600/400",
+      "activities": [
+        "玉龙雪山避暑",
+        "香格里拉避暑",
+        "泸沽湖游览",
+        "西双版纳参观"
+      ],
+      "description": "绿树成荫,玉龙雪山和香格里拉是避暑纳凉的好去处"
+    },
+    {
+      "name": "秋季",
+      "image": "https://picsum.photos/id/1602/600/400",
+      "activities": [
+        "玉龙雪山赏秋",
+        "香格里拉赏秋",
+        "泸沽湖秋游",
+        "大理古城秋景"
+      ],
+      "description": "秋高气爽,玉龙雪山和香格里拉秋色迷人,是游览的好时节"
+    },
+    {
+      "name": "冬季",
+      "image": "https://picsum.photos/id/1606/600/400",
+      "activities": [
+        "西双版纳避寒",
+        "丽江古城游览",
+        "大理古城游览",
+        "石林参观"
+      ],
+      "description": "温暖如春,西双版纳是避寒的好去处"
+    }
+  ],
+  "festivals": [],
+  "activities": [
+    {
+      "id": "1",
+      "name": "丽江古城游览",
+      "type": "文化体验",
+      "image": "https://picsum.photos/id/1600/600/400",
+      "category": "culture",
+      "duration": "1天",
+      "location": "丽江古城",
+      "difficulty": "简单",
+      "description": "游览世界文化遗产丽江古城"
+    },
+    {
+      "id": "2",
+      "name": "玉龙雪山登山",
+      "type": "户外活动",
+      "image": "https://picsum.photos/id/1602/600/400",
+      "category": "nature",
+      "duration": "1天",
+      "location": "玉龙雪山",
+      "difficulty": "中等",
+      "description": "攀登玉龙雪山,欣赏雪山美景"
+    }
+  ],
+  "intangibleHeritage": [],
+  "folkCustomsElements": []
+}

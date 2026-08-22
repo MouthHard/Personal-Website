@@ -18,7 +18,7 @@
             <span class="meta-item">
               <span class="meta-label">文物数量</span>
               <span class="meta-value">
-                {{ formatNumber(museum.artifacts) }}
+                {{ museum.artifacts > 0 ? formatNumber(museum.artifacts) : '暂无数据' }}
               </span>
             </span>
             <span class="meta-item">
@@ -28,7 +28,7 @@
             <span class="meta-item">
               <span class="meta-label">年访问量</span>
               <span class="meta-value">
-                {{ formatNumber(museum.visitors) }}
+                {{ museum.visitors > 0 ? formatNumber(museum.visitors) : '暂无数据' }}
               </span>
             </span>
           </div>
@@ -177,24 +177,30 @@
 </template>
 
 <script setup lang="ts">
-  import { computed } from 'vue';
-  import type { Museum } from '@/typesOfPages/museum';
-  import { getMuseumDetailsById } from '@/pages/Museum/data/museum-details';
+  import { ref, watch } from 'vue';
+  import type { Museum, MuseumDetailInfo } from '@/typesOfPages/museum';
+  import { useMuseumDataStore } from '@/stores/museum';
 
   interface Props {
     museum: Museum;
   }
 
   const props = defineProps<Props>();
+  const store = useMuseumDataStore();
 
   const formatNumber = (num: number): string => {
     return num.toLocaleString();
   };
 
-  // 获取博物馆详细信息
-  const museumDetails = computed(() => {
-    return getMuseumDetailsById(props.museum.id);
-  });
+  const museumDetails = ref<MuseumDetailInfo | null>(null);
+
+  watch(
+    () => props.museum.id,
+    async (id) => {
+      museumDetails.value = await store.getMuseumDetailsById(id);
+    },
+    { immediate: true },
+  );
 </script>
 
 <style lang="scss" scoped src="./index.scss"></style>

@@ -1,0 +1,250 @@
+{
+  "items": [
+    {
+      "id": "延边冷面",
+      "name": "延边冷面",
+      "tags": [
+        "吉林特色",
+        "延边特产",
+        "酸辣爽口",
+        "口感独特",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/402/800/600",
+      "price": 25,
+      "rating": 4.7,
+      "category": "主食",
+      "badgeText": "延边名片",
+      "isPopular": true,
+      "badgeColor": "#03a9f4",
+      "description": "酸辣爽口，口感独特",
+      "recommendations": {
+        "pairings": [
+          "泡菜",
+          "烤肉",
+          "小菜",
+          "汤品"
+        ],
+        "eatingMethod": "直接食用，作为主食"
+      }
+    },
+    {
+      "id": "长春酱肉",
+      "name": "长春酱肉",
+      "tags": [
+        "吉林特色",
+        "长春特产",
+        "肥而不腻",
+        "瘦而不柴",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/403/800/600",
+      "price": 58,
+      "rating": 4.6,
+      "category": "菜肴",
+      "badgeText": "长春名菜",
+      "isPopular": true,
+      "badgeColor": "#795548",
+      "description": "肥而不腻，瘦而不柴",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "吉林人参",
+      "name": "吉林人参",
+      "tags": [
+        "吉林特色",
+        "长白山特产",
+        "补气养血",
+        "营养丰富",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/404/800/600",
+      "price": 198,
+      "rating": 4.5,
+      "category": "中药材",
+      "isPopular": false,
+      "description": "补气养血，营养丰富",
+      "recommendations": {
+        "pairings": [
+          "鸡汤",
+          "粥",
+          "茶品",
+          "甜品"
+        ],
+        "eatingMethod": "煲汤或泡酒，作为补品"
+      }
+    },
+    {
+      "id": "松花江鱼",
+      "name": "松花江鱼",
+      "tags": [
+        "吉林特色",
+        "松花江特产",
+        "肉质鲜嫩",
+        "味道鲜美",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/405/800/600",
+      "price": 88,
+      "rating": 4.7,
+      "category": "菜肴",
+      "badgeText": "松花江特产",
+      "isPopular": true,
+      "badgeColor": "#4caf50",
+      "description": "肉质鲜嫩，味道鲜美",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "延边烤肉",
+      "name": "延边烤肉",
+      "tags": [
+        "吉林特色",
+        "延边特产",
+        "外焦里嫩",
+        "香气四溢",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/406/800/600",
+      "price": 68,
+      "rating": 4.8,
+      "category": "菜肴",
+      "badgeText": "朝鲜族风味",
+      "isPopular": true,
+      "badgeColor": "#ff5722",
+      "description": "外焦里嫩，香气四溢",
+      "recommendations": {
+        "pairings": [
+          "泡菜",
+          "冷面",
+          "小菜",
+          "饮料"
+        ],
+        "eatingMethod": "直接食用，作为主菜"
+      }
+    },
+    {
+      "id": "jilin-youtiao",
+      "name": "吉林油条",
+      "tags": [
+        "吉林特色",
+        "传统小吃",
+        "外酥内软",
+        "早餐必备",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/407/800/600",
+      "price": 3,
+      "rating": 4.1,
+      "category": "小吃",
+      "isPopular": false,
+      "description": "外酥内软，早餐必备",
+      "recommendations": {
+        "pairings": [
+          "豆浆",
+          "粥",
+          "小菜",
+          "汤品"
+        ],
+        "eatingMethod": "直接食用，作为早餐"
+      }
+    },
+    {
+      "id": "jilin-tangbao",
+      "name": "吉林糖包",
+      "tags": [
+        "吉林特色",
+        "传统面点",
+        "香甜可口",
+        "软糯适中",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/408/800/600",
+      "price": 5,
+      "rating": 4,
+      "category": "甜品",
+      "isPopular": false,
+      "description": "香甜可口，传统面点",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "咖啡",
+          "水果",
+          "饮料"
+        ],
+        "eatingMethod": "直接食用，作为甜品"
+      }
+    },
+    {
+      "id": "jilin-hongcha",
+      "name": "吉林红茶",
+      "tags": [
+        "吉林特色",
+        "传统饮品",
+        "香气浓郁",
+        "口感醇厚",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/409/800/600",
+      "price": 38,
+      "rating": 4.3,
+      "category": "饮品",
+      "isPopular": false,
+      "description": "香气浓郁，口感醇厚",
+      "recommendations": {
+        "pairings": [
+          "点心",
+          "小吃",
+          "甜品",
+          "菜肴"
+        ],
+        "eatingMethod": "直接饮用，可点心或小吃"
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "icon": "🏬",
+      "name": "长春重庆路",
+      "type": "商业街",
+      "foods": [
+        "长春酱肉",
+        "朝鲜冷面",
+        "长春炒粉"
+      ],
+      "image": "https://picsum.photos/id/308/800/600",
+      "reason": "长春传统美食聚集地",
+      "location": "长春市"
+    },
+    {
+      "id": 2,
+      "icon": "🛣️",
+      "name": "延吉美食街",
+      "type": "美食街",
+      "foods": [
+        "延边冷面",
+        "延边烤肉",
+        "石锅拌饭"
+      ],
+      "image": "https://picsum.photos/id/309/800/600",
+      "reason": "朝鲜族特色美食集中地",
+      "location": "延吉市"
+    }
+  ]
+}

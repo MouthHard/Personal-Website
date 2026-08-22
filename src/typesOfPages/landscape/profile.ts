@@ -1,5 +1,6 @@
 import type { SocialLink, ContactInfo } from './common'
 import type { Component } from 'vue'
+import type { GuideSection, GuideEquipment, GuideTip } from './data'
 
 export interface ImageItem {
   id: string
@@ -58,8 +59,9 @@ export interface PhotographerItem {
   title: string
   bio?: string
   location?: string
-  works: number
-  followers: number
+  works: string
+  worksCount: number
+  followers: string
   views?: string
   likes?: string
   tags: string[]
@@ -137,6 +139,21 @@ export interface GuideItem {
   tag3?: string
   bestTime?: string
   routeSummary?: string
+  content?: string
+  excerpt?: string
+  sections?: GuideSection[]
+  equipments?: GuideEquipment[]
+  guideTips?: GuideTip[]
+  routePoints?: string[]
+  recommendedGear?: string[]
+  postProcessing?: string[]
+  weather?: string
+  transportation?: string
+  budgetDetail?: string
+  safetyNotes?: string[]
+  tags?: string[]
+  travelMode?: string
+  sceneryTheme?: string
 }
 
 export interface User {

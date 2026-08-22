@@ -57,7 +57,7 @@
 
 <script setup lang="ts">
 defineOptions({ name: 'Profile' });
-import { ref, computed } from 'vue';
+import { ref, computed, watch } from 'vue';
 import ProfileHeader from './components/ProfileHeader/index.vue';
 import ContentTabs from './components/ContentTabs/index.vue';
 import CategoryFilter from './components/CategoryFilter/index.vue';
@@ -85,12 +85,37 @@ const handleUserUpdate = (updatedUser: User) => {
 };
 
 const { myImages, myVideos, myPhotographers, myGuides } = useProfileViewData();
-const images = myImages();
-const videos = myVideos();
-const photographers = myPhotographers();
-const guides = myGuides();
+const images = computed(() => myImages());
+const videos = computed(() => myVideos());
+const photographers = computed(() => myPhotographers());
+const guides = computed(() => myGuides());
 
 const { stats } = useProfileStats();
+
+watch([images, videos, photographers, guides], ([newImages, newVideos, newPhotographers, newGuides]) => {
+  const batch: Array<{ id: string; counts: { likes: number; loves: number; views: number; favorites: number; shares: number } }> = [];
+  
+  newImages.forEach((img: any) => batch.push({
+    id: String(img.id),
+    counts: { likes: img.likes || 0, loves: img.loves || 0, views: img.views || 0, favorites: img.favorites || 0, shares: img.shares || 0 },
+  }));
+  newVideos.forEach((vid: any) => batch.push({
+    id: String(vid.id),
+    counts: { likes: vid.likes || 0, loves: vid.loves || 0, views: vid.views || 0, favorites: vid.bookmarks || 0, shares: vid.shares || 0 },
+  }));
+  newPhotographers.forEach((p: any) => batch.push({
+    id: String(p.id),
+    counts: { likes: parseFloat(p.likes) || 0, loves: 0, views: parseFloat(p.views) || 0, favorites: parseFloat(p.bookmarks) || 0, shares: 0 },
+  }));
+  newGuides.forEach((guide: any) => batch.push({
+    id: String(guide.id),
+    counts: { likes: guide.likes || 0, loves: guide.loves || 0, views: guide.views || 0, favorites: guide.bookmarks || 0, shares: guide.shares || 0 },
+  }));
+  
+  if (batch.length > 0) {
+    interactionStore.registerBatch(batch);
+  }
+}, { immediate: true });
 
 const tabs = computed(() => {
   return [

@@ -1,0 +1,198 @@
+{
+  "items": [
+    {
+      "id": "taiwan-braised-pork-rice",
+      "name": "台湾卤肉饭",
+      "tags": [
+        "台湾特色",
+        "台式料理",
+        "肉质软烂",
+        "香气浓郁",
+        "卤味十足"
+      ],
+      "image": "https://picsum.photos/id/506/800/600",
+      "price": 25,
+      "rating": 4.7,
+      "category": "主食",
+      "badgeText": "台湾经典",
+      "isPopular": true,
+      "badgeColor": "#795548",
+      "description": "肉质软烂，香气浓郁",
+      "recommendations": {
+        "pairings": [
+          "烫青菜",
+          "卤蛋",
+          "萝卜干",
+          "酸菜"
+        ],
+        "eatingMethod": "将卤肉浇在白饭上，配菜一起食用"
+      }
+    },
+    {
+      "id": "bubble-tea",
+      "name": "珍珠奶茶",
+      "tags": [
+        "台湾特色",
+        "台式饮品",
+        "香甜可口",
+        "口感丰富",
+        "珍珠Q弹"
+      ],
+      "image": "https://picsum.photos/id/507/800/600",
+      "price": 18,
+      "rating": 4.6,
+      "category": "饮品",
+      "badgeText": "台湾发明",
+      "isPopular": true,
+      "badgeColor": "#e91e63",
+      "description": "香甜可口，口感丰富",
+      "recommendations": {
+        "pairings": [
+          "鸡排",
+          "蛋饼",
+          "芋圆",
+          "蛋糕"
+        ],
+        "eatingMethod": "摇匀后饮用，珍珠用粗吸管吸食"
+      }
+    },
+    {
+      "id": "oyster-omelette",
+      "name": "蚵仔煎",
+      "tags": [
+        "台湾特色",
+        "夜市小吃",
+        "外酥内嫩",
+        "味道鲜美",
+        "海鲜美味"
+      ],
+      "image": "https://picsum.photos/id/508/800/600",
+      "price": 35,
+      "rating": 4.5,
+      "category": "主食",
+      "badgeText": "夜市之宝",
+      "isPopular": true,
+      "badgeColor": "#ff9800",
+      "description": "外酥内嫩，味道鲜美",
+      "recommendations": {
+        "pairings": [
+          "甜辣酱",
+          "香菜",
+          "蛋花汤",
+          "冬瓜茶"
+        ],
+        "eatingMethod": "刚出锅时趁热食用，淋上甜辣酱"
+      }
+    },
+    {
+      "id": "sausage-in-rice-cake",
+      "name": "大肠包小肠",
+      "tags": [
+        "台湾特色",
+        "夜市小吃",
+        "口感丰富",
+        "味道鲜美",
+        "糯米肠"
+      ],
+      "image": "https://picsum.photos/id/509/800/600",
+      "price": 25,
+      "rating": 4.4,
+      "category": "小吃",
+      "badgeText": "台湾创意",
+      "isPopular": true,
+      "badgeColor": "#4caf50",
+      "description": "口感丰富，味道鲜美",
+      "recommendations": {
+        "pairings": [
+          "大蒜片",
+          "花生粉",
+          "酸菜",
+          "饮料"
+        ],
+        "eatingMethod": "切片后蘸花生粉和大蒜片食用"
+      }
+    },
+    {
+      "id": "pineapple-cake",
+      "name": "凤梨酥",
+      "tags": [
+        "台湾特产",
+        "传统糕点",
+        "香甜可口",
+        "口感酥脆",
+        "手信首选"
+      ],
+      "image": "https://picsum.photos/id/510/800/600",
+      "price": 45,
+      "rating": 4.3,
+      "category": "甜品",
+      "isPopular": false,
+      "description": "香甜可口，口感酥脆",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "咖啡",
+          "牛奶",
+          "乌龙茶"
+        ],
+        "eatingMethod": "直接食用或配茶水、咖啡"
+      }
+    },
+    {
+      "id": "taiwan-fried-chicken",
+      "name": "台湾炸鸡",
+      "tags": [
+        "台湾特色",
+        "夜市美食",
+        "外酥内嫩",
+        "香气四溢",
+        "盐酥鸡"
+      ],
+      "image": "https://picsum.photos/id/511/800/600",
+      "price": 38,
+      "rating": 4.5,
+      "category": "菜肴",
+      "isPopular": false,
+      "description": "外酥内嫩，香气四溢",
+      "recommendations": {
+        "pairings": [
+          "九层塔",
+          "大蒜",
+          "辣椒",
+          "啤酒"
+        ],
+        "eatingMethod": "刚炸好时趁热食用，撒九层塔提香"
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "icon": "🌙",
+      "name": "台北士林夜市",
+      "type": "夜市",
+      "foods": [
+        "taiwan-braised-pork-rice",
+        "oyster-omelette",
+        "sausage-in-rice-cake"
+      ],
+      "image": "https://picsum.photos/id/348/800/600",
+      "reason": "台北著名夜市，美食丰富",
+      "location": "台北市"
+    },
+    {
+      "id": 2,
+      "icon": "🌙",
+      "name": "高雄六合夜市",
+      "type": "夜市",
+      "foods": [
+        "bubble-tea",
+        "taiwan-braised-pork-rice",
+        "oyster-omelette"
+      ],
+      "image": "https://picsum.photos/id/349/800/600",
+      "reason": "高雄著名夜市，海鲜美食",
+      "location": "高雄市"
+    }
+  ]
+}

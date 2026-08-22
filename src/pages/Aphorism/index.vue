@@ -95,7 +95,7 @@
 
       <div v-else class="poems-grid">
         <PoemCard v-for="poem in displayedPoems" :key="poem.id" :poem="poem" @click="handlePoemClick"
-          @tag-click="handleTagClick" @favorite-toggle="handleFavoriteToggle" />
+          @tag-click="handleTagClick" />
       </div>
 
       <!-- 分页 -->
@@ -105,27 +105,27 @@
 
     <!-- 诗词详情弹窗 -->
     <PoemModal v-if="selectedPoem" :visible="showModal" :poem="selectedPoem" :background-image="selectedPoemBackground"
-      @close="showModal = false" @tag-click="handleTagClick" @favorite-toggle="handleFavoriteToggle" />
+      @close="showModal = false" @tag-click="handleTagClick" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue';
+import { ref, computed, defineAsyncComponent, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import SearchBar from './components/SearchBar/index.vue';
 import CategoryNav from './components/CategoryNav/index.vue';
 import PoemCard from './components/PoemCard/index.vue';
-import PoemModal from './components/PoemModal/index.vue';
+const PoemModal = defineAsyncComponent(() => import('./components/PoemModal/index.vue'));
 import Pagination from './components/Pagination/index.vue';
 
-import { poems } from '@/constants/Aphorism';
-import { filterPoemsByCategory, searchPoems as searchPoemsUtil } from '@/utils/Aphorism/categoryFilter';
+import { useAphorismDataStore } from '@/stores/aphorism';
+import { useAphorismInteractionStore } from '@/stores/aphorism/interaction';
 import type { Poem } from '@/typesOfPages/aphorism/poem';
-import type { CategoryFilterParams } from '@/typesOfPages/aphorism/category';
 
 const router = useRouter();
+const dataStore = useAphorismDataStore();
+const interactionStore = useAphorismInteractionStore();
 
-const loading = ref(false);
 const searchQuery = ref('');
 const currentPage = ref(1);
 const selectedPoem = ref<Poem | null>(null);
@@ -134,37 +134,17 @@ const showModal = ref(false);
 const isSearchMode = ref(false);
 const pageSize = 12;
 
-const filterParams = ref<CategoryFilterParams>({
-  categoryId: '',
-  subCategoryId: '',
-});
+const loading = computed(() => dataStore.loading);
+const filteredPoems = computed(() => dataStore.filteredPoems);
 
 const switchMode = (searchMode: boolean) => {
   isSearchMode.value = searchMode;
   searchQuery.value = '';
   if (!searchMode) {
-    filterParams.value = { categoryId: '', subCategoryId: '' };
+    dataStore.resetFilter();
   }
   currentPage.value = 1;
 };
-
-const filteredPoems = computed(() => {
-  performance.mark('filter-start');
-
-  let result: Poem[];
-  if (isSearchMode.value && searchQuery.value) {
-    result = searchPoemsUtil(poems, searchQuery.value);
-  } else if (!isSearchMode.value && filterParams.value.categoryId) {
-    result = filterPoemsByCategory(poems, filterParams.value);
-  } else {
-    result = poems;
-  }
-
-  performance.mark('filter-end');
-  performance.measure('filter-poems', 'filter-start', 'filter-end');
-
-  return result;
-});
 
 const totalPages = computed(() =>
   Math.ceil(filteredPoems.value.length / pageSize),
@@ -180,14 +160,12 @@ const goToStudyRoom = () => router.push('/aphorism/study-room');
 const handleSearch = (query: string) => {
   searchQuery.value = query;
   currentPage.value = 1;
+  dataStore.searchByKeyword(query);
 };
 
-const handleCategoryChange = (categoryId: string, subCategoryId?: string) => {
-  filterParams.value = {
-    categoryId,
-    subCategoryId: subCategoryId || '',
-  };
+const handleCategoryChange = (categoryId: string, subCategoryId?: number) => {
   currentPage.value = 1;
+  dataStore.filterByCategory(subCategoryId, categoryId);
 };
 
 const handlePageChange = (page: number) => {
@@ -202,25 +180,21 @@ const handlePoemClick = (poem: Poem, backgroundImage: string) => {
 };
 
 const handleTagClick = (tag: string) => {
-  searchQuery.value = tag;
   isSearchMode.value = true;
   currentPage.value = 1;
+  interactionStore.addSearchHistory(tag);
+  searchQuery.value = tag;
+  dataStore.searchByKeyword(tag);
 };
 
-const handleFavoriteToggle = (poemId: string) => {
-  console.log('Toggle favorite:', poemId);
-};
 
-onMounted(() => {
-  performance.mark('mount-start');
-
-  loading.value = true;
-
-  requestAnimationFrame(() => {
-    loading.value = false;
-    performance.mark('mount-end');
-    performance.measure('aphorism-mount', 'mount-start', 'mount-end');
-  });
+onMounted(async () => {
+  if (dataStore.poems.length === 0) {
+    await dataStore.loadPoems();
+  }
+  if (dataStore.hotTags.length === 0) {
+    dataStore.loadHotTags();
+  }
 });
 </script>
 

@@ -1,0 +1,198 @@
+{
+  "items": [
+    {
+      "id": "贵州牛肉粉",
+      "name": "贵州牛肉粉",
+      "tags": [
+        "贵州特色",
+        "贵阳特产",
+        "牛肉鲜嫩",
+        "汤汁浓郁",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/452/800/600",
+      "price": 18,
+      "rating": 4.7,
+      "category": "主食",
+      "badgeText": "贵阳早餐",
+      "isPopular": true,
+      "badgeColor": "#ff5722",
+      "description": "牛肉鲜嫩，汤汁浓郁",
+      "recommendations": {
+        "pairings": [
+          "小菜",
+          "汤品",
+          "饮料",
+          "茶品"
+        ],
+        "eatingMethod": "直接食用，作为主食"
+      }
+    },
+    {
+      "id": "丝娃娃",
+      "name": "丝娃娃",
+      "tags": [
+        "贵州特色",
+        "贵阳特产",
+        "清爽可口",
+        "营养丰富",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/453/800/600",
+      "price": 38,
+      "rating": 4.6,
+      "category": "小吃",
+      "badgeText": "贵州小吃",
+      "isPopular": true,
+      "badgeColor": "#4caf50",
+      "description": "清爽可口，营养丰富",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "咖啡",
+          "水果",
+          "饮料"
+        ],
+        "eatingMethod": "直接食用，作为小吃"
+      }
+    },
+    {
+      "id": "酸汤鱼",
+      "name": "酸汤鱼",
+      "tags": [
+        "贵州特色",
+        "黔东南特产",
+        "酸辣可口",
+        "鱼肉鲜嫩",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/454/800/600",
+      "price": 88,
+      "rating": 4.8,
+      "category": "菜肴",
+      "badgeText": "黔东南名菜",
+      "isPopular": true,
+      "badgeColor": "#ff9800",
+      "description": "酸辣可口，鱼肉鲜嫩",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "贵州茅台",
+      "name": "贵州茅台",
+      "tags": [
+        "贵州特色",
+        "茅台特产",
+        "酱香浓郁",
+        "回味悠长",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/455/800/600",
+      "price": 1499,
+      "rating": 4.9,
+      "category": "饮品",
+      "isPopular": false,
+      "description": "酱香浓郁，回味悠长",
+      "recommendations": {
+        "pairings": [
+          "菜肴",
+          "小吃",
+          "甜品",
+          "茶品"
+        ],
+        "eatingMethod": "直接饮用，可菜肴或小吃"
+      }
+    },
+    {
+      "id": "折耳根炒腊肉",
+      "name": "折耳根炒腊肉",
+      "tags": [
+        "贵州特色",
+        "黔南特产",
+        "口感独特",
+        "香气浓郁",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/456/800/600",
+      "price": 48,
+      "rating": 4.4,
+      "category": "菜肴",
+      "badgeText": "贵州特色",
+      "isPopular": false,
+      "badgeColor": "#9c27b0",
+      "description": "口感独特，香气浓郁",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "guizhou-tangbao",
+      "name": "贵州糖包",
+      "tags": [
+        "贵州特色",
+        "传统面点",
+        "香甜可口",
+        "软糯适中",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/457/800/600",
+      "price": 5,
+      "rating": 4,
+      "category": "甜品",
+      "isPopular": false,
+      "description": "香甜可口，传统面点",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "咖啡",
+          "水果",
+          "饮料"
+        ],
+        "eatingMethod": "直接食用，作为甜品"
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "icon": "🛣️",
+      "name": "贵阳美食街",
+      "type": "美食街",
+      "foods": [
+        "贵州牛肉粉",
+        "丝娃娃",
+        "酸汤鱼"
+      ],
+      "image": "https://picsum.photos/id/328/800/600",
+      "reason": "贵阳特色美食集中地",
+      "location": "贵阳市"
+    },
+    {
+      "id": 2,
+      "icon": "🛣️",
+      "name": "遵义美食街",
+      "type": "美食街",
+      "foods": [
+        "遵义羊肉粉",
+        "贵州茅台",
+        "折耳根炒腊肉"
+      ],
+      "image": "https://picsum.photos/id/329/800/600",
+      "reason": "遵义特色美食聚集地",
+      "location": "遵义市"
+    }
+  ]
+}

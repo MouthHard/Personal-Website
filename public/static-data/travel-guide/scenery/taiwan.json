@@ -1,0 +1,327 @@
+{
+  "spots": [
+    {
+      "id": "taipei101",
+      "name": "台北101",
+      "tags": [
+        "摩天大楼",
+        "地标",
+        "建筑",
+        "观光"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1780/600/400",
+      "rating": 4.7,
+      "bestTime": "全年",
+      "location": "台湾省台北市信义区",
+      "description": "曾经的世界第一高楼,台北的标志性建筑"
+    },
+    {
+      "id": "alishan",
+      "name": "阿里山",
+      "tags": [
+        "名山",
+        "日出",
+        "云海",
+        "森林"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1781/600/400",
+      "rating": 4.8,
+      "bestTime": "春季",
+      "location": "台湾省嘉义市阿里山乡",
+      "description": "台湾最著名的风景区,以日出、云海、晚霞、森林、铁路五奇著称",
+      "landformTags": [
+        "山地景观"
+      ],
+      "landscapeType": "mountain",
+      "landscapeCategory": [
+        "地理景观"
+      ]
+    },
+    {
+      "id": "sunMoonLake",
+      "name": "日月潭",
+      "tags": [
+        "湖泊",
+        "自然",
+        "风光",
+        "文化"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1782/600/400",
+      "rating": 4.7,
+      "bestTime": "全年",
+      "location": "台湾省南投县鱼池乡",
+      "description": "台湾最大的天然湖泊,台湾八景之一",
+      "landformTags": [
+        "湖泊景观"
+      ],
+      "landscapeType": "lake",
+      "landscapeCategory": [
+        "水体景观"
+      ]
+    },
+    {
+      "id": "tarokoGorge",
+      "name": "太鲁阁",
+      "tags": [
+        "峡谷",
+        "大理石",
+        "自然",
+        "探险"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1783/600/400",
+      "rating": 4.7,
+      "bestTime": "全年",
+      "location": "台湾省花莲县秀林乡",
+      "description": "台湾最著名的峡谷风景区,以雄伟的大理石峡谷著称",
+      "landformTags": [
+        "峡谷景观"
+      ],
+      "landscapeType": "canyon",
+      "landscapeCategory": [
+        "地理景观"
+      ]
+    },
+    {
+      "id": "jiufen",
+      "name": "九份",
+      "tags": [
+        "小镇",
+        "怀旧",
+        "文化",
+        "美食"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1784/600/400",
+      "rating": 4.6,
+      "bestTime": "全年",
+      "location": "台湾省新北市瑞芳区",
+      "description": "台湾最著名的小镇之一,充满怀旧风情"
+    },
+    {
+      "id": "kenting",
+      "name": "垦丁",
+      "tags": [
+        "海滨",
+        "度假",
+        "阳光",
+        "沙滩"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1785/600/400",
+      "rating": 4.6,
+      "bestTime": "冬季",
+      "location": "台湾省屏东县恒春镇",
+      "description": "台湾最著名的海滨度假胜地,台湾的夏威夷",
+      "landformTags": [
+        "海滨景观"
+      ],
+      "landscapeType": "coastal",
+      "landscapeCategory": [
+        "水体景观"
+      ]
+    },
+    {
+      "id": "nationalPalaceMuseum",
+      "name": "故宫博物院",
+      "tags": [
+        "博物馆",
+        "文物",
+        "文化",
+        "历史"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1786/600/400",
+      "rating": 4.8,
+      "bestTime": "全年",
+      "location": "台湾省台北市士林区",
+      "description": "世界四大博物馆之一,收藏了大量的中华文物"
+    },
+    {
+      "id": "danshui",
+      "name": "淡水",
+      "tags": [
+        "古镇",
+        "历史",
+        "文化",
+        "美食"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1787/600/400",
+      "rating": 4.5,
+      "bestTime": "全年",
+      "location": "台湾省新北市淡水区",
+      "description": "台湾著名的历史文化古镇"
+    }
+  ],
+  "routes": [
+    {
+      "id": "1",
+      "name": "台湾经典之旅",
+      "tags": [
+        "文化",
+        "自然",
+        "历史"
+      ],
+      "image": "https://picsum.photos/id/1780/600/400",
+      "spots": [
+        "台北101",
+        "故宫博物院",
+        "阿里山",
+        "日月潭"
+      ],
+      "title": "台湾经典之旅",
+      "rating": 4.8,
+      "traffic": "旅游大巴",
+      "bestTime": "春季",
+      "duration": "5天",
+      "difficulty": "简单",
+      "highlights": [
+        "台北101",
+        "故宫博物院",
+        "阿里山",
+        "日月潭"
+      ],
+      "description": "游览台湾最著名的景点",
+      "suitableFor": "所有游客"
+    }
+  ],
+  "customs": {
+    "activities": [
+      {
+        "id": "1",
+        "name": "台湾美食体验",
+        "type": "美食体验",
+        "image": "https://picsum.photos/id/1784/600/400",
+        "category": "culture",
+        "duration": "1-2小时",
+        "location": "台湾",
+        "difficulty": "简单",
+        "description": "品尝台湾特色美食"
+      }
+    ]
+  },
+  "overview": {
+    "totalSpots": 150,
+    "natureSpots": 80,
+    "cultureSpots": 70,
+    "topAttractions": [
+      {
+        "name": "台北101",
+        "image": "https://picsum.photos/id/1780/600/400",
+        "description": "曾经的世界第一高楼,台北的标志性建筑"
+      },
+      {
+        "name": "阿里山",
+        "image": "https://picsum.photos/id/1781/600/400",
+        "description": "台湾最著名的风景区,以日出、云海、晚霞、森林、铁路五奇著称"
+      },
+      {
+        "name": "日月潭",
+        "image": "https://picsum.photos/id/1782/600/400",
+        "description": "台湾最大的天然湖泊,台湾八景之一"
+      },
+      {
+        "name": "太鲁阁",
+        "image": "https://picsum.photos/id/1783/600/400",
+        "description": "台湾最著名的峡谷风景区,以雄伟的大理石峡谷著称"
+      },
+      {
+        "name": "九份",
+        "image": "https://picsum.photos/id/1784/600/400",
+        "description": "台湾最著名的小镇之一,充满怀旧风情"
+      },
+      {
+        "name": "垦丁",
+        "image": "https://picsum.photos/id/1785/600/400",
+        "description": "台湾最著名的海滨度假胜地,台湾的夏威夷"
+      },
+      {
+        "name": "故宫博物院",
+        "image": "https://picsum.photos/id/1786/600/400",
+        "description": "世界四大博物馆之一,收藏了大量的中华文物"
+      },
+      {
+        "name": "淡水",
+        "image": "https://picsum.photos/id/1787/600/400",
+        "description": "台湾著名的历史文化古镇"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "name": "春季",
+      "image": "https://picsum.photos/id/1781/600/400",
+      "activities": [
+        "阿里山赏樱",
+        "日月潭游览",
+        "太鲁阁游览",
+        "台北101观光"
+      ],
+      "description": "春暖花开,阿里山樱花盛开,是赏花的好时节"
+    },
+    {
+      "name": "夏季",
+      "image": "https://picsum.photos/id/1785/600/400",
+      "activities": [
+        "垦丁海滨度假",
+        "太鲁阁避暑",
+        "日月潭游览",
+        "九份游览"
+      ],
+      "description": "热带风情,垦丁是避暑纳凉的好去处"
+    },
+    {
+      "name": "秋季",
+      "image": "https://picsum.photos/id/1781/600/400",
+      "activities": [
+        "阿里山赏秋",
+        "日月潭秋游",
+        "太鲁阁游览",
+        "故宫博物院参观"
+      ],
+      "description": "秋高气爽,是游览台湾的好时节"
+    },
+    {
+      "name": "冬季",
+      "image": "https://picsum.photos/id/1780/600/400",
+      "activities": [
+        "台北101观光",
+        "故宫博物院参观",
+        "九份游览",
+        "淡水游览"
+      ],
+      "description": "温暖如春,是旅游的好时节"
+    }
+  ],
+  "festivals": [],
+  "activities": [
+    {
+      "id": "1",
+      "name": "台北101观光",
+      "type": "文化体验",
+      "image": "https://picsum.photos/id/1780/600/400",
+      "category": "culture",
+      "duration": "2-3小时",
+      "location": "台北101",
+      "difficulty": "简单",
+      "description": "登顶台北101,俯瞰台北市全景"
+    },
+    {
+      "id": "2",
+      "name": "阿里山日出",
+      "type": "自然体验",
+      "image": "https://picsum.photos/id/1781/600/400",
+      "category": "nature",
+      "duration": "1天",
+      "location": "阿里山",
+      "difficulty": "中等",
+      "description": "在阿里山观赏日出和云海"
+    }
+  ],
+  "intangibleHeritage": [],
+  "folkCustomsElements": []
+}

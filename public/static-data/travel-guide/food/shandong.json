@@ -1,0 +1,252 @@
+{
+  "items": [
+    {
+      "id": "德州扒鸡",
+      "name": "德州扒鸡",
+      "tags": [
+        "山东特色",
+        "德州特产",
+        "肉质鲜嫩",
+        "香气浓郁",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/427/800/600",
+      "price": 58,
+      "rating": 4.7,
+      "category": "菜肴",
+      "badgeText": "鲁菜名品",
+      "isPopular": true,
+      "badgeColor": "#ff5722",
+      "description": "肉质鲜嫩，香气浓郁",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "胶东海鲜",
+      "name": "胶东海鲜",
+      "tags": [
+        "山东特色",
+        "胶东特产",
+        "新鲜美味",
+        "品种丰富",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/428/800/600",
+      "price": 128,
+      "rating": 4.8,
+      "category": "菜肴",
+      "badgeText": "黄海珍鲜",
+      "isPopular": true,
+      "badgeColor": "#03a9f4",
+      "description": "新鲜美味，品种丰富",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "济南把子肉",
+      "name": "济南把子肉",
+      "tags": [
+        "山东特色",
+        "济南特产",
+        "肥而不腻",
+        "瘦而不柴",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/429/800/600",
+      "price": 15,
+      "rating": 4.6,
+      "category": "菜肴",
+      "badgeText": "泉城名菜",
+      "isPopular": true,
+      "badgeColor": "#795548",
+      "description": "肥而不腻，瘦而不柴",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "曲阜孔府菜",
+      "name": "曲阜孔府菜",
+      "tags": [
+        "山东特色",
+        "曲阜特产",
+        "做工精细",
+        "营养美味",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/430/800/600",
+      "price": 188,
+      "rating": 4.8,
+      "category": "菜肴",
+      "badgeText": "孔府家宴",
+      "isPopular": true,
+      "badgeColor": "#ff9800",
+      "description": "做工精细，营养美味",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "青岛啤酒",
+      "name": "青岛啤酒",
+      "tags": [
+        "山东特色",
+        "青岛特产",
+        "清爽可口",
+        "麦香浓郁",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/431/800/600",
+      "price": 12,
+      "rating": 4.5,
+      "category": "饮品",
+      "badgeText": "岛城佳酿",
+      "isPopular": true,
+      "badgeColor": "#ffcc00",
+      "description": "清爽可口，麦香浓郁",
+      "recommendations": {
+        "pairings": [
+          "海鲜",
+          "烧烤",
+          "小菜",
+          "甜品"
+        ],
+        "eatingMethod": "直接饮用，作为饮品"
+      }
+    },
+    {
+      "id": "shandong-mantou",
+      "name": "山东馒头",
+      "tags": [
+        "山东特色",
+        "传统面点",
+        "松软香甜",
+        "主食必备",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/432/800/600",
+      "price": 5,
+      "rating": 4.2,
+      "category": "主食",
+      "isPopular": false,
+      "description": "松软香甜，主食必备",
+      "recommendations": {
+        "pairings": [
+          "菜肴",
+          "汤品",
+          "小菜",
+          "甜品"
+        ],
+        "eatingMethod": "直接食用，作为主食"
+      }
+    },
+    {
+      "id": "shandong-youtiao",
+      "name": "山东油条",
+      "tags": [
+        "山东特色",
+        "传统小吃",
+        "外酥内软",
+        "早餐必备",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/433/800/600",
+      "price": 3,
+      "rating": 4.1,
+      "category": "小吃",
+      "isPopular": false,
+      "description": "外酥内软，早餐必备",
+      "recommendations": {
+        "pairings": [
+          "豆浆",
+          "粥",
+          "小菜",
+          "汤品"
+        ],
+        "eatingMethod": "直接食用，作为早餐"
+      }
+    },
+    {
+      "id": "shandong-tangbao",
+      "name": "山东糖包",
+      "tags": [
+        "山东特色",
+        "传统面点",
+        "香甜可口",
+        "软糯适中",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/434/800/600",
+      "price": 5,
+      "rating": 4,
+      "category": "甜品",
+      "isPopular": false,
+      "description": "香甜可口，传统面点",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "咖啡",
+          "水果",
+          "饮料"
+        ],
+        "eatingMethod": "直接食用，作为甜品"
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "icon": "🛣️",
+      "name": "济南芙蓉街",
+      "type": "美食街",
+      "foods": [
+        "济南把子肉",
+        "山东煎饼",
+        "甜沫"
+      ],
+      "image": "https://picsum.photos/id/318/800/600",
+      "reason": "济南传统美食集中地",
+      "location": "济南市"
+    },
+    {
+      "id": 2,
+      "icon": "🛣️",
+      "name": "青岛啤酒街",
+      "type": "美食街",
+      "foods": [
+        "胶东海鲜",
+        "青岛啤酒",
+        "锅贴"
+      ],
+      "image": "https://picsum.photos/id/319/800/600",
+      "reason": "青岛海鲜美食聚集地",
+      "location": "青岛市"
+    }
+  ]
+}

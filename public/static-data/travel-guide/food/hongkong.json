@@ -1,0 +1,198 @@
+{
+  "items": [
+    {
+      "id": "hongkong-milk-tea",
+      "name": "港式奶茶",
+      "tags": [
+        "香港特色",
+        "港式茶餐厅",
+        "香滑可口",
+        "醇厚浓郁",
+        "丝袜奶茶"
+      ],
+      "image": "https://picsum.photos/id/493/800/600",
+      "price": 25,
+      "rating": 4.7,
+      "category": "饮品",
+      "badgeText": "香港名片",
+      "isPopular": true,
+      "badgeColor": "#795548",
+      "description": "香滑可口，醇厚浓郁",
+      "recommendations": {
+        "pairings": [
+          "菠萝油",
+          "鸡蛋仔",
+          "西多士",
+          "三明治"
+        ],
+        "eatingMethod": "冰饮或热饮均可，搭配甜点更佳"
+      }
+    },
+    {
+      "id": "roast-meat",
+      "name": "烧腊",
+      "tags": [
+        "香港特色",
+        "粤菜经典",
+        "皮脆肉嫩",
+        "香气浓郁",
+        "烧味拼盘"
+      ],
+      "image": "https://picsum.photos/id/494/800/600",
+      "price": 68,
+      "rating": 4.8,
+      "category": "菜肴",
+      "badgeText": "粤菜经典",
+      "isPopular": true,
+      "badgeColor": "#ff5722",
+      "description": "皮脆肉嫩，香气浓郁",
+      "recommendations": {
+        "pairings": [
+          "白饭",
+          "青菜",
+          "酸梅酱",
+          "白糖"
+        ],
+        "eatingMethod": "切片后蘸酸梅酱或白糖食用"
+      }
+    },
+    {
+      "id": "fish-ball-noodle",
+      "name": "鱼蛋粉",
+      "tags": [
+        "香港特色",
+        "港式粉面",
+        "Q弹爽口",
+        "汤汁鲜美",
+        "街边小食"
+      ],
+      "image": "https://picsum.photos/id/495/800/600",
+      "price": 22,
+      "rating": 4.6,
+      "category": "主食",
+      "badgeText": "香港粉面",
+      "isPopular": true,
+      "badgeColor": "#03a9f4",
+      "description": "Q弹爽口，汤汁鲜美",
+      "recommendations": {
+        "pairings": [
+          "鱼蛋",
+          "萝卜",
+          "辣椒油",
+          "醋"
+        ],
+        "eatingMethod": "汤粉一起食用，可加辣油提味"
+      }
+    },
+    {
+      "id": "egg-waffle",
+      "name": "鸡蛋仔",
+      "tags": [
+        "香港特色",
+        "街头甜品",
+        "外酥内软",
+        "香甜可口",
+        "童年回忆"
+      ],
+      "image": "https://picsum.photos/id/496/800/600",
+      "price": 15,
+      "rating": 4.5,
+      "category": "甜品",
+      "badgeText": "香港甜品",
+      "isPopular": true,
+      "badgeColor": "#ffc107",
+      "description": "外酥内软，香甜可口",
+      "recommendations": {
+        "pairings": [
+          "奶茶",
+          "冻柠茶",
+          "雪糕",
+          "水果"
+        ],
+        "eatingMethod": "刚出炉时趁热食用，外脆内软"
+      }
+    },
+    {
+      "id": "pineapple-bun",
+      "name": "菠萝油",
+      "tags": [
+        "香港特色",
+        "港式包点",
+        "外酥内软",
+        "香甜可口",
+        "早餐必备"
+      ],
+      "image": "https://picsum.photos/id/497/800/600",
+      "price": 12,
+      "rating": 4.4,
+      "category": "主食",
+      "isPopular": false,
+      "description": "外酥内软，香甜可口",
+      "recommendations": {
+        "pairings": [
+          "奶茶",
+          "咖啡",
+          "黄油",
+          "火腿"
+        ],
+        "eatingMethod": "夹入冰黄油片，冷热交替口感独特"
+      }
+    },
+    {
+      "id": "hongkong-fish-ball",
+      "name": "香港鱼蛋",
+      "tags": [
+        "香港特色",
+        "街头小吃",
+        "Q弹爽口",
+        "口感独特",
+        "咖喱风味"
+      ],
+      "image": "https://picsum.photos/id/498/800/600",
+      "price": 10,
+      "rating": 4.3,
+      "category": "小吃",
+      "isPopular": false,
+      "description": "Q弹爽口，口感独特",
+      "recommendations": {
+        "pairings": [
+          "河粉",
+          "面条",
+          "萝卜",
+          "咖喱酱"
+        ],
+        "eatingMethod": "可串起来吃或放入粉面中"
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "icon": "🛣️",
+      "name": "旺角美食街",
+      "type": "美食街",
+      "foods": [
+        "hongkong-milk-tea",
+        "roast-meat",
+        "fish-ball-noodle"
+      ],
+      "image": "https://picsum.photos/id/344/800/600",
+      "reason": "香港特色美食集中地",
+      "location": "香港"
+    },
+    {
+      "id": 2,
+      "icon": "🛍️",
+      "name": "尖沙咀美食区",
+      "type": "美食区",
+      "foods": [
+        "egg-waffle",
+        "pineapple-bun",
+        "hongkong-milk-tea"
+      ],
+      "image": "https://picsum.photos/id/345/800/600",
+      "reason": "香港特色美食聚集地",
+      "location": "香港"
+    }
+  ]
+}

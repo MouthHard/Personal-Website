@@ -1,0 +1,440 @@
+{
+  "items": [
+    {
+      "id": "rou-jia-mo",
+      "name": "肉夹馍",
+      "tags": [
+        "山西特色",
+        "传统名吃",
+        "馍香肉嫩",
+        "中国汉堡",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/372/800/600",
+      "price": 15,
+      "rating": 4.7,
+      "category": "主食",
+      "badgeText": "中国汉堡",
+      "isPopular": true,
+      "badgeColor": "#ff5722",
+      "description": "中国汉堡，馍香肉嫩",
+      "recommendations": {
+        "pairings": [
+          "豆浆",
+          "粥",
+          "小菜",
+          "汤品"
+        ],
+        "eatingMethod": "直接食用，作为主食"
+      }
+    },
+    {
+      "id": "yangrou-paomo",
+      "name": "羊肉泡馍",
+      "tags": [
+        "山西特色",
+        "传统名吃",
+        "汤浓肉烂",
+        "馍筋道",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/373/800/600",
+      "price": 45,
+      "rating": 4.8,
+      "category": "主食",
+      "badgeText": "三秦名吃",
+      "isPopular": true,
+      "badgeColor": "#795548",
+      "description": "汤浓肉烂，馍筋道",
+      "recommendations": {
+        "pairings": [
+          "小菜",
+          "饮料",
+          "茶品",
+          "主食"
+        ],
+        "eatingMethod": "直接食用，作为主食"
+      }
+    },
+    {
+      "id": "liang-pi",
+      "name": "凉皮",
+      "tags": [
+        "山西特色",
+        "传统名吃",
+        "爽滑劲道",
+        "酸辣开胃",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/374/800/600",
+      "price": 12,
+      "rating": 4.6,
+      "category": "主食",
+      "badgeText": "秦味一绝",
+      "isPopular": true,
+      "badgeColor": "#4caf50",
+      "description": "爽滑劲道，酸辣开胃",
+      "recommendations": {
+        "pairings": [
+          "肉夹馍",
+          "豆浆",
+          "粥",
+          "小菜"
+        ],
+        "eatingMethod": "直接食用，作为主食"
+      }
+    },
+    {
+      "id": "biang-biang-noodle",
+      "name": "biangbiang面",
+      "tags": [
+        "山西特色",
+        "传统面食",
+        "宽如裤带",
+        "劲道爽滑",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/375/800/600",
+      "price": 18,
+      "rating": 4.7,
+      "category": "主食",
+      "badgeText": "关中面王",
+      "isPopular": true,
+      "badgeColor": "#ff9800",
+      "description": "宽如裤带，劲道爽滑",
+      "recommendations": {
+        "pairings": [
+          "小菜",
+          "汤品",
+          "饮料",
+          "茶品"
+        ],
+        "eatingMethod": "直接食用，作为主食"
+      }
+    },
+    {
+      "id": "qishan-noodle",
+      "name": "岐山臊子面",
+      "tags": [
+        "山西特色",
+        "传统面食",
+        "酸辣鲜香",
+        "薄筋光",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/376/800/600",
+      "price": 15,
+      "rating": 4.5,
+      "category": "主食",
+      "badgeText": "西府名面",
+      "isPopular": true,
+      "badgeColor": "#e91e63",
+      "description": "酸辣鲜香，薄筋光",
+      "recommendations": {
+        "pairings": [
+          "小菜",
+          "汤品",
+          "饮料",
+          "茶品"
+        ],
+        "eatingMethod": "直接食用，作为主食"
+      }
+    },
+    {
+      "id": "hula-tang",
+      "name": "胡辣汤",
+      "tags": [
+        "山西特色",
+        "传统名吃",
+        "香辣浓郁",
+        "早餐必备",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/377/800/600",
+      "price": 8,
+      "rating": 4.2,
+      "category": "主食",
+      "isPopular": false,
+      "description": "香辣浓郁，配以油条",
+      "recommendations": {
+        "pairings": [
+          "油条",
+          "包子",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "直接饮用，作为早餐"
+      }
+    },
+    {
+      "id": "guo-kui",
+      "name": "锅盔",
+      "tags": [
+        "山西特色",
+        "传统名吃",
+        "外酥内软",
+        "耐储存",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/378/800/600",
+      "price": 10,
+      "rating": 4.3,
+      "category": "主食",
+      "isPopular": false,
+      "description": "外酥内软，耐储存",
+      "recommendations": {
+        "pairings": [
+          "汤品",
+          "小菜",
+          "饮料",
+          "茶品"
+        ],
+        "eatingMethod": "直接食用，作为主食"
+      }
+    },
+    {
+      "id": "jing-gao",
+      "name": "镜糕",
+      "tags": [
+        "山西特色",
+        "传统小吃",
+        "香甜软糯",
+        "口感细腻",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/379/800/600",
+      "price": 6,
+      "rating": 4.1,
+      "category": "小吃",
+      "isPopular": false,
+      "description": "香甜软糯，传统小吃",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "咖啡",
+          "水果",
+          "饮料"
+        ],
+        "eatingMethod": "直接食用，作为甜品"
+      }
+    },
+    {
+      "id": "yangrou-kebabs",
+      "name": "羊肉串",
+      "tags": [
+        "山西特色",
+        "传统小吃",
+        "外焦里嫩",
+        "孜然香浓",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/380/800/600",
+      "price": 5,
+      "rating": 4.4,
+      "category": "小吃",
+      "isPopular": false,
+      "description": "外焦里嫩，孜然香浓",
+      "recommendations": {
+        "pairings": [
+          "啤酒",
+          "饮料",
+          "小菜",
+          "主食"
+        ],
+        "eatingMethod": "直接食用，作为小吃或下酒菜"
+      }
+    },
+    {
+      "id": "fenzheng-meat",
+      "name": "粉蒸肉",
+      "tags": [
+        "山西特色",
+        "传统名菜",
+        "软糯香甜",
+        "肥而不腻",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/381/800/600",
+      "price": 38,
+      "rating": 4.5,
+      "category": "菜肴",
+      "isPopular": false,
+      "description": "软糯香甜，肥而不腻",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "shanxi-tangbao",
+      "name": "陕西糖包",
+      "tags": [
+        "山西特色",
+        "传统面点",
+        "香甜可口",
+        "软糯适中",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/382/800/600",
+      "price": 5,
+      "rating": 4,
+      "category": "甜品",
+      "isPopular": false,
+      "description": "香甜可口，传统面点",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "咖啡",
+          "水果",
+          "饮料"
+        ],
+        "eatingMethod": "直接食用，作为甜品"
+      }
+    },
+    {
+      "id": "shanxi-hongcha",
+      "name": "陕西红茶",
+      "tags": [
+        "山西特色",
+        "传统饮品",
+        "香气浓郁",
+        "口感醇厚",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/383/800/600",
+      "price": 38,
+      "rating": 4.3,
+      "category": "饮品",
+      "isPopular": false,
+      "description": "香气浓郁，口感醇厚",
+      "recommendations": {
+        "pairings": [
+          "点心",
+          "小吃",
+          "甜品",
+          "菜肴"
+        ],
+        "eatingMethod": "直接饮用，可点心或小吃"
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "icon": "🛣️",
+      "name": "回民街",
+      "type": "美食街",
+      "foods": [
+        "rou-jia-mo",
+        "yangrou-paomo",
+        "liang-pi"
+      ],
+      "image": "https://picsum.photos/id/290/800/600",
+      "reason": "西安最著名的美食街，回民聚集区",
+      "location": "莲湖区"
+    },
+    {
+      "id": 2,
+      "icon": "🛣️",
+      "name": "永兴坊",
+      "type": "美食街",
+      "foods": [
+        "biang-biang-noodle",
+        "qishan-noodle",
+        "hula-tang"
+      ],
+      "image": "https://picsum.photos/id/291/800/600",
+      "reason": "陕西特色美食集中地",
+      "location": "碑林区"
+    },
+    {
+      "id": 3,
+      "icon": "🏞️",
+      "name": "西安钟鼓楼",
+      "type": "景区",
+      "foods": [
+        "yangrou-paomo",
+        "rou-jia-mo",
+        "liang-pi"
+      ],
+      "image": "https://picsum.photos/id/292/800/600",
+      "reason": "西安地标建筑，周边美食丰富",
+      "location": "莲湖区"
+    },
+    {
+      "id": 4,
+      "icon": "🏞️",
+      "name": "大雁塔北广场",
+      "type": "景区",
+      "foods": [
+        "biang-biang-noodle",
+        "yangrou-kebabs",
+        "guo-kui"
+      ],
+      "image": "https://picsum.photos/id/293/800/600",
+      "reason": "大雁塔景区美食区",
+      "location": "雁塔区"
+    },
+    {
+      "id": 5,
+      "icon": "🛣️",
+      "name": "宝鸡西府老街",
+      "type": "美食街",
+      "foods": [
+        "yangrou-kebabs",
+        "qishan-noodle",
+        "fenzheng-meat"
+      ],
+      "image": "https://picsum.photos/id/294/800/600",
+      "reason": "宝鸡特色美食街",
+      "location": "金台区"
+    },
+    {
+      "id": 6,
+      "icon": "🏞️",
+      "name": "延安枣园",
+      "type": "景区",
+      "foods": [
+        "fenzheng-meat",
+        "yangrou-paomo",
+        "hula-tang"
+      ],
+      "image": "https://picsum.photos/id/295/800/600",
+      "reason": "延安特色美食景区",
+      "location": "宝塔区"
+    },
+    {
+      "id": 7,
+      "icon": "🗺️",
+      "name": "西安大唐不夜城",
+      "type": "美食区",
+      "foods": [
+        "rou-jia-mo",
+        "hula-tang",
+        "biang-biang-noodle"
+      ],
+      "image": "https://picsum.photos/id/296/800/600",
+      "reason": "西安大唐文化美食街",
+      "location": "雁塔区"
+    },
+    {
+      "id": 8,
+      "icon": "🏬",
+      "name": "西安skp",
+      "type": "商业区",
+      "foods": [
+        "yangrou-paomo",
+        "guo-kui",
+        "liang-pi"
+      ],
+      "image": "https://picsum.photos/id/297/800/600",
+      "reason": "西安高端商业美食中心",
+      "location": "碑林区"
+    }
+  ]
+}

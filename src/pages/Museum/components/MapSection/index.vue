@@ -33,7 +33,7 @@ import {
   provinceNameMap,
   provinceColors,
   getElevationTier,
-} from "@/pages/Museum/data/map";
+} from "@/stores/museum";
 
 // 注册必要的组件
 echarts.use([

@@ -1,0 +1,304 @@
+{
+  "items": [
+    {
+      "id": "west-lake-vinegar-fish",
+      "name": "西湖醋鱼",
+      "tags": [
+        "浙江特色",
+        "杭州名菜",
+        "酸甜鲜嫩",
+        "传统工艺",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/332/800/600",
+      "price": 98,
+      "rating": 4.7,
+      "category": "菜肴",
+      "badgeText": "杭帮名菜",
+      "isPopular": true,
+      "badgeColor": "#e91e63",
+      "description": "酸甜鲜嫩，杭州名菜",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "汤品",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "dongpo-pork",
+      "name": "东坡肉",
+      "tags": [
+        "浙江特色",
+        "杭州名菜",
+        "肥而不腻",
+        "入口即化",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/333/800/600",
+      "price": 68,
+      "rating": 4.8,
+      "category": "菜肴",
+      "badgeText": "杭州经典",
+      "isPopular": true,
+      "badgeColor": "#ff5722",
+      "description": "肥而不腻，入口即化",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "馒头",
+          "面条",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或馒头"
+      }
+    },
+    {
+      "id": "longjing-shrimp",
+      "name": "龙井虾仁",
+      "tags": [
+        "浙江特色",
+        "杭州名菜",
+        "清香爽口",
+        "茶香浓郁",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/334/800/600",
+      "price": 88,
+      "rating": 4.7,
+      "category": "菜肴",
+      "badgeText": "茶香四溢",
+      "isPopular": true,
+      "badgeColor": "#4caf50",
+      "description": "清香爽口，茶香浓郁",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "汤品",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "beggar-chicken",
+      "name": "叫花鸡",
+      "tags": [
+        "浙江特色",
+        "杭州名菜",
+        "皮脆肉嫩",
+        "香气扑鼻",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/335/800/600",
+      "price": 128,
+      "rating": 4.6,
+      "category": "菜肴",
+      "badgeText": "杭帮传奇",
+      "isPopular": true,
+      "badgeColor": "#ff9800",
+      "description": "皮脆肉嫩，香气扑鼻",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "汤品",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "shaoxing-wine",
+      "name": "绍兴黄酒",
+      "tags": [
+        "浙江特色",
+        "绍兴特产",
+        "千年传承",
+        "醇香浓郁",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/336/800/600",
+      "price": 38,
+      "rating": 4.5,
+      "category": "饮品",
+      "badgeText": "千年佳酿",
+      "isPopular": true,
+      "badgeColor": "#795548",
+      "description": "千年传承，醇香浓郁",
+      "recommendations": {
+        "pairings": [
+          "菜肴",
+          "小吃",
+          "点心",
+          "水果"
+        ],
+        "eatingMethod": "直接饮用，可温饮或冷饮"
+      }
+    },
+    {
+      "id": "nian-gao",
+      "name": "宁波年糕",
+      "tags": [
+        "浙江特色",
+        "宁波特产",
+        "软糯香甜",
+        "寓意吉祥",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/337/800/600",
+      "price": 18,
+      "rating": 4.3,
+      "category": "主食",
+      "isPopular": false,
+      "description": "软糯香甜，寓意吉祥",
+      "recommendations": {
+        "pairings": [
+          "糖水",
+          "菜肴",
+          "汤品",
+          "小菜"
+        ],
+        "eatingMethod": "直接食用，或煮糖水食用"
+      }
+    },
+    {
+      "id": "stewed-hairy-crab",
+      "name": "醉蟹",
+      "tags": [
+        "浙江特色",
+        "绍兴特产",
+        "酒香浓郁",
+        "肉质鲜美",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/338/800/600",
+      "price": 158,
+      "rating": 4.6,
+      "category": "菜肴",
+      "isPopular": false,
+      "description": "酒香浓郁，肉质鲜美",
+      "recommendations": {
+        "pairings": [
+          "黄酒",
+          "米饭",
+          "面条",
+          "小菜"
+        ],
+        "eatingMethod": "作为冷菜食用，黄酒"
+      }
+    },
+    {
+      "id": "wenzhou-fish-ball",
+      "name": "温州鱼丸",
+      "tags": [
+        "浙江特色",
+        "温州特产",
+        "Q弹爽滑",
+        "鲜美可口",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/339/800/600",
+      "price": 28,
+      "rating": 4.4,
+      "category": "小吃",
+      "isPopular": false,
+      "description": "Q弹爽滑，鲜美可口",
+      "recommendations": {
+        "pairings": [
+          "汤面",
+          "米饭",
+          "小菜",
+          "茶品"
+        ],
+        "eatingMethod": "直接食用，或作为汤品配料"
+      }
+    },
+    {
+      "id": "jinhua-ham",
+      "name": "金华火腿",
+      "tags": [
+        "浙江特色",
+        "金华特产",
+        "色香味俱全",
+        "腌制工艺精湛",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/340/800/600",
+      "price": 88,
+      "rating": 4.5,
+      "category": "菜肴",
+      "isPopular": false,
+      "description": "色香味俱全，腌制工艺精湛",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "汤品",
+          "小菜"
+        ],
+        "eatingMethod": "作为配料食用，或直接切片食用"
+      }
+    },
+    {
+      "id": "lotus-root-starch",
+      "name": "藕粉",
+      "tags": [
+        "浙江特色",
+        "杭州特产",
+        "晶莹剔透",
+        "清香爽口",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/341/800/600",
+      "price": 22,
+      "rating": 4.2,
+      "category": "甜品",
+      "isPopular": false,
+      "description": "晶莹剔透，清香爽口",
+      "recommendations": {
+        "pairings": [
+          "糖",
+          "桂花",
+          "水果",
+          "坚果"
+        ],
+        "eatingMethod": "冲调食用，作为甜品"
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "icon": "🏞️",
+      "name": "杭州西湖",
+      "type": "景区",
+      "foods": [
+        "west-lake-fish",
+        "dongpo-pork",
+        "hangzhou-noodles"
+      ],
+      "image": "https://picsum.photos/id/1090/800/600",
+      "reason": "杭州标志性景点，美食聚集地",
+      "location": "杭州市"
+    },
+    {
+      "id": 2,
+      "icon": "🏬",
+      "name": "宁波天一广场",
+      "type": "商业区",
+      "foods": [
+        "ningbo-dumplings",
+        "yellow-wine-chicken",
+        "zhejiang-snacks"
+      ],
+      "image": "https://picsum.photos/id/1091/800/600",
+      "reason": "宁波传统美食聚集地",
+      "location": "宁波市"
+    }
+  ]
+}

@@ -195,11 +195,13 @@
     target.src = getDefaultImage(currentSlide.value);
   };
 
-  const getDefaultImage = (index: number) => {
-    const defaultImages = [
-      'https://file.8kraw.com/photo/w1000w/2026-03/1268f1a87c89e4b9ef47aa6ac5fd509d_w1000w.jpg ',
-    ];
-    return defaultImages[index % defaultImages.length];
+  const getDefaultImage = (_index: number) => {
+    return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(
+      '<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">' +
+      '<rect width="800" height="600" fill="#f5f5f5"/>' +
+      '<text x="400" y="300" font-size="24" fill="#999" text-anchor="middle" dominant-baseline="middle">暂无图片</text>' +
+      '</svg>'
+    );
   };
 </script>
 

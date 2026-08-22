@@ -1,0 +1,332 @@
+{
+  "items": [
+    {
+      "id": "xiaolongbao",
+      "name": "小笼包",
+      "tags": [
+        "上海特色",
+        "地道风味",
+        "人气美食",
+        "传统工艺",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/302/800/600",
+      "price": 38,
+      "rating": 4.8,
+      "category": "主食",
+      "badgeText": "上海名片",
+      "isPopular": true,
+      "badgeColor": "#e91e63",
+      "description": "皮薄馅大，汤汁鲜美",
+      "recommendations": {
+        "pairings": [
+          "醋",
+          "姜丝",
+          "绿茶",
+          "小菜"
+        ],
+        "eatingMethod": "趁热食用，先咬一小口吸汤汁，再蘸醋食用"
+      }
+    },
+    {
+      "id": "hairy-crab",
+      "name": "大闸蟹",
+      "tags": [
+        "上海特色",
+        "季节性美食",
+        "高端食材",
+        "传统名菜",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/303/800/600",
+      "price": 288,
+      "rating": 4.9,
+      "category": "菜肴",
+      "badgeText": "季节限定",
+      "isPopular": true,
+      "badgeColor": "#ff5722",
+      "description": "阳澄湖大闸蟹，肉质鲜美",
+      "recommendations": {
+        "pairings": [
+          "黄酒",
+          "姜茶",
+          "醋",
+          "紫苏"
+        ],
+        "eatingMethod": "清蒸食用，蘸醋和姜末，黄酒"
+      }
+    },
+    {
+      "id": "squirrel-fish",
+      "name": "松鼠桂鱼",
+      "tags": [
+        "上海特色",
+        "本帮名菜",
+        "传统工艺",
+        "造型美观",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/304/800/600",
+      "price": 168,
+      "rating": 4.7,
+      "category": "菜肴",
+      "badgeText": "本帮名菜",
+      "isPopular": true,
+      "badgeColor": "#ff9800",
+      "description": "造型美观，酸甜可口",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "汤品",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "sheng-jian-bao",
+      "name": "生煎包",
+      "tags": [
+        "上海特色",
+        "街头小吃",
+        "地道风味",
+        "传统工艺",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/305/800/600",
+      "price": 18,
+      "rating": 4.6,
+      "category": "主食",
+      "badgeText": "街头人气",
+      "isPopular": true,
+      "badgeColor": "#4caf50",
+      "description": "底部焦脆，汤汁丰富",
+      "recommendations": {
+        "pairings": [
+          "豆浆",
+          "粥",
+          "小菜",
+          "汤品"
+        ],
+        "eatingMethod": "趁热食用，先咬一小口吸汤汁，再蘸醋食用"
+      }
+    },
+    {
+      "id": "hong-shao-rou",
+      "name": "红烧肉",
+      "tags": [
+        "上海特色",
+        "本帮名菜",
+        "传统工艺",
+        "肥而不腻",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/306/800/600",
+      "price": 68,
+      "rating": 4.7,
+      "category": "菜肴",
+      "badgeText": "浓油赤酱",
+      "isPopular": true,
+      "badgeColor": "#795548",
+      "description": "肥而不腻，入口即化",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "馒头",
+          "面条",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或馒头"
+      }
+    },
+    {
+      "id": "benbang-cai",
+      "name": "本帮菜",
+      "tags": [
+        "上海特色",
+        "本帮名菜",
+        "传统工艺",
+        "浓油赤酱",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/307/800/600",
+      "price": 128,
+      "rating": 4.5,
+      "category": "主食",
+      "isPopular": false,
+      "description": "浓油赤酱，口味醇厚",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "汤品",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "niangao",
+      "name": "年糕",
+      "tags": [
+        "上海特色",
+        "传统美食",
+        "软糯香甜",
+        "寓意吉祥",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/308/800/600",
+      "price": 15,
+      "rating": 4.2,
+      "category": "主食",
+      "isPopular": false,
+      "description": "软糯香甜，寓意吉祥",
+      "recommendations": {
+        "pairings": [
+          "糖水",
+          "菜肴",
+          "汤品",
+          "小菜"
+        ],
+        "eatingMethod": "直接食用，或煮糖水食用"
+      }
+    },
+    {
+      "id": "tang-yuan",
+      "name": "汤圆",
+      "tags": [
+        "上海特色",
+        "传统美食",
+        "团圆美满",
+        "甜而不腻",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/309/800/600",
+      "price": 12,
+      "rating": 4.3,
+      "category": "甜品",
+      "isPopular": false,
+      "description": "团圆美满，甜而不腻",
+      "recommendations": {
+        "pairings": [
+          "糖水",
+          "桂花",
+          "芝麻",
+          "花生"
+        ],
+        "eatingMethod": "煮食，趁热食用"
+      }
+    },
+    {
+      "id": "shao-mai",
+      "name": "烧卖",
+      "tags": [
+        "上海特色",
+        "传统美食",
+        "皮薄馅多",
+        "造型精致",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/310/800/600",
+      "price": 22,
+      "rating": 4.4,
+      "category": "主食",
+      "isPopular": false,
+      "description": "皮薄馅多，造型精致",
+      "recommendations": {
+        "pairings": [
+          "豆浆",
+          "粥",
+          "小菜",
+          "汤品"
+        ],
+        "eatingMethod": "直接食用，或蘸醋食用"
+      }
+    },
+    {
+      "id": "cong-bing",
+      "name": "葱油饼",
+      "tags": [
+        "上海特色",
+        "街头小吃",
+        "香脆可口",
+        "葱香浓郁",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/311/800/600",
+      "price": 8,
+      "rating": 4.1,
+      "category": "小吃",
+      "badgeText": "上海早点",
+      "isPopular": true,
+      "badgeColor": "#ff9800",
+      "description": "香脆可口，葱香浓郁",
+      "recommendations": {
+        "pairings": [
+          "豆浆",
+          "粥",
+          "小菜",
+          "汤品"
+        ],
+        "eatingMethod": "直接食用，趁热最佳"
+      }
+    },
+    {
+      "id": "shanghai-hongcha",
+      "name": "上海红茶",
+      "tags": [
+        "上海特色",
+        "传统饮品",
+        "香气浓郁",
+        "口感醇厚",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/312/800/600",
+      "price": 38,
+      "rating": 4.3,
+      "category": "饮品",
+      "isPopular": false,
+      "description": "香气浓郁，口感醇厚",
+      "recommendations": {
+        "pairings": [
+          "点心",
+          "小吃",
+          "甜品",
+          "菜肴"
+        ],
+        "eatingMethod": "直接饮用，可点心"
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "icon": "🗺️",
+      "name": "外滩美食区",
+      "type": "美食区",
+      "foods": [
+        "xiaolongbao",
+        "hairy-crab",
+        "shanghai-noodles"
+      ],
+      "image": "https://picsum.photos/id/1086/800/600",
+      "reason": "上海标志性景点，美食聚集地",
+      "location": "黄浦区"
+    },
+    {
+      "id": 2,
+      "icon": "🛣️",
+      "name": "城隍庙美食街",
+      "type": "美食街",
+      "foods": [
+        "xiaolongbao",
+        "stinky-tofu",
+        "sweet-rice-balls"
+      ],
+      "image": "https://picsum.photos/id/1087/800/600",
+      "reason": "上海传统美食集中地",
+      "location": "黄浦区"
+    }
+  ]
+}

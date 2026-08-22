@@ -1,0 +1,224 @@
+{
+  "items": [
+    {
+      "id": "哈尔滨红肠",
+      "name": "哈尔滨红肠",
+      "tags": [
+        "黑龙江特色",
+        "哈尔滨特产",
+        "蒜香浓郁",
+        "肉质紧实",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/407/800/600",
+      "price": 35,
+      "rating": 4.7,
+      "category": "熟食",
+      "badgeText": "哈尔滨名片",
+      "isPopular": true,
+      "badgeColor": "#e91e63",
+      "description": "蒜香浓郁，肉质紧实",
+      "recommendations": {
+        "pairings": [
+          "啤酒",
+          "饮料",
+          "小菜",
+          "主食"
+        ],
+        "eatingMethod": "直接食用，作为小吃或下酒菜"
+      }
+    },
+    {
+      "id": "锅包肉",
+      "name": "锅包肉",
+      "tags": [
+        "黑龙江特色",
+        "哈尔滨特产",
+        "外酥里嫩",
+        "酸甜可口",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/408/800/600",
+      "price": 48,
+      "rating": 4.8,
+      "category": "菜肴",
+      "badgeText": "东北名菜",
+      "isPopular": true,
+      "badgeColor": "#ff9800",
+      "description": "外酥里嫩，酸甜可口",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "哈尔滨啤酒",
+      "name": "哈尔滨啤酒",
+      "tags": [
+        "黑龙江特色",
+        "哈尔滨特产",
+        "清爽可口",
+        "麦香浓郁",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/409/800/600",
+      "price": 15,
+      "rating": 4.6,
+      "category": "饮品",
+      "badgeText": "冰城佳酿",
+      "isPopular": true,
+      "badgeColor": "#ffcc00",
+      "description": "清爽可口，麦香浓郁",
+      "recommendations": {
+        "pairings": [
+          "哈尔滨红肠",
+          "锅包肉",
+          "小菜",
+          "烧烤"
+        ],
+        "eatingMethod": "直接饮用，作为饮品"
+      }
+    },
+    {
+      "id": "东北乱炖",
+      "name": "东北乱炖",
+      "tags": [
+        "黑龙江特色",
+        "东北特产",
+        "食材丰富",
+        "味道鲜美",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/410/800/600",
+      "price": 58,
+      "rating": 4.5,
+      "category": "菜肴",
+      "badgeText": "东北家常",
+      "isPopular": true,
+      "badgeColor": "#795548",
+      "description": "食材丰富，味道鲜美",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "馒头",
+          "面条",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或馒头"
+      }
+    },
+    {
+      "id": "五常大米",
+      "name": "五常大米",
+      "tags": [
+        "黑龙江特色",
+        "五常特产",
+        "颗粒饱满",
+        "口感香糯",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/411/800/600",
+      "price": 68,
+      "rating": 4.4,
+      "category": "主食",
+      "isPopular": false,
+      "description": "颗粒饱满，口感香糯",
+      "recommendations": {
+        "pairings": [
+          "菜肴",
+          "汤品",
+          "小菜",
+          "甜品"
+        ],
+        "eatingMethod": "作为主食，菜肴"
+      }
+    },
+    {
+      "id": "heilongjiang-youtiao",
+      "name": "黑龙江油条",
+      "tags": [
+        "黑龙江特色",
+        "传统小吃",
+        "外酥内软",
+        "早餐必备",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/412/800/600",
+      "price": 3,
+      "rating": 4.1,
+      "category": "小吃",
+      "isPopular": false,
+      "description": "外酥内软，早餐必备",
+      "recommendations": {
+        "pairings": [
+          "豆浆",
+          "粥",
+          "小菜",
+          "汤品"
+        ],
+        "eatingMethod": "直接食用，作为早餐"
+      }
+    },
+    {
+      "id": "heilongjiang-tangbao",
+      "name": "黑龙江糖包",
+      "tags": [
+        "黑龙江特色",
+        "传统面点",
+        "香甜可口",
+        "软糯适中",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/413/800/600",
+      "price": 5,
+      "rating": 4,
+      "category": "甜品",
+      "isPopular": false,
+      "description": "香甜可口，传统面点",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "咖啡",
+          "水果",
+          "饮料"
+        ],
+        "eatingMethod": "直接食用，作为甜品"
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "icon": "🏬",
+      "name": "哈尔滨中央大街",
+      "type": "商业街",
+      "foods": [
+        "哈尔滨红肠",
+        "锅包肉",
+        "哈尔滨啤酒"
+      ],
+      "image": "https://picsum.photos/id/310/800/600",
+      "reason": "哈尔滨传统美食聚集地",
+      "location": "哈尔滨市"
+    },
+    {
+      "id": 2,
+      "icon": "🛣️",
+      "name": "牡丹江美食街",
+      "type": "美食街",
+      "foods": [
+        "东北乱炖",
+        "牡丹江鱼宴",
+        "五常大米饭"
+      ],
+      "image": "https://picsum.photos/id/311/800/600",
+      "reason": "黑龙江特色美食集中地",
+      "location": "牡丹江市"
+    }
+  ]
+}

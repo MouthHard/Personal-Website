@@ -132,7 +132,7 @@
   import { ref, computed } from 'vue';
   import { useRouter } from 'vue-router';
   import type { Topic } from '@/typesOfPages/landscape/home';
-  import { hotTopics as hotTopicsData } from '@/utils/landscape/constants';
+  import { useLandscapeDataStore } from '@/stores/landscape';
   import TrendIcon from '@/pages/Landscape/icon/components/home/HotTopics/TrendIcon.vue';
   import PlayCircleIcon from '@/pages/Landscape/icon/components/home/HotTopics/PlayCircleIcon.vue';
   import SpinnerIcon from '@/pages/Landscape/icon/components/home/HotTopics/SpinnerIcon.vue';
@@ -145,8 +145,9 @@
   import CommentIcon from '@/pages/Landscape/icon/components/profile/VideoCard/CommentIcon.vue';
 
   const router = useRouter();
+  const dataStore = useLandscapeDataStore();
 
-  const hotTopics = ref(hotTopicsData);
+  const hotTopics = computed(() => dataStore.getAllHotTopics());
   const displayCount = ref(2);
   const isLoading = ref(false);
 
@@ -158,13 +159,9 @@
     return displayCount.value < hotTopics.value.length;
   });
 
-  const loadMoreTopics = async () => {
+  const loadMoreTopics = () => {
     if (isLoading.value || !hasMoreTopics.value) return;
-
-    isLoading.value = true;
-    await new Promise((resolve) => setTimeout(resolve, 800));
     displayCount.value += 2;
-    isLoading.value = false;
   };
 
   const openTopicDetail = (topic: Topic) => {

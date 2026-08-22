@@ -2,7 +2,7 @@
   <div class="modal-content-wrapper">
     <div :class="['modal-excerpt', `mode-${travelModeClass}`]">{{ guide.excerpt }}</div>
 
-    <div class="modal-content" v-html="guide.content"></div>
+    <div class="modal-content" v-html="sanitizedContent"></div>
 
     <div v-if="guide.sections && guide.sections.length" class="content-sections">
       <div v-for="(section, index) in guide.sections" :key="index" class="section-block">
@@ -179,6 +179,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import DOMPurify from 'dompurify'
 import { travelModeMap } from '@/utils/landscape/constants'
 import type { GlobalGuide } from '@/typesOfPages/landscape/data'
 
@@ -187,6 +188,14 @@ interface Props {
 }
 
 const props = defineProps<Props>()
+
+const sanitizedContent = computed(() => {
+  const content = props.guide.content || ''
+  return DOMPurify.sanitize(content, {
+    ALLOWED_TAGS: ['p', 'br', 'strong', 'em', 'b', 'i', 'ul', 'ol', 'li', 'h3', 'h4', 'h5', 'span', 'div', 'a', 'img', 'blockquote'],
+    ALLOWED_ATTR: ['href', 'src', 'alt', 'class', 'target', 'rel'],
+  })
+})
 
 const travelMode = computed(() => props.guide.travelMode || 'self-drive')
 const travelModeClass = computed(() => {

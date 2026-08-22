@@ -1,0 +1,198 @@
+{
+  "items": [
+    {
+      "id": "xinjiang-roast-lamb",
+      "name": "烤全羊",
+      "tags": [
+        "新疆特色",
+        "维吾尔族美食",
+        "外焦里嫩",
+        "香飘四溢",
+        "宴席必备"
+      ],
+      "image": "https://picsum.photos/id/487/800/600",
+      "price": 688,
+      "rating": 4.9,
+      "category": "菜肴",
+      "badgeText": "新疆盛宴",
+      "isPopular": true,
+      "badgeColor": "#ff5722",
+      "description": "外焦里嫩，香飘四溢",
+      "recommendations": {
+        "pairings": [
+          "馕",
+          "皮牙子",
+          "洋葱",
+          "孜然"
+        ],
+        "eatingMethod": "整只烤制，切块后蘸椒盐食用，热食最佳"
+      }
+    },
+    {
+      "id": "lamb-kebab",
+      "name": "羊肉串",
+      "tags": [
+        "新疆特色",
+        "烧烤美食",
+        "外焦里嫩",
+        "孜然香浓",
+        "街头小吃"
+      ],
+      "image": "https://picsum.photos/id/488/800/600",
+      "price": 5,
+      "rating": 4.7,
+      "category": "小吃",
+      "badgeText": "夜市之王",
+      "isPopular": true,
+      "badgeColor": "#f44336",
+      "description": "外焦里嫩，孜然香浓",
+      "recommendations": {
+        "pairings": [
+          "馕",
+          "啤酒",
+          "烤包子",
+          "酸奶"
+        ],
+        "eatingMethod": "现烤现吃，趁热食用最佳"
+      }
+    },
+    {
+      "id": "pilaf",
+      "name": "手抓饭",
+      "tags": [
+        "新疆特色",
+        "维吾尔族美食",
+        "香气浓郁",
+        "营养丰富",
+        "米饭类"
+      ],
+      "image": "https://picsum.photos/id/489/800/600",
+      "price": 25,
+      "rating": 4.8,
+      "category": "主食",
+      "badgeText": "维吾尔主食",
+      "isPopular": true,
+      "badgeColor": "#ff9800",
+      "description": "香气浓郁，营养丰富",
+      "recommendations": {
+        "pairings": [
+          "羊肉串",
+          "酸奶",
+          "奶茶",
+          "小菜"
+        ],
+        "eatingMethod": "用手抓食或用勺子，配酸奶更佳"
+      }
+    },
+    {
+      "id": "roast-bun",
+      "name": "烤包子",
+      "tags": [
+        "新疆特色",
+        "维吾尔族小吃",
+        "外酥里嫩",
+        "香气四溢",
+        "早餐必备"
+      ],
+      "image": "https://picsum.photos/id/490/800/600",
+      "price": 8,
+      "rating": 4.6,
+      "category": "主食",
+      "badgeText": "新疆早餐",
+      "isPopular": true,
+      "badgeColor": "#e91e63",
+      "description": "外酥里嫩，香气四溢",
+      "recommendations": {
+        "pairings": [
+          "酸奶",
+          "奶茶",
+          "粥品",
+          "咸菜"
+        ],
+        "eatingMethod": "刚出炉时趁热食用，可蘸醋或辣椒"
+      }
+    },
+    {
+      "id": "xinjiang-yogurt",
+      "name": "酸奶子",
+      "tags": [
+        "新疆特色",
+        "发酵乳制品",
+        "酸甜可口",
+        "口感醇厚",
+        "益生菌丰富"
+      ],
+      "image": "https://picsum.photos/id/491/800/600",
+      "price": 10,
+      "rating": 4.4,
+      "category": "甜品",
+      "isPopular": false,
+      "description": "酸甜可口，口感醇厚",
+      "recommendations": {
+        "pairings": [
+          "蜂蜜",
+          "白糖",
+          "坚果",
+          "干果"
+        ],
+        "eatingMethod": "可加入蜂蜜或白糖调味后食用"
+      }
+    },
+    {
+      "id": "xinjiang-hongcha",
+      "name": "新疆红茶",
+      "tags": [
+        "新疆特色",
+        "香气浓郁",
+        "口感醇厚",
+        "养生茶饮",
+        "维吾尔茶俗"
+      ],
+      "image": "https://picsum.photos/id/492/800/600",
+      "price": 38,
+      "rating": 4.3,
+      "category": "饮品",
+      "isPopular": false,
+      "description": "香气浓郁，口感醇厚",
+      "recommendations": {
+        "pairings": [
+          "馕",
+          "干果",
+          "点心",
+          "奶酪"
+        ],
+        "eatingMethod": "沸水冲泡，可加入方糖和牛奶"
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "icon": "🏪",
+      "name": "乌鲁木齐大巴扎",
+      "type": "市场",
+      "foods": [
+        "xinjiang-roast-lamb",
+        "lamb-kebab",
+        "pilaf"
+      ],
+      "image": "https://picsum.photos/id/342/800/600",
+      "reason": "新疆特色美食集中地",
+      "location": "乌鲁木齐市"
+    },
+    {
+      "id": 2,
+      "icon": "🛣️",
+      "name": "喀什美食街",
+      "type": "美食街",
+      "foods": [
+        "roast-bun",
+        "xinjiang-yogurt",
+        "lamb-kebab"
+      ],
+      "image": "https://picsum.photos/id/343/800/600",
+      "reason": "喀什特色美食聚集地",
+      "location": "喀什市"
+    }
+  ]
+}

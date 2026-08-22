@@ -1,0 +1,278 @@
+{
+  "items": [
+    {
+      "id": "roujiamo",
+      "name": "肉夹馍",
+      "tags": [
+        "陕西特色",
+        "西安名吃",
+        "馍香肉嫩",
+        "中国汉堡",
+        "必尝美食"
+      ],
+      "image": "https://picsum.photos/id/470/800/600",
+      "price": 15,
+      "rating": 4.7,
+      "category": "主食",
+      "badgeText": "陕西名片",
+      "isPopular": true,
+      "badgeColor": "#ff5722",
+      "description": "中国汉堡，馍香肉嫩",
+      "recommendations": {
+        "pairings": [
+          "冰峰汽水",
+          "凉皮",
+          "粉丝汤",
+          "大蒜"
+        ],
+        "eatingMethod": "现烤的馍夹上腊汁肉，趁热食用最佳"
+      }
+    },
+    {
+      "id": "yangroupaomo",
+      "name": "羊肉泡馍",
+      "tags": [
+        "陕西特色",
+        "西安名吃",
+        "汤浓肉烂",
+        "馍筋道",
+        "回民风味"
+      ],
+      "image": "https://picsum.photos/id/471/800/600",
+      "price": 45,
+      "rating": 4.8,
+      "category": "主食",
+      "badgeText": "西安经典",
+      "isPopular": true,
+      "badgeColor": "#795548",
+      "description": "汤浓肉烂，馍筋道",
+      "recommendations": {
+        "pairings": [
+          "糖蒜",
+          "辣子酱",
+          "香菜",
+          "啤酒"
+        ],
+        "eatingMethod": "自己掰馍，掰得越碎越好吃"
+      }
+    },
+    {
+      "id": "liangpi",
+      "name": "凉皮",
+      "tags": [
+        "陕西特色",
+        "夏季美食",
+        "爽滑劲道",
+        "酸辣开胃",
+        "清凉解暑"
+      ],
+      "image": "https://picsum.photos/id/472/800/600",
+      "price": 12,
+      "rating": 4.6,
+      "category": "主食",
+      "badgeText": "夏季首选",
+      "isPopular": true,
+      "badgeColor": "#4caf50",
+      "description": "爽滑劲道，酸辣开胃",
+      "recommendations": {
+        "pairings": [
+          "肉夹馍",
+          "冰峰",
+          "豆浆",
+          "稀饭"
+        ],
+        "eatingMethod": "凉拌后即可食用，夏天冷藏更佳"
+      }
+    },
+    {
+      "id": "biangbiang-mian",
+      "name": "biangbiang面",
+      "tags": [
+        "陕西特色",
+        "关中面食",
+        "宽如裤带",
+        "劲道爽滑",
+        "手工制作"
+      ],
+      "image": "https://picsum.photos/id/473/800/600",
+      "price": 18,
+      "rating": 4.7,
+      "category": "主食",
+      "badgeText": "关中名吃",
+      "isPopular": true,
+      "badgeColor": "#ff9800",
+      "description": "宽如裤带，劲道爽滑",
+      "recommendations": {
+        "pairings": [
+          "大蒜",
+          "油泼辣子",
+          "醋",
+          "冰峰"
+        ],
+        "eatingMethod": "趁热拌入油泼辣子和蒜泥食用"
+      }
+    },
+    {
+      "id": "qishan-saomian",
+      "name": "岐山臊子面",
+      "tags": [
+        "陕西特色",
+        "岐山特产",
+        "酸辣鲜香",
+        "薄筋光",
+        "五料调和"
+      ],
+      "image": "https://picsum.photos/id/474/800/600",
+      "price": 15,
+      "rating": 4.5,
+      "category": "主食",
+      "badgeText": "岐山名产",
+      "isPopular": true,
+      "badgeColor": "#e91e63",
+      "description": "酸辣鲜香，薄筋光",
+      "recommendations": {
+        "pairings": [
+          "大蒜",
+          "辣椒油",
+          "醋",
+          "腊肉"
+        ],
+        "eatingMethod": "汤面分开，先喝汤再吃面"
+      }
+    },
+    {
+      "id": "shaanxi-jiangrou",
+      "name": "陕西酱肉",
+      "tags": [
+        "陕西特色",
+        "陕北风味",
+        "肉质紧实",
+        "酱香浓郁",
+        "下酒好菜"
+      ],
+      "image": "https://picsum.photos/id/475/800/600",
+      "price": 68,
+      "rating": 4.5,
+      "category": "菜肴",
+      "isPopular": false,
+      "description": "肉质紧实，酱香浓郁",
+      "recommendations": {
+        "pairings": [
+          "馒头",
+          "面条",
+          "大蒜",
+          "白酒"
+        ],
+        "eatingMethod": "切片后冷食或蒸热后食用"
+      }
+    },
+    {
+      "id": "shaanxi-youtiao",
+      "name": "陕西油条",
+      "tags": [
+        "陕西特色",
+        "早餐食品",
+        "外酥内软",
+        "快捷方便",
+        "传统早点"
+      ],
+      "image": "https://picsum.photos/id/476/800/600",
+      "price": 3,
+      "rating": 4.1,
+      "category": "小吃",
+      "isPopular": false,
+      "description": "外酥内软，早餐必备",
+      "recommendations": {
+        "pairings": [
+          "豆浆",
+          "豆腐脑",
+          "稀饭",
+          "胡辣汤"
+        ],
+        "eatingMethod": "直接食用或泡入豆浆、稀饭中"
+      }
+    },
+    {
+      "id": "shaanxi-tangbao",
+      "name": "陕西糖包",
+      "tags": [
+        "陕西特色",
+        "传统面点",
+        "香甜可口",
+        "软糯适中",
+        "老人喜爱"
+      ],
+      "image": "https://picsum.photos/id/477/800/600",
+      "price": 5,
+      "rating": 4,
+      "category": "甜品",
+      "isPopular": false,
+      "description": "香甜可口，传统面点",
+      "recommendations": {
+        "pairings": [
+          "豆浆",
+          "牛奶",
+          "粥品",
+          "茶品"
+        ],
+        "eatingMethod": "直接食用，早餐或下午茶点心"
+      }
+    },
+    {
+      "id": "shaanxi-hongcha",
+      "name": "陕西红茶",
+      "tags": [
+        "陕西特色",
+        "汉中茶区",
+        "香气浓郁",
+        "口感醇厚",
+        "养生茶饮"
+      ],
+      "image": "https://picsum.photos/id/478/800/600",
+      "price": 38,
+      "rating": 4.3,
+      "category": "饮品",
+      "isPopular": false,
+      "description": "香气浓郁，口感醇厚",
+      "recommendations": {
+        "pairings": [
+          "点心",
+          "小吃",
+          "核桃",
+          "红枣"
+        ],
+        "eatingMethod": "沸水冲泡，可反复冲泡3-5次"
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "icon": "🛣️",
+      "name": "西安回民街",
+      "type": "美食街",
+      "foods": [
+        "rou-jia-mo",
+        "yangrou-paomo",
+        "liang-pi"
+      ],
+      "image": "https://picsum.photos/id/334/800/600",
+      "reason": "西安最著名的美食街",
+      "location": "西安市"
+    },
+    {
+      "id": 2,
+      "icon": "🛣️",
+      "name": "西安永兴坊",
+      "type": "美食街",
+      "foods": [
+        "biang-biang-noodle",
+        "qishan-noodle",
+        "hula-tang"
+      ],
+      "image": "https://picsum.photos/id/335/800/600",
+      "reason": "陕西特色美食集中地",
+      "location": "西安市"
+    }
+  ]
+}

@@ -226,7 +226,7 @@
   import { useInteractionStore } from '@/stores/landscape';
   import type { InteractionItem } from '@/typesOfPages/landscape';
   import { GUIDE_DEFAULTS, DATE_DEFAULTS, AUTHOR_DEFAULTS } from '@/utils/landscape/defaults';
-  import { typeToTravelMode } from '@/utils/landscape/constants';
+
   import type { GlobalGuide } from '@/typesOfPages/landscape/data';
 
   const router = useRouter();
@@ -236,7 +236,7 @@
   const scrollPosition = ref(0);
   const maxScroll = ref(0);
 
-  const guides = ref(dataStore.getAllGuides());
+  const guides = computed(() => dataStore.getAllGuides());
   const moreGuides = computed(() => guides.value.slice(4));
 
   const getGuideId = (id: string | number) => String(id);
@@ -264,7 +264,7 @@
       authorVerified: true,
       difficulty: guide.difficulty || GUIDE_DEFAULTS.difficulty,
       rating: guide.rating || GUIDE_DEFAULTS.rating,
-      ratingCount: Math.floor(Math.random() * 100) + GUIDE_DEFAULTS.ratingCount,
+      ratingCount: GUIDE_DEFAULTS.ratingCount,
       readTime: guide.readTime || GUIDE_DEFAULTS.readTime,
       saves: c.favorites,
       comments: guide.comments || GUIDE_DEFAULTS.comments,
@@ -347,12 +347,10 @@
   };
 
   const handleCardClick = (guide: GlobalGuide) => {
-    const guideType = guide.type || '';
-    const travelMode = typeToTravelMode[guideType] || 'self-drive';
     router.push({
       path: '/landscape/guides',
       query: {
-        travelMode: travelMode,
+        q: guide.title,
       },
     });
   };

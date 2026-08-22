@@ -1,0 +1,224 @@
+{
+  "items": [
+    {
+      "id": "瓦罐汤",
+      "name": "瓦罐汤",
+      "tags": [
+        "江西特色",
+        "南昌特产",
+        "营养丰富",
+        "香气四溢",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/422/800/600",
+      "price": 15,
+      "rating": 4.6,
+      "category": "饮品",
+      "badgeText": "南昌名片",
+      "isPopular": true,
+      "badgeColor": "#ff5722",
+      "description": "营养丰富，香气四溢",
+      "recommendations": {
+        "pairings": [
+          "南昌炒粉",
+          "油条",
+          "包子",
+          "小菜"
+        ],
+        "eatingMethod": "直接饮用，作为早餐"
+      }
+    },
+    {
+      "id": "南昌炒粉",
+      "name": "南昌炒粉",
+      "tags": [
+        "江西特色",
+        "南昌特产",
+        "口感劲道",
+        "味道鲜美",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/423/800/600",
+      "price": 12,
+      "rating": 4.5,
+      "category": "主食",
+      "badgeText": "南昌早餐",
+      "isPopular": true,
+      "badgeColor": "#ff9800",
+      "description": "口感劲道，味道鲜美",
+      "recommendations": {
+        "pairings": [
+          "瓦罐汤",
+          "小菜",
+          "饮料",
+          "茶品"
+        ],
+        "eatingMethod": "直接食用，作为主食"
+      }
+    },
+    {
+      "id": "鄱阳湖银鱼",
+      "name": "鄱阳湖银鱼",
+      "tags": [
+        "江西特色",
+        "鄱阳湖特产",
+        "肉质鲜嫩",
+        "营养丰富",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/424/800/600",
+      "price": 68,
+      "rating": 4.7,
+      "category": "菜肴",
+      "badgeText": "鄱阳湖珍鲜",
+      "isPopular": true,
+      "badgeColor": "#03a9f4",
+      "description": "肉质鲜嫩，营养丰富",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "井冈山竹笋",
+      "name": "井冈山竹笋",
+      "tags": [
+        "江西特色",
+        "井冈山特产",
+        "鲜嫩可口",
+        "营养丰富",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/425/800/600",
+      "price": 38,
+      "rating": 4.4,
+      "category": "蔬菜",
+      "isPopular": false,
+      "description": "鲜嫩可口，营养丰富",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为配菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "赣州客家酿豆腐",
+      "name": "赣州客家酿豆腐",
+      "tags": [
+        "江西特色",
+        "赣州特产",
+        "外酥里嫩",
+        "香气四溢",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/426/800/600",
+      "price": 48,
+      "rating": 4.6,
+      "category": "菜肴",
+      "badgeText": "客家名菜",
+      "isPopular": true,
+      "badgeColor": "#4caf50",
+      "description": "外酥里嫩，香气四溢",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "jiangxi-youtiao",
+      "name": "江西油条",
+      "tags": [
+        "江西特色",
+        "传统小吃",
+        "外酥内软",
+        "早餐必备",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/427/800/600",
+      "price": 3,
+      "rating": 4.1,
+      "category": "小吃",
+      "isPopular": false,
+      "description": "外酥内软，早餐必备",
+      "recommendations": {
+        "pairings": [
+          "瓦罐汤",
+          "粥",
+          "小菜",
+          "汤品"
+        ],
+        "eatingMethod": "直接食用，作为早餐"
+      }
+    },
+    {
+      "id": "jiangxi-tangbao",
+      "name": "江西糖包",
+      "tags": [
+        "江西特色",
+        "传统面点",
+        "香甜可口",
+        "软糯适中",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/428/800/600",
+      "price": 5,
+      "rating": 4,
+      "category": "甜品",
+      "isPopular": false,
+      "description": "香甜可口，传统面点",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "咖啡",
+          "水果",
+          "饮料"
+        ],
+        "eatingMethod": "直接食用，作为甜品"
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "icon": "🛣️",
+      "name": "南昌绳金塔美食街",
+      "type": "美食街",
+      "foods": [
+        "瓦罐汤",
+        "南昌炒粉",
+        "南昌水煮"
+      ],
+      "image": "https://picsum.photos/id/316/800/600",
+      "reason": "南昌传统美食集中地",
+      "location": "南昌市"
+    },
+    {
+      "id": 2,
+      "icon": "🛣️",
+      "name": "九江美食街",
+      "type": "美食街",
+      "foods": [
+        "鄱阳湖银鱼",
+        "九江烧饼",
+        "赣州客家酿豆腐"
+      ],
+      "image": "https://picsum.photos/id/317/800/600",
+      "reason": "江西特色美食聚集地",
+      "location": "九江市"
+    }
+  ]
+}

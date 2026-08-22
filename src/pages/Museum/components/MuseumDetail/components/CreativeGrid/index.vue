@@ -18,7 +18,7 @@
     <CreativeCardGrid :creative-products="creativeProducts" />
 
     <!-- 文创活动模块 -->
-    <ActivitySection />
+    <ActivitySection :museum="museum" />
 
     <!-- 文创APP模块 -->
     <AppSection />
@@ -26,22 +26,24 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, onMounted } from 'vue';
-  import { useRoute } from 'vue-router';
-  import { getCreativeProductsByMuseumId } from '@/pages/Museum/data/creative-products';
-  import type { CreativeProduct } from '@/typesOfPages/museum/index';
+  import { computed } from 'vue';
+  import { useMuseumDataStore } from '@/stores/museum';
+  import type { Museum, CreativeProduct } from '@/typesOfPages/museum/index';
   import Carousel from './components/Carousel/index.vue';
   import CreativeCardGrid from './components/CreativeCardGrid/index.vue';
   import ActivitySection from './components/ActivitySection/index.vue';
   import AppSection from './components/AppSection/index.vue';
   import FallingLeaves from './components/FallingLeaves/index.vue';
 
-  const route = useRoute();
-  const creativeProducts = ref<CreativeProduct[]>([]);
+  interface Props {
+    museum: Museum;
+  }
 
-  onMounted(() => {
-    const id = Number(route.params.id);
-    creativeProducts.value = getCreativeProductsByMuseumId(id);
+  const props = defineProps<Props>();
+  const store = useMuseumDataStore();
+
+  const creativeProducts = computed<CreativeProduct[]>(() => {
+    return store.getCreativeProductsByMuseumId(props.museum.id);
   });
 </script>
 

@@ -1,0 +1,226 @@
+{
+  "items": [
+    {
+      "id": "重庆火锅",
+      "name": "重庆火锅",
+      "tags": [
+        "重庆特色",
+        "麻辣鲜香",
+        "味道浓郁",
+        "九宫格",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/447/800/600",
+      "price": 158,
+      "rating": 4.9,
+      "category": "菜肴",
+      "badgeText": "山城名片",
+      "isPopular": true,
+      "badgeColor": "#f44336",
+      "description": "麻辣鲜香，味道浓郁",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "重庆小面",
+      "name": "重庆小面",
+      "tags": [
+        "重庆特色",
+        "麻辣鲜香",
+        "口感丰富",
+        "调料丰富",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/448/800/600",
+      "price": 12,
+      "rating": 4.7,
+      "category": "主食",
+      "badgeText": "重庆早餐",
+      "isPopular": true,
+      "badgeColor": "#ff9800",
+      "description": "麻辣鲜香，口感丰富",
+      "recommendations": {
+        "pairings": [
+          "小菜",
+          "汤品",
+          "饮料",
+          "茶品"
+        ],
+        "eatingMethod": "直接食用，作为主食"
+      }
+    },
+    {
+      "id": "磁器口陈麻花",
+      "name": "磁器口陈麻花",
+      "tags": [
+        "重庆特色",
+        "磁器口特产",
+        "酥脆香甜",
+        "久放不绵",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/449/800/600",
+      "price": 15,
+      "rating": 4.5,
+      "category": "小吃",
+      "badgeText": "重庆特产",
+      "isPopular": true,
+      "badgeColor": "#ff9800",
+      "description": "酥脆香甜，久放不绵",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "咖啡",
+          "水果",
+          "饮料"
+        ],
+        "eatingMethod": "直接食用，作为小吃"
+      }
+    },
+    {
+      "id": "重庆酸辣粉",
+      "name": "重庆酸辣粉",
+      "tags": [
+        "重庆特色",
+        "酸辣可口",
+        "口感丰富",
+        "红薯粉",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/450/800/600",
+      "price": 12,
+      "rating": 4.6,
+      "category": "主食",
+      "badgeText": "重庆小吃",
+      "isPopular": true,
+      "badgeColor": "#e91e63",
+      "description": "酸辣可口，口感丰富",
+      "recommendations": {
+        "pairings": [
+          "小菜",
+          "汤品",
+          "饮料",
+          "茶品"
+        ],
+        "eatingMethod": "直接食用，作为主食"
+      }
+    },
+    {
+      "id": "万州烤鱼",
+      "name": "万州烤鱼",
+      "tags": [
+        "重庆特色",
+        "万州特产",
+        "外焦里嫩",
+        "香气四溢",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/451/800/600",
+      "price": 88,
+      "rating": 4.8,
+      "category": "菜肴",
+      "badgeText": "三峡名菜",
+      "isPopular": true,
+      "badgeColor": "#ff5722",
+      "description": "外焦里嫩，香气四溢",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "chongqing-tangbao",
+      "name": "重庆糖包",
+      "tags": [
+        "重庆特色",
+        "传统面点",
+        "香甜可口",
+        "软糯适中",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/452/800/600",
+      "price": 5,
+      "rating": 4,
+      "category": "甜品",
+      "isPopular": false,
+      "description": "香甜可口，传统面点",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "咖啡",
+          "水果",
+          "饮料"
+        ],
+        "eatingMethod": "直接食用，作为甜品"
+      }
+    },
+    {
+      "id": "chongqing-hongcha",
+      "name": "重庆红茶",
+      "tags": [
+        "重庆特色",
+        "传统饮品",
+        "香气浓郁",
+        "口感醇厚",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/453/800/600",
+      "price": 38,
+      "rating": 4.3,
+      "category": "饮品",
+      "isPopular": false,
+      "description": "香气浓郁，口感醇厚",
+      "recommendations": {
+        "pairings": [
+          "点心",
+          "小吃",
+          "甜品",
+          "菜肴"
+        ],
+        "eatingMethod": "直接饮用，可点心或小吃"
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "icon": "🏞️",
+      "name": "磁器口古镇",
+      "type": "文化街",
+      "foods": [
+        "磁器口陈麻花",
+        "重庆小面",
+        "重庆酸辣粉"
+      ],
+      "image": "https://picsum.photos/id/326/800/600",
+      "reason": "重庆传统古镇，美食丰富",
+      "location": "重庆市"
+    },
+    {
+      "id": 2,
+      "icon": "🏞️",
+      "name": "洪崖洞",
+      "type": "景区",
+      "foods": [
+        "重庆火锅",
+        "万州烤鱼",
+        "重庆小面"
+      ],
+      "image": "https://picsum.photos/id/327/800/600",
+      "reason": "重庆标志性景区，美食聚集地",
+      "location": "重庆市"
+    }
+  ]
+}

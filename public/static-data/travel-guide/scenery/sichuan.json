@@ -1,0 +1,323 @@
+{
+  "spots": [
+    {
+      "id": "jiuzhaigou",
+      "name": "九寨沟",
+      "tags": [
+        "世界遗产",
+        "自然",
+        "风光",
+        "摄影"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1560/600/400",
+      "rating": 4.9,
+      "bestTime": "秋季",
+      "location": "四川省阿坝藏族羌族自治州九寨沟县",
+      "description": "世界自然遗产,童话世界",
+      "landformTags": [
+        "峡谷景观"
+      ],
+      "landscapeType": "valley",
+      "landscapeCategory": [
+        "地理景观"
+      ]
+    },
+    {
+      "id": "emeiMountain",
+      "name": "峨眉山",
+      "tags": [
+        "名山",
+        "佛教",
+        "世界遗产",
+        "文化"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1561/600/400",
+      "rating": 4.8,
+      "bestTime": "春秋",
+      "location": "四川省乐山市峨眉山市",
+      "description": "中国四大佛教名山之一,世界文化与自然双重遗产"
+    },
+    {
+      "id": "dujiangyan",
+      "name": "都江堰",
+      "tags": [
+        "水利工程",
+        "世界遗产",
+        "历史",
+        "文化"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1562/600/400",
+      "rating": 4.7,
+      "bestTime": "全年",
+      "location": "四川省成都市都江堰市",
+      "description": "世界文化遗产,中国古代水利工程的杰作"
+    },
+    {
+      "id": "leshanGiantBuddha",
+      "name": "乐山大佛",
+      "tags": [
+        "佛像",
+        "世界遗产",
+        "佛教",
+        "艺术"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1563/600/400",
+      "rating": 4.7,
+      "bestTime": "全年",
+      "location": "四川省乐山市市中区",
+      "description": "世界最大的石刻弥勒佛坐像"
+    },
+    {
+      "id": "daochengYading",
+      "name": "稻城亚丁",
+      "tags": [
+        "自然",
+        "高原",
+        "风光",
+        "摄影"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1564/600/400",
+      "rating": 4.8,
+      "bestTime": "秋季",
+      "location": "四川省甘孜藏族自治州稻城县",
+      "description": "香格里拉之魂,最后的香格里拉",
+      "landformTags": [
+        "山地景观"
+      ],
+      "landscapeType": "mountain",
+      "landscapeCategory": [
+        "地理景观"
+      ]
+    },
+    {
+      "id": "huanglong",
+      "name": "黄龙",
+      "tags": [
+        "世界遗产",
+        "自然",
+        "风光",
+        "摄影"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1565/600/400",
+      "rating": 4.8,
+      "bestTime": "秋季",
+      "location": "四川省阿坝藏族羌族自治州松潘县",
+      "description": "世界自然遗产,人间瑶池",
+      "landformTags": [
+        "峡谷景观"
+      ],
+      "landscapeType": "valley",
+      "landscapeCategory": [
+        "地理景观"
+      ]
+    },
+    {
+      "id": "qingchengMountain",
+      "name": "青城山",
+      "tags": [
+        "名山",
+        "道教",
+        "文化",
+        "自然"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1566/600/400",
+      "rating": 4.6,
+      "bestTime": "全年",
+      "location": "四川省成都市都江堰市",
+      "description": "中国道教发源地之一,青城天下幽"
+    },
+    {
+      "id": "chengduPandaBase",
+      "name": "成都大熊猫繁育研究基地",
+      "tags": [
+        "熊猫",
+        "动物",
+        "保护",
+        "科普"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1567/600/400",
+      "rating": 4.7,
+      "bestTime": "全年",
+      "location": "四川省成都市成华区",
+      "description": "大熊猫的家园,世界著名的大熊猫保护基地",
+      "landformTags": [
+        "哺乳动物景观"
+      ],
+      "landscapeType": "animal",
+      "landscapeCategory": [
+        "生物景观"
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "id": "1",
+      "name": "九寨沟之旅",
+      "tags": [
+        "自然",
+        "世界遗产",
+        "风光"
+      ],
+      "image": "https://picsum.photos/id/1560/600/400",
+      "spots": [
+        "九寨沟",
+        "黄龙"
+      ],
+      "title": "九寨沟之旅",
+      "rating": 4.9,
+      "traffic": "旅游大巴",
+      "bestTime": "秋季",
+      "duration": "3天",
+      "difficulty": "中等",
+      "highlights": [
+        "九寨沟",
+        "黄龙"
+      ],
+      "description": "探索童话世界九寨沟",
+      "suitableFor": "自然爱好者"
+    }
+  ],
+  "customs": {
+    "activities": [
+      {
+        "id": "1",
+        "name": "川菜品尝",
+        "type": "美食体验",
+        "image": "https://picsum.photos/id/1566/600/400",
+        "category": "culture",
+        "duration": "1-2小时",
+        "location": "成都",
+        "difficulty": "简单",
+        "description": "品尝正宗的四川菜"
+      }
+    ]
+  },
+  "overview": {
+    "totalSpots": 320,
+    "natureSpots": 170,
+    "cultureSpots": 150,
+    "topAttractions": [
+      {
+        "name": "九寨沟",
+        "image": "https://picsum.photos/id/1560/600/400",
+        "description": "世界自然遗产,童话世界"
+      },
+      {
+        "name": "峨眉山",
+        "image": "https://picsum.photos/id/1561/600/400",
+        "description": "中国四大佛教名山之一,世界文化与自然双重遗产"
+      },
+      {
+        "name": "都江堰",
+        "image": "https://picsum.photos/id/1562/600/400",
+        "description": "世界文化遗产,中国古代水利工程的杰作"
+      },
+      {
+        "name": "乐山大佛",
+        "image": "https://picsum.photos/id/1563/600/400",
+        "description": "世界最大的石刻弥勒佛坐像"
+      },
+      {
+        "name": "稻城亚丁",
+        "image": "https://picsum.photos/id/1564/600/400",
+        "description": "香格里拉之魂,最后的香格里拉"
+      },
+      {
+        "name": "黄龙",
+        "image": "https://picsum.photos/id/1565/600/400",
+        "description": "世界自然遗产,人间瑶池"
+      },
+      {
+        "name": "青城山",
+        "image": "https://picsum.photos/id/1566/600/400",
+        "description": "中国道教发源地之一,青城天下幽"
+      },
+      {
+        "name": "成都大熊猫繁育研究基地",
+        "image": "https://picsum.photos/id/1567/600/400",
+        "description": "大熊猫的家园,世界著名的大熊猫保护基地"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "name": "春季",
+      "image": "https://picsum.photos/id/1566/600/400",
+      "activities": [
+        "青城山踏青",
+        "峨眉山登山",
+        "都江堰游览",
+        "成都熊猫基地参观"
+      ],
+      "description": "春暖花开,青城山山花烂漫,是踏青赏花的好时节"
+    },
+    {
+      "name": "夏季",
+      "image": "https://picsum.photos/id/1566/600/400",
+      "activities": [
+        "青城山避暑",
+        "峨眉山避暑",
+        "九寨沟游览",
+        "黄龙参观"
+      ],
+      "description": "绿树成荫,青城山和峨眉山是避暑纳凉的好去处"
+    },
+    {
+      "name": "秋季",
+      "image": "https://picsum.photos/id/1560/600/400",
+      "activities": [
+        "九寨沟赏秋",
+        "黄龙赏秋",
+        "稻城亚丁游览",
+        "峨眉山秋游"
+      ],
+      "description": "秋高气爽,九寨沟和黄龙秋色迷人,是游览的最佳时节"
+    },
+    {
+      "name": "冬季",
+      "image": "https://picsum.photos/id/1561/600/400",
+      "activities": [
+        "峨眉山赏雪",
+        "青城山冬景",
+        "成都熊猫基地参观",
+        "都江堰游览"
+      ],
+      "description": "银装素裹,峨眉山雪景如画,是体验北国风情的好时节"
+    }
+  ],
+  "festivals": [],
+  "activities": [
+    {
+      "id": "1",
+      "name": "九寨沟游览",
+      "type": "自然体验",
+      "image": "https://picsum.photos/id/1560/600/400",
+      "category": "nature",
+      "duration": "1天",
+      "location": "九寨沟",
+      "difficulty": "简单",
+      "description": "游览世界自然遗产九寨沟"
+    },
+    {
+      "id": "2",
+      "name": "成都熊猫基地参观",
+      "type": "自然体验",
+      "image": "https://picsum.photos/id/1567/600/400",
+      "category": "nature",
+      "duration": "2-3小时",
+      "location": "成都大熊猫繁育研究基地",
+      "difficulty": "简单",
+      "description": "参观大熊猫繁育研究基地"
+    }
+  ],
+  "intangibleHeritage": [],
+  "folkCustomsElements": []
+}

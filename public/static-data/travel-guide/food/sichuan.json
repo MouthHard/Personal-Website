@@ -1,0 +1,356 @@
+{
+  "items": [
+    {
+      "id": "mapo-tofu",
+      "name": "麻婆豆腐",
+      "tags": [
+        "四川特色",
+        "经典川菜",
+        "麻辣鲜香",
+        "传统工艺",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/342/800/600",
+      "price": 28,
+      "rating": 4.7,
+      "category": "菜肴",
+      "badgeText": "川菜灵魂",
+      "isPopular": true,
+      "badgeColor": "#f44336",
+      "description": "麻辣鲜香，经典川菜",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "hotpot",
+      "name": "四川火锅",
+      "tags": [
+        "四川特色",
+        "麻辣过瘾",
+        "食材丰富",
+        "传统工艺",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/343/800/600",
+      "price": 128,
+      "rating": 4.9,
+      "category": "主食",
+      "badgeText": "麻辣之王",
+      "isPopular": true,
+      "badgeColor": "#f44336",
+      "description": "麻辣过瘾，食材丰富",
+      "recommendations": {
+        "pairings": [
+          "饮料",
+          "啤酒",
+          "小菜",
+          "水果"
+        ],
+        "eatingMethod": "涮煮食用，调料"
+      }
+    },
+    {
+      "id": "kung-pao-chicken",
+      "name": "宫保鸡丁",
+      "tags": [
+        "四川特色",
+        "经典川菜",
+        "酸甜微辣",
+        "鸡肉嫩滑",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/344/800/600",
+      "price": 48,
+      "rating": 4.6,
+      "category": "菜肴",
+      "badgeText": "川菜经典",
+      "isPopular": true,
+      "badgeColor": "#ff9800",
+      "description": "酸甜微辣，鸡肉嫩滑",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "twice-cooked-pork",
+      "name": "回锅肉",
+      "tags": [
+        "四川特色",
+        "经典川菜",
+        "肥而不腻",
+        "香辣下饭",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/345/800/600",
+      "price": 38,
+      "rating": 4.7,
+      "category": "菜肴",
+      "badgeText": "家常之首",
+      "isPopular": true,
+      "badgeColor": "#ff5722",
+      "description": "肥而不腻，香辣下饭",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "sichuan-boiled-beef",
+      "name": "水煮牛肉",
+      "tags": [
+        "四川特色",
+        "经典川菜",
+        "麻辣鲜嫩",
+        "红油飘香",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/346/800/600",
+      "price": 68,
+      "rating": 4.8,
+      "category": "菜肴",
+      "badgeText": "红油飘香",
+      "isPopular": true,
+      "badgeColor": "#e91e63",
+      "description": "麻辣鲜嫩，红油飘香",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "dan-dan-noodles",
+      "name": "担担面",
+      "tags": [
+        "四川特色",
+        "传统面食",
+        "麻辣爽滑",
+        "面条劲道",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/347/800/600",
+      "price": 18,
+      "rating": 4.5,
+      "category": "主食",
+      "isPopular": false,
+      "description": "麻辣爽滑，面条劲道",
+      "recommendations": {
+        "pairings": [
+          "小菜",
+          "汤品",
+          "饮料",
+          "茶品"
+        ],
+        "eatingMethod": "直接食用，趁热最佳"
+      }
+    },
+    {
+      "id": "fuqi-feipian",
+      "name": "夫妻肺片",
+      "tags": [
+        "四川特色",
+        "传统小吃",
+        "麻辣鲜香",
+        "口感丰富",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/348/800/600",
+      "price": 42,
+      "rating": 4.6,
+      "category": "小吃",
+      "isPopular": false,
+      "description": "麻辣鲜香，口感丰富",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为冷菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "suan-cai-yu",
+      "name": "酸菜鱼",
+      "tags": [
+        "四川特色",
+        "经典川菜",
+        "酸辣开胃",
+        "鱼肉鲜嫩",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/349/800/600",
+      "price": 78,
+      "rating": 4.5,
+      "category": "菜肴",
+      "isPopular": false,
+      "description": "酸辣开胃，鱼肉鲜嫩",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "yuxiang-rousi",
+      "name": "鱼香肉丝",
+      "tags": [
+        "四川特色",
+        "经典川菜",
+        "酸甜微辣",
+        "鱼香浓郁",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/350/800/600",
+      "price": 32,
+      "rating": 4.4,
+      "category": "菜肴",
+      "isPopular": false,
+      "description": "酸甜微辣，鱼香浓郁",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "boiled-fish",
+      "name": "沸腾鱼",
+      "tags": [
+        "四川特色",
+        "经典川菜",
+        "麻辣鲜嫩",
+        "热油淋香",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/351/800/600",
+      "price": 88,
+      "rating": 4.6,
+      "category": "菜肴",
+      "isPopular": false,
+      "description": "麻辣鲜嫩，热油淋香",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "sichuan-tangbao",
+      "name": "四川糖包",
+      "tags": [
+        "四川特色",
+        "传统面点",
+        "香甜可口",
+        "软糯适中",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/352/800/600",
+      "price": 5,
+      "rating": 4,
+      "category": "甜品",
+      "isPopular": false,
+      "description": "香甜可口，传统面点",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "咖啡",
+          "水果",
+          "饮料"
+        ],
+        "eatingMethod": "直接食用，作为甜品"
+      }
+    },
+    {
+      "id": "sichuan-hongcha",
+      "name": "四川红茶",
+      "tags": [
+        "四川特色",
+        "传统饮品",
+        "香气浓郁",
+        "口感醇厚",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/353/800/600",
+      "price": 38,
+      "rating": 4.3,
+      "category": "饮品",
+      "isPopular": false,
+      "description": "香气浓郁，口感醇厚",
+      "recommendations": {
+        "pairings": [
+          "点心",
+          "小吃",
+          "甜品",
+          "菜肴"
+        ],
+        "eatingMethod": "直接饮用，可点心或小吃"
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "icon": "🏞️",
+      "name": "成都宽窄巷子",
+      "type": "文化街",
+      "foods": [
+        "mapo-tofu",
+        "kung-pao-chicken",
+        "dan-dan-noodles"
+      ],
+      "image": "https://picsum.photos/id/1098/800/600",
+      "reason": "成都传统美食集中地",
+      "location": "成都市"
+    },
+    {
+      "id": 2,
+      "icon": "🛣️",
+      "name": "成都锦里",
+      "type": "美食街",
+      "foods": [
+        "hotpot",
+        "suan-cai-yu",
+        "sichuan-hongcha"
+      ],
+      "image": "https://picsum.photos/id/1099/800/600",
+      "reason": "成都特色美食聚集地",
+      "location": "成都市"
+    }
+  ]
+}

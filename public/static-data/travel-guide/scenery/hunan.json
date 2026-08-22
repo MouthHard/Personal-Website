@@ -1,0 +1,362 @@
+{
+  "spots": [
+    {
+      "id": "zhangjiajie",
+      "name": "张家界",
+      "tags": [
+        "名山",
+        "世界遗产",
+        "奇峰",
+        "自然"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1460/600/400",
+      "rating": 4.9,
+      "bestTime": "春秋",
+      "location": "湖南省张家界市",
+      "description": "世界自然遗产,以奇峰怪石著称",
+      "landformTags": [
+        "山地景观"
+      ],
+      "landscapeType": "mountain",
+      "landscapeCategory": [
+        "地理景观"
+      ]
+    },
+    {
+      "id": "fenghuangAncientTown",
+      "name": "凤凰古城",
+      "tags": [
+        "古城",
+        "湘西",
+        "文化",
+        "民俗"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1461/600/400",
+      "rating": 4.8,
+      "bestTime": "春秋",
+      "location": "湖南省湘西土家族苗族自治州凤凰县",
+      "description": "中国最美小城之一,湘西明珠"
+    },
+    {
+      "id": "yueyangTower",
+      "name": "岳阳楼",
+      "tags": [
+        "名楼",
+        "历史",
+        "文化",
+        "建筑"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1462/600/400",
+      "rating": 4.6,
+      "bestTime": "全年",
+      "location": "湖南省岳阳市岳阳楼区",
+      "description": "江南三大名楼之一,洞庭湖畔的千古名楼"
+    },
+    {
+      "id": "shaoshan",
+      "name": "韶山",
+      "tags": [
+        "红色",
+        "纪念",
+        "历史",
+        "教育"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1463/600/400",
+      "rating": 4.6,
+      "bestTime": "全年",
+      "location": "湖南省湘潭市韶山市",
+      "description": "毛泽东主席的故乡,红色旅游胜地"
+    },
+    {
+      "id": "hengshan",
+      "name": "衡山",
+      "tags": [
+        "名山",
+        "五岳",
+        "佛教",
+        "文化"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1464/600/400",
+      "rating": 4.7,
+      "bestTime": "春秋",
+      "location": "湖南省衡阳市南岳区",
+      "description": "中国五岳之一的南岳,佛教圣地",
+      "landformTags": [
+        "山地景观"
+      ],
+      "landscapeType": "mountain",
+      "landscapeCategory": [
+        "地理景观"
+      ]
+    },
+    {
+      "id": "dongtingLake",
+      "name": "洞庭湖",
+      "tags": [
+        "湖泊",
+        "自然",
+        "风光",
+        "文化"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1465/600/400",
+      "rating": 4.5,
+      "bestTime": "春秋",
+      "location": "湖南省岳阳市",
+      "description": "中国第二大淡水湖,八百里洞庭",
+      "landformTags": [
+        "湖泊景观"
+      ],
+      "landscapeType": "lake",
+      "landscapeCategory": [
+        "水体景观"
+      ]
+    },
+    {
+      "id": "juziIslet",
+      "name": "橘子洲头",
+      "tags": [
+        "景点",
+        "历史",
+        "文化",
+        "休闲"
+      ],
+      "type": "culture",
+      "image": "https://picsum.photos/id/1466/600/400",
+      "rating": 4.5,
+      "bestTime": "全年",
+      "location": "湖南省长沙市岳麓区",
+      "description": "长沙著名景点,湘江中的橘子洲"
+    },
+    {
+      "id": "yueluMountain",
+      "name": "岳麓山",
+      "tags": [
+        "名山",
+        "文化",
+        "书院",
+        "自然"
+      ],
+      "type": "nature",
+      "image": "https://picsum.photos/id/1467/600/400",
+      "rating": 4.6,
+      "bestTime": "春秋",
+      "location": "湖南省长沙市岳麓区",
+      "description": "长沙著名风景区,岳麓书院所在地",
+      "landformTags": [
+        "山地景观"
+      ],
+      "landscapeType": "mountain",
+      "landscapeCategory": [
+        "地理景观"
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "id": "1",
+      "name": "张家界之旅",
+      "tags": [
+        "名山",
+        "自然",
+        "文化"
+      ],
+      "image": "https://picsum.photos/id/1460/600/400",
+      "spots": [
+        "张家界",
+        "凤凰古城"
+      ],
+      "title": "张家界之旅",
+      "rating": 4.9,
+      "traffic": "旅游大巴",
+      "bestTime": "春秋",
+      "duration": "3天",
+      "difficulty": "中等",
+      "highlights": [
+        "张家界",
+        "凤凰古城"
+      ],
+      "description": "探索世界自然遗产的奇观",
+      "suitableFor": "自然爱好者"
+    }
+  ],
+  "customs": {
+    "activities": [
+      {
+        "id": "1",
+        "name": "湘菜品尝",
+        "type": "美食体验",
+        "image": "https://picsum.photos/id/1466/600/400",
+        "category": "culture",
+        "duration": "1-2小时",
+        "location": "长沙",
+        "difficulty": "简单",
+        "description": "品尝湖南特色湘菜"
+      }
+    ]
+  },
+  "overview": {
+    "totalSpots": 270,
+    "natureSpots": 140,
+    "cultureSpots": 130,
+    "topAttractions": [
+      {
+        "name": "张家界",
+        "image": "https://picsum.photos/id/1460/600/400",
+        "description": "世界自然遗产,以奇峰怪石著称"
+      },
+      {
+        "name": "凤凰古城",
+        "image": "https://picsum.photos/id/1461/600/400",
+        "description": "中国最美小城之一,湘西明珠"
+      },
+      {
+        "name": "岳阳楼",
+        "image": "https://picsum.photos/id/1462/600/400",
+        "description": "江南三大名楼之一,洞庭湖畔的千古名楼"
+      },
+      {
+        "name": "韶山",
+        "image": "https://picsum.photos/id/1463/600/400",
+        "description": "毛泽东主席的故乡,红色旅游胜地"
+      },
+      {
+        "name": "衡山",
+        "image": "https://picsum.photos/id/1464/600/400",
+        "description": "中国五岳之一的南岳,佛教圣地"
+      },
+      {
+        "name": "洞庭湖",
+        "image": "https://picsum.photos/id/1465/600/400",
+        "description": "中国第二大淡水湖,八百里洞庭"
+      },
+      {
+        "name": "橘子洲头",
+        "image": "https://picsum.photos/id/1466/600/400",
+        "description": "长沙著名景点,湘江中的橘子洲"
+      },
+      {
+        "name": "岳麓山",
+        "image": "https://picsum.photos/id/1467/600/400",
+        "description": "长沙著名风景区,岳麓书院所在地"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "name": "春季",
+      "image": "https://picsum.photos/id/1460/600/400",
+      "activities": [
+        "张家界踏青",
+        "凤凰古城游",
+        "衡山登山",
+        "岳麓山踏青"
+      ],
+      "description": "春暖花开,张家界山花烂漫,是踏青赏花的好时节"
+    },
+    {
+      "name": "夏季",
+      "image": "https://picsum.photos/id/1460/600/400",
+      "activities": [
+        "张家界避暑",
+        "衡山避暑",
+        "洞庭湖游船",
+        "韶山参观"
+      ],
+      "description": "绿树成荫,张家界和衡山是避暑纳凉的好去处"
+    },
+    {
+      "name": "秋季",
+      "image": "https://picsum.photos/id/1460/600/400",
+      "activities": [
+        "张家界赏秋",
+        "凤凰古城秋游",
+        "衡山赏秋",
+        "岳麓山秋景"
+      ],
+      "description": "秋高气爽,张家界红叶满山,是登山赏秋的好时节"
+    },
+    {
+      "name": "冬季",
+      "image": "https://picsum.photos/id/1460/600/400",
+      "activities": [
+        "张家界赏雪",
+        "凤凰古城冬游",
+        "韶山参观",
+        "橘子洲头游览"
+      ],
+      "description": "银装素裹,张家界雪景如画,是体验北国风情的好时节"
+    }
+  ],
+  "festivals": [
+    {
+      "id": "1",
+      "day": "22日",
+      "name": "张家界国际森林保护节",
+      "month": "9月",
+      "isUnique": true,
+      "location": "张家界",
+      "description": "张家界特色的森林保护节"
+    }
+  ],
+  "activities": [
+    {
+      "id": "1",
+      "name": "张家界游览",
+      "type": "自然体验",
+      "image": "https://picsum.photos/id/1460/600/400",
+      "category": "nature",
+      "duration": "2天",
+      "location": "张家界",
+      "difficulty": "中等",
+      "description": "游览世界自然遗产张家界"
+    },
+    {
+      "id": "2",
+      "name": "凤凰古城游",
+      "type": "文化体验",
+      "image": "https://picsum.photos/id/1461/600/400",
+      "category": "culture",
+      "duration": "1天",
+      "location": "凤凰古城",
+      "difficulty": "简单",
+      "description": "游览中国最美小城之一"
+    }
+  ],
+  "intangibleHeritage": [
+    {
+      "id": "1",
+      "icon": "🎭",
+      "name": "湘剧",
+      "image": "https://picsum.photos/id/1466/600/400",
+      "level": "national",
+      "category": "传统戏剧",
+      "features": [
+        "传统戏剧",
+        "国家级非遗",
+        "湖南文化"
+      ],
+      "description": "湖南地方戏曲,具有浓郁的地方特色",
+      "protectionUnit": "湖南省艺术研究院"
+    }
+  ],
+  "folkCustomsElements": [
+    {
+      "name": "湘文化",
+      "tags": [
+        "湘文化",
+        "湖南文化",
+        "传统文化",
+        "历史文化",
+        "非遗传承"
+      ],
+      "image": "https://picsum.photos/id/1466/600/400",
+      "description": "湖南独特的湘文化和传统文化"
+    }
+  ]
+}

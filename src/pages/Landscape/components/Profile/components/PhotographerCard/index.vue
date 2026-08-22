@@ -129,19 +129,19 @@
           <span class="stat-val">{{ item.followers }}</span>
           <span class="stat-label">粉丝</span>
         </div>
-        <div v-if="item.views" class="stat-cell">
+        <div class="stat-cell">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
             <circle cx="12" cy="12" r="3"/>
           </svg>
-          <span class="stat-val">{{ item.views }}</span>
+          <span class="stat-val">{{ item.views || '0' }}</span>
           <span class="stat-label">浏览</span>
         </div>
-        <div v-if="item.likes" class="stat-cell">
+        <div class="stat-cell">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
           </svg>
-          <span class="stat-val">{{ item.likes }}</span>
+          <span class="stat-val">{{ item.likes || '0' }}</span>
           <span class="stat-label">获赞</span>
         </div>
       </div>
@@ -189,7 +189,7 @@
         <div class="works-gallery">
           <div
             v-for="(work, idx) in item.recentWorks.slice(0, 3)"
-            :key="work"
+            :key="idx"
             class="work-item"
           >
             <img loading="lazy" :src="work" alt="recent work" />
@@ -199,7 +199,12 @@
                 <polyline points="12 5 19 12 12 19"/>
               </svg>
             </div>
-            <span v-if="idx === 0" class="work-badge">精选</span>
+            <div
+              v-if="idx === item.recentWorks.length - 1 && item.worksCount > item.recentWorks.length"
+              class="work-more"
+            >
+              <span>+{{ item.worksCount - item.recentWorks.length }}</span>
+            </div>
           </div>
         </div>
       </div>
@@ -234,12 +239,7 @@
           </svg>
           <span>{{ isLiked ? '已赞' : '点赞' }}</span>
         </button>
-        <button class="action-btn bookmark-btn" :class="{ bookmarked: isBookmarked }" @click.stop="toggleBookmark">
-          <svg viewBox="0 0 24 24" :fill="isBookmarked ? 'currentColor' : 'none'" stroke="currentColor" stroke-width="2">
-            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
-          </svg>
-          <span>{{ isBookmarked ? '已收藏' : '收藏' }}</span>
-        </button>
+
         <button class="action-btn share-btn" @click.stop>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="18" cy="5" r="3"/>
@@ -262,7 +262,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed } from 'vue'
 import { showMessage } from '@/utils/landscape'
 import type { PhotographerItem } from '@/typesOfPages/landscape'
 import { useInteractionStore } from '@/stores/landscape'
@@ -277,14 +277,13 @@ const emit = defineEmits<{
 }>();
 
 const interactionStore = useInteractionStore()
-const isFollowing = ref(props.item.isFollowing || false)
-const isLiked = ref(false)
-const isBookmarked = ref(false)
+const isFollowing = computed(() => interactionStore.isFollowing(props.item.id))
+const isLiked = computed(() => interactionStore.isLiked(props.item.id))
+
 
 const toggleFollow = () => {
   const wasFollowing = isFollowing.value
   const isAdded = interactionStore.toggleFollowPhotographer(props.item.id)
-  isFollowing.value = isAdded
   if (wasFollowing && !isAdded) {
     showMessage.follow.cancel(props.item.name)
   } else if (!wasFollowing && isAdded) {
@@ -294,12 +293,21 @@ const toggleFollow = () => {
 }
 
 const toggleLike = () => {
-  isLiked.value = !isLiked.value
+  const wasLiked = isLiked.value
+  const isAdded = interactionStore.toggleLike({
+    id: props.item.id,
+    type: 'photographer',
+    title: props.item.name,
+    image: props.item.avatar,
+    timestamp: Date.now(),
+  })
+  if (!wasLiked && isAdded) {
+    showMessage.like.success(props.item.name)
+  } else if (wasLiked && !isAdded) {
+    showMessage.like.cancel()
+  }
 }
 
-const toggleBookmark = () => {
-  isBookmarked.value = !isBookmarked.value
-}
 </script>
 
 <style scoped lang="scss" src="./index.scss" />

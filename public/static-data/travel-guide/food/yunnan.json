@@ -1,0 +1,222 @@
+{
+  "items": [
+    {
+      "id": "guoqiao-mixian",
+      "name": "过桥米线",
+      "tags": [
+        "云南特色",
+        "蒙自特产",
+        "汤汁浓郁",
+        "配料丰富",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/457/800/600",
+      "price": 25,
+      "rating": 4.8,
+      "category": "主食",
+      "badgeText": "云南招牌",
+      "isPopular": true,
+      "badgeColor": "#ff9800",
+      "description": "汤汁浓郁，配料丰富",
+      "recommendations": {
+        "pairings": [
+          "小菜",
+          "汤品",
+          "饮料",
+          "茶品"
+        ],
+        "eatingMethod": "先喝汤再吃米线，配料最后放入"
+      }
+    },
+    {
+      "id": "yunnan-qiguoji",
+      "name": "云南汽锅鸡",
+      "tags": [
+        "云南特色",
+        "建水汽锅鸡",
+        "汤清味鲜",
+        "肉质鲜嫩",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/458/800/600",
+      "price": 68,
+      "rating": 4.7,
+      "category": "菜肴",
+      "badgeText": "建水名菜",
+      "isPopular": true,
+      "badgeColor": "#e91e63",
+      "description": "汤清味鲜，肉质鲜嫩",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，配米饭或面条"
+      }
+    },
+    {
+      "id": "lijiang-baba",
+      "name": "丽江粑粑",
+      "tags": [
+        "云南特色",
+        "丽江特产",
+        "外酥内软",
+        "香甜可口",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/459/800/600",
+      "price": 10,
+      "rating": 4.5,
+      "category": "小吃",
+      "badgeText": "丽江特产",
+      "isPopular": true,
+      "badgeColor": "#9c27b0",
+      "description": "外酥内软，香甜可口",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "咖啡",
+          "水果",
+          "饮料"
+        ],
+        "eatingMethod": "直接食用，作为小吃或早餐"
+      }
+    },
+    {
+      "id": "dali-rushan",
+      "name": "大理乳扇",
+      "tags": [
+        "云南特色",
+        "大理特产",
+        "奶香浓郁",
+        "口感独特",
+        "地方风味"
+      ],
+      "image": "https://picsum.photos/id/460/800/600",
+      "price": 25,
+      "rating": 4.4,
+      "category": "奶制品",
+      "isPopular": false,
+      "description": "奶香浓郁，口感独特",
+      "recommendations": {
+        "pairings": [
+          "玫瑰酱",
+          "白糖",
+          "茶品",
+          "水果"
+        ],
+        "eatingMethod": "可生吃、烤着吃或油炸食用"
+      }
+    },
+    {
+      "id": "xishuangbanna-zhutongfan",
+      "name": "西双版纳竹筒饭",
+      "tags": [
+        "云南特色",
+        "西双版纳特产",
+        "傣族风味",
+        "竹筒烹饪",
+        "香气浓郁"
+      ],
+      "image": "https://picsum.photos/id/461/800/600",
+      "price": 15,
+      "rating": 4.3,
+      "category": "主食",
+      "isPopular": false,
+      "description": "香气浓郁，口感独特",
+      "recommendations": {
+        "pairings": [
+          "小菜",
+          "汤品",
+          "饮料",
+          "热带水果"
+        ],
+        "eatingMethod": "直接食用，傣族传统主食"
+      }
+    },
+    {
+      "id": "yunnan-tangbao",
+      "name": "云南糖包",
+      "tags": [
+        "云南特色",
+        "传统面点",
+        "香甜可口",
+        "软糯适中",
+        "早餐必备"
+      ],
+      "image": "https://picsum.photos/id/462/800/600",
+      "price": 5,
+      "rating": 4,
+      "category": "甜品",
+      "isPopular": false,
+      "description": "香甜可口，传统面点",
+      "recommendations": {
+        "pairings": [
+          "豆浆",
+          "牛奶",
+          "粥品",
+          "茶品"
+        ],
+        "eatingMethod": "直接食用，早餐或下午茶点心"
+      }
+    },
+    {
+      "id": "yunnan-hongcha",
+      "name": "云南红茶",
+      "tags": [
+        "云南特色",
+        "普洱茶区",
+        "香气浓郁",
+        "口感醇厚",
+        "养生饮品"
+      ],
+      "image": "https://picsum.photos/id/463/800/600",
+      "price": 38,
+      "rating": 4.3,
+      "category": "饮品",
+      "isPopular": false,
+      "description": "香气浓郁，口感醇厚",
+      "recommendations": {
+        "pairings": [
+          "点心",
+          "小吃",
+          "甜品",
+          "糕点"
+        ],
+        "eatingMethod": "直接饮用，可搭配云南小吃"
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "icon": "🏞️",
+      "name": "昆明官渡古镇",
+      "type": "文化街",
+      "foods": [
+        "过桥米线",
+        "云南汽锅鸡",
+        "官渡粑粑"
+      ],
+      "image": "https://picsum.photos/id/330/800/600",
+      "reason": "昆明传统美食集中地",
+      "location": "昆明市"
+    },
+    {
+      "id": 2,
+      "icon": "🏞️",
+      "name": "丽江古城",
+      "type": "文化街",
+      "foods": [
+        "丽江粑粑",
+        "纳西烤肉",
+        "大理乳扇"
+      ],
+      "image": "https://picsum.photos/id/331/800/600",
+      "reason": "丽江特色美食聚集地",
+      "location": "丽江市"
+    }
+  ]
+}

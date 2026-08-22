@@ -1,4 +1,4 @@
-import type { Province } from "@/pages/TravelGuide/data/provinces";
+import type { Province } from "@/typesOfPages/travelGuide";
 
 export const TAG_COLOR_CLASSES = [
   "tag-blue",

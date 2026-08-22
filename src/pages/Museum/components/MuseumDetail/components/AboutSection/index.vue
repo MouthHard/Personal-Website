@@ -368,54 +368,13 @@
             博物馆友链
           </h4>
           <ul>
-            <li>
+            <li v-for="link in friendLinks" :key="link.id">
               <span class="official-tag">官方网站</span>
               <a
-                href="https://www.chnmuseum.cn/"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#"
+                @click.prevent="goToMuseum(link.id)"
               >
-                中国国家博物馆
-              </a>
-            </li>
-            <li>
-              <span class="official-tag">官方网站</span>
-              <a
-                href="https://www.dpm.org.cn/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                故宫博物院
-              </a>
-            </li>
-            <li>
-              <span class="official-tag">官方网站</span>
-              <a
-                href="https://www.bmy.com.cn/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                秦始皇兵马俑博物馆
-              </a>
-            </li>
-            <li>
-              <span class="official-tag">官方网站</span>
-              <a
-                href="https://www.shanghaimuseum.net/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                上海博物馆
-              </a>
-            </li>
-            <li>
-              <span class="official-tag">官方网站</span>
-              <a
-                href="https://www.njmuseum.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                南京博物院
+                {{ link.name }}
               </a>
             </li>
           </ul>
@@ -426,8 +385,10 @@
 </template>
 
 <script setup lang="ts">
-  import { computed } from 'vue';
-  import { getMuseumDetailsById } from '@/pages/Museum/data/museum-details/index';
+  import { ref, computed, watch } from 'vue';
+  import { useRouter } from 'vue-router';
+  import { useMuseumDataStore } from '@/stores/museum';
+  import type { MuseumDetailInfo } from '@/typesOfPages/museum';
 
   // 批量导入图标组件
   import {
@@ -471,15 +432,33 @@
     'update:activeTab': [tab: string];
   }>();
 
-  // 获取博物馆详细信息
-  const museumDetails = computed(() => {
-    return getMuseumDetailsById(props.museumId);
-  });
+  const store = useMuseumDataStore();
+  const router = useRouter();
 
-  // 获取参观信息
+  const museumDetails = ref<MuseumDetailInfo | null>(null);
+
+  watch(
+    () => props.museumId,
+    async (id) => {
+      museumDetails.value = await store.getMuseumDetailsById(id);
+    },
+    { immediate: true },
+  );
+
   const visitInfo = computed(() => {
     return museumDetails.value?.visitInfo;
   });
+
+  const friendLinks = computed(() => {
+    return store.museums
+      .filter((m) => m.id !== props.museumId)
+      .slice(0, 5)
+      .map((m) => ({ id: m.id, name: m.name }));
+  });
+
+  const goToMuseum = (id: number) => {
+    router.push(`/museum/${id}`);
+  };
 
   const switchTab = (tab: string) => {
     emit('update:activeTab', tab);

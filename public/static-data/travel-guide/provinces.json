@@ -1,0 +1,450 @@
+{
+  "items": [
+    {
+      "id": "anhui",
+      "name": "安徽",
+      "tags": [
+        "徽文化",
+        "自然风光",
+        "历史名城"
+      ],
+      "region": "华东",
+      "capital": "合肥",
+      "description": "徽文化发源地，自然风光优美",
+      "abbreviation": "皖"
+    },
+    {
+      "id": "beijing",
+      "name": "北京",
+      "tags": [
+        "历史文化名城",
+        "美食之都",
+        "政治中心"
+      ],
+      "region": "华北",
+      "capital": "北京",
+      "description": "中国的首都，历史文化名城",
+      "abbreviation": "京"
+    },
+    {
+      "id": "chongqing",
+      "name": "重庆",
+      "tags": [
+        "山城",
+        "直辖市",
+        "火锅之乡"
+      ],
+      "region": "西南",
+      "capital": "重庆",
+      "description": "山城，直辖市，火锅之乡",
+      "abbreviation": "渝"
+    },
+    {
+      "id": "fujian",
+      "name": "福建",
+      "tags": [
+        "海上丝绸之路",
+        "闽南文化",
+        "沿海省份"
+      ],
+      "region": "华东",
+      "capital": "福州",
+      "description": "海上丝绸之路起点，闽南文化",
+      "abbreviation": "闽"
+    },
+    {
+      "id": "gansu",
+      "name": "甘肃",
+      "tags": [
+        "丝绸之路",
+        "自然风光",
+        "历史文化"
+      ],
+      "region": "西北",
+      "capital": "兰州",
+      "description": "丝绸之路重镇，自然风光多样",
+      "abbreviation": "甘"
+    },
+    {
+      "id": "guangdong",
+      "name": "广东",
+      "tags": [
+        "美食天堂",
+        "改革开放前沿",
+        "经济强省"
+      ],
+      "region": "华南",
+      "capital": "广州",
+      "description": "中国经济第一大省，改革开放前沿",
+      "abbreviation": "粤"
+    },
+    {
+      "id": "guangxi",
+      "name": "广西",
+      "tags": [
+        "壮族文化",
+        "山水风光",
+        "边境地区"
+      ],
+      "region": "华南",
+      "capital": "南宁",
+      "description": "壮族自治区，山水甲天下",
+      "abbreviation": "桂"
+    },
+    {
+      "id": "guizhou",
+      "name": "贵州",
+      "tags": [
+        "喀斯特地貌",
+        "少数民族文化",
+        "自然风光"
+      ],
+      "region": "西南",
+      "capital": "贵阳",
+      "description": "喀斯特地貌，少数民族文化",
+      "abbreviation": "黔"
+    },
+    {
+      "id": "hainan",
+      "name": "海南",
+      "tags": [
+        "热带海岛",
+        "旅游胜地",
+        "自贸区"
+      ],
+      "region": "华南",
+      "capital": "海口",
+      "description": "中国最南端，热带海岛风光",
+      "abbreviation": "琼"
+    },
+    {
+      "id": "hebei",
+      "name": "河北",
+      "tags": [
+        "历史悠久",
+        "文化名城",
+        "工业基地"
+      ],
+      "region": "华北",
+      "capital": "石家庄",
+      "description": "环绕京津，历史悠久",
+      "abbreviation": "冀"
+    },
+    {
+      "id": "heilongjiang",
+      "name": "黑龙江",
+      "tags": [
+        "冰雪之乡",
+        "边境城市",
+        "森林资源"
+      ],
+      "region": "东北",
+      "capital": "哈尔滨",
+      "description": "中国最北端，冰雪之乡",
+      "abbreviation": "黑"
+    },
+    {
+      "id": "henan",
+      "name": "河南",
+      "tags": [
+        "中原文化",
+        "历史悠久",
+        "交通枢纽"
+      ],
+      "region": "华中",
+      "capital": "郑州",
+      "description": "中原文化发源地，历史悠久",
+      "abbreviation": "豫"
+    },
+    {
+      "id": "hongkong",
+      "name": "香港",
+      "tags": [
+        "国际化都市",
+        "金融中心",
+        "购物天堂"
+      ],
+      "region": "华南",
+      "capital": "香港",
+      "description": "国际化大都市，金融中心",
+      "abbreviation": "港"
+    },
+    {
+      "id": "hubei",
+      "name": "湖北",
+      "tags": [
+        "九省通衢",
+        "楚文化发源地",
+        "工业重镇"
+      ],
+      "region": "华中",
+      "capital": "武汉",
+      "description": "九省通衢，楚文化发源地",
+      "abbreviation": "鄂"
+    },
+    {
+      "id": "hunan",
+      "name": "湖南",
+      "tags": [
+        "芙蓉国里",
+        "文化大省",
+        "美食之乡"
+      ],
+      "region": "华中",
+      "capital": "长沙",
+      "description": "芙蓉国里尽朝晖",
+      "abbreviation": "湘"
+    },
+    {
+      "id": "jiangsu",
+      "name": "江苏",
+      "tags": [
+        "鱼米之乡",
+        "经济发达",
+        "文化名城"
+      ],
+      "region": "华东",
+      "capital": "南京",
+      "description": "鱼米之乡，经济发达",
+      "abbreviation": "苏"
+    },
+    {
+      "id": "jiangxi",
+      "name": "江西",
+      "tags": [
+        "红色革命",
+        "山水风光",
+        "历史文化"
+      ],
+      "region": "华东",
+      "capital": "南昌",
+      "description": "红色革命根据地，山水风光",
+      "abbreviation": "赣"
+    },
+    {
+      "id": "jilin",
+      "name": "吉林",
+      "tags": [
+        "汽车工业",
+        "长白山",
+        "冰雪旅游"
+      ],
+      "region": "东北",
+      "capital": "长春",
+      "description": "汽车工业基地，长白山风光",
+      "abbreviation": "吉"
+    },
+    {
+      "id": "liaoning",
+      "name": "辽宁",
+      "tags": [
+        "老工业基地",
+        "沿海省份",
+        "历史文化"
+      ],
+      "region": "东北",
+      "capital": "沈阳",
+      "description": "东北老工业基地，沿海省份",
+      "abbreviation": "辽"
+    },
+    {
+      "id": "macau",
+      "name": "澳门",
+      "tags": [
+        "博彩业",
+        "中西文化",
+        "旅游胜地"
+      ],
+      "region": "华南",
+      "capital": "澳门",
+      "description": "博彩业发达，中西文化交融",
+      "abbreviation": "澳"
+    },
+    {
+      "id": "neimenggu",
+      "name": "内蒙古",
+      "tags": [
+        "草原风光",
+        "蒙古族文化",
+        "边疆地区"
+      ],
+      "region": "华北",
+      "capital": "呼和浩特",
+      "description": "草原风光，蒙古族文化",
+      "abbreviation": "蒙"
+    },
+    {
+      "id": "ningxia",
+      "name": "宁夏",
+      "tags": [
+        "回族文化",
+        "塞上江南",
+        "历史文化"
+      ],
+      "region": "西北",
+      "capital": "银川",
+      "description": "回族自治区，塞上江南",
+      "abbreviation": "宁"
+    },
+    {
+      "id": "qinghai",
+      "name": "青海",
+      "tags": [
+        "青藏高原",
+        "青海湖",
+        "少数民族文化"
+      ],
+      "region": "西北",
+      "capital": "西宁",
+      "description": "青藏高原，青海湖风光",
+      "abbreviation": "青"
+    },
+    {
+      "id": "shaanxi",
+      "name": "陕西",
+      "tags": [
+        "十三朝古都",
+        "历史厚重",
+        "文化圣地"
+      ],
+      "region": "西北",
+      "capital": "西安",
+      "description": "十三朝古都，历史厚重",
+      "abbreviation": "陕"
+    },
+    {
+      "id": "shandong",
+      "name": "山东",
+      "tags": [
+        "齐鲁文化",
+        "沿海经济",
+        "历史名城"
+      ],
+      "region": "华东",
+      "capital": "济南",
+      "description": "齐鲁文化发源地，沿海经济大省",
+      "abbreviation": "鲁"
+    },
+    {
+      "id": "shanghai",
+      "name": "上海",
+      "tags": [
+        "经济中心",
+        "国际化都市",
+        "金融中心"
+      ],
+      "region": "华东",
+      "capital": "上海",
+      "description": "中国的经济中心，国际化大都市",
+      "abbreviation": "沪"
+    },
+    {
+      "id": "shanxi",
+      "name": "山西",
+      "tags": [
+        "煤炭资源",
+        "晋商文化",
+        "历史文化"
+      ],
+      "region": "华北",
+      "capital": "太原",
+      "description": "煤炭资源丰富，晋商文化发源地",
+      "abbreviation": "晋"
+    },
+    {
+      "id": "sichuan",
+      "name": "四川",
+      "tags": [
+        "天府之国",
+        "美食天堂",
+        "熊猫之乡"
+      ],
+      "region": "西南",
+      "capital": "成都",
+      "description": "天府之国，美食天堂",
+      "abbreviation": "川"
+    },
+    {
+      "id": "taiwan",
+      "name": "台湾",
+      "tags": [
+        "宝岛风光",
+        "历史文化",
+        "美食天堂"
+      ],
+      "region": "华南",
+      "capital": "台北",
+      "description": "中国的宝岛，自然风光优美",
+      "abbreviation": "台"
+    },
+    {
+      "id": "tianjin",
+      "name": "天津",
+      "tags": [
+        "港口城市",
+        "直辖市",
+        "美食之乡"
+      ],
+      "region": "华北",
+      "capital": "天津",
+      "description": "北方重要的港口城市，直辖市",
+      "abbreviation": "津"
+    },
+    {
+      "id": "xinjiang",
+      "name": "新疆",
+      "tags": [
+        "西域文化",
+        "自然风光",
+        "少数民族文化"
+      ],
+      "region": "西北",
+      "capital": "乌鲁木齐",
+      "description": "西域文化，自然风光壮丽",
+      "abbreviation": "新"
+    },
+    {
+      "id": "xizang",
+      "name": "西藏",
+      "tags": [
+        "世界屋脊",
+        "藏传佛教",
+        "自然风光"
+      ],
+      "region": "西南",
+      "capital": "拉萨",
+      "description": "世界屋脊，藏传佛教文化",
+      "abbreviation": "藏"
+    },
+    {
+      "id": "yunnan",
+      "name": "云南",
+      "tags": [
+        "彩云之南",
+        "少数民族",
+        "旅游胜地"
+      ],
+      "region": "西南",
+      "capital": "昆明",
+      "description": "彩云之南，少数民族众多",
+      "abbreviation": "滇"
+    },
+    {
+      "id": "zhejiang",
+      "name": "浙江",
+      "tags": [
+        "丝绸之府",
+        "民营经济活跃",
+        "电商之都"
+      ],
+      "region": "华东",
+      "capital": "杭州",
+      "description": "丝绸之府，民营经济活跃",
+      "abbreviation": "浙"
+    }
+  ],
+  "total": 34,
+  "page": 1,
+  "limit": 100,
+  "totalPages": 1
+}

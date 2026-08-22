@@ -1,0 +1,224 @@
+{
+  "items": [
+    {
+      "id": "唐山麻糖",
+      "name": "唐山麻糖",
+      "tags": [
+        "河北特色",
+        "唐山特产",
+        "酥脆香甜",
+        "传统糕点",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/387/800/600",
+      "price": 20,
+      "rating": 4.5,
+      "category": "甜品",
+      "badgeText": "唐山名产",
+      "isPopular": true,
+      "badgeColor": "#ff9800",
+      "description": "酥脆香甜，传统糕点",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "咖啡",
+          "饮料",
+          "甜品"
+        ],
+        "eatingMethod": "直接食用，作为零食或礼品"
+      }
+    },
+    {
+      "id": "保定驴肉火烧",
+      "name": "保定驴肉火烧",
+      "tags": [
+        "河北特色",
+        "保定特产",
+        "外酥内嫩",
+        "驴肉鲜香",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/388/800/600",
+      "price": 18,
+      "rating": 4.7,
+      "category": "主食",
+      "badgeText": "保定名吃",
+      "isPopular": true,
+      "badgeColor": "#ff5722",
+      "description": "外酥内嫩，驴肉鲜香",
+      "recommendations": {
+        "pairings": [
+          "豆浆",
+          "粥",
+          "小菜",
+          "汤品"
+        ],
+        "eatingMethod": "直接食用，作为主食"
+      }
+    },
+    {
+      "id": "秦皇岛海鲜",
+      "name": "秦皇岛海鲜",
+      "tags": [
+        "河北特色",
+        "秦皇岛特产",
+        "新鲜美味",
+        "品种丰富",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/389/800/600",
+      "price": 88,
+      "rating": 4.8,
+      "category": "菜肴",
+      "badgeText": "渤海珍鲜",
+      "isPopular": true,
+      "badgeColor": "#03a9f4",
+      "description": "新鲜美味，品种丰富",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "张家口莜面",
+      "name": "张家口莜面",
+      "tags": [
+        "河北特色",
+        "张家口特产",
+        "营养丰富",
+        "口感独特",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/390/800/600",
+      "price": 25,
+      "rating": 4.6,
+      "category": "主食",
+      "badgeText": "坝上特产",
+      "isPopular": true,
+      "badgeColor": "#4caf50",
+      "description": "营养丰富，口感独特",
+      "recommendations": {
+        "pairings": [
+          "汤品",
+          "小菜",
+          "饮料",
+          "茶品"
+        ],
+        "eatingMethod": "直接食用，作为主食"
+      }
+    },
+    {
+      "id": "沧州金丝小枣",
+      "name": "沧州金丝小枣",
+      "tags": [
+        "河北特色",
+        "沧州特产",
+        "肉厚核小",
+        "甘甜可口",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/391/800/600",
+      "price": 30,
+      "rating": 4.3,
+      "category": "甜品",
+      "isPopular": false,
+      "description": "肉厚核小，甘甜可口",
+      "recommendations": {
+        "pairings": [
+          "粥",
+          "米饭",
+          "茶品",
+          "甜品"
+        ],
+        "eatingMethod": "直接食用，或作为甜品配料"
+      }
+    },
+    {
+      "id": "hebei-youtiao",
+      "name": "河北油条",
+      "tags": [
+        "河北特色",
+        "传统小吃",
+        "外酥内软",
+        "早餐必备",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/392/800/600",
+      "price": 3,
+      "rating": 4.1,
+      "category": "小吃",
+      "isPopular": false,
+      "description": "外酥内软，早餐必备",
+      "recommendations": {
+        "pairings": [
+          "豆浆",
+          "粥",
+          "胡辣汤",
+          "小菜"
+        ],
+        "eatingMethod": "直接食用，作为早餐"
+      }
+    },
+    {
+      "id": "hebei-hongcha",
+      "name": "河北红茶",
+      "tags": [
+        "河北特色",
+        "传统饮品",
+        "香气浓郁",
+        "口感醇厚",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/393/800/600",
+      "price": 38,
+      "rating": 4.3,
+      "category": "饮品",
+      "isPopular": false,
+      "description": "香气浓郁，口感醇厚",
+      "recommendations": {
+        "pairings": [
+          "点心",
+          "小吃",
+          "甜品",
+          "菜肴"
+        ],
+        "eatingMethod": "直接饮用，可点心或小吃"
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "icon": "🛣️",
+      "name": "保定美食街",
+      "type": "美食街",
+      "foods": [
+        "保定驴肉火烧",
+        "河北烩面",
+        "唐山麻糖"
+      ],
+      "image": "https://picsum.photos/id/302/800/600",
+      "reason": "保定特色美食集中地",
+      "location": "保定市"
+    },
+    {
+      "id": 2,
+      "icon": "🏪",
+      "name": "秦皇岛海鲜市场",
+      "type": "市场",
+      "foods": [
+        "秦皇岛海鲜",
+        "北戴河烤鱼",
+        "山海关浑锅"
+      ],
+      "image": "https://picsum.photos/id/303/800/600",
+      "reason": "秦皇岛海鲜美食聚集地",
+      "location": "秦皇岛市"
+    }
+  ]
+}

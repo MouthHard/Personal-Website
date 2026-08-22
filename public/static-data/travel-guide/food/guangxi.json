@@ -1,0 +1,250 @@
+{
+  "items": [
+    {
+      "id": "桂林米粉",
+      "name": "桂林米粉",
+      "tags": [
+        "广西特色",
+        "桂林特产",
+        "口感劲道",
+        "汤汁鲜美",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/437/800/600",
+      "price": 12,
+      "rating": 4.7,
+      "category": "主食",
+      "badgeText": "桂林名片",
+      "isPopular": true,
+      "badgeColor": "#03a9f4",
+      "description": "口感劲道，汤汁鲜美",
+      "recommendations": {
+        "pairings": [
+          "小菜",
+          "汤品",
+          "饮料",
+          "茶品"
+        ],
+        "eatingMethod": "直接食用，作为主食"
+      }
+    },
+    {
+      "id": "螺蛳粉",
+      "name": "螺蛳粉",
+      "tags": [
+        "广西特色",
+        "柳州特产",
+        "酸辣可口",
+        "香气独特",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/438/800/600",
+      "price": 15,
+      "rating": 4.8,
+      "category": "主食",
+      "badgeText": "柳州名片",
+      "isPopular": true,
+      "badgeColor": "#f44336",
+      "description": "酸辣可口，香气独特",
+      "recommendations": {
+        "pairings": [
+          "小菜",
+          "汤品",
+          "饮料",
+          "茶品"
+        ],
+        "eatingMethod": "直接食用，作为主食"
+      }
+    },
+    {
+      "id": "南宁老友粉",
+      "name": "南宁老友粉",
+      "tags": [
+        "广西特色",
+        "南宁特产",
+        "酸辣鲜香",
+        "口感丰富",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/439/800/600",
+      "price": 12,
+      "rating": 4.6,
+      "category": "主食",
+      "badgeText": "邕城名吃",
+      "isPopular": true,
+      "badgeColor": "#ff9800",
+      "description": "酸辣鲜香，口感丰富",
+      "recommendations": {
+        "pairings": [
+          "小菜",
+          "汤品",
+          "饮料",
+          "茶品"
+        ],
+        "eatingMethod": "直接食用，作为主食"
+      }
+    },
+    {
+      "id": "钦州大蚝",
+      "name": "钦州大蚝",
+      "tags": [
+        "广西特色",
+        "钦州特产",
+        "肉质鲜嫩",
+        "味道鲜美",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/440/800/600",
+      "price": 88,
+      "rating": 4.7,
+      "category": "菜肴",
+      "badgeText": "北部湾珍鲜",
+      "isPopular": true,
+      "badgeColor": "#03a9f4",
+      "description": "肉质鲜嫩，味道鲜美",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "玉林牛巴",
+      "name": "玉林牛巴",
+      "tags": [
+        "广西特色",
+        "玉林特产",
+        "肉质紧实",
+        "香气浓郁",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/441/800/600",
+      "price": 58,
+      "rating": 4.4,
+      "category": "菜肴",
+      "isPopular": false,
+      "description": "肉质紧实，香气浓郁",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "guangxi-youtiao",
+      "name": "广西油条",
+      "tags": [
+        "广西特色",
+        "传统小吃",
+        "外酥内软",
+        "早餐必备",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/442/800/600",
+      "price": 3,
+      "rating": 4.1,
+      "category": "小吃",
+      "isPopular": false,
+      "description": "外酥内软，早餐必备",
+      "recommendations": {
+        "pairings": [
+          "豆浆",
+          "粥",
+          "小菜",
+          "汤品"
+        ],
+        "eatingMethod": "直接食用，作为早餐"
+      }
+    },
+    {
+      "id": "guangxi-tangbao",
+      "name": "广西糖包",
+      "tags": [
+        "广西特色",
+        "传统面点",
+        "香甜可口",
+        "软糯适中",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/443/800/600",
+      "price": 5,
+      "rating": 4,
+      "category": "甜品",
+      "isPopular": false,
+      "description": "香甜可口，传统面点",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "咖啡",
+          "水果",
+          "饮料"
+        ],
+        "eatingMethod": "直接食用，作为甜品"
+      }
+    },
+    {
+      "id": "guangxi-hongcha",
+      "name": "广西红茶",
+      "tags": [
+        "广西特色",
+        "传统饮品",
+        "香气浓郁",
+        "口感醇厚",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/444/800/600",
+      "price": 38,
+      "rating": 4.3,
+      "category": "饮品",
+      "isPopular": false,
+      "description": "香气浓郁，口感醇厚",
+      "recommendations": {
+        "pairings": [
+          "点心",
+          "小吃",
+          "甜品",
+          "菜肴"
+        ],
+        "eatingMethod": "直接饮用，可点心或小吃"
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "icon": "🛣️",
+      "name": "南宁中山路",
+      "type": "美食街",
+      "foods": [
+        "南宁老友粉",
+        "螺蛳粉",
+        "桂林米粉"
+      ],
+      "image": "https://picsum.photos/id/322/800/600",
+      "reason": "南宁传统美食集中地",
+      "location": "南宁市"
+    },
+    {
+      "id": 2,
+      "icon": "🏞️",
+      "name": "桂林西街",
+      "type": "文化街",
+      "foods": [
+        "桂林米粉",
+        "阳朔啤酒鱼",
+        "恭城油茶"
+      ],
+      "image": "https://picsum.photos/id/323/800/600",
+      "reason": "桂林特色美食聚集地",
+      "location": "桂林市"
+    }
+  ]
+}

@@ -24,17 +24,18 @@
 <script setup lang="ts">
   import { computed } from 'vue';
   import type { Museum } from '@/typesOfPages/museum';
-  import { getNewsByMuseumId } from '@/pages/Museum/data/news';
+  import { useMuseumDataStore } from '@/stores/museum';
 
   interface Props {
     museum: Museum;
   }
 
   const props = defineProps<Props>();
+  const store = useMuseumDataStore();
 
   const homeNews = computed(() => {
     if (!props.museum) return [];
-    return getNewsByMuseumId(props.museum.id);
+    return store.getNewsByMuseumId(props.museum.id);
   });
 </script>
 

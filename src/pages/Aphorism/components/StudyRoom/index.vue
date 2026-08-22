@@ -223,7 +223,7 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, computed, defineAsyncComponent } from 'vue';
+  import { ref, computed, defineAsyncComponent, onMounted, watch } from 'vue';
   import { useRouter } from 'vue-router';
   const PoemModal = defineAsyncComponent(() => import('../PoemModal/index.vue'));
   import { useAphorismDataStore } from '@/stores/aphorism';
@@ -239,7 +239,7 @@
   const dataStore = useAphorismDataStore();
   const interactionStore = useAphorismInteractionStore();
 
-  const allPoems = dataStore.getAllPoems();
+  const allPoems = computed(() => dataStore.getAllPoems());
   const selectedPoem = ref<Poem | null>(null);
   const selectedPoemBackground = ref('');
   const showModal = ref(false);
@@ -272,10 +272,10 @@
 
   // ---- 悬浮状态徽章 ----
   const favoritePoets = computed(() =>
-    interactionStore.getFavoritePoets(allPoems),
+    interactionStore.getFavoritePoets(allPoems.value),
   );
   const dynastyDistributionRaw = computed(() =>
-    interactionStore.getDynastyDistribution(allPoems),
+    interactionStore.getDynastyDistribution(allPoems.value),
   );
   const dynastyDistribution = computed(() =>
     dynastyDistributionRaw.value.map((d) => ({ name: d.name, value: d.count })),
@@ -323,9 +323,9 @@
   ]);
   const currentPoems = computed(() => {
     if (activeTab.value === 'loved')
-      return interactionStore.getLovedPoems(allPoems);
+      return interactionStore.getLovedPoems(allPoems.value);
     if (activeTab.value === 'favorites')
-      return interactionStore.getFavoritePoems(allPoems);
+      return interactionStore.getFavoritePoems(allPoems.value);
     return [];
   });
 
@@ -353,8 +353,8 @@
   const dailyPick = ref<Poem | null>(null);
 
   const refreshDailyPick = () => {
-    if (allPoems.length === 0) return;
-    dailyPick.value = allPoems[Math.floor(Math.random() * allPoems.length)];
+    if (allPoems.value.length === 0) return;
+    dailyPick.value = allPoems.value[Math.floor(Math.random() * allPoems.value.length)];
   };
 
   const getTodaySeed = () => {
@@ -366,16 +366,28 @@
     );
   };
 
-  if (allPoems.length > 0) {
-    dailyPick.value = allPoems[getTodaySeed() % allPoems.length];
-  }
+  watch(
+    () => allPoems.value.length,
+    (len) => {
+      if (len > 0 && !dailyPick.value) {
+        dailyPick.value = allPoems.value[getTodaySeed() % len];
+      }
+    },
+    { immediate: true },
+  );
 
   // ---- 最近浏览 ----
   const recentViewPoems = computed(() =>
-    interactionStore.getRecentViewPoems(allPoems),
+    interactionStore.getRecentViewPoems(allPoems.value),
   );
 
   // ---- 方法 ----
+  onMounted(() => {
+    if (allPoems.value.length === 0) {
+      dataStore.loadPoems();
+    }
+  });
+
   const goBack = () => router.push('/aphorism');
   const goBrowse = () => router.push('/aphorism');
   const goSearch = (keyword: string) => {
@@ -389,7 +401,7 @@
     showModal.value = true;
   };
 
-  const handleRemove = (poemId: string) => {
+  const handleRemove = (poemId: number) => {
     if (activeTab.value === 'loved') {
       interactionStore.toggleLove(poemId);
     } else {
