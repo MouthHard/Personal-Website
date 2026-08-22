@@ -269,7 +269,7 @@ watch(
     if (len > 0) {
       interactionStore.registerBatch(
         photographers.value.flatMap(artist =>
-          artist.works.map(work => ({
+          (artist.works || []).map(work => ({
             id: getWorkId(work.id),
             counts: {
               likes: parseCount(work.likes || '0'),
@@ -312,12 +312,14 @@ watch(activeTab, () => {
 });
 
 const filteredWorks = computed(() => {
+  if (!currentArtist.value) return [];
   const works = currentArtist.value.works;
   if (activeTab.value === 'all') return works;
   return works.filter((w) => w.type === activeTab.value);
 });
 
 const tabCounts = computed<Record<string, number>>(() => {
+  if (!currentArtist.value) return { all: 0 };
   const works = currentArtist.value.works;
   const counts: Record<string, number> = { all: works.length };
   for (const w of works) {
