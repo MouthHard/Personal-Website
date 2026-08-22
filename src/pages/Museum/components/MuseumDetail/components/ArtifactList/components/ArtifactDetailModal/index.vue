@@ -6,7 +6,19 @@
         <button class="close-btn" @click="handleClose">×</button>
       </div>
       <div class="modal-body">
-        <img loading="lazy" :src="artifact.image" class="artifact-detail-image" />
+        <img
+          v-if="artifact.image && !imageFailed"
+          loading="lazy"
+          :src="artifact.image"
+          class="artifact-detail-image"
+          @error="imageFailed = true"
+        />
+        <div v-else class="artifact-detail-placeholder">
+          <svg viewBox="0 0 24 24" width="64" height="64" fill="currentColor">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8 0-1.85.63-3.55 1.69-4.9L16.9 18.31C15.55 19.37 13.85 20 12 20zm6.31-3.1L7.1 5.69C8.45 4.63 10.15 4 12 4c4.41 0 8 3.59 8 8 0 1.85-.63 3.55-1.69 4.9z"/>
+          </svg>
+          <span>{{ artifact.name }}</span>
+        </div>
         <div class="modal-content-grid">
           <div class="artifact-detail-description">
             <strong>描述：</strong>
@@ -85,11 +97,15 @@
   import type { ArtifactDetail } from '@/typesOfPages/museum';
   import { HeartIcon, StarIcon, ShareIcon } from "@/pages/Museum/icon/pages/ArtifactContainer";
 
+  const imageFailed = ref(false);
+
   interface Props {
     artifact: ArtifactDetail | null;
   }
 
-  defineProps<Props>();
+  const props = defineProps<Props>();
+
+  watch(() => props.artifact, () => { imageFailed.value = false; });
 
   // 定义 Emits
   const emit = defineEmits<{

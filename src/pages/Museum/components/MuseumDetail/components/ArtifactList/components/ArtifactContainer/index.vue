@@ -25,7 +25,19 @@
           >
             <div class="artifact-card-face front">
               <div class="artifact-image">
-                <img loading="lazy" :src="artifact.image" :alt="artifact.name" />
+                <img
+                  v-if="!failedImages.has(artifact.id)"
+                  loading="lazy"
+                  :src="artifact.image"
+                  :alt="artifact.name"
+                  @error="failedImages.add(artifact.id)"
+                />
+                <div v-else class="artifact-image-placeholder">
+                  <svg viewBox="0 0 24 24" width="48" height="48" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8 0-1.85.63-3.55 1.69-4.9L16.9 18.31C15.55 19.37 13.85 20 12 20zm6.31-3.1L7.1 5.69C8.45 4.63 10.15 4 12 4c4.41 0 8 3.59 8 8 0 1.85-.63 3.55-1.69 4.9z"/>
+                  </svg>
+                  <span>{{ artifact.name }}</span>
+                </div>
                 <div class="artifact-actions">
                   <button class="action-btn">
                     <HeartIcon />
@@ -73,6 +85,8 @@
     InactiveDiscIcon,
     ActiveDiscIcon
   } from "@/pages/Museum/icon/pages/ArtifactContainer";
+
+  const failedImages = reactive(new Set<number>());
 
   // 定义 Props
   interface Props {
