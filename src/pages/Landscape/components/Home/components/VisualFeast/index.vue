@@ -218,7 +218,7 @@ const selectedImage = ref<GlobalImage | null>(null);
 const currentImageIndex = ref(0);
 
 const handleMore = () => {
-  console.log('查看更多');
+  // 查看更多处理
 };
 
 const images = computed(() => dataStore.getAllImages());

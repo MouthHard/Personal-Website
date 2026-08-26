@@ -111,7 +111,7 @@
   const openDetail = (_item: LandscapeItem) => {};
 
   const handleUpload = (file: File) => {
-    console.log('上传文件:', file.name);
+
     showUploadModal.value = false;
   };
 </script>

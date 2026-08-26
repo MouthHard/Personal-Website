@@ -343,7 +343,7 @@ const switchToArtist = (id: string) => {
 };
 
 const handleMore = () => {
-  console.log('查看更多');
+  // 查看更多处理
 };
 
 const toggleFollow = (id: string) => {

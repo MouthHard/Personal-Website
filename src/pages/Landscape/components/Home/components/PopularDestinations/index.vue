@@ -163,7 +163,7 @@
   };
 
   const handleMore = () => {
-    console.log('查看更多目的地');
+    // 查看更多目的地处理
   };
 
   const handleExplore = (dest: Destination) => {

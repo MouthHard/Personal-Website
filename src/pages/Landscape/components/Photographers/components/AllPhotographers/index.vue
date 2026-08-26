@@ -511,7 +511,7 @@ const getWorkTypeColor = (typeId: string) => {
 
 const handleShare = (photographer: Photographer) => {
   // 实现分享功能
-  console.log('分享摄影师', photographer.name);
+
 };
 
 const resetFilters = () => {

@@ -239,7 +239,9 @@
     if (el) {
       scrollHandler = () => {
         cancelAnimationFrame(scrollRAF);
-        scrollRAF = requestAnimationFrame(() => {console.log(el.scrollLeft)});
+        scrollRAF = requestAnimationFrame(() => {
+          // 滚动处理
+        });
         
       };
       el.addEventListener('scroll', scrollHandler, { passive: true });

@@ -326,7 +326,7 @@
   };
 
   const onImageLoad = (index: number) => {
-    console.log(`Image ${index + 1} loaded`);
+    // 图片加载完成处理
   };
 
   const getSlideId = (id: string) => `fc-${id}`;
