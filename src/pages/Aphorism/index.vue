@@ -27,10 +27,13 @@
             <span class="decoration-dot"></span>
           </div>
         </div>
-        <button class="back-button" @click="goBack">返回首页</button>
+        <button class="back-button" @click="goBack">
+          <BackIcon />
+          <span>返回首页</span>
+        </button>
         <div class="header-actions">
           <button class="study-room-button" @click="goToStudyRoom">
-            <span class="button-icon">📚</span>
+            <StudyRoomIcon />
             <span class="button-text">书房</span>
           </button>
         </div>
@@ -41,11 +44,11 @@
         <!-- 左侧竖排模式切换Tab -->
         <aside class="mode-tabs-vertical">
           <div class="mode-tab-vertical" :class="{ active: !isSearchMode }" @click="switchMode(false)">
-            <span class="tab-icon">📚</span>
+            <BrowseIcon class="tab-icon" />
             <span class="tab-text">分类浏览</span>
           </div>
           <div class="mode-tab-vertical" :class="{ active: isSearchMode }" @click="switchMode(true)">
-            <span class="tab-icon">🔍</span>
+            <SearchModeIcon class="tab-icon" />
             <span class="tab-text">搜索模式</span>
           </div>
         </aside>
@@ -73,7 +76,7 @@
           <!-- 分类浏览模式 -->
           <template v-else>
             <section class="category-section">
-              <CategoryNav @category-change="handleCategoryChange" />
+              <CategoryNav ref="categoryNavRef" @category-change="handleCategoryChange" />
             </section>
           </template>
         </div>
@@ -81,14 +84,14 @@
     </div>
 
     <!-- 可滚动内容区域 -->
-    <main class="page-main">
+    <main ref="mainRef" class="page-main">
       <div v-if="loading" class="loading-state">
         <div class="loading-spinner"></div>
         <p>正在加载诗词...</p>
       </div>
 
       <div v-else-if="filteredPoems.length === 0" class="empty-state">
-        <div class="empty-icon">📜</div>
+        <EmptyIcon class="empty-icon" />
         <h3>暂无相关诗词</h3>
         <p>换个关键词试试吧</p>
       </div>
@@ -117,6 +120,11 @@ import CategoryNav from './components/CategoryNav/index.vue';
 import PoemCard from './components/PoemCard/index.vue';
 const PoemModal = defineAsyncComponent(() => import('./components/PoemModal/index.vue'));
 import Pagination from './components/Pagination/index.vue';
+import BrowseIcon from './icons/common/BrowseIcon.vue';
+import SearchModeIcon from './icons/common/SearchModeIcon.vue';
+import StudyRoomIcon from './icons/common/StudyRoomIcon.vue';
+import BackIcon from './icons/common/BackIcon.vue';
+import EmptyIcon from './icons/common/EmptyIcon.vue';
 
 import { useAphorismDataStore } from '@/stores/aphorism';
 import { useAphorismInteractionStore } from '@/stores/aphorism/interaction';
@@ -132,6 +140,8 @@ const selectedPoem = ref<Poem | null>(null);
 const selectedPoemBackground = ref<string>('');
 const showModal = ref(false);
 const isSearchMode = ref(false);
+const mainRef = ref<HTMLElement>();
+const categoryNavRef = ref<InstanceType<typeof CategoryNav> | null>(null);
 const pageSize = 12;
 
 const loading = computed(() => dataStore.loading);
@@ -142,6 +152,7 @@ const switchMode = (searchMode: boolean) => {
   searchQuery.value = '';
   if (!searchMode) {
     dataStore.resetFilter();
+    categoryNavRef.value?.reset();
   }
   currentPage.value = 1;
 };
@@ -170,7 +181,7 @@ const handleCategoryChange = (categoryId: string, subCategoryId?: number) => {
 
 const handlePageChange = (page: number) => {
   currentPage.value = page;
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  mainRef.value?.scrollTo({ top: 0, behavior: 'smooth' });
 };
 
 const handlePoemClick = (poem: Poem, backgroundImage: string) => {

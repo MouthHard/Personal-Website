@@ -8,7 +8,7 @@
       </div>
       <button class="more-btn" @click="handleMore">
         探索更多
-        <DoubleChevronDownIcon class="icon" style="width: 24px; height: 24px;" />
+        <DoubleChevronDownIcon class="icon" :style="{ width: '24px', height: '24px' }" />
       </button>
     </div>
 
@@ -39,7 +39,7 @@
                 <span class="name-underline"></span>
               </h3>
               <div v-if="activeIndex === 0" class="identity-featured">
-                <StarIcon style="width: 12px; height: 12px;" />
+                <StarIcon :style="{ width: '12px', height: '12px' }" />
                 <span>Featured</span>
               </div>
             </div>
@@ -70,11 +70,11 @@
 
             <div class="panel-tags">
               <div class="tag tag-location">
-                <LocationIcon :stroke-width="2" style="width: 12px; height: 12px;" />
+                <LocationIcon :stroke-width="2" :style="{ width: '12px', height: '12px' }" />
                 <span>{{ currentArtist.location }}</span>
               </div>
               <div class="tag tag-rating">
-                <StarIcon style="width: 12px; height: 12px;" />
+                <StarIcon :style="{ width: '12px', height: '12px' }" />
                 <span>{{ currentArtist.rating }}</span>
               </div>
               <span v-for="eq in currentArtist.equipment" :key="eq" class="tag tag-equip">
@@ -94,10 +94,10 @@
               </button>
               <button class="btn-icon-only" :class="{ liked: isArtistLiked(currentArtist.id) }"
                 @click="toggleArtistLike(currentArtist.id)">
-                <ThumbUpIcon :filled="isArtistLiked(currentArtist.id)" :stroke-width="2" style="width: 16px; height: 16px;" />
+                <ThumbUpIcon :filled="isArtistLiked(currentArtist.id)" :stroke-width="2" :style="{ width: '16px', height: '16px' }" />
               </button>
               <button class="btn-icon-only">
-                <ShareIcon :stroke-width="2" style="width: 16px; height: 16px;" />
+                <ShareIcon :stroke-width="2" :style="{ width: '16px', height: '16px' }" />
               </button>
             </div>
 
@@ -130,7 +130,7 @@
                 <div class="video-overlay">
                   <div class="play-btn">
                     <div class="play-ripple"></div>
-                    <PlayIcon style="width: 22px; height: 22px;" />
+                    <PlayIcon :style="{ width: '22px', height: '22px' }" />
                   </div>
                   <span v-if="work.duration" class="video-duration">
                     {{ work.duration }}
@@ -141,13 +141,13 @@
               <div v-else-if="work.type === 'guide'" class="media-guide">
                 <div class="guide-accent-line"></div>
                 <div class="guide-icon">
-                  <BookDetailIcon style="width: 28px; height: 28px;" />
+                  <BookDetailIcon :style="{ width: '28px', height: '28px' }" />
                 </div>
                 <h4 class="guide-title">{{ work.title }}</h4>
                 <p class="guide-excerpt">{{ work.excerpt }}</p>
                 <div class="guide-read-more">
                   <span>阅读全文</span>
-                  <ArrowRightIcon style="width: 14px; height: 14px;" />
+                  <ArrowRightIcon :style="{ width: '14px', height: '14px' }" />
                 </div>
               </div>
             </div>
@@ -155,9 +155,9 @@
             <div class="card-info">
               <div class="card-info-row">
                 <div class="card-type-badge" :class="`badge-${work.type}`">
-                  <ImageIcon v-if="work.type === 'photo'" :stroke-width="2" style="width: 10px; height: 10px;" />
-                  <PlayIcon v-else-if="work.type === 'video'" style="width: 10px; height: 10px;" />
-                  <BookIcon v-else-if="work.type === 'guide'" :stroke-width="2" style="width: 10px; height: 10px;" />
+                  <ImageIcon v-if="work.type === 'photo'" :stroke-width="2" :style="{ width: '10px', height: '10px' }" />
+                  <PlayIcon v-else-if="work.type === 'video'" :style="{ width: '10px', height: '10px' }" />
+                  <BookIcon v-else-if="work.type === 'guide'" :stroke-width="2" :style="{ width: '10px', height: '10px' }" />
                   <span v-if="work.type === 'photo'">Photo</span>
                   <span v-else-if="work.type === 'video'">Video</span>
                   <span v-else-if="work.type === 'guide'">Guide</span>

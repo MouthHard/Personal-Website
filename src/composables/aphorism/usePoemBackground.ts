@@ -16,7 +16,7 @@ const IMAGE_NAMES = [
 /** 模块级缓存：所有卡片实例共享同一份 URL 列表 */
 const ALL_IMAGE_URLS: string[] = IMAGE_NAMES.map(
   (name) =>
-    new URL(`../../../assets/image/PoemPic/${name}.webp`, import.meta.url).href,
+    new URL(`../../assets/image/PoemPic/${name}.webp`, import.meta.url).href,
 );
 
 /** 根据字符串 id 计算哈希值 */
@@ -45,4 +45,3 @@ export function getBackgroundUrl(id: string | number): string {
   const index = hashCode(id) % ALL_IMAGE_URLS.length;
   return ALL_IMAGE_URLS[index];
 }
-

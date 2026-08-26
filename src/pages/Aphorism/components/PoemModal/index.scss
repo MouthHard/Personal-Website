@@ -88,57 +88,100 @@
           transform-style: preserve-3d;
           perspective: 1000px;
 
+          svg {
+            width: 24px;
+            height: 24px;
+            transition: color 0.3s ease;
+          }
+
           &.like-button {
+            // 自然状态：白底绿色icon
+            svg {
+              color: #52c41a;
+            }
 
             &:hover,
             &.active {
+              // Active状态：绿底白色icon（颜色倒转）
               background: linear-gradient(135deg, #52c41a, #389e0d);
-              color: white;
+              border-color: #52c41a;
+
+              svg {
+                color: white;
+              }
+
               transform: scale(1.15) rotateY(5deg);
               box-shadow:
                 0 10px 25px rgba(82, 196, 26, 0.4),
                 0 5px 15px rgba(82, 196, 26, 0.3);
-              border-color: #52c41a;
             }
           }
 
           &.love-button {
+            // 自然状态：白底红色icon
+            svg {
+              color: #ff4d4f;
+            }
 
             &:hover,
             &.active {
+              // Active状态：红底白色icon（颜色倒转）
               background: linear-gradient(135deg, #ff4d4f, #cf1322);
-              color: white;
+              border-color: #ff4d4f;
+
+              svg {
+                color: white;
+              }
+
               transform: scale(1.15) rotateY(5deg);
               box-shadow:
                 0 10px 25px rgba(255, 77, 79, 0.4),
                 0 5px 15px rgba(255, 77, 79, 0.3);
-              border-color: #ff4d4f;
             }
           }
 
           &.favorite-button {
+            // 自然状态：白底金色icon
+            svg {
+              color: #faad14;
+            }
 
             &:hover,
             &.active {
+              // Active状态：金底白色icon（颜色倒转）
               background: linear-gradient(135deg, #faad14, #d48806);
-              color: white;
+              border-color: #faad14;
+
+              svg {
+                color: white;
+              }
+
               transform: scale(1.15) rotateY(5deg);
               box-shadow:
                 0 10px 25px rgba(250, 173, 20, 0.4),
                 0 5px 15px rgba(250, 173, 20, 0.3);
-              border-color: #faad14;
             }
           }
 
           &.share-button {
+            // 自然状态：白底蓝色icon
+            svg {
+              color: #1890ff;
+            }
+
             &:hover {
+              // Active状态：蓝底白色icon（颜色倒转）
               background: linear-gradient(135deg, #1890ff, #096dd9);
-              color: white;
+              border-color: #1890ff;
+
+              svg {
+                color: white;
+              }
+
               transform: scale(1.15) rotateY(5deg);
               box-shadow:
                 0 10px 25px rgba(24, 144, 255, 0.4),
                 0 5px 15px rgba(24, 144, 255, 0.3);
-              border-color: #1890ff;
             }
           }
         }
@@ -356,8 +399,11 @@
             font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', serif;
 
             .title-icon {
-              font-size: 20px;
-              color: #cd5c5c;
+              :deep(svg) {
+                width: 20px;
+                height: 20px;
+                color: #cd5c5c;
+              }
             }
           }
 
@@ -392,8 +438,11 @@
             font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', serif;
 
             .title-icon {
-              font-size: 20px;
-              color: #cd5c5c;
+              :deep(svg) {
+                width: 20px;
+                height: 20px;
+                color: #cd5c5c;
+              }
             }
           }
 
@@ -428,8 +477,11 @@
             font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', serif;
 
             .title-icon {
-              font-size: 20px;
-              color: #cd5c5c;
+              :deep(svg) {
+                width: 20px;
+                height: 20px;
+                color: #cd5c5c;
+              }
             }
           }
 
@@ -464,8 +516,11 @@
             font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', serif;
 
             .title-icon {
-              font-size: 20px;
-              color: #cd5c5c;
+              :deep(svg) {
+                width: 20px;
+                height: 20px;
+                color: #cd5c5c;
+              }
             }
           }
 

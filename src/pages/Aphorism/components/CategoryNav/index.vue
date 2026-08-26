@@ -4,17 +4,16 @@
     <div class="category-tabs">
       <button v-for="category in categories" :key="category.id" class="category-tab"
         :class="{ active: activeCategory === category.id }" @click="selectCategory(category)">
-        <span class="tab-icon">{{ category.icon }}</span>
+        <component :is="getIconComponent(category.id)" class="tab-icon" />
         <span class="tab-name">{{ category.name }}</span>
       </button>
     </div>
 
-    <!-- 子分类 -->
+    <!-- 子分类（不显示图标） -->
 
     <div v-if="subCategories.length > 0" class="category-grid">
       <button v-for="sub in subCategories" :key="sub.id" class="category-item sub-category"
         :class="{ active: activeSubCategory === sub.id }" @click="selectSubCategory(sub)">
-        <span class="item-icon">{{ sub.icon }}</span>
         <span class="item-name">{{ sub.name }}</span>
       </button>
     </div>
@@ -25,6 +24,12 @@
 import { ref, computed, onMounted, watch } from 'vue';
 import { useAphorismDataStore } from '@/stores/aphorism';
 import type { CategoryGroup, CategoryChild } from '@/services/aphorism';
+import DynastyIcon from '@/pages/Aphorism/icons/common/DynastyIcon.vue';
+import EmotionIcon from '@/pages/Aphorism/icons/common/EmotionIcon.vue';
+import FormIcon from '@/pages/Aphorism/icons/common/FormIcon.vue';
+import SchoolIcon from '@/pages/Aphorism/icons/common/SchoolIcon.vue';
+import SubjectIcon from '@/pages/Aphorism/icons/common/SubjectIcon.vue';
+import UsageIcon from '@/pages/Aphorism/icons/common/UsageIcon.vue';
 import './index.scss';
 
 const emit = defineEmits<{
@@ -35,6 +40,20 @@ const dataStore = useAphorismDataStore();
 const activeCategory = ref<string>('');
 const activeSubCategory = ref<number | null>(null);
 const hasAutoSelected = ref(false);
+
+// 图标组件映射
+const iconComponents: Record<string, any> = {
+  dynasty: DynastyIcon,
+  emotion: EmotionIcon,
+  form: FormIcon,
+  school: SchoolIcon,
+  subject: SubjectIcon,
+  usage: UsageIcon,
+};
+
+const getIconComponent = (categoryId: string) => {
+  return iconComponents[categoryId] || null;
+};
 
 const categories = computed<CategoryGroup[]>(() => dataStore.categories);
 
@@ -71,6 +90,15 @@ const selectSubCategory = (sub: CategoryChild) => {
   const subId = sub.name === '全部诗词' ? undefined : sub.id;
   handleCategorySelection(activeCategory.value, subId);
 };
+
+/** 重置选中状态（外部切换到浏览模式时调用，避免 UI 与列表不一致） */
+const reset = () => {
+  activeCategory.value = '';
+  activeSubCategory.value = null;
+  hasAutoSelected.value = true;
+};
+
+defineExpose({ reset });
 
 onMounted(async () => {
   if (categories.value.length === 0) {

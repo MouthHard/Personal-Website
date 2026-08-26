@@ -7,18 +7,18 @@
             <div class="header-actions">
               <button class="action-button like-button" :class="{ active: isLiked }" :title="isLiked ? '取消点赞' : '点赞'"
                 @click="toggleLike">
-                {{ isLiked ? '👍' : '👍' }}
+                <LikeIcon />
               </button>
               <button class="action-button love-button" :class="{ active: isLoved }" :title="isLoved ? '取消喜爱' : '喜爱'"
                 @click="toggleLove">
-                {{ isLoved ? '❤️' : '🤍' }}
+                <LoveIcon />
               </button>
               <button class="action-button favorite-button" :class="{ active: isFavorite }"
                 :title="isFavorite ? '取消收藏' : '收藏'" @click="toggleFavorite">
-                {{ isFavorite ? '⭐' : '☆' }}
+                <FavoriteIcon />
               </button>
               <button class="action-button share-button" title="分享" @click="sharePoem">
-                📤
+                <ShareIcon />
               </button>
             </div>
             <button class="close-button" @click="handleClose">×</button>
@@ -53,7 +53,7 @@
 
               <div v-if="poem.annotation" class="poem-annotation">
                 <div class="annotation-title">
-                  <span class="title-icon">📖</span>
+                  <AnnotationIcon class="title-icon" />
                   <span>注释</span>
                 </div>
                 <p class="annotation-text">{{ poem.annotation }}</p>
@@ -61,7 +61,7 @@
 
               <div v-if="poem.background" class="poem-background">
                 <div class="background-title">
-                  <span class="title-icon">📜</span>
+                  <BackgroundIcon class="title-icon" />
                   <span>创作背景</span>
                 </div>
                 <p class="background-text">{{ poem.background }}</p>
@@ -69,7 +69,7 @@
 
               <div v-if="poem.appreciation" class="poem-appreciation">
                 <div class="appreciation-title">
-                  <span class="title-icon">✨</span>
+                  <AppreciationIcon class="title-icon" />
                   <span>赏析</span>
                 </div>
                 <p class="appreciation-text">{{ poem.appreciation }}</p>
@@ -77,7 +77,7 @@
 
               <div v-if="poem.poetIntroduction" class="poet-introduction">
                 <div class="poet-title">
-                  <span class="title-icon">👤</span>
+                  <PoetIcon class="title-icon" />
                   <span>诗人介绍</span>
                 </div>
                 <p class="poet-text">{{ poem.poetIntroduction }}</p>
@@ -95,6 +95,14 @@ import { computed, watch, onBeforeUnmount } from 'vue';
 import type { Poem } from '@/typesOfPages/aphorism/poem';
 import { useAphorismInteractionStore } from '@/stores/aphorism/interaction';
 import { showMessage } from '@/components/common/InteractionMessage';
+import LikeIcon from '../../icons/PoemModal/LikeIcon.vue';
+import LoveIcon from '../../icons/PoemModal/LoveIcon.vue';
+import FavoriteIcon from '../../icons/PoemModal/FavoriteIcon.vue';
+import ShareIcon from '../../icons/PoemModal/ShareIcon.vue';
+import AnnotationIcon from '../../icons/common/AnnotationIcon.vue';
+import BackgroundIcon from '../../icons/common/BackgroundIcon.vue';
+import AppreciationIcon from '../../icons/common/AppreciationIcon.vue';
+import PoetIcon from '../../icons/common/PoetIcon.vue';
 import './index.scss';
 
 const props = defineProps<{

@@ -20,8 +20,8 @@
         <button
           v-if="searchQuery"
           class="clear-btn"
-          @click="searchQuery = ''"
           aria-label="清空搜索"
+          @click="searchQuery = ''"
         >
           ✕
         </button>

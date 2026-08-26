@@ -1,9 +1,8 @@
 <template>
   <div class="studyroom-card" @click="handleClick">
     <div
-      ref="containerRef"
       class="scroll-container"
-      :style="visible ? { backgroundImage: `url('${backgroundImage}')` } : {}"
+      :style="backgroundStyle"
     >
       <!-- 移除按钮 -->
       <button class="remove-btn" :class="typeClass" :title="removeTitle" @click.stop="handleRemove">
@@ -48,10 +47,10 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, onMounted, onBeforeUnmount } from 'vue';
+import { computed } from 'vue';
 import type { Poem } from '@/typesOfPages/aphorism/poem';
 import CloseIcon from '../../../../icons/common/CloseIcon.vue';
-import { usePoemBackground } from '../../../../composables/usePoemBackground';
+import { usePoemBackground } from '@/composables/aphorism/usePoemBackground';
 import './index.scss';
 
 const props = defineProps<{
@@ -68,28 +67,9 @@ const previewLines = computed(() => props.poem.content.slice(0, 6));
 
 const { backgroundImage } = usePoemBackground(props.poem);
 
-// ---- 背景图懒加载：进入视口才加载图片 ----
-const containerRef = ref<HTMLElement | null>(null);
-const visible = ref(false);
-let observer: IntersectionObserver | null = null;
-
-onMounted(() => {
-  if (!containerRef.value) return;
-  observer = new IntersectionObserver(
-    ([entry]) => {
-      if (entry?.isIntersecting) {
-        visible.value = true;
-        observer?.disconnect();
-      }
-    },
-    { rootMargin: '100px' },
-  );
-  observer.observe(containerRef.value);
-});
-
-onBeforeUnmount(() => {
-  observer?.disconnect();
-});
+const backgroundStyle = computed(() => ({
+  backgroundImage: `url('${backgroundImage}')`,
+}));
 
 // 类型相关
 const typeLabel = computed(() =>

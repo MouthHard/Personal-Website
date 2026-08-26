@@ -3,6 +3,25 @@
       <div class="left-column">
         <div class="museum-image">
           <img loading="lazy" :src="museum.image" />
+          <div class="image-decoration">
+            <div class="corner top-left" />
+            <div class="corner top-right" />
+            <div class="corner bottom-left" />
+            <div class="corner bottom-right" />
+            <div class="pattern-strip top" />
+            <div class="decoration-center">
+              <div v-if="museum.features && museum.features.length > 0" class="rating-badge">
+                <span class="badge-text">{{ museum.features[0] }}</span>
+              </div>
+              <div v-if="foundedYear" class="year-seal">
+                <div class="seal-circle">
+                  <span class="seal-year">{{ foundedYear }}</span>
+                  <span class="seal-label">建馆</span>
+                </div>
+              </div>
+            </div>
+            <div class="pattern-strip bottom" />
+          </div>
         </div>
         <div class="museum-basic-info">
           <h2 class="section-title">{{ museum.name }}</h2>
@@ -177,7 +196,7 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, watch } from 'vue';
+  import { ref, watch, computed } from 'vue';
   import type { Museum, MuseumDetailInfo } from '@/typesOfPages/museum';
   import { useMuseumDataStore } from '@/stores/museum';
 
@@ -193,6 +212,12 @@
   };
 
   const museumDetails = ref<MuseumDetailInfo | null>(null);
+
+  const foundedYear = computed(() => {
+    const history = museumDetails.value?.history || '';
+    const match = history.match(/(\d{4})\s*年/);
+    return match ? match[1] : '';
+  });
 
   watch(
     () => props.museum.id,

@@ -33,6 +33,7 @@
       position: relative;
       height: 250px;
       overflow: hidden;
+      display: flex;
       background: linear-gradient(
         180deg,
         transparent 0%,
@@ -53,10 +54,216 @@
         filter: sepia(15%) contrast(1.05) brightness(0.95);
         transition: all 0.5s ease;
         position: relative;
+        flex-shrink: 0;
 
         &:hover {
           filter: sepia(5%) contrast(1.1) brightness(1);
           transform: scale(1.02);
+        }
+      }
+
+      .image-decoration {
+        width: 50%;
+        height: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, rgba(42, 31, 20, 0.95), rgba(62, 45, 30, 0.9));
+        border: 1px solid rgba(139, 105, 20, 0.4);
+        border-radius: 0 10px 10px 0;
+        box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.4);
+        overflow: hidden;
+        flex-shrink: 0;
+
+        .corner {
+          position: absolute;
+          width: 28px;
+          height: 28px;
+          z-index: 3;
+
+          &::before, &::after {
+            content: '';
+            position: absolute;
+            background: rgba(212, 165, 116, 0.5);
+          }
+
+          &::before {
+            width: 100%;
+            height: 1.5px;
+          }
+
+          &::after {
+            width: 1.5px;
+            height: 100%;
+          }
+
+          &.top-left { top: 8px; left: 8px; }
+          &.top-left::before { top: 0; left: 0; }
+          &.top-left::after { top: 0; left: 0; }
+
+          &.top-right { top: 8px; right: 8px; }
+          &.top-right::before { top: 0; right: 0; }
+          &.top-right::after { top: 0; right: 0; }
+
+          &.bottom-left { bottom: 8px; left: 8px; }
+          &.bottom-left::before { bottom: 0; left: 0; }
+          &.bottom-left::after { bottom: 0; left: 0; }
+
+          &.bottom-right { bottom: 8px; right: 8px; }
+          &.bottom-right::before { bottom: 0; right: 0; }
+          &.bottom-right::after { bottom: 0; right: 0; }
+        }
+
+        .pattern-strip {
+          position: absolute;
+          width: 70%;
+          height: 16px;
+          z-index: 2;
+          background-image: repeating-linear-gradient(
+            90deg,
+            transparent 0px,
+            transparent 6px,
+            rgba(212, 165, 116, 0.5) 6px,
+            rgba(212, 165, 116, 0.5) 7px,
+            transparent 7px,
+            transparent 10px,
+            rgba(212, 165, 116, 0.35) 10px,
+            rgba(212, 165, 116, 0.35) 11px,
+            transparent 11px,
+            transparent 18px
+          );
+
+          &::before {
+            content: '';
+            position: absolute;
+            left: -12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            border: 1.5px solid rgba(212, 165, 116, 0.5);
+            border-radius: 50%;
+          }
+
+          &::after {
+            content: '';
+            position: absolute;
+            right: -12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            border: 1.5px solid rgba(212, 165, 116, 0.5);
+            border-radius: 50%;
+          }
+
+          &.top { top: 20px; }
+          &.bottom { bottom: 20px; }
+        }
+
+        .decoration-center {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 1.2rem;
+          z-index: 2;
+          position: relative;
+
+          &::before, &::after {
+            content: '';
+            position: absolute;
+            width: 1.5px;
+            height: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(180deg, transparent, rgba(212, 165, 116, 0.4), transparent);
+          }
+
+          &::before { top: -50px; }
+          &::after { bottom: -50px; }
+        }
+
+        .rating-badge {
+          padding: 0.5rem 1.4rem;
+          background: linear-gradient(135deg, rgba(139, 90, 43, 0.85), rgba(101, 67, 33, 0.95));
+          border: 2px solid rgba(212, 165, 116, 0.6);
+          border-radius: 4px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(212, 165, 116, 0.2);
+          position: relative;
+
+          &::before, &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 6px;
+            border: 1px solid rgba(212, 165, 116, 0.5);
+            border-radius: 50%;
+          }
+
+          &::before { left: -10px; }
+          &::after { right: -10px; }
+
+          .badge-text {
+            font-family: 'FangSong', 'STFangsong', serif;
+            font-size: 1rem;
+            color: #f5e6d3;
+            letter-spacing: 0.15em;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            white-space: nowrap;
+          }
+        }
+
+        .year-seal {
+          .seal-circle {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            border: 3px solid rgba(212, 165, 116, 0.7);
+            background: radial-gradient(circle, rgba(139, 90, 43, 0.6), rgba(62, 45, 30, 0.8));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(0, 0, 0, 0.3);
+            position: relative;
+
+            &::before {
+              content: '';
+              position: absolute;
+              inset: 4px;
+              border-radius: 50%;
+              border: 1px solid rgba(212, 165, 116, 0.3);
+            }
+
+            &::after {
+              content: '';
+              position: absolute;
+              inset: -6px;
+              border-radius: 50%;
+              border: 1px solid rgba(212, 165, 116, 0.2);
+            }
+
+            .seal-year {
+              font-family: 'FangSong', 'STFangsong', serif;
+              font-size: 1.35rem;
+              color: #f5e6d3;
+              font-weight: bold;
+              line-height: 1;
+            }
+
+            .seal-label {
+              font-family: 'FangSong', 'STFangsong', serif;
+              font-size: 0.7rem;
+              color: rgba(212, 165, 116, 0.8);
+              margin-top: 2px;
+              letter-spacing: 0.1em;
+            }
+          }
         }
       }
     }

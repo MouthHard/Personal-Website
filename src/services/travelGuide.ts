@@ -39,7 +39,7 @@ function applyFilters<T extends Record<string, any>>(items: T[], params: TravelG
 
 export async function fetchProvinces(params: TravelGuideQueryParams = {}) {
   const data = await loadJSON<TravelGuideListResponse<Province>>('travel-guide/provinces.json');
-  const items = applyFilters(data.items, params);
+  const items = applyFilters(data?.items || [], params);
   return paginate(items, params);
 }
 

@@ -36,8 +36,11 @@
     }
 
     .search-icon {
-      font-size: 24px;
-      color: #cd5c5c;
+      :deep(svg) {
+        width: 24px;
+        height: 24px;
+        color: #cd5c5c;
+      }
       margin-right: 16px;
       z-index: 1;
       filter: drop-shadow(0 2px 4px rgba(205, 92, 92, 0.3));
@@ -380,7 +383,11 @@
       }
 
       .suggestion-icon {
-        font-size: 22px;
+        :deep(svg) {
+          width: 22px;
+          height: 22px;
+          color: #cd5c5c;
+        }
         margin-right: 16px;
         filter: drop-shadow(0 2px 4px rgba(184, 115, 51, 0.2));
       }

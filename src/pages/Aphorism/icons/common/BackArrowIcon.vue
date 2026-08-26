@@ -10,9 +10,7 @@
     stroke-linejoin="round"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
-    <polyline points="16 6 12 2 8 6" />
-    <line x1="12" y1="2" x2="12" y2="15" />
+    <path d="M19 12H5M12 19l-7-7 7-7" />
   </svg>
 </template>
 
@@ -27,7 +25,7 @@ interface Props {
 }
 
 withDefaults(defineProps<Props>(), {
-  fill: 'currentColor',
-  strokeWidth: 0,
+  fill: 'none',
+  strokeWidth: 2,
 });
 </script>
