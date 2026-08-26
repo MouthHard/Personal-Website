@@ -3,7 +3,10 @@ export const LANDSCAPE_IMAGE_BASE =
   'https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/landscape/';
 export const APHORISM_IMAGE_BASE =
   'https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/aphorism/';
-export const LOCAL_FALLBACK_BASE = '/src/assets/image/PoemPic/';
+export const LOCAL_FALLBACK_BASE = '/assets/image/PoemPic/';
+
+// 预加载 App 目录图片，确保 Vite 处理它们
+const appImages = import.meta.glob<{ default: string }>('../../assets/App/*.webp');
 
 // ==================== 配置常量 ====================
 const LANDSCAPE_MAX_INDEX = 21; // 0-20

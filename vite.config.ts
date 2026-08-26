@@ -39,8 +39,9 @@ export default defineConfig(({ mode }) => {
   const isProduction = mode === "production";
 
   return {
-    /** 部署基础路径，默认 "/"（根路径），GitHub Pages 部署时可能需要改为 "/仓库名/" */
-    base: env.VITE_BASE || "/",
+  /** 部署基础路径 */
+  base: "/Personal-Website/",
+
 
     plugins: [
       vue(),
@@ -131,7 +132,13 @@ export default defineConfig(({ mode }) => {
           /** 文件命名规则：带 hash 值，内容变化时 hash 变化，浏览器会重新下载 */
           chunkFileNames: "assets/js/[name]-[hash].js",
           entryFileNames: "assets/js/[name]-[hash].js",
-          assetFileNames: "assets/[ext]/[name]-[hash].[ext]",
+          assetFileNames: (assetInfo) => {
+            const fileName = assetInfo.name || "";
+            if (fileName.startsWith("App/")) {
+              return `assets/App/${fileName.replace("App/", "")}`;
+            }
+            return `assets/[ext]/[name]-[hash].[ext]`;
+          },
         },
       },
     },
