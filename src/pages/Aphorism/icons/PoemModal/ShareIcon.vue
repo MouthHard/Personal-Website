@@ -1,5 +1,7 @@
 <template>
   <svg
+    width="1em"
+    height="1em"
     viewBox="0 0 24 24"
     :fill="fill"
     stroke="currentColor"
@@ -8,26 +10,24 @@
     stroke-linejoin="round"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <circle cx="18" cy="5" r="3" />
-    <circle cx="6" cy="12" r="3" />
-    <circle cx="18" cy="19" r="3" />
-    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
-    <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+    <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
+    <polyline points="16 6 12 2 8 6" />
+    <line x1="12" y1="2" x2="12" y2="15" />
   </svg>
 </template>
 
 <script setup lang="ts">
-  import type { CSSProperties } from 'vue';
+import type { CSSProperties } from 'vue';
 
-  interface Props {
-    fill?: string;
-    strokeWidth?: number | string;
-    class?: string;
-    style?: CSSProperties;
-  }
+interface Props {
+  fill?: string;
+  strokeWidth?: number | string;
+  class?: string;
+  style?: CSSProperties;
+}
 
-  withDefaults(defineProps<Props>(), {
-    fill: 'none',
-    strokeWidth: 2,
-  });
+withDefaults(defineProps<Props>(), {
+  fill: 'currentColor',
+  strokeWidth: 0,
+});
 </script>

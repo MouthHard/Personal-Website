@@ -15,7 +15,7 @@ interface Props {
 }
 
 withDefaults(defineProps<Props>(), {
-  fill: 'none',
-  strokeWidth: 2,
+  fill: 'currentColor',
+  strokeWidth: 0,
 });
 </script>

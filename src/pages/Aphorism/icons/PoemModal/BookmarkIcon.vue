@@ -22,8 +22,8 @@
     style?: CSSProperties;
   }
 
-  withDefaults(defineProps<Props>(), {
-    fill: 'none',
-    strokeWidth: 2,
-  });
+withDefaults(defineProps<Props>(), {
+  fill: 'currentColor',
+  strokeWidth: 0,
+});
 </script>

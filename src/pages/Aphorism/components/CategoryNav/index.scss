@@ -92,8 +92,25 @@
       }
 
       .tab-icon {
-        font-size: 18px;
+        :deep(svg) {
+          width: 18px;
+          height: 18px;
+          transition: color 0.3s ease;
+        }
         filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+      }
+
+      // 不同分类使用不同颜色
+      &:not(.active) .tab-icon {
+        :deep(svg) {
+          color: #6b5b4f; // 深棕色
+        }
+      }
+
+      &.active .tab-icon {
+        :deep(svg) {
+          color: white;
+        }
       }
 
       .tab-name {
@@ -171,10 +188,6 @@
         border-color: #f49522;
       }
 
-      .item-icon {
-        font-size: 16px;
-        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
-      }
 
       .item-name {
         font-weight: bold;

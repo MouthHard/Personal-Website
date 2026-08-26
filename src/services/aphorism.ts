@@ -61,7 +61,7 @@ function applyFilters(items: Poem[], params: AphorismQueryParams): Poem[] {
 
 export async function fetchAphorisms(params: AphorismQueryParams = {}) {
   const data = await loadJSON<AphorismListResponse>('aphorism/aphorisms.json');
-  const items = applyFilters(data.items, params);
+  const items = applyFilters(data?.items || [], params);
   return paginate(items, params);
 }
 

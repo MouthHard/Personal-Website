@@ -152,20 +152,15 @@ export const useAphorismInteractionStore = defineStore('aphorismInteraction', ()
     saveStringArrayToStorage(STORAGE_KEYS.searchHistory, [])
   }
 
-  const getLikedPoems = (allPoems: Poem[]) => {
-    const s = likedSet.value
-    return allPoems.filter((p) => s.has(p.id))
-  }
+  const pickByIds = (allPoems: Poem[], ids: Set<number>) =>
+    allPoems.filter((p) => ids.has(p.id))
 
-  const getLovedPoems = (allPoems: Poem[]) => {
-    const s = lovedSet.value
-    return allPoems.filter((p) => s.has(p.id))
-  }
+  const getLikedPoems = (allPoems: Poem[]) => pickByIds(allPoems, likedSet.value)
 
-  const getFavoritePoems = (allPoems: Poem[]) => {
-    const s = favoriteSet.value
-    return allPoems.filter((p) => s.has(p.id))
-  }
+  const getLovedPoems = (allPoems: Poem[]) => pickByIds(allPoems, lovedSet.value)
+
+  const getFavoritePoems = (allPoems: Poem[]) =>
+    pickByIds(allPoems, favoriteSet.value)
 
   const getRecentViewPoems = (allPoems: Poem[]): Poem[] => {
     const poemMap = new Map(allPoems.map((p) => [p.id, p]))
@@ -189,9 +184,13 @@ export const useAphorismInteractionStore = defineStore('aphorismInteraction', ()
     return s
   })
 
-  const getFavoritePoets = (allPoems: Poem[]) => {
+  /**
+   * 合并遍历：一次遍历同时产出「喜爱的诗人」与「朝代分布」
+   */
+  const getPoetAndDynastyStats = (allPoems: Poem[]) => {
     const s = interactedSet.value
     const poetMap = new Map<string, { name: string; dynasty: string; count: number }>()
+    const dynastyMap = new Map<string, number>()
 
     for (const poem of allPoems) {
       if (s.has(poem.id)) {
@@ -202,25 +201,16 @@ export const useAphorismInteractionStore = defineStore('aphorismInteraction', ()
         } else {
           poetMap.set(key, { name: poem.author, dynasty: poem.dynasty, count: 1 })
         }
-      }
-    }
-
-    return [...poetMap.values()].sort((a, b) => b.count - a.count)
-  }
-
-  const getDynastyDistribution = (allPoems: Poem[]) => {
-    const s = interactedSet.value
-    const dynastyMap = new Map<string, number>()
-
-    for (const poem of allPoems) {
-      if (s.has(poem.id)) {
         dynastyMap.set(poem.dynasty, (dynastyMap.get(poem.dynasty) || 0) + 1)
       }
     }
 
-    return [...dynastyMap.entries()]
+    const poets = [...poetMap.values()].sort((a, b) => b.count - a.count)
+    const dynasties = [...dynastyMap.entries()]
       .sort((a, b) => b[1] - a[1])
       .map(([name, count]) => ({ name, count }))
+
+    return { poets, dynasties }
   }
 
   return {
@@ -248,7 +238,7 @@ export const useAphorismInteractionStore = defineStore('aphorismInteraction', ()
     lovedCount,
     favoriteCount,
     totalInteractionCount,
-    getFavoritePoets,
-    getDynastyDistribution,
+
+    getPoetAndDynastyStats,
   }
 })

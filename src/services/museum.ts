@@ -43,7 +43,7 @@ function applyFilters<T extends Record<string, any>>(items: T[], params: MuseumQ
 
 export async function fetchMuseums(params: MuseumQueryParams = {}) {
   const data = await loadJSON<MuseumListResponse<Museum>>('museum/museums.json');
-  const items = applyFilters(data.items, params);
+  const items = applyFilters(data?.items || [], params);
   return paginate(items, params);
 }
 
@@ -57,7 +57,7 @@ export async function fetchMuseumDetail(museumId: number) {
 
 export async function fetchArtifacts(params: MuseumQueryParams = {}) {
   const data = await loadJSON<MuseumListResponse<Artifact>>('museum/artifacts.json');
-  const items = applyFilters(data.items, params);
+  const items = applyFilters(data?.items || [], params);
   return paginate(items, params);
 }
 
@@ -71,42 +71,42 @@ export async function fetchArtifactDetail(id: number) {
 
 export async function fetchExhibitions(params: MuseumQueryParams = {}) {
   const data = await loadJSON<MuseumListResponse<Exhibition>>('museum/exhibitions.json');
-  const items = applyFilters(data.items, params);
+  const items = applyFilters(data?.items || [], params);
   return paginate(items, params);
 }
 
 export async function fetchActivities(params: MuseumQueryParams = {}) {
   const data = await loadJSON<MuseumListResponse<Activity>>('museum/activities.json');
-  const items = applyFilters(data.items, params);
+  const items = applyFilters(data?.items || [], params);
   return paginate(items, params);
 }
 
 export async function fetchNews(params: MuseumQueryParams = {}) {
   const data = await loadJSON<MuseumListResponse<News>>('museum/museum-news.json');
-  const items = applyFilters(data.items, params);
+  const items = applyFilters(data?.items || [], params);
   return paginate(items, params);
 }
 
 export async function fetchImmersive(params: MuseumQueryParams = {}) {
   const data = await loadJSON<MuseumListResponse<ImmersiveExperience>>('museum/immersive.json');
-  const items = applyFilters(data.items, params);
+  const items = applyFilters(data?.items || [], params);
   return paginate(items, params);
 }
 
 export async function fetchCreativeProducts(params: MuseumQueryParams = {}) {
   const data = await loadJSON<MuseumListResponse<CreativeProduct>>('museum/creative-products.json');
-  const items = applyFilters(data.items, params);
+  const items = applyFilters(data?.items || [], params);
   return paginate(items, params);
 }
 
 export async function fetchAcademicResources(params: MuseumQueryParams = {}) {
   const data = await loadJSON<MuseumListResponse<AcademicResource>>('museum/academic-resources.json');
-  const items = applyFilters(data.items, params);
+  const items = applyFilters(data?.items || [], params);
   return paginate(items, params);
 }
 
 export async function fetchExhibitionHalls(params: MuseumQueryParams = {}) {
   const data = await loadJSON<MuseumListResponse<ExhibitionHall>>('museum/exhibition-halls.json');
-  const items = applyFilters(data.items, params);
+  const items = applyFilters(data?.items || [], params);
   return paginate(items, params);
 }

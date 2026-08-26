@@ -90,7 +90,7 @@ function applyFilters(items: GameItemResponse[], params: GameQueryParams): GameI
 
 export async function fetchGames(params: GameQueryParams = {}) {
   const data = await loadJSON<GameListResponse>('game/games.json');
-  const items = applyFilters(data.items, params);
+  const items = applyFilters(data?.items || [], params);
   return paginate(items, params);
 }
 
@@ -116,6 +116,6 @@ export async function fetchGamePlatforms() {
 
 export async function fetchGameOnSale(limit = 10) {
   const data = await loadJSON<GameListResponse>('game/games.json');
-  const items = data.items.filter((g) => g.discount && g.discount > 0);
+  const items = (data?.items || []).filter((g) => g.discount && g.discount > 0);
   return paginate(items.slice(0, limit), { page: 1, limit });
 }

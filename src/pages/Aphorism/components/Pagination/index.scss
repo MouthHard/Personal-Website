@@ -62,9 +62,12 @@
     }
 
     .button-icon {
-      font-size: 18px;
+      :deep(svg) {
+        width: 18px;
+        height: 18px;
+        color: #8b4513;
+      }
       line-height: 1;
-      color: #8b4513;
     }
 
     .button-text {

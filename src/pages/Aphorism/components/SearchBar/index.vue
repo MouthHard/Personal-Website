@@ -1,7 +1,9 @@
 <template>
   <div class="search-bar">
     <div class="search-container">
-      <div class="search-icon">🔍</div>
+      <div class="search-icon">
+        <SearchModeIcon />
+      </div>
       <div class="search-input-container">
         <input v-model="searchQuery" type="text" class="search-input" placeholder="搜索诗词、作者、名句..."
           @keyup.enter="handleSearchFromUser" @focus="handleFocus" @blur="handleBlur" />
@@ -48,7 +50,9 @@
     <div v-if="isFocused && searchQuery && suggestions.length > 0" class="search-suggestions">
       <div v-for="(item, index) in suggestions" :key="index" class="suggestion-item"
         @mousedown.prevent="selectSuggestion(item)">
-        <span class="suggestion-icon">{{ item.icon }}</span>
+        <span class="suggestion-icon">
+          <component :is="item.icon === 'poem' ? SearchModeIcon : PoetIcon" />
+        </span>
         <span class="suggestion-text">{{ item.text }}</span>
         <span class="suggestion-count">{{ item.count }}首</span>
       </div>
@@ -61,10 +65,12 @@ import { ref, computed, watch, onMounted, onBeforeUnmount } from 'vue';
 import type { Poem } from '@/typesOfPages/aphorism/poem';
 import { useAphorismDataStore } from '@/stores/aphorism';
 import { useAphorismInteractionStore } from '@/stores/aphorism/interaction';
+import SearchModeIcon from '../../icons/common/SearchModeIcon.vue';
+import PoetIcon from '../../icons/common/PoetIcon.vue';
 import './index.scss';
 
 interface SuggestionItem {
-  icon: string;
+  icon: 'poem' | 'author';
   text: string;
   count: number;
   type: 'poem' | 'author';
@@ -167,14 +173,14 @@ const suggestions = computed<SuggestionItem[]>(() => {
 
   const items: SuggestionItem[] = [
     ...matchedPoems.slice(0, 3).map((p) => ({
-      icon: '📜',
+      icon: 'poem' as const,
       text: p.title,
       count: 1,
       type: 'poem' as const,
       id: String(p.id),
     })),
     ...authorOrder.slice(0, 3).map((a) => ({
-      icon: '👤',
+      icon: 'author' as const,
       text: a,
       count: authorCountMap.get(a) || 0,
       type: 'author' as const,

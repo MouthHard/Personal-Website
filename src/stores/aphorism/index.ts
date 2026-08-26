@@ -8,7 +8,7 @@ import {
   fetchHotTags,
 } from '@/services/aphorism'
 import type { AphorismQueryParams, CategoryGroup } from '@/services/aphorism'
-import { filterPoemsByCategory, searchPoems } from '@/utils/Aphorism/categoryFilter'
+import { filterPoemsByCategory, searchPoems } from '@/utils/aphorism/categoryFilter'
 
 export const useAphorismDataStore = defineStore('aphorismData', () => {
   const poems = ref<Poem[]>([])

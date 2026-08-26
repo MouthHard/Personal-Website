@@ -25,6 +25,10 @@ pnpm-debug.log*
 # Build output
 dist
 
+# Auto-generated types (build tools)
+types/auto-imports.d.ts
+types/components.d.ts
+
 # Deployment packages
 *.tar.gz
 deploy-*.tar.gz

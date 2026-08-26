@@ -36,7 +36,7 @@ function applyFilters<T extends Record<string, any>>(items: T[], params: History
 
 export async function fetchDynasties(params: HistoryQueryParams = {}) {
   const data = await loadJSON<HistoryListResponse<Dynasty>>('history/dynasties.json');
-  const items = applyFilters(data.items, params);
+  const items = applyFilters(data?.items || [], params);
   return paginate(items, params);
 }
 
@@ -46,7 +46,7 @@ export async function fetchDynastyById(id: string) {
 
 export async function fetchEvents(params: HistoryQueryParams = {}) {
   const data = await loadJSON<HistoryListResponse<HistoricalEvent>>('history/events.json');
-  const items = applyFilters(data.items, params);
+  const items = applyFilters(data?.items || [], params);
   return paginate(items, params);
 }
 
@@ -56,7 +56,7 @@ export async function fetchEventById(id: string) {
 
 export async function fetchFigures(params: HistoryQueryParams = {}) {
   const data = await loadJSON<HistoryListResponse<HistoricalFigure>>('history/figures.json');
-  const items = applyFilters(data.items, params);
+  const items = applyFilters(data?.items || [], params);
   return paginate(items, params);
 }
 
@@ -66,7 +66,7 @@ export async function fetchFigureById(id: string) {
 
 export async function fetchHeritage(params: HistoryQueryParams = {}) {
   const data = await loadJSON<HistoryListResponse<CulturalHeritageItem>>('history/heritage.json');
-  const items = applyFilters(data.items, params);
+  const items = applyFilters(data?.items || [], params);
   return paginate(items, params);
 }
 

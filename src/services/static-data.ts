@@ -5,7 +5,7 @@
  * 提供缓存、分页、过滤等功能。
  */
 
-const DATA_BASE = '/static-data';
+const DATA_BASE = `${import.meta.env.BASE_URL}static-data`;
 
 const cache = new Map<string, Promise<any>>();
 
