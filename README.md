@@ -1,24 +1,11 @@
-# vue3_test
+一个随心的个人博客，平时想写点什么都往里面塞： 诗词、历史、博物馆、风景、音乐、游戏、旅游，七块内容，各有一个小天地。
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+内容模块
+📜 诗词 —— 分类浏览、搜索、阅读，附带一个学习小屋
+🏛️ 博物馆 —— 从中国地图出发，逛文物、展览、文创、新闻
+🎵 音乐 —— 发现、歌单、歌词与榜单
+🌄 风景 —— 摄影作品、旅行攻略与视频
+🎮 游戏 —— 商店、特惠、排行榜与游戏库
+🧭 旅游 —— 34 个省级行政区的美食与景点指南
+📚 历史 —— 王朝时间线、人物与文化遗产
+技术栈
