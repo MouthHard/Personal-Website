@@ -1,0 +1,1 @@
+import{B as o,L as t,M as e,P as s}from"./vue-vendor-BnHAXbeJ.js";const r=["stroke-width"],n=o({__name:"ChevronDownIcon",props:{strokeWidth:{default:2}},setup:o=>(n,a)=>(t(),e("svg",{viewBox:"0 0 24 24",fill:"none",stroke:"currentColor","stroke-width":o.strokeWidth},[...a[0]||(a[0]=[s("path",{d:"M19 12l-7 7-7-7"},null,-1)])],8,r))});export{n as _};

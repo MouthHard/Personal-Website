@@ -1,1 +1,0 @@
-import{a as t,b as o,f as r}from"./format-DpA25lRP.js";function a(){return{formatCount:r,formatDuration:o,formatPrice:t=>t>=1e4?`¥${(t/1e4).toFixed(1)}万`:`¥${t.toFixed(0)}`,formatFileSize:t,formatPercentage:(t,o)=>0===o?"0%":(t/o*100).toFixed(1)+"%"}}export{a as u};
