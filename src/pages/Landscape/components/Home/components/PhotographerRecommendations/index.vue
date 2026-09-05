@@ -343,7 +343,7 @@ const switchToArtist = (id: string) => {
 };
 
 const handleMore = () => {
-  console.log('查看更多');
+  // 查看更多处理
 };
 
 const toggleFollow = (id: string) => {
@@ -445,7 +445,7 @@ const handleWorkFavorite = (work: WorkItem) => {
 };
 
 const handleWorkShare = (work: WorkItem) => {
-  interactionStore.incrementShares(getWorkId(work.id));
+
   showMessage.share.success(work.title);
 };
 

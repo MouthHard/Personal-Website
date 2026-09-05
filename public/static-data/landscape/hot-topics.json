@@ -119,9 +119,129 @@
         "category": "water",
         "subCategory": "beach"
       }
+    },
+    {
+      "id": 5,
+      "title": "星空摄影",
+      "category": "星空夜景",
+      "image": "https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/landscape/3.webp",
+      "description": "追逐璀璨银河与星轨，掌握星空摄影的核心技术与机位选择",
+      "views": "14.2k",
+      "likes": "2.3k",
+      "favorites": "678",
+      "comments": "289",
+      "date": "2024-03-10",
+      "bestSeason": "夏秋",
+      "locations": [
+        "西藏·纳木错",
+        "青海·茶卡盐湖",
+        "内蒙古·阿拉善",
+        "新疆·喀纳斯"
+      ],
+      "tips": [
+        "选择无月晴朗夜空，避开光污染",
+        "使用广角大光圈镜头，ISO 3200-6400",
+        "星轨拍摄连续200张叠加合成",
+        "银河拱桥竖拍多张后期拼接"
+      ],
+      "navigation": {
+        "dimension": "theme",
+        "category": "sky",
+        "subCategory": "starry"
+      }
+    },
+    {
+      "id": 6,
+      "title": "人文街拍",
+      "category": "人文纪实",
+      "image": "https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/landscape/4.webp",
+      "description": "记录城市街头百态，捕捉最真实的生活瞬间与人文故事",
+      "views": "11.8k",
+      "likes": "1.6k",
+      "favorites": "445",
+      "comments": "198",
+      "date": "2024-02-28",
+      "bestSeason": "四季",
+      "locations": [
+        "中国·成都宽窄巷子",
+        "日本·京都祇园",
+        "法国·巴黎玛黑区",
+        "摩洛哥·菲斯古城"
+      ],
+      "tips": [
+        "使用35mm或50mm定焦镜头",
+        "预对焦区域等待决定性瞬间",
+        "尊重被摄者建立友善互动",
+        "光影运用增强画面氛围"
+      ],
+      "navigation": {
+        "dimension": "theme",
+        "category": "urban",
+        "subCategory": "street"
+      }
+    },
+    {
+      "id": 7,
+      "title": "微距世界",
+      "category": "自然生态",
+      "image": "https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/landscape/5.webp",
+      "description": "探索肉眼难见的微观世界，记录花蕊、露珠与昆虫的精致细节",
+      "views": "8.9k",
+      "likes": "1.3k",
+      "favorites": "356",
+      "comments": "167",
+      "date": "2024-04-15",
+      "bestSeason": "春夏",
+      "locations": [
+        "云南·西双版纳",
+        "海南·热带雨林",
+        "四川·峨眉山",
+        "福建·武夷山"
+      ],
+      "tips": [
+        "使用百微镜头100mm f/2.8",
+        "三脚架配合焦点堆叠技术",
+        "柔和散射光拍摄避免硬光",
+        "小光圈f/8-16保证足够景深"
+      ],
+      "navigation": {
+        "dimension": "theme",
+        "category": "nature",
+        "subCategory": "forest"
+      }
+    },
+    {
+      "id": 8,
+      "title": "航拍视角",
+      "category": "风光摄影",
+      "image": "https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/landscape/6.webp",
+      "description": "以上帝视角俯瞰大地，用无人机记录壮丽风光与几何之美",
+      "views": "13.5k",
+      "likes": "2.0k",
+      "favorites": "534",
+      "comments": "245",
+      "date": "2024-03-25",
+      "bestSeason": "四季",
+      "locations": [
+        "中国·张家界",
+        "冰岛·环岛公路",
+        "澳大利亚·大堡礁",
+        "挪威·峡湾"
+      ],
+      "tips": [
+        "遵守当地无人机飞行法规",
+        "黄金时刻航拍光线最佳",
+        "注意电池续航携带备用电池",
+        "俯拍几何图案寻找抽象构图"
+      ],
+      "navigation": {
+        "dimension": "technique",
+        "category": "perspective",
+        "subCategory": "aerial"
+      }
     }
   ],
-  "total": 4,
+  "total": 8,
   "page": 1,
   "limit": 200,
   "totalPages": 1

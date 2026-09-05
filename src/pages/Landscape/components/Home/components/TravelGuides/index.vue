@@ -342,7 +342,7 @@
   };
 
   const handleShare = (guide: GlobalGuide) => {
-    interactionStore.incrementShares(getGuideId(guide.id));
+
     showMessage.share.success(guide.title);
   };
 
@@ -356,7 +356,7 @@
   };
 
   const handleMore = () => {
-    console.log('查看更多');
+    // 查看更多处理
   };
 
   const scrollPrev = () => {

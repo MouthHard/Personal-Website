@@ -3,19 +3,16 @@
     <div class="section-header">
       <div class="header-left">
         <h2 class="section-title">
-          <span class="title-icon">📸</span>
+          <span class="title-icon">
+            <CameraIcon :stroke-width="2.2" />
+          </span>
           所有摄影师
         </h2>
         <p class="section-desc">发现全球优秀摄影师，探索精彩作品</p>
       </div>
       <div class="header-right">
         <div class="pagination-info">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-            <circle cx="9" cy="7" r="4"/>
-            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-          </svg>
+          <UsersIcon :stroke-width="2.2" />
           <span>显示 {{ startIndex }}-{{ endIndex }} / {{ filteredPhotographers.length }} 位</span>
         </div>
       </div>
@@ -24,44 +21,42 @@
     <div class="filter-container">
       <div class="filter-left">
         <div class="filter-tabs">
-          <button v-for="tag in visibleFilterTags" :key="tag.id" :class="['filter-tab', { active: selectedTag === tag.id }]" :style="getTagStyle(tag.id)" @click="selectedTag = tag.id">
-            <span class="tab-icon">{{ tag.icon }}</span>
+          <button v-for="tag in visibleFilterTags" :key="tag.id"
+            :class="['filter-tab', { active: selectedTag === tag.id }]" :style="getTagStyle(tag.id)"
+            @click="selectedTag = tag.id">
+            <span v-if="tag.id === 'all'" class="tab-icon">
+              <CameraIcon :stroke-width="2.2" />
+            </span>
             <span class="tab-label">{{ tag.name }}</span>
             <span v-if="tag.count" class="tab-count">{{ tag.count }}</span>
           </button>
           <button v-if="hasMoreTags" class="filter-tab more-btn" @click="showAllTags = !showAllTags">
+            <span class="tab-icon">
+              <component :is="showAllTags ? ChevronUpIcon : ChevronDownIcon" :stroke-width="2.2" />
+            </span>
             <span class="tab-label">{{ showAllTags ? '收起' : '更多' }}</span>
           </button>
         </div>
       </div>
       <div class="filter-right">
         <div class="search-box">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          <SearchIcon :stroke-width="2.2" />
           <input v-model="searchQuery" type="text" placeholder="搜索摄影师..." @input="handleSearch" />
           <button v-if="searchQuery" class="clear-btn" @click="searchQuery = ''">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            <CloseIcon :stroke-width="2.2" />
           </button>
         </div>
         <div ref="sortDropdownRef" class="sort-dropdown">
           <button class="sort-btn" @click="showSortMenu = !showSortMenu">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <line x1="4" y1="21" x2="4" y2="14"/>
-              <line x1="4" y1="10" x2="4" y2="3"/>
-              <line x1="12" y1="21" x2="12" y2="12"/>
-              <line x1="12" y1="8" x2="12" y2="3"/>
-              <line x1="20" y1="21" x2="20" y2="16"/>
-              <line x1="20" y1="12" x2="20" y2="3"/>
-              <line x1="1" y1="14" x2="7" y2="14"/>
-              <line x1="9" y1="8" x2="15" y2="8"/>
-              <line x1="17" y1="16" x2="23" y2="16"/>
-            </svg>
+            <SortIcon :stroke-width="2.2" />
             <span>{{ currentSortLabel }}</span>
-            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="6 9 12 15 18 9"/></svg>
+            <ChevronDownIcon class="arrow" :stroke-width="2.2" />
           </button>
           <div v-if="showSortMenu" class="sort-menu">
-            <button v-for="sort in sortOptions" :key="sort.value" :class="['sort-option', { active: sortBy === sort.value }]" @click="selectSort(sort.value)">
+            <button v-for="sort in sortOptions" :key="sort.value"
+              :class="['sort-option', { active: sortBy === sort.value }]" @click="selectSort(sort.value)">
               <span>{{ sort.label }}</span>
-              <svg v-if="sortBy === sort.value" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg>
+              <CheckIcon v-if="sortBy === sort.value" :stroke-width="2.2" />
             </button>
           </div>
         </div>
@@ -69,24 +64,23 @@
     </div>
 
     <div :class="['photographers-container', viewMode]">
-      <article v-for="(photographer, index) in paginatedPhotographers" :key="photographer.id" class="photographer-card" :style="{ '--delay': `${index * 0.05}s` }">
+      <article v-for="(photographer, index) in paginatedPhotographers" :key="photographer.id" class="photographer-card"
+        :style="{ '--delay': `${index * 0.05}s` }">
         <!-- 卡片顶部：作品预览-->
         <div class="card-preview">
           <div class="preview-grid">
-            <div v-for="(work, idx) in photographer.worksPreview?.slice(0, 4)" :key="work.id || idx" class="preview-item" @click="$emit('preview', { ...(typeof work === 'string' ? { image: work } : work), author: photographer.name, authorId: photographer.id, authorAvatar: photographer.avatar })">
-              <img loading="lazy" :src="typeof work === 'string' ? work : work.image" :alt="typeof work === 'string' ? `作品 ${idx + 1}` : (work.title || `作品 ${idx + 1}`)" />
+            <div v-for="(work, idx) in photographer.worksPreview?.slice(0, 4)" :key="work.id || idx"
+              class="preview-item"
+              @click="$emit('preview', { ...(typeof work === 'string' ? { image: work } : work), author: photographer.name, authorId: photographer.id, authorAvatar: photographer.avatar })">
+              <img loading="lazy" :src="typeof work === 'string' ? work : work.image"
+                :alt="typeof work === 'string' ? `作品 ${idx + 1}` : (work.title || `作品 ${idx + 1}`)" />
               <div class="preview-overlay">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <circle cx="11" cy="11" r="8"/>
-                  <path d="M21 21l-4.35-4.35"/>
-                  <line x1="11" y1="8" x2="11" y2="14"/>
-                  <line x1="8" y1="11" x2="14" y2="11"/>
-                </svg>
+                <SearchPlusIcon :stroke-width="2.2" />
               </div>
             </div>
           </div>
           <div class="preview-badge">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <ImageIcon :stroke-width="2.2" />
             <span>{{ photographer.works }}</span>
           </div>
         </div>
@@ -103,19 +97,17 @@
                 <h3 class="name">{{ photographer.name }}</h3>
                 <div class="badges">
                   <span v-if="photographer.verified" class="badge verified">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    <VerifiedBadgeIcon :stroke-width="2.2" />
                   </span>
                   <span v-if="photographer.isPro" class="badge pro">PRO</span>
                   <span v-if="photographer.isOnline" class="badge online">在线</span>
-                  <span v-else-if="photographer.lastActive" class="badge last-active">{{ photographer.lastActive }}</span>
+                  <span v-else-if="photographer.lastActive"
+                    class="badge last-active">{{ photographer.lastActive }}</span>
                 </div>
               </div>
               <p class="title">{{ photographer.title }}</p>
               <div v-if="photographer.location" class="location">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                  <circle cx="12" cy="10" r="3"/>
-                </svg>
+                <LocationIcon :stroke-width="2.2" />
                 <span>{{ photographer.location }}</span>
               </div>
             </div>
@@ -124,46 +116,45 @@
           <p v-if="photographer.bio" class="bio" :title="photographer.bio">{{ photographer.bio }}</p>
 
           <div class="tags-row">
-            <span v-for="tag in photographer.tags?.slice(0, 3)" :key="tag" class="tag" @click="selectedTag = tag">{{ tag }}</span>
+            <span v-for="tag in photographer.tags?.slice(0, 3)" :key="tag" class="tag"
+              @click="selectedTag = tag">{{ tag }}</span>
             <span v-if="photographer.tags?.length > 3" class="tag more">+{{ photographer.tags.length - 3 }}</span>
           </div>
 
           <div v-if="photographer.workTypes?.length" class="work-types-row">
-            <span
-              v-for="typeId in photographer.workTypes"
-              :key="typeId"
-              class="work-type-chip"
-              :style="{ '--type-color': getWorkTypeColor(typeId) }"
-            >
-              <span class="type-icon">{{ getWorkTypeIcon(typeId) }}</span>
+            <span v-for="typeId in photographer.workTypes" :key="typeId" class="work-type-chip"
+              :style="{ '--type-color': getWorkTypeColor(typeId) }">
+              <span class="type-icon">
+                <component :is="workTypeIconMap[typeId] || CameraIcon" :stroke-width="2.2" />
+              </span>
               <span class="type-name">{{ getWorkTypeName(typeId) }}</span>
             </span>
           </div>
 
           <div class="stats-grid">
             <div class="stat-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              <ImageIcon :stroke-width="2.2" />
               <div class="stat-content">
                 <span class="stat-value">{{ photographer.works }}</span>
                 <span class="stat-label">作品</span>
               </div>
             </div>
             <div class="stat-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              <ThumbUpIcon :stroke-width="2.2" />
               <div class="stat-content">
                 <span class="stat-value">{{ photographer.likes }}</span>
                 <span class="stat-label">点赞</span>
               </div>
             </div>
             <div class="stat-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              <EyeIcon :stroke-width="2.2" />
               <div class="stat-content">
                 <span class="stat-value">{{ photographer.views || '0' }}</span>
                 <span class="stat-label">浏览</span>
               </div>
             </div>
             <div class="stat-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <UsersIcon :stroke-width="2.2" />
               <div class="stat-content">
                 <span class="stat-value">{{ photographer.followers || '0' }}</span>
                 <span class="stat-label">粉丝</span>
@@ -172,34 +163,20 @@
           </div>
 
           <div class="card-actions">
-            <button class="action-btn follow" :class="{ following: getFollowingState(photographer) }" @click="handleFollow(photographer)">
-              <svg v-if="!getFollowingState(photographer)" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                <circle cx="8.5" cy="7" r="4"/>
-                <line x1="20" y1="8" x2="20" y2="14"/>
-                <line x1="23" y1="11" x2="17" y2="11"/>
-              </svg>
-              <svg v-else viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
+            <button class="action-btn follow" :class="{ following: getFollowingState(photographer) }"
+              @click="handleFollow(photographer)">
+              <UserPlusIcon v-if="!getFollowingState(photographer)" :stroke-width="2.2" />
+              <CheckIcon v-else :stroke-width="2.2" />
               <span>{{ getFollowingState(photographer) ? '已关注' : '关注' }}</span>
             </button>
-            <button 
-              class="action-btn secondary" 
+            <button class="action-btn secondary like-btn"
               :class="{ active: interactionStore.isLiked(getPhotographerId(photographer)) }"
-              @click="toggleLike(photographer)"
-            >
-              <ThumbUpIcon />
-              <span class="count">{{ formatNumber(interactionStore.getCount(getPhotographerId(photographer)).likes) }}</span>
+              @click="toggleLike(photographer)">
+              <ThumbUpIcon class="like-icon" :stroke-width="2.5" />
+
             </button>
             <button class="action-btn secondary" @click="handleShare(photographer)">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <circle cx="18" cy="5" r="3"/>
-                <circle cx="6" cy="12" r="3"/>
-                <circle cx="18" cy="19" r="3"/>
-                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
-                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
-              </svg>
+              <ShareIcon :stroke-width="2.2" />
             </button>
           </div>
         </div>
@@ -208,25 +185,24 @@
 
     <div v-if="totalPages > 1" class="pagination-container">
       <button class="pagination-btn prev" :disabled="currentPage === 1" @click="prevPage">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="15 18 9 12 15 6"/></svg>
+        <ChevronLeftIcon />
         <span>上一页</span>
       </button>
       <div class="pagination-numbers">
-        <button v-for="page in visiblePages" :key="page" :class="['page-number', { active: currentPage === page, ellipsis: page === '...' }]" @click="page !== '...' && goToPage(page as number)">
+        <button v-for="page in visiblePages" :key="page"
+          :class="['page-number', { active: currentPage === page, ellipsis: page === '...' }]"
+          @click="page !== '...' && goToPage(page as number)">
           {{ page }}
         </button>
       </div>
       <button class="pagination-btn next" :disabled="currentPage === totalPages" @click="nextPage">
         <span>下一页</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="9 18 15 12 9 6"/></svg>
+        <ChevronRightIcon />
       </button>
     </div>
 
     <div v-if="filteredPhotographers.length === 0" class="empty-state">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-        <circle cx="11" cy="11" r="8"/>
-        <path d="M21 21l-4.35-4.35"/>
-      </svg>
+      <SearchIcon />
       <h3>未找到摄影师</h3>
       <p>尝试调整筛选条件或搜索关键词</p>
       <button class="reset-btn" @click="resetFilters">重置筛选</button>
@@ -235,14 +211,53 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch, onMounted, onUnmounted } from 'vue';
+import { ref, computed, watch, onMounted, onUnmounted, type Component } from 'vue';
 import { showMessage } from '@/utils/landscape';
 import { useInteractionStore } from '@/stores/landscape';
-import { useFormatNumber } from '@/composables/landscape/useFormatNumber';
+
 import { workTypes, workTypeIcons, workTypeLabels, sortOptions as sortOptionsData } from '@/utils/landscape/constants';
 import { usePhotographersViewData } from '@/composables/landscape';
 import ThumbUpIcon from '@/pages/Landscape/icon/common/ThumbUpIcon.vue';
+import SearchIcon from '@/pages/Landscape/icon/common/SearchIcon.vue';
+import CloseIcon from '@/pages/Landscape/icon/common/CloseIcon.vue';
+import CheckIcon from '@/pages/Landscape/icon/common/CheckIcon.vue';
+import ChevronDownIcon from '@/pages/Landscape/icon/common/ChevronDownIcon.vue';
+import ChevronUpIcon from '@/pages/Landscape/icon/common/ChevronUpIcon.vue';
+import ChevronLeftIcon from '@/pages/Landscape/icon/common/ChevronLeftIcon.vue';
+import ChevronRightIcon from '@/pages/Landscape/icon/common/ChevronRightIcon.vue';
+import ImageIcon from '@/pages/Landscape/icon/common/ImageIcon.vue';
+
+import EyeIcon from '@/pages/Landscape/icon/common/EyeIcon.vue';
+import UsersIcon from '@/pages/Landscape/icon/common/UsersIcon.vue';
+import UserPlusIcon from '@/pages/Landscape/icon/common/UserPlusIcon.vue';
+import LocationIcon from '@/pages/Landscape/icon/common/LocationIcon.vue';
+import ShareIcon from '@/pages/Landscape/icon/common/ShareIcon.vue';
+import SearchPlusIcon from '@/pages/Landscape/icon/components/photographers/FeaturedPhotographers/SearchPlusIcon.vue';
+import SortIcon from '@/pages/Landscape/icon/components/photographers/AllPhotographers/SortIcon.vue';
+import VerifiedBadgeIcon from '@/pages/Landscape/icon/components/photographers/AllPhotographers/VerifiedBadgeIcon.vue';
+import CameraIcon from '@/pages/Landscape/icon/common/CameraIcon.vue';
+import VideoIcon from '@/pages/Landscape/icon/common/VideoIcon.vue';
+import BookIcon from '@/pages/Landscape/icon/common/BookIcon.vue';
+import PanoramaIcon from '@/pages/Landscape/icon/common/PanoramaIcon.vue';
+import ClockIcon from '@/pages/Landscape/icon/common/ClockIcon.vue';
+import AerialIcon from '@/pages/Landscape/icon/common/AerialIcon.vue';
+import SparkleIcon from '@/pages/Landscape/icon/common/SparkleIcon.vue';
+import StarIcon from '@/pages/Landscape/icon/common/StarIcon.vue';
+import RainbowIcon from '@/pages/Landscape/icon/common/RainbowIcon.vue';
+
 import type { Photographer } from '@/typesOfPages/landscape';
+
+const workTypeIconMap: Record<string, Component> = {
+  photo: CameraIcon,
+  video: VideoIcon,
+  guide: BookIcon,
+  panorama: PanoramaIcon,
+  timelapse: ClockIcon,
+  aerial: AerialIcon,
+  longexp: SparkleIcon,
+  startrail: StarIcon,
+  hdr: RainbowIcon,
+};
 
 const emit = defineEmits<{
   'toggle-follow': [photographer: Photographer]
@@ -250,7 +265,7 @@ const emit = defineEmits<{
 }>();
 
 const interactionStore = useInteractionStore();
-const { formatCount: formatNumber } = useFormatNumber();
+
 
 const getFollowingState = (photographer: Photographer): boolean => {
   return interactionStore.isFollowing(String(photographer.id));
@@ -394,15 +409,15 @@ const parseCount = (value: string): number => {
 
 const filteredPhotographers = computed(() => {
   let result = [...photographers.value];
-  
+
   if (selectedTag.value !== 'all') {
     result = result.filter(p => p.tags && p.tags.includes(selectedTag.value));
   }
-  
+
   if (searchQuery.value) {
     const query = searchQuery.value.toLowerCase();
-    result = result.filter(p => 
-      p.name.toLowerCase().includes(query) || 
+    result = result.filter(p =>
+      p.name.toLowerCase().includes(query) ||
       p.title.toLowerCase().includes(query) ||
       (p.location || '').toLowerCase().includes(query) ||
       (p.specialty || '').toLowerCase().includes(query) ||
@@ -412,7 +427,7 @@ const filteredPhotographers = computed(() => {
       p.worksPreview?.some(work => (work.title || '').toLowerCase().includes(query))
     );
   }
-  
+
   if (sortBy.value === 'works') {
     result.sort((a, b) => parseCount(b.works) - parseCount(a.works));
   } else if (sortBy.value === 'likes') {
@@ -427,7 +442,7 @@ const filteredPhotographers = computed(() => {
       return parseCount(b.views) - parseCount(a.views);
     });
   }
-  
+
   return result;
 });
 
@@ -445,7 +460,7 @@ const visiblePages = computed(() => {
   const pages: (number | string)[] = [];
   const total = totalPages.value;
   const current = currentPage.value;
-  
+
   if (total <= 7) {
     for (let i = 1; i <= total; i++) {
       pages.push(i);
@@ -494,10 +509,6 @@ const toggleLike = (photographer: Photographer) => {
   }
 };
 
-const getWorkTypeIcon = (typeId: string) => {
-  const type = workTypesList.value.find(t => t.key === typeId);
-  return type?.icon || '📷';
-};
 
 const getWorkTypeName = (typeId: string) => {
   const type = workTypesList.value.find(t => t.key === typeId);
@@ -511,7 +522,7 @@ const getWorkTypeColor = (typeId: string) => {
 
 const handleShare = (photographer: Photographer) => {
   // 实现分享功能
-  console.log('分享摄影师', photographer.name);
+
 };
 
 const resetFilters = () => {

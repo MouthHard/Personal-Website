@@ -875,55 +875,23 @@
       }
 
       .social-icon {
-        width: 40px;
-        height: 40px;
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 10px;
         flex-shrink: 0;
-        box-shadow:
-          0 4px 12px rgba(0, 0, 0, 0.25),
-          inset 0 1px 0 rgba(255, 255, 255, 0.2);
 
         svg {
-          width: 20px;
-          height: 20px;
-          color: #fff;
+          width: 22px;
+          height: 22px;
         }
 
-        &.weibo {
-          background: linear-gradient(135deg, #e6162d 0%, #d6152a 100%);
-        }
-
-        &.wechat {
-          background: linear-gradient(135deg, #07c160 0%, #06ad56 100%);
-        }
-
-        &.bilibili {
-          background: linear-gradient(135deg, #00a1d6 0%, #008dcc 100%);
-        }
-
-        &.xiaohongshu {
-          background: linear-gradient(135deg, #ff2442 0%, #e91e3c 100%);
-        }
-
-        &.mafengwo {
-          background: linear-gradient(135deg, #ff9d00 0%, #f59e0b 100%);
-        }
-
-        &.tuchong {
-          background: linear-gradient(135deg, #2dbeb3 0%, #26a69a 100%);
-        }
-
-        &.instagram {
-          background: linear-gradient(
-            135deg,
-            #e4405f 0%,
-            #c13584 50%,
-            #833ab4 100%
-          );
-        }
+        &.weibo svg { color: #e6162d; }
+        &.wechat svg { color: #07c160; }
+        &.bilibili svg { color: #00a1d6; }
+        &.xiaohongshu svg { color: #ff2442; }
+        &.mafengwo svg { color: #ff9d00; }
+        &.tuchong svg { color: #2dbeb3; }
+        &.instagram svg { color: #e4405f; }
       }
 
       .social-input {
@@ -1685,7 +1653,7 @@
 }
 
 :global(.dark-cascader-popper) {
-  background: linear-gradient(180deg, rgba(26, 31, 46, 0.98) 0%, rgba(15, 20, 32, 0.99) 100%) !important;
+  background: #1a1f2e !important;
   border: 1px solid rgba(82, 160, 255, 0.3) !important;
   border-radius: 10px !important;
   box-shadow:
@@ -1704,7 +1672,7 @@
       }
 
       .el-cascader-menu__item {
-        color: #fff !important;
+        color: rgba(255, 255, 255, 0.9) !important;
         font-size: 14px;
         font-weight: 500;
         padding: 10px 14px !important;
@@ -1712,8 +1680,8 @@
         transition: all 0.2s ease;
 
         &:hover {
-          background: rgba(82, 160, 255, 0.2) !important;
-          color: #fff !important;
+          background: #fff !important;
+          color: #000 !important;
         }
 
         &.in-active-path,
@@ -1724,22 +1692,22 @@
         }
 
         &.is-hovering {
-          background: rgba(82, 160, 255, 0.25) !important;
-          color: #fff !important;
+          background: #fff !important;
+          color: #000 !important;
         }
 
         .el-cascader-node__prefix,
         .el-cascader-node__postfix {
-          color: rgba(255, 255, 255, 0.6);
+          color: rgba(255, 255, 255, 0.8);
         }
 
         .el-icon {
-          color: rgba(255, 255, 255, 0.6);
+          color: rgba(255, 255, 255, 0.8);
         }
       }
 
       .el-cascader-menu__empty-text {
-        color: rgba(255, 255, 255, 0.5);
+        color: rgba(255, 255, 255, 0.6);
         font-style: italic;
       }
     }
@@ -1747,7 +1715,7 @@
 
   .el-popper__arrow {
     &::before {
-      background: rgba(26, 31, 46, 0.98) !important;
+      background: #1a1f2e !important;
       border: 1px solid rgba(82, 160, 255, 0.3) !important;
     }
   }

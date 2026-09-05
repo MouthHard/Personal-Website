@@ -17,11 +17,7 @@
         <!-- 头部 -->
         <div class="modal-header">
           <div class="header-badge">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-              <polyline points="17 8 12 3 7 8"/>
-              <line x1="12" y1="3" x2="12" y2="15"/>
-            </svg>
+            <UploadIcon :stroke-width="2" />
             <span>创作中心</span>
           </div>
           <h2 class="upload-title">上传风景作品</h2>
@@ -50,23 +46,15 @@
         <!-- 底部信息 -->
         <div class="modal-footer">
           <div class="footer-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="M12 6v6l4 2"/>
-            </svg>
+            <ClockIcon :stroke-width="2" />
             <span>单次最大 50MB</span>
           </div>
           <div class="footer-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            </svg>
+            <ShieldIcon :stroke-width="2" />
             <span>原创内容受保护</span>
           </div>
           <div class="footer-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-              <polyline points="22 4 12 14.01 9 11.01"/>
-            </svg>
+            <CheckCircleIcon :stroke-width="2" />
             <span>上传即同意社区规范</span>
           </div>
         </div>
@@ -76,8 +64,11 @@
 </template>
 
 <script setup lang="ts">
-import CloseIcon from '../../../icon/common/CloseIcon.vue';
-import UploadIcon from '../../../icon/header/UploadIcon.vue';
+import CloseIcon from '@/pages/Landscape/icon/common/CloseIcon.vue';
+import UploadIcon from '@/pages/Landscape/icon/common/UploadIcon.vue';
+import ClockIcon from '@/pages/Landscape/icon/common/ClockIcon.vue';
+import ShieldIcon from '@/pages/Landscape/icon/common/ShieldIcon.vue';
+import CheckCircleIcon from '@/pages/Landscape/icon/components/common/UploadModal/CheckCircleIcon.vue';
 import { showMessage } from '@/utils/landscape';
 
 defineProps<{

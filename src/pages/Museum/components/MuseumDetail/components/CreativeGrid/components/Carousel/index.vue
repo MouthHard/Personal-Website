@@ -179,15 +179,15 @@
   };
 
   const handleFavoriteClick = (product: CreativeProduct) => {
-    console.log('收藏产品:', product.name);
+ 
   };
 
   const handleCollectClick = (product: CreativeProduct) => {
-    console.log('喜爱产品:', product.name);
+   
   };
 
   const handleShareClick = (product: CreativeProduct) => {
-    console.log('分享产品:', product.name);
+  
   };
 
   const handleImageError = (event: Event) => {

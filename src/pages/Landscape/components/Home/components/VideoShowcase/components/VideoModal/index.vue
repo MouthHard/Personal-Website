@@ -58,61 +58,47 @@
                   <EyeIcon :stroke-width="2" />
                   <span>{{ video ? formatNumber(counts.views) : '' }}</span>
                 </div>
-                <div
-                  class="stat-item"
-                  :class="{ active: isLiked }"
-                >
-                  <ThumbUpIcon :filled="isLiked" />
-                  <span>{{ video ? formatNumber(counts.likes) : '' }}</span>
-                </div>
-                <div
-                  class="stat-item"
-                  :class="{ active: isLoved }"
-                >
-                  <HeartIcon :filled="isLoved" />
-                  <span>{{ video ? formatNumber(counts.loves) : '' }}</span>
-                </div>
-                <div
-                  class="stat-item"
-                  :class="{ active: isFavorited }"
-                >
-                  <BookmarkIcon :filled="isFavorited" :stroke-width="2" />
-                  <span>{{ video ? formatNumber(counts.favorites) : '' }}</span>
-                </div>
-                <div class="stat-item">
-                  <ShareIcon :stroke-width="2" />
-                  <span>{{ video ? formatNumber(counts.shares) : '' }}</span>
-                </div>
-              </div>
-
-              <div class="panel-actions">
                 <button
-                  class="action-btn like"
+                  type="button"
+                  class="stat-item stat-interactive like"
                   :class="{ active: isLiked }"
                   @click="$emit('like')"
                 >
                   <ThumbUpIcon :filled="isLiked" />
-                  <span>点赞</span>
+                  <span>{{ video ? formatNumber(counts.likes) : '' }}</span>
                 </button>
                 <button
-                  class="action-btn love"
+                  type="button"
+                  class="stat-item stat-interactive love"
                   :class="{ active: isLoved }"
                   @click="$emit('love')"
                 >
                   <HeartIcon :filled="isLoved" />
-                  <span>喜爱</span>
+                  <span>{{ video ? formatNumber(counts.loves) : '' }}</span>
                 </button>
                 <button
-                  class="action-btn bookmark"
+                  type="button"
+                  class="stat-item stat-interactive bookmark"
                   :class="{ active: isFavorited }"
                   @click="$emit('favorite')"
                 >
                   <BookmarkIcon :filled="isFavorited" :stroke-width="2" />
-                  <span>收藏</span>
+                  <span>{{ video ? formatNumber(counts.favorites) : '' }}</span>
                 </button>
-                <button class="action-btn share" @click="$emit('share')">
+                <button
+                  type="button"
+                  class="stat-item stat-interactive share"
+                  @click="$emit('share')"
+                >
                   <ShareIcon :stroke-width="2" />
-                  <span>分享</span>
+                  <span>{{ video ? formatNumber(counts.shares) : '' }}</span>
+                </button>
+                <button
+                  type="button"
+                  class="stat-item stat-interactive download"
+                  @click="$emit('download')"
+                >
+                  <DownloadIcon :stroke-width="2" />
                 </button>
               </div>
 
@@ -159,6 +145,7 @@ import ThumbUpIcon from '@/pages/Landscape/icon/common/ThumbUpIcon.vue';
 import HeartIcon from '@/pages/Landscape/icon/common/HeartIcon.vue';
 import BookmarkIcon from '@/pages/Landscape/icon/common/BookmarkIcon.vue';
 import ShareIcon from '@/pages/Landscape/icon/common/ShareIcon.vue';
+import DownloadIcon from '@/pages/Landscape/icon/common/DownloadIcon.vue';
 
 interface Video {
   id: string | number;
@@ -191,6 +178,7 @@ const props = defineProps<{
   isFollowing: boolean;
 }>();
 
+
 const emit = defineEmits<{
   close: [];
   ended: [];
@@ -199,6 +187,7 @@ const emit = defineEmits<{
   love: [];
   favorite: [];
   share: [];
+  download: [];
   select: [video: Video];
 }>();
 

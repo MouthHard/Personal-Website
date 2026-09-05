@@ -2,28 +2,26 @@
   <section class="featured-photographers-section">
     <div class="section-header">
       <h2 class="section-title">
-        <span class="title-icon">★</span>
-        推荐摄影师      </h2>
+        <span class="title-icon">
+          <StarIcon :stroke-width="0" />
+        </span>
+        推荐摄影师
+      </h2>
       <div class="header-right">
         <p class="section-desc">精选全球优秀风光摄影师</p>
         <button class="show-more-btn">
           <span>展示更多</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="9 18 15 12 9 6"/>
-          </svg>
+          <ChevronRightIcon :stroke-width="2.2" />
         </button>
       </div>
     </div>
 
     <div v-if="photographers.length > 0" class="featured-grid">
-      <article
-        v-for="(photographer, index) in photographers"
-        :key="photographer.id"
-        class="photographer-card featured"
-        :style="{ '--delay': `${index * 0.1}s` }"
-      >
+      <article v-for="(photographer, index) in photographers" :key="photographer.id" class="photographer-card featured"
+        :style="{ '--delay': `${index * 0.1}s` }">
         <div class="card-banner">
-          <img loading="lazy" :src="photographer.banner || photographer.avatar" :alt="photographer.name" class="banner-image" />
+          <img loading="lazy" :src="photographer.banner || photographer.avatar" :alt="photographer.name"
+            class="banner-image" />
           <div class="banner-overlay"></div>
         </div>
 
@@ -46,63 +44,37 @@
 
           <div class="stats-row">
             <div class="stat">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                <circle cx="8.5" cy="8.5" r="1.5"/>
-                <polyline points="21 15 16 10 5 21"/>
-              </svg>
+              <ImageIcon :stroke-width="2.2" />
               <span class="value">{{ photographer.works }}</span>
               <span class="label">作品</span>
             </div>
             <div class="stat">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                <circle cx="12" cy="12" r="3"/>
-              </svg>
+              <EyeIcon :stroke-width="2.2" />
               <span class="value">{{ photographer.views }}</span>
               <span class="label">浏览</span>
             </div>
             <div class="stat">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-              </svg>
+              <ThumbUpIcon :stroke-width="2.2" />
               <span class="value">{{ photographer.likes }}</span>
               <span class="label">点赞</span>
             </div>
             <div class="stat">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                <circle cx="9" cy="7" r="4"/>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-              </svg>
+              <UsersIcon :stroke-width="2.2" />
               <span class="value">{{ photographer.followers }}</span>
               <span class="label">粉丝</span>
             </div>
           </div>
 
           <div class="works-preview">
-            <div 
-              v-for="(work, idx) in photographer.worksPreview.slice(0, 3)" 
-              :key="idx" 
-              class="preview-item"
-              @click="$emit('preview', { ...work, author: photographer.name, authorId: photographer.id, authorAvatar: photographer.avatar })"
-            >
+            <div v-for="(work, idx) in photographer.worksPreview.slice(0, 3)" :key="idx" class="preview-item"
+              @click="$emit('preview', { ...work, author: photographer.name, authorId: photographer.id, authorAvatar: photographer.avatar })">
               <img loading="lazy" :src="work.image" :alt="work.title || `作品 ${idx + 1}`" />
               <div class="preview-overlay">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <circle cx="11" cy="11" r="8"/>
-                  <path d="M21 21l-4.35-4.35"/>
-                  <line x1="11" y1="8" x2="11" y2="14"/>
-                  <line x1="8" y1="11" x2="14" y2="11"/>
-                </svg>
+                <SearchPlusIcon :stroke-width="2.2" />
               </div>
             </div>
-            <div 
-              v-if="photographer.worksPreview.length > 3" 
-              class="preview-item preview-more"
-              @click="$emit('preview', { ...photographer.worksPreview[3], author: photographer.name, authorId: photographer.id, authorAvatar: photographer.avatar })"
-            >
+            <div v-if="photographer.worksPreview.length > 3" class="preview-item preview-more"
+              @click="$emit('preview', { ...photographer.worksPreview[3], author: photographer.name, authorId: photographer.id, authorAvatar: photographer.avatar })">
               <img loading="lazy" :src="photographer.worksPreview[3].image" :alt="'作品 4'" />
               <div class="more-overlay">
                 <span class="more-count">+{{ photographer.worksPreview.length - 3 }}</span>
@@ -111,33 +83,19 @@
           </div>
 
           <div class="card-actions">
-            <button 
-              class="action-btn follow" 
-              :class="{ following: getFollowingState(photographer) }"
-              @click="$emit('toggle-follow', photographer)"
-            >
-              <svg v-if="!getFollowingState(photographer)" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                <circle cx="8.5" cy="7" r="4"/>
-                <line x1="20" y1="8" x2="20" y2="14"/>
-                <line x1="23" y1="11" x2="17" y2="11"/>
-              </svg>
+            <button class="action-btn follow" :class="{ following: getFollowingState(photographer) }"
+              @click="$emit('toggle-follow', photographer)">
+              <UserPlusIcon v-if="!getFollowingState(photographer)" :stroke-width="2.2" />
               <span>{{ getFollowingState(photographer) ? '已关注' : '关注' }}</span>
             </button>
-            <button 
-              class="action-btn secondary" 
+            <button class="action-btn secondary"
               :class="{ active: interactionStore.isLiked(getPhotographerId(photographer)) }"
-              @click="toggleLike(photographer)"
-            >
-              <ThumbUpIcon />
-              <span class="count">{{ formatNumber(interactionStore.getCount(getPhotographerId(photographer)).likes) }}</span>
+              @click="toggleLike(photographer)">
+              <ThumbUpIcon class="like-icon" :stroke-width="2.5" />
+              <span class="count">点赞</span>
             </button>
             <button class="action-btn view">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                <circle cx="8.5" cy="8.5" r="1.5"/>
-                <polyline points="21 15 16 10 5 21"/>
-              </svg>
+              <ImageIcon :stroke-width="2.2" />
               <span>查看作品</span>
             </button>
           </div>
@@ -145,7 +103,9 @@
       </article>
     </div>
     <div v-else class="empty-state">
-      <div class="empty-icon">📸</div>
+      <div class="empty-icon">
+        <CameraIcon :stroke-width="2.2" />
+      </div>
       <h3>暂无推荐摄影师</h3>
       <p>敬请期待更多优秀摄影师</p>
     </div>
@@ -156,9 +116,18 @@
 import { computed, watch } from 'vue';
 import { showMessage } from '@/utils/landscape';
 import { useInteractionStore } from '@/stores/landscape';
-import { useFormatNumber } from '@/composables/landscape/useFormatNumber';
+
 import { usePhotographersViewData } from '@/composables/landscape';
 import ThumbUpIcon from '@/pages/Landscape/icon/common/ThumbUpIcon.vue';
+import ChevronRightIcon from '@/pages/Landscape/icon/common/ChevronRightIcon.vue';
+import ImageIcon from '@/pages/Landscape/icon/common/ImageIcon.vue';
+import EyeIcon from '@/pages/Landscape/icon/common/EyeIcon.vue';
+
+import UsersIcon from '@/pages/Landscape/icon/common/UsersIcon.vue';
+import SearchPlusIcon from '@/pages/Landscape/icon/components/photographers/FeaturedPhotographers/SearchPlusIcon.vue';
+import UserPlusIcon from '@/pages/Landscape/icon/common/UserPlusIcon.vue';
+import StarIcon from '@/pages/Landscape/icon/common/StarIcon.vue';
+import CameraIcon from '@/pages/Landscape/icon/common/CameraIcon.vue';
 import type { Photographer } from '@/typesOfPages/landscape';
 
 defineEmits<{
@@ -169,7 +138,7 @@ defineEmits<{
 const { featuredPhotographers } = usePhotographersViewData();
 const photographers = computed(() => featuredPhotographers());
 const interactionStore = useInteractionStore();
-const { formatCount: formatNumber } = useFormatNumber();
+
 
 const getFollowingState = (photographer: Photographer): boolean => {
   return interactionStore.isFollowing(String(photographer.id));

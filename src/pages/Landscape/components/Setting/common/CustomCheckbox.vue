@@ -8,9 +8,7 @@
       @change="$emit('update:modelValue', ($event.target as HTMLInputElement).checked)"
     />
     <span class="checkbox-box">
-      <svg v-if="modelValue" class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-        <polyline points="20 6 9 17 4 12"></polyline>
-      </svg>
+      <CheckIcon v-if="modelValue" class="check-icon" :stroke-width="2.5" />
     </span>
     <span v-if="$slots.default" class="checkbox-label">
       <slot></slot>
@@ -19,6 +17,8 @@
 </template>
 
 <script setup lang="ts">
+import CheckIcon from '@/pages/Landscape/icon/common/CheckIcon.vue'
+
 defineProps<{
   modelValue: boolean
   disabled?: boolean

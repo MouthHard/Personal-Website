@@ -577,48 +577,6 @@ $shadow-accent: 0 0 30px rgba(255, 215, 0, 0.2);
   filter: blur(15px);
 }
 
-// 通用卡片悬停动画
-.card-hover {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  transform-origin: center;
-}
-
-.card-hover:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 
-    0 12px 40px rgba(0, 0, 0, 0.3),
-    0 0 60px rgba(255, 215, 0, 0.15);
-}
-
-// 按钮点击动画
-.btn-click {
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.btn-click:active {
-  transform: scale(0.95);
-  box-shadow: 
-    0 2px 8px rgba(0, 0, 0, 0.2),
-    0 0 20px rgba(255, 215, 0, 0.1);
-}
-
-// 文字渐变动画
-.text-gradient {
-  background: $accent-gradient;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: textShine 3s ease-in-out infinite;
-}
-
-@keyframes textShine {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
 
 // 背景粒子效果
 @keyframes float {
@@ -630,15 +588,6 @@ $shadow-accent: 0 0 30px rgba(255, 215, 0, 0.2);
   }
 }
 
-// 加载动画
-@keyframes loading {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
 
 // 响应式设计
 @media (max-width: 1024px) {
@@ -693,33 +642,6 @@ $shadow-accent: 0 0 30px rgba(255, 215, 0, 0.2);
   .sidebar {
     width: 160px;
 
-    .sidebar-logo {
-      padding: 20px 16px 16px;
-
-      .logo-icon {
-        width: 32px;
-        height: 32px;
-
-        svg {
-          width: 18px;
-          height: 18px;
-        }
-      }
-
-      .logo-text-wrap {
-        .logo-text {
-          font-size: 16px;
-        }
-
-        .logo-subtitle {
-          font-size: 10px;
-        }
-      }
-    }
-
-    .sidebar-search {
-      padding: 0 12px 12px;
-    }
 
     .sidebar-nav {
       padding: 0 8px;

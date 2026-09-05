@@ -5,10 +5,7 @@
     <div class="setting-card">
       <div class="card-header">
         <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
-            <path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" />
-          </svg>
+          <CopyrightIcon :stroke-width="2" />
         </div>
         <div>
           <h3 class="card-title">版权信息</h3>
@@ -47,10 +44,7 @@
     <div class="setting-card">
       <div class="card-header">
         <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M9 12l2 2 4-4" />
-            <path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h2a2 2 0 0 0 2-2V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v3a2 2 0 0 0 2 2h2a2 2 0 0 1 2 2z" />
-          </svg>
+          <LicenseIcon :stroke-width="2" />
         </div>
         <div>
           <h3 class="card-title">授权管理</h3>
@@ -82,6 +76,8 @@
 import { ref } from 'vue'
 import CustomSelect from '../../common/CustomSelect.vue'
 import CustomSwitch from '../../common/CustomSwitch.vue'
+import CopyrightIcon from '@/pages/Landscape/icon/components/setting/CopyrightSection/CopyrightIcon.vue'
+import LicenseIcon from '@/pages/Landscape/icon/components/setting/CopyrightSection/LicenseIcon.vue'
 import { CopyrightOptions } from '@/utils/landscape/constants'
 
 const copyrightType = ref('保留所有权利')

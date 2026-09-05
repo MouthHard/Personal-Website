@@ -5,9 +5,7 @@
     <div class="setting-card">
       <div class="card-header">
         <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-          </svg>
+          <ShieldIcon :stroke-width="2" />
         </div>
         <div>
           <h3 class="card-title">隐私控制</h3>
@@ -49,10 +47,7 @@
     <div class="setting-card">
       <div class="card-header">
         <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 4H8l-7 7 7 7h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z" />
-            <line x1="18" y1="9" x2="18" y2="15" />
-          </svg>
+          <DeleteIcon :stroke-width="2" />
         </div>
         <div>
           <h3 class="card-title">数据管理</h3>
@@ -96,6 +91,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import CustomSwitch from '../../common/CustomSwitch.vue'
+import ShieldIcon from '@/pages/Landscape/icon/common/ShieldIcon.vue'
+import DeleteIcon from '@/pages/Landscape/icon/components/setting/PrivacySection/DeleteIcon.vue'
 
 const publicProfile = ref(true)
 const publicCollection = ref(false)

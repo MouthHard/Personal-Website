@@ -10,15 +10,12 @@ export {
   calculateTrend 
 } from './calculation'
 export { filterImages, filterVideos, filterPhotographers, filterGuides, sortItems, paginate } from './filter'
-export { categories } from './constants'
 export {
   guideModeMap,
   guideSeasonMap,
   guideDurationMap,
   guideThemeMap,
   cachedViews,
-  MIN_LOAD_TIME,
-  typeToTravelMode,
 } from './constants'
 export {
   ProfileSpecialtyOptions,

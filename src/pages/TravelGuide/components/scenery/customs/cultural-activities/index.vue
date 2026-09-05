@@ -84,7 +84,7 @@ const emit = defineEmits<{
 }>();
 
 const handleMoreClick = () => {
-  console.log("更多按钮被点击");
+  // 更多按钮点击处理
 };
 
 const toggleFavorite = (activityId: string) => {

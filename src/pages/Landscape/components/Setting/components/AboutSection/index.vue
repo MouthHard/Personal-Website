@@ -5,11 +5,7 @@
     <div class="setting-card">
       <div class="card-header">
         <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10" />
-            <line x1="12" y1="16" x2="12" y2="12" />
-            <line x1="12" y1="8" x2="12.01" y2="8" />
-          </svg>
+          <InfoIcon :stroke-width="2" />
         </div>
         <div>
           <h3 class="card-title">关于平台</h3>
@@ -39,9 +35,7 @@
     <div class="setting-card">
       <div class="card-header">
         <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z" />
-          </svg>
+          <FileIcon :stroke-width="2" />
         </div>
         <div>
           <h3 class="card-title">服务条款</h3>
@@ -57,24 +51,16 @@
             @click="showToast"
           >
             <div class="terms-icon">
-              <svg :viewBox="item.iconViewBox" fill="none" stroke="currentColor" stroke-width="2">
-                <path :d="item.iconPath" />
-              </svg>
+              <component :is="item.icon" :stroke-width="2" />
             </div>
             <span class="terms-text">{{ item.text }}</span>
             <div class="terms-badge">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10" />
-                <path d="M8 15s1.5-2 4-2 4 2 4 2" />
-                <circle cx="12" cy="9" r="3" />
-              </svg>
+              <SmileIcon :stroke-width="2" />
             </div>
           </div>
         </div>
         <div class="terms-hint">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" />
-          </svg>
+          <InfoIcon :stroke-width="2" />
           <span>条款内容正在完善中，敬请期待</span>
         </div>
       </div>
@@ -83,10 +69,7 @@
     <div class="setting-card">
       <div class="card-header">
         <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-            <circle cx="12" cy="7" r="4" />
-          </svg>
+          <UserIcon :stroke-width="2" />
         </div>
         <div>
           <h3 class="card-title">联系我们</h3>
@@ -108,7 +91,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, markRaw, h, render, onUnmounted } from 'vue'
+import InfoIcon from '@/pages/Landscape/icon/common/InfoIcon.vue'
+import FileIcon from '@/pages/Landscape/icon/components/setting/AboutSection/FileIcon.vue'
+import SmileIcon from '@/pages/Landscape/icon/components/setting/AboutSection/SmileIcon.vue'
+import UserIcon from '@/pages/Landscape/icon/common/UserIcon.vue'
+import HomeIcon from '@/pages/Landscape/icon/components/setting/AboutSection/HomeIcon.vue'
+import GlobeDetailIcon from '@/pages/Landscape/icon/components/setting/AboutSection/GlobeDetailIcon.vue'
+import FileTextIcon from '@/pages/Landscape/icon/components/setting/AboutSection/FileTextIcon.vue'
 
 defineOptions({
   name: 'AboutSection'
@@ -116,40 +106,50 @@ defineOptions({
 
 const termsItems = ref([
   { 
-    iconViewBox: '0 0 24 24', 
-    iconPath: 'M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z M14 2 14 8 20 8 M16 13l-8 0 M16 17l-8 0 M10 9 9 9 8 9',
+    icon: markRaw(FileTextIcon),
     text: '用户协议' 
   },
   { 
-    iconViewBox: '0 0 24 24', 
-    iconPath: 'M21 12a9 9 0 0 1-9 9m9-9a9 9 0 0 0-9-9m9 9H3m9 9a9 9 0 0 1-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 0 1 9-9',
+    icon: markRaw(GlobeDetailIcon),
     text: '隐私政策' 
   },
   { 
-    iconViewBox: '0 0 24 24', 
-    iconPath: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 0 0 1 1h3m10-11l2 2m-2-2v10a1 1 0 0 1-1 1h-3m-6 0a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1m-6 0h6',
+    icon: markRaw(HomeIcon),
     text: '帮助中心' 
   }
 ])
 
+let toastTimers: ReturnType<typeof setTimeout>[] = [];
+
 const showToast = () => {
   const toast = document.createElement('div')
   toast.className = 'terms-toast'
-  toast.innerHTML = `
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" />
-    </svg>
-    <span>条款内容正在完善中</span>
-  `
+  const iconWrap = document.createElement('span')
+  iconWrap.className = 'terms-toast-icon'
+  render(h(InfoIcon, { strokeWidth: 2 }), iconWrap)
+  toast.appendChild(iconWrap)
+  const textWrap = document.createElement('span')
+  textWrap.textContent = '条款内容正在完善中'
+  toast.appendChild(textWrap)
   document.body.appendChild(toast)
   
-  setTimeout(() => {
+  const t1 = setTimeout(() => {
     toast.classList.add('fade-out')
-    setTimeout(() => {
-      document.body.removeChild(toast)
+    const t2 = setTimeout(() => {
+      render(null, iconWrap)
+      if (toast.parentNode) document.body.removeChild(toast)
+      toastTimers = toastTimers.filter(t => t !== t2)
     }, 300)
+    toastTimers.push(t2)
+    toastTimers = toastTimers.filter(t => t !== t1)
   }, 2000)
+  toastTimers.push(t1)
 }
+
+onUnmounted(() => {
+  toastTimers.forEach(clearTimeout)
+  toastTimers = []
+})
 </script>
 
 <style lang="scss" src="./index.scss"></style>

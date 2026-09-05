@@ -153,22 +153,28 @@ export function useHomeViewData() {
 
   const featuredSlides = (): FeaturedSlide[] => {
     const images = dataStore.getAllImages().slice(0, 5)
-    return images.map((img, idx) => ({
-      id: img.id,
-      image: img.url,
-      category: img.category,
-      icon: ['🏔️', '🌌', '🏖️', '🏛️', '🌃'][idx % 5],
-      title: img.title,
-      location: img.location,
-      likes: img.likes,
-      loves: img.loves,
-      views: img.views,
-      favorites: img.favorites,
-      shares: img.shares,
-      mediaType: idx % 2 === 0 ? 'image' : 'video',
-      quality: ['4K', 'HDR', '1080P'][idx % 3],
-      duration: idx % 2 === 1 ? 60 + (idx * 37) % 300 : null,
-    }))
+    return images.map((img, idx) => {
+      const photographer = img.authorId ? dataStore.getPhotographer(img.authorId) : undefined
+      return {
+        id: img.id,
+        image: img.url,
+        category: img.category,
+        icon: ['🏔️', '🌌', '🏖️', '🏛️', '🌃'][idx % 5],
+        title: img.title,
+        location: img.location,
+        likes: img.likes,
+        loves: img.loves,
+        views: img.views,
+        favorites: img.favorites,
+        shares: img.shares,
+        mediaType: idx % 2 === 0 ? 'image' : 'video',
+        quality: ['4K', 'HDR', '1080P'][idx % 3],
+        duration: idx % 2 === 1 ? 60 + (idx * 37) % 300 : null,
+        author: photographer?.name || img.author,
+        authorId: img.authorId,
+        authorAvatar: photographer?.avatar,
+      }
+    })
   }
 
   const videoShowcase = (): VideoShowcase[] => {

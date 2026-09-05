@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onUnmounted } from 'vue';
 import SearchIcon from '../../../../icon/common/SearchIcon.vue';
 
 defineProps<{
@@ -43,11 +43,18 @@ const clearSearch = () => {
   emit('update:searchKeyword', '');
 };
 
+let blurTimer: ReturnType<typeof setTimeout> | null = null;
+
 const handleBlur = () => {
-  setTimeout(() => {
+  blurTimer = setTimeout(() => {
     searchFocused.value = false;
+    blurTimer = null;
   }, 150);
 };
+
+onUnmounted(() => {
+  if (blurTimer) clearTimeout(blurTimer);
+});
 </script>
 
 <style scoped lang="scss" src="./index.scss" />

@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { ref, shallowRef } from 'vue'
 import type { Poem } from '@/typesOfPages/aphorism'
 import {
   fetchAphorisms,
@@ -11,12 +11,12 @@ import type { AphorismQueryParams, CategoryGroup } from '@/services/aphorism'
 import { filterPoemsByCategory, searchPoems } from '@/utils/aphorism/categoryFilter'
 
 export const useAphorismDataStore = defineStore('aphorismData', () => {
-  const poems = ref<Poem[]>([])
-  const filteredPoems = ref<Poem[]>([])
+  const poems = shallowRef<Poem[]>([])
+  const filteredPoems = shallowRef<Poem[]>([])
   const loading = ref(false)
   const error = ref<string | null>(null)
-  const categories = ref<CategoryGroup[]>([])
-  const hotTags = ref<string[]>([])
+  const categories = shallowRef<CategoryGroup[]>([])
+  const hotTags = shallowRef<string[]>([])
 
   async function getPoem(id: number): Promise<Poem | null> {
     // 先查本地缓存

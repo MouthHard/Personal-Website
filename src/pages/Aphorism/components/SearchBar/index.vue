@@ -5,7 +5,7 @@
         <SearchModeIcon />
       </div>
       <div class="search-input-container">
-        <input v-model="searchQuery" type="text" class="search-input" placeholder="搜索诗词、作者、名句..."
+        <input ref="inputRef" v-model="searchQuery" type="text" class="search-input" placeholder="搜索诗词、作者、名句..."
           @keyup.enter="handleSearchFromUser" @focus="handleFocus" @blur="handleBlur" />
         <button v-if="searchQuery" class="clear-button" title="清除搜索" @click="clearSearch">
           ×
@@ -21,16 +21,15 @@
         <div class="history-header">
           <span class="section-label">搜索历史</span>
           <div class="history-actions">
-            <button v-if="searchHistory.length > collapsedLimit && !isHistoryExpanded"
-              class="history-action-btn" @mousedown.prevent="toggleHistoryExpand">更多</button>
+            <button v-if="searchHistory.length > collapsedLimit && !isHistoryExpanded" class="history-action-btn"
+              @mousedown.prevent="toggleHistoryExpand">更多</button>
             <button v-if="isHistoryExpanded" class="history-action-btn"
               @mousedown.prevent="toggleHistoryExpand">收起</button>
             <button class="history-action-btn" @mousedown.prevent="handleClearHistory">清空</button>
           </div>
         </div>
         <div class="history-tags" :class="{ expanded: isHistoryExpanded }">
-          <span v-for="item in searchHistory" :key="item" class="history-tag"
-            @mousedown.prevent="selectTag(item)">
+          <span v-for="item in searchHistory" :key="item" class="history-tag" @mousedown.prevent="selectTag(item)">
             <span class="history-tag-text">{{ item }}</span>
             <span class="history-remove" title="删除" @mousedown.prevent.stop="handleRemoveHistory(item)">×</span>
           </span>
@@ -51,7 +50,7 @@
       <div v-for="(item, index) in suggestions" :key="index" class="suggestion-item"
         @mousedown.prevent="selectSuggestion(item)">
         <span class="suggestion-icon">
-          <component :is="item.icon === 'poem' ? SearchModeIcon : PoetIcon" />
+          <component :is="item.icon === 'poem' ? CompassIcon : PoetIcon" />
         </span>
         <span class="suggestion-text">{{ item.text }}</span>
         <span class="suggestion-count">{{ item.count }}首</span>
@@ -65,6 +64,7 @@ import { ref, computed, watch, onMounted, onBeforeUnmount } from 'vue';
 import type { Poem } from '@/typesOfPages/aphorism/poem';
 import { useAphorismDataStore } from '@/stores/aphorism';
 import { useAphorismInteractionStore } from '@/stores/aphorism/interaction';
+import CompassIcon from '../../icons/StudyRoom/CompassIcon.vue';
 import SearchModeIcon from '../../icons/common/SearchModeIcon.vue';
 import PoetIcon from '../../icons/common/PoetIcon.vue';
 import './index.scss';
@@ -92,6 +92,7 @@ const searchQuery = ref(props.modelValue || '');
 const isFocused = ref(false);
 const isHistoryExpanded = ref(false);
 const collapsedLimit = 6;
+const inputRef = ref<HTMLInputElement>();
 
 const hotTags = computed<string[]>(() => dataStore.hotTags);
 const allPoems = computed(() => dataStore.poems);
@@ -219,6 +220,9 @@ const handleSelect = (value: string) => {
   emit('update:modelValue', value);
   interactionStore.addSearchHistory(value);
   emit('search', value);
+  isFocused.value = false;
+  isHistoryExpanded.value = false;
+  inputRef.value?.blur();
 };
 
 const selectTag = (tag: string) => {

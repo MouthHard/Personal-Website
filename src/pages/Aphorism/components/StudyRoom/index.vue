@@ -67,8 +67,9 @@
             {{ currentSectionTitle }}
           </h2>
           <div v-if="currentPoems.length > 0" class="poems-grid">
-            <StudyRoomCard v-for="poem in currentPoems" :key="poem.id" :poem="poem" :type="activeTab"
+            <StudyRoomCard v-for="poem in visiblePoems" :key="poem.id" :poem="poem" :type="activeTab"
               @click="handlePoemClick" @remove="handleRemove" />
+            <div v-if="visiblePoems.length < currentPoems.length" ref="loadMoreRef" class="load-more-sentinel"></div>
           </div>
           <div v-else class="empty-state">
             <EmptyPoemIcon class="empty-icon" />
@@ -173,7 +174,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, defineAsyncComponent, onMounted, watch } from 'vue';
+import { ref, computed, defineAsyncComponent, onMounted, onUnmounted, watch } from 'vue';
 import { useRouter } from 'vue-router';
 const PoemModal = defineAsyncComponent(() => import('../PoemModal/index.vue'));
 import { useAphorismDataStore } from '@/stores/aphorism';
@@ -186,6 +187,8 @@ import BackIcon from '../../icons/common/BackIcon.vue';
 import EmptyPoemIcon from '../../icons/common/EmptyPoemIcon.vue';
 import { getBackgroundUrl } from '@/composables/aphorism/usePoemBackground';
 import './index.scss';
+
+defineOptions({ name: 'StudyRoomPage' });
 
 const router = useRouter();
 const dataStore = useAphorismDataStore();
@@ -278,6 +281,35 @@ const currentPoems = computed(() => {
   if (activeTab.value === 'favorites')
     return interactionStore.getFavoritePoems(allPoems.value);
   return [];
+});
+
+const POEM_BATCH_SIZE = 12;
+const poemVisibleCount = ref(POEM_BATCH_SIZE);
+const loadMoreRef = ref<HTMLElement | null>(null);
+let loadMoreObserver: IntersectionObserver | null = null;
+
+const visiblePoems = computed(() => currentPoems.value.slice(0, poemVisibleCount.value));
+
+onMounted(() => {
+  loadMoreObserver = new IntersectionObserver((entries) => {
+    if (entries[0]?.isIntersecting && poemVisibleCount.value < currentPoems.value.length) {
+      poemVisibleCount.value = Math.min(poemVisibleCount.value + POEM_BATCH_SIZE, currentPoems.value.length);
+    }
+  }, { rootMargin: '200px' });
+});
+
+watch(loadMoreRef, (el) => {
+  if (!loadMoreObserver) return;
+  loadMoreObserver.disconnect();
+  if (el) loadMoreObserver.observe(el);
+});
+
+watch(activeTab, () => {
+  poemVisibleCount.value = POEM_BATCH_SIZE;
+});
+
+onUnmounted(() => {
+  loadMoreObserver?.disconnect();
 });
 
 const currentSectionTitle = computed(() =>

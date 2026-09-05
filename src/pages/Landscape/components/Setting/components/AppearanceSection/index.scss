@@ -4,7 +4,7 @@
   .section-title {
     font-size: 22px;
     font-weight: 700;
-    color: #38bdf8;
+    color: #7dd3fc;
     margin: 0 0 12px;
     letter-spacing: -0.3px;
   }
@@ -131,7 +131,7 @@
         svg {
           width: 20px;
           height: 20px;
-          color: #38bdf8;
+          color: #7dd3fc;
           filter: drop-shadow(0 0 6px rgba(252, 211, 77, 0.5));
         }
       }
@@ -191,13 +191,11 @@
         }
       }
 
-      .theme-options,
-      .privacy-options {
+      .theme-options {
         display: flex;
         gap: 12px;
 
-        .theme-option,
-        .privacy-option {
+        .theme-option {
           cursor: pointer;
           position: relative;
           width: 130px;
@@ -306,7 +304,7 @@
               svg {
                 width: 16px;
                 height: 16px;
-                color: #38bdf8;
+                color: #7dd3fc;
                 transition: all 0.3s ease;
               }
 
@@ -324,11 +322,6 @@
               text-shadow: 0 0 6px rgba(34, 211, 238, 0.2);
             }
 
-            .option-desc {
-              font-size: 10px;
-              color: rgba(251, 191, 36, 0.6);
-              text-align: center;
-            }
           }
         }
       }

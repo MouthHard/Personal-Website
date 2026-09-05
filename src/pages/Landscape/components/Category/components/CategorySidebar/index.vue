@@ -7,11 +7,7 @@
         class="reset-btn"
         @click="$emit('reset')"
       >
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path
-            d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"
-          />
-        </svg>
+        <TrashIcon />
         重置
       </button>
     </div>
@@ -30,13 +26,8 @@
         >
           <div class="item-header" @click="toggleDimension(dim.id)">
             <span class="expand-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path
-                  v-if="expandedDimensions.includes(dim.id)"
-                  d="M6 9l6 6 6-6"
-                />
-                <path v-else d="M9 18l6-6-6-6" />
-              </svg>
+              <ChevronDownIcon v-if="expandedDimensions.includes(dim.id)" />
+              <ChevronRightIcon v-else />
             </span>
             <span class="item-icon">{{ dim.icon }}</span>
             <span class="item-label">{{ dim.name }}</span>
@@ -66,19 +57,8 @@
                   v-if="cat.children && cat.children.length > 0"
                   class="expand-icon"
                 >
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                  >
-                    <path
-                      v-if="
-                        expandedCategories.includes(`${dim.id}-${cat.id}`)
-                      "
-                      d="M6 9l6 6 6-6"
-                    />
-                    <path v-else d="M9 18l6-6-6-6" />
-                  </svg>
+                  <ChevronDownIcon v-if="expandedCategories.includes(`${dim.id}-${cat.id}`)" />
+                  <ChevronRightIcon v-else />
                 </span>
                 <span v-else class="expand-icon placeholder"></span>
                 <span class="item-icon">{{ cat.icon }}</span>
@@ -128,6 +108,9 @@ import type { Category } from '@/utils/landscape/categories';
 import { categoryGroups } from '@/utils/landscape/categories';
 import { computed } from 'vue';
 import { dimensions } from '@/utils/landscape/constants';
+import TrashIcon from '@/pages/Landscape/icon/common/TrashIcon.vue';
+import ChevronDownIcon from '@/pages/Landscape/icon/common/ChevronDownIcon.vue';
+import ChevronRightIcon from '@/pages/Landscape/icon/common/ChevronRightIcon.vue';
 
 interface Props {
   items: LandscapeItem[];

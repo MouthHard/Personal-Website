@@ -46,9 +46,7 @@
 
           <div class="photo-actions">
             <button class="action-btn like-btn" :class="{ liked: isLiked }" @click.stop="toggleLike">
-              <svg viewBox="0 0 24 24" :fill="isLiked ? 'currentColor' : 'none'" stroke="currentColor" stroke-width="2">
-                <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/>
-              </svg>
+              <ThumbUpIcon :filled="isLiked" :stroke-width="2" />
               <span>{{ formatCount(getCounts().likes) }}</span>
             </button>
             <button class="action-btn love-btn" :class="{ loved: isLoved }" @click.stop="toggleLove">
@@ -123,6 +121,7 @@ import type { ImageItem } from '@/typesOfPages/landscape';
 import { useFormatNumber } from '@/composables/landscape';
 import { useInteractionStore } from '@/stores/landscape';
 import HeartIcon from '@/pages/Landscape/icon/common/HeartIcon.vue';
+import ThumbUpIcon from '@/pages/Landscape/icon/common/ThumbUpIcon.vue';
 import BookmarkIcon from '@/pages/Landscape/icon/common/BookmarkIcon.vue';
 import ShareIcon from '@/pages/Landscape/icon/common/ShareIcon.vue';
 import EyeIcon from '@/pages/Landscape/icon/common/EyeIcon.vue';

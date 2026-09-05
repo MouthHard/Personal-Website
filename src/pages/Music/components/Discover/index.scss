@@ -176,17 +176,6 @@ $glass-border: rgba(255, 255, 255, 0.08);
       }
     }
 
-    .banner-shimmer {
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 50%;
-      height: 100%;
-      background: $shimmer-gradient;
-      animation: shimmer 3s ease-in-out infinite;
-      z-index: 2;
-      pointer-events: none;
-    }
   }
 
   .section {

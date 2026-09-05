@@ -326,10 +326,10 @@
   };
 
   const onImageLoad = (index: number) => {
-    console.log(`Image ${index + 1} loaded`);
+    // 图片加载完成处理
   };
 
-  const getSlideId = (id: string) => `fc-${id}`;
+  const getSlideId = (id: string) => id;
 
   const convertToInteractionItem = (
     slide: Slide,
@@ -337,7 +337,7 @@
     return convertSlideToInteractionItem(
       slide,
       (id) => interactionStore.getCount(id),
-      'fc-',
+      '',
     );
   };
 
@@ -386,9 +386,7 @@
   }
 
   const handleSharePlatform = (_platform: Platform) => {
-    if (currentShareSlide.value) {
-      interactionStore.incrementShares(getSlideId(currentShareSlide.value.id));
-    }
+
   };
 
   const handleDownload = async (slide: Slide) => {

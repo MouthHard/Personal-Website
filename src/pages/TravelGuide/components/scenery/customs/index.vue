@@ -56,15 +56,15 @@
   });
 
   const toggleFavorite = (activityId: string) => {
-    console.log('收藏活动:', activityId);
+  
   };
 
   const shareActivity = (activityId: string) => {
-    console.log('分享活动:', activityId);
+ 
   };
 
   const selectDay = (day: any) => {
-    console.log('选中日期:', day);
+ 
   };
 
   const loadProvinceData = async () => {

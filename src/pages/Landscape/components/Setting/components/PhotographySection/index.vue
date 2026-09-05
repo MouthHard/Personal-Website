@@ -5,10 +5,7 @@
     <div class="setting-card">
       <div class="card-header">
         <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z" />
-            <circle cx="12" cy="13" r="3" />
-          </svg>
+          <CameraIcon :stroke-width="2" />
         </div>
         <div>
           <h3 class="card-title">设备配置</h3>
@@ -41,9 +38,7 @@
     <div class="setting-card">
       <div class="card-header">
         <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M12 2l2 7h7l-5.5 4 2.5 7L12 16l-6 4 2.5-7L3 9h7z" />
-          </svg>
+          <AwardIcon :stroke-width="2" />
         </div>
         <div>
           <h3 class="card-title">擅长领域</h3>
@@ -60,12 +55,9 @@
               class="selected-tag"
             >
               {{ tag }}
-              <button class="remove-tag" @click="removeTag(tag)">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <line x1="18" y1="6" x2="6" y2="18" />
-                  <line x1="6" y1="6" x2="18" y2="18" />
-                </svg>
-              </button>
+                <button class="remove-tag" @click="removeTag(tag)">
+                  <CloseIcon :stroke-width="2" />
+                </button>
             </span>
           </div>
         </div>
@@ -86,15 +78,10 @@
             @click="toggleShowMore"
           >
             {{ showMore ? '收起' : '更多' }}
-            <svg 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              stroke-width="2"
+            <ChevronDownIcon
+              :stroke-width="2"
               :class="{ rotated: showMore }"
-            >
-              <polyline points="6 9 12 15 18 9" />
-            </svg>
+            />
           </button>
         </div>
 
@@ -107,10 +94,7 @@
             @keyup.enter="addCustomTag"
           />
           <button class="add-tag-btn" @click="addCustomTag">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="12" y1="5" x2="12" y2="19" />
-              <line x1="5" y1="12" x2="19" y2="12" />
-            </svg>
+            <PlusIcon :stroke-width="2" />
           </button>
         </div>
       </div>
@@ -119,10 +103,7 @@
     <div class="setting-card">
       <div class="card-header">
         <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z" />
-            <circle cx="12" cy="10" r="3" />
-          </svg>
+          <LocationIcon :stroke-width="2" />
         </div>
         <div>
           <h3 class="card-title">水印设置</h3>
@@ -168,6 +149,12 @@ import { ref, computed } from 'vue'
 import CustomSwitch from '../../common/CustomSwitch.vue'
 import CustomSelect from '../../common/CustomSelect.vue'
 import { PhotographyQualityOptions, WatermarkPositionOptions } from '@/utils/landscape/constants'
+import CameraIcon from '@/pages/Landscape/icon/common/CameraIcon.vue'
+import AwardIcon from '@/pages/Landscape/icon/components/setting/PhotographySection/AwardIcon.vue'
+import CloseIcon from '@/pages/Landscape/icon/common/CloseIcon.vue'
+import ChevronDownIcon from '@/pages/Landscape/icon/common/ChevronDownIcon.vue'
+import PlusIcon from '@/pages/Landscape/icon/components/setting/PhotographySection/PlusIcon.vue'
+import LocationIcon from '@/pages/Landscape/icon/common/LocationIcon.vue'
 
 const imageQuality = ref('原图')
 const enableWatermark = ref(true)

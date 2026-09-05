@@ -1,24 +1,28 @@
 <template>
   <svg
-    xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
-    fill="none"
+    :fill="fill"
     stroke="currentColor"
     :stroke-width="strokeWidth"
-    stroke-linecap="round"
-    stroke-linejoin="round"
+    :class="props.class"
+    :style="props.style"
   >
-    <polygon points="23 7 16 12 23 17 23 7"></polygon>
-    <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+    <rect x="2" y="4" width="20" height="16" rx="2" />
+    <path d="M7 4v16M17 4v16M2 9h5M2 15h5M17 9h5M17 15h5M9 9l4 3-4 3V9z" />
   </svg>
 </template>
 
 <script setup lang="ts">
+import type { CSSProperties } from 'vue'
 interface Props {
-  strokeWidth?: number
+  fill?: string
+  strokeWidth?: number | string
+  class?: string
+  style?: CSSProperties
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
+  fill: 'none',
   strokeWidth: 2
 })
 </script>

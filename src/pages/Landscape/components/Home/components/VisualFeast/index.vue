@@ -8,9 +8,7 @@
       </div>
       <button class="more-btn" @click="handleMore">
         <span>更多</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M5 12h14M12 5l7 7-7 7"/>
-        </svg>
+        <ArrowRightIcon :stroke-width="2" />
       </button>
     </div>
     
@@ -29,45 +27,39 @@
           <div class="image-overlay">
             <div class="overlay-content">
               <h3>{{ item.title }}</h3>
-              <p class="location">{{ item.location }}</p>
+              <p class="location"><LocationIcon :stroke-width="1.5" :style="{ width: '14px', height: '14px' }" /> {{ item.location }}</p>
               <div class="action-rings">
                 <span class="ring-node r-views" @click.stop>
-                  <span class="ring-ripple"></span>
                   <span class="ring-body">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    <EyeIcon :stroke-width="2" />
                   </span>
                   <span class="ring-val">{{ formatNumber(getImageCount(item.id).views) }}</span>
                 </span>
                 <button class="ring-node r-like" :class="{ active: isImageLiked(item.id) }" @click.stop="toggleImageLike(item)">
-                  <span class="ring-ripple"></span>
                   <span class="ring-body">
                     <ThumbUpIcon :filled="isImageLiked(item.id)" />
                   </span>
                   <span class="ring-val">{{ formatNumber(getImageCount(item.id).likes) }}</span>
                 </button>
                 <button class="ring-node r-love" :class="{ active: isImageLoved(item.id) }" @click.stop="toggleImageLove(item)">
-                  <span class="ring-ripple"></span>
                   <span class="ring-body">
                     <HeartIcon :filled="isImageLoved(item.id)" />
                   </span>
                   <span class="ring-val">{{ formatNumber(getImageCount(item.id).loves) }}</span>
                 </button>
                 <button class="ring-node r-bookmark" :class="{ active: isImageFavorited(item.id) }" @click.stop="toggleImageFavorite(item)">
-                  <span class="ring-ripple"></span>
                   <span class="ring-body">
                     <BookmarkIcon :filled="isImageFavorited(item.id)" />
                   </span>
                   <span class="ring-val">{{ formatNumber(getImageCount(item.id).favorites) }}</span>
                 </button>
                 <button class="ring-node r-share" @click.stop="toggleImageShare(item)">
-                  <span class="ring-ripple"></span>
                   <span class="ring-body">
                     <ShareIcon />
                   </span>
                   <span class="ring-val">{{ formatNumber(getImageCount(item.id).shares) }}</span>
                 </button>
                 <button class="ring-node r-download" @click.stop="handleDownload(item)">
-                  <span class="ring-ripple"></span>
                   <span class="ring-body">
                     <DownloadIcon />
                   </span>
@@ -83,11 +75,7 @@
 
     <div v-else class="empty-state">
       <div class="empty-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <rect x="3" y="3" width="18" height="18" rx="2"/>
-          <circle cx="8.5" cy="8.5" r="1.5"/>
-          <path d="M21 15l-5-5L5 21"/>
-        </svg>
+        <ImageIcon :stroke-width="1.5" />
       </div>
       <p class="empty-text">暂无图片内容</p>
       <span class="empty-hint">精选图片即将呈现</span>
@@ -103,7 +91,7 @@
           </div>
           <div class="image-navigation">
             <button class="nav-btn prev" :disabled="currentImageIndex <= 0" @click="navigateImage(-1)">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+              <ChevronLeftIcon :stroke-width="2.5" />
             </button>
             <div class="nav-center">
               <span class="nav-current">{{ currentImageIndex + 1 }}</span>
@@ -111,7 +99,7 @@
               <span class="nav-total">{{ images.length }}</span>
             </div>
             <button class="nav-btn next" :disabled="currentImageIndex >= images.length - 1" @click="navigateImage(1)">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+              <ChevronRightIcon :stroke-width="2.5" />
             </button>
             <div class="nav-progress">
               <div class="nav-progress-bar" :style="{ width: `${((currentImageIndex + 1) / images.length) * 100}%` }"></div>
@@ -122,22 +110,22 @@
           <div class="modal-header">
             <span class="modal-category">{{ selectedImage?.category }}</span>
             <h3>{{ selectedImage?.title }}</h3>
-            <span class="modal-location">{{ selectedImage?.location }}</span>
+            <span class="modal-location"><LocationIcon :stroke-width="1.5" :style="{ width: '14px', height: '14px' }" /> {{ selectedImage?.location }}</span>
           </div>
-          <div v-if="selectedImage?.camera || selectedImage?.date" class="image-meta">
-            <div v-if="selectedImage?.camera" class="meta-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M10 6V2"/></svg>
-              <span>{{ selectedImage?.camera }}</span>
+            <div v-if="selectedImage?.camera || selectedImage?.date" class="image-meta">
+              <div v-if="selectedImage?.camera" class="meta-item">
+                <CameraIcon :stroke-width="2" />
+                <span>{{ selectedImage?.camera }}</span>
+              </div>
+              <div v-if="selectedImage?.date" class="meta-item">
+                <CalendarIcon :stroke-width="2" />
+                <span>{{ selectedImage?.date }}</span>
+              </div>
             </div>
-            <div v-if="selectedImage?.date" class="meta-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              <span>{{ selectedImage?.date }}</span>
-            </div>
-          </div>
           <div class="action-cards">
             <button class="action-card views-card">
               <div class="card-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                <EyeIcon :stroke-width="2" />
               </div>
               <div class="card-body">
                 <span class="card-value">{{ selectedImage ? formatNumber(getImageCount(selectedImage.id).views) : '' }}</span>
@@ -210,6 +198,14 @@ import HeartIcon from '@/pages/Landscape/icon/common/HeartIcon.vue';
 import BookmarkIcon from '@/pages/Landscape/icon/common/BookmarkIcon.vue';
 import ShareIcon from '@/pages/Landscape/icon/common/ShareIcon.vue';
 import DownloadIcon from '@/pages/Landscape/icon/common/DownloadIcon.vue';
+import EyeIcon from '@/pages/Landscape/icon/common/EyeIcon.vue';
+import CameraIcon from '@/pages/Landscape/icon/common/CameraIcon.vue';
+import CalendarIcon from '@/pages/Landscape/icon/common/CalendarIcon.vue';
+import LocationIcon from '@/pages/Landscape/icon/common/LocationIcon.vue';
+import ImageIcon from '@/pages/Landscape/icon/common/ImageIcon.vue';
+import ArrowRightIcon from '@/pages/Landscape/icon/common/ArrowRightIcon.vue';
+import ChevronLeftIcon from '@/pages/Landscape/icon/common/ChevronLeftIcon.vue';
+import ChevronRightIcon from '@/pages/Landscape/icon/common/ChevronRightIcon.vue';
 
 const interactionStore = useInteractionStore();
 const dataStore = useLandscapeDataStore();
@@ -218,7 +214,7 @@ const selectedImage = ref<GlobalImage | null>(null);
 const currentImageIndex = ref(0);
 
 const handleMore = () => {
-  console.log('查看更多');
+  // 查看更多处理
 };
 
 const images = computed(() => dataStore.getAllImages());
@@ -329,7 +325,7 @@ const toggleImageFavorite = (image: GlobalImage | null) => {
 
 const toggleImageShare = (image: GlobalImage | null) => {
   if (!image) return;
-  interactionStore.incrementShares(getGlobalId(image.id));
+
   showMessage.share.success(image.title);
 };
 

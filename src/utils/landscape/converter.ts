@@ -23,6 +23,8 @@ export function convertToLandscapeItem(item: GlobalImage | GlobalVideo): Landsca
     tags: (item as GlobalImage).tags || (item as GlobalVideo).tags || [],
     categoryTags: (item as GlobalImage).categoryTags || (item as GlobalVideo).categoryTags || [],
     author: (item as GlobalImage).author || (item as GlobalVideo).author || '',
+    authorId: (item as GlobalImage).authorId || (item as GlobalVideo).authorId || '',
+    authorAvatar: (item as GlobalVideo).authorAvatar || '',
     date: (item as GlobalImage).date || (item as GlobalVideo).date || '',
     camera: (item as GlobalImage).camera || '',
     likes: item.likes,

@@ -57,50 +57,60 @@ export const useInteractionStore = defineStore('interaction', () => {
   const getDataStore = () => useLandscapeDataStore()
 
   const migrateItemAuthor = (item: InteractionItem, dataStore: ReturnType<typeof useLandscapeDataStore>): InteractionItem => {
-    if (item.authorId && item.authorAvatar) return item
-    
-    if (item.type === 'image') {
-      const image = dataStore.getImage(item.id)
+    const resolveId = (id: string) => (id.startsWith('fc-') ? id.slice(3) : id)
+
+    const migrated = { ...item, id: resolveId(item.id) }
+
+    if (migrated.type === 'image') {
+      const image = dataStore.getImage(migrated.id)
       if (image) {
         const photographer = image.authorId ? dataStore.getPhotographer(image.authorId) : null
-        return { ...item, authorId: image.authorId, authorAvatar: photographer?.avatar, author: photographer?.name || item.author }
+        return { ...migrated, id: image.id, authorId: image.authorId, authorAvatar: photographer?.avatar, author: photographer?.name || item.author || image.author }
       }
-    } else if (item.type === 'video') {
-      const video = dataStore.getVideo(item.id)
+    } else if (migrated.type === 'video') {
+      const video = dataStore.getVideo(migrated.id)
       if (video) {
         const photographer = video.authorId ? dataStore.getPhotographer(video.authorId) : null
-        return { ...item, authorId: video.authorId, authorAvatar: photographer?.avatar || video.authorAvatar, author: photographer?.name || item.author }
+        return { ...migrated, id: video.id, authorId: video.authorId, authorAvatar: photographer?.avatar || video.authorAvatar, author: photographer?.name || item.author || video.author }
       }
-    } else if (item.type === 'guide') {
-      const guide = dataStore.getGuide(item.id)
+    } else if (migrated.type === 'guide') {
+      const guide = dataStore.getGuide(migrated.id)
       if (guide) {
         const photographer = guide.authorId ? dataStore.getPhotographer(guide.authorId) : null
-        return { ...item, authorId: guide.authorId, authorAvatar: photographer?.avatar || guide.authorAvatar, author: photographer?.name || item.author }
+        return { ...migrated, id: guide.id, authorId: guide.authorId, authorAvatar: photographer?.avatar || guide.authorAvatar, author: photographer?.name || item.author || guide.author }
       }
     }
+
+    if (migrated.authorId && migrated.authorAvatar && migrated.author) return migrated
     return item
   }
 
   const migrateStoredData = () => {
     const dataStore = getDataStore()
+    if (!dataStore.loaded) {
+      setTimeout(() => migrateStoredData(), 200)
+      return
+    }
     let needPersist = false
-    
+
     favorites.forEach((item, id) => {
       const migrated = migrateItemAuthor(item, dataStore)
-      if (migrated.authorId !== item.authorId || migrated.authorAvatar !== item.authorAvatar) {
-        favorites.set(id, migrated)
+      if (migrated.authorId !== item.authorId || migrated.authorAvatar !== item.authorAvatar || migrated.id !== id) {
+        favorites.delete(id)
+        favorites.set(migrated.id, migrated)
         needPersist = true
       }
     })
-    
+
     loves.forEach((item, id) => {
       const migrated = migrateItemAuthor(item, dataStore)
-      if (migrated.authorId !== item.authorId || migrated.authorAvatar !== item.authorAvatar) {
-        loves.set(id, migrated)
+      if (migrated.authorId !== item.authorId || migrated.authorAvatar !== item.authorAvatar || migrated.id !== id) {
+        loves.delete(id)
+        loves.set(migrated.id, migrated)
         needPersist = true
       }
     })
-    
+
     if (needPersist) {
       persistToStorage()
     }

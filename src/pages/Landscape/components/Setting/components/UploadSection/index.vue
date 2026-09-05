@@ -5,11 +5,7 @@
     <div class="setting-card">
       <div class="card-header">
         <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-            <polyline points="17 8 12 3 7 8" />
-            <line x1="12" y1="3" x2="12" y2="15" />
-          </svg>
+          <UploadIcon :stroke-width="2" />
         </div>
         <div>
           <h3 class="card-title">自动处理</h3>
@@ -44,9 +40,7 @@
     <div class="setting-card">
       <div class="card-header">
         <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-          </svg>
+          <ActivityIcon :stroke-width="2" />
         </div>
         <div>
           <h3 class="card-title">图片优化</h3>
@@ -85,11 +79,7 @@
     <div class="setting-card">
       <div class="card-header">
         <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-            <line x1="3" y1="9" x2="21" y2="9" />
-            <line x1="9" y1="21" x2="9" y2="9" />
-          </svg>
+          <LayoutGridIcon :stroke-width="2" />
         </div>
         <div>
           <h3 class="card-title">默认隐私</h3>
@@ -117,6 +107,9 @@
 import { ref } from 'vue'
 import CustomSwitch from '../../common/CustomSwitch.vue'
 import CustomSelect from '../../common/CustomSelect.vue'
+import UploadIcon from '@/pages/Landscape/icon/common/UploadIcon.vue'
+import ActivityIcon from '@/pages/Landscape/icon/components/setting/UploadSection/ActivityIcon.vue'
+import LayoutGridIcon from '@/pages/Landscape/icon/components/setting/UploadSection/LayoutGridIcon.vue'
 import { UploadQualityOptions, UploadPrivacyOptions } from '@/utils/landscape/constants'
 
 const autoExtractExif = ref(true)

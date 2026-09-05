@@ -3,17 +3,10 @@
     <div class="lightbox-frame">
       <div class="modal-content" @click.stop>
         <button class="close-btn" @click="$emit('close')">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <line x1="18" y1="6" x2="6" y2="18"/>
-            <line x1="6" y1="6" x2="18" y2="18"/>
-          </svg>
+          <CloseIcon />
         </button>
 
         <div class="image-viewport">
-          <div class="type-badge" :class="`badge-${workType}`">
-            <span class="type-icon">{{ workTypeConfig.icon }}</span>
-            <span class="type-name">{{ workTypeConfig.name }}</span>
-          </div>
 
           <img v-if="isImageType" loading="lazy"
             :src="previewWork.cover || previewWork.image" alt="作品预览" />
@@ -21,15 +14,10 @@
             <img loading="lazy" :src="previewWork.cover || previewWork.image" alt="作品预览" />
             <div class="video-play-overlay">
               <div class="play-btn-ring"></div>
-              <svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48">
-                <path d="M8 5v14l11-7z" />
-              </svg>
+              <PlayIcon :style="{ width: '48px', height: '48px' }" />
             </div>
             <div v-if="workType === 'timelapse'" class="timelapse-badge">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
-                <circle cx="12" cy="12" r="10"/>
-                <polyline points="12 6 12 12 16 14"/>
-              </svg>
+              <ClockIcon :style="{ width: '14px', height: '14px' }" />
               <span>延时摄影</span>
             </div>
             <div v-if="previewWork.duration" class="duration-badge">
@@ -39,11 +27,7 @@
           <div v-else-if="workType === 'aerial'" class="aerial-viewport">
             <img loading="lazy" :src="previewWork.cover || previewWork.image" alt="作品预览" />
             <div class="aerial-badge">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16">
-                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                <path d="M2 17l10 5 10-5"/>
-                <path d="M2 12l10 5 10-5"/>
-              </svg>
+              <AerialIcon :style="{ width: '16px', height: '16px' }" />
               <span>航拍视角</span>
             </div>
           </div>
@@ -51,20 +35,14 @@
             <img loading="lazy" :src="previewWork.cover || previewWork.image" alt="作品预览" />
           </div>
 
-          <div class="focus-indicator">
-            <div class="focus-point"></div>
-            <div class="focus-ring"></div>
-          </div>
+
         </div>
 
         <div class="info-bar">
           <div class="info-left">
             <h3 v-if="previewWork.title" class="work-title">{{ previewWork.title }}</h3>
             <div v-if="previewWork.author" class="work-author-row">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                <circle cx="12" cy="7" r="4"/>
-              </svg>
+              <UserIcon :stroke-width="1.5" />
               <span class="author-name">{{ previewWork.author }}</span>
             </div>
           </div>
@@ -74,42 +52,29 @@
               :class="['action-btn', 'like', { active: isLiked }]"
               @click="handleToggleLike"
             >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/>
-              </svg>
+              <ThumbUpIcon />
               <span class="btn-count">{{ formatNumber(getCount().likes) }}</span>
             </button>
             <button 
               :class="['action-btn', 'love', { active: isLoved }]"
               @click="handleToggleLove"
             >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-              </svg>
+              <HeartIcon />
               <span class="btn-count">{{ formatNumber(getCount().loves) }}</span>
             </button>
             <button 
               :class="['action-btn', 'bookmark', { active: isFavorited }]"
               @click="handleToggleFavorite"
             >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
-              </svg>
+              <BookmarkIcon />
               <span class="btn-count">{{ formatNumber(getCount().favorites) }}</span>
             </button>
             <button class="action-btn share" @click="handleShare">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
-                <line x1="8.59" y1="13.41" x2="15.42" y2="17.59"/><line x1="15.41" y1="6.41" x2="8.59" y2="10.59"/>
-              </svg>
+              <ShareIcon />
               <span class="btn-count">{{ formatNumber(getCount().shares) }}</span>
             </button>
             <button class="action-btn download" @click="handleDownload">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                <polyline points="7 10 12 15 17 10"/>
-                <line x1="12" y1="15" x2="12" y2="3"/>
-              </svg>
+              <DownloadIcon />
             </button>
           </div>
 
@@ -143,6 +108,16 @@ import { workTypeConfigs } from '@/utils/landscape/constants';
 import { showMessage } from '@/utils/landscape';
 import { useInteractionStore, type InteractionItem } from '@/stores/landscape';
 import { formatNumber } from '@/utils/landscape/format';
+import CloseIcon from '@/pages/Landscape/icon/common/CloseIcon.vue';
+import PlayIcon from '@/pages/Landscape/icon/common/PlayIcon.vue';
+import ClockIcon from '@/pages/Landscape/icon/common/ClockIcon.vue';
+import AerialIcon from '@/pages/Landscape/icon/common/AerialIcon.vue';
+import UserIcon from '@/pages/Landscape/icon/common/UserIcon.vue';
+import ThumbUpIcon from '@/pages/Landscape/icon/common/ThumbUpIcon.vue';
+import HeartIcon from '@/pages/Landscape/icon/common/HeartIcon.vue';
+import BookmarkIcon from '@/pages/Landscape/icon/common/BookmarkIcon.vue';
+import ShareIcon from '@/pages/Landscape/icon/common/ShareIcon.vue';
+import DownloadIcon from '@/pages/Landscape/icon/common/DownloadIcon.vue';
 
 interface PreviewWork {
   id?: string;
@@ -234,7 +209,7 @@ const handleToggleFavorite = () => {
 };
 
 const handleShare = () => {
-  interactionStore.incrementShares(workId.value);
+
   showMessage.share.success(workTitle.value);
 };
 

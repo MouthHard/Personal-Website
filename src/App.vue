@@ -35,7 +35,9 @@
       <router-view v-slot="{ Component }">
         <Transition name="page-switch" mode="out-in">
           <ErrorBoundary>
-            <component :is="Component" :key="router.currentRoute.value.path"></component>
+            <keep-alive :include="keepAliveNames">
+              <component :is="Component" :key="router.currentRoute.value.path"></component>
+            </keep-alive>
           </ErrorBoundary>
         </Transition>
       </router-view>
@@ -43,7 +45,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref, watch } from 'vue';
+import { onMounted, onUnmounted, ref, watch, computed } from 'vue';
 import { useRouter } from 'vue-router';
 import { scale, formatTime, formatDate } from '@/utils/common';
 import type { RouteItem } from '@/typesOfPages/common';
@@ -52,6 +54,12 @@ import { ErrorBoundary } from '@/components/common/ErrorBoundary';
 const router = useRouter();
 const curPageName = ref<string>('');
 const timer = ref<number>();
+
+const keepAliveNames = computed(() =>
+  router.getRoutes()
+    .map(r => r.meta?.keepAlive)
+    .filter((v): v is string => typeof v === 'string')
+);
 
 // DOM 引用
 const tabContainer = ref<HTMLElement>();

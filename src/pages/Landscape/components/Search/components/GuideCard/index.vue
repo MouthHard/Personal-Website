@@ -46,11 +46,15 @@
       <div class="card-footer">
         <div class="action-buttons">
           <button class="action-btn like" :class="{ active: isLiked, 'sort-highlighted': !isLikeDimmed && sortMode !== 'relevance', 'sort-dimmed': isLikeDimmed }" @click="handleLike">
-            <HeartIcon :stroke-width="2" />
+            <ThumbUpIcon :stroke-width="2" :filled="isLiked" />
             <span>{{ formatCount(getCounts().likes) }}</span>
           </button>
+          <button class="action-btn love" :class="{ active: isLoved, 'sort-highlighted': !isLoveDimmed && sortMode !== 'relevance', 'sort-dimmed': isLoveDimmed }" @click="handleLove">
+            <HeartIcon :stroke-width="2" :filled="isLoved" />
+            <span>{{ formatCount(getCounts().loves) }}</span>
+          </button>
           <button class="action-btn bookmark" :class="{ active: isBookmarked, 'sort-highlighted': !isBookmarkDimmed && sortMode !== 'relevance', 'sort-dimmed': isBookmarkDimmed }" @click="handleBookmark">
-            <BookmarkIcon :stroke-width="2" />
+            <BookmarkIcon :stroke-width="2" :filled="isBookmarked" />
             <span>{{ formatCount(getCounts().favorites) }}</span>
           </button>
           <button class="action-btn share" :class="{ 'sort-highlighted': !isShareDimmed && sortMode !== 'relevance', 'sort-dimmed': isShareDimmed }" @click="handleShare">
@@ -78,10 +82,12 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { formatNumber as formatCount } from '@/utils/landscape'
 import BookIcon from '../../../../icon/common/BookIcon.vue'
 import LocationIcon from '../../../../icon/common/LocationIcon.vue'
 import CalendarIcon from '../../../../icon/common/CalendarIcon.vue'
 import ClockIcon from '../../../../icon/common/ClockIcon.vue'
+import ThumbUpIcon from '../../../../icon/common/ThumbUpIcon.vue'
 import HeartIcon from '../../../../icon/common/HeartIcon.vue'
 import BookmarkIcon from '../../../../icon/common/BookmarkIcon.vue'
 import ShareIcon from '../../../../icon/common/ShareIcon.vue'
@@ -99,12 +105,14 @@ const props = defineProps<Props>()
 
 const emit = defineEmits<{
   like: [id: string]
+  love: [id: string]
   bookmark: [id: string]
   share: [id: string]
 }>()
 
 const interactionStore = useInteractionStore()
 const isLiked = computed(() => interactionStore.isLiked(String(props.item.id)))
+const isLoved = computed(() => interactionStore.isLoved(String(props.item.id)))
 const isBookmarked = computed(() => interactionStore.isFavorited(String(props.item.id)))
 const getCounts = () => interactionStore.getCount(String(props.item.id))
 
@@ -115,6 +123,10 @@ const isDateDimmed = computed(() => {
 const isLikeDimmed = computed(() => {
   const mode = props.sortMode
   return mode !== 'relevance' && mode !== 'likes'
+})
+const isLoveDimmed = computed(() => {
+  const mode = props.sortMode
+  return mode !== 'relevance' && mode !== 'loves'
 })
 const isViewsDimmed = computed(() => {
   const mode = props.sortMode
@@ -143,14 +155,13 @@ const difficultyLabel = computed(() => {
   return difficultyLabels[diff] || diff
 })
 
-const formatCount = (count: number) => {
-  if (count >= 10000) return (count / 10000).toFixed(1) + 'w'
-  if (count >= 1000) return (count / 1000).toFixed(1) + 'k'
-  return String(count)
-}
 
 const handleLike = () => {
   emit('like', String(props.item.id))
+}
+
+const handleLove = () => {
+  emit('love', String(props.item.id))
 }
 
 const handleBookmark = () => {

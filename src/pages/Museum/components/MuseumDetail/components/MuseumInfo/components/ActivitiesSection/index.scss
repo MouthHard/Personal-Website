@@ -205,22 +205,6 @@
         animation: borderGlow 3s ease-in-out infinite reverse;
       }
 
-      // 顶部扫描线效果
-      .scan-line {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 2px;
-        background: linear-gradient(
-          90deg,
-          transparent 0%,
-          rgba(0, 255, 234, 0.8) 50%,
-          transparent 100%
-        );
-        animation: scanLine 2s linear infinite;
-        z-index: 3;
-      }
 
       &:hover {
         transform: translateY(-15px) scale(1.05) rotateX(0deg) rotateY(0deg)
@@ -247,19 +231,6 @@
         }
       }
 
-      @keyframes scanLine {
-        0% {
-          transform: translateY(0);
-          opacity: 0;
-        }
-        50% {
-          opacity: 1;
-        }
-        100% {
-          transform: translateY(100%);
-          opacity: 0;
-        }
-      }
 
       .activity-image {
         margin: 0;
