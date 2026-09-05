@@ -342,7 +342,7 @@
   };
 
   const handleShare = (guide: GlobalGuide) => {
-    interactionStore.incrementShares(getGuideId(guide.id));
+
     showMessage.share.success(guide.title);
   };
 

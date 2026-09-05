@@ -3,10 +3,7 @@
     <div class="search-section">
       <div class="search-container" :class="{ focused: searchFocused }">
         <div class="search-input">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <circle cx="11" cy="11" r="8" />
-            <path d="m21 21-4.35-4.35" />
-          </svg>
+          <SearchIcon />
           <input
             ref="searchInputRef"
             v-model="localValue"
@@ -21,10 +18,7 @@
             class="clear-btn"
             @mousedown.prevent="clearSearch"
           >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10" />
-              <path d="m15 9-6 6M9 9l6 6" />
-            </svg>
+            <XCircleIcon :stroke-width="2" />
           </button>
         </div>
 
@@ -98,7 +92,7 @@
               :class="['mt-btn', { active: mediaType === mt.id, [mt.id]: true }]"
               @click="$emit('update:mediaType', mt.id)"
             >
-              <span class="mt-icon">{{ mt.icon }}</span>
+              <span class="mt-icon"><component :is="mediaTypeIconMap[mt.id]" /></span>
               <span class="mt-label">{{ mt.label }}</span>
             </button>
           </div>
@@ -109,7 +103,7 @@
               :class="['filter-chip', { active: activeFilter === filter.id }]"
               @click="$emit('update:activeFilter', filter.id)"
             >
-              <span class="chip-icon">{{ filter.icon }}</span>
+              <span class="chip-icon"><component :is="filterIconMap[filter.id]" /></span>
               <span class="chip-label">{{ filter.label }}</span>
             </button>
           </div>
@@ -120,10 +114,36 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch, onMounted } from 'vue';
+import { ref, computed, watch, onMounted, onUnmounted } from 'vue';
 import { mediaTypes, quickFilters } from '@/utils/landscape/constants';
 import { useLandscapeDataStore } from '@/stores/landscape/data';
 import { debounce } from '@/utils/landscape/debounce';
+import SearchIcon from '@/pages/Landscape/icon/common/SearchIcon.vue';
+import XCircleIcon from '@/pages/Landscape/icon/components/category/FilterHeader/XCircleIcon.vue';
+import LayersIcon from '@/pages/Landscape/icon/common/LayersIcon.vue';
+import ImageIcon from '@/pages/Landscape/icon/common/ImageIcon.vue';
+import VideoIcon from '@/pages/Landscape/icon/common/VideoIcon.vue';
+import ClockIcon from '@/pages/Landscape/icon/common/ClockIcon.vue';
+import EyeIcon from '@/pages/Landscape/icon/common/EyeIcon.vue';
+import ThumbUpIcon from '@/pages/Landscape/icon/common/ThumbUpIcon.vue';
+import HeartIcon from '@/pages/Landscape/icon/common/HeartIcon.vue';
+import BookmarkIcon from '@/pages/Landscape/icon/common/BookmarkIcon.vue';
+import ShareIcon from '@/pages/Landscape/icon/common/ShareIcon.vue';
+
+const mediaTypeIconMap: Record<string, any> = {
+  all: LayersIcon,
+  image: ImageIcon,
+  video: VideoIcon,
+};
+
+const filterIconMap: Record<string, any> = {
+  latest: ClockIcon,
+  'most-views': EyeIcon,
+  'most-likes': ThumbUpIcon,
+  'most-loves': HeartIcon,
+  'most-favorites': BookmarkIcon,
+  'most-shares': ShareIcon,
+};
 
 interface Props {
   modelValue: string;
@@ -249,14 +269,21 @@ watch(localValue, (val) => {
 });
 
 onMounted(() => {
-  searchInputRef.value?.focus();
+
 });
 
+let blurTimer: ReturnType<typeof setTimeout> | null = null;
+
 const handleBlur = () => {
-  setTimeout(() => {
+  blurTimer = setTimeout(() => {
     searchFocused.value = false;
+    blurTimer = null;
   }, 150);
 };
+
+onUnmounted(() => {
+  if (blurTimer) clearTimeout(blurTimer);
+});
 
 const handleEnter = () => {
   const trimmed = localValue.value.trim();

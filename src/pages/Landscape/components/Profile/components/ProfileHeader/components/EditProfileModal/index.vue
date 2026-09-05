@@ -4,10 +4,7 @@
       <div class="modal-header">
         <h2 class="modal-title">编辑资料</h2>
         <button class="close-btn" @click="handleClose">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <line x1="18" y1="6" x2="6" y2="18" />
-            <line x1="6" y1="6" x2="18" y2="18" />
-          </svg>
+          <CloseIcon />
         </button>
       </div>
 
@@ -22,18 +19,11 @@
                   alt="avatar"
                 />
                 <div v-else class="avatar-placeholder">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                    <circle cx="12" cy="7" r="4" />
-                  </svg>
+                  <UserIcon />
                 </div>
               </div>
               <button class="upload-btn">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                  <polyline points="17 8 12 3 7 8" />
-                  <line x1="12" y1="3" x2="12" y2="15" />
-                </svg>
+                <UploadIcon />
                 <span>更换头像</span>
               </button>
             </div>
@@ -96,13 +86,7 @@
               <div class="form-field">
                 <label class="field-label">个人网站</label>
                 <div class="input-with-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <circle cx="12" cy="12" r="10" />
-                    <line x1="2" y1="12" x2="22" y2="12" />
-                    <path
-                      d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
-                    />
-                  </svg>
+                  <GlobeIcon />
                   <input
                     v-model="formData.website"
                     type="url"
@@ -202,12 +186,7 @@
             <div class="form-field">
               <label class="field-label">电子邮箱</label>
               <div class="input-with-icon email-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <path
-                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-                  />
-                  <polyline points="22,6 12,13 2,6" />
-                </svg>
+                <MailIcon />
                 <input
                   v-model="formData.contact.email"
                   type="email"
@@ -219,11 +198,7 @@
             <div class="form-field">
               <label class="field-label">联系电话</label>
               <div class="input-with-icon phone-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <path
-                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
-                  />
-                </svg>
+                <PhoneIcon />
                 <input
                   v-model="formData.contact.phone"
                   type="tel"
@@ -236,11 +211,7 @@
           <div class="social-links">
             <div class="social-item">
               <div class="social-icon weibo">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path
-                    d="M20.194 14.258c-1.64-1.64-4.17-2.08-6.32-1.16l-.14.06c-.38.17-.55.62-.38 1 .17.38.62.55 1 .38l.14-.06c1.52-.68 3.39-.38 4.6.84l.06.06c.28.28.28.74 0 1.02s-.74.28-1.02 0l-.06-.06c-.84-.84-2.18-.84-3.02 0l-.06.06c-.28.28-.74.28-1.02 0s-.28-.74 0-1.02l.06-.06c1.52-1.52 3.98-1.52 5.5 0l.06.06c.56.56.56 1.48 0 2.04l-.06.06c-1.52 1.52-3.98 1.52-5.5 0-.28-.28-.28-.74 0-1.02s.74-.28 1.02 0c.84.84 2.18.84 3.02 0l.06-.06c.28-.28.28-.74 0-1.02z"
-                  />
-                </svg>
+                <WeiboIcon />
               </div>
               <input
                 v-model="formData.social.weibo"
@@ -251,11 +222,7 @@
             </div>
             <div class="social-item">
               <div class="social-icon wechat">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path
-                    d="M8.691 2.638C4.97 2.638 1.95 5.39 1.95 8.78c0 2.09 1.14 3.92 2.88 5.02l-.69 2.12 2.47-1.26c.65.2 1.35.31 2.08.31 3.72 0 6.74-2.75 6.74-6.14S12.41 2.638 8.691 2.638zm8.618 6.742c-3.72 0-6.74 2.75-6.74 6.14 0 2.09 1.14 3.92 2.88 5.02l-.69 2.12 2.47-1.26c.65.2 1.35.31 2.08.31 3.72 0 6.74-2.75 6.74-6.14s-3.02-6.19-6.74-6.19z"
-                  />
-                </svg>
+                <WechatIcon />
               </div>
               <input
                 v-model="formData.social.wechat"
@@ -266,11 +233,7 @@
             </div>
             <div class="social-item">
               <div class="social-icon bilibili">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path
-                    d="M17.813 4.65h-3.125l2.5-2.5c.3-.3.3-.8 0-1.1s-.8-.3-1.1 0l-3.6 3.6H7.413l-3.6-3.6c-.3-.3-.8-.3-1.1 0s-.3.8 0 1.1l2.5 2.5H2.087C.937 4.65 0 5.587 0 6.737v9.575c0 1.15.937 2.088 2.087 2.088h15.725c1.15 0 2.088-.937 2.088-2.088V6.737c0-1.15-.937-2.087-2.088-2.087z"
-                  />
-                </svg>
+                <BilibiliIcon />
               </div>
               <input
                 v-model="formData.social.bilibili"
@@ -281,11 +244,7 @@
             </div>
             <div class="social-item">
               <div class="social-icon xiaohongshu">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path
-                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-                  />
-                </svg>
+                <XiaohongshuIcon />
               </div>
               <input
                 v-model="formData.social.xiaohongshu"
@@ -296,11 +255,7 @@
             </div>
             <div class="social-item">
               <div class="social-icon mafengwo">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path
-                    d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
-                  />
-                </svg>
+                <MafengwoIcon />
               </div>
               <input
                 v-model="formData.social.mafengwo"
@@ -311,12 +266,7 @@
             </div>
             <div class="social-item">
               <div class="social-icon tuchong">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <circle cx="12" cy="12" r="3" />
-                  <path
-                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
-                  />
-                </svg>
+                <TuchongIcon />
               </div>
               <input
                 v-model="formData.social.tuchong"
@@ -327,11 +277,7 @@
             </div>
             <div class="social-item">
               <div class="social-icon instagram">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                  <circle cx="12" cy="12" r="4" />
-                  <circle cx="18" cy="6" r="1" />
-                </svg>
+                <InstagramFilledIcon />
               </div>
               <input
                 v-model="formData.social.instagram"
@@ -385,9 +331,7 @@
           :disabled="!hasChanges"
           @click="handleSave"
         >
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <polyline points="20 6 9 17 4 12" />
-          </svg>
+          <CheckIcon />
           <span>保存修改</span>
         </button>
       </div>
@@ -406,6 +350,20 @@
   import 'element-plus/es/components/scrollbar/style/css';
   import { chinaRegions } from '@/utils/landscape/chinaRegions';
   import { ProfileSpecialtyOptions } from '@/utils/landscape/constants';
+  import CloseIcon from '@/pages/Landscape/icon/common/CloseIcon.vue';
+  import UserIcon from '@/pages/Landscape/icon/common/UserIcon.vue';
+  import UploadIcon from '@/pages/Landscape/icon/common/UploadIcon.vue';
+  import CheckIcon from '@/pages/Landscape/icon/common/CheckIcon.vue';
+  import GlobeIcon from '@/pages/Landscape/icon/common/GlobeIcon.vue';
+  import MailIcon from '@/pages/Landscape/icon/common/MailIcon.vue';
+  import PhoneIcon from '@/pages/Landscape/icon/common/PhoneIcon.vue';
+  import WeiboIcon from '@/pages/Landscape/icon/common/WeiboIcon.vue';
+  import WechatIcon from '@/pages/Landscape/icon/common/WechatIcon.vue';
+  import BilibiliIcon from '@/pages/Landscape/icon/components/profile/EditProfileModal/BilibiliIcon.vue';
+  import XiaohongshuIcon from '@/pages/Landscape/icon/components/profile/EditProfileModal/XiaohongshuIcon.vue';
+  import MafengwoIcon from '@/pages/Landscape/icon/components/profile/EditProfileModal/MafengwoIcon.vue';
+  import TuchongIcon from '@/pages/Landscape/icon/components/profile/EditProfileModal/TuchongIcon.vue';
+  import InstagramFilledIcon from '@/pages/Landscape/icon/common/InstagramFilledIcon.vue';
 
   interface EditableUser {
     name?: string;

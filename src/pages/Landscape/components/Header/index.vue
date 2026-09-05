@@ -13,7 +13,9 @@
         <div v-if="isActiveNav(nav.path)" class="active-indicator-left">
           <CameraIcon :stroke-width="2.5" />
         </div>
-        <span class="nav-icon">{{ nav.icon }}</span>
+        <span class="nav-icon">
+          <component :is="navIconMap[nav.path]" :stroke-width="2" />
+        </span>
         <span class="nav-text">{{ nav.name }}</span>
         <div v-if="isActiveNav(nav.path)" class="active-indicator-right">
           <SunAltIcon />
@@ -21,7 +23,6 @@
       </router-link>
     </nav>
 
-    <SearchBox />
 
     <div class="user-actions">
       <button class="action-btn upload-btn" title="上传作品" @click="emit('open-upload')">
@@ -29,12 +30,12 @@
         <span class="btn-text">上传</span>
       </button>
       <button class="action-btn settings-btn" title="设置" @click="goToSettings">
-        <SettingsIcon :stroke-width="2" />
+        <SettingsIcon   />
         <span class="btn-text">设置</span>
       </button>
-      <button class="action-btn home-btn" title="返回项目首页" @click="goToHome">
-        <HomeIcon :stroke-width="2" />
-        <span class="btn-text">首页</span>
+      <button class="action-btn home-btn" title="返回网站主页" @click="goToHome">
+        <BuildingIcon :stroke-width="2" />
+        <span class="btn-text">返回网站主页</span>
       </button>
     </div>
   </header>
@@ -42,12 +43,18 @@
 
 <script setup lang="ts">
 import { useRouter, useRoute } from 'vue-router';
-import CameraIcon from '../../icon/common/CameraIcon.vue';
-import UploadIcon from '../../icon/header/UploadIcon.vue';
-import HomeIcon from '../../icon/header/HomeIcon.vue';
-import SettingsIcon from '../../icon/header/SettingsIcon.vue';
-import SunAltIcon from '../../icon/header/SunAltIcon.vue';
-import SearchBox from '../common/SearchBox/index.vue';
+import type { Component } from 'vue';
+import CameraIcon from '@/pages/Landscape/icon/common/CameraIcon.vue';
+import UploadIcon from '@/pages/Landscape/icon/common/UploadIcon.vue';
+import BuildingIcon from '@/pages/Landscape/icon/common/BuildingIcon.vue';
+import SettingsIcon from '@/pages/Landscape/icon/common/SettingsIcon.vue';
+import SunAltIcon from '@/pages/Landscape/icon/common/SunIcon.vue';
+import NavHomeIcon from '@/pages/Landscape/icon/components/header/NavHomeIcon.vue';
+import NavCategoryIcon from '@/pages/Landscape/icon/components/header/NavCategoryIcon.vue';
+import NavGuidesIcon from '@/pages/Landscape/icon/components/header/NavGuidesIcon.vue';
+import NavPhotographersIcon from '@/pages/Landscape/icon/components/header/NavPhotographersIcon.vue';
+import NavProfileIcon from '@/pages/Landscape/icon/components/header/NavProfileIcon.vue';
+import NavSearchIcon from '@/pages/Landscape/icon/components/header/NavSearchIcon.vue';
 import { mainNavs } from '@/utils/landscape/constants';
 
 const router = useRouter();
@@ -55,6 +62,15 @@ const route = useRoute();
 const emit = defineEmits<{
   'open-upload': [];
 }>();
+
+const navIconMap: Record<string, Component> = {
+  '/landscape/home': NavHomeIcon,
+  '/landscape/search': NavSearchIcon,
+  '/landscape/category': NavCategoryIcon,
+  '/landscape/guides': NavGuidesIcon,
+  '/landscape/photographers': NavPhotographersIcon,
+  '/landscape/profile': NavProfileIcon,
+};
 
 const isActiveNav = (path: string) => {
   return route.path === path || route.path.startsWith(path + '/');

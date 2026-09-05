@@ -11,8 +11,7 @@
       <div
         class="book-cover"
         @click="toggleBook"
-        @mouseenter="isCoverHovered = true"
-        @mouseleave="isCoverHovered = false"
+
       >
         <!-- 书签 - 放在封面内部，跟随封面一起翻转 -->
         <div class="book-bookmark">
@@ -245,7 +244,6 @@ const emit = defineEmits<{
   (e: "change-category", category: string): void;
 }>();
 
-const isCoverHovered = ref(false);
 
 const categories = [
   { id: "all", name: "全部", icon: "📚" },

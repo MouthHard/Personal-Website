@@ -3,14 +3,7 @@
     <div class="section-header">
       <h2 class="section-title">
         <span class="title-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <rect x="2" y="2" width="20" height="20" rx="2" ry="2" />
-            <circle cx="12" cy="12" r="5" />
-            <line x1="2" y1="7" x2="5" y2="7" />
-            <line x1="2" y1="17" x2="5" y2="17" />
-            <line x1="19" y1="7" x2="22" y2="7" />
-            <line x1="19" y1="17" x2="22" y2="17" />
-          </svg>
+          <ApertureIcon />
         </span>
         精选作品
       </h2>
@@ -18,41 +11,16 @@
     </div>
     <div v-if="featuredWorks.length > 0" class="film-carrier">
       <div class="film-strip-edge top">
-        <div class="sprocket-row">
-          <div v-for="i in 80" :key="'t' + i" class="sprocket">
-            <div class="sprocket-hole"></div>
-          </div>
-        </div>
+        <div class="sprocket-row"></div>
         <div class="edge-code">KODAK SAFETY FILM 5032 ▼</div>
       </div>
       <div class="film-body">
         <button class="scroll-dial left" @click="scrollLeft">
           <div class="dial-outer">
-            <div class="dial-ring outer-ring">
-              <div
-                v-for="i in 20"
-                :key="'ot' + i"
-                class="ring-tick"
-                :style="{ '--t': i }"
-              ></div>
-            </div>
-            <div class="dial-ring inner-ring">
-              <div
-                v-for="i in 12"
-                :key="'it' + i"
-                class="ring-tick"
-                :style="{ '--t': i }"
-              ></div>
-            </div>
+            <div class="dial-ring outer-ring"></div>
+            <div class="dial-ring inner-ring"></div>
             <div class="dial-arrow">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="3"
-              >
-                <polyline points="15 18 9 12 15 6" />
-              </svg>
+              <ChevronLeftIcon :stroke-width="3" />
             </div>
           </div>
         </button>
@@ -66,29 +34,13 @@
               @click="$emit('preview', work)"
             >
               <div class="film-frame">
-                <div class="frame-edge top-edge">
-                  <div v-for="i in 4" :key="'es' + i" class="edge-sprocket">
-                    <div class="edge-hole"></div>
-                  </div>
-                </div>
-                <div class="frame-edge bottom-edge">
-                  <div v-for="i in 4" :key="'eb' + i" class="edge-sprocket">
-                    <div class="edge-hole"></div>
-                  </div>
-                </div>
+                <div class="frame-edge top-edge"></div>
+                <div class="frame-edge bottom-edge"></div>
                 <div class="film-gate"></div>
                 <img loading="lazy" :src="work.image" :alt="work.title" />
-                <div class="work-type-indicator" :class="`type-${work.type}`">
-                  <span class="type-icon">
-                    {{ getWorkTypeIcon(work.type) }}
-                  </span>
-                </div>
+
                 <div class="work-overlay">
-                  <div class="overlay-aperture">
-                    <div class="ring"></div>
-                    <div class="ring"></div>
-                    <div class="ring"></div>
-                  </div>
+
                   <div class="work-info">
                     <h3 class="work-title">{{ work.title }}</h3>
                     <p class="work-author">{{ work.author }}</p>
@@ -107,52 +59,23 @@
         </div>
         <button class="scroll-dial right" @click="scrollRight">
           <div class="dial-outer">
-            <div class="dial-ring outer-ring">
-              <div
-                v-for="i in 20"
-                :key="'ot' + i"
-                class="ring-tick"
-                :style="{ '--t': i }"
-              ></div>
-            </div>
-            <div class="dial-ring inner-ring">
-              <div
-                v-for="i in 12"
-                :key="'it' + i"
-                class="ring-tick"
-                :style="{ '--t': i }"
-              ></div>
-            </div>
+            <div class="dial-ring outer-ring"></div>
+            <div class="dial-ring inner-ring"></div>
             <div class="dial-arrow">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="3"
-              >
-                <polyline points="9 18 15 12 9 6" />
-              </svg>
+              <ChevronRightIcon :stroke-width="3" />
             </div>
           </div>
         </button>
       </div>
       <div class="film-strip-edge bottom">
-        <div class="sprocket-row">
-          <div v-for="i in 80" :key="'b' + i" class="sprocket">
-            <div class="sprocket-hole"></div>
-          </div>
-        </div>
+        <div class="sprocket-row"></div>
         <div class="edge-code">▲ 5032 FILM SAFETY KODAK</div>
       </div>
     </div>
 
     <div v-else class="empty-state">
       <div class="empty-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <rect x="2" y="2" width="20" height="20" rx="2"/>
-          <circle cx="8.5" cy="8.5" r="1.5"/>
-          <path d="M21 15l-5-5L5 21"/>
-        </svg>
+        <ImageEmptyIcon />
       </div>
       <p class="empty-text">暂无精选作品</p>
       <span class="empty-hint">优秀作品即将呈现</span>
@@ -162,9 +85,13 @@
 
 <script setup lang="ts">
   import { ref, computed, onMounted, onUnmounted } from 'vue';
-  import { workTypeIcons } from '@/utils/landscape/constants';
+
   import { useLandscapeDataStore } from '@/stores/landscape';
   import { useInteractionStore } from '@/stores/landscape';
+  import ApertureIcon from '@/pages/Landscape/icon/components/photographers/FeaturedWorks/ApertureIcon.vue';
+  import ChevronLeftIcon from '@/pages/Landscape/icon/common/ChevronLeftIcon.vue';
+  import ChevronRightIcon from '@/pages/Landscape/icon/common/ChevronRightIcon.vue';
+  import ImageEmptyIcon from '@/pages/Landscape/icon/common/ImageIcon.vue';
 
   defineEmits<{
     preview: [work: any];
@@ -173,8 +100,6 @@
   const interactionStore = useInteractionStore();
   const dataStore = useLandscapeDataStore();
 
-  const getWorkTypeIcon = (type?: string) =>
-    workTypeIcons[type || 'photo'] || '🖼️';
 
   const featuredWorks = computed(() =>
     dataStore

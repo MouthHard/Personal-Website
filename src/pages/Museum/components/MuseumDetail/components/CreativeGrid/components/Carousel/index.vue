@@ -179,15 +179,15 @@
   };
 
   const handleFavoriteClick = (product: CreativeProduct) => {
-    emit('favorite', product);
+ 
   };
 
   const handleCollectClick = (product: CreativeProduct) => {
-    emit('collect', product);
+   
   };
 
   const handleShareClick = (product: CreativeProduct) => {
-    emit('share', product);
+  
   };
 
   const handleImageError = (event: Event) => {

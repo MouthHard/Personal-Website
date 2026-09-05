@@ -66,32 +66,34 @@ export function useGuidesFilter(
     const hasLoc = locFilters.length > 0;
     const hasDur = durFilters.length > 0;
 
-    if (!hasKeyword && !hasTm && !hasSt && !hasSeason && !hasLoc && !hasDur) {
-      return [...guides.value];
-    }
+    let result: GlobalGuide[];
 
-    const result: GlobalGuide[] = [];
-    for (const guide of guides.value) {
-      if (hasKeyword) {
-        const match =
-          guide.title.toLowerCase().includes(keyword) ||
-          guide.excerpt.toLowerCase().includes(keyword) ||
-          guide.location.toLowerCase().includes(keyword) ||
-          (guide.author || '').toLowerCase().includes(keyword) ||
-          (guide.season || '').toLowerCase().includes(keyword) ||
-          (guide.travelMode || '').toLowerCase().includes(keyword) ||
-          (guide.sceneryTheme || '').toLowerCase().includes(keyword) ||
-          (guide.duration || '').toLowerCase().includes(keyword) ||
-          (guide.publishDate || '').toLowerCase().includes(keyword) ||
-          guide.tags.some((tag) => tag.toLowerCase().includes(keyword));
-        if (!match) continue;
+    if (!hasKeyword && !hasTm && !hasSt && !hasSeason && !hasLoc && !hasDur) {
+      result = [...guides.value];
+    } else {
+      result = [];
+      for (const guide of guides.value) {
+        if (hasKeyword) {
+          const match =
+            guide.title.toLowerCase().includes(keyword) ||
+            guide.excerpt.toLowerCase().includes(keyword) ||
+            guide.location.toLowerCase().includes(keyword) ||
+            (guide.author || '').toLowerCase().includes(keyword) ||
+            (guide.season || '').toLowerCase().includes(keyword) ||
+            (guide.travelMode || '').toLowerCase().includes(keyword) ||
+            (guide.sceneryTheme || '').toLowerCase().includes(keyword) ||
+            (guide.duration || '').toLowerCase().includes(keyword) ||
+            (guide.publishDate || '').toLowerCase().includes(keyword) ||
+            guide.tags.some((tag) => tag.toLowerCase().includes(keyword));
+          if (!match) continue;
+        }
+        if (hasTm && !(guide.travelMode && tmFilters.some((m) => guide.travelMode === modeMap[m]))) continue;
+        if (hasSt && !(guide.sceneryTheme && stFilters.some((t) => guide.sceneryTheme === themeMap[t]))) continue;
+        if (hasSeason && !(guide.season && seasonFilters.some((s) => guide.season === seasonMap[s]))) continue;
+        if (hasLoc && !(guide.locationId && locFilters.includes(guide.locationId))) continue;
+        if (hasDur && !(guide.duration && durFilters.some((d) => guide.duration === durationMap[d]))) continue;
+        result.push(guide);
       }
-      if (hasTm && !(guide.travelMode && tmFilters.some((m) => guide.travelMode === modeMap[m]))) continue;
-      if (hasSt && !(guide.sceneryTheme && stFilters.some((t) => guide.sceneryTheme === themeMap[t]))) continue;
-      if (hasSeason && !(guide.season && seasonFilters.some((s) => guide.season === seasonMap[s]))) continue;
-      if (hasLoc && !(guide.locationId && locFilters.includes(guide.locationId))) continue;
-      if (hasDur && !(guide.duration && durFilters.some((d) => guide.duration === durationMap[d]))) continue;
-      result.push(guide);
     }
 
     const sortFn = currentSort.value;

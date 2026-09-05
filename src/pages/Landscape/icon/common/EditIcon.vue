@@ -1,11 +1,21 @@
 <template>
-  <svg t="1781502172860" class="icon" viewBox="0 0 1245 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
-    p-id="67521" width="20" height="20" fill="currentColor">
-    <path
-      d="M134.325343 736.153142S575.645846 179.703469 959.425701 115.700267C511.690516 294.832638 0 1024 0 1024h498.909024a37.195578 37.195578 0 0 0-38.296606-25.562984H63.955331a1934.935975 1934.935975 0 0 1 140.740024-147.106834c255.869193-12.781492 479.71285-38.296605 633.234366-255.869194 25.562984-51.173839-19.148303-44.759157-31.977666-44.759157 121.543851-51.173839 383.779854-243.03983 345.387508-339.020697-19.148303-19.148303-31.977665-6.414681-31.977665-6.414681s198.280673-127.910661 95.741513-185.499182-358.21687 31.977665-358.216871 31.977666 19.148303-38.296605-38.296605-38.296605a711.407311 711.407311 0 0 0-377.221561 166.255137s0-51.173839-31.977665-31.977666c-441.368374 275.017496-275.065366 588.427338-275.065366 588.427339z"
-      p-id="67522"></path>
+  <svg viewBox="0 0 24 24" :fill="fill" stroke="currentColor" :stroke-width="strokeWidth" :class="props.class" :style="props.style">
+    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
   </svg>
 </template>
-<script setup lang="ts">
 
+<script setup lang="ts">
+import type { CSSProperties } from 'vue'
+interface Props {
+  fill?: string
+  strokeWidth?: number | string
+  class?: string
+  style?: CSSProperties
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  fill: 'none',
+  strokeWidth: 2
+})
 </script>

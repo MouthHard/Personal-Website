@@ -1,6 +1,7 @@
 <template>
   <div class="poem-card" @click="handleClick">
-    <div class="scroll-container" :style="backgroundStyle">
+    <div class="scroll-container">
+      <img :src="backgroundImage" alt="" class="bg-img" loading="lazy" />
       <h3 class="poem-title">{{ poem.title }}</h3>
 
       <div class="meta-info">
@@ -39,9 +40,7 @@ const emit = defineEmits<{
 }>();
 
 const backgroundImage = getBackgroundUrl(props.poem.id);
-const backgroundStyle = computed(() => ({
-  backgroundImage: `url('${backgroundImage}')`,
-}));
+
 
 const previewLines = computed(() => {
   return props.poem.content.slice(0, 6);

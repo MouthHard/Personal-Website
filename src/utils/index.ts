@@ -18,8 +18,5 @@ export {
   formatPlayCount,
   getNextIndex,
   getPrevIndex,
-  parseLyric,
   getCurrentLyricIndex,
-  searchSongs as searchMusic,
-  getTagColor,
 } from "./music";

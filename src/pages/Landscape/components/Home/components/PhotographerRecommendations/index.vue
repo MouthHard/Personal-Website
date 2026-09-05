@@ -445,7 +445,7 @@ const handleWorkFavorite = (work: WorkItem) => {
 };
 
 const handleWorkShare = (work: WorkItem) => {
-  interactionStore.incrementShares(getWorkId(work.id));
+
   showMessage.share.success(work.title);
 };
 

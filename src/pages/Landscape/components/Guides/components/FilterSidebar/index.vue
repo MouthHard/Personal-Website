@@ -2,9 +2,7 @@
   <aside class="filter-sidebar">
     <div class="filter-header">
       <h2 class="filter-title">
-        <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
-        </svg>
+        <FilterIcon class="filter-icon" :stroke-width="2" />
         <span class="title-text">筛选</span>
       </h2>
       <button
@@ -13,10 +11,7 @@
         title="清除所有筛选"
         @click="clearAllFilters"
       >
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="3 6 5 6 21 6" />
-          <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
-        </svg>
+        <TrashIcon :stroke-width="2" />
         <span>重置</span>
       </button>
     </div>
@@ -30,9 +25,7 @@
             <span class="group-label">最佳季节</span>
             <span v-if="selectedFilters.season.length" class="group-badge">{{ selectedFilters.season.length }}</span>
           </div>
-          <svg class="chevron" :class="{ expanded: expandedSections.includes('season') }" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="6 9 12 15 18 9"/>
-          </svg>
+          <ChevronDownIcon class="chevron" :class="{ expanded: expandedSections.includes('season') }" :stroke-width="2" />
         </button>
         <div v-show="expandedSections.includes('season')" class="group-options">
           <div class="options-grid">
@@ -58,9 +51,7 @@
             <span class="group-label">旅行方式</span>
             <span v-if="selectedFilters.travelMode.length" class="group-badge">{{ selectedFilters.travelMode.length }}</span>
           </div>
-          <svg class="chevron" :class="{ expanded: expandedSections.includes('travelMode') }" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="6 9 12 15 18 9"/>
-          </svg>
+          <ChevronDownIcon class="chevron" :class="{ expanded: expandedSections.includes('travelMode') }" :stroke-width="2" />
         </button>
         <div v-show="expandedSections.includes('travelMode')" class="group-options">
           <div class="options-grid">
@@ -86,9 +77,7 @@
             <span class="group-label">风景主题</span>
             <span v-if="selectedFilters.sceneryTheme.length" class="group-badge">{{ selectedFilters.sceneryTheme.length }}</span>
           </div>
-          <svg class="chevron" :class="{ expanded: expandedSections.includes('sceneryTheme') }" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="6 9 12 15 18 9"/>
-          </svg>
+          <ChevronDownIcon class="chevron" :class="{ expanded: expandedSections.includes('sceneryTheme') }" :stroke-width="2" />
         </button>
         <div v-show="expandedSections.includes('sceneryTheme')" class="group-options">
           <!-- 自然风光 -->
@@ -182,9 +171,7 @@
             <span class="group-label">地理位置</span>
             <span v-if="selectedFilters.location.length" class="group-badge">{{ selectedFilters.location.length }}</span>
           </div>
-          <svg class="chevron" :class="{ expanded: expandedSections.includes('location') }" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="6 9 12 15 18 9"/>
-          </svg>
+          <ChevronDownIcon class="chevron" :class="{ expanded: expandedSections.includes('location') }" :stroke-width="2" />
         </button>
         <div v-show="expandedSections.includes('location')" class="group-options">
           <div class="options-list">
@@ -210,9 +197,7 @@
             <span class="group-label">行程天数</span>
             <span v-if="selectedFilters.duration.length" class="group-badge">{{ selectedFilters.duration.length }}</span>
           </div>
-          <svg class="chevron" :class="{ expanded: expandedSections.includes('duration') }" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="6 9 12 15 18 9"/>
-          </svg>
+          <ChevronDownIcon class="chevron" :class="{ expanded: expandedSections.includes('duration') }" :stroke-width="2" />
         </button>
         <div v-show="expandedSections.includes('duration')" class="group-options">
           <div class="options-list">
@@ -234,6 +219,10 @@
 </template>
 
 <script setup lang="ts">
+import FilterIcon from '@/pages/Landscape/icon/components/guides/FilterSidebar/FilterIcon.vue';
+import TrashIcon from '@/pages/Landscape/icon/common/TrashIcon.vue';
+import ChevronDownIcon from '@/pages/Landscape/icon/common/ChevronDownIcon.vue';
+
 interface FilterItem {
   id: string;
   icon?: string;

@@ -1,5 +1,4 @@
 import type { SocialLink, ContactInfo } from './common'
-import type { Component } from 'vue'
 import type { GuideSection, GuideEquipment, GuideTip } from './data'
 
 export interface ImageItem {
@@ -172,18 +171,4 @@ export interface User {
     likes: number
     following: number
   }
-}
-
-export interface Stat {
-  label: string
-  value: string
-  trend: number
-  icon: () => Component
-}
-
-export interface Tab {
-  key: string
-  name: string
-  count: number
-  icon: () => Component
 }

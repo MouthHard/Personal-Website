@@ -56,15 +56,15 @@
   });
 
   const toggleFavorite = (activityId: string) => {
-    toggleFavoriteStatus(activityId);
+  
   };
 
   const shareActivity = (activityId: string) => {
-    shareActivityHandler(activityId);
+ 
   };
 
   const selectDay = (day: any) => {
-    selectedDay.value = day;
+ 
   };
 
   const loadProvinceData = async () => {

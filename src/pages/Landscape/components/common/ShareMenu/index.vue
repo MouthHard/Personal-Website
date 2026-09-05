@@ -6,9 +6,7 @@
           <div class="share-menu-header">
             <h3 class="share-title">分享到</h3>
             <button class="close-btn" @click="handleClose">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path d="M18 6L6 18M6 6l12 12" stroke-width="2" stroke-linecap="round" />
-              </svg>
+              <CloseIcon :stroke-width="2" />
             </button>
           </div>
 
@@ -25,19 +23,13 @@
 
           <div class="share-link-section">
             <div class="link-header">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" stroke-width="2" />
-                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" stroke-width="2" />
-              </svg>
+              <LinkIcon :stroke-width="2" />
               <span>复制链接</span>
             </div>
             <div class="link-input-group">
               <input type="text" :value="shareUrl" readonly class="link-input" />
               <button class="copy-btn" @click="handleCopyLink">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <rect x="9" y="9" width="13" height="13" rx="2" stroke-width="2" />
-                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke-width="2" />
-                </svg>
+                <CopyIcon :stroke-width="2" />
                 <span>{{ copied ? '已复制' : '复制' }}</span>
               </button>
             </div>
@@ -49,8 +41,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, h } from 'vue'
+import { ref, h, onUnmounted } from 'vue'
 import { showMessage } from '@/utils/landscape'
+import CloseIcon from '@/pages/Landscape/icon/common/CloseIcon.vue'
+import LinkIcon from '@/pages/Landscape/icon/components/common/ShareMenu/LinkIcon.vue'
+import CopyIcon from '@/pages/Landscape/icon/components/common/ShareMenu/CopyIcon.vue'
 
 interface Platform {
   id: string
@@ -277,19 +272,27 @@ const handleShare = (platform: Platform) => {
   handleClose()
 }
 
+let copyTimer: ReturnType<typeof setTimeout> | null = null;
+
 const handleCopyLink = async () => {
   try {
     await navigator.clipboard.writeText(props.shareUrl)
     copied.value = true
     showMessage.share.copied()
-    setTimeout(() => {
+    if (copyTimer) clearTimeout(copyTimer)
+    copyTimer = setTimeout(() => {
       copied.value = false
+      copyTimer = null
     }, 2000)
   } catch (err) {
     showMessage.share.error()
     console.error('Failed to copy:', err)
   }
 }
+
+onUnmounted(() => {
+  if (copyTimer) clearTimeout(copyTimer)
+})
 </script>
 
 <style scoped lang="scss" src="./index.scss" />

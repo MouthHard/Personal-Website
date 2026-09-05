@@ -23,9 +23,9 @@
           <ThumbUpIcon :stroke-width="2" />
           <span class="stat-value">{{ formatCount(item.likes || 0) }}</span>
         </div>
-        <div class="stat-item" :class="{ 'sort-highlighted': !isBookmarkDimmed && sortMode !== 'relevance', 'sort-dimmed': isBookmarkDimmed }">
-          <BookmarkIcon :stroke-width="2" />
-          <span class="stat-value">{{ formatCount(item.bookmarks || 0) }}</span>
+        <div class="stat-item" :class="{ 'sort-highlighted': !isViewsDimmed && sortMode !== 'relevance', 'sort-dimmed': isViewsDimmed }">
+          <EyeIcon :stroke-width="2" />
+          <span class="stat-value">{{ formatCount(item.views || 0) }}</span>
         </div>
       </div>
     </div>
@@ -88,7 +88,7 @@ import LocationIcon from '../../../../icon/common/LocationIcon.vue'
 import UsersIcon from '../../../../icon/common/UsersIcon.vue'
 import ImageIcon from '../../../../icon/common/ImageIcon.vue'
 import ThumbUpIcon from '../../../../icon/common/ThumbUpIcon.vue'
-import BookmarkIcon from '../../../../icon/common/BookmarkIcon.vue'
+import EyeIcon from '../../../../icon/common/EyeIcon.vue'
 import UserPlusIcon from '../../../../icon/common/UserPlusIcon.vue'
 import InstagramIcon from '../../../../icon/common/InstagramIcon.vue'
 import TwitterIcon from '../../../../icon/common/TwitterIcon.vue'
@@ -128,9 +128,9 @@ const isLikeDimmed = computed(() => {
   const mode = props.sortMode
   return mode !== 'relevance' && mode !== 'likes'
 })
-const isBookmarkDimmed = computed(() => {
+const isViewsDimmed = computed(() => {
   const mode = props.sortMode
-  return mode !== 'relevance' && mode !== 'bookmarks'
+  return mode !== 'relevance' && mode !== 'views'
 })
 
 const formatCount = (count: number) => {

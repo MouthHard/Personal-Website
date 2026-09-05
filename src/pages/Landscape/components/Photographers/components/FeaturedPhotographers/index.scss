@@ -13,7 +13,7 @@
     animation: fadeInDown 0.8s ease-out;
 
     .section-title {
-      font-size: 32px;
+      font-size: 36px;
       font-weight: 800;
       background: linear-gradient(135deg, #fff 0%, rgba(255, 200, 120, 1) 100%);
       -webkit-background-clip: text;
@@ -26,9 +26,19 @@
       letter-spacing: -0.5px;
 
       .title-icon {
-        font-size: 28px;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffd700;
         filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
         animation: iconFloat 3s ease-in-out infinite;
+
+        svg {
+          width: 100%;
+          height: 100%;
+        }
       }
     }
 
@@ -39,7 +49,7 @@
     }
 
     .section-desc {
-      font-size: 14px;
+      font-size: 16px;
       color: rgba(255, 255, 255, 0.65);
       margin: 0;
       font-weight: 500;
@@ -49,14 +59,14 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      padding: 8px 18px;
+      padding: 9px 20px;
       background: linear-gradient(180deg, rgba(40, 24, 12, 0.8) 0%, rgba(28, 16, 8, 0.9) 100%);
       border: 1px solid rgba(212, 148, 58, 0.35);
       border-top-color: rgba(255, 183, 77, 0.3);
       border-bottom-color: rgba(140, 80, 20, 0.2);
       border-radius: 6px;
       color: rgba(255, 200, 120, 0.85);
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 700;
       letter-spacing: 0.5px;
       cursor: pointer;
@@ -66,8 +76,8 @@
       white-space: nowrap;
 
       svg {
-        width: 14px;
-        height: 14px;
+        width: 16px;
+        height: 16px;
         transition: transform 0.3s ease;
       }
 
@@ -104,6 +114,8 @@
       box-shadow:
         0 15px 40px rgba(0, 0, 0, 0.5),
         0 0 30px rgba(212, 148, 58, 0.08);
+      display: flex;
+      flex-direction: column;
 
       &::before {
         content: '';
@@ -183,6 +195,9 @@
         padding: 20px;
         position: relative;
         z-index: 2;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
 
         .photographer-header {
           display: flex;
@@ -229,7 +244,7 @@
             flex: 1;
 
             .name {
-              font-size: 18px;
+              font-size: 20px;
               font-weight: 800;
               background: linear-gradient(135deg, #fff 0%, rgba(255, 200, 120, 1) 100%);
               -webkit-background-clip: text;
@@ -253,13 +268,13 @@
               flex-wrap: wrap;
 
               .tag {
-                padding: 3px 8px;
+                padding: 4px 10px;
                 background: linear-gradient(180deg, rgba(212, 148, 58, 0.28) 0%, rgba(180, 100, 30, 0.18) 100%);
                 border: 1px solid rgba(212, 148, 58, 0.4);
                 border-top-color: rgba(255, 183, 77, 0.5);
                 border-bottom-color: rgba(180, 100, 30, 0.25);
                 border-radius: 4px;
-                font-size: 10px;
+                font-size: 12px;
                 color: rgba(255, 255, 255, 0.9);
                 font-weight: 600;
                 letter-spacing: 0.5px;
@@ -309,7 +324,7 @@
         }
 
         .bio {
-          font-size: 12px;
+          font-size: 14px;
           color: rgba(255, 255, 255, 0.7);
           line-height: 1.7;
           margin: 0 0 16px;
@@ -355,8 +370,8 @@
             }
 
             svg {
-              width: 12px;
-              height: 12px;
+              width: 14px;
+              height: 14px;
             }
 
             &:nth-child(1) {
@@ -378,7 +393,7 @@
 
             .value {
               display: inline;
-              font-size: 11px;
+              font-size: 13px;
               font-weight: 800;
               background: linear-gradient(135deg, #fff 0%, rgba(255, 200, 120, 1) 100%);
               -webkit-background-clip: text;
@@ -387,7 +402,7 @@
             }
 
             .label {
-              font-size: 8px;
+              font-size: 10px;
               color: rgba(255, 255, 255, 0.5);
               font-weight: 600;
               letter-spacing: 0.5px;
@@ -459,7 +474,7 @@
                 z-index: 2;
 
                 .more-count {
-                  font-size: 14px;
+                  font-size: 16px;
                   font-weight: 700;
                   color: rgba(255, 255, 255, 0.9);
                   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
@@ -484,6 +499,7 @@
         }
 
         .card-actions {
+          margin-top: auto;
           display: flex;
           gap: 8px;
 
@@ -493,9 +509,9 @@
             align-items: center;
             justify-content: center;
             gap: 6px;
-            padding: 10px;
+            padding: 11px;
             border-radius: 4px;
-            font-size: 12px;
+            font-size: 14px;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -504,8 +520,13 @@
             text-transform: uppercase;
 
             svg {
-              width: 14px;
-              height: 14px;
+              width: 16px;
+              height: 16px;
+            }
+
+            .like-icon {
+              width: 22px;
+              height: 22px;
             }
 
             &.follow {
@@ -598,7 +619,7 @@
               overflow: hidden;
 
               .count {
-                font-size: 11px;
+                font-size: 13px;
                 font-weight: 700;
                 opacity: 0.95;
               }
@@ -751,10 +772,17 @@
   }
 
   .empty-icon {
-    font-size: 80px;
+    width: 80px;
+    height: 80px;
     margin-bottom: 32px;
+    color: #f59e0b;
     animation: float 3s ease-in-out infinite;
     filter: drop-shadow(0 0 40px rgba(245, 158, 11, 0.5));
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
   }
 
   h3 {

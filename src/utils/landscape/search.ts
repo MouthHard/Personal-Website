@@ -164,6 +164,7 @@ export function sortSearchResults(
 
   const getViews = (item: SearchResultItem) => Number(item.views || 0);
   const getLikes = (item: SearchResultItem) => Number(item.likes || 0);
+  const getLoves = (item: SearchResultItem) => Number(item.loves || 0);
   const getBookmarks = (item: SearchResultItem) => Number(item.bookmarks || 0);
   const getShares = (item: SearchResultItem) => Number(item.shares || 0);
   const getFollowers = (item: SearchResultItem) => Number(item.followers || 0);
@@ -174,6 +175,8 @@ export function sortSearchResults(
         return getViews(b) - getViews(a);
       case 'likes':
         return getLikes(b) - getLikes(a);
+      case 'loves':
+        return getLoves(b) - getLoves(a);
       case 'bookmarks':
         return getBookmarks(b) - getBookmarks(a);
       case 'shares':

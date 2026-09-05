@@ -61,9 +61,6 @@ export async function fetchArtifacts(params: MuseumQueryParams = {}) {
   return paginate(items, params);
 }
 
-export async function fetchArtifactById(id: number) {
-  return findItemById<Artifact>('museum/artifacts.json', id);
-}
 
 export async function fetchArtifactDetail(id: number) {
   return loadDetail<ArtifactDetail>('museum/artifact-details', id);

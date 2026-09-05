@@ -187,6 +187,11 @@ $purple-light: #A78BFA;
         font-size: 11px;
         color: rgba(255, 255, 255, 0.5);
         white-space: nowrap;
+        padding: 4px 10px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 6px;
+        transition: all 0.3s ease;
 
         &.sort-dimmed {
           opacity: 0.55;
@@ -194,7 +199,13 @@ $purple-light: #A78BFA;
 
         &.sort-highlighted {
           color: #fff;
-          text-shadow: 0 0 8px rgba($green-light, 0.6);
+          font-weight: 700;
+          background: rgba($green-light, 0.18);
+          border: 1px solid rgba($green-light, 0.65);
+          box-shadow:
+            0 0 10px rgba($green-light, 0.5),
+            0 0 20px rgba($green-light, 0.25);
+          text-shadow: 0 0 6px rgba($green-light, 0.6);
         }
       }
 
@@ -516,41 +527,62 @@ $purple-light: #A78BFA;
           }
 
           &.like {
-            svg { color: #FF6B6B; }
+            svg { color: #4A90E2; }
             &:hover, &.active {
-              background: linear-gradient(180deg, rgba(255, 107, 107, 0.2) 0%, rgba(255, 107, 107, 0.1) 100%);
-              border-color: rgba(255, 107, 107, 0.4);
-              svg { color: #FF4757; }
+              background: linear-gradient(180deg, rgba(74, 144, 226, 0.45) 0%, rgba(74, 144, 226, 0.25) 100%);
+              border-color: rgba(74, 144, 226, 0.65);
+              color: #fff;
+              svg { color: #7EB4F9; }
+              text-shadow: 0 0 8px rgba(74, 144, 226, 0.5);
             }
             &.sort-highlighted {
-              box-shadow: 0 0 10px rgba(255, 107, 107, 0.5), 0 0 20px rgba(255, 107, 107, 0.25);
-              border-color: rgba(255, 107, 107, 0.6);
+              box-shadow: 0 0 16px rgba(74, 144, 226, 0.6), 0 0 32px rgba(74, 144, 226, 0.3), 0 4px 16px rgba(0, 0, 0, 0.4);
+              border-color: rgba(74, 144, 226, 0.7);
+            }
+          }
+
+          &.love {
+            svg { color: #FF6B6B; }
+            &:hover, &.active {
+              background: linear-gradient(180deg, rgba(255, 107, 107, 0.45) 0%, rgba(255, 107, 107, 0.25) 100%);
+              border-color: rgba(255, 107, 107, 0.65);
+              color: #fff;
+              svg { color: #FF8A8A; }
+              text-shadow: 0 0 8px rgba(255, 107, 107, 0.5);
+            }
+            &.sort-highlighted {
+              box-shadow: 0 0 16px rgba(255, 107, 107, 0.6), 0 0 32px rgba(255, 107, 107, 0.3), 0 4px 16px rgba(0, 0, 0, 0.4);
+              border-color: rgba(255, 107, 107, 0.7);
             }
           }
 
           &.bookmark {
             svg { color: #FFD93D; }
             &:hover, &.active {
-              background: linear-gradient(180deg, rgba(255, 217, 61, 0.2) 0%, rgba(255, 217, 61, 0.1) 100%);
-              border-color: rgba(255, 217, 61, 0.4);
-              svg { color: #FFB800; }
+              background: linear-gradient(180deg, rgba(255, 217, 61, 0.45) 0%, rgba(255, 217, 61, 0.25) 100%);
+              border-color: rgba(255, 217, 61, 0.65);
+              color: #fff;
+              svg { color: #FFE44D; }
+              text-shadow: 0 0 8px rgba(255, 217, 61, 0.5);
             }
             &.sort-highlighted {
-              box-shadow: 0 0 10px rgba(255, 217, 61, 0.5), 0 0 20px rgba(255, 217, 61, 0.25);
-              border-color: rgba(255, 217, 61, 0.6);
+              box-shadow: 0 0 16px rgba(255, 217, 61, 0.6), 0 0 32px rgba(255, 217, 61, 0.3), 0 4px 16px rgba(0, 0, 0, 0.4);
+              border-color: rgba(255, 217, 61, 0.7);
             }
           }
 
           &.share {
             svg { color: $green-light; }
             &:hover {
-              background: linear-gradient(180deg, rgba(107, 255, 184, 0.2) 0%, rgba(107, 255, 184, 0.1) 100%);
-              border-color: rgba(107, 255, 184, 0.4);
-              svg { color: #4DFFA8; }
+              background: linear-gradient(180deg, rgba(107, 255, 184, 0.45) 0%, rgba(107, 255, 184, 0.25) 100%);
+              border-color: rgba(107, 255, 184, 0.65);
+              color: #fff;
+              svg { color: #8DFFCA; }
+              text-shadow: 0 0 8px rgba(107, 255, 184, 0.5);
             }
             &.sort-highlighted {
-              box-shadow: 0 0 10px rgba(107, 255, 184, 0.5), 0 0 20px rgba(107, 255, 184, 0.25);
-              border-color: rgba(107, 255, 184, 0.6);
+              box-shadow: 0 0 16px rgba(107, 255, 184, 0.6), 0 0 32px rgba(107, 255, 184, 0.3), 0 4px 16px rgba(0, 0, 0, 0.4);
+              border-color: rgba(107, 255, 184, 0.7);
             }
           }
 
@@ -561,8 +593,8 @@ $purple-light: #A78BFA;
             svg { color: $green-light; }
             &:hover { transform: none; }
             &.sort-highlighted {
-              box-shadow: 0 0 10px rgba($green-light, 0.5), 0 0 20px rgba($green-light, 0.25);
-              border-color: rgba($green-light, 0.6);
+              box-shadow: 0 0 16px rgba($green-light, 0.6), 0 0 32px rgba($green-light, 0.3), 0 4px 16px rgba(0, 0, 0, 0.4);
+              border-color: rgba($green-light, 0.7);
             }
           }
         }

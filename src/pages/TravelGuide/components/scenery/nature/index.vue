@@ -125,7 +125,7 @@ const clearAllFilters = () => {
 };
 
 const toggleFavorite = (spotId: string) => {
-  toggleFavoriteStatus(spotId);
+ 
 };
 </script>
 

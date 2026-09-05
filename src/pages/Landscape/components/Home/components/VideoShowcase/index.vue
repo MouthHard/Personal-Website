@@ -44,10 +44,7 @@
 
     <div v-else class="empty-state">
       <div class="empty-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <rect x="2" y="4" width="20" height="16" rx="2"/>
-          <path d="M10 9l5 3-5 3V9z"/>
-        </svg>
+        <EmptyVideoIcon :stroke-width="1.5" />
       </div>
       <p class="empty-text">暂无视频内容</p>
       <span class="empty-hint">精彩视频即将上线</span>
@@ -82,6 +79,7 @@ import { useInteractionStore } from '@/stores/landscape';
 import { useHomeViewData } from '@/composables/landscape';
 import type { GlobalVideo } from '@/typesOfPages/landscape/data';
 import ArrowRightIcon from '@/pages/Landscape/icon/common/ArrowRightIcon.vue';
+import EmptyVideoIcon from '@/pages/Landscape/icon/components/home/VideoShowcase/EmptyVideoIcon.vue';
 import VideoSlide from './components/VideoSlide/index.vue';
 import VideoFrame from './components/VideoFrame/index.vue';
 import VideoModal from './components/VideoModal/index.vue';
@@ -196,7 +194,7 @@ const toggleVideoFavorite = (video: GlobalVideo | null) => {
 
 const toggleVideoShare = (video: GlobalVideo | null) => {
   if (!video) return;
-  interactionStore.incrementShares(getVideoGlobalId(video.id));
+
   showMessage.share.success(video.title);
 };
 

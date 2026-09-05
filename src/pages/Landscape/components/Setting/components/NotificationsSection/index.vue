@@ -5,10 +5,7 @@
     <div class="setting-card">
       <div class="card-header">
         <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-            <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-          </svg>
+          <BellIcon :stroke-width="2" />
         </div>
         <div>
           <h3 class="card-title">推送通知</h3>
@@ -57,9 +54,7 @@
     <div class="setting-card">
       <div class="card-header">
         <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-          </svg>
+          <ShieldIcon :stroke-width="2" />
         </div>
         <div>
           <h3 class="card-title">互动提醒</h3>
@@ -96,6 +91,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import CustomSwitch from '../../common/CustomSwitch.vue'
+import BellIcon from '@/pages/Landscape/icon/components/setting/NotificationsSection/BellIcon.vue'
+import ShieldIcon from '@/pages/Landscape/icon/common/ShieldIcon.vue'
 
 const newFollower = ref(true)
 const likeComment = ref(true)

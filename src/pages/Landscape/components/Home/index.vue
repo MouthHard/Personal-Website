@@ -1,6 +1,6 @@
 <template>
   <div class="home-page">
-    <HeroSection />
+
     <FeaturedCarousel />
     <HotTopics />
     <PopularDestinations />
@@ -28,9 +28,7 @@ import { defineAsyncComponent } from 'vue';
 import type { LandscapeItem } from '@/typesOfPages/landscape';
 import LazyLoadWrapper from '@/components/common/LazyLoadWrapper/index.vue';
 
-const HeroSection = defineAsyncComponent(() =>
-  import('./components/HeroSection/index.vue')
-);
+
 const FeaturedCarousel = defineAsyncComponent(() =>
   import('./components/FeaturedCarousel/index.vue')
 );

@@ -193,12 +193,6 @@
       }
     }
 
-    .vip-icon {
-      width: 18px;
-      height: 18px;
-      color: white;
-      filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
-    }
 
     .vip-text {
       font-size: 13px;
@@ -282,12 +276,6 @@
       font-size: 13px;
     }
 
-    .meta-icon {
-      width: 18px;
-      height: 18px;
-      opacity: 0.9;
-      flex-shrink: 0;
-    }
 
     .following-count {
       font-weight: 600;
@@ -362,10 +350,6 @@
         left: 100%;
       }
 
-      .edit-icon {
-        color: rgba(102, 126, 234, 1);
-        transform: rotate(15deg);
-      }
     }
 
     &:active {
@@ -376,13 +360,6 @@
         inset 0 1px 0 rgba(255, 255, 255, 0.8);
     }
 
-    .edit-icon {
-      width: 15px;
-      height: 15px;
-      color: rgba(102, 126, 234, 0.85);
-      transition: all 0.3s ease;
-      filter: drop-shadow(0 1px 2px rgba(102, 126, 234, 0.3));
-    }
 
     @media (max-width: 768px) {
       flex: 1;

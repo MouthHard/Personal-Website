@@ -1,4 +1,4 @@
-import { loadJSON, paginate, filterByKeyword, filterByField, findItemById, type PaginatedResponse } from './static-data';
+import { loadJSON, paginate, filterByKeyword, filterByField, type PaginatedResponse } from './static-data';
 import type {
   GlobalPhotographer,
   GlobalImage,
@@ -44,9 +44,6 @@ export async function fetchPhotographers(params: LandscapeQueryParams = {}) {
   return paginate(items, params);
 }
 
-export async function fetchPhotographerById(id: string) {
-  return findItemById<GlobalPhotographer>('landscape/photographers.json', id);
-}
 
 export async function fetchImages(params: LandscapeQueryParams = {}) {
   const data = await loadJSON<LandscapeListResponse<GlobalImage>>('landscape/landscape-images.json');
@@ -55,9 +52,6 @@ export async function fetchImages(params: LandscapeQueryParams = {}) {
   return paginate(items, params);
 }
 
-export async function fetchImageById(id: string) {
-  return findItemById<GlobalImage>('landscape/landscape-images.json', id);
-}
 
 export async function fetchVideos(params: LandscapeQueryParams = {}) {
   const data = await loadJSON<LandscapeListResponse<GlobalVideo>>('landscape/landscape-videos.json');
@@ -66,9 +60,6 @@ export async function fetchVideos(params: LandscapeQueryParams = {}) {
   return paginate(items, params);
 }
 
-export async function fetchVideoById(id: string) {
-  return findItemById<GlobalVideo>('landscape/landscape-videos.json', id);
-}
 
 export async function fetchGuides(params: LandscapeQueryParams = {}) {
   const data = await loadJSON<LandscapeListResponse<GlobalGuide>>('landscape/landscape-guides.json');
@@ -77,9 +68,6 @@ export async function fetchGuides(params: LandscapeQueryParams = {}) {
   return paginate(items, params);
 }
 
-export async function fetchGuideById(id: string) {
-  return findItemById<GlobalGuide>('landscape/landscape-guides.json', id);
-}
 
 export async function fetchHotTopics(params: LandscapeQueryParams = {}) {
   const data = await loadJSON<LandscapeListResponse<any>>('landscape/hot-topics.json');

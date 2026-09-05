@@ -8,16 +8,11 @@
       <span class="select-value" :class="{ placeholder: !selectedLabel }">
         {{ selectedLabel || placeholder }}
       </span>
-      <svg
+      <ChevronDownIcon
         class="select-arrow"
         :class="{ 'is-rotate': isOpen && placement === 'bottom' }"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-      >
-        <polyline points="6 9 12 15 18 9"></polyline>
-      </svg>
+        :stroke-width="2"
+      />
     </div>
 
     <Teleport to="body">
@@ -39,16 +34,11 @@
               @click="selectOption(option)"
             >
               <span>{{ option.label }}</span>
-              <svg
+              <CheckIcon
                 v-if="modelValue === option.value"
                 class="check-icon"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-              >
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
+                :stroke-width="2.5"
+              />
             </div>
           </div>
         </div>
@@ -66,6 +56,8 @@
     nextTick,
     watch,
   } from 'vue';
+  import ChevronDownIcon from '@/pages/Landscape/icon/common/ChevronDownIcon.vue';
+  import CheckIcon from '@/pages/Landscape/icon/common/CheckIcon.vue';
 
   interface Option {
     label: string;
