@@ -41,10 +41,39 @@
 | `*.log`、`temp/`、`tmp-*/` | 日志与临时文件 |
 | `*.pem` / `*.key` / `id_rsa*` 等 | SSH 密钥与敏感凭据，**绝不能上传** |
 | `*.tar.gz` / `deploy-*` / `backup*/` | 部署包与备份 |
-| `.arts/` / `.codeartsdoer/` / `.codegraph/` | AI 工具工作目录 |
+| **AI IDE / AI 工具工作目录**（见下表） | 工具运行时自动生成，属于个人环境缓存，**一律不上传** |
 | `.idea/` / `.vscode/` | 编辑器个人配置 |
 
-## 四、注意事项（当前仓库的遗留问题）
+## 四、AI IDE / AI 工具工作目录（禁止上传）
+
+以下目录均由 AI IDE / AI Agent 在本地自动生成（配置、索引、会话记忆、缓存等），属于个人环境产物，**不应也不会被上传到 GitHub**。它们均已写入 `.gitignore`：
+
+| 目录 | 来源 |
+|---|---|
+| `.arts/`、`.codeartsdoer/`、`.scratchpad/` | 华为云 CodeArts / CodeArts Agent |
+| `.codegraph/` | CodeGraph 代码索引 |
+| `.workbuddy/` | AI 编程助手会话/记忆 |
+| `.cursor/` | Cursor |
+| `.claude/` | Claude Code |
+| `.cline/` | Cline |
+| `.windsurf/` | Windsurf |
+| `.codeium/` | Codeium |
+| `.copilot/` | GitHub Copilot |
+| `.continue/` | Continue |
+| `.aider/` | Aider |
+| `.specstory/` | SpecStory |
+| `.amp/` / `.augment/` | 其他 AI IDE 工具 |
+
+> 如果以后某次提交误将这类目录推到了远程仓库，按以下步骤清理（文件保留在本地）：
+>
+> ```bash
+> # 1. 解除跟踪（-r 用于目录；也可对具体文件执行）
+> git rm -r --cached .workbuddy
+> git commit -m "chore: 停止跟踪AI工具工作目录"
+> git push origin feat/update-site
+> ```
+
+## 五、注意事项（当前仓库的遗留问题）
 
 1. **`types/auto-imports.d.ts`、`types/components.d.ts`**：已写入 `.gitignore`，但因为是"先提交、后忽略"，目前仍被 Git 跟踪。建议执行以下命令解除跟踪（文件保留在本地，不影响构建，构建时会自动重新生成）：
 

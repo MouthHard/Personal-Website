@@ -101,4 +101,5 @@ git config --global --unset https.proxy
 完整清单见 [file-upload-checklist.md](./file-upload-checklist.md)。核心原则：
 
 - **上传**：`src/`、`public/`、配置文件、`docs/`、`README.md`
-- **不上传**：`node_modules/`、`dist/`、`.env`、密钥、日志、AI 工具目录（均已配置在 `.gitignore`）
+- **不上传**：`node_modules/`、`dist/`、`.env`、密钥、日志、**AI IDE / AI 工具生成的文件夹**（如 `.arts/`、`.codeartsdoer/`、`.codegraph/`、`.workbuddy/`、`.cursor/`、`.cline/` 等，均已配置在 `.gitignore`；详见 [file-upload-checklist.md](./file-upload-checklist.md) 第四节完整清单）
+- 若发现这些目录已被推送到远程，参考 [file-upload-checklist.md](./file-upload-checklist.md) 第四节用 `git rm -r --cached` 解除跟踪后重新推送

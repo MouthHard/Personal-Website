@@ -61,7 +61,21 @@ id_ed25519*
 backup*/
 db-backup*/
 
-# AI tool work directories (should not be uploaded to GitHub)
+# AI tool work directories (should NOT be uploaded to GitHub)
+# AI IDE / AI agent generated runtime directories & memories
 .arts
 .codeartsdoer
 .codegraph
+.workbuddy
+.cursor
+.claude
+.cline
+.windsurf
+.codeium
+.copilot
+.continue
+.aider
+.specstory
+.amp
+.augment
+.scratchpad
