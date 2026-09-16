@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 .artifacts-section {
-  background-image: url('@/assets/image/Museum/Artifact.webp');
+  background-image: url('https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/museum/home/Artifact.webp');
   background-size: cover;
   object-fit: cover;
   background-position: center;
@@ -17,6 +17,45 @@
   border-top: 2px solid rgba(189, 137, 68, 0.4);
   border-bottom: 2px solid rgba(189, 137, 68, 0.4);
   background-color: #2a1d14;
+
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 2rem;
+    text-align: center;
+
+    .empty-icon {
+      color: rgba(180, 180, 220, 0.5);
+      margin-bottom: 1.5rem;
+      filter: drop-shadow(0 4px 12px rgba(120, 119, 198, 0.3));
+      animation: floatIcon 3s ease-in-out infinite;
+      svg { width: 64px; height: 64px; }
+    }
+
+    .empty-title {
+      font-size: 1.6rem;
+      color: #e0e0ff;
+      margin: 0 0 0.75rem 0;
+      font-family: 'FangSong', 'STFangsong', serif;
+      letter-spacing: 0.1em;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .empty-description {
+      font-size: 1rem;
+      color: #a0a0c0;
+      max-width: 360px;
+      line-height: 1.6;
+      margin: 0;
+    }
+  }
+
+  @keyframes floatIcon {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-10px); }
+  }
   animation: fadeInUp 0.8s ease-out forwards;
   opacity: 0;
   min-height: 65vh;
@@ -91,7 +130,6 @@
       overflow: visible;
       transform-style: preserve-3d;
       perspective: 1000px;
-
       min-width: 140px;
       font-weight: bold;
       box-shadow:
@@ -121,9 +159,9 @@
         );
 
       border-top: 1px solid rgba(255, 240, 200, 0.6);
-
       border-bottom: 1px solid rgba(139, 69, 19, 0.7);
-
+      display: flex;
+      justify-content: center;
       .button-decoration {
         font-size: 1rem;
         color: rgba(0, 0, 0, 0.9);
@@ -133,6 +171,12 @@
         text-shadow:
           0 1px 2px rgba(0, 0, 0, 0.5),
           0 0 10px rgba(212, 165, 116, 0.5);
+        
+        svg{
+          margin-right: 1rem;
+            width: 2rem;
+            height: 2rem;
+          }
       }
 
       span {
@@ -198,6 +242,7 @@
       height: 100%;
       min-height: 400px;
       .artifact-card {
+        cursor: pointer;
         background: linear-gradient(
           180deg,
           rgba(60, 42, 30, 1) 0%,
@@ -215,7 +260,7 @@
         border: none;
         cursor: pointer;
         position: absolute;
-        width: 320px;
+        width: 380px;
         height: auto;
         transform-style: preserve-3d;
         perspective: 1000px;
@@ -407,10 +452,10 @@
               align-items: center;
               justify-content: center;
               gap: 0.3rem;
-              padding: 0.4rem 0.6rem;
+              padding: 0.4rem 0.5rem;
               border-radius: 4px;
               cursor: pointer;
-              font-size: 0.9rem;
+              font-size: 0.85rem;
               font-weight: bold;
               transition: all 0.3s ease;
               position: relative;
@@ -421,8 +466,10 @@
                 inset 0 1px 0 rgba(255, 255, 255, 0.2),
                 inset 0 -1px 0 rgba(0, 0, 0, 0.4);
               font-family: 'FangSong', 'STFangsong', serif;
-              letter-spacing: 0.1em;
+              letter-spacing: 0.05em;
               overflow: hidden;
+              white-space: nowrap;
+              min-width: 0;
 
               // 古典纹理效果
               &::before {
@@ -462,6 +509,17 @@
                 filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.6));
                 position: relative;
                 z-index: 3;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 18px;
+                height: 18px;
+                flex-shrink: 0;
+
+                svg {
+                  width: 18px;
+                  height: 18px;
+                }
               }
 
               .button-text {
@@ -488,6 +546,29 @@
                   inset 0 -1px 0 rgba(0, 0, 0, 0.5);
               }
 
+              &.like-button {
+                background: linear-gradient(
+                  145deg,
+                  #2e7d32 0%,
+                  #43a047 50%,
+                  #2e7d32 100%
+                );
+                border-color: rgba(76, 175, 80, 0.6);
+
+                &:hover {
+                  background: linear-gradient(
+                    145deg,
+                    #43a047 0%,
+                    #66bb6a 50%,
+                    #43a047 100%
+                  );
+                }
+
+                &.active .button-icon {
+                  filter: drop-shadow(0 0 4px rgba(102, 187, 106, 0.8));
+                }
+              }
+
               &.favorite-button {
                 background: linear-gradient(
                   145deg,
@@ -505,9 +586,13 @@
                     #a52a2a 100%
                   );
                 }
+
+                &.active .button-icon {
+                  filter: drop-shadow(0 0 4px rgba(205, 92, 92, 0.8));
+                }
               }
 
-              &.like-button {
+              &.collect-button {
                 background: linear-gradient(
                   145deg,
                   #8b4513 0%,
@@ -523,6 +608,10 @@
                     #d2b48c 50%,
                     #a0522d 100%
                   );
+                }
+
+                &.active .button-icon {
+                  filter: drop-shadow(0 0 4px rgba(210, 180, 140, 0.8));
                 }
               }
 

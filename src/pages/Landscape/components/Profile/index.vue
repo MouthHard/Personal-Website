@@ -68,20 +68,20 @@ import ImageCard from './components/ImageCard/index.vue';
 import VideoCard from './components/VideoCard/index.vue';
 import PhotographerCard from './components/PhotographerCard/index.vue';
 import GuideCard from './components/GuideCard/index.vue';
-import CameraIcon from '@/pages/Landscape/icon/common/CameraIcon.vue';
-import SparkleIcon from '@/pages/Landscape/icon/common/SparkleIcon.vue';
+import CameraIcon from '@/pages/Landscape/icons/common/CameraIcon.vue';
+import SparkleIcon from '@/pages/Landscape/icons/common/SparkleIcon.vue';
 import { useInteractionStore } from '@/stores/landscape';
-import { userProfile, profileTabs, profileCategories } from '@/utils/landscape/constants';
+import { userProfile, profileTabs, profileCategories } from '@/constants/landscape';
 import { useProfileViewData } from '@/composables/landscape';
 import { useProfileItems, useProfileStats } from '@/composables/landscape/profile';
-import type { User } from '@/typesOfPages/landscape';
+import type { User, GlobalImage, GlobalVideo, GlobalPhotographer, GlobalGuide } from '@/typesOfPages/landscape';
 
 const interactionStore = useInteractionStore();
 
 const activeTab = ref('favorites');
 const selectedCategory = ref('image');
 
-const user = ref<any>(userProfile);
+const user = ref<User>(userProfile);
 const baseTabs = profileTabs;
 const categories = profileCategories;
 
@@ -100,19 +100,19 @@ const { stats } = useProfileStats();
 watch([images, videos, photographers, guides], ([newImages, newVideos, newPhotographers, newGuides]) => {
   const batch: Array<{ id: string; counts: { likes: number; loves: number; views: number; favorites: number; shares: number } }> = [];
   
-  newImages.forEach((img: any) => batch.push({
+  newImages.forEach((img: GlobalImage) => batch.push({
     id: String(img.id),
     counts: { likes: img.likes || 0, loves: img.loves || 0, views: img.views || 0, favorites: img.favorites || 0, shares: img.shares || 0 },
   }));
-  newVideos.forEach((vid: any) => batch.push({
+  newVideos.forEach((vid: GlobalVideo) => batch.push({
     id: String(vid.id),
     counts: { likes: vid.likes || 0, loves: vid.loves || 0, views: vid.views || 0, favorites: vid.bookmarks || 0, shares: vid.shares || 0 },
   }));
-  newPhotographers.forEach((p: any) => batch.push({
+  newPhotographers.forEach((p: GlobalPhotographer) => batch.push({
     id: String(p.id),
     counts: { likes: parseFloat(p.likes) || 0, loves: 0, views: parseFloat(p.views) || 0, favorites: parseFloat(p.bookmarks) || 0, shares: 0 },
   }));
-  newGuides.forEach((guide: any) => batch.push({
+  newGuides.forEach((guide: GlobalGuide) => batch.push({
     id: String(guide.id),
     counts: { likes: guide.likes || 0, loves: guide.loves || 0, views: guide.views || 0, favorites: guide.bookmarks || 0, shares: guide.shares || 0 },
   }));

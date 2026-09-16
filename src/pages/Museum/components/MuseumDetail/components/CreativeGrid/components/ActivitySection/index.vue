@@ -1,12 +1,20 @@
 <template>
   <div class="activity-section">
     <div class="section-header">
-      <span class="title-icon">🍂</span>
+      <span class="title-icon"><LeafIcon /></span>
       文创活动
     </div>
 
+    <div v-if="activities.length === 0" class="empty-state">
+      <div class="empty-icon">
+        <EmptyBoxIcon />
+      </div>
+      <h3 class="empty-title">暂无文创活动</h3>
+      <p class="empty-description">该博物馆暂未举办文创活动，敬请期待</p>
+    </div>
+
     <!-- 3D轮播容器 -->
-    <div class="carousel-wrapper">
+    <div v-else class="carousel-wrapper">
       <button class="nav-arrow left" @click="prevSlide">
         <span>➺</span>
       </button>
@@ -24,9 +32,9 @@
                 <img loading="lazy" :src="activity.image" :alt="activity.title" />
                 <div class="image-overlay">
                   <span class="type-badge">{{ activity.type }}</span>
-                  <span v-if="activity.status === 'ongoing'" class="live-badge">
-                    <span class="live-dot">☯</span>
-                    进行中
+                  <span :class="['status-badge', activity.status]">
+                    <span v-if="activity.status === 'ongoing'" class="status-dot">●</span>
+                    {{ getStatusText(activity.status) }}
                   </span>
                 </div>
               </div>
@@ -36,11 +44,11 @@
 
                 <div class="content-meta">
                   <span class="meta-item">
-                    <span class="meta-icon">📅</span>
+                    <span class="meta-icon"><CalendarIcon /></span>
                     {{ activity.date }}
                   </span>
                   <span class="meta-item">
-                    <span class="meta-icon">📍</span>
+                    <span class="meta-icon"><LocationIcon /></span>
                     {{ activity.location }}
                   </span>
                 </div>
@@ -71,17 +79,26 @@
 
                 <div class="action-area">
                   <button
-                    :class="[
-                      'social-btn',
-                      'favorite',
-                      { active: activity.favorited },
-                    ]"
-                    @click.stop="toggleFavorite(activity)"
+                    class="social-btn like-btn"
+                    :class="{ active: isLiked(activity) }"
+                    title="点赞"
+                    @click.stop="handleLikeClick(activity)"
                   >
-                    <LikeIcon />
+                    <LikeFilledIcon v-if="isLiked(activity)" />
+                    <LikeIcon v-else />
                   </button>
                   <button
-                    class="social-btn share"
+                    class="social-btn star-btn"
+                    :class="{ active: isFavored(activity) }"
+                    title="收藏"
+                    @click.stop="handleFavoriteClick(activity)"
+                  >
+                    <StarFilledIcon v-if="isFavored(activity)" />
+                    <StarIcon v-else />
+                  </button>
+                  <button
+                    class="social-btn share-btn"
+                    title="分享"
                     @click.stop="handleShare(activity)"
                   >
                     <ShareIcon />
@@ -89,10 +106,11 @@
 
                   <button
                     :class="['action-btn', activity.status]"
+                    :disabled="activity.status === 'ended'"
                     @click.stop="handleAction(activity)"
                   >
                     <span class="btn-text">{{ getActionText(activity) }}</span>
-                    <span class="btn-icon">➤</span>
+                    <span v-if="activity.status !== 'ended'" class="btn-icon">➤</span>
                   </button>
                 </div>
               </div>
@@ -107,7 +125,7 @@
     </div>
 
     <!-- 指示器 -->
-    <div class="carousel-indicators">
+    <div v-if="activities.length > 0" class="carousel-indicators">
       <button
         v-for="(activity, index) in activities"
         :key="activity.id"
@@ -117,16 +135,24 @@
         <FoodPointIcon />
       </button>
     </div>
+
+    <ShareModal
+      v-model:visible="shareVisible"
+      :title="shareTitle"
+      :description="shareDescription"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
   import { ref, computed } from 'vue';
-  import { useRouter } from 'vue-router';
   import { useMuseumDataStore } from '@/stores/museum';
   import type { Museum } from '@/typesOfPages/museum/index';
-  import { FoodPointIcon } from '@/pages/Museum/icon/pages/CreativeProduct';
-  import { ShareIcon, LikeIcon } from '@/pages/Museum/icon/common/index.ts';
+  import { FoodPointIcon } from '@/pages/Museum/icons/pages/CreativeProduct';
+  import { ShareModal } from '@/pages/Museum/components/common';
+  import { ShareIcon, LikeIcon, LikeFilledIcon, StarIcon, StarFilledIcon, EmptyBoxIcon, LeafIcon, CalendarIcon, LocationIcon } from '@/pages/Museum/icons/common/index.ts';
+  import { deriveStatus } from '@/utils/museum';
+  import { useActivityPrefs } from '@/composables/museum/useActivityPrefs';
 
   interface Activity {
     id: number;
@@ -148,10 +174,10 @@
 
   const props = defineProps<Props>();
   const store = useMuseumDataStore();
-  const router = useRouter();
+
 
   const activities = computed<Activity[]>(() => {
-    return store.getActivitiesByMuseumId(props.museum.id).map((item) => ({
+    return store.getCreativeActivitiesByMuseumId(props.museum.id).map((item) => ({
       id: item.id,
       title: item.title,
       description: item.description,
@@ -163,15 +189,10 @@
     }));
   });
 
-  const deriveStatus = (dateStr: string): 'upcoming' | 'ongoing' | 'ended' => {
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    const activityDate = new Date(dateStr);
-    if (isNaN(activityDate.getTime())) return 'ongoing';
-    activityDate.setHours(0, 0, 0, 0);
-    if (activityDate > today) return 'upcoming';
-    if (activityDate < today) return 'ended';
-    return 'ongoing';
+
+  const getStatusText = (status: 'upcoming' | 'ongoing' | 'ended') => {
+    const texts = { upcoming: '未开始', ongoing: '进行中', ended: '已结束' };
+    return texts[status];
   };
 
   const currentIndex = ref(0);
@@ -202,11 +223,13 @@
   };
 
   const prevSlide = () => {
+    if (totalItems.value === 0) return;
     currentIndex.value =
       currentIndex.value === 0 ? totalItems.value - 1 : currentIndex.value - 1;
   };
 
   const nextSlide = () => {
+    if (totalItems.value === 0) return;
     currentIndex.value =
       currentIndex.value === totalItems.value - 1 ? 0 : currentIndex.value + 1;
   };
@@ -217,26 +240,39 @@
 
   const getActionText = (activity: Activity) => {
     const texts = {
-      upcoming: '立即报名',
-      ongoing: '参与活动',
-      ended: '查看回顾',
+      upcoming: '预约活动',
+      ongoing: '参加活动',
+      ended: '已结束',
     };
     return texts[activity.status];
   };
 
   const handleAction = (_activity: Activity) => {
-    router.push(`/museum/${props.museum.id}?tab=exhibitions`);
+
   };
 
-  const toggleFavorite = (activity: Activity) => {
-    activity.favorited = !activity.favorited;
+  const {
+    isLiked: prefsIsLiked,
+    isFavored: prefsIsFavored,
+    toggleLike: prefsToggleLike,
+    toggleFavorite: prefsToggleFavorite,
+  } = useActivityPrefs(() => props.museum.id);
+
+  const isLiked = (activity: Activity) => prefsIsLiked(activity.id);
+  const isFavored = (activity: Activity) => prefsIsFavored(activity.id);
+
+  const handleLikeClick = (activity: Activity) => prefsToggleLike(activity.id, activity.title);
+  const handleFavoriteClick = (activity: Activity) => prefsToggleFavorite(activity.id, activity.title);
+
+  const handleShare = (activity: Activity) => {
+    shareTitle.value = activity.title;
+    shareDescription.value = activity.description;
+    shareVisible.value = true;
   };
 
-  const handleShare = (_activity: Activity) => {
-    if (navigator.share) {
-      navigator.share({ title: _activity.title, text: _activity.description });
-    }
-  };
+  const shareVisible = ref(false);
+  const shareTitle = ref('');
+  const shareDescription = ref('');
 </script>
 
 <style lang="scss" scoped src="./index.scss"></style>

@@ -114,11 +114,11 @@
 <script setup lang="ts">
 import { ref, computed, watch, onMounted, onUnmounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import SearchIcon from '../../../../icon/common/SearchIcon.vue';
-import CompassIcon from '../../../../icon/common/CompassIcon.vue';
-import CloseIcon from '@/pages/Landscape/icon/common/CloseIcon.vue';
-import ChevronDownIcon from '@/pages/Landscape/icon/common/ChevronDownIcon.vue';
-import ChevronUpIcon from '@/pages/Landscape/icon/common/ChevronUpIcon.vue';
+import SearchIcon from '../../../../icons/common/SearchIcon.vue';
+import CompassIcon from '../../../../icons/common/CompassIcon.vue';
+import CloseIcon from '@/pages/Landscape/icons/common/CloseIcon.vue';
+import ChevronDownIcon from '@/pages/Landscape/icons/common/ChevronDownIcon.vue';
+import ChevronUpIcon from '@/pages/Landscape/icons/common/ChevronUpIcon.vue';
 import { useSearchHistory } from '@/composables/landscape/useSearchHistory';
 import { useHotTags } from '@/composables/landscape/useHotTags';
 import { useSearchSuggestions } from '@/composables/landscape/useSearchSuggestions';
@@ -346,13 +346,14 @@ const handleHistoryClick = (item: string) => {
   handleSearch();
 };
 
+const escapeHtml = (str: string): string =>
+  str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+
 const highlightMatch = (text: string, keyword: string): string => {
-  if (!keyword) return text;
-  const regex = new RegExp(`(${keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
-  const parts = text.split(regex);
-  return parts.map((part) =>
-    regex.test(part) ? `<mark class="highlight">${part}</mark>` : part
-  ).join('');
+  if (!keyword) return escapeHtml(text);
+  const escaped = keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const regex = new RegExp(`(${escaped})`, 'gi');
+  return escapeHtml(text).replace(regex, '<mark class="highlight">$1</mark>');
 };
 </script>
 

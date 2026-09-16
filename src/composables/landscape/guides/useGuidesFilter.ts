@@ -1,6 +1,6 @@
 import { ref, computed, type Ref, type ComputedRef } from 'vue';
 import type { GlobalGuide } from '@/typesOfPages/landscape';
-import { guideModeMap, guideSeasonMap, guideDurationMap, guideThemeMap } from '@/utils/landscape/constants';
+import { guideModeMap, guideSeasonMap, guideDurationMap, guideThemeMap } from '@/constants/landscape';
 
 interface SelectedFilters {
   travelMode: string[];

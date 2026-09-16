@@ -35,7 +35,7 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
-import ImageIcon from '@/pages/Landscape/icon/common/ImageIcon.vue'
+import ImageIcon from '@/pages/Landscape/icons/common/ImageIcon.vue'
 
 interface Props {
   src: string

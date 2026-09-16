@@ -347,7 +347,7 @@ const chartsData = {
   global: songs.slice(25, 45)
 };
 
-const getChartName = (chartKey: any): string => {
+const getChartName = (chartKey: string): string => {
   const chartNames: Record<string, string> = {
     hot: '飙升榜',
     new: '新歌榜',
@@ -371,7 +371,7 @@ const getChartName = (chartKey: any): string => {
   return chartNames[chartKey] || '排行榜';
 };
 
-const getChartDescription = (chartKey: any): string => {
+const getChartDescription = (chartKey: string): string => {
   const chartDescriptions: Record<string, string> = {
     hot: '实时热门歌曲',
     new: '最新发布歌曲',

@@ -132,10 +132,15 @@
     }
 
     .back-icon {
-      font-size: 1.3rem;
-      font-weight: bold;
+      display: flex;
+      align-items: center;
       color: #fffef7;
-      text-shadow: 0 0 10px rgba(42, 106, 117, 0.8);
+      filter: drop-shadow(0 0 6px rgba(42, 106, 117, 0.8));
+
+      svg {
+        width: 22px;
+        height: 22px;
+      }
     }
 
     .back-text {

@@ -2,36 +2,27 @@
   <div class="museum-container">
     <div class="museum-header">
       <div class="header-title">
-        <span class="title-icon">🏛️</span>
+        <span class="title-icon">
+          <MuseumBuildingIcon />
+        </span>
         <h2 class="section-title">
           {{ selectedProvince ? selectedProvince + '的博物馆' : '博物馆列表' }}
         </h2>
-        <span v-if="filteredMuseums.length > 0" class="museum-count">
-          {{ filteredMuseums.length }}
+        <span v-if="displayMuseums.length > 0" class="museum-count">
+          {{ displayMuseums.length }}
         </span>
       </div>
-      <div class="search-box">
-        <input
-          v-model="searchQuery"
-          type="text"
-          placeholder="搜索博物馆名称、地点..."
-          class="search-input"
-        />
-        <button
-          v-if="searchQuery"
-          class="clear-btn"
-          aria-label="清空搜索"
-          @click="searchQuery = ''"
-        >
-          ✕
-        </button>
-        <button class="search-btn">🔍</button>
-      </div>
+      <MuseumSearchBox
+        ref="searchBoxRef"
+        :museums="museums"
+        :selected-province="selectedProvince"
+        @filtered="handleFiltered"
+      />
     </div>
 
-    <div v-if="filteredMuseums.length > 0" class="museum-grid">
+    <div v-if="displayMuseums.length > 0" class="museum-grid">
       <div
-        v-for="(museum, index) in filteredMuseums"
+        v-for="(museum, index) in displayMuseums"
         :key="museum.id"
         class="museum-card"
         :style="{ animationDelay: `${index * 0.1}s` }"
@@ -40,7 +31,9 @@
         <div class="museum-image">
           <div class="museum-badge-wrapper">
             <div class="museum-badge">
-              <span class="badge-icon">✨</span>
+              <span class="badge-icon">
+                <SparkleIcon />
+              </span>
               {{ museum.type }}
             </div>
             <div class="visitor-count">
@@ -51,19 +44,22 @@
 
           <div class="image-container">
             <img
-              :src="museum.image"
+              :src="getMuseumImage(museum)"
               :alt="String(museum.id)"
               loading="lazy"
               @error="handleImageError"
             />
             <div v-if="imageErrors[museum.id]" class="image-placeholder">
-              <span class="placeholder-icon">🏛️</span>
+              <span class="placeholder-icon">
+                <MuseumBuildingIcon />
+              </span>
             </div>
 
-            <!-- 统计信息 - 迁移到图片容器底部 -->
             <div class="image-stats">
               <span class="stat-item" title="文物数量">
-                <span class="stat-icon">🏺</span>
+                <span class="stat-icon">
+                  <VaseIcon />
+                </span>
                 <template v-if="museum.artifacts > 0">
                   <span class="stat-value">{{ formatNumber(museum.artifacts) }}</span>
                   <span>件文物</span>
@@ -71,7 +67,9 @@
                 <span v-else class="stat-value">暂无数据</span>
               </span>
               <span class="stat-item" title="展览数量">
-                <span class="stat-icon">🎨</span>
+                <span class="stat-icon">
+                  <PaletteIcon />
+                </span>
                 <span class="stat-value">{{ museum.exhibitions }}</span>
                 <span>个展览</span>
               </span>
@@ -99,28 +97,68 @@
             >
               <span>查看详情</span>
             </button>
-            <button class="action-btn secondary" @click.stop>
-              <span>❤ 收藏</span>
-            </button>
+
           </div>
         </div>
       </div>
     </div>
 
     <div v-else class="no-results">
-      <div class="no-results-icon">🔍</div>
-      <h3>未找到相关博物馆</h3>
-      <p>请尝试调整筛选条件或搜索关键词</p>
+      <div class="no-results-bg" aria-hidden="true">
+        <span class="bg-icon bg-icon-1"><MuseumBuildingIcon /></span>
+        <span class="bg-icon bg-icon-2"><VaseIcon /></span>
+        <span class="bg-icon bg-icon-3"><PaletteIcon /></span>
+        <span class="bg-icon bg-icon-4"><SparkleIcon /></span>
+        <span class="bg-icon bg-icon-5"><MapIcon /></span>
+        <span class="bg-icon bg-icon-6"><CameraIcon /></span>
+        <span class="bg-icon bg-icon-7"><GlobeIcon /></span>
+        <span class="bg-icon bg-icon-8"><StarIcon /></span>
+        <span class="bg-icon bg-icon-9"><SearchXIcon /></span>
+        <span class="bg-icon bg-icon-10"><LocationIcon /></span>
+        <span class="bg-icon bg-icon-11"><VideoIcon /></span>
+        <span class="bg-icon bg-icon-12"><ImageIcon /></span>
+      </div>
+      <div class="no-results-content">
+        <div class="no-results-icon">
+          <SearchXIcon />
+        </div>
+        <h3>未找到相关博物馆</h3>
+        <p class="no-results-desc">
+          <span v-if="selectedProvince">在「{{ selectedProvince }}」省份下</span>未匹配到相关博物馆
+        </p>
+        <p class="no-results-hint">尝试调整筛选条件，或浏览全部博物馆</p>
+        <button class="reset-btn" @click="handleReset">
+          <MuseumBuildingIcon />
+          <span>浏览全部博物馆</span>
+        </button>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-  import { ref, computed, reactive } from 'vue';
+  import { ref, reactive } from 'vue';
   import { useRouter } from 'vue-router';
   import type { Museum } from '@/typesOfPages/museum';
   import { formatNumber, generateMuseumRoute } from '@/utils/museum';
-  import { LocationIcon, VisitorsIcon } from '../../icon/common';
+  import { getMuseumImage } from '@/utils/museum/imagePool';
+  import {
+    LocationIcon,
+    VisitorsIcon,
+
+    MuseumBuildingIcon,
+    SparkleIcon,
+    VaseIcon,
+    PaletteIcon,
+    SearchXIcon,
+    MapIcon,
+    CameraIcon,
+    GlobeIcon,
+    StarIcon,
+    VideoIcon,
+    ImageIcon,
+  } from '../../icons/common';
+  import MuseumSearchBox from './components/MuseumSearchBox/index.vue';
 
   interface Props {
     museums: Museum[];
@@ -130,30 +168,22 @@
   const props = defineProps<Props>();
   const router = useRouter();
 
-  const searchQuery = ref('');
+  const displayMuseums = ref<Museum[]>([]);
   const imageErrors = reactive<Record<number, boolean>>({});
+  const searchBoxRef = ref<InstanceType<typeof MuseumSearchBox> | null>(null);
 
-  const filteredMuseums = computed<Museum[]>(() => {
-    let result = props.museums;
+  const emit = defineEmits<{
+    'reset-province': [];
+  }>();
 
-    if (props.selectedProvince) {
-      result = result.filter(
-        (museum) => museum.province === props.selectedProvince,
-      );
-    }
+  const handleFiltered = (filtered: Museum[]) => {
+    displayMuseums.value = filtered;
+  };
 
-    if (searchQuery.value) {
-      const query = searchQuery.value.toLowerCase();
-      result = result.filter(
-        (museum) =>
-          museum.name.toLowerCase().includes(query) ||
-          museum.province.toLowerCase().includes(query) ||
-          museum.description.toLowerCase().includes(query),
-      );
-    }
-
-    return result;
-  });
+  const handleReset = () => {
+    searchBoxRef.value?.clear();
+    emit('reset-province');
+  };
 
   const openMuseumDetail = (museum: Museum) => {
     const routePath = generateMuseumRoute(museum.province, museum.id);
@@ -166,7 +196,6 @@
     if (museumId) {
       imageErrors[museumId] = true;
     }
-    // 隐藏错误的图片
     img.style.display = 'none';
   };
 </script>

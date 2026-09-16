@@ -24,8 +24,12 @@
 </template>
 
 <script setup lang="ts">
-  import { historicalEvents } from '../../../../data/events';
+  import { onMounted } from 'vue';
+  import { useHistoryStore } from '@/stores/history';
   import './index.scss';
+
+  const historyStore = useHistoryStore();
+  onMounted(() => historyStore.ensureLoaded());
 
   const props = defineProps<{
     activeCategory: string;
@@ -45,9 +49,9 @@
 
   const getCategoryCount = (categoryId: string) => {
     if (categoryId === 'all') {
-      return historicalEvents.length;
+      return historyStore.historicalEvents.length;
     }
-    return historicalEvents.filter((event) => event.category === categoryId)
+    return historyStore.historicalEvents.filter((event) => event.category === categoryId)
       .length;
   };
 

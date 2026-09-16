@@ -7,7 +7,7 @@
     />
 
     <main class="museum-content">
-      <MuseumInfo v-if="activeTab === 'home' && museum" :museum="museum" />
+      <MuseumInfo v-if="activeTab === 'home' && museum" :museum="museum" @update:active-tab="switchTab" />
       <ArtifactList
         v-if="activeTab === 'artifacts' && museum"
         :museum="museum"
@@ -26,6 +26,7 @@
         :museum-id="museum.id"
         @update:active-tab="switchTab"
       />
+      <MyFootprint v-if="activeTab === 'footprint' && museum" :museum-id="museum.id" />
     </main>
   </div>
 </template>
@@ -42,6 +43,7 @@
   const SpecialExhibition = defineAsyncComponent(() => import('./components/SpecialExhibition/index.vue'));
   const CreativeGrid = defineAsyncComponent(() => import('./components/CreativeGrid/index.vue'));
   const AboutSection = defineAsyncComponent(() => import('./components/AboutSection/index.vue'));
+  const MyFootprint = defineAsyncComponent(() => import('./components/MyFootprint/index.vue'));
 
   const route = useRoute();
   const router = useRouter();

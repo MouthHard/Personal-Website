@@ -16,7 +16,7 @@
  * - News                 ← GET /api/museum/news 响应中的 items 元素
  * - ImmersiveExperience  ← GET /api/museum/immersive 响应中的 items 元素
  * - CreativeProduct      ← GET /api/museum/creative-products 响应中的 items 元素
- * - AcademicResource     ← GET /api/museum/academic-resources 响应中的 items 元素
+
  * - ExhibitionHall       ← GET /api/museum/exhibition-halls 响应中的 items 元素
  *
  * 【数据关系】
@@ -84,6 +84,7 @@ export interface Artifact {
   image: string;
   description?: string;
   category?: string;
+  tags?: string[];
   basicInfo?: {
     periodDetail?: string;
     material?: string;
@@ -115,6 +116,7 @@ export interface Artifact {
  * @property scale       - 展览规模（可选，来自后端）
  * @property visitors    - 参观人数（可选，来自后端统计）
  * @property background  - 展览背景（可选，来自后端）
+ * @property highlights  - 展览亮点（可选，3-5 条短句，来自后端）
  */
 export interface Exhibition {
   id: number;
@@ -130,8 +132,8 @@ export interface Exhibition {
   tags?: string[];
   curator?: string;
   scale?: string;
-  visitors?: number;
-  background?: string;
+
+  highlights?: string[];
 }
 
 /**
@@ -223,31 +225,7 @@ export interface CreativeProduct {
 }
 
 /**
- * 学术资源 — 对应后端 GET /api/museum/academic-resources 返回的单条数据
- *
- * 【数据库表】academic_resources
- *
- * @property id          - 资源唯一标识（来自后端）
- * @property museumId    - 所属博物馆 ID（来自后端）
- * @property title       - 资源标题（来自后端）
- * @property author      - 作者（可选，来自后端）
- * @property date        - 发布日期（来自后端）
- * @property type        - 资源类型（来自后端："article" 文章 | "book" 书籍 | "video" 视频）
- * @property description - 资源描述（来自后端）
- * @property link        - 外部链接（可选，来自后端，点击跳转到原文）
- */
-export interface AcademicResource {
-  id: number;
-  museumId: number;
-  title: string;
-  author?: string;
-  date: string;
-  type: "article" | "book" | "video";
-  description: string;
-  link?: string;
-}
 
-/**
  * 文物详细信息 — 对应后端 GET /api/museum/artifact-details/:id 返回的数据
  *
  * 【数据库表】artifact_details
@@ -261,11 +239,13 @@ export interface AcademicResource {
  * @property type                 - 文物类型（可选，来自后端）
  * @property basicInfo            - 基础信息对象（可选，来自后端，同 Artifact.basicInfo）
  * @property appearance           - 外观描述（可选，来自后端）
- * @property historicalValue      - 历史价值（可选，来自后端）
+ * @property historicalValue      - 历史价值与文化意义（可选，来自后端，已合并）
  * @property artifactLevel        - 文物等级（可选，来自后端，如 "一级文物"、"国宝级"）
  * @property relatedStory         - 相关故事（可选，来自后端）
- * @property protectionStatus     - 保护现状（可选，来自后端）
- * @property culturalSignificance - 文化意义（可选，来自后端）
+ * @property creator              - 作者/创作者（可选，如 "张择端"、"马钧（复原）"）
+ * @property images               - 多图列表（可选，缺省时弹窗回退使用 image 单图）
+ * @property appreciation         - 鉴赏要点（可选，3-4 条短句，供双栏右侧展示）
+ * @property provenance           - 流传递藏史（可选，缺省时回退使用 relatedStory）
  */
 export interface ArtifactDetail {
   id: number;
@@ -285,28 +265,15 @@ export interface ArtifactDetail {
   historicalValue?: string;
   artifactLevel?: string;
   relatedStory?: string;
-  protectionStatus?: string;
-  culturalSignificance?: string;
+  creator?: string;
+  images?: string[];
+  appreciation?: string[];
+  provenance?: string;
+
 }
 
 /**
- * 展览分类 — 用于展览分类筛选
- *
- * 【数据库表】exhibition_categories
- *
- * @property id    - 分类唯一标识（来自后端）
- * @property name  - 分类名称（来自后端，如 "常设展"、"临时展"）
- * @property count - 该分类下的展览数量（来自后端统计）
- * @property icon  - 分类图标（来自后端）
- */
-export interface ExhibitionCategory {
-  id: number;
-  name: string;
-  count: number;
-  icon: string;
-}
 
-/**
  * 专馆（展厅）— 对应后端 GET /api/museum/exhibition-halls 返回的单条数据
  *
  * 【数据库表】exhibition_halls
@@ -335,7 +302,7 @@ export interface ExhibitionCategory {
  */
 export interface ExhibitionHall {
   id: string;
-  museumId?: number;
+  museumId: number;
   name: string;
   icon: string;
   category: string;
@@ -364,12 +331,6 @@ export interface ExhibitionHall {
     statusText: string;
     image: string;
     tags: string[];
-  }>;
-  recommendations: Array<{
-    icon: string;
-    title: string;
-    desc: string;
-    type: string;
   }>;
 }
 
@@ -474,6 +435,48 @@ export interface ContactInfo {
 }
 
 /**
+ * 参观路线推荐 — 嵌套在 MuseumVisitInfo 中
+ *
+ * 【字段来源】后端 museum_visit_info 表
+ * - name: 路线名称（如 "精华路线"）
+ * - duration: 建议参观时长（如 "约2小时"）
+ * - description: 路线描述
+ * - stops: 途经站点/展区列表
+ */
+export interface VisitRoute {
+  name: string;
+  duration: string;
+  description: string;
+  stops: string[];
+}
+
+/**
+ * 楼层导览 — 嵌套在 MuseumVisitInfo 中
+ *
+ * 【字段来源】后端 museum_visit_info 表
+ * - floor: 楼层标识（如 "1F"、"B1"）
+ * - name: 楼层名称（如 "一层展厅"）
+ * - exhibits: 该楼层展区/内容列表
+ */
+export interface FloorGuide {
+  floor: string;
+  name: string;
+  exhibits: string[];
+}
+
+/**
+ * 常见问题 — 嵌套在 MuseumVisitInfo 中
+ *
+ * 【字段来源】后端 museum_visit_info 表
+ * - question: 问题
+ * - answer: 回答
+ */
+export interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+/**
  * 参观信息 — 嵌套在 MuseumDetailInfo 中，包含完整的参观指南
  *
  * 【字段来源】后端 museum_visit_info 表
@@ -491,6 +494,9 @@ export interface MuseumVisitInfo {
   transportation?: TransportationInfo;
   services?: ServiceFacilities;
   contact?: ContactInfo;
+  visitRoutes?: VisitRoute[];
+  floorGuides?: FloorGuide[];
+  faqs?: FAQItem[];
 }
 
 /**
@@ -513,38 +519,6 @@ export interface MuseumDetailInfo {
   architecture: string;
   highlights: string;
   education: string;
+  friendLinks?: { id: number; name: string }[];
 }
 
-/**
- * 省份数据 — 按省份聚合的博物馆复合数据结构
- *
- * 【注意】此类型不是直接对应某个后端 API，而是前端将多个 API 的数据
- * 按省份聚合后的结构，用于省份详情页的数据管理。
- *
- * @property code                   - 省份代码（如 "BJ"）
- * @property name                   - 省份名称（如 "北京"）
- * @property museums                - 该省的博物馆列表
- * @property details                - 博物馆详情映射（可选，key 为博物馆 ID）
- * @property artifacts              - 该省的文物列表（可选）
- * @property activities             - 该省的活动列表（可选）
- * @property creativeProducts       - 该省的文创产品列表（可选）
- * @property exhibitions            - 该省的展览列表（可选）
- * @property news                   - 该省的新闻列表（可选）
- * @property academicResources      - 该省的学术资源列表（可选）
- * @property immersiveExperiences   - 该省的沉浸式体验列表（可选）
- * @property exhibitionHalls        - 该省的专馆映射（可选，key 为博物馆 ID）
- */
-export interface ProvinceData {
-  code: string;
-  name: string;
-  museums: Museum[];
-  details?: Record<number, MuseumDetailInfo>;
-  artifacts?: Artifact[];
-  activities?: Activity[];
-  creativeProducts?: CreativeProduct[];
-  exhibitions?: Exhibition[];
-  news?: News[];
-  academicResources?: AcademicResource[];
-  immersiveExperiences?: ImmersiveExperience[];
-  exhibitionHalls?: Record<number, ExhibitionHall[]>;
-}

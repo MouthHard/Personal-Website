@@ -214,18 +214,18 @@
   import { showMessage } from '@/utils/landscape';
   import { formatNumber as fmt } from '@/utils/landscape/format';
   import { throttle } from '@/utils/landscape/debounce';
-  import EyeIcon from '@/pages/Landscape/icon/common/EyeIcon.vue';
-  import ThumbUpIcon from '@/pages/Landscape/icon/common/ThumbUpIcon.vue';
-  import HeartIcon from '@/pages/Landscape/icon/common/HeartIcon.vue';
-  import BookmarkIcon from '@/pages/Landscape/icon/common/BookmarkIcon.vue';
-  import ShareIcon from '@/pages/Landscape/icon/common/ShareIcon.vue';
-  import ChevronLeftIcon from '@/pages/Landscape/icon/common/ChevronLeftIcon.vue';
-  import ChevronRightIcon from '@/pages/Landscape/icon/common/ChevronRightIcon.vue';
-  import MaximizeIcon from '@/pages/Landscape/icon/components/home/TravelGuides/MaximizeIcon.vue';
+  import EyeIcon from '@/pages/Landscape/icons/common/EyeIcon.vue';
+  import ThumbUpIcon from '@/pages/Landscape/icons/common/ThumbUpIcon.vue';
+  import HeartIcon from '@/pages/Landscape/icons/common/HeartIcon.vue';
+  import BookmarkIcon from '@/pages/Landscape/icons/common/BookmarkIcon.vue';
+  import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue';
+  import ChevronLeftIcon from '@/pages/Landscape/icons/common/ChevronLeftIcon.vue';
+  import ChevronRightIcon from '@/pages/Landscape/icons/common/ChevronRightIcon.vue';
+  import MaximizeIcon from '@/pages/Landscape/icons/components/home/TravelGuides/MaximizeIcon.vue';
   import { useLandscapeDataStore } from '@/stores/landscape';
   import { useInteractionStore } from '@/stores/landscape';
   import type { InteractionItem } from '@/typesOfPages/landscape';
-  import { GUIDE_DEFAULTS, DATE_DEFAULTS, AUTHOR_DEFAULTS } from '@/utils/landscape/defaults';
+  import { GUIDE_DEFAULTS, DATE_DEFAULTS, AUTHOR_DEFAULTS } from '@/constants/landscape/defaults';
 
   import type { GlobalGuide } from '@/typesOfPages/landscape/data';
 

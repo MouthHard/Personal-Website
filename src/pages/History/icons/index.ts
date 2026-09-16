@@ -1,17 +1,17 @@
-import CulturalHeritageIcon from './CulturalHeritageIcon.vue';
-import DynasticChangesIcon from './DynasticChangesIcon.vue';
-import HistoricalFiguresIcon from './HistoricalFiguresIcon.vue';
-import HistoricalEventsIcon from './HistoricalEventsIcon.vue';
-import UpArrowIcon from './UpArrowIcon.vue';
-import BookIcon from './CloudBackground.vue';
-import HomeIcon from './HomeIcon.vue';
-import SealIcon from './SealIcon.vue';
-import JadeIcon from './JadeIcon.vue';
-import DynasticActiveIcon from './DynasticActiveIcon.vue';
-import FigureActiveTabIcon from './FigureActiveTabIcon.vue';
-import CloudBg from './CloudBg.vue';
-import CloudBack from './CloudBack.vue';
-import CloudBackground from './CloudBackground.vue';
+import CulturalHeritageIcon from './Heritage/CulturalHeritageIcon.vue';
+import DynasticChangesIcon from './Dynasties/DynasticChangesIcon.vue';
+import HistoricalFiguresIcon from './Figures/HistoricalFiguresIcon.vue';
+import HistoricalEventsIcon from './Events/HistoricalEventsIcon.vue';
+import UpArrowIcon from './common/UpArrowIcon.vue';
+import BookIcon from './Events/BookIcon.vue';
+import HomeIcon from './common/HomeIcon.vue';
+import SealIcon from './common/SealIcon.vue';
+import JadeIcon from './Heritage/JadeIcon.vue';
+import DynasticActiveIcon from './Dynasties/DynasticActiveIcon.vue';
+import FigureActiveTabIcon from './Figures/FigureActiveTabIcon.vue';
+import CloudBg from './common/CloudBg.vue';
+import CloudBack from './common/CloudBack.vue';
+import CloudBackground from './common/CloudBackground.vue';
 export {
   CulturalHeritageIcon,
   DynasticChangesIcon,

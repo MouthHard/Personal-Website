@@ -2,7 +2,7 @@
   <section class="museum-intro-section">
       <div class="left-column">
         <div class="museum-image">
-          <img loading="lazy" :src="museum.image" />
+          <img loading="lazy" :src="getMuseumImage(museum)" />
           <div class="image-decoration">
             <div class="corner top-left" />
             <div class="corner top-right" />
@@ -151,12 +151,18 @@
       </div>
 
       <div class="right-column">
-        <div class="museum-description">
-          <h3 class="description-title">博物馆介绍</h3>
+        <div class="museum-description info-card">
+          <h3 class="description-title">
+            <span class="title-marker">壹</span>
+            博物馆介绍
+          </h3>
           <p>{{ museum.description }}</p>
         </div>
-        <div class="museum-history">
-          <h3 class="history-title">历史沿革</h3>
+        <div class="museum-history info-card">
+          <h3 class="history-title">
+            <span class="title-marker">贰</span>
+            历史沿革
+          </h3>
           <p>
             {{
               museumDetails?.history ||
@@ -164,8 +170,11 @@
             }}
           </p>
         </div>
-        <div class="museum-architecture">
-          <h3 class="architecture-title">建筑特色</h3>
+        <div class="museum-architecture info-card">
+          <h3 class="architecture-title">
+            <span class="title-marker">叁</span>
+            建筑特色
+          </h3>
           <p>
             {{
               museumDetails?.architecture ||
@@ -173,8 +182,11 @@
             }}
           </p>
         </div>
-        <div class="museum-highlights">
-          <h3 class="highlights-title">重要馆藏</h3>
+        <div class="museum-highlights info-card">
+          <h3 class="highlights-title">
+            <span class="title-marker">肆</span>
+            重要馆藏
+          </h3>
           <p>
             {{
               museumDetails?.highlights ||
@@ -182,8 +194,11 @@
             }}
           </p>
         </div>
-        <div class="museum-activities">
-          <h3 class="activities-title">教育活动</h3>
+        <div class="museum-activities info-card">
+          <h3 class="activities-title">
+            <span class="title-marker">伍</span>
+            教育活动
+          </h3>
           <p>
             {{
               museumDetails?.education ||
@@ -199,6 +214,8 @@
   import { ref, watch, computed } from 'vue';
   import type { Museum, MuseumDetailInfo } from '@/typesOfPages/museum';
   import { useMuseumDataStore } from '@/stores/museum';
+  import { formatNumber } from '@/utils/museum';
+  import { getMuseumImage } from '@/utils/museum/imagePool';
 
   interface Props {
     museum: Museum;
@@ -207,9 +224,6 @@
   const props = defineProps<Props>();
   const store = useMuseumDataStore();
 
-  const formatNumber = (num: number): string => {
-    return num.toLocaleString();
-  };
 
   const museumDetails = ref<MuseumDetailInfo | null>(null);
 

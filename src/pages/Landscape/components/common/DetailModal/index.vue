@@ -71,14 +71,14 @@
 
 <script setup lang="ts">
 import type { LandscapeItem } from '@/typesOfPages/landscape';
-import CloseIcon from '../../../icon/common/CloseIcon.vue';
-import HeartIcon from '../../../icon/common/HeartIcon.vue';
-import ShareIcon from '../../../icon/common/ShareIcon.vue';
-import DownloadIcon from '../../../icon/common/DownloadIcon.vue';
-import LocationIcon from '../../../icon/common/LocationIcon.vue';
-import CalendarIcon from '../../../icon/common/CalendarIcon.vue';
-import EyeIcon from '../../../icon/common/EyeIcon.vue';
-import CameraIcon from '../../../icon/common/CameraIcon.vue';
+import CloseIcon from '../../../icons/common/CloseIcon.vue';
+import HeartIcon from '../../../icons/common/HeartIcon.vue';
+import ShareIcon from '../../../icons/common/ShareIcon.vue';
+import DownloadIcon from '../../../icons/common/DownloadIcon.vue';
+import LocationIcon from '../../../icons/common/LocationIcon.vue';
+import CalendarIcon from '../../../icons/common/CalendarIcon.vue';
+import EyeIcon from '../../../icons/common/EyeIcon.vue';
+import CameraIcon from '../../../icons/common/CameraIcon.vue';
 
 defineProps<{
   item: LandscapeItem | null;

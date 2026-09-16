@@ -96,8 +96,8 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import ChevronLeftIcon from '@/pages/Landscape/icon/common/ChevronLeftIcon.vue';
-import ChevronRightIcon from '@/pages/Landscape/icon/common/ChevronRightIcon.vue';
+import ChevronLeftIcon from '@/pages/Landscape/icons/common/ChevronLeftIcon.vue';
+import ChevronRightIcon from '@/pages/Landscape/icons/common/ChevronRightIcon.vue';
 
 defineProps<{
   currentTitle: string;

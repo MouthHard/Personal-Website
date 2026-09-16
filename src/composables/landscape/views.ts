@@ -170,7 +170,7 @@ export function useHomeViewData() {
         mediaType: idx % 2 === 0 ? 'image' : 'video',
         quality: ['4K', 'HDR', '1080P'][idx % 3],
         duration: idx % 2 === 1 ? 60 + (idx * 37) % 300 : null,
-        author: photographer?.name || img.author,
+        author: photographer?.name || img.author || '',
         authorId: img.authorId,
         authorAvatar: photographer?.avatar,
       }
@@ -198,6 +198,8 @@ export function useHomeViewData() {
         authorAvatar: v.authorAvatar || (author?.avatar || ''),
         authorName: v.author || (author?.name || ''),
         authorTitle: author?.title || '',
+        author: v.author || (author?.name || ''),
+        authorId: v.authorId,
       }
     })
   }

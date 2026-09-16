@@ -97,12 +97,12 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import CustomSwitch from '../../common/CustomSwitch.vue'
-import FacebookIcon from '@/pages/Landscape/icon/components/setting/SocialSection/FacebookIcon.vue'
-import WeiboIcon from '@/pages/Landscape/icon/common/WeiboIcon.vue'
-import WechatIcon from '@/pages/Landscape/icon/common/WechatIcon.vue'
-import InstagramFilledIcon from '@/pages/Landscape/icon/common/InstagramFilledIcon.vue'
-import TwitterIcon from '@/pages/Landscape/icon/common/TwitterIcon.vue'
-import UploadShareIcon from '@/pages/Landscape/icon/components/setting/SocialSection/UploadShareIcon.vue'
+import FacebookIcon from '@/pages/Landscape/icons/components/setting/SocialSection/FacebookIcon.vue'
+import WeiboIcon from '@/pages/Landscape/icons/common/WeiboIcon.vue'
+import WechatIcon from '@/pages/Landscape/icons/common/WechatIcon.vue'
+import InstagramFilledIcon from '@/pages/Landscape/icons/common/InstagramFilledIcon.vue'
+import TwitterIcon from '@/pages/Landscape/icons/common/TwitterIcon.vue'
+import UploadShareIcon from '@/pages/Landscape/icons/components/setting/SocialSection/UploadShareIcon.vue'
 
 const weiboAutoShare = ref(false)
 const twitterAutoShare = ref(false)

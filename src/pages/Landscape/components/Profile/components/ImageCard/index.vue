@@ -120,16 +120,16 @@ import { showMessage } from '@/utils/landscape';
 import type { ImageItem } from '@/typesOfPages/landscape';
 import { useFormatNumber } from '@/composables/landscape';
 import { useInteractionStore } from '@/stores/landscape';
-import HeartIcon from '@/pages/Landscape/icon/common/HeartIcon.vue';
-import ThumbUpIcon from '@/pages/Landscape/icon/common/ThumbUpIcon.vue';
-import BookmarkIcon from '@/pages/Landscape/icon/common/BookmarkIcon.vue';
-import ShareIcon from '@/pages/Landscape/icon/common/ShareIcon.vue';
-import EyeIcon from '@/pages/Landscape/icon/common/EyeIcon.vue';
-import StarIcon from '@/pages/Landscape/icon/common/StarIcon.vue';
-import LocationIcon from '@/pages/Landscape/icon/common/LocationIcon.vue';
-import CameraIcon from '@/pages/Landscape/icon/common/CameraIcon.vue';
-import CalendarIcon from '@/pages/Landscape/icon/common/CalendarIcon.vue';
-import ArrowRightIcon from '@/pages/Landscape/icon/common/ArrowRightIcon.vue';
+import HeartIcon from '@/pages/Landscape/icons/common/HeartIcon.vue';
+import ThumbUpIcon from '@/pages/Landscape/icons/common/ThumbUpIcon.vue';
+import BookmarkIcon from '@/pages/Landscape/icons/common/BookmarkIcon.vue';
+import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue';
+import EyeIcon from '@/pages/Landscape/icons/common/EyeIcon.vue';
+import StarIcon from '@/pages/Landscape/icons/common/StarIcon.vue';
+import LocationIcon from '@/pages/Landscape/icons/common/LocationIcon.vue';
+import CameraIcon from '@/pages/Landscape/icons/common/CameraIcon.vue';
+import CalendarIcon from '@/pages/Landscape/icons/common/CalendarIcon.vue';
+import ArrowRightIcon from '@/pages/Landscape/icons/common/ArrowRightIcon.vue';
 
 const props = defineProps<{
   item: ImageItem;

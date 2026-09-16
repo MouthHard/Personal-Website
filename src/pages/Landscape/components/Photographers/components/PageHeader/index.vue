@@ -53,9 +53,9 @@
   import { computed } from 'vue';
   import { useLandscapeDataStore } from '@/stores/landscape';
   import { formatNumber } from '@/utils/landscape/format';
-  import LensIcon from '@/pages/Landscape/icon/components/photographers/PageHeader/LensIcon.vue';
-  import ImageIcon from '@/pages/Landscape/icon/common/ImageIcon.vue';
-  import GlobeIcon from '@/pages/Landscape/icon/common/GlobeIcon.vue';
+  import LensIcon from '@/pages/Landscape/icons/components/photographers/PageHeader/LensIcon.vue';
+  import ImageIcon from '@/pages/Landscape/icons/common/ImageIcon.vue';
+  import GlobeIcon from '@/pages/Landscape/icons/common/GlobeIcon.vue';
 
   const dataStore = useLandscapeDataStore();
 

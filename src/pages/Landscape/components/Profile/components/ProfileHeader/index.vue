@@ -84,14 +84,14 @@
 import { ref, type VNode } from 'vue';
 import EditProfileModal from './components/EditProfileModal/index.vue';
 import type { User } from '@/typesOfPages/landscape';
-import UserIcon from '@/pages/Landscape/icon/common/UserIcon.vue';
-import CheckCircleIcon from '@/pages/Landscape/icon/components/profile/ProfileHeader/CheckCircleIcon.vue';
-import LocationIcon from '@/pages/Landscape/icon/common/LocationIcon.vue';
-import CalendarIcon from '@/pages/Landscape/icon/common/CalendarIcon.vue';
-import LayersIcon from '@/pages/Landscape/icon/common/LayersIcon.vue';
-import ChevronUpIcon from '@/pages/Landscape/icon/common/ChevronUpIcon.vue';
-import ChevronDownIcon from '@/pages/Landscape/icon/common/ChevronDownIcon.vue';
-import EditIcon from '@/pages/Landscape/icon/common/EditIcon.vue';
+import UserIcon from '@/pages/Landscape/icons/common/UserIcon.vue';
+import CheckCircleIcon from '@/pages/Landscape/icons/components/profile/ProfileHeader/CheckCircleIcon.vue';
+import LocationIcon from '@/pages/Landscape/icons/common/LocationIcon.vue';
+import CalendarIcon from '@/pages/Landscape/icons/common/CalendarIcon.vue';
+import LayersIcon from '@/pages/Landscape/icons/common/LayersIcon.vue';
+import ChevronUpIcon from '@/pages/Landscape/icons/common/ChevronUpIcon.vue';
+import ChevronDownIcon from '@/pages/Landscape/icons/common/ChevronDownIcon.vue';
+import EditIcon from '@/pages/Landscape/icons/common/EditIcon.vue';
 
 interface Stat {
   label: string;

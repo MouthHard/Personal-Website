@@ -54,12 +54,14 @@ export interface Province {
  * 【注意】此类型不来自后端，由前端组件内部定义
  * - id: 标签页标识
  * - name: 标签页显示名称
- * - icon: 标签页图标（any 类型，兼容各种图标库）
+ * - icon: 标签页图标（Component 类型，兼容各种图标组件）
  */
+import type { Component } from 'vue';
+
 export interface Tab {
   id: string;
   name: string;
-  icon: any;
+  icon: Component;
 }
 
 /**
@@ -190,6 +192,8 @@ export interface Food {
   badgeText?: string;
   badgeColor?: string;
   image?: string;
+  reviewCount?: number;
+  highlight?: string;
   recommendations?: {
     pairings?: string[];
     eatingMethod?: string;

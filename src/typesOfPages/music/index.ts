@@ -393,16 +393,18 @@ export interface DownloadedSong extends Song {
  * 用于展示"我喜欢的音乐"、"最近播放"等系统歌单
  *
  * @property key   - 歌单标识（如 "liked"、"recent"）
- * @property icon  - 歌单图标（可选）
+ * @property icon  - 歌单图标（可选，Component 类型）
  * @property name  - 歌单名称
  * @property count - 歌曲数量描述（字符串，如 "128首"）
  * @property cover - 封面图 URL
  * @property desc  - 歌单描述
  * @property songs - 歌曲 ID 列表
  */
+import type { Component } from 'vue';
+
 export interface DefaultPlaylist {
   key: string;
-  icon?: any;
+  icon?: Component;
   name: string;
   count: string;
   cover: string;

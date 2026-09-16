@@ -3,19 +3,17 @@
  * 模式对齐 useAphorismDataStore：页面通过 Store 消费 API，不直接读静态 data
  */
 import { defineStore } from 'pinia';
-import { ref, computed } from 'vue';
+import { ref, computed, type Ref } from 'vue';
 import {
   fetchMuseums,
-  fetchMuseumById,
   fetchMuseumDetail,
   fetchArtifacts,
   fetchArtifactDetail,
   fetchExhibitions,
-  fetchActivities,
   fetchNews,
   fetchImmersive,
   fetchCreativeProducts,
-  fetchAcademicResources,
+  fetchCreativeActivities,
   fetchExhibitionHalls,
 } from '@/services/museum';
 import type {
@@ -28,7 +26,7 @@ import type {
   News,
   ImmersiveExperience,
   CreativeProduct,
-  AcademicResource,
+
   ExhibitionHall,
 } from '@/typesOfPages/museum';
 
@@ -37,11 +35,12 @@ export const useMuseumDataStore = defineStore('museumData', () => {
   const artifacts = ref<Artifact[]>([]);
   const artifactDetailMap = ref<Record<number, ArtifactDetail>>({});
   const exhibitions = ref<Exhibition[]>([]);
-  const activities = ref<Activity[]>([]);
+
   const news = ref<News[]>([]);
   const immersive = ref<ImmersiveExperience[]>([]);
   const creativeProducts = ref<CreativeProduct[]>([]);
-  const academicResources = ref<AcademicResource[]>([]);
+  const creativeActivities = ref<Activity[]>([]);
+
   const exhibitionHalls = ref<ExhibitionHall[]>([]);
   const museumDetails = ref<Record<number, MuseumDetailInfo>>({});
 
@@ -50,16 +49,24 @@ export const useMuseumDataStore = defineStore('museumData', () => {
   const loaded = ref(false);
   let loadPromise: Promise<void> | null = null;
 
-  const museumsByProvince = computed(() => {
-    const map: Record<string, Museum[]> = {};
-    for (const m of museums.value) {
-      // 前端路由使用英文省份 key，列表展示用中文 province；
-      // 保留按中文省份分组，MuseumDetail 改用 id 查找
-      if (!map[m.province]) map[m.province] = [];
-      map[m.province].push(m);
-    }
-    return map;
-  });
+  const indexByMuseumId = <T extends { museumId: number }>(arr: Ref<T[]>) =>
+    computed(() => {
+      const m = new Map<number, T[]>();
+      for (const item of arr.value) {
+        if (!m.has(item.museumId)) m.set(item.museumId, []);
+        m.get(item.museumId)!.push(item);
+      }
+      return m;
+    });
+
+  const artifactsByMuseumId = indexByMuseumId(artifacts);
+  const exhibitionsByMuseumId = indexByMuseumId(exhibitions);
+  const newsByMuseumId = indexByMuseumId(news);
+  const immersiveByMuseumId = indexByMuseumId(immersive);
+  const creativeProductsByMuseumId = indexByMuseumId(creativeProducts);
+  const creativeActivitiesByMuseumId = indexByMuseumId(creativeActivities);
+  const exhibitionHallsByMuseumId = indexByMuseumId(exhibitionHalls);
+
 
   async function loadAll() {
     if (loaded.value) return;
@@ -72,31 +79,29 @@ export const useMuseumDataStore = defineStore('museumData', () => {
           museumRes,
           artifactRes,
           exhibitionRes,
-          activityRes,
           newsRes,
           immersiveRes,
-          creativeRes,
-          academicRes,
-          hallRes,
-        ] = await Promise.all([
-          fetchMuseums(),
-          fetchArtifacts(),
-          fetchExhibitions(),
-          fetchActivities(),
-          fetchNews(),
-          fetchImmersive(),
-          fetchCreativeProducts(),
-          fetchAcademicResources(),
-          fetchExhibitionHalls(),
-        ]);
-        museums.value = museumRes.items;
-        artifacts.value = artifactRes.items;
-        exhibitions.value = exhibitionRes.items;
-        activities.value = activityRes.items;
-        news.value = newsRes.items;
-        immersive.value = immersiveRes.items;
-        creativeProducts.value = creativeRes.items;
-        academicResources.value = academicRes.items;
+           creativeRes,
+           creativeActivityRes,
+           hallRes,
+         ] = await Promise.all([
+           fetchMuseums(),
+           fetchArtifacts(),
+           fetchExhibitions(),
+           fetchNews(),
+           fetchImmersive(),
+           fetchCreativeProducts(),
+           fetchCreativeActivities(),
+           fetchExhibitionHalls(),
+         ]);
+         museums.value = museumRes.items;
+         artifacts.value = artifactRes.items;
+         exhibitions.value = exhibitionRes.items;
+         news.value = newsRes.items;
+         immersive.value = immersiveRes.items;
+         creativeProducts.value = creativeRes.items;
+         creativeActivities.value = creativeActivityRes.items;
+
         exhibitionHalls.value = hallRes.items;
         loaded.value = true;
       } catch (e) {
@@ -104,11 +109,12 @@ export const useMuseumDataStore = defineStore('museumData', () => {
         museums.value = [];
         artifacts.value = [];
         exhibitions.value = [];
-        activities.value = [];
+
         news.value = [];
         immersive.value = [];
         creativeProducts.value = [];
-        academicResources.value = [];
+        creativeActivities.value = [];
+
         exhibitionHalls.value = [];
       } finally {
         loading.value = false;
@@ -126,13 +132,7 @@ export const useMuseumDataStore = defineStore('museumData', () => {
 
   async function getMuseum(id: number): Promise<Museum | null> {
     await ensureLoaded();
-    const cached = museums.value.find((m) => m.id === id);
-    if (cached) return cached;
-    try {
-      return await fetchMuseumById(id);
-    } catch {
-      return null;
-    }
+    return museums.value.find((m) => m.id === id) || null;
   }
 
   async function getMuseumDetailsById(
@@ -151,7 +151,7 @@ export const useMuseumDataStore = defineStore('museumData', () => {
   }
 
   function getArtifactsByMuseumId(museumId: number): Artifact[] {
-    return artifacts.value.filter((a) => a.museumId === museumId);
+    return artifactsByMuseumId.value.get(museumId) ?? [];
   }
 
   async function getArtifactDetailById(
@@ -169,35 +169,29 @@ export const useMuseumDataStore = defineStore('museumData', () => {
   }
 
   function getExhibitionsByMuseumId(museumId: number): Exhibition[] {
-    return exhibitions.value.filter((e) => e.museumId === museumId);
+    return exhibitionsByMuseumId.value.get(museumId) ?? [];
   }
 
-  function getActivitiesByMuseumId(museumId: number): Activity[] {
-    return activities.value.filter((a) => a.museumId === museumId);
-  }
 
   function getNewsByMuseumId(museumId: number): News[] {
-    return news.value.filter((n) => n.museumId === museumId);
+    return newsByMuseumId.value.get(museumId) ?? [];
   }
 
   function getImmersiveByMuseumId(museumId: number): ImmersiveExperience[] {
-    return immersive.value.filter((i) => i.museumId === museumId);
+    return immersiveByMuseumId.value.get(museumId) ?? [];
   }
 
   function getCreativeProductsByMuseumId(museumId: number): CreativeProduct[] {
-    return creativeProducts.value.filter((c) => c.museumId === museumId);
+    return creativeProductsByMuseumId.value.get(museumId) ?? [];
   }
 
-  function getAcademicResourcesByMuseumId(
-    museumId: number,
-  ): AcademicResource[] {
-    return academicResources.value.filter((a) => a.museumId === museumId);
+  function getCreativeActivitiesByMuseumId(museumId: number): Activity[] {
+    return creativeActivitiesByMuseumId.value.get(museumId) ?? [];
   }
+
 
   function getExhibitionHallsByMuseumId(museumId: number): ExhibitionHall[] {
-    return exhibitionHalls.value.filter(
-      (h) => (h as ExhibitionHall & { museumId?: number }).museumId === museumId,
-    );
+    return exhibitionHallsByMuseumId.value.get(museumId) ?? [];
   }
 
   return {
@@ -205,14 +199,12 @@ export const useMuseumDataStore = defineStore('museumData', () => {
     artifacts,
     artifactDetailMap,
     exhibitions,
-    activities,
     news,
     immersive,
     creativeProducts,
-    academicResources,
+    creativeActivities,
     exhibitionHalls,
     museumDetails,
-    museumsByProvince,
     loading,
     error,
     loaded,
@@ -223,11 +215,10 @@ export const useMuseumDataStore = defineStore('museumData', () => {
     getArtifactsByMuseumId,
     getArtifactDetailById,
     getExhibitionsByMuseumId,
-    getActivitiesByMuseumId,
     getNewsByMuseumId,
     getImmersiveByMuseumId,
     getCreativeProductsByMuseumId,
-    getAcademicResourcesByMuseumId,
+    getCreativeActivitiesByMuseumId,
     getExhibitionHallsByMuseumId,
   };
 });

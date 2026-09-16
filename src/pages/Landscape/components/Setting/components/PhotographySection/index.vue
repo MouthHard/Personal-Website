@@ -148,13 +148,13 @@
 import { ref, computed } from 'vue'
 import CustomSwitch from '../../common/CustomSwitch.vue'
 import CustomSelect from '../../common/CustomSelect.vue'
-import { PhotographyQualityOptions, WatermarkPositionOptions } from '@/utils/landscape/constants'
-import CameraIcon from '@/pages/Landscape/icon/common/CameraIcon.vue'
-import AwardIcon from '@/pages/Landscape/icon/components/setting/PhotographySection/AwardIcon.vue'
-import CloseIcon from '@/pages/Landscape/icon/common/CloseIcon.vue'
-import ChevronDownIcon from '@/pages/Landscape/icon/common/ChevronDownIcon.vue'
-import PlusIcon from '@/pages/Landscape/icon/components/setting/PhotographySection/PlusIcon.vue'
-import LocationIcon from '@/pages/Landscape/icon/common/LocationIcon.vue'
+import { PhotographyQualityOptions, WatermarkPositionOptions } from '@/constants/landscape'
+import CameraIcon from '@/pages/Landscape/icons/common/CameraIcon.vue'
+import AwardIcon from '@/pages/Landscape/icons/components/setting/PhotographySection/AwardIcon.vue'
+import CloseIcon from '@/pages/Landscape/icons/common/CloseIcon.vue'
+import ChevronDownIcon from '@/pages/Landscape/icons/common/ChevronDownIcon.vue'
+import PlusIcon from '@/pages/Landscape/icons/components/setting/PhotographySection/PlusIcon.vue'
+import LocationIcon from '@/pages/Landscape/icons/common/LocationIcon.vue'
 
 const imageQuality = ref('原图')
 const enableWatermark = ref(true)

@@ -2,11 +2,13 @@
   <div class="artifact-main">
     <div class="artifact-container">
       <div v-if="artifacts.length === 0" class="empty-state">
-        <div class="empty-icon">🔍</div>
+        <div class="empty-icon">
+          <SearchXIcon />
+        </div>
         <h3 class="empty-title">未找到相关文物</h3>
         <p class="empty-description">尝试更换搜索关键词或调整筛选条件</p>
         <div class="empty-tips">
-          <span class="tip-item">💡 提示：</span>
+          <span class="tip-icon"><SparkleIcon /></span>
           <span class="tip-text">使用更简短的关键词可能会有更多结果</span>
         </div>
       </div>
@@ -39,13 +41,33 @@
                   <span>{{ artifact.name }}</span>
                 </div>
                 <div class="artifact-actions">
-                  <button class="action-btn">
-                    <HeartIcon />
+                  <button
+                    class="action-btn"
+                    :class="{ active: isThumbsUp(artifact.id) }"
+                    type="button"
+                    aria-label="点赞"
+                    @click.stop="toggleThumbsUp(artifact.id, artifact.name)"
+                  >
+                    <LikeFilledIcon v-if="isThumbsUp(artifact.id)" />
+                    <LikeIcon v-else />
                   </button>
-                  <button class="action-btn">
-                    <StarIcon />
+                  <button
+                    class="action-btn"
+
+                    :class="{ active: isFavored(artifact.id) }"
+                    type="button"
+                    aria-label="收藏"
+                    @click.stop="toggleFavor(artifact.id, artifact.name)"
+                  >
+                    <StarFilledIcon v-if="isFavored(artifact.id)" />
+                    <StarIcon v-else />
                   </button>
-                  <button class="action-btn">
+                  <button
+                    class="action-btn"
+                    type="button"
+                    aria-label="分享"
+                    @click.stop="handleShare(artifact)"
+                  >
                     <ShareIcon />
                   </button>
                 </div>
@@ -53,9 +75,13 @@
               <div class="artifact-info">
                 <h3 class="artifact-name">{{ artifact.name }}</h3>
                 <p class="artifact-period">{{ artifact.period }}</p>
-                <p class="artifact-description">
-                  {{ artifact.description }}
-                </p>
+                <div class="artifact-tags" v-if="artifact.tags && artifact.tags.length">
+                  <span
+                    v-for="tag in artifact.tags"
+                    :key="tag"
+                    class="artifact-tag"
+                  >{{ tag }}</span>
+                </div>
               </div>
             </div>
             <!-- 卡片背面 -->
@@ -73,24 +99,52 @@
         </div>
       </div>
     </div>
+    <ShareModal
+      v-model:visible="shareVisible"
+      :title="shareTitle"
+      :description="shareDescription"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
+  import { reactive, ref } from 'vue';
+  import type { Artifact } from '@/typesOfPages/museum';
   // 导入图标组件
   import {
-    HeartIcon,
+
     StarIcon,
+    StarFilledIcon,
     ShareIcon,
+    LikeIcon,
+    LikeFilledIcon,
     InactiveDiscIcon,
     ActiveDiscIcon
-  } from "@/pages/Museum/icon/pages/ArtifactContainer";
+  } from "@/pages/Museum/icons/pages/ArtifactContainer";
+  import { SearchXIcon, SparkleIcon } from '@/pages/Museum/icons/common';
+  import { useArtifactPrefs } from '@/composables/museum/useArtifactPrefs';
+  import { useCurrentMuseumId } from '@/composables/museum/useCurrentMuseumId';
+  import { ShareModal } from '@/pages/Museum/components/common';
 
   const failedImages = reactive(new Set<number>());
 
+  // ─── 点赞 / 收藏（共享 composable，与 ArtifactsSection / ArtifactDetailModal 共用同一状态） ───
+  const { isFavored, isThumbsUp, toggleFavor, toggleThumbsUp } = useArtifactPrefs(useCurrentMuseumId());
+
+  // ─── 分享 ───
+  const shareVisible = ref(false);
+  const shareTitle = ref('');
+  const shareDescription = ref('');
+
+  const handleShare = (artifact: Artifact) => {
+    shareTitle.value = `文物 · ${artifact.name}`;
+    shareDescription.value = artifact.description || '';
+    shareVisible.value = true;
+  };
+
   // 定义 Props
   interface Props {
-    artifacts: any[];
+    artifacts: Artifact[];
     activeArtifactId: number | null;
   }
 
@@ -98,11 +152,11 @@
 
   // 定义 Emits
   const emit = defineEmits<{
-    (e: 'artifactClick', artifact: any): void;
+    (e: 'artifactClick', artifact: Artifact): void;
   }>();
 
-  // 处理文物点击
-  const handleArtifactClick = (artifact: any) => {
+  // 处理文物点击（仅卡片本身触发，按钮已 .stop 阻止冒泡）
+  const handleArtifactClick = (artifact: Artifact) => {
     emit('artifactClick', artifact);
   };
 </script>

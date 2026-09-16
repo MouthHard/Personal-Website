@@ -133,16 +133,16 @@
   import { useRouter } from 'vue-router';
   import type { Topic } from '@/typesOfPages/landscape/home';
   import { useLandscapeDataStore } from '@/stores/landscape';
-  import TrendIcon from '@/pages/Landscape/icon/components/home/HotTopics/TrendIcon.vue';
-  import PlayCircleIcon from '@/pages/Landscape/icon/components/home/HotTopics/PlayCircleIcon.vue';
-  import SpinnerIcon from '@/pages/Landscape/icon/components/home/HotTopics/SpinnerIcon.vue';
-  import CalendarIcon from '@/pages/Landscape/icon/common/CalendarIcon.vue';
-  import LocationIcon from '@/pages/Landscape/icon/common/LocationIcon.vue';
-  import EyeIcon from '@/pages/Landscape/icon/common/EyeIcon.vue';
-  import ThumbUpIcon from '@/pages/Landscape/icon/common/ThumbUpIcon.vue';
-  import BookmarkIcon from '@/pages/Landscape/icon/common/BookmarkIcon.vue';
-  import ChevronDownIcon from '@/pages/Landscape/icon/common/ChevronDownIcon.vue';
-  import CommentIcon from '@/pages/Landscape/icon/components/profile/VideoCard/CommentIcon.vue';
+  import TrendIcon from '@/pages/Landscape/icons/components/home/HotTopics/TrendIcon.vue';
+  import PlayCircleIcon from '@/pages/Landscape/icons/components/home/HotTopics/PlayCircleIcon.vue';
+  import SpinnerIcon from '@/pages/Landscape/icons/components/home/HotTopics/SpinnerIcon.vue';
+  import CalendarIcon from '@/pages/Landscape/icons/common/CalendarIcon.vue';
+  import LocationIcon from '@/pages/Landscape/icons/common/LocationIcon.vue';
+  import EyeIcon from '@/pages/Landscape/icons/common/EyeIcon.vue';
+  import ThumbUpIcon from '@/pages/Landscape/icons/common/ThumbUpIcon.vue';
+  import BookmarkIcon from '@/pages/Landscape/icons/common/BookmarkIcon.vue';
+  import ChevronDownIcon from '@/pages/Landscape/icons/common/ChevronDownIcon.vue';
+  import CommentIcon from '@/pages/Landscape/icons/components/profile/VideoCard/CommentIcon.vue';
 
   const router = useRouter();
   const dataStore = useLandscapeDataStore();

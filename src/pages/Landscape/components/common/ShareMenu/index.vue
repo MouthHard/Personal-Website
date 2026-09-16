@@ -41,17 +41,17 @@
 </template>
 
 <script setup lang="ts">
-import { ref, h, onUnmounted } from 'vue'
+import { ref, h, onUnmounted, type Component } from 'vue'
 import { showMessage } from '@/utils/landscape'
-import CloseIcon from '@/pages/Landscape/icon/common/CloseIcon.vue'
-import LinkIcon from '@/pages/Landscape/icon/components/common/ShareMenu/LinkIcon.vue'
-import CopyIcon from '@/pages/Landscape/icon/components/common/ShareMenu/CopyIcon.vue'
+import CloseIcon from '@/pages/Landscape/icons/common/CloseIcon.vue'
+import LinkIcon from '@/pages/Landscape/icons/components/common/ShareMenu/LinkIcon.vue'
+import CopyIcon from '@/pages/Landscape/icons/components/common/ShareMenu/CopyIcon.vue'
 
 interface Platform {
   id: string
   name: string
   gradient: string
-  icon: any
+  icon: Component
 }
 
 interface Props {

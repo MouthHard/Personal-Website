@@ -104,13 +104,13 @@
 
 <script setup lang="ts">
 import type { LandscapeItem } from '@/typesOfPages/landscape';
-import type { Category } from '@/utils/landscape/categories';
-import { categoryGroups } from '@/utils/landscape/categories';
+import type { Category } from '@/constants/landscape/categories';
+import { categoryGroups } from '@/constants/landscape/categories';
 import { computed } from 'vue';
-import { dimensions } from '@/utils/landscape/constants';
-import TrashIcon from '@/pages/Landscape/icon/common/TrashIcon.vue';
-import ChevronDownIcon from '@/pages/Landscape/icon/common/ChevronDownIcon.vue';
-import ChevronRightIcon from '@/pages/Landscape/icon/common/ChevronRightIcon.vue';
+import { dimensions } from '@/constants/landscape';
+import TrashIcon from '@/pages/Landscape/icons/common/TrashIcon.vue';
+import ChevronDownIcon from '@/pages/Landscape/icons/common/ChevronDownIcon.vue';
+import ChevronRightIcon from '@/pages/Landscape/icons/common/ChevronRightIcon.vue';
 
 interface Props {
   items: LandscapeItem[];

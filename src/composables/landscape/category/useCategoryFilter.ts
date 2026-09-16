@@ -1,7 +1,7 @@
 import { ref, computed, type Ref, type ComputedRef } from 'vue';
 import type { LandscapeItem } from '@/typesOfPages/landscape';
-import type { Category } from '@/utils/landscape/categories';
-import { dimensions } from '@/utils/landscape/constants';
+import type { Category } from '@/constants/landscape/categories';
+import { dimensions } from '@/constants/landscape';
 
 interface UseCategoryFilterReturn {
   activeDimension: Ref<string>;

@@ -91,8 +91,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import CustomSwitch from '../../common/CustomSwitch.vue'
-import BellIcon from '@/pages/Landscape/icon/components/setting/NotificationsSection/BellIcon.vue'
-import ShieldIcon from '@/pages/Landscape/icon/common/ShieldIcon.vue'
+import BellIcon from '@/pages/Landscape/icons/components/setting/NotificationsSection/BellIcon.vue'
+import ShieldIcon from '@/pages/Landscape/icons/common/ShieldIcon.vue'
 
 const newFollower = ref(true)
 const likeComment = ref(true)

@@ -412,7 +412,7 @@ const applySort = (foods: Food[]) => {
     case 'reviews':
       return sortedFoods.sort(
         (a: Food, b: Food) =>
-          ((b as any).reviewCount || 0) - ((a as any).reviewCount || 0),
+          (b.reviewCount || 0) - (a.reviewCount || 0),
       );
     default:
       return sortedFoods;

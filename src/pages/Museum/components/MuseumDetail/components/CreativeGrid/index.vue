@@ -5,7 +5,7 @@
     
     <div class="page-header">
       <h2 class="page-title">
-        <span class="title-icon">🎨</span>
+        <span class="title-icon"><PaletteIcon /></span>
         文创产品
       </h2>
       <p class="page-subtitle">探索博物馆特色文创，将文化艺术带回家</p>
@@ -20,8 +20,8 @@
     <!-- 文创活动模块 -->
     <ActivitySection :museum="museum" />
 
-    <!-- 文创APP模块 -->
-    <AppSection />
+    <!-- 数字文创模块 -->
+    <AppSection :museum="museum" />
   </section>
 </template>
 
@@ -34,6 +34,7 @@
   import ActivitySection from './components/ActivitySection/index.vue';
   import AppSection from './components/AppSection/index.vue';
   import FallingLeaves from './components/FallingLeaves/index.vue';
+  import { PaletteIcon } from '@/pages/Museum/icons/common';
 
   interface Props {
     museum: Museum;

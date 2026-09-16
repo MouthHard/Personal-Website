@@ -36,7 +36,7 @@
 </template>
 
 <script setup lang="ts">
-import SettingIcon from '@/pages/Landscape/icon/components/setting/SettingIcon.vue'
+import SettingIcon from '@/pages/Landscape/icons/components/setting/SettingIcon.vue'
 
 defineProps<{
   activeSection: string

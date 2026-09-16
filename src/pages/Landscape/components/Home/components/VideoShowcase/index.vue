@@ -78,8 +78,8 @@ import { showMessage, createSimpleInteractionItem } from '@/utils/landscape';
 import { useInteractionStore } from '@/stores/landscape';
 import { useHomeViewData } from '@/composables/landscape';
 import type { GlobalVideo } from '@/typesOfPages/landscape/data';
-import ArrowRightIcon from '@/pages/Landscape/icon/common/ArrowRightIcon.vue';
-import EmptyVideoIcon from '@/pages/Landscape/icon/components/home/VideoShowcase/EmptyVideoIcon.vue';
+import ArrowRightIcon from '@/pages/Landscape/icons/common/ArrowRightIcon.vue';
+import EmptyVideoIcon from '@/pages/Landscape/icons/components/home/VideoShowcase/EmptyVideoIcon.vue';
 import VideoSlide from './components/VideoSlide/index.vue';
 import VideoFrame from './components/VideoFrame/index.vue';
 import VideoModal from './components/VideoModal/index.vue';
@@ -250,7 +250,7 @@ const handleMore = () => {
   // 查看更多处理
 };
 
-const openVideoModal = (video: any) => {
+const openVideoModal = (video: GlobalVideo) => {
   selectedVideo.value = video;
   showVideoModal.value = true;
   document.body.style.overflow = 'hidden';

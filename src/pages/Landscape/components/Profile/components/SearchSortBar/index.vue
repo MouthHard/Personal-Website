@@ -21,7 +21,7 @@
 
 <script setup lang="ts">
 import { ref, onUnmounted } from 'vue';
-import SearchIcon from '../../../../icon/common/SearchIcon.vue';
+import SearchIcon from '../../../../icons/common/SearchIcon.vue';
 
 defineProps<{
   searchKeyword: string;

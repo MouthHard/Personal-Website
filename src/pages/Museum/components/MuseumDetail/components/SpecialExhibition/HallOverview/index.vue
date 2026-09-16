@@ -12,59 +12,56 @@
         <p class="hall-intro">{{ hall.introduction }}</p>
         <div class="hall-stats">
           <div class="stat-item">
-            <span class="stat-number">
-              {{ hall.stats.artifacts }}
-            </span>
+            <span class="stat-icon"><VaseIcon /></span>
+            <span class="stat-number">{{ hall.stats.artifacts }}</span>
             <span class="stat-label">件藏品</span>
           </div>
           <div class="stat-item">
-            <span class="stat-number">
-              {{ hall.stats.exhibitions }}
-            </span>
+            <span class="stat-icon"><ImageIcon /></span>
+            <span class="stat-number">{{ hall.stats.exhibitions }}</span>
             <span class="stat-label">个展览</span>
           </div>
           <div class="stat-item">
-            <span class="stat-number">
-              {{ hall.stats.visitors }}
-            </span>
+            <span class="stat-icon"><VisitorsIcon /></span>
+            <span class="stat-number">{{ hall.stats.visitors }}</span>
             <span class="stat-label">万+参观</span>
           </div>
         </div>
         <div class="hall-actions">
           <button class="action-btn primary">
-            <span>🎫</span>
+            <span><TicketIcon /></span>
             立即预约
           </button>
           <button class="action-btn secondary">
-            <span>🎧</span>
+            <span><HeadphoneIcon /></span>
             语音导览
           </button>
         </div>
         <!-- 参观信息（合并到概览区） -->
         <div class="visit-info-inline">
           <div class="info-item-inline">
-            <span class="info-icon">📍</span>
+            <span class="info-icon"><LocationIcon /></span>
             <div class="info-content">
               <span class="info-label">展馆位置</span>
               <span class="info-value">{{ hall.location }}</span>
             </div>
           </div>
           <div class="info-item-inline">
-            <span class="info-icon">🕐</span>
+            <span class="info-icon"><ClockIcon /></span>
             <div class="info-content">
               <span class="info-label">开放时间</span>
               <span class="info-value">{{ hall.openTime }}</span>
             </div>
           </div>
           <div class="info-item-inline">
-            <span class="info-icon">⏱️</span>
+            <span class="info-icon"><TimerIcon /></span>
             <div class="info-content">
               <span class="info-label">建议时长</span>
               <span class="info-value">{{ hall.duration }}</span>
             </div>
           </div>
           <div class="info-item-inline">
-            <span class="info-icon">🎫</span>
+            <span class="info-icon"><TicketIcon /></span>
             <div class="info-content">
               <span class="info-label">门票信息</span>
               <span class="info-value">{{ hall.ticket }}</span>
@@ -77,8 +74,11 @@
 </template>
 
 <script setup lang="ts">
+  import { TicketIcon, LocationIcon, HeadphoneIcon, ClockIcon, TimerIcon, VaseIcon, ImageIcon, VisitorsIcon } from '@/pages/Museum/icons/common';
+  import type { ExhibitionHall } from '@/typesOfPages/museum';
+
   interface Props {
-    hall: any;
+    hall: ExhibitionHall;
   }
 
   defineProps<Props>();

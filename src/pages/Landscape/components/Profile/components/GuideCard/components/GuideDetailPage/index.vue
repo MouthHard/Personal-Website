@@ -149,19 +149,19 @@
 
 <script setup lang="ts">
 import type { GuideItem } from '@/typesOfPages/landscape'
-import ChevronLeftIcon from '@/pages/Landscape/icon/common/ChevronLeftIcon.vue'
-import ZapIcon from '@/pages/Landscape/icon/components/profile/common/ZapIcon.vue'
-import UsersGroupIcon from '@/pages/Landscape/icon/components/profile/GuideCard/UsersGroupIcon.vue'
-import BuildingIcon from '@/pages/Landscape/icon/components/profile/GuideCard/BuildingIcon.vue'
-import MessageIcon from '@/pages/Landscape/icon/components/profile/GuideCard/MessageIcon.vue'
-import StarIcon from '@/pages/Landscape/icon/common/StarIcon.vue'
-import AlertTriangleIcon from '@/pages/Landscape/icon/components/profile/GuideCard/AlertTriangleIcon.vue'
-import ClockIcon from '@/pages/Landscape/icon/common/ClockIcon.vue'
-import LayoutIcon from '@/pages/Landscape/icon/components/profile/GuideCard/LayoutIcon.vue'
-import ShieldIcon from '@/pages/Landscape/icon/components/profile/GuideCard/ShieldIcon.vue'
-import LayersIcon from '@/pages/Landscape/icon/components/profile/GuideCard/LayersIcon.vue'
-import TemperatureIcon from '@/pages/Landscape/icon/components/profile/GuideCard/TemperatureIcon.vue'
-import InfoCircleIcon from '@/pages/Landscape/icon/components/profile/GuideCard/InfoCircleIcon.vue'
+import ChevronLeftIcon from '@/pages/Landscape/icons/common/ChevronLeftIcon.vue'
+import ZapIcon from '@/pages/Landscape/icons/components/profile/common/ZapIcon.vue'
+import UsersGroupIcon from '@/pages/Landscape/icons/components/profile/GuideCard/UsersGroupIcon.vue'
+import BuildingIcon from '@/pages/Landscape/icons/components/profile/GuideCard/BuildingIcon.vue'
+import MessageIcon from '@/pages/Landscape/icons/components/profile/GuideCard/MessageIcon.vue'
+import StarIcon from '@/pages/Landscape/icons/common/StarIcon.vue'
+import AlertTriangleIcon from '@/pages/Landscape/icons/components/profile/GuideCard/AlertTriangleIcon.vue'
+import ClockIcon from '@/pages/Landscape/icons/common/ClockIcon.vue'
+import LayoutIcon from '@/pages/Landscape/icons/components/profile/GuideCard/LayoutIcon.vue'
+import ShieldIcon from '@/pages/Landscape/icons/components/profile/GuideCard/ShieldIcon.vue'
+import LayersIcon from '@/pages/Landscape/icons/components/profile/GuideCard/LayersIcon.vue'
+import TemperatureIcon from '@/pages/Landscape/icons/components/profile/GuideCard/TemperatureIcon.vue'
+import InfoCircleIcon from '@/pages/Landscape/icons/components/profile/GuideCard/InfoCircleIcon.vue'
 
 defineProps<{
   item: GuideItem

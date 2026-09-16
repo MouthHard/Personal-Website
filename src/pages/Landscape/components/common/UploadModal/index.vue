@@ -64,11 +64,11 @@
 </template>
 
 <script setup lang="ts">
-import CloseIcon from '@/pages/Landscape/icon/common/CloseIcon.vue';
-import UploadIcon from '@/pages/Landscape/icon/common/UploadIcon.vue';
-import ClockIcon from '@/pages/Landscape/icon/common/ClockIcon.vue';
-import ShieldIcon from '@/pages/Landscape/icon/common/ShieldIcon.vue';
-import CheckCircleIcon from '@/pages/Landscape/icon/components/common/UploadModal/CheckCircleIcon.vue';
+import CloseIcon from '@/pages/Landscape/icons/common/CloseIcon.vue';
+import UploadIcon from '@/pages/Landscape/icons/common/UploadIcon.vue';
+import ClockIcon from '@/pages/Landscape/icons/common/ClockIcon.vue';
+import ShieldIcon from '@/pages/Landscape/icons/common/ShieldIcon.vue';
+import CheckCircleIcon from '@/pages/Landscape/icons/components/common/UploadModal/CheckCircleIcon.vue';
 import { showMessage } from '@/utils/landscape';
 
 defineProps<{

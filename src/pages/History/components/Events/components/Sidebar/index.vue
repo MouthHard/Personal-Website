@@ -30,9 +30,12 @@
 
 <script setup lang="ts">
   import { computed, watch, ref, onMounted } from 'vue';
-  import { historicalEvents } from '../../../../data/events';
+  import { useHistoryStore } from '@/stores/history';
   import './index.scss';
-  import { DynasticActiveIcon } from '@/pages/History/icons/index.ts';
+  import DynasticActiveIcon from '@/pages/History/icons/Dynasties/DynasticActiveIcon.vue';
+
+  const historyStore = useHistoryStore();
+  onMounted(() => historyStore.ensureLoaded());
 
   const props = defineProps<{
     activeCategory: string;
@@ -62,9 +65,9 @@
 
   const filteredEvents = computed(() => {
     if (props.activeCategory === 'all') {
-      return historicalEvents;
+      return historyStore.historicalEvents;
     }
-    return historicalEvents.filter(
+    return historyStore.historicalEvents.filter(
       (event) => event.category === props.activeCategory,
     );
   });

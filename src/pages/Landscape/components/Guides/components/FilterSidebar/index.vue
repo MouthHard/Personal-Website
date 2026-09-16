@@ -144,7 +144,7 @@
               </button>
             </div>
           </div>
-          <!-- 生态摄影 -->
+          <!-- 生态摄�?-->
           <div class="options-section">
             <h3 class="section-title">生态摄影</h3>
             <div class="options-grid">
@@ -219,9 +219,9 @@
 </template>
 
 <script setup lang="ts">
-import FilterIcon from '@/pages/Landscape/icon/components/guides/FilterSidebar/FilterIcon.vue';
-import TrashIcon from '@/pages/Landscape/icon/common/TrashIcon.vue';
-import ChevronDownIcon from '@/pages/Landscape/icon/common/ChevronDownIcon.vue';
+import FilterIcon from '@/pages/Landscape/icons/components/guides/FilterSidebar/FilterIcon.vue';
+import TrashIcon from '@/pages/Landscape/icons/common/TrashIcon.vue';
+import ChevronDownIcon from '@/pages/Landscape/icons/common/ChevronDownIcon.vue';
 
 interface FilterItem {
   id: string;

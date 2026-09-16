@@ -58,7 +58,7 @@ import { useSearchViewData } from '@/composables/landscape'
 import { useInteractionStore } from '@/stores/landscape'
 import { useSearchHistory } from '@/composables/landscape/useSearchHistory'
 
-import { typeFilters, SearchPhotographerSortOptions, SearchContentSortOptions } from '@/utils/landscape/constants'
+import { typeFilters, SearchPhotographerSortOptions, SearchContentSortOptions } from '@/constants/landscape'
 import {
   convertImageToSearchResult,
   convertVideoToSearchResult,
@@ -156,10 +156,10 @@ const handleBookmark = (id: string) => {
 
   const interactionItem = createSimpleInteractionItem(id, item.type, item.title, {
     image: item.thumbnail,
-    location: (item as any).location,
-    author: (item as any).author || (item as any).name,
+    location: item.location,
+    author: item.author || item.name,
     authorId: (item as any).authorId,
-    authorAvatar: (item as any).authorAvatar || (item as any).avatar,
+    authorAvatar: item.authorAvatar || (item as any).avatar,
   })
 
   const isFavorited = interactionStore.toggleFavorite(interactionItem)
@@ -184,10 +184,10 @@ const handleLove = (id: string) => {
 
   const interactionItem = createSimpleInteractionItem(id, item.type, item.title, {
     image: item.thumbnail,
-    location: (item as any).location,
-    author: (item as any).author || (item as any).name,
+    location: item.location,
+    author: item.author || item.name,
     authorId: (item as any).authorId,
-    authorAvatar: (item as any).authorAvatar || (item as any).avatar,
+    authorAvatar: item.authorAvatar || (item as any).avatar,
   })
 
   const isLoved = interactionStore.toggleLove(interactionItem)
@@ -205,9 +205,9 @@ const handleFollow = (id: string) => {
   const wasFollowing = interactionStore.isFollowing(id)
   const isAdded = interactionStore.toggleFollowPhotographer(id)
   if (!wasFollowing && isAdded) {
-    showMessage.follow.success((item as any).name || item.title)
+    showMessage.follow.success(item.name || item.title)
   } else if (wasFollowing && !isAdded) {
-    showMessage.follow.cancel((item as any).name || item.title)
+    showMessage.follow.cancel(item.name || item.title)
   }
 }
 
@@ -250,11 +250,11 @@ const handleSortChange = (sort: string) => {
 }
 
 let registerTimer: ReturnType<typeof setTimeout> | null = null;
-const debouncedRegister = (results: any[]) => {
+const debouncedRegister = (results: SearchResultItem[]) => {
   if (registerTimer) clearTimeout(registerTimer)
   registerTimer = setTimeout(() => {
     interactionStore.registerBatch(
-      results.map((item: any) => ({
+      results.map((item: SearchResultItem) => ({
         id: String(item.id),
         counts: {
           likes: item.likes || 0,

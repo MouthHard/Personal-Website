@@ -44,18 +44,18 @@
 <script setup lang="ts">
 import { useRouter, useRoute } from 'vue-router';
 import type { Component } from 'vue';
-import CameraIcon from '@/pages/Landscape/icon/common/CameraIcon.vue';
-import UploadIcon from '@/pages/Landscape/icon/common/UploadIcon.vue';
-import BuildingIcon from '@/pages/Landscape/icon/common/BuildingIcon.vue';
-import SettingsIcon from '@/pages/Landscape/icon/common/SettingsIcon.vue';
-import SunAltIcon from '@/pages/Landscape/icon/common/SunIcon.vue';
-import NavHomeIcon from '@/pages/Landscape/icon/components/header/NavHomeIcon.vue';
-import NavCategoryIcon from '@/pages/Landscape/icon/components/header/NavCategoryIcon.vue';
-import NavGuidesIcon from '@/pages/Landscape/icon/components/header/NavGuidesIcon.vue';
-import NavPhotographersIcon from '@/pages/Landscape/icon/components/header/NavPhotographersIcon.vue';
-import NavProfileIcon from '@/pages/Landscape/icon/components/header/NavProfileIcon.vue';
-import NavSearchIcon from '@/pages/Landscape/icon/components/header/NavSearchIcon.vue';
-import { mainNavs } from '@/utils/landscape/constants';
+import CameraIcon from '@/pages/Landscape/icons/common/CameraIcon.vue';
+import UploadIcon from '@/pages/Landscape/icons/common/UploadIcon.vue';
+import BuildingIcon from '@/pages/Landscape/icons/common/BuildingIcon.vue';
+import SettingsIcon from '@/pages/Landscape/icons/common/SettingsIcon.vue';
+import SunAltIcon from '@/pages/Landscape/icons/common/SunIcon.vue';
+import NavHomeIcon from '@/pages/Landscape/icons/components/header/NavHomeIcon.vue';
+import NavCategoryIcon from '@/pages/Landscape/icons/components/header/NavCategoryIcon.vue';
+import NavGuidesIcon from '@/pages/Landscape/icons/components/header/NavGuidesIcon.vue';
+import NavPhotographersIcon from '@/pages/Landscape/icons/components/header/NavPhotographersIcon.vue';
+import NavProfileIcon from '@/pages/Landscape/icons/components/header/NavProfileIcon.vue';
+import NavSearchIcon from '@/pages/Landscape/icons/components/header/NavSearchIcon.vue';
+import { mainNavs } from '@/constants/landscape';
 
 const router = useRouter();
 const route = useRoute();

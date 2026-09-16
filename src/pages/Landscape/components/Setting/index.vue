@@ -35,7 +35,7 @@
 
 <script setup lang="ts">
   import { ref, defineAsyncComponent } from 'vue'
-  import SettingsIcon from '@/pages/Landscape/icon/common/SettingsIcon.vue'
+  import SettingsIcon from '@/pages/Landscape/icons/common/SettingsIcon.vue'
   import SettingSidebar from './components/SettingSidebar/index.vue'
   const AccountSection = defineAsyncComponent(() => import('./components/AccountSection/index.vue'))
   const PhotographySection = defineAsyncComponent(() => import('./components/PhotographySection/index.vue'))

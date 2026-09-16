@@ -91,8 +91,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import CustomSwitch from '../../common/CustomSwitch.vue'
-import ShieldIcon from '@/pages/Landscape/icon/common/ShieldIcon.vue'
-import DeleteIcon from '@/pages/Landscape/icon/components/setting/PrivacySection/DeleteIcon.vue'
+import ShieldIcon from '@/pages/Landscape/icons/common/ShieldIcon.vue'
+import DeleteIcon from '@/pages/Landscape/icons/components/setting/PrivacySection/DeleteIcon.vue'
 
 const publicProfile = ref(true)
 const publicCollection = ref(false)

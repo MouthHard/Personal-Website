@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import CheckIcon from '../../../../icon/common/CheckIcon.vue'
+import CheckIcon from '../../../../icons/common/CheckIcon.vue'
 
 defineProps<{
   modelValue: boolean

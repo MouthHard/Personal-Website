@@ -92,13 +92,13 @@
 
 <script setup lang="ts">
 import { ref, markRaw, h, render, onUnmounted } from 'vue'
-import InfoIcon from '@/pages/Landscape/icon/common/InfoIcon.vue'
-import FileIcon from '@/pages/Landscape/icon/components/setting/AboutSection/FileIcon.vue'
-import SmileIcon from '@/pages/Landscape/icon/components/setting/AboutSection/SmileIcon.vue'
-import UserIcon from '@/pages/Landscape/icon/common/UserIcon.vue'
-import HomeIcon from '@/pages/Landscape/icon/components/setting/AboutSection/HomeIcon.vue'
-import GlobeDetailIcon from '@/pages/Landscape/icon/components/setting/AboutSection/GlobeDetailIcon.vue'
-import FileTextIcon from '@/pages/Landscape/icon/components/setting/AboutSection/FileTextIcon.vue'
+import InfoIcon from '@/pages/Landscape/icons/common/InfoIcon.vue'
+import FileIcon from '@/pages/Landscape/icons/components/setting/AboutSection/FileIcon.vue'
+import SmileIcon from '@/pages/Landscape/icons/components/setting/AboutSection/SmileIcon.vue'
+import UserIcon from '@/pages/Landscape/icons/common/UserIcon.vue'
+import HomeIcon from '@/pages/Landscape/icons/components/setting/AboutSection/HomeIcon.vue'
+import GlobeDetailIcon from '@/pages/Landscape/icons/components/setting/AboutSection/GlobeDetailIcon.vue'
+import FileTextIcon from '@/pages/Landscape/icons/components/setting/AboutSection/FileTextIcon.vue'
 
 defineOptions({
   name: 'AboutSection'

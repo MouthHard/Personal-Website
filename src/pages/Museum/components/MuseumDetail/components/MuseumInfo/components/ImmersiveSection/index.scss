@@ -1,5 +1,5 @@
 .immersive-section {
-  background: url('@/assets/image/Museum/Immersive.webp') no-repeat center
+  background: url('https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/museum/home/Immersive.webp') no-repeat center
     center;
   background-size: 100% auto;
   background-position: center;
@@ -13,6 +13,45 @@
     inset 0 1px 0 rgba(212, 165, 116, 0.1);
   border-top: 1px solid rgba(212, 165, 116, 0.3);
   border-bottom: 1px solid rgba(212, 165, 116, 0.3);
+
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 2rem;
+    text-align: center;
+
+    .empty-icon {
+      color: rgba(180, 180, 220, 0.5);
+      margin-bottom: 1.5rem;
+      filter: drop-shadow(0 4px 12px rgba(120, 119, 198, 0.3));
+      animation: floatIcon 3s ease-in-out infinite;
+      svg { width: 64px; height: 64px; }
+    }
+
+    .empty-title {
+      font-size: 1.6rem;
+      color: #e0e0ff;
+      margin: 0 0 0.75rem 0;
+      font-family: 'FangSong', 'STFangsong', serif;
+      letter-spacing: 0.1em;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .empty-description {
+      font-size: 1rem;
+      color: #a0a0c0;
+      max-width: 360px;
+      line-height: 1.6;
+      margin: 0;
+    }
+  }
+
+  @keyframes floatIcon {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-10px); }
+  }
 
   .section-header {
     display: flex;
@@ -117,6 +156,7 @@
     z-index: 1;
 
     .immersive-item {
+      cursor: pointer;
       background: linear-gradient(
         145deg,
         rgba(255, 250, 240, 0.95) 0%,
@@ -179,7 +219,8 @@
           margin: 0.75rem 0;
           text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
           position: relative;
-
+          display: flex;
+          
           background: linear-gradient(
             145deg,
             rgba(212, 165, 116, 0.1) 0%,
@@ -191,6 +232,11 @@
             0 2px 4px rgba(0, 0, 0, 0.4),
             inset 0 1px 0 rgba(255, 255, 255, 0.8);
           border: 1px solid rgba(212, 165, 116, 0.2);
+          svg{
+            margin-right: 1rem;
+            width: 2rem;
+            height: 2rem;
+          }
         }
 
         .immersive-description {
@@ -294,7 +340,10 @@
               font-family: 'KaiTi', 'STKaiti', serif;
 
               .button-icon {
-                font-size: 0.9rem;
+                svg{
+                  width: 1.5rem;
+                  height: 1.5rem;
+                }
               }
 
               .button-text {
@@ -356,6 +405,10 @@
                     0 3px 8px rgba(0, 0, 0, 0.3),
                     0 0 15px rgba(241, 196, 15, 0.3),
                     inset 0 1px 0 rgba(255, 255, 255, 0.2);
+                }
+
+                &.active .button-icon {
+                  filter: drop-shadow(0 0 4px rgba(241, 196, 15, 0.8));
                 }
               }
 

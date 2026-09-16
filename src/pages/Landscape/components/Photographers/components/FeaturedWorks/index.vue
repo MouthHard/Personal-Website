@@ -88,10 +88,10 @@
 
   import { useLandscapeDataStore } from '@/stores/landscape';
   import { useInteractionStore } from '@/stores/landscape';
-  import ApertureIcon from '@/pages/Landscape/icon/components/photographers/FeaturedWorks/ApertureIcon.vue';
-  import ChevronLeftIcon from '@/pages/Landscape/icon/common/ChevronLeftIcon.vue';
-  import ChevronRightIcon from '@/pages/Landscape/icon/common/ChevronRightIcon.vue';
-  import ImageEmptyIcon from '@/pages/Landscape/icon/common/ImageIcon.vue';
+  import ApertureIcon from '@/pages/Landscape/icons/components/photographers/FeaturedWorks/ApertureIcon.vue';
+  import ChevronLeftIcon from '@/pages/Landscape/icons/common/ChevronLeftIcon.vue';
+  import ChevronRightIcon from '@/pages/Landscape/icons/common/ChevronRightIcon.vue';
+  import ImageEmptyIcon from '@/pages/Landscape/icons/common/ImageIcon.vue';
 
   defineEmits<{
     preview: [work: any];

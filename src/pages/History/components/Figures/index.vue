@@ -22,11 +22,14 @@
 
 <script setup lang="ts">
   import { ref, computed, onMounted, onUnmounted } from 'vue';
-  import { historicalFigures } from '../../data/figures';
+  import { useHistoryStore } from '@/stores/history';
   import CategoryFilterHeader from './components/CategoryFilterHeader/index.vue';
   import FigureCard from './components/FigureCard/index.vue';
   import FigureModal from './components/FigureModal/index.vue';
   import type { HistoricalFigure } from '@/typesOfPages/history';
+
+  const historyStore = useHistoryStore();
+  onMounted(() => historyStore.ensureLoaded());
 
   const selectedFigure = ref<HistoricalFigure | null>(null);
 
@@ -34,7 +37,7 @@
   const searchQuery = ref('');
 
   const filteredFigures = computed(() => {
-    let result = historicalFigures;
+    let result = historyStore.historicalFigures;
     
     // 按分类筛选
     if (activeCategory.value !== 'all') {

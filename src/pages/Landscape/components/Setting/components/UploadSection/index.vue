@@ -107,10 +107,10 @@
 import { ref } from 'vue'
 import CustomSwitch from '../../common/CustomSwitch.vue'
 import CustomSelect from '../../common/CustomSelect.vue'
-import UploadIcon from '@/pages/Landscape/icon/common/UploadIcon.vue'
-import ActivityIcon from '@/pages/Landscape/icon/components/setting/UploadSection/ActivityIcon.vue'
-import LayoutGridIcon from '@/pages/Landscape/icon/components/setting/UploadSection/LayoutGridIcon.vue'
-import { UploadQualityOptions, UploadPrivacyOptions } from '@/utils/landscape/constants'
+import UploadIcon from '@/pages/Landscape/icons/common/UploadIcon.vue'
+import ActivityIcon from '@/pages/Landscape/icons/components/setting/UploadSection/ActivityIcon.vue'
+import LayoutGridIcon from '@/pages/Landscape/icons/components/setting/UploadSection/LayoutGridIcon.vue'
+import { UploadQualityOptions, UploadPrivacyOptions } from '@/constants/landscape'
 
 const autoExtractExif = ref(true)
 const smartTags = ref(true)

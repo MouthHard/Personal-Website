@@ -106,13 +106,13 @@
                 <div class="hot-tags-list">
                   <button
                     v-for="(tag, index) in hotTags"
-                    :key="tag.id"
+                    :key="tag.name"
                     class="hot-tag"
                     @mousedown.prevent="selectHotTag(tag.name)"
                   >
                     <span class="hot-rank" :class="`rank-${index + 1}`">{{ index + 1 }}</span>
                     <span class="hot-text">{{ tag.name }}</span>
-                    <span class="hot-count">{{ tag.count }}</span>
+                    <span class="hot-count">{{ formatNumber(tag.count) }}</span>
                   </button>
                 </div>
               </div>
@@ -127,19 +127,38 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, computed, watch } from 'vue';
 import DOMPurify from 'dompurify';
-import { hotTags } from '@/utils/landscape/constants';
+import { formatNumber } from '@/utils/landscape/format';
 import { debounce } from '@/utils/landscape/debounce';
+import { useLandscapeDataStore } from '@/stores/landscape';
 import { useSearchHistory } from '@/composables/landscape/useSearchHistory';
 import { useGuideSearchSuggestions } from '@/composables/landscape/useGuideSearchSuggestions';
-import BrandIcon from '@/pages/Landscape/icon/components/guides/TopNav/BrandIcon.vue';
-import SearchIcon from '@/pages/Landscape/icon/common/SearchIcon.vue';
-import CloseIcon from '@/pages/Landscape/icon/common/CloseIcon.vue';
-import CompassIcon from '@/pages/Landscape/icon/common/CompassIcon.vue';
-import ClockIcon from '@/pages/Landscape/icon/common/ClockIcon.vue';
+import BrandIcon from '@/pages/Landscape/icons/components/guides/TopNav/BrandIcon.vue';
+import SearchIcon from '@/pages/Landscape/icons/common/SearchIcon.vue';
+import CloseIcon from '@/pages/Landscape/icons/common/CloseIcon.vue';
+import CompassIcon from '@/pages/Landscape/icons/common/CompassIcon.vue';
+import ClockIcon from '@/pages/Landscape/icons/common/ClockIcon.vue';
 
 const props = defineProps<{
   initialKeyword?: string;
 }>();
+
+const dataStore = useLandscapeDataStore();
+
+const hotTags = computed(() => {
+  const guides = dataStore.getAllGuides();
+  const tagViews = new Map<string, number>();
+  guides.forEach((guide) => {
+    if (!guide.tags || guide.tags.length === 0) return;
+    const views = guide.views || 0;
+    guide.tags.forEach((tag) => {
+      tagViews.set(tag, (tagViews.get(tag) || 0) + views);
+    });
+  });
+  return Array.from(tagViews.entries())
+    .map(([name, count]) => ({ name, count }))
+    .sort((a, b) => b.count - a.count)
+    .slice(0, 4);
+});
 
 const searchKeyword = ref('');
 const isSearchFocused = ref(false);
@@ -184,7 +203,7 @@ const sanitizeKeyword = (keyword: string): string => {
     .replace(/vbscript:/gi, '')
     .replace(/on\w+\s*=/gi, '')
     .replace(/[\s\t\n\r]+/g, ' ')
-    .replace(/[^\u4e00-\u9fa5a-zA-Z0-9\s\-_.,，。！!？?、]/g, '')
+    .replace(/[^\u4e00-\u9fa5a-zA-Z0-9\s\-_.,，。！!�?、]/g, '')
     .trim()
     .substring(0, 100);
 };

@@ -1,7 +1,9 @@
 <template>
   <div class="map-content">
     <h2 class="section-title" data-text="按省份浏览">
-      <span class="title-icon">🗺️</span>
+      <span class="title-icon">
+        <MapIcon />
+      </span>
       按省份浏览
     </h2>
     <div id="chinaMap" ref="mapRef" class="map-element"></div>
@@ -28,6 +30,7 @@ import {
 } from "echarts/components";
 import { CanvasRenderer } from "echarts/renderers";
 import type { Museum } from "@/typesOfPages/museum";
+import { MapIcon } from "@/pages/Museum/icons/common";
 import {
   provinceElevation,
   provinceNameMap,
@@ -67,21 +70,27 @@ onMounted(() => {
   loadChinaMap();
 });
 
+let mapDataPromise: Promise<unknown> | null = null;
+
 const loadChinaMap = () => {
-  fetch("https://geo.datav.aliyun.com/areas_v3/bound/100000_full.json")
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("网络响应不正常");
-      }
-      return response.json();
-    })
-    .then((chinaJson) => {
-      echarts.registerMap("china", chinaJson as any);
-      initMap();
-    })
-    .catch((error) => {
-      console.error("加载中国地图数据失败:", error);
-    });
+  if (!mapDataPromise) {
+    mapDataPromise = fetch("https://geo.datav.aliyun.com/areas_v3/bound/100000_full.json")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("网络响应不正常");
+        }
+        return response.json();
+      })
+      .catch((error) => {
+        console.error("加载中国地图数据失败:", error);
+        mapDataPromise = null;
+        throw error;
+      });
+  }
+  mapDataPromise.then((chinaJson) => {
+    echarts.registerMap("china", chinaJson as any);
+    initMap();
+  });
 };
 
 const initMap = () => {

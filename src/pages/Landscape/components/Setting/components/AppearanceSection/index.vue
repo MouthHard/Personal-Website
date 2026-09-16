@@ -85,10 +85,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import CustomSwitch from '../../common/CustomSwitch.vue'
-import MoonIcon from '@/pages/Landscape/icon/components/setting/AppearanceSection/MoonIcon.vue'
-import SunIcon from '@/pages/Landscape/icon/common/SunIcon.vue'
-import MonitorIcon from '@/pages/Landscape/icon/components/setting/AppearanceSection/MonitorIcon.vue'
-import PaintIcon from '@/pages/Landscape/icon/components/setting/AppearanceSection/PaintIcon.vue'
+import MoonIcon from '@/pages/Landscape/icons/components/setting/AppearanceSection/MoonIcon.vue'
+import SunIcon from '@/pages/Landscape/icons/common/SunIcon.vue'
+import MonitorIcon from '@/pages/Landscape/icons/components/setting/AppearanceSection/MonitorIcon.vue'
+import PaintIcon from '@/pages/Landscape/icons/components/setting/AppearanceSection/PaintIcon.vue'
 
 const cardShadow = ref(true)
 const animationEffect = ref(true)

@@ -85,15 +85,15 @@
   import { showMessage, createSimpleInteractionItem } from '@/utils/landscape';
   import { useCategoryFilter } from '@/composables/landscape/category';
   import type { LandscapeItem } from '@/typesOfPages/landscape';
-  import { categoryGroups } from '@/utils/landscape/categories';
+  import { categoryGroups } from '@/constants/landscape/categories';
   import CategorySidebar from './components/CategorySidebar/index.vue';
   import FilterHeader from './components/FilterHeader/index.vue';
   import ResultGrid from './components/ResultGrid/index.vue';
   import FeaturedSidebar from './components/FeaturedSidebar/index.vue';
   import CategoryDetailModal from './components/CategoryDetailModal/index.vue';
-  import EmptyIllustrationIcon from '@/pages/Landscape/icon/components/category/Category/EmptyIllustrationIcon.vue';
-  import RefreshIcon from '@/pages/Landscape/icon/components/category/Category/RefreshIcon.vue';
-  import CloseIcon from '@/pages/Landscape/icon/common/CloseIcon.vue';
+  import EmptyIllustrationIcon from '@/pages/Landscape/icons/components/category/Category/EmptyIllustrationIcon.vue';
+  import RefreshIcon from '@/pages/Landscape/icons/components/category/Category/RefreshIcon.vue';
+  import CloseIcon from '@/pages/Landscape/icons/common/CloseIcon.vue';
 
   interface Props {
     items: LandscapeItem[];

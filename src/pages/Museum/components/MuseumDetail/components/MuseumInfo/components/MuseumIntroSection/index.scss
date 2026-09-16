@@ -512,11 +512,7 @@
       inset 4px 0 12px rgba(0, 0, 0, 0.5),
       inset 0 1px 0 rgba(212, 165, 116, 0.5);
 
-    .museum-description,
-    .museum-history,
-    .museum-architecture,
-    .museum-highlights,
-    .museum-activities {
+    .info-card {
       margin-bottom: 1.5rem;
       padding: 0.5rem 1.5rem;
       background:
@@ -540,6 +536,18 @@
       position: relative;
       transform-style: preserve-3d;
       transform: perspective(800px) rotateY(1deg);
+      transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+
+      &:hover {
+        transform: perspective(800px) rotateY(0deg) translateX(4px);
+        border-left-color: #d4a574;
+        box-shadow:
+          0 12px 32px rgba(0, 0, 0, 0.4),
+          0 6px 16px rgba(0, 0, 0, 0.3),
+          0 0 20px rgba(212, 165, 116, 0.15),
+          inset 0 0 20px rgba(0, 0, 0, 0.15),
+          inset 0 1px 0 rgba(212, 165, 116, 0.2);
+      }
 
       h3 {
         font-size: 1.4rem;
@@ -548,8 +556,26 @@
         font-family: 'KaiTi', 'STKaiti', serif;
         text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
         position: relative;
-        display: inline-block;
-        padding-right: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+
+        .title-marker {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 1.8rem;
+          height: 1.8rem;
+          font-size: 0.85rem;
+          font-family: 'FangSong', 'STFangsong', serif;
+          color: #f5e6d3;
+          background: linear-gradient(135deg, rgba(139, 90, 43, 0.8), rgba(101, 67, 33, 0.9));
+          border: 1px solid rgba(212, 165, 116, 0.5);
+          border-radius: 50%;
+          flex-shrink: 0;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(212, 165, 116, 0.15);
+          transition: transform 0.3s ease;
+        }
 
         &::after {
           content: '';
@@ -562,17 +588,38 @@
         }
       }
 
+      &:hover .title-marker {
+        transform: rotate(360deg);
+      }
+
       p {
-        color: #a7a5a2;
-        line-height: 1.6;
+        color: #d4c9a8;
+        line-height: 1.8;
         font-size: 0.95rem;
-        font-weight: bold;
+        font-weight: 500;
         text-align: justify;
         position: relative;
         margin: 0 0 0.5rem 0;
         z-index: 1;
         text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+        transition: color 0.3s ease;
       }
+
+      &:hover p {
+        color: #e8dcc4;
+      }
+    }
+
+    .museum-architecture {
+      border-left-color: rgba(139, 105, 20, 0.7);
+    }
+
+    .museum-highlights {
+      border-left-color: rgba(180, 130, 50, 0.8);
+    }
+
+    .museum-activities {
+      border-left-color: rgba(160, 115, 35, 0.75);
     }
   }
 }

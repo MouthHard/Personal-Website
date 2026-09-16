@@ -56,8 +56,8 @@
     nextTick,
     watch,
   } from 'vue';
-  import ChevronDownIcon from '@/pages/Landscape/icon/common/ChevronDownIcon.vue';
-  import CheckIcon from '@/pages/Landscape/icon/common/CheckIcon.vue';
+  import ChevronDownIcon from '@/pages/Landscape/icons/common/ChevronDownIcon.vue';
+  import CheckIcon from '@/pages/Landscape/icons/common/CheckIcon.vue';
 
   interface Option {
     label: string;

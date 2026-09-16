@@ -1,4 +1,4 @@
-<template>
+  <template>
   <div class="book-section">
     <div
       class="book"
@@ -227,9 +227,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from "vue";
-import { historicalEvents } from "../../../../data/events";
+import { computed, onMounted } from "vue";
+import { useHistoryStore } from "@/stores/history";
 import "./index.scss";
+
+const historyStore = useHistoryStore();
+onMounted(() => historyStore.ensureLoaded());
 
 const props = defineProps<{
   activeCategory: string;
@@ -261,9 +264,9 @@ const currentCategory = computed(() => {
 
 const filteredEvents = computed(() => {
   if (props.activeCategory === "all") {
-    return historicalEvents;
+    return historyStore.historicalEvents;
   }
-  return historicalEvents.filter(
+  return historyStore.historicalEvents.filter(
     (event) => event.category === props.activeCategory,
   );
 });

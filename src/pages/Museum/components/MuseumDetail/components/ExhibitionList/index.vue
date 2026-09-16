@@ -47,8 +47,8 @@
   const searchQuery = ref('');
 
   // 选择展览
-  const selectExhibition = (exhibition: any) => {
-    selectedExhibition.value = exhibition as Exhibition;
+  const selectExhibition = (exhibition: Exhibition) => {
+    selectedExhibition.value = exhibition;
   };
 
   // 处理搜索
@@ -61,20 +61,17 @@
     return store.getExhibitionsByMuseumId(props.museum.id);
   });
 
-  // 展览分类数据（count 从当前博物馆真实展览数据统计）
-  const categoryConfig = [
-    { id: 1, name: '历史文化', icon: '🏛️' },
-    { id: 2, name: '艺术精品', icon: '🎨' },
-    { id: 3, name: '科技考古', icon: '🔬' },
-    { id: 4, name: '民俗风情', icon: '🎭' },
-  ];
-
+  // 展览分类（从当前博物馆真实数据动态统计，保证覆盖全部品类）
   const categories = computed(() => {
-    return categoryConfig.map((cat) => ({
-      ...cat,
-      count: allExhibitions.value.filter(
-        (item) => item.category === cat.name,
-      ).length,
+    const nameSet = allExhibitions.value.reduce((acc, item) => {
+      if (item.category) acc.add(item.category);
+      return acc;
+    }, new Set<string>());
+    return [...nameSet].map((name, i) => ({
+      id: i + 1,
+      name,
+      icon: '',
+      count: allExhibitions.value.filter((item) => item.category === name).length,
     }));
   });
 
@@ -82,23 +79,25 @@
   const filteredExhibitions = computed(() => {
     let result = allExhibitions.value;
 
-    // 状态筛选
+    // 状态筛选（status 由服务层按日期派生）
     if (statusFilter.value !== 'all') {
+      const filterStatus = (statuses: string[]) =>
+        result.filter((item) => item.status !== undefined && statuses.includes(item.status));
       switch (statusFilter.value) {
-        case 'hot':
-          result = result.filter((item) => (item as any).status === '热门');
+        case 'hot': // 热门推荐：当前及未来可看的展览（未结束）
+          result = result.filter((item) => item.status !== '已结束');
           break;
         case 'latest':
-          result = result.filter((item) => (item as any).status === '最新');
+          result = filterStatus(['最新']);
           break;
         case 'ending':
-          result = result.filter((item) => (item as any).status === '即将结束');
+          result = filterStatus(['即将结束']);
           break;
         case 'planning':
-          result = result.filter((item) => (item as any).status === '筹备中');
+          result = filterStatus(['筹备中']);
           break;
         case 'historical':
-          result = result.filter((item) => (item as any).status === '已结束');
+          result = filterStatus(['已结束']);
           break;
       }
     }
@@ -120,8 +119,8 @@
           item.description.toLowerCase().includes(query) ||
           (item.location && item.location.toLowerCase().includes(query)) ||
           (item.category && item.category.toLowerCase().includes(query)) ||
-          ((item as any).status &&
-            (item as any).status.toLowerCase().includes(query))
+          (item.status &&
+            item.status.toLowerCase().includes(query))
         );
       });
     }

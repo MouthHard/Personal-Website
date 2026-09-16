@@ -26,7 +26,7 @@
 
 <script setup lang="ts">
   import { shallowRef, onMounted, onUnmounted, computed } from 'vue';
-  import StarFieldIcon from '@/pages/Landscape/icon/components/common/StarBackground/StarFieldIcon.vue';
+  import StarFieldIcon from '@/pages/Landscape/icons/components/common/StarBackground/StarFieldIcon.vue';
 
   interface Meteor {
     id: number;

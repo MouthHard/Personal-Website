@@ -1,4 +1,6 @@
 import type { DisplayCounts, BaseItemData } from './types';
+import type { GlobalPhotographer, GlobalPhotographerWork } from '@/typesOfPages/landscape/data';
+import type { SocialLink } from '@/typesOfPages/landscape/common';
 import { useLandscapeDataStore } from '@/stores/landscape/data';
 import { useInteractionStore } from '@/stores/landscape';
 import {
@@ -7,7 +9,7 @@ import {
   GUIDE_DEFAULTS,
   DATE_DEFAULTS,
   AUTHOR_DEFAULTS,
-} from '@/utils/landscape/defaults';
+} from '@/constants/landscape/defaults';
 
 export function useProfileTransform() {
   const dataStore = useLandscapeDataStore();
@@ -64,7 +66,7 @@ export function useProfileTransform() {
     };
   };
 
-  const transformPhotographerData = (photographer: any) => {
+  const transformPhotographerData = (photographer: GlobalPhotographer) => {
     return {
       id: photographer.id,
       name: photographer.name,
@@ -81,20 +83,20 @@ export function useProfileTransform() {
       verified: photographer.verified,
       isFollowing: interactionStore.isFollowing(photographer.id),
       recentWorks: [...(photographer.worksPreview || [])]
-        .sort((a: any, b: any) => {
+        .sort((a: GlobalPhotographerWork, b: GlobalPhotographerWork) => {
           const la = typeof a === 'string' ? 0 : (a.likes || 0);
           const lb = typeof b === 'string' ? 0 : (b.likes || 0);
           return lb - la;
         })
         .slice(0, 3)
-        .map((w: any) => (typeof w === 'string' ? w : (w.image || w.cover || ''))),
+        .map((w: GlobalPhotographerWork) => (typeof w === 'string' ? w : (w.image || w.cover || ''))),
       rating: photographer.rating,
       equipment: photographer.equipment.join(' / '),
       experience: photographer.experience || '',
       joinDate: photographer.joinDate || '',
       awards: photographer.awards || [],
       onlineStatus: photographer.isOnline ? 'online' : 'offline',
-      socials: photographer.socials?.map((s: any) => ({
+      socials: photographer.socials?.map((s: SocialLink) => ({
         platform: s.platform,
         iconPath: '',
         url: s.url || '#',

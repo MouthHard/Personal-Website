@@ -56,14 +56,14 @@
 
 <script setup lang="ts">
 import type { LandscapeItem } from '@/typesOfPages/landscape';
-import StarIcon from '@/pages/Landscape/icon/common/StarIcon.vue';
-import ImageIcon from '@/pages/Landscape/icon/common/ImageIcon.vue';
-import PlayIcon from '@/pages/Landscape/icon/common/PlayIcon.vue';
-import EyeIcon from '@/pages/Landscape/icon/common/EyeIcon.vue';
-import HeartIcon from '@/pages/Landscape/icon/common/HeartIcon.vue';
-import BookmarkIcon from '@/pages/Landscape/icon/common/BookmarkIcon.vue';
-import ShareIcon from '@/pages/Landscape/icon/common/ShareIcon.vue';
-import DownloadIcon from '@/pages/Landscape/icon/common/DownloadIcon.vue';
+import StarIcon from '@/pages/Landscape/icons/common/StarIcon.vue';
+import ImageIcon from '@/pages/Landscape/icons/common/ImageIcon.vue';
+import PlayIcon from '@/pages/Landscape/icons/common/PlayIcon.vue';
+import EyeIcon from '@/pages/Landscape/icons/common/EyeIcon.vue';
+import HeartIcon from '@/pages/Landscape/icons/common/HeartIcon.vue';
+import BookmarkIcon from '@/pages/Landscape/icons/common/BookmarkIcon.vue';
+import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue';
+import DownloadIcon from '@/pages/Landscape/icons/common/DownloadIcon.vue';
 
 interface Props {
   items: LandscapeItem[];

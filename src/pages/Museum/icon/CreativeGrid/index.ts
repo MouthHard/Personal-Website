@@ -1,1 +1,0 @@
-export { default as EmptyCreativeIcon } from './EmptyCreativeIcon.vue';

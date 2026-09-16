@@ -76,14 +76,14 @@
 <script setup lang="ts">
 import { ref, computed, type Component } from 'vue';
 import { usePhotographersViewData } from '@/composables/landscape';
-import { rankingTabs } from '@/utils/landscape/constants';
-import CameraIcon from '@/pages/Landscape/icon/common/CameraIcon.vue';
-import ImageIcon from '@/pages/Landscape/icon/common/ImageIcon.vue';
-import UsersIcon from '@/pages/Landscape/icon/common/UsersIcon.vue';
-import ThumbUpIcon from '@/pages/Landscape/icon/common/ThumbUpIcon.vue';
-import EyeIcon from '@/pages/Landscape/icon/common/EyeIcon.vue';
-import StarIcon from '@/pages/Landscape/icon/common/StarIcon.vue';
-import TrophyIcon from '@/pages/Landscape/icon/components/photographers/RankingSection/TrophyIcon.vue';
+import { rankingTabs } from '@/constants/landscape';
+import CameraIcon from '@/pages/Landscape/icons/common/CameraIcon.vue';
+import ImageIcon from '@/pages/Landscape/icons/common/ImageIcon.vue';
+import UsersIcon from '@/pages/Landscape/icons/common/UsersIcon.vue';
+import ThumbUpIcon from '@/pages/Landscape/icons/common/ThumbUpIcon.vue';
+import EyeIcon from '@/pages/Landscape/icons/common/EyeIcon.vue';
+import StarIcon from '@/pages/Landscape/icons/common/StarIcon.vue';
+import TrophyIcon from '@/pages/Landscape/icons/components/photographers/RankingSection/TrophyIcon.vue';
 
 const rankingTabIconMap: Record<string, Component> = {
   works: CameraIcon,

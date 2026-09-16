@@ -107,18 +107,18 @@ import { computed, watch } from 'vue';
 import { showMessage } from '@/utils/landscape';
 import { useInteractionStore } from '@/stores/landscape';
 
-import { workTypeLabels } from '@/utils/landscape/constants';
+import { workTypeLabels } from '@/constants/landscape';
 import { usePhotographersViewData } from '@/composables/landscape';
-import ThumbUpIcon from '@/pages/Landscape/icon/common/ThumbUpIcon.vue';
-import ChevronRightIcon from '@/pages/Landscape/icon/common/ChevronRightIcon.vue';
-import StarIcon from '@/pages/Landscape/icon/common/StarIcon.vue';
-import ImageIcon from '@/pages/Landscape/icon/common/ImageIcon.vue';
+import ThumbUpIcon from '@/pages/Landscape/icons/common/ThumbUpIcon.vue';
+import ChevronRightIcon from '@/pages/Landscape/icons/common/ChevronRightIcon.vue';
+import StarIcon from '@/pages/Landscape/icons/common/StarIcon.vue';
+import ImageIcon from '@/pages/Landscape/icons/common/ImageIcon.vue';
 
-import UsersIcon from '@/pages/Landscape/icon/common/UsersIcon.vue';
-import EyeIcon from '@/pages/Landscape/icon/common/EyeIcon.vue';
-import ClockIcon from '@/pages/Landscape/icon/common/ClockIcon.vue';
+import UsersIcon from '@/pages/Landscape/icons/common/UsersIcon.vue';
+import EyeIcon from '@/pages/Landscape/icons/common/EyeIcon.vue';
+import ClockIcon from '@/pages/Landscape/icons/common/ClockIcon.vue';
 
-import SparkleIcon from '@/pages/Landscape/icon/common/SparkleIcon.vue';
+import SparkleIcon from '@/pages/Landscape/icons/common/SparkleIcon.vue';
 import type { Photographer } from '@/typesOfPages/landscape';
 
 defineEmits<{

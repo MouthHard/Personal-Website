@@ -89,11 +89,11 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import CustomSwitch from '../../common/CustomSwitch.vue'
-import UserIcon from '@/pages/Landscape/icon/common/UserIcon.vue'
-import EditIcon from '@/pages/Landscape/icon/common/EditIcon.vue'
-import MailIcon from '@/pages/Landscape/icon/common/MailIcon.vue'
-import PhoneIcon from '@/pages/Landscape/icon/common/PhoneIcon.vue'
-import LockIcon from '@/pages/Landscape/icon/components/setting/AccountSection/LockIcon.vue'
+import UserIcon from '@/pages/Landscape/icons/common/UserIcon.vue'
+import EditIcon from '@/pages/Landscape/icons/common/EditIcon.vue'
+import MailIcon from '@/pages/Landscape/icons/common/MailIcon.vue'
+import PhoneIcon from '@/pages/Landscape/icons/common/PhoneIcon.vue'
+import LockIcon from '@/pages/Landscape/icons/components/setting/AccountSection/LockIcon.vue'
 
 const twoFactorAuth = ref(false)
 </script>

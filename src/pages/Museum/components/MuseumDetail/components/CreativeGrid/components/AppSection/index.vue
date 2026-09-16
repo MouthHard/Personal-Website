@@ -1,143 +1,133 @@
 <template>
-  <div class="app-section">
+  <div class="digital-section">
     <div class="section-header">
-      <span class="title-icon">📱</span>
-      文创产品App
+      <span class="title-icon"><SmartphoneIcon /></span>
+      数字文创
     </div>
 
-    <div class="app-content">
-      <div class="main-title-area">
-        <h2 class="main-title">
-          <span class="highlight">立即下载</span>
-          <span class="sub">开启你的文创之旅</span>
-        </h2>
-      </div>
+    <div class="digital-intro">
+      <h2 class="intro-title">
+        <span class="highlight">指尖畅游</span>
+        <span class="sub">{{ museum.name }}数字文化体验</span>
+      </h2>
+      <p class="intro-desc">
+        汇聚 App、小游戏、数字展览与壁纸等数字文创，把 {{ museum.name }} 装进口袋
+      </p>
+    </div>
 
-      <div class="download-area">
-        <div class="download-grid">
-          <button
-            v-for="channel in downloadChannels"
-            :key="channel.id"
-            :class="['download-btn', channel.type]"
-          >
-            <div class="btn-icon">{{ channel.icon }}</div>
-            <div class="btn-content">
-              <span class="btn-label">{{ channel.label }}</span>
-              <span class="btn-name">{{ channel.name }}</span>
-            </div>
-          </button>
+    <div class="digital-grid">
+      <div
+        v-for="item in digitalProducts"
+        :key="item.id"
+        class="digital-card"
+        :class="item.type"
+      >
+        <div class="card-glow"></div>
+        <div class="card-type-badge">{{ item.typeText }}</div>
+        <div class="card-icon">
+          <component :is="item.icon" />
         </div>
-
-        <div class="more-options">
-          <button
-            v-for="option in moreOptions"
-            :key="option.id"
-            :class="['option-btn', option.type]"
-          >
-            <span class="option-icon">{{ option.icon }}</span>
-            <span class="option-text">{{ option.text }}</span>
-          </button>
+        <div class="card-content">
+          <h3 class="card-name">{{ item.name }}</h3>
+          <p class="card-desc">{{ item.description }}</p>
         </div>
+        <button class="card-action-btn">
+          <span class="btn-text">{{ item.actionText }}</span>
+          <span class="btn-arrow">→</span>
+        </button>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-  import { ref } from 'vue';
+  import { computed } from 'vue';
+  import type { Museum } from '@/typesOfPages/museum/index';
+  import {
+    SmartphoneIcon,
+    VrIcon,
+    GlobeIcon,
+    ImageIcon,
+    HeadphoneIcon,
+    VideoIcon,
+  } from '@/pages/Museum/icons/common';
+  import { markRaw } from 'vue';
 
-  const downloadChannels = ref([
-    {
-      id: 1,
-      name: 'App Store',
-      label: 'Download on the',
-      icon: '🍎',
-      type: 'ios',
-    },
-    {
-      id: 2,
-      name: 'Google Play',
-      label: 'GET IT ON',
-      icon: '▶',
-      type: 'android',
-    },
-    {
-      id: 3,
-      name: '华为应用市场',
-      label: '下载于',
-      icon: '📱',
-      type: 'huawei',
-    },
-    {
-      id: 4,
-      name: '小米应用商店',
-      label: '下载于',
-      icon: '🛍️',
-      type: 'xiaomi',
-    },
-    {
-      id: 5,
-      name: 'OPPO软件商店',
-      label: '下载于',
-      icon: '🔵',
-      type: 'oppo',
-    },
-    {
-      id: 6,
-      name: 'vivo应用商店',
-      label: '下载于',
-      icon: '💙',
-      type: 'vivo',
-    },
-    {
-      id: 7,
-      name: '应用宝',
-      label: '下载于',
-      icon: '📲',
-      type: 'yingyongbao',
-    },
-    {
-      id: 8,
-      name: '百度手机助手',
-      label: '下载于',
-      icon: '🐻',
-      type: 'baidu',
-    },
-    {
-      id: 9,
-      name: '360手机助手',
-      label: '下载于',
-      icon: '⭕',
-      type: 'qihu',
-    },
-    {
-      id: 10,
-      name: '豌豆荚',
-      label: '下载于',
-      icon: '🌱',
-      type: 'wandoujia',
-    },
-    {
-      id: 11,
-      name: '三星应用商店',
-      label: 'Download on',
-      icon: '⭐',
-      type: 'samsung',
-    },
-    {
-      id: 12,
-      name: '魅族应用商店',
-      label: '下载于',
-      icon: '🦋',
-      type: 'meizu',
-    },
-  ]);
+  interface Props {
+    museum: Museum;
+  }
 
-  const moreOptions = ref([
-    { id: 1, icon: '📷', text: '扫码下载', type: 'qrcode' },
-    { id: 2, icon: '💻', text: 'PC端下载', type: 'pc' },
-    { id: 3, icon: '📦', text: 'APK直接下载', type: 'apk' },
-  ]);
+  const props = defineProps<Props>();
+
+  interface DigitalProduct {
+    id: number;
+    name: string;
+    description: string;
+    type: string;
+    typeText: string;
+    actionText: string;
+    icon: ReturnType<typeof markRaw>;
+  }
+
+  const digitalProducts = computed<DigitalProduct[]>(() => {
+    const name = props.museum.name;
+    return [
+      {
+        id: 1,
+        name: `${name}云展览`,
+        description: `7×24小时线上展厅，${name}精品展览一览无余，指尖访古深度体验。`,
+        type: 'app',
+        typeText: 'App',
+        actionText: '立即体验',
+        icon: markRaw(SmartphoneIcon),
+      },
+      {
+        id: 2,
+        name: `${name}每日藏品`,
+        description: `每日甄选一款${name}馆藏珍品，探寻文物背后令人惊叹的细节。`,
+        type: 'app',
+        typeText: 'App',
+        actionText: '下载应用',
+        icon: markRaw(SmartphoneIcon),
+      },
+      {
+        id: 3,
+        name: `${name}全景漫游`,
+        description: `VR 全景技术还原${name}展厅实景，足不出户沉浸式参观。`,
+        type: 'vr',
+        typeText: '数字展',
+        actionText: '进入漫游',
+        icon: markRaw(VrIcon),
+      },
+      {
+        id: 4,
+        name: `${name}文物解谜`,
+        description: `以${name}馆藏文物为题材的互动解谜游戏，寓教于乐趣味闯关。`,
+        type: 'game',
+        typeText: '小游戏',
+        actionText: '开始游戏',
+        icon: markRaw(GlobeIcon),
+      },
+      {
+        id: 5,
+        name: `${name}精选壁纸`,
+        description: `由${name}官方摄影师拍摄的文物美图，构建智能标签分类下载。`,
+        type: 'wallpaper',
+        typeText: '壁纸',
+        actionText: '下载壁纸',
+        icon: markRaw(ImageIcon),
+      },
+      {
+        id: 6,
+        name: `${name}语音导览`,
+        description: `专业讲解员配音的${name}文物音频导览，戴耳机即可边走边听。`,
+        type: 'audio',
+        typeText: '音频',
+        actionText: '开始收听',
+        icon: markRaw(HeadphoneIcon),
+      },
+    ];
+  });
 </script>
 
 <style lang="scss" scoped src="./index.scss"></style>

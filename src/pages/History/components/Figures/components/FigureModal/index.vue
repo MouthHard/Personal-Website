@@ -191,10 +191,7 @@
 
 <script setup lang="ts">
   import type { HistoricalFigure } from '@/typesOfPages/history';
-  import {
-    figureWorksMap,
-    figureEvaluationTagsMap,
-  } from '../../../../data/figures';
+  import { figureWorksMap, figureEvaluationTagsMap } from '@/constants/history';
 
   const props = defineProps<{
     selectedFigure: HistoricalFigure | null;

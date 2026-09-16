@@ -34,8 +34,8 @@ import {
   nextTick,
   watch,
 } from 'vue'
-import CheckIcon from '../../../../icon/common/CheckIcon.vue'
-import ChevronDownIcon from '../../../../icon/common/ChevronDownIcon.vue'
+import CheckIcon from '../../../../icons/common/CheckIcon.vue'
+import ChevronDownIcon from '../../../../icons/common/ChevronDownIcon.vue'
 
 interface Option {
   label: string;

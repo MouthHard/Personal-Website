@@ -215,16 +215,16 @@ import { showMessage } from '@/utils/landscape';
 import type { VideoItem } from '@/typesOfPages/landscape';
 import { useFormatNumber } from '@/composables/landscape';
 import { useInteractionStore } from '@/stores/landscape';
-import PlayIcon from '@/pages/Landscape/icon/common/PlayIcon.vue';
-import UserIcon from '@/pages/Landscape/icon/common/UserIcon.vue';
-import EyeIcon from '@/pages/Landscape/icon/common/EyeIcon.vue';
-import ThumbUpIcon from '@/pages/Landscape/icon/common/ThumbUpIcon.vue';
-import HeartIcon from '@/pages/Landscape/icon/common/HeartIcon.vue';
-import BookmarkIcon from '@/pages/Landscape/icon/common/BookmarkIcon.vue';
-import CommentIcon from '@/pages/Landscape/icon/components/profile/VideoCard/CommentIcon.vue';
-import BatteryIcon from '@/pages/Landscape/icon/components/profile/VideoCard/BatteryIcon.vue';
-import ShareIcon from '@/pages/Landscape/icon/common/ShareIcon.vue';
-import ArrowRightIcon from '@/pages/Landscape/icon/common/ArrowRightIcon.vue';
+import PlayIcon from '@/pages/Landscape/icons/common/PlayIcon.vue';
+import UserIcon from '@/pages/Landscape/icons/common/UserIcon.vue';
+import EyeIcon from '@/pages/Landscape/icons/common/EyeIcon.vue';
+import ThumbUpIcon from '@/pages/Landscape/icons/common/ThumbUpIcon.vue';
+import HeartIcon from '@/pages/Landscape/icons/common/HeartIcon.vue';
+import BookmarkIcon from '@/pages/Landscape/icons/common/BookmarkIcon.vue';
+import CommentIcon from '@/pages/Landscape/icons/components/profile/VideoCard/CommentIcon.vue';
+import BatteryIcon from '@/pages/Landscape/icons/components/profile/VideoCard/BatteryIcon.vue';
+import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue';
+import ArrowRightIcon from '@/pages/Landscape/icons/common/ArrowRightIcon.vue';
 
 const props = defineProps<{
   item: VideoItem;

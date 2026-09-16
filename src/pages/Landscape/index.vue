@@ -34,7 +34,7 @@
     useInteractionStore,
   } from '@/stores/landscape';
   import type { LandscapeItem } from '@/typesOfPages/landscape';
-  import { cachedViews } from '@/utils/landscape/constants';
+  import { cachedViews } from '@/constants/landscape';
   import { convertToLandscapeItem } from '@/utils/landscape';
   import { debounce } from '@/utils/landscape/debounce';
 

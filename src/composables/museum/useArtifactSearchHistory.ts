@@ -1,0 +1,60 @@
+import { ref } from 'vue';
+
+const STORAGE_KEY = 'artifact-search-history';
+const MAX_HISTORY = 20;
+
+const history = ref<string[]>([]);
+
+function loadHistory() {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      history.value = Array.isArray(parsed) ? parsed : [];
+    }
+  } catch {
+    history.value = [];
+  }
+}
+
+function saveHistory() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(history.value));
+  } catch {
+    // ignore
+  }
+}
+
+loadHistory();
+
+export function useArtifactSearchHistory() {
+  const addHistory = (keyword: string) => {
+    const trimmed = keyword.trim();
+    if (!trimmed) return;
+    history.value = [trimmed, ...history.value.filter(h => h !== trimmed)].slice(0, MAX_HISTORY);
+    saveHistory();
+  };
+
+  const removeHistory = (keyword: string) => {
+    history.value = history.value.filter(h => h !== keyword);
+    saveHistory();
+  };
+
+  const removeHistoryAt = (index: number) => {
+    history.value.splice(index, 1);
+    saveHistory();
+  };
+
+  const clearHistory = () => {
+    history.value = [];
+    saveHistory();
+  };
+
+  return {
+    history,
+    addHistory,
+    removeHistory,
+    removeHistoryAt,
+    clearHistory,
+  };
+}

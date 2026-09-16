@@ -97,17 +97,17 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import { difficultyMap, travelModeMap, seasonMap } from '@/utils/landscape/constants';
+import { difficultyMap, travelModeMap, seasonMap } from '@/constants/landscape';
 import { formatNumber } from '@/utils/landscape/format';
-import CalendarIcon from '@/pages/Landscape/icon/common/CalendarIcon.vue';
-import ClockIcon from '@/pages/Landscape/icon/common/ClockIcon.vue';
-import LocationIcon from '@/pages/Landscape/icon/common/LocationIcon.vue';
-import LayersIcon from '@/pages/Landscape/icon/common/LayersIcon.vue';
-import EyeIcon from '@/pages/Landscape/icon/common/EyeIcon.vue';
-import ThumbUpIcon from '@/pages/Landscape/icon/common/ThumbUpIcon.vue';
-import HeartIcon from '@/pages/Landscape/icon/common/HeartIcon.vue';
-import BookmarkIcon from '@/pages/Landscape/icon/common/BookmarkIcon.vue';
-import ShareIcon from '@/pages/Landscape/icon/common/ShareIcon.vue';
+import CalendarIcon from '@/pages/Landscape/icons/common/CalendarIcon.vue';
+import ClockIcon from '@/pages/Landscape/icons/common/ClockIcon.vue';
+import LocationIcon from '@/pages/Landscape/icons/common/LocationIcon.vue';
+import LayersIcon from '@/pages/Landscape/icons/common/LayersIcon.vue';
+import EyeIcon from '@/pages/Landscape/icons/common/EyeIcon.vue';
+import ThumbUpIcon from '@/pages/Landscape/icons/common/ThumbUpIcon.vue';
+import HeartIcon from '@/pages/Landscape/icons/common/HeartIcon.vue';
+import BookmarkIcon from '@/pages/Landscape/icons/common/BookmarkIcon.vue';
+import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue';
 
 interface Guide {
   id: string;

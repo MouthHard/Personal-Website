@@ -2,6 +2,17 @@
   <div class="featured-carousel">
     <header>热门推荐</header>
     <div
+      v-if="featuredProducts.length === 0"
+      class="empty-state"
+    >
+      <div class="empty-icon">
+        <EmptyBoxIcon />
+      </div>
+      <h3 class="empty-title">暂无热门推荐</h3>
+      <p class="empty-description">该博物馆暂未上架文创产品，敬请期待</p>
+    </div>
+    <div
+      v-else
       class="carousel-container"
       @mouseenter="handleMouseEnter"
       @mouseleave="handleMouseLeave"
@@ -35,20 +46,25 @@
                   立即购买
                 </button>
                 <button
+                  class="carousel-like-btn"
+                  :class="{ active: isLiked(product) }"
+                  aria-label="点赞"
+                  @click="handleLikeClick(product)"
+                >
+                  <LikeFilledIcon v-if="isLiked(product)" />
+                  <LikeIcon v-else />
+                </button>
+                <button
                   class="carousel-favorite-btn"
+                  :class="{ active: isFavored(product) }"
                   aria-label="收藏"
                   @click="handleFavoriteClick(product)"
                 >
-                  <StarIcon />
+                  <StarFilledIcon v-if="isFavored(product)" />
+                  <StarIcon v-else />
                 </button>
                 <button
-                  class="carousel-collect-btn"
-                  aria-label="喜爱"
-                  @click="handleCollectClick(product)"
-                >
-                  <HeartIcon />
-                </button>
-                <button
+
                   class="carousel-share-btn"
                   aria-label="分享"
                   @click="handleShareClick(product)"
@@ -91,6 +107,11 @@
         </button>
       </div>
     </div>
+    <ShareModal
+      v-model:visible="shareVisible"
+      :title="shareTitle"
+      :description="shareDescription"
+    />
   </div>
 </template>
 
@@ -99,11 +120,19 @@
   import type { CreativeProduct } from '@/typesOfPages/museum/index';
   import {
     StarIcon,
-    HeartIcon,
     ShareIcon,
     CarouselIndicatorIcon,
     CornArrowIcon,
-  } from '@/pages/Museum/icon/pages/CreativeProduct';
+  } from '@/pages/Museum/icons/pages/CreativeProduct';
+  import {
+    EmptyBoxIcon,
+    LikeIcon,
+    LikeFilledIcon,
+    StarFilledIcon,
+  } from '@/pages/Museum/icons/common';
+  import { ShareModal } from '@/pages/Museum/components/common';
+  import { useCreativePrefs } from '@/composables/museum/useCreativePrefs';
+  import { useCurrentMuseumId } from '@/composables/museum/useCurrentMuseumId';
 
   const props = defineProps<{
     creativeProducts: CreativeProduct[];
@@ -160,11 +189,13 @@
   });
 
   const nextSlide = () => {
+    if (featuredProducts.value.length === 0) return;
     currentSlide.value =
       (currentSlide.value + 1) % featuredProducts.value.length;
   };
 
   const prevSlide = () => {
+    if (featuredProducts.value.length === 0) return;
     currentSlide.value =
       (currentSlide.value - 1 + featuredProducts.value.length) %
       featuredProducts.value.length;
@@ -178,16 +209,27 @@
     emit('buy', product);
   };
 
-  const handleFavoriteClick = (product: CreativeProduct) => {
- 
-  };
+  const {
+    isLiked: prefsIsLiked,
+    isFavored: prefsIsFavored,
+    toggleLike: prefsToggleLike,
+    toggleFavor: prefsToggleFavor,
+  } = useCreativePrefs(useCurrentMuseumId());
 
-  const handleCollectClick = (product: CreativeProduct) => {
-   
-  };
+  const isLiked = (product: CreativeProduct) => prefsIsLiked(product.id);
+  const isFavored = (product: CreativeProduct) => prefsIsFavored(product.id);
+
+  const handleLikeClick = (product: CreativeProduct) => prefsToggleLike(product.id, product.name);
+  const handleFavoriteClick = (product: CreativeProduct) => prefsToggleFavor(product.id, product.name);
+
+  const shareVisible = ref(false);
+  const shareTitle = ref('');
+  const shareDescription = ref('');
 
   const handleShareClick = (product: CreativeProduct) => {
-  
+    shareTitle.value = product.name;
+    shareDescription.value = product.description;
+    shareVisible.value = true;
   };
 
   const handleImageError = (event: Event) => {

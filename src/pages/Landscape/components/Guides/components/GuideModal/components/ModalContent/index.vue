@@ -180,7 +180,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import DOMPurify from 'dompurify'
-import { travelModeMap } from '@/utils/landscape/constants'
+import { travelModeMap } from '@/constants/landscape'
 import type { GlobalGuide } from '@/typesOfPages/landscape/data'
 
 interface Props {

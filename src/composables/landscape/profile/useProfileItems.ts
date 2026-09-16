@@ -1,5 +1,6 @@
 import { computed, type Ref } from 'vue';
 import { useInteractionStore } from '@/stores/landscape';
+import type { InteractionItem } from '@/typesOfPages/landscape';
 import type { ProfileItem, DisplayCounts } from './types';
 import { useProfileTransform } from './useProfileTransform';
 
@@ -20,7 +21,7 @@ export function useProfileItems(
     transformVideoData,
   } = useProfileTransform();
 
-  const getDisplayCount = (item: any): DisplayCounts => {
+  const getDisplayCount = (item: InteractionItem): DisplayCounts => {
     const c = interactionStore.getCount(item.id);
     return {
       likes: c.likes,
@@ -32,7 +33,7 @@ export function useProfileItems(
   };
 
   const processItemByType = (
-    item: any,
+    item: InteractionItem,
     prefix: string,
     gi: { value: number }
   ): ProfileItem[] => {
@@ -98,8 +99,8 @@ export function useProfileItems(
     const prefix = type === 'favorites' ? 'fav' : 'love';
 
     const itemsData = type === 'favorites'
-      ? interactionStore.getFavoritesByType(selectedCategory.value as any)
-      : interactionStore.getLovesByType(selectedCategory.value as any);
+      ? interactionStore.getFavoritesByType(selectedCategory.value as InteractionItem['type'])
+      : interactionStore.getLovesByType(selectedCategory.value as InteractionItem['type']);
 
     for (const item of itemsData) {
       items.push(...processItemByType(item, prefix, gi));

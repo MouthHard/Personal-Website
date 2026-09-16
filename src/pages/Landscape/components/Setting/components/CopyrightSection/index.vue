@@ -76,9 +76,9 @@
 import { ref } from 'vue'
 import CustomSelect from '../../common/CustomSelect.vue'
 import CustomSwitch from '../../common/CustomSwitch.vue'
-import CopyrightIcon from '@/pages/Landscape/icon/components/setting/CopyrightSection/CopyrightIcon.vue'
-import LicenseIcon from '@/pages/Landscape/icon/components/setting/CopyrightSection/LicenseIcon.vue'
-import { CopyrightOptions } from '@/utils/landscape/constants'
+import CopyrightIcon from '@/pages/Landscape/icons/components/setting/CopyrightSection/CopyrightIcon.vue'
+import LicenseIcon from '@/pages/Landscape/icons/components/setting/CopyrightSection/LicenseIcon.vue'
+import { CopyrightOptions } from '@/constants/landscape'
 
 const copyrightType = ref('保留所有权利')
 const requireCredit = ref(true)

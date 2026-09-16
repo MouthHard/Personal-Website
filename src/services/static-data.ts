@@ -24,7 +24,7 @@ export function loadJSON<T = any>(filename: string): Promise<T> {
     .catch((err) => {
       cache.delete(cacheKey);
       console.error(`[static-data] ${err.message}`);
-      return null;
+      throw err;
     });
   cache.set(cacheKey, promise);
   return promise;
@@ -48,7 +48,7 @@ export function paginate<T>(
   params: PaginationParams = {},
 ): PaginatedResponse<T> {
   const page = params.page || 1;
-  const limit = params.limit || 200;
+  const limit = params.limit || 9999;
   const total = items.length;
   const totalPages = Math.ceil(total / limit) || 1;
   const start = (page - 1) * limit;
@@ -88,11 +88,4 @@ export async function findItemById<T extends { id: number | string }>(
   if (!data) return null;
   const items = data.items || data;
   return items.find((item) => item.id == id) || null;
-}
-
-export async function loadDetail<T = any>(
-  dir: string,
-  id: number | string,
-): Promise<T | null> {
-  return loadJSON<T>(`${dir}/${id}.json`);
 }

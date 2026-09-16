@@ -256,7 +256,7 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, computed, onMounted, onUnmounted, watch } from 'vue';
+  import { ref, computed, onMounted, onUnmounted, watch, type Component } from 'vue';
   import { useHomeViewData } from '@/composables/landscape';
   import { useInteractionStore } from '@/stores/landscape';
   import {
@@ -272,18 +272,18 @@
   import ShareMenu from '../../../common/ShareMenu/index.vue';
   import type { InteractionItem } from '@/typesOfPages/landscape';
   import { showMessage } from '@/utils/landscape';
-  import ThumbUpIcon from '@/pages/Landscape/icon/common/ThumbUpIcon.vue';
-  import HeartIcon from '@/pages/Landscape/icon/common/HeartIcon.vue';
-  import BookmarkIcon from '@/pages/Landscape/icon/common/BookmarkIcon.vue';
-  import ShareIcon from '@/pages/Landscape/icon/common/ShareIcon.vue';
-  import DownloadIcon from '@/pages/Landscape/icon/common/DownloadIcon.vue';
-  import EyeIcon from '@/pages/Landscape/icon/common/EyeIcon.vue';
-  import PlayIcon from '@/pages/Landscape/icon/common/PlayIcon.vue';
-  import ClockIcon from '@/pages/Landscape/icon/common/ClockIcon.vue';
-  import LocationIcon from '@/pages/Landscape/icon/common/LocationIcon.vue';
-  import ImageFilledIcon from '@/pages/Landscape/icon/components/home/FeaturedCarousel/ImageFilledIcon.vue';
-  import DotActiveIcon from '@/pages/Landscape/icon/components/home/FeaturedCarousel/DotActiveIcon.vue';
-  import DotInactiveIcon from '@/pages/Landscape/icon/components/home/FeaturedCarousel/DotInactiveIcon.vue';
+  import ThumbUpIcon from '@/pages/Landscape/icons/common/ThumbUpIcon.vue';
+  import HeartIcon from '@/pages/Landscape/icons/common/HeartIcon.vue';
+  import BookmarkIcon from '@/pages/Landscape/icons/common/BookmarkIcon.vue';
+  import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue';
+  import DownloadIcon from '@/pages/Landscape/icons/common/DownloadIcon.vue';
+  import EyeIcon from '@/pages/Landscape/icons/common/EyeIcon.vue';
+  import PlayIcon from '@/pages/Landscape/icons/common/PlayIcon.vue';
+  import ClockIcon from '@/pages/Landscape/icons/common/ClockIcon.vue';
+  import LocationIcon from '@/pages/Landscape/icons/common/LocationIcon.vue';
+  import ImageFilledIcon from '@/pages/Landscape/icons/components/home/FeaturedCarousel/ImageFilledIcon.vue';
+  import DotActiveIcon from '@/pages/Landscape/icons/components/home/FeaturedCarousel/DotActiveIcon.vue';
+  import DotInactiveIcon from '@/pages/Landscape/icons/components/home/FeaturedCarousel/DotInactiveIcon.vue';
 
   const interactionStore = useInteractionStore();
 
@@ -382,7 +382,7 @@
     id: string;
     name: string;
     gradient: string;
-    icon: any;
+    icon: Component;
   }
 
   const handleSharePlatform = (_platform: Platform) => {

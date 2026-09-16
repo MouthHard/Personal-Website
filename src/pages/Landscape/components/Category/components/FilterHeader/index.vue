@@ -4,20 +4,9 @@
       <div class="search-container" :class="{ focused: searchFocused }">
         <div class="search-input">
           <SearchIcon />
-          <input
-            ref="searchInputRef"
-            v-model="localValue"
-            type="text"
-            placeholder="搜索风景、地点、摄影师..."
-            @focus="searchFocused = true"
-            @blur="handleBlur"
-            @keydown.enter="handleEnter"
-          />
-          <button
-            v-if="modelValue"
-            class="clear-btn"
-            @mousedown.prevent="clearSearch"
-          >
+          <input ref="searchInputRef" v-model="localValue" type="text" placeholder="搜索风景、地点、摄影师..."
+            @focus="searchFocused = true" @blur="handleBlur" @keydown.enter="handleEnter" />
+          <button v-if="modelValue" class="clear-btn" @mousedown.prevent="clearSearch">
             <XCircleIcon :stroke-width="2" />
           </button>
         </div>
@@ -27,35 +16,18 @@
             <div class="history-header">
               <h4>搜索历史</h4>
               <div class="history-actions">
-                <button
-                  v-if="searchHistory.length > collapsedLimit && !isHistoryExpanded"
-                  class="history-action-btn"
-                  @mousedown.prevent="isHistoryExpanded = true"
-                >更多</button>
-                <button
-                  v-if="isHistoryExpanded"
-                  class="history-action-btn"
-                  @mousedown.prevent="isHistoryExpanded = false"
-                >收起</button>
-                <button
-                  class="history-action-btn"
-                  @mousedown.prevent="handleClearHistory"
-                >清空</button>
+                <button v-if="searchHistory.length > collapsedLimit && !isHistoryExpanded" class="history-action-btn"
+                  @mousedown.prevent="isHistoryExpanded = true">更多</button>
+                <button v-if="isHistoryExpanded" class="history-action-btn"
+                  @mousedown.prevent="isHistoryExpanded = false">收起</button>
+                <button class="history-action-btn" @mousedown.prevent="handleClearHistory">清空</button>
               </div>
             </div>
             <div class="history-tags" :class="{ expanded: isHistoryExpanded }">
-              <span
-                v-for="item in searchHistory"
-                :key="item"
-                class="history-tag"
-                @mousedown.prevent="selectHistory(item)"
-              >
+              <span v-for="item in searchHistory" :key="item" class="history-tag"
+                @mousedown.prevent="selectHistory(item)">
                 <span class="history-tag-text">{{ item }}</span>
-                <span
-                  class="history-remove"
-                  title="删除"
-                  @mousedown.prevent.stop="handleRemoveHistory(item)"
-                >×</span>
+                <span class="history-remove" title="删除" @mousedown.prevent.stop="handleRemoveHistory(item)">×</span>
               </span>
             </div>
           </div>
@@ -63,12 +35,8 @@
           <div class="expanded-section">
             <h4>热门推荐</h4>
             <div class="recommend-list">
-              <button
-                v-for="rec in hotRecommendations"
-                :key="rec"
-                class="recommend-item"
-                @mousedown.prevent="selectHistory(rec)"
-              >
+              <button v-for="rec in hotRecommendations" :key="rec" class="recommend-item"
+                @mousedown.prevent="selectHistory(rec)">
                 <span class="rec-icon">🔥</span>
                 <span>{{ rec }}</span>
               </button>
@@ -86,24 +54,22 @@
       <div class="header-controls">
         <div class="controls-stack">
           <div class="media-type-switch">
-            <button
-              v-for="mt in mediaTypes"
-              :key="mt.id"
+            <button v-for="mt in mediaTypes" :key="mt.id"
               :class="['mt-btn', { active: mediaType === mt.id, [mt.id]: true }]"
-              @click="$emit('update:mediaType', mt.id)"
-            >
-              <span class="mt-icon"><component :is="mediaTypeIconMap[mt.id]" /></span>
+              @click="$emit('update:mediaType', mt.id)">
+              <span class="mt-icon">
+                <component :is="mediaTypeIconMap[mt.id]" />
+              </span>
               <span class="mt-label">{{ mt.label }}</span>
             </button>
           </div>
           <div class="quick-filters">
-            <button
-              v-for="filter in quickFilters"
-              :key="filter.id"
+            <button v-for="filter in quickFilters" :key="filter.id"
               :class="['filter-chip', { active: activeFilter === filter.id }]"
-              @click="$emit('update:activeFilter', filter.id)"
-            >
-              <span class="chip-icon"><component :is="filterIconMap[filter.id]" /></span>
+              @click="$emit('update:activeFilter', filter.id)">
+              <span class="chip-icon">
+                <component :is="filterIconMap[filter.id]" />
+              </span>
               <span class="chip-label">{{ filter.label }}</span>
             </button>
           </div>
@@ -115,20 +81,20 @@
 
 <script setup lang="ts">
 import { ref, computed, watch, onMounted, onUnmounted } from 'vue';
-import { mediaTypes, quickFilters } from '@/utils/landscape/constants';
+import { mediaTypes, quickFilters } from '@/constants/landscape';
 import { useLandscapeDataStore } from '@/stores/landscape/data';
 import { debounce } from '@/utils/landscape/debounce';
-import SearchIcon from '@/pages/Landscape/icon/common/SearchIcon.vue';
-import XCircleIcon from '@/pages/Landscape/icon/components/category/FilterHeader/XCircleIcon.vue';
-import LayersIcon from '@/pages/Landscape/icon/common/LayersIcon.vue';
-import ImageIcon from '@/pages/Landscape/icon/common/ImageIcon.vue';
-import VideoIcon from '@/pages/Landscape/icon/common/VideoIcon.vue';
-import ClockIcon from '@/pages/Landscape/icon/common/ClockIcon.vue';
-import EyeIcon from '@/pages/Landscape/icon/common/EyeIcon.vue';
-import ThumbUpIcon from '@/pages/Landscape/icon/common/ThumbUpIcon.vue';
-import HeartIcon from '@/pages/Landscape/icon/common/HeartIcon.vue';
-import BookmarkIcon from '@/pages/Landscape/icon/common/BookmarkIcon.vue';
-import ShareIcon from '@/pages/Landscape/icon/common/ShareIcon.vue';
+import SearchIcon from '@/pages/Landscape/icons/common/SearchIcon.vue';
+import XCircleIcon from '@/pages/Landscape/icons/components/category/FilterHeader/XCircleIcon.vue';
+import LayersIcon from '@/pages/Landscape/icons/common/LayersIcon.vue';
+import ImageIcon from '@/pages/Landscape/icons/common/ImageIcon.vue';
+import VideoIcon from '@/pages/Landscape/icons/common/VideoIcon.vue';
+import ClockIcon from '@/pages/Landscape/icons/common/ClockIcon.vue';
+import EyeIcon from '@/pages/Landscape/icons/common/EyeIcon.vue';
+import ThumbUpIcon from '@/pages/Landscape/icons/common/ThumbUpIcon.vue';
+import HeartIcon from '@/pages/Landscape/icons/common/HeartIcon.vue';
+import BookmarkIcon from '@/pages/Landscape/icons/common/BookmarkIcon.vue';
+import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue';
 
 const mediaTypeIconMap: Record<string, any> = {
   all: LayersIcon,

@@ -86,13 +86,13 @@ import TopNav from './components/TopNav/index.vue';
 import FilterSidebar from './components/FilterSidebar/index.vue';
 import GuideCard from './components/GuideCard/index.vue';
 import GuideModal from './components/GuideModal/index.vue';
-import SearchIcon from '@/pages/Landscape/icon/common/SearchIcon.vue';
-import ClockIcon from '@/pages/Landscape/icon/common/ClockIcon.vue';
-import EyeIcon from '@/pages/Landscape/icon/common/EyeIcon.vue';
-import ThumbUpIcon from '@/pages/Landscape/icon/common/ThumbUpIcon.vue';
-import HeartIcon from '@/pages/Landscape/icon/common/HeartIcon.vue';
-import BookmarkIcon from '@/pages/Landscape/icon/common/BookmarkIcon.vue';
-import ShareIcon from '@/pages/Landscape/icon/common/ShareIcon.vue';
+import SearchIcon from '@/pages/Landscape/icons/common/SearchIcon.vue';
+import ClockIcon from '@/pages/Landscape/icons/common/ClockIcon.vue';
+import EyeIcon from '@/pages/Landscape/icons/common/EyeIcon.vue';
+import ThumbUpIcon from '@/pages/Landscape/icons/common/ThumbUpIcon.vue';
+import HeartIcon from '@/pages/Landscape/icons/common/HeartIcon.vue';
+import BookmarkIcon from '@/pages/Landscape/icons/common/BookmarkIcon.vue';
+import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue';
 import {
   travelModes,
   naturalScenery,
@@ -104,7 +104,7 @@ import {
   seasons,
   durations,
   guideSortOptions,
-} from '@/utils/landscape/constants';
+} from '@/constants/landscape';
 
 const interactionStore = useInteractionStore();
 const dataStore = useLandscapeDataStore();

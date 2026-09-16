@@ -348,22 +348,22 @@
   import 'element-plus/es/components/popper/style/css';
   import 'element-plus/es/components/popper/style/index';
   import 'element-plus/es/components/scrollbar/style/css';
-  import { chinaRegions } from '@/utils/landscape/chinaRegions';
-  import { ProfileSpecialtyOptions } from '@/utils/landscape/constants';
-  import CloseIcon from '@/pages/Landscape/icon/common/CloseIcon.vue';
-  import UserIcon from '@/pages/Landscape/icon/common/UserIcon.vue';
-  import UploadIcon from '@/pages/Landscape/icon/common/UploadIcon.vue';
-  import CheckIcon from '@/pages/Landscape/icon/common/CheckIcon.vue';
-  import GlobeIcon from '@/pages/Landscape/icon/common/GlobeIcon.vue';
-  import MailIcon from '@/pages/Landscape/icon/common/MailIcon.vue';
-  import PhoneIcon from '@/pages/Landscape/icon/common/PhoneIcon.vue';
-  import WeiboIcon from '@/pages/Landscape/icon/common/WeiboIcon.vue';
-  import WechatIcon from '@/pages/Landscape/icon/common/WechatIcon.vue';
-  import BilibiliIcon from '@/pages/Landscape/icon/components/profile/EditProfileModal/BilibiliIcon.vue';
-  import XiaohongshuIcon from '@/pages/Landscape/icon/components/profile/EditProfileModal/XiaohongshuIcon.vue';
-  import MafengwoIcon from '@/pages/Landscape/icon/components/profile/EditProfileModal/MafengwoIcon.vue';
-  import TuchongIcon from '@/pages/Landscape/icon/components/profile/EditProfileModal/TuchongIcon.vue';
-  import InstagramFilledIcon from '@/pages/Landscape/icon/common/InstagramFilledIcon.vue';
+  import { chinaRegions } from '@/constants/landscape/chinaRegions';
+  import { ProfileSpecialtyOptions } from '@/constants/landscape';
+  import CloseIcon from '@/pages/Landscape/icons/common/CloseIcon.vue';
+  import UserIcon from '@/pages/Landscape/icons/common/UserIcon.vue';
+  import UploadIcon from '@/pages/Landscape/icons/common/UploadIcon.vue';
+  import CheckIcon from '@/pages/Landscape/icons/common/CheckIcon.vue';
+  import GlobeIcon from '@/pages/Landscape/icons/common/GlobeIcon.vue';
+  import MailIcon from '@/pages/Landscape/icons/common/MailIcon.vue';
+  import PhoneIcon from '@/pages/Landscape/icons/common/PhoneIcon.vue';
+  import WeiboIcon from '@/pages/Landscape/icons/common/WeiboIcon.vue';
+  import WechatIcon from '@/pages/Landscape/icons/common/WechatIcon.vue';
+  import BilibiliIcon from '@/pages/Landscape/icons/components/profile/EditProfileModal/BilibiliIcon.vue';
+  import XiaohongshuIcon from '@/pages/Landscape/icons/components/profile/EditProfileModal/XiaohongshuIcon.vue';
+  import MafengwoIcon from '@/pages/Landscape/icons/components/profile/EditProfileModal/MafengwoIcon.vue';
+  import TuchongIcon from '@/pages/Landscape/icons/components/profile/EditProfileModal/TuchongIcon.vue';
+  import InstagramFilledIcon from '@/pages/Landscape/icons/common/InstagramFilledIcon.vue';
 
   interface EditableUser {
     name?: string;

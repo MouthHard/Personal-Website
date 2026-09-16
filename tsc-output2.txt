@@ -1,0 +1,38 @@
+src/components/common/PageChange/index.vue(84,34): error TS2551: Property 'animDuration' does not exist on type '{ onAfterLeave: () => void; visible: boolean; images: string[]; duration: number | undefined; onComplete?: (() => any) | undefined; $props: Readonly<LooseRequired<__VLS_Props>> & {} & { ...; }; ... 17 more ...; $router: Router; }'. Did you mean 'duration'?
+src/components/common/PageChange/index.vue(111,45): error TS2551: Property 'animDuration' does not exist on type '{ onAfterLeave: () => void; visible: boolean; images: string[]; duration: number | undefined; onComplete?: (() => any) | undefined; $props: Readonly<LooseRequired<__VLS_Props>> & {} & { ...; }; ... 17 more ...; $router: Router; }'. Did you mean 'duration'?
+src/composables/landscape/profile/useProfileItems.ts(10,3): error TS6133: 'images' is declared but its value is never read.
+src/composables/landscape/profile/useProfileItems.ts(11,3): error TS6133: 'videos' is declared but its value is never read.
+src/composables/landscape/profile/useProfileItems.ts(12,3): error TS6133: 'photographers' is declared but its value is never read.
+src/composables/landscape/profile/useProfileItems.ts(13,3): error TS6133: 'guides' is declared but its value is never read.
+src/composables/landscape/useSearchSuggestions.ts(1,30): error TS6133: 'ComputedRef' is declared but its value is never read.
+src/pages/Game/components/Cart/index.vue(160,15): error TS2339: Property 'success' does not exist on type '{ like: { success: (title: string) => void; cancel: () => void; }; love: { success: (title: string, type: ContentType) => void; cancel: (title: string, type: ContentType) => void; }; favorite: { ...; }; follow: { ...; }; share: { ...; }; download: { ...; }; }'.
+src/pages/Game/components/Cart/index.vue(166,17): error TS2339: Property 'success' does not exist on type '{ like: { success: (title: string) => void; cancel: () => void; }; love: { success: (title: string, type: ContentType) => void; cancel: (title: string, type: ContentType) => void; }; favorite: { ...; }; follow: { ...; }; share: { ...; }; download: { ...; }; }'.
+src/pages/Game/components/Cart/index.vue(171,15): error TS2339: Property 'success' does not exist on type '{ like: { success: (title: string) => void; cancel: () => void; }; love: { success: (title: string, type: ContentType) => void; cancel: (title: string, type: ContentType) => void; }; favorite: { ...; }; follow: { ...; }; share: { ...; }; download: { ...; }; }'.
+src/pages/Game/components/Search/index.vue(240,17): error TS2339: Property 'success' does not exist on type '{ like: { success: (title: string) => void; cancel: () => void; }; love: { success: (title: string, type: ContentType) => void; cancel: (title: string, type: ContentType) => void; }; favorite: { ...; }; follow: { ...; }; share: { ...; }; download: { ...; }; }'.
+src/pages/Game/components/Wishlist/index.vue(173,17): error TS2339: Property 'success' does not exist on type '{ like: { success: (title: string) => void; cancel: () => void; }; love: { success: (title: string, type: ContentType) => void; cancel: (title: string, type: ContentType) => void; }; favorite: { ...; }; follow: { ...; }; share: { ...; }; download: { ...; }; }'.
+src/pages/Game/components/Wishlist/index.vue(181,15): error TS2339: Property 'success' does not exist on type '{ like: { success: (title: string) => void; cancel: () => void; }; love: { success: (title: string, type: ContentType) => void; cancel: (title: string, type: ContentType) => void; }; favorite: { ...; }; follow: { ...; }; share: { ...; }; download: { ...; }; }'.
+src/pages/Landscape/components/Home/components/FeaturedCarousel/index.vue(328,24): error TS6133: 'index' is declared but its value is never read.
+src/pages/Landscape/components/Home/components/VideoShowcase/index.vue(70,8): error TS2322: Type '(video: GlobalVideo) => void' is not assignable to type '(video: Video) => any'.
+  Types of parameters 'video' and 'video' are incompatible.
+    Type 'Video' is missing the following properties from type 'GlobalVideo': views, likes, loves, bookmarks, and 2 more.
+src/pages/Landscape/components/Photographers/components/AllPhotographers/index.vue(523,22): error TS6133: 'photographer' is declared but its value is never read.
+src/pages/Landscape/index.vue(113,25): error TS6133: 'file' is declared but its value is never read.
+src/pages/Museum/components/MuseumDetail/components/CreativeGrid/components/AppSection/index.vue(52,5): error TS6133: 'VideoIcon' is declared but its value is never read.
+src/pages/Museum/components/MuseumDetail/components/MuseumInfo/components/NewsSection/index.vue(41,5): error TS6133: 'LeafIcon' is declared but its value is never read.
+src/pages/Music/components/MyMusic/Collection/index.vue(162,30): error TS6133: 'playlist' is declared but its value is never read.
+src/pages/Music/components/MyMusic/Local/index.vue(255,28): error TS6133: 'folder' is declared but its value is never read.
+src/pages/Music/components/MyMusic/Recent/index.vue(142,30): error TS6133: 'playlist' is declared but its value is never read.
+src/pages/TravelGuide/components/scenery/customs/index.vue(58,27): error TS6133: 'activityId' is declared but its value is never read.
+src/pages/TravelGuide/components/scenery/customs/index.vue(62,26): error TS6133: 'activityId' is declared but its value is never read.
+src/pages/TravelGuide/components/scenery/customs/index.vue(66,22): error TS6133: 'day' is declared but its value is never read.
+src/pages/TravelGuide/components/scenery/nature/index.vue(128,25): error TS6133: 'spotId' is declared but its value is never read.
+tests/components.spec.ts(6,38): error TS2307: Cannot find module 'vitest' or its corresponding type declarations.
+tests/components.spec.ts(7,23): error TS2307: Cannot find module '@vue/test-utils' or its corresponding type declarations.
+tests/debounce-throttle.spec.ts(6,65): error TS2307: Cannot find module 'vitest' or its corresponding type declarations.
+tests/debounce-throttle.spec.ts(7,10): error TS2305: Module '"@/utils/common"' has no exported member 'debounce'.
+tests/debounce-throttle.spec.ts(7,20): error TS2305: Module '"@/utils/common"' has no exported member 'throttle'.
+tests/LazyImage.spec.ts(6,65): error TS2307: Cannot find module 'vitest' or its corresponding type declarations.
+tests/LazyImage.spec.ts(7,23): error TS2307: Cannot find module '@vue/test-utils' or its corresponding type declarations.
+tests/router.spec.ts(6,38): error TS2307: Cannot find module 'vitest' or its corresponding type declarations.
+tests/utils.spec.ts(6,38): error TS2307: Cannot find module 'vitest' or its corresponding type declarations.
+tests/utils.spec.ts(10,3): error TS2305: Module '"@/utils/museum"' has no exported member 'getMuseumTypeEn'.

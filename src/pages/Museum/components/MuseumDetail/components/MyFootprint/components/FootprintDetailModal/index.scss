@@ -1,0 +1,745 @@
+@use 'sass:color';
+
+// ─── 色板 ───
+$bg-void: #060912;
+$bg-deep: #0b0f1a;
+$bg-panel: #131b2b;
+$bg-card: #1a2332;
+$bg-card-hi: #1f2c48;
+$blue: #1e88e6;
+$blue-deep: #0d47a1;
+$sky: #4fc3f7;
+$sky-light: #81d4fa;
+$sky-pale: #b3e5fc;
+$yellow: #ffd54f;
+$warm: #ffe082;
+$amber: #ffa726;
+$rose: #f48fb1;
+$coral: #ff8a80;
+$text-main: #f2f7fc;
+$text-dim: #b0c4d8;
+$text-faint: #8095ad;
+
+.fp-detail-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  background:
+    radial-gradient(ellipse at center, rgba(11, 15, 26, 0.85), rgba(6, 9, 18, 0.95));
+  backdrop-filter: blur(14px);
+}
+
+// 顶部射灯
+.modal-spotlight {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 100vh;
+  background: radial-gradient(ellipse 50% 40% at 50% 0%, rgba(79, 195, 247, 0.12), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.fp-modal-panel {
+  position: relative;
+  z-index: 1;
+  width: min(920px, 100%);
+  max-height: calc(100vh - 64px);
+  display: flex;
+  flex-direction: column;
+  border-radius: 22px;
+  overflow: hidden;
+  background: linear-gradient(160deg, $bg-panel 0%, $bg-deep 100%);
+  border: 1px solid rgba(79, 195, 247, 0.28);
+  box-shadow:
+    0 32px 90px rgba(0, 0, 0, 0.7),
+    0 0 50px rgba(30, 136, 230, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 -3px 12px rgba(0, 0, 0, 0.3);
+}
+
+// 玻璃反光层
+.panel-glass-reflect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 45%;
+  border-radius: 22px 22px 0 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.03) 25%,
+    transparent 50%
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+// ─── 顶部标题区 ───
+.fp-modal-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 26px;
+  border-bottom: 1px solid rgba(30, 58, 95, 0.5);
+  background: linear-gradient(180deg, rgba(30, 136, 230, 0.1), transparent);
+  z-index: 3;
+
+  .header-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(79, 195, 247, 0.45), transparent);
+    max-width: 70px;
+    flex-shrink: 0;
+
+    &.left { width: 70px; }
+    &.right { flex: 1; max-width: none; }
+  }
+
+  // 标题铭牌（3D 立体）
+  .header-plaque {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 22px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(30, 136, 230, 0.22), rgba(79, 195, 247, 0.1));
+    border: 1px solid rgba(79, 195, 247, 0.38);
+    box-shadow:
+      0 8px 22px rgba(30, 136, 230, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12),
+      inset 0 -2px 8px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+
+    .plaque-glow {
+      position: absolute;
+      top: -50%;
+      left: 0;
+      right: 0;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(79, 195, 247, 0.25), transparent 70%);
+      pointer-events: none;
+    }
+
+    .plaque-type {
+      position: relative;
+      padding: 4px 12px;
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: $sky-pale;
+      background: linear-gradient(135deg, rgba(79, 195, 247, 0.25), rgba(30, 136, 230, 0.12));
+      border: 1px solid rgba(79, 195, 247, 0.45);
+      box-shadow: 0 3px 8px rgba(79, 195, 247, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    .plaque-divider {
+      width: 1px;
+      height: 18px;
+      background: linear-gradient(180deg, transparent, rgba(79, 195, 247, 0.5), transparent);
+    }
+
+    .plaque-title {
+      position: relative;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: $text-main;
+      max-width: 520px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  // 关闭按钮（3D 立体）
+  .fp-close-btn {
+    position: relative;
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(138, 155, 176, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
+    background: linear-gradient(160deg, rgba(24, 34, 58, 0.8), rgba(11, 15, 26, 0.6));
+    transition: all 0.28s ease;
+    overflow: hidden;
+
+    .close-gloss {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 50%;
+      border-radius: 50% 50% 0 0;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), transparent);
+      pointer-events: none;
+    }
+
+    :deep(svg) {
+      position: relative;
+      width: 16px;
+      height: 16px;
+      color: $text-dim;
+      transition: color 0.2s ease;
+    }
+
+    &:hover {
+      background: linear-gradient(135deg, rgba(244, 67, 54, 0.9), rgba(211, 47, 47, 0.8));
+      border-color: rgba(244, 67, 54, 0.95);
+      box-shadow:
+        0 8px 20px rgba(244, 67, 54, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      transform: translateY(-1px);
+      :deep(svg) { color: #ffffff; }
+    }
+  }
+}
+
+// ─── 主体区 ───
+.fp-modal-body {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: minmax(300px, 1fr) 1.2fr;
+  gap: 26px;
+  padding: 26px;
+  overflow-y: auto;
+  flex: 1;
+
+  @media (max-width: 720px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ─── 主图区：展柜画框 ───
+.fp-gallery {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0d1420, #16202e);
+  border: 1px solid rgba(30, 58, 95, 0.5);
+  box-shadow:
+    0 14px 36px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    inset 0 -2px 8px rgba(0, 0, 0, 0.3);
+  aspect-ratio: 4 / 3;
+
+  // 四角装饰
+  .gallery-corner {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 213, 79, 0.65);
+    pointer-events: none;
+    z-index: 4;
+    box-shadow: 0 0 8px rgba(255, 213, 79, 0.4);
+
+    &.tl { top: 10px; left: 10px; border-right: none; border-bottom: none; border-radius: 4px 0 0 0; }
+    &.tr { top: 10px; right: 10px; border-left: none; border-bottom: none; border-radius: 0 4px 0 0; }
+    &.bl { bottom: 10px; left: 10px; border-right: none; border-top: none; border-radius: 0 0 0 4px; }
+    &.br { bottom: 10px; right: 10px; border-left: none; border-top: none; border-radius: 0 0 4px 0; }
+  }
+
+  // 画框顶部射灯
+  .gallery-lamp {
+    position: absolute;
+    top: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    pointer-events: none;
+
+    .glamp-head {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 7px;
+      border-radius: 4px 4px 2px 2px;
+      background: linear-gradient(180deg, #33405c 0%, #0d1422 100%);
+      border: 1px solid rgba(79, 195, 247, 0.4);
+      box-shadow:
+        0 3px 8px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2),
+        0 0 12px rgba(79, 195, 247, 0.35);
+    }
+    .glamp-cone {
+      position: absolute;
+      top: 7px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 40px solid transparent;
+      border-right: 40px solid transparent;
+      border-top: 110px solid rgba(79, 195, 247, 0.14);
+      filter: blur(8px);
+    }
+  }
+
+  .fp-gallery-stage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.96) contrast(1.05);
+    }
+
+    .fp-gallery-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      color: $text-faint;
+
+      :deep(svg) {
+        width: 60px;
+        height: 60px;
+        opacity: 0.5;
+      }
+      span { font-size: 16px; }
+    }
+
+    // 玻璃光泽
+    .fp-gallery-glow {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.14) 0%,
+        transparent 30%,
+        transparent 70%,
+        rgba(79, 195, 247, 0.1) 100%
+      );
+    }
+
+    // 扫光动画
+    .fp-gallery-scan {
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(
+        100deg,
+        transparent,
+        rgba(255, 255, 255, 0.08),
+        transparent
+      );
+      pointer-events: none;
+      animation: gallery-scan 5s ease-in-out infinite;
+    }
+  }
+}
+
+@keyframes gallery-scan {
+  0%, 100% { left: -100%; }
+  50% { left: 200%; }
+}
+
+// ─── 信息区 ───
+.fp-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .fp-info-museum {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+
+    .museum-icon {
+      display: inline-flex;
+      :deep(svg) {
+        width: 18px;
+        height: 18px;
+        color: $sky;
+        filter: drop-shadow(0 0 4px rgba(79, 195, 247, 0.6));
+      }
+    }
+
+    .museum-name {
+      font-size: 17px;
+      font-weight: 700;
+      color: $text-main;
+      letter-spacing: 0.5px;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    // 状态徽章（3D 立体）
+    .status-chip {
+      margin-left: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      border-radius: 14px;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+      .chip-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        animation: chip-pulse 2s ease-in-out infinite;
+      }
+
+      &.favor {
+        color: $yellow;
+        background: linear-gradient(135deg, rgba(255, 213, 79, 0.2), rgba(255, 167, 38, 0.08));
+        border: 1px solid rgba(255, 213, 79, 0.45);
+        .chip-dot { background: $yellow; box-shadow: 0 0 6px rgba(255, 213, 79, 0.9); }
+      }
+      &.like {
+        color: $coral;
+        background: linear-gradient(135deg, rgba(255, 138, 128, 0.2), rgba(244, 67, 54, 0.08));
+        border: 1px solid rgba(255, 138, 128, 0.45);
+        .chip-dot { background: $coral; box-shadow: 0 0 6px rgba(255, 138, 128, 0.9); }
+      }
+      &.follow {
+        color: $sky-light;
+        background: linear-gradient(135deg, rgba(129, 212, 250, 0.2), rgba(79, 195, 247, 0.08));
+        border: 1px solid rgba(129, 212, 250, 0.45);
+        .chip-dot { background: $sky-light; box-shadow: 0 0 6px rgba(129, 212, 250, 0.9); }
+      }
+      &.default {
+        color: $text-dim;
+        background: rgba(138, 155, 176, 0.15);
+        border: 1px solid rgba(138, 155, 176, 0.3);
+        .chip-dot { background: $text-dim; }
+      }
+    }
+  }
+
+  // 元信息网格（3D 卡片）
+  .fp-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 14px;
+    padding: 16px 18px;
+    border-radius: 12px;
+    background: linear-gradient(160deg, rgba(24, 34, 58, 0.6), rgba(11, 15, 26, 0.4));
+    border: 1px solid rgba(30, 58, 95, 0.45);
+    box-shadow:
+      0 8px 22px rgba(0, 0, 0, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+    .fp-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      .meta-label {
+        font-size: 13px;
+        color: $text-faint;
+        letter-spacing: 1.5px;
+
+      }
+
+      .meta-value {
+        font-size: 15px;
+        font-weight: 700;
+        color: $text-main;
+        letter-spacing: 0.3px;
+      }
+    }
+  }
+
+  // 段落标题（3D 立体）
+  .fp-desc-section,
+  .fp-highlights-section {
+    .fp-section-title {
+      margin: 0 0 12px;
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: $sky-pale;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-shadow: 0 1px 6px rgba(79, 195, 247, 0.4);
+
+      .title-bar {
+        width: 4px;
+        height: 16px;
+        background: linear-gradient(180deg, $sky, $blue);
+        border-radius: 2px;
+        box-shadow: 0 0 8px rgba(79, 195, 247, 0.6);
+      }
+    }
+  }
+
+  .fp-desc-text {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.85;
+    color: $text-dim;
+    letter-spacing: 0.3px;
+  }
+
+  .fp-highlights-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 15px;
+      line-height: 1.6;
+      color: $text-dim;
+
+      .hl-dot {
+        flex-shrink: 0;
+        width: 7px;
+        height: 7px;
+        margin-top: 6px;
+        border-radius: 50%;
+        background: $warm;
+        box-shadow: 0 0 8px rgba(255, 213, 79, 0.7);
+      }
+    }
+  }
+
+  // 标签（3D 立体，多彩）
+  .fp-tags-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    .fp-tag {
+      padding: 5px 13px;
+      border-radius: 13px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+      &.tag-color-1 {
+        color: #4fc3f7;
+        background: linear-gradient(135deg, rgba(79, 195, 247, 0.2), rgba(25, 118, 210, 0.08));
+        border: 1px solid rgba(79, 195, 247, 0.4);
+        box-shadow: 0 3px 10px rgba(79, 195, 247, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      }
+      &.tag-color-2 {
+        color: #ffd54f;
+        background: linear-gradient(135deg, rgba(255, 213, 79, 0.2), rgba(249, 168, 37, 0.08));
+        border: 1px solid rgba(255, 213, 79, 0.4);
+        box-shadow: 0 3px 10px rgba(255, 213, 79, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      }
+      &.tag-color-3 {
+        color: #f48fb1;
+        background: linear-gradient(135deg, rgba(244, 143, 177, 0.2), rgba(194, 24, 91, 0.08));
+        border: 1px solid rgba(244, 143, 177, 0.4);
+        box-shadow: 0 3px 10px rgba(244, 143, 177, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      }
+      &.tag-color-4 {
+        color: #81c784;
+        background: linear-gradient(135deg, rgba(129, 199, 132, 0.2), rgba(56, 142, 60, 0.08));
+        border: 1px solid rgba(129, 199, 132, 0.4);
+        box-shadow: 0 3px 10px rgba(129, 199, 132, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      }
+      &.tag-color-5 {
+        color: #ff8a80;
+        background: linear-gradient(135deg, rgba(255, 138, 128, 0.2), rgba(192, 73, 63, 0.08));
+        border: 1px solid rgba(255, 138, 128, 0.4);
+        box-shadow: 0 3px 10px rgba(255, 138, 128, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      }
+      &.tag-color-6 {
+        color: #b39ddb;
+        background: linear-gradient(135deg, rgba(179, 157, 219, 0.2), rgba(101, 69, 154, 0.08));
+        border: 1px solid rgba(179, 157, 219, 0.4);
+        box-shadow: 0 3px 10px rgba(179, 157, 219, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+}
+
+@keyframes chip-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+// ─── 底部交互区 ───
+.fp-modal-footer {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 26px;
+  border-top: 1px solid rgba(30, 58, 95, 0.5);
+  background: linear-gradient(0deg, rgba(30, 136, 230, 0.08), transparent);
+
+  .fp-modal-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  // 3D 立体按钮（与卡片 icon 同色系）
+  .fp-action-btn {
+    position: relative;
+    width: 42px;
+    height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.28s ease;
+    overflow: hidden;
+
+    .fp-action-gloss {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 50%;
+      border-radius: 50% 50% 0 0;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.15), transparent);
+      pointer-events: none;
+    }
+
+    :deep(svg) {
+      position: relative;
+      width: 18px;
+      height: 18px;
+      transition: all 0.25s ease;
+    }
+
+    // ── 点赞 → 珊瑚红系 ──
+    &.act-like {
+      border-color: rgba(192, 73, 63, 0.5);
+      background: linear-gradient(160deg, #3d1a1a, #2a1212);
+      box-shadow: 0 5px 14px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08), inset 0 -2px 5px rgba(0, 0, 0, 0.3);
+      :deep(svg) { color: #c0493f; filter: drop-shadow(0 0 3px rgba(192, 73, 63, 0.5)); }
+      &:hover {
+        border-color: rgba(255, 138, 128, 0.8);
+        background: linear-gradient(160deg, #c0493f, #7d2e26);
+        box-shadow: 0 10px 24px rgba(192, 73, 63, 0.5), 0 0 18px rgba(255, 138, 128, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        transform: translateY(-3px);
+        :deep(svg) { color: #ff8a80; filter: drop-shadow(0 0 6px rgba(255, 138, 128, 0.9)); }
+      }
+      &.active {
+        border-color: rgba(255, 138, 128, 0.9);
+        background: linear-gradient(135deg, #ff8a80, #c0493f);
+        box-shadow: 0 10px 26px rgba(255, 138, 128, 0.55), 0 0 22px rgba(255, 138, 128, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+        :deep(svg) { color: #ffffff; filter: drop-shadow(0 0 8px rgba(255, 138, 128, 1)); }
+      }
+    }
+
+
+    // ── 收藏 → 金黄系 ──
+    &.act-star {
+      border-color: rgba(249, 168, 37, 0.5);
+      background: linear-gradient(160deg, #3d2e0a, #2a1f06);
+      box-shadow: 0 5px 14px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08), inset 0 -2px 5px rgba(0, 0, 0, 0.3);
+      :deep(svg) { color: #f9a825; filter: drop-shadow(0 0 3px rgba(249, 168, 37, 0.5)); }
+      &:hover {
+        border-color: rgba(255, 213, 79, 0.8);
+        background: linear-gradient(160deg, #f9a825, #8a5a10);
+        box-shadow: 0 10px 24px rgba(249, 168, 37, 0.5), 0 0 18px rgba(255, 213, 79, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        transform: translateY(-3px);
+        :deep(svg) { color: #ffd54f; filter: drop-shadow(0 0 6px rgba(255, 213, 79, 0.9)); }
+      }
+      &.active {
+        border-color: rgba(255, 213, 79, 0.9);
+        background: linear-gradient(135deg, #ffd54f, #f9a825);
+        box-shadow: 0 10px 26px rgba(255, 213, 79, 0.55), 0 0 22px rgba(255, 213, 79, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+        :deep(svg) { color: #ffffff; filter: drop-shadow(0 0 8px rgba(255, 213, 79, 1)); }
+      }
+    }
+
+    // ── 关注 → 天蓝系 ──
+    &.act-bell {
+      border-color: rgba(25, 118, 210, 0.5);
+      background: linear-gradient(160deg, #0a1e3d, #06122a);
+      box-shadow: 0 5px 14px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08), inset 0 -2px 5px rgba(0, 0, 0, 0.3);
+      :deep(svg) { color: #1976d2; filter: drop-shadow(0 0 3px rgba(25, 118, 210, 0.5)); }
+      &:hover {
+        border-color: rgba(79, 195, 247, 0.8);
+        background: linear-gradient(160deg, #1976d2, #0d3a6e);
+        box-shadow: 0 10px 24px rgba(25, 118, 210, 0.5), 0 0 18px rgba(79, 195, 247, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        transform: translateY(-3px);
+        :deep(svg) { color: #4fc3f7; filter: drop-shadow(0 0 6px rgba(79, 195, 247, 0.9)); }
+      }
+      &.active {
+        border-color: rgba(79, 195, 247, 0.9);
+        background: linear-gradient(135deg, #4fc3f7, #1976d2);
+        box-shadow: 0 10px 26px rgba(79, 195, 247, 0.55), 0 0 22px rgba(79, 195, 247, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+        :deep(svg) { color: #ffffff; filter: drop-shadow(0 0 8px rgba(79, 195, 247, 1)); }
+      }
+    }
+
+    // ── 分享 → 翠绿系 ──
+    &.act-share {
+      border-color: rgba(56, 142, 60, 0.5);
+      background: linear-gradient(160deg, #0a2e1a, #061f12);
+      box-shadow: 0 5px 14px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08), inset 0 -2px 5px rgba(0, 0, 0, 0.3);
+      :deep(svg) { color: #388e3c; filter: drop-shadow(0 0 3px rgba(56, 142, 60, 0.5)); }
+      &:hover {
+        border-color: rgba(129, 199, 132, 0.8);
+        background: linear-gradient(160deg, #388e3c, #1a5a1e);
+        box-shadow: 0 10px 24px rgba(56, 142, 60, 0.5), 0 0 18px rgba(129, 199, 132, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        transform: translateY(-3px);
+        :deep(svg) { color: #81c784; filter: drop-shadow(0 0 6px rgba(129, 199, 132, 0.9)); }
+      }
+    }
+  }
+
+  .fp-modal-hint {
+    font-size: 13px;
+    color: $text-faint;
+    letter-spacing: 0.5px;
+  }
+}
+
+// ─── 过渡动画 ───
+.fp-modal-fade-enter-active,
+.fp-modal-fade-leave-active {
+  transition: opacity 0.32s ease;
+  .fp-modal-panel {
+    transition: transform 0.32s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.32s ease;
+  }
+}
+.fp-modal-fade-enter-from,
+.fp-modal-fade-leave-to {
+  opacity: 0;
+  .fp-modal-panel {
+    transform: scale(0.9) translateY(24px);
+    opacity: 0;
+  }
+}

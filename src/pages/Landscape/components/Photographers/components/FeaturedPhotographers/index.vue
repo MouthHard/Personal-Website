@@ -118,16 +118,16 @@ import { showMessage } from '@/utils/landscape';
 import { useInteractionStore } from '@/stores/landscape';
 
 import { usePhotographersViewData } from '@/composables/landscape';
-import ThumbUpIcon from '@/pages/Landscape/icon/common/ThumbUpIcon.vue';
-import ChevronRightIcon from '@/pages/Landscape/icon/common/ChevronRightIcon.vue';
-import ImageIcon from '@/pages/Landscape/icon/common/ImageIcon.vue';
-import EyeIcon from '@/pages/Landscape/icon/common/EyeIcon.vue';
+import ThumbUpIcon from '@/pages/Landscape/icons/common/ThumbUpIcon.vue';
+import ChevronRightIcon from '@/pages/Landscape/icons/common/ChevronRightIcon.vue';
+import ImageIcon from '@/pages/Landscape/icons/common/ImageIcon.vue';
+import EyeIcon from '@/pages/Landscape/icons/common/EyeIcon.vue';
 
-import UsersIcon from '@/pages/Landscape/icon/common/UsersIcon.vue';
-import SearchPlusIcon from '@/pages/Landscape/icon/components/photographers/FeaturedPhotographers/SearchPlusIcon.vue';
-import UserPlusIcon from '@/pages/Landscape/icon/common/UserPlusIcon.vue';
-import StarIcon from '@/pages/Landscape/icon/common/StarIcon.vue';
-import CameraIcon from '@/pages/Landscape/icon/common/CameraIcon.vue';
+import UsersIcon from '@/pages/Landscape/icons/common/UsersIcon.vue';
+import SearchPlusIcon from '@/pages/Landscape/icons/components/photographers/FeaturedPhotographers/SearchPlusIcon.vue';
+import UserPlusIcon from '@/pages/Landscape/icons/common/UserPlusIcon.vue';
+import StarIcon from '@/pages/Landscape/icons/common/StarIcon.vue';
+import CameraIcon from '@/pages/Landscape/icons/common/CameraIcon.vue';
 import type { Photographer } from '@/typesOfPages/landscape';
 
 defineEmits<{

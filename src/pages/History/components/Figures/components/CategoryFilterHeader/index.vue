@@ -40,7 +40,7 @@
 
 <script setup lang="ts">
   import { ref } from 'vue';
-  import { FigureActiveTabIcon } from '@/pages/History/icons/index.ts';
+  import FigureActiveTabIcon from '@/pages/History/icons/Figures/FigureActiveTabIcon.vue';
 
   // 接收父组件传递的activeCategory
   const props = defineProps<{

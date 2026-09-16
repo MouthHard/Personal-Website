@@ -6,10 +6,10 @@
     </div>
 
     <div class="info-grid">
-      <div class="info-card">
+      <div v-if="visitInfo?.openTime" class="info-card">
         <div class="card-header">
           <div class="icon-wrapper">
-            <ClockIcon />
+            <ClockFilledIcon />
           </div>
           <h3>开放时间</h3>
         </div>
@@ -53,10 +53,10 @@
       </div>
 
       <!-- 票务信息 -->
-      <div class="info-card">
+      <div v-if="visitInfo?.ticket" class="info-card">
         <div class="card-header">
           <div class="icon-wrapper">
-            <TicketIcon />
+            <TicketFilledIcon />
           </div>
           <h3>票务信息</h3>
         </div>
@@ -83,11 +83,11 @@
             class="booking-info"
           >
             <div v-if="visitInfo?.ticket.needReservation" class="booking-item">
-              <CalendarIcon />
+              <CalendarCheckIcon />
               <span>需提前预约</span>
             </div>
             <div v-if="visitInfo?.ticket.idRequired" class="booking-item">
-              <CalendarIcon />
+              <CalendarCheckIcon />
               <span>{{ visitInfo.ticket.idRequired }}</span>
             </div>
           </div>
@@ -111,7 +111,7 @@
       </div>
 
       <!-- 参观须知 -->
-      <div class="info-card">
+      <div v-if="visitInfo?.rules" class="info-card">
         <div class="card-header">
           <div class="icon-wrapper">
             <DocumentIcon />
@@ -125,7 +125,7 @@
               :key="`allow-${index}`"
               class="rule-item"
             >
-              <span class="rule-icon allow">✓</span>
+              <span class="rule-icon allow"><CheckIcon /></span>
               <span>{{ rule }}</span>
             </div>
             <div
@@ -133,7 +133,7 @@
               :key="`forbid-${index}`"
               class="rule-item"
             >
-              <span class="rule-icon forbid">✕</span>
+              <span class="rule-icon forbid"><CloseIcon /></span>
               <span>{{ rule }}</span>
             </div>
           </div>
@@ -141,10 +141,10 @@
       </div>
 
       <!-- 交通指南 -->
-      <div class="info-card">
+      <div v-if="visitInfo?.transportation" class="info-card">
         <div class="card-header">
           <div class="icon-wrapper">
-            <MapIcon />
+            <MapPageIcon />
           </div>
           <h3>交通指南</h3>
         </div>
@@ -197,7 +197,7 @@
       </div>
 
       <!-- 服务设施 -->
-      <div class="info-card">
+      <div v-if="visitInfo?.services" class="info-card">
         <div class="card-header">
           <div class="icon-wrapper">
             <MuseumIcon />
@@ -238,7 +238,7 @@
       </div>
 
       <!-- 联系方式 -->
-      <div class="info-card">
+      <div v-if="visitInfo?.contact" class="info-card">
         <div class="card-header">
           <div class="icon-wrapper">
             <PhoneIcon />
@@ -275,6 +275,95 @@
           </div>
         </div>
       </div>
+
+      <!-- 参观路线推荐 -->
+      <div v-if="visitInfo?.visitRoutes?.length" class="info-card">
+        <div class="card-header">
+          <div class="icon-wrapper">
+            <RouteIcon />
+          </div>
+          <h3>参观路线</h3>
+        </div>
+        <div class="card-body">
+          <div
+            v-for="(route, index) in visitInfo.visitRoutes"
+            :key="index"
+            class="route-item"
+          >
+            <div class="route-header">
+              <span class="route-name">{{ route.name }}</span>
+              <span class="route-duration">{{ route.duration }}</span>
+            </div>
+            <p class="route-desc">{{ route.description }}</p>
+            <div class="route-stops">
+              <span
+                v-for="(stop, sIndex) in route.stops"
+                :key="sIndex"
+                class="route-stop"
+              >
+                {{ stop }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 楼层导览 -->
+      <div v-if="visitInfo?.floorGuides?.length" class="info-card">
+        <div class="card-header">
+          <div class="icon-wrapper">
+            <FloorIcon />
+          </div>
+          <h3>楼层导览</h3>
+        </div>
+        <div class="card-body">
+          <div
+            v-for="(floor, index) in visitInfo.floorGuides"
+            :key="index"
+            class="floor-item"
+          >
+            <div class="floor-badge">{{ floor.floor }}</div>
+            <div class="floor-content">
+              <span class="floor-name">{{ floor.name }}</span>
+              <div class="floor-exhibits">
+                <span
+                  v-for="(exhibit, eIndex) in floor.exhibits"
+                  :key="eIndex"
+                  class="floor-exhibit"
+                >
+                  {{ exhibit }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 常见问题 -->
+      <div v-if="visitInfo?.faqs?.length" class="info-card">
+        <div class="card-header">
+          <div class="icon-wrapper">
+            <FAQIcon />
+          </div>
+          <h3>常见问题</h3>
+        </div>
+        <div class="card-body">
+          <div
+            v-for="(faq, index) in visitInfo.faqs"
+            :key="index"
+            class="faq-item"
+          >
+            <div class="faq-question">
+              <span class="faq-q-icon">Q</span>
+              <span>{{ faq.question }}</span>
+            </div>
+            <div class="faq-answer">
+              <span class="faq-a-icon">A</span>
+              <span>{{ faq.answer }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <footer class="museum-footer">
@@ -286,7 +375,7 @@
           </h3>
           <div class="info-item">
             <div class="info-icon">
-              <MapIcon />
+              <MapPageIcon />
             </div>
             <div class="info-content">
               <span class="info-label">地址</span>
@@ -331,7 +420,7 @@
           <ul>
             <li>
               <a href="#" @click.prevent="switchTab('home')">
-                <HomeIcon />
+                <HomeFilledIcon />
                 首页
               </a>
             </li>
@@ -364,7 +453,7 @@
         </div>
         <div class="footer-links">
           <h4>
-            <LinkIcon />
+            <LinkFilledIcon />
             博物馆友链
           </h4>
           <ul>
@@ -389,15 +478,17 @@
   import { useRouter } from 'vue-router';
   import { useMuseumDataStore } from '@/stores/museum';
   import type { MuseumDetailInfo } from '@/typesOfPages/museum';
+  import { generateMuseumRoute } from '@/utils/museum';
+  import { CheckIcon, CloseIcon } from '@/pages/Museum/icons/common';
 
   // 批量导入图标组件
   import {
-    ClockIcon,
+    ClockFilledIcon,
     NotificationIcon,
-    TicketIcon,
-    CalendarIcon,
+    TicketFilledIcon,
+    CalendarCheckIcon,
     DocumentIcon,
-    MapIcon,
+    MapPageIcon,
     AddressIcon,
     BusIcon,
     ParkingIcon,
@@ -411,7 +502,7 @@
     PhoneIcon,
     EmailIcon,
     ComplaintIcon,
-    HomeIcon,
+    HomeFilledIcon,
     ArtifactIcon,
     ExhibitionIcon,
     CreativeIcon,
@@ -421,8 +512,11 @@
     PhoneIcon3,
     OpenTimeIcon,
     QuickLinkIcon,
-    LinkIcon,
-  } from '@/pages/Museum/icon/pages/AboutSection';
+    LinkFilledIcon,
+    RouteIcon,
+    FloorIcon,
+    FAQIcon,
+  } from '@/pages/Museum/icons/pages/AboutSection';
 
   const props = defineProps<{
     museumId: number;
@@ -450,14 +544,14 @@
   });
 
   const friendLinks = computed(() => {
-    return store.museums
-      .filter((m) => m.id !== props.museumId)
-      .slice(0, 5)
-      .map((m) => ({ id: m.id, name: m.name }));
+    return museumDetails.value?.friendLinks || [];
   });
 
-  const goToMuseum = (id: number) => {
-    router.push(`/museum/${id}`);
+  const goToMuseum = async (id: number) => {
+    const museum = await store.getMuseum(id);
+    if (museum) {
+      router.push(generateMuseumRoute(museum.province, id));
+    }
   };
 
   const switchTab = (tab: string) => {

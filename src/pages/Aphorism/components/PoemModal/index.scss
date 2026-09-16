@@ -398,13 +398,11 @@
             color: #6f3207;
             font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', serif;
 
-            .title-icon {
-              :deep(svg) {
+             svg  {
                 width: 20px;
                 height: 20px;
-                color: #cd5c5c;
-              }
-            }
+        
+             }
           }
 
           .annotation-text {
@@ -436,14 +434,11 @@
             font-weight: 600;
             color: #6f3207;
             font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', serif;
-
-            .title-icon {
-              :deep(svg) {
+             svg {
                 width: 20px;
                 height: 20px;
-                color: #cd5c5c;
+       
               }
-            }
           }
 
           .background-text {
@@ -476,13 +471,12 @@
             color: #6f3207;
             font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', serif;
 
-            .title-icon {
-              :deep(svg) {
+            svg {
                 width: 20px;
                 height: 20px;
-                color: #cd5c5c;
+     
               }
-            }
+          
           }
 
           .appreciation-text {
@@ -515,13 +509,13 @@
             color: #6f3207;
             font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', serif;
 
-            .title-icon {
-              :deep(svg) {
+            
+             svg {
                 width: 20px;
                 height: 20px;
-                color: #cd5c5c;
+          
               }
-            }
+          
           }
 
           .poet-text {
