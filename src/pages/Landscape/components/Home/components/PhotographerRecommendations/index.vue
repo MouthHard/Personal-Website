@@ -13,7 +13,7 @@
     </div>
 
     <div class="gallery-stage">
-      <div class="artist-panel">
+      <div v-if="currentArtist" class="artist-panel">
         <Transition name="panel-slide" mode="out-in">
           <div :key="currentArtist.id" class="panel-inner">
             <div class="panel-top-accent"></div>
@@ -233,28 +233,28 @@
 <script setup lang="ts">
 import { ref, computed, nextTick, watch } from 'vue';
 import { showMessage } from '@/utils/landscape';
-import { contentTabs } from '@/utils/landscape/constants';
+import { contentTabs } from '@/constants/landscape';
 import { useHomeViewData } from '@/composables/landscape';
 import { useInteractionStore } from '@/stores/landscape';
 import { parseCount, formatNumber } from '@/utils/landscape/format';
 import { convertWorkToInteractionItem as buildWorkInteractionItem } from '@/utils/landscape/interaction';
 import type { InteractionItem } from '@/typesOfPages/landscape';
-import StarIcon from '@/pages/Landscape/icon/common/StarIcon.vue';
-import LocationIcon from '@/pages/Landscape/icon/common/LocationIcon.vue';
-import ThumbUpIcon from '@/pages/Landscape/icon/common/ThumbUpIcon.vue';
-import ShareIcon from '@/pages/Landscape/icon/common/ShareIcon.vue';
-import PlayIcon from '@/pages/Landscape/icon/common/PlayIcon.vue';
-import BookIcon from '@/pages/Landscape/icon/common/BookIcon.vue';
-import ArrowRightIcon from '@/pages/Landscape/icon/common/ArrowRightIcon.vue';
-import ImageIcon from '@/pages/Landscape/icon/common/ImageIcon.vue';
-import EyeIcon from '@/pages/Landscape/icon/common/EyeIcon.vue';
-import HeartIcon from '@/pages/Landscape/icon/common/HeartIcon.vue';
-import BookmarkIcon from '@/pages/Landscape/icon/common/BookmarkIcon.vue';
-import DownloadIcon from '@/pages/Landscape/icon/common/DownloadIcon.vue';
-import ChevronLeftIcon from '@/pages/Landscape/icon/common/ChevronLeftIcon.vue';
-import ChevronRightIcon from '@/pages/Landscape/icon/common/ChevronRightIcon.vue';
-import DoubleChevronDownIcon from '@/pages/Landscape/icon/components/home/PhotographerRecommendations/DoubleChevronDownIcon.vue';
-import BookDetailIcon from '@/pages/Landscape/icon/components/home/PhotographerRecommendations/BookDetailIcon.vue';
+import StarIcon from '@/pages/Landscape/icons/common/StarIcon.vue';
+import LocationIcon from '@/pages/Landscape/icons/common/LocationIcon.vue';
+import ThumbUpIcon from '@/pages/Landscape/icons/common/ThumbUpIcon.vue';
+import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue';
+import PlayIcon from '@/pages/Landscape/icons/common/PlayIcon.vue';
+import BookIcon from '@/pages/Landscape/icons/common/BookIcon.vue';
+import ArrowRightIcon from '@/pages/Landscape/icons/common/ArrowRightIcon.vue';
+import ImageIcon from '@/pages/Landscape/icons/common/ImageIcon.vue';
+import EyeIcon from '@/pages/Landscape/icons/common/EyeIcon.vue';
+import HeartIcon from '@/pages/Landscape/icons/common/HeartIcon.vue';
+import BookmarkIcon from '@/pages/Landscape/icons/common/BookmarkIcon.vue';
+import DownloadIcon from '@/pages/Landscape/icons/common/DownloadIcon.vue';
+import ChevronLeftIcon from '@/pages/Landscape/icons/common/ChevronLeftIcon.vue';
+import ChevronRightIcon from '@/pages/Landscape/icons/common/ChevronRightIcon.vue';
+import DoubleChevronDownIcon from '@/pages/Landscape/icons/components/home/PhotographerRecommendations/DoubleChevronDownIcon.vue';
+import BookDetailIcon from '@/pages/Landscape/icons/components/home/PhotographerRecommendations/BookDetailIcon.vue';
 
 const interactionStore = useInteractionStore();
 const { photographerRecommendations } = useHomeViewData();
@@ -343,7 +343,7 @@ const switchToArtist = (id: string) => {
 };
 
 const handleMore = () => {
-  console.log('查看更多');
+  // 查看更多处理
 };
 
 const toggleFollow = (id: string) => {
@@ -445,7 +445,7 @@ const handleWorkFavorite = (work: WorkItem) => {
 };
 
 const handleWorkShare = (work: WorkItem) => {
-  interactionStore.incrementShares(getWorkId(work.id));
+
   showMessage.share.success(work.title);
 };
 

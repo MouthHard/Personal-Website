@@ -39,7 +39,7 @@ import { computed } from 'vue';
 import ModalHeader from './components/ModalHeader/index.vue';
 import ModalContent from './components/ModalContent/index.vue';
 import { showMessage, createSimpleInteractionItem } from '@/utils/landscape';
-import { travelModeMap } from '@/utils/landscape/constants';
+import { travelModeMap } from '@/constants/landscape';
 import { useInteractionStore } from '@/stores/landscape';
 
 interface Guide {

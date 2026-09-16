@@ -403,6 +403,185 @@
             }
           }
         }
+
+        // 参观路线样式
+        .route-item {
+          padding: 1rem;
+          margin-bottom: 1rem;
+          background: linear-gradient(
+            135deg,
+            rgba(129, 199, 132, 0.08) 0%,
+            rgba(165, 214, 167, 0.05) 100%
+          );
+          border-radius: 8px;
+          border-left: 3px solid #43a047;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          .route-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+
+            .route-name {
+              font-size: 1rem;
+              font-weight: 600;
+              color: #1b5e20;
+            }
+
+            .route-duration {
+              font-size: 0.85rem;
+              color: #2e7d32;
+              background: rgba(129, 199, 132, 0.2);
+              padding: 0.2rem 0.6rem;
+              border-radius: 4px;
+              font-weight: 500;
+            }
+          }
+
+          .route-desc {
+            font-size: 0.9rem;
+            color: #37474f;
+            line-height: 1.5;
+            margin: 0 0 0.75rem 0;
+          }
+
+          .route-stops {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+
+            .route-stop {
+              font-size: 0.8rem;
+              color: #1e4354;
+              background: rgba(129, 199, 132, 0.15);
+              padding: 0.3rem 0.7rem;
+              border-radius: 12px;
+              border: 1px solid rgba(129, 199, 132, 0.2);
+            }
+          }
+        }
+
+        // 楼层导览样式
+        .floor-item {
+          display: flex;
+          gap: 1rem;
+          padding: 0.75rem 0;
+          border-bottom: 1px solid rgba(129, 199, 132, 0.15);
+
+          &:last-child {
+            border-bottom: none;
+          }
+
+          .floor-badge {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #2e7d32, #43a047);
+            color: #fff;
+            font-weight: 700;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+          }
+
+          .floor-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+
+            .floor-name {
+              font-size: 0.95rem;
+              font-weight: 600;
+              color: #1b5e20;
+            }
+
+            .floor-exhibits {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 0.4rem;
+
+              .floor-exhibit {
+                font-size: 0.8rem;
+                color: #37474f;
+                background: rgba(129, 199, 132, 0.1);
+                padding: 0.25rem 0.6rem;
+                border-radius: 4px;
+              }
+            }
+          }
+        }
+
+        // 常见问题样式
+        .faq-item {
+          margin-bottom: 1.25rem;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          .faq-question {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+
+            .faq-q-icon {
+              width: 24px;
+              height: 24px;
+              border-radius: 50%;
+              background: linear-gradient(135deg, #2e7d32, #43a047);
+              color: #fff;
+              font-size: 0.75rem;
+              font-weight: 700;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              flex-shrink: 0;
+            }
+
+            span:last-child {
+              font-size: 0.95rem;
+              font-weight: 600;
+              color: #1b5e20;
+              line-height: 1.4;
+            }
+          }
+
+          .faq-answer {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding-left: 0;
+
+            .faq-a-icon {
+              width: 24px;
+              height: 24px;
+              border-radius: 50%;
+              background: rgba(129, 199, 132, 0.2);
+              color: #2e7d32;
+              font-size: 0.75rem;
+              font-weight: 700;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              flex-shrink: 0;
+            }
+
+            span:last-child {
+              font-size: 0.9rem;
+              color: #37474f;
+              line-height: 1.5;
+            }
+          }
+        }
       }
     }
   }

@@ -1,8 +1,5 @@
 <template>
-  <article
-    class="guide-card"
-    @mousemove="handleCardMouseMove"
-  >
+  <article class="guide-card" @mousemove="handleCardMouseMove">
     <div class="card-image" @click="$emit('click', guide)">
       <img :src="guide.cover" :alt="guide.title" loading="lazy" />
       <div class="image-overlay"></div>
@@ -37,7 +34,7 @@
         <span>{{ guide.location }}</span>
       </div>
 
-      <!-- 标题行 -->
+      <!-- 标题-->
       <div class="title-row">
         <h3 class="card-title">{{ guide.title }}</h3>
         <span v-if="guide.publishDate" class="publish-date">{{ guide.publishDate }}</span>
@@ -64,36 +61,22 @@
         </div>
       </div>
 
-      <!-- 数据按钮行 -->
+      <!-- 数据按钮-->
       <div class="card-stats-row">
         <div class="stat-item">
           <EyeIcon />
           <span>{{ formatNumber(getCount().views) }}</span>
         </div>
-        <button 
-          class="stat-item interactive" 
-          type="button"
-          :class="{ active: isLiked }"
-          @click.stop="toggleLike"
-        >
+        <button class="stat-item interactive" type="button" :class="{ active: isLiked }" @click.stop="toggleLike">
           <ThumbUpIcon />
           <span>{{ formatNumber(getCount().likes) }}</span>
         </button>
-        <button 
-          class="stat-item interactive" 
-          type="button"
-          :class="{ active: isLoved }"
-          @click.stop="toggleLove"
-        >
+        <button class="stat-item interactive" type="button" :class="{ active: isLoved }" @click.stop="toggleLove">
           <HeartIcon />
           <span>{{ formatNumber(getCount().loves) }}</span>
         </button>
-        <button 
-          class="stat-item interactive" 
-          type="button"
-          :class="{ active: isFavorited }"
-          @click.stop="toggleBookmark"
-        >
+        <button class="stat-item interactive" type="button" :class="{ active: isFavorited }"
+          @click.stop="toggleBookmark">
           <BookmarkIcon />
           <span>{{ formatNumber(getCount().favorites) }}</span>
         </button>
@@ -108,19 +91,19 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import { seasonMap } from '@/utils/landscape/constants';
+import { seasonMap } from '@/constants/landscape';
 import { useInteractionStore } from '@/stores/landscape';
 import { formatNumber } from '@/utils/landscape/format';
 import { showMessage, createSimpleInteractionItem } from '@/utils/landscape';
-import StarIcon from '@/pages/Landscape/icon/common/StarIcon.vue';
-import CircleIcon from '@/pages/Landscape/icon/components/guides/GuideCard/CircleIcon.vue';
-import ClockIcon from '@/pages/Landscape/icon/common/ClockIcon.vue';
-import LocationIcon from '@/pages/Landscape/icon/common/LocationIcon.vue';
-import EyeIcon from '@/pages/Landscape/icon/common/EyeIcon.vue';
-import ThumbUpIcon from '@/pages/Landscape/icon/common/ThumbUpIcon.vue';
-import HeartIcon from '@/pages/Landscape/icon/common/HeartIcon.vue';
-import BookmarkIcon from '@/pages/Landscape/icon/common/BookmarkIcon.vue';
-import ShareIcon from '@/pages/Landscape/icon/common/ShareIcon.vue';
+import StarIcon from '@/pages/Landscape/icons/common/StarIcon.vue';
+import CircleIcon from '@/pages/Landscape/icons/components/guides/GuideCard/CircleIcon.vue';
+import ClockIcon from '@/pages/Landscape/icons/common/ClockIcon.vue';
+import LocationIcon from '@/pages/Landscape/icons/common/LocationIcon.vue';
+import EyeIcon from '@/pages/Landscape/icons/common/EyeIcon.vue';
+import ThumbUpIcon from '@/pages/Landscape/icons/common/ThumbUpIcon.vue';
+import HeartIcon from '@/pages/Landscape/icons/common/HeartIcon.vue';
+import BookmarkIcon from '@/pages/Landscape/icons/common/BookmarkIcon.vue';
+import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue';
 interface Guide {
   id: string;
   title: string;

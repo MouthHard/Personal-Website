@@ -1,23 +1,18 @@
 import { defineStore } from 'pinia';
-import { ref } from 'vue';
+import { ref, shallowRef } from 'vue';
 import {
   fetchDynasties,
-  fetchEvents,
-  fetchFigures,
-  fetchHeritage,
+  fetchHistoricalEvents,
+  fetchHistoricalFigures,
+  fetchCulturalHeritage,
 } from '@/services/history';
-import type {
-  Dynasty,
-  HistoricalEvent,
-  HistoricalFigure,
-  CulturalHeritageItem,
-} from '@/typesOfPages/history';
 
-export const useHistoryDataStore = defineStore('historyData', () => {
-  const dynasties = ref<Dynasty[]>([]);
-  const events = ref<HistoricalEvent[]>([]);
-  const figures = ref<HistoricalFigure[]>([]);
-  const heritage = ref<CulturalHeritageItem[]>([]);
+export const useHistoryStore = defineStore('historyData', () => {
+  const dynasties = shallowRef<any[]>([]);
+  const historicalEvents = shallowRef<any[]>([]);
+  const historicalFigures = shallowRef<any[]>([]);
+  const culturalHeritage = shallowRef<any[]>([]);
+
   const loading = ref(false);
   const error = ref<string | null>(null);
   const loaded = ref(false);
@@ -29,21 +24,21 @@ export const useHistoryDataStore = defineStore('historyData', () => {
     try {
       const [dynRes, evtRes, figRes, herRes] = await Promise.all([
         fetchDynasties(),
-        fetchEvents(),
-        fetchFigures(),
-        fetchHeritage(),
+        fetchHistoricalEvents(),
+        fetchHistoricalFigures(),
+        fetchCulturalHeritage(),
       ]);
-      dynasties.value = dynRes.items;
-      events.value = evtRes.items;
-      figures.value = figRes.items;
-      heritage.value = herRes.items;
+      dynasties.value = dynRes?.items || [];
+      historicalEvents.value = evtRes?.items || [];
+      historicalFigures.value = figRes?.items || [];
+      culturalHeritage.value = herRes?.items || [];
       loaded.value = true;
     } catch (e) {
       error.value = e instanceof Error ? e.message : '加载失败';
       dynasties.value = [];
-      events.value = [];
-      figures.value = [];
-      heritage.value = [];
+      historicalEvents.value = [];
+      historicalFigures.value = [];
+      culturalHeritage.value = [];
     } finally {
       loading.value = false;
     }
@@ -57,9 +52,9 @@ export const useHistoryDataStore = defineStore('historyData', () => {
 
   return {
     dynasties,
-    events,
-    figures,
-    heritage,
+    historicalEvents,
+    historicalFigures,
+    culturalHeritage,
     loading,
     error,
     loaded,

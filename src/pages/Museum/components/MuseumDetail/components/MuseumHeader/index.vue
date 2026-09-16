@@ -3,7 +3,7 @@
     <div class="left-content">
       <button class="back-button" @click="goBack">返回</button>
       <div class="museum-info">
-        <span class="logo-icon">🏛️</span>
+        <span class="logo-icon"><MuseumBuildingIcon /></span>
         <h1 class="museum-name">{{ museumName }}</h1>
       </div>
     </div>
@@ -51,6 +51,13 @@
           @click.prevent="switchTab('about')"
           >关于</a
         >
+        <a
+          href="#"
+          class="nav-link footprint-link"
+          :class="{ active: activeTab === 'footprint' }"
+          @click.prevent="switchTab('footprint')"
+          >我的足迹</a
+        >
       </nav>
       <button class="virtual-button" @click="startVirtualTour">虚拟参观</button>
     </div>
@@ -59,6 +66,7 @@
 
 <script setup lang="ts">
 import { useRouter } from "vue-router";
+import { MuseumBuildingIcon } from "@/pages/Museum/icons/common";
 
 interface Props {
   museumName: string;

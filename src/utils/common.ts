@@ -24,34 +24,6 @@ export const scale = (
 };
 
 /**
- * 防抖函数：延迟执行，如果在等待时间内再次触发则重新计时
- *
- * @param func - 需要防抖的函数
- * @param wait - 等待时间（毫秒）
- * @returns 防抖后的函数
- * @example
- * ```typescript
- * const debouncedSearch = debounce(search, 300);
- * input.addEventListener('input', debouncedSearch);
- * ```
- */
-export const debounce = <T extends (...args: any[]) => any>(
-  func: T,
-  wait: number,
-): ((...args: Parameters<T>) => void) => {
-  let timeout: number | null = null;
-
-  return (...args: Parameters<T>) => {
-    if (timeout) {
-      clearTimeout(timeout);
-    }
-    timeout = window.setTimeout(() => {
-      func(...args);
-    }, wait);
-  };
-};
-
-/**
  * 时间格式化函数：将 Date 对象格式化为 HH : MM : SS
  *
  * @param date - 需要格式化的日期对象
@@ -125,23 +97,6 @@ export const getColorByString = (str: string): { backgroundColor: string } => {
   return { backgroundColor: `hsl(${hue}, 70%, 45%)` };
 };
 
-export const throttle = <T extends (...args: any[]) => any>(
-  func: T,
-  limit: number,
-): ((...args: Parameters<T>) => void) => {
-  let inThrottle = false;
-
-  return (...args: Parameters<T>) => {
-    if (!inThrottle) {
-      func(...args);
-      inThrottle = true;
-      setTimeout(() => {
-        inThrottle = false;
-      }, limit);
-    }
-  };
-};
-
 export const formatNumber = (num: number): string => {
   if (num >= 100000000) {
     return `${(num / 100000000).toFixed(1)}亿`;
@@ -154,8 +109,8 @@ export const formatNumber = (num: number): string => {
 
 /**
  * HTML 特殊字符转义，防止 XSS
-  */
-export const escapeHtml = (str: string): string => {
+ */
+const escapeHtml = (str: string): string => {
   return str
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')

@@ -1,13 +1,3 @@
-export interface HeroSlide {
-  id: string
-  title: string
-  subtitle: string
-  description: string
-  image: string
-  location: string
-  tag: string
-}
-
 export interface Destination {
   id: number | string
   name: string
@@ -59,30 +49,19 @@ export interface Topic {
   trending?: boolean
 }
 
-export interface Guide {
+export interface HomePhotographerWork {
   id: string
+  type: 'photo' | 'video' | 'guide'
   title: string
-  author: string
-  avatar: string
-  location: string
-  duration: string
-  rating: number
-  saves: number
-  thumbnail: string
-  isEditorPick?: boolean
-}
-
-export interface RecommendedPhotographer {
-  id: string
-  name: string
-  avatar: string
-  title: string
-  works: number
-  followers: number
-  isFollowing: boolean
-  featuredWork: string
-  tags: string[]
-  verified?: boolean
+  cover?: string
+  views?: string
+  likes?: string
+  loves?: string
+  bookmarks?: string
+  shares?: string
+  duration?: string
+  excerpt?: string
+  size?: 'large' | 'normal' | 'small'
 }
 
 export interface HomePhotographerRecommendation {
@@ -98,20 +77,7 @@ export interface HomePhotographerRecommendation {
   followers: string
   likes: string
   bookmarks: string
-  works: Array<{
-    id: string
-    type: 'photo' | 'video' | 'guide'
-    title: string
-    cover?: string
-    views?: string
-    likes?: string
-    loves?: string
-    bookmarks?: string
-    shares?: string
-    duration?: string
-    excerpt?: string
-    size?: 'large' | 'normal' | 'small'
-  }>
+  works: HomePhotographerWork[]
 }
 
 export interface FeaturedSlide {
@@ -129,6 +95,9 @@ export interface FeaturedSlide {
   mediaType: 'image' | 'video'
   quality: string
   duration: number | null
+  author: string
+  authorId?: string
+  authorAvatar?: string
 }
 
 export interface VideoShowcase {
@@ -148,4 +117,6 @@ export interface VideoShowcase {
   authorAvatar: string
   authorName: string
   authorTitle: string
+  author?: string
+  authorId?: string
 }

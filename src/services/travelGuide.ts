@@ -1,4 +1,4 @@
-import { loadJSON, paginate, filterByKeyword, filterByField, findItemById } from './static-data';
+import { loadJSON, paginate, filterByKeyword, filterByField } from './static-data';
 import type {
   Province,
   SceneryData,
@@ -43,17 +43,6 @@ export async function fetchProvinces(params: TravelGuideQueryParams = {}) {
   return paginate(items, params);
 }
 
-export async function fetchProvinceById(id: string) {
-  return findItemById<Province>('travel-guide/provinces.json', id);
-}
-
-export async function fetchRegions() {
-  const data = await loadJSON<TravelGuideListResponse<Province>>('travel-guide/provinces.json');
-  if (!data) return [];
-  const items = data.items || [];
-  const regions = [...new Set(items.map((p) => p.region).filter(Boolean))] as string[];
-  return regions;
-}
 
 export async function fetchScenery(provinceId: string) {
   return loadJSON<ProvinceScenery>(`travel-guide/scenery/${provinceId}.json`);

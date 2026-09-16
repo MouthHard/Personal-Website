@@ -6,7 +6,7 @@ import {
   GUIDE_DEFAULTS,
   DATE_DEFAULTS,
   AUTHOR_DEFAULTS,
-} from './defaults'
+} from '@/constants/landscape/defaults'
 
 export function convertImageToInteractionItem(
   image: GlobalImage,

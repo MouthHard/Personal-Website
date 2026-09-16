@@ -29,13 +29,18 @@ loadHistory();
 export function useSearchHistory() {
   const addHistory = (keyword: string) => {
     const trimmed = keyword.trim();
-    if (!trimmed || trimmed.length < 2) return;
+    if (!trimmed) return;
     history.value = [trimmed, ...history.value.filter(h => h !== trimmed)].slice(0, MAX_HISTORY);
     saveHistory();
   };
 
   const removeHistory = (keyword: string) => {
     history.value = history.value.filter(h => h !== keyword);
+    saveHistory();
+  };
+
+  const removeHistoryAt = (index: number) => {
+    history.value.splice(index, 1);
     saveHistory();
   };
 
@@ -48,6 +53,7 @@ export function useSearchHistory() {
     history,
     addHistory,
     removeHistory,
+    removeHistoryAt,
     clearHistory,
   };
 }

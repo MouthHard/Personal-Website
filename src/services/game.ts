@@ -1,4 +1,4 @@
-import { loadJSON, paginate, filterByKeyword, filterByField, findItemById } from './static-data';
+import { loadJSON, paginate, filterByKeyword, filterByField } from './static-data';
 
 export interface GameItemResponse {
   id: string;
@@ -45,29 +45,10 @@ export interface GameQueryParams {
   limit?: number;
 }
 
-export interface GameBannerItem {
-  id: string;
-  gameId: string;
-  image: string;
-  title: string;
-  subtitle: string;
-  tag?: string;
-}
-
 export interface GameCategoryItem {
   key: string;
   label: string;
   icon: string;
-  count: number;
-}
-
-export interface GameTagItem {
-  tag: string;
-  count: number;
-}
-
-export interface GamePlatformItem {
-  platform: string;
   count: number;
 }
 
@@ -94,28 +75,6 @@ export async function fetchGames(params: GameQueryParams = {}) {
   return paginate(items, params);
 }
 
-export async function fetchGameById(gameId: string) {
-  return findItemById<GameItemResponse>('game/games.json', gameId);
-}
-
-export async function fetchGameBanners() {
-  return loadJSON<GameBannerItem[]>('game/game-banners.json');
-}
-
 export async function fetchGameCategories() {
   return loadJSON<GameCategoryItem[]>('game/game-categories.json');
-}
-
-export async function fetchGameTags() {
-  return loadJSON<GameTagItem[]>('game/game-tags.json');
-}
-
-export async function fetchGamePlatforms() {
-  return loadJSON<GamePlatformItem[]>('game/game-platforms.json');
-}
-
-export async function fetchGameOnSale(limit = 10) {
-  const data = await loadJSON<GameListResponse>('game/games.json');
-  const items = (data?.items || []).filter((g) => g.discount && g.discount > 0);
-  return paginate(items.slice(0, limit), { page: 1, limit });
 }

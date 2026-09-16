@@ -29,10 +29,15 @@
       animation: fadeInEmpty 0.6s ease-out;
 
       .empty-icon {
-        font-size: 5rem;
+        color: rgba(180, 180, 220, 0.6);
         margin-bottom: 1.5rem;
         filter: drop-shadow(0 4px 12px rgba(120, 119, 198, 0.4));
         animation: floatIcon 3s ease-in-out infinite;
+
+        svg {
+          width: 64px;
+          height: 64px;
+        }
       }
 
       .empty-title {
@@ -70,8 +75,15 @@
           0 4px 15px rgba(0, 0, 0, 0.2),
           inset 0 1px 0 rgba(255, 255, 255, 0.1);
 
-        .tip-item {
-          font-size: 1.2rem;
+        .tip-icon {
+          color: rgba(212, 165, 116, 0.8);
+          display: flex;
+          align-items: center;
+
+          svg {
+            width: 18px;
+            height: 18px;
+          }
         }
 
         .tip-text {
@@ -247,6 +259,8 @@
                   cursor: pointer;
                   transition: all 0.3s ease;
                   box-shadow: 0 1px 4px rgba(0, 0, 0, 1);
+                  position: relative;
+                  overflow: hidden;
 
                   &:hover {
                     transform: translateY(-2px);
@@ -255,36 +269,237 @@
                   svg {
                     width: 18px;
                     height: 18px;
+                    position: relative;
+                    z-index: 1;
+                  }
+
+                  // 通用径向高光（限制在各自按钮内）
+                  &::before {
+                    content: '';
+                    position: absolute;
+                    top: 2px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 16px;
+                    height: 10px;
+                    border-radius: 50%;
+                    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.08) 50%, transparent 75%);
+                    pointer-events: none;
+                    z-index: 2;
                   }
                 }
 
                 .action-btn:nth-child(1) {
-                  background: linear-gradient(135deg, #8b0000, #b71c1c);
-                  border-color: #b71c1c;
+                  background: radial-gradient(circle at 50% 28%, #42a5f5 0%, #1976d2 40%, #0d47a1 100%);
+                  border-color: rgba(66, 165, 245, 0.6);
+                  box-shadow:
+                    0 3px 8px rgba(0, 0, 0, 0.8),
+                    0 1px 3px rgba(13, 71, 161, 0.5),
+                    inset 0 1px 2px rgba(255, 255, 255, 0.2),
+                    inset 0 -2px 4px rgba(0, 0, 0, 0.5);
+
+                  svg {
+                    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5)) drop-shadow(0 1px 1px rgba(0, 0, 0, 0.4));
+                  }
 
                   &:hover {
-                    background: linear-gradient(135deg, #d32f2f, #ff5252);
-                    box-shadow: 0 3px 10px rgba(0, 0, 0, 1);
+                    background: radial-gradient(circle at 50% 28%, #64b5f6 0%, #42a5f5 40%, #1976d2 100%);
+                    box-shadow:
+                      0 5px 14px rgba(0, 0, 0, 0.85),
+                      0 0 10px rgba(66, 165, 245, 0.5),
+                      0 1px 3px rgba(13, 71, 161, 0.5),
+                      inset 0 1px 3px rgba(255, 255, 255, 0.28),
+                      inset 0 -2px 4px rgba(0, 0, 0, 0.5);
+
+                    svg {
+                      filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7)) drop-shadow(0 1px 1px rgba(0, 0, 0, 0.4));
+                    }
+                  }
+
+                  &.active {
+                    background: radial-gradient(circle at 50% 28%, #1c1c1c 0%, #0a0a0a 55%, #050505 100%);
+                    border-color: rgba(66, 165, 245, 0.9);
+                    color: #64b5f6;
+                    box-shadow:
+                      0 4px 12px rgba(0, 0, 0, 0.9),
+                      0 0 14px rgba(66, 165, 245, 0.55),
+                      inset 0 1px 2px rgba(255, 255, 255, 0.15),
+                      inset 0 -2px 5px rgba(0, 0, 0, 0.7),
+                      inset 0 0 12px rgba(66, 165, 245, 0.15);
+
+                    &::before {
+                      background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.1) 45%, transparent 75%);
+                    }
+
+                    svg {
+                      filter: drop-shadow(0 0 6px rgba(66, 165, 245, 0.85)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
+                    }
+
+                    &:hover {
+                      background: radial-gradient(circle at 50% 28%, #262626 0%, #121212 55%, #0a0a0a 100%);
+                      box-shadow:
+                        0 6px 18px rgba(0, 0, 0, 0.95),
+                        0 0 18px rgba(66, 165, 245, 0.65),
+                        inset 0 1px 3px rgba(255, 255, 255, 0.2),
+                        inset 0 -2px 5px rgba(0, 0, 0, 0.7),
+                        inset 0 0 14px rgba(66, 165, 245, 0.2);
+
+                      svg {
+                        filter: drop-shadow(0 0 8px rgba(66, 165, 245, 0.95)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
+                      }
+                    }
                   }
                 }
 
                 .action-btn:nth-child(2) {
-                  background: linear-gradient(135deg, #bf360c, #e65100);
-                  border-color: #e65100;
+                  background: radial-gradient(circle at 50% 28%, #e53935 0%, #c62828 40%, #8b0000 100%);
+                  border-color: rgba(255, 82, 82, 0.6);
+                  box-shadow:
+                    0 3px 8px rgba(0, 0, 0, 0.8),
+                    0 1px 3px rgba(139, 0, 0, 0.5),
+                    inset 0 1px 2px rgba(255, 255, 255, 0.2),
+                    inset 0 -2px 4px rgba(0, 0, 0, 0.5);
+
+                  svg {
+                    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5)) drop-shadow(0 1px 1px rgba(0, 0, 0, 0.4));
+                  }
 
                   &:hover {
-                    background: linear-gradient(135deg, #f57f17, #ffc107);
-                    box-shadow: 0 3px 10px rgba(0, 0, 0, 1);
+                    background: radial-gradient(circle at 50% 28%, #ff5252 0%, #e53935 40%, #b71c1c 100%);
+                    box-shadow:
+                      0 5px 14px rgba(0, 0, 0, 0.85),
+                      0 0 10px rgba(255, 82, 82, 0.5),
+                      0 1px 3px rgba(139, 0, 0, 0.5),
+                      inset 0 1px 3px rgba(255, 255, 255, 0.28),
+                      inset 0 -2px 4px rgba(0, 0, 0, 0.5);
+
+                    svg {
+                      filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7)) drop-shadow(0 1px 1px rgba(0, 0, 0, 0.4));
+                    }
+                  }
+
+                  &.active {
+                    background: radial-gradient(circle at 50% 28%, #1c1c1c 0%, #0a0a0a 55%, #050505 100%);
+                    border-color: rgba(255, 82, 82, 0.9);
+                    color: #ff5252;
+                    box-shadow:
+                      0 4px 12px rgba(0, 0, 0, 0.9),
+                      0 0 14px rgba(255, 82, 82, 0.55),
+                      inset 0 1px 2px rgba(255, 255, 255, 0.15),
+                      inset 0 -2px 5px rgba(0, 0, 0, 0.7),
+                      inset 0 0 12px rgba(255, 82, 82, 0.15);
+
+                    &::before {
+                      background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.1) 45%, transparent 75%);
+                    }
+
+                    svg {
+                      filter: drop-shadow(0 0 6px rgba(255, 82, 82, 0.85)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
+                    }
+
+                    &:hover {
+                      background: radial-gradient(circle at 50% 28%, #262626 0%, #121212 55%, #0a0a0a 100%);
+                      box-shadow:
+                        0 6px 18px rgba(0, 0, 0, 0.95),
+                        0 0 18px rgba(255, 82, 82, 0.65),
+                        inset 0 1px 3px rgba(255, 255, 255, 0.2),
+                        inset 0 -2px 5px rgba(0, 0, 0, 0.7),
+                        inset 0 0 14px rgba(255, 82, 82, 0.2);
+
+                      svg {
+                        filter: drop-shadow(0 0 8px rgba(255, 82, 82, 0.95)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
+                      }
+                    }
                   }
                 }
 
                 .action-btn:nth-child(3) {
-                  background: linear-gradient(135deg, #0d4717, #1b5e20);
-                  border-color: #1b5e20;
+                  background: radial-gradient(circle at 50% 28%, #ff9800 0%, #e65100 40%, #bf360c 100%);
+                  border-color: rgba(255, 152, 0, 0.6);
+                  box-shadow:
+                    0 3px 8px rgba(0, 0, 0, 0.8),
+                    0 1px 3px rgba(191, 54, 12, 0.5),
+                    inset 0 1px 2px rgba(255, 255, 255, 0.22),
+                    inset 0 -2px 4px rgba(0, 0, 0, 0.5);
+
+                  svg {
+                    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5)) drop-shadow(0 1px 1px rgba(0, 0, 0, 0.4));
+                  }
 
                   &:hover {
-                    background: linear-gradient(135deg, #2e7d32, #4caf50);
-                    box-shadow: 0 3px 10px rgba(0, 0, 0, 1);
+                    background: radial-gradient(circle at 50% 28%, #ffb74d 0%, #ff9800 40%, #e65100 100%);
+                    box-shadow:
+                      0 5px 14px rgba(0, 0, 0, 0.85),
+                      0 0 10px rgba(255, 152, 0, 0.5),
+                      0 1px 3px rgba(191, 54, 12, 0.5),
+                      inset 0 1px 3px rgba(255, 255, 255, 0.3),
+                      inset 0 -2px 4px rgba(0, 0, 0, 0.5);
+
+                    svg {
+                      filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7)) drop-shadow(0 1px 1px rgba(0, 0, 0, 0.4));
+                    }
+                  }
+
+                  &.active {
+                    background: radial-gradient(circle at 50% 28%, #1c1c1c 0%, #0a0a0a 55%, #050505 100%);
+                    border-color: rgba(255, 193, 7, 0.9);
+                    color: #ffc107;
+                    box-shadow:
+                      0 4px 12px rgba(0, 0, 0, 0.9),
+                      0 0 14px rgba(255, 193, 7, 0.55),
+                      inset 0 1px 2px rgba(255, 255, 255, 0.15),
+                      inset 0 -2px 5px rgba(0, 0, 0, 0.7),
+                      inset 0 0 12px rgba(255, 193, 7, 0.15);
+
+                    &::before {
+                      background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.1) 45%, transparent 75%);
+                    }
+
+                    svg {
+                      filter: drop-shadow(0 0 6px rgba(255, 193, 7, 0.85)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
+                    }
+
+                    &:hover {
+                      background: radial-gradient(circle at 50% 28%, #262626 0%, #121212 55%, #0a0a0a 100%);
+                      box-shadow:
+                        0 6px 18px rgba(0, 0, 0, 0.95),
+                        0 0 18px rgba(255, 193, 7, 0.65),
+                        inset 0 1px 3px rgba(255, 255, 255, 0.2),
+                        inset 0 -2px 5px rgba(0, 0, 0, 0.7),
+                        inset 0 0 14px rgba(255, 193, 7, 0.2);
+
+                      svg {
+                        filter: drop-shadow(0 0 8px rgba(255, 193, 7, 0.95)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
+                      }
+                    }
+                  }
+                }
+
+                .action-btn:nth-child(4) {
+                  background: radial-gradient(circle at 50% 28%, #43a047 0%, #2e7d32 40%, #0d4717 100%);
+                  border-color: rgba(76, 175, 80, 0.6);
+                  box-shadow:
+                    0 3px 8px rgba(0, 0, 0, 0.8),
+                    0 1px 3px rgba(13, 71, 23, 0.5),
+                    inset 0 1px 2px rgba(255, 255, 255, 0.2),
+                    inset 0 -2px 4px rgba(0, 0, 0, 0.5);
+
+                  svg {
+                    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5)) drop-shadow(0 1px 1px rgba(0, 0, 0, 0.4));
+                  }
+
+                  &:hover {
+                    background: radial-gradient(circle at 50% 28%, #66bb6a 0%, #43a047 40%, #2e7d32 100%);
+                    box-shadow:
+                      0 5px 14px rgba(0, 0, 0, 0.85),
+                      0 0 10px rgba(76, 175, 80, 0.5),
+                      0 1px 3px rgba(13, 71, 23, 0.5),
+                      inset 0 1px 3px rgba(255, 255, 255, 0.28),
+                      inset 0 -2px 4px rgba(0, 0, 0, 0.5);
+
+                    svg {
+                      filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7)) drop-shadow(0 1px 1px rgba(0, 0, 0, 0.4));
+                    }
                   }
                 }
               }
@@ -346,21 +561,31 @@
                 letter-spacing: 0.8px;
               }
 
-              .artifact-description {
-                font-size: 14px;
-                line-height: 1.4;
-                color: #d0d0e0;
-                margin: 0;
-                display: -webkit-box;
-                font-weight: bold;
-                -webkit-box-orient: vertical;
-                overflow: hidden;
-                text-align: center;
-                text-shadow: 0 0 3px rgba(255, 255, 255, 0.2);
-                flex-grow: 1;
+              .artifact-tags {
                 display: flex;
-                align-items: center;
+                flex-wrap: wrap;
+                gap: 6px;
                 justify-content: center;
+                align-items: center;
+                flex-grow: 1;
+                padding: 0 4px;
+
+                .artifact-tag {
+                  display: inline-block;
+                  padding: 3px 8px;
+                  font-size: 11px;
+                  font-weight: bold;
+                  color: #c8d4e8;
+                  background: linear-gradient(145deg, rgba(60, 80, 120, 0.6), rgba(30, 40, 70, 0.8));
+                  border: 1px solid rgba(100, 150, 220, 0.3);
+                  border-radius: 10px;
+                  white-space: nowrap;
+                  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+                  box-shadow:
+                    0 1px 3px rgba(0, 0, 0, 0.4),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+                  transition: all 0.2s ease;
+                }
               }
             }
 
@@ -388,7 +613,7 @@
             width: 100%;
             height: 100%;
             position: relative;
-            background-image: url('@/assets/image/Museum/ArtifactCardBack.webp');
+            background-image: url('https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/museum/home/ArtifactCardBack.webp');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;

@@ -23,9 +23,9 @@
           <ThumbUpIcon :stroke-width="2" />
           <span class="stat-value">{{ formatCount(item.likes || 0) }}</span>
         </div>
-        <div class="stat-item" :class="{ 'sort-highlighted': !isBookmarkDimmed && sortMode !== 'relevance', 'sort-dimmed': isBookmarkDimmed }">
-          <BookmarkIcon :stroke-width="2" />
-          <span class="stat-value">{{ formatCount(item.bookmarks || 0) }}</span>
+        <div class="stat-item" :class="{ 'sort-highlighted': !isViewsDimmed && sortMode !== 'relevance', 'sort-dimmed': isViewsDimmed }">
+          <EyeIcon :stroke-width="2" />
+          <span class="stat-value">{{ formatCount(item.views || 0) }}</span>
         </div>
       </div>
     </div>
@@ -81,18 +81,18 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import UserIcon from '../../../../icon/common/UserIcon.vue'
-import CheckIcon from '../../../../icon/common/CheckIcon.vue'
-import CalendarIcon from '../../../../icon/common/CalendarIcon.vue'
-import LocationIcon from '../../../../icon/common/LocationIcon.vue'
-import UsersIcon from '../../../../icon/common/UsersIcon.vue'
-import ImageIcon from '../../../../icon/common/ImageIcon.vue'
-import ThumbUpIcon from '../../../../icon/common/ThumbUpIcon.vue'
-import BookmarkIcon from '../../../../icon/common/BookmarkIcon.vue'
-import UserPlusIcon from '../../../../icon/common/UserPlusIcon.vue'
-import InstagramIcon from '../../../../icon/common/InstagramIcon.vue'
-import TwitterIcon from '../../../../icon/common/TwitterIcon.vue'
-import YoutubeIcon from '../../../../icon/common/YoutubeIcon.vue'
+import UserIcon from '../../../../icons/common/UserIcon.vue'
+import CheckIcon from '../../../../icons/common/CheckIcon.vue'
+import CalendarIcon from '../../../../icons/common/CalendarIcon.vue'
+import LocationIcon from '../../../../icons/common/LocationIcon.vue'
+import UsersIcon from '../../../../icons/common/UsersIcon.vue'
+import ImageIcon from '../../../../icons/common/ImageIcon.vue'
+import ThumbUpIcon from '../../../../icons/common/ThumbUpIcon.vue'
+import EyeIcon from '../../../../icons/common/EyeIcon.vue'
+import UserPlusIcon from '../../../../icons/common/UserPlusIcon.vue'
+import InstagramIcon from '../../../../icons/common/InstagramIcon.vue'
+import TwitterIcon from '../../../../icons/common/TwitterIcon.vue'
+import YoutubeIcon from '../../../../icons/common/YoutubeIcon.vue'
 
 import type { SearchResultItem } from '@/utils/landscape'
 import { useInteractionStore } from '@/stores/landscape'
@@ -128,9 +128,9 @@ const isLikeDimmed = computed(() => {
   const mode = props.sortMode
   return mode !== 'relevance' && mode !== 'likes'
 })
-const isBookmarkDimmed = computed(() => {
+const isViewsDimmed = computed(() => {
   const mode = props.sortMode
-  return mode !== 'relevance' && mode !== 'bookmarks'
+  return mode !== 'relevance' && mode !== 'views'
 })
 
 const formatCount = (count: number) => {

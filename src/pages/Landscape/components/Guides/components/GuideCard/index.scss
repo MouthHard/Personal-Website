@@ -12,11 +12,15 @@
   animation: slideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) backwards;
   position: relative;
 
-  @for $i from 1 through 9 {
-    &:nth-child(#{$i}) {
-      animation-delay: #{$i * 0.08}s;
-    }
-  }
+  &:nth-child(1) { animation-delay: 0.08s; }
+  &:nth-child(2) { animation-delay: 0.16s; }
+  &:nth-child(3) { animation-delay: 0.24s; }
+  &:nth-child(4) { animation-delay: 0.32s; }
+  &:nth-child(5) { animation-delay: 0.4s; }
+  &:nth-child(6) { animation-delay: 0.48s; }
+  &:nth-child(7) { animation-delay: 0.56s; }
+  &:nth-child(8) { animation-delay: 0.64s; }
+  &:nth-child(9) { animation-delay: 0.72s; }
 
   &::before {
     content: '';
@@ -165,7 +169,7 @@
       align-items: center;
       gap: 0.25rem;
       font-size: 0.75rem;
-      color: #94a3b8;
+      color: #cbd5e1;
       margin-bottom: 0.5rem;
       transition: all 0.3s ease;
 
@@ -207,7 +211,7 @@
       .publish-date {
         flex-shrink: 0;
         font-size: 0.625rem;
-        color: #64748b;
+        color: #94a3b8;
         padding: 0.1875rem 0.375rem;
         background: rgba(255, 255, 255, 0.03);
         border-radius: 0.25rem;
@@ -232,7 +236,7 @@
 
     .card-excerpt {
       font-size: 0.75rem;
-      color: #64748b;
+      color: #94a3b8;
       margin: 0 0 0.75rem;
       line-height: 1.6;
       display: -webkit-box;
@@ -330,7 +334,7 @@
 
           .author-badge {
             font-size: 0.625rem;
-            color: #64748b;
+            color: #94a3b8;
           }
         }
       }
@@ -349,7 +353,7 @@
         align-items: center;
         gap: 0.1875rem;
         font-size: 0.6875rem;
-        color: #64748b;
+        color: #94a3b8;
         transition: all 0.3s ease;
         flex: 1;
         justify-content: center;

@@ -1,6 +1,13 @@
 <template>
   <div class="exhibition-scrollable">
-    <div class="category-exhibitions">
+    <div v-if="exhibitions.length === 0" class="empty-state">
+      <div class="empty-icon">
+        <SearchXIcon />
+      </div>
+      <h3 class="empty-title">未找到相关展览</h3>
+      <p class="empty-description">尝试更换筛选条件或搜索关键词</p>
+    </div>
+    <div v-else class="category-exhibitions">
       <div
         v-for="exhibition in exhibitions"
         :key="exhibition.id"
@@ -14,17 +21,13 @@
         <div class="exhibition-image">
           <img loading="lazy" :src="exhibition.image" :alt="exhibition.title" />
           <div
-            v-if="(exhibition as any).status"
+            v-if="exhibition.status"
             class="status-badge"
             :style="{
-              background: getStatusGradient((exhibition as any).status),
+              background: getStatusGradient(exhibition.status),
             }"
           >
-            {{ (exhibition as any).status }}
-          </div>
-          <div class="exhibition-actions">
-            <button class="action-btn favorite-btn">收藏</button>
-            <button class="action-btn share-btn">分享</button>
+            {{ exhibition.status }}
           </div>
         </div>
         <div class="exhibition-details">
@@ -34,15 +37,52 @@
             展览地点：{{ exhibition.location }}
           </p>
           <p class="exhibition-description">{{ exhibition.description }}</p>
+          <div class="exhibition-actions">
+            <button
+              class="action-btn follow-btn"
+              :class="{ active: isFollowed(exhibition.id) }"
+              @click.stop="toggleFollow(exhibition.id, exhibition.title)"
+            >
+              <component
+                :is="isFollowed(exhibition.id) ? BellFilledIcon : BellIcon"
+                class="btn-icon"
+              />
+              <span>{{ isFollowed(exhibition.id) ? '已关注' : '关注' }}</span>
+            </button>
+            <button
+              class="action-btn favorite-btn"
+              :class="{ active: isFavorited(exhibition.id) }"
+              @click.stop="toggleFavorite(exhibition.id, exhibition.title)"
+            >
+              <component
+                :is="isFavorited(exhibition.id) ? StarFilledIcon : StarIcon"
+                class="btn-icon"
+              />
+              <span>{{ isFavorited(exhibition.id) ? '已收藏' : '收藏' }}</span>
+            </button>
+            <button class="action-btn share-btn" @click.stop="handleShare(exhibition)">
+              <ShareIcon class="btn-icon" />
+              <span>分享</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
+    <ShareModal
+      v-model:visible="shareVisible"
+      :title="shareTitle"
+      :description="shareDescription"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
   import { ref } from 'vue';
   import type { Exhibition } from '@/typesOfPages/museum/index';
+  import { SearchXIcon, BellIcon, BellFilledIcon, StarIcon, StarFilledIcon, ShareIcon } from '@/pages/Museum/icons/common';
+  import { useExhibitionPrefs } from '@/composables/museum/useExhibitionPrefs';
+  import { useCurrentMuseumId } from '@/composables/museum/useCurrentMuseumId';
+  import { ShareModal } from '@/pages/Museum/components/common';
 
   // Props
   const props = defineProps({
@@ -59,25 +99,20 @@
   // Emits
   const emit = defineEmits(['selectExhibition']);
 
-  // 动态导入整个文件夹的图片
-  const backgroundImages = import.meta.glob(
-    '@/assets/image/Museum/ExhibitionCardBg/*.webp',
-    { eager: true, import: 'default' },
-  );
-  const backgroundImageArray = Object.values(backgroundImages);
+  // 展览卡片背景图（OSS 托管）
+  const OSS_BASE = 'https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/museum/exhibition/card-bg';
+  const backgroundImageArray = Array.from({ length: 10 }, (_, i) => `${OSS_BASE}/card${i + 1}.webp`);
 
   // 存储每个展览的背景图片索引
   const exhibitionBackgrounds = ref<Record<number, number>>({});
 
   // 获取展览的背景图片
   const getExhibitionBackground = (exhibitionId: number) => {
-    // 如果该展览还没有背景图片索引，生成一个并存储
     if (!exhibitionBackgrounds.value[exhibitionId]) {
       exhibitionBackgrounds.value[exhibitionId] = Math.floor(
         Math.random() * backgroundImageArray.length,
       );
     }
-    // 返回存储的背景图片
     return backgroundImageArray[exhibitionBackgrounds.value[exhibitionId]];
   };
 
@@ -100,8 +135,21 @@
   };
 
   // 选择展览
-  const selectExhibition = (exhibition: any) => {
+  const selectExhibition = (exhibition: Exhibition) => {
     emit('selectExhibition', exhibition);
+  };
+
+  // ===== 关注 / 收藏 / 分享（与详情面板共享状态） =====
+  const { isFollowed, isFavorited, toggleFollow, toggleFavorite } = useExhibitionPrefs(useCurrentMuseumId());
+
+  const shareVisible = ref(false);
+  const shareTitle = ref('');
+  const shareDescription = ref('');
+
+  const handleShare = (exhibition: Exhibition) => {
+    shareTitle.value = exhibition.title;
+    shareDescription.value = exhibition.description;
+    shareVisible.value = true;
   };
 </script>
 

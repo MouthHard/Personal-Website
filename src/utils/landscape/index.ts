@@ -10,16 +10,13 @@ export {
   calculateTrend 
 } from './calculation'
 export { filterImages, filterVideos, filterPhotographers, filterGuides, sortItems, paginate } from './filter'
-export { categories } from './constants'
 export {
   guideModeMap,
   guideSeasonMap,
   guideDurationMap,
   guideThemeMap,
   cachedViews,
-  MIN_LOAD_TIME,
-  typeToTravelMode,
-} from './constants'
+} from '@/constants/landscape'
 export {
   ProfileSpecialtyOptions,
   SearchPhotographerSortOptions,
@@ -29,7 +26,7 @@ export {
   WatermarkPositionOptions,
   UploadQualityOptions,
   UploadPrivacyOptions,
-} from './constants'
+} from '@/constants/landscape'
 export { ID_PREFIXES, createGlobalId, createInteractionId, parseInteractionId } from './interactionId'
 export {
   IMAGE_DEFAULTS,
@@ -38,7 +35,7 @@ export {
   INTERACTION_DEFAULTS,
   DATE_DEFAULTS,
   AUTHOR_DEFAULTS,
-} from './defaults'
+} from '@/constants/landscape/defaults'
 export {
   convertImageToInteractionItem,
   convertVideoToInteractionItem,
@@ -47,8 +44,8 @@ export {
   convertSlideToInteractionItem,
   createSimpleInteractionItem,
 } from './interaction'
-export { chinaRegions } from './chinaRegions'
-export type { RegionOption } from './chinaRegions'
+export { chinaRegions } from '@/constants/landscape/chinaRegions'
+export type { RegionOption } from '@/constants/landscape/chinaRegions'
 export { showMessage } from './message'
 export {
   convertImageToSearchResult,

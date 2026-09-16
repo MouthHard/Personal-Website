@@ -2,7 +2,7 @@ export * from './common'
 export * from './profile'
 export * from './home'
 export * from './photographers'
-export * from './guides'
+
 
 export * from './data'
 
@@ -33,23 +33,3 @@ export interface LandscapeItem {
   duration?: string
 }
 
-export interface SearchParams {
-  query: string
-  category: string
-}
-
-export interface UploadFile {
-  file: File
-  type: 'image' | 'video'
-  name: string
-  size: number
-}
-
-export interface PreviewWork {
-  image?: string
-  cover?: string
-  type?: string
-  duration?: string
-  title?: string
-  author?: string
-}

@@ -9,7 +9,8 @@ import {
   fetchHotTopics,
   fetchPopularDestinations,
 } from '@/services/landscape'
-import { OSS } from '@/utils/landscape/constants'
+import { OSS } from '@/constants/landscape'
+import { injectImageUrls } from '@/utils/landscape/imagePool'
 
 export type { GlobalPhotographerWork, GlobalPhotographer, GlobalImage, GlobalVideo, GlobalGuide }
 export { OSS }
@@ -49,6 +50,16 @@ export const useLandscapeDataStore = defineStore('landscapeData', () => {
       guides.value = guideRes.items
       hotTopics.value = hotRes.items
       popularDestinations.value = destRes.items
+
+      injectImageUrls({
+        photographers: photographers.value,
+        images: images.value,
+        videos: videos.value,
+        guides: guides.value,
+        hotTopics: hotTopics.value,
+        popularDestinations: popularDestinations.value,
+      })
+
       loaded.value = true
     } catch (e) {
       if (e instanceof DOMException && e.name === 'AbortError') return

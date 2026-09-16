@@ -24,11 +24,14 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, computed, watch } from 'vue';
-  import { dynastiesData } from '../../data/dynasties';
+  import { ref, computed, watch, onMounted } from 'vue';
+  import { useHistoryStore } from '@/stores/history';
   import TimelineNav from './components/TimelineNav/index.vue';
   import DetailPanel from './components/DetailPanel/index.vue';
   import { HistoryUtils } from '@/utils';
+
+  const historyStore = useHistoryStore();
+  onMounted(() => historyStore.ensureLoaded());
 
   interface Dynasty {
     id: string;
@@ -59,7 +62,7 @@
 
   // 按时间顺序排序
   const sortedDynasties = computed(() => {
-    return [...dynastiesData].sort((a, b) => {
+    return [...historyStore.dynasties].sort((a, b) => {
       return (
         HistoryUtils.getStartYear(a.period) -
         HistoryUtils.getStartYear(b.period)

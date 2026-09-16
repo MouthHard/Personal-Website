@@ -47,12 +47,11 @@ const provinceDataMap: Record<string, () => Promise<SceneryData>> = {
  */
 export const loadProvinceData = async (
   province: string,
-): Promise<SceneryData | null> => {
+  ): Promise<SceneryData | null> => {
   try {
     if (provinceDataMap[province]) {
       return await provinceDataMap[province]();
     }
-    console.warn(`未找到${province}的风光数据`);
     return null;
   } catch (error) {
     console.error(`加载${province}数据失败:`, error);

@@ -40,31 +40,3 @@ export function getWeatherByProvince(provinceId: string): WeatherInfo {
   };
 }
 
-// 获取天气图标
-export function getWeatherIcon(provinceId: string): string {
-  return getWeatherByProvince(provinceId).icon;
-}
-
-// 获取天气描述
-export function getWeatherDescription(provinceId: string): string {
-  return getWeatherByProvince(provinceId).description;
-}
-
-// 获取温度范围
-export function getTemperatureRange(provinceId: string): string {
-  return getWeatherByProvince(provinceId).temperature || "";
-}
-
-// 根据季节获取推荐天气（用于季节性推荐）
-export function getSeasonalWeather(
-  season: "spring" | "summer" | "autumn" | "winter",
-): WeatherInfo {
-  const seasonalMap: Record<string, WeatherInfo> = {
-    spring: { icon: "🌸", description: "春暖花开", temperature: "15°C - 25°C" },
-    summer: { icon: "☀️", description: "夏日炎炎", temperature: "25°C - 35°C" },
-    autumn: { icon: "🍁", description: "秋高气爽", temperature: "10°C - 20°C" },
-    winter: { icon: "❄️", description: "冬日寒冷", temperature: "-5°C - 10°C" },
-  };
-
-  return seasonalMap[season] || seasonalMap.spring;
-}

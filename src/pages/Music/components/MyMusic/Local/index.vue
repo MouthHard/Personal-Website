@@ -253,11 +253,11 @@ const handlePlaySong = (song: Song) => {
 };
 
 const handleFolderClick = (folder: LocalFolder) => {
-  console.log('Folder clicked:', folder.name);
+  // 文件夹点击处理
 };
 
 const importMusic = () => {
-  console.log('Import music');
+  // 导入音乐处理
 };
 </script>
 

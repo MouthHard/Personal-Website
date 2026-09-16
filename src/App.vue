@@ -35,7 +35,9 @@
       <router-view v-slot="{ Component }">
         <Transition name="page-switch" mode="out-in">
           <ErrorBoundary>
-            <component :is="Component" :key="router.currentRoute.value.path"></component>
+            <keep-alive :include="keepAliveNames">
+              <component :is="Component" :key="router.currentRoute.value.path"></component>
+            </keep-alive>
           </ErrorBoundary>
         </Transition>
       </router-view>
@@ -43,7 +45,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref, watch } from 'vue';
+import { onMounted, onUnmounted, ref, watch, computed } from 'vue';
 import { useRouter } from 'vue-router';
 import { scale, formatTime, formatDate } from '@/utils/common';
 import type { RouteItem } from '@/typesOfPages/common';
@@ -52,6 +54,12 @@ import { ErrorBoundary } from '@/components/common/ErrorBoundary';
 const router = useRouter();
 const curPageName = ref<string>('');
 const timer = ref<number>();
+
+const keepAliveNames = computed(() =>
+  router.getRoutes()
+    .map(r => r.meta?.keepAlive)
+    .filter((v): v is string => typeof v === 'string')
+);
 
 // DOM 引用
 const tabContainer = ref<HTMLElement>();
@@ -66,43 +74,43 @@ const routeArr: RouteItem[] = [
     routeId: '1',
     routeName: '/music',
     pageName: '音乐',
-    bg: 'https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/app/Saturn.png',
+    bg: 'https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/app/Saturn.webp',
   },
   {
     routeId: '2',
     routeName: '/game',
     pageName: '游戏',
-    bg: 'https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/app/Venus.png',
+    bg: 'https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/app/Venus.webp',
   },
   {
     routeId: '3',
     routeName: '/aphorism',
     pageName: '诗词',
-    bg: 'https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/app/earth.png',
+    bg: 'https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/app/Earth.webp',
   },
   {
     routeId: '4',
     routeName: '/history',
     pageName: '历史',
-    bg: 'https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/app/Mars.png',
+    bg: 'https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/app/Mars.webp',
   },
   {
     routeId: '5',
     routeName: '/travel-guide',
     pageName: '旅游',
-    bg: 'https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/app/Jupiter.png',
+    bg: 'https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/app/Jupiter.webp',
   },
   {
     routeId: '6',
     routeName: '/museum',
     pageName: '博物馆',
-    bg: 'https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/app/Mercury.png',
+    bg: 'https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/app/Mercury.webp',
   },
   {
     routeId: '7',
     routeName: '/landscape',
     pageName: '风景',
-    bg: 'https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/app/Uranus.png',
+    bg: 'https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/app/Uranus.webp',
   },
 ];
 

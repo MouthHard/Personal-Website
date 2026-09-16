@@ -36,10 +36,11 @@
     }
 
     .search-icon {
-      :deep(svg) {
+      svg {
         width: 24px;
         height: 24px;
-        color: #cd5c5c;
+        color: #000000;
+        stroke: #000000;
       }
       margin-right: 16px;
       z-index: 1;
@@ -101,7 +102,7 @@
             rgba(178, 34, 34, 0.3)
           );
           transform: translateY(-50%) scale(1.05) rotate(360deg);
-          box-shadow: 0 0 8x rgba(205, 92, 92, 0.7);
+          box-shadow: 0 0 8px rgba(205, 92, 92, 0.7);
           border-color: rgba(205, 92, 92, 0.5);
         }
 
@@ -383,10 +384,10 @@
       }
 
       .suggestion-icon {
-        :deep(svg) {
+        svg {
           width: 22px;
           height: 22px;
-          color: #cd5c5c;
+          color: #000000;
         }
         margin-right: 16px;
         filter: drop-shadow(0 2px 4px rgba(184, 115, 51, 0.2));

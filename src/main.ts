@@ -4,6 +4,7 @@ import App from "./App.vue";
 import router from "./router";
 import "element-plus/es/components/message/style/css";
 import "element-plus/es/components/message-box/style/css";
+import "./composables/museum/message-styles.scss";
 
 const app = createApp(App);
 const pinia = createPinia();

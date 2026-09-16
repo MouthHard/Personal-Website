@@ -92,12 +92,13 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import {
-  culturalHeritage,
-  type CulturalHeritageItem,
-} from '../../../../data/heritage';
-import { CloudBackground } from '@/pages/History/icons';
+import { computed, onMounted } from 'vue';
+import { useHistoryStore } from '@/stores/history';
+import type { CulturalHeritageItem } from '@/typesOfPages/history';
+import CloudBackground from '@/pages/History/icons/common/CloudBackground.vue';
+
+const historyStore = useHistoryStore();
+onMounted(() => historyStore.ensureLoaded());
 // 分类名称映射
 const categoryNameMap: Record<string, string> = {
   site: '文化遗址',
@@ -116,7 +117,7 @@ const relatedHeritage = computed(() => {
   if (!props.selectedHeritage?.relatedItems) {
     return [];
   }
-  return culturalHeritage.filter((item) =>
+  return historyStore.culturalHeritage.filter((item) =>
     props.selectedHeritage?.relatedItems?.includes(item.id),
   );
 });

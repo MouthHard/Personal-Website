@@ -1,0 +1,84 @@
+/* 博物馆专用 ElMessage 深色 3D 立体样式（仅作用于 .museum-message） */
+
+.museum-message.el-message {
+  min-width: 280px;
+  padding: 14px 20px 14px 18px;
+  border-radius: 14px;
+  background: linear-gradient(160deg, rgba(19, 27, 43, 0.96) 0%, rgba(11, 15, 26, 0.94) 100%);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(79, 195, 247, 0.35);
+  box-shadow:
+    0 14px 40px rgba(0, 0, 0, 0.6),
+    0 0 24px rgba(30, 136, 230, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -2px 8px rgba(0, 0, 0, 0.3);
+
+  .el-message__content {
+    flex: 1;
+    color: #f5f9ff;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+    padding-right: 24px;
+  }
+
+  .el-message__closeBtn {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
+    color: rgba(176, 196, 216, 0.7);
+    font-size: 16px;
+    &:hover { color: #ffffff; }
+  }
+
+  /* success — 翠绿 */
+  &.el-message--success {
+    border-color: rgba(129, 199, 132, 0.5);
+    box-shadow:
+      0 14px 40px rgba(0, 0, 0, 0.6),
+      0 0 24px rgba(129, 199, 132, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      inset 0 -2px 8px rgba(0, 0, 0, 0.3);
+    .el-message__icon { color: #a5d6a7; }
+  }
+
+  /* info — 天蓝 */
+  &.el-message--info {
+    border-color: rgba(79, 195, 247, 0.5);
+    box-shadow:
+      0 14px 40px rgba(0, 0, 0, 0.6),
+      0 0 24px rgba(79, 195, 247, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      inset 0 -2px 8px rgba(0, 0, 0, 0.3);
+    .el-message__icon { color: #81d4fa; }
+  }
+
+  /* warning — 金黄 */
+  &.el-message--warning {
+    border-color: rgba(255, 213, 79, 0.5);
+    box-shadow:
+      0 14px 40px rgba(0, 0, 0, 0.6),
+      0 0 24px rgba(255, 213, 79, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      inset 0 -2px 8px rgba(0, 0, 0, 0.3);
+    .el-message__icon { color: #ffd54f; }
+  }
+
+  /* error — 珊瑚红 */
+  &.el-message--error {
+    border-color: rgba(255, 138, 128, 0.5);
+    box-shadow:
+      0 14px 40px rgba(0, 0, 0, 0.6),
+      0 0 24px rgba(255, 138, 128, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      inset 0 -2px 8px rgba(0, 0, 0, 0.3);
+    .el-message__icon { color: #ff8a80; }
+  }
+
+  .el-message__icon {
+    font-size: 20px;
+    filter: drop-shadow(0 0 6px currentColor);
+  }
+}

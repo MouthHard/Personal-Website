@@ -23,7 +23,7 @@
 
       <div v-if="allItems.length > 0" class="gallery-masonry">
         <div v-for="col in 2" :key="col" class="masonry-col">
-          <template v-for="item in getColumnItems(col - 1, 2)" :key="item.id">
+          <template v-for="item in getVisibleColumnItems(col - 1, 2)" :key="item.id">
             <ImageCard v-if="item.type === 'image'" :item="item.data" :delay="`${item.globalIndex * 0.06}s`" />
             <VideoCard v-else-if="item.type === 'video'" :item="item.data" :delay="`${item.globalIndex * 0.06}s`" />
             <PhotographerCard v-else-if="item.type === 'photographer'" :item="item.data" :delay="`${item.globalIndex * 0.06}s`" />
@@ -32,32 +32,35 @@
         </div>
       </div>
       <div v-else class="empty-state">
-        <div class="empty-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-          </svg>
+        <div class="empty-orbit">
+          <span class="orbit-dot d1"></span>
+          <span class="orbit-dot d2"></span>
+          <span class="orbit-dot d3"></span>
+        </div>
+        <div class="empty-icon-wrap">
+          <div class="icon-ring"></div>
+          <div class="icon-ring inner"></div>
+          <div class="empty-icon">
+            <CameraIcon />
+          </div>
         </div>
         <h3>{{ getEmptyTitle }}</h3>
         <p>{{ getEmptyDescription }}</p>
+        <div class="empty-hint">
+          <SparkleIcon class="hint-spark" />
+          <span>优质作品将被推荐至首页</span>
+          <SparkleIcon class="hint-spark" />
+        </div>
       </div>
 
-      <!-- 加载更多 -->
-      <div class="load-more">
-        <button class="load-btn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <circle cx="12" cy="12" r="10" />
-            <path d="M12 6v6l4 2" />
-          </svg>
-          <span>加载更多 </span>
-        </button>
-      </div>
+      <div ref="scrollSentinel" v-if="allItems.length > visibleCount" class="scroll-sentinel"></div>
     </section>
   </div>
 </template>
 
 <script setup lang="ts">
 defineOptions({ name: 'Profile' });
-import { ref, computed, watch } from 'vue';
+import { ref, computed, watch, onMounted, onUnmounted, nextTick } from 'vue';
 import ProfileHeader from './components/ProfileHeader/index.vue';
 import ContentTabs from './components/ContentTabs/index.vue';
 import CategoryFilter from './components/CategoryFilter/index.vue';
@@ -65,18 +68,20 @@ import ImageCard from './components/ImageCard/index.vue';
 import VideoCard from './components/VideoCard/index.vue';
 import PhotographerCard from './components/PhotographerCard/index.vue';
 import GuideCard from './components/GuideCard/index.vue';
+import CameraIcon from '@/pages/Landscape/icons/common/CameraIcon.vue';
+import SparkleIcon from '@/pages/Landscape/icons/common/SparkleIcon.vue';
 import { useInteractionStore } from '@/stores/landscape';
-import { userProfile, profileTabs, profileCategories } from '@/utils/landscape/constants';
+import { userProfile, profileTabs, profileCategories } from '@/constants/landscape';
 import { useProfileViewData } from '@/composables/landscape';
 import { useProfileItems, useProfileStats } from '@/composables/landscape/profile';
-import type { User } from '@/typesOfPages/landscape';
+import type { User, GlobalImage, GlobalVideo, GlobalPhotographer, GlobalGuide } from '@/typesOfPages/landscape';
 
 const interactionStore = useInteractionStore();
 
 const activeTab = ref('favorites');
 const selectedCategory = ref('image');
 
-const user = ref<any>(userProfile);
+const user = ref<User>(userProfile);
 const baseTabs = profileTabs;
 const categories = profileCategories;
 
@@ -95,19 +100,19 @@ const { stats } = useProfileStats();
 watch([images, videos, photographers, guides], ([newImages, newVideos, newPhotographers, newGuides]) => {
   const batch: Array<{ id: string; counts: { likes: number; loves: number; views: number; favorites: number; shares: number } }> = [];
   
-  newImages.forEach((img: any) => batch.push({
+  newImages.forEach((img: GlobalImage) => batch.push({
     id: String(img.id),
     counts: { likes: img.likes || 0, loves: img.loves || 0, views: img.views || 0, favorites: img.favorites || 0, shares: img.shares || 0 },
   }));
-  newVideos.forEach((vid: any) => batch.push({
+  newVideos.forEach((vid: GlobalVideo) => batch.push({
     id: String(vid.id),
     counts: { likes: vid.likes || 0, loves: vid.loves || 0, views: vid.views || 0, favorites: vid.bookmarks || 0, shares: vid.shares || 0 },
   }));
-  newPhotographers.forEach((p: any) => batch.push({
+  newPhotographers.forEach((p: GlobalPhotographer) => batch.push({
     id: String(p.id),
     counts: { likes: parseFloat(p.likes) || 0, loves: 0, views: parseFloat(p.views) || 0, favorites: parseFloat(p.bookmarks) || 0, shares: 0 },
   }));
-  newGuides.forEach((guide: any) => batch.push({
+  newGuides.forEach((guide: GlobalGuide) => batch.push({
     id: String(guide.id),
     counts: { likes: guide.likes || 0, loves: guide.loves || 0, views: guide.views || 0, favorites: guide.bookmarks || 0, shares: guide.shares || 0 },
   }));
@@ -137,7 +142,7 @@ const dynamicCategories = computed(() => {
   }));
 });
 
-const { allItems, getColumnItems } = useProfileItems(
+const { allItems } = useProfileItems(
   activeTab,
   selectedCategory,
   images,
@@ -188,6 +193,44 @@ const getEmptyDescription = computed(() => {
     collections: '创建你的第一个收藏集',
   };
   return descriptions[activeTab.value] || '这里还没有任何内容';
+});
+
+const PAGE_SIZE = 12;
+const visibleCount = ref(PAGE_SIZE);
+const scrollSentinel = ref<HTMLElement | null>(null);
+let observer: IntersectionObserver | null = null;
+
+const getVisibleColumnItems = (colIndex: number, totalCols: number) => {
+  const visible = allItems.value.slice(0, visibleCount.value);
+  return visible.filter((_, i) => i % totalCols === colIndex);
+};
+
+const setupObserver = () => {
+  if (observer) observer.disconnect();
+  observer = new IntersectionObserver(
+    (entries) => {
+      if (entries[0].isIntersecting && visibleCount.value < allItems.value.length) {
+        visibleCount.value = Math.min(visibleCount.value + PAGE_SIZE, allItems.value.length);
+      }
+    },
+    { rootMargin: '200px' }
+  );
+  if (scrollSentinel.value) observer.observe(scrollSentinel.value);
+};
+
+watch([activeTab, selectedCategory], () => {
+  visibleCount.value = PAGE_SIZE;
+  nextTick(() => setupObserver());
+});
+
+watch(scrollSentinel, () => setupObserver());
+
+onMounted(() => {
+  setupObserver();
+});
+
+onUnmounted(() => {
+  if (observer) observer.disconnect();
 });
 </script>
 

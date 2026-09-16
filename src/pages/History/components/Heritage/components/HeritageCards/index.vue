@@ -46,11 +46,12 @@
 
 <script setup lang="ts">
   import { ref, computed, onMounted, onUnmounted, watch } from 'vue';
-  import {
-    culturalHeritage,
-    type CulturalHeritageItem,
-  } from '../../../../data/heritage';
-import { CloudBack } from '@/pages/History/icons/index.ts';
+  import { useHistoryStore } from '@/stores/history';
+  import type { CulturalHeritageItem } from '@/typesOfPages/history';
+  import CloudBack from '@/pages/History/icons/common/CloudBack.vue';
+
+  const historyStore = useHistoryStore();
+  onMounted(() => historyStore.ensureLoaded());
 
   // 动态计算卡片尺寸和偏移量
   const containerHeight = ref(window.innerHeight - 120);
@@ -87,9 +88,9 @@ import { CloudBack } from '@/pages/History/icons/index.ts';
   // 计算属性
   const filteredHeritages = computed(() => {
     if (props.activeTab === 'all') {
-      return culturalHeritage;
+      return historyStore.culturalHeritage;
     }
-    return culturalHeritage.filter((item) => item.category === props.activeTab);
+    return historyStore.culturalHeritage.filter((item) => item.category === props.activeTab);
   });
 
   // 视觉上显示3张：当前 ±1

@@ -130,6 +130,8 @@ import { useAphorismDataStore } from '@/stores/aphorism';
 import { useAphorismInteractionStore } from '@/stores/aphorism/interaction';
 import type { Poem } from '@/typesOfPages/aphorism/poem';
 
+defineOptions({ name: 'AphorismPage' });
+
 const router = useRouter();
 const dataStore = useAphorismDataStore();
 const interactionStore = useAphorismInteractionStore();

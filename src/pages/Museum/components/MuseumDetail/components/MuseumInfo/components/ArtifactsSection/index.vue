@@ -2,18 +2,26 @@
   <section class="artifacts-section">
     <div class="section-header">
       <h2 class="section-title">文物精选</h2>
-      <button class="more-button">
-        <span class="button-decoration">❖</span>
+      <button class="more-button" @click="emit('update:activeTab', 'artifacts')">
+        <span class="button-decoration"><SparkleIcon /></span>
         <span>更多</span>
       </button>
     </div>
-    <div class="artifacts-container">
+    <div v-if="homeArtifacts.length === 0" class="empty-state">
+      <div class="empty-icon">
+        <VaseIcon />
+      </div>
+      <h3 class="empty-title">暂无馆藏文物</h3>
+      <p class="empty-description">该博物馆暂未录入文物信息</p>
+    </div>
+    <div v-else class="artifacts-container">
       <div class="artifacts-wrapper" :style="getWrapperStyle()">
         <div
           v-for="(artifact, index) in homeArtifacts"
           :key="index"
           class="artifact-card"
           :style="getCardStyle(index)"
+          @click="emit('update:activeTab', 'artifacts')"
           @mouseenter="handleMouseEnter(index)"
           @mouseleave="handleMouseLeave"
         >
@@ -23,23 +31,38 @@
               :alt="artifact.name"
             />
             <div v-else class="image-placeholder">
-              <span class="placeholder-icon">🏺</span>
+              <span class="placeholder-icon"><VaseIcon /></span>
             </div>
           </div>
           <div class="artifact-info">
             <h3 class="artifact-name">{{ artifact.name }}</h3>
             <p class="artifact-period">{{ artifact.period }}</p>
             <div class="action-buttons">
-              <button class="action-button favorite-button">
-                <span class="button-icon">❤️</span>
-                <span class="button-text">喜爱</span>
+              <button
+                class="action-button like-button"
+                :class="{ active: isThumbsUp(artifact.id) }"
+                @click.stop="toggleThumbsUp(artifact.id, artifact.name)"
+              >
+                <span class="button-icon">
+                  <LikeFilledIcon v-if="isThumbsUp(artifact.id)" />
+                  <LikeIcon v-else />
+                </span>
+                <span class="button-text">点赞</span>
               </button>
-              <button class="action-button like-button">
-                <span class="button-icon">⭐</span>
+              <button
+
+                class="action-button collect-button"
+                :class="{ active: isFavored(artifact.id) }"
+                @click.stop="toggleFavor(artifact.id, artifact.name)"
+              >
+                <span class="button-icon">
+                  <StarFilledIcon v-if="isFavored(artifact.id)" />
+                  <StarIcon v-else />
+                </span>
                 <span class="button-text">收藏</span>
               </button>
-              <button class="action-button share-button">
-                <span class="button-icon">📤</span>
+              <button class="action-button share-button" @click.stop="handleShare(artifact)">
+                <span class="button-icon"><ShareIcon /></span>
                 <span class="button-text">分享</span>
               </button>
             </div>
@@ -47,22 +70,52 @@
         </div>
       </div>
     </div>
+    <ShareModal
+      v-model:visible="shareVisible"
+      :title="shareTitle"
+      :description="shareDescription"
+    />
   </section>
 </template>
 
 <script setup lang="ts">
   import { computed, ref } from 'vue';
-  import type { Museum } from '@/typesOfPages/museum';
+  import type { Museum, Artifact } from '@/typesOfPages/museum';
   import { useMuseumDataStore } from '@/stores/museum';
+  import {
+    VaseIcon,
+    SparkleIcon,
+
+    StarIcon,
+    StarFilledIcon,
+    ShareIcon,
+    LikeIcon,
+    LikeFilledIcon,
+  } from '@/pages/Museum/icons/common';
+  import { useArtifactPrefs } from '@/composables/museum/useArtifactPrefs';
+  import { ShareModal } from '@/pages/Museum/components/common';
 
   interface Props {
     museum: Museum;
   }
 
   const props = defineProps<Props>();
+  const emit = defineEmits<{ 'update:activeTab': [tab: string] }>();
   const store = useMuseumDataStore();
 
   const hoveredIndex = ref<number | null>(null);
+
+  const { isFavored, isThumbsUp, toggleFavor, toggleThumbsUp } = useArtifactPrefs(() => props.museum.id);
+
+  const shareVisible = ref(false);
+  const shareTitle = ref('');
+  const shareDescription = ref('');
+
+  const handleShare = (artifact: Artifact) => {
+    shareTitle.value = `文物 · ${artifact.name}`;
+    shareDescription.value = artifact.description || '';
+    shareVisible.value = true;
+  };
 
   const homeArtifacts = computed(() => {
     if (!props.museum) return [];
@@ -104,7 +157,7 @@
 
   const getWrapperStyle = () => {
     const baseOffset = 60;
-    const cardWidth = 280;
+    const cardWidth = 380;
     const hoverExtraWidth = 150;
     const totalWidth = homeArtifacts.value.length * cardWidth + (homeArtifacts.value.length - 1) * baseOffset + hoverExtraWidth + 100;
     return {

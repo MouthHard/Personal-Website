@@ -1,0 +1,1 @@
+export { figureWorksMap, figureEvaluationTagsMap } from './figureMaps';

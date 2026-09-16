@@ -1,7 +1,7 @@
 // 博物馆相关工具函数和静态映射
 
 // 省份名称到英文的映射
-export const provinceMap: Record<string, string> = {
+const provinceMap: Record<string, string> = {
   北京: "beijing",
   上海: "shanghai",
   陕西: "shaanxi",
@@ -38,55 +38,15 @@ export const provinceMap: Record<string, string> = {
   澳门: "macau",
 };
 
-// 博物馆类型的映射
-export const museumTypeMap: Record<string, string> = {
-  历史博物馆: "history",
-  艺术博物馆: "art",
-  科技博物馆: "science",
-  综合博物馆: "comprehensive",
-  专题博物馆: "thematic",
-};
-
-// 文物分类的映射
-export const artifactCategoryMap: Record<string, string> = {
-  绘画: "painting",
-  玉器: "jade",
-  青铜器: "bronze",
-  陶瓷器: "ceramic",
-  书法: "calligraphy",
-  科技仪器: "scientific_instrument",
-};
-
-// 文创产品分类的映射
-export const creativeCategoryMap: Record<string, string> = {
-  文具: "stationery",
-  服装: "clothing",
-  教育: "education",
-  家居: "home",
-  饰品: "accessories",
-};
-
-// 学术资源类型的映射
-export const academicTypeMap: Record<string, string> = {
-  article: "文章",
-  book: "书籍",
-  video: "视频",
-};
 
 // 格式化数字（添加千位分隔符）
-export const formatNumber = (num: number): string => {
-  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-};
+export const formatNumber = (num: number): string => num.toLocaleString('en-US');
 
 // 获取博物馆的省份英文名称
-export const getProvinceEn = (province: string): string => {
+const getProvinceEn = (province: string): string => {
   return provinceMap[province] || province.toLowerCase();
 };
 
-// 获取博物馆类型的英文名称
-export const getMuseumTypeEn = (type: string): string => {
-  return museumTypeMap[type] || type.toLowerCase();
-};
 
 // 生成博物馆详情页的路由路径
 export const generateMuseumRoute = (
@@ -95,4 +55,20 @@ export const generateMuseumRoute = (
 ): string => {
   const provinceEn = getProvinceEn(province);
   return `/museum/${provinceEn}/${museumId}`;
+};
+// 根据日期字符串派生活动状态
+export const deriveStatus = (
+  dateStr: string,
+): 'upcoming' | 'ongoing' | 'ended' => {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const parts = dateStr.split(' 至 ').map((s) => s.trim());
+  const startDate = new Date(parts[0]);
+  const endDate = parts[1] ? new Date(parts[1]) : new Date(startDate);
+  if (isNaN(startDate.getTime())) return 'ongoing';
+  startDate.setHours(0, 0, 0, 0);
+  endDate.setHours(23, 59, 59, 999);
+  if (today < startDate) return 'upcoming';
+  if (today > endDate) return 'ended';
+  return 'ongoing';
 };

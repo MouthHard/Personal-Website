@@ -2,16 +2,18 @@
   <div class="artifact-sidebar">
     <div class="sidebar-content">
       <!-- 搜索框 -->
-      <div class="search-container">
-        <input
-          v-model="searchKeyword"
-          type="text"
-          placeholder="搜索文物名称..."
-          class="search-input"
-        />
-        <button class="search-btn">
-          <SearchIcon />
-        </button>
+      <ArtifactSearchBox
+        :artifacts="artifacts"
+        v-model="searchKeyword"
+        @search="handleSearch"
+      />
+
+      <!-- 搜索结果计数 -->
+      <div v-if="searchKeyword || hasActiveFilter" class="result-count">
+        <span class="count-icon"><TargetIcon /></span>
+        <span class="count-text">
+          找到 <strong>{{ resultCount }}</strong> 件文物
+        </span>
       </div>
 
       <!-- 筛选区域 -->
@@ -61,31 +63,34 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, watch } from 'vue';
-  import { artifactTypes, periods } from '@/pages/Museum/constants/artifactFilters';
-  import { SearchIcon } from "@/pages/Museum/icon/pages/ArtifactContainer";
+  import { ref, watch, computed } from 'vue';
+  import type { Artifact } from '@/typesOfPages/museum';
+  import { artifactTypes, periods } from '@/constants/museum/artifactFilters';
+  import { TargetIcon } from '@/pages/Museum/icons/common';
+  import ArtifactSearchBox from './components/ArtifactSearchBox/index.vue';
 
-  // 定义 Props
   interface Props {
+    artifacts: Artifact[];
     modelSelectedTypes?: string;
     modelSelectedPeriods?: string;
     modelSearchKeyword?: string;
+    resultCount?: number;
   }
 
   const props = withDefaults(defineProps<Props>(), {
     modelSelectedTypes: '',
     modelSelectedPeriods: '',
     modelSearchKeyword: '',
+    resultCount: 0,
   });
 
-  // 定义 Emits
   const emit = defineEmits<{
     (e: 'update:modelSelectedTypes', value: string): void;
     (e: 'update:modelSelectedPeriods', value: string): void;
     (e: 'update:modelSearchKeyword', value: string): void;
+    (e: 'search', value: string): void;
   }>();
 
-  // 本地状态
   const selectedTypes = ref<string>(
     props.modelSelectedTypes || artifactTypes[0]?.value || '',
   );
@@ -94,7 +99,13 @@
   );
   const searchKeyword = ref<string>(props.modelSearchKeyword);
 
-  // 监听 props 变化
+  const hasActiveFilter = computed(() => {
+    return (
+      (selectedTypes.value && selectedTypes.value !== 'all') ||
+      (selectedPeriods.value && selectedPeriods.value !== 'all')
+    );
+  });
+
   watch(
     () => props.modelSelectedTypes,
     (newVal) => {
@@ -116,7 +127,6 @@
     },
   );
 
-  // 监听本地状态变化并触发 emit
   watch(selectedTypes, (newVal) => {
     emit('update:modelSelectedTypes', newVal);
   });
@@ -129,14 +139,16 @@
     emit('update:modelSearchKeyword', newVal);
   });
 
-  // 切换类型选择
   const toggleType = (type: string) => {
     selectedTypes.value = selectedTypes.value === type ? '' : type;
   };
 
-  // 切换年代选择
   const togglePeriod = (period: string) => {
     selectedPeriods.value = selectedPeriods.value === period ? '' : period;
+  };
+
+  const handleSearch = (keyword: string) => {
+    emit('search', keyword);
   };
 </script>
 

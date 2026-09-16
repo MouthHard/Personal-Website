@@ -76,13 +76,15 @@
 
 <script setup lang="ts">
   import { ProvinceSidebarBack } from '@/pages/TravelGuide/icons/common/index';
+  import type { Component } from 'vue';
+  import type { Province } from '@/typesOfPages/travelGuide';
 
   const props = defineProps<{
-    provinceSelectorIcon: any;
+    provinceSelectorIcon: Component;
     searchQuery: string;
     selectedRegion: string;
     regions: string[];
-    filteredProvinces: any[];
+    filteredProvinces: Province[];
     selectedProvinceId: string;
   }>();
 

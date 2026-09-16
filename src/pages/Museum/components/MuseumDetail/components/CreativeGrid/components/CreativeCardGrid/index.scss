@@ -55,6 +55,64 @@
   }
 }
 
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 2rem;
+  text-align: center;
+  animation: fadeInEmpty 0.6s ease-out;
+
+  .empty-icon {
+    color: rgba(139, 90, 43, 0.4);
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+    animation: floatIcon 3s ease-in-out infinite;
+
+    svg {
+      width: 64px;
+      height: 64px;
+    }
+  }
+
+  .empty-title {
+    font-size: 1.6rem;
+    color: #5b2803;
+    margin: 0 0 0.75rem 0;
+    font-family: 'FangSong', 'STFangsong', serif;
+    letter-spacing: 0.1em;
+  }
+
+  .empty-description {
+    font-size: 1rem;
+    color: #8a6a3a;
+    max-width: 360px;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+@keyframes fadeInEmpty {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatIcon {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
 .creative-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -210,6 +268,14 @@
         border-radius: 0 0 12px 12px;
         box-shadow: 0 -6px 12px rgba(0, 0, 0, 1);
 
+        .creative-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 1rem;
+          margin-bottom: 0.5rem;
+        }
+
         .creative-category {
           display: inline-block;
           padding: 0.5rem 0.75rem;
@@ -239,6 +305,142 @@
           overflow: hidden;
         }
 
+        .action-buttons {
+            display: flex;
+            gap: 0.6rem;
+            align-items: center;
+
+            .action-btn {
+              width: 34px;
+              height: 34px;
+              border-radius: 50%;
+              border: none;
+              cursor: pointer;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+              padding: 0;
+              position: relative;
+              overflow: hidden;
+
+              svg {
+                width: 16px;
+                height: 16px;
+                stroke: white;
+                stroke-width: 2;
+                position: relative;
+                z-index: 2;
+                transition: all 0.35s ease;
+              }
+
+              &::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                border-radius: 50%;
+                background: radial-gradient(
+                  circle at 30% 25%,
+                  rgba(255, 255, 255, 0.55) 0%,
+                  rgba(255, 255, 255, 0) 55%
+                );
+                pointer-events: none;
+                z-index: 1;
+              }
+
+              &::after {
+                content: '';
+                position: absolute;
+                inset: -4px;
+                border-radius: 50%;
+                background: transparent;
+                pointer-events: none;
+                transition: all 0.35s ease;
+              }
+
+              &:hover {
+                transform: scale(1.15) translateY(-2px);
+                filter: brightness(1.12);
+              }
+
+              &:active {
+                transform: scale(0.92);
+              }
+
+              &.active {
+                background: #0a0a0a !important;
+                box-shadow:
+                  0 0 0 2px rgba(255, 255, 255, 0.15),
+                  0 4px 14px rgba(0, 0, 0, 0.85),
+                  inset 0 2px 4px rgba(255, 255, 255, 0.12),
+                  inset 0 -2px 4px rgba(0, 0, 0, 0.6);
+
+                &::before {
+                  background: radial-gradient(
+                    circle at 30% 25%,
+                    rgba(255, 255, 255, 0.7) 0%,
+                    rgba(255, 255, 255, 0) 60%
+                  );
+                }
+
+                svg {
+                  stroke: none;
+                  filter: drop-shadow(0 0 6px currentColor);
+                }
+              }
+            }
+
+            .like-btn {
+              background: linear-gradient(135deg, #f4a460, #ff8c00);
+              box-shadow:
+                0 3px 8px rgba(255, 140, 0, 0.6),
+                inset 0 1px 2px rgba(255, 255, 255, 0.4);
+
+              &:hover {
+                box-shadow:
+                  0 0 14px rgba(255, 140, 0, 0.85),
+                  0 4px 12px rgba(255, 140, 0, 0.5);
+              }
+
+              &.active svg {
+                color: #ff8c00;
+                fill: #ff8c00;
+              }
+            }
+
+
+            .star-btn {
+              background: linear-gradient(135deg, #d4a017, #f0c419);
+              box-shadow:
+                0 3px 8px rgba(212, 160, 23, 0.6),
+                inset 0 1px 2px rgba(255, 255, 255, 0.4);
+
+              &:hover {
+                box-shadow:
+                  0 0 14px rgba(240, 196, 25, 0.85),
+                  0 4px 12px rgba(212, 160, 23, 0.5);
+              }
+
+              &.active svg {
+                color: #f0c419;
+                fill: #f0c419;
+              }
+            }
+
+            .share-btn {
+              background: linear-gradient(135deg, #4682b4, #5f9ea0);
+              box-shadow:
+                0 3px 8px rgba(70, 130, 180, 0.6),
+                inset 0 1px 2px rgba(255, 255, 255, 0.4);
+
+              &:hover {
+                box-shadow:
+                  0 0 14px rgba(70, 130, 180, 0.85),
+                  0 4px 12px rgba(70, 130, 180, 0.5);
+              }
+            }
+          }
+
         .creative-footer {
           display: flex;
           justify-content: space-between;
@@ -252,67 +454,6 @@
             margin: 0.5rem;
           }
 
-          .action-buttons {
-            display: flex;
-            gap: 0.5rem;
-            align-items: center;
-
-            .action-btn {
-              width: 32px;
-              height: 32px;
-              border-radius: 50%;
-              border: none;
-              cursor: pointer;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              transition: all 0.3s ease;
-              padding: 0;
-
-              svg {
-                width: 16px;
-                height: 16px;
-                stroke: white;
-                stroke-width: 2;
-              }
-
-              &:hover {
-                transform: scale(1.1);
-              }
-
-              &:active {
-                transform: scale(0.95);
-              }
-            }
-
-            .like-btn {
-              background: linear-gradient(135deg, #f4a460, #ff8c00);
-              box-shadow: 0 2px 6px rgba(255, 140, 0, 1);
-
-              &:hover {
-                box-shadow: 0 2px 6px rgb(0, 0, 0);
-              }
-            }
-
-            .star-btn {
-              background: linear-gradient(135deg, #8b4513, #a0522d);
-              box-shadow: 0 2px 6px rgba(139, 69, 19, 1);
-
-              &:hover {
-                box-shadow: 0 2px 6px rgb(0, 0, 0);
-              }
-            }
-
-            .share-btn {
-              background: linear-gradient(135deg, #4682b4, #5f9ea0);
-              box-shadow: 0 2px 6px rgba(70, 130, 180, 1);
-
-              &:hover {
-                box-shadow: 0 2px 6px rgb(0, 0, 0);
-              }
-            }
-          }
-
           .buy-btn {
             padding: 0.5rem 1rem;
             background: linear-gradient(45deg, #883a02, #c67e5d, #8b3113);
@@ -322,6 +463,7 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
+            white-space: nowrap;
 
             &:hover {
               background: #943306;

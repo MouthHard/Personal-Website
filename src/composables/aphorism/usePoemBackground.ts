@@ -6,18 +6,12 @@
  */
 import type { Poem } from '@/typesOfPages/aphorism/poem';
 
-const IMAGE_NAMES = [
-  'A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8',
-  'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
-  'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U',
-  'V', 'W', 'X', 'Y', 'Z', 'image',
-];
+const OSS_BASE = 'https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/aphorism';
+const POOL_SIZE = 37;
 
-/** 模块级缓存：所有卡片实例共享同一份 URL 列表 */
-const ALL_IMAGE_URLS: string[] = IMAGE_NAMES.map(
-  (name) =>
-    new URL(`../../assets/image/PoemPic/${name}.webp`, import.meta.url).href,
-);
+export function poolImage(index: number): string {
+  return `${OSS_BASE}/${((index % POOL_SIZE) + POOL_SIZE) % POOL_SIZE}.webp`;
+}
 
 /** 根据字符串 id 计算哈希值 */
 const hashCode = (id: string | number): number => {
@@ -41,7 +35,5 @@ export function usePoemBackground(poem: Poem) {
 
 /** 轻量版：仅根据 id 字符串获取背景图（无需完整 Poem 对象） */
 export function getBackgroundUrl(id: string | number): string {
-  if (ALL_IMAGE_URLS.length === 0) return '';
-  const index = hashCode(id) % ALL_IMAGE_URLS.length;
-  return ALL_IMAGE_URLS[index];
+  return poolImage(hashCode(id));
 }

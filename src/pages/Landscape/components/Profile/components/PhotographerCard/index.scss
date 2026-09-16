@@ -599,19 +599,6 @@ $gold: rgba(215, 180, 110, 1);
             }
           }
 
-          .work-badge {
-            position: absolute;
-            top: 4px;
-            left: 4px;
-            padding: 2px 6px;
-            background: rgba(20,184,166,0.85);
-            border-radius: 2px;
-            font-size: 8.5px;
-            font-weight: 800;
-            color: #fff;
-            letter-spacing: 0.5px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-          }
 
           .work-more {
             position: absolute;
@@ -735,10 +722,6 @@ $gold: rgba(215, 180, 110, 1);
         animation: like-pop 0.4s ease;
       }
 
-      .bookmark-btn.bookmarked {
-        color: $gold;
-        svg { color: $gold; }
-      }
     }
   }
 }

@@ -60,9 +60,10 @@
   import { LocationIcon, StarsAnimation } from '@/pages/TravelGuide/icons/pages/scenery/index.ts';
   import { HeartIcon } from '@/pages/TravelGuide/icons/pages/food/index.ts';
   import { ShareIcon } from '@/pages/TravelGuide/icons/common/index';
+  import type { ScenerySpot } from '@/typesOfPages/travelGuide';
 
   const props = defineProps<{
-    spots: any[];
+    spots: ScenerySpot[];
   }>();
 
   const emit = defineEmits<{

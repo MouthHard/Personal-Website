@@ -241,7 +241,7 @@
       '12月',
     ];
 
-    const grouped: any = {};
+    const grouped: Record<string, any[]> = {};
 
     props.festivals.forEach((festival: any) => {
       const month = festival.month;

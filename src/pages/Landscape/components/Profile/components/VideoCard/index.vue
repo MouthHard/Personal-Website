@@ -132,8 +132,8 @@
             <span class="gauge-label">播放</span>
           </div>
           <div class="gauge-sep"></div>
-          <div class="gauge">
-            <ThumbUpIcon />
+          <div class="gauge" :class="{ 'is-liked': isLiked }">
+            <ThumbUpIcon :filled="isLiked" />
             <span class="gauge-val">{{ formatCount(getCounts().likes) }}</span>
             <span class="gauge-label">点赞</span>
           </div>
@@ -200,11 +200,7 @@
       <div class="tripod-mount"></div>
       <div class="battery-compartment">
         <span class="bat-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="2" y="7" width="18" height="10" rx="2"/>
-            <line x1="22" y1="10" x2="22" y2="14"/>
-            <rect x="4" y="9" width="6" height="6" fill="currentColor" stroke="none"/>
-          </svg>
+          <BatteryIcon />
         </span>
       </div>
     </div>
@@ -219,15 +215,16 @@ import { showMessage } from '@/utils/landscape';
 import type { VideoItem } from '@/typesOfPages/landscape';
 import { useFormatNumber } from '@/composables/landscape';
 import { useInteractionStore } from '@/stores/landscape';
-import PlayIcon from '@/pages/Landscape/icon/common/PlayIcon.vue';
-import UserIcon from '@/pages/Landscape/icon/common/UserIcon.vue';
-import EyeIcon from '@/pages/Landscape/icon/common/EyeIcon.vue';
-import ThumbUpIcon from '@/pages/Landscape/icon/common/ThumbUpIcon.vue';
-import HeartIcon from '@/pages/Landscape/icon/common/HeartIcon.vue';
-import BookmarkIcon from '@/pages/Landscape/icon/common/BookmarkIcon.vue';
-import CommentIcon from '@/pages/Landscape/icon/components/profile/VideoCard/CommentIcon.vue';
-import ShareIcon from '@/pages/Landscape/icon/common/ShareIcon.vue';
-import ArrowRightIcon from '@/pages/Landscape/icon/common/ArrowRightIcon.vue';
+import PlayIcon from '@/pages/Landscape/icons/common/PlayIcon.vue';
+import UserIcon from '@/pages/Landscape/icons/common/UserIcon.vue';
+import EyeIcon from '@/pages/Landscape/icons/common/EyeIcon.vue';
+import ThumbUpIcon from '@/pages/Landscape/icons/common/ThumbUpIcon.vue';
+import HeartIcon from '@/pages/Landscape/icons/common/HeartIcon.vue';
+import BookmarkIcon from '@/pages/Landscape/icons/common/BookmarkIcon.vue';
+import CommentIcon from '@/pages/Landscape/icons/components/profile/VideoCard/CommentIcon.vue';
+import BatteryIcon from '@/pages/Landscape/icons/components/profile/VideoCard/BatteryIcon.vue';
+import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue';
+import ArrowRightIcon from '@/pages/Landscape/icons/common/ArrowRightIcon.vue';
 
 const props = defineProps<{
   item: VideoItem;

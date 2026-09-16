@@ -5,7 +5,7 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  background-image: url('@/assets/image/Museum/MapBg.webp');
+  background-image: url('https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/museum/home/MapBg.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -78,7 +78,14 @@
     border: 1px solid rgba(30, 144, 255, 1);
 
     .title-icon {
+      display: inline-flex;
+      align-items: center;
       margin-right: 0.5rem;
+
+      svg {
+        width: 24px;
+        height: 24px;
+      }
     }
   }
 

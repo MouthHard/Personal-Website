@@ -36,10 +36,25 @@
           @toggle-favorite="toggleFavorite"
         />
         <div v-else class="empty-state">
-          <div class="empty-icon">🔍</div>
-          <h3>未找到相关内容</h3>
-          <p>尝试调整筛选条件或切换分类</p>
-          <button class="reset-btn" @click="resetFilters">重置筛选</button>
+          <div class="empty-card">
+            <div class="empty-illustration">
+              <EmptyIllustrationIcon />
+            </div>
+            <div class="empty-content">
+              <h3>未找到相关内容</h3>
+              <p>尝试调整筛选条件或切换分类探索更多</p>
+              <div class="empty-actions">
+                <button class="reset-btn" @click="resetFilters">
+                  <RefreshIcon :stroke-width="2" />
+                  <span>重置筛选</span>
+                </button>
+                <button class="explore-btn" @click="clearSearch">
+                  <CloseIcon :stroke-width="2" />
+                  <span>清除搜索</span>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -70,12 +85,15 @@
   import { showMessage, createSimpleInteractionItem } from '@/utils/landscape';
   import { useCategoryFilter } from '@/composables/landscape/category';
   import type { LandscapeItem } from '@/typesOfPages/landscape';
-  import { categoryGroups } from '@/utils/landscape/categories';
+  import { categoryGroups } from '@/constants/landscape/categories';
   import CategorySidebar from './components/CategorySidebar/index.vue';
   import FilterHeader from './components/FilterHeader/index.vue';
   import ResultGrid from './components/ResultGrid/index.vue';
   import FeaturedSidebar from './components/FeaturedSidebar/index.vue';
   import CategoryDetailModal from './components/CategoryDetailModal/index.vue';
+  import EmptyIllustrationIcon from '@/pages/Landscape/icons/components/category/Category/EmptyIllustrationIcon.vue';
+  import RefreshIcon from '@/pages/Landscape/icons/components/category/Category/RefreshIcon.vue';
+  import CloseIcon from '@/pages/Landscape/icons/common/CloseIcon.vue';
 
   interface Props {
     items: LandscapeItem[];
@@ -204,6 +222,11 @@
         }
       }
     }
+  };
+
+
+  const clearSearch = () => {
+    emit('update:searchQuery', '');
   };
 
   onMounted(() => {

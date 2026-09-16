@@ -78,13 +78,13 @@
 <script setup lang="ts">
 import { type CSSProperties } from 'vue';
 import { formatNumber } from '@/utils/landscape/format';
-import PlayIcon from '@/pages/Landscape/icon/common/PlayIcon.vue';
-import EyeIcon from '@/pages/Landscape/icon/common/EyeIcon.vue';
-import ThumbUpIcon from '@/pages/Landscape/icon/common/ThumbUpIcon.vue';
-import HeartIcon from '@/pages/Landscape/icon/common/HeartIcon.vue';
-import BookmarkIcon from '@/pages/Landscape/icon/common/BookmarkIcon.vue';
-import ShareIcon from '@/pages/Landscape/icon/common/ShareIcon.vue';
-import DownloadIcon from '@/pages/Landscape/icon/common/DownloadIcon.vue';
+import PlayIcon from '@/pages/Landscape/icons/common/PlayIcon.vue';
+import EyeIcon from '@/pages/Landscape/icons/common/EyeIcon.vue';
+import ThumbUpIcon from '@/pages/Landscape/icons/common/ThumbUpIcon.vue';
+import HeartIcon from '@/pages/Landscape/icons/common/HeartIcon.vue';
+import BookmarkIcon from '@/pages/Landscape/icons/common/BookmarkIcon.vue';
+import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue';
+import DownloadIcon from '@/pages/Landscape/icons/common/DownloadIcon.vue';
 
 interface Video {
   id: string | number;

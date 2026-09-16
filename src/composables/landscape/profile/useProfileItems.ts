@@ -1,5 +1,6 @@
 import { computed, type Ref } from 'vue';
 import { useInteractionStore } from '@/stores/landscape';
+import type { InteractionItem } from '@/typesOfPages/landscape';
 import type { ProfileItem, DisplayCounts } from './types';
 import { useProfileTransform } from './useProfileTransform';
 
@@ -20,7 +21,7 @@ export function useProfileItems(
     transformVideoData,
   } = useProfileTransform();
 
-  const getDisplayCount = (item: any): DisplayCounts => {
+  const getDisplayCount = (item: InteractionItem): DisplayCounts => {
     const c = interactionStore.getCount(item.id);
     return {
       likes: c.likes,
@@ -32,7 +33,7 @@ export function useProfileItems(
   };
 
   const processItemByType = (
-    item: any,
+    item: InteractionItem,
     prefix: string,
     gi: { value: number }
   ): ProfileItem[] => {
@@ -98,8 +99,8 @@ export function useProfileItems(
     const prefix = type === 'favorites' ? 'fav' : 'love';
 
     const itemsData = type === 'favorites'
-      ? interactionStore.getFavoritesByType(selectedCategory.value as any)
-      : interactionStore.getLovesByType(selectedCategory.value as any);
+      ? interactionStore.getFavoritesByType(selectedCategory.value as InteractionItem['type'])
+      : interactionStore.getLovesByType(selectedCategory.value as InteractionItem['type']);
 
     for (const item of itemsData) {
       items.push(...processItemByType(item, prefix, gi));
@@ -109,37 +110,7 @@ export function useProfileItems(
   };
 
   const processUploadsItems = (): ProfileItem[] => {
-    const items: ProfileItem[] = [];
-    const gi = { value: 0 };
-
-    const filteredImages = selectedCategory.value !== 'image' ? [] : images.value;
-    const filteredVideos = selectedCategory.value !== 'video' ? [] : videos.value;
-    const filteredPhotographers = selectedCategory.value !== 'photographer' ? [] : photographers.value;
-    const filteredGuides = selectedCategory.value !== 'guide' ? [] : guides.value;
-
-    for (const item of filteredImages) {
-      const displayCounts = getDisplayCount(item);
-      const baseData = createBaseData(item, displayCounts);
-      const itemWithType = { ...item, type: 'image' };
-      items.push({ type: 'image', data: transformImageData(itemWithType, baseData), id: `img-${item.id}`, globalIndex: gi.value++ });
-    }
-    for (const item of filteredVideos) {
-      const displayCounts = getDisplayCount(item);
-      const baseData = createBaseData(item, displayCounts);
-      const itemWithType = { ...item, type: 'video' };
-      items.push({ type: 'video', data: transformVideoData(itemWithType, baseData), id: `vid-${item.id}`, globalIndex: gi.value++ });
-    }
-    for (const item of filteredPhotographers) {
-      items.push({ type: 'photographer', data: transformPhotographerData(item), id: `pho-${item.id}`, globalIndex: gi.value++ });
-    }
-    for (const item of filteredGuides) {
-      const displayCounts = getDisplayCount(item);
-      const baseData = createBaseData(item, displayCounts);
-      const itemWithType = { ...item, type: 'guide' };
-      items.push({ type: 'guide', data: transformGuideData(itemWithType, baseData), id: `gui-${item.id}`, globalIndex: gi.value++ });
-    }
-
-    return items;
+    return [];
   };
 
   const allItems = computed((): ProfileItem[] => {

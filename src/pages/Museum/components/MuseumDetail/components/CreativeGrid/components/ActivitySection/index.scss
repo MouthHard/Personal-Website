@@ -3,7 +3,7 @@
   box-sizing: border-box;
   margin: 30px auto;
   padding: 24px;
-  background: url('@/assets/image/Museum/CreativeActivityBg.webp') center center;
+  background: url('https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/museum/home/CreativeActivityBg.webp') center center;
   background-size: cover;
   border-radius: 20px;
   box-shadow:
@@ -13,6 +13,49 @@
     inset 0 -5px 5px rgba(0, 0, 0, 1);
   overflow: hidden;
   position: relative;
+
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 2rem;
+    text-align: center;
+
+    .empty-icon {
+      color: rgba(180, 180, 220, 0.5);
+      margin-bottom: 1.5rem;
+      filter: drop-shadow(0 4px 12px rgba(120, 119, 198, 0.3));
+      animation: floatIcon 3s ease-in-out infinite;
+
+      svg {
+        width: 64px;
+        height: 64px;
+      }
+    }
+
+    .empty-title {
+      font-size: 1.6rem;
+      color: #e0e0ff;
+      margin: 0 0 0.75rem 0;
+      font-family: 'FangSong', 'STFangsong', serif;
+      letter-spacing: 0.1em;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .empty-description {
+      font-size: 1rem;
+      color: #a0a0c0;
+      max-width: 360px;
+      line-height: 1.6;
+      margin: 0;
+    }
+  }
+
+  @keyframes floatIcon {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-10px); }
+  }
 
   .section-header {
     text-align: center;
@@ -28,6 +71,16 @@
     box-shadow: 0 2px 4px rgb(2, 51, 71);
     border-radius: 15px;
     margin: 0 auto 1rem auto;
+
+    .title-icon {
+      display: inline-flex;
+      align-items: center;
+
+      svg {
+        width: 32px;
+        height: 32px;
+      }
+    }
   }
 
   .carousel-wrapper {
@@ -202,21 +255,45 @@
                   border: 1px solid rgba(150, 227, 255, 0.3);
                 }
 
-                .live-badge {
+                .status-badge {
                   align-self: flex-end;
                   display: flex;
                   align-items: center;
                   gap: 6px;
                   padding: 6px 14px;
-                  background: linear-gradient(145deg, #d87c3e, #c0392b);
                   border-radius: 16px;
                   font-size: 0.8rem;
                   font-weight: 600;
                   color: white;
-                  animation: pulse 2s infinite;
                   box-shadow:
-                    0 2px 8px rgb(149, 17, 5),
+                    0 2px 8px rgba(0, 0, 0, 1),
                     inset 0 1px 1px rgba(255, 255, 255, 1);
+
+                  &.ongoing {
+                    background: linear-gradient(145deg, #d87c3e, #c0392b);
+                    animation: pulse 2s infinite;
+
+                    .status-dot {
+                      display: inline-block;
+                      width: 8px;
+                      height: 8px;
+                      border-radius: 50%;
+                      background: #ff0;
+                      box-shadow: 0 0 8px #ff0;
+                      animation: dotBlink 1s infinite;
+                    }
+                  }
+
+                  &.upcoming {
+                    background: linear-gradient(145deg, #1a6fff, #0046b8);
+                    border: 1px solid rgba(100, 180, 255, 0.5);
+                  }
+
+                  &.ended {
+                    background: linear-gradient(145deg, #555, #333);
+                    color: rgba(255, 255, 255, 0.6);
+                    border: 1px solid rgba(255, 255, 255, 0.15);
+                  }
                 }
               }
             }
@@ -258,7 +335,13 @@
                   box-shadow: inset 0 0 7px rgb(164, 47, 0);
                   border: 1px solid rgba(124, 74, 23, 0.3);
                   .meta-icon {
-                    font-size: 0.9rem;
+                    display: inline-flex;
+                    align-items: center;
+
+                    svg {
+                      width: 14px;
+                      height: 14px;
+                    }
                   }
                 }
               }
@@ -335,6 +418,11 @@
                   align-items: center;
                   justify-content: center;
 
+                  svg {
+                    width: 16px;
+                    height: 16px;
+                  }
+
                   &:hover {
                     transform: translateY(-2px);
 
@@ -350,24 +438,78 @@
                       inset 0 1px 2px rgba(0, 0, 0, 0.1);
                   }
 
-                  &.favorite {
-                    &.active {
-                      background: linear-gradient(145deg, #d84a3e, #c0392b);
-                      color: white;
+                  &.like-btn {
+                    &:hover {
+                      background: linear-gradient(145deg, #fff8f0, #ffd699);
                       box-shadow:
-                        0 2px 8px rgba(216, 74, 62, 0.3),
-                        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+                        0 0 12px rgba(255, 140, 0, 0.5),
+                        0 4px 10px rgba(139, 69, 19, 0.2),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.8);
 
                       svg {
-                        fill: white;
+                        fill: #ff8c00;
+                        stroke: #ff8c00;
+                      }
+                    }
+
+                    &.active {
+                      background: #0a0a0a;
+                      box-shadow:
+                        0 0 0 2px rgba(255, 255, 255, 0.15),
+                        0 4px 14px rgba(0, 0, 0, 0.85),
+                        inset 0 2px 4px rgba(255, 255, 255, 0.12),
+                        inset 0 -2px 4px rgba(0, 0, 0, 0.6);
+
+                      svg {
+                        fill: #ff8c00;
+                        color: #ff8c00;
+                        filter: drop-shadow(0 0 6px #ff8c00);
                       }
                     }
                   }
 
-                  &.share {
+                  &.star-btn {
+                    &:hover {
+                      background: linear-gradient(145deg, #fff8f0, #ffe9a8);
+                      box-shadow:
+                        0 0 12px rgba(240, 196, 25, 0.5),
+                        0 4px 10px rgba(139, 69, 19, 0.2),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+
+                      svg {
+                        fill: #f0c419;
+                        stroke: #f0c419;
+                      }
+                    }
+
+                    &.active {
+                      background: #0a0a0a;
+                      box-shadow:
+                        0 0 0 2px rgba(255, 255, 255, 0.15),
+                        0 4px 14px rgba(0, 0, 0, 0.85),
+                        inset 0 2px 4px rgba(255, 255, 255, 0.12),
+                        inset 0 -2px 4px rgba(0, 0, 0, 0.6);
+
+                      svg {
+                        fill: #f0c419;
+                        color: #f0c419;
+                        filter: drop-shadow(0 0 6px #f0c419);
+                      }
+                    }
+                  }
+
+                  &.share-btn {
                     &:hover {
                       background: linear-gradient(145deg, #e67e22, #d35400);
                       color: white;
+                      box-shadow:
+                        0 0 12px rgba(230, 126, 34, 0.5),
+                        0 4px 10px rgba(139, 69, 19, 0.2);
+
+                      svg {
+                        fill: white;
+                        stroke: white;
+                      }
                     }
                   }
                 }
@@ -474,7 +616,7 @@
     box-sizing: border-box;
 
     .indicator {
-      padding: 12px 24px;
+      padding: 8px 16px;
       box-shadow: 0 0 4px rgb(182, 225, 248);
       border-radius: 20px;
       border: none;
@@ -482,10 +624,7 @@
       cursor: pointer;
       transition: all 0.3s ease;
 
-      svg {
-        fill: #ffffff;
-        transition: all 0.3s ease;
-      }
+ 
 
       &:hover {
         box-shadow: 0 0 4px 2px rgb(255, 0, 0);
@@ -516,5 +655,15 @@
 
   50% {
     opacity: 0.6;
+  }
+}
+@keyframes dotBlink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.3;
   }
 }

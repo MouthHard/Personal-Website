@@ -40,6 +40,7 @@
 
 <script setup lang="ts">
 import { computed, ref, watch } from "vue";
+import type { SceneryData, ScenerySpot } from "@/typesOfPages/travelGuide";
 import { landscapeTypes } from "../../../data/scenery.ts";
 import { loadSceneryData } from "../../../data/dataLoader.ts";
 import SearchFilterSection from "./search-filter-section/index.vue";
@@ -51,7 +52,7 @@ const props = defineProps<{
 
 const searchQuery = ref("");
 const selectedLandscapeType = ref("");
-const sceneryData = ref<any>(null);
+const sceneryData = ref<SceneryData | null>(null);
 
 const provinceScenery = computed(() => {
   return sceneryData.value || { spots: [] };
@@ -59,7 +60,7 @@ const provinceScenery = computed(() => {
 
 const natureSpots = computed(() => {
   return provinceScenery.value.spots.filter(
-    (spot: any) => spot.type === "nature",
+    (spot: ScenerySpot) => spot.type === "nature",
   );
 });
 const getSubTypes = (mainTypeValue: string) => {
@@ -76,7 +77,7 @@ const filteredSpots = computed(() => {
   if (searchQuery.value) {
     const query = searchQuery.value.toLowerCase();
     spots = spots.filter(
-      (spot: any) =>
+      (spot: ScenerySpot) =>
         spot.name.toLowerCase().includes(query) ||
         spot.description.toLowerCase().includes(query) ||
         spot.location.toLowerCase().includes(query),
@@ -86,7 +87,7 @@ const filteredSpots = computed(() => {
   if (selectedLandscapeType.value) {
     const subTypes = getSubTypes(selectedLandscapeType.value);
     spots = spots.filter(
-      (spot: any) =>
+      (spot: ScenerySpot) =>
         spot.landscapeType && subTypes.includes(spot.landscapeType),
     );
   }
@@ -98,7 +99,7 @@ const getTypeCount = (type: string) => {
   if (!type) return natureSpots.value.length;
   const subTypes = getSubTypes(type);
   return natureSpots.value.filter(
-    (spot: any) => spot.landscapeType && subTypes.includes(spot.landscapeType),
+    (spot: ScenerySpot) => spot.landscapeType && subTypes.includes(spot.landscapeType),
   ).length;
 };
 
@@ -125,7 +126,7 @@ const clearAllFilters = () => {
 };
 
 const toggleFavorite = (spotId: string) => {
-  console.log("Toggle favorite:", spotId);
+ 
 };
 </script>
 

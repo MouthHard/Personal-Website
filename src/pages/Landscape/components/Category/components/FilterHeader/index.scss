@@ -231,13 +231,11 @@ $filter-blue-dark: #1e3a5f;
             }
           }
 
-          .history-list,
           .recommend-list {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
 
-            .history-item,
             .recommend-item {
               display: flex;
               align-items: center;
@@ -295,21 +293,7 @@ $filter-blue-dark: #1e3a5f;
         font-weight: 700;
         color: #fff;
         margin: 0 0 0.2rem;
-        position: relative;
-        display: inline-block;
         text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-
-        &::after {
-          content: '';
-          position: absolute;
-          bottom: -2px;
-          left: 0;
-          width: 100%;
-          height: 2px;
-          background: linear-gradient(90deg, $filter-red, rgba($filter-red, 0.3), transparent);
-          border-radius: 1px;
-          box-shadow: 0 0 8px rgba($filter-red, 0.3);
-        }
       }
 
       .result-count {
@@ -351,8 +335,14 @@ $filter-blue-dark: #1e3a5f;
             position: relative;
 
             .mt-icon {
-              font-size: 0.9rem;
+              display: flex;
+              align-items: center;
               line-height: 1;
+
+              svg {
+                width: 16px;
+                height: 16px;
+              }
             }
 
             &:hover {
@@ -408,9 +398,15 @@ $filter-blue-dark: #1e3a5f;
             position: relative;
 
             .chip-icon {
-              font-size: 0.9rem;
+              display: flex;
+              align-items: center;
               line-height: 1;
               transition: transform 0.3s ease;
+
+              svg {
+                width: 15px;
+                height: 15px;
+              }
             }
 
             &:hover {
@@ -446,12 +442,3 @@ $filter-blue-dark: #1e3a5f;
   }
 }
 
-@keyframes shimmer {
-  0% {
-    transform: translateX(-100%);
-  }
-
-  100% {
-    transform: translateX(100%);
-  }
-}

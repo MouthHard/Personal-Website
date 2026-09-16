@@ -160,7 +160,7 @@ const handlePlaySong = (song: Song) => {
 };
 
 const handlePlaylistClick = (playlist: MyPlaylist) => {
-  console.log('Playlist clicked:', playlist.name);
+  // 播放列表点击处理
 };
 </script>
 

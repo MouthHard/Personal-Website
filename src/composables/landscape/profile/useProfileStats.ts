@@ -1,10 +1,10 @@
 import { computed, h } from 'vue';
 import { useInteractionStore } from '@/stores/landscape';
 import { formatNumber } from '@/utils/landscape';
-import UserPlusIcon from '@/pages/Landscape/icon/common/UserPlusIcon.vue';
-import BookmarkIcon from '@/pages/Landscape/icon/common/BookmarkIcon.vue';
-import HeartIcon from '@/pages/Landscape/icon/common/HeartIcon.vue';
-import EyeIcon from '@/pages/Landscape/icon/common/EyeIcon.vue';
+import UserPlusIcon from '@/pages/Landscape/icons/common/UserPlusIcon.vue';
+import BookmarkIcon from '@/pages/Landscape/icons/common/BookmarkIcon.vue';
+import HeartIcon from '@/pages/Landscape/icons/common/HeartIcon.vue';
+import EyeIcon from '@/pages/Landscape/icons/common/EyeIcon.vue';
 
 export function useProfileStats() {
   const interactionStore = useInteractionStore();

@@ -1,4 +1,4 @@
-<template>
+  <template>
   <div class="book-section">
     <div
       class="book"
@@ -11,8 +11,7 @@
       <div
         class="book-cover"
         @click="toggleBook"
-        @mouseenter="isCoverHovered = true"
-        @mouseleave="isCoverHovered = false"
+
       >
         <!-- 书签 - 放在封面内部，跟随封面一起翻转 -->
         <div class="book-bookmark">
@@ -228,9 +227,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from "vue";
-import { historicalEvents } from "../../../../data/events";
+import { computed, onMounted } from "vue";
+import { useHistoryStore } from "@/stores/history";
 import "./index.scss";
+
+const historyStore = useHistoryStore();
+onMounted(() => historyStore.ensureLoaded());
 
 const props = defineProps<{
   activeCategory: string;
@@ -245,7 +247,6 @@ const emit = defineEmits<{
   (e: "change-category", category: string): void;
 }>();
 
-const isCoverHovered = ref(false);
 
 const categories = [
   { id: "all", name: "全部", icon: "📚" },
@@ -263,9 +264,9 @@ const currentCategory = computed(() => {
 
 const filteredEvents = computed(() => {
   if (props.activeCategory === "all") {
-    return historicalEvents;
+    return historyStore.historicalEvents;
   }
-  return historicalEvents.filter(
+  return historyStore.historicalEvents.filter(
     (event) => event.category === props.activeCategory,
   );
 });

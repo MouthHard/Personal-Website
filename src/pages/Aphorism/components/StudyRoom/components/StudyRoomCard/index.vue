@@ -2,8 +2,8 @@
   <div class="studyroom-card" @click="handleClick">
     <div
       class="scroll-container"
-      :style="backgroundStyle"
     >
+      <img :src="backgroundImage" alt="" class="bg-img" loading="lazy" />
       <!-- 移除按钮 -->
       <button class="remove-btn" :class="typeClass" :title="removeTitle" @click.stop="handleRemove">
         <CloseIcon />
@@ -67,9 +67,6 @@ const previewLines = computed(() => props.poem.content.slice(0, 6));
 
 const { backgroundImage } = usePoemBackground(props.poem);
 
-const backgroundStyle = computed(() => ({
-  backgroundImage: `url('${backgroundImage}')`,
-}));
 
 // 类型相关
 const typeLabel = computed(() =>

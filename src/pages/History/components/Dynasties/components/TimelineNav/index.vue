@@ -50,7 +50,7 @@
 
 <script setup lang="ts">
   import { HistoryUtils } from '@/utils';
-  import { JadeIcon } from '@/pages/History/icons/index.ts';
+  import JadeIcon from '@/pages/History/icons/Heritage/JadeIcon.vue';
 
   interface Dynasty {
     id: string;
