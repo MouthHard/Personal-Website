@@ -2,7 +2,7 @@
 
 > PersonalWebsite（Vue 3 + Vite + TypeScript，GitHub Pages 托管）
 > 仓库：https://github.com/MouthHard/Personal-Website.git
-> 源码分支：`master` ｜ 部署分支：`gh-pages`（构建产物，不要手动改动）
+> 源码分支：`feat/update-site` ｜ 部署分支：`gh-pages`（构建产物，不要手动改动）
 
 ---
 
@@ -34,42 +34,50 @@ pages/ExamplePage/
 
 ---
 
-## 二、文件上传清单
+## 二、必须上传的文件清单
 
-### 必须上传
+> 以下为项目正常运行所需的全量文件，除此之外的文件均不应上传。
+> `.gitignore` 负责排除其余文件，提交前用 `git add --dry-run .` 检查。
 
-| 文件 / 目录 | 说明 |
+### 根目录配置文件
+
+| 文件 | 作用 |
 |---|---|
-| `src/` | 全部源代码 |
-| `public/` | 静态资源（`static-data/` JSON + `App/` 图片素材） |
-| `index.html` | Vite 入口 |
-| `package.json` / `package-lock.json` | 依赖与锁定 |
+| `index.html` | Vite 入口模板 |
+| `package.json` | 依赖与脚本（`deploy` 一键构建+发布） |
+| `package-lock.json` | 依赖版本锁定 |
 | `vite.config.ts` | 构建配置（含 `base: "/Personal-Website/"`） |
-| `tsconfig.json` / `tsconfig.node.json` | TS 配置 |
-| `.gitignore` / `.gitattributes` | Git 规则（UTF-8 + LF） |
-| `docs/` / `README.md` | 文档与说明 |
+| `tsconfig.json` | TypeScript 配置 |
+| `tsconfig.node.json` | Node 环境 TS 配置 |
+| `.gitignore` | Git 忽略规则 |
+| `.gitattributes` | 换行/编码规则（UTF-8 + LF） |
+| `.editorconfig` | 编辑器缩进/编码规范 |
+| `.eslintrc.cjs` | ESLint 代码规范 |
+| `.prettierrc` | Prettier 格式化规则 |
+| `README.md` | 仓库说明 |
 
-### 建议上传
+### 源代码与数据目录
 
-`.editorconfig`、`.eslintrc.cjs`、`.prettierrc`、`tests/`、`scripts/`
-
-### 禁止上传（已在 `.gitignore`）
-
-| 类别 | 内容 |
+| 目录 | 作用 |
 |---|---|
-| 依赖/产物 | `node_modules/`、`dist/`、`.vite/` |
-| 敏感文件 | `.env`、`*.pem`、`*.key`、`id_rsa*`、`config.js` |
-| 临时文件 | `*.log`、`temp/`、`tmp-*/`、`*.tar.gz`、`backup*/` |
-| 编辑器配置 | `.idea/`、`.vscode/` |
-| **AI 工具目录** | 见下表 |
+| `src/` | 全部源代码（页面、组件、路由、样式、图标） |
+| `public/` | 静态资源（`static-data/` JSON 数据 + 图片素材） |
+| `docs/` | 项目文档 |
+| `tests/` | 单元测试 |
+| `scripts/` | 数据生成/转换脚本 |
+| `types/vite-env.d.ts` | Vite 环境类型声明（手写，非自动生成） |
 
-### AI 工具目录（一律不上传）
+### AI 工具目录（禁止上传）
 
-| 目录 | 来源 |
-|---|---|
-| `.arts/` `.codeartsdoer/` `.scratchpad/` | 华为云 CodeArts |
-| `.codegraph/` `.workbuddy/` | CodeGraph / AI 助手 |
-| `.cursor/` `.claude/` `.cline/` `.windsurf/` `.codeium/` `.copilot/` `.continue/` `.aider/` `.specstory/` `.amp/` `.augment/` | 各 AI IDE |
+以下目录由 AI IDE/Agent 自动生成，均已写入 `.gitignore`：
+
+```
+.arts/  .codeartsdoer/  .codegraph/  .workbuddy/  .scratchpad/
+.cursor/  .claude/  .cline/  .windsurf/  .codeium/  .copilot/
+.continue/  .aider/  .specstory/  .amp/  .augment/
+```
+
+若误提交，用 `git rm -r --cached <目录>` 解除跟踪后重新推送。
 
 ---
 
@@ -79,11 +87,11 @@ pages/ExamplePage/
 
 ```bash
 git status                              # 1. 查看改动
-git add --dry-run .                     # 2. 预览待提交文件（检查有无 AI 目录）
+git add --dry-run .                     # 2. 预览待提交文件（检查无临时文件）
 git add -A && git commit -m "feat: 说明" # 3. 暂存并提交
 git fetch origin                        # 4. 拉取远程引用
-git merge origin/master                 # 5. 整合远程提交（Windows 禁用 rebase）
-git push origin master                  # 6. 推送
+git merge origin/feat/update-site       # 5. 整合远程提交（Windows 禁用 rebase）
+git push origin feat/update-site        # 6. 推送
 ```
 
 ### 部署到 GitHub Pages
@@ -98,14 +106,6 @@ npx gh-pages -d dist -r https://github.com/MouthHard/Personal-Website.git -b gh-
 
 部署成功后访问：https://mouthhard.github.io/Personal-Website/
 
-### 首次配置（新环境）
-
-```bash
-git config --global user.name "用户名"
-git config --global user.email "邮箱"
-git remote add origin https://github.com/MouthHard/Personal-Website.git
-```
-
 ---
 
 ## 四、排障指南
@@ -115,28 +115,25 @@ git remote add origin https://github.com/MouthHard/Personal-Website.git
 远程有本地没有的提交，**不要 `--force`**：
 
 ```bash
-git fetch origin master
-git log --oneline HEAD..origin/master   # 查看远程多出的提交
-git merge origin/master                 # 用 merge 整合
-git push origin master
+git fetch origin feat/update-site
+git merge origin/feat/update-site
+git push origin feat/update-site
 ```
 
 ### Windows 大小写冲突（checkout / rebase 报错）
 
-Windows 文件系统不区分大小写，`LightBulbIcon.vue` 与 `LightbulbIcon.vue` 视为同一文件。
-
 **核心原则：Windows 上用 `git merge`，禁用 `git rebase` / `git pull --rebase`。**
 
 ```bash
-git restore <冲突文件>                  # 恢复误删的 tracked 文件
-git fetch origin master
-git merge origin/master
-git push origin master
+git restore <冲突文件>
+git fetch origin feat/update-site
+git merge origin/feat/update-site
+git push origin feat/update-site
 ```
 
 ### PowerShell 构建参数解析失败
 
-`npm run build -- --mode gh-pages` 在 PowerShell 下会把 `gh-pages` 当位置参数。改用：
+`npm run build -- --mode gh-pages` 在 PowerShell 下报错。改用：
 
 ```bash
 npx vite build --mode gh-pages
@@ -146,13 +143,10 @@ npx vite build --mode gh-pages
 
 ```bash
 git config --get http.proxy             # 确认无代理（无输出=正常）
-git config --get https.proxy
-# 直接重试，等待几十秒，不要连续反复重试
+# 等待几十秒后重试，不要连续反复重试
 ```
 
 ### 认证失败（403）
-
-GitHub 不支持密码，需用 Token 或 SSH：
 
 ```bash
 # HTTPS + Token
@@ -161,28 +155,11 @@ git remote set-url origin https://<Token>@github.com/MouthHard/Personal-Website.
 git remote set-url origin git@github.com:MouthHard/Personal-Website.git
 ```
 
-### AI 工具目录误提交
-
-```bash
-git rm -r --cached .workbuddy           # 解除跟踪（文件保留本地）
-git commit -m "chore: 停止跟踪 AI 工具目录"
-git push origin master
-```
-
-### 自动生成类型文件被跟踪
-
-`types/auto-imports.d.ts`、`types/components.d.ts` 已写入 `.gitignore` 但仍被跟踪：
-
-```bash
-git rm --cached types/auto-imports.d.ts types/components.d.ts
-git commit -m "chore: 停止跟踪自动生成的类型文件"
-```
-
 ---
 
 ## 五、规范要求
 
-1. **提交前必查**：`git add --dry-run .`，任何 `.` 开头的 AI 目录不得出现
+1. **提交前必查**：`git add --dry-run .`，确认只有上述必须上传的文件
 2. **推送前必拉**：先 `git fetch` 再 `git merge`（Windows 禁用 rebase）
 3. **禁止强推**：不使用 `--force`，保留完整历史
 4. **构建命令**：统一用 `npx vite build --mode gh-pages`
@@ -201,8 +178,8 @@ git diff                                # 未暂存改动
 git restore <文件>                       # 丢弃改动
 git restore --staged .                  # 取消暂存
 git fetch origin                        # 拉取远程引用
-git merge origin/master                 # 整合远程提交
-git push origin master                  # 推送源码
+git merge origin/feat/update-site       # 整合远程提交
+git push origin feat/update-site        # 推送源码
 npx vite build --mode gh-pages          # 构建部署产物
 npx gh-pages -d dist -r https://github.com/MouthHard/Personal-Website.git -b gh-pages  # 部署
 ```

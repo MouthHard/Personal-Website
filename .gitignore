@@ -42,6 +42,12 @@ temp_*.txt
 check-visit-info.sql
 query
 
+# Root-level temporary scripts and outputs
+/*.txt
+/*.py
+/fix-*.cjs
+/tsc-output*.txt
+
 # Environment files (use .env.example as template)
 .env.production
 .env.gh-pages
