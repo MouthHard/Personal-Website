@@ -1,36 +1,34 @@
-$plate-1: #1e2a38;
-$plate-2: #162030;
-$plate-3: #0e1620;
-$plate-4: #283648;
-$steel-1: #2c3a4a;
-$steel-2: #3a4a5c;
-$steel-3: #4a5c70;
-$steel-edge: #6a7e94;
-$steel-shine: #8aa0b8;
-$ice: #5b9dd5;
-$ice-bright: #8fc8f0;
-$ice-glow: rgba(91, 157, 213, 0.5);
-$gold: #d4a843;
-$gold-bright: #f0c860;
-$gold-glow: rgba(212, 168, 67, 0.4);
-$bronze: #8a6a30;
-$ink: #060a10;
-$text-bright: #e0ecf8;
-$text-mute: #8a9aaa;
-$text-dim: #5a6a7a;
+$plate-1: #1a2535;
+$plate-2: #141d2c;
+$plate-3: #0c131e;
+$plate-4: #243348;
+$steel-1: #2a3848;
+$steel-2: #384858;
+$steel-3: #485868;
+$steel-edge: #5a6e84;
+$steel-shine: #7a90a8;
+$ice: #4a9ee0;
+$ice-bright: #7bc8f5;
+$ice-pale: #b0e0ff;
+$ice-glow: rgba(74, 158, 224, 0.45);
+$ice-faint: rgba(74, 158, 224, 0.12);
+$ink: #050a14;
+$text-bright: #d8e8f8;
+$text-mute: #7a8a9e;
+$text-dim: #4a5a6e;
 
 @function emboss-out($size: 1px) {
-  @return inset #{$size} #{$size} 1px rgba(255, 255, 255, 0.1),
-          inset -#{$size} -#{$size} 1px rgba(0, 0, 0, 0.55);
+  @return inset #{$size} #{$size} 1px rgba(255, 255, 255, 0.08),
+          inset -#{$size} -#{$size} 1px rgba(0, 0, 0, 0.5);
 }
 
 @function emboss-in($size: 1px) {
-  @return inset #{$size} #{$size} 1px rgba(0, 0, 0, 0.45),
-          inset -#{$size} -#{$size} 1px rgba(255, 255, 255, 0.05);
+  @return inset #{$size} #{$size} 1px rgba(0, 0, 0, 0.4),
+          inset -#{$size} -#{$size} 1px rgba(255, 255, 255, 0.04);
 }
 
 @function sunlight-top() {
-  @return linear-gradient(170deg, rgba(255, 255, 255, 0.06) 0%, transparent 30%, transparent 70%, rgba(0, 0, 0, 0.15) 100%);
+  @return linear-gradient(170deg, rgba(255, 255, 255, 0.05) 0%, transparent 30%, transparent 70%, rgba(0, 0, 0, 0.12) 100%);
 }
 
 .scenery-module {
@@ -38,7 +36,7 @@ $text-dim: #5a6a7a;
   margin: 0 auto;
   width: 100%;
   box-sizing: border-box;
-  background: radial-gradient(ellipse at top, rgba(22, 34, 48, 0.85), rgba(8, 14, 22, 0.96));
+  background: radial-gradient(ellipse at top, rgba(20, 32, 48, 0.85), rgba(6, 12, 20, 0.96));
   position: relative;
   display: flex;
   gap: 2rem;
@@ -51,7 +49,7 @@ $text-dim: #5a6a7a;
     flex-shrink: 0;
     padding: 0;
     background:
-      repeating-linear-gradient(176deg, transparent 0px, transparent 2px, rgba(255, 255, 255, 0.014) 2px, rgba(255, 255, 255, 0.014) 3px),
+      repeating-linear-gradient(176deg, transparent 0px, transparent 2px, rgba(255, 255, 255, 0.01) 2px, rgba(255, 255, 255, 0.01) 3px),
       sunlight-top(),
       linear-gradient(180deg, $plate-1, $plate-3);
     border-radius: 14px;
@@ -65,7 +63,7 @@ $text-dim: #5a6a7a;
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 40%;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent);
       pointer-events: none;
       z-index: 0;
     }
@@ -86,7 +84,7 @@ $text-dim: #5a6a7a;
         position: absolute;
         bottom: -1px; left: 8%; right: 8%;
         height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(91, 157, 213, 0.35), transparent);
+        background: linear-gradient(90deg, transparent, $ice-faint, transparent);
       }
 
       .hud-emblem {
@@ -100,7 +98,7 @@ $text-dim: #5a6a7a;
           background: linear-gradient(180deg, $steel-shine 0%, $steel-3 40%, $steel-1 100%);
           border-radius: 3px;
           border: 0.5px solid $ink;
-          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.4);
+          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), inset 0 -1px 0 rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.4);
         }
         .emblem-rivet {
           position: absolute;
@@ -108,7 +106,7 @@ $text-dim: #5a6a7a;
           border-radius: 50%;
           background: radial-gradient(circle at 35% 35%, $steel-shine 20%, $ink 70%);
           border: 0.5px solid $ink;
-          box-shadow: inset 0 0.5px 0.5px rgba(255, 255, 255, 0.15);
+          box-shadow: inset 0 0.5px 0.5px rgba(255, 255, 255, 0.12);
           &--l { left: -2px; }
           &--r { right: -2px; }
         }
@@ -128,9 +126,9 @@ $text-dim: #5a6a7a;
         .status-bar {
           width: 18px; height: 6px;
           border-radius: 1px;
-          background: linear-gradient(90deg, rgba(91, 157, 213, 0.15), rgba(91, 157, 213, 0.5), rgba(91, 157, 213, 0.15));
-          border: 0.5px solid rgba(91, 157, 213, 0.3);
-          box-shadow: inset 0 0.5px 0 rgba(255, 255, 255, 0.1);
+          background: linear-gradient(90deg, $ice-faint, $ice-glow, $ice-faint);
+          border: 0.5px solid $ice-faint;
+          box-shadow: inset 0 0.5px 0 rgba(255, 255, 255, 0.08);
         }
       }
     }
@@ -152,14 +150,14 @@ $text-dim: #5a6a7a;
         gap: 10px;
         padding: 14px 12px;
         background:
-          repeating-linear-gradient(176deg, transparent 0px, transparent 2px, rgba(255, 255, 255, 0.012) 2px, rgba(255, 255, 255, 0.012) 3px),
+          repeating-linear-gradient(176deg, transparent 0px, transparent 2px, rgba(255, 255, 255, 0.01) 2px, rgba(255, 255, 255, 0.01) 3px),
           sunlight-top(),
           linear-gradient(145deg, $steel-1, $plate-2);
-        border: 1px solid rgba(70, 84, 100, 0.5);
+        border: 1px solid rgba(60, 74, 90, 0.5);
         border-radius: 8px;
         color: $text-mute;
         cursor: pointer;
-        transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease;
+        transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
         position: relative;
         overflow: hidden;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.45), 0 1px 3px rgba(0, 0, 0, 0.25), emboss-out(1px);
@@ -169,161 +167,146 @@ $text-dim: #5a6a7a;
           position: absolute;
           top: 0; left: 0; right: 0;
           height: 35%;
-          background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent);
+          background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent);
           pointer-events: none;
           border-radius: 8px 8px 0 0;
           transition: background 0.3s ease;
         }
 
-        /* ==================== HOVER: 电路通电预览 ==================== */
+        /* ==================== HOVER: 全息预热 ==================== */
         &:hover {
           background:
-            linear-gradient(90deg, rgba(91, 157, 213, 0.04) 0%, transparent 15%, transparent 85%, rgba(91, 157, 213, 0.04) 100%),
-            repeating-linear-gradient(176deg, transparent 0px, transparent 2px, rgba(91, 157, 213, 0.012) 2px, rgba(91, 157, 213, 0.012) 3px),
+            repeating-linear-gradient(90deg, transparent 0px, transparent 8px, rgba(74, 158, 224, 0.02) 8px, rgba(74, 158, 224, 0.02) 9px),
             sunlight-top(),
             linear-gradient(145deg, $steel-2, $plate-1);
-          border-color: rgba(91, 157, 213, 0.45);
+          border-color: rgba(74, 158, 224, 0.4);
+          border-style: dashed;
           color: $text-bright;
           box-shadow:
             0 5px 12px rgba(0, 0, 0, 0.45),
-            0 2px 6px rgba(91, 157, 213, 0.15),
-            inset 0 0 10px rgba(91, 157, 213, 0.05),
+            0 2px 6px rgba(74, 158, 224, 0.12),
+            inset 0 0 10px rgba(74, 158, 224, 0.04),
             emboss-out(1px);
 
           &::after {
-            background: linear-gradient(180deg, rgba(143, 200, 240, 0.08), transparent);
+            background: linear-gradient(180deg, rgba(123, 200, 245, 0.06), transparent);
           }
 
           .item-icon-housing {
-            .housing-ring { border-color: rgba(91, 157, 213, 0.45); }
-            .housing-glow { opacity: 0.5; }
+            .housing-ring { border-color: rgba(74, 158, 224, 0.4); border-style: dashed; }
+            .housing-glow { opacity: 0.4; }
           }
-          .item-corner { opacity: 0.55; border-color: $ice; }
-          .item-indicator { opacity: 0.4; }
-          .item-rivet { opacity: 0.55; }
+          .item-corner { opacity: 0.4; border-color: $ice; border-style: dashed; }
+          .item-indicator { opacity: 0.3; }
+          .item-rivet { opacity: 0.5; }
         }
 
-        /* ==================== ACTIVE: 芯片激活 ==================== */
+        /* ==================== ACTIVE: 全息投影展开 ==================== */
         &.active {
           background:
-            linear-gradient(90deg, rgba(212, 168, 67, 0.05) 0%, transparent 12%, transparent 88%, rgba(212, 168, 67, 0.05) 100%),
-            repeating-linear-gradient(0deg, transparent 0px, transparent 6px, rgba(91, 157, 213, 0.03) 6px, rgba(91, 157, 213, 0.03) 7px),
-            repeating-linear-gradient(90deg, transparent 0px, transparent 6px, rgba(91, 157, 213, 0.03) 6px, rgba(91, 157, 213, 0.03) 7px),
-            linear-gradient(145deg, rgba(35, 55, 80, 0.95), rgba(18, 30, 48, 0.98));
-          border: 1px solid rgba(91, 157, 213, 0.55);
+            repeating-linear-gradient(0deg, transparent 0px, transparent 7px, rgba(74, 158, 224, 0.04) 7px, rgba(74, 158, 224, 0.04) 8px),
+            repeating-linear-gradient(90deg, transparent 0px, transparent 7px, rgba(74, 158, 224, 0.04) 7px, rgba(74, 158, 224, 0.04) 8px),
+            linear-gradient(145deg, rgba(28, 45, 68, 0.95), rgba(14, 25, 40, 0.98));
+          border: 1px solid $ice;
           border-radius: 6px;
           color: $text-bright;
           box-shadow:
             0 6px 18px rgba(0, 0, 0, 0.45),
-            0 3px 8px rgba(91, 157, 213, 0.2),
-            0 0 0 1px rgba(212, 168, 67, 0.12),
-            inset 0 1px 0 rgba(143, 200, 240, 0.15),
+            0 3px 10px rgba(74, 158, 224, 0.25),
+            inset 0 1px 0 rgba(123, 200, 245, 0.12),
             inset 0 -1px 0 rgba(0, 0, 0, 0.4),
-            inset 0 0 16px rgba(91, 157, 213, 0.04);
+            inset 0 0 20px rgba(74, 158, 224, 0.06);
 
           &::after {
-            background: linear-gradient(180deg, rgba(240, 200, 96, 0.08), rgba(143, 200, 240, 0.03) 50%, transparent);
+            background: linear-gradient(180deg, rgba(123, 200, 245, 0.1), rgba(74, 158, 224, 0.03) 50%, transparent);
           }
 
-          /* 左侧分段式进度条 */
+          /* 左侧全息刻度尺 */
           .item-indicator {
             opacity: 1;
-            width: 4px;
-            height: 70%;
-            background: linear-gradient(180deg,
-              $ice 0%, $ice 30%,
-              transparent 30%, transparent 35%,
-              $ice-bright 35%, $ice-bright 65%,
-              transparent 65%, transparent 70%,
-              $ice 70%, $ice 100%);
+            width: 5px;
+            height: 75%;
+            background:
+              linear-gradient(180deg, $ice 0%, $ice 18%, transparent 18%, transparent 20%,
+                              $ice-bright 20%, $ice-bright 38%, transparent 38%, transparent 40%,
+                              $ice-pale 40%, $ice-pale 58%, transparent 58%, transparent 60%,
+                              $ice-bright 60%, $ice-bright 78%, transparent 78%, transparent 80%,
+                              $ice 80%, $ice 100%);
             box-shadow: 0 0 8px $ice-glow;
             border-radius: 0 1px 1px 0;
           }
 
-          /* 图标外壳：芯片引脚态 */
+          /* 图标外壳：全息线框态 */
           .item-icon-housing {
             .housing-ring {
-              border: 1.5px solid rgba(91, 157, 213, 0.55);
-              background: linear-gradient(145deg, $plate-4, $plate-2);
-              box-shadow: 0 0 10px $ice-glow, emboss-in(1px);
+              border: 1px solid $ice;
               border-radius: 4px;
+              background:
+                repeating-linear-gradient(0deg, transparent 0px, transparent 4px, rgba(74, 158, 224, 0.06) 4px, rgba(74, 158, 224, 0.06) 5px),
+                repeating-linear-gradient(90deg, transparent 0px, transparent 4px, rgba(74, 158, 224, 0.06) 4px, rgba(74, 158, 224, 0.06) 5px),
+                linear-gradient(145deg, $plate-4, $plate-2);
+              box-shadow: 0 0 12px $ice-glow, emboss-in(1px);
             }
             .housing-glow {
               opacity: 1;
-              inset: -4px;
-              border-radius: 8px;
-              background: radial-gradient(circle, $ice-glow 0%, $gold-glow 40%, transparent 70%);
+              inset: -5px;
+              border-radius: 9px;
+              background: radial-gradient(circle, $ice-glow 0%, transparent 60%);
             }
             .item-icon {
-              filter: drop-shadow(0 0 5px $ice-glow) drop-shadow(0 0 2px $gold-glow);
-            }
-            /* 引脚装饰 */
-            &::before, &::after {
-              content: '';
-              position: absolute;
-              background: $gold;
-              box-shadow: 0 0 3px $gold-glow;
-              z-index: 2;
-            }
-            &::before {
-              top: -2px; left: 8px;
-              width: 3px; height: 4px;
-              border-radius: 1px 1px 0 0;
-              box-shadow: 0 0 3px $gold-glow, 7px 0 0 $gold, 14px 0 0 $gold, 21px 0 0 $gold;
-            }
-            &::after {
-              bottom: -2px; left: 8px;
-              width: 3px; height: 4px;
-              border-radius: 0 0 1px 1px;
-              box-shadow: 0 0 3px $gold-glow, 7px 0 0 $gold, 14px 0 0 $gold, 21px 0 0 $gold;
+              filter: drop-shadow(0 0 6px $ice-glow) drop-shadow(0 0 2px $ice-glow);
             }
           }
 
-          /* 文字：字间距展宽 + 冰蓝下划线 + 双发光 */
+          /* 文字：全息投影态 */
           .item-text {
-            text-shadow: 0 0 12px $ice-glow, 0 0 4px $gold-glow, 0 1px 0 rgba(0, 0, 0, 0.5);
+            text-shadow: 0 0 14px $ice-glow, 0 0 4px $ice-glow, 0 1px 0 rgba(0, 0, 0, 0.5);
             font-weight: 800;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             &::after {
               content: '';
               position: absolute;
-              bottom: -4px;
+              bottom: -5px;
               left: 0;
               right: 0;
               height: 2px;
-              background: linear-gradient(90deg, transparent, $ice-bright, transparent);
+              background: linear-gradient(90deg, transparent, $ice-bright 20%, $ice-bright 80%, transparent);
               box-shadow: 0 0 4px $ice-glow;
             }
           }
 
-          /* 底部引脚排 */
+          /* 底部全息数据流 */
           .item-energy-stream {
             opacity: 1;
-            width: 80%;
-            height: 4px;
-            background: repeating-linear-gradient(90deg,
-              $gold 0px, $gold 2px,
-              transparent 2px, transparent 5px);
-            box-shadow: 0 0 4px $gold-glow;
+            width: 85%;
+            height: 3px;
+            background:
+              repeating-linear-gradient(90deg,
+                $ice 0px, $ice 3px,
+                transparent 3px, transparent 6px,
+                $ice-bright 6px, $ice-bright 8px,
+                transparent 8px, transparent 12px);
+            box-shadow: 0 0 4px $ice-glow;
             border-radius: 0;
           }
 
-          /* 四角：L形定位标记（取景框） */
+          /* 四角：L形全息定位标记 */
           .item-corner {
-            opacity: 0.9;
+            opacity: 1;
             border-color: $ice-bright;
-            width: 12px;
-            height: 12px;
+            width: 14px;
+            height: 14px;
             border-style: solid;
-            box-shadow: 0 0 4px $ice-glow;
+            border-width: 2px;
+            box-shadow: 0 0 6px $ice-glow;
           }
 
-          /* 铆钉：金色焊点 */
+          /* 铆钉：冰蓝光点 */
           .item-rivet {
-            opacity: 0.8;
-            background: radial-gradient(circle at 35% 35%, $gold-bright 15%, $gold 50%, $ink 80%);
-            box-shadow: inset 0 0.5px 0.5px rgba(255, 255, 255, 0.25), 0 0 4px $gold-glow;
-            border-color: $bronze;
+            opacity: 0.85;
+            background: radial-gradient(circle at 35% 35%, $ice-pale 15%, $ice 50%, $ink 80%);
+            box-shadow: inset 0 0.5px 0.5px rgba(255, 255, 255, 0.25), 0 0 5px $ice-glow;
+            border-color: rgba(74, 158, 224, 0.3);
           }
         }
 
@@ -331,10 +314,10 @@ $text-dim: #5a6a7a;
           position: absolute;
           width: 8px;
           height: 8px;
-          border-color: rgba(90, 110, 132, 0.5);
+          border-color: rgba(80, 100, 120, 0.5);
           border-style: solid;
-          opacity: 0.3;
-          transition: opacity 0.3s, border-color 0.3s, width 0.3s, height 0.3s, box-shadow 0.3s;
+          opacity: 0.25;
+          transition: opacity 0.3s, border-color 0.3s, border-style 0.3s, width 0.3s, height 0.3s, border-width 0.3s, box-shadow 0.3s;
           pointer-events: none;
           &--tl { top: 2px; left: 2px; border-width: 1.5px 0 0 1.5px; border-top-left-radius: 3px; }
           &--tr { top: 2px; right: 2px; border-width: 1.5px 1.5px 0 0; border-top-right-radius: 3px; }
@@ -349,8 +332,8 @@ $text-dim: #5a6a7a;
           border-radius: 50%;
           background: radial-gradient(circle at 35% 35%, $steel-3 20%, $ink 70%);
           border: 0.5px solid $ink;
-          box-shadow: inset 0 0.5px 0.5px rgba(255, 255, 255, 0.12), 0 0.5px 1px rgba(0, 0, 0, 0.4);
-          opacity: 0.45;
+          box-shadow: inset 0 0.5px 0.5px rgba(255, 255, 255, 0.1), 0 0.5px 1px rgba(0, 0, 0, 0.4);
+          opacity: 0.4;
           transition: opacity 0.3s, background 0.3s, box-shadow 0.3s, border-color 0.3s;
           pointer-events: none;
           &--tl { top: 4px; left: 4px; }
@@ -366,7 +349,7 @@ $text-dim: #5a6a7a;
           transform: translateY(-50%);
           width: 3px;
           height: 65%;
-          background: linear-gradient(180deg, transparent, rgba(91, 157, 213, 0.3), transparent);
+          background: linear-gradient(180deg, transparent, $ice-faint, transparent);
           border-radius: 0 2px 2px 0;
           opacity: 0;
           transition: opacity 0.3s, width 0.3s, height 0.3s, background 0.3s, box-shadow 0.3s;
@@ -384,11 +367,11 @@ $text-dim: #5a6a7a;
           .housing-ring {
             position: absolute;
             inset: 0;
-            border: 1.5px solid rgba(70, 84, 100, 0.45);
+            border: 1.5px solid rgba(60, 74, 90, 0.45);
             border-radius: 8px;
             background: sunlight-top(), linear-gradient(145deg, $plate-2, $plate-3);
             box-shadow: emboss-in(1px);
-            transition: border-color 0.3s, background 0.3s, box-shadow 0.3s, border-radius 0.3s;
+            transition: border-color 0.3s, border-style 0.3s, background 0.3s, box-shadow 0.3s, border-radius 0.3s;
           }
 
           .housing-glow {
@@ -396,7 +379,7 @@ $text-dim: #5a6a7a;
             inset: -3px;
             border-radius: 11px;
             background: radial-gradient(circle, $ice-glow 0%, transparent 65%);
-            opacity: 0.15;
+            opacity: 0.12;
             transition: opacity 0.3s, background 0.3s, inset 0.3s, border-radius 0.3s;
             pointer-events: none;
           }
@@ -455,7 +438,7 @@ $text-dim: #5a6a7a;
       align-items: flex-end;
       justify-content: space-between;
       padding: 8px 14px 10px;
-      background: linear-gradient(0deg, rgba(255, 255, 255, 0.03), transparent), linear-gradient(0deg, $plate-4, $plate-2);
+      background: linear-gradient(0deg, rgba(255, 255, 255, 0.02), transparent), linear-gradient(0deg, $plate-4, $plate-2);
       border-top: 1px solid $ink;
       box-shadow: emboss-out(1px);
       position: relative;
@@ -464,11 +447,11 @@ $text-dim: #5a6a7a;
       .hud-tick {
         width: 2px;
         height: 5px;
-        background: rgba(70, 84, 100, 0.5);
+        background: rgba(60, 74, 90, 0.5);
         border-radius: 1px;
         box-shadow: 0 0.5px 0 rgba(0, 0, 0, 0.4);
-        &:nth-child(3n) { height: 9px; background: rgba(91, 157, 213, 0.35); }
-        &:nth-child(6n) { height: 12px; background: rgba(91, 157, 213, 0.55); }
+        &:nth-child(3n) { height: 9px; background: $ice-faint; }
+        &:nth-child(6n) { height: 12px; background: $ice-glow; }
       }
     }
   }
@@ -478,9 +461,9 @@ $text-dim: #5a6a7a;
     height: 100vh;
     max-height: calc(100vh - 200px);
     overflow: hidden;
-    background: rgba(12, 20, 30, 0.6);
+    background: rgba(10, 18, 28, 0.6);
     border-radius: 16px;
-    border: 1px solid rgba(70, 84, 100, 0.2);
+    border: 1px solid rgba(60, 74, 90, 0.2);
     backdrop-filter: blur(10px);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 
@@ -489,9 +472,9 @@ $text-dim: #5a6a7a;
       width: 100%;
       height: 100%;
       overflow-y: auto;
-      background: rgba(16, 24, 36, 1);
+      background: rgba(14, 22, 34, 1);
       border-radius: 12px;
-      border: 1px solid rgba(70, 84, 100, 0.1);
+      border: 1px solid rgba(60, 74, 90, 0.1);
       box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.8);
       &::-webkit-scrollbar { display: none; }
       -ms-overflow-style: none;
