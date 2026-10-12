@@ -11,6 +11,10 @@ $steel-shine: #8aa0b8;
 $ice: #5b9dd5;
 $ice-bright: #8fc8f0;
 $ice-glow: rgba(91, 157, 213, 0.5);
+$gold: #d4a843;
+$gold-bright: #f0c860;
+$gold-glow: rgba(212, 168, 67, 0.4);
+$bronze: #8a6a30;
 $ink: #060a10;
 $text-bright: #e0ecf8;
 $text-mute: #8a9aaa;
@@ -81,9 +85,7 @@ $text-dim: #5a6a7a;
       align-items: center;
       justify-content: space-between;
       padding: 12px 14px 10px;
-      background:
-        sunlight-top(),
-        linear-gradient(180deg, $plate-4, $plate-2);
+      background: sunlight-top(), linear-gradient(180deg, $plate-4, $plate-2);
       border-bottom: 1px solid $ink;
       box-shadow: emboss-in(1px);
       position: relative;
@@ -109,14 +111,10 @@ $text-dim: #5a6a7a;
         .emblem-plate {
           width: 100%;
           height: 100%;
-          background:
-            linear-gradient(180deg, $steel-shine 0%, $steel-3 40%, $steel-1 100%);
+          background: linear-gradient(180deg, $steel-shine 0%, $steel-3 40%, $steel-1 100%);
           border-radius: 3px;
           border: 0.5px solid $ink;
-          box-shadow:
-            inset 0 1px 0 rgba(255, 255, 255, 0.2),
-            inset 0 -1px 0 rgba(0, 0, 0, 0.5),
-            0 1px 2px rgba(0, 0, 0, 0.4);
+          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.4);
         }
 
         .emblem-rivet {
@@ -127,7 +125,6 @@ $text-dim: #5a6a7a;
           background: radial-gradient(circle at 35% 35%, $steel-shine 20%, $ink 70%);
           border: 0.5px solid $ink;
           box-shadow: inset 0 0.5px 0.5px rgba(255, 255, 255, 0.15);
-
           &--l { left: -2px; }
           &--r { right: -2px; }
         }
@@ -143,10 +140,7 @@ $text-dim: #5a6a7a;
           height: 8px;
           border-radius: 50%;
           background: radial-gradient(circle at 30% 30%, $ice-bright, $ice 55%, #2a6fa5);
-          box-shadow:
-            0 0 7px $ice-glow,
-            inset 0 0 2px rgba(255, 255, 255, 0.4),
-            0 1px 1px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 0 7px $ice-glow, inset 0 0 2px rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.5);
           animation: pulse-dot 2s ease-in-out infinite;
         }
 
@@ -154,8 +148,7 @@ $text-dim: #5a6a7a;
           width: 18px;
           height: 6px;
           border-radius: 1px;
-          background:
-            linear-gradient(90deg, rgba(91, 157, 213, 0.15), rgba(91, 157, 213, 0.5), rgba(91, 157, 213, 0.15));
+          background: linear-gradient(90deg, rgba(91, 157, 213, 0.15), rgba(91, 157, 213, 0.5), rgba(91, 157, 213, 0.15));
           border: 0.5px solid rgba(91, 157, 213, 0.3);
           box-shadow: inset 0 0.5px 0 rgba(255, 255, 255, 0.1);
         }
@@ -169,7 +162,6 @@ $text-dim: #5a6a7a;
       display: flex;
       flex-direction: column;
       gap: 6px;
-
       flex: 1;
       position: relative;
       z-index: 1;
@@ -187,13 +179,10 @@ $text-dim: #5a6a7a;
         border-radius: 8px;
         color: $text-mute;
         cursor: pointer;
-        transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+        transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
         position: relative;
         overflow: hidden;
-        box-shadow:
-          0 4px 8px rgba(0, 0, 0, 0.45),
-          0 1px 3px rgba(0, 0, 0, 0.25),
-          emboss-out(1px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.45), 0 1px 3px rgba(0, 0, 0, 0.25), emboss-out(1px);
 
         &::after {
           content: '';
@@ -205,75 +194,116 @@ $text-dim: #5a6a7a;
           background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent);
           pointer-events: none;
           border-radius: 8px 8px 0 0;
+          transition: background 0.3s ease;
         }
 
+        /* ==================== HOVER: 冰蓝觉醒 ==================== */
         &:hover {
           background:
-            repeating-linear-gradient(176deg, transparent 0px, transparent 2px, rgba(255, 255, 255, 0.018) 2px, rgba(255, 255, 255, 0.018) 3px),
+            repeating-linear-gradient(176deg, transparent 0px, transparent 2px, rgba(91, 157, 213, 0.015) 2px, rgba(91, 157, 213, 0.015) 3px),
             sunlight-top(),
             linear-gradient(145deg, $steel-2, $plate-1);
-          border-color: rgba(91, 157, 213, 0.35);
+          border-color: rgba(91, 157, 213, 0.4);
           color: $text-bright;
           box-shadow:
             0 5px 12px rgba(0, 0, 0, 0.45),
-            0 2px 5px rgba(91, 157, 213, 0.12),
+            0 2px 6px rgba(91, 157, 213, 0.15),
+            inset 0 0 12px rgba(91, 157, 213, 0.06),
             emboss-out(1px);
-
-          .item-icon-housing .housing-glow { opacity: 0.5; }
-          .item-corner { opacity: 0.5; border-color: $steel-edge; }
-        }
-
-        &.active {
-          background:
-            repeating-linear-gradient(176deg, transparent 0px, transparent 2px, rgba(91, 157, 213, 0.025) 2px, rgba(91, 157, 213, 0.025) 3px),
-            sunlight-top(),
-            linear-gradient(145deg, rgba(45, 72, 105, 0.95), rgba(22, 40, 62, 0.98));
-          border-color: rgba(91, 157, 213, 0.55);
-          color: $text-bright;
-          box-shadow:
-            0 6px 16px rgba(0, 0, 0, 0.45),
-            0 3px 7px rgba(91, 157, 213, 0.22),
-            inset 0 1px 0 rgba(143, 200, 240, 0.15),
-            inset 0 -1px 0 rgba(0, 0, 0, 0.4),
-            0 0 0 1px rgba(91, 157, 213, 0.08);
 
           &::after {
             background: linear-gradient(180deg, rgba(143, 200, 240, 0.08), transparent);
           }
 
+          .item-icon-housing {
+            .housing-ring { border-color: rgba(91, 157, 213, 0.4); }
+            .housing-glow { opacity: 0.5; }
+          }
+          .item-corner { opacity: 0.5; border-color: $steel-edge; }
+          .item-indicator { opacity: 0.4; }
+        }
+
+        /* ==================== ACTIVE: 熔融金属注入 ==================== */
+        &.active {
+          background:
+            repeating-linear-gradient(176deg, transparent 0px, transparent 2px, rgba(212, 168, 67, 0.02) 2px, rgba(212, 168, 67, 0.02) 3px),
+            linear-gradient(170deg, rgba(255, 220, 150, 0.06) 0%, transparent 35%, transparent 65%, rgba(0, 0, 0, 0.1) 100%),
+            linear-gradient(145deg, rgba(50, 78, 110, 0.95), rgba(28, 45, 68, 0.98));
+          border: 1px solid rgba(91, 157, 213, 0.6);
+          border-radius: 8px;
+          color: $text-bright;
+          box-shadow:
+            0 6px 18px rgba(0, 0, 0, 0.45),
+            0 3px 8px rgba(91, 157, 213, 0.2),
+            0 0 0 1px rgba(212, 168, 67, 0.15),
+            inset 0 1px 0 rgba(143, 200, 240, 0.18),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.4),
+            inset 0 0 20px rgba(212, 168, 67, 0.04);
+
+          &::after {
+            background: linear-gradient(180deg, rgba(240, 200, 96, 0.1), rgba(143, 200, 240, 0.04) 50%, transparent);
+          }
+
+          /* 左侧三色指示条 */
           .item-indicator {
             opacity: 1;
-            background: linear-gradient(180deg, transparent, $ice-bright 30%, $ice 50%, $ice-bright 70%, transparent);
-            box-shadow: 0 0 10px $ice-glow;
+            width: 4px;
+            background: linear-gradient(180deg, transparent, $ice-bright 25%, #fff 50%, $gold-bright 75%, transparent);
+            box-shadow: 0 0 10px $ice-glow, 0 0 4px $gold-glow;
+            border-radius: 0 2px 2px 0;
           }
 
+          /* 图标外壳：熔炉双色 */
           .item-icon-housing {
             .housing-ring {
-              border-color: rgba(91, 157, 213, 0.5);
+              border: 1.5px solid rgba(91, 157, 213, 0.55);
               background:
-                sunlight-top(),
+                linear-gradient(170deg, rgba(240, 200, 96, 0.08) 0%, transparent 40%),
                 linear-gradient(145deg, $plate-4, $plate-2);
-              box-shadow: 0 0 10px $ice-glow, emboss-in(1px);
+              box-shadow:
+                0 0 12px $ice-glow,
+                inset 0 0 6px rgba(212, 168, 67, 0.1),
+                emboss-in(1px);
             }
-            .housing-glow { opacity: 1; }
-            .item-icon { filter: drop-shadow(0 0 6px $ice-glow); }
+            .housing-glow {
+              opacity: 1;
+              background: radial-gradient(circle, $ice-glow 0%, $gold-glow 40%, transparent 70%);
+            }
+            .item-icon {
+              filter: drop-shadow(0 0 6px $ice-glow) drop-shadow(0 0 2px $gold-glow);
+            }
           }
 
+          /* 文字：冰蓝+金色双发光 */
           .item-text {
-            text-shadow: 0 0 12px $ice-glow, 0 1px 0 rgba(0, 0, 0, 0.5);
+            text-shadow: 0 0 12px $ice-glow, 0 0 4px $gold-glow, 0 1px 0 rgba(0, 0, 0, 0.5);
             font-weight: 800;
           }
 
-          .item-scan-line {
-            opacity: 0.5;
-            animation: scan-sweep 2.5s ease-in-out infinite;
+          /* 底部能量流：金+冰蓝双色 */
+          .item-energy-stream {
+            opacity: 1;
+            width: 65%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, $gold-bright, $ice-bright, transparent);
+            box-shadow: 0 0 6px $gold-glow;
           }
 
-          .item-energy-stream { opacity: 1; }
-          .item-corner { opacity: 0.8; border-color: $ice; }
+          /* 四角：实心冰蓝三角块 */
+          .item-corner {
+            opacity: 0.85;
+            border-color: $ice;
+            border-style: solid;
+            width: 10px;
+            height: 10px;
+            box-shadow: 0 0 4px $ice-glow;
+          }
+
+          /* 铆钉：冰蓝发光螺丝 */
           .item-rivet {
-            opacity: 0.65;
-            background: radial-gradient(circle at 35% 35%, $steel-shine 20%, $ink 70%);
+            opacity: 0.75;
+            background: radial-gradient(circle at 35% 35%, $ice-bright 15%, $ice 50%, $ink 80%);
+            box-shadow: inset 0 0.5px 0.5px rgba(255, 255, 255, 0.2), 0 0 3px $ice-glow;
           }
         }
 
@@ -284,7 +314,7 @@ $text-dim: #5a6a7a;
           border-color: rgba(90, 110, 132, 0.5);
           border-style: solid;
           opacity: 0.3;
-          transition: opacity 0.25s, border-color 0.25s;
+          transition: opacity 0.3s, border-color 0.3s, width 0.3s, height 0.3s, box-shadow 0.3s;
           pointer-events: none;
 
           &--tl { top: 2px; left: 2px; border-width: 1.5px 0 0 1.5px; border-top-left-radius: 3px; }
@@ -302,7 +332,7 @@ $text-dim: #5a6a7a;
           border: 0.5px solid $ink;
           box-shadow: inset 0 0.5px 0.5px rgba(255, 255, 255, 0.12), 0 0.5px 1px rgba(0, 0, 0, 0.4);
           opacity: 0.45;
-          transition: opacity 0.25s;
+          transition: opacity 0.3s, background 0.3s, box-shadow 0.3s;
           pointer-events: none;
 
           &--tl { top: 4px; left: 4px; }
@@ -321,7 +351,7 @@ $text-dim: #5a6a7a;
           background: linear-gradient(180deg, transparent, rgba(91, 157, 213, 0.3), transparent);
           border-radius: 0 2px 2px 0;
           opacity: 0;
-          transition: opacity 0.25s;
+          transition: opacity 0.3s, width 0.3s, background 0.3s, box-shadow 0.3s;
         }
 
         .item-icon-housing {
@@ -338,11 +368,9 @@ $text-dim: #5a6a7a;
             inset: 0;
             border: 1.5px solid rgba(70, 84, 100, 0.45);
             border-radius: 8px;
-            background:
-              sunlight-top(),
-              linear-gradient(145deg, $plate-2, $plate-3);
+            background: sunlight-top(), linear-gradient(145deg, $plate-2, $plate-3);
             box-shadow: emboss-in(1px);
-            transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
+            transition: border-color 0.3s, background 0.3s, box-shadow 0.3s;
           }
 
           .housing-glow {
@@ -351,7 +379,7 @@ $text-dim: #5a6a7a;
             border-radius: 11px;
             background: radial-gradient(circle, $ice-glow 0%, transparent 65%);
             opacity: 0.15;
-            transition: opacity 0.25s;
+            transition: opacity 0.3s, background 0.3s;
             pointer-events: none;
           }
 
@@ -360,13 +388,9 @@ $text-dim: #5a6a7a;
             z-index: 1;
             width: 24px;
             height: 24px;
-            transition: filter 0.25s;
+            transition: filter 0.3s;
             filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.4));
-
-            svg {
-              width: 100%;
-              height: 100%;
-            }
+            svg { width: 100%; height: 100%; }
           }
         }
 
@@ -383,21 +407,13 @@ $text-dim: #5a6a7a;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            transition: text-shadow 0.25s, font-weight 0.25s;
+            transition: text-shadow 0.3s, font-weight 0.3s;
             text-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
           }
         }
 
         .item-scan-line {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          height: 2px;
-          background: linear-gradient(90deg, transparent, $ice-bright, transparent);
-          opacity: 0;
-          transition: opacity 0.25s;
-          pointer-events: none;
+          display: none;
         }
 
         .item-energy-stream {
@@ -410,7 +426,7 @@ $text-dim: #5a6a7a;
           background: linear-gradient(90deg, transparent, $ice, transparent);
           border-radius: 1px;
           opacity: 0;
-          transition: opacity 0.25s;
+          transition: opacity 0.3s, width 0.3s, background 0.3s, box-shadow 0.3s;
           pointer-events: none;
         }
       }
@@ -421,9 +437,7 @@ $text-dim: #5a6a7a;
       align-items: flex-end;
       justify-content: space-between;
       padding: 8px 14px 10px;
-      background:
-        linear-gradient(0deg, rgba(255, 255, 255, 0.03), transparent),
-        linear-gradient(0deg, $plate-4, $plate-2);
+      background: linear-gradient(0deg, rgba(255, 255, 255, 0.03), transparent), linear-gradient(0deg, $plate-4, $plate-2);
       border-top: 1px solid $ink;
       box-shadow: emboss-out(1px);
       position: relative;
@@ -435,16 +449,8 @@ $text-dim: #5a6a7a;
         background: rgba(70, 84, 100, 0.5);
         border-radius: 1px;
         box-shadow: 0 0.5px 0 rgba(0, 0, 0, 0.4);
-
-        &:nth-child(3n) {
-          height: 9px;
-          background: rgba(91, 157, 213, 0.35);
-        }
-
-        &:nth-child(6n) {
-          height: 12px;
-          background: rgba(91, 157, 213, 0.55);
-        }
+        &:nth-child(3n) { height: 9px; background: rgba(91, 157, 213, 0.35); }
+        &:nth-child(6n) { height: 12px; background: rgba(91, 157, 213, 0.55); }
       }
     }
   }
@@ -469,11 +475,9 @@ $text-dim: #5a6a7a;
       border-radius: 12px;
       border: 1px solid rgba(70, 84, 100, 0.1);
       box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.8);
-
       &::-webkit-scrollbar { display: none; }
       -ms-overflow-style: none;
       scrollbar-width: none;
-
       &.active {
         display: block;
         animation: panelFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
@@ -487,21 +491,7 @@ $text-dim: #5a6a7a;
   50% { opacity: 0.5; transform: scale(0.75); }
 }
 
-@keyframes scan-sweep {
-  0% { top: 0; opacity: 0.5; }
-  50% { top: 100%; opacity: 0.15; }
-  100% { top: 0; opacity: 0.5; }
-}
-
 @keyframes panelFadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95) translateY(20px);
-    filter: blur(10px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-    filter: blur(0);
-  }
+  from { opacity: 0; transform: scale(0.95) translateY(20px); filter: blur(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); filter: blur(0); }
 }
