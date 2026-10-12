@@ -13,7 +13,7 @@
       "image": "https://picsum.photos/id/362/800/600",
       "price": 32,
       "rating": 4.7,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "湘菜之魂",
       "isPopular": true,
       "badgeColor": "#f44336",
@@ -41,7 +41,7 @@
       "image": "https://picsum.photos/id/363/800/600",
       "price": 68,
       "rating": 4.8,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "湘菜代表",
       "isPopular": true,
       "badgeColor": "#ff5722",
@@ -69,7 +69,7 @@
       "image": "https://picsum.photos/id/364/800/600",
       "price": 10,
       "rating": 4.6,
-      "category": "小吃",
+      "category": "小吃零食",
       "badgeText": "长沙名片",
       "isPopular": true,
       "badgeColor": "#795548",
@@ -97,7 +97,7 @@
       "image": "https://picsum.photos/id/365/800/600",
       "price": 58,
       "rating": 4.7,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "湘菜经典",
       "isPopular": true,
       "badgeColor": "#ff9800",
@@ -125,7 +125,7 @@
       "image": "https://picsum.photos/id/366/800/600",
       "price": 12,
       "rating": 4.5,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "湖南早餐",
       "isPopular": true,
       "badgeColor": "#4caf50",
@@ -153,7 +153,7 @@
       "image": "https://picsum.photos/id/367/800/600",
       "price": 8,
       "rating": 4.3,
-      "category": "甜品",
+      "category": "甜品糕点",
       "isPopular": false,
       "description": "长沙传统甜品，外酥内软甜而不腻",
       "recommendations": {
@@ -179,7 +179,7 @@
       "image": "https://picsum.photos/id/368/800/600",
       "price": 88,
       "rating": 4.6,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "isPopular": false,
       "description": "湘西特产，烟熏香浓肥而不腻",
       "recommendations": {
@@ -205,7 +205,7 @@
       "image": "https://picsum.photos/id/369/800/600",
       "price": 28,
       "rating": 4.2,
-      "category": "甜品",
+      "category": "甜品糕点",
       "isPopular": false,
       "description": "湖南特产，颗粒饱满清香甜糯",
       "recommendations": {
@@ -231,7 +231,7 @@
       "image": "https://picsum.photos/id/370/800/600",
       "price": 6,
       "rating": 4.1,
-      "category": "主食",
+      "category": "面点主食",
       "isPopular": false,
       "description": "长沙特色面点，皮薄馅大汤汁丰富",
       "recommendations": {
@@ -257,7 +257,7 @@
       "image": "https://picsum.photos/id/371/800/600",
       "price": 78,
       "rating": 4.7,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "isPopular": false,
       "description": "长沙夜宵首选，麻辣鲜香",
       "recommendations": {
@@ -283,7 +283,7 @@
       "image": "https://picsum.photos/id/372/800/600",
       "price": 48,
       "rating": 4.4,
-      "category": "饮品",
+      "category": "汤羹饮品",
       "isPopular": false,
       "description": "湖南特产，香气浓郁，口感醇厚",
       "recommendations": {
@@ -294,6 +294,110 @@
           "菜肴"
         ],
         "eatingMethod": "直接饮用，可点心或小吃"
+      }
+    },
+    {
+      "id": "hunan-mao-shi-hongshao-rou",
+      "name": "毛氏红烧肉",
+      "tags": [
+        "湖南特色",
+        "经典湘菜",
+        "肥而不腻",
+        "色泽红亮",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/373/800/600",
+      "price": 58,
+      "rating": 4.7,
+      "category": "菜品菜肴",
+      "isPopular": true,
+      "description": "毛主席家乡菜，肥而不腻色泽红亮",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，配米饭"
+      }
+    },
+    {
+      "id": "hunan-changsha-cha-yan",
+      "name": "茶颜悦色",
+      "tags": [
+        "湖南特色",
+        "长沙网红",
+        "中式茶饮",
+        "鲜奶茶香",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/374/800/600",
+      "price": 18,
+      "rating": 4.6,
+      "category": "汤羹饮品",
+      "isPopular": true,
+      "description": "长沙网红中式茶饮，鲜奶配茶香浓郁",
+      "recommendations": {
+        "pairings": [
+          "点心",
+          "小吃",
+          "甜品",
+          "糕点"
+        ],
+        "eatingMethod": "直接饮用，逛街手捧"
+      }
+    },
+    {
+      "id": "hunan-xiang-xi-suan-rou",
+      "name": "湘西酸肉",
+      "tags": [
+        "湖南特色",
+        "湘西特产",
+        "酸香开胃",
+        "少数民族风味",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/375/800/600",
+      "price": 48,
+      "rating": 4.4,
+      "category": "菜品菜肴",
+      "isPopular": false,
+      "description": "湘西土家族苗族传统酸食，酸香开胃",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "小菜",
+          "蘸料"
+        ],
+        "eatingMethod": "作为主菜食用，配米饭"
+      }
+    },
+    {
+      "id": "hunan-changsha-bingfen",
+      "name": "长沙冰粉",
+      "tags": [
+        "湖南特色",
+        "长沙特产",
+        "清凉解暑",
+        "配料丰富",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/376/800/600",
+      "price": 12,
+      "rating": 4.3,
+      "category": "甜品糕点",
+      "isPopular": false,
+      "description": "长沙夏日解暑甜品，冰粉配各类果料",
+      "recommendations": {
+        "pairings": [
+          "水果",
+          "坚果",
+          "茶品",
+          "饮料"
+        ],
+        "eatingMethod": "冰镇食用，作为夏日甜品"
       }
     }
   ],
@@ -325,6 +429,225 @@
       "image": "https://picsum.photos/id/1095/800/600",
       "reason": "张家界特色美食聚集地",
       "location": "张家界市"
+    },
+    {
+      "id": 3,
+      "icon": "🏘️",
+      "name": "湘西凤凰古城",
+      "type": "文化街",
+      "foods": [
+        "smoked-meat",
+        "hunan-xiang-xi-suan-rou",
+        "sugar-oil-ba-ba"
+      ],
+      "image": "https://picsum.photos/id/1096/800/600",
+      "reason": "湘西少数民族风味聚集地",
+      "location": "湘西州"
+    },
+    {
+      "id": 4,
+      "icon": "🏪",
+      "name": "长沙太平街",
+      "type": "文化街",
+      "foods": [
+        "changsha-stinky-tofu",
+        "hunan-changsha-cha-yan",
+        "guangchang-beef"
+      ],
+      "image": "https://picsum.photos/id/1097/800/600",
+      "reason": "长沙网红美食打卡地",
+      "location": "长沙市"
+    }
+  ],
+  "souvenirs": [
+    {
+      "id": "hunan-souvenir-1",
+      "name": "安化黑茶",
+      "image": "https://picsum.photos/id/951/600/400",
+      "priceRange": "30-200元",
+      "description": "千两茶砖茶，醇厚回甘",
+      "buyAt": "安化茶厂",
+      "storage": "干燥通风",
+      "province": "湖南"
+    },
+    {
+      "id": "hunan-souvenir-2",
+      "name": "湘绣",
+      "image": "https://picsum.photos/id/950/600/400",
+      "priceRange": "100-3000元",
+      "description": "四大名绣之一，平针掺针",
+      "buyAt": "长沙湘绣厂",
+      "storage": "干燥保存",
+      "province": "湖南"
+    },
+    {
+      "id": "hunan-souvenir-3",
+      "name": "剁辣椒",
+      "image": "https://picsum.photos/id/949/600/400",
+      "priceRange": "10-20元",
+      "description": "湖南灵魂调料，鲜辣开胃",
+      "buyAt": "湖南特产店",
+      "storage": "开封冷藏",
+      "province": "湖南"
+    },
+    {
+      "id": "hunan-souvenir-4",
+      "name": "灯芯糕",
+      "image": "https://picsum.photos/id/948/600/400",
+      "priceRange": "10-20元",
+      "description": "湘潭传统糕点，洁白柔软",
+      "buyAt": "湘潭糕点厂",
+      "storage": "密封防潮",
+      "province": "湖南"
+    },
+    {
+      "id": "hunan-souvenir-5",
+      "name": "平江辣条",
+      "image": "https://picsum.photos/id/947/600/400",
+      "priceRange": "5-30元",
+      "description": "国民零食发源地，香辣劲道",
+      "buyAt": "平江特产店",
+      "storage": "密封防潮",
+      "province": "湖南"
+    }
+  ],
+  "guide": {
+    "mealPlan": {
+      "breakfast": [
+        "stir-fried-pork",
+        "dong-an-ji",
+        "smoked-meat"
+      ],
+      "lunch": [
+        "smoked-meat",
+        "dong-an-ji",
+        "stir-fried-pork"
+      ],
+      "dinner": [
+        "stir-fried-pork",
+        "sugar-oil-ba-ba"
+      ]
+    },
+    "routes": [
+      {
+        "id": "hunan-route-1",
+        "name": "湖南经典美食一日游",
+        "duration": "1天",
+        "steps": [
+          {
+            "time": "08:30",
+            "location": "湖南老城区",
+            "foodId": "stir-fried-pork",
+            "description": "清晨从一顿地道早餐开始"
+          },
+          {
+            "time": "12:00",
+            "location": "湖南美食街",
+            "foodId": "dong-an-ji",
+            "description": "午餐品尝当地招牌菜"
+          },
+          {
+            "time": "18:30",
+            "location": "湖南夜市",
+            "foodId": "smoked-meat",
+            "description": "夜市扫街，收尾完美一天"
+          }
+        ]
+      },
+      {
+        "id": "hunan-route-2",
+        "name": "湖南深度寻味半日游",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "10:00",
+            "location": "湖南老字号",
+            "foodId": "sugar-oil-ba-ba",
+            "description": "探访百年老字号"
+          },
+          {
+            "time": "15:00",
+            "location": "湖南特产市场",
+            "foodId": "stir-fried-pork",
+            "description": "下午茶时光品鉴特色小吃"
+          }
+        ]
+      },
+      {
+        "id": "hunan-route-3",
+        "name": "长沙网红美食打卡之旅",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "14:00",
+            "location": "长沙太平街",
+            "foodId": "hunan-changsha-cha-yan",
+            "description": "打卡长沙网红中式茶饮"
+          },
+          {
+            "time": "19:00",
+            "location": "长沙夜市",
+            "foodId": "guangchang-beef",
+            "description": "夜宵品尝长沙口味虾"
+          }
+        ]
+      }
+    ],
+    "tips": [
+      {
+        "question": "湖南美食的最佳品尝时间？",
+        "answer": "建议在春秋两季前往，气候宜人，食材当季，能品尝到最地道的湖南风味。"
+      },
+      {
+        "question": "湖南有哪些必去美食街区？",
+        "answer": "推荐前往老城区和夜市，那里集中了最正宗的湖南小吃和老字号餐厅。"
+      },
+      {
+        "question": "在湖南点菜有什么避坑建议？",
+        "answer": "建议提前了解当地特色菜名，避免被不正规店铺误导；选择人气旺的老店更靠谱。"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "season": "spring",
+      "seasonName": "春季",
+      "foods": [
+        "stir-fried-pork",
+        "dong-an-ji",
+        "smoked-meat"
+      ],
+      "description": "春暖花开，时鲜上市，品尝春日第一口鲜"
+    },
+    {
+      "season": "summer",
+      "seasonName": "夏季",
+      "foods": [
+        "hunan-rice-noodles",
+        "hunan-changsha-bingfen",
+        "hunan-changsha-cha-yan"
+      ],
+      "description": "夏日炎炎，消暑解渴，清凉美味正当时"
+    },
+    {
+      "season": "autumn",
+      "seasonName": "秋季",
+      "foods": [
+        "steamed-fish-head",
+        "guangchang-beef",
+        "lotus-root"
+      ],
+      "description": "秋高气爽，丰收时节，贴秋膘品蟹黄"
+    },
+    {
+      "season": "winter",
+      "seasonName": "冬季",
+      "foods": [
+        "changsha-baozi",
+        "hunan-mao-shi-hongshao-rou",
+        "hunan-hongcha"
+      ],
+      "description": "寒冬腊月，温补暖身，热汤热食最抚慰"
     }
   ]
 }

@@ -13,7 +13,7 @@
       "image": "https://picsum.photos/id/470/800/600",
       "price": 15,
       "rating": 4.7,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "陕西名片",
       "isPopular": true,
       "badgeColor": "#ff5722",
@@ -41,7 +41,7 @@
       "image": "https://picsum.photos/id/471/800/600",
       "price": 45,
       "rating": 4.8,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "西安经典",
       "isPopular": true,
       "badgeColor": "#795548",
@@ -69,7 +69,7 @@
       "image": "https://picsum.photos/id/472/800/600",
       "price": 12,
       "rating": 4.6,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "夏季首选",
       "isPopular": true,
       "badgeColor": "#4caf50",
@@ -97,7 +97,7 @@
       "image": "https://picsum.photos/id/473/800/600",
       "price": 18,
       "rating": 4.7,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "关中名吃",
       "isPopular": true,
       "badgeColor": "#ff9800",
@@ -125,7 +125,7 @@
       "image": "https://picsum.photos/id/474/800/600",
       "price": 15,
       "rating": 4.5,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "岐山名产",
       "isPopular": true,
       "badgeColor": "#e91e63",
@@ -153,7 +153,7 @@
       "image": "https://picsum.photos/id/475/800/600",
       "price": 68,
       "rating": 4.5,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "isPopular": false,
       "description": "肉质紧实，酱香浓郁",
       "recommendations": {
@@ -179,7 +179,7 @@
       "image": "https://picsum.photos/id/476/800/600",
       "price": 3,
       "rating": 4.1,
-      "category": "小吃",
+      "category": "小吃零食",
       "isPopular": false,
       "description": "外酥内软，早餐必备",
       "recommendations": {
@@ -205,7 +205,7 @@
       "image": "https://picsum.photos/id/477/800/600",
       "price": 5,
       "rating": 4,
-      "category": "甜品",
+      "category": "甜品糕点",
       "isPopular": false,
       "description": "香甜可口，传统面点",
       "recommendations": {
@@ -231,7 +231,7 @@
       "image": "https://picsum.photos/id/478/800/600",
       "price": 38,
       "rating": 4.3,
-      "category": "饮品",
+      "category": "汤羹饮品",
       "isPopular": false,
       "description": "香气浓郁，口感醇厚",
       "recommendations": {
@@ -243,6 +243,86 @@
         ],
         "eatingMethod": "沸水冲泡，可反复冲泡3-5次"
       }
+    },
+    {
+      "id": "shaanxi-hulatang",
+      "name": "胡辣汤",
+      "tags": [
+        "陕西特色",
+        "西安早餐",
+        "麻辣鲜香",
+        "浓稠暖胃",
+        "西北风味"
+      ],
+      "image": "https://picsum.photos/id/479/800/600",
+      "price": 8,
+      "rating": 4.6,
+      "category": "汤羹饮品",
+      "badgeText": "西安早茶",
+      "isPopular": true,
+      "badgeColor": "#ff5722",
+      "description": "麻辣鲜香，浓稠暖胃",
+      "recommendations": {
+        "pairings": [
+          "肉夹馍",
+          "油条",
+          "水煎包",
+          "坨坨馍"
+        ],
+        "eatingMethod": "趁热食用，配馍或油条最地道"
+      }
+    },
+    {
+      "id": "shaanxi-guantangbao",
+      "name": "灌汤包",
+      "tags": [
+        "陕西特色",
+        "西安名吃",
+        "皮薄馅大",
+        "汤汁丰盈",
+        "回民街美食"
+      ],
+      "image": "https://picsum.photos/id/480/800/600",
+      "price": 20,
+      "rating": 4.5,
+      "category": "面点主食",
+      "isPopular": false,
+      "description": "皮薄馅大，汤汁丰盈",
+      "recommendations": {
+        "pairings": [
+          "醋",
+          "辣椒油",
+          "蒜瓣",
+          "粉丝汤"
+        ],
+        "eatingMethod": "先咬小口吸汤，再蘸醋食用"
+      }
+    },
+    {
+      "id": "shaanxi-bingfeng",
+      "name": "冰峰汽水",
+      "tags": [
+        "陕西特色",
+        "西安老字号",
+        "橘子味",
+        "清凉解暑",
+        "童年记忆"
+      ],
+      "image": "https://picsum.photos/id/481/800/600",
+      "price": 4,
+      "rating": 4.4,
+      "category": "汤羹饮品",
+      "isPopular": false,
+      "description": "橘子味汽水，清凉解暑",
+      "recommendations": {
+        "pairings": [
+          "肉夹馍",
+          "凉皮",
+          "biangbiang面",
+          "烤肉"
+        ],
+        "eatingMethod": "冰镇后饮用，解腻消暑"
+      }
     }
   ],
   "locations": [
@@ -252,9 +332,9 @@
       "name": "西安回民街",
       "type": "美食街",
       "foods": [
-        "rou-jia-mo",
-        "yangrou-paomo",
-        "liang-pi"
+        "roujiamo",
+        "yangroupaomo",
+        "liangpi"
       ],
       "image": "https://picsum.photos/id/334/800/600",
       "reason": "西安最著名的美食街",
@@ -266,13 +346,190 @@
       "name": "西安永兴坊",
       "type": "美食街",
       "foods": [
-        "biang-biang-noodle",
-        "qishan-noodle",
-        "hula-tang"
+        "biangbiang-mian",
+        "qishan-saomian",
+        "shaanxi-hulatang"
       ],
       "image": "https://picsum.photos/id/335/800/600",
       "reason": "陕西特色美食集中地",
       "location": "西安市"
+    },
+    {
+      "id": 3,
+      "icon": "🏛️",
+      "name": "宝鸡岐山美食区",
+      "type": "美食街",
+      "foods": [
+        "qishan-saomian",
+        "shaanxi-jiangrou",
+        "shaanxi-guantangbao"
+      ],
+      "image": "https://picsum.photos/id/336/800/600",
+      "reason": "岐山臊子面发源地，西府美食聚集",
+      "location": "宝鸡市"
+    }
+  ],
+  "souvenirs": [
+    {
+      "id": "shaanxi-souvenir-1",
+      "name": "西凤酒",
+      "image": "https://picsum.photos/id/259/600/400",
+      "priceRange": "30-200元",
+      "description": "凤香型名酒，醇香绵柔",
+      "buyAt": "西凤酒厂",
+      "storage": "阴凉避光",
+      "province": "陕西"
+    },
+    {
+      "id": "shaanxi-souvenir-2",
+      "name": "兵马俑复制品",
+      "image": "https://picsum.photos/id/258/600/400",
+      "priceRange": "20-200元",
+      "description": "缩微铜俑，文化纪念",
+      "buyAt": "临潼兵马俑店",
+      "storage": "干燥保存",
+      "province": "陕西"
+    },
+    {
+      "id": "shaanxi-souvenir-3",
+      "name": "陕北红枣",
+      "image": "https://picsum.photos/id/257/600/400",
+      "priceRange": "15-40元",
+      "description": "个大肉厚，甘甜醇香",
+      "buyAt": "陕北特产",
+      "storage": "密封干燥",
+      "province": "陕西"
+    },
+    {
+      "id": "shaanxi-souvenir-4",
+      "name": "富平柿饼",
+      "image": "https://picsum.photos/id/256/600/400",
+      "priceRange": "15-35元",
+      "description": "霜降后晒制，软糯香甜",
+      "buyAt": "富平柿饼厂",
+      "storage": "冷藏保存",
+      "province": "陕西"
+    }
+  ],
+  "guide": {
+    "mealPlan": {
+      "breakfast": [
+        "roujiamo",
+        "shaanxi-hulatang",
+        "shaanxi-youtiao"
+      ],
+      "lunch": [
+        "biangbiang-mian",
+        "yangroupaomo",
+        "qishan-saomian"
+      ],
+      "dinner": [
+        "shaanxi-guantangbao",
+        "shaanxi-jiangrou",
+        "liangpi"
+      ]
+    },
+    "routes": [
+      {
+        "id": "shaanxi-route-1",
+        "name": "陕西经典美食一日游",
+        "duration": "1天",
+        "steps": [
+          {
+            "time": "08:30",
+            "location": "西安回民街",
+            "foodId": "roujiamo",
+            "description": "清晨从一顿地道早餐开始"
+          },
+          {
+            "time": "12:00",
+            "location": "西安永兴坊",
+            "foodId": "biangbiang-mian",
+            "description": "午餐品尝关中名吃"
+          },
+          {
+            "time": "18:30",
+            "location": "西安夜市",
+            "foodId": "shaanxi-hulatang",
+            "description": "夜市扫街，收尾完美一天"
+          }
+        ]
+      },
+      {
+        "id": "shaanxi-route-2",
+        "name": "陕西深度寻味半日游",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "10:00",
+            "location": "宝鸡岐山",
+            "foodId": "qishan-saomian",
+            "description": "探访岐山臊子面百年老字号"
+          },
+          {
+            "time": "15:00",
+            "location": "西安回民街",
+            "foodId": "shaanxi-guantangbao",
+            "description": "下午茶时光品鉴灌汤包"
+          }
+        ]
+      }
+    ],
+    "tips": [
+      {
+        "question": "陕西美食的最佳品尝时间？",
+        "answer": "建议在春秋两季前往，气候宜人，食材当季，能品尝到最地道的陕西风味。"
+      },
+      {
+        "question": "陕西有哪些必去美食街区？",
+        "answer": "推荐前往西安回民街和永兴坊，那里集中了最正宗的陕西小吃和老字号餐厅。"
+      },
+      {
+        "question": "在陕西点菜有什么避坑建议？",
+        "answer": "建议提前了解当地特色菜名，避免被不正规店铺误导；选择人气旺的老店更靠谱。"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "season": "spring",
+      "seasonName": "春季",
+      "foods": [
+        "roujiamo",
+        "liangpi",
+        "shaanxi-youtiao"
+      ],
+      "description": "春暖花开，时鲜上市，品尝春日第一口鲜"
+    },
+    {
+      "season": "summer",
+      "seasonName": "夏季",
+      "foods": [
+        "liangpi",
+        "shaanxi-bingfeng",
+        "shaanxi-tangbao"
+      ],
+      "description": "夏日炎炎，消暑解渴，清凉美味正当时"
+    },
+    {
+      "season": "autumn",
+      "seasonName": "秋季",
+      "foods": [
+        "yangroupaomo",
+        "biangbiang-mian",
+        "shaanxi-jiangrou"
+      ],
+      "description": "秋高气爽，丰收时节，贴秋膘品肉香"
+    },
+    {
+      "season": "winter",
+      "seasonName": "冬季",
+      "foods": [
+        "qishan-saomian",
+        "shaanxi-hulatang",
+        "shaanxi-hongcha"
+      ],
+      "description": "寒冬腊月，温补暖身，热汤热食最抚慰"
     }
   ]
 }

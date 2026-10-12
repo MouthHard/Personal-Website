@@ -13,7 +13,7 @@
       "image": "https://picsum.photos/id/292/800/600",
       "price": 188,
       "rating": 4.8,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "招牌必点",
       "isPopular": true,
       "badgeColor": "#ff4444",
@@ -41,7 +41,7 @@
       "image": "https://picsum.photos/id/293/800/600",
       "price": 28,
       "rating": 4.5,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "当地特色",
       "isPopular": true,
       "badgeColor": "#ff9900",
@@ -69,7 +69,7 @@
       "image": "https://picsum.photos/id/294/800/600",
       "price": 158,
       "rating": 4.7,
-      "category": "菜肴",
+      "category": "烧烤火锅",
       "badgeText": "冬季限定",
       "isPopular": true,
       "badgeColor": "#2196f3",
@@ -97,7 +97,7 @@
       "image": "https://picsum.photos/id/295/800/600",
       "price": 8,
       "rating": 3.5,
-      "category": "饮品",
+      "category": "汤羹饮品",
       "isPopular": false,
       "description": "北京特色小吃，口感独特",
       "recommendations": {
@@ -123,7 +123,7 @@
       "image": "https://picsum.photos/id/296/800/600",
       "price": 12,
       "rating": 4,
-      "category": "甜品",
+      "category": "甜品糕点",
       "isPopular": false,
       "description": "传统糕点，香甜软糯",
       "recommendations": {
@@ -149,7 +149,7 @@
       "image": "https://picsum.photos/id/297/800/600",
       "price": 10,
       "rating": 4.2,
-      "category": "甜品",
+      "category": "甜品糕点",
       "badgeText": "宫廷传承",
       "isPopular": true,
       "badgeColor": "#9c27b0",
@@ -177,7 +177,7 @@
       "image": "https://picsum.photos/id/298/800/600",
       "price": 3,
       "rating": 3.8,
-      "category": "小吃",
+      "category": "小吃零食",
       "isPopular": false,
       "description": "北京早点，酥脆可口",
       "recommendations": {
@@ -203,7 +203,7 @@
       "image": "https://picsum.photos/id/299/800/600",
       "price": 68,
       "rating": 4.6,
-      "category": "菜肴",
+      "category": "烧烤火锅",
       "badgeText": "人气爆款",
       "isPopular": true,
       "badgeColor": "#4caf50",
@@ -231,7 +231,7 @@
       "image": "https://picsum.photos/id/300/800/600",
       "price": 6,
       "rating": 3.9,
-      "category": "主食",
+      "category": "汤羹饮品",
       "isPopular": false,
       "description": "老北京传统早点",
       "recommendations": {
@@ -257,7 +257,7 @@
       "image": "https://picsum.photos/id/301/800/600",
       "price": 8,
       "rating": 4.1,
-      "category": "主食",
+      "category": "汤羹饮品",
       "badgeText": "早餐必备",
       "isPopular": false,
       "badgeColor": "#607d8b",
@@ -270,6 +270,136 @@
           "辣椒油"
         ],
         "eatingMethod": "趁热食用，可根据口味添加卤汁、辣椒油或蒜汁"
+      }
+    },
+    {
+      "id": "beijing-baodu",
+      "name": "爆肚",
+      "tags": [
+        "当地特色",
+        "传统工艺",
+        "地道风味",
+        "脆嫩爽口",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/313/800/600",
+      "price": 38,
+      "rating": 4.5,
+      "category": "菜品菜肴",
+      "isPopular": false,
+      "description": "老北京传统名吃，脆嫩爽口",
+      "recommendations": {
+        "pairings": [
+          "麻酱",
+          "香菜",
+          "葱花",
+          "辣椒油"
+        ],
+        "eatingMethod": "沸水快速焯烫，蘸麻酱食用"
+      }
+    },
+    {
+      "id": "beijing-chaogan",
+      "name": "炒肝",
+      "tags": [
+        "当地特色",
+        "传统工艺",
+        "地道风味",
+        "早餐必备",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/314/800/600",
+      "price": 12,
+      "rating": 4.3,
+      "category": "汤羹饮品",
+      "isPopular": false,
+      "description": "老北京传统早点，浓稠鲜香",
+      "recommendations": {
+        "pairings": [
+          "包子",
+          "烧饼",
+          "蒜泥",
+          "醋"
+        ],
+        "eatingMethod": "趁热食用，配包子或烧饼"
+      }
+    },
+    {
+      "id": "beijing-tanghulu",
+      "name": "冰糖葫芦",
+      "tags": [
+        "当地特色",
+        "传统工艺",
+        "地道风味",
+        "酸甜可口",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/315/800/600",
+      "price": 10,
+      "rating": 4.6,
+      "category": "小吃零食",
+      "isPopular": false,
+      "description": "老北京传统小吃，酸甜可口",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "咖啡",
+          "水果",
+          "饮料"
+        ],
+        "eatingMethod": "直接食用，作为零食"
+      }
+    },
+    {
+      "id": "beijing-luzhu",
+      "name": "卤煮火烧",
+      "tags": [
+        "当地特色",
+        "传统工艺",
+        "地道风味",
+        "浓香四溢",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/316/800/600",
+      "price": 25,
+      "rating": 4.4,
+      "category": "菜品菜肴",
+      "isPopular": false,
+      "description": "老北京传统小吃，浓香四溢",
+      "recommendations": {
+        "pairings": [
+          "蒜泥",
+          "醋",
+          "辣椒油",
+          "香菜"
+        ],
+        "eatingMethod": "直接食用，可加蒜泥和醋"
+      }
+    },
+    {
+      "id": "beijing-mending",
+      "name": "门钉肉饼",
+      "tags": [
+        "当地特色",
+        "传统工艺",
+        "地道风味",
+        "皮薄馅大",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/317/800/600",
+      "price": 18,
+      "rating": 4.4,
+      "category": "面点主食",
+      "isPopular": false,
+      "description": "老北京传统面点，皮薄馅大",
+      "recommendations": {
+        "pairings": [
+          "小米粥",
+          "小菜",
+          "蒜醋",
+          "汤品"
+        ],
+        "eatingMethod": "直接食用，配粥或小菜"
       }
     }
   ],
@@ -324,7 +454,7 @@
       "foods": [
         "zhajiangmian",
         "douzhi",
-        "beijing-duck"
+        "beijing-tanghulu"
       ],
       "image": "https://picsum.photos/id/1083/800/600",
       "reason": "北京最繁华的商业街之一",
@@ -337,26 +467,219 @@
       "type": "美食区",
       "foods": [
         "shuan-yang-rou",
-        "mian-tang",
-        "lamb-hotpot"
+        "beijing-baodu",
+        "beijing-chaogan"
       ],
       "image": "https://picsum.photos/id/1084/800/600",
       "reason": "北京时尚潮流美食聚集地",
       "location": "朝阳区"
+    }
+  ],
+  "souvenirs": [
+    {
+      "id": "beijing-souvenir-1",
+      "name": "北京烤鸭真空装",
+      "image": "https://picsum.photos/id/643/600/400",
+      "priceRange": "80-150元",
+      "description": "正宗挂炉烤鸭，真空包装便于携带",
+      "buyAt": "全聚德门店",
+      "storage": "冷藏保存",
+      "province": "北京"
     },
     {
-      "id": 6,
-      "icon": "🛣️",
-      "name": "大栅栏",
-      "type": "美食街",
-      "foods": [
-        "dou-fu-nao",
-        "zhajiangmian",
-        "lvdagun"
+      "id": "beijing-souvenir-2",
+      "name": "茯苓夹饼",
+      "image": "https://picsum.photos/id/644/600/400",
+      "priceRange": "15-30元",
+      "description": "薄如纸的饼皮夹茯苓馅，宫廷点心",
+      "buyAt": "稻香村",
+      "storage": "阴凉干燥",
+      "province": "北京"
+    },
+    {
+      "id": "beijing-souvenir-3",
+      "name": "六必居酱菜",
+      "image": "https://picsum.photos/id/645/600/400",
+      "priceRange": "10-25元",
+      "description": "百年老字号酱菜，酱香浓郁",
+      "buyAt": "六必居",
+      "storage": "开封冷藏",
+      "province": "北京"
+    },
+    {
+      "id": "beijing-souvenir-4",
+      "name": "景泰蓝",
+      "image": "https://picsum.photos/id/646/600/400",
+      "priceRange": "200-2000元",
+      "description": "铜胎掐丝珐琅工艺，北京传统手工艺",
+      "buyAt": "景泰蓝工坊",
+      "storage": "干燥保存",
+      "province": "北京"
+    },
+    {
+      "id": "beijing-souvenir-5",
+      "name": "北京果脯",
+      "image": "https://picsum.photos/id/647/600/400",
+      "priceRange": "20-50元",
+      "description": "传统果脯蜜饯，酸甜可口",
+      "buyAt": "稻香村",
+      "storage": "阴凉干燥",
+      "province": "北京"
+    },
+    {
+      "id": "beijing-souvenir-6",
+      "name": "红星二锅头",
+      "image": "https://picsum.photos/id/648/600/400",
+      "priceRange": "15-80元",
+      "description": "北京传统白酒，清香纯正",
+      "buyAt": "北京超市",
+      "storage": "阴凉避光",
+      "province": "北京"
+    }
+  ],
+  "guide": {
+    "mealPlan": {
+      "breakfast": [
+        "beijing-duck",
+        "douzhi",
+        "jiaoquan"
       ],
-      "image": "https://picsum.photos/id/1085/800/600",
-      "reason": "北京传统商业文化街区",
-      "location": "西城区"
+      "lunch": [
+        "jiaoquan",
+        "douzhi",
+        "beijing-duck"
+      ],
+      "dinner": [
+        "beijing-duck",
+        "wandouhuang"
+      ]
+    },
+    "routes": [
+      {
+        "id": "beijing-route-1",
+        "name": "北京经典美食一日游",
+        "duration": "1天",
+        "steps": [
+          {
+            "time": "08:30",
+            "location": "北京老城区",
+            "foodId": "beijing-duck",
+            "description": "清晨从一顿地道早餐开始"
+          },
+          {
+            "time": "12:00",
+            "location": "北京美食街",
+            "foodId": "douzhi",
+            "description": "午餐品尝当地招牌菜"
+          },
+          {
+            "time": "18:30",
+            "location": "北京夜市",
+            "foodId": "jiaoquan",
+            "description": "夜市扫街，收尾完美一天"
+          }
+        ]
+      },
+      {
+        "id": "beijing-route-2",
+        "name": "北京深度寻味半日游",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "10:00",
+            "location": "北京老字号",
+            "foodId": "wandouhuang",
+            "description": "探访百年老字号"
+          },
+          {
+            "time": "15:00",
+            "location": "北京特产市场",
+            "foodId": "beijing-duck",
+            "description": "下午茶时光品鉴特色小吃"
+          }
+        ]
+      },
+      {
+        "id": "beijing-route-3",
+        "name": "京味小吃探寻之旅",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "09:00",
+            "location": "胡同早点铺",
+            "foodId": "beijing-mending",
+            "description": "清晨门钉肉饼开启一天"
+          },
+          {
+            "time": "13:00",
+            "location": "前门大街",
+            "foodId": "beijing-luzhu",
+            "description": "中午卤煮火烧品味市井"
+          },
+          {
+            "time": "17:00",
+            "location": "牛街",
+            "foodId": "beijing-baodu",
+            "description": "傍晚爆肚收尾京味之旅"
+          }
+        ]
+      }
+    ],
+    "tips": [
+      {
+        "question": "北京美食的最佳品尝时间？",
+        "answer": "建议在春秋两季前往，气候宜人，食材当季，能品尝到最地道的北京风味。"
+      },
+      {
+        "question": "北京有哪些必去美食街区？",
+        "answer": "推荐前往老城区和夜市，那里集中了最正宗的北京小吃和老字号餐厅。"
+      },
+      {
+        "question": "在北京点菜有什么避坑建议？",
+        "answer": "建议提前了解当地特色菜名，避免被不正规店铺误导；选择人气旺的老店更靠谱。"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "season": "spring",
+      "seasonName": "春季",
+      "foods": [
+        "beijing-duck",
+        "lvdagun",
+        "jiaoquan"
+      ],
+      "description": "春暖花开，时鲜上市，品尝春日第一口鲜"
+    },
+    {
+      "season": "summer",
+      "seasonName": "夏季",
+      "foods": [
+        "zhajiangmian",
+        "douzhi",
+        "beijing-tanghulu"
+      ],
+      "description": "夏日炎炎，消暑解渴，清凉美味正当时"
+    },
+    {
+      "season": "autumn",
+      "seasonName": "秋季",
+      "foods": [
+        "lamb-hotpot",
+        "wandouhuang",
+        "beijing-baodu"
+      ],
+      "description": "秋高气爽，丰收时节，贴秋膘品蟹黄"
+    },
+    {
+      "season": "winter",
+      "seasonName": "冬季",
+      "foods": [
+        "shuan-yang-rou",
+        "mian-tang",
+        "beijing-chaogan"
+      ],
+      "description": "寒冬腊月，温补暖身，热汤热食最抚慰"
     }
   ]
 }

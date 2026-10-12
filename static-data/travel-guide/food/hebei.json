@@ -13,7 +13,7 @@
       "image": "https://picsum.photos/id/387/800/600",
       "price": 20,
       "rating": 4.5,
-      "category": "甜品",
+      "category": "甜品糕点",
       "badgeText": "唐山名产",
       "isPopular": true,
       "badgeColor": "#ff9800",
@@ -41,7 +41,7 @@
       "image": "https://picsum.photos/id/388/800/600",
       "price": 18,
       "rating": 4.7,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "保定名吃",
       "isPopular": true,
       "badgeColor": "#ff5722",
@@ -69,7 +69,7 @@
       "image": "https://picsum.photos/id/389/800/600",
       "price": 88,
       "rating": 4.8,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "渤海珍鲜",
       "isPopular": true,
       "badgeColor": "#03a9f4",
@@ -97,7 +97,7 @@
       "image": "https://picsum.photos/id/390/800/600",
       "price": 25,
       "rating": 4.6,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "坝上特产",
       "isPopular": true,
       "badgeColor": "#4caf50",
@@ -125,7 +125,7 @@
       "image": "https://picsum.photos/id/391/800/600",
       "price": 30,
       "rating": 4.3,
-      "category": "甜品",
+      "category": "甜品糕点",
       "isPopular": false,
       "description": "肉厚核小，甘甜可口",
       "recommendations": {
@@ -151,7 +151,7 @@
       "image": "https://picsum.photos/id/392/800/600",
       "price": 3,
       "rating": 4.1,
-      "category": "小吃",
+      "category": "小吃零食",
       "isPopular": false,
       "description": "外酥内软，早餐必备",
       "recommendations": {
@@ -177,7 +177,7 @@
       "image": "https://picsum.photos/id/393/800/600",
       "price": 38,
       "rating": 4.3,
-      "category": "饮品",
+      "category": "汤羹饮品",
       "isPopular": false,
       "description": "香气浓郁，口感醇厚",
       "recommendations": {
@@ -189,6 +189,223 @@
         ],
         "eatingMethod": "直接饮用，可点心或小吃"
       }
+    },
+    {
+      "id": "hebei-ganglushaobing",
+      "name": "缸炉烧饼",
+      "tags": [
+        "河北特色",
+        "石家庄特产",
+        "外酥内软",
+        "芝麻香浓",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/460/800/600",
+      "price": 5,
+      "rating": 4.4,
+      "category": "面点主食",
+      "badgeText": "石门名点",
+      "isPopular": true,
+      "badgeColor": "#ff9800",
+      "description": "缸炉烤制，外酥内软，芝麻香浓",
+      "recommendations": {
+        "pairings": [
+          "驴肉",
+          "小菜",
+          "汤品",
+          "饮料"
+        ],
+        "eatingMethod": "直接食用，或夹肉作为主食"
+      }
+    },
+    {
+      "id": "hebei-zaliangjianbing",
+      "name": "杂粮煎饼",
+      "tags": [
+        "河北特色",
+        "传统面点",
+        "粗粮健康",
+        "薄脆可口",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/461/800/600",
+      "price": 8,
+      "rating": 4.3,
+      "category": "面点主食",
+      "badgeText": "坝上名食",
+      "isPopular": false,
+      "description": "粗粮制作，薄脆可口，健康美味",
+      "recommendations": {
+        "pairings": [
+          "小菜",
+          "汤品",
+          "饮料",
+          "茶品"
+        ],
+        "eatingMethod": "直接食用，卷菜或酱料"
+      }
+    },
+    {
+      "id": "hebei-songhuadan",
+      "name": "白洋淀松花蛋",
+      "tags": [
+        "河北特色",
+        "保定特产",
+        "蛋清松花",
+        "蛋黄溏心",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/462/800/600",
+      "price": 15,
+      "rating": 4.2,
+      "category": "小吃零食",
+      "badgeText": "白洋淀名产",
+      "isPopular": false,
+      "description": "蛋清松花，蛋黄溏心",
+      "recommendations": {
+        "pairings": [
+          "粥",
+          "豆腐",
+          "小菜",
+          "饮料"
+        ],
+        "eatingMethod": "直接食用，或凉拌佐粥"
+      }
+    },
+    {
+      "id": "hebei-lvdagun",
+      "name": "承德驴打滚",
+      "tags": [
+        "河北特色",
+        "承德特产",
+        "软糯香甜",
+        "豆沙馅美",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/463/800/600",
+      "price": 12,
+      "rating": 4.3,
+      "category": "甜品糕点",
+      "badgeText": "承德名点",
+      "isPopular": false,
+      "description": "软糯香甜，豆沙馅美",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "咖啡",
+          "饮料",
+          "甜品"
+        ],
+        "eatingMethod": "直接食用，作为甜品或茶点"
+      }
+    },
+    {
+      "id": "hebei-daguocai",
+      "name": "邯郸大锅菜",
+      "tags": [
+        "河北特色",
+        "邯郸特产",
+        "料足味浓",
+        "家常美味",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/464/800/600",
+      "price": 28,
+      "rating": 4.4,
+      "category": "菜品菜肴",
+      "badgeText": "赵都名菜",
+      "isPopular": false,
+      "description": "料足味浓，家常美味",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "馒头",
+          "面条",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，配米饭或馒头"
+      }
+    },
+    {
+      "id": "hebei-huiminpaji",
+      "name": "石家庄回民扒鸡",
+      "tags": [
+        "河北特色",
+        "石家庄特产",
+        "肉质酥烂",
+        "五香浓郁",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/465/800/600",
+      "price": 48,
+      "rating": 4.5,
+      "category": "菜品菜肴",
+      "badgeText": "石门名鸡",
+      "isPopular": false,
+      "description": "肉质酥烂，五香浓郁",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，配米饭"
+      }
+    },
+    {
+      "id": "hebei-jingdongroubing",
+      "name": "京东肉饼",
+      "tags": [
+        "河北特色",
+        "廊坊特产",
+        "皮薄馅大",
+        "肉香四溢",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/466/800/600",
+      "price": 15,
+      "rating": 4.4,
+      "category": "面点主食",
+      "badgeText": "廊坊名吃",
+      "isPopular": false,
+      "description": "皮薄馅大，肉香四溢",
+      "recommendations": {
+        "pairings": [
+          "粥",
+          "小菜",
+          "汤品",
+          "饮料"
+        ],
+        "eatingMethod": "直接食用，作为主食"
+      }
+    },
+    {
+      "id": "hebei-qizishaobing",
+      "name": "唐山棋子烧饼",
+      "tags": [
+        "河北特色",
+        "唐山特产",
+        "小巧酥脆",
+        "肉馅咸香",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/467/800/600",
+      "price": 10,
+      "rating": 4.3,
+      "category": "小吃零食",
+      "badgeText": "唐山名点",
+      "isPopular": false,
+      "description": "形如棋子，小巧酥脆，肉馅咸香",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "粥",
+          "饮料",
+          "小菜"
+        ],
+        "eatingMethod": "直接食用，作为零食或茶点"
+      }
     }
   ],
   "locations": [
@@ -199,7 +416,7 @@
       "type": "美食街",
       "foods": [
         "保定驴肉火烧",
-        "河北烩面",
+        "hebei-ganglushaobing",
         "唐山麻糖"
       ],
       "image": "https://picsum.photos/id/302/800/600",
@@ -213,12 +430,253 @@
       "type": "市场",
       "foods": [
         "秦皇岛海鲜",
-        "北戴河烤鱼",
-        "山海关浑锅"
+        "hebei-jingdongroubing",
+        "hebei-songhuadan"
       ],
       "image": "https://picsum.photos/id/303/800/600",
       "reason": "秦皇岛海鲜美食聚集地",
       "location": "秦皇岛市"
+    },
+    {
+      "id": 3,
+      "icon": "⛰️",
+      "name": "张家口坝上",
+      "type": "景区",
+      "foods": [
+        "张家口莜面",
+        "hebei-zaliangjianbing",
+        "hebei-hongcha"
+      ],
+      "image": "https://picsum.photos/id/304/800/600",
+      "reason": "坝上草原莜面飘香",
+      "location": "张家口市"
+    },
+    {
+      "id": 4,
+      "icon": "🏬",
+      "name": "唐山老城",
+      "type": "美食街",
+      "foods": [
+        "唐山麻糖",
+        "hebei-qizishaobing",
+        "hebei-lvdagun"
+      ],
+      "image": "https://picsum.photos/id/305/800/600",
+      "reason": "唐山传统糕点小吃聚集地",
+      "location": "唐山市"
+    }
+  ],
+  "souvenirs": [
+    {
+      "id": "hebei-souvenir-1",
+      "name": "衡水老白干",
+      "image": "https://picsum.photos/id/90/600/400",
+      "priceRange": "20-100元",
+      "description": "传统名酒，醇香清雅",
+      "buyAt": "衡水酒厂",
+      "storage": "阴凉避光",
+      "province": "河北"
+    },
+    {
+      "id": "hebei-souvenir-2",
+      "name": "保定驴肉火烧",
+      "image": "https://picsum.photos/id/89/600/400",
+      "priceRange": "10-20元",
+      "description": "外酥里嫩，驴肉鲜香",
+      "buyAt": "保定老驴头",
+      "storage": "即买即食",
+      "province": "河北"
+    },
+    {
+      "id": "hebei-souvenir-3",
+      "name": "蔚县剪纸",
+      "image": "https://picsum.photos/id/88/600/400",
+      "priceRange": "10-50元",
+      "description": "世界非遗，阴刻点染",
+      "buyAt": "蔚县剪纸厂",
+      "storage": "干燥保存",
+      "province": "河北"
+    },
+    {
+      "id": "hebei-souvenir-4",
+      "name": "白洋淀松花蛋",
+      "image": "https://picsum.photos/id/87/600/400",
+      "priceRange": "10-20元",
+      "description": "蛋清松花，蛋黄溏心",
+      "buyAt": "白洋淀特产",
+      "storage": "冷藏保存",
+      "province": "河北"
+    },
+    {
+      "id": "hebei-souvenir-5",
+      "name": "唐山麻糖",
+      "image": "https://picsum.photos/id/86/600/400",
+      "priceRange": "15-40元",
+      "description": "酥脆香甜，百年传承",
+      "buyAt": "唐山麻糖厂",
+      "storage": "干燥密封",
+      "province": "河北"
+    },
+    {
+      "id": "hebei-souvenir-6",
+      "name": "沧州金丝小枣",
+      "image": "https://picsum.photos/id/85/600/400",
+      "priceRange": "20-50元",
+      "description": "肉厚核小，甘甜可口",
+      "buyAt": "沧州枣业",
+      "storage": "干燥保存",
+      "province": "河北"
+    }
+  ],
+  "guide": {
+    "mealPlan": {
+      "breakfast": [
+        "唐山麻糖",
+        "秦皇岛海鲜",
+        "沧州金丝小枣"
+      ],
+      "lunch": [
+        "沧州金丝小枣",
+        "秦皇岛海鲜",
+        "唐山麻糖"
+      ],
+      "dinner": [
+        "唐山麻糖",
+        "张家口莜面"
+      ]
+    },
+    "routes": [
+      {
+        "id": "hebei-route-1",
+        "name": "河北经典美食一日游",
+        "duration": "1天",
+        "steps": [
+          {
+            "time": "08:30",
+            "location": "保定美食街",
+            "foodId": "保定驴肉火烧",
+            "description": "清晨从保定驴肉火烧开始"
+          },
+          {
+            "time": "12:00",
+            "location": "秦皇岛海鲜市场",
+            "foodId": "秦皇岛海鲜",
+            "description": "午餐品尝渤海海鲜"
+          },
+          {
+            "time": "18:30",
+            "location": "唐山老城",
+            "foodId": "hebei-qizishaobing",
+            "description": "夜市品尝唐山棋子烧饼"
+          }
+        ]
+      },
+      {
+        "id": "hebei-route-2",
+        "name": "坝上风情半日游",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "10:00",
+            "location": "张家口坝上",
+            "foodId": "张家口莜面",
+            "description": "探访坝上莜面馆"
+          },
+          {
+            "time": "12:30",
+            "location": "张家口面食店",
+            "foodId": "hebei-zaliangjianbing",
+            "description": "品尝杂粮煎饼"
+          },
+          {
+            "time": "15:00",
+            "location": "张家口茶馆",
+            "foodId": "hebei-hongcha",
+            "description": "下午茶时光品鉴河北红茶"
+          }
+        ]
+      },
+      {
+        "id": "hebei-route-3",
+        "name": "石家庄美食探索游",
+        "duration": "1天",
+        "steps": [
+          {
+            "time": "08:00",
+            "location": "石家庄早餐铺",
+            "foodId": "hebei-ganglushaobing",
+            "description": "清晨缸炉烧饼配豆浆"
+          },
+          {
+            "time": "12:00",
+            "location": "石家庄老字号",
+            "foodId": "hebei-huiminpaji",
+            "description": "午餐品尝回民扒鸡"
+          },
+          {
+            "time": "18:00",
+            "location": "邯郸餐馆",
+            "foodId": "hebei-daguocai",
+            "description": "晚餐品鉴邯郸大锅菜"
+          }
+        ]
+      }
+    ],
+    "tips": [
+      {
+        "question": "河北美食的最佳品尝时间？",
+        "answer": "建议在春秋两季前往，气候宜人，食材当季，能品尝到最地道的河北风味。"
+      },
+      {
+        "question": "河北有哪些必去美食街区？",
+        "answer": "推荐前往保定美食街、秦皇岛海鲜市场和唐山老城，那里集中了最正宗的河北小吃和老字号餐厅。"
+      },
+      {
+        "question": "在河北点菜有什么避坑建议？",
+        "answer": "建议提前了解当地特色菜名，避免被不正规店铺误导；选择人气旺的老店更靠谱。"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "season": "spring",
+      "seasonName": "春季",
+      "foods": [
+        "保定驴肉火烧",
+        "hebei-ganglushaobing",
+        "hebei-youtiao"
+      ],
+      "description": "春暖花开，时鲜上市，品尝春日第一口鲜"
+    },
+    {
+      "season": "summer",
+      "seasonName": "夏季",
+      "foods": [
+        "秦皇岛海鲜",
+        "hebei-songhuadan",
+        "hebei-jingdongroubing"
+      ],
+      "description": "夏日炎炎，消暑解渴，清凉美味正当时"
+    },
+    {
+      "season": "autumn",
+      "seasonName": "秋季",
+      "foods": [
+        "张家口莜面",
+        "hebei-daguocai",
+        "沧州金丝小枣"
+      ],
+      "description": "秋高气爽，丰收时节，贴秋膘品蟹黄"
+    },
+    {
+      "season": "winter",
+      "seasonName": "冬季",
+      "foods": [
+        "hebei-huiminpaji",
+        "hebei-lvdagun",
+        "hebei-hongcha"
+      ],
+      "description": "寒冬腊月，温补暖身，热汤热食最抚慰"
     }
   ]
 }

@@ -13,7 +13,7 @@
       "image": "https://picsum.photos/id/499/800/600",
       "price": 12,
       "rating": 4.8,
-      "category": "甜品",
+      "category": "甜品糕点",
       "badgeText": "澳门招牌",
       "isPopular": true,
       "badgeColor": "#ffc107",
@@ -41,7 +41,7 @@
       "image": "https://picsum.photos/id/500/800/600",
       "price": 25,
       "rating": 4.7,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "澳门名吃",
       "isPopular": true,
       "badgeColor": "#ff5722",
@@ -69,7 +69,7 @@
       "image": "https://picsum.photos/id/501/800/600",
       "price": 68,
       "rating": 4.6,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "葡式烧味",
       "isPopular": true,
       "badgeColor": "#795548",
@@ -97,7 +97,7 @@
       "image": "https://picsum.photos/id/502/800/600",
       "price": 48,
       "rating": 4.5,
-      "category": "主食",
+      "category": "汤羹饮品",
       "isPopular": false,
       "description": "鲜美可口，营养丰富",
       "recommendations": {
@@ -123,7 +123,7 @@
       "image": "https://picsum.photos/id/503/800/600",
       "price": 35,
       "rating": 4.3,
-      "category": "甜品",
+      "category": "甜品糕点",
       "isPopular": false,
       "description": "香甜可口，口感酥脆",
       "recommendations": {
@@ -149,7 +149,7 @@
       "image": "https://picsum.photos/id/504/800/600",
       "price": 20,
       "rating": 4.2,
-      "category": "饮品",
+      "category": "汤羹饮品",
       "isPopular": false,
       "description": "香甜可口，口感醇厚",
       "recommendations": {
@@ -175,7 +175,7 @@
       "image": "https://picsum.photos/id/505/800/600",
       "price": 10,
       "rating": 4.1,
-      "category": "小吃",
+      "category": "小吃零食",
       "isPopular": false,
       "description": "Q弹爽口，口感独特",
       "recommendations": {
@@ -186,6 +186,138 @@
           "咖喱酱"
         ],
         "eatingMethod": "可串起来吃或煮汤食用"
+      }
+    },
+    {
+      "id": "macau-pu-shi-kafei",
+      "name": "葡式咖啡",
+      "tags": [
+        "澳门特色",
+        "葡式饮品",
+        "香气浓郁",
+        "口感醇厚",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/470/800/600",
+      "price": 22,
+      "rating": 4.4,
+      "category": "汤羹饮品",
+      "isPopular": false,
+      "description": "澳门葡式咖啡，香气浓郁，口感醇厚",
+      "recommendations": {
+        "pairings": [
+          "蛋挞",
+          "杏仁饼",
+          "猪扒包",
+          "甜品"
+        ],
+        "eatingMethod": "热饮或冰饮均可，搭配甜点更佳"
+      }
+    },
+    {
+      "id": "macau-fei-zhou-ji",
+      "name": "非洲鸡",
+      "tags": [
+        "澳门特色",
+        "葡式名菜",
+        "外焦里嫩",
+        "香料独特",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/471/800/600",
+      "price": 88,
+      "rating": 4.6,
+      "category": "菜品菜肴",
+      "badgeText": "葡式名菜",
+      "isPopular": true,
+      "badgeColor": "#ff9800",
+      "description": "澳门葡国菜代表，非洲鸡外焦里嫩",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "沙拉",
+          "红酒",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，搭配米饭"
+      }
+    },
+    {
+      "id": "macau-hai-xian-fan",
+      "name": "海鲜饭",
+      "tags": [
+        "澳门特色",
+        "葡式料理",
+        "食材丰富",
+        "鲜美可口",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/472/800/600",
+      "price": 58,
+      "rating": 4.5,
+      "category": "面点主食",
+      "isPopular": false,
+      "description": "澳门葡式海鲜饭，食材丰富，鲜美可口",
+      "recommendations": {
+        "pairings": [
+          "红酒",
+          "沙拉",
+          "小菜",
+          "汤品"
+        ],
+        "eatingMethod": "直接食用，作为主食"
+      }
+    },
+    {
+      "id": "macau-pu-shi-bu-ding",
+      "name": "葡式布丁",
+      "tags": [
+        "澳门特色",
+        "葡式甜品",
+        "香甜可口",
+        "口感嫩滑",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/473/800/600",
+      "price": 18,
+      "rating": 4.4,
+      "category": "甜品糕点",
+      "isPopular": false,
+      "description": "澳门葡式布丁，香甜可口，口感嫩滑",
+      "recommendations": {
+        "pairings": [
+          "咖啡",
+          "奶茶",
+          "水果",
+          "蛋糕"
+        ],
+        "eatingMethod": "冰镇后食用，作为饭后甜品"
+      }
+    },
+    {
+      "id": "macai-ji-pai",
+      "name": "澳门鸡排",
+      "tags": [
+        "澳门特色",
+        "街头小吃",
+        "外酥内嫩",
+        "香气四溢",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/474/800/600",
+      "price": 28,
+      "rating": 4.3,
+      "category": "小吃零食",
+      "isPopular": false,
+      "description": "澳门街头炸鸡排，外酥内嫩，香气四溢",
+      "recommendations": {
+        "pairings": [
+          "奶茶",
+          "咖啡",
+          "小菜",
+          "饮料"
+        ],
+        "eatingMethod": "直接食用，作为小吃"
       }
     }
   ],
@@ -217,6 +349,230 @@
       "image": "https://picsum.photos/id/347/800/600",
       "reason": "澳门特色美食聚集地",
       "location": "澳门"
+    },
+    {
+      "id": 3,
+      "icon": "🍽️",
+      "name": "澳门路环",
+      "type": "老城区",
+      "foods": [
+        "macau-fei-zhou-ji",
+        "macau-hai-xian-fan",
+        "macau-pu-shi-kafei"
+      ],
+      "image": "https://picsum.photos/id/475/800/600",
+      "reason": "路环老街葡国菜馆聚集地，正宗葡式风味",
+      "location": "澳门"
+    }
+  ],
+  "souvenirs": [
+    {
+      "id": "macau-souvenir-1",
+      "name": "葡式蛋挞",
+      "image": "https://picsum.photos/id/100/600/400",
+      "priceRange": "10-25元",
+      "description": "酥皮焦糖，蛋香浓郁",
+      "buyAt": "玛嘉烈饼店",
+      "storage": "即买即食",
+      "province": "澳门"
+    },
+    {
+      "id": "macau-souvenir-2",
+      "name": "杏仁饼",
+      "image": "https://picsum.photos/id/99/600/400",
+      "priceRange": "15-35元",
+      "description": "炭烤杏仁香，松脆入口",
+      "buyAt": "咀香园",
+      "storage": "阴凉干燥",
+      "province": "澳门"
+    },
+    {
+      "id": "macau-souvenir-3",
+      "name": "猪肉干",
+      "image": "https://picsum.photos/id/98/600/400",
+      "priceRange": "30-60元",
+      "description": "切片风干，咸甜适口",
+      "buyAt": "澳门肉干店",
+      "storage": "密封干燥",
+      "province": "澳门"
+    },
+    {
+      "id": "macau-souvenir-4",
+      "name": "澳门曲奇",
+      "image": "https://picsum.photos/id/97/600/400",
+      "priceRange": "20-40元",
+      "description": "手作曲奇，奶香酥脆",
+      "buyAt": "澳门饼家",
+      "storage": "阴凉干燥",
+      "province": "澳门"
+    },
+    {
+      "id": "macau-souvenir-5",
+      "name": "葡国红酒",
+      "image": "https://picsum.photos/id/476/600/400",
+      "priceRange": "50-200元",
+      "description": "澳门葡国酒，醇厚回甘",
+      "buyAt": "澳门酒庄",
+      "storage": "阴凉避光",
+      "province": "澳门"
+    }
+  ],
+  "guide": {
+    "mealPlan": {
+      "breakfast": [
+        "portuguese-egg-tart",
+        "pork-chop-bun",
+        "macau-pu-shi-kafei"
+      ],
+      "lunch": [
+        "macau-roast-pork",
+        "macau-hai-xian-fan",
+        "water-crab-porridge"
+      ],
+      "dinner": [
+        "macau-fei-zhou-ji",
+        "macau-pu-shi-bu-ding",
+        "almond-cookie"
+      ]
+    },
+    "routes": [
+      {
+        "id": "macau-route-1",
+        "name": "澳门经典美食一日游",
+        "duration": "1天",
+        "steps": [
+          {
+            "time": "08:30",
+            "location": "澳门大三巴",
+            "foodId": "portuguese-egg-tart",
+            "description": "清晨从一只葡式蛋挞开始"
+          },
+          {
+            "time": "12:00",
+            "location": "澳门官也街",
+            "foodId": "pork-chop-bun",
+            "description": "午餐品尝猪扒包"
+          },
+          {
+            "time": "15:30",
+            "location": "澳门老城区",
+            "foodId": "water-crab-porridge",
+            "description": "下午茶时光来一碗水蟹粥"
+          },
+          {
+            "time": "18:30",
+            "location": "澳门路环",
+            "foodId": "macau-fei-zhou-ji",
+            "description": "晚餐品尝非洲鸡收尾完美一天"
+          }
+        ]
+      },
+      {
+        "id": "macau-route-2",
+        "name": "澳门甜品寻味半日游",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "10:00",
+            "location": "玛嘉烈饼店",
+            "foodId": "macau-pu-shi-bu-ding",
+            "description": "葡式布丁，饭后甜品首选"
+          },
+          {
+            "time": "12:00",
+            "location": "官也街",
+            "foodId": "macai-ji-pai",
+            "description": "澳门鸡排，街头小吃"
+          },
+          {
+            "time": "14:00",
+            "location": "大三巴",
+            "foodId": "almond-cookie",
+            "description": "杏仁饼配咖啡，地道手信"
+          }
+        ]
+      },
+      {
+        "id": "macau-route-3",
+        "name": "葡国菜品鉴之旅",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "11:00",
+            "location": "路环葡国菜馆",
+            "foodId": "macau-fei-zhou-ji",
+            "description": "正宗非洲鸡，葡国菜代表"
+          },
+          {
+            "time": "13:00",
+            "location": "路环老街",
+            "foodId": "macau-hai-xian-fan",
+            "description": "葡式海鲜饭，食材丰富"
+          },
+          {
+            "time": "15:00",
+            "location": "路环咖啡馆",
+            "foodId": "macau-pu-shi-kafei",
+            "description": "葡式咖啡收尾"
+          }
+        ]
+      }
+    ],
+    "tips": [
+      {
+        "question": "澳门美食的最佳品尝时间？",
+        "answer": "澳门四季皆宜，秋冬季节品水蟹粥和葡国菜最佳，夏季可消暑品奶昔和甜品。"
+      },
+      {
+        "question": "澳门有哪些必去美食街区？",
+        "answer": "推荐前往官也街、大三巴和路环，那里集中了最正宗的澳门小吃和葡国菜。"
+      },
+      {
+        "question": "在澳门点菜有什么避坑建议？",
+        "answer": "建议提前了解葡国菜特色菜名，避免被不正规店铺误导；正宗葡国菜馆多在路环，选择人气旺的老店更靠谱。"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "season": "spring",
+      "seasonName": "春季",
+      "foods": [
+        "portuguese-egg-tart",
+        "pork-chop-bun",
+        "almond-cookie"
+      ],
+      "description": "春暖花开，时鲜上市，品尝春日第一口鲜"
+    },
+    {
+      "season": "summer",
+      "seasonName": "夏季",
+      "foods": [
+        "macau-milkshake",
+        "macai-ji-pai",
+        "macau-fish-ball"
+      ],
+      "description": "夏日炎炎，消暑解渴，清凉美味正当时"
+    },
+    {
+      "season": "autumn",
+      "seasonName": "秋季",
+      "foods": [
+        "macau-roast-pork",
+        "water-crab-porridge",
+        "macau-hai-xian-fan"
+      ],
+      "description": "秋高气爽，丰收时节，贴秋膘品蟹粥"
+    },
+    {
+      "season": "winter",
+      "seasonName": "冬季",
+      "foods": [
+        "macau-fei-zhou-ji",
+        "macau-pu-shi-bu-ding",
+        "macau-pu-shi-kafei"
+      ],
+      "description": "寒冬腊月，温补暖身，热汤热食最抚慰"
     }
   ]
 }

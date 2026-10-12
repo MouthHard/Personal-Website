@@ -13,7 +13,7 @@
       "image": "https://picsum.photos/id/417/800/600",
       "price": 288,
       "rating": 4.9,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "闽菜之王",
       "isPopular": true,
       "badgeColor": "#ff5722",
@@ -41,7 +41,7 @@
       "image": "https://picsum.photos/id/418/800/600",
       "price": 25,
       "rating": 4.7,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "闽南名吃",
       "isPopular": true,
       "badgeColor": "#ff9800",
@@ -69,7 +69,7 @@
       "image": "https://picsum.photos/id/419/800/600",
       "price": 38,
       "rating": 4.6,
-      "category": "小吃",
+      "category": "小吃零食",
       "badgeText": "泉州名产",
       "isPopular": true,
       "badgeColor": "#03a9f4",
@@ -97,7 +97,7 @@
       "image": "https://picsum.photos/id/420/800/600",
       "price": 22,
       "rating": 4.5,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "兴化名面",
       "isPopular": true,
       "badgeColor": "#e91e63",
@@ -125,7 +125,7 @@
       "image": "https://picsum.photos/id/421/800/600",
       "price": 20,
       "rating": 4.3,
-      "category": "甜品",
+      "category": "甜品糕点",
       "isPopular": false,
       "description": "皮薄馅大，香甜可口",
       "recommendations": {
@@ -151,7 +151,7 @@
       "image": "https://picsum.photos/id/422/800/600",
       "price": 38,
       "rating": 4.3,
-      "category": "饮品",
+      "category": "汤羹饮品",
       "isPopular": false,
       "description": "香气浓郁，口感醇厚",
       "recommendations": {
@@ -163,6 +163,162 @@
         ],
         "eatingMethod": "直接饮用，可点心或小吃"
       }
+    },
+    {
+      "id": "fujian-oyster-omelet",
+      "name": "海蛎煎",
+      "tags": [
+        "福建特色",
+        "闽南特产",
+        "外酥内嫩",
+        "海蛎鲜美",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/423/800/600",
+      "price": 28,
+      "rating": 4.5,
+      "category": "菜品菜肴",
+      "isPopular": true,
+      "description": "闽南名小吃，海蛎鲜美，外酥内嫩",
+      "recommendations": {
+        "pairings": [
+          "甜辣酱",
+          "小菜",
+          "汤品",
+          "饮料"
+        ],
+        "eatingMethod": "直接食用，蘸甜辣酱"
+      }
+    },
+    {
+      "id": "fujian-fish-ball",
+      "name": "福州鱼丸",
+      "tags": [
+        "福建特色",
+        "福州特产",
+        "皮Q馅香",
+        "汤鲜味美",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/424/800/600",
+      "price": 18,
+      "rating": 4.6,
+      "category": "小吃零食",
+      "isPopular": false,
+      "description": "福州名小吃，鱼丸包肉馅，汤鲜味美",
+      "recommendations": {
+        "pairings": [
+          "面条",
+          "米饭",
+          "小菜",
+          "汤品"
+        ],
+        "eatingMethod": "直接食用，或作为汤品"
+      }
+    },
+    {
+      "id": "fujian-rouzong",
+      "name": "厦门烧肉粽",
+      "tags": [
+        "福建特色",
+        "厦门特产",
+        "糯香可口",
+        "馅料丰富",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/425/800/600",
+      "price": 15,
+      "rating": 4.4,
+      "category": "面点主食",
+      "isPopular": false,
+      "description": "厦门名点，烧肉香菇粽，糯香可口",
+      "recommendations": {
+        "pairings": [
+          "甜辣酱",
+          "小菜",
+          "汤品",
+          "茶品"
+        ],
+        "eatingMethod": "蒸煮后食用，蘸甜辣酱"
+      }
+    },
+    {
+      "id": "fujian-jiangmu-duck",
+      "name": "姜母鸭",
+      "tags": [
+        "福建特色",
+        "闽南特产",
+        "姜香浓郁",
+        "滋补暖身",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/426/800/600",
+      "price": 88,
+      "rating": 4.7,
+      "category": "菜品菜肴",
+      "isPopular": false,
+      "description": "闽南名菜，老姜炖鸭，滋补暖身",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "fujian-mianxianhu",
+      "name": "面线糊",
+      "tags": [
+        "福建特色",
+        "闽南特产",
+        "细腻爽滑",
+        "早餐必备",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/427/800/600",
+      "price": 12,
+      "rating": 4.4,
+      "category": "面点主食",
+      "isPopular": false,
+      "description": "闽南早餐名吃，面线细腻，汤糊爽滑",
+      "recommendations": {
+        "pairings": [
+          "油条",
+          "小菜",
+          "饮料",
+          "茶品"
+        ],
+        "eatingMethod": "直接食用，作为早餐"
+      }
+    },
+    {
+      "id": "fujian-lizhi-rou",
+      "name": "荔枝肉",
+      "tags": [
+        "福建特色",
+        "福州特产",
+        "酸甜可口",
+        "造型别致",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/428/800/600",
+      "price": 48,
+      "rating": 4.5,
+      "category": "菜品菜肴",
+      "isPopular": false,
+      "description": "福州传统名菜，形似荔枝，酸甜可口",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
     }
   ],
   "locations": [
@@ -172,9 +328,9 @@
       "name": "厦门中山路",
       "type": "商业街",
       "foods": [
-        "沙茶面",
-        "土笋冻",
-        "厦门馅饼"
+        "satay-noodle",
+        "earth-bamboo-shoot-jelly",
+        "xiamen-pastry"
       ],
       "image": "https://picsum.photos/id/314/800/600",
       "reason": "厦门传统美食聚集地",
@@ -186,13 +342,255 @@
       "name": "福州三坊七巷",
       "type": "文化街",
       "foods": [
-        "佛跳墙",
-        "福州鱼丸",
-        "莆田卤面"
+        "buddha-jumps-over-wall",
+        "fujian-fish-ball",
+        "putian-braised-noodle"
       ],
       "image": "https://picsum.photos/id/315/800/600",
       "reason": "福州传统美食集中地",
       "location": "福州市"
+    },
+    {
+      "id": 3,
+      "icon": "🏮",
+      "name": "泉州西街",
+      "type": "历史街区",
+      "foods": [
+        "earth-bamboo-shoot-jelly",
+        "fujian-oyster-omelet",
+        "fujian-mianxianhu"
+      ],
+      "image": "https://picsum.photos/id/316/800/600",
+      "reason": "泉州古城美食集中地，闽南风味",
+      "location": "泉州市"
+    },
+    {
+      "id": 4,
+      "icon": "🌃",
+      "name": "厦门八市",
+      "type": "市场",
+      "foods": [
+        "fujian-rouzong",
+        "fujian-jiangmu-duck",
+        "fujian-lizhi-rou"
+      ],
+      "image": "https://picsum.photos/id/317/800/600",
+      "reason": "厦门老菜市场，地道市井美食",
+      "location": "厦门市"
+    }
+  ],
+  "souvenirs": [
+    {
+      "id": "fujian-souvenir-1",
+      "name": "铁观音",
+      "image": "https://picsum.photos/id/428/600/400",
+      "priceRange": "50-300元",
+      "description": "安溪名茶，七泡有余香",
+      "buyAt": "安溪茶厂",
+      "storage": "密封防潮",
+      "province": "福建"
+    },
+    {
+      "id": "fujian-souvenir-2",
+      "name": "福州橄榄",
+      "image": "https://picsum.photos/id/427/600/400",
+      "priceRange": "15-35元",
+      "description": "福州三宝之一，回甘悠长",
+      "buyAt": "福州南后街",
+      "storage": "阴凉干燥",
+      "province": "福建"
+    },
+    {
+      "id": "fujian-souvenir-3",
+      "name": "片仔癀",
+      "image": "https://picsum.photos/id/426/600/400",
+      "priceRange": "200-500元",
+      "description": "名贵中成药，清热解毒",
+      "buyAt": "漳州片仔癀",
+      "storage": "阴凉干燥",
+      "province": "福建"
+    },
+    {
+      "id": "fujian-souvenir-4",
+      "name": "建盏",
+      "image": "https://picsum.photos/id/425/600/400",
+      "priceRange": "100-3000元",
+      "description": "宋代名瓷，兔毫油滴纹理",
+      "buyAt": "建阳水吉镇",
+      "storage": "干燥保存",
+      "province": "福建"
+    },
+    {
+      "id": "fujian-souvenir-5",
+      "name": "厦门馅饼",
+      "image": "https://picsum.photos/id/424/600/400",
+      "priceRange": "20-60元",
+      "description": "鼓浪屿名点，皮薄馅大",
+      "buyAt": "鼓浪屿",
+      "storage": "干燥保存",
+      "province": "福建"
+    },
+    {
+      "id": "fujian-souvenir-6",
+      "name": "肉松肉脯",
+      "image": "https://picsum.photos/id/423/600/400",
+      "priceRange": "30-80元",
+      "description": "福建传统肉制品，香酥可口",
+      "buyAt": "福州肉松厂",
+      "storage": "干燥密封",
+      "province": "福建"
+    }
+  ],
+  "guide": {
+    "mealPlan": {
+      "breakfast": [
+        "fujian-mianxianhu",
+        "satay-noodle",
+        "fujian-rouzong"
+      ],
+      "lunch": [
+        "buddha-jumps-over-wall",
+        "fujian-oyster-omelet",
+        "fujian-lizhi-rou"
+      ],
+      "dinner": [
+        "fujian-jiangmu-duck",
+        "fujian-fish-ball",
+        "putian-braised-noodle"
+      ]
+    },
+    "routes": [
+      {
+        "id": "fujian-route-1",
+        "name": "厦门闽南美食一日游",
+        "duration": "1天",
+        "steps": [
+          {
+            "time": "08:30",
+            "location": "厦门八市",
+            "foodId": "fujian-mianxianhu",
+            "description": "清晨从一碗面线糊开始"
+          },
+          {
+            "time": "12:00",
+            "location": "厦门中山路",
+            "foodId": "satay-noodle",
+            "description": "午餐品尝沙茶面"
+          },
+          {
+            "time": "18:30",
+            "location": "厦门八市",
+            "foodId": "fujian-jiangmu-duck",
+            "description": "晚餐品鉴姜母鸭"
+          }
+        ]
+      },
+      {
+        "id": "fujian-route-2",
+        "name": "福州闽菜寻味半日游",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "10:00",
+            "location": "福州三坊七巷",
+            "foodId": "buddha-jumps-over-wall",
+            "description": "探访百年老店品鉴佛跳墙"
+          },
+          {
+            "time": "13:00",
+            "location": "福州三坊七巷",
+            "foodId": "fujian-fish-ball",
+            "description": "午餐品鉴福州鱼丸"
+          },
+          {
+            "time": "15:30",
+            "location": "福州三坊七巷",
+            "foodId": "fujian-lizhi-rou",
+            "description": "下午茶时光品鉴荔枝肉"
+          }
+        ]
+      },
+      {
+        "id": "fujian-route-3",
+        "name": "泉州古城风味游",
+        "duration": "1天",
+        "steps": [
+          {
+            "time": "09:00",
+            "location": "泉州西街",
+            "foodId": "fujian-mianxianhu",
+            "description": "清晨品尝面线糊"
+          },
+          {
+            "time": "12:30",
+            "location": "泉州西街",
+            "foodId": "fujian-oyster-omelet",
+            "description": "午餐品鉴海蛎煎"
+          },
+          {
+            "time": "18:00",
+            "location": "泉州西街",
+            "foodId": "earth-bamboo-shoot-jelly",
+            "description": "晚餐品鉴土笋冻"
+          }
+        ]
+      }
+    ],
+    "tips": [
+      {
+        "question": "福建美食的最佳品尝时间？",
+        "answer": "建议在春秋两季前往，气候宜人，食材当季，能品尝到最地道的闽南风味。"
+      },
+      {
+        "question": "福建有哪些必去美食街区？",
+        "answer": "推荐前往厦门中山路、福州三坊七巷和泉州西街，那里集中了最正宗的闽菜和老字号餐厅。"
+      },
+      {
+        "question": "在福建点菜有什么避坑建议？",
+        "answer": "建议提前了解当地特色菜名，避免被不正规店铺误导；佛跳墙选正规酒楼更靠谱。"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "season": "spring",
+      "seasonName": "春季",
+      "foods": [
+        "buddha-jumps-over-wall",
+        "fujian-fish-ball",
+        "xiamen-pastry"
+      ],
+      "description": "春暖花开，闽菜时鲜上市，品春日第一口鲜"
+    },
+    {
+      "season": "summer",
+      "seasonName": "夏季",
+      "foods": [
+        "earth-bamboo-shoot-jelly",
+        "fujian-oyster-omelet",
+        "fujian-mianxianhu"
+      ],
+      "description": "夏日炎炎，消暑解渴，清凉海味正当时"
+    },
+    {
+      "season": "autumn",
+      "seasonName": "秋季",
+      "foods": [
+        "fujian-jiangmu-duck",
+        "fujian-lizhi-rou",
+        "putian-braised-noodle"
+      ],
+      "description": "秋高气爽，丰收时节，贴秋膘品姜母鸭"
+    },
+    {
+      "season": "winter",
+      "seasonName": "冬季",
+      "foods": [
+        "satay-noodle",
+        "fujian-rouzong",
+        "fujian-hongcha"
+      ],
+      "description": "寒冬腊月，温补暖身，姜母鸭暖胃最抚慰"
     }
   ]
 }

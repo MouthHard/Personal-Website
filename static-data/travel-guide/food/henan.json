@@ -13,7 +13,7 @@
       "image": "https://picsum.photos/id/432/800/600",
       "price": 18,
       "rating": 4.7,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "中原名面",
       "isPopular": true,
       "badgeColor": "#ff9800",
@@ -41,7 +41,7 @@
       "image": "https://picsum.photos/id/433/800/600",
       "price": 68,
       "rating": 4.8,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "豫北名鸡",
       "isPopular": true,
       "badgeColor": "#e91e63",
@@ -69,7 +69,7 @@
       "image": "https://picsum.photos/id/434/800/600",
       "price": 8,
       "rating": 4.5,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "中原早点",
       "isPopular": true,
       "badgeColor": "#f44336",
@@ -97,7 +97,7 @@
       "image": "https://picsum.photos/id/435/800/600",
       "price": 25,
       "rating": 4.6,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "汴京名点",
       "isPopular": true,
       "badgeColor": "#ff5722",
@@ -125,7 +125,7 @@
       "image": "https://picsum.photos/id/436/800/600",
       "price": 168,
       "rating": 4.7,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "洛阳盛宴",
       "isPopular": true,
       "badgeColor": "#9c27b0",
@@ -153,7 +153,7 @@
       "image": "https://picsum.photos/id/437/800/600",
       "price": 3,
       "rating": 4.1,
-      "category": "小吃",
+      "category": "小吃零食",
       "isPopular": false,
       "description": "外酥内软，早餐必备",
       "recommendations": {
@@ -179,7 +179,7 @@
       "image": "https://picsum.photos/id/438/800/600",
       "price": 5,
       "rating": 4,
-      "category": "甜品",
+      "category": "甜品糕点",
       "isPopular": false,
       "description": "香甜可口，传统面点",
       "recommendations": {
@@ -205,7 +205,7 @@
       "image": "https://picsum.photos/id/439/800/600",
       "price": 38,
       "rating": 4.3,
-      "category": "饮品",
+      "category": "汤羹饮品",
       "isPopular": false,
       "description": "香气浓郁，口感醇厚",
       "recommendations": {
@@ -216,6 +216,196 @@
           "菜肴"
         ],
         "eatingMethod": "直接饮用，可点心或小吃"
+      }
+    },
+    {
+      "id": "henan-menbing",
+      "name": "河南焖饼",
+      "tags": [
+        "河南特色",
+        "中原名吃",
+        "饼丝劲道",
+        "酱香浓郁",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/450/800/600",
+      "price": 15,
+      "rating": 4.4,
+      "category": "面点主食",
+      "badgeText": "郑州名吃",
+      "isPopular": false,
+      "description": "饼丝劲道，酱香浓郁，中原经典面食",
+      "recommendations": {
+        "pairings": [
+          "小菜",
+          "汤品",
+          "饮料",
+          "茶品"
+        ],
+        "eatingMethod": "直接食用，作为主食"
+      }
+    },
+    {
+      "id": "henan-shuijianbao",
+      "name": "水煎包",
+      "tags": [
+        "河南特色",
+        "传统面点",
+        "底脆馅鲜",
+        "金黄诱人",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/451/800/600",
+      "price": 6,
+      "rating": 4.3,
+      "category": "面点主食",
+      "badgeText": "豫式早点",
+      "isPopular": false,
+      "description": "底脆馅鲜，金黄诱人",
+      "recommendations": {
+        "pairings": [
+          "胡辣汤",
+          "粥",
+          "小菜",
+          "汤品"
+        ],
+        "eatingMethod": "直接食用，作为早餐"
+      }
+    },
+    {
+      "id": "henan-youmo",
+      "name": "郑州油馍",
+      "tags": [
+        "河南特色",
+        "郑州特产",
+        "外酥内软",
+        "咸香可口",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/452/800/600",
+      "price": 5,
+      "rating": 4.2,
+      "category": "面点主食",
+      "badgeText": "中原早点",
+      "isPopular": false,
+      "description": "外酥内软，咸香可口",
+      "recommendations": {
+        "pairings": [
+          "胡辣汤",
+          "豆浆",
+          "小菜",
+          "汤品"
+        ],
+        "eatingMethod": "直接食用，作为早餐"
+      }
+    },
+    {
+      "id": "henan-niuroutang",
+      "name": "南阳牛肉汤",
+      "tags": [
+        "河南特色",
+        "南阳特产",
+        "汤浓肉烂",
+        "鲜香醇厚",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/453/800/600",
+      "price": 18,
+      "rating": 4.5,
+      "category": "汤羹饮品",
+      "badgeText": "南阳名汤",
+      "isPopular": true,
+      "badgeColor": "#795548",
+      "description": "汤浓肉烂，鲜香醇厚",
+      "recommendations": {
+        "pairings": [
+          "烧饼",
+          "油条",
+          "小菜",
+          "主食"
+        ],
+        "eatingMethod": "直接饮用，配烧饼或油条"
+      }
+    },
+    {
+      "id": "henan-luoyangyancai",
+      "name": "洛阳燕菜",
+      "tags": [
+        "河南特色",
+        "洛阳特产",
+        "形似燕窝",
+        "酸辣开胃",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/454/800/600",
+      "price": 38,
+      "rating": 4.4,
+      "category": "菜品菜肴",
+      "badgeText": "水席头菜",
+      "isPopular": false,
+      "description": "形似燕窝，酸辣开胃，洛阳水席头菜",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "馒头",
+          "面条",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，配米饭"
+      }
+    },
+    {
+      "id": "henan-banli",
+      "name": "信阳板栗",
+      "tags": [
+        "河南特色",
+        "信阳特产",
+        "软糯香甜",
+        "营养丰富",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/455/800/600",
+      "price": 20,
+      "rating": 4.3,
+      "category": "小吃零食",
+      "badgeText": "信阳名产",
+      "isPopular": false,
+      "description": "软糯香甜，营养丰富",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "甜品",
+          "饮料",
+          "小菜"
+        ],
+        "eatingMethod": "直接食用，炒制或煮食"
+      }
+    },
+    {
+      "id": "henan-dazao",
+      "name": "新郑大枣",
+      "tags": [
+        "河南特色",
+        "新郑特产",
+        "肉厚核小",
+        "甘甜滋补",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/456/800/600",
+      "price": 25,
+      "rating": 4.4,
+      "category": "甜品糕点",
+      "badgeText": "新郑名产",
+      "isPopular": false,
+      "description": "肉厚核小，甘甜滋补",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "粥",
+          "甜品",
+          "饮料"
+        ],
+        "eatingMethod": "直接食用，或泡茶煮粥"
       }
     }
   ],
@@ -228,7 +418,7 @@
       "foods": [
         "河南烩面",
         "胡辣汤",
-        "水煎包"
+        "henan-shuijianbao"
       ],
       "image": "https://picsum.photos/id/320/800/600",
       "reason": "郑州传统美食聚集地",
@@ -247,6 +437,247 @@
       "image": "https://picsum.photos/id/321/800/600",
       "reason": "开封传统美食夜市",
       "location": "开封市"
+    },
+    {
+      "id": 3,
+      "icon": "🏞️",
+      "name": "洛阳老城十字街",
+      "type": "美食街",
+      "foods": [
+        "洛阳水席",
+        "henan-luoyangyancai",
+        "henan-niuroutang"
+      ],
+      "image": "https://picsum.photos/id/322/800/600",
+      "reason": "洛阳水席发源地，千年古都美食",
+      "location": "洛阳市"
+    },
+    {
+      "id": 4,
+      "icon": "⛰️",
+      "name": "信阳茶山",
+      "type": "景区",
+      "foods": [
+        "henan-hongcha",
+        "henan-banli",
+        "道口烧鸡"
+      ],
+      "image": "https://picsum.photos/id/323/800/600",
+      "reason": "信阳毛尖产地，茶香板栗甜",
+      "location": "信阳市"
+    }
+  ],
+  "souvenirs": [
+    {
+      "id": "henan-souvenir-1",
+      "name": "信阳毛尖",
+      "image": "https://picsum.photos/id/287/600/400",
+      "priceRange": "30-150元",
+      "description": "绿茶珍品，细圆紧直",
+      "buyAt": "信阳茶厂",
+      "storage": "密封防潮",
+      "province": "河南"
+    },
+    {
+      "id": "henan-souvenir-2",
+      "name": "汴绣",
+      "image": "https://picsum.photos/id/286/600/400",
+      "priceRange": "100-1000元",
+      "description": "开封刺绣，针法细密",
+      "buyAt": "开封汴绣厂",
+      "storage": "干燥保存",
+      "province": "河南"
+    },
+    {
+      "id": "henan-souvenir-3",
+      "name": "四大怀药",
+      "image": "https://picsum.photos/id/285/600/400",
+      "priceRange": "20-80元",
+      "description": "焦作铁棍山药等，道地药材",
+      "buyAt": "焦作药市",
+      "storage": "干燥保存",
+      "province": "河南"
+    },
+    {
+      "id": "henan-souvenir-4",
+      "name": "牡丹饼",
+      "image": "https://picsum.photos/id/284/600/400",
+      "priceRange": "15-30元",
+      "description": "洛阳牡丹花馅饼，花香四溢",
+      "buyAt": "洛阳特产店",
+      "storage": "阴凉干燥",
+      "province": "河南"
+    },
+    {
+      "id": "henan-souvenir-5",
+      "name": "新郑大枣",
+      "image": "https://picsum.photos/id/283/600/400",
+      "priceRange": "20-50元",
+      "description": "肉厚核小，甘甜滋补",
+      "buyAt": "新郑枣业",
+      "storage": "干燥密封",
+      "province": "河南"
+    },
+    {
+      "id": "henan-souvenir-6",
+      "name": "道口烧鸡",
+      "image": "https://picsum.photos/id/282/600/400",
+      "priceRange": "30-80元",
+      "description": "百年老字号，酥香脱骨",
+      "buyAt": "道口烧鸡店",
+      "storage": "即买即食",
+      "province": "河南"
+    }
+  ],
+  "guide": {
+    "mealPlan": {
+      "breakfast": [
+        "河南烩面",
+        "胡辣汤",
+        "洛阳水席"
+      ],
+      "lunch": [
+        "洛阳水席",
+        "胡辣汤",
+        "河南烩面"
+      ],
+      "dinner": [
+        "河南烩面",
+        "洛阳水席"
+      ]
+    },
+    "routes": [
+      {
+        "id": "henan-route-1",
+        "name": "河南经典美食一日游",
+        "duration": "1天",
+        "steps": [
+          {
+            "time": "08:30",
+            "location": "郑州二七广场",
+            "foodId": "胡辣汤",
+            "description": "清晨从一碗胡辣汤开始"
+          },
+          {
+            "time": "12:00",
+            "location": "郑州老城区",
+            "foodId": "河南烩面",
+            "description": "午餐品尝中原名面"
+          },
+          {
+            "time": "18:30",
+            "location": "开封鼓楼夜市",
+            "foodId": "开封灌汤包",
+            "description": "夜市扫街，收尾完美一天"
+          }
+        ]
+      },
+      {
+        "id": "henan-route-2",
+        "name": "洛阳古都寻味半日游",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "10:00",
+            "location": "洛阳老城",
+            "foodId": "henan-luoyangyancai",
+            "description": "探访洛阳水席头菜燕菜"
+          },
+          {
+            "time": "12:30",
+            "location": "洛阳水席馆",
+            "foodId": "洛阳水席",
+            "description": "品鉴洛阳水席盛宴"
+          },
+          {
+            "time": "15:00",
+            "location": "南阳老店",
+            "foodId": "henan-niuroutang",
+            "description": "下午品尝南阳牛肉汤"
+          }
+        ]
+      },
+      {
+        "id": "henan-route-3",
+        "name": "中原早餐文化游",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "07:00",
+            "location": "郑州早餐铺",
+            "foodId": "henan-shuijianbao",
+            "description": "水煎包配胡辣汤，地道中原早点"
+          },
+          {
+            "time": "09:00",
+            "location": "郑州老字号",
+            "foodId": "henan-youmo",
+            "description": "品尝郑州油馍"
+          },
+          {
+            "time": "11:00",
+            "location": "郑州面馆",
+            "foodId": "henan-menbing",
+            "description": "河南焖饼收尾"
+          }
+        ]
+      }
+    ],
+    "tips": [
+      {
+        "question": "河南美食的最佳品尝时间？",
+        "answer": "建议在春秋两季前往，气候宜人，食材当季，能品尝到最地道的河南风味。"
+      },
+      {
+        "question": "河南有哪些必去美食街区？",
+        "answer": "推荐前往郑州二七广场、开封鼓楼夜市和洛阳老城十字街，那里集中了最正宗的河南小吃和老字号餐厅。"
+      },
+      {
+        "question": "在河南点菜有什么避坑建议？",
+        "answer": "建议提前了解当地特色菜名，避免被不正规店铺误导；选择人气旺的老店更靠谱。"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "season": "spring",
+      "seasonName": "春季",
+      "foods": [
+        "河南烩面",
+        "胡辣汤",
+        "henan-shuijianbao"
+      ],
+      "description": "春暖花开，时鲜上市，品尝春日第一口鲜"
+    },
+    {
+      "season": "summer",
+      "seasonName": "夏季",
+      "foods": [
+        "开封灌汤包",
+        "henan-niuroutang",
+        "henan-youtiao"
+      ],
+      "description": "夏日炎炎，消暑解渴，清凉美味正当时"
+    },
+    {
+      "season": "autumn",
+      "seasonName": "秋季",
+      "foods": [
+        "洛阳水席",
+        "道口烧鸡",
+        "henan-dazao"
+      ],
+      "description": "秋高气爽，丰收时节，贴秋膘品蟹黄"
+    },
+    {
+      "season": "winter",
+      "seasonName": "冬季",
+      "foods": [
+        "henan-menbing",
+        "henan-hongcha",
+        "henan-tangbao"
+      ],
+      "description": "寒冬腊月，温补暖身，热汤热食最抚慰"
     }
   ]
 }

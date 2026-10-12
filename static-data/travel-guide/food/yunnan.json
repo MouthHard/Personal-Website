@@ -13,7 +13,7 @@
       "image": "https://picsum.photos/id/457/800/600",
       "price": 25,
       "rating": 4.8,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "云南招牌",
       "isPopular": true,
       "badgeColor": "#ff9800",
@@ -41,7 +41,7 @@
       "image": "https://picsum.photos/id/458/800/600",
       "price": 68,
       "rating": 4.7,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "建水名菜",
       "isPopular": true,
       "badgeColor": "#e91e63",
@@ -69,7 +69,7 @@
       "image": "https://picsum.photos/id/459/800/600",
       "price": 10,
       "rating": 4.5,
-      "category": "小吃",
+      "category": "小吃零食",
       "badgeText": "丽江特产",
       "isPopular": true,
       "badgeColor": "#9c27b0",
@@ -97,7 +97,7 @@
       "image": "https://picsum.photos/id/460/800/600",
       "price": 25,
       "rating": 4.4,
-      "category": "奶制品",
+      "category": "甜品糕点",
       "isPopular": false,
       "description": "奶香浓郁，口感独特",
       "recommendations": {
@@ -123,7 +123,7 @@
       "image": "https://picsum.photos/id/461/800/600",
       "price": 15,
       "rating": 4.3,
-      "category": "主食",
+      "category": "面点主食",
       "isPopular": false,
       "description": "香气浓郁，口感独特",
       "recommendations": {
@@ -149,7 +149,7 @@
       "image": "https://picsum.photos/id/462/800/600",
       "price": 5,
       "rating": 4,
-      "category": "甜品",
+      "category": "甜品糕点",
       "isPopular": false,
       "description": "香甜可口，传统面点",
       "recommendations": {
@@ -175,7 +175,7 @@
       "image": "https://picsum.photos/id/463/800/600",
       "price": 38,
       "rating": 4.3,
-      "category": "饮品",
+      "category": "汤羹饮品",
       "isPopular": false,
       "description": "香气浓郁，口感醇厚",
       "recommendations": {
@@ -187,6 +187,138 @@
         ],
         "eatingMethod": "直接饮用，可搭配云南小吃"
       }
+    },
+    {
+      "id": "yunnan-xianhuabing",
+      "name": "鲜花饼",
+      "tags": [
+        "云南特色",
+        "昆明特产",
+        "玫瑰花瓣",
+        "酥香清甜",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/478/800/600",
+      "price": 15,
+      "rating": 4.6,
+      "category": "甜品糕点",
+      "badgeText": "云南名片",
+      "isPopular": true,
+      "badgeColor": "#e91e63",
+      "description": "玫瑰花瓣馅，酥香清甜，云南伴手礼首选",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "咖啡",
+          "牛奶",
+          "水果"
+        ],
+        "eatingMethod": "直接食用，配茶更佳"
+      }
+    },
+    {
+      "id": "yunnan-xuanwei-huotui",
+      "name": "宣威火腿",
+      "tags": [
+        "云南特色",
+        "宣威特产",
+        "咸鲜醇香",
+        "肉质紧实",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/479/800/600",
+      "price": 88,
+      "rating": 4.7,
+      "category": "菜品菜肴",
+      "isPopular": false,
+      "description": "咸鲜醇香，肉质紧实，三大名腿之一",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "可切片直接食用，或入菜烹饪"
+      }
+    },
+    {
+      "id": "yunnan-yeshengjun-huoguo",
+      "name": "野生菌火锅",
+      "tags": [
+        "云南特色",
+        "云南菌菇",
+        "汤鲜味美",
+        "食材丰富",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/480/800/600",
+      "price": 128,
+      "rating": 4.8,
+      "category": "烧烤火锅",
+      "isPopular": false,
+      "description": "汤鲜味美，食材丰富，云南菌菇盛宴",
+      "recommendations": {
+        "pairings": [
+          "饮料",
+          "啤酒",
+          "小菜",
+          "米饭"
+        ],
+        "eatingMethod": "涮煮食用，先喝菌汤再涮菜"
+      }
+    },
+    {
+      "id": "yunnan-naxi-kaorou",
+      "name": "纳西烤肉",
+      "tags": [
+        "云南特色",
+        "丽江特产",
+        "外焦里嫩",
+        "香料独特",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/481/800/600",
+      "price": 48,
+      "rating": 4.5,
+      "category": "菜品菜肴",
+      "isPopular": false,
+      "description": "外焦里嫩，香料独特，纳西族传统美食",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "啤酒",
+          "小菜"
+        ],
+        "eatingMethod": "直接食用，配蘸料更佳"
+      }
+    },
+    {
+      "id": "yunnan-baoluo-fan",
+      "name": "菠萝紫米饭",
+      "tags": [
+        "云南特色",
+        "傣族风味",
+        "果香浓郁",
+        "软糯香甜",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/482/800/600",
+      "price": 18,
+      "rating": 4.4,
+      "category": "面点主食",
+      "isPopular": false,
+      "description": "果香浓郁，软糯香甜，傣族特色主食",
+      "recommendations": {
+        "pairings": [
+          "小菜",
+          "汤品",
+          "饮料",
+          "热带水果"
+        ],
+        "eatingMethod": "直接食用，菠萝壳盛装"
+      }
     }
   ],
   "locations": [
@@ -196,9 +328,9 @@
       "name": "昆明官渡古镇",
       "type": "文化街",
       "foods": [
-        "过桥米线",
-        "云南汽锅鸡",
-        "官渡粑粑"
+        "guoqiao-mixian",
+        "yunnan-qiguoji",
+        "yunnan-xianhuabing"
       ],
       "image": "https://picsum.photos/id/330/800/600",
       "reason": "昆明传统美食集中地",
@@ -210,13 +342,203 @@
       "name": "丽江古城",
       "type": "文化街",
       "foods": [
-        "丽江粑粑",
-        "纳西烤肉",
-        "大理乳扇"
+        "lijiang-baba",
+        "yunnan-naxi-kaorou",
+        "dali-rushan"
       ],
       "image": "https://picsum.photos/id/331/800/600",
       "reason": "丽江特色美食聚集地",
       "location": "丽江市"
+    },
+    {
+      "id": 3,
+      "icon": "🏞️",
+      "name": "大理古城",
+      "type": "文化街",
+      "foods": [
+        "dali-rushan",
+        "yunnan-xuanwei-huotui",
+        "yunnan-hongcha"
+      ],
+      "image": "https://picsum.photos/id/483/800/600",
+      "reason": "大理白族美食聚集地，风花雪月",
+      "location": "大理市"
+    },
+    {
+      "id": 4,
+      "icon": "🛣️",
+      "name": "西双版纳星光夜市",
+      "type": "美食街",
+      "foods": [
+        "xishuangbanna-zhutongfan",
+        "yunnan-baoluo-fan",
+        "yunnan-yeshengjun-huoguo"
+      ],
+      "image": "https://picsum.photos/id/484/800/600",
+      "reason": "傣族风味美食聚集地，热带风情",
+      "location": "西双版纳州"
+    }
+  ],
+  "souvenirs": [
+    {
+      "id": "yunnan-souvenir-1",
+      "name": "普洱茶",
+      "image": "https://picsum.photos/id/634/600/400",
+      "priceRange": "30-500元",
+      "description": "越陈越香，茶中古董",
+      "buyAt": "普洱茶厂",
+      "storage": "干燥通风",
+      "province": "云南"
+    },
+    {
+      "id": "yunnan-souvenir-2",
+      "name": "鲜花饼",
+      "image": "https://picsum.photos/id/633/600/400",
+      "priceRange": "15-30元",
+      "description": "玫瑰花瓣馅，酥香清甜",
+      "buyAt": "嘉华饼屋",
+      "storage": "阴凉干燥",
+      "province": "云南"
+    },
+    {
+      "id": "yunnan-souvenir-3",
+      "name": "云南白药",
+      "image": "https://picsum.photos/id/632/600/400",
+      "priceRange": "20-50元",
+      "description": "伤科圣药，止血愈伤",
+      "buyAt": "云南白药厂",
+      "storage": "干燥保存",
+      "province": "云南"
+    },
+    {
+      "id": "yunnan-souvenir-4",
+      "name": "建水紫陶",
+      "image": "https://picsum.photos/id/631/600/400",
+      "priceRange": "50-2000元",
+      "description": "汽锅原料，刻填填泥",
+      "buyAt": "建水陶厂",
+      "storage": "干燥保存",
+      "province": "云南"
+    }
+  ],
+  "guide": {
+    "mealPlan": {
+      "breakfast": [
+        "guoqiao-mixian",
+        "lijiang-baba",
+        "xishuangbanna-zhutongfan"
+      ],
+      "lunch": [
+        "xishuangbanna-zhutongfan",
+        "lijiang-baba",
+        "guoqiao-mixian"
+      ],
+      "dinner": [
+        "guoqiao-mixian",
+        "dali-rushan"
+      ]
+    },
+    "routes": [
+      {
+        "id": "yunnan-route-1",
+        "name": "云南经典美食一日游",
+        "duration": "1天",
+        "steps": [
+          {
+            "time": "08:30",
+            "location": "云南老城区",
+            "foodId": "guoqiao-mixian",
+            "description": "清晨从一顿地道早餐开始"
+          },
+          {
+            "time": "12:00",
+            "location": "云南美食街",
+            "foodId": "lijiang-baba",
+            "description": "午餐品尝当地招牌菜"
+          },
+          {
+            "time": "18:30",
+            "location": "云南夜市",
+            "foodId": "xishuangbanna-zhutongfan",
+            "description": "夜市扫街，收尾完美一天"
+          }
+        ]
+      },
+      {
+        "id": "yunnan-route-2",
+        "name": "云南深度寻味半日游",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "10:00",
+            "location": "云南老字号",
+            "foodId": "dali-rushan",
+            "description": "探访百年老字号"
+          },
+          {
+            "time": "15:00",
+            "location": "云南特产市场",
+            "foodId": "guoqiao-mixian",
+            "description": "下午茶时光品鉴特色小吃"
+          }
+        ]
+      }
+    ],
+    "tips": [
+      {
+        "question": "云南美食的最佳品尝时间？",
+        "answer": "建议在春秋两季前往，气候宜人，食材当季，能品尝到最地道的云南风味。"
+      },
+      {
+        "question": "云南有哪些必去美食街区？",
+        "answer": "推荐前往老城区和夜市，那里集中了最正宗的云南小吃和老字号餐厅。"
+      },
+      {
+        "question": "在云南点菜有什么避坑建议？",
+        "answer": "建议提前了解当地特色菜名，避免被不正规店铺误导；选择人气旺的老店更靠谱。"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "season": "spring",
+      "seasonName": "春季",
+      "foods": [
+        "guoqiao-mixian",
+        "yunnan-xianhuabing",
+        "yunnan-hongcha"
+      ],
+      "description": "春暖花开，时鲜上市，品尝春日第一口鲜"
+    },
+    {
+      "season": "summer",
+      "seasonName": "夏季",
+      "foods": [
+        "xishuangbanna-zhutongfan",
+        "yunnan-baoluo-fan",
+        "yunnan-yeshengjun-huoguo"
+      ],
+      "description": "夏日炎炎，消暑解渴，清凉美味正当时"
+    },
+    {
+      "season": "autumn",
+      "seasonName": "秋季",
+      "foods": [
+        "yunnan-qiguoji",
+        "yunnan-xuanwei-huotui",
+        "yunnan-naxi-kaorou"
+      ],
+      "description": "秋高气爽，丰收时节，贴秋膘品蟹黄"
+    },
+    {
+      "season": "winter",
+      "seasonName": "冬季",
+      "foods": [
+        "lijiang-baba",
+        "dali-rushan",
+        "yunnan-tangbao"
+      ],
+      "description": "寒冬腊月，温补暖身，热汤热食最抚慰"
     }
   ]
 }

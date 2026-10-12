@@ -13,7 +13,7 @@
       "image": "https://picsum.photos/id/352/800/600",
       "price": 8,
       "rating": 4.7,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "武汉名片",
       "isPopular": true,
       "badgeColor": "#ff9800",
@@ -41,7 +41,7 @@
       "image": "https://picsum.photos/id/353/800/600",
       "price": 12,
       "rating": 4.6,
-      "category": "小吃",
+      "category": "小吃零食",
       "badgeText": "武汉早点",
       "isPopular": true,
       "badgeColor": "#e91e63",
@@ -69,7 +69,7 @@
       "image": "https://picsum.photos/id/354/800/600",
       "price": 48,
       "rating": 4.8,
-      "category": "主食",
+      "category": "汤羹饮品",
       "badgeText": "楚地靓汤",
       "isPopular": true,
       "badgeColor": "#4caf50",
@@ -97,7 +97,7 @@
       "image": "https://picsum.photos/id/355/800/600",
       "price": 38,
       "rating": 4.5,
-      "category": "小吃",
+      "category": "小吃零食",
       "badgeText": "武汉特产",
       "isPopular": true,
       "badgeColor": "#f44336",
@@ -125,7 +125,7 @@
       "image": "https://picsum.photos/id/356/800/600",
       "price": 78,
       "rating": 4.7,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "楚菜名品",
       "isPopular": true,
       "badgeColor": "#03a9f4",
@@ -153,7 +153,7 @@
       "image": "https://picsum.photos/id/357/800/600",
       "price": 15,
       "rating": 4.3,
-      "category": "饮品",
+      "category": "汤羹饮品",
       "isPopular": false,
       "description": "孝感地方特产，香甜醇厚口感绵软",
       "recommendations": {
@@ -179,7 +179,7 @@
       "image": "https://picsum.photos/id/358/800/600",
       "price": 58,
       "rating": 4.4,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "isPopular": false,
       "description": "黄冈传统名菜，鱼糕肉糕豆腐丸",
       "recommendations": {
@@ -205,7 +205,7 @@
       "image": "https://picsum.photos/id/359/800/600",
       "price": 18,
       "rating": 4.2,
-      "category": "小吃",
+      "category": "小吃零食",
       "isPopular": false,
       "description": "恩施山区特产，软糯香甜",
       "recommendations": {
@@ -231,7 +231,7 @@
       "image": "https://picsum.photos/id/360/800/600",
       "price": 42,
       "rating": 4.5,
-      "category": "小吃",
+      "category": "菜品菜肴",
       "isPopular": false,
       "description": "荆州传统名吃，洁白如玉鲜嫩可口",
       "recommendations": {
@@ -257,7 +257,7 @@
       "image": "https://picsum.photos/id/361/800/600",
       "price": 10,
       "rating": 4.1,
-      "category": "小吃",
+      "category": "小吃零食",
       "isPopular": false,
       "description": "宜昌特色小吃，外酥内嫩萝卜清香",
       "recommendations": {
@@ -283,7 +283,7 @@
       "image": "https://picsum.photos/id/362/800/600",
       "price": 5,
       "rating": 4,
-      "category": "甜品",
+      "category": "甜品糕点",
       "isPopular": false,
       "description": "香甜可口，传统面点",
       "recommendations": {
@@ -294,6 +294,110 @@
           "饮料"
         ],
         "eatingMethod": "直接食用，作为甜品"
+      }
+    },
+    {
+      "id": "hubei-mianwo",
+      "name": "面窝",
+      "tags": [
+        "湖北特色",
+        "武汉特产",
+        "外酥内软",
+        "中间凹陷",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/363/800/600",
+      "price": 4,
+      "rating": 4.2,
+      "category": "小吃零食",
+      "isPopular": false,
+      "description": "武汉传统早点，米浆黄豆浆炸制中间凹陷",
+      "recommendations": {
+        "pairings": [
+          "豆浆",
+          "粥",
+          "热干面",
+          "汤品"
+        ],
+        "eatingMethod": "直接食用，作为早餐"
+      }
+    },
+    {
+      "id": "hubei-shaomei",
+      "name": "武汉烧麦",
+      "tags": [
+        "湖北特色",
+        "武汉特产",
+        "皮薄馅大",
+        "糯米香软",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/364/800/600",
+      "price": 12,
+      "rating": 4.4,
+      "category": "面点主食",
+      "isPopular": false,
+      "description": "武汉重油烧麦，糯米猪肉馅料香软",
+      "recommendations": {
+        "pairings": [
+          "豆浆",
+          "粥",
+          "小菜",
+          "汤品"
+        ],
+        "eatingMethod": "直接食用，作为早餐"
+      }
+    },
+    {
+      "id": "hubei-tangbao-wuhan",
+      "name": "武汉汤包",
+      "tags": [
+        "湖北特色",
+        "武汉特产",
+        "皮薄汤多",
+        "鲜香可口",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/365/800/600",
+      "price": 18,
+      "rating": 4.5,
+      "category": "面点主食",
+      "isPopular": true,
+      "description": "武汉四季美汤包，皮薄馅多汤汁丰富",
+      "recommendations": {
+        "pairings": [
+          "醋",
+          "姜丝",
+          "小菜",
+          "汤品"
+        ],
+        "eatingMethod": "蘸醋姜丝食用，趁热最佳"
+      }
+    },
+    {
+      "id": "hubei-jiucai-yuanzi",
+      "name": "韭菜圆子",
+      "tags": [
+        "湖北特色",
+        "武汉特产",
+        "外酥内嫩",
+        "韭菜香浓",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/366/800/600",
+      "price": 8,
+      "rating": 4,
+      "category": "小吃零食",
+      "isPopular": false,
+      "description": "武汉传统小吃，糯米韭菜炸制外酥内嫩",
+      "recommendations": {
+        "pairings": [
+          "豆浆",
+          "粥",
+          "小菜",
+          "汤品"
+        ],
+        "eatingMethod": "直接食用，作为早餐或小吃"
       }
     }
   ],
@@ -320,11 +424,230 @@
       "foods": [
         "steamed-wuchang-fish",
         "xiaogan-mian-wine",
-        "hubei-snacks"
+        "wuhan-duck-neck"
       ],
       "image": "https://picsum.photos/id/1093/800/600",
       "reason": "武汉标志性景点，美食聚集地",
       "location": "武汉市"
+    },
+    {
+      "id": 3,
+      "icon": "⛰️",
+      "name": "恩施土司城",
+      "type": "景区",
+      "foods": [
+        "enshi-potato",
+        "jingzhou-fish-cake",
+        "yichang-radish-cake"
+      ],
+      "image": "https://picsum.photos/id/1094/800/600",
+      "reason": "恩施山区特色美食聚集地",
+      "location": "恩施州"
+    },
+    {
+      "id": 4,
+      "icon": "🏪",
+      "name": "武汉江汉路",
+      "type": "商业街",
+      "foods": [
+        "re-gan-mian",
+        "hubei-mianwo",
+        "hubei-tangbao-wuhan"
+      ],
+      "image": "https://picsum.photos/id/1095/800/600",
+      "reason": "武汉过早文化聚集地",
+      "location": "武汉市"
+    }
+  ],
+  "souvenirs": [
+    {
+      "id": "hubei-souvenir-1",
+      "name": "热干面速食装",
+      "image": "https://picsum.photos/id/754/600/400",
+      "priceRange": "10-20元",
+      "description": "武汉过早首选，芝麻酱香",
+      "buyAt": "武汉特产店",
+      "storage": "阴凉干燥",
+      "province": "湖北"
+    },
+    {
+      "id": "hubei-souvenir-2",
+      "name": "武昌鱼",
+      "image": "https://picsum.photos/id/753/600/400",
+      "priceRange": "15-30元",
+      "description": "团头鲂，鲜嫩肥美",
+      "buyAt": "武昌水产",
+      "storage": "冷藏保鲜",
+      "province": "湖北"
+    },
+    {
+      "id": "hubei-souvenir-3",
+      "name": "恩施玉露",
+      "image": "https://picsum.photos/id/752/600/400",
+      "priceRange": "30-100元",
+      "description": "蒸青绿茶，翠绿清汤",
+      "buyAt": "恩施茶厂",
+      "storage": "密封防潮",
+      "province": "湖北"
+    },
+    {
+      "id": "hubei-souvenir-4",
+      "name": "孝感麻糖",
+      "image": "https://picsum.photos/id/751/600/400",
+      "priceRange": "10-25元",
+      "description": "芝麻麦芽糖，酥脆香甜",
+      "buyAt": "孝感麻糖厂",
+      "storage": "密封防潮",
+      "province": "湖北"
+    },
+    {
+      "id": "hubei-souvenir-5",
+      "name": "洪湖莲藕",
+      "image": "https://picsum.photos/id/750/600/400",
+      "priceRange": "15-40元",
+      "description": "湖北莲藕之乡，粉糯香甜",
+      "buyAt": "洪湖特产店",
+      "storage": "阴凉干燥",
+      "province": "湖北"
+    }
+  ],
+  "guide": {
+    "mealPlan": {
+      "breakfast": [
+        "re-gan-mian",
+        "wuhan-duck-neck",
+        "huangzhou-san-zhen"
+      ],
+      "lunch": [
+        "huangzhou-san-zhen",
+        "wuhan-duck-neck",
+        "re-gan-mian"
+      ],
+      "dinner": [
+        "re-gan-mian",
+        "xiaogan-mian-wine"
+      ]
+    },
+    "routes": [
+      {
+        "id": "hubei-route-1",
+        "name": "湖北经典美食一日游",
+        "duration": "1天",
+        "steps": [
+          {
+            "time": "08:30",
+            "location": "湖北老城区",
+            "foodId": "re-gan-mian",
+            "description": "清晨从一顿地道早餐开始"
+          },
+          {
+            "time": "12:00",
+            "location": "湖北美食街",
+            "foodId": "wuhan-duck-neck",
+            "description": "午餐品尝当地招牌菜"
+          },
+          {
+            "time": "18:30",
+            "location": "湖北夜市",
+            "foodId": "huangzhou-san-zhen",
+            "description": "夜市扫街，收尾完美一天"
+          }
+        ]
+      },
+      {
+        "id": "hubei-route-2",
+        "name": "湖北深度寻味半日游",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "10:00",
+            "location": "湖北老字号",
+            "foodId": "xiaogan-mian-wine",
+            "description": "探访百年老字号"
+          },
+          {
+            "time": "15:00",
+            "location": "湖北特产市场",
+            "foodId": "re-gan-mian",
+            "description": "下午茶时光品鉴特色小吃"
+          }
+        ]
+      },
+      {
+        "id": "hubei-route-3",
+        "name": "武汉过早文化之旅",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "07:00",
+            "location": "武汉户部巷",
+            "foodId": "dou-pi",
+            "description": "体验武汉过早文化"
+          },
+          {
+            "time": "09:00",
+            "location": "武汉江汉路",
+            "foodId": "hubei-tangbao-wuhan",
+            "description": "品尝四季美汤包"
+          }
+        ]
+      }
+    ],
+    "tips": [
+      {
+        "question": "湖北美食的最佳品尝时间？",
+        "answer": "建议在春秋两季前往，气候宜人，食材当季，能品尝到最地道的湖北风味。"
+      },
+      {
+        "question": "湖北有哪些必去美食街区？",
+        "answer": "推荐前往老城区和夜市，那里集中了最正宗的湖北小吃和老字号餐厅。"
+      },
+      {
+        "question": "在湖北点菜有什么避坑建议？",
+        "answer": "建议提前了解当地特色菜名，避免被不正规店铺误导；选择人气旺的老店更靠谱。"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "season": "spring",
+      "seasonName": "春季",
+      "foods": [
+        "re-gan-mian",
+        "dou-pi",
+        "steamed-wuchang-fish"
+      ],
+      "description": "春暖花开，时鲜上市，品尝春日第一口鲜"
+    },
+    {
+      "season": "summer",
+      "seasonName": "夏季",
+      "foods": [
+        "hubei-shaomei",
+        "xiaogan-mian-wine",
+        "hubei-jiucai-yuanzi"
+      ],
+      "description": "夏日炎炎，消暑解渴，清凉美味正当时"
+    },
+    {
+      "season": "autumn",
+      "seasonName": "秋季",
+      "foods": [
+        "lotus-root-soup",
+        "huangzhou-san-zhen",
+        "jingzhou-fish-cake"
+      ],
+      "description": "秋高气爽，丰收时节，贴秋膘品蟹黄"
+    },
+    {
+      "season": "winter",
+      "seasonName": "冬季",
+      "foods": [
+        "wuhan-duck-neck",
+        "enshi-potato",
+        "hubei-tangbao-wuhan"
+      ],
+      "description": "寒冬腊月，温补暖身，热汤热食最抚慰"
     }
   ]
 }

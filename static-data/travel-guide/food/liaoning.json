@@ -13,7 +13,7 @@
       "image": "https://picsum.photos/id/397/800/600",
       "price": 128,
       "rating": 4.8,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "渤海珍鲜",
       "isPopular": true,
       "badgeColor": "#03a9f4",
@@ -41,7 +41,7 @@
       "image": "https://picsum.photos/id/398/800/600",
       "price": 48,
       "rating": 4.7,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "沈阳名吃",
       "isPopular": true,
       "badgeColor": "#e91e63",
@@ -69,7 +69,7 @@
       "image": "https://picsum.photos/id/399/800/600",
       "price": 25,
       "rating": 4.4,
-      "category": "水果",
+      "category": "小吃零食",
       "isPopular": false,
       "description": "果肉细腻，香气浓郁",
       "recommendations": {
@@ -95,7 +95,7 @@
       "image": "https://picsum.photos/id/400/800/600",
       "price": 35,
       "rating": 4.6,
-      "category": "主食",
+      "category": "汤羹饮品",
       "badgeText": "辽东靓汤",
       "isPopular": true,
       "badgeColor": "#4caf50",
@@ -123,7 +123,7 @@
       "image": "https://picsum.photos/id/401/800/600",
       "price": 98,
       "rating": 4.8,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "盘锦名产",
       "isPopular": true,
       "badgeColor": "#ff5722",
@@ -151,7 +151,7 @@
       "image": "https://picsum.photos/id/402/800/600",
       "price": 3,
       "rating": 4.1,
-      "category": "小吃",
+      "category": "小吃零食",
       "isPopular": false,
       "description": "外酥内软，早餐必备",
       "recommendations": {
@@ -177,7 +177,7 @@
       "image": "https://picsum.photos/id/403/800/600",
       "price": 5,
       "rating": 4,
-      "category": "甜品",
+      "category": "甜品糕点",
       "isPopular": false,
       "description": "香甜可口，传统面点",
       "recommendations": {
@@ -203,7 +203,7 @@
       "image": "https://picsum.photos/id/404/800/600",
       "price": 38,
       "rating": 4.3,
-      "category": "饮品",
+      "category": "汤羹饮品",
       "isPopular": false,
       "description": "香气浓郁，口感醇厚",
       "recommendations": {
@@ -215,6 +215,138 @@
         ],
         "eatingMethod": "直接饮用，可点心或小吃"
       }
+    },
+    {
+      "id": "liaoning-guobaorou",
+      "name": "锅包肉",
+      "tags": [
+        "辽宁特色",
+        "沈阳名菜",
+        "外酥里嫩",
+        "酸甜可口",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/420/800/600",
+      "price": 48,
+      "rating": 4.8,
+      "category": "菜品菜肴",
+      "badgeText": "东北名菜",
+      "isPopular": true,
+      "badgeColor": "#ff9800",
+      "description": "外酥里嫩，酸甜可口，辽宁经典名菜",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，搭配米饭"
+      }
+    },
+    {
+      "id": "liaoning-goubangzi-shaoji",
+      "name": "沟帮子烧鸡",
+      "tags": [
+        "辽宁特色",
+        "沟帮子特产",
+        "百年老味",
+        "熏香浓郁",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/421/800/600",
+      "price": 40,
+      "rating": 4.6,
+      "category": "菜品菜肴",
+      "isPopular": false,
+      "description": "百年老味，熏香浓郁，辽宁四大名鸡之一",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "馒头",
+          "啤酒",
+          "小菜"
+        ],
+        "eatingMethod": "直接食用，作为主菜或下酒菜"
+      }
+    },
+    {
+      "id": "liaoning-majia-shaomai",
+      "name": "马家烧麦",
+      "tags": [
+        "辽宁特色",
+        "沈阳名吃",
+        "皮薄馅大",
+        "鲜香可口",
+        "清真"
+      ],
+      "image": "https://picsum.photos/id/422/800/600",
+      "price": 35,
+      "rating": 4.5,
+      "category": "面点主食",
+      "isPopular": false,
+      "description": "沈阳百年清真老字号，皮薄馅大",
+      "recommendations": {
+        "pairings": [
+          "醋",
+          "酱油",
+          "小菜",
+          "汤品"
+        ],
+        "eatingMethod": "直接食用，作为主食"
+      }
+    },
+    {
+      "id": "liaoning-shenyang-huitou",
+      "name": "沈阳回头",
+      "tags": [
+        "辽宁特色",
+        "沈阳名吃",
+        "外酥内软",
+        "香甜可口",
+        "传统面点"
+      ],
+      "image": "https://picsum.photos/id/423/800/600",
+      "price": 18,
+      "rating": 4.4,
+      "category": "面点主食",
+      "isPopular": false,
+      "description": "沈阳传统回民面食，外酥内软",
+      "recommendations": {
+        "pairings": [
+          "醋",
+          "酱油",
+          "小菜",
+          "汤品"
+        ],
+        "eatingMethod": "直接食用，作为主食或小吃"
+      }
+    },
+    {
+      "id": "liaoning-bayu-shuijiao",
+      "name": "鲅鱼水饺",
+      "tags": [
+        "辽宁特色",
+        "大连特产",
+        "皮薄馅大",
+        "鲜美可口",
+        "海鲜风味"
+      ],
+      "image": "https://picsum.photos/id/424/800/600",
+      "price": 42,
+      "rating": 4.6,
+      "category": "面点主食",
+      "isPopular": false,
+      "description": "大连特色海鲜水饺，鲅鱼馅鲜美可口",
+      "recommendations": {
+        "pairings": [
+          "醋",
+          "酱油",
+          "蒜泥",
+          "汤品"
+        ],
+        "eatingMethod": "直接食用，作为主食"
+      }
     }
   ],
   "locations": [
@@ -225,8 +357,8 @@
       "type": "美食街",
       "foods": [
         "大连海鲜",
-        "鲅鱼水饺",
-        "海胆蒸蛋"
+        "liaoning-bayu-shuijiao",
+        "盘锦河蟹"
       ],
       "image": "https://picsum.photos/id/306/800/600",
       "reason": "大连海鲜美食集中地",
@@ -239,12 +371,224 @@
       "type": "商业街",
       "foods": [
         "沈阳老边饺子",
-        "沈阳回头",
-        "马家烧麦"
+        "liaoning-shenyang-huitou",
+        "liaoning-majia-shaomai"
       ],
       "image": "https://picsum.photos/id/307/800/600",
       "reason": "沈阳传统美食聚集地",
       "location": "沈阳市"
+    },
+    {
+      "id": 3,
+      "icon": "🍲",
+      "name": "本溪羊汤馆",
+      "type": "老字号",
+      "foods": [
+        "本溪小市羊汤",
+        "liaoning-guobaorou",
+        "liaoning-goubangzi-shaoji"
+      ],
+      "image": "https://picsum.photos/id/425/800/600",
+      "reason": "本溪小市羊汤发源地，辽东特色美食",
+      "location": "本溪市"
+    }
+  ],
+  "souvenirs": [
+    {
+      "id": "liaoning-souvenir-1",
+      "name": "盘锦大米",
+      "image": "https://picsum.photos/id/24/600/400",
+      "priceRange": "25-50元",
+      "description": "盐碱地稻米，晶莹剔透",
+      "buyAt": "盘锦米业",
+      "storage": "密封防潮",
+      "province": "辽宁"
+    },
+    {
+      "id": "liaoning-souvenir-2",
+      "name": "鞍山岫玉",
+      "image": "https://picsum.photos/id/23/600/400",
+      "priceRange": "50-3000元",
+      "description": "中国国石，温润细腻",
+      "buyAt": "岫岩玉器店",
+      "storage": "干燥保存",
+      "province": "辽宁"
+    },
+    {
+      "id": "liaoning-souvenir-3",
+      "name": "沟帮子烧鸡",
+      "image": "https://picsum.photos/id/22/600/400",
+      "priceRange": "20-40元",
+      "description": "百年老味，熏香浓郁",
+      "buyAt": "沟帮子烧鸡店",
+      "storage": "即买即食",
+      "province": "辽宁"
+    },
+    {
+      "id": "liaoning-souvenir-4",
+      "name": "大连海参",
+      "image": "https://picsum.photos/id/21/600/400",
+      "priceRange": "100-500元",
+      "description": "辽参品质上乘，滋补佳品",
+      "buyAt": "大连海产",
+      "storage": "干燥冷藏",
+      "province": "辽宁"
+    },
+    {
+      "id": "liaoning-souvenir-5",
+      "name": "鞍山南果梨",
+      "image": "https://picsum.photos/id/426/600/400",
+      "priceRange": "15-30元",
+      "description": "辽宁特产水果，香甜多汁",
+      "buyAt": "鞍山果品店",
+      "storage": "阴凉通风",
+      "province": "辽宁"
+    }
+  ],
+  "guide": {
+    "mealPlan": {
+      "breakfast": [
+        "沈阳老边饺子",
+        "本溪小市羊汤",
+        "liaoning-youtiao"
+      ],
+      "lunch": [
+        "大连海鲜",
+        "liaoning-guobaorou",
+        "盘锦河蟹"
+      ],
+      "dinner": [
+        "liaoning-goubangzi-shaoji",
+        "liaoning-bayu-shuijiao",
+        "liaoning-hongcha"
+      ]
+    },
+    "routes": [
+      {
+        "id": "liaoning-route-1",
+        "name": "辽宁经典美食一日游",
+        "duration": "1天",
+        "steps": [
+          {
+            "time": "08:30",
+            "location": "沈阳中街",
+            "foodId": "沈阳老边饺子",
+            "description": "清晨从一顿地道老边饺子开始"
+          },
+          {
+            "time": "12:00",
+            "location": "大连海鲜街",
+            "foodId": "大连海鲜",
+            "description": "午餐品尝大连海鲜大餐"
+          },
+          {
+            "time": "18:30",
+            "location": "本溪羊汤馆",
+            "foodId": "本溪小市羊汤",
+            "description": "夜幕降临，一碗羊汤暖身收尾"
+          }
+        ]
+      },
+      {
+        "id": "liaoning-route-2",
+        "name": "辽宁深度寻味半日游",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "10:00",
+            "location": "沈阳老字号",
+            "foodId": "liaoning-majia-shaomai",
+            "description": "探访百年清真老字号马家烧麦"
+          },
+          {
+            "time": "12:30",
+            "location": "沈阳名菜馆",
+            "foodId": "liaoning-guobaorou",
+            "description": "品尝正宗沈阳锅包肉"
+          },
+          {
+            "time": "15:00",
+            "location": "大连特产市场",
+            "foodId": "liaoning-bayu-shuijiao",
+            "description": "下午茶时光品鉴鲅鱼水饺"
+          }
+        ]
+      },
+      {
+        "id": "liaoning-route-3",
+        "name": "盘锦河蟹品鉴之旅",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "11:00",
+            "location": "盘锦河蟹产区",
+            "foodId": "盘锦河蟹",
+            "description": "实地品鉴盘锦河蟹，蟹黄饱满"
+          },
+          {
+            "time": "14:00",
+            "location": "沟帮子老店",
+            "foodId": "liaoning-goubangzi-shaoji",
+            "description": "百年烧鸡老店，熏香四溢"
+          }
+        ]
+      }
+    ],
+    "tips": [
+      {
+        "question": "辽宁美食的最佳品尝时间？",
+        "answer": "建议在春秋两季前往，气候宜人，食材当季，能品尝到最地道的辽宁风味。秋季盘锦河蟹最肥美。"
+      },
+      {
+        "question": "辽宁有哪些必去美食街区？",
+        "answer": "推荐前往沈阳中街、大连海鲜街和本溪小市，那里集中了最正宗的辽宁小吃和老字号餐厅。"
+      },
+      {
+        "question": "在辽宁点菜有什么避坑建议？",
+        "answer": "建议提前了解当地特色菜名，避免被不正规店铺误导；选择人气旺的老店更靠谱。海鲜类建议去大连本地海鲜市场。"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "season": "spring",
+      "seasonName": "春季",
+      "foods": [
+        "大连海鲜",
+        "鞍山南果梨",
+        "沈阳老边饺子"
+      ],
+      "description": "春暖花开，时鲜上市，品尝春日第一口鲜"
+    },
+    {
+      "season": "summer",
+      "seasonName": "夏季",
+      "foods": [
+        "盘锦河蟹",
+        "liaoning-youtiao",
+        "liaoning-bayu-shuijiao"
+      ],
+      "description": "夏日炎炎，消暑解渴，清凉美味正当时"
+    },
+    {
+      "season": "autumn",
+      "seasonName": "秋季",
+      "foods": [
+        "liaoning-guobaorou",
+        "liaoning-goubangzi-shaoji",
+        "liaoning-majia-shaomai"
+      ],
+      "description": "秋高气爽，丰收时节，贴秋膘品蟹黄"
+    },
+    {
+      "season": "winter",
+      "seasonName": "冬季",
+      "foods": [
+        "本溪小市羊汤",
+        "liaoning-hongcha",
+        "liaoning-tangbao"
+      ],
+      "description": "寒冬腊月，温补暖身，热汤热食最抚慰"
     }
   ]
 }

@@ -13,7 +13,7 @@
       "image": "https://picsum.photos/id/382/800/600",
       "price": 38,
       "rating": 4.7,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "津门三绝",
       "isPopular": true,
       "badgeColor": "#e91e63",
@@ -41,7 +41,7 @@
       "image": "https://picsum.photos/id/383/800/600",
       "price": 6,
       "rating": 4.6,
-      "category": "小吃",
+      "category": "小吃零食",
       "badgeText": "津门三绝",
       "isPopular": true,
       "badgeColor": "#ff9800",
@@ -69,7 +69,7 @@
       "image": "https://picsum.photos/id/384/800/600",
       "price": 25,
       "rating": 4.5,
-      "category": "小吃",
+      "category": "小吃零食",
       "badgeText": "津门三绝",
       "isPopular": true,
       "badgeColor": "#4caf50",
@@ -97,7 +97,7 @@
       "image": "https://picsum.photos/id/385/800/600",
       "price": 8,
       "rating": 4.4,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "津门早点",
       "isPopular": true,
       "badgeColor": "#795548",
@@ -125,7 +125,7 @@
       "image": "https://picsum.photos/id/386/800/600",
       "price": 4,
       "rating": 4.2,
-      "category": "小吃",
+      "category": "小吃零食",
       "isPopular": false,
       "description": "外酥内软，层次分明",
       "recommendations": {
@@ -151,7 +151,7 @@
       "image": "https://picsum.photos/id/387/800/600",
       "price": 58,
       "rating": 4.5,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "isPopular": false,
       "description": "肉质鲜嫩，香气浓郁",
       "recommendations": {
@@ -177,7 +177,7 @@
       "image": "https://picsum.photos/id/389/800/600",
       "price": 5,
       "rating": 4,
-      "category": "甜品",
+      "category": "甜品糕点",
       "isPopular": false,
       "description": "香甜可口，传统面点",
       "recommendations": {
@@ -203,7 +203,7 @@
       "image": "https://picsum.photos/id/388/800/600",
       "price": 38,
       "rating": 4.3,
-      "category": "饮品",
+      "category": "汤羹饮品",
       "isPopular": false,
       "description": "香气浓郁，口感醇厚",
       "recommendations": {
@@ -214,6 +214,138 @@
           "菜肴"
         ],
         "eatingMethod": "直接饮用，可点心或小吃"
+      }
+    },
+    {
+      "id": "tianjin-jianbing-guozi",
+      "name": "煎饼果子",
+      "tags": [
+        "天津特色",
+        "街头小吃",
+        "传统工艺",
+        "早餐必备",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/390/800/600",
+      "price": 8,
+      "rating": 4.8,
+      "category": "小吃零食",
+      "badgeText": "津门早点",
+      "isPopular": true,
+      "badgeColor": "#ff5722",
+      "description": "绿豆面薄饼裹脆饼，地道津味早餐",
+      "recommendations": {
+        "pairings": [
+          "豆浆",
+          "粥",
+          "小菜",
+          "茶品"
+        ],
+        "eatingMethod": "直接食用，趁热最佳"
+      }
+    },
+    {
+      "id": "tianjin-zhajiangmian",
+      "name": "天津炸酱面",
+      "tags": [
+        "天津特色",
+        "传统面食",
+        "酱香浓郁",
+        "面条筋道",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/391/800/600",
+      "price": 22,
+      "rating": 4.4,
+      "category": "面点主食",
+      "isPopular": false,
+      "description": "天津风味炸酱面，酱香浓郁",
+      "recommendations": {
+        "pairings": [
+          "黄瓜丝",
+          "豆芽",
+          "青豆",
+          "大蒜"
+        ],
+        "eatingMethod": "拌匀后食用，可加醋和辣椒油"
+      }
+    },
+    {
+      "id": "tianjin-yangcun-gaogan",
+      "name": "杨村糕干",
+      "tags": [
+        "天津特色",
+        "传统名吃",
+        "香甜软糯",
+        "久放不绵",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/392/800/600",
+      "price": 12,
+      "rating": 4.3,
+      "category": "甜品糕点",
+      "isPopular": false,
+      "description": "杨村传统糕点，香甜软糯",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "咖啡",
+          "水果",
+          "饮料"
+        ],
+        "eatingMethod": "直接食用，作为零食或礼品"
+      }
+    },
+    {
+      "id": "tianjin-tiebobobo",
+      "name": "贴饽饽熬小鱼",
+      "tags": [
+        "天津特色",
+        "传统名菜",
+        "农家风味",
+        "咸香入味",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/393/800/600",
+      "price": 48,
+      "rating": 4.5,
+      "category": "菜品菜肴",
+      "isPopular": false,
+      "description": "玉米面饽饽配熬小鱼，地道农家菜",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "小菜",
+          "汤品",
+          "蒜泥"
+        ],
+        "eatingMethod": "饽饽配鱼同食，蘸汤汁更佳"
+      }
+    },
+    {
+      "id": "tianjin-majiang-shaobing",
+      "name": "麻酱烧饼",
+      "tags": [
+        "天津特色",
+        "传统名吃",
+        "麻酱浓郁",
+        "外酥内软",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/394/800/600",
+      "price": 5,
+      "rating": 4.2,
+      "category": "面点主食",
+      "isPopular": false,
+      "description": "麻酱浓郁，外酥内软",
+      "recommendations": {
+        "pairings": [
+          "豆浆",
+          "粥",
+          "小菜",
+          "汤品"
+        ],
+        "eatingMethod": "直接食用，作为早餐或零食"
       }
     }
   ],
@@ -226,7 +358,7 @@
       "foods": [
         "goubuli",
         "ear-hole-fried-cake",
-        "十八街麻花"
+        "eighteen-street-twist"
       ],
       "image": "https://picsum.photos/id/300/800/600",
       "reason": "天津传统美食集中地",
@@ -238,13 +370,248 @@
       "name": "古文化街",
       "type": "文化街",
       "foods": [
-        "锅巴菜",
-        "天津烧饼",
-        "十八街麻花"
+        "guoba-cai",
+        "tianjin-shaobing",
+        "eighteen-street-twist"
       ],
       "image": "https://picsum.photos/id/301/800/600",
       "reason": "天津传统文化街区，美食丰富",
       "location": "南开区"
+    },
+    {
+      "id": 3,
+      "icon": "🏠",
+      "name": "西北角早点",
+      "type": "美食街",
+      "foods": [
+        "tianjin-jianbing-guozi",
+        "guoba-cai",
+        "goubuli"
+      ],
+      "image": "https://picsum.photos/id/302/800/600",
+      "reason": "天津早点圣地，地道津味聚集",
+      "location": "红桥区"
+    },
+    {
+      "id": 4,
+      "icon": "🗺️",
+      "name": "意式风情街",
+      "type": "美食区",
+      "foods": [
+        "tianjin-shaorou",
+        "tianjin-zhajiangmian",
+        "tianjin-majiang-shaobing"
+      ],
+      "image": "https://picsum.photos/id/303/800/600",
+      "reason": "异国风情与津味美食交融",
+      "location": "河北区"
+    }
+  ],
+  "souvenirs": [
+    {
+      "id": "tianjin-souvenir-1",
+      "name": "狗不理包子速冻装",
+      "image": "https://picsum.photos/id/108/600/400",
+      "priceRange": "20-40元",
+      "description": "百年老字号，褶花匀称",
+      "buyAt": "狗不理总店",
+      "storage": "冷冻保存",
+      "province": "天津"
+    },
+    {
+      "id": "tianjin-souvenir-2",
+      "name": "十八街麻花",
+      "image": "https://picsum.photos/id/109/600/400",
+      "priceRange": "15-30元",
+      "description": "桂发祥大麻花，酥脆香甜",
+      "buyAt": "十八街麻花店",
+      "storage": "密封干燥",
+      "province": "天津"
+    },
+    {
+      "id": "tianjin-souvenir-3",
+      "name": "泥人张彩塑",
+      "image": "https://picsum.photos/id/110/600/400",
+      "priceRange": "30-200元",
+      "description": "捏塑彩绘，形神兼备",
+      "buyAt": "泥人张工作室",
+      "storage": "干燥保存",
+      "province": "天津"
+    },
+    {
+      "id": "tianjin-souvenir-4",
+      "name": "杨柳青年画",
+      "image": "https://picsum.photos/id/111/600/400",
+      "priceRange": "20-100元",
+      "description": "木版彩印，喜庆吉祥",
+      "buyAt": "杨柳青画社",
+      "storage": "干燥保存",
+      "province": "天津"
+    },
+    {
+      "id": "tianjin-souvenir-5",
+      "name": "天津板栗",
+      "image": "https://picsum.photos/id/112/600/400",
+      "priceRange": "20-50元",
+      "description": "蓟县板栗，香甜软糯",
+      "buyAt": "蓟县特产店",
+      "storage": "阴凉干燥",
+      "province": "天津"
+    },
+    {
+      "id": "tianjin-souvenir-6",
+      "name": "耳朵眼炸糕",
+      "image": "https://picsum.photos/id/113/600/400",
+      "priceRange": "5-15元",
+      "description": "津门三绝，外酥内软",
+      "buyAt": "耳朵眼炸糕店",
+      "storage": "阴凉干燥",
+      "province": "天津"
+    }
+  ],
+  "guide": {
+    "mealPlan": {
+      "breakfast": [
+        "goubuli",
+        "eighteen-street-twist",
+        "tianjin-shaobing"
+      ],
+      "lunch": [
+        "tianjin-shaobing",
+        "eighteen-street-twist",
+        "goubuli"
+      ],
+      "dinner": [
+        "goubuli",
+        "tianjin-shaobing"
+      ]
+    },
+    "routes": [
+      {
+        "id": "tianjin-route-1",
+        "name": "天津经典美食一日游",
+        "duration": "1天",
+        "steps": [
+          {
+            "time": "08:30",
+            "location": "天津老城区",
+            "foodId": "goubuli",
+            "description": "清晨从一顿地道早餐开始"
+          },
+          {
+            "time": "12:00",
+            "location": "天津美食街",
+            "foodId": "eighteen-street-twist",
+            "description": "午餐品尝当地招牌菜"
+          },
+          {
+            "time": "18:30",
+            "location": "天津夜市",
+            "foodId": "tianjin-shaobing",
+            "description": "夜市扫街，收尾完美一天"
+          }
+        ]
+      },
+      {
+        "id": "tianjin-route-2",
+        "name": "天津深度寻味半日游",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "10:00",
+            "location": "天津老字号",
+            "foodId": "tianjin-shaobing",
+            "description": "探访百年老字号"
+          },
+          {
+            "time": "15:00",
+            "location": "天津特产市场",
+            "foodId": "goubuli",
+            "description": "下午茶时光品鉴特色小吃"
+          }
+        ]
+      },
+      {
+        "id": "tianjin-route-3",
+        "name": "津门早点寻味之旅",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "07:00",
+            "location": "西北角早点摊",
+            "foodId": "tianjin-jianbing-guozi",
+            "description": "清晨煎饼果子开启津味一天"
+          },
+          {
+            "time": "09:00",
+            "location": "老城厢早点铺",
+            "foodId": "guoba-cai",
+            "description": "锅巴菜配烧饼地道早点"
+          },
+          {
+            "time": "11:00",
+            "location": "南市食品街",
+            "foodId": "ear-hole-fried-cake",
+            "description": "耳朵眼炸糕收尾早点之旅"
+          }
+        ]
+      }
+    ],
+    "tips": [
+      {
+        "question": "天津美食的最佳品尝时间？",
+        "answer": "建议在春秋两季前往，气候宜人，食材当季，能品尝到最地道的天津风味。"
+      },
+      {
+        "question": "天津有哪些必去美食街区？",
+        "answer": "推荐前往老城区和夜市，那里集中了最正宗的天津小吃和老字号餐厅。"
+      },
+      {
+        "question": "在天津点菜有什么避坑建议？",
+        "answer": "建议提前了解当地特色菜名，避免被不正规店铺误导；选择人气旺的老店更靠谱。"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "season": "spring",
+      "seasonName": "春季",
+      "foods": [
+        "goubuli",
+        "eighteen-street-twist",
+        "tianjin-shaobing"
+      ],
+      "description": "春暖花开，时鲜上市，品尝春日第一口鲜"
+    },
+    {
+      "season": "summer",
+      "seasonName": "夏季",
+      "foods": [
+        "guoba-cai",
+        "tianjin-jianbing-guozi",
+        "ear-hole-fried-cake"
+      ],
+      "description": "夏日炎炎，消暑解渴，清凉美味正当时"
+    },
+    {
+      "season": "autumn",
+      "seasonName": "秋季",
+      "foods": [
+        "tianjin-shaorou",
+        "tianjin-zhajiangmian",
+        "tianjin-tangbao"
+      ],
+      "description": "秋高气爽，丰收时节，贴秋膘品蟹黄"
+    },
+    {
+      "season": "winter",
+      "seasonName": "冬季",
+      "foods": [
+        "tianjin-hongcha",
+        "tianjin-yangcun-gaogan",
+        "tianjin-majiang-shaobing"
+      ],
+      "description": "寒冬腊月，温补暖身，热汤热食最抚慰"
     }
   ]
 }

@@ -13,7 +13,7 @@
       "image": "https://picsum.photos/id/372/800/600",
       "price": 15,
       "rating": 4.7,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "中国汉堡",
       "isPopular": true,
       "badgeColor": "#ff5722",
@@ -41,7 +41,7 @@
       "image": "https://picsum.photos/id/373/800/600",
       "price": 45,
       "rating": 4.8,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "三秦名吃",
       "isPopular": true,
       "badgeColor": "#795548",
@@ -69,7 +69,7 @@
       "image": "https://picsum.photos/id/374/800/600",
       "price": 12,
       "rating": 4.6,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "秦味一绝",
       "isPopular": true,
       "badgeColor": "#4caf50",
@@ -97,7 +97,7 @@
       "image": "https://picsum.photos/id/375/800/600",
       "price": 18,
       "rating": 4.7,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "关中面王",
       "isPopular": true,
       "badgeColor": "#ff9800",
@@ -125,7 +125,7 @@
       "image": "https://picsum.photos/id/376/800/600",
       "price": 15,
       "rating": 4.5,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "西府名面",
       "isPopular": true,
       "badgeColor": "#e91e63",
@@ -153,7 +153,7 @@
       "image": "https://picsum.photos/id/377/800/600",
       "price": 8,
       "rating": 4.2,
-      "category": "主食",
+      "category": "面点主食",
       "isPopular": false,
       "description": "香辣浓郁，配以油条",
       "recommendations": {
@@ -179,7 +179,7 @@
       "image": "https://picsum.photos/id/378/800/600",
       "price": 10,
       "rating": 4.3,
-      "category": "主食",
+      "category": "面点主食",
       "isPopular": false,
       "description": "外酥内软，耐储存",
       "recommendations": {
@@ -205,7 +205,7 @@
       "image": "https://picsum.photos/id/379/800/600",
       "price": 6,
       "rating": 4.1,
-      "category": "小吃",
+      "category": "小吃零食",
       "isPopular": false,
       "description": "香甜软糯，传统小吃",
       "recommendations": {
@@ -231,7 +231,7 @@
       "image": "https://picsum.photos/id/380/800/600",
       "price": 5,
       "rating": 4.4,
-      "category": "小吃",
+      "category": "小吃零食",
       "isPopular": false,
       "description": "外焦里嫩，孜然香浓",
       "recommendations": {
@@ -257,7 +257,7 @@
       "image": "https://picsum.photos/id/381/800/600",
       "price": 38,
       "rating": 4.5,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "isPopular": false,
       "description": "软糯香甜，肥而不腻",
       "recommendations": {
@@ -283,7 +283,7 @@
       "image": "https://picsum.photos/id/382/800/600",
       "price": 5,
       "rating": 4,
-      "category": "甜品",
+      "category": "甜品糕点",
       "isPopular": false,
       "description": "香甜可口，传统面点",
       "recommendations": {
@@ -309,7 +309,7 @@
       "image": "https://picsum.photos/id/383/800/600",
       "price": 38,
       "rating": 4.3,
-      "category": "饮品",
+      "category": "汤羹饮品",
       "isPopular": false,
       "description": "香气浓郁，口感醇厚",
       "recommendations": {
@@ -320,6 +320,89 @@
           "菜肴"
         ],
         "eatingMethod": "直接饮用，可点心或小吃"
+      }
+    },
+    {
+      "id": "shanxi-daoxiaomian",
+      "name": "刀削面",
+      "tags": [
+        "山西特色",
+        "太原特产",
+        "面叶劲道",
+        "削技精湛",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/470/800/600",
+      "price": 15,
+      "rating": 4.7,
+      "category": "面点主食",
+      "badgeText": "三晋面王",
+      "isPopular": true,
+      "badgeColor": "#ff5722",
+      "description": "面叶劲道，削技精湛，山西面食代表",
+      "recommendations": {
+        "pairings": [
+          "小菜",
+          "汤品",
+          "饮料",
+          "茶品"
+        ],
+        "eatingMethod": "直接食用，作为主食"
+      }
+    },
+    {
+      "id": "shanxi-guoyourou",
+      "name": "过油肉",
+      "tags": [
+        "山西特色",
+        "传统名菜",
+        "色泽金黄",
+        "鲜嫩醇香",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/471/800/600",
+      "price": 48,
+      "rating": 4.6,
+      "category": "菜品菜肴",
+      "badgeText": "晋菜之首",
+      "isPopular": true,
+      "badgeColor": "#ff9800",
+      "description": "色泽金黄，鲜嫩醇香，山西第一菜",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，配米饭"
+      }
+    },
+    {
+      "id": "shanxi-taiguobing",
+      "name": "太谷饼",
+      "tags": [
+        "山西特色",
+        "太谷特产",
+        "酥软香甜",
+        "芝麻浓郁",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/472/800/600",
+      "price": 12,
+      "rating": 4.4,
+      "category": "甜品糕点",
+      "badgeText": "晋中名点",
+      "isPopular": false,
+      "description": "酥软香甜，芝麻浓郁，百年传承",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "咖啡",
+          "饮料",
+          "小菜"
+        ],
+        "eatingMethod": "直接食用，作为茶点或礼品"
       }
     }
   ],
@@ -368,20 +451,6 @@
     },
     {
       "id": 4,
-      "icon": "🏞️",
-      "name": "大雁塔北广场",
-      "type": "景区",
-      "foods": [
-        "biang-biang-noodle",
-        "yangrou-kebabs",
-        "guo-kui"
-      ],
-      "image": "https://picsum.photos/id/293/800/600",
-      "reason": "大雁塔景区美食区",
-      "location": "雁塔区"
-    },
-    {
-      "id": 5,
       "icon": "🛣️",
       "name": "宝鸡西府老街",
       "type": "美食街",
@@ -395,46 +464,231 @@
       "location": "金台区"
     },
     {
-      "id": 6,
-      "icon": "🏞️",
-      "name": "延安枣园",
-      "type": "景区",
-      "foods": [
-        "fenzheng-meat",
-        "yangrou-paomo",
-        "hula-tang"
-      ],
-      "image": "https://picsum.photos/id/295/800/600",
-      "reason": "延安特色美食景区",
-      "location": "宝塔区"
-    },
-    {
-      "id": 7,
-      "icon": "🗺️",
-      "name": "西安大唐不夜城",
-      "type": "美食区",
-      "foods": [
-        "rou-jia-mo",
-        "hula-tang",
-        "biang-biang-noodle"
-      ],
-      "image": "https://picsum.photos/id/296/800/600",
-      "reason": "西安大唐文化美食街",
-      "location": "雁塔区"
-    },
-    {
-      "id": 8,
+      "id": 5,
       "icon": "🏬",
-      "name": "西安skp",
-      "type": "商业区",
+      "name": "太原食品街",
+      "type": "美食街",
       "foods": [
-        "yangrou-paomo",
-        "guo-kui",
-        "liang-pi"
+        "shanxi-daoxiaomian",
+        "shanxi-guoyourou",
+        "shanxi-taiguobing"
       ],
       "image": "https://picsum.photos/id/297/800/600",
-      "reason": "西安高端商业美食中心",
-      "location": "碑林区"
+      "reason": "太原山西特色美食集中地",
+      "location": "杏花岭区"
+    }
+  ],
+  "souvenirs": [
+    {
+      "id": "shanxi-souvenir-1",
+      "name": "老陈醋",
+      "image": "https://picsum.photos/id/86/600/400",
+      "priceRange": "10-30元",
+      "description": "百年陈酿，醋香醇厚",
+      "buyAt": "宁化府醋厂",
+      "storage": "阴凉避光",
+      "province": "山西"
+    },
+    {
+      "id": "shanxi-souvenir-2",
+      "name": "汾酒",
+      "image": "https://picsum.photos/id/87/600/400",
+      "priceRange": "30-200元",
+      "description": "清香型代表，绵甜甘冽",
+      "buyAt": "杏花村汾酒厂",
+      "storage": "阴凉避光",
+      "province": "山西"
+    },
+    {
+      "id": "shanxi-souvenir-3",
+      "name": "平遥牛肉",
+      "image": "https://picsum.photos/id/88/600/400",
+      "priceRange": "25-50元",
+      "description": "传统老字号，鲜嫩软烂",
+      "buyAt": "平遥牛肉店",
+      "storage": "密封冷藏",
+      "province": "山西"
+    },
+    {
+      "id": "shanxi-souvenir-4",
+      "name": "推光漆器",
+      "image": "https://picsum.photos/id/89/600/400",
+      "priceRange": "100-2000元",
+      "description": "手掌推光，光亮如镜",
+      "buyAt": "平遥漆器厂",
+      "storage": "干燥保存",
+      "province": "山西"
+    },
+    {
+      "id": "shanxi-souvenir-5",
+      "name": "太谷饼",
+      "image": "https://picsum.photos/id/90/600/400",
+      "priceRange": "10-25元",
+      "description": "酥软香甜，百年传承",
+      "buyAt": "太谷饼厂",
+      "storage": "干燥密封",
+      "province": "山西"
+    },
+    {
+      "id": "shanxi-souvenir-6",
+      "name": "沁州小米",
+      "image": "https://picsum.photos/id/91/600/400",
+      "priceRange": "15-40元",
+      "description": "色泽金黄，米香浓郁",
+      "buyAt": "沁县特产店",
+      "storage": "干燥防潮",
+      "province": "山西"
+    }
+  ],
+  "guide": {
+    "mealPlan": {
+      "breakfast": [
+        "rou-jia-mo",
+        "qishan-noodle",
+        "yangrou-kebabs"
+      ],
+      "lunch": [
+        "yangrou-kebabs",
+        "qishan-noodle",
+        "rou-jia-mo"
+      ],
+      "dinner": [
+        "rou-jia-mo",
+        "guo-kui"
+      ]
+    },
+    "routes": [
+      {
+        "id": "shanxi-route-1",
+        "name": "山西经典美食一日游",
+        "duration": "1天",
+        "steps": [
+          {
+            "time": "08:30",
+            "location": "回民街",
+            "foodId": "rou-jia-mo",
+            "description": "清晨从肉夹馍开始"
+          },
+          {
+            "time": "12:00",
+            "location": "永兴坊",
+            "foodId": "qishan-noodle",
+            "description": "午餐品尝岐山臊子面"
+          },
+          {
+            "time": "18:30",
+            "location": "大雁塔北广场",
+            "foodId": "yangrou-kebabs",
+            "description": "夜市羊肉串收尾完美一天"
+          }
+        ]
+      },
+      {
+        "id": "shanxi-route-2",
+        "name": "太原晋味半日游",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "10:00",
+            "location": "太原食品街",
+            "foodId": "shanxi-daoxiaomian",
+            "description": "探访太原刀削面老店"
+          },
+          {
+            "time": "12:30",
+            "location": "太原晋菜馆",
+            "foodId": "shanxi-guoyourou",
+            "description": "品鉴晋菜之首过油肉"
+          },
+          {
+            "time": "15:00",
+            "location": "太谷饼店",
+            "foodId": "shanxi-taiguobing",
+            "description": "下午茶时光品鉴太谷饼"
+          }
+        ]
+      },
+      {
+        "id": "shanxi-route-3",
+        "name": "关中面食探索游",
+        "duration": "1天",
+        "steps": [
+          {
+            "time": "09:00",
+            "location": "永兴坊",
+            "foodId": "biang-biang-noodle",
+            "description": "清晨品尝biangbiang面"
+          },
+          {
+            "time": "12:00",
+            "location": "回民街",
+            "foodId": "yangrou-paomo",
+            "description": "午餐羊肉泡馍"
+          },
+          {
+            "time": "18:00",
+            "location": "西安大唐不夜城",
+            "foodId": "hula-tang",
+            "description": "傍晚胡辣汤收尾"
+          }
+        ]
+      }
+    ],
+    "tips": [
+      {
+        "question": "山西美食的最佳品尝时间？",
+        "answer": "建议在春秋两季前往，气候宜人，食材当季，能品尝到最地道的山西风味。"
+      },
+      {
+        "question": "山西有哪些必去美食街区？",
+        "answer": "推荐前往太原食品街、回民街和永兴坊，那里集中了最正宗的山西面食和老字号餐厅。"
+      },
+      {
+        "question": "在山西点菜有什么避坑建议？",
+        "answer": "建议提前了解当地特色菜名，避免被不正规店铺误导；选择人气旺的老店更靠谱。"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "season": "spring",
+      "seasonName": "春季",
+      "foods": [
+        "rou-jia-mo",
+        "qishan-noodle",
+        "jing-gao"
+      ],
+      "description": "春暖花开，时鲜上市，品尝春日第一口鲜"
+    },
+    {
+      "season": "summer",
+      "seasonName": "夏季",
+      "foods": [
+        "liang-pi",
+        "yangrou-kebabs",
+        "shanxi-daoxiaomian"
+      ],
+      "description": "夏日炎炎，消暑解渴，清凉美味正当时"
+    },
+    {
+      "season": "autumn",
+      "seasonName": "秋季",
+      "foods": [
+        "yangrou-paomo",
+        "fenzheng-meat",
+        "shanxi-guoyourou"
+      ],
+      "description": "秋高气爽，丰收时节，贴秋膘品蟹黄"
+    },
+    {
+      "season": "winter",
+      "seasonName": "冬季",
+      "foods": [
+        "biang-biang-noodle",
+        "hula-tang",
+        "shanxi-taiguobing"
+      ],
+      "description": "寒冬腊月，温补暖身，热汤热食最抚慰"
     }
   ]
 }

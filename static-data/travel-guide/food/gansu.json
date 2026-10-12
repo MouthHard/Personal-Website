@@ -13,7 +13,7 @@
       "image": "https://picsum.photos/id/479/800/600",
       "price": 15,
       "rating": 4.7,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "兰州名片",
       "isPopular": true,
       "badgeColor": "#ff5722",
@@ -41,7 +41,7 @@
       "image": "https://picsum.photos/id/480/800/600",
       "price": 68,
       "rating": 4.8,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "西北珍馐",
       "isPopular": true,
       "badgeColor": "#795548",
@@ -69,7 +69,7 @@
       "image": "https://picsum.photos/id/481/800/600",
       "price": 38,
       "rating": 4.6,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "敦煌名吃",
       "isPopular": true,
       "badgeColor": "#ffc107",
@@ -97,7 +97,7 @@
       "image": "https://picsum.photos/id/482/800/600",
       "price": 22,
       "rating": 4.4,
-      "category": "主食",
+      "category": "面点主食",
       "isPopular": false,
       "description": "口感独特，味道鲜美",
       "recommendations": {
@@ -123,7 +123,7 @@
       "image": "https://picsum.photos/id/483/800/600",
       "price": 58,
       "rating": 4.3,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "isPopular": false,
       "description": "肉质紧实，香气浓郁",
       "recommendations": {
@@ -149,7 +149,7 @@
       "image": "https://picsum.photos/id/484/800/600",
       "price": 3,
       "rating": 4.1,
-      "category": "小吃",
+      "category": "小吃零食",
       "isPopular": false,
       "description": "外酥内软，早餐必备",
       "recommendations": {
@@ -175,7 +175,7 @@
       "image": "https://picsum.photos/id/485/800/600",
       "price": 5,
       "rating": 4,
-      "category": "甜品",
+      "category": "甜品糕点",
       "isPopular": false,
       "description": "香甜可口，传统面点",
       "recommendations": {
@@ -201,7 +201,7 @@
       "image": "https://picsum.photos/id/486/800/600",
       "price": 38,
       "rating": 4.3,
-      "category": "饮品",
+      "category": "汤羹饮品",
       "isPopular": false,
       "description": "香气浓郁，口感醇厚",
       "recommendations": {
@@ -212,6 +212,112 @@
           "红枣"
         ],
         "eatingMethod": "沸水冲泡，可反复冲泡3-5次"
+      }
+    },
+    {
+      "id": "gansu-niangpi",
+      "name": "兰州酿皮",
+      "tags": [
+        "甘肃特色",
+        "兰州小吃",
+        "爽滑劲道",
+        "酸辣开胃",
+        "夏季美食"
+      ],
+      "image": "https://picsum.photos/id/487/800/600",
+      "price": 10,
+      "rating": 4.5,
+      "category": "小吃零食",
+      "badgeText": "兰州名吃",
+      "isPopular": true,
+      "badgeColor": "#4caf50",
+      "description": "爽滑劲道，酸辣开胃",
+      "recommendations": {
+        "pairings": [
+          "肉夹馍",
+          "凉面",
+          "酸奶",
+          "醋"
+        ],
+        "eatingMethod": "拌入芝麻酱、辣椒油、醋等调料食用"
+      }
+    },
+    {
+      "id": "gansu-baihe",
+      "name": "兰州百合",
+      "tags": [
+        "甘肃特色",
+        "兰州特产",
+        "洁白如玉",
+        "清甜可口",
+        "药食同源"
+      ],
+      "image": "https://picsum.photos/id/488/800/600",
+      "price": 45,
+      "rating": 4.4,
+      "category": "菜品菜肴",
+      "isPopular": false,
+      "description": "洁白如玉，清甜可口",
+      "recommendations": {
+        "pairings": [
+          "西芹",
+          "腰果",
+          "银耳",
+          "枸杞"
+        ],
+        "eatingMethod": "可清炒、煮粥或炖汤，鲜甜爽口"
+      }
+    },
+    {
+      "id": "gansu-jiuquan-huguo",
+      "name": "酒泉糊锅",
+      "tags": [
+        "甘肃特色",
+        "酒泉特产",
+        "浓稠暖胃",
+        "麻辣鲜香",
+        "早餐美食"
+      ],
+      "image": "https://picsum.photos/id/489/800/600",
+      "price": 12,
+      "rating": 4.3,
+      "category": "面点主食",
+      "isPopular": false,
+      "description": "浓稠暖胃，麻辣鲜香",
+      "recommendations": {
+        "pairings": [
+          "麻花",
+          "油条",
+          "茶叶蛋",
+          "小菜"
+        ],
+        "eatingMethod": "趁热食用，配麻花或油条最地道"
+      }
+    },
+    {
+      "id": "gansu-tianshui-gagua",
+      "name": "天水呱呱",
+      "tags": [
+        "甘肃特色",
+        "天水特产",
+        "软糯筋道",
+        "酸辣可口",
+        "地方小吃"
+      ],
+      "image": "https://picsum.photos/id/490/800/600",
+      "price": 8,
+      "rating": 4.2,
+      "category": "小吃零食",
+      "isPopular": false,
+      "description": "软糯筋道，酸辣可口",
+      "recommendations": {
+        "pairings": [
+          "辣椒油",
+          "醋",
+          "蒜泥",
+          "芝麻酱"
+        ],
+        "eatingMethod": "拌入调料食用，冷热皆宜"
       }
     }
   ],
@@ -243,6 +349,183 @@
       "image": "https://picsum.photos/id/337/800/600",
       "reason": "敦煌特色美食夜市",
       "location": "敦煌市"
+    },
+    {
+      "id": 3,
+      "icon": "🌃",
+      "name": "兰州正宁路夜市",
+      "type": "夜市",
+      "foods": [
+        "lanzhou-lamian",
+        "gansu-niangpi",
+        "gansu-baihe"
+      ],
+      "image": "https://picsum.photos/id/338/800/600",
+      "reason": "兰州最热闹的夜市，老马爷牛奶鸡蛋醪糟发源地",
+      "location": "兰州市"
+    }
+  ],
+  "souvenirs": [
+    {
+      "id": "gansu-souvenir-1",
+      "name": "兰州百合",
+      "image": "https://picsum.photos/id/7/600/400",
+      "priceRange": "20-50元",
+      "description": "全国唯一甜百合，洁白如玉",
+      "buyAt": "兰州七里河",
+      "storage": "冷藏保鲜",
+      "province": "甘肃"
+    },
+    {
+      "id": "gansu-souvenir-2",
+      "name": "洮砚",
+      "image": "https://picsum.photos/id/6/600/400",
+      "priceRange": "100-1000元",
+      "description": "中国四大名砚之一，绿如碧波",
+      "buyAt": "临洮洮砚厂",
+      "storage": "干燥保存",
+      "province": "甘肃"
+    },
+    {
+      "id": "gansu-souvenir-3",
+      "name": "酒泉夜光杯",
+      "image": "https://picsum.photos/id/5/600/400",
+      "priceRange": "50-300元",
+      "description": "祁连玉雕琢，斟酒泛光",
+      "buyAt": "酒泉玉器店",
+      "storage": "干燥保存",
+      "province": "甘肃"
+    },
+    {
+      "id": "gansu-souvenir-4",
+      "name": "兰州刻葫芦",
+      "image": "https://picsum.photos/id/4/600/400",
+      "priceRange": "30-200元",
+      "description": "在葫芦上微刻书画，精妙绝伦",
+      "buyAt": "兰州文化市场",
+      "storage": "干燥保存",
+      "province": "甘肃"
+    }
+  ],
+  "guide": {
+    "mealPlan": {
+      "breakfast": [
+        "lanzhou-lamian",
+        "gansu-jiuquan-huguo",
+        "gansu-youtiao"
+      ],
+      "lunch": [
+        "dunhuang-lvrou-huangmian",
+        "shouzhuayangrou",
+        "gansu-niangpi"
+      ],
+      "dinner": [
+        "longxi-larou",
+        "zhangye-chaopao",
+        "gansu-tianshui-gagua"
+      ]
+    },
+    "routes": [
+      {
+        "id": "gansu-route-1",
+        "name": "甘肃经典美食一日游",
+        "duration": "1天",
+        "steps": [
+          {
+            "time": "08:30",
+            "location": "兰州拉面街",
+            "foodId": "lanzhou-lamian",
+            "description": "清晨从一碗地道牛肉面开始"
+          },
+          {
+            "time": "12:00",
+            "location": "敦煌夜市",
+            "foodId": "dunhuang-lvrou-huangmian",
+            "description": "午餐品尝丝路名吃"
+          },
+          {
+            "time": "18:30",
+            "location": "兰州正宁路夜市",
+            "foodId": "gansu-niangpi",
+            "description": "夜市扫街，收尾完美一天"
+          }
+        ]
+      },
+      {
+        "id": "gansu-route-2",
+        "name": "甘肃深度寻味半日游",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "10:00",
+            "location": "陇西老字号",
+            "foodId": "longxi-larou",
+            "description": "探访陇西腊肉百年老字号"
+          },
+          {
+            "time": "15:00",
+            "location": "天水美食街",
+            "foodId": "gansu-tianshui-gagua",
+            "description": "下午茶时光品鉴天水呱呱"
+          }
+        ]
+      }
+    ],
+    "tips": [
+      {
+        "question": "甘肃美食的最佳品尝时间？",
+        "answer": "建议在春秋两季前往，气候宜人，食材当季，能品尝到最地道的甘肃风味。"
+      },
+      {
+        "question": "甘肃有哪些必去美食街区？",
+        "answer": "推荐前往兰州正宁路夜市和敦煌夜市，那里集中了最正宗的甘肃小吃和老字号餐厅。"
+      },
+      {
+        "question": "在甘肃点菜有什么避坑建议？",
+        "answer": "建议提前了解当地特色菜名，避免被不正规店铺误导；选择人气旺的老店更靠谱。"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "season": "spring",
+      "seasonName": "春季",
+      "foods": [
+        "lanzhou-lamian",
+        "gansu-niangpi",
+        "gansu-youtiao"
+      ],
+      "description": "春暖花开，时鲜上市，品尝春日第一口鲜"
+    },
+    {
+      "season": "summer",
+      "seasonName": "夏季",
+      "foods": [
+        "gansu-niangpi",
+        "gansu-tangbao",
+        "gansu-hongcha"
+      ],
+      "description": "夏日炎炎，消暑解渴，清凉美味正当时"
+    },
+    {
+      "season": "autumn",
+      "seasonName": "秋季",
+      "foods": [
+        "shouzhuayangrou",
+        "dunhuang-lvrou-huangmian",
+        "longxi-larou"
+      ],
+      "description": "秋高气爽，丰收时节，贴秋膘品肉香"
+    },
+    {
+      "season": "winter",
+      "seasonName": "冬季",
+      "foods": [
+        "zhangye-chaopao",
+        "gansu-baihe",
+        "gansu-jiuquan-huguo"
+      ],
+      "description": "寒冬腊月，温补暖身，热汤热食最抚慰"
     }
   ]
 }
