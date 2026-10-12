@@ -69,10 +69,7 @@
       taste: food.taste,
       cookingMethod: food.cookingMethod,
       reviewCount: food.reviewCount,
-      badgeText: food.badgeText,
-      badgeColor: food.badgeColor,
-      openingHours: '10:00-22:00',
-      address: `${food.name} `,
+
     }));
 
     return result;

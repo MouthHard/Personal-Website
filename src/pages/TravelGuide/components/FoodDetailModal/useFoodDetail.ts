@@ -27,13 +27,6 @@ export function useFoodDetail() {
     }
   };
 
-  const shareDetail = () => {
-    if (detailFood.value) {
-      return share(detailFood.value);
-    }
-    return Promise.resolve(false);
-  };
-
   watch(detailVisible, (visible) => {
     if (typeof document === 'undefined') return;
     if (visible) {
@@ -56,6 +49,5 @@ export function useFoodDetail() {
     closeDetail,
     toggleDetailThumbsUp,
     share,
-    shareDetail,
   };
 }

@@ -208,56 +208,7 @@ export interface Food {
 }
 
 /**
- * 美食街道 — 美食地点的扩展类型
- *
- * 【数据库表】food_locations（type = "street"）
- * 【与 FoodLocation 的区别】FoodStreet 包含更多城市和标签信息
- *
- * @property id             - 街道唯一标识
- * @property name           - 街道名称
- * @property description    - 街道描述（可选）
- * @property image          - 街道图片 URL
- * @property location       - 位置描述
- * @property province       - 所属省份名称（可选）
- * @property provinceId     - 所属省份 ID（可选）
- * @property provinceName   - 所属省份名称（可选）
- * @property city           - 所属城市（可选）
- * @property foods          - 美食列表（可选）
- * @property rating         - 评分（可选）
- * @property tags           - 标签列表（可选）
- * @property type           - 类型（可选）
- * @property icon           - 图标（可选）
- * @property reason         - 推荐理由（可选）
- * @property rank           - 排名（可选）
- * @property address        - 详细地址（可选）
- * @property openingHours   - 营业时间（可选）
- * @property specialties    - 特色美食（可选）
- * @property bestTimeToVisit - 最佳到访时间（可选）
- */
-export interface FoodStreet {
-  id: string;
-  name: string;
-  description?: string;
-  image: string;
-  location: string;
-  province?: string;
-  provinceId?: string;
-  provinceName?: string;
-  city?: string;
-  foods?: string[];
-  rating?: number;
-  tags?: string[];
-  type?: string;
-  icon?: string;
-  reason?: string;
-  rank?: number;
-  address?: string;
-  openingHours?: string;
-  specialties?: string[];
-  bestTimeToVisit?: string;
-}
 
-/**
  * 美食分类 — 用于美食分类筛选
  *
  * @property id    - 分类唯一标识（来自后端）

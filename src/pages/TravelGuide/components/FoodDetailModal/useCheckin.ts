@@ -53,16 +53,6 @@ export function useCheckin() {
   const isWant = (id: string): boolean => wantSet.value.has(id);
   const isEaten = (id: string): boolean => eatenSet.value.has(id);
 
-  const setCheckin = (id: string, status: CheckinStatus) => {
-    if (status === 'eaten') {
-      eatenSet.value.add(id);
-      triggerRef(eatenSet);
-    } else {
-      wantSet.value.add(id);
-      triggerRef(wantSet);
-    }
-    persist();
-  };
 
   const toggleCheckin = (id: string, status: CheckinStatus) => {
     if (status === 'eaten') {
@@ -95,19 +85,14 @@ export function useCheckin() {
 
   const eatenIds = computed(() => [...eatenSet.value]);
   const wantIds = computed(() => [...wantSet.value]);
-  const eatenCount = computed(() => eatenSet.value.size);
-  const wantCount = computed(() => wantSet.value.size);
 
   return {
     getCheckinStatus,
     isWant,
     isEaten,
-    setCheckin,
     toggleCheckin,
     removeCheckin,
     eatenIds,
     wantIds,
-    eatenCount,
-    wantCount,
   };
 }

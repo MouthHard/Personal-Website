@@ -8,21 +8,11 @@ $blue: #0096ff;
 $yellow: #fde047;
 $yellow-glow: rgba(253, 224, 71, 0.5);
 $ice: #f0faff;
-$ink-1: #060a12;
 $ink-2: #0a0e16;
 $ink-3: #0f141d;
 $ink-4: #151b27;
-$text: #f0f5fa;
 $text-mute: #b0c0d8;
-$text-dim: #7a8aa2;
-$green: #4ade80;
-$green-glow: rgba(74, 222, 128, 0.55);
-$want: #fbbf24;
-$want-glow: rgba(251, 191, 36, 0.55);
-$want-deep: #f59e0b;
-$eaten: #fb7185;
 $eaten-glow: rgba(251, 113, 133, 0.55);
-$eaten-deep: #e11d48;
 
 // ============================================================================
 // 区块容器
@@ -340,9 +330,6 @@ $eaten-deep: #e11d48;
   gap: 1.1rem;
   padding: 1rem 1.1rem 1rem 0.5rem;
 
-  --glow-r: 0;
-  --glow-g: 240;
-  --glow-b: 255;
 
   background:
     radial-gradient(circle at 12% 18%, rgba(0, 240, 255, 0.09) 0%, transparent 38%),
@@ -922,9 +909,7 @@ $eaten-deep: #e11d48;
 
   // 已吃状态 — 珊瑚红区分
   &.eaten {
-    --glow-r: 251;
-    --glow-g: 113;
-    --glow-b: 133;
+
     border: 1.5px solid rgba(251, 113, 133, 0.45);
     background: linear-gradient(145deg, #1f0d18 0%, #180a10 100%);
     box-shadow:
@@ -958,9 +943,7 @@ $eaten-deep: #e11d48;
 
   // 想吃状态 — 金黄色区分
   &.want {
-    --glow-r: 251;
-    --glow-g: 191;
-    --glow-b: 36;
+
     border: 1.5px solid rgba(251, 191, 36, 0.45);
     background: linear-gradient(145deg, #1f1a0a 0%, #181408 100%);
     box-shadow:
@@ -986,9 +969,7 @@ $eaten-deep: #e11d48;
 
   // 想吃+已吃同时 — 绿色系（特异性高于 eaten/want 单独状态）
   &.eaten.want {
-    --glow-r: 74;
-    --glow-g: 222;
-    --glow-b: 128;
+
     border: 1.5px solid rgba(74, 222, 128, 0.5);
     background: linear-gradient(145deg, #0d1f0a 0%, #081405 100%);
     box-shadow:
