@@ -1,27 +1,37 @@
-$plate-1: #1a2532;
-$plate-2: #141d28;
-$plate-3: #0e151f;
-$plate-4: #232f3e;
+$plate-1: #1e2a38;
+$plate-2: #162030;
+$plate-3: #0e1620;
+$plate-4: #283648;
+$plate-5: #304258;
 $steel-1: #2c3a4a;
 $steel-2: #3a4a5c;
 $steel-3: #4a5c70;
-$steel-edge: #5a6e84;
+$steel-edge: #6a7e94;
+$steel-shine: #8aa0b8;
 $ice: #5b9dd5;
-$ice-bright: #7bbef0;
+$ice-bright: #8fc8f0;
 $ice-glow: rgba(91, 157, 213, 0.5);
 $ink: #060a10;
-$text-bright: #d8e4f0;
+$text-bright: #e0ecf8;
 $text-mute: #8a9aaa;
 $text-dim: #5a6a7a;
 
 @function emboss-out($size: 1px) {
-  @return inset #{$size} #{$size} 1px rgba(255, 255, 255, 0.08),
-          inset -#{$size} -#{$size} 1px rgba(0, 0, 0, 0.5);
+  @return inset #{$size} #{$size} 1px rgba(255, 255, 255, 0.1),
+          inset -#{$size} -#{$size} 1px rgba(0, 0, 0, 0.55);
 }
 
 @function emboss-in($size: 1px) {
-  @return inset #{$size} #{$size} 1px rgba(0, 0, 0, 0.4),
-          inset -#{$size} -#{$size} 1px rgba(255, 255, 255, 0.04);
+  @return inset #{$size} #{$size} 1px rgba(0, 0, 0, 0.45),
+          inset -#{$size} -#{$size} 1px rgba(255, 255, 255, 0.05);
+}
+
+@function sunlight-top() {
+  @return linear-gradient(170deg,
+    rgba(255, 255, 255, 0.06) 0%,
+    transparent 30%,
+    transparent 70%,
+    rgba(0, 0, 0, 0.15) 100%);
 }
 
 .scenery-module {
@@ -29,7 +39,7 @@ $text-dim: #5a6a7a;
   margin: 0 auto;
   width: 100%;
   box-sizing: border-box;
-  background: radial-gradient(ellipse at top, rgba(20, 30, 45, 0.8), rgba(8, 14, 22, 0.95));
+  background: radial-gradient(ellipse at top, rgba(22, 34, 48, 0.85), rgba(8, 14, 22, 0.96));
   position: relative;
   display: flex;
   gap: 2rem;
@@ -38,27 +48,42 @@ $text-dim: #5a6a7a;
   .tab-navigation {
     display: flex;
     flex-direction: column;
-    width: 180px;
+    width: 184px;
     flex-shrink: 0;
     padding: 0;
     background:
-      repeating-linear-gradient(175deg, transparent 0px, transparent 2px, rgba(255, 255, 255, 0.012) 2px, rgba(255, 255, 255, 0.012) 3px),
+      repeating-linear-gradient(176deg, transparent 0px, transparent 2px, rgba(255, 255, 255, 0.014) 2px, rgba(255, 255, 255, 0.014) 3px),
+      sunlight-top(),
       linear-gradient(180deg, $plate-1, $plate-3);
     border-radius: 14px;
     border: 1px solid $steel-1;
     position: relative;
     overflow: hidden;
     box-shadow:
-      0 10px 28px rgba(0, 0, 0, 0.55),
-      0 3px 8px rgba(0, 0, 0, 0.35),
+      0 12px 32px rgba(0, 0, 0, 0.55),
+      0 4px 10px rgba(0, 0, 0, 0.35),
       emboss-out(1px);
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 40%;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent);
+      pointer-events: none;
+      z-index: 0;
+    }
 
     .nav-hud-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 11px 14px 9px;
-      background: linear-gradient(180deg, $plate-4, $plate-2);
+      padding: 12px 14px 10px;
+      background:
+        sunlight-top(),
+        linear-gradient(180deg, $plate-4, $plate-2);
       border-bottom: 1px solid $ink;
       box-shadow: emboss-in(1px);
       position: relative;
@@ -68,25 +93,50 @@ $text-dim: #5a6a7a;
         content: '';
         position: absolute;
         bottom: -1px;
-        left: 10%;
-        right: 10%;
+        left: 8%;
+        right: 8%;
         height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(91, 157, 213, 0.3), transparent);
+        background: linear-gradient(90deg, transparent, rgba(91, 157, 213, 0.35), transparent);
       }
 
-      .hud-label {
-        font-size: 11px;
-        font-weight: 800;
-        letter-spacing: 2.5px;
-        color: $text-dim;
-        font-family: 'Courier New', monospace;
-        text-shadow: 0 1px 0 rgba(0, 0, 0, 0.8);
+      .hud-emblem {
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: 40px;
+        height: 14px;
+
+        .emblem-plate {
+          width: 100%;
+          height: 100%;
+          background:
+            linear-gradient(180deg, $steel-shine 0%, $steel-3 40%, $steel-1 100%);
+          border-radius: 3px;
+          border: 0.5px solid $ink;
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.2),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.5),
+            0 1px 2px rgba(0, 0, 0, 0.4);
+        }
+
+        .emblem-rivet {
+          position: absolute;
+          width: 4px;
+          height: 4px;
+          border-radius: 50%;
+          background: radial-gradient(circle at 35% 35%, $steel-shine 20%, $ink 70%);
+          border: 0.5px solid $ink;
+          box-shadow: inset 0 0.5px 0.5px rgba(255, 255, 255, 0.15);
+
+          &--l { left: -2px; }
+          &--r { right: -2px; }
+        }
       }
 
       .hud-status {
         display: flex;
         align-items: center;
-        gap: 5px;
+        gap: 4px;
 
         .status-dot {
           width: 8px;
@@ -94,19 +144,20 @@ $text-dim: #5a6a7a;
           border-radius: 50%;
           background: radial-gradient(circle at 30% 30%, $ice-bright, $ice 55%, #2a6fa5);
           box-shadow:
-            0 0 6px $ice-glow,
-            inset 0 0 2px rgba(255, 255, 255, 0.35),
+            0 0 7px $ice-glow,
+            inset 0 0 2px rgba(255, 255, 255, 0.4),
             0 1px 1px rgba(0, 0, 0, 0.5);
           animation: pulse-dot 2s ease-in-out infinite;
         }
 
-        .status-text {
-          font-size: 10px;
-          font-weight: 700;
-          letter-spacing: 1.5px;
-          color: $ice;
-          font-family: 'Courier New', monospace;
-          text-shadow: 0 0 4px $ice-glow;
+        .status-bar {
+          width: 18px;
+          height: 6px;
+          border-radius: 1px;
+          background:
+            linear-gradient(90deg, rgba(91, 157, 213, 0.15), rgba(91, 157, 213, 0.5), rgba(91, 157, 213, 0.15));
+          border: 0.5px solid rgba(91, 157, 213, 0.3);
+          box-shadow: inset 0 0.5px 0 rgba(255, 255, 255, 0.1);
         }
       }
     }
@@ -117,7 +168,8 @@ $text-dim: #5a6a7a;
       padding: 10px 7px;
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: 6px;
+
       flex: 1;
       position: relative;
       z-index: 1;
@@ -126,9 +178,10 @@ $text-dim: #5a6a7a;
         display: flex;
         align-items: center;
         gap: 10px;
-        padding: 13px 11px;
+        padding: 14px 12px;
         background:
-          repeating-linear-gradient(175deg, transparent 0px, transparent 2px, rgba(255, 255, 255, 0.01) 2px, rgba(255, 255, 255, 0.01) 3px),
+          repeating-linear-gradient(176deg, transparent 0px, transparent 2px, rgba(255, 255, 255, 0.012) 2px, rgba(255, 255, 255, 0.012) 3px),
+          sunlight-top(),
           linear-gradient(145deg, $steel-1, $plate-2);
         border: 1px solid rgba(70, 84, 100, 0.5);
         border-radius: 8px;
@@ -138,19 +191,32 @@ $text-dim: #5a6a7a;
         position: relative;
         overflow: hidden;
         box-shadow:
-          0 3px 6px rgba(0, 0, 0, 0.45),
-          0 1px 2px rgba(0, 0, 0, 0.25),
+          0 4px 8px rgba(0, 0, 0, 0.45),
+          0 1px 3px rgba(0, 0, 0, 0.25),
           emboss-out(1px);
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 35%;
+          background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent);
+          pointer-events: none;
+          border-radius: 8px 8px 0 0;
+        }
 
         &:hover {
           background:
-            repeating-linear-gradient(175deg, transparent 0px, transparent 2px, rgba(255, 255, 255, 0.015) 2px, rgba(255, 255, 255, 0.015) 3px),
+            repeating-linear-gradient(176deg, transparent 0px, transparent 2px, rgba(255, 255, 255, 0.018) 2px, rgba(255, 255, 255, 0.018) 3px),
+            sunlight-top(),
             linear-gradient(145deg, $steel-2, $plate-1);
           border-color: rgba(91, 157, 213, 0.35);
           color: $text-bright;
           box-shadow:
-            0 4px 10px rgba(0, 0, 0, 0.45),
-            0 2px 4px rgba(91, 157, 213, 0.12),
+            0 5px 12px rgba(0, 0, 0, 0.45),
+            0 2px 5px rgba(91, 157, 213, 0.12),
             emboss-out(1px);
 
           .item-icon-housing .housing-glow { opacity: 0.5; }
@@ -159,35 +225,42 @@ $text-dim: #5a6a7a;
 
         &.active {
           background:
-            repeating-linear-gradient(175deg, transparent 0px, transparent 2px, rgba(91, 157, 213, 0.02) 2px, rgba(91, 157, 213, 0.02) 3px),
-            linear-gradient(145deg, rgba(40, 65, 95, 0.95), rgba(20, 35, 55, 0.98));
+            repeating-linear-gradient(176deg, transparent 0px, transparent 2px, rgba(91, 157, 213, 0.025) 2px, rgba(91, 157, 213, 0.025) 3px),
+            sunlight-top(),
+            linear-gradient(145deg, rgba(45, 72, 105, 0.95), rgba(22, 40, 62, 0.98));
           border-color: rgba(91, 157, 213, 0.55);
           color: $text-bright;
           box-shadow:
-            0 5px 14px rgba(0, 0, 0, 0.45),
-            0 2px 6px rgba(91, 157, 213, 0.2),
-            inset 0 1px 0 rgba(123, 190, 240, 0.12),
+            0 6px 16px rgba(0, 0, 0, 0.45),
+            0 3px 7px rgba(91, 157, 213, 0.22),
+            inset 0 1px 0 rgba(143, 200, 240, 0.15),
             inset 0 -1px 0 rgba(0, 0, 0, 0.4),
-            0 0 0 1px rgba(91, 157, 213, 0.06);
+            0 0 0 1px rgba(91, 157, 213, 0.08);
+
+          &::after {
+            background: linear-gradient(180deg, rgba(143, 200, 240, 0.08), transparent);
+          }
 
           .item-indicator {
             opacity: 1;
             background: linear-gradient(180deg, transparent, $ice-bright 30%, $ice 50%, $ice-bright 70%, transparent);
-            box-shadow: 0 0 8px $ice-glow;
+            box-shadow: 0 0 10px $ice-glow;
           }
 
           .item-icon-housing {
             .housing-ring {
               border-color: rgba(91, 157, 213, 0.5);
-              background: linear-gradient(145deg, $plate-4, $plate-2);
-              box-shadow: 0 0 8px $ice-glow, emboss-in(1px);
+              background:
+                sunlight-top(),
+                linear-gradient(145deg, $plate-4, $plate-2);
+              box-shadow: 0 0 10px $ice-glow, emboss-in(1px);
             }
             .housing-glow { opacity: 1; }
-            .item-icon { filter: drop-shadow(0 0 5px $ice-glow); }
+            .item-icon { filter: drop-shadow(0 0 6px $ice-glow); }
           }
 
           .item-text {
-            text-shadow: 0 0 10px $ice-glow, 0 1px 0 rgba(0, 0, 0, 0.6);
+            text-shadow: 0 0 12px $ice-glow, 0 1px 0 rgba(0, 0, 0, 0.5);
             font-weight: 800;
           }
 
@@ -199,15 +272,15 @@ $text-dim: #5a6a7a;
           .item-energy-stream { opacity: 1; }
           .item-corner { opacity: 0.8; border-color: $ice; }
           .item-rivet {
-            opacity: 0.6;
-            background: radial-gradient(circle at 35% 35%, $steel-edge 20%, $ink 70%);
+            opacity: 0.65;
+            background: radial-gradient(circle at 35% 35%, $steel-shine 20%, $ink 70%);
           }
         }
 
         .item-corner {
           position: absolute;
-          width: 7px;
-          height: 7px;
+          width: 8px;
+          height: 8px;
           border-color: rgba(90, 110, 132, 0.5);
           border-style: solid;
           opacity: 0.3;
@@ -244,7 +317,7 @@ $text-dim: #5a6a7a;
           top: 50%;
           transform: translateY(-50%);
           width: 3px;
-          height: 60%;
+          height: 65%;
           background: linear-gradient(180deg, transparent, rgba(91, 157, 213, 0.3), transparent);
           border-radius: 0 2px 2px 0;
           opacity: 0;
@@ -253,8 +326,8 @@ $text-dim: #5a6a7a;
 
         .item-icon-housing {
           position: relative;
-          width: 36px;
-          height: 36px;
+          width: 38px;
+          height: 38px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -265,7 +338,9 @@ $text-dim: #5a6a7a;
             inset: 0;
             border: 1.5px solid rgba(70, 84, 100, 0.45);
             border-radius: 8px;
-            background: linear-gradient(145deg, $plate-2, $plate-3);
+            background:
+              sunlight-top(),
+              linear-gradient(145deg, $plate-2, $plate-3);
             box-shadow: emboss-in(1px);
             transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
           }
@@ -283,8 +358,8 @@ $text-dim: #5a6a7a;
           .item-icon {
             position: relative;
             z-index: 1;
-            width: 22px;
-            height: 22px;
+            width: 24px;
+            height: 24px;
             transition: filter 0.25s;
             filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.4));
 
@@ -302,7 +377,7 @@ $text-dim: #5a6a7a;
           min-width: 0;
 
           .item-text {
-            font-size: 16px;
+            font-size: 18px;
             font-weight: 700;
             letter-spacing: 0.5px;
             white-space: nowrap;
@@ -345,8 +420,10 @@ $text-dim: #5a6a7a;
       display: flex;
       align-items: flex-end;
       justify-content: space-between;
-      padding: 7px 14px 9px;
-      background: linear-gradient(0deg, $plate-4, $plate-2);
+      padding: 8px 14px 10px;
+      background:
+        linear-gradient(0deg, rgba(255, 255, 255, 0.03), transparent),
+        linear-gradient(0deg, $plate-4, $plate-2);
       border-top: 1px solid $ink;
       box-shadow: emboss-out(1px);
       position: relative;

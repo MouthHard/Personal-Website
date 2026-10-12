@@ -2,10 +2,14 @@
   <div class="scenery-module">
     <nav class="tab-navigation" aria-label="风光导航">
       <div class="nav-hud-top">
-        <span class="hud-label">SCENERY · NAV</span>
+        <span class="hud-emblem">
+          <span class="emblem-plate"></span>
+          <span class="emblem-rivet emblem-rivet--l"></span>
+          <span class="emblem-rivet emblem-rivet--r"></span>
+        </span>
         <span class="hud-status">
           <span class="status-dot"></span>
-          <span class="status-text">ONLINE</span>
+          <span class="status-bar"></span>
         </span>
       </div>
 
