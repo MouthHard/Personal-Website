@@ -13,7 +13,7 @@
       "image": "https://picsum.photos/id/342/800/600",
       "price": 28,
       "rating": 4.7,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "川菜灵魂",
       "isPopular": true,
       "badgeColor": "#f44336",
@@ -41,7 +41,7 @@
       "image": "https://picsum.photos/id/343/800/600",
       "price": 128,
       "rating": 4.9,
-      "category": "主食",
+      "category": "烧烤火锅",
       "badgeText": "麻辣之王",
       "isPopular": true,
       "badgeColor": "#f44336",
@@ -69,7 +69,7 @@
       "image": "https://picsum.photos/id/344/800/600",
       "price": 48,
       "rating": 4.6,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "川菜经典",
       "isPopular": true,
       "badgeColor": "#ff9800",
@@ -97,7 +97,7 @@
       "image": "https://picsum.photos/id/345/800/600",
       "price": 38,
       "rating": 4.7,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "家常之首",
       "isPopular": true,
       "badgeColor": "#ff5722",
@@ -125,7 +125,7 @@
       "image": "https://picsum.photos/id/346/800/600",
       "price": 68,
       "rating": 4.8,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "红油飘香",
       "isPopular": true,
       "badgeColor": "#e91e63",
@@ -153,7 +153,7 @@
       "image": "https://picsum.photos/id/347/800/600",
       "price": 18,
       "rating": 4.5,
-      "category": "主食",
+      "category": "面点主食",
       "isPopular": false,
       "description": "麻辣爽滑，面条劲道",
       "recommendations": {
@@ -179,7 +179,7 @@
       "image": "https://picsum.photos/id/348/800/600",
       "price": 42,
       "rating": 4.6,
-      "category": "小吃",
+      "category": "小吃零食",
       "isPopular": false,
       "description": "麻辣鲜香，口感丰富",
       "recommendations": {
@@ -205,7 +205,7 @@
       "image": "https://picsum.photos/id/349/800/600",
       "price": 78,
       "rating": 4.5,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "isPopular": false,
       "description": "酸辣开胃，鱼肉鲜嫩",
       "recommendations": {
@@ -231,7 +231,7 @@
       "image": "https://picsum.photos/id/350/800/600",
       "price": 32,
       "rating": 4.4,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "isPopular": false,
       "description": "酸甜微辣，鱼香浓郁",
       "recommendations": {
@@ -257,7 +257,7 @@
       "image": "https://picsum.photos/id/351/800/600",
       "price": 88,
       "rating": 4.6,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "isPopular": false,
       "description": "麻辣鲜嫩，热油淋香",
       "recommendations": {
@@ -283,7 +283,7 @@
       "image": "https://picsum.photos/id/352/800/600",
       "price": 5,
       "rating": 4,
-      "category": "甜品",
+      "category": "甜品糕点",
       "isPopular": false,
       "description": "香甜可口，传统面点",
       "recommendations": {
@@ -309,7 +309,7 @@
       "image": "https://picsum.photos/id/353/800/600",
       "price": 38,
       "rating": 4.3,
-      "category": "饮品",
+      "category": "汤羹饮品",
       "isPopular": false,
       "description": "香气浓郁，口感醇厚",
       "recommendations": {
@@ -351,6 +351,196 @@
       "image": "https://picsum.photos/id/1099/800/600",
       "reason": "成都特色美食聚集地",
       "location": "成都市"
+    },
+    {
+      "id": 3,
+      "icon": "🏞️",
+      "name": "乐山美食街",
+      "type": "美食街",
+      "foods": [
+        "twice-cooked-pork",
+        "sichuan-boiled-beef",
+        "yuxiang-rousi"
+      ],
+      "image": "https://picsum.photos/id/1100/800/600",
+      "reason": "乐山嘉州美食聚集地",
+      "location": "乐山市"
+    },
+    {
+      "id": 4,
+      "icon": "🛣️",
+      "name": "自贡盐帮菜街",
+      "type": "美食街",
+      "foods": [
+        "boiled-fish",
+        "fuqi-feipian",
+        "sichuan-tangbao"
+      ],
+      "image": "https://picsum.photos/id/1101/800/600",
+      "reason": "自贡盐帮菜发源地，鲜香麻辣",
+      "location": "自贡市"
+    }
+  ],
+  "souvenirs": [
+    {
+      "id": "sichuan-souvenir-1",
+      "name": "郫县豆瓣",
+      "image": "https://picsum.photos/id/962/600/400",
+      "priceRange": "10-25元",
+      "description": "川菜之魂，酱香红润",
+      "buyAt": "郫县豆瓣厂",
+      "storage": "阴凉干燥",
+      "province": "四川"
+    },
+    {
+      "id": "sichuan-souvenir-2",
+      "name": "蜀绣",
+      "image": "https://picsum.photos/id/963/600/400",
+      "priceRange": "100-3000元",
+      "description": "四大名绣之一，晕针纱绣",
+      "buyAt": "成都蜀绣厂",
+      "storage": "干燥保存",
+      "province": "四川"
+    },
+    {
+      "id": "sichuan-souvenir-3",
+      "name": "蒙顶甘露",
+      "image": "https://picsum.photos/id/964/600/400",
+      "priceRange": "30-100元",
+      "description": "千年贡茶，甘露醇香",
+      "buyAt": "蒙顶山茶厂",
+      "storage": "密封防潮",
+      "province": "四川"
+    },
+    {
+      "id": "sichuan-souvenir-4",
+      "name": "张飞牛肉",
+      "image": "https://picsum.photos/id/965/600/400",
+      "priceRange": "25-50元",
+      "description": "阆中特产，表面墨黑内里红润",
+      "buyAt": "阆中牛肉店",
+      "storage": "密封冷藏",
+      "province": "四川"
+    }
+  ],
+  "guide": {
+    "mealPlan": {
+      "breakfast": [
+        "mapo-tofu",
+        "sichuan-boiled-beef",
+        "yuxiang-rousi"
+      ],
+      "lunch": [
+        "yuxiang-rousi",
+        "sichuan-boiled-beef",
+        "mapo-tofu"
+      ],
+      "dinner": [
+        "mapo-tofu",
+        "fuqi-feipian"
+      ]
+    },
+    "routes": [
+      {
+        "id": "sichuan-route-1",
+        "name": "四川经典美食一日游",
+        "duration": "1天",
+        "steps": [
+          {
+            "time": "08:30",
+            "location": "四川老城区",
+            "foodId": "mapo-tofu",
+            "description": "清晨从一顿地道早餐开始"
+          },
+          {
+            "time": "12:00",
+            "location": "四川美食街",
+            "foodId": "sichuan-boiled-beef",
+            "description": "午餐品尝当地招牌菜"
+          },
+          {
+            "time": "18:30",
+            "location": "四川夜市",
+            "foodId": "yuxiang-rousi",
+            "description": "夜市扫街，收尾完美一天"
+          }
+        ]
+      },
+      {
+        "id": "sichuan-route-2",
+        "name": "四川深度寻味半日游",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "10:00",
+            "location": "四川老字号",
+            "foodId": "fuqi-feipian",
+            "description": "探访百年老字号"
+          },
+          {
+            "time": "15:00",
+            "location": "四川特产市场",
+            "foodId": "mapo-tofu",
+            "description": "下午茶时光品鉴特色小吃"
+          }
+        ]
+      }
+    ],
+    "tips": [
+      {
+        "question": "四川美食的最佳品尝时间？",
+        "answer": "建议在春秋两季前往，气候宜人，食材当季，能品尝到最地道的四川风味。"
+      },
+      {
+        "question": "四川有哪些必去美食街区？",
+        "answer": "推荐前往老城区和夜市，那里集中了最正宗的四川小吃和老字号餐厅。"
+      },
+      {
+        "question": "在四川点菜有什么避坑建议？",
+        "answer": "建议提前了解当地特色菜名，避免被不正规店铺误导；选择人气旺的老店更靠谱。"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "season": "spring",
+      "seasonName": "春季",
+      "foods": [
+        "mapo-tofu",
+        "kung-pao-chicken",
+        "dan-dan-noodles"
+      ],
+      "description": "春暖花开，时鲜上市，品尝春日第一口鲜"
+    },
+    {
+      "season": "summer",
+      "seasonName": "夏季",
+      "foods": [
+        "hotpot",
+        "suan-cai-yu",
+        "fuqi-feipian"
+      ],
+      "description": "夏日炎炎，消暑解渴，清凉美味正当时"
+    },
+    {
+      "season": "autumn",
+      "seasonName": "秋季",
+      "foods": [
+        "twice-cooked-pork",
+        "sichuan-boiled-beef",
+        "yuxiang-rousi"
+      ],
+      "description": "秋高气爽，丰收时节，贴秋膘品蟹黄"
+    },
+    {
+      "season": "winter",
+      "seasonName": "冬季",
+      "foods": [
+        "boiled-fish",
+        "sichuan-tangbao",
+        "sichuan-hongcha"
+      ],
+      "description": "寒冬腊月，温补暖身，热汤热食最抚慰"
     }
   ]
 }

@@ -1,0 +1,908 @@
+
+@use 'sass:list';
+
+.control-panel {
+  display: grid;
+  grid-template-columns: 40% 1fr;
+  grid-template-rows: auto auto;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+
+  .panel-section {
+    position: relative;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(100, 255, 255, 0.2);
+    border-radius: 16px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+
+    .panel-title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      color: #ffffff;
+      margin: 0;
+      .panel-icon {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        svg {
+          filter: drop-shadow(0 0 4px currentColor);
+        }
+      }
+    }
+    &:hover {
+      border-color: rgba(100, 255, 255, 0.4);
+      transform: translateY(-2px) scale(1.01);
+    }
+    &.stats-section {
+      min-height: 140px;
+      background: linear-gradient(
+        145deg,
+        rgb(26, 1, 49) 0%,
+        rgb(31, 59, 116) 50%,
+        rgba(10, 20, 40, 1) 100%
+      );
+      border-color: rgba(100, 180, 255, 0.2);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+      &:hover {
+        border-color: rgba(100, 180, 255, 1);
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 0.5rem;
+
+        .stat-item {
+          position: relative;
+          border-radius: 8px;
+          padding: 0.5rem 0.6rem;
+          cursor: pointer;
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          text-align: center;
+          overflow: hidden;
+
+          // 金属面板背景：顶部反光 + 斜向着色 + 深色金属底
+          background:
+            linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, transparent 35%),
+            linear-gradient(135deg, var(--panel-tint, rgba(80, 200, 255, 0.3)) 0%, transparent 65%),
+            linear-gradient(45deg, rgba(0, 0, 0, 0.5) 0%, transparent 55%),
+            rgb(20, 20, 26);
+
+          // 多层金属边框 + 立体阴影
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.2),
+            inset 0 -2px 2px rgba(0, 0, 0, 0.6),
+            inset 0 0 0 1px var(--panel-tint, rgba(80, 200, 255, 0.4)),
+            0 3px 6px rgba(0, 0, 0, 0.5),
+            0 6px 12px rgba(0, 0, 0, 0.35);
+
+          // 四角铆钉（金属球面）
+          &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 8px;
+            pointer-events: none;
+            background:
+              radial-gradient(circle at 5px 5px, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.15) 1.5px, transparent 2.5px),
+              radial-gradient(circle at calc(100% - 5px) 5px, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.15) 1.5px, transparent 2.5px),
+              radial-gradient(circle at 5px calc(100% - 5px), rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.15) 1.5px, transparent 2.5px),
+              radial-gradient(circle at calc(100% - 5px) calc(100% - 5px), rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.15) 1.5px, transparent 2.5px);
+            transition: all 0.4s ease;
+          }
+
+          // 扫光层
+          &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -120%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(110deg, transparent 35%, rgba(255, 255, 255, 0.22) 50%, transparent 65%);
+            transition: left 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+          }
+
+          &:hover {
+            box-shadow:
+              inset 0 1px 0 rgba(255, 255, 255, 0.3),
+              inset 0 -2px 2px rgba(0, 0, 0, 0.6),
+              inset 0 0 0 1px var(--glow-color, rgba(100, 220, 255, 1)),
+              0 4px 8px rgba(0, 0, 0, 0.6),
+              0 8px 18px rgba(0, 0, 0, 0.45),
+              0 0 22px var(--glow-color, rgba(100, 220, 255, 0.6));
+
+            &::before {
+              background:
+                radial-gradient(circle at 5px 5px, var(--glow-color, rgba(100, 220, 255, 1)) 0%, rgba(255, 255, 255, 0.3) 1.5px, transparent 2.5px),
+                radial-gradient(circle at calc(100% - 5px) 5px, var(--glow-color, rgba(100, 220, 255, 1)) 0%, rgba(255, 255, 255, 0.3) 1.5px, transparent 2.5px),
+                radial-gradient(circle at 5px calc(100% - 5px), var(--glow-color, rgba(100, 220, 255, 1)) 0%, rgba(255, 255, 255, 0.3) 1.5px, transparent 2.5px),
+                radial-gradient(circle at calc(100% - 5px) calc(100% - 5px), var(--glow-color, rgba(100, 220, 255, 1)) 0%, rgba(255, 255, 255, 0.3) 1.5px, transparent 2.5px);
+            }
+
+            &::after {
+              left: 120%;
+            }
+
+            .stat-value {
+              text-shadow:
+                0 0 12px var(--glow-color, rgba(100, 220, 255, 1)),
+                0 0 24px var(--glow-color, rgba(100, 220, 255, 0.5)),
+                0 2px 4px rgba(0, 0, 0, 0.8);
+            }
+          }
+
+          .stat-value {
+            font-size: 1.25rem;
+            font-weight: 900;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            color: var(--value-color, #b3e7ff);
+            text-shadow:
+              0 0 8px var(--glow-color, rgba(100, 220, 255, 0.7)),
+              0 0 16px var(--glow-color, rgba(100, 220, 255, 0.35)),
+              0 2px 4px rgba(0, 0, 0, 0.8);
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 1;
+            line-height: 1.2;
+          }
+
+          .stat-label {
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.88);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+            margin-top: 0.2rem;
+            position: relative;
+            z-index: 1;
+            transition: all 0.4s ease;
+          }
+
+          &:nth-child(1) {
+            --panel-tint: rgba(80, 200, 255, 0.3);
+            --glow-color: rgba(100, 220, 255, 1);
+            --value-color: #b3e7ff;
+          }
+
+          &:nth-child(2) {
+            --panel-tint: rgba(80, 255, 150, 0.3);
+            --glow-color: rgba(100, 255, 180, 1);
+            --value-color: #72ffa6;
+          }
+
+          &:nth-child(3) {
+            --panel-tint: rgba(255, 220, 80, 0.3);
+            --glow-color: rgba(255, 240, 100, 1);
+            --value-color: #fddd8e;
+          }
+
+          &:nth-child(4) {
+            --panel-tint: rgba(255, 120, 80, 0.3);
+            --glow-color: rgba(255, 140, 100, 1);
+            --value-color: #ffa861;
+          }
+
+          &:nth-child(5) {
+            --panel-tint: rgba(255, 105, 180, 0.3);
+            --glow-color: rgba(255, 130, 200, 1);
+            --value-color: #ff9ec9;
+          }
+
+          &:nth-child(6) {
+            --panel-tint: rgba(255, 80, 80, 0.3);
+            --glow-color: rgba(255, 100, 100, 1);
+            --value-color: #ff8a8a;
+          }
+        }
+      }
+    }
+    &.highlights-section {
+      background: linear-gradient(
+        145deg,
+        rgb(30, 21, 0) 0%,
+        rgba(80, 40, 20, 1) 50%,
+        rgb(60, 21, 2) 100%
+      );
+      backdrop-filter: blur(10px);
+      border-color: rgba(255, 180, 100, 0.2);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+      overflow: visible;
+      z-index: 5;
+
+      &:hover {
+        border-color: rgba(255, 180, 100, 1);
+      }
+
+      .highlights-scroll {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+
+        overflow: visible;
+        padding: 0.5rem;
+
+        .highlight-item {
+          display: inline-block;
+          padding: 0.3rem 1rem;
+          border-radius: 24px;
+          font-size: 0.9rem;
+          font-weight: bolder;
+          cursor: pointer;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          position: relative;
+          overflow: visible;
+          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+          background: transparent;
+
+          // 立体效果 - 使用多层伪元素和边框
+          &::before,
+          &::after,
+          &::first-letter {
+            content: '';
+            position: absolute;
+            border-radius: 24px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+          }
+
+          &::before {
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -3;
+          }
+
+          &::after {
+            top: 1px;
+            left: 1px;
+            right: 1px;
+            bottom: 1px;
+            border-radius: 23px;
+            z-index: -2;
+          }
+
+          .highlight-name {
+            position: relative;
+            z-index: 1;
+          }
+
+          // hover 详情气泡
+          .highlight-tooltip {
+            position: absolute;
+            bottom: calc(100% + 12px);
+            left: 50%;
+            transform: translateX(-50%) translateY(6px);
+            min-width: 190px;
+            max-width: 260px;
+            padding: 0.6rem 0.8rem;
+            border-radius: 10px;
+            text-align: left;
+            font-weight: normal;
+            font-size: 0.76rem;
+            line-height: 1.5;
+            text-shadow: none;
+            white-space: normal;
+            z-index: 40;
+            pointer-events: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.28s ease, transform 0.28s ease, visibility 0.28s;
+            background: linear-gradient(
+              160deg,
+              rgba(12, 10, 8, 0.98) 0%,
+              rgba(24, 16, 10, 0.98) 100%
+            );
+            border: 1px solid rgba(255, 200, 120, 0.35);
+            box-shadow:
+              0 10px 26px rgba(0, 0, 0, 0.85),
+              0 0 18px rgba(255, 170, 60, 0.18),
+              inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+            // 顶部光泽线
+            &::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 15%;
+              right: 15%;
+              height: 1px;
+              background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 200, 120, 0.55),
+                transparent
+              );
+            }
+
+            // 指向胶囊的箭头
+            &::after {
+              content: '';
+              position: absolute;
+              bottom: -6px;
+              left: 50%;
+              transform: translateX(-50%) rotate(45deg);
+              width: 10px;
+              height: 10px;
+              background: rgba(20, 14, 9, 0.98);
+              border-right: 1px solid rgba(255, 200, 120, 0.35);
+              border-bottom: 1px solid rgba(255, 200, 120, 0.35);
+              box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+            }
+
+            .tooltip-desc {
+              display: -webkit-box;
+              -webkit-line-clamp: 3;
+              -webkit-box-orient: vertical;
+              overflow: hidden;
+              color: rgba(255, 226, 180, 0.92);
+            }
+
+            .tooltip-meta {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              gap: 0.6rem;
+              margin-top: 0.5rem;
+              padding-top: 0.45rem;
+              border-top: 1px solid rgba(255, 200, 120, 0.15);
+
+              .tooltip-price {
+                font-weight: 700;
+                font-size: 0.78rem;
+                color: rgba(255, 170, 60, 1);
+                white-space: nowrap;
+              }
+
+              .tooltip-best-time {
+                font-size: 0.72rem;
+                color: rgba(255, 230, 190, 0.6);
+                white-space: nowrap;
+              }
+            }
+          }
+
+          .highlight-rating {
+            position: relative;
+            z-index: 1;
+            display: inline-flex;
+            align-items: center;
+            gap: 2px;
+            margin-left: 0.4rem;
+            padding: 1px 6px;
+            border-radius: 10px;
+            font-size: 0.72rem;
+            font-weight: 800;
+            vertical-align: 1px;
+            color: rgba(255, 244, 214, 1);
+            background: rgba(0, 0, 0, 0.55);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+            letter-spacing: 0.2px;
+
+            .rating-star {
+              color: rgba(255, 200, 60, 1);
+              filter: drop-shadow(0 0 3px rgba(255, 200, 60, 0.6));
+            }
+
+            .rating-num {
+              font-variant-numeric: tabular-nums;
+            }
+          }
+
+          &:hover {
+            transform: translateY(-2px) scale(1.05) rotate(1deg);
+            z-index: 50;
+
+            .highlight-tooltip {
+              opacity: 1;
+              visibility: visible;
+              transform: translateX(-50%) translateY(0);
+            }
+          }
+
+          &:active {
+            transform: translateY(-2px) scale(0.98);
+            transition: all 0.1s ease;
+
+            .highlight-tooltip {
+              opacity: 0;
+              visibility: hidden;
+            }
+          }
+
+          @for $i from 1 through 8 {
+            &.highlight-#{$i} {
+              $border-colors: (
+                rgba(255, 105, 180, 0.9),
+                // 粉红
+                rgba(255, 165, 0, 0.9),
+                // 橙色
+                rgba(255, 215, 0, 0.9),
+                // 金色
+                rgba(144, 238, 144, 0.9),
+                // 浅绿
+                rgba(135, 206, 235, 0.9),
+                // 天蓝
+                rgba(100, 149, 237, 0.9),
+                // cornflower蓝
+                rgba(186, 85, 211, 0.9),
+                // mediumorchid
+                rgba(221, 160, 221, 0.9) // plum
+              );
+              $text-colors: (
+                rgba(255, 182, 193, 0.9),
+                rgba(255, 218, 185, 0.9),
+                rgba(255, 236, 139, 0.9),
+                rgba(193, 255, 193, 0.9),
+                rgba(176, 224, 230, 0.9),
+                rgba(173, 216, 230, 0.9),
+                rgba(218, 112, 214, 0.9),
+                rgba(238, 130, 238, 0.9)
+              );
+              $shadow-colors: (
+                rgba(255, 105, 180, 0.4),
+                rgba(255, 165, 0, 0.4),
+                rgba(255, 215, 0, 0.4),
+                rgba(144, 238, 144, 0.4),
+                rgba(135, 206, 235, 0.4),
+                rgba(100, 149, 237, 0.4),
+                rgba(186, 85, 211, 0.4),
+                rgba(221, 160, 221, 0.4)
+              );
+              $dark_shadow: rgba(0, 0, 0, 0.6);
+
+              $border-color: list.nth($border-colors, $i);
+              $text-color: list.nth($text-colors, $i);
+              $shadow-color: list.nth($shadow-colors, $i);
+
+              // 加粗边框 - 多层边框效果
+              border: 2px solid $border-color;
+              box-shadow:
+                inset 0 0 0 1px rgba(255, 255, 255, 0.1),
+                0 3px 6px rgba(0, 0, 0, 0.5);
+              color: $text-color;
+
+              // 立体效果 - 多层伪元素
+              &::before {
+                background: linear-gradient(
+                  135deg,
+                  $shadow-color 0%,
+                  $dark_shadow 100%
+                );
+                transform: translate(6px, 6px);
+                opacity: 0.5;
+                box-shadow:
+                  0 6px 12px rgba(0, 0, 0, 0.7),
+                  0 3px 6px rgba(0, 0, 0, 0.5),
+                  0 0 20px rgba(0, 0, 0, 0.3);
+              }
+
+              &::after {
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+              }
+
+              &:hover {
+                border-color: rgba(255, 255, 255, 0.6);
+                box-shadow:
+                  inset 0 0 0 1px rgba(255, 255, 255, 0.3),
+                  0 6px 12px rgba(0, 0, 0, 0.7);
+
+                &::before {
+                  transform: translate(8px, 8px);
+                  opacity: 0.7;
+                  box-shadow:
+                    0 10px 20px rgba(0, 0, 0, 0.9),
+                    0 5px 10px rgba(0, 0, 0, 0.7),
+                    0 0 35px $shadow-color,
+                    0 0 15px rgba(0, 0, 0, 0.5);
+                }
+
+                &::after {
+                  border-color: rgba(255, 255, 255, 0.5);
+                  box-shadow:
+                    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+                    inset 0 0 5px rgba(255, 255, 255, 0.1);
+                }
+              }
+            }
+          }
+
+          .empty-highlight {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 2rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+
+    &.seasons-section {
+      grid-row: 1 / span 2;
+      grid-column: 2 / 3;
+      background: linear-gradient(
+        145deg,
+        rgba(40, 10, 30, 0.98) 0%,
+        rgba(80, 20, 60, 0.95) 50%,
+        rgba(40, 10, 30, 0.98) 100%
+      );
+      border-color: rgba(255, 150, 200, 0.2);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.95);
+      display: flex;
+      flex-direction: column;
+      &:hover {
+        border-color: rgba(255, 150, 200, 1);
+      }
+
+      .seasons-detail {
+        flex: 1;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+
+        .season-detail-item {
+          padding: 0.75rem 1.5rem;
+          border-radius: 16px;
+          cursor: pointer;
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          position: relative;
+          overflow: hidden;
+
+          animation: seasonCardFadeIn 0.8s ease-out forwards;
+          animation-delay: calc(var(--index, 0) * 0.2s);
+          opacity: 0;
+
+          // 多层阴影纵深（浮起感）+ 季节色外发光
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.15),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.4),
+            0 4px 8px rgba(0, 0, 0, 0.4),
+            0 8px 16px rgba(0, 0, 0, 0.3),
+            0 0 12px var(--season-glow-soft, rgba(255, 255, 255, 0.2));
+
+          // 顶部玻璃光泽线（常驻）
+          &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 15%;
+            right: 15%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+            transition: all 0.4s ease;
+            pointer-events: none;
+            z-index: 1;
+          }
+
+          // 全息基座光晕（hover 时底部展开）
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--season-glow, rgba(255, 255, 255, 1)), transparent);
+            transform: translateX(-50%);
+            transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+            z-index: 1;
+            box-shadow: 0 0 14px var(--season-glow, rgba(255, 255, 255, 0.8));
+          }
+
+          &:hover {
+            // 不位移，3D爆发：阴影落差加深 + 全息基座发光
+            box-shadow:
+              inset 0 1px 0 rgba(255, 255, 255, 0.25),
+              inset 0 -1px 0 rgba(0, 0, 0, 0.4),
+              0 8px 16px rgba(0, 0, 0, 0.5),
+              0 16px 32px rgba(0, 0, 0, 0.4),
+              0 0 24px var(--season-glow, rgba(255, 255, 255, 0.6));
+
+            &::before {
+              left: 0;
+              right: 0;
+              height: 2px;
+              background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.7), transparent);
+            }
+
+            &::after {
+              width: 85%;
+            }
+
+            .season-name {
+              transform: translateY(-2px);
+
+              &::after {
+                width: 100%;
+              }
+            }
+            .season-description {
+              transform: translateY(-2px);
+            }
+            .activity-tag {
+              opacity: 1;
+              transform: translateY(-2px) scale(1.05);
+              box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+
+              &::before {
+                left: 100%;
+              }
+            }
+          }
+
+          .season-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 0.5rem 0 0.25rem 0;
+            color: #ffffff;
+            transition: all 0.4s ease;
+            position: relative;
+            display: inline-block;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+
+            &::after {
+              content: '';
+              position: absolute;
+              bottom: -4px;
+              left: 0;
+              width: 0;
+              height: 2px;
+              background: currentColor;
+              transition: width 0.3s ease;
+              box-shadow: 0 0 6px currentColor;
+            }
+          }
+
+          .season-description {
+            margin: 0.5rem 0;
+            line-height: 1.6;
+            color: #f5f5f5;
+            font-size: 0.9rem;
+            transition: all 0.4s ease;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+          }
+
+          .season-activities {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+
+            .activity-tag {
+              display: inline-block;
+              padding: 0.3rem 0.8rem;
+              border-radius: 12px;
+              font-size: 0.8rem;
+              font-weight: 500;
+              opacity: 0.85;
+              transition: all 0.3s ease;
+              position: relative;
+              overflow: hidden;
+              box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+              cursor: pointer;
+
+              &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(
+                  90deg,
+                  transparent,
+                  rgba(255, 255, 255, 0.3),
+                  transparent
+                );
+                transition: left 0.6s ease;
+              }
+
+              &.tag-1:hover {
+                transform: translateY(-3px) scale(1.08);
+                opacity: 1;
+                box-shadow:
+                  0 6px 16px rgba(0, 0, 0, 0.5),
+                  0 0 14px rgba(255, 255, 255, 0.3);
+
+                &::before {
+                  left: 100%;
+                }
+              }
+
+              &.tag-2:hover {
+                transform: translateY(1px) scale(0.96);
+                opacity: 1;
+                box-shadow:
+                  inset 0 3px 6px rgba(0, 0, 0, 0.4),
+                  0 0 12px rgba(255, 255, 255, 0.2);
+              }
+
+              &.tag-3:hover {
+                transform: rotate(-2deg) scale(1.05);
+                opacity: 1;
+                box-shadow:
+                  0 4px 12px rgba(0, 0, 0, 0.4),
+                  0 0 16px rgba(255, 255, 255, 0.35);
+                filter: brightness(1.3);
+              }
+
+              &.tag-4:hover {
+                transform: translateY(-4px) rotate(1.5deg);
+                opacity: 1;
+                box-shadow:
+                  0 8px 20px rgba(0, 0, 0, 0.5),
+                  0 0 18px rgba(255, 255, 255, 0.4);
+                filter: brightness(1.2) saturate(1.3);
+
+                &::before {
+                  left: 100%;
+                  transition: left 0.4s ease;
+                }
+              }
+            }
+          }
+
+          // 卡片进入动画
+          @keyframes seasonCardFadeIn {
+            0% {
+              opacity: 0;
+              transform: translateY(20px) scale(0.9);
+            }
+            100% {
+              opacity: 1;
+              transform: translateY(0) scale(1);
+            }
+          }
+        }
+
+        // 春季卡片样式
+        .season-detail-item:nth-child(1),
+        .season-detail-item[data-season='春季'] {
+          --season-glow: rgba(255, 182, 193, 1);
+          --season-glow-soft: rgba(255, 182, 193, 0.3);
+          background: linear-gradient(
+            135deg,
+            rgba(0, 0, 0, 0.9) 0%,
+            rgba(255, 182, 193, 0.2) 50%,
+            rgba(0, 0, 0, 0.9) 100%
+          );
+          border: 1px solid rgba(255, 182, 193, 0.4);
+          &:hover {
+            border-color: rgba(255, 182, 193, 1);
+          }
+
+          .activity-tag {
+            background: rgba(255, 182, 193, 0.2);
+            color: rgba(254, 219, 226, 1);
+            border: 1px solid rgba(255, 182, 193, 0.4);
+          }
+
+          &:hover .activity-tag {
+            background: rgba(255, 182, 193, 0.3);
+            border-color: rgba(255, 182, 193, 1);
+            color: rgb(253, 253, 253);
+          }
+        }
+
+        // 夏季卡片样式
+        .season-detail-item:nth-child(2),
+        .season-detail-item[data-season='夏季'] {
+          --season-glow: rgba(85, 221, 85, 1);
+          --season-glow-soft: rgba(34, 139, 34, 0.3);
+          background: linear-gradient(
+            135deg,
+            rgba(0, 0, 0, 0.9) 0%,
+            rgba(7, 155, 7, 0.35) 50%,
+            rgba(0, 0, 0, 0.9) 100%
+          );
+          border: 1px solid rgba(34, 139, 34, 0.5);
+          &:hover {
+            border-color: rgba(34, 139, 34, 1);
+          }
+
+          .activity-tag {
+            background: rgba(34, 139, 34, 0.25);
+            color: rgba(183, 255, 183, 1);
+            border: 1px solid rgba(34, 139, 34, 0.5);
+          }
+
+          &:hover .activity-tag {
+            background: rgba(34, 139, 34, 0.35);
+            border-color: rgba(34, 139, 34, 1);
+            color: rgb(255, 255, 255);
+          }
+        }
+
+        // 秋季卡片样式
+        .season-detail-item:nth-child(3),
+        .season-detail-item[data-season='秋季'] {
+          --season-glow: rgba(255, 165, 0, 1);
+          --season-glow-soft: rgba(255, 165, 0, 0.3);
+          background: linear-gradient(
+            135deg,
+            rgba(0, 0, 0, 0.9) 0%,
+            rgba(255, 165, 0, 0.2) 50%,
+            rgba(0, 0, 0, 0.9) 100%
+          );
+          border: 1px solid rgba(255, 165, 0, 0.4);
+          &:hover {
+            border-color: rgba(255, 165, 0, 0.8);
+          }
+
+          .activity-tag {
+            background: rgba(255, 165, 0, 0.2);
+            color: rgba(253, 218, 155, 0.9);
+            border: 1px solid rgba(255, 165, 0, 0.4);
+          }
+
+          &:hover .activity-tag {
+            background: rgba(255, 165, 0, 0.3);
+            border-color: rgba(255, 165, 0, 0.6);
+            color: rgb(255, 255, 255);
+          }
+        }
+
+        // 冬季卡片样式
+        .season-detail-item:nth-child(4),
+        .season-detail-item[data-season='冬季'] {
+          --season-glow: rgba(30, 144, 255, 1);
+          --season-glow-soft: rgba(30, 144, 255, 0.3);
+          background: linear-gradient(
+            135deg,
+            rgba(0, 0, 0, 0.9) 0%,
+            rgba(30, 144, 255, 0.35) 50%,
+            rgba(0, 0, 0, 0.9) 100%
+          );
+          border: 1px solid rgba(30, 144, 255, 0.5);
+          &:hover {
+            border-color: rgba(30, 144, 255, 1);
+          }
+
+          .activity-tag {
+            background: rgba(30, 144, 255, 0.25);
+            color: rgba(170, 221, 253, 1);
+            border: 1px solid rgba(30, 144, 255, 0.5);
+          }
+
+          &:hover .activity-tag {
+            background: rgba(30, 144, 255, 0.35);
+            border-color: rgba(30, 144, 255, 1);
+            color: rgb(255, 255, 255);
+          }
+        }
+
+        .empty-seasons {
+          text-align: center;
+          padding: 3rem;
+          color: rgba(255, 255, 255, 0.5);
+
+          .empty-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+          }
+
+          .empty-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+          }
+
+          .empty-description {
+            font-size: 1rem;
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+  }
+}

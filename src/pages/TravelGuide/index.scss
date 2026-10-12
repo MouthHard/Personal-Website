@@ -6,6 +6,19 @@
   position: relative;
   background-color: #0a0e17;
   color: #ffffff;
+  transition: grid-template-columns 0.42s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.mypage-active {
+    grid-template-columns: 0px 1fr;
+
+    :deep(.province-sidebar) {
+      opacity: 0;
+      transform: translateX(-100%);
+      border-right-color: transparent;
+      box-shadow: none;
+      pointer-events: none;
+    }
+  }
 
   .travel-guide-loading {
     grid-column: 1 / -1;

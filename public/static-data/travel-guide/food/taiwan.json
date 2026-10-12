@@ -13,7 +13,7 @@
       "image": "https://picsum.photos/id/506/800/600",
       "price": 25,
       "rating": 4.7,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "台湾经典",
       "isPopular": true,
       "badgeColor": "#795548",
@@ -41,7 +41,7 @@
       "image": "https://picsum.photos/id/507/800/600",
       "price": 18,
       "rating": 4.6,
-      "category": "饮品",
+      "category": "汤羹饮品",
       "badgeText": "台湾发明",
       "isPopular": true,
       "badgeColor": "#e91e63",
@@ -69,7 +69,7 @@
       "image": "https://picsum.photos/id/508/800/600",
       "price": 35,
       "rating": 4.5,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "夜市之宝",
       "isPopular": true,
       "badgeColor": "#ff9800",
@@ -97,7 +97,7 @@
       "image": "https://picsum.photos/id/509/800/600",
       "price": 25,
       "rating": 4.4,
-      "category": "小吃",
+      "category": "小吃零食",
       "badgeText": "台湾创意",
       "isPopular": true,
       "badgeColor": "#4caf50",
@@ -125,7 +125,7 @@
       "image": "https://picsum.photos/id/510/800/600",
       "price": 45,
       "rating": 4.3,
-      "category": "甜品",
+      "category": "甜品糕点",
       "isPopular": false,
       "description": "香甜可口，口感酥脆",
       "recommendations": {
@@ -151,7 +151,7 @@
       "image": "https://picsum.photos/id/511/800/600",
       "price": 38,
       "rating": 4.5,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "isPopular": false,
       "description": "外酥内嫩，香气四溢",
       "recommendations": {
@@ -162,6 +162,164 @@
           "啤酒"
         ],
         "eatingMethod": "刚炸好时趁热食用，撒九层塔提香"
+      }
+    },
+    {
+      "id": "taiwan-beef-noodle",
+      "name": "台湾牛肉面",
+      "tags": [
+        "台湾特色",
+        "台式料理",
+        "汤浓肉烂",
+        "面条Q弹",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/480/800/600",
+      "price": 45,
+      "rating": 4.8,
+      "category": "面点主食",
+      "badgeText": "台湾之光",
+      "isPopular": true,
+      "badgeColor": "#ff5722",
+      "description": "台湾牛肉面，汤浓肉烂，面条Q弹",
+      "recommendations": {
+        "pairings": [
+          "酸菜",
+          "小菜",
+          "辣油",
+          "卤味"
+        ],
+        "eatingMethod": "汤面一起食用，可加酸菜和辣油"
+      }
+    },
+    {
+      "id": "taiwan-ji-pai",
+      "name": "台湾鸡排",
+      "tags": [
+        "台湾特色",
+        "夜市美食",
+        "外酥内嫩",
+        "香气四溢",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/481/800/600",
+      "price": 35,
+      "rating": 4.6,
+      "category": "小吃零食",
+      "isPopular": false,
+      "description": "台湾夜市鸡排，外酥内嫩，香气四溢",
+      "recommendations": {
+        "pairings": [
+          "奶茶",
+          "啤酒",
+          "辣椒粉",
+          "小菜"
+        ],
+        "eatingMethod": "直接食用，作为夜宵或小吃"
+      }
+    },
+    {
+      "id": "taiwan-dan-bing",
+      "name": "台湾蛋饼",
+      "tags": [
+        "台湾特色",
+        "早餐经典",
+        "外酥内软",
+        "蛋香浓郁",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/482/800/600",
+      "price": 20,
+      "rating": 4.4,
+      "category": "面点主食",
+      "isPopular": false,
+      "description": "台湾早餐经典，外酥内软，蛋香浓郁",
+      "recommendations": {
+        "pairings": [
+          "豆浆",
+          "奶茶",
+          "小菜",
+          "酱油"
+        ],
+        "eatingMethod": "直接食用，作为早餐"
+      }
+    },
+    {
+      "id": "taiwan-lu-wei",
+      "name": "台湾卤味",
+      "tags": [
+        "台湾特色",
+        "夜市小吃",
+        "卤香浓郁",
+        "食材丰富",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/483/800/600",
+      "price": 30,
+      "rating": 4.5,
+      "category": "菜品菜肴",
+      "isPopular": false,
+      "description": "台湾夜市卤味，卤香浓郁，食材丰富",
+      "recommendations": {
+        "pairings": [
+          "啤酒",
+          "饮料",
+          "小菜",
+          "面条"
+        ],
+        "eatingMethod": "直接食用，作为下酒菜或夜宵"
+      }
+    },
+    {
+      "id": "taiwan-mian-xian",
+      "name": "台湾面线",
+      "tags": [
+        "台湾特色",
+        "台式料理",
+        "口感细腻",
+        "汤汁鲜美",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/484/800/600",
+      "price": 25,
+      "rating": 4.4,
+      "category": "面点主食",
+      "isPopular": false,
+      "description": "台湾蚵仔面线，口感细腻，汤汁鲜美",
+      "recommendations": {
+        "pairings": [
+          "蒜泥",
+          "醋",
+          "辣油",
+          "小菜"
+        ],
+        "eatingMethod": "汤面一起食用，可加蒜泥和醋"
+      }
+    },
+    {
+      "id": "taiwan-tie-guan-yin",
+      "name": "台湾铁观音",
+      "tags": [
+        "台湾特色",
+        "台式茶饮",
+        "香气浓郁",
+        "回甘悠长",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/485/800/600",
+      "price": 50,
+      "rating": 4.5,
+      "category": "汤羹饮品",
+      "isPopular": false,
+      "description": "台湾木栅铁观音，香气浓郁，回甘悠长",
+      "recommendations": {
+        "pairings": [
+          "凤梨酥",
+          "点心",
+          "小吃",
+          "甜品"
+        ],
+        "eatingMethod": "热饮或冷泡均可，搭配茶点更佳"
       }
     }
   ],
@@ -187,12 +345,230 @@
       "type": "夜市",
       "foods": [
         "bubble-tea",
-        "taiwan-braised-pork-rice",
-        "oyster-omelette"
+        "taiwan-ji-pai",
+        "taiwan-mian-xian"
       ],
       "image": "https://picsum.photos/id/349/800/600",
       "reason": "高雄著名夜市，海鲜美食",
       "location": "高雄市"
+    },
+    {
+      "id": 3,
+      "icon": "🍜",
+      "name": "台北牛肉面街",
+      "type": "美食街",
+      "foods": [
+        "taiwan-beef-noodle",
+        "taiwan-lu-wei",
+        "taiwan-dan-bing"
+      ],
+      "image": "https://picsum.photos/id/486/800/600",
+      "reason": "台北牛肉面馆聚集地，台湾之光发源地",
+      "location": "台北市"
+    }
+  ],
+  "souvenirs": [
+    {
+      "id": "taiwan-souvenir-1",
+      "name": "凤梨酥",
+      "image": "https://picsum.photos/id/249/600/400",
+      "priceRange": "15-40元",
+      "description": "冬瓜馅凤梨，酥松奶香",
+      "buyAt": "微热山丘",
+      "storage": "阴凉干燥",
+      "province": "台湾"
+    },
+    {
+      "id": "taiwan-souvenir-2",
+      "name": "太阳饼",
+      "image": "https://picsum.photos/id/248/600/400",
+      "priceRange": "15-30元",
+      "description": "麦芽糖馅，酥层分明",
+      "buyAt": "太阳堂老店",
+      "storage": "阴凉干燥",
+      "province": "台湾"
+    },
+    {
+      "id": "taiwan-souvenir-3",
+      "name": "高山乌龙茶",
+      "image": "https://picsum.photos/id/247/600/400",
+      "priceRange": "50-300元",
+      "description": "高山云雾，清香甘醇",
+      "buyAt": "阿里山茶区",
+      "storage": "密封防潮",
+      "province": "台湾"
+    },
+    {
+      "id": "taiwan-souvenir-4",
+      "name": "牛轧糖",
+      "image": "https://picsum.photos/id/246/600/400",
+      "priceRange": "15-35元",
+      "description": "花生牛轧，奶香不粘牙",
+      "buyAt": "台湾特产店",
+      "storage": "阴凉干燥",
+      "province": "台湾"
+    },
+    {
+      "id": "taiwan-souvenir-5",
+      "name": "台湾铁观音",
+      "image": "https://picsum.photos/id/487/600/400",
+      "priceRange": "40-200元",
+      "description": "木栅铁观音，香气浓郁",
+      "buyAt": "台北茶行",
+      "storage": "密封防潮",
+      "province": "台湾"
+    }
+  ],
+  "guide": {
+    "mealPlan": {
+      "breakfast": [
+        "taiwan-dan-bing",
+        "taiwan-braised-pork-rice",
+        "bubble-tea"
+      ],
+      "lunch": [
+        "taiwan-beef-noodle",
+        "oyster-omelette",
+        "taiwan-lu-wei"
+      ],
+      "dinner": [
+        "taiwan-fried-chicken",
+        "taiwan-mian-xian",
+        "sausage-in-rice-cake"
+      ]
+    },
+    "routes": [
+      {
+        "id": "taiwan-route-1",
+        "name": "台湾经典美食一日游",
+        "duration": "1天",
+        "steps": [
+          {
+            "time": "08:30",
+            "location": "台北早餐店",
+            "foodId": "taiwan-dan-bing",
+            "description": "清晨从一份台湾蛋饼开始"
+          },
+          {
+            "time": "12:00",
+            "location": "台北牛肉面街",
+            "foodId": "taiwan-beef-noodle",
+            "description": "午餐品尝台湾牛肉面"
+          },
+          {
+            "time": "15:30",
+            "location": "台北士林夜市",
+            "foodId": "oyster-omelette",
+            "description": "下午茶时光来一份蚵仔煎"
+          },
+          {
+            "time": "18:30",
+            "location": "台北士林夜市",
+            "foodId": "sausage-in-rice-cake",
+            "description": "夜市扫街，大肠包小肠收尾"
+          }
+        ]
+      },
+      {
+        "id": "taiwan-route-2",
+        "name": "台湾夜市寻味半日游",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "10:00",
+            "location": "高雄六合夜市",
+            "foodId": "taiwan-ji-pai",
+            "description": "台湾鸡排，夜市必吃"
+          },
+          {
+            "time": "12:00",
+            "location": "高雄六合夜市",
+            "foodId": "bubble-tea",
+            "description": "珍珠奶茶，台湾发明"
+          },
+          {
+            "time": "14:00",
+            "location": "高雄夜市",
+            "foodId": "taiwan-mian-xian",
+            "description": "蚵仔面线，古早味收尾"
+          }
+        ]
+      },
+      {
+        "id": "taiwan-route-3",
+        "name": "台北卤味茶香之旅",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "15:00",
+            "location": "台北卤味老店",
+            "foodId": "taiwan-lu-wei",
+            "description": "台湾卤味，下酒菜首选"
+          },
+          {
+            "time": "17:00",
+            "location": "台北茶馆",
+            "foodId": "taiwan-tie-guan-yin",
+            "description": "木栅铁观音，茶香收尾"
+          }
+        ]
+      }
+    ],
+    "tips": [
+      {
+        "question": "台湾美食的最佳品尝时间？",
+        "answer": "台湾四季皆宜，夜市全年开放。秋冬季节品卤味和牛肉面最佳，夏季可消暑品奶茶和冰品。"
+      },
+      {
+        "question": "台湾有哪些必去美食街区？",
+        "answer": "推荐前往台北士林夜市、高雄六合夜市和台北牛肉面街，那里集中了最正宗的台湾小吃和料理。"
+      },
+      {
+        "question": "在台湾点菜有什么避坑建议？",
+        "answer": "建议提前了解夜市特色小吃名，避免被不正规店铺误导；夜市选择人气旺的摊位更靠谱，注意排队人多的通常最好吃。"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "season": "spring",
+      "seasonName": "春季",
+      "foods": [
+        "taiwan-braised-pork-rice",
+        "oyster-omelette",
+        "pineapple-cake"
+      ],
+      "description": "春暖花开，时鲜上市，品尝春日第一口鲜"
+    },
+    {
+      "season": "summer",
+      "seasonName": "夏季",
+      "foods": [
+        "bubble-tea",
+        "taiwan-ji-pai",
+        "sausage-in-rice-cake"
+      ],
+      "description": "夏日炎炎，消暑解渴，清凉美味正当时"
+    },
+    {
+      "season": "autumn",
+      "seasonName": "秋季",
+      "foods": [
+        "taiwan-beef-noodle",
+        "taiwan-lu-wei",
+        "taiwan-fried-chicken"
+      ],
+      "description": "秋高气爽，丰收时节，贴秋膘品卤味"
+    },
+    {
+      "season": "winter",
+      "seasonName": "冬季",
+      "foods": [
+        "taiwan-dan-bing",
+        "taiwan-mian-xian",
+        "taiwan-tie-guan-yin"
+      ],
+      "description": "寒冬腊月，温补暖身，热汤热食最抚慰"
     }
   ]
 }

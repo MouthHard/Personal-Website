@@ -13,7 +13,7 @@
       "image": "https://picsum.photos/id/452/800/600",
       "price": 18,
       "rating": 4.7,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "贵阳早餐",
       "isPopular": true,
       "badgeColor": "#ff5722",
@@ -41,7 +41,7 @@
       "image": "https://picsum.photos/id/453/800/600",
       "price": 38,
       "rating": 4.6,
-      "category": "小吃",
+      "category": "小吃零食",
       "badgeText": "贵州小吃",
       "isPopular": true,
       "badgeColor": "#4caf50",
@@ -69,7 +69,7 @@
       "image": "https://picsum.photos/id/454/800/600",
       "price": 88,
       "rating": 4.8,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "黔东南名菜",
       "isPopular": true,
       "badgeColor": "#ff9800",
@@ -97,7 +97,7 @@
       "image": "https://picsum.photos/id/455/800/600",
       "price": 1499,
       "rating": 4.9,
-      "category": "饮品",
+      "category": "汤羹饮品",
       "isPopular": false,
       "description": "酱香浓郁，回味悠长",
       "recommendations": {
@@ -123,7 +123,7 @@
       "image": "https://picsum.photos/id/456/800/600",
       "price": 48,
       "rating": 4.4,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "贵州特色",
       "isPopular": false,
       "badgeColor": "#9c27b0",
@@ -151,7 +151,7 @@
       "image": "https://picsum.photos/id/457/800/600",
       "price": 5,
       "rating": 4,
-      "category": "甜品",
+      "category": "甜品糕点",
       "isPopular": false,
       "description": "香甜可口，传统面点",
       "recommendations": {
@@ -162,6 +162,164 @@
           "饮料"
         ],
         "eatingMethod": "直接食用，作为甜品"
+      }
+    },
+    {
+      "id": "guizhou-zunyi-yangroufen",
+      "name": "遵义羊肉粉",
+      "tags": [
+        "贵州特色",
+        "遵义特产",
+        "羊肉鲜嫩",
+        "粉条爽滑",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/470/800/600",
+      "price": 20,
+      "rating": 4.6,
+      "category": "面点主食",
+      "badgeText": "遵义名吃",
+      "isPopular": true,
+      "badgeColor": "#ff5722",
+      "description": "羊肉鲜嫩，粉条爽滑，遵义早餐首选",
+      "recommendations": {
+        "pairings": [
+          "小菜",
+          "汤品",
+          "饮料",
+          "茶品"
+        ],
+        "eatingMethod": "直接食用，作为主食"
+      }
+    },
+    {
+      "id": "guizhou-changwangmian",
+      "name": "肠旺面",
+      "tags": [
+        "贵州特色",
+        "贵阳特产",
+        "肥肠软烂",
+        "面条劲道",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/471/800/600",
+      "price": 22,
+      "rating": 4.5,
+      "category": "面点主食",
+      "isPopular": false,
+      "description": "肥肠软烂，面条劲道，贵阳传统面食",
+      "recommendations": {
+        "pairings": [
+          "小菜",
+          "汤品",
+          "饮料",
+          "茶品"
+        ],
+        "eatingMethod": "直接食用，作为主食"
+      }
+    },
+    {
+      "id": "guizhou-laziji",
+      "name": "贵州辣子鸡",
+      "tags": [
+        "贵州特色",
+        "黔菜经典",
+        "香辣入味",
+        "鸡肉紧实",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/472/800/600",
+      "price": 58,
+      "rating": 4.5,
+      "category": "菜品菜肴",
+      "isPopular": false,
+      "description": "香辣入味，鸡肉紧实，黔菜代表",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "guizhou-yangyubaba",
+      "name": "洋芋粑",
+      "tags": [
+        "贵州特色",
+        "街头小吃",
+        "外酥内软",
+        "洋芋飘香",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/473/800/600",
+      "price": 8,
+      "rating": 4.3,
+      "category": "小吃零食",
+      "isPopular": false,
+      "description": "外酥内软，洋芋飘香，贵州街头小吃",
+      "recommendations": {
+        "pairings": [
+          "辣椒水",
+          "茶品",
+          "饮料",
+          "水果"
+        ],
+        "eatingMethod": "直接食用，蘸辣椒水更美味"
+      }
+    },
+    {
+      "id": "guizhou-meigui-bingfen",
+      "name": "玫瑰冰粉",
+      "tags": [
+        "贵州特色",
+        "消暑甜品",
+        "清凉爽滑",
+        "玫瑰花香",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/474/800/600",
+      "price": 12,
+      "rating": 4.4,
+      "category": "甜品糕点",
+      "isPopular": false,
+      "description": "清凉爽滑，玫瑰花香，夏日消暑佳品",
+      "recommendations": {
+        "pairings": [
+          "小吃",
+          "烧烤",
+          "火锅",
+          "茶品"
+        ],
+        "eatingMethod": "直接食用，冰镇后最佳"
+      }
+    },
+    {
+      "id": "guizhou-doumi-huoguo",
+      "name": "豆米火锅",
+      "tags": [
+        "贵州特色",
+        "贵阳特产",
+        "豆米浓汤",
+        "食材丰富",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/475/800/600",
+      "price": 98,
+      "rating": 4.6,
+      "category": "烧烤火锅",
+      "isPopular": false,
+      "description": "豆米浓汤，食材丰富，贵阳特色火锅",
+      "recommendations": {
+        "pairings": [
+          "饮料",
+          "啤酒",
+          "小菜",
+          "水果"
+        ],
+        "eatingMethod": "涮煮食用，先喝汤再涮菜"
       }
     }
   ],
@@ -186,13 +344,203 @@
       "name": "遵义美食街",
       "type": "美食街",
       "foods": [
-        "遵义羊肉粉",
+        "guizhou-zunyi-yangroufen",
         "贵州茅台",
         "折耳根炒腊肉"
       ],
       "image": "https://picsum.photos/id/329/800/600",
       "reason": "遵义特色美食聚集地",
       "location": "遵义市"
+    },
+    {
+      "id": 3,
+      "icon": "🏞️",
+      "name": "凯里酸汤街",
+      "type": "美食街",
+      "foods": [
+        "酸汤鱼",
+        "guizhou-laziji",
+        "guizhou-yangyubaba"
+      ],
+      "image": "https://picsum.photos/id/476/800/600",
+      "reason": "黔东南苗族酸汤美食聚集地",
+      "location": "凯里市"
+    },
+    {
+      "id": 4,
+      "icon": "🛣️",
+      "name": "黔南小吃街",
+      "type": "美食街",
+      "foods": [
+        "丝娃娃",
+        "guizhou-changwangmian",
+        "guizhou-meigui-bingfen"
+      ],
+      "image": "https://picsum.photos/id/477/800/600",
+      "reason": "黔南特色小吃聚集地，品种丰富",
+      "location": "都匀市"
+    }
+  ],
+  "souvenirs": [
+    {
+      "id": "guizhou-souvenir-1",
+      "name": "茅台酒",
+      "image": "https://picsum.photos/id/624/600/400",
+      "priceRange": "200-3000元",
+      "description": "酱香型鼻祖，国酒之尊",
+      "buyAt": "茅台镇",
+      "storage": "阴凉避光",
+      "province": "贵州"
+    },
+    {
+      "id": "guizhou-souvenir-2",
+      "name": "蜡染",
+      "image": "https://picsum.photos/id/623/600/400",
+      "priceRange": "30-200元",
+      "description": "苗族传统手工艺，蓝白古朴",
+      "buyAt": "安顺蜡染坊",
+      "storage": "干燥保存",
+      "province": "贵州"
+    },
+    {
+      "id": "guizhou-souvenir-3",
+      "name": "银饰",
+      "image": "https://picsum.photos/id/622/600/400",
+      "priceRange": "50-500元",
+      "description": "苗族银饰工艺，精美繁复",
+      "buyAt": "凯里银饰店",
+      "storage": "干燥保存",
+      "province": "贵州"
+    },
+    {
+      "id": "guizhou-souvenir-4",
+      "name": "刺梨干",
+      "image": "https://picsum.photos/id/621/600/400",
+      "priceRange": "15-40元",
+      "description": "维C之王，酸甜开胃",
+      "buyAt": "贵州土特产店",
+      "storage": "密封干燥",
+      "province": "贵州"
+    }
+  ],
+  "guide": {
+    "mealPlan": {
+      "breakfast": [
+        "贵州牛肉粉",
+        "酸汤鱼",
+        "折耳根炒腊肉"
+      ],
+      "lunch": [
+        "折耳根炒腊肉",
+        "酸汤鱼",
+        "贵州牛肉粉"
+      ],
+      "dinner": [
+        "贵州牛肉粉",
+        "贵州茅台"
+      ]
+    },
+    "routes": [
+      {
+        "id": "guizhou-route-1",
+        "name": "贵州经典美食一日游",
+        "duration": "1天",
+        "steps": [
+          {
+            "time": "08:30",
+            "location": "贵州老城区",
+            "foodId": "贵州牛肉粉",
+            "description": "清晨从一顿地道早餐开始"
+          },
+          {
+            "time": "12:00",
+            "location": "贵州美食街",
+            "foodId": "酸汤鱼",
+            "description": "午餐品尝当地招牌菜"
+          },
+          {
+            "time": "18:30",
+            "location": "贵州夜市",
+            "foodId": "折耳根炒腊肉",
+            "description": "夜市扫街，收尾完美一天"
+          }
+        ]
+      },
+      {
+        "id": "guizhou-route-2",
+        "name": "贵州深度寻味半日游",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "10:00",
+            "location": "贵州老字号",
+            "foodId": "贵州茅台",
+            "description": "探访百年老字号"
+          },
+          {
+            "time": "15:00",
+            "location": "贵州特产市场",
+            "foodId": "贵州牛肉粉",
+            "description": "下午茶时光品鉴特色小吃"
+          }
+        ]
+      }
+    ],
+    "tips": [
+      {
+        "question": "贵州美食的最佳品尝时间？",
+        "answer": "建议在春秋两季前往，气候宜人，食材当季，能品尝到最地道的贵州风味。"
+      },
+      {
+        "question": "贵州有哪些必去美食街区？",
+        "answer": "推荐前往老城区和夜市，那里集中了最正宗的贵州小吃和老字号餐厅。"
+      },
+      {
+        "question": "在贵州点菜有什么避坑建议？",
+        "answer": "建议提前了解当地特色菜名，避免被不正规店铺误导；选择人气旺的老店更靠谱。"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "season": "spring",
+      "seasonName": "春季",
+      "foods": [
+        "贵州牛肉粉",
+        "丝娃娃",
+        "guizhou-zunyi-yangroufen"
+      ],
+      "description": "春暖花开，时鲜上市，品尝春日第一口鲜"
+    },
+    {
+      "season": "summer",
+      "seasonName": "夏季",
+      "foods": [
+        "酸汤鱼",
+        "guizhou-yangyubaba",
+        "guizhou-meigui-bingfen"
+      ],
+      "description": "夏日炎炎，消暑解渴，清凉美味正当时"
+    },
+    {
+      "season": "autumn",
+      "seasonName": "秋季",
+      "foods": [
+        "折耳根炒腊肉",
+        "guizhou-laziji",
+        "guizhou-changwangmian"
+      ],
+      "description": "秋高气爽，丰收时节，贴秋膘品蟹黄"
+    },
+    {
+      "season": "winter",
+      "seasonName": "冬季",
+      "foods": [
+        "贵州茅台",
+        "guizhou-tangbao",
+        "guizhou-doumi-huoguo"
+      ],
+      "description": "寒冬腊月，温补暖身，热汤热食最抚慰"
     }
   ]
 }

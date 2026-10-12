@@ -13,7 +13,7 @@
       "image": "https://picsum.photos/id/464/800/600",
       "price": 68,
       "rating": 4.6,
-      "category": "饮品",
+      "category": "汤羹饮品",
       "badgeText": "高原佳酿",
       "isPopular": true,
       "badgeColor": "#f44336",
@@ -41,7 +41,7 @@
       "image": "https://picsum.photos/id/465/800/600",
       "price": 15,
       "rating": 4.5,
-      "category": "饮品",
+      "category": "汤羹饮品",
       "badgeText": "藏民日常",
       "isPopular": true,
       "badgeColor": "#ff9800",
@@ -69,7 +69,7 @@
       "image": "https://picsum.photos/id/466/800/600",
       "price": 12,
       "rating": 4.3,
-      "category": "主食",
+      "category": "面点主食",
       "isPopular": false,
       "description": "高原特色，营养丰富",
       "recommendations": {
@@ -95,7 +95,7 @@
       "image": "https://picsum.photos/id/467/800/600",
       "price": 88,
       "rating": 4.7,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "高原珍馐",
       "isPopular": true,
       "badgeColor": "#4caf50",
@@ -123,7 +123,7 @@
       "image": "https://picsum.photos/id/468/800/600",
       "price": 10,
       "rating": 4.4,
-      "category": "甜品",
+      "category": "甜品糕点",
       "isPopular": false,
       "description": "酸甜可口，口感醇厚",
       "recommendations": {
@@ -149,7 +149,7 @@
       "image": "https://picsum.photos/id/469/800/600",
       "price": 3,
       "rating": 4.1,
-      "category": "小吃",
+      "category": "小吃零食",
       "isPopular": false,
       "description": "外酥内软，早餐必备",
       "recommendations": {
@@ -160,6 +160,164 @@
           "粥品"
         ],
         "eatingMethod": "直接食用，蘸酥油茶更美味"
+      }
+    },
+    {
+      "id": "xizang-fenggan-maoniurou",
+      "name": "风干牦牛肉",
+      "tags": [
+        "西藏特色",
+        "高原特产",
+        "风干工艺",
+        "嚼劲十足",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/485/800/600",
+      "price": 68,
+      "rating": 4.6,
+      "category": "小吃零食",
+      "badgeText": "高原零食",
+      "isPopular": true,
+      "badgeColor": "#ff5722",
+      "description": "风干工艺，嚼劲十足，西藏传统零食",
+      "recommendations": {
+        "pairings": [
+          "青稞酒",
+          "酥油茶",
+          "甜茶",
+          "糌粑"
+        ],
+        "eatingMethod": "直接食用，佐酒或佐茶更佳"
+      }
+    },
+    {
+      "id": "xizang-zangshi-baozi",
+      "name": "藏式包子",
+      "tags": [
+        "西藏特色",
+        "藏族面点",
+        "皮薄馅大",
+        "牦牛肉馅",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/486/800/600",
+      "price": 15,
+      "rating": 4.4,
+      "category": "面点主食",
+      "isPopular": false,
+      "description": "皮薄馅大，牦牛肉馅，藏族传统面点",
+      "recommendations": {
+        "pairings": [
+          "酥油茶",
+          "甜茶",
+          "小菜",
+          "汤品"
+        ],
+        "eatingMethod": "直接食用，蘸辣椒酱更美味"
+      }
+    },
+    {
+      "id": "xizang-qingke-bing",
+      "name": "青稞饼",
+      "tags": [
+        "西藏特色",
+        "青稞面点",
+        "外酥内软",
+        "麦香浓郁",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/487/800/600",
+      "price": 8,
+      "rating": 4.3,
+      "category": "面点主食",
+      "isPopular": false,
+      "description": "外酥内软，麦香浓郁，青稞面制成",
+      "recommendations": {
+        "pairings": [
+          "酥油茶",
+          "甜茶",
+          "酸奶",
+          "小菜"
+        ],
+        "eatingMethod": "直接食用，蘸酥油茶更美味"
+      }
+    },
+    {
+      "id": "xizang-tiancha",
+      "name": "甜茶",
+      "tags": [
+        "西藏特色",
+        "藏族饮品",
+        "奶香浓郁",
+        "甜而不腻",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/488/800/600",
+      "price": 12,
+      "rating": 4.5,
+      "category": "汤羹饮品",
+      "isPopular": false,
+      "description": "奶香浓郁，甜而不腻，拉萨甜茶馆文化",
+      "recommendations": {
+        "pairings": [
+          "糌粑",
+          "青稞饼",
+          "包子",
+          "小吃"
+        ],
+        "eatingMethod": "趁热饮用，下午茶时光最佳"
+      }
+    },
+    {
+      "id": "xizang-renshen-guo",
+      "name": "人参果",
+      "tags": [
+        "西藏特色",
+        "高原特产",
+        "营养丰富",
+        "软糯香甜",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/489/800/600",
+      "price": 28,
+      "rating": 4.4,
+      "category": "甜品糕点",
+      "isPopular": false,
+      "description": "营养丰富，软糯香甜，藏族吉祥果",
+      "recommendations": {
+        "pairings": [
+          "酸奶",
+          "酥油茶",
+          "米饭",
+          "蜂蜜"
+        ],
+        "eatingMethod": "煮熟后加酥油白糖食用，或入粥"
+      }
+    },
+    {
+      "id": "xizang-naizha-baozi",
+      "name": "奶渣包子",
+      "tags": [
+        "西藏特色",
+        "藏族面点",
+        "奶香独特",
+        "酸甜可口",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/490/800/600",
+      "price": 12,
+      "rating": 4.3,
+      "category": "面点主食",
+      "isPopular": false,
+      "description": "奶香独特，酸甜可口，奶渣做馅",
+      "recommendations": {
+        "pairings": [
+          "酥油茶",
+          "甜茶",
+          "小菜",
+          "汤品"
+        ],
+        "eatingMethod": "直接食用，趁热最佳"
       }
     }
   ],
@@ -191,6 +349,196 @@
       "image": "https://picsum.photos/id/333/800/600",
       "reason": "西藏特色美食聚集地",
       "location": "日喀则市"
+    },
+    {
+      "id": 3,
+      "icon": "🏞️",
+      "name": "林芝美食街",
+      "type": "美食街",
+      "foods": [
+        "maoniurou",
+        "xizang-fenggan-maoniurou",
+        "xizang-renshen-guo"
+      ],
+      "image": "https://picsum.photos/id/491/800/600",
+      "reason": "林芝藏式美食聚集地，物产丰富",
+      "location": "林芝市"
+    },
+    {
+      "id": 4,
+      "icon": "🛣️",
+      "name": "山南藏式餐馆",
+      "type": "美食街",
+      "foods": [
+        "zamba",
+        "xizang-zangshi-baozi",
+        "xizang-qingke-bing"
+      ],
+      "image": "https://picsum.photos/id/492/800/600",
+      "reason": "山南藏族文化发源地，传统藏餐集中",
+      "location": "山南市"
+    }
+  ],
+  "souvenirs": [
+    {
+      "id": "xizang-souvenir-1",
+      "name": "藏红花",
+      "image": "https://picsum.photos/id/882/600/400",
+      "priceRange": "50-300元",
+      "description": "珍贵药材，活血化瘀",
+      "buyAt": "拉萨药材市场",
+      "storage": "干燥保存",
+      "province": "西藏"
+    },
+    {
+      "id": "xizang-souvenir-2",
+      "name": "唐卡",
+      "image": "https://picsum.photos/id/881/600/400",
+      "priceRange": "100-5000元",
+      "description": "宗教卷轴画，矿物颜料",
+      "buyAt": "拉萨唐卡店",
+      "storage": "干燥保存",
+      "province": "西藏"
+    },
+    {
+      "id": "xizang-souvenir-3",
+      "name": "藏毯",
+      "image": "https://picsum.photos/id/880/600/400",
+      "priceRange": "200-3000元",
+      "description": "手工羊毛毯，图案吉祥",
+      "buyAt": "江孜藏毯厂",
+      "storage": "干燥保存",
+      "province": "西藏"
+    },
+    {
+      "id": "xizang-souvenir-4",
+      "name": "青稞糌粑",
+      "image": "https://picsum.photos/id/879/600/400",
+      "priceRange": "10-25元",
+      "description": "藏族主食，炒磨成粉",
+      "buyAt": "西藏特产店",
+      "storage": "密封干燥",
+      "province": "西藏"
+    }
+  ],
+  "guide": {
+    "mealPlan": {
+      "breakfast": [
+        "qingkejiu",
+        "zamba",
+        "zangshi-suannai"
+      ],
+      "lunch": [
+        "zangshi-suannai",
+        "zamba",
+        "qingkejiu"
+      ],
+      "dinner": [
+        "qingkejiu",
+        "maoniurou"
+      ]
+    },
+    "routes": [
+      {
+        "id": "xizang-route-1",
+        "name": "西藏经典美食一日游",
+        "duration": "1天",
+        "steps": [
+          {
+            "time": "08:30",
+            "location": "西藏老城区",
+            "foodId": "qingkejiu",
+            "description": "清晨从一顿地道早餐开始"
+          },
+          {
+            "time": "12:00",
+            "location": "西藏美食街",
+            "foodId": "zamba",
+            "description": "午餐品尝当地招牌菜"
+          },
+          {
+            "time": "18:30",
+            "location": "西藏夜市",
+            "foodId": "zangshi-suannai",
+            "description": "夜市扫街，收尾完美一天"
+          }
+        ]
+      },
+      {
+        "id": "xizang-route-2",
+        "name": "西藏深度寻味半日游",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "10:00",
+            "location": "西藏老字号",
+            "foodId": "maoniurou",
+            "description": "探访百年老字号"
+          },
+          {
+            "time": "15:00",
+            "location": "西藏特产市场",
+            "foodId": "qingkejiu",
+            "description": "下午茶时光品鉴特色小吃"
+          }
+        ]
+      }
+    ],
+    "tips": [
+      {
+        "question": "西藏美食的最佳品尝时间？",
+        "answer": "建议在春秋两季前往，气候宜人，食材当季，能品尝到最地道的西藏风味。"
+      },
+      {
+        "question": "西藏有哪些必去美食街区？",
+        "answer": "推荐前往老城区和夜市，那里集中了最正宗的西藏小吃和老字号餐厅。"
+      },
+      {
+        "question": "在西藏点菜有什么避坑建议？",
+        "answer": "建议提前了解当地特色菜名，避免被不正规店铺误导；选择人气旺的老店更靠谱。"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "season": "spring",
+      "seasonName": "春季",
+      "foods": [
+        "zamba",
+        "suyoucha",
+        "xizang-renshen-guo"
+      ],
+      "description": "春暖花开，时鲜上市，品尝春日第一口鲜"
+    },
+    {
+      "season": "summer",
+      "seasonName": "夏季",
+      "foods": [
+        "zangshi-suannai",
+        "xizang-tiancha",
+        "xizang-fenggan-maoniurou"
+      ],
+      "description": "夏日炎炎，消暑解渴，清凉美味正当时"
+    },
+    {
+      "season": "autumn",
+      "seasonName": "秋季",
+      "foods": [
+        "maoniurou",
+        "xizang-zangshi-baozi",
+        "xizang-qingke-bing"
+      ],
+      "description": "秋高气爽，丰收时节，贴秋膘品蟹黄"
+    },
+    {
+      "season": "winter",
+      "seasonName": "冬季",
+      "foods": [
+        "qingkejiu",
+        "tibet-youtiao",
+        "xizang-naizha-baozi"
+      ],
+      "description": "寒冬腊月，温补暖身，热汤热食最抚慰"
     }
   ]
 }

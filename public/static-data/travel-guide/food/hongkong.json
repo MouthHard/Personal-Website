@@ -13,7 +13,7 @@
       "image": "https://picsum.photos/id/493/800/600",
       "price": 25,
       "rating": 4.7,
-      "category": "饮品",
+      "category": "汤羹饮品",
       "badgeText": "香港名片",
       "isPopular": true,
       "badgeColor": "#795548",
@@ -41,7 +41,7 @@
       "image": "https://picsum.photos/id/494/800/600",
       "price": 68,
       "rating": 4.8,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "粤菜经典",
       "isPopular": true,
       "badgeColor": "#ff5722",
@@ -69,7 +69,7 @@
       "image": "https://picsum.photos/id/495/800/600",
       "price": 22,
       "rating": 4.6,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "香港粉面",
       "isPopular": true,
       "badgeColor": "#03a9f4",
@@ -97,7 +97,7 @@
       "image": "https://picsum.photos/id/496/800/600",
       "price": 15,
       "rating": 4.5,
-      "category": "甜品",
+      "category": "甜品糕点",
       "badgeText": "香港甜品",
       "isPopular": true,
       "badgeColor": "#ffc107",
@@ -125,7 +125,7 @@
       "image": "https://picsum.photos/id/497/800/600",
       "price": 12,
       "rating": 4.4,
-      "category": "主食",
+      "category": "面点主食",
       "isPopular": false,
       "description": "外酥内软，香甜可口",
       "recommendations": {
@@ -151,7 +151,7 @@
       "image": "https://picsum.photos/id/498/800/600",
       "price": 10,
       "rating": 4.3,
-      "category": "小吃",
+      "category": "小吃零食",
       "isPopular": false,
       "description": "Q弹爽口，口感独特",
       "recommendations": {
@@ -162,6 +162,166 @@
           "咖喱酱"
         ],
         "eatingMethod": "可串起来吃或放入粉面中"
+      }
+    },
+    {
+      "id": "hongkong-xi-duo-shi",
+      "name": "西多士",
+      "tags": [
+        "香港特色",
+        "茶餐厅经典",
+        "外酥内软",
+        "香甜可口",
+        "下午茶"
+      ],
+      "image": "https://picsum.photos/id/460/800/600",
+      "price": 18,
+      "rating": 4.4,
+      "category": "甜品糕点",
+      "isPopular": false,
+      "description": "港式茶餐厅经典，外酥内软，蘸糖浆食用",
+      "recommendations": {
+        "pairings": [
+          "奶茶",
+          "咖啡",
+          "黄油",
+          "糖浆"
+        ],
+        "eatingMethod": "蘸糖浆和黄油食用，趁热享用"
+      }
+    },
+    {
+      "id": "hongkong-che-zai-mian",
+      "name": "车仔面",
+      "tags": [
+        "香港特色",
+        "街头小吃",
+        "配料丰富",
+        "汤汁鲜美",
+        "港式粉面"
+      ],
+      "image": "https://picsum.photos/id/461/800/600",
+      "price": 25,
+      "rating": 4.5,
+      "category": "面点主食",
+      "isPopular": false,
+      "description": "香港街头车仔面，配料丰富，自选搭配",
+      "recommendations": {
+        "pairings": [
+          "鱼蛋",
+          "萝卜",
+          "猪皮",
+          "咖喱酱"
+        ],
+        "eatingMethod": "自选配料，汤汁拌面食用"
+      }
+    },
+    {
+      "id": "hongkong-yun-tun-mian",
+      "name": "云吞面",
+      "tags": [
+        "香港特色",
+        "粤式经典",
+        "皮薄馅大",
+        "汤汁鲜美",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/462/800/600",
+      "price": 28,
+      "rating": 4.7,
+      "category": "面点主食",
+      "badgeText": "粤式经典",
+      "isPopular": true,
+      "badgeColor": "#e91e63",
+      "description": "港式云吞面，皮薄馅大，鲜虾爽口",
+      "recommendations": {
+        "pairings": [
+          "辣椒油",
+          "醋",
+          "小菜",
+          "汤品"
+        ],
+        "eatingMethod": "汤面一起食用，可加辣油提味"
+      }
+    },
+    {
+      "id": "hongkong-bao-zai-fan",
+      "name": "煲仔饭",
+      "tags": [
+        "香港特色",
+        "粤式经典",
+        "锅巴香脆",
+        "食材丰富",
+        "冬季必尝"
+      ],
+      "image": "https://picsum.photos/id/463/800/600",
+      "price": 45,
+      "rating": 4.6,
+      "category": "面点主食",
+      "isPopular": false,
+      "description": "港式煲仔饭，锅巴香脆，食材丰富",
+      "recommendations": {
+        "pairings": [
+          "酱油",
+          "青菜",
+          "汤品",
+          "小菜"
+        ],
+        "eatingMethod": "淋上酱油拌匀食用，锅巴最香"
+      }
+    },
+    {
+      "id": "hongkong-yang-zhi-geng",
+      "name": "杨枝甘露",
+      "tags": [
+        "香港特色",
+        "港式甜品",
+        "清甜可口",
+        "芒果香甜",
+        "消暑佳品"
+      ],
+      "image": "https://picsum.photos/id/464/800/600",
+      "price": 32,
+      "rating": 4.6,
+      "category": "甜品糕点",
+      "badgeText": "港式甜品",
+      "isPopular": true,
+      "badgeColor": "#ff9800",
+      "description": "港式经典甜品，芒果西米露配柚子粒",
+      "recommendations": {
+        "pairings": [
+          "蛋挞",
+          "鸡蛋仔",
+          "西多士",
+          "奶茶"
+        ],
+        "eatingMethod": "冰镇后食用，消暑解渴"
+      }
+    },
+    {
+      "id": "hongkong-gangshi-hotpot",
+      "name": "港式火锅",
+      "tags": [
+        "香港特色",
+        "港式火锅",
+        "汤底鲜美",
+        "食材丰富",
+        "冬季必尝"
+      ],
+      "image": "https://picsum.photos/id/465/800/600",
+      "price": 128,
+      "rating": 4.5,
+      "category": "烧烤火锅",
+      "isPopular": false,
+      "description": "港式打边炉，汤底鲜美，海鲜食材丰富",
+      "recommendations": {
+        "pairings": [
+          "海鲜",
+          "肥牛",
+          "蔬菜",
+          "丸子"
+        ],
+        "eatingMethod": "涮煮后蘸酱料食用"
       }
     }
   ],
@@ -193,6 +353,224 @@
       "image": "https://picsum.photos/id/345/800/600",
       "reason": "香港特色美食聚集地",
       "location": "香港"
+    },
+    {
+      "id": 3,
+      "icon": "🍽️",
+      "name": "中环茶餐厅",
+      "type": "茶餐厅",
+      "foods": [
+        "hongkong-yun-tun-mian",
+        "hongkong-bao-zai-fan",
+        "hongkong-yang-zhi-geng"
+      ],
+      "image": "https://picsum.photos/id/466/800/600",
+      "reason": "中环老字号茶餐厅聚集地，港式风味正宗",
+      "location": "香港"
+    }
+  ],
+  "souvenirs": [
+    {
+      "id": "hongkong-souvenir-1",
+      "name": "珍妮曲奇",
+      "image": "https://picsum.photos/id/406/600/400",
+      "priceRange": "30-60元",
+      "description": "网红小熊饼干，酥脆奶香",
+      "buyAt": "珍妮曲奇店",
+      "storage": "阴凉干燥",
+      "province": "香港"
+    },
+    {
+      "id": "hongkong-souvenir-2",
+      "name": "陈意兴蛋卷",
+      "image": "https://picsum.photos/id/405/600/400",
+      "priceRange": "20-40元",
+      "description": "手工蛋卷，蛋香浓郁",
+      "buyAt": "陈意兴",
+      "storage": "阴凉干燥",
+      "province": "香港"
+    },
+    {
+      "id": "hongkong-souvenir-3",
+      "name": "老婆饼",
+      "image": "https://picsum.photos/id/404/600/400",
+      "priceRange": "15-30元",
+      "description": "传统糕点，冬瓜馅心",
+      "buyAt": "香港饼家",
+      "storage": "阴凉干燥",
+      "province": "香港"
+    },
+    {
+      "id": "hongkong-souvenir-4",
+      "name": "XO酱",
+      "image": "https://picsum.photos/id/403/600/400",
+      "priceRange": "30-80元",
+      "description": "海鲜酱料，鲜香醇厚",
+      "buyAt": "香港酱料店",
+      "storage": "开封冷藏",
+      "province": "香港"
+    },
+    {
+      "id": "hongkong-souvenir-5",
+      "name": "港式蛋挞",
+      "image": "https://picsum.photos/id/467/600/400",
+      "priceRange": "10-25元",
+      "description": "酥皮蛋挞，香甜嫩滑",
+      "buyAt": "泰昌饼店",
+      "storage": "即买即食",
+      "province": "香港"
+    }
+  ],
+  "guide": {
+    "mealPlan": {
+      "breakfast": [
+        "hongkong-milk-tea",
+        "pineapple-bun",
+        "hongkong-yun-tun-mian"
+      ],
+      "lunch": [
+        "roast-meat",
+        "hongkong-bao-zai-fan",
+        "fish-ball-noodle"
+      ],
+      "dinner": [
+        "hongkong-gangshi-hotpot",
+        "hongkong-yang-zhi-geng",
+        "egg-waffle"
+      ]
+    },
+    "routes": [
+      {
+        "id": "hongkong-route-1",
+        "name": "香港经典美食一日游",
+        "duration": "1天",
+        "steps": [
+          {
+            "time": "08:30",
+            "location": "中环茶餐厅",
+            "foodId": "hongkong-milk-tea",
+            "description": "清晨从一杯丝袜奶茶开始"
+          },
+          {
+            "time": "12:00",
+            "location": "旺角美食街",
+            "foodId": "fish-ball-noodle",
+            "description": "午餐品尝鱼蛋粉"
+          },
+          {
+            "time": "15:30",
+            "location": "尖沙咀美食区",
+            "foodId": "egg-waffle",
+            "description": "下午茶时光来一份鸡蛋仔"
+          },
+          {
+            "time": "18:30",
+            "location": "中环茶餐厅",
+            "foodId": "hongkong-bao-zai-fan",
+            "description": "晚餐煲仔饭收尾完美一天"
+          }
+        ]
+      },
+      {
+        "id": "hongkong-route-2",
+        "name": "香港甜品寻味半日游",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "10:00",
+            "location": "港式甜品店",
+            "foodId": "hongkong-yang-zhi-geng",
+            "description": "杨枝甘露，港式甜品经典"
+          },
+          {
+            "time": "12:00",
+            "location": "茶餐厅",
+            "foodId": "hongkong-xi-duo-shi",
+            "description": "西多士配奶茶，地道下午茶"
+          },
+          {
+            "time": "14:00",
+            "location": "街头小食",
+            "foodId": "hongkong-fish-ball",
+            "description": "咖喱鱼蛋扫街收尾"
+          }
+        ]
+      },
+      {
+        "id": "hongkong-route-3",
+        "name": "港式打边炉之夜",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "18:00",
+            "location": "港式火锅店",
+            "foodId": "hongkong-gangshi-hotpot",
+            "description": "港式打边炉，海鲜肥牛涮起来"
+          },
+          {
+            "time": "21:00",
+            "location": "糖水铺",
+            "foodId": "hongkong-yang-zhi-geng",
+            "description": "来碗糖水解腻收尾"
+          }
+        ]
+      }
+    ],
+    "tips": [
+      {
+        "question": "香港美食的最佳品尝时间？",
+        "answer": "香港四季皆宜，秋冬季节品煲仔饭和火锅最佳，夏季可消暑品甜品和冻饮。"
+      },
+      {
+        "question": "香港有哪些必去美食街区？",
+        "answer": "推荐前往旺角、尖沙咀和中环，那里集中了最正宗的茶餐厅和港式小吃。"
+      },
+      {
+        "question": "在香港点菜有什么避坑建议？",
+        "answer": "茶餐厅有专属术语（如「冻柠茶」「飞沙走奶」），建议提前了解；选择人气旺的老店更靠谱。"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "season": "spring",
+      "seasonName": "春季",
+      "foods": [
+        "hongkong-milk-tea",
+        "fish-ball-noodle",
+        "pineapple-bun"
+      ],
+      "description": "春暖花开，时鲜上市，品尝春日第一口鲜"
+    },
+    {
+      "season": "summer",
+      "seasonName": "夏季",
+      "foods": [
+        "egg-waffle",
+        "hongkong-yang-zhi-geng",
+        "hongkong-fish-ball"
+      ],
+      "description": "夏日炎炎，消暑解渴，清凉美味正当时"
+    },
+    {
+      "season": "autumn",
+      "seasonName": "秋季",
+      "foods": [
+        "roast-meat",
+        "hongkong-bao-zai-fan",
+        "hongkong-yun-tun-mian"
+      ],
+      "description": "秋高气爽，丰收时节，贴秋膘品烧味"
+    },
+    {
+      "season": "winter",
+      "seasonName": "冬季",
+      "foods": [
+        "hongkong-gangshi-hotpot",
+        "hongkong-che-zai-mian",
+        "hongkong-xi-duo-shi"
+      ],
+      "description": "寒冬腊月，温补暖身，热汤热食最抚慰"
     }
   ]
 }

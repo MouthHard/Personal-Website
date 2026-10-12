@@ -1,0 +1,557 @@
+@use '../../variables' as *;
+
+@include guide-block;
+
+$ion: #ff2d6f;
+$ion-glow: rgba(255, 45, 111, 0.5);
+$ion-soft: #ff6b9d;
+$ion-deep: #c0185a;
+$ion-mist: rgba(255, 45, 111, 0.12);
+
+.routes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.portal-console {
+  position: relative;
+    background:
+      // 顶部金属高光
+      linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, transparent 6%),
+      // 主体渐变
+      linear-gradient(180deg, #1a0f14 0%, #0f0608 100%);
+    border: 1px solid rgba(255, 45, 111, 0.28);
+  border-radius: 12px;
+  padding: 1.2rem;
+  transition: all 0.35s ease;
+  box-shadow:
+    0 10px 26px rgba(0, 0, 0, 0.55),
+    0 3px 6px rgba(0, 0, 0, 0.35),
+    0 0 20px rgba(255, 45, 111, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    inset 0 2px 0 rgba(255, 45, 111, 0.15),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.45);
+
+  // 顶部离子光带
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 45, 111, 0.3) 20%,
+      rgba(255, 107, 157, 0.85) 50%,
+      rgba(255, 45, 111, 0.3) 80%,
+      transparent);
+    box-shadow: 0 0 8px rgba(255, 45, 111, 0.5);
+    z-index: 4;
+    pointer-events: none;
+  }
+
+  // 玻璃光泽斜向高光（静态）
+  &::after {
+    content: '';
+    position: absolute;
+    top: -30%;
+    left: -10%;
+    width: 35%;
+    height: 160%;
+    background: linear-gradient(115deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.03) 45%,
+      rgba(255, 107, 157, 0.05) 50%,
+      rgba(255, 255, 255, 0.03) 55%,
+      transparent 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  &:hover {
+    border-color: rgba(255, 45, 111, 0.65);
+    box-shadow:
+      0 18px 38px rgba(0, 0, 0, 0.65),
+      0 6px 12px rgba(0, 0, 0, 0.45),
+      0 0 36px rgba(255, 45, 111, 0.3),
+      0 0 72px rgba(255, 45, 111, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      inset 0 2px 0 rgba(255, 45, 111, 0.3),
+      inset 0 -2px 0 rgba(0, 0, 0, 0.45),
+      inset 0 0 24px rgba(255, 45, 111, 0.08);
+
+    .gate-id { animation-duration: 1.2s; }
+    .gate-energy { animation-duration: 3s; }
+    .tunnel-flow { animation-duration: 1s; }
+  }
+
+  .console-header {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1.1rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid rgba(255, 45, 111, 0.18);
+
+    .console-name {
+      flex: 1;
+      margin: 0;
+      font-size: 1.45rem;
+      font-weight: 900;
+      color: #ffe4e6;
+      letter-spacing: 0.5px;
+      text-shadow:
+        0 0 8px rgba(255, 45, 111, 0.4),
+        0 1px 0 rgba(0, 0, 0, 0.5);
+    }
+
+    .console-duration {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.32rem 0.7rem;
+      background:
+        linear-gradient(180deg, rgba(255, 45, 111, 0.15) 0%, rgba(255, 45, 111, 0.05) 100%);
+      border: 1px solid rgba(255, 45, 111, 0.4);
+      border-radius: 4px;
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: #fff5f7;
+      font-family: 'Courier New', monospace;
+      letter-spacing: 0.5px;
+      flex-shrink: 0;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 0 6px rgba(255, 45, 111, 0.15);
+      text-shadow: 0 0 6px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.5);
+
+      .duration-icon {
+        width: 14px;
+        height: 14px;
+        color: #fff5f7;
+        filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.6));
+      }
+    }
+
+    // 展开/收起按钮 — 金色系（非粉红）
+    .route-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.32rem 0.7rem;
+      background:
+        linear-gradient(180deg, rgba(253, 224, 71, 0.15) 0%, rgba(251, 191, 36, 0.05) 100%);
+      border: 1px solid rgba(253, 224, 71, 0.45);
+      border-radius: 4px;
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: #fde047;
+      font-family: 'Courier New', monospace;
+      letter-spacing: 0.5px;
+      flex-shrink: 0;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 0 6px rgba(253, 224, 71, 0.15);
+      text-shadow: 0 0 4px rgba(253, 224, 71, 0.5);
+
+      .toggle-chevron {
+        width: 14px;
+        height: 14px;
+        color: #fde047;
+        filter: drop-shadow(0 0 3px rgba(253, 224, 71, 0.5));
+        transition: transform 0.3s ease;
+        transform: rotate(90deg);
+      }
+
+      &:hover {
+        border-color: rgba(253, 224, 71, 0.7);
+        background:
+          linear-gradient(180deg, rgba(253, 224, 71, 0.25) 0%, rgba(251, 191, 36, 0.1) 100%);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.12),
+          0 0 12px rgba(253, 224, 71, 0.3);
+        color: #fef08a;
+
+        .toggle-chevron {
+          color: #fef08a;
+          filter: drop-shadow(0 0 5px rgba(253, 224, 71, 0.8));
+        }
+      }
+    }
+
+    // 路线收藏/完成按钮
+    .route-actions {
+      display: flex;
+      gap: 0.5rem;
+      flex-shrink: 0;
+
+      .route-action {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, transparent 50%), rgba(15, 10, 12, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow:
+          0 3px 8px rgba(0, 0, 0, 0.4),
+          inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+        .route-action-icon {
+          width: 16px;
+          height: 16px;
+          transition: all 0.3s ease;
+        }
+
+        &:hover {
+
+          box-shadow:
+            0 5px 12px rgba(0, 0, 0, 0.5),
+            inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        }
+
+        // 收藏 — 鲜亮琥珀
+        &.route-fav {
+          border-color: rgba(251, 191, 36, 0.55);
+          .route-action-icon { color: #fbbf24; filter: drop-shadow(0 0 4px rgba(251, 191, 36, 0.6)); }
+          &:hover {
+            border-color: rgba(251, 191, 36, 0.8);
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.5), 0 0 10px rgba(251, 191, 36, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+            .route-action-icon { color: #fcd34d; filter: drop-shadow(0 0 6px rgba(251, 191, 36, 0.85)); }
+          }
+          &.active {
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.5), rgba(245, 158, 11, 0.25));
+            border-color: rgba(251, 191, 36, 0.9);
+            box-shadow: 0 0 10px rgba(251, 191, 36, 0.6), 0 3px 8px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            .route-action-icon { color: #fff; filter: drop-shadow(0 0 5px rgba(253, 224, 71, 1)); }
+          }
+        }
+
+        // 已完成 — 珊瑚红系
+        &.route-done {
+          border-color: rgba(251, 113, 133, 0.55);
+          .route-action-icon { color: #fb7185; filter: drop-shadow(0 0 4px rgba(251, 113, 133, 0.6)); }
+          &:hover {
+            border-color: rgba(251, 113, 133, 0.8);
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.5), 0 0 10px rgba(251, 113, 133, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+            .route-action-icon { color: #fda4af; filter: drop-shadow(0 0 6px rgba(251, 113, 133, 0.85)); }
+          }
+          &.active {
+            background: linear-gradient(135deg, rgba(251, 113, 133, 0.5), rgba(225, 29, 72, 0.25));
+            border-color: rgba(251, 113, 133, 0.9);
+            box-shadow: 0 0 10px rgba(251, 113, 133, 0.6), 0 3px 8px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            .route-action-icon { color: #fff; filter: drop-shadow(0 0 5px rgba(253, 164, 175, 1)); }
+          }
+        }
+      }
+    }
+  }
+
+  // 收起态 — 美食 tags 单行展示
+  .route-tags-row {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.2rem 0 0.1rem;
+
+    .route-food-tag {
+      padding: 0.3rem 0.75rem;
+      background:
+        linear-gradient(180deg, rgba(253, 224, 71, 0.12) 0%, rgba(251, 191, 36, 0.04) 100%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, transparent 50%);
+      border: 1px solid rgba(253, 224, 71, 0.35);
+      border-radius: 4px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #fde047;
+      letter-spacing: 0.3px;
+      text-shadow: 0 0 6px rgba(253, 224, 71, 0.35);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.06),
+        0 0 8px rgba(253, 224, 71, 0.08);
+    }
+  }
+
+  // 收起态整体减距
+  &.collapsed {
+    padding: 1rem 1.2rem;
+
+    .console-header {
+      margin-bottom: 0.6rem;
+      padding-bottom: 0.6rem;
+    }
+
+    .route-toggle .toggle-chevron {
+      transform: rotate(0deg);
+    }
+  }
+
+  // 收藏+完成同时 — 橙色混合色系
+  &.is-both {
+    border-color: rgba(251, 146, 60, 0.5);
+    box-shadow:
+      0 10px 26px rgba(0, 0, 0, 0.55),
+      0 0 22px rgba(251, 146, 60, 0.15),
+      inset 0 1px 0 rgba(251, 146, 60, 0.2),
+      inset 0 -2px 0 rgba(0, 0, 0, 0.45);
+  }
+
+  .portal-chain {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .portal-node {
+    .portal-row {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    // 离子尾焰连接（竖向粒子流）
+    .quantum-tunnel {
+      position: relative;
+      width: 3px;
+      height: 32px;
+      margin-left: 27px;
+      background: linear-gradient(180deg,
+        rgba(255, 45, 111, 0.6) 0%,
+        rgba(255, 45, 111, 0.2) 50%,
+        rgba(255, 45, 111, 0.6) 100%);
+      border-radius: 2px;
+      overflow: hidden;
+      box-shadow: 0 0 6px rgba(255, 45, 111, 0.4), 0 0 12px rgba(255, 45, 111, 0.15);
+
+      // 流动离子粒子
+      .tunnel-flow {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 2px;
+        height: 8px;
+        margin-left: -1px;
+        border-radius: 50%;
+        background: radial-gradient(ellipse, $ion-soft 0%, $ion 50%, transparent 100%);
+        box-shadow:
+          0 0 4px $ion,
+          0 0 8px rgba(255, 45, 111, 0.5);
+        animation: ionStream 1.6s linear infinite;
+      }
+    }
+  }
+
+  // 离子推进器节点
+  .portal-gate {
+    position: relative;
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    // 多层金属环底盘
+    background:
+      radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.22), transparent 42%),
+      radial-gradient(circle at 70% 80%, rgba(255, 45, 111, 0.2), transparent 50%),
+      radial-gradient(circle, #2a1520 20%, #15080f 70%, #0a0408 100%);
+    border: 2px solid rgba(255, 45, 111, 0.5);
+    box-shadow:
+      0 4px 10px rgba(0, 0, 0, 0.55),
+      0 1px 2px rgba(0, 0, 0, 0.4),
+      0 0 14px rgba(255, 45, 111, 0.2),
+      inset 0 2px 3px rgba(255, 255, 255, 0.12),
+      inset 0 -3px 5px rgba(0, 0, 0, 0.7),
+      inset 0 0 0 1px rgba(255, 45, 111, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+
+    // 3D 底部投影
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -7px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 7px;
+      background: radial-gradient(ellipse, rgba(255, 45, 111, 0.3), transparent 70%);
+      filter: blur(2px);
+      pointer-events: none;
+    }
+
+    // 旋转离子轨道环（内层）
+    .gate-energy {
+      position: absolute;
+      inset: 5px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 45, 111, 0.25);
+      border-top-color: rgba(255, 107, 157, 0.7);
+      border-right-color: rgba(255, 107, 157, 0.3);
+      animation: ringOrbit 5s linear infinite;
+
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 3px;
+        border-radius: 50%;
+        border: 1px dashed rgba(255, 45, 111, 0.2);
+      }
+    }
+
+    // 中心离子核心（呼吸发光）
+    .gate-id {
+      position: relative;
+      z-index: 2;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.5), transparent 50%),
+        radial-gradient(circle, $ion-soft 10%, $ion 50%, $ion-deep 100%);
+      border: 1px solid rgba(255, 107, 157, 0.7);
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: #2a0612;
+      font-family: 'Courier New', monospace;
+      letter-spacing: 0.5px;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+      animation: ionPulse 2.4s ease-in-out infinite;
+
+      // 核心内呼吸光点
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 4px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent 60%);
+        animation: coreBreath 2s ease-in-out infinite;
+        pointer-events: none;
+      }
+    }
+  }
+
+  // 轨道数据舱
+  .portal-data {
+    position: relative;
+    flex: 1;
+    padding: 1.05rem 1.1rem 1.15rem;
+      background:
+        linear-gradient(180deg, rgba(24, 12, 18, 0.85) 0%, rgba(10, 4, 8, 0.7) 100%);
+    border: 1px solid rgba(255, 45, 111, 0.28);
+    border-left: 3px solid rgba(255, 45, 111, 0.7);
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    box-shadow:
+      0 3px 10px rgba(0, 0, 0, 0.45),
+      0 0 12px rgba(255, 45, 111, 0.1),
+      inset 0 1px 0 rgba(255, 45, 111, 0.12),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.35),
+      inset 2px 0 8px -2px rgba(255, 45, 111, 0.2);
+    overflow: hidden;
+
+    // 内部光晕层
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 30%;
+      background: linear-gradient(90deg, rgba(255, 45, 111, 0.06), transparent);
+      pointer-events: none;
+    }
+
+    &:hover {
+      border-color: rgba(255, 45, 111, 0.5);
+      border-left-color: $ion;
+      background:
+        linear-gradient(180deg, rgba(24, 16, 20, 0.85) 0%, rgba(12, 8, 10, 0.65) 100%);
+      box-shadow:
+        0 4px 14px rgba(0, 0, 0, 0.45),
+        0 0 18px rgba(255, 45, 111, 0.22),
+        inset 0 1px 0 rgba(255, 45, 111, 0.15),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+
+      &::before {
+        background: linear-gradient(90deg, rgba(255, 45, 111, 0.15), transparent);
+      }
+    }
+
+    .data-time {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: $ion-soft;
+      font-family: 'Courier New', monospace;
+      letter-spacing: 1.5px;
+      margin-bottom: 0.55rem;
+      text-shadow: 0 0 5px $ion-glow;
+    }
+
+    .data-location {
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: #ffe4e6;
+      margin-bottom: 0.65rem;
+      letter-spacing: 0.5px;
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+    }
+
+    .data-payload {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.32rem 0.8rem;
+      margin-bottom: 0.75rem;
+      background:
+        linear-gradient(180deg, rgba(253, 224, 71, 0.18) 0%, rgba(253, 224, 71, 0.05) 100%);
+      border: 1px solid rgba(253, 224, 71, 0.55);
+      border-radius: 12px;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: $gold-soft;
+      letter-spacing: 0.5px;
+      font-family: 'Courier New', monospace;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.12),
+        0 0 8px rgba(253, 224, 71, 0.2);
+      text-shadow: 0 0 6px rgba(253, 224, 71, 0.5);
+
+      // 胶囊左端发光点
+      &::before {
+        content: '';
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: $gold;
+        margin-right: 0.4rem;
+        box-shadow: 0 0 5px $gold;
+        flex-shrink: 0;
+      }
+    }
+
+    .data-brief {
+      margin: 0;
+      font-size: 1.12rem;
+      font-weight: 500;
+      line-height: 1.85;
+      color: #e8d0d6;
+      letter-spacing: 0.2px;
+    }
+  }
+}

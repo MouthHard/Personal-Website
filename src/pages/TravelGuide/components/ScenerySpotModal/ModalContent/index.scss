@@ -1,0 +1,1411 @@
+: #ffb000;
+-bright: #ffb8c8;
+: #8effd9;
+: #ffd700;
+: #020204;
+
+.modal-content {
+  flex: 1;
+  padding: 22px 26px;
+  overflow-y: auto;
+  background: linear-gradient(160deg, rgba(10, 10, 16, 0.6) 0%, rgba(4, 4, 8, 0.4) 100%);
+
+  &::-webkit-scrollbar { width: 5px; }
+  &::-webkit-scrollbar-track { background: $base; }
+  &::-webkit-scrollbar-thumb { background: rgba(255, 176, 0, 0.3); border-radius: 3px; }
+
+  .modal-header {
+    margin-bottom: 20px;
+    position: relative;
+
+    .modal-name { font-size: 32px; font-weight: 800; color: #fff; margin: 0 0 6px; letter-spacing: 0.5px; }
+
+    .modal-rank {
+      display: inline-block;
+      padding: 5px 14px;
+      border-radius: 3px;
+      font-size: 13px;
+      font-weight: 700;
+      color: $gold;
+      background: linear-gradient(160deg, rgba(75, 55, 0, 0.98) 0%, rgba(40, 28, 0, 0.9) 45%, rgba(22, 15, 0, 0.85) 100%);
+      border: 1px solid rgba(0, 0, 0, 0.7);
+      border-top-color: rgba(255, 230, 60, 0.75);
+      border-left-color: rgba(255, 215, 0, 0.3);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 0.5), 0 0 16px rgba(255, 215, 0, 0.3), inset 0 1.5px 0 rgba(255, 230, 60, 0.4), inset 0 -2px 2px rgba(0, 0, 0, 0.7), inset 1.5px 0 0 rgba(255, 215, 0, 0.2);
+
+      margin-bottom: 10px;
+    }
+
+    .modal-highlight {
+      color: $amber;
+      font-size: 15px;
+      font-weight: 600;
+      font-style: italic;
+      line-height: 1.6;
+      padding: 9px 13px;
+      background: linear-gradient(90deg, rgba(255, 176, 0, 0.16), transparent);
+      border-radius: 3px;
+      border-left: 2px solid rgba(255, 220, 100, 0.7);
+      margin: 0;
+      box-shadow: inset 0 1px 0 rgba(255, 220, 100, 0.12), 0 2px 5px rgba(0, 0, 0, 0.4);
+      &::before { content: '>'; color: rgba(255, 230, 120, 0.95); margin-right: 6px; font-style: normal; }
+    }
+  }
+
+  // 区块通用 — 蓝调凸起合金卡片
+  .modal-section {
+    margin-bottom: 14px;
+    padding: 20px 22px;
+    border: 1px solid rgba(0, 0, 0, 0.65);
+    border-top-color: rgba(130, 180, 255, 0.6);
+    border-left-color: rgba(90, 140, 240, 0.28);
+    border-radius: 6px;
+    background:
+      radial-gradient(ellipse 70% 60% at 18% 0%, rgba(120, 165, 255, 0.22) 0%, transparent 60%),
+      linear-gradient(160deg, rgba(50, 82, 132, 0.98) 0%, rgba(26, 46, 84, 0.95) 55%, rgba(14, 26, 50, 0.92) 100%);
+    box-shadow:
+      0 8px 22px rgba(0, 0, 0, 0.72),
+      0 4px 10px rgba(0, 0, 0, 0.5),
+      0 1px 2px rgba(0, 0, 0, 0.4),
+      inset 0 1.5px 0 rgba(175, 210, 255, 0.28),
+      inset 0 -2.5px 3px rgba(0, 0, 0, 0.7),
+      inset 1.5px 0 0 rgba(115, 165, 255, 0.15),
+      inset -1.5px 0 0 rgba(0, 0, 0, 0.45);
+    position: relative;
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 14px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
+      letter-spacing: 0.5px;
+
+
+      .section-num {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+        font-weight: 900;
+        color: #ffd244;
+        background: radial-gradient(circle at 35% 25%, rgba(100, 66, 0, 1) 0%, rgba(42, 26, 0, 1) 55%, rgba(12, 8, 0, 1) 100%);
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        border-top-color: rgba(255, 230, 130, 0.8);
+        border-left-color: rgba(255, 210, 80, 0.3);
+        border-radius: 50%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 0.5), inset 0 2.5px 3px rgba(0, 0, 0, 0.85), inset 0 -1.5px 0 rgba(255, 230, 130, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.08), inset 1.5px 0 0 rgba(255, 210, 80, 0.12);
+        font-family: 'Courier New', monospace;
+      }
+
+      svg { color: #ffd244; width: 21px; height: 21px; stroke-width: 2.5; }
+    }
+
+    .section-text {
+      position: relative;
+      color: #fff;
+      font-size: 15px;
+      line-height: 1.85;
+      margin: 0;
+      padding: 6px 8px 6px 24px;
+      letter-spacing: 0.2px;
+      &::before {
+        content: '\201C';
+        position: absolute;
+        left: 0;
+        top: -4px;
+        font-size: 36px;
+        font-weight: 900;
+        color: $amber;
+        opacity: 0.5;
+        font-family: Georgia, 'Times New Roman', serif;
+        line-height: 1;
+      }
+    }
+  }
+
+  // 仪表格子 — 蓝调凹陷 LCD
+  .meta-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+
+    .meta-cell {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 12px 14px 11px;
+      background:
+        radial-gradient(ellipse 60% 55% at 22% 0%, rgba(255, 200, 90, 0.22) 0%, transparent 55%),
+        radial-gradient(ellipse 65% 60% at 85% 100%, rgba(0, 0, 0, 0.45) 0%, transparent 55%),
+        linear-gradient(160deg, rgba(58, 42, 18, 0.98) 0%, rgba(34, 24, 10, 0.96) 55%, rgba(20, 14, 6, 0.94) 100%);
+      border: 1px solid rgba(0, 0, 0, 0.7);
+      border-top-color: rgba(255, 210, 110, 0.55);
+      border-left-color: rgba(255, 180, 60, 0.25);
+      border-radius: 5px;
+      box-shadow:
+        0 7px 16px rgba(0, 0, 0, 0.78),
+        0 3px 7px rgba(0, 0, 0, 0.55),
+        inset 0 1.5px 0 rgba(255, 220, 140, 0.35),
+        inset 0 -2.5px 3px rgba(0, 0, 0, 0.75),
+        inset 1.5px 0 0 rgba(255, 200, 90, 0.18),
+        inset -1.5px 0 0 rgba(0, 0, 0, 0.45),
+        inset 0 0 0 1px rgba(0, 0, 0, 0.35);
+      position: relative;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+      &::before { content: ''; position: absolute; top: 0; left: 16%; right: 16%; height: 1px; background: linear-gradient(90deg, transparent, rgba(255, 215, 130, 0.6), transparent); }
+      &::after { content: ''; position: absolute; right: 8px; top: 8px; width: 5px; height: 5px; border-radius: 50%; background: radial-gradient(circle at 35% 25%, #fff5d0 0%, $amber 45%, #6b4500 100%); box-shadow: 0 0 6px rgba(255, 176, 0, 0.7), 0 1px 1px rgba(0, 0, 0, 0.5); }
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow:
+          0 11px 22px rgba(0, 0, 0, 0.82),
+          0 5px 10px rgba(0, 0, 0, 0.6),
+          0 0 16px rgba(255, 176, 0, 0.28),
+          inset 0 1.5px 0 rgba(255, 225, 150, 0.5),
+          inset 0 -2.5px 3px rgba(0, 0, 0, 0.75),
+          inset 1.5px 0 0 rgba(255, 210, 100, 0.28),
+          inset -1.5px 0 0 rgba(0, 0, 0, 0.45),
+          inset 0 0 0 1px rgba(0, 0, 0, 0.35);
+      }
+
+      .cell-head {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+      }
+
+      .cell-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 22px;
+        height: 22px;
+        color: $amber;
+        background: radial-gradient(circle at 35% 25%, rgba(80, 52, 0, 1) 0%, rgba(34, 22, 0, 1) 55%, rgba(12, 8, 0, 1) 100%);
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        border-top-color: rgba(255, 220, 130, 0.7);
+        border-left-color: rgba(255, 200, 70, 0.28);
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8), 0 1px 1px rgba(0, 0, 0, 0.5), inset 0 1.5px 1.5px rgba(0, 0, 0, 0.8), inset 0 -1px 0 rgba(255, 220, 130, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+        svg { color: $amber; stroke-width: 2.4; }
+      }
+
+      .cell-label { font-size: 12px; font-weight: 700; color: $amber; letter-spacing: 0.6px; text-transform: uppercase; }
+      .cell-value {
+        font-size: 15px;
+        font-weight: 600;
+        color: #fff;
+        line-height: 1.35;
+      }
+    }
+  }
+
+  // 标签组 — 各色调凸起全息签
+  .section-tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+
+    .section-tag {
+      display: inline-block;
+      position: relative;
+      padding: 6px 13px 6px 15px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: all 0.2s ease;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 3px;
+        left: 5px;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 35% 25%, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.35) 55%, transparent 100%);
+        pointer-events: none;
+      }
+
+      &.stag-0 {
+        color: #ffd2dc;
+        background:
+          radial-gradient(ellipse 55% 50% at 22% 0%, rgba(255, 150, 180, 0.45) 0%, transparent 55%),
+          radial-gradient(ellipse 60% 55% at 85% 100%, rgba(0, 0, 0, 0.45) 0%, transparent 55%),
+          linear-gradient(160deg, rgba(150, 42, 72, 0.98) 0%, rgba(70, 20, 38, 0.94) 50%, rgba(35, 10, 18, 0.9) 100%);
+        border: 1px solid rgba(0, 0, 0, 0.7);
+        border-top-color: rgba(255, 165, 190, 1);
+        border-left-color: rgba(255, 130, 160, 0.42);
+        border-radius: 5px;
+        box-shadow: 0 7px 16px rgba(0, 0, 0, 0.85), 0 3px 7px rgba(0, 0, 0, 0.5), inset 0 1.5px 0 rgba(255, 180, 205, 0.7), inset 0 -2.5px 3px rgba(0, 0, 0, 0.78), inset 1.5px 0 0 rgba(255, 150, 180, 0.3), inset -1.5px 0 0 rgba(0, 0, 0, 0.48), inset 0 0 0 1px rgba(0, 0, 0, 0.5);
+        &:hover { border-top-color: rgba(255, 200, 215, 1); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.9), 0 5px 10px rgba(0, 0, 0, 0.6), inset 0 1.5px 0 rgba(255, 200, 215, 0.85), inset 0 -2.5px 3px rgba(0, 0, 0, 0.78), inset 1.5px 0 0 rgba(255, 170, 195, 0.4), inset -1.5px 0 0 rgba(0, 0, 0, 0.48), inset 0 0 0 1px rgba(0, 0, 0, 0.5); }
+      }
+      &.stag-1 {
+        color: #aaffec;
+        background:
+          radial-gradient(ellipse 55% 50% at 22% 0%, rgba(140, 255, 210, 0.45) 0%, transparent 55%),
+          radial-gradient(ellipse 60% 55% at 85% 100%, rgba(0, 0, 0, 0.45) 0%, transparent 55%),
+          linear-gradient(160deg, rgba(0, 115, 78, 0.98) 0%, rgba(0, 54, 40, 0.94) 50%, rgba(0, 26, 19, 0.9) 100%);
+        border: 1px solid rgba(0, 0, 0, 0.7);
+        border-top-color: rgba(150, 255, 215, 1);
+        border-left-color: rgba(120, 255, 190, 0.42);
+        border-radius: 5px;
+        box-shadow: 0 7px 16px rgba(0, 0, 0, 0.85), 0 3px 7px rgba(0, 0, 0, 0.5), inset 0 1.5px 0 rgba(170, 255, 225, 0.7), inset 0 -2.5px 3px rgba(0, 0, 0, 0.78), inset 1.5px 0 0 rgba(140, 255, 205, 0.3), inset -1.5px 0 0 rgba(0, 0, 0, 0.48), inset 0 0 0 1px rgba(0, 0, 0, 0.5);
+
+        &:hover { border-top-color: rgba(175, 255, 230, 1); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.9), 0 5px 10px rgba(0, 0, 0, 0.6), inset 0 1.5px 0 rgba(190, 255, 235, 0.85), inset 0 -2.5px 3px rgba(0, 0, 0, 0.78), inset 1.5px 0 0 rgba(160, 255, 220, 0.4), inset -1.5px 0 0 rgba(0, 0, 0, 0.48), inset 0 0 0 1px rgba(0, 0, 0, 0.5); }
+      }
+      &.stag-2 {
+        color: #ffc850;
+        background:
+          radial-gradient(ellipse 55% 50% at 22% 0%, rgba(255, 235, 140, 0.45) 0%, transparent 55%),
+          radial-gradient(ellipse 60% 55% at 85% 100%, rgba(0, 0, 0, 0.45) 0%, transparent 55%),
+          linear-gradient(160deg, rgba(120, 78, 0, 0.98) 0%, rgba(56, 36, 0, 0.94) 50%, rgba(28, 18, 0, 0.9) 100%);
+        border: 1px solid rgba(0, 0, 0, 0.7);
+        border-top-color: rgba(255, 235, 145, 1);
+        border-left-color: rgba(255, 215, 85, 0.42);
+        border-radius: 5px;
+        box-shadow: 0 7px 16px rgba(0, 0, 0, 0.85), 0 3px 7px rgba(0, 0, 0, 0.5), inset 0 1.5px 0 rgba(255, 240, 155, 0.7), inset 0 -2.5px 3px rgba(0, 0, 0, 0.78), inset 1.5px 0 0 rgba(255, 225, 100, 0.3), inset -1.5px 0 0 rgba(0, 0, 0, 0.48), inset 0 0 0 1px rgba(0, 0, 0, 0.5);
+
+        &:hover { border-top-color: rgba(255, 240, 155, 1); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.9), 0 5px 10px rgba(0, 0, 0, 0.6), inset 0 1.5px 0 rgba(255, 245, 165, 0.85), inset 0 -2.5px 3px rgba(0, 0, 0, 0.78), inset 1.5px 0 0 rgba(255, 235, 120, 0.4), inset -1.5px 0 0 rgba(0, 0, 0, 0.48), inset 0 0 0 1px rgba(0, 0, 0, 0.5); }
+      }
+      &.stag-geo {
+        color: #d8fff5;
+        background:
+          radial-gradient(ellipse 55% 50% at 22% 0%, rgba(180, 255, 235, 0.45) 0%, transparent 55%),
+          radial-gradient(ellipse 60% 55% at 85% 100%, rgba(0, 0, 0, 0.45) 0%, transparent 55%),
+          linear-gradient(160deg, rgba(0, 98, 66, 0.98) 0%, rgba(0, 46, 34, 0.94) 50%, rgba(0, 22, 16, 0.9) 100%);
+        border: 1px solid rgba(0, 0, 0, 0.7);
+        border-top-color: rgba(185, 255, 240, 1);
+        border-left-color: rgba(160, 255, 220, 0.42);
+        border-radius: 5px;
+        box-shadow: 0 7px 16px rgba(0, 0, 0, 0.85), 0 3px 7px rgba(0, 0, 0, 0.5), inset 0 1.5px 0 rgba(200, 255, 240, 0.7), inset 0 -2.5px 3px rgba(0, 0, 0, 0.78), inset 1.5px 0 0 rgba(180, 255, 230, 0.3), inset -1.5px 0 0 rgba(0, 0, 0, 0.48), inset 0 0 0 1px rgba(0, 0, 0, 0.5);
+
+        &:hover { border-top-color: rgba(210, 255, 245, 1); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.9), 0 5px 10px rgba(0, 0, 0, 0.6), inset 0 1.5px 0 rgba(220, 255, 245, 0.85), inset 0 -2.5px 3px rgba(0, 0, 0, 0.78), inset 1.5px 0 0 rgba(200, 255, 235, 0.4), inset -1.5px 0 0 rgba(0, 0, 0, 0.48), inset 0 0 0 1px rgba(0, 0, 0, 0.5); }
+      }
+      &.stag-aud {
+        color: #ffd0e0;
+        background:
+          radial-gradient(ellipse 55% 50% at 22% 0%, rgba(255, 200, 220, 0.45) 0%, transparent 55%),
+          radial-gradient(ellipse 60% 55% at 85% 100%, rgba(0, 0, 0, 0.45) 0%, transparent 55%),
+          linear-gradient(160deg, rgba(120, 42, 72, 0.98) 0%, rgba(56, 20, 38, 0.94) 50%, rgba(28, 10, 18, 0.9) 100%);
+        border: 1px solid rgba(0, 0, 0, 0.7);
+        border-top-color: rgba(255, 210, 225, 1);
+        border-left-color: rgba(255, 175, 200, 0.42);
+        border-radius: 5px;
+        box-shadow: 0 7px 16px rgba(0, 0, 0, 0.85), 0 3px 7px rgba(0, 0, 0, 0.5), inset 0 1.5px 0 rgba(255, 220, 235, 0.7), inset 0 -2.5px 3px rgba(0, 0, 0, 0.78), inset 1.5px 0 0 rgba(255, 195, 220, 0.3), inset -1.5px 0 0 rgba(0, 0, 0, 0.48), inset 0 0 0 1px rgba(0, 0, 0, 0.5);
+
+        &:hover { border-top-color: rgba(255, 225, 235, 1); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.9), 0 5px 10px rgba(0, 0, 0, 0.6), inset 0 1.5px 0 rgba(255, 235, 245, 0.85), inset 0 -2.5px 3px rgba(0, 0, 0, 0.78), inset 1.5px 0 0 rgba(255, 215, 235, 0.4), inset -1.5px 0 0 rgba(0, 0, 0, 0.48), inset 0 0 0 1px rgba(0, 0, 0, 0.5); }
+      }
+    }
+  }
+
+  // 门票详情 — 琥珀金票据卷轴（立体）
+  .ticket-scroll {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 6px 4px;
+
+    .ticket-stub {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      position: relative;
+      background:
+        radial-gradient(ellipse 55% 60% at 18% 0%, rgba(255, 200, 90, 0.28) 0%, transparent 55%),
+        radial-gradient(ellipse 60% 55% at 88% 100%, rgba(0, 0, 0, 0.4) 0%, transparent 55%),
+        linear-gradient(160deg, rgba(62, 44, 16, 0.96) 0%, rgba(36, 24, 8, 0.94) 55%, rgba(20, 14, 4, 0.92) 100%);
+      border: 1px solid rgba(0, 0, 0, 0.72);
+      border-top-color: rgba(255, 210, 110, 0.6);
+      border-left-color: rgba(255, 180, 60, 0.28);
+      border-radius: 5px;
+      box-shadow:
+        0 6px 14px rgba(0, 0, 0, 0.78),
+        0 3px 6px rgba(0, 0, 0, 0.55),
+        inset 0 1.5px 0 rgba(255, 220, 140, 0.4),
+        inset 0 -2.5px 3px rgba(0, 0, 0, 0.75),
+        inset 1.5px 0 0 rgba(255, 200, 90, 0.2),
+        inset -1.5px 0 0 rgba(0, 0, 0, 0.45);
+      transition: all 0.2s ease;
+
+      &::before { content: ''; position: absolute; top: 0; left: 14%; right: 14%; height: 1px; background: linear-gradient(90deg, transparent, rgba(255, 215, 130, 0.55), transparent); }
+
+      &:hover {
+        border-top-color: rgba(255, 225, 130, 0.95);
+        box-shadow:
+          0 10px 22px rgba(0, 0, 0, 0.85),
+          0 5px 10px rgba(0, 0, 0, 0.6),
+          inset 0 1.5px 0 rgba(255, 235, 160, 0.6),
+          inset 0 -2.5px 3px rgba(0, 0, 0, 0.75),
+          inset 1.5px 0 0 rgba(255, 215, 100, 0.32),
+          inset -1.5px 0 0 rgba(0, 0, 0, 0.45);
+        .stub-index { color: #ffd870; }
+        .stub-content { color: #fff; }
+      }
+
+      .stub-index {
+        flex-shrink: 0;
+        font-size: 15px;
+        font-weight: 800;
+        color: #ffe898;
+        font-family: 'Courier New', monospace;
+        letter-spacing: 1px;
+        min-width: 26px;
+        transition: color 0.2s ease;
+      }
+
+      .stub-notch {
+        flex-shrink: 0;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 35% 25%, #fff0c8 0%, #e0a040 50%, #603810 100%);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 230, 160, 0.6);
+      }
+
+      .stub-content {
+        font-size: 14px;
+        font-weight: 500;
+        color: #fff5e0;
+        line-height: 1.5;
+        transition: color 0.2s ease;
+      }
+    }
+  }
+
+  // 交通指南 — 蓝宝石切面舱 + 鲜艳多彩 tag
+  .transport-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+
+    .transport-card {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      padding: 14px 16px;
+      position: relative;
+      background:
+        linear-gradient(145deg, rgba(30, 58, 95, 0.98) 0%, rgba(18, 36, 64, 0.96) 40%, rgba(10, 22, 42, 0.94) 100%);
+      border: 1.5px solid rgba(0, 0, 0, 0.85);
+      border-radius: 7px;
+      box-shadow:
+        0 14px 28px rgba(0, 0, 0, 0.82),
+        0 6px 12px rgba(0, 0, 0, 0.6),
+        0 2px 4px rgba(0, 0, 0, 0.5),
+        inset 0 2px 0 rgba(120, 180, 255, 0.35),
+        inset 0 -3px 4px rgba(0, 0, 0, 0.8),
+        inset 2px 0 0 rgba(80, 140, 220, 0.18),
+        inset -2px 0 0 rgba(0, 0, 0, 0.5);
+      transition: all 0.2s ease;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 2px;
+        left: 12%;
+        right: 12%;
+        height: 1.5px;
+        background: linear-gradient(90deg, transparent, rgba(140, 200, 255, 0.7), transparent);
+        border-radius: 1px;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 18px;
+        height: 18px;
+        border-top: 2px solid rgba(140, 200, 255, 0.5);
+        border-left: 2px solid rgba(140, 200, 255, 0.35);
+        border-top-left-radius: 6px;
+        pointer-events: none;
+      }
+
+      &:hover {
+        border-color: rgba(0, 0, 0, 0.9);
+        box-shadow:
+          0 20px 40px rgba(0, 0, 0, 0.88),
+          0 10px 18px rgba(0, 0, 0, 0.65),
+          0 3px 6px rgba(0, 0, 0, 0.5),
+          inset 0 2px 0 rgba(170, 220, 255, 0.55),
+          inset 0 -3px 4px rgba(0, 0, 0, 0.8),
+          inset 2px 0 0 rgba(120, 180, 250, 0.3),
+          inset -2px 0 0 rgba(0, 0, 0, 0.5);
+        .tc-text { color: #fff; }
+      }
+
+      .tc-head {
+        display: flex;
+        align-items: center;
+      }
+
+      .tc-tag {
+        display: inline-flex;
+        align-items: center;
+        padding: 4px 12px;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 1.2px;
+        border: 1px solid rgba(0, 0, 0, 0.75);
+        border-radius: 4px;
+        transition: all 0.2s ease;
+      }
+
+      .tc-text {
+        margin: 0;
+        font-size: 13px;
+        font-weight: 500;
+        color: #d8ecff;
+        line-height: 1.55;
+        transition: color 0.2s ease;
+      }
+    }
+
+    // 每种交通方式独立鲜艳渐变色 tag（非蓝非灰，避免融入深蓝背景）
+    .transport-card:nth-child(1) .tc-tag {
+      color: #fff0f5;
+      background: linear-gradient(160deg, #d63384 0%, #a02060 55%, #6b1240 100%);
+      border-top-color: rgba(255, 180, 220, 0.9);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7), 0 1px 2px rgba(0, 0, 0, 0.5), inset 0 1.5px 0 rgba(255, 200, 230, 0.5), inset 0 -2px 2px rgba(0, 0, 0, 0.6);
+    }
+    .transport-card:nth-child(2) .tc-tag {
+      color: #fff5e8;
+      background: linear-gradient(160deg, #f97316 0%, #c25410 55%, #823608 100%);
+      border-top-color: rgba(255, 210, 160, 0.9);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7), 0 1px 2px rgba(0, 0, 0, 0.5), inset 0 1.5px 0 rgba(255, 220, 170, 0.5), inset 0 -2px 2px rgba(0, 0, 0, 0.6);
+    }
+    .transport-card:nth-child(3) .tc-tag {
+      color: #fff8e0;
+      background: linear-gradient(160deg, #fbbf24 0%, #c88800 55%, #8c5e00 100%);
+      border-top-color: rgba(255, 235, 160, 0.9);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7), 0 1px 2px rgba(0, 0, 0, 0.5), inset 0 1.5px 0 rgba(255, 240, 170, 0.5), inset 0 -2px 2px rgba(0, 0, 0, 0.6);
+    }
+    .transport-card:nth-child(4) .tc-tag {
+      color: #f0fff5;
+      background: linear-gradient(160deg, #10b981 0%, #059669 55%, #064e3b 100%);
+      border-top-color: rgba(160, 255, 210, 0.9);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7), 0 1px 2px rgba(0, 0, 0, 0.5), inset 0 1.5px 0 rgba(180, 255, 220, 0.5), inset 0 -2px 2px rgba(0, 0, 0, 0.6);
+    }
+  }
+
+  // 开放时间 — 翠绿调凹陷数据屏
+  .opentime-board {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px 18px;
+    background:
+      radial-gradient(ellipse 75% 65% at 50% 0%, rgba(0, 130, 90, 0.5) 0%, transparent 55%),
+      radial-gradient(ellipse 70% 65% at 50% 100%, rgba(0, 0, 0, 0.4) 0%, transparent 55%),
+      linear-gradient(180deg, rgba(0, 95, 65, 0.92) 0%, rgba(0, 70, 48, 0.9) 50%, rgba(0, 50, 35, 0.92) 100%);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    border-top-color: rgba(0, 255, 157, 0.6);
+    border-left-color: rgba(0, 255, 157, 0.25);
+    border-radius: 6px;
+    box-shadow:
+      0 8px 18px rgba(0, 0, 0, 0.8),
+      0 4px 8px rgba(0, 0, 0, 0.55),
+      inset 0 9px 14px rgba(0, 0, 0, 0.88),
+      inset 0 -2.5px 4px rgba(0, 255, 157, 0.28),
+      inset 2px 0 5px rgba(0, 0, 0, 0.65),
+      inset -2px 0 5px rgba(0, 0, 0, 0.65),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    .opentime-row {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      .opentime-dot { flex-shrink: 0; width: 9px; height: 9px; border-radius: 50%; background: radial-gradient(circle at 35% 25%, #f0fff8 0%, $green 42%, #005544 100%); box-shadow: 0 2px 4px rgba(0, 0, 0, 0.75), 0 1px 2px rgba(0, 0, 0, 0.5), inset 0 2px 2px rgba(255, 255, 255, 0.9), inset 0 -1.5px 1px rgba(0, 0, 0, 0.5); }
+      .opentime-text { font-size: 14px; font-weight: 500; color: #e8fff5; letter-spacing: 0.3px; }
+    }
+  }
+
+  // 推荐路线 — 折页行程卡
+  .route-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+
+    .route-card {
+      display: flex;
+      gap: 0;
+      position: relative;
+      transition: all 0.2s ease;
+
+      .route-tab {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        padding: 10px 4px;
+        font-size: 16px;
+        font-weight: 900;
+        color: #fff5d8;
+        font-family: 'Courier New', monospace;
+        letter-spacing: 1px;
+        background: linear-gradient(160deg, #c88800 0%, #8c5e00 50%, #5c3e00 100%);
+        border: 1px solid rgba(0, 0, 0, 0.85);
+        border-right: none;
+        border-top-left-radius: 7px;
+        border-bottom-left-radius: 7px;
+        box-shadow:
+          0 8px 16px rgba(0, 0, 0, 0.8),
+          0 3px 6px rgba(0, 0, 0, 0.6),
+          inset 0 2px 0 rgba(255, 235, 160, 0.5),
+          inset 0 -3px 4px rgba(0, 0, 0, 0.7),
+          inset 2px 0 0 rgba(255, 220, 130, 0.25);
+      }
+
+      .route-body {
+        flex: 1;
+        padding: 13px 16px;
+        background:
+          radial-gradient(ellipse 50% 60% at 10% 0%, rgba(255, 200, 100, 0.12) 0%, transparent 55%),
+          linear-gradient(160deg, rgba(38, 30, 20, 0.96) 0%, rgba(24, 18, 12, 0.94) 55%, rgba(14, 10, 6, 0.92) 100%);
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        border-top-color: rgba(255, 210, 120, 0.45);
+        border-left: none;
+        border-top-right-radius: 7px;
+        border-bottom-right-radius: 7px;
+        box-shadow:
+          0 8px 18px rgba(0, 0, 0, 0.82),
+          0 4px 8px rgba(0, 0, 0, 0.6),
+          inset 0 1.5px 0 rgba(255, 220, 140, 0.3),
+          inset 0 -3px 4px rgba(0, 0, 0, 0.75),
+          inset -2px 0 4px rgba(0, 0, 0, 0.5);
+
+        .route-name {
+          margin: 0 0 8px;
+          font-size: 15px;
+          font-weight: 700;
+          color: #fff;
+          line-height: 1.4;
+        }
+
+        .route-stats {
+          display: flex;
+          gap: 8px;
+          margin-bottom: 8px;
+
+          .stat-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 3px 9px;
+            font-size: 12px;
+            font-weight: 700;
+            border-radius: 3px;
+            border: 1px solid rgba(0, 0, 0, 0.7);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+          }
+
+          .stat-time {
+            color: #b8e4ff;
+            background: linear-gradient(160deg, rgba(20, 55, 95, 0.95) 0%, rgba(10, 30, 55, 0.9) 100%);
+            border-top-color: rgba(130, 200, 255, 0.6);
+            svg { color: #8fd0ff; }
+          }
+
+          .stat-diff {
+            color: #ffb8c8;
+            background: linear-gradient(160deg, rgba(110, 30, 50, 0.95) 0%, rgba(60, 16, 28, 0.9) 100%);
+            border-top-color: rgba(255, 150, 175, 0.6);
+            svg { color: #ff8ca0; }
+          }
+        }
+
+        .route-desc {
+          margin: 0;
+          font-size: 13px;
+          font-weight: 500;
+          line-height: 1.65;
+          color: #f0e8d8;
+        }
+      }
+
+      &:hover {
+        .route-tab {
+          background: linear-gradient(160deg, #e0a020 0%, #a06800 50%, #6c4800 100%);
+          box-shadow:
+            0 12px 24px rgba(0, 0, 0, 0.85),
+            0 5px 10px rgba(0, 0, 0, 0.65),
+            inset 0 2px 0 rgba(255, 245, 180, 0.65),
+            inset 0 -3px 4px rgba(0, 0, 0, 0.7),
+            inset 2px 0 0 rgba(255, 230, 140, 0.35);
+        }
+        .route-body {
+          box-shadow:
+            0 14px 30px rgba(0, 0, 0, 0.88),
+            0 6px 12px rgba(0, 0, 0, 0.65),
+            inset 0 1.5px 0 rgba(255, 230, 150, 0.45),
+            inset 0 -3px 4px rgba(0, 0, 0, 0.75),
+            inset -2px 0 4px rgba(0, 0, 0, 0.5);
+          .route-desc { color: #fff; }
+        }
+      }
+    }
+  }
+
+  // 景区设施 — 徽章卡条流（每行独立立体卡条 + 嵌入式 3D 球体）
+  .facility-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 2px 0;
+
+    .facility-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 16px;
+      position: relative;
+      background:
+        radial-gradient(ellipse 50% 80% at 8% 50%, rgba(255, 190, 100, 0.07) 0%, transparent 55%),
+        linear-gradient(160deg, rgba(46, 35, 24, 0.96) 0%, rgba(30, 23, 16, 0.94) 55%, rgba(20, 15, 10, 0.92) 100%);
+      border: 1px solid rgba(0, 0, 0, 0.7);
+      border-top-color: rgba(255, 200, 120, 0.3);
+      border-radius: 6px;
+      box-shadow:
+        0 4px 10px rgba(0, 0, 0, 0.65),
+        0 2px 4px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 210, 140, 0.2),
+        inset 0 -2px 3px rgba(0, 0, 0, 0.6);
+      transition: box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+
+      &:hover {
+        background:
+          radial-gradient(ellipse 65% 90% at 8% 50%, rgba(255, 200, 120, 0.3) 0%, rgba(255, 180, 80, 0.08) 40%, transparent 70%),
+          linear-gradient(160deg, rgba(56, 43, 30, 1) 0%, rgba(36, 28, 19, 0.98) 55%, rgba(24, 18, 13, 0.96) 100%);
+        border-top-color: rgba(255, 225, 150, 0.75);
+        box-shadow:
+          0 10px 22px rgba(0, 0, 0, 0.82),
+          0 5px 10px rgba(0, 0, 0, 0.62),
+          inset 0 1px 0 rgba(255, 230, 160, 0.4),
+          inset 0 -2px 3px rgba(0, 0, 0, 0.6);
+
+        .ff-badge {
+          transform: scale(1.08);
+
+          box-shadow:
+            0 0 0 1px rgba(0, 0, 0, 0.5),
+            0 6px 12px rgba(0, 0, 0, 0.65),
+            0 2px 4px rgba(0, 0, 0, 0.45),
+            inset 0 5px 7px rgba(255, 255, 255, 0.65),
+            inset 0 -5px 7px rgba(0, 0, 0, 0.65),
+            inset 3px 0 4px rgba(255, 255, 255, 0.28),
+            inset -3px 0 4px rgba(0, 0, 0, 0.45),
+            inset 0 -1.5px 2px rgba(255, 255, 255, 0.28);
+        }
+        .ff-type { color: #fff5e0; }
+        .ff-desc { color: #fff; }
+      }
+
+      .ff-badge {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        color: #fff;
+        border: 5px ridge #8a8a92;
+        border-radius: 50%;
+        box-shadow:
+          0 0 0 1px rgba(0, 0, 0, 0.4),
+          0 4px 8px rgba(0, 0, 0, 1),
+          0 1px 2px rgba(0, 0, 0, 0.35),
+          inset 0 4px 6px rgba(255, 255, 255, 0.5),
+          inset 0 -5px 7px rgba(0, 0, 0, 0.65),
+          inset 3px 0 4px rgba(255, 255, 255, 0.18),
+          inset -3px 0 4px rgba(0, 0, 0, 0.45),
+          inset 0 -1.5px 2px rgba(255, 255, 255, 0.18);
+        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      }
+
+      .ff-badge-text {
+        font-size: 20px;
+        font-weight: 900;
+        font-family: 'Courier New', monospace;
+      }
+
+      .ff-body {
+        flex: 1;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+      }
+
+      .ff-type {
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 1px;
+        color: #ffe8b8;
+        transition: color 0.2s ease;
+      }
+
+      .ff-desc {
+        margin: 0;
+        font-size: 13px;
+        font-weight: 500;
+        color: #e8dcc8;
+        line-height: 1.55;
+        transition: color 0.2s ease;
+      }
+    }
+
+    // 5 种设施类型独立彩色 3D 球体（白热高光中心 + 深边缘暗角 + 底部环境反射）
+    .frow-0 .ff-badge {
+      background:
+        radial-gradient(circle at 30% 22%, #fff2dc 0%, #ffb478 7%, #f97316 24%, #c25410 54%, #6a2806 82%, #2e1004 100%),
+        radial-gradient(ellipse 85% 28% at 50% 96%, rgba(255, 200, 150, 0.3) 0%, transparent 55%);
+      border-top-color: rgba(255, 220, 180, 0.9);
+    }
+    .frow-1 .ff-badge {
+      background:
+        radial-gradient(circle at 30% 22%, #fff8d8 0%, #ffe890 7%, #fbbf24 24%, #c88800 54%, #6e4e00 82%, #2e2000 100%),
+        radial-gradient(ellipse 85% 28% at 50% 96%, rgba(255, 240, 160, 0.3) 0%, transparent 55%);
+      border-top-color: rgba(255, 240, 180, 0.9);
+    }
+    .frow-2 .ff-badge {
+      background:
+        radial-gradient(circle at 30% 22%, #ffe0ec 0%, #ffb0d0 7%, #ec4899 24%, #be1d6e 54%, #6a1240 82%, #2e0818 100%),
+        radial-gradient(ellipse 85% 28% at 50% 96%, rgba(255, 180, 220, 0.3) 0%, transparent 55%);
+      border-top-color: rgba(255, 200, 230, 0.9);
+    }
+    .frow-3 .ff-badge {
+      background:
+        radial-gradient(circle at 30% 22%, #d8ffe8 0%, #90ffc8 7%, #10b981 24%, #059669 54%, #044e3b 82%, #021e15 100%),
+        radial-gradient(ellipse 85% 28% at 50% 96%, rgba(160, 255, 210, 0.3) 0%, transparent 55%);
+      border-top-color: rgba(180, 255, 220, 0.9);
+    }
+    .frow-4 .ff-badge {
+      background:
+        radial-gradient(circle at 30% 22%, #f0ffd8 0%, #c8ff90 7%, #84cc16 24%, #5c8f0c 54%, #3a5f08 82%, #162804 100%),
+        radial-gradient(ellipse 85% 28% at 50% 96%, rgba(200, 255, 160, 0.3) 0%, transparent 55%);
+      border-top-color: rgba(220, 255, 180, 0.9);
+    }
+
+    // hover 时 3D 粗边框颜色跟随各自圆球主题色
+    .frow-0:hover .ff-badge { border-color: #ff8a4d; border-top-color: rgba(255, 224, 195, 1); border-bottom-color: #7a2f08; }
+    .frow-1:hover .ff-badge { border-color: #ffd15c; border-top-color: rgba(255, 246, 205, 1); border-bottom-color: #7a5800; }
+    .frow-2:hover .ff-badge { border-color: #ff6db1; border-top-color: rgba(255, 218, 235, 1); border-bottom-color: #852a55; }
+    .frow-3:hover .ff-badge { border-color: #34d9a5; border-top-color: rgba(205, 255, 240, 1); border-bottom-color: #056046; }
+    .frow-4:hover .ff-badge { border-color: #a4e629; border-top-color: rgba(235, 255, 205, 1); border-bottom-color: #4a7010; }
+  }
+
+  // 温馨提示 — 阶梯告示牌（宝石梯形箭头 + 深色告示条）
+  .tips-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .tips-sign {
+      display: flex;
+      align-items: stretch;
+      min-height: 44px;
+      background:
+        radial-gradient(ellipse 50% 80% at 8% 50%, rgba(120, 170, 230, 0.06) 0%, transparent 55%),
+        linear-gradient(90deg, #1b1f2c 0%, #12151f 100%);
+      border: 1px solid rgba(0, 0, 0, 0.75);
+      border-left: none;
+      border-radius: 0 5px 5px 0;
+      box-shadow:
+        0 9px 20px rgba(0, 0, 0, 0.82),
+        0 5px 10px rgba(0, 0, 0, 0.6),
+        0 2px 4px rgba(0, 0, 0, 0.45),
+        inset 0 1px 0 rgba(170, 195, 230, 0.14),
+        inset 0 -2.5px 3px rgba(0, 0, 0, 0.7);
+      transition: box-shadow 0.2s ease;
+
+      &:hover {
+        box-shadow:
+          0 14px 30px rgba(0, 0, 0, 0.9),
+          0 8px 16px rgba(0, 0, 0, 0.65),
+          0 3px 6px rgba(0, 0, 0, 0.5),
+          inset 0 1px 0 rgba(195, 215, 245, 0.2),
+          inset 0 -2.5px 3px rgba(0, 0, 0, 0.7);
+        .ts-text { color: #fff; }
+      }
+
+      .ts-num {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        position: relative;
+        font-size: 18px;
+        font-weight: 900;
+        color: #fff;
+        clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 0 100%);
+        font-family: 'Courier New', monospace;
+        text-shadow:
+          0 1px 0 rgba(0, 0, 0, 0.55),
+          0 -1px 0 rgba(255, 255, 255, 0.28);
+        filter:
+          drop-shadow(2px 1px 1.5px rgba(0, 0, 0, 0.65))
+          drop-shadow(0 3px 3px rgba(0, 0, 0, 0.45));
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 6%;
+          left: 6%;
+          right: 20%;
+          height: 34%;
+          background: linear-gradient(180deg,
+            rgba(255, 255, 255, 0.6) 0%,
+            rgba(255, 255, 255, 0.28) 45%,
+            transparent 100%);
+          border-radius: 50% 50% 65% 65% / 100% 100% 60% 60%;
+          pointer-events: none;
+          z-index: 1;
+        }
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: 12%;
+          left: 8%;
+          width: 34%;
+          height: 2px;
+          background: linear-gradient(90deg, rgba(255, 255, 255, 0.75), transparent);
+          border-radius: 50%;
+          transform: rotate(20deg);
+          pointer-events: none;
+          z-index: 1;
+        }
+      }
+
+      .ts-text {
+        flex: 1;
+        min-width: 0;
+        display: flex;
+        align-items: center;
+        padding: 10px 14px 10px 16px;
+        font-size: 14px;
+        line-height: 1.6;
+        color: #fff;
+        transition: color 0.2s ease;
+      }
+    }
+
+    // 5 种宝石梯形（镜面高光 + 侧面反光 + 底部暗影 + 主体色泽渐变）
+    .tsign-0 .ts-num {
+      background:
+        radial-gradient(ellipse 78% 48% at 30% 10%, rgba(255, 240, 210, 0.72) 0%, transparent 52%),
+        radial-gradient(ellipse 42% 72% at 90% 48%, rgba(255, 205, 155, 0.4) 0%, transparent 60%),
+        radial-gradient(ellipse 85% 42% at 50% 98%, rgba(0, 0, 0, 0.55) 0%, transparent 60%),
+        linear-gradient(160deg, #ff8c42 0%, #f97316 28%, #c25410 62%, #5a2406 100%);
+    }
+    .tsign-1 .ts-num {
+      background:
+        radial-gradient(ellipse 78% 48% at 30% 10%, rgba(255, 250, 215, 0.72) 0%, transparent 52%),
+        radial-gradient(ellipse 42% 72% at 90% 48%, rgba(255, 235, 160, 0.4) 0%, transparent 60%),
+        radial-gradient(ellipse 85% 42% at 50% 98%, rgba(0, 0, 0, 0.55) 0%, transparent 60%),
+        linear-gradient(160deg, #fcd34d 0%, #fbbf24 28%, #c88800 62%, #5e4200 100%);
+    }
+    .tsign-2 .ts-num {
+      background:
+        radial-gradient(ellipse 78% 48% at 30% 10%, rgba(255, 215, 235, 0.72) 0%, transparent 52%),
+        radial-gradient(ellipse 42% 72% at 90% 48%, rgba(255, 175, 210, 0.4) 0%, transparent 60%),
+        radial-gradient(ellipse 85% 42% at 50% 98%, rgba(0, 0, 0, 0.55) 0%, transparent 60%),
+        linear-gradient(160deg, #f56bb8 0%, #ec4899 28%, #be1d6e 62%, #5a0e36 100%);
+    }
+    .tsign-3 .ts-num {
+      background:
+        radial-gradient(ellipse 78% 48% at 30% 10%, rgba(200, 255, 230, 0.72) 0%, transparent 52%),
+        radial-gradient(ellipse 42% 72% at 90% 48%, rgba(150, 255, 200, 0.4) 0%, transparent 60%),
+        radial-gradient(ellipse 85% 42% at 50% 98%, rgba(0, 0, 0, 0.55) 0%, transparent 60%),
+        linear-gradient(160deg, #34d399 0%, #10b981 28%, #059669 62%, #033628 100%);
+    }
+    .tsign-4 .ts-num {
+      background:
+        radial-gradient(ellipse 78% 48% at 30% 10%, rgba(230, 255, 190, 0.72) 0%, transparent 52%),
+        radial-gradient(ellipse 42% 72% at 90% 48%, rgba(200, 255, 150, 0.4) 0%, transparent 60%),
+        radial-gradient(ellipse 85% 42% at 50% 98%, rgba(0, 0, 0, 0.55) 0%, transparent 60%),
+        linear-gradient(160deg, #a3d63d 0%, #84cc16 28%, #5c8f0c 62%, #2e4606 100%);
+    }
+  }
+
+  // 最佳拍照点 — 胶片帧连续条（钢蓝银灰系，相机金属机身质感）
+  .photo-strip {
+    position: relative;
+    padding: 18px 10px 16px;
+    background:
+      radial-gradient(ellipse 65% 45% at 50% 0%, rgba(140, 170, 200, 0.09) 0%, transparent 60%),
+      linear-gradient(180deg, #2b323e 0%, #1c222c 48%, #11151c 100%);
+    border: 1px solid rgba(0, 0, 0, 0.78);
+    border-radius: 6px;
+    box-shadow:
+      0 9px 20px rgba(0, 0, 0, 0.78),
+      0 5px 10px rgba(0, 0, 0, 0.55),
+      0 2px 4px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(185, 205, 225, 0.14),
+      inset 0 -2.5px 3px rgba(0, 0, 0, 0.65);
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      height: 7px;
+      background:
+        repeating-linear-gradient(90deg,
+          rgba(0, 0, 0, 0.92) 0 7px,
+          rgba(125, 145, 170, 0.14) 7px 8px,
+          transparent 8px 16px);
+      border-radius: 1px;
+      pointer-events: none;
+    }
+    &::before {
+      top: 4px;
+      box-shadow: inset 0 1px 0 rgba(180, 200, 220, 0.1);
+    }
+    &::after {
+      bottom: 4px;
+      box-shadow: inset 0 -1px 0 rgba(180, 200, 220, 0.1);
+    }
+
+    .photo-frames {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding: 5px 4px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(120, 140, 165, 0.45) transparent;
+      background: linear-gradient(180deg, #0a0d13 0%, #05070b 100%);
+      border-radius: 3px;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.6);
+
+      .photo-frame {
+        flex: 1 1 0;
+        min-width: 224px;
+        display: flex;
+        align-items: stretch;
+        position: relative;
+        border-radius: 3px;
+        background: linear-gradient(180deg, #1c222e 0%, #14181f 100%);
+        box-shadow:
+          inset 0 1px 0 rgba(160, 180, 205, 0.09),
+          inset 0 -1px 0 rgba(0, 0, 0, 0.55),
+          inset 1px 0 0 rgba(0, 0, 0, 0.38),
+          inset -1px 0 0 rgba(0, 0, 0, 0.38);
+        transition: background 0.2s ease, box-shadow 0.2s ease;
+
+        .pf-no {
+          flex-shrink: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 48px;
+          font-size: 11px;
+          font-weight: 900;
+          letter-spacing: 1.5px;
+          color: #b8cfe6;
+          font-family: 'Courier New', monospace;
+          background: linear-gradient(180deg, rgba(56, 72, 96, 0.82) 0%, rgba(26, 38, 54, 0.7) 100%);
+          border-right: 1px solid rgba(0, 0, 0, 0.6);
+          border-radius: 3px 0 0 3px;
+          transition: color 0.2s ease, background 0.2s ease;
+        }
+
+        .pf-text {
+          flex: 1;
+          min-width: 0;
+          display: flex;
+          align-items: center;
+          padding: 20px 16px;
+          font-size: 13px;
+          font-weight: 700;
+          line-height: 1.55;
+          color: #f2f7ff;
+          letter-spacing: 0.2px;
+          transition: color 0.2s ease;
+        }
+
+        &:hover {
+          background: linear-gradient(180deg, #25303f 0%, #1a2230 100%);
+          box-shadow:
+            inset 0 1px 0 rgba(180, 200, 225, 0.18),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.55),
+            inset 1px 0 0 rgba(120, 150, 180, 0.2),
+            inset -1px 0 0 rgba(120, 150, 180, 0.2);
+          .pf-no {
+            color: #c8d8ea;
+            background: linear-gradient(180deg, rgba(72, 92, 118, 0.82) 0%, rgba(40, 55, 78, 0.7) 100%);
+          }
+          .pf-text { color: #fff; }
+        }
+      }
+    }
+  }
+
+  // 周边联游 — 机械里程路牌（金属立杆铭牌 + 嵌入式里程仪表）
+  .nearby-boards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 2px 0;
+
+    .nearby-board {
+      flex: 0 0 238px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px 12px 0;
+      position: relative;
+      background:
+        radial-gradient(ellipse 62% 45% at 14% 0%, rgba(140, 182, 235, 0.16) 0%, transparent 60%),
+        linear-gradient(160deg, #3c455a 0%, #2a3346 55%, #191f2c 100%);
+      border: 1px solid rgba(0, 0, 0, 0.82);
+      border-top-color: rgba(150, 194, 240, 0.45);
+      border-left-color: rgba(120, 162, 215, 0.18);
+      border-radius: 5px;
+      box-shadow:
+        0 3px 0 rgba(0, 0, 0, 0.62),
+        0 8px 16px rgba(0, 0, 0, 0.72),
+        0 4px 8px rgba(0, 0, 0, 0.5),
+        0 1px 2px rgba(0, 0, 0, 0.4),
+        inset 0 1.5px 0 rgba(185, 212, 245, 0.22),
+        inset 0 -2.5px 3px rgba(0, 0, 0, 0.6),
+        inset 1.5px 0 0 rgba(140, 175, 225, 0.12),
+        inset -1.5px 0 0 rgba(0, 0, 0, 0.45);
+      transition: box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 8%;
+        right: 8%;
+        height: 1.5px;
+        background: linear-gradient(90deg, transparent, rgba(170, 205, 245, 0.55), transparent);
+        border-radius: 1px;
+        pointer-events: none;
+        transition: background 0.2s ease;
+      }
+
+      &:hover {
+        background:
+          radial-gradient(ellipse 65% 50% at 14% 0%, rgba(160, 205, 255, 0.28) 0%, transparent 60%),
+          linear-gradient(160deg, #48536c 0%, #333d53 55%, #202838 100%);
+        border-top-color: rgba(180, 220, 255, 0.7);
+        box-shadow:
+          0 4px 0 rgba(0, 0, 0, 0.78),
+          0 14px 24px rgba(0, 0, 0, 0.85),
+          0 6px 12px rgba(0, 0, 0, 0.62),
+          0 2px 4px rgba(0, 0, 0, 0.45),
+          inset 0 1.5px 0 rgba(205, 230, 255, 0.38),
+          inset 0 -2.5px 3px rgba(0, 0, 0, 0.6),
+          inset 1.5px 0 0 rgba(160, 195, 245, 0.2),
+          inset -1.5px 0 0 rgba(0, 0, 0, 0.45);
+        &::before {
+          background: linear-gradient(90deg, transparent, rgba(225, 242, 255, 0.9), transparent);
+        }
+        .nb-km { color: #ffc14d; }
+        .nb-name { color: #fff; }
+        .nb-index { color: #ffd070; }
+      }
+
+      // 立杆把手 —— 左侧防滑金属立杆
+      .nb-pole {
+        align-self: stretch;
+        flex-shrink: 0;
+        width: 15px;
+        position: relative;
+        background:
+          repeating-linear-gradient(180deg,
+            rgba(255, 255, 255, 0.14) 0 2px,
+            transparent 2px 7px,
+            rgba(0, 0, 0, 0.4) 7px 9px),
+          linear-gradient(90deg, #1b2130 0%, #3d4658 35%, #59647a 52%, #2c3342 72%, #11161f 100%);
+        border-right: 1px solid rgba(0, 0, 0, 0.8);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.22),
+          inset 0 -1px 0 rgba(0, 0, 0, 0.6),
+          1px 0 0 rgba(255, 255, 255, 0.05);
+
+        &::before, &::after {
+          content: '';
+          position: absolute;
+          left: 3px;
+          width: 9px;
+          height: 4px;
+          background: radial-gradient(circle at 35% 35%, #6b7589 0%, #262d3c 70%, #0d1119 100%);
+          border-radius: 2px;
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+        }
+        &::before { top: 6px; }
+        &::after { bottom: 6px; }
+      }
+
+      .nb-index {
+        flex-shrink: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 28px;
+        height: 24px;
+        font-size: 13px;
+        font-weight: 900;
+        letter-spacing: 0.5px;
+        color: #ffc160;
+        font-family: 'Courier New', monospace;
+        background: linear-gradient(160deg, rgba(24, 30, 42, 1) 0%, rgba(12, 16, 24, 1) 100%);
+        border: 1px solid rgba(0, 0, 0, 0.85);
+        border-top-color: rgba(255, 205, 120, 0.55);
+        border-left-color: rgba(255, 190, 90, 0.25);
+        border-radius: 3px;
+        box-shadow:
+          0 2px 3px rgba(0, 0, 0, 0.6),
+          inset 0 1.5px 2px rgba(0, 0, 0, 0.75),
+          inset 0 -1px 0 rgba(255, 210, 130, 0.18);
+      }
+
+      .nb-name {
+        flex: 1;
+        min-width: 0;
+        font-size: 15px;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+        color: #eaf3ff;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        transition: color 0.2s ease;
+      }
+
+      // 里程仪表 —— 嵌入式凹槽读数器（左侧刻度槽 + 琥珀读数）
+      .nb-meter {
+        flex-shrink: 0;
+        display: flex;
+        align-items: baseline;
+        gap: 4px;
+        padding: 4px 9px 4px 16px;
+        position: relative;
+        border-radius: 3px;
+        background: linear-gradient(180deg, #0a0d13 0%, #10141d 55%, #06080d 100%);
+        border: 1px solid rgba(0, 0, 0, 0.9);
+        border-bottom-color: rgba(255, 205, 120, 0.28);
+        box-shadow:
+          inset 0 2px 4px rgba(0, 0, 0, 0.9),
+          inset 0 -1px 0 rgba(255, 255, 255, 0.05),
+          0 1px 0 rgba(255, 255, 255, 0.06);
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 3px;
+          bottom: 3px;
+          left: 3px;
+          width: 9px;
+          background:
+            repeating-linear-gradient(180deg,
+              rgba(205, 222, 245, 0.55) 0 1px,
+              transparent 1px 4px),
+            rgba(0, 0, 0, 0.3);
+          border-radius: 2px;
+          pointer-events: none;
+        }
+
+        .nb-km {
+          font-size: 18px;
+          font-weight: 900;
+          line-height: 1;
+          color: #ffb430;
+          font-family: 'Courier New', monospace;
+          letter-spacing: 0.5px;
+          transition: color 0.2s ease;
+        }
+        .nb-km-unit {
+          font-size: 12px;
+          font-weight: 800;
+          color: rgba(160, 178, 205, 0.9);
+          font-family: 'Courier New', monospace;
+          letter-spacing: 1px;
+        }
+      }
+    }
+
+    // 3 种金属色调循环
+    .nboard-0 { border-top-color: rgba(150, 194, 240, 0.45); }
+    .nboard-1 {
+      background:
+        radial-gradient(ellipse 62% 45% at 14% 0%, rgba(170, 220, 255, 0.14) 0%, transparent 60%),
+        linear-gradient(160deg, #33404f 0%, #242e3c 55%, #161b26 100%);
+    }
+    .nboard-2 {
+      background:
+        radial-gradient(ellipse 62% 45% at 14% 0%, rgba(210, 210, 230, 0.12) 0%, transparent 60%),
+        linear-gradient(160deg, #3a3c4a 0%, #292b38 55%, #171822 100%);
+    }
+  }
+
+  // 季节指南 — 立体季节徽章舱（3D 徽章球 + 高落差卡片）
+  .season-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    padding: 2px 0;
+
+    .season-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 16px;
+      position: relative;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow:
+        0 12px 26px rgba(0, 0, 0, 0.8),
+        0 5px 10px rgba(0, 0, 0, 0.55),
+        0 2px 4px rgba(0, 0, 0, 0.4),
+        inset 0 2px 0 rgba(255, 255, 255, 0.16),
+        inset 0 -3px 4px rgba(0, 0, 0, 0.55),
+        inset 1.5px 0 0 rgba(255, 255, 255, 0.08),
+        inset -1.5px 0 0 rgba(0, 0, 0, 0.4);
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 14%;
+        right: 14%;
+        height: 1.5px;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.65), transparent);
+        border-radius: 1px;
+        pointer-events: none;
+      }
+
+      &:hover {
+        box-shadow:
+          0 16px 34px rgba(0, 0, 0, 0.85),
+          0 8px 16px rgba(0, 0, 0, 0.6),
+          0 3px 6px rgba(0, 0, 0, 0.45),
+          inset 0 2px 0 rgba(255, 255, 255, 0.22),
+          inset 0 -3px 4px rgba(0, 0, 0, 0.55),
+          inset 1.5px 0 0 rgba(255, 255, 255, 0.12),
+          inset -1.5px 0 0 rgba(0, 0, 0, 0.4);
+        .season-text { color: #fff; }
+      }
+
+      // 立体徽章球 —— 镜面高光 + 底部反射 + 粗 ridge 金属环
+      .season-label {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 52px;
+        height: 52px;
+        font-size: 24px;
+        font-weight: 900;
+        border-radius: 50%;
+        border: 4px ridge rgba(150, 160, 180, 0.55);
+        box-shadow:
+          0 0 0 1px rgba(0, 0, 0, 0.55),
+          0 8px 14px rgba(0, 0, 0, 0.7),
+          0 3px 5px rgba(0, 0, 0, 0.5),
+          inset 0 6px 8px rgba(255, 255, 255, 0.5),
+          inset 0 -7px 9px rgba(0, 0, 0, 0.55),
+          inset 4px 0 5px rgba(255, 255, 255, 0.22),
+          inset -4px 0 5px rgba(0, 0, 0, 0.45),
+          inset 0 -2px 3px rgba(255, 255, 255, 0.22);
+        font-family: 'Courier New', monospace;
+      }
+
+      .season-text {
+        flex: 1;
+        min-width: 0;
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 1.7;
+        color: #f2f6ff;
+        transition: color 0.2s ease;
+      }
+
+      &.season-0 {
+        background: linear-gradient(160deg, rgba(0, 88, 58, 0.82) 0%, rgba(0, 42, 30, 0.72) 55%, rgba(0, 22, 15, 0.78) 100%);
+        border: 1px solid rgba(0, 0, 0, 0.55);
+        border-top-color: rgba(0, 255, 157, 0.55);
+        border-left-color: rgba(0, 255, 157, 0.2);
+        .season-label {
+          color: $green;
+          background:
+            radial-gradient(circle at 30% 22%, rgba(255, 255, 255, 0.85) 0%, transparent 12%),
+            radial-gradient(circle at 50% 96%, rgba(255, 255, 255, 0.35) 0%, transparent 42%),
+            radial-gradient(circle at 35% 25%, #0d3a28 0%, #06492e 42%, #012a18 78%, #00150a 100%);
+          border-top-color: rgba(0, 255, 157, 0.95);
+          border-right-color: rgba(0, 255, 157, 0.5);
+          border-left-color: rgba(0, 255, 157, 0.35);
+          border-bottom-color: rgba(0, 60, 40, 0.9);
+        }
+      }
+      &.season-1 {
+        background: linear-gradient(160deg, rgba(120, 34, 58, 0.82) 0%, rgba(60, 16, 30, 0.72) 55%, rgba(32, 8, 16, 0.78) 100%);
+        border: 1px solid rgba(0, 0, 0, 0.55);
+        border-top-color: rgba(255, 100, 130, 0.55);
+        border-left-color: rgba(255, 80, 110, 0.2);
+        .season-label {
+          color: $crimson-bright;
+          background:
+            radial-gradient(circle at 30% 22%, rgba(255, 255, 255, 0.85) 0%, transparent 12%),
+            radial-gradient(circle at 50% 96%, rgba(255, 255, 255, 0.35) 0%, transparent 42%),
+            radial-gradient(circle at 35% 25%, #4a1426 0%, #6e1832 42%, #300a18 78%, #150408 100%);
+          border-top-color: rgba(255, 150, 175, 0.95);
+          border-right-color: rgba(255, 120, 150, 0.5);
+          border-left-color: rgba(255, 100, 130, 0.35);
+          border-bottom-color: rgba(90, 20, 40, 0.9);
+        }
+      }
+      &.season-2 {
+        background: linear-gradient(160deg, rgba(112, 72, 0, 0.82) 0%, rgba(54, 36, 0, 0.72) 55%, rgba(30, 20, 0, 0.78) 100%);
+        border: 1px solid rgba(0, 0, 0, 0.55);
+        border-top-color: rgba(255, 220, 100, 0.55);
+        border-left-color: rgba(255, 200, 60, 0.2);
+        .season-label {
+          color: $amber;
+          background:
+            radial-gradient(circle at 30% 22%, rgba(255, 255, 255, 0.85) 0%, transparent 12%),
+            radial-gradient(circle at 50% 96%, rgba(255, 255, 255, 0.35) 0%, transparent 42%),
+            radial-gradient(circle at 35% 25%, #4a3208 0%, #7a5008 42%, #3a2400 78%, #1a0f00 100%);
+          border-top-color: rgba(255, 235, 150, 0.95);
+          border-right-color: rgba(255, 215, 100, 0.5);
+          border-left-color: rgba(255, 200, 60, 0.35);
+          border-bottom-color: rgba(90, 60, 8, 0.9);
+        }
+      }
+      &.season-3 {
+        background: linear-gradient(160deg, rgba(62, 66, 84, 0.82) 0%, rgba(32, 34, 46, 0.72) 55%, rgba(18, 18, 26, 0.78) 100%);
+        border: 1px solid rgba(0, 0, 0, 0.55);
+        border-top-color: rgba(220, 225, 245, 0.55);
+        border-left-color: rgba(200, 205, 230, 0.2);
+        .season-label {
+          color: #e6e8f6;
+          background:
+            radial-gradient(circle at 30% 22%, rgba(255, 255, 255, 0.85) 0%, transparent 12%),
+            radial-gradient(circle at 50% 96%, rgba(255, 255, 255, 0.35) 0%, transparent 42%),
+            radial-gradient(circle at 35% 25%, #34364a 0%, #555a74 42%, #262838 78%, #100f16 100%);
+          border-top-color: rgba(225, 230, 250, 0.95);
+          border-right-color: rgba(205, 210, 240, 0.5);
+          border-left-color: rgba(190, 195, 230, 0.35);
+          border-bottom-color: rgba(40, 42, 58, 0.9);
+        }
+      }
+    }
+  }
+}

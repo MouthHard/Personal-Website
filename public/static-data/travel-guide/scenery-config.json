@@ -1,0 +1,136 @@
+{
+  "sceneryTabs": [
+    { "id": "discover", "name": "精选发现", "icon": "compass" },
+    { "id": "spots", "name": "景点大全", "icon": "map" },
+    { "id": "experience", "name": "深度体验", "icon": "theater-masks" }
+  ],
+  "cultureThemes": [
+    { "value": "", "name": "全部主题", "icon": "theater-masks" },
+    { "value": "historical", "name": "历史古迹", "icon": "museum" },
+    { "value": "religious", "name": "宗教文化", "icon": "mosque" },
+    { "value": "folk", "name": "民俗风情", "icon": "circus" },
+    { "value": "art", "name": "艺术文化", "icon": "palette" },
+    { "value": "modern", "name": "现代文化", "icon": "cityscape" }
+  ],
+  "bestTimes": [
+    { "value": "", "name": "全部时间", "icon": "clock" },
+    { "value": "spring", "name": "春季", "icon": "flower" },
+    { "value": "summer", "name": "夏季", "icon": "sun" },
+    { "value": "autumn", "name": "秋季", "icon": "leaf-autumn" },
+    { "value": "winter", "name": "冬季", "icon": "snowflake" }
+  ],
+  "landscapeTypes": [
+    { "value": "", "label": "全部类型", "icon": "leaf" },
+    {
+      "value": "geographic",
+      "label": "地理景观",
+      "icon": "mountain",
+      "children": [
+        { "value": "mountain", "label": "山地景观", "icon": "mountain" },
+        { "value": "karst", "label": "喀斯特景观", "icon": "national-park" },
+        { "value": "desert", "label": "风沙景观", "icon": "desert" },
+        { "value": "loess", "label": "黄土景观", "icon": "brown-circle" },
+        { "value": "volcano", "label": "火山景观", "icon": "volcano" },
+        { "value": "earthquake", "label": "地震遗迹景观", "icon": "lightning" },
+        { "value": "coastal", "label": "海岸景观", "icon": "wave" },
+        { "value": "island", "label": "岛屿景观", "icon": "island" },
+        { "value": "canyon", "label": "峡谷景观", "icon": "national-park" },
+        { "value": "plateau", "label": "高原景观", "icon": "snow-mountain" },
+        { "value": "plain", "label": "平原景观", "icon": "wheat" },
+        { "value": "cave", "label": "洞穴景观", "icon": "hole" }
+      ]
+    },
+    {
+      "value": "water",
+      "label": "水景观",
+      "icon": "wave",
+      "children": [
+        { "value": "river", "label": "河流景观", "icon": "wave" },
+        { "value": "lake", "label": "湖泊景观", "icon": "national-park" },
+        { "value": "waterfall", "label": "瀑布景观", "icon": "waters" },
+        { "value": "spring", "label": "泉水景观", "icon": "fountain" },
+        { "value": "ocean", "label": "海洋景观", "icon": "wave" },
+        { "value": "glacier", "label": "冰川景观", "icon": "snowflake" },
+        { "value": "hot-spring", "label": "温泉景观", "icon": "hot-spring" },
+        { "value": "wetland", "label": "湿地景观", "icon": "wheat" },
+        { "value": "reservoir", "label": "水库景观", "icon": "droplet" },
+        { "value": "tide", "label": "潮汐景观", "icon": "wave" },
+        { "value": "coral-reef", "label": "珊瑚礁景观", "icon": "coral" }
+      ]
+    },
+    {
+      "value": "atmospheric",
+      "label": "大气景观",
+      "icon": "cloud",
+      "children": [
+        { "value": "rain", "label": "雨景", "icon": "rain" },
+        { "value": "cloud", "label": "云景", "icon": "cloud" },
+        { "value": "snow", "label": "冰雪景", "icon": "snowflake" },
+        { "value": "rime", "label": "雾凇景", "icon": "snow-cloud" },
+        { "value": "rainbow", "label": "彩虹景", "icon": "rainbow" },
+        { "value": "mirage", "label": "海市蜃楼景", "icon": "sunrise" },
+        { "value": "buddha-light", "label": "佛光", "icon": "sparkles" },
+        { "value": "sunrise", "label": "日出景", "icon": "sunrise" },
+        { "value": "sunset", "label": "日落景", "icon": "sunset" },
+        { "value": "fog", "label": "雾景", "icon": "fog" },
+        { "value": "mist", "label": "薄雾景", "icon": "fog" },
+        { "value": "aurora", "label": "极光景", "icon": "sparkles" },
+        { "value": "lightning", "label": "闪电景", "icon": "lightning" }
+      ]
+    },
+    {
+      "value": "biological",
+      "label": "生物景观",
+      "icon": "seedling",
+      "children": [
+        {
+          "value": "plant",
+          "label": "植物景观",
+          "icon": "tree",
+          "children": [
+            { "value": "forest", "label": "森林景观", "icon": "tree" },
+            { "value": "meadow", "label": "草原景观", "icon": "wheat" },
+            { "value": "flower", "label": "花卉景观", "icon": "flower" },
+            { "value": "bamboo", "label": "竹林景观", "icon": "bamboo" },
+            { "value": "cactus", "label": "仙人掌景观", "icon": "cactus" },
+            { "value": "mangrove", "label": "红树林景观", "icon": "leaf" }
+          ]
+        },
+        {
+          "value": "animal",
+          "label": "动物景观",
+          "icon": "paw",
+          "children": [
+            { "value": "bird", "label": "鸟类景观", "icon": "bird" },
+            { "value": "mammal", "label": "哺乳动物景观", "icon": "bear" },
+            { "value": "aquatic", "label": "水生动物景观", "icon": "fish" },
+            { "value": "insect", "label": "昆虫景观", "icon": "bug" },
+            { "value": "butterfly", "label": "蝴蝶景观", "icon": "butterfly" }
+          ]
+        }
+      ]
+    },
+    {
+      "value": "astronomical",
+      "label": "天文景观",
+      "icon": "glowing-star",
+      "children": [
+        { "value": "white-night", "label": "白夜景观", "icon": "moon" },
+        { "value": "sun-moon", "label": "日月共存", "icon": "sun" },
+        { "value": "starry-sky", "label": "星空景观", "icon": "sparkles" },
+        { "value": "meteor-shower", "label": "流星雨景观", "icon": "shooting-star" },
+        { "value": "eclipse", "label": "日食月食景观", "icon": "new-moon" },
+        { "value": "comet", "label": "彗星景观", "icon": "comet" },
+        { "value": "aurora-borealis", "label": "北极光景观", "icon": "sparkles" },
+        { "value": "aurora-australis", "label": "南极光景观", "icon": "sparkles" }
+      ]
+    }
+  ],
+  "seasons": [
+    { "value": "", "label": "全部季节", "icon": "globe" },
+    { "value": "spring", "label": "春季", "icon": "flower" },
+    { "value": "summer", "label": "夏季", "icon": "sun" },
+    { "value": "autumn", "label": "秋季", "icon": "leaf-autumn" },
+    { "value": "winter", "label": "冬季", "icon": "snowflake" }
+  ]
+}

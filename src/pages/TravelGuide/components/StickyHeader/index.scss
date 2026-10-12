@@ -1,0 +1,483 @@
+.sticky-header {
+  position: sticky;
+  top: 0;
+  grid-column: 2;
+  grid-row: 1;
+  z-index: 1000;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #0a0e17 0%, #0c1935 100%);
+  box-shadow: 0 4px 12px rgba(0, 255, 255, 0.3);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 0.5rem 1rem;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      #00ffff,
+      #ff00ff,
+      #00ffff,
+      transparent
+    );
+    background-size: 200% 100%;
+    animation: neonBorder 3s linear infinite;
+    z-index: 10;
+  }
+
+  .header-left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    min-width: 0;
+
+    .tab-navigation {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+
+      .tab-button {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        padding: 0.55rem 1.5rem;
+        font-size: 1rem;
+        font-weight: 800;
+        color: #8fb4d8;
+        background: linear-gradient(180deg, rgba(10, 20, 34, 0.6) 0%, rgba(6, 12, 22, 0.8) 100%);
+        border: 1px solid rgba(0, 229, 255, 0.2);
+        border-radius: 999px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-family: inherit;
+        transform: scale(1);
+        box-shadow:
+          0 2px 4px rgba(0, 0, 0, 0.35),
+          inset 0 1px 0 rgba(255, 255, 255, 0.09),
+          inset 0 -1px 0 rgba(0, 229, 255, 0.12);
+
+        // 底部能量线（自然态低调）
+        &::before {
+          content: '';
+          position: absolute;
+          bottom: -1px;
+          left: 22%;
+          right: 22%;
+          height: 2px;
+          border-radius: 2px;
+          background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.45), transparent);
+          filter: drop-shadow(0 0 4px rgba(0, 229, 255, 0.45));
+          transition: all 0.3s ease;
+          opacity: 0.5;
+          pointer-events: none;
+        }
+
+        // 顶部内嵌高光
+        &::after {
+          content: '';
+          position: absolute;
+          top: 3px;
+          left: 14px;
+          right: 14px;
+          height: 24%;
+          border-radius: 999px;
+          background: linear-gradient(180deg, rgba(255, 255, 255, 0.16), transparent);
+          transition: all 0.3s ease;
+          opacity: 0.7;
+          pointer-events: none;
+        }
+
+        .tab-icon,
+        .tab-name {
+          position: relative;
+          z-index: 1;
+        }
+
+        &:hover {
+          color: #ffffff;
+          transform: scale(1.04);
+          background: linear-gradient(180deg, rgba(0, 180, 230, 0.4) 0%, rgba(0, 120, 180, 0.32) 60%, rgba(0, 60, 110, 0.3) 100%);
+          border-color: rgba(125, 249, 255, 0.75);
+          text-shadow:
+            0 0 10px rgba(0, 229, 255, 0.9),
+            0 0 20px rgba(125, 249, 255, 0.45);
+          box-shadow:
+            0 0 10px rgba(0, 229, 255, 0.4),
+            0 0 20px rgba(0, 229, 255, 0.22),
+            0 4px 10px rgba(0, 0, 0, 0.4),
+            inset 0 1px 0 rgba(255, 255, 255, 0.25),
+            inset 0 -1px 0 rgba(125, 249, 255, 0.4),
+            inset 0 0 14px rgba(125, 249, 255, 0.18);
+
+          &::before {
+            left: 10%;
+            right: 10%;
+            height: 2.5px;
+            opacity: 1;
+            background: linear-gradient(90deg, transparent, #7df9ff, transparent);
+            filter: drop-shadow(0 0 7px rgba(125, 249, 255, 0.9));
+          }
+
+          &::after {
+            height: 30%;
+            opacity: 1;
+          }
+
+          .tab-icon {
+            transform: scale(1.12);
+            filter:
+              drop-shadow(0 0 6px rgba(0, 229, 255, 0.9))
+              drop-shadow(0 0 12px rgba(125, 249, 255, 0.5));
+          }
+
+          .tab-name {
+            transform: scale(1.03);
+          }
+        }
+
+        &.active {
+          color: #ffffff;
+          font-weight: 900;
+          transform: scale(1.06);
+          background:
+            linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px) 0 0 / 8px 8px,
+            linear-gradient(180deg, rgba(0, 180, 230, 0.55) 0%, rgba(6, 80, 126, 0.85) 55%, rgba(3, 45, 75, 0.95) 100%);
+          border-color: rgba(125, 249, 255, 0.95);
+          text-shadow:
+            0 0 12px rgba(125, 249, 255, 1),
+            0 0 24px rgba(0, 229, 255, 0.7),
+            0 2px 3px rgba(0, 0, 0, 0.5);
+          box-shadow:
+            0 0 16px rgba(0, 229, 255, 0.7),
+            0 0 32px rgba(0, 229, 255, 0.45),
+            0 0 52px rgba(0, 150, 255, 0.3),
+            0 6px 16px rgba(0, 0, 0, 0.5),
+            inset 0 1px 0 rgba(255, 255, 255, 0.45),
+            inset 0 -2px 4px rgba(0, 0, 0, 0.45),
+            inset 0 0 18px rgba(125, 249, 255, 0.3);
+          animation: tabActiveGlow 2.2s ease-in-out infinite;
+
+          // 顶部金色能量弧线
+          &::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            bottom: auto;
+            left: 16%;
+            right: 16%;
+            height: 3px;
+            border-radius: 3px;
+            opacity: 1;
+            background: linear-gradient(90deg, transparent, #f2c94c, #7df9ff, #f2c94c, transparent);
+            filter: drop-shadow(0 0 8px rgba(245, 196, 81, 0.95));
+          }
+
+          &::after {
+            height: 32%;
+            opacity: 1;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.28), transparent);
+          }
+
+          .tab-icon {
+            transform: scale(1.18);
+            filter:
+              drop-shadow(0 0 7px rgba(125, 249, 255, 1))
+              drop-shadow(0 0 14px rgba(0, 229, 255, 0.6));
+          }
+
+          .tab-name {
+            transform: scale(1.05);
+          }
+        }
+
+        .tab-icon {
+          font-size: 1.3rem;
+          color: currentColor;
+          filter: drop-shadow(0 0 5px rgba(0, 229, 255, 0.4));
+          transition: all 0.3s ease;
+        }
+
+        .tab-name {
+          white-space: nowrap;
+          font-weight: 800;
+          position: relative;
+          transition: all 0.3s ease;
+        }
+      }
+    }
+  }
+
+  .header-center {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    align-items: center;
+    position: relative;
+
+    .header-title {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.55rem 2.2rem;
+      background: linear-gradient(
+        180deg,
+        #1a324a 0%,
+        #0c1a2a 45%,
+        #15303f 100%
+      );
+      border: 1px solid rgba(0, 210, 255, 0.55);
+      border-radius: 6px;
+      box-shadow:
+        0 10px 24px rgba(0, 0, 0, 0.65),
+        0 4px 8px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(0, 180, 255, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.32),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.55),
+        inset 0 0 16px rgba(0, 180, 255, 0.12);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 2px;
+        left: 6px;
+        right: 6px;
+        height: 38%;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.22),
+          rgba(255, 255, 255, 0.05) 60%,
+          transparent
+        );
+        border-radius: 5px 5px 0 0;
+        pointer-events: none;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 2px;
+        left: 10px;
+        right: 10px;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(0, 220, 255, 0.7) 50%,
+          transparent
+        );
+        pointer-events: none;
+      }
+
+      .hero-title {
+        font-size: clamp(1.3rem, 2.6vw, 1.8rem);
+        font-weight: 900;
+        margin: 0;
+        letter-spacing: 3px;
+        color: #ffffff;
+        text-shadow:
+          0 1px 0 #c4ecff,
+          0 2px 0 #8ad4ff,
+          0 3px 0 #56c2ff,
+          0 4px 0 #2ab0ff,
+          0 5px 4px rgba(0, 180, 255, 0.85),
+          0 6px 8px rgba(0, 150, 255, 0.6),
+          0 8px 14px rgba(0, 100, 200, 0.45),
+          0 10px 20px rgba(0, 0, 0, 0.5);
+        white-space: nowrap;
+        position: relative;
+        z-index: 1;
+      }
+
+      &:hover {
+        border-color: rgba(0, 230, 255, 0.85);
+        box-shadow:
+          0 14px 32px rgba(0, 0, 0, 0.7),
+          0 6px 12px rgba(0, 0, 0, 0.55),
+          0 0 0 1px rgba(0, 200, 255, 0.3),
+          0 0 24px rgba(0, 200, 255, 0.25),
+          inset 0 1px 0 rgba(255, 255, 255, 0.4),
+          inset 0 -2px 4px rgba(0, 0, 0, 0.55),
+          inset 0 0 20px rgba(0, 200, 255, 0.18);
+
+        &::after {
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(0, 240, 255, 0.95) 50%,
+            transparent
+          );
+          box-shadow: 0 0 6px rgba(0, 220, 255, 0.6);
+        }
+      }
+    }
+  }
+
+  .header-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 1rem;
+
+    .back-home-button {
+      margin-right: 1rem;
+      padding: 0.6rem 1.3rem;
+      background: transparent;
+      border: 1px solid rgba(0, 200, 255, 0.5);
+      border-radius: 0;
+      color: #ffffff;
+      font-size: 1.05rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      overflow: visible;
+      position: relative;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      clip-path: polygon(
+        0 0,
+        calc(100% - 12px) 0,
+        100% 12px,
+        100% 100%,
+        12px 100%,
+        0 calc(100% - 12px)
+      );
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background: linear-gradient(45deg, #024a5e, #19935a, #023058);
+        background-size: 300% 300%;
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        clip-path: polygon(
+          0 0,
+          calc(100% - 14px) 0,
+          100% 14px,
+          100% 100%,
+          14px 100%,
+          0 calc(100% - 14px)
+        );
+        animation: borderGlow 2s ease-in-out infinite;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 100%;
+        background: linear-gradient(180deg, #00c8ff, #00ff88);
+        box-shadow: 0 0 15px rgba(0, 200, 255, 0.8);
+        transition: all 0.3s ease;
+      }
+
+      .back-icon {
+        font-size: 1.2rem;
+      }
+
+      .back-text {
+        white-space: nowrap;
+        font-weight: 700;
+      }
+
+      &:hover {
+        color: #ffffff;
+        border-color: transparent;
+        transform: translateX(-3px);
+        box-shadow:
+          0 0 30px rgba(0, 200, 255, 0.4),
+          0 0 60px rgba(0, 255, 136, 0.2),
+          inset 0 0 20px rgba(0, 200, 255, 0.15);
+
+        &::before {
+          opacity: 1;
+        }
+
+        &::after {
+          width: 100%;
+          opacity: 0.1;
+        }
+
+        .back-icon {
+          transform: translateX(-3px);
+        }
+      }
+    }
+  }
+}
+
+@keyframes neonBorder {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+
+@keyframes tabActiveGlow {
+  0%,
+  100% {
+    box-shadow:
+      0 0 14px rgba(0, 229, 255, 0.5),
+      0 0 26px rgba(0, 229, 255, 0.3),
+      0 0 40px rgba(0, 150, 255, 0.2),
+      0 6px 16px rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4),
+      inset 0 -2px 4px rgba(0, 0, 0, 0.45),
+      inset 0 0 16px rgba(125, 249, 255, 0.24);
+  }
+  50% {
+    box-shadow:
+      0 0 22px rgba(0, 229, 255, 0.85),
+      0 0 44px rgba(0, 229, 255, 0.5),
+      0 0 66px rgba(0, 150, 255, 0.35),
+      0 6px 16px rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5),
+      inset 0 -2px 4px rgba(0, 0, 0, 0.45),
+      inset 0 0 22px rgba(125, 249, 255, 0.38);
+  }
+}
+
+@keyframes borderGlow {
+  0%,
+  100% {
+    opacity: 0.3;
+    background-position: 0% 50%;
+  }
+  50% {
+    opacity: 0.6;
+    background-position: 100% 50%;
+  }
+}

@@ -1,0 +1,2012 @@
+// ============================================================
+// CraftWorkshops · 3D铸造检修盖板站 + 详情联动
+// 左侧视觉语言：铸造石墨壳体 / 3D凸起检修盖板 / 沉头螺栓孔 / 水平拨动开关
+// 配色：电蓝（#3b82f6）+ 石墨灰（冷色调）— 全新视觉语言
+// ============================================================
+
+// ============================================
+// 配色 — 电蓝 + 石墨灰（左侧分类tab）
+// ============================================
+$electric: #3b82f6;
+$electric-bright: #60a5fa;
+$electric-glow: #93c5fd;
+$electric-deep: #1e40af;
+$electric-dark: #172554;
+
+$graphite: #2a2d35;
+$graphite-light: #3d414c;
+$graphite-bright: #5a5f6d;
+$graphite-dark: #1a1d24;
+$graphite-void: #0f1117;
+
+// 通用背景色
+$bg-0: #0a0e1a;
+$bg-1: #0f1626;
+$bg-2: #16203a;
+$bg-3: #1e2d4a;
+
+// 文字色
+$text-bright: #ffffff;
+$text-mid: #e2e8f0;
+$text-dim: #94a3b8;
+
+// 旧配色（右侧详情面板保留用）
+$amber: #3b82f6;
+$amber-deep: #1e40af;
+$amber-dark: #172554;
+$amber-glow: #93c5fd;
+
+$steel-bright: #f1f5f9;
+$steel-light: #cbd5e1;
+$steel: #94a3b8;
+$steel-mid: #64748b;
+$steel-deep: #475569;
+$steel-dark: #334155;
+$steel-void: #1e293b;
+$steel-black: #0f172a;
+
+// ============================================
+// Mixins
+// ============================================
+
+// 铸造金属纹理 — 模拟铸件表面粗糙感 + 分型线
+@mixin cast-texture {
+  background:
+    radial-gradient(circle at 15% 25%, rgba(255, 255, 255, 0.025) 0%, transparent 40%),
+    radial-gradient(circle at 85% 75%, rgba(0, 0, 0, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.015) 0%, transparent 60%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, transparent 4%, transparent 96%, rgba(0, 0, 0, 0.12) 100%);
+}
+
+// 拉丝金属纹理（右侧详情面板用）
+@mixin brushed-metal {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, transparent 50%, rgba(0, 0, 0, 0.15) 100%),
+    repeating-linear-gradient(90deg, transparent 0, transparent 1px, rgba(255, 255, 255, 0.012) 1px, rgba(255, 255, 255, 0.012) 2px);
+}
+
+@mixin rivet($size: 8px) {
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, $steel-bright, $steel-light 30%, $steel-deep 70%, $steel-void);
+  box-shadow:
+    inset 0 -1px 1px rgba(0, 0, 0, 0.6),
+    inset 0 1px 1px rgba(255, 255, 255, 0.3),
+    0 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+@mixin screw($size: 10px) {
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, $steel-light, $steel-mid 50%, $steel-void);
+  box-shadow:
+    inset 0 -1px 2px rgba(0, 0, 0, 0.6),
+    inset 0 1px 1px rgba(255, 255, 255, 0.25),
+    0 1px 3px rgba(0, 0, 0, 0.6);
+  position: absolute;
+  z-index: 6;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 1px;
+  }
+  &::before { width: 60%; height: 1.5px; transform: translate(-50%, -50%); }
+  &::after { width: 1.5px; height: 60%; transform: translate(-50%, -50%); }
+}
+
+// 沉头螺栓孔 — 内六角沉头孔
+@mixin bolt-hole {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, $graphite-bright 0%, $graphite-light 30%, $graphite 60%, $graphite-void 100%);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.2),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.85),
+    inset 1px 0 1px rgba(0, 0, 0, 0.3),
+    0 1px 2px rgba(0, 0, 0, 0.6);
+  z-index: 5;
+
+  // 内六角孔
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 5px;
+    height: 5px;
+    background: $graphite-void;
+    box-shadow:
+      inset 0 1px 1px rgba(0, 0, 0, 0.9),
+      inset 0 -1px 1px rgba(255, 255, 255, 0.05);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  }
+}
+
+// ============================================
+// 主容器
+// ============================================
+.craft-workshops {
+  padding: 20px 16px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+
+  .workshop-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 16px;
+    align-items: stretch;
+    flex: 1;
+    min-height: 0;
+  }
+
+
+  // ============================================
+  // 左侧：3D铸造检修盖板站
+  // 视觉语言：铸造石墨壳体 + 深凹安装槽 + 3D凸起检修盖板 + 沉头螺栓孔
+  // ============================================
+  .control-station {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    overflow: hidden;
+    @include cast-texture;
+
+    // 铸造石墨壳体 — 厚重金属铸造外壁
+    background:
+      linear-gradient(170deg, $graphite-light 0%, $graphite 25%, $graphite-dark 65%, $graphite-void 100%);
+    border: 5px solid $graphite-dark;
+    border-top: 5px solid rgba($graphite-bright, 0.55);
+    border-left: 5px solid rgba($graphite-light, 0.5);
+    border-right: 5px solid rgba(0, 0, 0, 0.85);
+    border-bottom: 7px solid rgba(0, 0, 0, 0.92);
+
+    // 铸造壳体多层阴影 — 强落差悬浮感 + 铸造倒角
+    box-shadow:
+      inset 0 5px 0 rgba($graphite-bright, 0.28),
+      inset 0 -10px 0 rgba(0, 0, 0, 0.8),
+      inset 5px 0 12px rgba(0, 0, 0, 0.5),
+      inset -5px 0 12px rgba(0, 0, 0, 0.5),
+      0 24px 70px rgba(0, 0, 0, 0.95),
+      0 12px 24px rgba(0, 0, 0, 0.8),
+      0 0 0 1px $graphite-void,
+      0 0 0 7px rgba($graphite-dark, 0.5);
+
+    // ============================================
+    // 头部条 — 铸造铭牌 + 数码显示窗
+    // ============================================
+    .station-header {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 17px 22px 15px;
+      @include cast-texture;
+
+      // 阳光从左上方斜照 — 左上明显亮，右下明显暗
+      background:
+        radial-gradient(ellipse at 0% 0%, rgba($graphite-bright, 0.42) 0%, rgba($graphite-light, 0.15) 25%, transparent 65%),
+        linear-gradient(135deg, rgba($graphite-bright, 0.28) 0%, rgba($graphite-light, 0.1) 35%, transparent 60%),
+        linear-gradient(180deg, $graphite 0%, $graphite-dark 45%, $graphite-void 100%);
+
+      // 3D 边框 — 顶/左高光（受光面）+ 底/右深暗（背光面）
+      border-top: 4px solid rgba($graphite-bright, 0.55);
+      border-bottom: 6px solid rgba(0, 0, 0, 0.93);
+      border-left: 3px solid rgba($graphite-light, 0.45);
+      border-right: 3px solid rgba(0, 0, 0, 0.78);
+
+      // 多层 inset — 顶/左受光高光 + 底/右背光深暗 + 右下外投影（阳光从左上来影子在右下）
+      box-shadow:
+        inset 0 5px 8px rgba($graphite-bright, 0.35),
+        inset 0 -6px 10px rgba(0, 0, 0, 0.82),
+        inset 5px 0 8px rgba($graphite-bright, 0.18),
+        inset -5px 0 8px rgba(0, 0, 0, 0.6),
+        0 10px 24px rgba(0, 0, 0, 0.85),
+        0 4px 8px rgba(0, 0, 0, 0.65),
+        0 1px 2px rgba(0, 0, 0, 0.5);
+      flex-shrink: 0;
+
+      // 左上角阳光光斑 — 模拟阳光直射高光
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 55%;
+        height: 100%;
+        background:
+          radial-gradient(ellipse at 0% 0%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.04) 30%, transparent 70%);
+        pointer-events: none;
+        z-index: 2;
+      }
+
+      // 底部电蓝刻线 — 加粗加亮 + 发光
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -6px;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, rgba($electric, 0.3) 15%, rgba($electric-bright, 0.6) 50%, rgba($electric, 0.3) 85%, transparent);
+        box-shadow: 0 0 10px rgba($electric, 0.5);
+        z-index: 5;
+      }
+
+      .header-title-group {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex: 1;
+        position: relative;
+        z-index: 3;
+      }
+
+      .header-title {
+        font-size: 16px;
+        font-weight: 800;
+        color: $text-bright;
+        letter-spacing: 5px;
+        // 蚀刻浮雕文字 — 顶部高光 + 底部暗影 + 电蓝微光
+        text-shadow:
+          0 1px 0 rgba($graphite-bright, 0.5),
+          0 -1px 0 rgba(0, 0, 0, 0.6),
+          0 2px 6px rgba(0, 0, 0, 0.95),
+          0 0 18px rgba($electric, 0.25);
+      }
+
+      // 3点轮流闪烁（电蓝色）
+      .header-dots {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        position: relative;
+        z-index: 3;
+
+        .dot {
+          width: 5px;
+          height: 5px;
+          border-radius: 50%;
+          background: rgba($graphite-dark, 0.6);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5);
+
+          &:nth-child(1) { animation: dotBlink 1.5s ease-in-out infinite 0s; }
+          &:nth-child(2) { animation: dotBlink 1.5s ease-in-out infinite 0.5s; }
+          &:nth-child(3) { animation: dotBlink 1.5s ease-in-out infinite 1s; }
+        }
+      }
+
+      // 数码LED显示窗 — 深陷凹槽 + 电蓝数码管发光
+      .header-display {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        padding: 6px 14px;
+        background: linear-gradient(180deg, #000 0%, $graphite-void 50%, #000 100%);
+        border: 1px solid rgba(0, 0, 0, 0.9);
+        border-top: 2px solid rgba(0, 0, 0, 0.95);
+        border-bottom: 2px solid rgba($graphite-light, 0.32);
+        border-radius: 4px;
+        box-shadow:
+          inset 0 5px 8px rgba(0, 0, 0, 0.95),
+          inset 0 -3px 4px rgba(0, 0, 0, 0.75),
+          inset 3px 0 4px rgba(0, 0, 0, 0.65),
+          inset -3px 0 4px rgba(0, 0, 0, 0.65),
+          0 1px 0 rgba($graphite-bright, 0.25),
+          0 3px 6px rgba(0, 0, 0, 0.6);
+        font-family: 'Courier New', monospace;
+        font-size: 14px;
+        font-weight: 800;
+        letter-spacing: 1.5px;
+        position: relative;
+        z-index: 3;
+
+        .display-digit {
+          color: $electric-glow;
+          text-shadow:
+            0 0 4px rgba($electric, 0.9),
+            0 0 8px rgba($electric, 0.6),
+            0 0 16px rgba($electric, 0.3);
+        }
+
+        .display-sep {
+          color: $graphite-light;
+          text-shadow: none;
+          margin: 0 1px;
+        }
+
+        .display-total {
+          color: $graphite-bright;
+          text-shadow: 0 1px 1px rgba(0, 0, 0, 0.9);
+        }
+      }
+    }
+
+    // ============================================
+    // 深凹安装槽（可滚动）— 检修盖板嵌入区
+    // 视觉语言：深凹铸造槽 + 切割面高光 + 内嵌3D盖板
+    // ============================================
+    .locker-rack {
+      flex: 1;
+      overflow-y: auto;
+      padding: 18px 14px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      @include cast-texture;
+      background:
+        linear-gradient(180deg, rgba(#000, 0.94), rgba($graphite-void, 0.88) 30%, rgba($graphite-void, 0.88) 70%, rgba(#000, 0.94));
+      border-top: 3px solid rgba(0, 0, 0, 0.92);
+      border-bottom: 2px solid rgba($graphite-light, 0.2);
+
+      // 深凹安装槽 — 强 inset 阴影 + 切割面高光
+      box-shadow:
+        inset 0 12px 22px rgba(0, 0, 0, 0.88),
+        inset 0 -8px 14px rgba(0, 0, 0, 0.6),
+        inset 6px 0 14px rgba(0, 0, 0, 0.55),
+        inset -6px 0 14px rgba(0, 0, 0, 0.55),
+        inset 0 1px 0 rgba($graphite-bright, 0.15);
+      scrollbar-width: thin;
+      scrollbar-color: rgba($electric, 0.4) rgba(0, 0, 0, 0.3);
+
+      &::-webkit-scrollbar { width: 6px; }
+      &::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.4);
+        border-radius: 3px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, $electric, $electric-deep);
+        border-radius: 3px;
+        box-shadow: 0 0 4px rgba($electric, 0.4);
+      }
+    }
+
+    // ============================================
+    // 3D 检修盖板（每个分类 tab）
+    // 视觉语言：3D凸起铸造盖板 + 4角沉头螺栓 + 凹面蚀刻区 + 水平拨动开关
+    // ============================================
+    .locker-door {
+      position: relative;
+      display: block;
+      width: 100%;
+      padding: 14px 16px 12px 15px;
+      cursor: pointer;
+      text-align: left;
+      border-radius: 9px;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border: none;
+      @include cast-texture;
+
+      // 3D 凸起铸造盖板 — 厚底边+高光顶边+侧壁
+      background: linear-gradient(180deg, $graphite-light 0%, $graphite 35%, $graphite-dark 100%);
+      border: 1px solid rgba($graphite-dark, 0.85);
+      border-top: 3px solid rgba($graphite-bright, 0.5);
+      border-bottom: 10px solid rgba(0, 0, 0, 0.95);
+      border-left: 4px solid rgba($graphite-light, 0.4);
+      border-right: 3px solid rgba(0, 0, 0, 0.8);
+
+      // 凸起安装在深凹槽里 — 多层落差阴影 + 侧壁高光
+      box-shadow:
+        0 14px 28px rgba(0, 0, 0, 0.85),
+        0 7px 14px rgba(0, 0, 0, 0.65),
+        0 3px 5px rgba(0, 0, 0, 0.55),
+        inset 0 1px 0 rgba($graphite-bright, 0.35),
+        inset 0 -2px 0 rgba(0, 0, 0, 0.5),
+        inset 1px 0 0 rgba($graphite-bright, 0.22),
+        inset 4px 0 5px -2px rgba(0, 0, 0, 0.6);
+
+      // 凹面蚀刻区 — inset 阴影模拟盖板凹面
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 3px 3px 10px 5px;
+        border-radius: 6px;
+        @include cast-texture;
+        background:
+          linear-gradient(180deg, rgba($graphite-bright, 0.07) 0%, transparent 30%, rgba(0, 0, 0, 0.25) 100%);
+        box-shadow:
+          inset 0 3px 5px rgba(0, 0, 0, 0.5),
+          inset 0 -1px 2px rgba($graphite-bright, 0.12),
+          inset 2px 0 3px rgba(0, 0, 0, 0.35),
+          inset -2px 0 3px rgba(0, 0, 0, 0.35);
+        pointer-events: none;
+        z-index: 1;
+        transition: all 0.3s ease;
+      }
+
+      // 背光发光层 — hover/active 时盖板内部电蓝径向发光
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 9px;
+        background: radial-gradient(ellipse at center, rgba($electric, 0.25) 0%, rgba($electric, 0.08) 40%, transparent 70%);
+        opacity: 0;
+        transition: opacity 0.35s ease;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      // 标签区 — 蚀刻文字
+      .door-label {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding-left: 8px;
+        position: relative;
+        z-index: 3;
+
+        .label-name {
+          font-size: 14px;
+          font-weight: 700;
+          color: $text-mid;
+          line-height: 1.3;
+          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+          transition: color 0.3s ease;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .label-bottom {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 8px;
+
+          .info-heritage {
+            font-size: 12px;
+            font-weight: 800;
+            color: $electric-glow;
+            letter-spacing: 1px;
+            padding: 3px 10px;
+            border-radius: 3px;
+            background: linear-gradient(180deg, rgba($electric-deep, 0.45), rgba($electric-dark, 0.3));
+            border: 1px solid rgba($electric, 0.55);
+            border-top-color: rgba($electric-glow, 0.4);
+            box-shadow:
+              inset 0 1px 0 rgba($electric-glow, 0.25),
+              inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+              0 1px 2px rgba(0, 0, 0, 0.4),
+              0 0 8px rgba($electric, 0.2);
+            text-shadow: 0 0 4px rgba($electric, 0.45), 0 1px 1px rgba(0, 0, 0, 0.5);
+          }
+        }
+      }
+
+      // ============================================
+      // 3D 水平拨动开关 — 全新设计
+      // 水平轨道 + 金属拨块左右滑动
+      // 自然态：拨块在左 + 石墨灰色
+      // active态：拨块滑到右 + 电蓝色发光
+      // ============================================
+      .toggle-switch {
+        position: relative;
+        width: 44px;
+        height: 24px;
+        flex-shrink: 0;
+        border-radius: 4px;
+        background:
+          linear-gradient(90deg, rgba($graphite-light, 0.35) 0%, transparent 12%, transparent 88%, rgba($graphite-light, 0.35) 100%),
+          linear-gradient(180deg, #000 0%, $graphite-void 30%, $graphite-void 70%, #000 100%);
+        border: 1px solid rgba(0, 0, 0, 0.9);
+        border-top: 1px solid rgba($graphite-light, 0.4);
+        border-bottom: 1px solid rgba($graphite-bright, 0.25);
+        box-shadow:
+          inset 0 2px 4px rgba(0, 0, 0, 0.9),
+          inset 0 -1px 2px rgba(0, 0, 0, 0.6),
+          inset 1px 0 2px rgba(0, 0, 0, 0.4),
+          inset -1px 0 2px rgba(0, 0, 0, 0.4),
+          0 1px 2px rgba(0, 0, 0, 0.4);
+        z-index: 3;
+
+        // 4角沉头螺栓孔（缩小版）
+        .bolt-hole {
+          position: absolute;
+          width: 3px;
+          height: 3px;
+          border-radius: 50%;
+          background: radial-gradient(circle at 35% 35%, $graphite-bright 0%, $graphite-light 30%, $graphite 60%, $graphite-void 100%);
+          box-shadow:
+            inset 0 1px 1px rgba(255, 255, 255, 0.2),
+            inset 0 -1px 1px rgba(0, 0, 0, 0.85),
+            0 1px 1px rgba(0, 0, 0, 0.5);
+          z-index: 6;
+
+          &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 1.5px;
+            height: 1.5px;
+            background: $graphite-void;
+            border-radius: 0.5px;
+          }
+
+          &.bolt-tl { top: 1.5px; left: 1.5px; }
+          &.bolt-tr { top: 1.5px; right: 1.5px; }
+          &.bolt-bl { bottom: 1.5px; left: 1.5px; }
+          &.bolt-br { bottom: 1.5px; right: 1.5px; }
+        }
+
+        // 轨道左端刻线（OFF 标记）
+        &::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 7px;
+          width: 1.5px;
+          height: 5px;
+          transform: translateY(-50%);
+          background: rgba($graphite-bright, 0.2);
+          box-shadow: 3px 0 0 rgba(0, 0, 0, 0.3);
+          z-index: 2;
+        }
+
+        // 轨道右端刻线（ON 标记）
+        &::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          right: 7px;
+          width: 1.5px;
+          height: 5px;
+          transform: translateY(-50%);
+          background: rgba($graphite-bright, 0.2);
+          box-shadow: -3px 0 0 rgba(0, 0, 0, 0.3);
+          z-index: 2;
+        }
+
+        // 金属拨块
+        .toggle-knob {
+          position: absolute;
+          top: 4px;
+          bottom: 4px;
+          width: 16px;
+          left: 4px;
+          border-radius: 2px;
+          background: linear-gradient(180deg, $graphite-bright 0%, $graphite-light 30%, $graphite 70%, $graphite-dark 100%);
+          border: 1px solid rgba(0, 0, 0, 0.8);
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.3),
+            inset 0 -1px 1px rgba(0, 0, 0, 0.5),
+            inset 1px 0 1px rgba(255, 255, 255, 0.15),
+            inset -1px 0 1px rgba(0, 0, 0, 0.4),
+            0 1px 3px rgba(0, 0, 0, 0.7),
+            0 1px 1px rgba(0, 0, 0, 0.5);
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          z-index: 5;
+
+          // 拨块防滑横槽（3道）
+          &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 3px;
+            right: 3px;
+            height: 1px;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            box-shadow:
+              0 -2px 0 rgba(0, 0, 0, 0.4),
+              0 2px 0 rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+          }
+
+          // 拨块顶部高光带
+          &::after {
+            content: '';
+            position: absolute;
+            top: 1.5px;
+            left: 2px;
+            right: 2px;
+            height: 1.5px;
+            border-radius: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35) 50%, transparent);
+            transition: all 0.3s ease;
+          }
+        }
+      }
+
+      // ============================================
+      // hover — 背光呼吸 + 边框电蓝 + 凹面提亮 + 不位移
+      // ============================================
+      &:hover {
+        border-color: rgba($electric, 0.45);
+        border-top-color: rgba($electric-glow, 0.45);
+        border-bottom-color: rgba(0, 0, 0, 0.92);
+        border-left-color: rgba($electric, 0.35);
+
+        box-shadow:
+          0 14px 28px rgba(0, 0, 0, 0.85),
+          0 7px 14px rgba(0, 0, 0, 0.6),
+          0 3px 5px rgba(0, 0, 0, 0.55),
+          inset 0 1px 0 rgba($electric-glow, 0.25),
+          inset 0 -2px 0 rgba(0, 0, 0, 0.5),
+          inset 1px 0 0 rgba($electric-glow, 0.28),
+          inset 4px 0 5px -2px rgba($electric, 0.2);
+
+        // 背光呼吸动画
+        &::after {
+          opacity: 0.6;
+          animation: hoverGlowBreathe 2s ease-in-out infinite;
+        }
+
+        // 凹面表面提亮
+        &::before {
+          background:
+            linear-gradient(180deg, rgba($electric-glow, 0.09) 0%, transparent 30%, rgba(0, 0, 0, 0.25) 100%);
+        }
+
+        .label-name { color: $text-bright; }
+
+        // 开关轨道微微发亮
+        .toggle-switch {
+          box-shadow:
+            inset 0 3px 6px rgba(0, 0, 0, 0.9),
+            inset 0 -2px 3px rgba(0, 0, 0, 0.6),
+            inset 2px 0 3px rgba(0, 0, 0, 0.4),
+            inset -2px 0 3px rgba(0, 0, 0, 0.4),
+            0 0 8px rgba($electric, 0.15),
+            0 1px 2px rgba(0, 0, 0, 0.4);
+
+          // 螺栓孔微微发亮
+          .bolt-hole {
+            box-shadow:
+              inset 0 1px 1px rgba(255, 255, 255, 0.25),
+              inset 0 -1px 1px rgba(0, 0, 0, 0.85),
+              0 1px 1px rgba(0, 0, 0, 0.5),
+              0 0 3px rgba($electric, 0.2);
+          }
+        }
+      }
+
+      // ============================================
+      // active — 盖板"按下" + 背光全亮 + 电蓝发光 + 能量纹理（保持凸起）
+      // ============================================
+      &.active {
+        border-bottom-width: 5px; // 底边收缩 = 按下
+        border-color: rgba($electric, 0.65);
+        border-top-color: rgba($electric-deep, 0.7);
+        border-bottom-color: rgba($electric-glow, 0.45);
+        border-left-color: rgba($electric, 0.6);
+        border-right-color: rgba($electric-deep, 0.8);
+
+        // 径向渐变背景 — 中心电蓝光晕 + 深石墨底
+        background:
+          radial-gradient(ellipse at 50% 40%, rgba($electric, 0.22) 0%, rgba($electric-deep, 0.12) 30%, transparent 65%),
+          linear-gradient(180deg, $graphite 0%, rgba($electric-deep, 0.18) 40%, $graphite-void 100%);
+
+        // 多层外发光 + 强落差阴影 + 深凹陷 inset
+        box-shadow:
+          0 0 24px rgba($electric, 0.35),
+          0 0 12px rgba($electric, 0.3),
+          0 6px 12px rgba(0, 0, 0, 0.7),
+          0 3px 5px rgba(0, 0, 0, 0.45),
+          0 1px 2px rgba(0, 0, 0, 0.5),
+          inset 0 2px 5px rgba(0, 0, 0, 0.5),
+          inset 0 -2px 0 rgba($electric-glow, 0.3),
+          inset 1px 0 0 rgba($electric-glow, 0.35),
+          inset -1px 0 0 rgba($electric-deep, 0.4),
+          inset 4px 0 5px -2px rgba($electric, 0.3);
+
+        // 背光全亮 + 呼吸动画
+        &::after {
+          opacity: 1;
+          animation: activeGlowBreathe 2.5s ease-in-out infinite;
+        }
+
+        // 凹面表面 — 电蓝能量纹理 + 径向光晕 + 扫描线
+        &::before {
+          background:
+            radial-gradient(ellipse at 50% 50%, rgba($electric, 0.18) 0%, transparent 55%),
+            repeating-linear-gradient(0deg, transparent 0, transparent 3px, rgba($electric, 0.04) 3px, rgba($electric, 0.04) 4px),
+            linear-gradient(180deg, rgba($electric, 0.12) 0%, transparent 30%, rgba(0, 0, 0, 0.35) 100%);
+          box-shadow:
+            inset 0 3px 7px rgba(0, 0, 0, 0.6),
+            inset 0 -2px 3px rgba($electric-glow, 0.25),
+            inset 2px 0 4px rgba(0, 0, 0, 0.4),
+            inset -2px 0 4px rgba(0, 0, 0, 0.4);
+        }
+
+        .label-name {
+          color: $electric-glow;
+          text-shadow:
+            0 0 10px rgba($electric, 0.6),
+            0 0 4px rgba($electric, 0.4),
+            0 1px 2px rgba(0, 0, 0, 0.6);
+        }
+
+        // 开关轨道电蓝发光 + 螺栓孔发光
+        .toggle-switch {
+          box-shadow:
+            inset 0 3px 6px rgba(0, 0, 0, 0.9),
+            inset 0 -2px 3px rgba(0, 0, 0, 0.6),
+            inset 2px 0 3px rgba(0, 0, 0, 0.4),
+            inset -2px 0 3px rgba(0, 0, 0, 0.4),
+            0 0 16px rgba($electric, 0.5),
+            0 0 8px rgba($electric, 0.3),
+            0 1px 2px rgba(0, 0, 0, 0.4);
+
+          // 螺栓孔电蓝发光
+          .bolt-hole {
+            background: radial-gradient(circle at 35% 35%, $electric-glow 0%, $electric 30%, $electric-deep 60%, $electric-dark 100%);
+            box-shadow:
+              inset 0 1px 1px rgba(255, 255, 255, 0.4),
+              inset 0 -1px 1px rgba(0, 0, 0, 0.5),
+              0 0 5px rgba($electric, 0.6),
+              0 1px 1px rgba(0, 0, 0, 0.5);
+
+            &::before {
+              background: $electric-dark;
+            }
+          }
+
+          // 右端 ON 刻线变电蓝发光
+          &::after {
+            background: $electric-glow;
+            box-shadow:
+              -4px 0 0 rgba($electric, 0.4),
+              0 0 5px rgba($electric, 0.7);
+          }
+
+          // 金属拨块滑到右 + 变电蓝色发光
+          .toggle-knob {
+            left: auto;
+            right: 4px;
+            background: linear-gradient(180deg, $electric-glow 0%, $electric 30%, $electric-deep 70%, $electric-dark 100%);
+            border-color: rgba($electric-dark, 0.85);
+            box-shadow:
+              inset 0 1px 0 rgba(255, 255, 255, 0.5),
+              inset 0 -1px 1px rgba(0, 0, 0, 0.3),
+              inset 1px 0 1px rgba($electric-glow, 0.3),
+              inset -1px 0 1px rgba($electric-dark, 0.5),
+              0 0 10px rgba($electric, 0.8),
+              0 0 20px rgba($electric, 0.5),
+              0 0 30px rgba($electric, 0.25),
+              0 2px 4px rgba(0, 0, 0, 0.6);
+
+            // 防滑横槽变电蓝色
+            &::before {
+              background: rgba($electric-dark, 0.6);
+              box-shadow:
+                0 -3px 0 rgba($electric-deep, 0.5),
+                0 3px 0 rgba($electric-deep, 0.5);
+            }
+
+            // 顶部高光带变亮 + 脉冲动画
+            &::after {
+              background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.65) 50%, transparent);
+              animation: knobHighlightPulse 1.5s ease-in-out infinite;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // ============================================
+  // 右侧：详情面板 — 石墨铸造壳体 + 电蓝 accent（与左侧统一）
+  // ============================================
+  .detail-panel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    @include cast-texture;
+    background:
+      linear-gradient(135deg, rgba($graphite-bright, 0.06) 0%, transparent 35%),
+      linear-gradient(160deg, $graphite 0%, $graphite-dark 50%, $graphite-void 100%);
+    border: 1px solid rgba($graphite-dark, 0.85);
+    border-top: 3px solid rgba($graphite-bright, 0.45);
+    border-left: 2px solid rgba($graphite-bright, 0.3);
+    border-radius: 8px;
+    overflow: hidden;
+
+    box-shadow:
+      inset 0 2px 0 rgba($graphite-bright, 0.18),
+      inset 1px 0 0 rgba($graphite-bright, 0.08),
+      inset 0 -3px 0 rgba(0, 0, 0, 0.6),
+      0 8px 24px rgba(0, 0, 0, 0.8),
+      0 2px 6px rgba(0, 0, 0, 0.6);
+
+    .detail-upper {
+      display: flex;
+      gap: 0;
+      flex-shrink: 0;
+    }
+
+    .detail-image-frame {
+      position: relative;
+      flex: 0 0 33.333%;
+      min-width: 180px;
+      min-height: 200px;
+      overflow: hidden;
+      background: $graphite-void;
+      border-right: 2px solid rgba(0, 0, 0, 0.7);
+      box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.85), inset -2px 0 4px rgba(0, 0, 0, 0.5);
+
+      .frame-screw {
+        @include screw(9px);
+        &.screw-tl { top: 7px; left: 7px; }
+        &.screw-tr { top: 7px; right: 7px; }
+        &.screw-bl { bottom: 7px; left: 7px; }
+        &.screw-br { bottom: 7px; right: 7px; }
+      }
+
+      .detail-image {
+        width: 100%;
+        height: 100%;
+        min-height: 180px;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+        filter: contrast(1.1) saturate(1.05);
+      }
+
+      .image-gradient-overlay {
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, transparent 30%),
+          linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, transparent 30%, transparent 55%, rgba($graphite-void, 0.92) 100%);
+        pointer-events: none;
+      }
+
+      .heritage-badge {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        background: linear-gradient(135deg, $electric 0%, $electric-deep 50%, $electric-dark 100%);
+        border: 1px solid rgba($electric, 0.7);
+        border-top-color: rgba($electric-glow, 0.8);
+        border-radius: 4px;
+        padding: 4px 12px;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.45),
+          inset 0 -2px 3px rgba(0, 0, 0, 0.35),
+          0 4px 10px rgba(0, 0, 0, 0.6),
+          0 0 14px rgba($electric, 0.3);
+
+        .badge-text {
+          font-size: 11px;
+          font-weight: 800;
+          color: $text-bright;
+          letter-spacing: 1.5px;
+          text-shadow: 0 0 6px rgba($electric-glow, 0.5), 0 1px 2px rgba(0, 0, 0, 0.4);
+        }
+      }
+
+      .image-type-tag {
+        position: absolute;
+        bottom: 12px;
+        right: 12px;
+        font-size: 11px;
+        font-weight: 700;
+        color: $text-bright;
+        background: linear-gradient(180deg, $graphite, $graphite-dark);
+        border: 1px solid rgba($graphite-bright, 0.35);
+        border-top-color: rgba($graphite-bright, 0.25);
+        border-radius: 4px;
+        padding: 4px 12px;
+        letter-spacing: 1px;
+        box-shadow:
+          inset 0 1px 0 rgba($graphite-bright, 0.18),
+          inset 0 -1px 2px rgba(0, 0, 0, 0.4),
+          0 3px 8px rgba(0, 0, 0, 0.6);
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+      }
+
+      &:hover .detail-image { transform: scale(1.04); }
+    }
+
+    .detail-info {
+      flex: 1;
+      min-width: 0;
+      padding: 14px 18px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background:
+        linear-gradient(135deg, rgba($graphite-bright, 0.06) 0%, transparent 40%),
+        linear-gradient(180deg, rgba($graphite, 0.35), rgba($graphite-dark, 0.2));
+      border-left: 1px solid rgba($graphite-bright, 0.12);
+      box-shadow: inset 1px 0 0 rgba(0, 0, 0, 0.3);
+
+      .content-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+        padding: 10px 14px;
+        background:
+          linear-gradient(135deg, rgba($graphite-bright, 0.08) 0%, transparent 40%),
+          linear-gradient(180deg, rgba($graphite, 0.6), rgba($graphite-dark, 0.45));
+        border: 1px solid rgba($graphite-bright, 0.25);
+        border-top-color: rgba($graphite-bright, 0.42);
+        border-left-color: rgba($graphite-bright, 0.35);
+        border-radius: 6px;
+        box-shadow:
+          inset 0 1px 0 rgba($graphite-bright, 0.2),
+          inset 1px 0 0 rgba($graphite-bright, 0.08),
+          inset 0 -2px 4px rgba(0, 0, 0, 0.55),
+          0 3px 8px rgba(0, 0, 0, 0.45);
+      }
+
+      .content-header {
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+        flex: 1;
+        min-width: 0;
+
+        .content-title {
+          font-size: 22px;
+          font-weight: 800;
+          color: $text-bright;
+          margin: 0;
+          text-shadow:
+            0 1px 0 rgba(255, 255, 255, 0.08),
+            0 2px 4px rgba(0, 0, 0, 0.8),
+            0 0 16px rgba($electric, 0.15);
+          letter-spacing: 0.5px;
+          line-height: 1.3;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .content-index {
+          font-size: 13px;
+          font-family: 'Courier New', monospace;
+          color: $electric-glow;
+          font-weight: 800;
+          letter-spacing: 1px;
+          flex-shrink: 0;
+          text-shadow: 0 0 8px rgba($electric, 0.5), 0 1px 2px rgba(0, 0, 0, 0.6);
+          background:
+            linear-gradient(135deg, rgba($electric-glow, 0.1) 0%, transparent 50%),
+            linear-gradient(180deg, rgba($graphite-void, 0.75), rgba(0, 0, 0, 0.55));
+          border: 1px solid rgba($electric, 0.42);
+          border-top-color: rgba($electric-glow, 0.55);
+          border-left-color: rgba($electric, 0.35);
+          border-radius: 3px;
+          padding: 3px 8px;
+          box-shadow:
+            inset 0 1px 0 rgba($electric, 0.18),
+            inset 1px 0 0 rgba($electric, 0.08),
+            inset 0 -1px 2px rgba(0, 0, 0, 0.45),
+            0 2px 4px rgba(0, 0, 0, 0.45),
+            0 0 8px rgba($electric, 0.12);
+        }
+      }
+
+      .content-meta {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-shrink: 0;
+
+        .meta-rating {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          padding: 4px 10px;
+          background:
+            linear-gradient(135deg, rgba(251, 191, 36, 0.08) 0%, transparent 50%),
+            linear-gradient(180deg, rgba($graphite-void, 0.6), rgba(0, 0, 0, 0.4));
+          border: 1px solid rgba(251, 191, 36, 0.3);
+          border-top-color: rgba(251, 191, 36, 0.45);
+          border-radius: 5px;
+          box-shadow:
+            inset 0 1px 0 rgba(251, 191, 36, 0.12),
+            inset 0 -1px 2px rgba(0, 0, 0, 0.4),
+            0 2px 5px rgba(0, 0, 0, 0.4);
+
+          .rating-star {
+            font-size: 16px;
+            color: #fbbf24;
+            text-shadow: 0 0 10px rgba(251, 191, 36, 0.8), 0 0 4px rgba(254, 215, 170, 0.5);
+            line-height: 1;
+          }
+
+          .rating-val {
+            font-size: 18px;
+            font-weight: 800;
+            color: #fbbf24;
+            font-family: 'Courier New', monospace;
+            text-shadow: 0 0 8px rgba(251, 191, 36, 0.6), 0 1px 2px rgba(0, 0, 0, 0.4);
+            line-height: 1;
+          }
+
+          .rating-count {
+            font-size: 11px;
+            color: $text-mid;
+            font-weight: 500;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+          }
+        }
+
+        .meta-price {
+          .price-val {
+            font-size: 19px;
+            font-weight: 900;
+            color: $electric-glow;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba($electric, 0.6), 0 0 4px rgba($electric-glow, 0.4), 0 1px 2px rgba(0, 0, 0, 0.6);
+            background:
+              linear-gradient(135deg, rgba($electric-glow, 0.18) 0%, transparent 40%),
+              linear-gradient(180deg, rgba($electric-dark, 0.45), rgba($graphite-void, 0.7));
+            border: 1px solid rgba($electric, 0.5);
+            border-top-color: rgba($electric-glow, 0.65);
+            border-left-color: rgba($electric, 0.45);
+            border-radius: 5px;
+            padding: 5px 12px;
+            box-shadow:
+              inset 0 1px 0 rgba($electric-glow, 0.3),
+              inset 1px 0 0 rgba($electric, 0.1),
+              inset 0 -2px 3px rgba(0, 0, 0, 0.5),
+              0 3px 7px rgba(0, 0, 0, 0.55),
+              0 0 14px rgba($electric, 0.22);
+          }
+        }
+      }
+
+      .content-desc {
+        font-size: 15px;
+        font-weight: 500;
+        line-height: 1.7;
+        color: $text-bright;
+        margin: 0;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+        padding: 10px 14px;
+        background:
+          linear-gradient(135deg, rgba($graphite-bright, 0.05) 0%, transparent 50%),
+          linear-gradient(180deg, rgba($graphite-void, 0.55), rgba(0, 0, 0, 0.35));
+        border: 1px solid rgba($graphite-bright, 0.18);
+        border-top-color: rgba($graphite-bright, 0.28);
+        border-left-color: rgba($graphite-bright, 0.22);
+        border-radius: 6px;
+        box-shadow:
+          inset 0 2px 4px rgba(0, 0, 0, 0.45),
+          inset 1px 0 2px rgba(0, 0, 0, 0.2),
+          inset 0 -1px 0 rgba($graphite-bright, 0.1),
+          0 2px 5px rgba(0, 0, 0, 0.35);
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .content-info-row {
+        display: flex;
+        gap: 12px;
+        padding: 12px 16px;
+        background:
+          linear-gradient(135deg, rgba($electric-glow, 0.06) 0%, transparent 40%),
+          linear-gradient(180deg, rgba($graphite, 0.6), rgba($graphite-dark, 0.5));
+        border: 1px solid rgba($graphite-bright, 0.3);
+        border-top-color: rgba($graphite-bright, 0.48);
+        border-left-color: rgba($graphite-bright, 0.4);
+        border-radius: 7px;
+        box-shadow:
+          inset 0 1px 0 rgba($graphite-bright, 0.25),
+          inset 1px 0 0 rgba($graphite-bright, 0.1),
+          inset 0 -2px 5px rgba(0, 0, 0, 0.6),
+          inset -1px 0 2px rgba(0, 0, 0, 0.3),
+          0 4px 10px rgba(0, 0, 0, 0.5),
+          0 0 8px rgba($electric, 0.06);
+
+        .info-item {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+          flex: 1;
+
+          &:not(:last-child) {
+            border-right: 1px solid rgba($graphite-bright, 0.2);
+            padding-right: 10px;
+          }
+
+          .info-key {
+            font-size: 11px;
+            color: $electric-glow;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-shadow: 0 0 8px rgba($electric, 0.5), 0 1px 1px rgba(0, 0, 0, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 2px 8px;
+            background:
+              linear-gradient(135deg, rgba($electric-glow, 0.1) 0%, transparent 50%),
+              linear-gradient(180deg, rgba($electric-dark, 0.3), rgba($graphite-void, 0.5));
+            border: 1px solid rgba($electric, 0.35);
+            border-top-color: rgba($electric, 0.5);
+            border-radius: 3px;
+            box-shadow:
+              inset 0 1px 0 rgba($electric, 0.15),
+              inset 0 -1px 1px rgba(0, 0, 0, 0.3),
+              0 1px 3px rgba(0, 0, 0, 0.35);
+            align-self: flex-start;
+          }
+
+          .info-val {
+            font-size: 15px;
+            color: $text-bright;
+            font-weight: 700;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5), 0 0 4px rgba(255, 255, 255, 0.08);
+
+            &[data-level="简单"] { color: #4ade80; text-shadow: 0 0 10px rgba(74, 222, 128, 0.6), 0 1px 2px rgba(0, 0, 0, 0.4); }
+            &[data-level="中等"] { color: $electric-glow; text-shadow: 0 0 10px rgba($electric, 0.6), 0 1px 2px rgba(0, 0, 0, 0.4); }
+            &[data-level="较难"] { color: #f87171; text-shadow: 0 0 10px rgba(248, 113, 113, 0.6), 0 1px 2px rgba(0, 0, 0, 0.4); }
+          }
+        }
+      }
+    }
+
+    .detail-content {
+      flex: 1;
+      padding: 10px 18px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: rgba($electric, 0.4) rgba(0, 0, 0, 0.3);
+      border-top: 1px solid rgba($graphite-bright, 0.12);
+      box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.3);
+
+      &::-webkit-scrollbar { width: 5px; }
+      &::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.3); border-radius: 3px; }
+      &::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, $electric, $electric-deep);
+        border-radius: 3px;
+      }
+
+      .content-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+
+        .grid-col {
+          display: flex;
+          flex-direction: column;
+          gap: 14px;
+          min-width: 0;
+        }
+      }
+
+      .content-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: auto;
+        padding: 12px 16px;
+        background:
+          linear-gradient(135deg, rgba($graphite-bright, 0.1) 0%, transparent 35%),
+          linear-gradient(180deg, rgba($graphite, 0.55), rgba($graphite-dark, 0.45));
+        border: 1px solid rgba($graphite-bright, 0.32);
+        border-top-color: rgba($graphite-bright, 0.5);
+        border-left-color: rgba($graphite-bright, 0.4);
+        border-bottom: 2px solid rgba(0, 0, 0, 0.55);
+        border-radius: 6px;
+        box-shadow:
+          inset 0 1px 0 rgba($graphite-bright, 0.3),
+          inset 1px 0 0 rgba($graphite-bright, 0.12),
+          inset 0 -2px 4px rgba(0, 0, 0, 0.5),
+          0 4px 9px rgba(0, 0, 0, 0.5),
+          0 1px 0 rgba(0, 0, 0, 0.4);
+      }
+
+
+      .content-section {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 12px 16px;
+        background:
+          linear-gradient(135deg, rgba($graphite-bright, 0.09) 0%, transparent 35%),
+          linear-gradient(180deg, rgba($graphite, 0.5), rgba($graphite-dark, 0.45));
+        border: 1px solid rgba($graphite-bright, 0.3);
+        border-top-color: rgba($graphite-bright, 0.48);
+        border-left-color: rgba($graphite-bright, 0.38);
+        border-bottom: 2px solid rgba(0, 0, 0, 0.55);
+        border-radius: 6px;
+        box-shadow:
+          inset 0 1px 0 rgba($graphite-bright, 0.26),
+          inset 1px 0 0 rgba($graphite-bright, 0.1),
+          inset 0 -2px 4px rgba(0, 0, 0, 0.5),
+          0 4px 9px rgba(0, 0, 0, 0.5),
+          0 1px 0 rgba(0, 0, 0, 0.4);
+
+        .section-label {
+          font-size: 15px;
+          font-weight: 800;
+          color: $text-bright;
+          letter-spacing: 2.5px;
+          text-transform: uppercase;
+          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.65), 0 0 4px rgba($electric, 0.15);
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          &::before {
+            content: '';
+            width: 6px;
+            height: 20px;
+            background: linear-gradient(180deg, $electric-glow 0%, $electric 50%, $electric-deep 100%);
+            border-radius: 2px;
+            box-shadow:
+              0 0 12px rgba($electric, 0.85),
+              0 0 5px rgba($electric-glow, 0.55),
+              inset 0 1px 0 rgba(255, 255, 255, 0.55),
+              inset 0 -1px 0 rgba(0, 0, 0, 0.35),
+              inset 1px 0 0 rgba(255, 255, 255, 0.2);
+          }
+        }
+      }
+
+      .instructor-box {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 11px 16px;
+        background:
+          linear-gradient(135deg, rgba($electric-glow, 0.16) 0%, transparent 35%),
+          linear-gradient(180deg, rgba($electric-dark, 0.45), rgba($graphite-void, 0.7));
+        border: 1px solid rgba($electric, 0.55);
+        border-top-color: rgba($electric-glow, 0.7);
+        border-left-color: rgba($electric, 0.6);
+        border-bottom: 2px solid rgba(0, 0, 0, 0.6);
+        border-radius: 5px;
+        box-shadow:
+          inset 0 1px 0 rgba($electric-glow, 0.35),
+          inset 1px 0 0 rgba($electric, 0.15),
+          inset 0 -2px 4px rgba(0, 0, 0, 0.55),
+          0 4px 10px rgba(0, 0, 0, 0.55),
+          0 1px 0 rgba(0, 0, 0, 0.4),
+          0 0 18px rgba($electric, 0.22);
+
+        .instructor-icon {
+          font-size: 18px;
+          color: $electric-glow;
+          text-shadow: 0 0 12px rgba($electric, 0.85), 0 0 5px rgba($electric-glow, 0.55);
+          line-height: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 32px;
+          height: 32px;
+          background:
+            radial-gradient(circle at 30% 30%, rgba($electric, 0.35), rgba($graphite-dark, 0.75));
+          border: 1px solid rgba($electric, 0.5);
+          border-top-color: rgba($electric-glow, 0.6);
+          border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+          border-radius: 50%;
+          box-shadow:
+            inset 0 1px 0 rgba($electric-glow, 0.3),
+            inset 0 -2px 3px rgba(0, 0, 0, 0.5),
+            0 2px 4px rgba(0, 0, 0, 0.5),
+            0 0 10px rgba($electric, 0.35);
+          flex-shrink: 0;
+        }
+
+        .instructor-name {
+          font-size: 15px;
+          font-weight: 700;
+          color: $text-bright;
+          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55), 0 0 8px rgba($electric, 0.2);
+          letter-spacing: 0.3px;
+        }
+      }
+
+      .audience-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+
+        .audience-tag {
+          font-size: 13px;
+          font-weight: 700;
+          padding: 7px 16px;
+          border-radius: 4px;
+          color: $text-bright;
+          letter-spacing: 0.8px;
+          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55);
+          transition: all 0.2s ease;
+          position: relative;
+          border-top: none;
+          border-left: none;
+          border-right: none;
+
+          &::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 8px;
+            right: 8px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+          }
+
+          &:nth-child(1) {
+            background:
+              linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, transparent 30%),
+              linear-gradient(180deg, rgba(59, 130, 246, 0.55), rgba(30, 64, 175, 0.7));
+            border-bottom: 4px solid rgba(0, 0, 0, 0.65);
+            box-shadow:
+              inset 0 1px 0 rgba(147, 197, 253, 0.45),
+              inset 1px 0 0 rgba(255, 255, 255, 0.15),
+              inset 0 -1px 1px rgba(0, 0, 0, 0.4),
+              0 3px 6px rgba(0, 0, 0, 0.55),
+              0 1px 0 rgba(0, 0, 0, 0.4),
+              0 0 12px rgba(59, 130, 246, 0.25);
+
+            &:hover {
+              box-shadow:
+                inset 0 1px 0 rgba(147, 197, 253, 0.55),
+                inset 1px 0 0 rgba(255, 255, 255, 0.2),
+                inset 0 -1px 1px rgba(0, 0, 0, 0.4),
+                0 5px 12px rgba(0, 0, 0, 0.65),
+                0 1px 0 rgba(0, 0, 0, 0.4),
+                0 0 22px rgba(59, 130, 246, 0.5);
+              filter: brightness(1.1);
+            }
+          }
+
+          &:nth-child(2) {
+            background:
+              linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, transparent 30%),
+              linear-gradient(180deg, rgba(34, 197, 94, 0.55), rgba(21, 128, 61, 0.7));
+            border-bottom: 4px solid rgba(0, 0, 0, 0.65);
+            box-shadow:
+              inset 0 1px 0 rgba(134, 239, 172, 0.45),
+              inset 1px 0 0 rgba(255, 255, 255, 0.15),
+              inset 0 -1px 1px rgba(0, 0, 0, 0.4),
+              0 3px 6px rgba(0, 0, 0, 0.55),
+              0 1px 0 rgba(0, 0, 0, 0.4),
+              0 0 12px rgba(34, 197, 94, 0.25);
+
+            &:hover {
+              box-shadow:
+                inset 0 1px 0 rgba(134, 239, 172, 0.55),
+                inset 1px 0 0 rgba(255, 255, 255, 0.2),
+                inset 0 -1px 1px rgba(0, 0, 0, 0.4),
+                0 5px 12px rgba(0, 0, 0, 0.65),
+                0 1px 0 rgba(0, 0, 0, 0.4),
+                0 0 22px rgba(34, 197, 94, 0.5);
+              filter: brightness(1.1);
+            }
+          }
+
+          &:nth-child(3) {
+            background:
+              linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, transparent 30%),
+              linear-gradient(180deg, rgba(245, 158, 11, 0.55), rgba(180, 83, 9, 0.7));
+            border-bottom: 4px solid rgba(0, 0, 0, 0.65);
+            box-shadow:
+              inset 0 1px 0 rgba(251, 191, 36, 0.45),
+              inset 1px 0 0 rgba(255, 255, 255, 0.15),
+              inset 0 -1px 1px rgba(0, 0, 0, 0.4),
+              0 3px 6px rgba(0, 0, 0, 0.55),
+              0 1px 0 rgba(0, 0, 0, 0.4),
+              0 0 12px rgba(245, 158, 11, 0.25);
+
+            &:hover {
+              box-shadow:
+                inset 0 1px 0 rgba(251, 191, 36, 0.55),
+                inset 1px 0 0 rgba(255, 255, 255, 0.2),
+                inset 0 -1px 1px rgba(0, 0, 0, 0.4),
+                0 5px 12px rgba(0, 0, 0, 0.65),
+                0 1px 0 rgba(0, 0, 0, 0.4),
+                0 0 22px rgba(245, 158, 11, 0.5);
+              filter: brightness(1.1);
+            }
+          }
+
+          &:nth-child(n+4) {
+            background:
+              linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, transparent 30%),
+              linear-gradient(180deg, rgba($graphite-light, 0.85), rgba($graphite-dark, 0.85));
+            border-bottom: 4px solid rgba(0, 0, 0, 0.6);
+            box-shadow:
+              inset 0 1px 0 rgba($graphite-bright, 0.4),
+              inset 1px 0 0 rgba(255, 255, 255, 0.1),
+              inset 0 -1px 1px rgba(0, 0, 0, 0.4),
+              0 3px 6px rgba(0, 0, 0, 0.55),
+              0 1px 0 rgba(0, 0, 0, 0.4);
+          }
+        }
+      }
+
+      .highlights-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .highlight-item {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          padding: 10px 16px 10px 14px;
+          background:
+            linear-gradient(135deg, rgba($electric-glow, 0.08) 0%, transparent 35%),
+            linear-gradient(180deg, rgba($graphite, 0.55), rgba($graphite-dark, 0.7));
+          border-left: 4px solid $electric;
+          border-top: 1px solid rgba($graphite-bright, 0.32);
+          border-bottom: 2px solid rgba(0, 0, 0, 0.55);
+          border-right: 1px solid rgba($graphite-bright, 0.18);
+          border-radius: 0 6px 6px 0;
+          box-shadow:
+            inset 0 1px 0 rgba($graphite-bright, 0.28),
+            inset 0 -2px 3px rgba(0, 0, 0, 0.5),
+            inset 3px 0 6px rgba($electric, 0.18),
+            0 3px 7px rgba(0, 0, 0, 0.55),
+            0 1px 0 rgba(0, 0, 0, 0.4),
+            0 0 10px rgba($electric, 0.1);
+          transition: all 0.2s ease;
+
+          &:hover {
+            border-left-color: $electric-glow;
+            box-shadow:
+              inset 0 1px 0 rgba($graphite-bright, 0.35),
+              inset 0 -2px 3px rgba(0, 0, 0, 0.5),
+              inset 3px 0 8px rgba($electric, 0.28),
+              0 5px 12px rgba(0, 0, 0, 0.6),
+              0 1px 0 rgba(0, 0, 0, 0.4),
+              0 0 20px rgba($electric, 0.3);
+          }
+
+          .highlight-text {
+            font-size: 15px;
+            color: $text-bright;
+            font-weight: 600;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55), 0 0 4px rgba($electric, 0.1);
+            letter-spacing: 0.3px;
+          }
+        }
+      }
+
+      .steps-rack {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        position: relative;
+        padding-left: 18px;
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 6px;
+          top: 18px;
+          bottom: 18px;
+          width: 3px;
+          background: linear-gradient(180deg,
+            rgba($electric, 0.6) 0%,
+            rgba($electric, 0.3) 50%,
+            rgba($graphite-bright, 0.18) 100%);
+          box-shadow:
+            0 0 8px rgba($electric, 0.25),
+            inset 0 1px 0 rgba($electric-glow, 0.4),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+        }
+
+        .step-plate {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          padding: 9px 14px 9px 10px;
+          background:
+            linear-gradient(135deg, rgba($graphite-bright, 0.1) 0%, transparent 35%),
+            linear-gradient(180deg, rgba($graphite, 0.6), rgba($graphite-dark, 0.75));
+          border: 1px solid rgba($graphite-bright, 0.32);
+          border-top-color: rgba($graphite-bright, 0.48);
+          border-bottom: 2px solid rgba(0, 0, 0, 0.55);
+          border-left: none;
+          border-radius: 0 6px 6px 0;
+          box-shadow:
+            inset 0 1px 0 rgba($graphite-bright, 0.28),
+            inset 0 -2px 3px rgba(0, 0, 0, 0.5),
+            inset 1px 0 4px rgba(0, 0, 0, 0.35),
+            0 3px 7px rgba(0, 0, 0, 0.55),
+            0 1px 0 rgba(0, 0, 0, 0.4);
+          position: relative;
+
+          &::before {
+            content: '';
+            position: absolute;
+            left: -18px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 2px;
+            background: linear-gradient(90deg, rgba($electric, 0.5), rgba($graphite-bright, 0.2));
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+          }
+
+          .plate-rivet {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 38px;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            background:
+              linear-gradient(180deg,
+                rgba(255, 255, 255, 0.5) 0%,
+                $steel-bright 7%,
+                $steel-light 20%,
+                $steel 40%,
+                $steel-mid 58%,
+                $steel-deep 75%,
+                $steel-dark 88%,
+                rgba($electric, 0.4) 100%);
+            box-shadow:
+              0 5px 9px rgba(0, 0, 0, 0.75),
+              0 2px 3px rgba(0, 0, 0, 0.55),
+              inset 0 1px 1px rgba(255, 255, 255, 0.55),
+              inset 0 -2px 3px rgba(0, 0, 0, 0.7),
+              inset 1px 0 1px rgba(255, 255, 255, 0.3),
+              inset -1px 0 1px rgba(0, 0, 0, 0.35);
+
+            &::before {
+              content: '';
+              position: absolute;
+              top: 4px;
+              left: 50%;
+              transform: translateX(-50%);
+              width: 18px;
+              height: 3px;
+              background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+              border-radius: 50%;
+              filter: blur(0.5px);
+            }
+
+            &::after {
+              content: '';
+              position: absolute;
+              bottom: 4px;
+              left: 50%;
+              transform: translateX(-50%);
+              width: 14px;
+              height: 2px;
+              background: linear-gradient(90deg, transparent, rgba($electric-glow, 0.55), transparent);
+              border-radius: 50%;
+              filter: blur(0.5px);
+            }
+
+            .rivet-core {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 22px;
+              height: 25px;
+              clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+              background:
+                linear-gradient(180deg, $graphite-void 0%, $graphite-dark 45%, $graphite 100%);
+              font-size: 12px;
+              font-weight: 800;
+              font-family: 'Courier New', monospace;
+              color: $electric-glow;
+              text-shadow: 0 0 8px rgba($electric, 0.8), 0 1px 1px rgba(0, 0, 0, 0.55);
+              box-shadow:
+                inset 0 2px 4px rgba(0, 0, 0, 0.85),
+                inset 0 -1px 1px rgba($graphite-bright, 0.3),
+                inset 1px 0 1px rgba(0, 0, 0, 0.5),
+                inset -1px 0 1px rgba(0, 0, 0, 0.5);
+              position: relative;
+
+              &::after {
+                content: '';
+                position: absolute;
+                top: 3px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 9px;
+                height: 1px;
+                background: rgba(255, 255, 255, 0.3);
+                border-radius: 50%;
+                filter: blur(0.3px);
+              }
+            }
+          }
+
+
+          .plate-text {
+            font-size: 14px;
+            color: $text-bright;
+            font-weight: 600;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55);
+            letter-spacing: 0.3px;
+            line-height: 1.4;
+          }
+
+          &.plate-active {
+            background:
+              linear-gradient(135deg, rgba($electric, 0.2) 0%, transparent 35%),
+              linear-gradient(180deg, rgba($graphite, 0.6), rgba($graphite-dark, 0.75));
+            border-color: rgba($electric, 0.55);
+            border-top-color: rgba($electric-glow, 0.7);
+            box-shadow:
+              inset 0 1px 0 rgba($electric-glow, 0.35),
+              inset 0 -2px 3px rgba(0, 0, 0, 0.5),
+              inset 1px 0 4px rgba(0, 0, 0, 0.35),
+              0 4px 10px rgba(0, 0, 0, 0.6),
+              0 0 14px rgba($electric, 0.22);
+
+            .plate-rivet {
+              background:
+                linear-gradient(180deg,
+                  rgba(255, 255, 255, 0.55) 0%,
+                  $electric-glow 8%,
+                  $electric-bright 22%,
+                  $electric 42%,
+                  $electric-deep 62%,
+                  $electric-dark 82%,
+                  rgba($electric-glow, 0.4) 100%);
+              box-shadow:
+                0 5px 10px rgba(0, 0, 0, 0.7),
+                0 2px 3px rgba(0, 0, 0, 0.5),
+                0 0 16px rgba($electric, 0.6),
+                inset 0 1px 1px rgba(255, 255, 255, 0.65),
+                inset 0 -2px 3px rgba(0, 0, 0, 0.5),
+                inset 1px 0 1px rgba(255, 255, 255, 0.35),
+                inset -1px 0 1px rgba(0, 0, 0, 0.3);
+
+              .rivet-core {
+                background:
+                  linear-gradient(180deg, $electric-dark 0%, $electric-deep 45%, $electric 100%);
+                color: $text-bright;
+                text-shadow: 0 0 10px rgba($electric-glow, 0.9), 0 1px 1px rgba(0, 0, 0, 0.4);
+                box-shadow:
+                  inset 0 2px 4px rgba(0, 0, 0, 0.65),
+                  inset 0 -1px 1px rgba($electric-glow, 0.4),
+                  inset 1px 0 1px rgba(0, 0, 0, 0.4),
+                  inset -1px 0 1px rgba(0, 0, 0, 0.4);
+              }
+            }
+
+          }
+        }
+      }
+
+      .content-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        flex: 1;
+        min-width: 0;
+        align-items: center;
+
+        .content-tag {
+          font-size: 13px;
+          font-weight: 700;
+          padding: 7px 16px 7px 22px;
+          border-radius: 3px;
+          color: $text-bright;
+          letter-spacing: 0.8px;
+          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55);
+          transition: all 0.2s ease;
+          position: relative;
+          clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
+
+          &::before {
+            content: '';
+            position: absolute;
+            left: 9px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.5) 70%);
+            box-shadow:
+              inset 0 0 1px rgba(0, 0, 0, 0.6),
+              0 0 2px rgba(0, 0, 0, 0.5);
+          }
+
+          &:not(.tag-heritage):nth-child(1) {
+            background:
+              linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, transparent 30%),
+              linear-gradient(180deg, rgba(14, 165, 233, 0.55), rgba(8, 47, 73, 0.7));
+            box-shadow:
+              inset 0 1px 0 rgba(186, 230, 253, 0.45),
+              inset 0 -2px 2px rgba(0, 0, 0, 0.55),
+              inset 1px 0 1px rgba(255, 255, 255, 0.15),
+              0 3px 6px rgba(0, 0, 0, 0.55),
+              0 1px 0 rgba(0, 0, 0, 0.4),
+              0 0 12px rgba(14, 165, 233, 0.25);
+
+            &:hover {
+              box-shadow:
+                inset 0 1px 0 rgba(186, 230, 253, 0.55),
+                inset 0 -2px 2px rgba(0, 0, 0, 0.55),
+                inset 1px 0 1px rgba(255, 255, 255, 0.2),
+                0 5px 12px rgba(0, 0, 0, 0.65),
+                0 1px 0 rgba(0, 0, 0, 0.4),
+                0 0 22px rgba(14, 165, 233, 0.5);
+              filter: brightness(1.1);
+            }
+          }
+
+          &:not(.tag-heritage):nth-child(2) {
+            background:
+              linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, transparent 30%),
+              linear-gradient(180deg, rgba(245, 158, 11, 0.55), rgba(180, 83, 9, 0.7));
+            box-shadow:
+              inset 0 1px 0 rgba(254, 215, 170, 0.45),
+              inset 0 -2px 2px rgba(0, 0, 0, 0.55),
+              inset 1px 0 1px rgba(255, 255, 255, 0.15),
+              0 3px 6px rgba(0, 0, 0, 0.55),
+              0 1px 0 rgba(0, 0, 0, 0.4),
+              0 0 12px rgba(245, 158, 11, 0.25);
+
+            &:hover {
+              box-shadow:
+                inset 0 1px 0 rgba(254, 215, 170, 0.55),
+                inset 0 -2px 2px rgba(0, 0, 0, 0.55),
+                inset 1px 0 1px rgba(255, 255, 255, 0.2),
+                0 5px 12px rgba(0, 0, 0, 0.65),
+                0 1px 0 rgba(0, 0, 0, 0.4),
+                0 0 22px rgba(245, 158, 11, 0.5);
+              filter: brightness(1.1);
+            }
+          }
+
+          &:not(.tag-heritage):nth-child(3) {
+            background:
+              linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, transparent 30%),
+              linear-gradient(180deg, rgba(20, 184, 166, 0.55), rgba(6, 78, 59, 0.7));
+            box-shadow:
+              inset 0 1px 0 rgba(94, 234, 212, 0.45),
+              inset 0 -2px 2px rgba(0, 0, 0, 0.55),
+              inset 1px 0 1px rgba(255, 255, 255, 0.15),
+              0 3px 6px rgba(0, 0, 0, 0.55),
+              0 1px 0 rgba(0, 0, 0, 0.4),
+              0 0 12px rgba(20, 184, 166, 0.25);
+
+            &:hover {
+              box-shadow:
+                inset 0 1px 0 rgba(94, 234, 212, 0.55),
+                inset 0 -2px 2px rgba(0, 0, 0, 0.55),
+                inset 1px 0 1px rgba(255, 255, 255, 0.2),
+                0 5px 12px rgba(0, 0, 0, 0.65),
+                0 1px 0 rgba(0, 0, 0, 0.4),
+                0 0 22px rgba(20, 184, 166, 0.5);
+              filter: brightness(1.1);
+            }
+          }
+
+          &:not(.tag-heritage):nth-child(n+4) {
+            background:
+              linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, transparent 30%),
+              linear-gradient(180deg, rgba($graphite-light, 0.85), rgba($graphite-dark, 0.85));
+            box-shadow:
+              inset 0 1px 0 rgba($graphite-bright, 0.4),
+              inset 0 -2px 2px rgba(0, 0, 0, 0.55),
+              inset 1px 0 1px rgba(255, 255, 255, 0.1),
+              0 3px 6px rgba(0, 0, 0, 0.55),
+              0 1px 0 rgba(0, 0, 0, 0.4);
+          }
+
+          &.tag-heritage {
+            background:
+              linear-gradient(135deg, rgba($electric-glow, 0.25) 0%, transparent 30%),
+              linear-gradient(180deg, rgba($electric-deep, 0.7), rgba($electric-dark, 0.85));
+            color: $electric-glow;
+            font-weight: 800;
+            box-shadow:
+              inset 0 1px 0 rgba($electric, 0.5),
+              inset 0 -2px 2px rgba(0, 0, 0, 0.5),
+              inset 1px 0 1px rgba(255, 255, 255, 0.2),
+              0 3px 7px rgba(0, 0, 0, 0.6),
+              0 1px 0 rgba(0, 0, 0, 0.4),
+              0 0 18px rgba($electric, 0.4);
+            text-shadow: 0 0 14px rgba($electric, 0.85), 0 1px 2px rgba(0, 0, 0, 0.5);
+
+            &:hover {
+              box-shadow:
+                inset 0 1px 0 rgba($electric, 0.6),
+                inset 0 -2px 2px rgba(0, 0, 0, 0.5),
+                inset 1px 0 1px rgba(255, 255, 255, 0.25),
+                0 5px 12px rgba(0, 0, 0, 0.65),
+                0 1px 0 rgba(0, 0, 0, 0.4),
+                0 0 28px rgba($electric, 0.65);
+              filter: brightness(1.12);
+            }
+          }
+        }
+      }
+
+      .content-actions {
+        display: flex;
+        gap: 10px;
+        flex-shrink: 0;
+
+        @mixin btn-three-state($c, $c-bright, $c-deep, $c-glow) {
+          flex: 0 0 auto;
+          padding: 10px 18px;
+          font-size: 13px;
+          font-weight: 800;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: all 0.22s ease;
+          letter-spacing: 1.8px;
+          position: relative;
+          overflow: hidden;
+
+          background:
+            linear-gradient(180deg, $graphite-light 0%, $graphite 50%, $graphite-dark 100%);
+          border: 2px solid rgba($c, 0.22);
+          color: rgba($c-bright, 0.6);
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.08),
+            0 3px 6px rgba(0, 0, 0, 0.5);
+          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+
+          &:hover {
+            background: $graphite-void;
+            border: 2px solid $c-bright;
+            color: $c-glow;
+            box-shadow:
+              inset 0 0 10px rgba($c, 0.18),
+              0 0 16px rgba($c, 0.5),
+              0 0 36px rgba($c, 0.25),
+              0 4px 8px rgba(0, 0, 0, 0.5);
+            text-shadow: 0 0 10px rgba($c-glow, 0.8), 0 1px 2px rgba(0, 0, 0, 0.5);
+
+            &::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: -100%;
+              width: 100%;
+              height: 100%;
+              background: linear-gradient(90deg, transparent, rgba($c-glow, 0.14), transparent);
+              animation: btnScan 1.2s ease infinite;
+            }
+          }
+
+          &.is-active {
+            background:
+              linear-gradient(180deg, $c-bright 0%, $c 40%, $c-deep 100%);
+            border: 2px solid $c-deep;
+            color: $text-bright;
+            box-shadow:
+              inset 0 2px 5px rgba(0, 0, 0, 0.4),
+              inset 0 -1px 0 rgba(255, 255, 255, 0.2),
+              0 2px 6px rgba($c-deep, 0.5),
+              0 0 14px rgba($c, 0.3);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+
+            &::after {
+              content: '';
+              position: absolute;
+              bottom: 0;
+              left: 6px;
+              right: 6px;
+              height: 3px;
+              background: $c-glow;
+              border-radius: 2px;
+              box-shadow: 0 0 8px rgba($c-glow, 0.6);
+            }
+
+            &:hover {
+              filter: brightness(1.1);
+              box-shadow:
+                inset 0 2px 5px rgba(0, 0, 0, 0.35),
+                inset 0 -1px 0 rgba(255, 255, 255, 0.25),
+                0 2px 8px rgba($c-deep, 0.6),
+                0 0 22px rgba($c, 0.45);
+            }
+          }
+        }
+
+        .action-btn {
+          &.btn-fav {
+            @include btn-three-state(#00b8d4, #4dd0e1, #006c80, #80deea);
+          }
+
+
+          &.btn-been {
+            @include btn-three-state(#ff8f00, #ffb74d, #e65100, #ffcc80);
+          }
+
+          &.btn-share {
+            @include btn-three-state(#00c853, #5cd68a, #00853e, #b9f6ca);
+          }
+        }
+      }
+
+    }
+
+    &.empty-detail {
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+
+      .empty-icon-housing {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 30% 30%, rgba($electric, 0.2), $graphite-void 70%);
+        border: 3px solid rgba($electric, 0.35);
+        border-top-color: rgba($electric, 0.5);
+        margin-bottom: 18px;
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5), inset 0 -1px 0 rgba($electric, 0.1), 0 4px 12px rgba(0, 0, 0, 0.5), 0 0 16px rgba($electric, 0.1);
+
+        .empty-icon { color: $electric; filter: drop-shadow(0 0 10px rgba($electric, 0.5)); }
+      }
+
+      .empty-title { font-size: 18px; font-weight: 700; color: $text-bright; margin: 0 0 8px; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6); }
+      .empty-desc { font-size: 14px; color: $text-dim; margin: 0; }
+    }
+  }
+}
+
+ 
+
+// 3点闪烁（电蓝色）
+@keyframes dotBlink {
+  0%, 100% {
+    background: rgba($graphite-dark, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5);
+  }
+  20%, 53% {
+    background: $electric-glow;
+    box-shadow:
+      0 0 4px rgba($electric, 0.8),
+      0 0 8px rgba($electric, 0.4);
+  }
+}
+
+// hover 态背光呼吸动画
+@keyframes hoverGlowBreathe {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 0.8; }
+}
+
+// active 态拨块高光带脉冲动画
+@keyframes knobHighlightPulse {
+  0%, 100% { opacity: 0.65; }
+  50% { opacity: 1; }
+}
+// active 态背光呼吸动画
+@keyframes activeGlowBreathe {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1; }
+}
+// 按钮hover扫描线动画
+@keyframes btnScan {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}

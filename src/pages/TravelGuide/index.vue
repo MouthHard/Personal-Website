@@ -1,5 +1,5 @@
 <template>
-  <div class="travel-guide-container">
+  <div class="travel-guide-container" :class="{ 'mypage-active': activeTab === 'mypage' }">
     <!-- 加载状态 -->
     <div v-if="!ready" class="travel-guide-loading">
       <div class="loading-spinner"></div>
@@ -8,11 +8,6 @@
 
     <template v-else>
       <StickyHeader
-        :current-province-capital="currentProvinceCapital"
-        :weather-icon="weatherIcon"
-        :weather-description="weatherDescription"
-        :all-tags="allTags"
-        :province-description="provinceDescription"
         :current-province-name="currentProvinceName"
         :tabs="tabs"
         :active-tab="activeTab"
@@ -41,8 +36,11 @@
           v-else-if="activeTab === 'scenery'"
           :province-id="selectedProvinceId"
         />
+        <MyPage v-else-if="activeTab === 'mypage'" />
       </main>
     </template>
+
+    <TravelToast />
   </div>
 </template>
 
@@ -53,17 +51,20 @@
   import type { Tab } from '@/typesOfPages/travelGuide/index.ts';
   import { useTravelGuideStore } from '@/stores/travelGuide';
   import {
-    getWeatherByProvince,
+
     filterProvinces,
     extractRegions,
     DEFAULT_TAB_ID,
     DEFAULT_REGION,
   } from '@/utils/travelGuide';
-  import FoodModule from './components/food/index.vue';
-  import SceneryModule from './components/scenery/index.vue';
-  import StickyHeader from './components/sticky-header/index.vue';
-  import ProvinceSidebar from './components/province-sidebar/index.vue';
+  import FoodModule from './components/Food/index.vue';
+  import SceneryModule from './components/Scenery/index.vue';
+  import StickyHeader from './components/StickyHeader/index.vue';
+  import ProvinceSidebar from './components/ProvinceSidebar/index.vue';
+  import MyPage from './components/MyPage/index.vue';
+  import TravelToast from './components/TravelToast/index.vue';
   import { FoodIcon, SceneryIcon, ProvinceIcon } from './icons';
+  import UserIcon from './icons/common/UserIcon.vue';
 
   const router = useRouter();
   const travelStore = useTravelGuideStore();
@@ -75,6 +76,7 @@
   const selectedProvinceId: Ref<string> = ref('');
   // 默认选择美食标签页
   const activeTab: Ref<string> = ref(DEFAULT_TAB_ID);
+
 
   // 数据加载完成状态
   const ready = ref(false);
@@ -89,6 +91,7 @@
   const tabs: Tab[] = [
     { id: 'food', name: '美食', icon: FoodIcon },
     { id: 'scenery', name: '风光', icon: SceneryIcon },
+    { id: 'mypage', name: '我的', icon: UserIcon },
   ];
 
   // 省份选择器图标
@@ -109,42 +112,15 @@
     return currentProvince.value?.name || '';
   });
 
-  // 计算属性：当前省份标签（包括地区）
-  const allTags = computed(() => {
-    if (!currentProvince.value) return [];
-    return [
-      currentProvince.value.region,
-      ...(currentProvince.value.tags || []),
-    ];
-  });
-
-  // 计算属性：当前省份描述
-  const provinceDescription = computed(() => {
-    return currentProvince.value?.description || '';
-  });
-
-  // 计算属性：当前省份省会
-  const currentProvinceCapital = computed(() => {
-    return currentProvince.value?.capital || '';
-  });
-
-  // ✅ 优化：使用工具函数获取天气信息（消除重复的哈希计算逻辑）
-  const weatherInfo = computed(() => {
-    const province = currentProvince.value;
-    if (!province) return getWeatherByProvince('');
-    return getWeatherByProvince(province.id);
-  });
-  const weatherIcon = computed(() => weatherInfo.value.icon);
-  const weatherDescription = computed(() => weatherInfo.value.description);
 
   // 省份选择器相关状态
   const selectedRegion: Ref<string> = ref(DEFAULT_REGION);
   const searchQuery: Ref<string> = ref('');
 
-  // ✅ 优化：使用工具函数获取地区列表
+  // 优化：使用工具函数获取地区列表
   const regions = computed(() => extractRegions(provincesData.value));
 
-  // ✅ 优化：使用工具函数过滤省份（消除重复的过滤逻辑）
+  // 优化：使用工具函数过滤省份（消除重复的过滤逻辑）
   const filteredProvinces = computed(() =>
     filterProvinces(
       provincesData.value,

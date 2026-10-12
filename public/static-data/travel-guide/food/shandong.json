@@ -13,7 +13,7 @@
       "image": "https://picsum.photos/id/427/800/600",
       "price": 58,
       "rating": 4.7,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "鲁菜名品",
       "isPopular": true,
       "badgeColor": "#ff5722",
@@ -41,7 +41,7 @@
       "image": "https://picsum.photos/id/428/800/600",
       "price": 128,
       "rating": 4.8,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "黄海珍鲜",
       "isPopular": true,
       "badgeColor": "#03a9f4",
@@ -69,7 +69,7 @@
       "image": "https://picsum.photos/id/429/800/600",
       "price": 15,
       "rating": 4.6,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "泉城名菜",
       "isPopular": true,
       "badgeColor": "#795548",
@@ -97,7 +97,7 @@
       "image": "https://picsum.photos/id/430/800/600",
       "price": 188,
       "rating": 4.8,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "孔府家宴",
       "isPopular": true,
       "badgeColor": "#ff9800",
@@ -125,7 +125,7 @@
       "image": "https://picsum.photos/id/431/800/600",
       "price": 12,
       "rating": 4.5,
-      "category": "饮品",
+      "category": "汤羹饮品",
       "badgeText": "岛城佳酿",
       "isPopular": true,
       "badgeColor": "#ffcc00",
@@ -153,7 +153,7 @@
       "image": "https://picsum.photos/id/432/800/600",
       "price": 5,
       "rating": 4.2,
-      "category": "主食",
+      "category": "面点主食",
       "isPopular": false,
       "description": "松软香甜，主食必备",
       "recommendations": {
@@ -179,7 +179,7 @@
       "image": "https://picsum.photos/id/433/800/600",
       "price": 3,
       "rating": 4.1,
-      "category": "小吃",
+      "category": "小吃零食",
       "isPopular": false,
       "description": "外酥内软，早餐必备",
       "recommendations": {
@@ -205,7 +205,7 @@
       "image": "https://picsum.photos/id/434/800/600",
       "price": 5,
       "rating": 4,
-      "category": "甜品",
+      "category": "甜品糕点",
       "isPopular": false,
       "description": "香甜可口，传统面点",
       "recommendations": {
@@ -217,6 +217,196 @@
         ],
         "eatingMethod": "直接食用，作为甜品"
       }
+    },
+    {
+      "id": "shandong-tangculiyu",
+      "name": "糖醋鲤鱼",
+      "tags": [
+        "山东特色",
+        "鲁菜经典",
+        "外焦里嫩",
+        "酸甜可口",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/440/800/600",
+      "price": 88,
+      "rating": 4.7,
+      "category": "菜品菜肴",
+      "badgeText": "鲁菜之首",
+      "isPopular": true,
+      "badgeColor": "#ff5722",
+      "description": "形似跃龙门，外焦里嫩，酸甜可口",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "馒头",
+          "面条",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，配米饭"
+      }
+    },
+    {
+      "id": "shandong-jiuzhuandachang",
+      "name": "九转大肠",
+      "tags": [
+        "山东特色",
+        "鲁菜经典",
+        "色泽红润",
+        "五味俱全",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/441/800/600",
+      "price": 68,
+      "rating": 4.6,
+      "category": "菜品菜肴",
+      "badgeText": "济南名菜",
+      "isPopular": false,
+      "description": "色泽红润，酸辣咸甜，五味俱全",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "馒头",
+          "面条",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，配米饭"
+      }
+    },
+    {
+      "id": "shandong-jianbing",
+      "name": "山东煎饼",
+      "tags": [
+        "山东特色",
+        "传统主食",
+        "薄如纸",
+        "卷万物",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/442/800/600",
+      "price": 8,
+      "rating": 4.5,
+      "category": "面点主食",
+      "badgeText": "齐鲁名食",
+      "isPopular": false,
+      "description": "薄如纸，韧如筋，可卷万物",
+      "recommendations": {
+        "pairings": [
+          "大葱",
+          "酱料",
+          "小菜",
+          "汤品"
+        ],
+        "eatingMethod": "直接食用，卷菜或酱料"
+      }
+    },
+    {
+      "id": "shandong-zhencunshaobing",
+      "name": "周村烧饼",
+      "tags": [
+        "山东特色",
+        "淄博特产",
+        "酥脆香甜",
+        "薄如秋叶",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/443/800/600",
+      "price": 15,
+      "rating": 4.4,
+      "category": "小吃零食",
+      "badgeText": "周村名点",
+      "isPopular": false,
+      "description": "薄如秋叶，形似满月，酥脆香甜",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "咖啡",
+          "饮料",
+          "小菜"
+        ],
+        "eatingMethod": "直接食用，作为零食或茶点"
+      }
+    },
+    {
+      "id": "shandong-weifangrouhuoshao",
+      "name": "潍坊肉火烧",
+      "tags": [
+        "山东特色",
+        "潍坊特产",
+        "外酥内嫩",
+        "肉香四溢",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/444/800/600",
+      "price": 6,
+      "rating": 4.3,
+      "category": "小吃零食",
+      "badgeText": "潍坊名吃",
+      "isPopular": false,
+      "description": "外酥内嫩，肉香四溢",
+      "recommendations": {
+        "pairings": [
+          "粥",
+          "豆浆",
+          "小菜",
+          "汤品"
+        ],
+        "eatingMethod": "直接食用，作为早餐或小吃"
+      }
+    },
+    {
+      "id": "shandong-guotie",
+      "name": "青岛锅贴",
+      "tags": [
+        "山东特色",
+        "青岛特产",
+        "底脆馅鲜",
+        "金黄诱人",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/445/800/600",
+      "price": 12,
+      "rating": 4.4,
+      "category": "面点主食",
+      "badgeText": "岛城名点",
+      "isPopular": false,
+      "description": "底脆馅鲜，金黄诱人",
+      "recommendations": {
+        "pairings": [
+          "粥",
+          "小菜",
+          "汤品",
+          "饮料"
+        ],
+        "eatingMethod": "直接食用，作为主食或小吃"
+      }
+    },
+    {
+      "id": "shandong-tianmo",
+      "name": "济南甜沫",
+      "tags": [
+        "山东特色",
+        "济南特产",
+        "咸香可口",
+        "早餐必备",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/446/800/600",
+      "price": 5,
+      "rating": 4.2,
+      "category": "汤羹饮品",
+      "badgeText": "泉城早点",
+      "isPopular": false,
+      "description": "咸香可口，配料丰富",
+      "recommendations": {
+        "pairings": [
+          "油条",
+          "火烧",
+          "包子",
+          "小菜"
+        ],
+        "eatingMethod": "直接饮用，作为早餐"
+      }
     }
   ],
   "locations": [
@@ -227,8 +417,8 @@
       "type": "美食街",
       "foods": [
         "济南把子肉",
-        "山东煎饼",
-        "甜沫"
+        "shandong-tianmo",
+        "shandong-youtiao"
       ],
       "image": "https://picsum.photos/id/318/800/600",
       "reason": "济南传统美食集中地",
@@ -242,11 +432,258 @@
       "foods": [
         "胶东海鲜",
         "青岛啤酒",
-        "锅贴"
+        "shandong-guotie"
       ],
       "image": "https://picsum.photos/id/319/800/600",
       "reason": "青岛海鲜美食聚集地",
       "location": "青岛市"
+    },
+    {
+      "id": 3,
+      "icon": "🏬",
+      "name": "德州美食街",
+      "type": "美食街",
+      "foods": [
+        "德州扒鸡",
+        "shandong-jianbing",
+        "shandong-zhencunshaobing"
+      ],
+      "image": "https://picsum.photos/id/320/800/600",
+      "reason": "德州扒鸡发源地，传统小吃云集",
+      "location": "德州市"
+    },
+    {
+      "id": 4,
+      "icon": "🏞️",
+      "name": "曲阜孔府",
+      "type": "景区",
+      "foods": [
+        "曲阜孔府菜",
+        "shandong-tangculiyu",
+        "shandong-mantou"
+      ],
+      "image": "https://picsum.photos/id/321/800/600",
+      "reason": "孔府家宴传承地，鲁菜精髓所在",
+      "location": "曲阜市"
+    }
+  ],
+  "souvenirs": [
+    {
+      "id": "shandong-souvenir-1",
+      "name": "东阿阿胶",
+      "image": "https://picsum.photos/id/327/600/400",
+      "priceRange": "100-500元",
+      "description": "滋补圣品，补血养颜",
+      "buyAt": "东阿阿胶厂",
+      "storage": "干燥保存",
+      "province": "山东"
+    },
+    {
+      "id": "shandong-souvenir-2",
+      "name": "德州扒鸡",
+      "image": "https://picsum.photos/id/326/600/400",
+      "priceRange": "20-40元",
+      "description": "脱骨酥烂，五香浓郁",
+      "buyAt": "德州扒鸡店",
+      "storage": "即买即食",
+      "province": "山东"
+    },
+    {
+      "id": "shandong-souvenir-3",
+      "name": "青岛啤酒",
+      "image": "https://picsum.photos/id/325/600/400",
+      "priceRange": "5-15元",
+      "description": "百年品牌，清爽醇香",
+      "buyAt": "青岛啤酒厂",
+      "storage": "阴凉避光",
+      "province": "山东"
+    },
+    {
+      "id": "shandong-souvenir-4",
+      "name": "潍坊风筝",
+      "image": "https://picsum.photos/id/324/600/400",
+      "priceRange": "20-100元",
+      "description": "世界风筝都，扎绘精巧",
+      "buyAt": "潍坊风筝厂",
+      "storage": "干燥保存",
+      "province": "山东"
+    },
+    {
+      "id": "shandong-souvenir-5",
+      "name": "周村烧饼",
+      "image": "https://picsum.photos/id/323/600/400",
+      "priceRange": "10-30元",
+      "description": "薄酥脆香，百年传承",
+      "buyAt": "周村烧饼店",
+      "storage": "干燥密封",
+      "province": "山东"
+    },
+    {
+      "id": "shandong-souvenir-6",
+      "name": "章丘大葱",
+      "image": "https://picsum.photos/id/322/600/400",
+      "priceRange": "5-20元",
+      "description": "葱白修长，脆甜可口",
+      "buyAt": "章丘特产店",
+      "storage": "阴凉通风",
+      "province": "山东"
+    }
+  ],
+  "guide": {
+    "mealPlan": {
+      "breakfast": [
+        "德州扒鸡",
+        "济南把子肉",
+        "青岛啤酒"
+      ],
+      "lunch": [
+        "青岛啤酒",
+        "济南把子肉",
+        "德州扒鸡"
+      ],
+      "dinner": [
+        "德州扒鸡",
+        "青岛啤酒"
+      ]
+    },
+    "routes": [
+      {
+        "id": "shandong-route-1",
+        "name": "山东经典美食一日游",
+        "duration": "1天",
+        "steps": [
+          {
+            "time": "08:30",
+            "location": "济南芙蓉街",
+            "foodId": "shandong-tianmo",
+            "description": "清晨从一碗甜沫配油条开始"
+          },
+          {
+            "time": "12:00",
+            "location": "济南老城区",
+            "foodId": "济南把子肉",
+            "description": "午餐品尝泉城招牌把子肉"
+          },
+          {
+            "time": "15:00",
+            "location": "曲阜孔府",
+            "foodId": "shandong-tangculiyu",
+            "description": "下午品鉴鲁菜之首糖醋鲤鱼"
+          },
+          {
+            "time": "18:30",
+            "location": "青岛啤酒街",
+            "foodId": "青岛啤酒",
+            "description": "夜市海鲜配啤酒，收尾完美一天"
+          }
+        ]
+      },
+      {
+        "id": "shandong-route-2",
+        "name": "齐鲁深度寻味半日游",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "10:00",
+            "location": "德州老字号",
+            "foodId": "德州扒鸡",
+            "description": "探访德州扒鸡百年老店"
+          },
+          {
+            "time": "12:30",
+            "location": "淄博周村",
+            "foodId": "shandong-zhencunshaobing",
+            "description": "品尝周村烧饼配茶"
+          },
+          {
+            "time": "15:00",
+            "location": "潍坊美食街",
+            "foodId": "shandong-weifangrouhuoshao",
+            "description": "下午茶时光品鉴潍坊肉火烧"
+          }
+        ]
+      },
+      {
+        "id": "shandong-route-3",
+        "name": "胶东海鲜风味游",
+        "duration": "1天",
+        "steps": [
+          {
+            "time": "09:00",
+            "location": "青岛海鲜市场",
+            "foodId": "胶东海鲜",
+            "description": "清晨挑选胶东新鲜海鲜"
+          },
+          {
+            "time": "12:00",
+            "location": "青岛锅贴店",
+            "foodId": "shandong-guotie",
+            "description": "午餐品尝青岛锅贴"
+          },
+          {
+            "time": "18:00",
+            "location": "青岛啤酒街",
+            "foodId": "青岛啤酒",
+            "description": "傍晚啤酒配海鲜，尽享岛城风情"
+          }
+        ]
+      }
+    ],
+    "tips": [
+      {
+        "question": "山东美食的最佳品尝时间？",
+        "answer": "建议在春秋两季前往，气候宜人，食材当季，能品尝到最地道的山东风味。"
+      },
+      {
+        "question": "山东有哪些必去美食街区？",
+        "answer": "推荐前往济南芙蓉街、青岛啤酒街和德州美食街，那里集中了最正宗的山东小吃和老字号餐厅。"
+      },
+      {
+        "question": "在山东点菜有什么避坑建议？",
+        "answer": "建议提前了解当地特色菜名，避免被不正规店铺误导；选择人气旺的老店更靠谱。"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "season": "spring",
+      "seasonName": "春季",
+      "foods": [
+        "德州扒鸡",
+        "shandong-jianbing",
+        "shandong-tianmo"
+      ],
+      "description": "春暖花开，时鲜上市，品尝春日第一口鲜"
+    },
+    {
+      "season": "summer",
+      "seasonName": "夏季",
+      "foods": [
+        "胶东海鲜",
+        "青岛啤酒",
+        "shandong-guotie"
+      ],
+      "description": "夏日炎炎，消暑解渴，清凉美味正当时"
+    },
+    {
+      "season": "autumn",
+      "seasonName": "秋季",
+      "foods": [
+        "shandong-tangculiyu",
+        "shandong-jiuzhuandachang",
+        "济南把子肉"
+      ],
+      "description": "秋高气爽，丰收时节，贴秋膘品蟹黄"
+    },
+    {
+      "season": "winter",
+      "seasonName": "冬季",
+      "foods": [
+        "曲阜孔府菜",
+        "shandong-mantou",
+        "shandong-tangbao"
+      ],
+      "description": "寒冬腊月，温补暖身，热汤热食最抚慰"
     }
   ]
 }

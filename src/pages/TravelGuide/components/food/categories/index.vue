@@ -1,104 +1,157 @@
 <template>
-  <section class="module-categories">
+  <section class="gallery-section">
 
-    <div class="particles-container">
-      <CategoriesBackground />
-    </div>
+    <div class="ambient-glow"></div>
 
     <div class="section-header">
-      <h3 class="section-title">🍽️ 美食分类</h3>
-      <div class="categories-grid">
-        <div v-for="(category, index) in foodCategories" :key="category.id" class="category-card" :class="{
-          active: selectedCategory?.id === category.id,
-          [`color-theme-${(index % 5) + 1}`]: true,
-        }" @click="toggleCategory(category)">
-          <div class="category-icon">{{ category.icon }}</div>
-          <div class="category-content">{{ category.name }}</div>
-          <div class="category-count">{{ category.count }}</div>
+      <div class="header-left">
+        <div class="header-icon-wrap">
+          <UtensilsIcon class="header-icon" />
+        </div>
+        <div class="header-titles">
+          <h3 class="header-title">美食图鉴</h3>
+        </div>
+      </div>
+
+      <div class="category-tabs">
+        <button
+          v-for="category in foodCategories"
+          :key="category.id"
+          class="category-tab"
+          :class="{ active: selectedCategory?.id === category.id }"
+          @click="toggleCategory(category)"
+        >
+          <span class="tab-sweep" :class="{ sweeping: selectedCategory?.id === category.id }"></span>
+          <span>{{ category.name }}</span>
+          <span class="tab-count">{{ category.count }}</span>
+        </button>
+      </div>
+    </div>
+
+    <div v-if="filteredFoods.length > 0" class="gallery-masonry">
+      <div
+        v-for="(food, index) in filteredFoods"
+        :key="food.id"
+        class="gallery-item"
+        :style="{ '--item-index': index }"
+      >
+        <div class="gallery-image-wrap" @click="openDetail(food)">
+          <img
+            :src="food.image"
+            :alt="food.name"
+            class="gallery-image"
+            loading="lazy"
+            @error="handleImageError"
+          />
+
+          <div class="image-overlay">
+            <div class="overlay-top">
+              <div class="overlay-tags-left">
+                <span v-if="food.category" class="overlay-category">{{ food.category }}</span>
+                <span v-if="food.price && Number(food.price) < 50" class="overlay-popular">特价</span>
+              </div>
+              <div v-if="food.rating" class="overlay-rating">
+                <StarIcon class="rating-star" />
+                <span>{{ food.rating }}</span>
+                <span v-if="food.reviewCount" class="rating-count">({{ food.reviewCount }})</span>
+              </div>
+            </div>
+
+            <div class="overlay-bottom">
+              <h4 class="overlay-name">{{ food.name }}</h4>
+              <div class="overlay-footer">
+                <span v-if="food.price" class="overlay-price">
+                  <span class="price-symbol">¥</span>{{ food.price }}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="image-zoom-hint">
+            <SearchIcon class="zoom-icon" />
+          </div>
+
+          <div class="card-actions" @click.stop>
+            <button
+              class="card-action action-like"
+              :class="{ active: isThumbsUp(food) }"
+              :aria-label="isThumbsUp(food) ? '取消点赞' : '点赞'"
+              @click="toggleThumbsUpWithToast(food)"
+            >
+              <ThumbUpIcon class="card-action-icon" :filled="isThumbsUp(food)" />
+            </button>
+            <button
+              class="card-action action-share"
+              aria-label="分享"
+              @click="openFoodShareForWithToast(food)"
+            >
+              <LinkIcon class="card-action-icon" />
+            </button>
+            <button
+              class="card-action action-want"
+              :class="{ active: isWant(food.id) }"
+              aria-label="想吃"
+              @click="toggleCheckinWithToast(food, 'want')"
+            >
+              <HeartIcon class="card-action-icon" :filled="isWant(food.id)" />
+            </button>
+            <button
+              class="card-action action-eaten"
+              :class="{ active: isEaten(food.id) }"
+              aria-label="已吃"
+              @click="toggleCheckinWithToast(food, 'eaten')"
+            >
+              <UtensilsIcon class="card-action-icon" :filled="isEaten(food.id)" />
+            </button>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- 分类美食展示 -->
-    <section v-if="selectedCategory" class="category-foods-section">
-      <div v-for="(food, index) in filteredFoods" :key="food.id" class="food-card-horizontal"
-        :class="`color-theme-${(index % 5) + 1}`">
-        <div class="food-card-horizontal-header">
-          <h4 class="food-card-horizontal-name">{{ food.name }}</h4>
-          <div class="food-card-horizontal-tags">
-            <span v-for="(tag, tagIndex) in food.tags" :key="tagIndex" class="food-card-horizontal-tag"
-              :class="`tag-color-${(tagIndex % 5) + 1}`">
-              {{ tag }}
-            </span>
-          </div>
-        </div>
-        <div class="food-card-horizontal-image-container">
-          <img :src="food.image" :alt="food.name" class="food-card-horizontal-image" loading="lazy"
-            @error="handleImageError" />
-          <div v-if="!food.image" class="image-placeholder">
-            <span class="placeholder-icon">🍽️</span>
-            <span class="placeholder-text">暂无图片</span>
-          </div>
-          <div class="food-card-horizontal-rating-badge">
-            ⭐ {{ food.rating }}
-          </div>
-          <div v-if="food.price && Number(food.price) < 50" class="food-card-horizontal-discount">
-            特价
-          </div>
-          <div class="food-card-horizontal-price-badge">¥{{ food.price }}</div>
-        </div>
-        <div class="food-card-horizontal-content">
-          <div class="food-card-horizontal-main">
-            {{ food.description }}
-          </div>
-          <div class="food-card-horizontal-footer">
-            <div class="food-card-horizontal-recommendations">
-              <div class="recommendations-header">
-                <span class="recommendations-icon">💡</span>
-                <span class="recommendations-title">推荐</span>
-              </div>
-              <div class="recommendations-content">
-                <div class="recommendation-item">
-                  <span class="recommendation-label-pairings">搭配：</span>
-                  <span class="recommendation-value">
-                    {{
-                      food.recommendations?.pairings?.join('、') || '暂无推荐'
-                    }}
-                  </span>
-                </div>
-                <div class="recommendation-item">
-                  <span class="recommendation-label-eating">吃法：</span>
-                  <span class="recommendation-value">
-                    {{ food.recommendations?.eatingMethod || '暂无推荐' }}
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div class="food-card-horizontal-actions">
-              <button class="food-card-horizontal-favorite-btn" @click.stop>
-                ❤️
-              </button>
-              <button class="food-card-horizontal-share-btn" @click.stop>
-                📤
-              </button>
-              <button class="food-card-horizontal-add-btn" @click.stop>
-                📋
-              </button>
-              <button class="food-card-horizontal-detail-btn" @click="$emit('select-food', food)">
-                查看详情
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <div v-else class="gallery-empty">
+      <SparklesIcon class="empty-icon" />
+      <p class="empty-text">NO DATA</p>
+    </div>
+
+    <FoodDetailModal
+      :visible="detailVisible"
+      :food="detailFood"
+      :is-thumbs-up="detailThumbsUp"
+      @close="closeDetail"
+      @toggle-thumbs-up="toggleDetailThumbsUp"
+      @share="openFoodShare"
+    />
+
+    <TravelShareModal
+      :visible="shareVisible"
+      :title="shareTitle"
+      :share-text="shareText"
+      :share-url="shareUrl"
+      @close="closeShare"
+    />
+
   </section>
 </template>
 
 <script setup lang="ts">
 import { ref, computed, watch } from 'vue';
 import type { Food, FoodCategory } from '@/typesOfPages/travelGuide';
-import { CategoriesBackground } from '@/pages/TravelGuide/icons/pages/food/index.ts';
+import {
+  UtensilsIcon,
+  StarIcon,
+  SearchIcon,
+  HeartIcon,
+  ThumbUpIcon,
+  LinkIcon,
+  SparklesIcon,
+} from '@/pages/TravelGuide/icons/common';
+import FoodDetailModal from '../../FoodDetailModal/index.vue';
+import TravelShareModal from '../../TravelShareModal/index.vue';
+import { useFoodDetail } from '../../FoodDetailModal/useFoodDetail';
+import { useCheckin } from '../../FoodDetailModal/useCheckin';
+import { useFoodPrefs } from '@/composables/travelGuide/useFoodPrefs';
+import { useTravelShare } from '../../TravelShareModal/useTravelShare';
+import { useTravelToast } from '@/composables/travelGuide/useTravelToast';
 
 interface Props {
   allFoods: Food[];
@@ -106,33 +159,53 @@ interface Props {
 
 const props = defineProps<Props>();
 
-const emit = defineEmits<{
-  (e: 'select-food', food: Food): void;
-}>();
-
 const selectedCategory = ref<FoodCategory | null>(null);
 
 const CATEGORY_ICONS: Record<string, string> = {
-  主食: '🍜',
-  菜肴: '🍲',
-  小吃: '🥟',
-  甜品: '🍰',
-  饮品: '🥤',
+  面点主食: '🍜',
+  菜品菜肴: '🍲',
+  小吃零食: '🥟',
+  汤羹饮品: '🥣',
+  甜品糕点: '🍰',
+  烧烤火锅: '🔥',
 };
 
+const CATEGORY_MAP: Record<string, string> = {
+  主食: '面点主食',
+  菜肴: '菜品菜肴',
+  小吃: '小吃零食',
+  甜品: '甜品糕点',
+  饮品: '汤羹饮品',
+  奶制品: '甜品糕点',
+  水果: '小吃零食',
+  熟食: '菜品菜肴',
+  蔬菜: '菜品菜肴',
+  中药材: '汤羹饮品',
+};
+
+const normalizeCategory = (cat: string): string => CATEGORY_MAP[cat] || cat;
+
 const foodCategories = computed<FoodCategory[]>(() => {
-  return Object.entries(CATEGORY_ICONS).map(([name, icon], index) => ({
-    id: index + 1,
-    name,
-    icon,
-    count: props.allFoods.filter((food) => food.category === name).length,
-  }));
+  const allCount = props.allFoods.length;
+  const tabs: FoodCategory[] = [
+    { id: 0, name: '全部', icon: '🍽️', count: allCount },
+  ];
+  Object.entries(CATEGORY_ICONS).forEach(([name, icon], index) => {
+    tabs.push({
+      id: index + 1,
+      name,
+      icon,
+      count: props.allFoods.filter((food) => normalizeCategory(food.category || '') === name).length,
+    });
+  });
+  return tabs;
 });
 
 const filteredFoods = computed<Food[]>(() => {
   if (!selectedCategory.value) return [];
+  if (selectedCategory.value.name === '全部') return props.allFoods;
   return props.allFoods.filter(
-    (food) => food.category === selectedCategory.value?.name,
+    (food) => normalizeCategory(food.category || '') === selectedCategory.value?.name,
   );
 });
 
@@ -145,24 +218,71 @@ const toggleCategory = (category: FoodCategory): void => {
 const handleImageError = (event: Event): void => {
   const target = event.target as HTMLImageElement;
   target.style.display = 'none';
-  const placeholder =
-    target.parentElement?.querySelector('.image-placeholder');
-  if (placeholder) {
-    (placeholder as HTMLElement).style.display = 'flex';
-  }
 };
 
 watch(
   foodCategories,
-  (newCategories, oldCategories) => {
-    if (newCategories.length !== oldCategories?.length) {
-      if (newCategories.length > 0 && !selectedCategory.value) {
-        selectedCategory.value = newCategories[0];
-      }
+  (newCategories) => {
+    if (newCategories.length > 0 && !selectedCategory.value) {
+      selectedCategory.value = newCategories[0];
     }
   },
   { immediate: true },
 );
+
+const {
+  detailVisible,
+  detailFood,
+  openDetail,
+  closeDetail,
+  toggleDetailThumbsUp,
+} = useFoodDetail();
+
+const { isWant, isEaten, toggleCheckin } = useCheckin();
+
+const { isThumbsUp, toggleThumbsUp } = useFoodPrefs();
+const detailThumbsUp = computed(() => detailFood.value ? isThumbsUp(detailFood.value) : false);
+
+const { shareVisible, shareTitle, shareText, shareUrl, openShare, closeShare } = useTravelShare();
+
+const { show: showToast } = useTravelToast();
+
+const openFoodShare = () => {
+  if (detailFood.value) {
+    openShare(
+      detailFood.value.name,
+      `${detailFood.value.name}｜评分 ${detailFood.value.rating ?? 0}｜价格 ¥${detailFood.value.price ?? '-'}`,
+    );
+  }
+};
+
+const openFoodShareFor = (food: Food) => {
+  openShare(
+    food.name,
+    `${food.name}｜评分 ${food.rating ?? 0}｜价格 ¥${food.price ?? '-'}`,
+  );
+};
+
+const toggleThumbsUpWithToast = (food: Food) => {
+  const wasLiked = isThumbsUp(food);
+  toggleThumbsUp(food);
+  showToast({ type: 'like', message: wasLiked ? `已取消「${food.name}」的点赞` : `已为「${food.name}」点赞` });
+};
+
+const toggleCheckinWithToast = (food: Food, status: 'want' | 'eaten') => {
+  const wasStatus = status === 'want' ? isWant(food.id) : isEaten(food.id);
+  toggleCheckin(food.id, status);
+  if (status === 'want') {
+    showToast({ type: 'want', message: wasStatus ? `「${food.name}」已移出想吃清单` : `「${food.name}」已收入想吃清单` });
+  } else {
+    showToast({ type: 'eaten', message: wasStatus ? `已取消品鉴「${food.name}」` : `已品鉴「${food.name}」` });
+  }
+};
+
+const openFoodShareForWithToast = (food: Food) => {
+  openFoodShareFor(food);
+  showToast({ type: 'share', message: `正在分享「${food.name}」` });
+};
 </script>
 
 <style scoped lang="scss" src="./index.scss" />

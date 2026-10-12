@@ -110,6 +110,7 @@ export interface FoodItem {
   nameEn?: string;
   history?: string;
   bestRestaurant?: string;
+  reviewCount?: number;
   recommendations?: {
     pairings?: string[];
     eatingMethod?: string;
@@ -194,6 +195,12 @@ export interface Food {
   image?: string;
   reviewCount?: number;
   highlight?: string;
+  history?: string;
+  taste?: string;
+  cookingMethod?: string;
+  ingredients?: string[];
+  bestRestaurant?: string;
+  province?: string;
   recommendations?: {
     pairings?: string[];
     eatingMethod?: string;
@@ -298,21 +305,58 @@ export interface ScenerySpot {
   landscapeCategory?: string[];
   landformTags?: string[];
   cultureType?: string;
+  level?: string;
+  rankNumber?: number;
+  rankBadge?: string;
+  highlight?: string;
+  audienceTags?: string[];
+  reviewCount?: string;
+  distance?: string;
+  ticketPrice?: string;
+  bookable?: string;
+  refundPolicy?: string;
+  bestSeason?: string[];
+  openTime?: string;
+  visitDuration?: string;
+  popularity?: number;
+  likeCount?: number;
+  wantCount?: number;
+  beenCount?: number;
+  ticketDetails?: string[];
+  transportInfo?: string[];
+  openTimeDetail?: string[];
+  recommendedRoutes?: Array<{
+    name: string;
+    duration: string;
+    difficulty: string;
+    description: string;
+  }>;
+  facilities?: string[];
+  tips?: string[];
+  photoSpots?: string[];
+  nearbySpots?: string[];
+  seasonalGuide?: string[];
 }
 
 /**
  * 风光概览 — 嵌套在 SceneryData.overview 中的子类型
  *
- * 【字段来源】后端根据 scenery_spots 表统计生成
+ * 【字段来源】后端根据 scenery_spots 表统计生成；5A/世界遗产/非遗数来自官方名单
  * - totalSpots: 景点总数
  * - natureSpots: 自然景点数
  * - cultureSpots: 人文景点数
+ * - fiveACount: 5A 级景区数（来自文化和旅游部公布的 5A 景区名单）
+ * - worldHeritageCount: 世界遗产数（来自 UNESCO 世界遗产名录，按省境内项目计）
+ * - intangibleHeritageCount: 国家级非遗代表性项目数（来自中国非遗网，按申报地区计）
  * - topAttractions: 热门景点列表（含名称、图片、描述）
  */
 export interface SceneryOverview {
   totalSpots: number;
   natureSpots: number;
   cultureSpots: number;
+  fiveACount?: number;
+  worldHeritageCount?: number;
+  intangibleHeritageCount?: number;
   topAttractions: Array<{
     name: string;
     image: string;
@@ -321,18 +365,71 @@ export interface SceneryOverview {
 }
 
 /**
+ * 体验项目 — 深度体验子tab的通用数据结构
+ *
+ * 【数据库表】scenery_experiences（按 category 区分：craft/performance/outdoor/wellness）
+ *
+ * @property id            - 体验唯一标识
+ * @property name          - 体验名称
+ * @property type          - 体验类型描述（如 "非遗手工艺"、"戏曲表演"、"徒步穿越"、"温泉养生"）
+ * @property image         - 体验图片 URL
+ * @property category      - 分类标识（craft / performance / outdoor / wellness）
+ * @property duration      - 体验时长（如 "2-3小时"）
+ * @property location      - 体验地点
+ * @property difficulty    - 难度等级（简单 / 中等 / 较难）
+ * @property description   - 体验描述
+ * @property tags          - 标签列表（包含非遗/民俗属性标签）
+ * @property heritageLevel - 非遗级别（可选，national / provincial / municipal）
+ */
+export interface ExperienceItem {
+  id: string;
+  name: string;
+  type: string;
+  image: string;
+  category: string;
+  duration: string;
+  location: string;
+  difficulty: string;
+  description: string;
+  tags?: string[];
+  heritageLevel?: string;
+  price?: string;
+  suitableFor?: string[];
+  rating?: number;
+  reviewCount?: number;
+  instructor?: string;
+  highlights?: string[];
+  steps?: string[];
+  totalAscent?: number;
+  maxElevation?: number;
+  routeType?: string;
+  surfaceType?: string;
+  accessInfo?: string;
+  gearList?: string[];
+  safetyTips?: string[];
+  bestMonths?: string;
+  weatherTips?: string;
+  supplyPoints?: string;
+  packageIncludes?: string[];
+  efficacyTags?: string[];
+  bestSeason?: string;
+  reservation?: string;
+}
+
+/**
  * 风光数据 — 对应后端 GET /api/travel-guide/scenery/:provinceId 返回的数据
  *
- * 【数据库表】多表聚合（scenery_spots + scenery_seasonal + scenery_activities + scenery_routes 等）
+ * 【数据库表】多表聚合（scenery_spots + scenery_seasonal + scenery_experiences + scenery_routes 等）
  *
- * @property overview            - 风光概览（来自后端统计）
- * @property spots               - 景点列表（来自后端 scenery_spots 表）
- * @property seasonal            - 季节推荐列表（来自后端，含季节名称、描述、图片、活动）
- * @property activities          - 活动列表（来自后端 scenery_activities 表）
- * @property routes              - 路线列表（来自后端 scenery_routes 表）
- * @property intangibleHeritage  - 非物质文化遗产列表（可选，来自后端）
- * @property festivals           - 节日列表（可选，来自后端，any 类型待细化）
- * @property folkCustomsElements - 民俗元素列表（可选，来自后端，any 类型待细化）
+ * @property overview         - 风光概览（来自后端统计）
+ * @property spots            - 景点列表（来自后端 scenery_spots 表）
+ * @property seasonal         - 季节推荐列表（来自后端，含季节名称、描述、图片、活动）
+ * @property routes           - 路线列表（来自后端 scenery_routes 表）
+ * @property craftWorkshops   - 手作工坊体验列表（来自后端 scenery_experiences 表，category=craft）
+ * @property performances     - 演艺观赏体验列表（来自后端 scenery_experiences 表，category=performance）
+ * @property outdoorAdventure - 户外探险体验列表（来自后端 scenery_experiences 表，category=outdoor）
+ * @property wellnessRetreat  - 休闲养生体验列表（来自后端 scenery_experiences 表，category=wellness）
+ * @property festivals        - 节庆时令列表（可选，来自后端）
  */
 export interface SceneryData {
   overview: SceneryOverview;
@@ -342,17 +439,6 @@ export interface SceneryData {
     description: string;
     image: string;
     activities: string[];
-  }>;
-  activities: Array<{
-    id: string;
-    name: string;
-    description: string;
-    image: string;
-    category: string;
-    location: string;
-    duration: string;
-    difficulty: string;
-    type: string;
   }>;
   routes: Array<{
     id: string;
@@ -370,24 +456,11 @@ export interface SceneryData {
     traffic: string;
     suitableFor: string;
   }>;
-  intangibleHeritage?: Array<{
-    id: string;
-    name: string;
-    level: string;
-    description: string;
-    image: string;
-    category: string;
-    heritageType?: string;
-    protectionUnit: string;
-    tags?: string[];
-    icon: string;
-    features: string[];
-    views?: number;
-    likes?: number;
-    rating?: number;
-  }>;
+  craftWorkshops?: ExperienceItem[];
+  performances?: ExperienceItem[];
+  outdoorAdventure?: ExperienceItem[];
+  wellnessRetreat?: ExperienceItem[];
   festivals?: any[];
-  folkCustomsElements?: any[];
 }
 
 /**
@@ -450,4 +523,59 @@ export interface SceneryTab {
   id: string;
   name: string;
   icon: string;
+}
+/**
+ * 美食攻略 — 一日三餐 + 美食路线 + 避坑贴士
+ */
+export interface FoodGuide {
+  mealPlan: {
+    breakfast: string[];
+    lunch: string[];
+    dinner: string[];
+  };
+  routes: FoodGuideRoute[];
+  tips: FoodGuideTip[];
+}
+
+export interface FoodGuideRoute {
+  id: string;
+  name: string;
+  duration: string;
+  steps: FoodGuideRouteStep[];
+}
+
+export interface FoodGuideRouteStep {
+  time: string;
+  location: string;
+  foodId: string;
+  description: string;
+}
+
+export interface FoodGuideTip {
+  question: string;
+  answer: string;
+}
+
+/**
+ * 特产伴手礼
+ */
+export interface FoodSouvenir {
+  id: string;
+  name: string;
+  image: string;
+  priceRange: string;
+  description: string;
+  buyAt: string;
+  storage: string;
+  province?: string;
+}
+
+/**
+ * 当季时令美食
+ */
+export interface FoodSeasonal {
+  season: string;
+  seasonName: string;
+  foods: string[];
+  description: string;
 }

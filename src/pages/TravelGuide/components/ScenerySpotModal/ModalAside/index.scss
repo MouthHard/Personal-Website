@@ -1,0 +1,338 @@
+: #020204;
+
+.modal-aside {
+  width: 360px;
+  flex-shrink: 0;
+  padding: 18px 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  border-radius: 14px 14px 4px 4px;
+  background:
+    radial-gradient(ellipse 60% 30% at 50% 0%, rgba(255,255,255,0.06) 0%, transparent 60%),
+    radial-gradient(circle at 14px 14px, rgba(0,0,0,0.7) 0, rgba(0,0,0,0.7) 2.5px, transparent 4px),
+    radial-gradient(circle at calc(100% - 14px) 14px, rgba(0,0,0,0.7) 0, rgba(0,0,0,0.7) 2.5px, transparent 4px),
+    radial-gradient(circle at 14px calc(100% - 14px), rgba(0,0,0,0.7) 0, rgba(0,0,0,0.7) 2.5px, transparent 4px),
+    radial-gradient(circle at calc(100% - 14px) calc(100% - 14px), rgba(0,0,0,0.7) 0, rgba(0,0,0,0.7) 2.5px, transparent 4px),
+    linear-gradient(160deg, #363b48 0%, #232833 40%, #151921 75%, #0c0e14 100%);
+  box-shadow:
+    0 14px 35px rgba(0, 0, 0, 0.9),
+    0 6px 14px rgba(0, 0, 0, 0.65),
+    0 2px 4px rgba(0, 0, 0, 0.4),
+    inset 0 2.5px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -3.5px 5px rgba(0, 0, 0, 0.75),
+    inset 2.5px 0 0 rgba(255, 255, 255, 0.06),
+    inset -2.5px 0 0 rgba(0, 0, 0, 0.55);
+
+  .console-brand {
+    text-align: center;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: rgba(180, 190, 210, 0.5);
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.8), 0 -1px 0 rgba(255, 255, 255, 0.08);
+    font-family: 'Courier New', monospace;
+    padding-bottom: 2px;
+  }
+
+  .modal-hero {
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    height: 218px;
+    border: 6px solid #0a0c10;
+    background: $base;
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.08),
+      0 0 0 2px rgba(0, 0, 0, 0.9),
+      0 4px 10px rgba(0, 0, 0, 0.8),
+      inset 0 0 0 1px rgba(0, 229, 255, 0.2),
+      inset 0 4px 10px rgba(0, 0, 0, 0.95),
+      inset 0 -3px 8px rgba(0, 0, 0, 0.9),
+      inset 4px 0 8px rgba(0, 0, 0, 0.75),
+      inset -4px 0 8px rgba(0, 0, 0, 0.75);
+
+    .screen-led {
+      position: absolute;
+      top: 5px;
+      right: 7px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #ff6060 0%, #cc0000 60%, #800000 100%);
+      box-shadow: 0 0 6px rgba(255, 60, 60, 0.8), inset 0 1px 0 rgba(255, 180, 180, 0.5);
+      z-index: 5;
+    }
+
+    .modal-image { width: 100%; height: 100%; object-fit: cover; }
+
+    .modal-hero-shade {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 50%, rgba(0, 0, 0, 0.7)), linear-gradient(90deg, rgba(0, 0, 0, 0.3) 0%, transparent 6%, transparent 94%, rgba(0, 0, 0, 0.3) 100%);
+      pointer-events: none;
+    }
+  }
+
+  // 卡带标签贴纸条 — 复古游戏卡带标签
+  .prism-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 9px 10px;
+    border-radius: 3px;
+    background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(28, 40, 64, 0.72) 0%, transparent 70%), linear-gradient(160deg, rgba(12, 17, 30, 0.99) 0%, rgba(6, 9, 18, 0.97) 100%);
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.94), inset 0 -1px 0 rgba(255, 255, 255, 0.07), inset 1px 0 3px rgba(0, 0, 0, 0.55), inset -1px 0 3px rgba(0, 0, 0, 0.55), 0 3px 6px rgba(0, 0, 0, 0.55);
+
+    .prism-shard {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 5px 11px 5px 9px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.4px;
+      border-radius: 2px 0 0 2px;
+      clip-path: polygon(0 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
+      position: relative;
+
+      &.shard-type {
+        color: #96eeff;
+        background: linear-gradient(135deg, rgba(255,255,255,0.28) 0%, transparent 22%, rgba(255,255,255,0.08) 45%, transparent 68%), linear-gradient(180deg, rgba(255,255,255,0.16) 0%, transparent 30%), linear-gradient(160deg, #1f7a88 0%, #104e5c 50%, #082e3a 100%);
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 3px 5px rgba(0, 0, 0, 0.65), 0 1px 2px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(215, 250, 255, 0.55), inset 0 -1.5px 1px rgba(0, 0, 0, 0.45), inset 1px 0 0 rgba(255, 255, 255, 0.14), inset 0 0 0 1px rgba(0, 0, 0, 0.2);
+        svg { color: #96eeff; }
+      }
+
+      &.shard-level {
+        color: #ffe27d;
+        background: linear-gradient(135deg, rgba(255,255,255,0.28) 0%, transparent 22%, rgba(255,255,255,0.08) 45%, transparent 68%), linear-gradient(180deg, rgba(255,255,255,0.16) 0%, transparent 30%), linear-gradient(160deg, #98681f 0%, #65420f 50%, #35220a 100%);
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 3px 5px rgba(0, 0, 0, 0.65), 0 1px 2px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 235, 155, 0.55), inset 0 -1.5px 1px rgba(0, 0, 0, 0.45), inset 1px 0 0 rgba(255, 255, 255, 0.14), inset 0 0 0 1px rgba(0, 0, 0, 0.2);
+        .shard-level-badge {
+          font-size: 13px;
+          font-weight: 900;
+          color: #fff4b8;
+        }
+      }
+
+      &.shard-cat {
+        color: #acffce;
+        background: linear-gradient(135deg, rgba(255,255,255,0.28) 0%, transparent 22%, rgba(255,255,255,0.08) 45%, transparent 68%), linear-gradient(180deg, rgba(255,255,255,0.16) 0%, transparent 30%), linear-gradient(160deg, #21793d 0%, #114f25 50%, #09351a 100%);
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 3px 5px rgba(0, 0, 0, 0.65), 0 1px 2px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(185, 255, 205, 0.5), inset 0 -1.5px 1px rgba(0, 0, 0, 0.45), inset 1px 0 0 rgba(255, 255, 255, 0.14), inset 0 0 0 1px rgba(0, 0, 0, 0.2);
+        svg { color: #b8ffd6; }
+      }
+
+      &.shard-rating {
+        color: #ffe27d;
+        background: linear-gradient(135deg, rgba(255,255,255,0.28) 0%, transparent 22%, rgba(255,255,255,0.08) 45%, transparent 68%), linear-gradient(180deg, rgba(255,255,255,0.16) 0%, transparent 30%), linear-gradient(160deg, #8d5711 0%, #5c3708 50%, #36200a 100%);
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 3px 5px rgba(0, 0, 0, 0.65), 0 1px 2px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 230, 140, 0.55), inset 0 -1.5px 1px rgba(0, 0, 0, 0.45), inset 1px 0 0 rgba(255, 255, 255, 0.14), inset 0 0 0 1px rgba(0, 0, 0, 0.2);
+        svg { color: #ffe27d; }
+        .shard-rating-num {
+          font-size: 15px;
+          font-weight: 900;
+        }
+      }
+
+      &.shard-reviews {
+        color: #eef4ff;
+        background: linear-gradient(135deg, rgba(255,255,255,0.22) 0%, transparent 22%, rgba(255,255,255,0.06) 45%, transparent 68%), linear-gradient(180deg, rgba(255,255,255,0.13) 0%, transparent 30%), linear-gradient(160deg, #4c5568 0%, #2b3242 50%, #181d29 100%);
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 3px 5px rgba(0, 0, 0, 0.65), 0 1px 2px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(215, 228, 245, 0.42), inset 0 -1.5px 1px rgba(0, 0, 0, 0.45), inset 1px 0 0 rgba(255, 255, 255, 0.12), inset 0 0 0 1px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+
+  // 街机投币口 + CREDIT 显示
+  .aside-price-console {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    background: linear-gradient(160deg, #2a2a30 0%, #1a1a20 50%, #0e0e14 100%);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7), 0 2px 3px rgba(0, 0, 0, 0.5), inset 0 1.5px 0 rgba(255, 255, 255, 0.12), inset 0 -2px 2px rgba(0, 0, 0, 0.6), inset 1px 0 0 rgba(255, 255, 255, 0.08), inset -1px 0 0 rgba(0, 0, 0, 0.5);
+
+    .coin-slot {
+      width: 28px;
+      height: 6px;
+      border-radius: 3px;
+      background: #000;
+      box-shadow: inset 0 2px 3px rgba(0, 0, 0, 1), inset 0 -1px 0 rgba(255, 255, 255, 0.04), 0 1px 0 rgba(255, 255, 255, 0.1);
+      flex-shrink: 0;
+    }
+
+    .price-console-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: rgba(255, 180, 40, 0.9);
+      letter-spacing: 2px;
+      font-family: 'Courier New', monospace;
+      text-shadow: 0 0 4px rgba(255, 180, 40, 0.5);
+    }
+
+    .price-console-value {
+      font-size: 22px;
+      font-weight: 800;
+      color: #ff9020;
+      text-shadow: 0 0 8px rgba(255, 144, 32, 0.7), 0 0 3px rgba(255, 180, 60, 0.9);
+      letter-spacing: 1px;
+      font-family: 'Courier New', monospace;
+      margin-left: auto;
+      &:hover { color: #ffb040; }
+    }
+  }
+
+  // 5键操作组 — 金属物理按键
+  .aside-actions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    padding: 4px 2px;
+
+    .action-btn {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 11px 8px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid rgba(0, 0, 0, 0.8);
+      background: linear-gradient(180deg, rgba(255,255,255,0.35) 0%, transparent 25%), radial-gradient(ellipse 50% 35% at 25% 0%, rgba(255,255,255,0.18) 0%, transparent 60%), radial-gradient(ellipse 60% 25% at 50% 100%, rgba(100,150,200,0.1) 0%, transparent 60%), linear-gradient(160deg, #4a5566 0%, #363f4d 50%, #222a36 100%);
+      color: #fff;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.85), 0 3px 5px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(0, 0, 0, 0.4), inset 0 2px 0 rgba(255, 255, 255, 0.35), inset 0 -3px 3px rgba(0, 0, 0, 0.75), inset 1px 0 0 rgba(255, 255, 255, 0.12), inset -1px 0 0 rgba(0, 0, 0, 0.55), inset 0 0 0 1px rgba(0, 0, 0, 0.3);
+      position: relative;
+      overflow: hidden;
+
+      svg { width: 20px; height: 20px; stroke-width: 2.5; }
+      .action-label { font-size: 13px; font-weight: 700; text-shadow: 0 1px 1px rgba(0, 0, 0, 0.7); letter-spacing: 0.5px; }
+
+      // active 态底部光条
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0; left: 0;
+        width: 100%; height: 0;
+        transition: height 0.3s ease;
+        pointer-events: none;
+      }
+
+      &:active { box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6), inset 0 5px 7px rgba(0, 0, 0, 0.9), inset 0 -1px 0 rgba(255, 255, 255, 0.05); }
+    }
+
+    // 点赞 — 青色
+    .act-like {
+      background: linear-gradient(180deg, rgba(255,255,255,0.35) 0%, transparent 25%), radial-gradient(ellipse 50% 35% at 25% 0%, rgba(255,255,255,0.18) 0%, transparent 60%), radial-gradient(ellipse 60% 25% at 50% 100%, rgba(0,229,255,0.12) 0%, transparent 60%), linear-gradient(160deg, #4080a0 0%, #2a5878 50%, #1a3850 100%);
+      // hover = 能量充盈（外发光+提亮）
+      &:hover {
+        background: linear-gradient(180deg, rgba(255,255,255,0.42) 0%, transparent 25%), radial-gradient(ellipse 50% 35% at 25% 0%, rgba(255,255,255,0.22) 0%, transparent 60%), radial-gradient(ellipse 60% 25% at 50% 100%, rgba(0,229,255,0.18) 0%, transparent 60%), linear-gradient(160deg, #5090b0 0%, #3a6890 50%, #2a4860 100%);
+        box-shadow: 0 8px 14px rgba(0,0,0,0.9), 0 0 20px rgba(0, 229, 255, 0.5), 0 0 40px rgba(0, 229, 255, 0.2), inset 0 2px 0 rgba(0, 229, 255, 0.45), inset 0 -3px 3px rgba(0,0,0,0.75), inset 1px 0 0 rgba(255,255,255,0.15), inset -1px 0 0 rgba(0,0,0,0.55);
+        color: #7df9ff;
+      }
+      // active = 按下锁定（实心+内凹+变方+底锚）
+      &.active {
+        background: #1a6890;
+        border: 3px solid rgba(180, 240, 255, 0.8);
+        border-radius: 4px;
+        box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.5), inset 0 -2px 3px rgba(0, 229, 255, 0.2), 0 2px 4px rgba(0, 0, 0, 0.5);
+        color: #e0faff;
+        &::after { height: 3px; background: #00e5ff; box-shadow: 0 0 8px rgba(0, 229, 255, 0.6); }
+        &:hover { background: #2078a0; box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.45), inset 0 -2px 3px rgba(0, 229, 255, 0.25), 0 0 18px rgba(0, 229, 255, 0.4), 0 2px 4px rgba(0, 0, 0, 0.5); }
+      }
+    }
+
+    // 分享 — 绿色
+    .act-share {
+      background: linear-gradient(180deg, rgba(255,255,255,0.35) 0%, transparent 25%), radial-gradient(ellipse 50% 35% at 25% 0%, rgba(255,255,255,0.18) 0%, transparent 60%), radial-gradient(ellipse 60% 25% at 50% 100%, rgba(0,255,157,0.12) 0%, transparent 60%), linear-gradient(160deg, #3a8050 0%, #205835 50%, #103820 100%);
+      &:hover {
+        background: linear-gradient(180deg, rgba(255,255,255,0.42) 0%, transparent 25%), radial-gradient(ellipse 50% 35% at 25% 0%, rgba(255,255,255,0.22) 0%, transparent 60%), radial-gradient(ellipse 60% 25% at 50% 100%, rgba(0,255,157,0.18) 0%, transparent 60%), linear-gradient(160deg, #4a9060 0%, #306845 50%, #205030 100%);
+        box-shadow: 0 8px 14px rgba(0,0,0,0.9), 0 0 20px rgba(0, 255, 157, 0.5), 0 0 40px rgba(0, 255, 157, 0.2), inset 0 2px 0 rgba(0, 255, 157, 0.45), inset 0 -3px 3px rgba(0,0,0,0.75), inset 1px 0 0 rgba(255,255,255,0.15), inset -1px 0 0 rgba(0,0,0,0.55);
+        color: #5dff9d;
+      }
+    }
+
+    // 想去 — 玫红
+    .act-want {
+      background: linear-gradient(180deg, rgba(255,255,255,0.35) 0%, transparent 25%), radial-gradient(ellipse 50% 35% at 25% 0%, rgba(255,255,255,0.18) 0%, transparent 60%), radial-gradient(ellipse 60% 25% at 50% 100%, rgba(255,100,140,0.12) 0%, transparent 60%), linear-gradient(160deg, #a04060 0%, #702838 50%, #481825 100%);
+      &:hover {
+        background: linear-gradient(180deg, rgba(255,255,255,0.42) 0%, transparent 25%), radial-gradient(ellipse 50% 35% at 25% 0%, rgba(255,255,255,0.22) 0%, transparent 60%), radial-gradient(ellipse 60% 25% at 50% 100%, rgba(255,100,140,0.18) 0%, transparent 60%), linear-gradient(160deg, #b05070 0%, #803848 50%, #582838 100%);
+        box-shadow: 0 8px 14px rgba(0,0,0,0.9), 0 0 20px rgba(255, 100, 140, 0.5), 0 0 40px rgba(255, 100, 140, 0.2), inset 0 2px 0 rgba(255, 120, 150, 0.45), inset 0 -3px 3px rgba(0,0,0,0.75), inset 1px 0 0 rgba(255,255,255,0.15), inset -1px 0 0 rgba(0,0,0,0.55);
+        color: #ff8caa;
+      }
+      &.active {
+        background: #8a1830;
+        border: 3px solid rgba(255, 180, 200, 0.8);
+        border-radius: 4px;
+        box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.5), inset 0 -2px 3px rgba(255, 100, 140, 0.2), 0 2px 4px rgba(0, 0, 0, 0.5);
+        color: #ffd0e0;
+        &::after { height: 3px; background: #ff6480; box-shadow: 0 0 8px rgba(255, 100, 140, 0.6); }
+        &:hover { background: #a02038; box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.45), inset 0 -2px 3px rgba(255, 100, 140, 0.25), 0 0 18px rgba(255, 100, 140, 0.4), 0 2px 4px rgba(0, 0, 0, 0.5); }
+      }
+    }
+
+    // 去过 — 翠绿
+    .act-been {
+      background: linear-gradient(180deg, rgba(255,255,255,0.35) 0%, transparent 25%), radial-gradient(ellipse 50% 35% at 25% 0%, rgba(255,255,255,0.18) 0%, transparent 60%), radial-gradient(ellipse 60% 25% at 50% 100%, rgba(52,211,153,0.12) 0%, transparent 60%), linear-gradient(160deg, #2a8050 0%, #185835 50%, #083820 100%);
+      &:hover {
+        background: linear-gradient(180deg, rgba(255,255,255,0.42) 0%, transparent 25%), radial-gradient(ellipse 50% 35% at 25% 0%, rgba(255,255,255,0.22) 0%, transparent 60%), radial-gradient(ellipse 60% 25% at 50% 100%, rgba(52,211,153,0.18) 0%, transparent 60%), linear-gradient(160deg, #3a9060 0%, #286845 50%, #185030 100%);
+        box-shadow: 0 8px 14px rgba(0,0,0,0.9), 0 0 20px rgba(52, 211, 153, 0.5), 0 0 40px rgba(52, 211, 153, 0.2), inset 0 2px 0 rgba(52, 211, 153, 0.45), inset 0 -3px 3px rgba(0,0,0,0.75), inset 1px 0 0 rgba(255,255,255,0.15), inset -1px 0 0 rgba(0,0,0,0.55);
+        color: #5dffa0;
+      }
+      &.active {
+        background: #0a6840;
+        border: 3px solid rgba(180, 250, 220, 0.8);
+        border-radius: 4px;
+        box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.5), inset 0 -2px 3px rgba(52, 211, 153, 0.2), 0 2px 4px rgba(0, 0, 0, 0.5);
+        color: #d0ffe8;
+        &::after { height: 3px; background: #34d399; box-shadow: 0 0 8px rgba(52, 211, 153, 0.6); }
+        &:hover { background: #0c7848; box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.45), inset 0 -2px 3px rgba(52, 211, 153, 0.25), 0 0 18px rgba(52, 211, 153, 0.4), 0 2px 4px rgba(0, 0, 0, 0.5); }
+      }
+    }
+
+    // 导航 — 蓝色
+    .act-nav {
+      background: linear-gradient(180deg, rgba(255,255,255,0.35) 0%, transparent 25%), radial-gradient(ellipse 50% 35% at 25% 0%, rgba(255,255,255,0.18) 0%, transparent 60%), radial-gradient(ellipse 60% 25% at 50% 100%, rgba(128,240,255,0.12) 0%, transparent 60%), linear-gradient(160deg, #3a80a0 0%, #205878 50%, #103850 100%);
+      &:hover {
+        background: linear-gradient(180deg, rgba(255,255,255,0.42) 0%, transparent 25%), radial-gradient(ellipse 50% 35% at 25% 0%, rgba(255,255,255,0.22) 0%, transparent 60%), radial-gradient(ellipse 60% 25% at 50% 100%, rgba(128,240,255,0.18) 0%, transparent 60%), linear-gradient(160deg, #4a90b0 0%, #306890 50%, #205060 100%);
+        box-shadow: 0 8px 14px rgba(0,0,0,0.9), 0 0 20px rgba(128, 240, 255, 0.5), 0 0 40px rgba(128, 240, 255, 0.2), inset 0 2px 0 rgba(128, 240, 255, 0.45), inset 0 -3px 3px rgba(0,0,0,0.75), inset 1px 0 0 rgba(255,255,255,0.15), inset -1px 0 0 rgba(0,0,0,0.55);
+        color: #80f0ff;
+      }
+    }
+  }
+
+
+
+  .console-speaker {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    padding: 2px 0;
+    span { width: 4px; height: 4px; border-radius: 50%; background: rgba(0, 0, 0, 0.8); box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.9), 0 1px 0 rgba(255, 255, 255, 0.05); }
+  }
+
+  // 立即预订 — START 椭圆大按钮
+  .aside-book {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 2px;
+    background: radial-gradient(ellipse 85% 55% at 50% 0%, rgba(255,255,255,0.28) 0%, transparent 50%), linear-gradient(160deg, #d04050 0%, #a02030 50%, #701018 100%);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 20px rgba(255, 60, 80, 0.35), 0 8px 14px rgba(0, 0, 0, 0.85), 0 3px 5px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(0, 0, 0, 0.4), inset 0 2.5px 0 rgba(255, 200, 210, 0.6), inset 0 -3.5px 3px rgba(0, 0, 0, 0.65), inset 1.5px 0 0 rgba(255, 160, 170, 0.25), inset -1.5px 0 0 rgba(0, 0, 0, 0.55);
+    transition: all 0.2s ease;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+    align-self: center;
+    width: 80%;
+
+    &:hover { background: radial-gradient(ellipse 85% 55% at 50% 0%, rgba(255,255,255,0.32) 0%, transparent 50%), linear-gradient(160deg, #d04050 0%, #a02030 50%, #701018 100%); box-shadow: 0 0 30px rgba(255, 60, 80, 0.55), 0 10px 18px rgba(0, 0, 0, 0.9), 0 4px 7px rgba(0, 0, 0, 0.6), inset 0 2.5px 0 rgba(255, 220, 230, 0.7), inset 0 -3.5px 3px rgba(0, 0, 0, 0.65), inset 1.5px 0 0 rgba(255, 180, 190, 0.3), inset -1.5px 0 0 rgba(0, 0, 0, 0.55); }
+    &:active { box-shadow: 0 0 20px rgba(255, 60, 80, 0.45), 0 2px 4px rgba(0, 0, 0, 0.7), inset 0 6px 8px rgba(0, 0, 0, 0.85); transform: translateY(1px); }
+  }
+}

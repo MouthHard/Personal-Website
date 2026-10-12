@@ -1,0 +1,1004 @@
+// ============================================================
+// MySceneryPanel · 6种差异化展示
+// 1.景点=拍立得照片墙  2.户外=登山日志  3.工坊=印章册
+// 4.演艺=老式戏票      5.养生=茶笺卷轴  6.节庆=日历翻页
+// ============================================================
+
+.my-scenery-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.panel-body {
+  min-height: 240px;
+}
+
+// ============================================================
+// 1. 景点 — 拍立得照片墙
+// 白色相纸边框（上窄下宽）+ 微旋转散落 + 手写地名 + 图钉移除
+// ============================================================
+.polaroid-wall {
+  list-style: none;
+  margin: 0;
+  padding: 8px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem 1rem;
+
+  .polaroid {
+    position: relative;
+    background: #fefef8;
+    padding: 10px 10px 0;
+    border-radius: 2px;
+    box-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.15),
+      0 8px 20px rgba(0, 0, 0, 0.25);
+    transition: transform 0.4s cubic-bezier(0.34, 1.4, 0.64, 1), box-shadow 0.4s ease;
+    cursor: pointer;
+
+    &:hover {
+      transform: rotate(0deg) translateY(-8px) scale(1.04) !important;
+      z-index: 10 !important;
+      box-shadow:
+        0 4px 8px rgba(0, 0, 0, 0.2),
+        0 16px 40px rgba(0, 0, 0, 0.35);
+
+      .polaroid-caption .caption-name {
+        color: #c0392b;
+      }
+    }
+
+    .polaroid-photo {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      border-radius: 1px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        filter: sepia(0.08) saturate(0.92);
+      }
+
+      .polaroid-level {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        padding: 2px 7px;
+        font-size: 0.62rem;
+        font-weight: 700;
+        color: #fff;
+        background: rgba(180, 50, 40, 0.88);
+        border-radius: 2px;
+        letter-spacing: 0.5px;
+      }
+    }
+
+    .polaroid-caption {
+      padding: 10px 4px 14px;
+      text-align: center;
+      font-family: 'Caveat', 'Noto Serif SC', cursive;
+
+      .caption-name {
+        display: block;
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #2c1810;
+        line-height: 1.3;
+        transition: color 0.3s ease;
+      }
+      .caption-loc {
+        display: block;
+        font-size: 0.72rem;
+        color: #8a7060;
+        margin-top: 3px;
+        display: inline-flex;
+        align-items: center;
+        gap: 2px;
+      }
+      .caption-star {
+        display: block;
+        font-size: 0.72rem;
+        color: #d4a017;
+        margin-top: 2px;
+      }
+    }
+
+    .polaroid-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      padding: 0 4px 12px;
+      justify-content: center;
+
+      .ptag {
+        padding: 1px 7px;
+        font-size: 0.62rem;
+        background: #f5e6d3;
+        color: #6b4a30;
+        border-radius: 10px;
+        border: 1px solid #e0cdb0;
+      }
+    }
+
+    .polaroid-pin {
+      position: absolute;
+      top: -6px;
+      right: 10px;
+      width: 20px;
+      height: 20px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #e74c3c, #a02818);
+      border: 1px solid #8a2010;
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+      transition: transform 0.2s ease;
+      z-index: 5;
+
+      &:hover {
+        transform: scale(1.2) rotate(180deg);
+      }
+    }
+  }
+}
+
+// ============================================================
+// 2. 户外探险 — 登山日志卡片
+// 牛皮纸 + 穿绳孔 + 海拔/时长/难度 + 手写日志感
+// ============================================================
+.trail-log {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+
+  .log-entry {
+    position: relative;
+    display: grid;
+    grid-template-columns: 88px 1fr;
+    gap: 0;
+    padding: 14px 14px 14px 18px;
+    border-radius: 4px;
+    background:
+      repeating-linear-gradient(0deg, rgba(120, 80, 30, 0.03) 0 1px, transparent 1px 5px),
+      repeating-linear-gradient(90deg, rgba(120, 80, 30, 0.02) 0 1px, transparent 1px 6px),
+      linear-gradient(168deg, #d4b890 0%, #c4a878 50%, #b89860 100%);
+    border: 1px solid #8a6a38;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 240, 200, 0.4),
+      inset 0 -2px 4px rgba(80, 50, 10, 0.15),
+      0 3px 8px rgba(60, 40, 10, 0.3),
+      0 8px 16px rgba(60, 40, 10, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+
+    &:hover {
+      transform: translateY(-4px) rotate(-0.5deg);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 240, 200, 0.5),
+        inset 0 -2px 4px rgba(80, 50, 10, 0.12),
+        0 6px 16px rgba(60, 40, 10, 0.35),
+        0 14px 28px rgba(60, 40, 10, 0.2);
+    }
+
+    // 穿绳孔
+    .log-bind-holes {
+      position: absolute;
+      top: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 2;
+
+      span {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: radial-gradient(circle, #3a2a10 30%, #5a4020 100%);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.6), 0 1px 0 rgba(255, 240, 200, 0.3);
+      }
+    }
+
+    .log-photo {
+      width: 88px;
+      height: 88px;
+      border-radius: 3px;
+      overflow: hidden;
+      border: 2px solid #8a6a38;
+      box-shadow: 0 2px 4px rgba(60, 40, 10, 0.3);
+      margin-top: 10px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        filter: sepia(0.15) contrast(1.05);
+      }
+    }
+
+    .log-content {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding-left: 12px;
+      padding-top: 10px;
+      min-width: 0;
+
+      .log-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 6px;
+
+        .log-title {
+          font-size: 0.92rem;
+          font-weight: 700;
+          color: #3a2810;
+          font-family: 'Noto Serif SC', serif;
+        }
+        .log-diff {
+          padding: 1px 7px;
+          font-size: 0.62rem;
+          font-weight: 700;
+          border-radius: 8px;
+          color: #fff;
+          background: #6b8e23;
+          &[data-d="较难"] { background: #c0392b; }
+          &[data-d="中等"] { background: #d4a017; }
+        }
+      }
+
+      .log-stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+
+        .log-stat {
+          display: inline-flex;
+          align-items: center;
+          gap: 3px;
+          font-size: 0.68rem;
+
+          .stat-label {
+            color: #7a5a30;
+            font-weight: 600;
+          }
+          .stat-val {
+            color: #3a2810;
+            font-weight: 700;
+          }
+        }
+      }
+
+      .log-desc {
+        margin: 0;
+        font-size: 0.72rem;
+        line-height: 1.45;
+        color: #5a4020;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        font-style: italic;
+      }
+    }
+
+    .log-remove {
+      position: absolute;
+      bottom: 6px;
+      right: 6px;
+      width: 20px;
+      height: 20px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      border: 1px solid #8a6a38;
+      background: rgba(60, 40, 10, 0.15);
+      color: #5a3a10;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: #c0392b;
+        color: #fff;
+        border-color: #8a2010;
+      }
+    }
+  }
+}
+
+// ============================================================
+// 3. 工坊体验 — 匠人印章册
+// 宣纸底 + 朱红方形印章 + 非遗朱印 + 竖排感
+// ============================================================
+.seal-album {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.2rem;
+
+  .seal-card {
+    position: relative;
+
+    .seal-paper {
+      position: relative;
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 12px;
+      padding: 16px 16px 14px;
+      border-radius: 2px;
+      background:
+        repeating-linear-gradient(0deg, rgba(120, 90, 45, 0.02) 0 1px, transparent 1px 4px),
+        repeating-linear-gradient(90deg, rgba(120, 90, 45, 0.015) 0 1px, transparent 1px 5px),
+        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(255, 255, 255, 0.6), transparent 65%),
+        linear-gradient(180deg, #fdf9ee 0%, #f4ecd6 100%);
+      border: 1px solid #c4b080;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.8),
+        0 3px 8px rgba(80, 50, 10, 0.15),
+        0 8px 20px rgba(80, 50, 10, 0.1);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      overflow: hidden;
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.8),
+          0 6px 16px rgba(180, 50, 40, 0.15),
+          0 14px 30px rgba(80, 50, 10, 0.15);
+
+        .seal-stamp {
+          transform: rotate(-3deg) scale(1.05);
+          box-shadow: 0 0 12px rgba(180, 50, 40, 0.4), inset 0 0 8px rgba(140, 30, 20, 0.3);
+        }
+      }
+    }
+
+    .seal-img-frame {
+      width: 80px;
+      height: 80px;
+      border-radius: 2px;
+      overflow: hidden;
+      border: 2px solid #8a6a38;
+      box-shadow: 0 2px 5px rgba(80, 50, 10, 0.2);
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+    }
+
+    .seal-info {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      min-width: 0;
+
+      .seal-stamp {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4px 12px;
+        border: 2px solid #b8382b;
+        border-radius: 2px;
+        background: rgba(184, 56, 43, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        align-self: flex-start;
+
+        .stamp-text {
+          font-size: 0.88rem;
+          font-weight: 700;
+          color: #b8382b;
+          font-family: 'Noto Serif SC', serif;
+          letter-spacing: 2px;
+        }
+      }
+
+      .seal-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+
+        .seal-herit {
+          padding: 1px 6px;
+          font-size: 0.62rem;
+          font-weight: 700;
+          color: #fef0e8;
+          background: linear-gradient(180deg, #c84a3a, #8a2418);
+          border-radius: 2px;
+          border: 1px solid #8a2418;
+        }
+        .seal-type {
+          font-size: 0.68rem;
+          color: #6a5030;
+        }
+      }
+
+      .seal-loc {
+        font-size: 0.68rem;
+        color: #8a6a38;
+        display: inline-flex;
+        align-items: center;
+        gap: 2px;
+      }
+      .seal-dur {
+        font-size: 0.68rem;
+        color: #a08050;
+      }
+    }
+
+    // 右下角朱印
+    .seal-red-stamp {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border: 2px solid #b8382b;
+      border-radius: 2px;
+      background: rgba(184, 56, 43, 0.85);
+      color: #fef0e8;
+      font-size: 0.62rem;
+      font-weight: 700;
+      font-family: 'Noto Serif SC', serif;
+      transform: rotate(-8deg);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+      pointer-events: none;
+    }
+
+    .seal-remove {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      width: 20px;
+      height: 20px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      border: 1px solid rgba(184, 56, 43, 0.4);
+      background: rgba(184, 56, 43, 0.1);
+      color: #b8382b;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      z-index: 5;
+
+      &:hover {
+        background: #b8382b;
+        color: #fff;
+        transform: rotate(90deg);
+      }
+    }
+  }
+}
+
+// ============================================================
+// 4. 演艺节目 — 老式戏票
+// 撕票根 + 锯齿边 + 座位号 + 票面质感
+// ============================================================
+.ticket-stub {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.2rem;
+
+  .ticket {
+    position: relative;
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #f5ead0;
+    box-shadow:
+      0 3px 8px rgba(60, 40, 10, 0.25),
+      0 10px 24px rgba(60, 40, 10, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-3px) rotate(0.5deg);
+      box-shadow:
+        0 6px 16px rgba(60, 40, 10, 0.3),
+        0 18px 36px rgba(60, 40, 10, 0.2);
+    }
+
+    // 左票根
+    .ticket-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 12px 6px;
+      background:
+        repeating-linear-gradient(45deg, rgba(120, 80, 30, 0.04) 0 2px, transparent 2px 4px),
+        linear-gradient(180deg, #e8d8b0 0%, #d4c090 100%);
+      border-right: none;
+
+      .stub-no {
+        font-size: 0.68rem;
+        font-weight: 700;
+        color: #5a3a10;
+        font-family: 'Courier New', monospace;
+        letter-spacing: 1px;
+      }
+      .stub-type {
+        font-size: 0.62rem;
+        color: #7a5a30;
+        text-align: center;
+        writing-mode: vertical-rl;
+        letter-spacing: 2px;
+      }
+      .stub-time {
+        font-size: 0.62rem;
+        color: #5a3a10;
+        font-weight: 600;
+      }
+    }
+
+    // 撕线（虚线 + 锯齿）
+    .ticket-tear {
+      position: relative;
+      width: 0;
+      border-left: 2px dashed rgba(120, 80, 30, 0.4);
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        left: -6px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #1a0f08;
+      }
+      &::before { top: -6px; }
+      &::after { bottom: -6px; }
+    }
+
+    // 主票面
+    .ticket-main {
+      display: grid;
+      grid-template-columns: 70px 1fr;
+      gap: 10px;
+      padding: 12px 14px;
+      background:
+        repeating-linear-gradient(0deg, rgba(120, 80, 30, 0.02) 0 1px, transparent 1px 5px),
+        linear-gradient(180deg, #f8eed4 0%, #f0e2c0 100%);
+
+      .ticket-img {
+        width: 70px;
+        height: 90px;
+        border-radius: 3px;
+        overflow: hidden;
+        border: 1px solid #c4a860;
+        box-shadow: 0 2px 4px rgba(80, 50, 10, 0.2);
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+          filter: sepia(0.12);
+        }
+      }
+
+      .ticket-detail {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        min-width: 0;
+
+        .ticket-name {
+          font-size: 0.92rem;
+          font-weight: 700;
+          color: #3a2010;
+          font-family: 'Noto Serif SC', serif;
+          line-height: 1.3;
+        }
+        .ticket-loc {
+          font-size: 0.68rem;
+          color: #7a5a30;
+          display: inline-flex;
+          align-items: center;
+          gap: 2px;
+        }
+        .ticket-price {
+          font-size: 0.72rem;
+          font-weight: 700;
+          color: #b8382b;
+        }
+        .ticket-desc {
+          margin: 0;
+          font-size: 0.68rem;
+          line-height: 1.4;
+          color: #6a4a20;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+      }
+    }
+
+    .ticket-remove {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      width: 20px;
+      height: 20px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      border: 1px solid rgba(120, 80, 30, 0.4);
+      background: rgba(120, 80, 30, 0.1);
+      color: #5a3a10;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      z-index: 5;
+
+      &:hover {
+        background: #b8382b;
+        color: #fff;
+        border-color: #8a2418;
+      }
+    }
+  }
+}
+
+// ============================================================
+// 5. 休闲养生 — 茶笺卷轴
+// 宣纸卷轴 + 茶汤色系 + 木纹边框 + 功效标签
+// ============================================================
+.tea-scroll {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.4rem;
+
+  .tea-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    .tea-roller-top,
+    .tea-roller-bot {
+      height: 10px;
+      border-radius: 5px;
+      background:
+        repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0 1px, transparent 1px 3px),
+        linear-gradient(180deg, #6b4423 0%, #4a2d16 50%, #2e1a0c 100%);
+      box-shadow:
+        inset 0 1px 0 rgba(176, 122, 60, 0.4),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.5),
+        0 2px 4px rgba(0, 0, 0, 0.3);
+      z-index: 1;
+    }
+
+    .tea-paper {
+      position: relative;
+      display: grid;
+      grid-template-columns: 76px 1fr;
+      gap: 10px;
+      padding: 12px 14px;
+      background:
+        repeating-linear-gradient(0deg, rgba(120, 90, 45, 0.02) 0 1px, transparent 1px 4px),
+        repeating-linear-gradient(90deg, rgba(120, 90, 45, 0.015) 0 1px, transparent 1px 5px),
+        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(255, 255, 255, 0.5), transparent 65%),
+        linear-gradient(180deg, #fdf9ee 0%, #f4ecd6 100%);
+      border-left: 3px solid #6b4423;
+      border-right: 3px solid #6b4423;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.7),
+        0 3px 8px rgba(80, 50, 10, 0.2),
+        0 8px 20px rgba(80, 50, 10, 0.12);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+
+      &:hover {
+        transform: scale(1.02);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.7),
+          0 0 0 1px rgba(176, 136, 62, 0.3),
+          0 6px 16px rgba(176, 136, 62, 0.2),
+          0 14px 30px rgba(80, 50, 10, 0.18);
+      }
+    }
+
+    .tea-img-box {
+      width: 76px;
+      height: 76px;
+      border-radius: 3px;
+      overflow: hidden;
+      border: 2px solid #6b4423;
+      box-shadow: 0 2px 5px rgba(80, 50, 10, 0.25);
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        filter: sepia(0.1) saturate(0.95);
+      }
+    }
+
+    .tea-body {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 0;
+
+      .tea-name {
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: #3a2810;
+        font-family: 'Noto Serif SC', serif;
+        letter-spacing: 1px;
+      }
+      .tea-type {
+        font-size: 0.65rem;
+        color: #b08d3e;
+        font-weight: 600;
+      }
+      .tea-info {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+
+        .tea-loc {
+          font-size: 0.66rem;
+          color: #7a5a30;
+          display: inline-flex;
+          align-items: center;
+          gap: 2px;
+        }
+        .tea-dur {
+          font-size: 0.66rem;
+          color: #5a7d5a;
+        }
+      }
+      .tea-eff {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+        margin-top: 3px;
+
+        .eff-chip {
+          padding: 1px 7px;
+          font-size: 0.6rem;
+          font-weight: 600;
+          color: #4a6b4a;
+          background: rgba(90, 125, 90, 0.12);
+          border: 1px solid rgba(90, 125, 90, 0.3);
+          border-radius: 8px;
+        }
+      }
+    }
+
+    .tea-seal {
+      position: absolute;
+      bottom: 6px;
+      right: 6px;
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border: 1.5px solid #b8382b;
+      border-radius: 2px;
+      background: rgba(184, 56, 43, 0.8);
+      color: #fef0e8;
+      font-size: 0.58rem;
+      font-weight: 700;
+      font-family: 'Noto Serif SC', serif;
+      transform: rotate(-6deg);
+      pointer-events: none;
+    }
+
+    .tea-remove {
+      position: absolute;
+      top: 14px;
+      right: 6px;
+      width: 20px;
+      height: 20px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      border: 1px solid rgba(80, 50, 10, 0.4);
+      background: rgba(80, 50, 10, 0.1);
+      color: #5a3a10;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      z-index: 5;
+
+      &:hover {
+        background: #b8382b;
+        color: #fff;
+        border-color: #8a2418;
+      }
+    }
+  }
+}
+
+// ============================================================
+// 6. 节庆日历 — 日历翻页
+// 日历页 + 大日期数字 + 装订环孔 + 翻页折角
+// ============================================================
+.calendar-flip {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.2rem;
+
+  .cal-page {
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #fffef8;
+    box-shadow:
+      0 2px 6px rgba(60, 40, 10, 0.2),
+      0 8px 20px rgba(60, 40, 10, 0.12);
+    transition: transform 0.35s cubic-bezier(0.34, 1.4, 0.64, 1), box-shadow 0.35s ease;
+
+    &:hover {
+      transform: translateY(-5px) rotate(-1deg);
+      box-shadow:
+        0 6px 16px rgba(60, 40, 10, 0.3),
+        0 18px 36px rgba(60, 40, 10, 0.2);
+
+      .cal-fold {
+        width: 28px;
+        height: 28px;
+      }
+      .cal-day {
+        color: #c0392b;
+      }
+    }
+
+    .cal-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 12px;
+      background: linear-gradient(180deg, #e74c3c 0%, #c0392b 100%);
+      color: #fff;
+
+      .cal-month {
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        font-family: 'Noto Serif SC', serif;
+      }
+
+      .cal-rings {
+        display: flex;
+        gap: 6px;
+
+        span {
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          background: radial-gradient(circle, #888 30%, #555 100%);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5);
+        }
+      }
+    }
+
+    .cal-day {
+      font-size: 3.2rem;
+      font-weight: 800;
+      color: #2c1810;
+      text-align: center;
+      padding: 8px 0 4px;
+      font-family: 'Noto Serif SC', serif;
+      line-height: 1;
+      transition: color 0.3s ease;
+      text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .cal-body {
+      padding: 4px 12px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      border-top: 2px solid #e8d8c0;
+
+      .cal-img {
+        width: 100%;
+        height: 80px;
+        border-radius: 3px;
+        overflow: hidden;
+        margin-bottom: 4px;
+        border: 1px solid #d4c0a0;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+      }
+
+      .cal-name {
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: #3a2010;
+        font-family: 'Noto Serif SC', serif;
+      }
+      .cal-loc {
+        font-size: 0.65rem;
+        color: #7a5a30;
+        display: inline-flex;
+        align-items: center;
+        gap: 2px;
+      }
+      .cal-desc {
+        margin: 0;
+        font-size: 0.66rem;
+        line-height: 1.4;
+        color: #6a4a20;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+    }
+
+    // 翻页折角
+    .cal-fold {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 0 20px 20px;
+      border-color: transparent transparent #d4c0a0 transparent;
+      transition: width 0.3s ease, height 0.3s ease;
+      filter: drop-shadow(-2px -2px 2px rgba(0, 0, 0, 0.1));
+    }
+
+    .cal-remove {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      width: 20px;
+      height: 20px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      z-index: 5;
+
+      &:hover {
+        background: #fff;
+        color: #c0392b;
+        transform: rotate(90deg);
+      }
+    }
+  }
+}

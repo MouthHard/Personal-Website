@@ -1,23 +1,29 @@
-import CloseIcon from './CloseIcon.vue';
-import GalleryBackground from './GalleryBackground.vue';
-import GalleryPanelIcon from './GalleryPanelIcon.vue';
-import LocationIcon from './LocationIcon.vue';
-import SeasonsPanelIcon from './SeasonsPanelIcon.vue';
-import StarIcon from './StarIcon.vue';
-import StatsIcon from './StatsIcon.vue';
-import RouteIcon from './RouteIcon.vue';
-import RouteBackground from './RouteBackground.vue';
-import StarsAnimation from './StarsAnimation.vue';
 
-export {
-  CloseIcon,
-  GalleryBackground,
-  GalleryPanelIcon,
-  LocationIcon,
-  SeasonsPanelIcon,
-  StarIcon,
-  StatsIcon,
-  RouteIcon,
-  RouteBackground,
-  StarsAnimation,
-};
+export { default as CheckedHoloIcon } from './CheckedHoloIcon.vue';
+export { default as GalleryBackground } from './GalleryBackground.vue';
+export { default as HeritageFavoriteIcon } from './HeritageFavoriteIcon.vue';
+export { default as GalleryPanelIcon } from './GalleryPanelIcon.vue';
+export { default as RouteBackground } from './RouteBackground.vue';
+export { default as RouteIcon } from './RouteIcon.vue';
+export { default as SeasonsPanelIcon } from './SeasonsPanelIcon.vue';
+export { default as StarsAnimation } from './StarsAnimation.vue';
+export { default as StatsIcon } from './StatsIcon.vue';
+export { default as FolkCustomHeaderIcon } from './FolkCustomHeaderIcon.vue';
+export { default as FolkCustomDecorIcon } from './FolkCustomDecorIcon.vue';
+export { default as SortActiveIndicator } from './SortActiveIndicator.vue';
+export { default as GalleryPrevIcon } from './GalleryPrevIcon.vue';
+export { default as GalleryNextIcon } from './GalleryNextIcon.vue';
+export { default as FlowerIcon } from './FlowerIcon.vue';
+export { default as ChartIcon } from './ChartIcon.vue';
+export { default as PictureIcon } from './PictureIcon.vue';
+export { default as PaletteIcon } from './PaletteIcon.vue';
+export { default as TheaterMasksIcon } from './TheaterMasksIcon.vue';
+export { default as MuseumIcon } from './MuseumIcon.vue';
+export { default as GalaxyIcon } from './GalaxyIcon.vue';
+export { default as ConfettiIcon } from './ConfettiIcon.vue';
+export { default as DiamondIcon } from './DiamondIcon.vue';
+export { default as CableCarIcon } from './CableCarIcon.vue';
+export { default as RestaurantIcon } from './RestaurantIcon.vue';
+export { default as HotelIcon } from './HotelIcon.vue';
+export { default as ParkingIcon } from './ParkingIcon.vue';
+export { default as RestroomIcon } from './RestroomIcon.vue';

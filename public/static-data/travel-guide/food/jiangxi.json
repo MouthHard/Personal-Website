@@ -13,7 +13,7 @@
       "image": "https://picsum.photos/id/422/800/600",
       "price": 15,
       "rating": 4.6,
-      "category": "饮品",
+      "category": "汤羹饮品",
       "badgeText": "南昌名片",
       "isPopular": true,
       "badgeColor": "#ff5722",
@@ -41,7 +41,7 @@
       "image": "https://picsum.photos/id/423/800/600",
       "price": 12,
       "rating": 4.5,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "南昌早餐",
       "isPopular": true,
       "badgeColor": "#ff9800",
@@ -69,7 +69,7 @@
       "image": "https://picsum.photos/id/424/800/600",
       "price": 68,
       "rating": 4.7,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "鄱阳湖珍鲜",
       "isPopular": true,
       "badgeColor": "#03a9f4",
@@ -97,7 +97,7 @@
       "image": "https://picsum.photos/id/425/800/600",
       "price": 38,
       "rating": 4.4,
-      "category": "蔬菜",
+      "category": "菜品菜肴",
       "isPopular": false,
       "description": "鲜嫩可口，营养丰富",
       "recommendations": {
@@ -123,7 +123,7 @@
       "image": "https://picsum.photos/id/426/800/600",
       "price": 48,
       "rating": 4.6,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "客家名菜",
       "isPopular": true,
       "badgeColor": "#4caf50",
@@ -151,7 +151,7 @@
       "image": "https://picsum.photos/id/427/800/600",
       "price": 3,
       "rating": 4.1,
-      "category": "小吃",
+      "category": "小吃零食",
       "isPopular": false,
       "description": "外酥内软，早餐必备",
       "recommendations": {
@@ -177,7 +177,7 @@
       "image": "https://picsum.photos/id/428/800/600",
       "price": 5,
       "rating": 4,
-      "category": "甜品",
+      "category": "甜品糕点",
       "isPopular": false,
       "description": "香甜可口，传统面点",
       "recommendations": {
@@ -188,6 +188,136 @@
           "饮料"
         ],
         "eatingMethod": "直接食用，作为甜品"
+      }
+    },
+    {
+      "id": "jiangxi-lihao-larou",
+      "name": "藜蒿炒腊肉",
+      "tags": [
+        "江西特色",
+        "南昌特产",
+        "清香脆嫩",
+        "腊味浓郁",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/429/800/600",
+      "price": 48,
+      "rating": 4.7,
+      "category": "菜品菜肴",
+      "isPopular": true,
+      "description": "鄱阳湖藜蒿配腊肉，南昌名菜，清香脆嫩",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，米饭或面条"
+      }
+    },
+    {
+      "id": "jiangxi-banfen",
+      "name": "南昌拌粉",
+      "tags": [
+        "江西特色",
+        "南昌特产",
+        "拌料丰富",
+        "爽滑可口",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/430/800/600",
+      "price": 10,
+      "rating": 4.5,
+      "category": "面点主食",
+      "isPopular": false,
+      "description": "南昌早餐名吃，拌料丰富，爽滑可口",
+      "recommendations": {
+        "pairings": [
+          "瓦罐汤",
+          "小菜",
+          "饮料",
+          "茶品"
+        ],
+        "eatingMethod": "直接食用，作为早餐"
+      }
+    },
+    {
+      "id": "jiangxi-qicheng",
+      "name": "赣南脐橙",
+      "tags": [
+        "江西特色",
+        "赣州特产",
+        "果大皮薄",
+        "汁多味甜",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/431/800/600",
+      "price": 15,
+      "rating": 4.6,
+      "category": "小吃零食",
+      "isPopular": false,
+      "description": "赣州名产，果大皮薄，汁多味甜",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "饮料",
+          "甜品",
+          "点心"
+        ],
+        "eatingMethod": "直接食用，作为水果"
+      }
+    },
+    {
+      "id": "jiangxi-chabing",
+      "name": "九江茶饼",
+      "tags": [
+        "江西特色",
+        "九江特产",
+        "酥脆香甜",
+        "茶香浓郁",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/432/800/600",
+      "price": 18,
+      "rating": 4.4,
+      "category": "甜品糕点",
+      "isPopular": false,
+      "description": "九江名点，酥脆香甜，配茶佳品",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "咖啡",
+          "水果",
+          "饮料"
+        ],
+        "eatingMethod": "直接食用，配茶最佳"
+      }
+    },
+    {
+      "id": "jiangxi-lengfen",
+      "name": "景德镇冷粉",
+      "tags": [
+        "江西特色",
+        "景德镇特产",
+        "冷爽可口",
+        "拌料独特",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/433/800/600",
+      "price": 12,
+      "rating": 4.3,
+      "category": "小吃零食",
+      "isPopular": false,
+      "description": "景德镇名吃，冷粉拌料独特，冷爽可口",
+      "recommendations": {
+        "pairings": [
+          "小菜",
+          "饮料",
+          "汤品",
+          "茶品"
+        ],
+        "eatingMethod": "直接食用，作为小吃"
       }
     }
   ],
@@ -200,7 +330,7 @@
       "foods": [
         "瓦罐汤",
         "南昌炒粉",
-        "南昌水煮"
+        "jiangxi-banfen"
       ],
       "image": "https://picsum.photos/id/316/800/600",
       "reason": "南昌传统美食集中地",
@@ -213,12 +343,254 @@
       "type": "美食街",
       "foods": [
         "鄱阳湖银鱼",
-        "九江烧饼",
+        "jiangxi-chabing",
         "赣州客家酿豆腐"
       ],
       "image": "https://picsum.photos/id/317/800/600",
       "reason": "江西特色美食聚集地",
       "location": "九江市"
+    },
+    {
+      "id": 3,
+      "icon": "🏞️",
+      "name": "赣州客家古城",
+      "type": "文化街",
+      "foods": [
+        "赣州客家酿豆腐",
+        "jiangxi-lihao-larou",
+        "jiangxi-qicheng"
+      ],
+      "image": "https://picsum.photos/id/318/800/600",
+      "reason": "客家美食集中地，赣南风味",
+      "location": "赣州市"
+    },
+    {
+      "id": 4,
+      "icon": "🏺",
+      "name": "景德镇陶溪川",
+      "type": "文创街",
+      "foods": [
+        "jiangxi-lengfen",
+        "井冈山竹笋",
+        "jiangxi-tangbao"
+      ],
+      "image": "https://picsum.photos/id/319/800/600",
+      "reason": "瓷都文创街区，地道市井美食",
+      "location": "景德镇市"
+    }
+  ],
+  "souvenirs": [
+    {
+      "id": "jiangxi-souvenir-1",
+      "name": "景德镇瓷器",
+      "image": "https://picsum.photos/id/829/600/400",
+      "priceRange": "50-5000元",
+      "description": "白如玉明如镜，瓷都珍品",
+      "buyAt": "景德镇瓷厂",
+      "storage": "干燥保存",
+      "province": "江西"
+    },
+    {
+      "id": "jiangxi-souvenir-2",
+      "name": "庐山云雾茶",
+      "image": "https://picsum.photos/id/830/600/400",
+      "priceRange": "30-150元",
+      "description": "高山云雾出好茶，醇香持久",
+      "buyAt": "庐山茶厂",
+      "storage": "密封防潮",
+      "province": "江西"
+    },
+    {
+      "id": "jiangxi-souvenir-3",
+      "name": "南丰蜜桔",
+      "image": "https://picsum.photos/id/831/600/400",
+      "priceRange": "10-25元",
+      "description": "果小皮薄，汁多无渣",
+      "buyAt": "南丰桔园",
+      "storage": "常温保存",
+      "province": "江西"
+    },
+    {
+      "id": "jiangxi-souvenir-4",
+      "name": "四特酒",
+      "image": "https://picsum.photos/id/832/600/400",
+      "priceRange": "30-100元",
+      "description": "特香型白酒，幽雅舒适",
+      "buyAt": "四特酒厂",
+      "storage": "阴凉避光",
+      "province": "江西"
+    },
+    {
+      "id": "jiangxi-souvenir-5",
+      "name": "赣南脐橙",
+      "image": "https://picsum.photos/id/833/600/400",
+      "priceRange": "10-30元",
+      "description": "果大皮薄，汁多味甜",
+      "buyAt": "赣州脐橙园",
+      "storage": "常温保存",
+      "province": "江西"
+    },
+    {
+      "id": "jiangxi-souvenir-6",
+      "name": "九江茶饼",
+      "image": "https://picsum.photos/id/834/600/400",
+      "priceRange": "15-40元",
+      "description": "酥脆香甜，配茶佳品",
+      "buyAt": "九江茶饼厂",
+      "storage": "干燥密封",
+      "province": "江西"
+    }
+  ],
+  "guide": {
+    "mealPlan": {
+      "breakfast": [
+        "瓦罐汤",
+        "南昌炒粉",
+        "jiangxi-banfen"
+      ],
+      "lunch": [
+        "jiangxi-lihao-larou",
+        "鄱阳湖银鱼",
+        "赣州客家酿豆腐"
+      ],
+      "dinner": [
+        "井冈山竹笋",
+        "jiangxi-lengfen",
+        "jiangxi-chabing"
+      ]
+    },
+    "routes": [
+      {
+        "id": "jiangxi-route-1",
+        "name": "南昌美食一日游",
+        "duration": "1天",
+        "steps": [
+          {
+            "time": "08:30",
+            "location": "南昌绳金塔美食街",
+            "foodId": "瓦罐汤",
+            "description": "清晨从一罐瓦罐汤开始"
+          },
+          {
+            "time": "12:00",
+            "location": "南昌绳金塔美食街",
+            "foodId": "jiangxi-lihao-larou",
+            "description": "午餐品尝藜蒿炒腊肉"
+          },
+          {
+            "time": "18:30",
+            "location": "南昌绳金塔美食街",
+            "foodId": "南昌炒粉",
+            "description": "晚餐品鉴南昌炒粉"
+          }
+        ]
+      },
+      {
+        "id": "jiangxi-route-2",
+        "name": "赣州客家寻味半日游",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "10:00",
+            "location": "赣州客家古城",
+            "foodId": "赣州客家酿豆腐",
+            "description": "探访客家古城品鉴酿豆腐"
+          },
+          {
+            "time": "13:00",
+            "location": "赣州客家古城",
+            "foodId": "jiangxi-qicheng",
+            "description": "午餐品鉴赣南脐橙"
+          },
+          {
+            "time": "15:30",
+            "location": "赣州客家古城",
+            "foodId": "jiangxi-lihao-larou",
+            "description": "下午茶时光品鉴藜蒿炒腊肉"
+          }
+        ]
+      },
+      {
+        "id": "jiangxi-route-3",
+        "name": "九江景德镇风味游",
+        "duration": "1天",
+        "steps": [
+          {
+            "time": "09:00",
+            "location": "九江美食街",
+            "foodId": "鄱阳湖银鱼",
+            "description": "清晨品尝鄱阳湖银鱼"
+          },
+          {
+            "time": "12:30",
+            "location": "景德镇陶溪川",
+            "foodId": "jiangxi-lengfen",
+            "description": "午餐品鉴景德镇冷粉"
+          },
+          {
+            "time": "18:00",
+            "location": "景德镇陶溪川",
+            "foodId": "井冈山竹笋",
+            "description": "晚餐品鉴井冈山竹笋"
+          }
+        ]
+      }
+    ],
+    "tips": [
+      {
+        "question": "江西美食的最佳品尝时间？",
+        "answer": "建议在春秋两季前往，气候宜人，食材当季，能品尝到最地道的江西风味。春季藜蒿最嫩。"
+      },
+      {
+        "question": "江西有哪些必去美食街区？",
+        "answer": "推荐前往南昌绳金塔美食街、九江美食街和赣州客家古城，那里集中了最正宗的江西小吃和老字号餐厅。"
+      },
+      {
+        "question": "在江西点菜有什么避坑建议？",
+        "answer": "建议提前了解当地特色菜名，避免被不正规店铺误导；瓦罐汤选老字号汤店更靠谱。"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "season": "spring",
+      "seasonName": "春季",
+      "foods": [
+        "jiangxi-lihao-larou",
+        "鄱阳湖银鱼",
+        "井冈山竹笋"
+      ],
+      "description": "春暖花开，藜蒿最嫩，品春日第一口鲜"
+    },
+    {
+      "season": "summer",
+      "seasonName": "夏季",
+      "foods": [
+        "jiangxi-lengfen",
+        "jiangxi-banfen",
+        "jiangxi-qicheng"
+      ],
+      "description": "夏日炎炎，消暑解渴，冷粉脐橙正当时"
+    },
+    {
+      "season": "autumn",
+      "seasonName": "秋季",
+      "foods": [
+        "赣州客家酿豆腐",
+        "南昌炒粉",
+        "jiangxi-youtiao"
+      ],
+      "description": "秋高气爽，丰收时节，贴秋膘品客家菜"
+    },
+    {
+      "season": "winter",
+      "seasonName": "冬季",
+      "foods": [
+        "瓦罐汤",
+        "jiangxi-tangbao",
+        "jiangxi-chabing"
+      ],
+      "description": "寒冬腊月，温补暖身，瓦罐汤最抚慰"
     }
   ]
 }

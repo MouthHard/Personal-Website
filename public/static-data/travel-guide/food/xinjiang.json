@@ -13,7 +13,7 @@
       "image": "https://picsum.photos/id/487/800/600",
       "price": 688,
       "rating": 4.9,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "新疆盛宴",
       "isPopular": true,
       "badgeColor": "#ff5722",
@@ -41,7 +41,7 @@
       "image": "https://picsum.photos/id/488/800/600",
       "price": 5,
       "rating": 4.7,
-      "category": "小吃",
+      "category": "烧烤火锅",
       "badgeText": "夜市之王",
       "isPopular": true,
       "badgeColor": "#f44336",
@@ -69,7 +69,7 @@
       "image": "https://picsum.photos/id/489/800/600",
       "price": 25,
       "rating": 4.8,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "维吾尔主食",
       "isPopular": true,
       "badgeColor": "#ff9800",
@@ -97,7 +97,7 @@
       "image": "https://picsum.photos/id/490/800/600",
       "price": 8,
       "rating": 4.6,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "新疆早餐",
       "isPopular": true,
       "badgeColor": "#e91e63",
@@ -125,7 +125,7 @@
       "image": "https://picsum.photos/id/491/800/600",
       "price": 10,
       "rating": 4.4,
-      "category": "甜品",
+      "category": "甜品糕点",
       "isPopular": false,
       "description": "酸甜可口，口感醇厚",
       "recommendations": {
@@ -151,7 +151,7 @@
       "image": "https://picsum.photos/id/492/800/600",
       "price": 38,
       "rating": 4.3,
-      "category": "饮品",
+      "category": "汤羹饮品",
       "isPopular": false,
       "description": "香气浓郁，口感醇厚",
       "recommendations": {
@@ -162,6 +162,166 @@
           "奶酪"
         ],
         "eatingMethod": "沸水冲泡，可加入方糖和牛奶"
+      }
+    },
+    {
+      "id": "xinjiang-dapanji",
+      "name": "大盘鸡",
+      "tags": [
+        "新疆特色",
+        "沙湾名吃",
+        "鸡肉软烂",
+        "土豆绵密",
+        "皮带面"
+      ],
+      "image": "https://picsum.photos/id/493/800/600",
+      "price": 68,
+      "rating": 4.8,
+      "category": "菜品菜肴",
+      "badgeText": "新疆名菜",
+      "isPopular": true,
+      "badgeColor": "#ff5722",
+      "description": "鸡肉软烂，土豆绵密，配皮带面",
+      "recommendations": {
+        "pairings": [
+          "皮带面",
+          "米饭",
+          "啤酒",
+          "馕"
+        ],
+        "eatingMethod": "鸡肉土豆吃完后，拌入皮带面更佳"
+      }
+    },
+    {
+      "id": "xinjiang-nang",
+      "name": "新疆馕",
+      "tags": [
+        "新疆特色",
+        "维吾尔族主食",
+        "外脆内软",
+        "芝麻香浓",
+        "耐储存"
+      ],
+      "image": "https://picsum.photos/id/494/800/600",
+      "price": 5,
+      "rating": 4.6,
+      "category": "面点主食",
+      "badgeText": "新疆主食",
+      "isPopular": true,
+      "badgeColor": "#ffc107",
+      "description": "外脆内软，芝麻香浓",
+      "recommendations": {
+        "pairings": [
+          "羊肉串",
+          "烤包子",
+          "奶茶",
+          "手抓饭"
+        ],
+        "eatingMethod": "直接食用或配烤肉、奶茶，可长时间存放"
+      }
+    },
+    {
+      "id": "xinjiang-kaoyangtui",
+      "name": "烤羊腿",
+      "tags": [
+        "新疆特色",
+        "草原风味",
+        "外焦里嫩",
+        "肉质鲜嫩",
+        "宴席硬菜"
+      ],
+      "image": "https://picsum.photos/id/495/800/600",
+      "price": 158,
+      "rating": 4.7,
+      "category": "菜品菜肴",
+      "isPopular": false,
+      "description": "外焦里嫩，肉质鲜嫩",
+      "recommendations": {
+        "pairings": [
+          "馕",
+          "洋葱",
+          "啤酒",
+          "孜然"
+        ],
+        "eatingMethod": "整腿烤制，切片蘸椒盐食用"
+      }
+    },
+    {
+      "id": "xinjiang-wusu-beer",
+      "name": "乌苏啤酒",
+      "tags": [
+        "新疆特色",
+        "乌苏特产",
+        "麦香浓郁",
+        "口感醇厚",
+        "夺命大乌苏"
+      ],
+      "image": "https://picsum.photos/id/496/800/600",
+      "price": 8,
+      "rating": 4.5,
+      "category": "汤羹饮品",
+      "isPopular": false,
+      "description": "麦香浓郁，口感醇厚",
+      "recommendations": {
+        "pairings": [
+          "羊肉串",
+          "烤包子",
+          "大盘鸡",
+          "烤羊腿"
+        ],
+        "eatingMethod": "冰镇后饮用，配烤肉最佳"
+      }
+    },
+    {
+      "id": "xinjiang-huanguyutang",
+      "name": "清炖羊肉汤",
+      "tags": [
+        "新疆特色",
+        "暖身暖胃",
+        "汤浓肉烂",
+        "原汁原味",
+        "冬季美食"
+      ],
+      "image": "https://picsum.photos/id/497/800/600",
+      "price": 35,
+      "rating": 4.4,
+      "category": "汤羹饮品",
+      "isPopular": false,
+      "description": "汤浓肉烂，原汁原味",
+      "recommendations": {
+        "pairings": [
+          "馕",
+          "皮牙子",
+          "香菜",
+          "胡椒"
+        ],
+        "eatingMethod": "趁热喝汤吃肉，配馕更地道"
+      }
+    },
+    {
+      "id": "xinjiang-baopibaozi",
+      "name": "薄皮包子",
+      "tags": [
+        "新疆特色",
+        "维吾尔族美食",
+        "皮薄如纸",
+        "馅料丰盈",
+        "清蒸美味"
+      ],
+      "image": "https://picsum.photos/id/498/800/600",
+      "price": 15,
+      "rating": 4.5,
+      "category": "面点主食",
+      "isPopular": false,
+      "description": "皮薄如纸，馅料丰盈",
+      "recommendations": {
+        "pairings": [
+          "酸奶",
+          "奶茶",
+          "椒盐",
+          "小菜"
+        ],
+        "eatingMethod": "趁热食用，可蘸酸奶或椒盐"
       }
     }
   ],
@@ -193,6 +353,183 @@
       "image": "https://picsum.photos/id/343/800/600",
       "reason": "喀什特色美食聚集地",
       "location": "喀什市"
+    },
+    {
+      "id": 3,
+      "icon": "🍽️",
+      "name": "沙湾大盘鸡一条街",
+      "type": "美食街",
+      "foods": [
+        "xinjiang-dapanji",
+        "xinjiang-nang",
+        "xinjiang-wusu-beer"
+      ],
+      "image": "https://picsum.photos/id/344/800/600",
+      "reason": "大盘鸡发源地，正宗沙湾风味",
+      "location": "塔城沙湾县"
+    }
+  ],
+  "souvenirs": [
+    {
+      "id": "xinjiang-souvenir-1",
+      "name": "葡萄干",
+      "image": "https://picsum.photos/id/823/600/400",
+      "priceRange": "15-40元",
+      "description": "吐鲁番绿葡萄干，翠绿酸甜",
+      "buyAt": "吐鲁番葡萄沟",
+      "storage": "密封干燥",
+      "province": "新疆"
+    },
+    {
+      "id": "xinjiang-souvenir-2",
+      "name": "和田玉",
+      "image": "https://picsum.photos/id/822/600/400",
+      "priceRange": "100-10000元",
+      "description": "羊脂白玉，温润如脂",
+      "buyAt": "和田玉市场",
+      "storage": "干燥保存",
+      "province": "新疆"
+    },
+    {
+      "id": "xinjiang-souvenir-3",
+      "name": "切糕",
+      "image": "https://picsum.photos/id/821/600/400",
+      "priceRange": "20-50元",
+      "description": "坚果密集，营养饱腹",
+      "buyAt": "新疆巴扎",
+      "storage": "密封干燥",
+      "province": "新疆"
+    },
+    {
+      "id": "xinjiang-souvenir-4",
+      "name": "薰衣草精油",
+      "image": "https://picsum.photos/id/820/600/400",
+      "priceRange": "30-80元",
+      "description": "伊犁薰衣草，安神助眠",
+      "buyAt": "伊犁精油厂",
+      "storage": "密封避光",
+      "province": "新疆"
+    }
+  ],
+  "guide": {
+    "mealPlan": {
+      "breakfast": [
+        "roast-bun",
+        "xinjiang-nang",
+        "xinjiang-yogurt"
+      ],
+      "lunch": [
+        "xinjiang-dapanji",
+        "pilaf",
+        "xinjiang-baopibaozi"
+      ],
+      "dinner": [
+        "xinjiang-roast-lamb",
+        "lamb-kebab",
+        "xinjiang-huanguyutang"
+      ]
+    },
+    "routes": [
+      {
+        "id": "xinjiang-route-1",
+        "name": "新疆经典美食一日游",
+        "duration": "1天",
+        "steps": [
+          {
+            "time": "08:30",
+            "location": "乌鲁木齐大巴扎",
+            "foodId": "roast-bun",
+            "description": "清晨从烤包子开始一天"
+          },
+          {
+            "time": "12:00",
+            "location": "沙湾大盘鸡一条街",
+            "foodId": "xinjiang-dapanji",
+            "description": "午餐品尝正宗沙湾大盘鸡"
+          },
+          {
+            "time": "18:30",
+            "location": "喀什美食街",
+            "foodId": "lamb-kebab",
+            "description": "夜市扫街，烤串收尾"
+          }
+        ]
+      },
+      {
+        "id": "xinjiang-route-2",
+        "name": "新疆深度寻味半日游",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "10:00",
+            "location": "乌鲁木齐大巴扎",
+            "foodId": "pilaf",
+            "description": "探访维吾尔族手抓饭"
+          },
+          {
+            "time": "15:00",
+            "location": "喀什美食街",
+            "foodId": "xinjiang-yogurt",
+            "description": "下午茶时光品鉴酸奶子"
+          }
+        ]
+      }
+    ],
+    "tips": [
+      {
+        "question": "新疆美食的最佳品尝时间？",
+        "answer": "建议在夏秋两季前往，瓜果飘香，食材当季，能品尝到最地道的新疆风味。"
+      },
+      {
+        "question": "新疆有哪些必去美食街区？",
+        "answer": "推荐前往乌鲁木齐大巴扎和喀什美食街，那里集中了最正宗的新疆小吃和维吾尔族餐厅。"
+      },
+      {
+        "question": "在新疆点菜有什么避坑建议？",
+        "answer": "建议提前了解当地特色菜名，避免被不正规店铺误导；选择人气旺的老店更靠谱。"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "season": "spring",
+      "seasonName": "春季",
+      "foods": [
+        "pilaf",
+        "roast-bun",
+        "xinjiang-yogurt"
+      ],
+      "description": "春暖花开，时鲜上市，品尝春日第一口鲜"
+    },
+    {
+      "season": "summer",
+      "seasonName": "夏季",
+      "foods": [
+        "lamb-kebab",
+        "xinjiang-wusu-beer",
+        "xinjiang-nang"
+      ],
+      "description": "夏日炎炎，消暑解渴，清凉美味正当时"
+    },
+    {
+      "season": "autumn",
+      "seasonName": "秋季",
+      "foods": [
+        "xinjiang-dapanji",
+        "xinjiang-kaoyangtui",
+        "xinjiang-roast-lamb"
+      ],
+      "description": "秋高气爽，丰收时节，贴秋膘品羊香"
+    },
+    {
+      "season": "winter",
+      "seasonName": "冬季",
+      "foods": [
+        "xinjiang-baopibaozi",
+        "xinjiang-huanguyutang",
+        "xinjiang-hongcha"
+      ],
+      "description": "寒冬腊月，温补暖身，热汤热食最抚慰"
     }
   ]
 }

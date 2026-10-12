@@ -1,0 +1,495 @@
+@use '../../_variables' as *;
+
+// 右侧美食矩阵（保持琥珀橙系，不随季节变）
+.season-foods {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.9rem;
+
+  .season-food {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 22px 6px 22px 6px;
+    background:
+      radial-gradient(circle at 16% 10%, var(--season-glow, #{$amber-glow}) 0%, transparent 42%),
+      radial-gradient(circle at 94% 98%, var(--season-glow, rgba(251, 191, 36, 0.12)) 0%, transparent 40%),
+      linear-gradient(160deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.02) 34%, transparent 56%),
+      linear-gradient(180deg, $ink-4 0%, $ink 115%);
+    border: 1px solid var(--season-color, rgba(249, 115, 22, 0.5));
+    box-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.4),
+      0 6px 16px rgba(0, 0, 0, 0.5),
+      0 20px 44px rgba(0, 0, 0, 0.6),
+      0 6px 16px rgba(0, 0, 0, 0.42),
+      0 0 24px var(--season-glow, #{$amber-glow}),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.4),
+      inset 1px 0 0 rgba(255, 255, 255, 0.05),
+      inset -1px 0 0 rgba(0, 0, 0, 0.3),
+      inset 0 0 30px var(--season-glow, #{$amber-glow});
+    transition: border-color 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 5px;
+      border-radius: 16px 4px 16px 4px;
+      border: 1px solid var(--season-glow, rgba(249, 115, 22, 0.35));
+      pointer-events: none;
+      z-index: 1;
+      transition: inset 0.4s ease, border-color 0.4s ease, opacity 0.4s ease;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg,
+        transparent 0%,
+        var(--season-deep, #{$amber-deep}) 10%,
+        var(--season-color, #{$amber}) 30%,
+        var(--season-gold-bright, #{$gold-bright}) 50%,
+        var(--season-color, #{$amber}) 70%,
+        var(--season-soft, #{$amber-soft}) 90%,
+        transparent 100%
+      );
+      box-shadow:
+        0 0 12px var(--season-glow, #{$amber-glow}),
+        0 0 4px var(--season-glow, #{$amber-glow}),
+        0 0 2px rgba(255, 255, 255, 0.5);
+      opacity: 0;
+      z-index: 5;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .food-beam {
+      position: absolute;
+      top: -6px;
+      left: -14%;
+      width: 135%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--season-bright, #{$amber-bright}) 50%, transparent);
+      transform: rotate(-8deg);
+      opacity: 0.45;
+      box-shadow:
+        0 0 12px var(--season-glow, #{$amber-glow}),
+        0 0 4px var(--season-glow, #{$amber-glow});
+      pointer-events: none;
+      z-index: 3;
+      transition: opacity 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+    }
+
+    .food-image-wrap {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: $ink-3;
+      border-bottom: 1px solid var(--season-color, rgba(249, 115, 22, 0.35));
+      box-shadow:
+        0 6px 20px rgba(0, 0, 0, 0.4),
+        inset 0 -2px 8px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+          repeating-linear-gradient(0deg,
+            transparent 0px,
+            transparent 3px,
+            rgba(255, 255, 255, 0.04) 3px,
+            rgba(255, 255, 255, 0.04) 4px
+          ),
+          linear-gradient(180deg, transparent 0%, var(--season-glow, #{$amber-glow}) 100%);
+        opacity: 0;
+        z-index: 3;
+        pointer-events: none;
+        transition: opacity 0.4s ease;
+      }
+
+      .food-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease, filter 0.4s ease;
+        filter: brightness(0.88) saturate(1.02) contrast(1.06);
+      }
+
+      .image-shade {
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(180deg, transparent 38%, rgba(10, 6, 4, 0.75) 100%),
+          linear-gradient(115deg, transparent 62%, var(--season-glow, rgba(249, 115, 22, 0.18)) 100%);
+      }
+
+      .spectrum-bar {
+        position: absolute;
+        left: 50%;
+        bottom: 10px;
+        transform: translateX(-50%);
+        width: 72px;
+        height: 3px;
+        border-radius: 3px;
+        background: linear-gradient(90deg, transparent, var(--season-bright, #{$amber-bright}) 50%, transparent);
+        box-shadow:
+          0 0 14px var(--season-glow, #{$amber-glow}),
+          0 0 4px var(--season-glow, #{$amber-glow});
+        animation: specPulse 2.6s ease-in-out infinite;
+        z-index: 2;
+      }
+    }
+
+    .food-info {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 1rem 1.05rem 1.05rem;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.025) 0%, transparent 34%),
+        linear-gradient(180deg, #0e0b09 0%, $ink 100%);
+      z-index: 2;
+
+      .food-index {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        transform: rotate(45deg);
+        border-radius: 6px;
+        background:
+          radial-gradient(circle at 35% 28%, rgba(255, 255, 255, 0.35), transparent 55%),
+          linear-gradient(135deg, var(--season-color, #{$amber}) 0%, var(--season-deep, #{$amber-deep}) 100%);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        box-shadow:
+          0 2px 4px rgba(0, 0, 0, 0.4),
+          0 8px 18px var(--season-glow, #{$amber-glow}),
+          0 0 12px var(--season-glow, #{$amber-glow}),
+          inset 0 1px 0 rgba(255, 255, 255, 0.55),
+          inset 0 -2px 4px rgba(0, 0, 0, 0.35),
+          inset 0 0 6px var(--season-glow, #{$amber-glow});
+        transition: all 0.4s ease;
+
+        > span {
+          transform: rotate(-45deg);
+          font-size: 0.95rem;
+          font-weight: 800;
+          color: #fff;
+          font-family: 'Courier New', monospace;
+          text-shadow:
+            0 1px 3px rgba(0, 0, 0, 0.5),
+            0 0 4px rgba(255, 255, 255, 0.3);
+        }
+      }
+
+      .food-main {
+        flex: 1;
+        min-width: 0;
+
+        .food-name {
+          margin: 0 0 0.42rem;
+          font-size: 1.02rem;
+          font-weight: 700;
+          color: $cream;
+          letter-spacing: 0.3px;
+          text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+        .food-meta {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 0.4rem;
+
+          .food-category {
+            padding: 0.3rem 0.75rem;
+            background:
+              linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 35% 28%, rgba(255, 255, 255, 0.15), transparent 55%),
+              linear-gradient(180deg, $ink-3 0%, $ink 100%);
+            border: 1px solid var(--season-color, rgba(249, 115, 22, 0.5));
+            border-radius: 7px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--season-soft, #{$amber-soft});
+            letter-spacing: 0.5px;
+            text-shadow: 0 0 8px var(--season-glow, #{$amber-glow});
+            box-shadow:
+              0 2px 4px rgba(0, 0, 0, 0.3),
+              0 0 8px var(--season-glow, #{$amber-glow}),
+              inset 0 1px 0 rgba(255, 255, 255, 0.15),
+              inset 0 -1px 0 rgba(0, 0, 0, 0.35),
+              inset 0 0 8px var(--season-glow, #{$amber-glow});
+          }
+
+          .food-price {
+            font-size: 1.12rem;
+            font-weight: 800;
+            color: #fff;
+            font-family: 'Courier New', monospace;
+            text-shadow:
+              0 0 10px var(--season-glow, #{$amber-glow}),
+              0 0 22px var(--season-glow, #{$amber-glow}),
+              0 1px 4px rgba(0, 0, 0, 0.5);
+          }
+        }
+      }
+
+      .season-actions {
+        display: flex;
+        flex-direction: row;
+        gap: 0.6rem;
+        margin-top: 0.65rem;
+
+        .s-action {
+          position: relative;
+          display: grid;
+          place-items: center;
+          width: 32px;
+          height: 32px;
+          background: linear-gradient(180deg, $ink-3 0%, $ink 100%);
+          border: 1px solid rgba(255, 255, 255, 0.18);
+          border-radius: 8px;
+          cursor: pointer;
+          transition: all 0.25s ease;
+          box-shadow:
+            0 2px 6px rgba(0, 0, 0, 0.4),
+            inset 0 1px 0 rgba(255, 255, 255, 0.16),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.4);
+
+          .s-action-icon {
+            width: 15px;
+            height: 15px;
+            transition: all 0.25s ease;
+          }
+
+          &:hover {
+            transform: translateY(-2px);
+            box-shadow:
+              0 4px 12px rgba(0, 0, 0, 0.45),
+              inset 0 1px 0 rgba(255, 255, 255, 0.3),
+              inset 0 -1px 0 rgba(0, 0, 0, 0.4);
+          }
+
+          &.s-want {
+            border-color: rgba(34, 211, 238, 0.72);
+            box-shadow:
+              0 2px 6px rgba(0, 0, 0, 0.4),
+              0 0 8px rgba(34, 211, 238, 0.28),
+              inset 0 1px 0 rgba(255, 255, 255, 0.16);
+            .s-action-icon { color: #22d3ee; filter: drop-shadow(0 0 4px rgba(34, 211, 238, 0.65)); }
+            &:hover {
+              border-color: rgba(34, 211, 238, 0.88);
+              box-shadow:
+                0 4px 12px rgba(0, 0, 0, 0.45),
+                0 0 16px rgba(34, 211, 238, 0.42),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+              .s-action-icon { color: #67e8f9; filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.88)); }
+            }
+            &.active {
+              background: linear-gradient(135deg, rgba(34, 211, 238, 0.55), rgba(6, 182, 212, 0.3));
+              border-color: rgba(34, 211, 238, 0.92);
+              box-shadow:
+                0 0 10px rgba(34, 211, 238, 0.68),
+                0 0 20px rgba(34, 211, 238, 0.38),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+              .s-action-icon { color: #fff; filter: drop-shadow(0 0 6px rgba(103, 232, 249, 1)); }
+            }
+          }
+
+          &.s-like {
+            border-color: rgba(74, 222, 128, 0.72);
+            box-shadow:
+              0 2px 6px rgba(0, 0, 0, 0.4),
+              0 0 8px rgba(74, 222, 128, 0.28),
+              inset 0 1px 0 rgba(255, 255, 255, 0.16);
+            .s-action-icon { color: #4ade80; filter: drop-shadow(0 0 4px rgba(74, 222, 128, 0.65)); }
+            &:hover {
+              border-color: rgba(74, 222, 128, 0.88);
+              box-shadow:
+                0 4px 12px rgba(0, 0, 0, 0.45),
+                0 0 16px rgba(74, 222, 128, 0.42),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+              .s-action-icon { color: #86efac; filter: drop-shadow(0 0 8px rgba(74, 222, 128, 0.88)); }
+            }
+            &.active {
+              background: linear-gradient(135deg, rgba(74, 222, 128, 0.55), rgba(34, 197, 94, 0.3));
+              border-color: rgba(74, 222, 128, 0.92);
+              box-shadow:
+                0 0 10px rgba(74, 222, 128, 0.68),
+                0 0 20px rgba(74, 222, 128, 0.38),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+              .s-action-icon { color: #fff; filter: drop-shadow(0 0 6px rgba(134, 239, 172, 1)); }
+            }
+          }
+
+          &.s-share {
+            border-color: rgba(251, 146, 60, 0.72);
+            box-shadow:
+              0 2px 6px rgba(0, 0, 0, 0.4),
+              0 0 8px rgba(251, 146, 60, 0.28),
+              inset 0 1px 0 rgba(255, 255, 255, 0.16);
+            .s-action-icon { color: #fb923c; filter: drop-shadow(0 0 4px rgba(251, 146, 60, 0.65)); }
+            &:hover {
+              border-color: rgba(251, 146, 60, 0.88);
+              box-shadow:
+                0 4px 12px rgba(0, 0, 0, 0.45),
+                0 0 16px rgba(251, 146, 60, 0.42),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+              .s-action-icon { color: #fdba74; filter: drop-shadow(0 0 8px rgba(251, 146, 60, 0.88)); }
+            }
+          }
+
+          &.s-eaten {
+            border-color: rgba(251, 113, 133, 0.72);
+            box-shadow:
+              0 2px 6px rgba(0, 0, 0, 0.4),
+              0 0 8px rgba(251, 113, 133, 0.28),
+              inset 0 1px 0 rgba(255, 255, 255, 0.16);
+            .s-action-icon { color: #fb7185; filter: drop-shadow(0 0 4px rgba(251, 113, 133, 0.65)); }
+            &:hover {
+              border-color: rgba(251, 113, 133, 0.88);
+              box-shadow:
+                0 4px 12px rgba(0, 0, 0, 0.45),
+                0 0 16px rgba(251, 113, 133, 0.42),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+              .s-action-icon { color: #fda4af; filter: drop-shadow(0 0 8px rgba(251, 113, 133, 0.88)); }
+            }
+            &.active {
+              background: linear-gradient(135deg, rgba(251, 113, 133, 0.55), rgba(225, 29, 72, 0.3));
+              border-color: rgba(251, 113, 133, 0.92);
+              box-shadow:
+                0 0 10px rgba(251, 113, 133, 0.68),
+                0 0 20px rgba(251, 113, 133, 0.38),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+              .s-action-icon { color: #fff; filter: drop-shadow(0 0 6px rgba(253, 164, 175, 1)); }
+            }
+          }
+        }
+      }
+    }
+
+    &:hover {
+      border-color: var(--season-color, rgba(249, 115, 22, 0.7));
+      background:
+        radial-gradient(circle at 16% 10%, var(--season-glow, #{$amber-glow}) 0%, transparent 42%),
+        radial-gradient(circle at 94% 98%, var(--season-glow, rgba(251, 191, 36, 0.16)) 0%, transparent 40%),
+        linear-gradient(160deg, rgba(255, 255, 255, 0.11) 0%, rgba(255, 255, 255, 0.025) 34%, transparent 56%),
+        linear-gradient(180deg, $ink-4 0%, $ink 115%);
+      box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.5),
+        0 8px 20px rgba(0, 0, 0, 0.55),
+        0 24px 50px rgba(0, 0, 0, 0.65),
+        0 0 22px var(--season-glow, #{$amber-glow}),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.4),
+        inset 1px 0 0 rgba(255, 255, 255, 0.08),
+        inset -1px 0 0 rgba(0, 0, 0, 0.3),
+        inset 0 0 32px var(--season-glow, #{$amber-glow});
+
+      &::before {
+        inset: 9px;
+        border-color: var(--season-bright, rgba(249, 115, 22, 0.65));
+        opacity: 0.85;
+        box-shadow: 0 0 6px var(--season-glow, #{$amber-glow});
+      }
+
+      &::after {
+        opacity: 1;
+        animation: foodHoloScan 1.6s ease-in-out infinite;
+      }
+
+      .food-beam {
+        opacity: 0.75;
+        background: linear-gradient(90deg, transparent, var(--season-bright, #{$amber-bright}) 50%, transparent);
+        box-shadow:
+          0 0 8px var(--season-glow, #{$amber-glow}),
+          0 0 2px rgba(255, 255, 255, 0.3);
+      }
+
+      .food-image-wrap {
+        border-bottom-color: var(--season-bright, rgba(249, 115, 22, 0.55));
+        box-shadow:
+          0 8px 26px rgba(0, 0, 0, 0.45),
+          inset 0 -2px 8px rgba(0, 0, 0, 0.4),
+          inset 0 1px 0 rgba(255, 255, 255, 0.12);
+
+        .food-image {
+          transform: scale(1.08);
+          filter: brightness(1.1) saturate(1.15) contrast(1.08);
+        }
+
+        &::after {
+          opacity: 1;
+        }
+
+        .spectrum-bar {
+          animation-duration: 1.8s;
+          box-shadow:
+            0 0 12px var(--season-glow, #{$amber-glow}),
+            0 0 2px rgba(255, 255, 255, 0.4);
+        }
+      }
+
+      .food-index {
+        box-shadow:
+          0 2px 4px rgba(0, 0, 0, 0.5),
+          0 8px 18px var(--season-glow, #{$amber-glow}),
+          0 0 10px var(--season-glow, #{$amber-glow}),
+          inset 0 1px 0 rgba(255, 255, 255, 0.6),
+          inset 0 -2px 4px rgba(0, 0, 0, 0.35),
+          inset 0 0 6px var(--season-glow, #{$amber-glow});
+      }
+
+      .food-main .food-name {
+        color: #fff;
+        text-shadow:
+          0 0 8px var(--season-glow, #{$amber-glow}),
+          0 1px 8px rgba(0, 0, 0, 0.45);
+      }
+    }
+  }
+}
+
+@keyframes specPulse {
+  0%, 100% {
+    opacity: 0.55;
+    transform: translateX(-50%) scaleX(0.82);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) scaleX(1);
+  }
+}
+
+@keyframes foodHoloScan {
+  0% {
+    top: 0;
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    top: calc(100% - 3px);
+    opacity: 0.9;
+  }
+}
+
+@media (max-width: 768px) {
+  .season-foods {
+    grid-template-columns: 1fr;
+  }
+}

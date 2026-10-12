@@ -1,0 +1,228 @@
+@use '../../_variables' as *;
+
+// 左侧时令信息卡 — 全息投影 3D 科幻风容器（色系跟随季节）
+.season-aside {
+  position: relative;
+  padding: 1.6rem 1.5rem;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 35%, var(--season-glow), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 50% 100%, var(--season-glow), transparent 60%),
+    linear-gradient(180deg, $ink-3 0%, $ink-2 100%);
+  border: 1px solid var(--season-color);
+  border-radius: 16px;
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.4),
+    0 12px 28px rgba(0, 0, 0, 0.5),
+    0 24px 50px rgba(0, 0, 0, 0.55),
+    0 0 0 1px var(--season-glow),
+    0 0 30px var(--season-glow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.5),
+    inset 0 0 36px var(--season-glow),
+    inset 0 0 60px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 1.5rem;
+    right: 1.5rem;
+    height: 2px;
+    background: linear-gradient(90deg,
+      transparent,
+      var(--season-deep) 15%,
+      var(--season-color) 35%,
+      var(--season-gold-bright) 50%,
+      var(--season-color) 65%,
+      var(--season-soft) 85%,
+      transparent
+    );
+    box-shadow: 0 0 8px var(--season-glow);
+    border-radius: 1px;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 20%;
+    right: 20%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--season-color), transparent);
+    filter: blur(2px);
+    border-radius: 2px;
+    opacity: 0.6;
+  }
+
+  .aside-icon-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 1.1rem;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.2), transparent 55%),
+      radial-gradient(circle at 35% 35%, var(--season-glow), rgba(255, 255, 255, 0.05) 60%, $ink-3 100%);
+    border: 1px solid var(--season-color);
+    box-shadow:
+      0 2px 6px rgba(0, 0, 0, 0.4),
+      0 12px 28px var(--season-glow),
+      0 0 0 1px var(--season-glow),
+      0 0 28px var(--season-glow),
+      inset 0 2px 6px rgba(255, 255, 255, 0.15),
+      inset 0 -2px 6px rgba(0, 0, 0, 0.45),
+      inset 0 0 16px var(--season-glow);
+
+    .aside-icon {
+      position: relative;
+      z-index: 1;
+      width: 36px;
+      height: 36px;
+      color: var(--season-soft);
+      filter: drop-shadow(0 0 14px var(--season-glow)) drop-shadow(0 0 4px rgba(255, 255, 255, 0.4));
+      animation: iconBreath 4s ease-in-out infinite;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 6px;
+      background: radial-gradient(ellipse, var(--season-glow), transparent 70%);
+      filter: blur(3px);
+      border-radius: 50%;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      border: 1px solid var(--season-color);
+      animation: haloBreath 3s ease-in-out infinite;
+      pointer-events: none;
+      opacity: 0.3;
+    }
+  }
+
+  .aside-title {
+    margin: 0 0 1rem;
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: $cream;
+    letter-spacing: 2px;
+    text-align: center;
+    text-shadow:
+      0 2px 12px var(--season-glow),
+      0 0 24px var(--season-glow),
+      0 4px 6px rgba(0, 0, 0, 0.5);
+  }
+
+  .aside-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 1.2rem;
+
+    .aside-tag {
+      padding: 0.36rem 0.9rem;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, transparent 50%),
+        linear-gradient(135deg, var(--season-glow), rgba(255, 255, 255, 0.05)),
+        linear-gradient(180deg, $ink-3 0%, $ink 100%);
+      border: 1px solid var(--season-color);
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: $cream;
+      letter-spacing: 0.5px;
+      box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.3),
+        0 4px 10px var(--season-glow),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.35),
+        inset 0 0 8px var(--season-glow);
+    }
+  }
+
+  .aside-desc {
+    margin: 0 0 1.4rem;
+    font-size: 1.02rem;
+    line-height: 1.85;
+    color: $text;
+    letter-spacing: 0.3px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  .aside-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--season-color);
+
+    &::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--season-bright);
+      box-shadow: 0 0 8px var(--season-glow);
+      animation: dataPulse 1.8s ease-in-out infinite;
+    }
+
+    .footer-text {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #fff;
+      font-family: 'Courier New', monospace;
+      letter-spacing: 1.5px;
+      text-shadow:
+        0 0 12px var(--season-glow),
+        0 0 4px rgba(255, 255, 255, 0.4),
+        0 1px 3px rgba(0, 0, 0, 0.5);
+    }
+  }
+}
+
+@keyframes iconBreath {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px var(--season-glow, #{$amber-glow}));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 12px var(--season-glow, #{$amber-glow}));
+    transform: scale(1.05);
+  }
+}
+
+@keyframes dataPulse {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 8px var(--season-glow, #{$amber-glow});
+  }
+  50% {
+    opacity: 0.4;
+    box-shadow: 0 0 14px var(--season-glow, #{$amber-glow});
+  }
+}
+
+@keyframes haloBreath {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.08);
+  }
+}
