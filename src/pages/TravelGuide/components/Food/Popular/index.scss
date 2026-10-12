@@ -1,0 +1,1229 @@
+// ============================================================================
+// 必吃清单 — "量子美食终端" 独立科幻视觉语言（升华版）
+// ============================================================================
+$cyan: #00f0ff;
+$cyan-soft: #7df9ff;
+$cyan-glow: rgba(0, 240, 255, 0.55);
+$blue: #0096ff;
+$yellow: #fde047;
+$yellow-glow: rgba(253, 224, 71, 0.5);
+$ice: #f0faff;
+$ink-2: #0a0e16;
+$ink-3: #0f141d;
+$ink-4: #151b27;
+$text-mute: #b0c0d8;
+$eaten-glow: rgba(251, 113, 133, 0.55);
+
+// ============================================================================
+// 区块容器
+// ============================================================================
+.must-eat-section {
+  position: relative;
+  padding: 2rem 2.25rem 2.25rem;
+  margin: 1.25rem 0 0;
+  background:
+    radial-gradient(circle at 15% 25%, rgba(0, 240, 255, 0.08) 0%, transparent 30%),
+    radial-gradient(circle at 85% 75%, rgba(0, 150, 255, 0.07) 0%, transparent 30%),
+    radial-gradient(circle at 50% 50%, rgba(0, 240, 255, 0.04) 0%, transparent 45%),
+    linear-gradient(145deg, #0c1018 0%, #080c14 100%);
+  border: 1px solid rgba(0, 240, 255, 0.25);
+  border-radius: 28px 6px 28px 6px;
+  overflow: hidden;
+  box-shadow:
+    0 24px 64px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(0, 240, 255, 0.08),
+    inset 0 0 60px rgba(0, 240, 255, 0.04),
+    inset 0 2px 0 rgba(0, 240, 255, 0.1);
+
+  .ambient-glow {
+    position: absolute;
+    top: -30%;
+    right: -10%;
+    width: 55%;
+    height: 65%;
+    background: radial-gradient(ellipse, rgba(0, 240, 255, 0.14), transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+    filter: blur(24px);
+  }
+}
+
+// ============================================================================
+// 标题区
+// ============================================================================
+.section-header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.4rem;
+  gap: 1.5rem;
+  border-bottom: 1px solid rgba(0, 240, 255, 0.25);
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    border-top: 1px dashed rgba(0, 240, 255, 0.15);
+  }
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+
+    .header-icon-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      transform: rotate(45deg);
+      border-radius: 10px;
+      background:
+        linear-gradient(135deg, rgba(0, 240, 255, 0.22), rgba(0, 150, 255, 0.12)),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent);
+      border: 1px solid rgba(0, 240, 255, 0.4);
+      box-shadow:
+        0 6px 20px rgba(0, 240, 255, 0.2),
+        0 0 16px rgba(0, 240, 255, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15),
+        inset 0 0 12px rgba(0, 240, 255, 0.08);
+
+      .header-icon {
+        width: 24px;
+        height: 24px;
+        color: $cyan-soft;
+        transform: rotate(-45deg);
+        filter: drop-shadow(0 0 6px $cyan-glow);
+      }
+    }
+
+    .header-titles {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+
+      .header-title {
+        margin: 0;
+        font-size: 1.7rem;
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+        letter-spacing: 2px;
+        line-height: 1.2;
+        background: linear-gradient(180deg, $ice 0%, $cyan-soft 55%, $blue 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+      }
+
+      .header-subtitle {
+        margin: 0;
+        font-size: 1rem;
+        font-weight: bold;
+        color: $text-mute;
+        letter-spacing: 0.5px;
+      }
+    }
+  }
+
+  // 任务进度终端 — 科幻立体切角舱，集成已打卡计数 + 进度条 + 百分比
+  .header-progress {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.95rem;
+    padding: 0.7rem 1.15rem 0.7rem 1.1rem;
+    background:
+      linear-gradient(180deg, rgba(0, 240, 255, 0.2) 0%, transparent 28%),
+      linear-gradient(135deg, rgba(0, 240, 255, 0.14) 0%, rgba(0, 150, 255, 0.06) 100%),
+      linear-gradient(0deg, rgba(0, 0, 0, 0.45) 0%, transparent 45%),
+      linear-gradient(180deg, rgba(15, 25, 40, 0.7) 0%, rgba(8, 14, 24, 0.88) 100%);
+    border: 1px solid rgba(0, 240, 255, 0.42);
+    clip-path: polygon(
+      12px 0,
+      100% 0,
+      100% calc(100% - 12px),
+      calc(100% - 12px) 100%,
+      0 100%,
+      0 12px
+    );
+    filter:
+      drop-shadow(0 0 10px rgba(0, 240, 255, 0.42))
+      drop-shadow(0 0 22px rgba(0, 240, 255, 0.22))
+      drop-shadow(0 6px 14px rgba(0, 0, 0, 0.55));
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.22),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.55),
+      inset 1px 0 0 rgba(0, 240, 255, 0.18),
+      inset -1px 0 0 rgba(0, 0, 0, 0.35),
+      inset 0 0 26px rgba(0, 240, 255, 0.09);
+
+    // 顶部扫描高光线 — 贯穿舱顶
+    &::before {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 16px;
+      right: 16px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.7), transparent);
+      pointer-events: none;
+      z-index: 2;
+      animation: scanLine 3s ease-in-out infinite;
+    }
+
+    // 左下角能量指示灯 — 脉冲发光
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 5px;
+      left: 7px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #fff 0%, $cyan 45%, transparent 100%);
+      box-shadow:
+        0 0 8px $cyan,
+        0 0 16px $cyan-glow;
+      pointer-events: none;
+      z-index: 2;
+      animation: energyPulse 1.8s ease-in-out infinite;
+    }
+
+    // 已打卡计数模块
+    .progress-counter {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding-right: 0.95rem;
+      border-right: 1px solid rgba(0, 240, 255, 0.28);
+
+      .counter-label {
+        font-size: 0.78rem;
+        font-weight: 700;
+        color: $text-mute;
+        letter-spacing: 1.5px;
+        font-family: 'Consolas', 'Monaco', monospace;
+        text-transform: uppercase;
+      }
+
+      .counter-value {
+        display: inline-flex;
+        align-items: baseline;
+        gap: 0.18rem;
+        font-family: 'Consolas', 'Monaco', monospace;
+        font-weight: 800;
+
+        .counter-current {
+          font-size: 1.5rem;
+          color: #fff;
+          text-shadow:
+            0 0 10px $cyan-glow,
+            0 0 20px rgba(0, 240, 255, 0.45),
+            0 2px 3px rgba(0, 0, 0, 0.6);
+        }
+
+        .counter-sep {
+          font-size: 1.15rem;
+          color: rgba(0, 240, 255, 0.6);
+          margin: 0 1px;
+        }
+
+        .counter-total {
+          font-size: 1.05rem;
+          color: $cyan-soft;
+          opacity: 0.9;
+          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        }
+      }
+    }
+
+    .progress-track {
+      position: relative;
+      width: 150px;
+      height: 16px;
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.35) 100%);
+      border: 1px solid rgba(0, 240, 255, 0.32);
+      border-radius: 2px;
+      overflow: hidden;
+      background-image:
+        repeating-linear-gradient(
+          90deg,
+          transparent 0px,
+          transparent 14px,
+          rgba(0, 240, 255, 0.16) 14px,
+          rgba(0, 240, 255, 0.16) 15px
+        ),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.35) 100%);
+      box-shadow:
+        inset 0 2px 5px rgba(0, 0, 0, 0.75),
+        inset 0 -1px 0 rgba(0, 240, 255, 0.18),
+        inset 0 0 8px rgba(0, 240, 255, 0.1),
+        0 1px 0 rgba(255, 255, 255, 0.1);
+
+      .progress-fill {
+        height: 100%;
+        background:
+          repeating-linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.22) 0px,
+            rgba(255, 255, 255, 0.22) 2px,
+            transparent 2px,
+            transparent 9px
+          ),
+          linear-gradient(90deg, $blue, $cyan, $cyan-soft);
+        transition: width 0.4s ease;
+        box-shadow:
+          0 0 14px $cyan-glow,
+          0 0 26px rgba(0, 240, 255, 0.35),
+          inset 0 1px 0 rgba(255, 255, 255, 0.6),
+          inset 0 -1px 0 rgba(0, 0, 0, 0.4);
+      }
+    }
+
+    .progress-text {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #fff;
+      min-width: 46px;
+      font-family: 'Consolas', 'Monaco', monospace;
+      letter-spacing: 0.5px;
+      text-shadow:
+        0 0 10px $cyan-glow,
+        0 0 20px rgba(0, 240, 255, 0.45),
+        0 2px 3px rgba(0, 0, 0, 0.6);
+    }
+  }
+}
+
+// ============================================================================
+// 清单
+// ============================================================================
+.must-eat-list {
+  position: relative;
+  z-index: 1;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+// ============================================================================
+// 美食卡片
+// ============================================================================
+.must-eat-item {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  gap: 1.1rem;
+  padding: 1rem 1.1rem 1rem 0.5rem;
+
+
+  background:
+    radial-gradient(circle at 12% 18%, rgba(0, 240, 255, 0.09) 0%, transparent 38%),
+    radial-gradient(circle at 88% 82%, rgba(0, 150, 255, 0.07) 0%, transparent 42%),
+    linear-gradient(145deg, $ink-4 0%, $ink-3 100%);
+  border: 1px solid rgba(0, 240, 255, 0.22);
+  border-radius: 18px 4px 18px 4px;
+  overflow: hidden;
+  cursor: pointer;
+  transition:
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+  animation: itemEnter 0.5s ease-out backwards;
+  animation-delay: calc(var(--item-index, 0) * 0.06s);
+  // 多层阴影叠加：深落差 + 中层 + 霓虹外发光 + inset 玻璃高光 + inset 内射光 + inset 底部暗影 + inset 边缘反射
+  box-shadow:
+    0 14px 36px rgba(0, 0, 0, 0.55),
+    0 6px 16px rgba(0, 0, 0, 0.4),
+    0 0 18px rgba(0, 240, 255, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    inset 0 0 24px rgba(0, 240, 255, 0.05),
+    inset 0 0 0 1px rgba(0, 240, 255, 0.04);
+
+  // 底部内射光涌升（hover 时从底部涌入的霓虹内射光）
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0;
+    background: linear-gradient(0deg, rgba(0, 240, 255, 0.24), transparent);
+    pointer-events: none;
+    z-index: 1;
+    transition: height 0.4s ease;
+  }
+
+  // 顶部霓虹细线（hover 时左右展开贯穿）
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    height: 1.5px;
+    background: $cyan;
+    pointer-events: none;
+    z-index: 2;
+    transition: left 0.4s ease, right 0.4s ease, opacity 0.3s ease;
+    opacity: 0;
+    box-shadow: 0 0 8px $cyan-glow;
+  }
+
+  // 玻璃反射高光带（常驻斜向反射 + hover 时扫过）
+  .item-shine {
+    position: absolute;
+    top: -50%;
+    left: -120%;
+    width: 50%;
+    height: 200%;
+    background: linear-gradient(
+      100deg,
+      transparent 0%,
+      rgba(0, 240, 255, 0.04) 38%,
+      rgba(125, 249, 255, 0.1) 50%,
+      rgba(0, 240, 255, 0.04) 62%,
+      transparent 100%
+    );
+    transform: skewX(-15deg);
+    pointer-events: none;
+    z-index: 5;
+    transition: left 0.7s ease;
+  }
+
+  // 量子星图背景层（星云 + 雷达扫描 + 星点阵 + 星座连线 + 数据流刻度）
+  .item-starfield {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.7;
+    transition: opacity 0.4s ease;
+
+    .starfield-svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  }
+
+  // 序号
+  .item-number {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    flex-shrink: 0;
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: rgba(0, 240, 255, 0.3);
+    font-family: 'Consolas', 'Monaco', monospace;
+    letter-spacing: -1px;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.12);
+
+    &::after {
+      content: '';
+      display: block;
+      width: 18px;
+      height: 2px;
+      margin-top: 5px;
+      background: rgba(0, 240, 255, 0.25);
+      border-radius: 1px;
+      transition: all 0.3s ease;
+    }
+  }
+
+  // 图片区
+  .item-image-wrap {
+    position: relative;
+    z-index: 3;
+    width: 124px;
+    height: 94px;
+    flex-shrink: 0;
+    border-radius: 14px 3px 14px 3px;
+    overflow: hidden;
+    background: $ink-2;
+    border: 1px solid rgba(0, 240, 255, 0.12);
+    box-shadow:
+      0 4px 12px rgba(0, 0, 0, 0.3),
+      inset 0 0 10px rgba(0, 240, 255, 0.03);
+
+    .item-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease, filter 0.5s ease;
+    }
+
+    .image-shade {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 45%, rgba(6, 10, 18, 0.75) 100%);
+      pointer-events: none;
+    }
+
+    .item-rating {
+      position: absolute;
+      bottom: 6px;
+      left: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.25rem 0.5rem;
+      background: rgba(6, 10, 18, 0.88);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(253, 224, 71, 0.35);
+      border-radius: 3px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: $yellow;
+      font-family: 'Consolas', 'Monaco', monospace;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+
+      .rating-star {
+        width: 11px;
+        height: 11px;
+        color: $yellow;
+        filter: drop-shadow(0 0 4px $yellow-glow);
+      }
+    }
+
+  }
+
+  // 内容区
+  .item-body {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    gap: 1rem;
+    min-width: 0;
+
+    .item-info {
+      flex: 1;
+      min-width: 0;
+
+      .item-title-row {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        margin-bottom: 0.65rem;
+      }
+
+      .item-name {
+        margin: 0;
+        font-size: 1.35rem;
+        font-weight: 800;
+        color: #fff;
+        line-height: 1.5;
+        letter-spacing: 0.5px;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+      }
+
+      // 状态标签容器 — 位于 title 右侧，不占据图片区域
+      .item-status-tags {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        flex-shrink: 0;
+
+        // 科幻切角立体容器 — 左上 + 右下双切角，区别于 meta-category 的平行四边形
+        .status-tag {
+          position: relative;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.35rem;
+          padding: 0.4rem 0.85rem;
+          font-size: 0.85rem;
+          font-weight: 800;
+          letter-spacing: 1.5px;
+          white-space: nowrap;
+          color: #fff;
+          clip-path: polygon(
+            8px 0,
+            100% 0,
+            100% calc(100% - 8px),
+            calc(100% - 8px) 100%,
+            0 100%,
+            0 8px
+          );
+
+          .status-tag-icon {
+            width: 14px;
+            height: 14px;
+            color: #fff;
+            filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.7));
+          }
+
+          .status-tag-label {
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+          }
+
+          // 已吃标签 — 珊瑚红能量容器
+          &.status-eaten {
+            background: linear-gradient(135deg, #ff6f80 0%, #c90022 100%);
+            box-shadow:
+              inset 0 1px 0 rgba(255, 255, 255, 0.4),
+              inset 0 -1px 0 rgba(0, 0, 0, 0.35),
+              inset 1px 0 0 rgba(255, 255, 255, 0.18),
+              inset -1px 0 0 rgba(0, 0, 0, 0.25);
+            filter:
+              drop-shadow(0 0 6px rgba(235, 130, 142, 0.85))
+              drop-shadow(0 0 14px rgba(250, 117, 132, 0.45))
+              drop-shadow(0 2px 3px rgba(0, 0, 0, 0.55));
+          }
+
+          // 想吃标签 — 金黄能量容器
+          &.status-want {
+            background: linear-gradient(135deg, #e7a200 0%, #b47202 100%);
+            box-shadow:
+              inset 0 1px 0 rgba(255, 255, 255, 0.4),
+              inset 0 -1px 0 rgba(0, 0, 0, 0.35),
+              inset 1px 0 0 rgba(255, 255, 255, 0.18),
+              inset -1px 0 0 rgba(0, 0, 0, 0.25);
+            filter:
+              drop-shadow(0 0 6px rgba(252, 211, 77, 0.85))
+              drop-shadow(0 0 14px rgba(252, 211, 77, 0.45))
+              drop-shadow(0 2px 3px rgba(0, 0, 0, 0.55));
+          }
+        }
+      }
+
+      .item-tagline {
+        margin: 0 0 0.95rem;
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: #fff;
+        line-height: 1.8;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .item-meta {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        .meta-category {
+          padding: 0.25rem 0.7rem;
+          background: rgba(0, 240, 255, 0.15);
+          border: 1px solid rgba(0, 240, 255, 0.35);
+          border-radius: 2px;
+          font-size: 0.88rem;
+          font-weight: 700;
+          color: $ice;
+          letter-spacing: 0.5px;
+          transform: skewX(-12deg);
+          box-shadow:
+            0 2px 8px rgba(0, 240, 255, 0.15),
+            inset 0 1px 0 rgba(0, 240, 255, 0.15);
+          text-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
+
+          > * {
+            display: inline-block;
+            transform: skewX(12deg);
+          }
+        }
+
+        .meta-price {
+          font-size: 1.6rem;
+          font-weight: 800;
+          color: $cyan;
+          font-family: 'Consolas', 'Monaco', monospace;
+          text-shadow:
+            0 0 10px rgba(0, 240, 255, 0.55),
+            0 0 18px rgba(0, 240, 255, 0.3);
+
+          .price-symbol {
+            font-size: 1.3rem;
+            margin-right: 1px;
+            color: $cyan-soft;
+          }
+        }
+      }
+    }
+
+    // 打卡按钮
+    .item-actions {
+      display: flex;
+      gap: 1.15rem;
+      flex-shrink: 0;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+
+      .checkin-btn {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.55rem 0.85rem;
+        background: linear-gradient(135deg, rgba(0, 240, 255, 0.22), rgba(0, 150, 255, 0.14));
+        border: 1px solid rgba(0, 240, 255, 0.5);
+        border-radius: 3px;
+        color: #fff;
+        font-size: 0.95rem;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        overflow: hidden;
+    
+        box-shadow:
+          0 2px 8px rgba(0, 240, 255, 0.2),
+          0 0 12px rgba(0, 240, 255, 0.12),
+          inset 0 1px 0 rgba(255, 255, 255, 0.15);
+
+        .checkin-icon {
+          width: 17px;
+          height: 17px;
+          color: #fff;
+          filter: drop-shadow(0 0 4px rgba(0, 240, 255, 0.6));
+          transition: all 0.3s ease;
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 0;
+          background: linear-gradient(0deg, rgba(0, 240, 255, 0.4), rgba(0, 240, 255, 0.08));
+          transition: height 0.3s ease;
+          z-index: 0;
+        }
+
+        .checkin-icon,
+        .checkin-label {
+          position: relative;
+          z-index: 1;
+        }
+
+        &:hover {
+          border-color: rgba(0, 240, 255, 0.7);
+          color: #fff;
+
+          box-shadow:
+            0 6px 20px rgba(0, 240, 255, 0.3),
+            0 0 18px rgba(0, 240, 255, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
+
+          .checkin-icon {
+            color: #fff;
+            filter: drop-shadow(0 0 6px $cyan-glow);
+          }
+
+          &::before {
+            height: 100%;
+          }
+        }
+
+
+        // 点赞 — 鲜亮绿
+        &.like-btn {
+          background: linear-gradient(135deg, rgba(74, 222, 128, 0.42), rgba(34, 197, 94, 0.26));
+          border-color: rgba(74, 222, 128, 0.72);
+          color: #fff;
+          text-shadow: 0 0 8px rgba(74, 222, 128, 0.6), 0 1px 2px rgba(0, 0, 0, 0.5);
+          box-shadow:
+            0 2px 8px rgba(74, 222, 128, 0.32),
+            0 0 12px rgba(74, 222, 128, 0.22),
+            inset 0 1px 0 rgba(255, 255, 255, 0.18);
+
+          .checkin-icon { color: #fff; filter: drop-shadow(0 0 4px rgba(74, 222, 128, 0.65)); }
+          &::before { background: linear-gradient(0deg, rgba(74, 222, 128, 0.42), rgba(74, 222, 128, 0.1)); }
+
+          &:hover {
+            border-color: rgba(74, 222, 128, 0.88);
+            box-shadow:
+              0 6px 20px rgba(74, 222, 128, 0.42),
+              0 0 18px rgba(74, 222, 128, 0.32),
+              inset 0 1px 0 rgba(255, 255, 255, 0.28);
+            .checkin-icon { filter: drop-shadow(0 0 8px rgba(74, 222, 128, 0.88)); }
+          }
+
+          &.active {
+            border: 2px solid rgba(74, 222, 128, 0.92);
+            border-radius: 3px;
+            background: linear-gradient(135deg, rgba(74, 222, 128, 0.62), rgba(34, 197, 94, 0.38));
+
+            animation: btnPulseLike 1.6s ease-in-out infinite;
+            box-shadow:
+              0 0 12px rgba(74, 222, 128, 0.72),
+              0 0 24px rgba(74, 222, 128, 0.42),
+              0 6px 16px rgba(0, 0, 0, 0.35),
+              inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            .checkin-icon { filter: drop-shadow(0 0 6px rgba(134, 239, 172, 1)); }
+            &::before { height: 100%; background: linear-gradient(0deg, rgba(74, 222, 128, 0.35), rgba(74, 222, 128, 0.1)); }
+          }
+        }
+
+        // 分享 — 鲜亮橙
+        &.share-btn {
+          background: linear-gradient(135deg, rgba(251, 146, 60, 0.42), rgba(249, 115, 22, 0.26));
+          border-color: rgba(251, 146, 60, 0.72);
+          color: #fff;
+          text-shadow: 0 0 8px rgba(251, 146, 60, 0.6), 0 1px 2px rgba(0, 0, 0, 0.5);
+          box-shadow:
+            0 2px 8px rgba(251, 146, 60, 0.32),
+            0 0 12px rgba(251, 146, 60, 0.22),
+            inset 0 1px 0 rgba(255, 255, 255, 0.18);
+
+          .checkin-icon { color: #fff; filter: drop-shadow(0 0 4px rgba(251, 146, 60, 0.65)); }
+          &::before { background: linear-gradient(0deg, rgba(251, 146, 60, 0.42), rgba(251, 146, 60, 0.1)); }
+
+          &:hover {
+            border-color: rgba(251, 146, 60, 0.88);
+            box-shadow:
+              0 6px 20px rgba(251, 146, 60, 0.42),
+              0 0 18px rgba(251, 146, 60, 0.32),
+              inset 0 1px 0 rgba(255, 255, 255, 0.28);
+            .checkin-icon { filter: drop-shadow(0 0 8px rgba(251, 146, 60, 0.88)); }
+          }
+        }
+
+        // 已吃按钮 — 珊瑚红系
+        &.eaten-btn {
+          background: linear-gradient(135deg, rgba(251, 113, 133, 0.22), rgba(225, 29, 72, 0.14));
+          border-color: rgba(251, 113, 133, 0.5);
+          color: #fff;
+          text-shadow: 0 0 8px rgba(251, 113, 133, 0.55), 0 1px 2px rgba(0, 0, 0, 0.5);
+          box-shadow:
+            0 2px 8px rgba(251, 113, 133, 0.2),
+            0 0 12px rgba(251, 113, 133, 0.12),
+            inset 0 1px 0 rgba(255, 255, 255, 0.15);
+
+          .checkin-icon {
+            color: #fff;
+            filter: drop-shadow(0 0 4px rgba(251, 113, 133, 0.6));
+          }
+
+          &::before {
+            background: linear-gradient(0deg, rgba(251, 113, 133, 0.4), rgba(251, 113, 133, 0.08));
+          }
+
+          &:hover {
+            border-color: rgba(251, 113, 133, 0.7);
+            color: #fff;
+            box-shadow:
+              0 6px 20px rgba(251, 113, 133, 0.3),
+              0 0 18px rgba(251, 113, 133, 0.2),
+              inset 0 1px 0 rgba(255, 255, 255, 0.2);
+
+            .checkin-icon {
+              color: #fff;
+              filter: drop-shadow(0 0 6px $eaten-glow);
+            }
+          }
+        }
+
+        &.active {
+          background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+          border: 2px solid #fde047;
+          border-radius: 3px;
+          color: #1a0e00;
+          font-weight: 900;
+          font-size: 1rem;
+          letter-spacing: 1px;
+
+          box-shadow:
+            0 0 14px rgba(251, 191, 36, 0.85),
+            0 0 28px rgba(251, 191, 36, 0.5),
+            0 0 40px rgba(251, 191, 36, 0.25),
+            0 6px 18px rgba(251, 191, 36, 0.4),
+            inset 0 1px 0 rgba(255, 255, 255, 0.5),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+            inset 0 0 16px rgba(255, 255, 255, 0.2);
+          animation: btnPulse 1.6s ease-in-out infinite;
+
+          .checkin-icon {
+            width: 19px;
+            height: 19px;
+            color: #1a0e00;
+            filter:
+              drop-shadow(0 1px 1px rgba(0, 0, 0, 0.5))
+              drop-shadow(0 0 3px rgba(255, 255, 255, 0.4));
+          }
+
+          &::before {
+            height: 100%;
+            background: linear-gradient(0deg, rgba(255, 255, 255, 0.25), rgba(251, 191, 36, 0.05));
+          }
+        }
+
+        &.eaten-btn.active {
+          background: linear-gradient(135deg, #fb7185 0%, #e11d48 100%);
+          border: 2px solid #fda4af;
+          color: #1a0008;
+          font-weight: 900;
+          font-size: 1rem;
+          letter-spacing: 1px;
+
+          box-shadow:
+            0 0 14px rgba(251, 113, 133, 0.85),
+            0 0 28px rgba(251, 113, 133, 0.5),
+            0 0 40px rgba(251, 113, 133, 0.25),
+            0 6px 18px rgba(251, 113, 133, 0.4),
+            inset 0 1px 0 rgba(255, 255, 255, 0.5),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+            inset 0 0 16px rgba(255, 255, 255, 0.2);
+          animation: btnPulseGreen 1.6s ease-in-out infinite;
+
+          .checkin-icon {
+            width: 19px;
+            height: 19px;
+            color: #1a0008;
+            filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.5));
+          }
+
+          &::before {
+            background: linear-gradient(0deg, rgba(255, 255, 255, 0.25), rgba(251, 113, 133, 0.05));
+          }
+        }
+      }
+    }
+  }
+
+  // 已吃状态 — 珊瑚红区分
+  &.eaten {
+
+    border: 1.5px solid rgba(251, 113, 133, 0.45);
+    background: linear-gradient(145deg, #1f0d18 0%, #180a10 100%);
+    box-shadow:
+      0 8px 24px rgba(0, 0, 0, 0.4),
+      0 0 20px rgba(251, 113, 133, 0.12),
+      inset 0 0 30px rgba(251, 113, 133, 0.04);
+
+    .item-number {
+      color: rgba(251, 113, 133, 0.6);
+      text-shadow: 0 0 10px rgba(251, 113, 133, 0.3);
+
+      &::after {
+        background: rgba(251, 113, 133, 0.5);
+        box-shadow: 0 0 4px rgba(251, 113, 133, 0.4);
+      }
+    }
+
+    .item-name {
+      color: rgba(240, 250, 255, 0.85);
+    }
+
+    .item-image-wrap {
+      border-color: rgba(251, 113, 133, 0.25);
+    }
+
+    .item-starfield {
+      opacity: 0.5;
+      filter: hue-rotate(170deg) saturate(0.85);
+    }
+  }
+
+  // 想吃状态 — 金黄色区分
+  &.want {
+
+    border: 1.5px solid rgba(251, 191, 36, 0.45);
+    background: linear-gradient(145deg, #1f1a0a 0%, #181408 100%);
+    box-shadow:
+      0 8px 24px rgba(0, 0, 0, 0.4),
+      0 0 20px rgba(251, 191, 36, 0.12),
+      inset 0 0 30px rgba(251, 191, 36, 0.04);
+
+    .item-number {
+      color: rgba(251, 191, 36, 0.55);
+      text-shadow: 0 0 10px rgba(251, 191, 36, 0.25);
+
+      &::after {
+        background: rgba(251, 191, 36, 0.5);
+        box-shadow: 0 0 4px rgba(251, 191, 36, 0.4);
+      }
+    }
+
+    .item-starfield {
+      opacity: 0.5;
+      filter: hue-rotate(225deg) saturate(0.85);
+    }
+  }
+
+  // 想吃+已吃同时 — 绿色系（特异性高于 eaten/want 单独状态）
+  &.eaten.want {
+
+    border: 1.5px solid rgba(74, 222, 128, 0.5);
+    background: linear-gradient(145deg, #0d1f0a 0%, #081405 100%);
+    box-shadow:
+      0 8px 24px rgba(0, 0, 0, 0.4),
+      0 0 22px rgba(74, 222, 128, 0.18),
+      inset 0 0 30px rgba(74, 222, 128, 0.06);
+
+    .item-number {
+      color: rgba(74, 222, 128, 0.65);
+      text-shadow: 0 0 10px rgba(74, 222, 128, 0.35);
+
+      &::after {
+        background: rgba(74, 222, 128, 0.5);
+        box-shadow: 0 0 4px rgba(74, 222, 128, 0.4);
+      }
+    }
+
+    .item-name {
+      color: rgba(220, 255, 230, 0.9);
+    }
+
+    .item-image-wrap {
+      border-color: rgba(74, 222, 128, 0.3);
+    }
+
+    .item-starfield {
+      opacity: 0.6;
+      filter: hue-rotate(300deg) saturate(0.95);
+    }
+  }
+
+  // hover — 3D 爆发 + 霓虹边框爆发 + 内射光爆发 + 反射扫光（白色发光，跟随状态色系通过卡片背景体现）
+  &:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow:
+      0 24px 60px rgba(0, 0, 0, 0.6),
+      0 12px 28px rgba(0, 0, 0, 0.45),
+      0 0 32px rgba(255, 255, 255, 0.22),
+      0 0 60px rgba(255, 255, 255, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+      inset 0 0 40px rgba(255, 255, 255, 0.08),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+
+    &::before {
+      height: 100%;
+    }
+
+    &::after {
+      left: 0;
+      right: 0;
+      opacity: 1;
+    }
+
+    .item-number {
+      color: #fff;
+      text-shadow: 0 0 14px rgba(255, 255, 255, 0.5);
+
+      &::after {
+        width: 32px;
+        background: #fff;
+        box-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
+      }
+    }
+
+    .item-image-wrap {
+      border-color: rgba(255, 255, 255, 0.4);
+      box-shadow:
+        0 6px 16px rgba(0, 0, 0, 0.35),
+        0 0 20px rgba(255, 255, 255, 0.15),
+        inset 0 0 14px rgba(255, 255, 255, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+      .item-image {
+        transform: scale(1.08);
+        filter: brightness(1.15) contrast(1.05);
+      }
+    }
+
+    .item-shine {
+      left: 130%;
+    }
+
+    .item-starfield {
+      opacity: 1;
+    }
+  }
+}
+
+// ============================================================================
+// 动画
+// ============================================================================
+@keyframes itemEnter {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+// 任务终端顶部扫描线 — 左右往复流光
+@keyframes scanLine {
+  0%, 100% {
+    background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.3), transparent);
+    opacity: 0.6;
+  }
+  50% {
+    background: linear-gradient(90deg, transparent, rgba(125, 249, 255, 0.9), transparent);
+    opacity: 1;
+  }
+}
+
+// 能量指示灯脉冲
+@keyframes energyPulse {
+  0%, 100% {
+    box-shadow:
+      0 0 6px $cyan,
+      0 0 12px $cyan-glow;
+    opacity: 0.75;
+  }
+  50% {
+    box-shadow:
+      0 0 12px $cyan,
+      0 0 24px $cyan-glow,
+      0 0 36px rgba(0, 240, 255, 0.3);
+    opacity: 1;
+  }
+}
+
+
+@keyframes btnPulse {
+  0%, 100% {
+    box-shadow:
+      0 0 24px rgba(251, 191, 36, 0.85),
+      0 0 48px rgba(251, 191, 36, 0.5),
+      0 0 72px rgba(251, 191, 36, 0.25),
+      0 6px 18px rgba(251, 191, 36, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5),
+      inset 0 0 16px rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow:
+      0 0 36px rgba(251, 191, 36, 1),
+      0 0 72px rgba(251, 191, 36, 0.7),
+      0 0 108px rgba(251, 191, 36, 0.4),
+      0 8px 24px rgba(251, 191, 36, 0.55),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6),
+      inset 0 0 22px rgba(255, 255, 255, 0.3);
+  }
+}
+
+@keyframes btnPulseGreen {
+  0%, 100% {
+    box-shadow:
+      0 0 24px rgba(251, 113, 133, 0.85),
+      0 0 48px rgba(251, 113, 133, 0.5),
+      0 0 72px rgba(251, 113, 133, 0.25),
+      0 6px 18px rgba(251, 113, 133, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5),
+      inset 0 0 16px rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow:
+      0 0 36px rgba(251, 113, 133, 1),
+      0 0 72px rgba(251, 113, 133, 0.7),
+      0 0 108px rgba(251, 113, 133, 0.4),
+      0 8px 24px rgba(251, 113, 133, 0.55),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6),
+      inset 0 0 22px rgba(255, 255, 255, 0.3);
+  }
+}
+
+
+@keyframes btnPulseLike {
+  0%, 100% {
+    box-shadow:
+      0 0 12px rgba(74, 222, 128, 0.65),
+      0 0 22px rgba(74, 222, 128, 0.35),
+      0 6px 16px rgba(0, 0, 0, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5),
+      inset 0 0 14px rgba(134, 239, 172, 0.22);
+  }
+  50% {
+    box-shadow:
+      0 0 18px rgba(74, 222, 128, 0.88),
+      0 0 34px rgba(74, 222, 128, 0.5),
+      0 8px 22px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6),
+      inset 0 0 20px rgba(134, 239, 172, 0.32);
+  }
+}
+
+// ============================================================================
+// 响应式
+// ============================================================================
+@media (max-width: 768px) {
+  .must-eat-section {
+    padding: 1.5rem 1rem 1.75rem;
+    border-radius: 18px 4px 18px 4px;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .header-progress {
+    justify-content: space-between;
+    gap: 0.6rem;
+    padding: 0.5rem 0.8rem;
+
+    .progress-counter {
+      padding-right: 0.6rem;
+
+      .counter-value .counter-current {
+        font-size: 1.25rem;
+      }
+    }
+
+    .progress-track {
+      width: 100%;
+      flex: 1;
+    }
+  }
+
+  .must-eat-item {
+    gap: 0.75rem;
+    padding: 0.85rem 0.85rem 0.85rem 0.25rem;
+    border-radius: 14px 3px 14px 3px;
+
+    .item-number {
+      width: 40px;
+      font-size: 1.4rem;
+    }
+
+    .item-image-wrap {
+      width: 96px;
+      height: 72px;
+    }
+
+    .item-body {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.6rem;
+
+      .item-actions {
+        width: 100%;
+        justify-content: flex-end;
+      }
+    }
+  }
+}

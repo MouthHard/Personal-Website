@@ -13,7 +13,7 @@
       "image": "https://picsum.photos/id/322/800/600",
       "price": 168,
       "rating": 4.8,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "苏菜之冠",
       "isPopular": true,
       "badgeColor": "#e91e63",
@@ -41,7 +41,7 @@
       "image": "https://picsum.photos/id/323/800/600",
       "price": 58,
       "rating": 4.7,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "淮扬名菜",
       "isPopular": true,
       "badgeColor": "#ff9800",
@@ -69,7 +69,7 @@
       "image": "https://picsum.photos/id/324/800/600",
       "price": 38,
       "rating": 4.5,
-      "category": "主食",
+      "category": "汤羹饮品",
       "badgeText": "江南清韵",
       "isPopular": true,
       "badgeColor": "#03a9f4",
@@ -97,7 +97,7 @@
       "image": "https://picsum.photos/id/325/800/600",
       "price": 48,
       "rating": 4.6,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "金陵特产",
       "isPopular": true,
       "badgeColor": "#ff5722",
@@ -125,7 +125,7 @@
       "image": "https://picsum.photos/id/326/800/600",
       "price": 28,
       "rating": 4.5,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "苏州经典",
       "isPopular": true,
       "badgeColor": "#4caf50",
@@ -153,7 +153,7 @@
       "image": "https://picsum.photos/id/327/800/600",
       "price": 68,
       "rating": 4.6,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "isPopular": false,
       "description": "鲜香滑嫩，蟹味浓郁",
       "recommendations": {
@@ -179,7 +179,7 @@
       "image": "https://picsum.photos/id/328/800/600",
       "price": 128,
       "rating": 4.4,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "isPopular": false,
       "description": "白鱼、白虾、银鱼",
       "recommendations": {
@@ -205,7 +205,7 @@
       "image": "https://picsum.photos/id/329/800/600",
       "price": 35,
       "rating": 4.3,
-      "category": "主食",
+      "category": "面点主食",
       "isPopular": false,
       "description": "粒粒分明，配料丰富",
       "recommendations": {
@@ -231,7 +231,7 @@
       "image": "https://picsum.photos/id/330/800/600",
       "price": 48,
       "rating": 4.7,
-      "category": "主食",
+      "category": "面点主食",
       "isPopular": false,
       "description": "皮薄馅大，蟹香浓郁",
       "recommendations": {
@@ -257,7 +257,7 @@
       "image": "https://picsum.photos/id/331/800/600",
       "price": 58,
       "rating": 4.5,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "isPopular": false,
       "description": "色泽红亮，甜咸适中",
       "recommendations": {
@@ -283,7 +283,7 @@
       "image": "https://picsum.photos/id/332/800/600",
       "price": 3,
       "rating": 4.1,
-      "category": "小吃",
+      "category": "小吃零食",
       "isPopular": false,
       "description": "外酥内软，早餐必备",
       "recommendations": {
@@ -309,7 +309,7 @@
       "image": "https://picsum.photos/id/333/800/600",
       "price": 5,
       "rating": 4,
-      "category": "甜品",
+      "category": "甜品糕点",
       "isPopular": false,
       "description": "香甜可口，传统面点",
       "recommendations": {
@@ -335,7 +335,7 @@
       "image": "https://picsum.photos/id/334/800/600",
       "price": 38,
       "rating": 4.3,
-      "category": "饮品",
+      "category": "汤羹饮品",
       "isPopular": false,
       "description": "香气浓郁，口感醇厚",
       "recommendations": {
@@ -347,6 +347,32 @@
         ],
         "eatingMethod": "直接饮用，可点心或小吃"
       }
+    },
+    {
+      "id": "jiangsu-yangchenghu-crab",
+      "name": "阳澄湖大闸蟹",
+      "tags": [
+        "江苏特色",
+        "苏州特产",
+        "蟹黄丰满",
+        "金秋美味",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/335/800/600",
+      "price": 188,
+      "rating": 4.9,
+      "category": "菜品菜肴",
+      "isPopular": true,
+      "description": "蟹黄丰满，金秋美味，江南第一鲜",
+      "recommendations": {
+        "pairings": [
+          "黄酒",
+          "姜茶",
+          "醋",
+          "米饭"
+        ],
+        "eatingMethod": "清蒸最佳，配姜醋汁食用"
+      }
     }
   ],
   "locations": [
@@ -356,9 +382,9 @@
       "name": "南京夫子庙",
       "type": "文化街",
       "foods": [
-        "duck-blood-fans",
-        "jiangsu-braised-meat",
-        "tangbao"
+        "nanjing-salted-duck",
+        "lion-head",
+        "jiangsu-youtiao"
       ],
       "image": "https://picsum.photos/id/1088/800/600",
       "reason": "南京传统美食集中地",
@@ -371,12 +397,244 @@
       "type": "商业街",
       "foods": [
         "suzhou-noodles",
-        "songshu-yangzhou",
-        "jiangsu-snacks"
+        "crab-roe-bun",
+        "yangzhou-fried-rice"
       ],
       "image": "https://picsum.photos/id/1089/800/600",
       "reason": "苏州传统美食聚集地",
       "location": "苏州市"
+    },
+    {
+      "id": 3,
+      "icon": "🌃",
+      "name": "无锡南长街",
+      "type": "历史街区",
+      "foods": [
+        "wuxi-spare-ribs",
+        "crab-powder-tofu",
+        "jiangsu-tangbao"
+      ],
+      "image": "https://picsum.photos/id/1090/800/600",
+      "reason": "无锡古运河畔美食街区",
+      "location": "无锡市"
+    },
+    {
+      "id": 4,
+      "icon": "🌊",
+      "name": "阳澄湖畔",
+      "type": "景区",
+      "foods": [
+        "jiangsu-yangchenghu-crab",
+        "three-white-guichao",
+        "water-shield-soup"
+      ],
+      "image": "https://picsum.photos/id/1091/800/600",
+      "reason": "品蟹胜地，湖鲜集中",
+      "location": "苏州市"
+    }
+  ],
+  "souvenirs": [
+    {
+      "id": "jiangsu-souvenir-1",
+      "name": "碧螺春",
+      "image": "https://picsum.photos/id/396/600/400",
+      "priceRange": "50-300元",
+      "description": "洞庭名茶，卷曲成螺",
+      "buyAt": "苏州茶厂",
+      "storage": "密封冷藏",
+      "province": "江苏"
+    },
+    {
+      "id": "jiangsu-souvenir-2",
+      "name": "苏绣",
+      "image": "https://picsum.photos/id/397/600/400",
+      "priceRange": "100-5000元",
+      "description": "四大名绣之首，双面绣绝",
+      "buyAt": "苏州刺绣厂",
+      "storage": "干燥保存",
+      "province": "江苏"
+    },
+    {
+      "id": "jiangsu-souvenir-3",
+      "name": "南京盐水鸭",
+      "image": "https://picsum.photos/id/398/600/400",
+      "priceRange": "25-50元",
+      "description": "皮白肉嫩，咸香适中",
+      "buyAt": "南京桂花鸭",
+      "storage": "冷藏保存",
+      "province": "江苏"
+    },
+    {
+      "id": "jiangsu-souvenir-4",
+      "name": "桃花坞年画",
+      "image": "https://picsum.photos/id/399/600/400",
+      "priceRange": "20-100元",
+      "description": "苏州木版年画，喜庆吉祥",
+      "buyAt": "苏州年画社",
+      "storage": "干燥保存",
+      "province": "江苏"
+    },
+    {
+      "id": "jiangsu-souvenir-5",
+      "name": "阳澄湖大闸蟹礼盒",
+      "image": "https://picsum.photos/id/400/600/400",
+      "priceRange": "200-800元",
+      "description": "金秋时令，蟹黄丰满",
+      "buyAt": "阳澄蟹庄",
+      "storage": "冷藏鲜活",
+      "province": "江苏"
+    }
+  ],
+  "guide": {
+    "mealPlan": {
+      "breakfast": [
+        "suzhou-noodles",
+        "crab-roe-bun",
+        "jiangsu-youtiao"
+      ],
+      "lunch": [
+        "squirrel-mandarin-fish",
+        "crab-powder-tofu",
+        "yangzhou-fried-rice"
+      ],
+      "dinner": [
+        "jiangsu-yangchenghu-crab",
+        "three-white-guichao",
+        "water-shield-soup"
+      ]
+    },
+    "routes": [
+      {
+        "id": "jiangsu-route-1",
+        "name": "江苏经典美食一日游",
+        "duration": "1天",
+        "steps": [
+          {
+            "time": "08:30",
+            "location": "苏州观前街",
+            "foodId": "suzhou-noodles",
+            "description": "清晨从一碗苏式面开始"
+          },
+          {
+            "time": "12:00",
+            "location": "南京夫子庙",
+            "foodId": "lion-head",
+            "description": "午餐品尝淮扬名菜狮子头"
+          },
+          {
+            "time": "18:30",
+            "location": "无锡南长街",
+            "foodId": "wuxi-spare-ribs",
+            "description": "夜市扫街，无锡排骨收尾"
+          }
+        ]
+      },
+      {
+        "id": "jiangsu-route-2",
+        "name": "阳澄湖品蟹半日游",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "10:00",
+            "location": "阳澄湖畔",
+            "foodId": "jiangsu-yangchenghu-crab",
+            "description": "探访蟹庄品鉴正宗大闸蟹"
+          },
+          {
+            "time": "13:00",
+            "location": "阳澄湖畔",
+            "foodId": "three-white-guichao",
+            "description": "品尝太湖三白湖鲜"
+          },
+          {
+            "time": "15:30",
+            "location": "苏州观前街",
+            "foodId": "crab-roe-bun",
+            "description": "下午茶时光品鉴蟹黄包"
+          }
+        ]
+      },
+      {
+        "id": "jiangsu-route-3",
+        "name": "金陵古都寻味游",
+        "duration": "1天",
+        "steps": [
+          {
+            "time": "09:00",
+            "location": "南京夫子庙",
+            "foodId": "nanjing-salted-duck",
+            "description": "清晨品尝金陵盐水鸭"
+          },
+          {
+            "time": "12:30",
+            "location": "南京夫子庙",
+            "foodId": "squirrel-mandarin-fish",
+            "description": "午餐享用苏菜之冠松鼠桂鱼"
+          },
+          {
+            "time": "18:00",
+            "location": "无锡南长街",
+            "foodId": "crab-powder-tofu",
+            "description": "晚餐品鉴蟹粉豆腐"
+          }
+        ]
+      }
+    ],
+    "tips": [
+      {
+        "question": "江苏美食的最佳品尝时间？",
+        "answer": "建议在春秋两季前往，气候宜人，食材当季，能品尝到最地道的江苏风味。秋季尤宜品蟹。"
+      },
+      {
+        "question": "江苏有哪些必去美食街区？",
+        "answer": "推荐前往南京夫子庙、苏州观前街和无锡南长街，那里集中了最正宗的江苏小吃和老字号餐厅。"
+      },
+      {
+        "question": "在江苏点菜有什么避坑建议？",
+        "answer": "建议提前了解当地特色菜名，避免被不正规店铺误导；选择人气旺的老店更靠谱。品蟹季节注意辨别正宗阳澄湖大闸蟹。"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "season": "spring",
+      "seasonName": "春季",
+      "foods": [
+        "squirrel-mandarin-fish",
+        "suzhou-noodles",
+        "crab-roe-bun"
+      ],
+      "description": "春暖花开，时鲜上市，品尝春日第一口鲜"
+    },
+    {
+      "season": "summer",
+      "seasonName": "夏季",
+      "foods": [
+        "lion-head",
+        "water-shield-soup",
+        "jiangsu-youtiao"
+      ],
+      "description": "夏日炎炎，消暑解渴，清凉美味正当时"
+    },
+    {
+      "season": "autumn",
+      "seasonName": "秋季",
+      "foods": [
+        "jiangsu-yangchenghu-crab",
+        "crab-powder-tofu",
+        "nanjing-salted-duck"
+      ],
+      "description": "秋高气爽，丰收时节，贴秋膘品蟹黄"
+    },
+    {
+      "season": "winter",
+      "seasonName": "冬季",
+      "foods": [
+        "wuxi-spare-ribs",
+        "yangzhou-fried-rice",
+        "jiangsu-hongcha"
+      ],
+      "description": "寒冬腊月，温补暖身，热汤热食最抚慰"
     }
   ]
 }

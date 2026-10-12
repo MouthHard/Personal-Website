@@ -13,7 +13,7 @@
       "image": "https://picsum.photos/id/392/800/600",
       "price": 588,
       "rating": 4.9,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "草原盛宴",
       "isPopular": true,
       "badgeColor": "#ff5722",
@@ -41,7 +41,7 @@
       "image": "https://picsum.photos/id/393/800/600",
       "price": 68,
       "rating": 4.8,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "草原风味",
       "isPopular": true,
       "badgeColor": "#795548",
@@ -69,7 +69,7 @@
       "image": "https://picsum.photos/id/394/800/600",
       "price": 15,
       "rating": 4.6,
-      "category": "饮品",
+      "category": "汤羹饮品",
       "badgeText": "草原饮品",
       "isPopular": true,
       "badgeColor": "#ff9800",
@@ -97,7 +97,7 @@
       "image": "https://picsum.photos/id/395/800/600",
       "price": 45,
       "rating": 4.4,
-      "category": "奶制品",
+      "category": "甜品糕点",
       "isPopular": false,
       "description": "奶香浓郁，口感细腻",
       "recommendations": {
@@ -123,7 +123,7 @@
       "image": "https://picsum.photos/id/396/800/600",
       "price": 88,
       "rating": 4.3,
-      "category": "饮品",
+      "category": "汤羹饮品",
       "isPopular": false,
       "description": "醇香浓郁，草原特色",
       "recommendations": {
@@ -149,7 +149,7 @@
       "image": "https://picsum.photos/id/397/800/600",
       "price": 5,
       "rating": 4.2,
-      "category": "主食",
+      "category": "面点主食",
       "isPopular": false,
       "description": "松软香甜，主食必备",
       "recommendations": {
@@ -175,7 +175,7 @@
       "image": "https://picsum.photos/id/398/800/600",
       "price": 3,
       "rating": 4.1,
-      "category": "小吃",
+      "category": "小吃零食",
       "isPopular": false,
       "description": "外酥内软，早餐必备",
       "recommendations": {
@@ -201,7 +201,7 @@
       "image": "https://picsum.photos/id/399/800/600",
       "price": 5,
       "rating": 4,
-      "category": "甜品",
+      "category": "甜品糕点",
       "isPopular": false,
       "description": "香甜可口，传统面点",
       "recommendations": {
@@ -212,6 +212,197 @@
           "饮料"
         ],
         "eatingMethod": "直接食用，作为甜品"
+      }
+    },
+    {
+      "id": "neimenggu-kaoyangtui",
+      "name": "烤羊腿",
+      "tags": [
+        "内蒙古特色",
+        "草原名菜",
+        "外焦里嫩",
+        "香气四溢",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/480/800/600",
+      "price": 168,
+      "rating": 4.7,
+      "category": "烧烤火锅",
+      "badgeText": "草原硬菜",
+      "isPopular": true,
+      "badgeColor": "#ff5722",
+      "description": "外焦里嫩，香气四溢，宴客硬菜",
+      "recommendations": {
+        "pairings": [
+          "奶茶",
+          "马奶酒",
+          "小菜",
+          "主食"
+        ],
+        "eatingMethod": "作为主菜食用，配奶茶或马奶酒"
+      }
+    },
+    {
+      "id": "neimenggu-shuanyangrou",
+      "name": "涮羊肉",
+      "tags": [
+        "内蒙古特色",
+        "草原名菜",
+        "薄如纸",
+        "鲜嫩爽口",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/481/800/600",
+      "price": 98,
+      "rating": 4.7,
+      "category": "烧烤火锅",
+      "badgeText": "草原火锅",
+      "isPopular": true,
+      "badgeColor": "#e91e63",
+      "description": "羊肉薄如纸，鲜嫩爽口",
+      "recommendations": {
+        "pairings": [
+          "麻酱",
+          "小菜",
+          "主食",
+          "饮料"
+        ],
+        "eatingMethod": "涮煮食用，蘸麻酱"
+      }
+    },
+    {
+      "id": "neimenggu-menggubaozi",
+      "name": "蒙古包子",
+      "tags": [
+        "内蒙古特色",
+        "草原面点",
+        "皮薄馅大",
+        "肉香四溢",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/482/800/600",
+      "price": 12,
+      "rating": 4.4,
+      "category": "面点主食",
+      "badgeText": "草原主食",
+      "isPopular": false,
+      "description": "皮薄馅大，肉香四溢",
+      "recommendations": {
+        "pairings": [
+          "奶茶",
+          "小菜",
+          "汤品",
+          "饮料"
+        ],
+        "eatingMethod": "直接食用，作为主食"
+      }
+    },
+    {
+      "id": "neimenggu-naipizi",
+      "name": "奶皮子",
+      "tags": [
+        "内蒙古特色",
+        "草原奶制品",
+        "奶香浓郁",
+        "营养丰富",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/483/800/600",
+      "price": 35,
+      "rating": 4.3,
+      "category": "甜品糕点",
+      "badgeText": "草原奶食",
+      "isPopular": false,
+      "description": "奶香浓郁，营养丰富",
+      "recommendations": {
+        "pairings": [
+          "奶茶",
+          "水果",
+          "甜品",
+          "饮料"
+        ],
+        "eatingMethod": "直接食用，或泡奶茶"
+      }
+    },
+    {
+      "id": "neimenggu-xuechang",
+      "name": "血肠",
+      "tags": [
+        "内蒙古特色",
+        "草原名菜",
+        "口感独特",
+        "传统风味",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/484/800/600",
+      "price": 38,
+      "rating": 4.2,
+      "category": "菜品菜肴",
+      "badgeText": "草原风味",
+      "isPopular": false,
+      "description": "口感独特，传统风味",
+      "recommendations": {
+        "pairings": [
+          "奶茶",
+          "手抓肉",
+          "小菜",
+          "主食"
+        ],
+        "eatingMethod": "切片食用，配奶茶"
+      }
+    },
+    {
+      "id": "neimenggu-duijia",
+      "name": "赤峰对夹",
+      "tags": [
+        "内蒙古特色",
+        "赤峰特产",
+        "外酥内嫩",
+        "熏肉香浓",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/485/800/600",
+      "price": 8,
+      "rating": 4.4,
+      "category": "小吃零食",
+      "badgeText": "赤峰名吃",
+      "isPopular": false,
+      "description": "外酥内嫩，熏肉香浓",
+      "recommendations": {
+        "pairings": [
+          "粥",
+          "小菜",
+          "汤品",
+          "饮料"
+        ],
+        "eatingMethod": "直接食用，作为小吃或早餐"
+      }
+    },
+    {
+      "id": "neimenggu-beizi",
+      "name": "焙子",
+      "tags": [
+        "内蒙古特色",
+        "呼和浩特特产",
+        "外酥内软",
+        "层次分明",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/486/800/600",
+      "price": 5,
+      "rating": 4.3,
+      "category": "面点主食",
+      "badgeText": "青城名点",
+      "isPopular": false,
+      "description": "外酥内软，层次分明",
+      "recommendations": {
+        "pairings": [
+          "奶茶",
+          "小菜",
+          "汤品",
+          "饮料"
+        ],
+        "eatingMethod": "直接食用，或夹肉作为主食"
       }
     }
   ],
@@ -243,6 +434,247 @@
       "image": "https://picsum.photos/id/305/800/600",
       "reason": "草原特色美食体验",
       "location": "呼伦贝尔市"
+    },
+    {
+      "id": 3,
+      "icon": "🛣️",
+      "name": "赤峰美食街",
+      "type": "美食街",
+      "foods": [
+        "neimenggu-duijia",
+        "neimenggu-beizi",
+        "neimenggu-kaoyangtui"
+      ],
+      "image": "https://picsum.photos/id/306/800/600",
+      "reason": "赤峰对夹发源地，草原小吃云集",
+      "location": "赤峰市"
+    },
+    {
+      "id": 4,
+      "icon": "🍲",
+      "name": "包头老城火锅",
+      "type": "美食街",
+      "foods": [
+        "neimenggu-shuanyangrou",
+        "neimenggu-menggubaozi",
+        "neimenggu-xuechang"
+      ],
+      "image": "https://picsum.photos/id/307/800/600",
+      "reason": "包头涮羊肉老店聚集地",
+      "location": "包头市"
+    }
+  ],
+  "souvenirs": [
+    {
+      "id": "neimenggu-souvenir-1",
+      "name": "风干牛肉",
+      "image": "https://picsum.photos/id/456/600/400",
+      "priceRange": "30-80元",
+      "description": "草原风干，原汁原味",
+      "buyAt": "内蒙特产店",
+      "storage": "密封干燥",
+      "province": "内蒙古"
+    },
+    {
+      "id": "neimenggu-souvenir-2",
+      "name": "奶酪干",
+      "image": "https://picsum.photos/id/457/600/400",
+      "priceRange": "15-30元",
+      "description": "蒙古族传统奶食，酸甜可口",
+      "buyAt": "草原奶食店",
+      "storage": "密封冷藏",
+      "province": "内蒙古"
+    },
+    {
+      "id": "neimenggu-souvenir-3",
+      "name": "河套面粉",
+      "image": "https://picsum.photos/id/458/600/400",
+      "priceRange": "15-30元",
+      "description": "雪花粉，筋道爽滑",
+      "buyAt": "河套面业",
+      "storage": "干燥防潮",
+      "province": "内蒙古"
+    },
+    {
+      "id": "neimenggu-souvenir-4",
+      "name": "蒙古银器",
+      "image": "https://picsum.photos/id/459/600/400",
+      "priceRange": "50-500元",
+      "description": "錾刻工艺，草原风情",
+      "buyAt": "蒙古银器店",
+      "storage": "干燥保存",
+      "province": "内蒙古"
+    },
+    {
+      "id": "neimenggu-souvenir-5",
+      "name": "马奶酒",
+      "image": "https://picsum.photos/id/460/600/400",
+      "priceRange": "50-150元",
+      "description": "草原佳酿，醇香独特",
+      "buyAt": "草原酒坊",
+      "storage": "阴凉避光",
+      "province": "内蒙古"
+    },
+    {
+      "id": "neimenggu-souvenir-6",
+      "name": "奶皮子",
+      "image": "https://picsum.photos/id/461/600/400",
+      "priceRange": "20-50元",
+      "description": "奶香浓郁，营养丰富",
+      "buyAt": "草原奶食店",
+      "storage": "密封冷藏",
+      "province": "内蒙古"
+    }
+  ],
+  "guide": {
+    "mealPlan": {
+      "breakfast": [
+        "烤全羊",
+        "奶茶",
+        "马奶酒"
+      ],
+      "lunch": [
+        "马奶酒",
+        "奶茶",
+        "烤全羊"
+      ],
+      "dinner": [
+        "烤全羊",
+        "马奶酒"
+      ]
+    },
+    "routes": [
+      {
+        "id": "neimenggu-route-1",
+        "name": "内蒙古经典美食一日游",
+        "duration": "1天",
+        "steps": [
+          {
+            "time": "08:30",
+            "location": "呼和浩特美食街",
+            "foodId": "奶茶",
+            "description": "清晨从一碗草原奶茶开始"
+          },
+          {
+            "time": "12:00",
+            "location": "呼和浩特老城",
+            "foodId": "手抓肉",
+            "description": "午餐品尝草原手抓肉"
+          },
+          {
+            "time": "18:30",
+            "location": "呼伦贝尔草原餐厅",
+            "foodId": "烤全羊",
+            "description": "夜宴烤全羊，收尾完美一天"
+          }
+        ]
+      },
+      {
+        "id": "neimenggu-route-2",
+        "name": "草原火锅半日游",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "10:00",
+            "location": "包头老城火锅",
+            "foodId": "neimenggu-shuanyangrou",
+            "description": "探访包头涮羊肉老店"
+          },
+          {
+            "time": "12:30",
+            "location": "包头面食馆",
+            "foodId": "neimenggu-menggubaozi",
+            "description": "品尝蒙古包子"
+          },
+          {
+            "time": "15:00",
+            "location": "包头老字号",
+            "foodId": "neimenggu-xuechang",
+            "description": "下午品鉴草原血肠"
+          }
+        ]
+      },
+      {
+        "id": "neimenggu-route-3",
+        "name": "赤峰风味探索游",
+        "duration": "1天",
+        "steps": [
+          {
+            "time": "08:00",
+            "location": "赤峰美食街",
+            "foodId": "neimenggu-duijia",
+            "description": "清晨赤峰对夹配奶茶"
+          },
+          {
+            "time": "12:00",
+            "location": "赤峰烤肉店",
+            "foodId": "neimenggu-kaoyangtui",
+            "description": "午餐品尝烤羊腿"
+          },
+          {
+            "time": "18:00",
+            "location": "呼和浩特焙子铺",
+            "foodId": "neimenggu-beizi",
+            "description": "傍晚焙子夹肉收尾"
+          }
+        ]
+      }
+    ],
+    "tips": [
+      {
+        "question": "内蒙古美食的最佳品尝时间？",
+        "answer": "建议在夏秋两季前往草原，气候宜人，水草丰美，能品尝到最地道的内蒙古风味。"
+      },
+      {
+        "question": "内蒙古有哪些必去美食街区？",
+        "answer": "推荐前往呼和浩特美食街、呼伦贝尔草原餐厅和赤峰美食街，那里集中了最正宗的草原美食。"
+      },
+      {
+        "question": "在内蒙古点菜有什么避坑建议？",
+        "answer": "建议提前了解当地特色菜名，避免被不正规店铺误导；选择人气旺的老店更靠谱。"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "season": "spring",
+      "seasonName": "春季",
+      "foods": [
+        "手抓肉",
+        "奶茶",
+        "neimenggu-menggubaozi"
+      ],
+      "description": "春暖花开，草原返青，品尝春日第一口鲜"
+    },
+    {
+      "season": "summer",
+      "seasonName": "夏季",
+      "foods": [
+        "烤全羊",
+        "neimenggu-shuanyangrou",
+        "马奶酒"
+      ],
+      "description": "夏日炎炎，草原盛会，清凉美味正当时"
+    },
+    {
+      "season": "autumn",
+      "seasonName": "秋季",
+      "foods": [
+        "neimenggu-kaoyangtui",
+        "neimenggu-xuechang",
+        "奶酪"
+      ],
+      "description": "秋高气爽，牛羊肥壮，贴秋膘品手把肉"
+    },
+    {
+      "season": "winter",
+      "seasonName": "冬季",
+      "foods": [
+        "neimenggu-beizi",
+        "neimenggu-naipizi",
+        "inner-mongolia-tangbao"
+      ],
+      "description": "寒冬腊月，温补暖身，热汤热食最抚慰"
     }
   ]
 }

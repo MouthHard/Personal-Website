@@ -13,7 +13,7 @@
       "image": "https://picsum.photos/id/407/800/600",
       "price": 35,
       "rating": 4.7,
-      "category": "熟食",
+      "category": "菜品菜肴",
       "badgeText": "哈尔滨名片",
       "isPopular": true,
       "badgeColor": "#e91e63",
@@ -41,7 +41,7 @@
       "image": "https://picsum.photos/id/408/800/600",
       "price": 48,
       "rating": 4.8,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "东北名菜",
       "isPopular": true,
       "badgeColor": "#ff9800",
@@ -69,7 +69,7 @@
       "image": "https://picsum.photos/id/409/800/600",
       "price": 15,
       "rating": 4.6,
-      "category": "饮品",
+      "category": "汤羹饮品",
       "badgeText": "冰城佳酿",
       "isPopular": true,
       "badgeColor": "#ffcc00",
@@ -97,7 +97,7 @@
       "image": "https://picsum.photos/id/410/800/600",
       "price": 58,
       "rating": 4.5,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "东北家常",
       "isPopular": true,
       "badgeColor": "#795548",
@@ -125,7 +125,7 @@
       "image": "https://picsum.photos/id/411/800/600",
       "price": 68,
       "rating": 4.4,
-      "category": "主食",
+      "category": "面点主食",
       "isPopular": false,
       "description": "颗粒饱满，口感香糯",
       "recommendations": {
@@ -151,7 +151,7 @@
       "image": "https://picsum.photos/id/412/800/600",
       "price": 3,
       "rating": 4.1,
-      "category": "小吃",
+      "category": "小吃零食",
       "isPopular": false,
       "description": "外酥内软，早餐必备",
       "recommendations": {
@@ -177,7 +177,7 @@
       "image": "https://picsum.photos/id/413/800/600",
       "price": 5,
       "rating": 4,
-      "category": "甜品",
+      "category": "甜品糕点",
       "isPopular": false,
       "description": "香甜可口，传统面点",
       "recommendations": {
@@ -188,6 +188,138 @@
           "饮料"
         ],
         "eatingMethod": "直接食用，作为甜品"
+      }
+    },
+    {
+      "id": "heilongjiang-demoli-dunyu",
+      "name": "得莫利炖鱼",
+      "tags": [
+        "黑龙江特色",
+        "哈尔滨名菜",
+        "鱼肉鲜嫩",
+        "粉条入味",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/440/800/600",
+      "price": 78,
+      "rating": 4.7,
+      "category": "菜品菜肴",
+      "badgeText": "东北名菜",
+      "isPopular": true,
+      "badgeColor": "#4caf50",
+      "description": "哈尔滨得莫利村名菜，鱼肉鲜嫩粉条入味",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "馒头",
+          "小菜",
+          "啤酒"
+        ],
+        "eatingMethod": "作为主菜食用，搭配米饭"
+      }
+    },
+    {
+      "id": "heilongjiang-mudanjiang-yuyan",
+      "name": "牡丹江鱼宴",
+      "tags": [
+        "黑龙江特色",
+        "牡丹江特产",
+        "食材丰富",
+        "鲜美可口",
+        "江鲜"
+      ],
+      "image": "https://picsum.photos/id/441/800/600",
+      "price": 108,
+      "rating": 4.6,
+      "category": "菜品菜肴",
+      "isPopular": false,
+      "description": "牡丹江江鲜鱼宴，食材丰富，鲜美可口",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "小菜",
+          "啤酒"
+        ],
+        "eatingMethod": "作为主菜食用，搭配米饭"
+      }
+    },
+    {
+      "id": "heilongjiang-wuchang-mifan",
+      "name": "五常大米饭",
+      "tags": [
+        "黑龙江特色",
+        "五常特产",
+        "颗粒饱满",
+        "软糯香甜",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/442/800/600",
+      "price": 18,
+      "rating": 4.5,
+      "category": "面点主食",
+      "isPopular": false,
+      "description": "五常大米蒸煮而成，软糯香甜",
+      "recommendations": {
+        "pairings": [
+          "菜肴",
+          "汤品",
+          "小菜",
+          "炖菜"
+        ],
+        "eatingMethod": "作为主食，搭配菜肴"
+      }
+    },
+    {
+      "id": "heilongjiang-dongbei-kaorou",
+      "name": "东北烤肉",
+      "tags": [
+        "黑龙江特色",
+        "东北风味",
+        "外焦里嫩",
+        "香气四溢",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/443/800/600",
+      "price": 65,
+      "rating": 4.6,
+      "category": "烧烤火锅",
+      "isPopular": false,
+      "description": "东北特色烤肉，外焦里嫩，香气四溢",
+      "recommendations": {
+        "pairings": [
+          "啤酒",
+          "冷面",
+          "小菜",
+          "大蒜"
+        ],
+        "eatingMethod": "直接食用，搭配啤酒更佳"
+      }
+    },
+    {
+      "id": "heilongjiang-suancai-fentiao",
+      "name": "酸菜粉条",
+      "tags": [
+        "黑龙江特色",
+        "东北家常",
+        "酸香开胃",
+        "粉条滑爽",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/444/800/600",
+      "price": 28,
+      "rating": 4.4,
+      "category": "菜品菜肴",
+      "isPopular": false,
+      "description": "东北酸菜炖粉条，酸香开胃，粉条滑爽",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "馒头",
+          "小菜",
+          "汤品"
+        ],
+        "eatingMethod": "作为主菜或配菜食用"
       }
     }
   ],
@@ -213,12 +345,224 @@
       "type": "美食街",
       "foods": [
         "东北乱炖",
-        "牡丹江鱼宴",
-        "五常大米饭"
+        "heilongjiang-mudanjiang-yuyan",
+        "heilongjiang-wuchang-mifan"
       ],
       "image": "https://picsum.photos/id/311/800/600",
       "reason": "黑龙江特色美食集中地",
       "location": "牡丹江市"
+    },
+    {
+      "id": 3,
+      "icon": "🍖",
+      "name": "哈尔滨老道外",
+      "type": "老城区",
+      "foods": [
+        "heilongjiang-demoli-dunyu",
+        "heilongjiang-suancai-fentiao",
+        "heilongjiang-dongbei-kaorou"
+      ],
+      "image": "https://picsum.photos/id/445/800/600",
+      "reason": "哈尔滨老道外巴洛克街区，地道东北味",
+      "location": "哈尔滨市"
+    }
+  ],
+  "souvenirs": [
+    {
+      "id": "heilongjiang-souvenir-1",
+      "name": "哈尔滨红肠",
+      "image": "https://picsum.photos/id/588/600/400",
+      "priceRange": "15-30元",
+      "description": "俄式风味，蒜香浓郁",
+      "buyAt": "哈尔滨秋林",
+      "storage": "冷藏保存",
+      "province": "黑龙江"
+    },
+    {
+      "id": "heilongjiang-souvenir-2",
+      "name": "五常大米",
+      "image": "https://picsum.photos/id/587/600/400",
+      "priceRange": "30-60元",
+      "description": "颗粒饱满，软糯香甜",
+      "buyAt": "五常米业",
+      "storage": "密封防潮",
+      "province": "黑龙江"
+    },
+    {
+      "id": "heilongjiang-souvenir-3",
+      "name": "东北黑木耳",
+      "image": "https://picsum.photos/id/586/600/400",
+      "priceRange": "20-50元",
+      "description": "肉质厚实，营养丰富",
+      "buyAt": "东北山货店",
+      "storage": "干燥防潮",
+      "province": "黑龙江"
+    },
+    {
+      "id": "heilongjiang-souvenir-4",
+      "name": "蓝莓干",
+      "image": "https://picsum.photos/id/585/600/400",
+      "priceRange": "15-35元",
+      "description": "大兴安岭野生蓝莓，酸甜可口",
+      "buyAt": "特产超市",
+      "storage": "密封干燥",
+      "province": "黑龙江"
+    },
+    {
+      "id": "heilongjiang-souvenir-5",
+      "name": "哈尔滨啤酒",
+      "image": "https://picsum.photos/id/446/600/400",
+      "priceRange": "10-30元",
+      "description": "百年冰城佳酿，麦香浓郁",
+      "buyAt": "哈尔滨啤酒厂",
+      "storage": "阴凉避光",
+      "province": "黑龙江"
+    }
+  ],
+  "guide": {
+    "mealPlan": {
+      "breakfast": [
+        "哈尔滨红肠",
+        "heilongjiang-youtiao",
+        "heilongjiang-wuchang-mifan"
+      ],
+      "lunch": [
+        "锅包肉",
+        "heilongjiang-demoli-dunyu",
+        "东北乱炖"
+      ],
+      "dinner": [
+        "heilongjiang-dongbei-kaorou",
+        "哈尔滨啤酒",
+        "heilongjiang-suancai-fentiao"
+      ]
+    },
+    "routes": [
+      {
+        "id": "heilongjiang-route-1",
+        "name": "黑龙江经典美食一日游",
+        "duration": "1天",
+        "steps": [
+          {
+            "time": "08:30",
+            "location": "哈尔滨中央大街",
+            "foodId": "哈尔滨红肠",
+            "description": "清晨从一根地道红肠开始"
+          },
+          {
+            "time": "12:00",
+            "location": "哈尔滨老道外",
+            "foodId": "heilongjiang-demoli-dunyu",
+            "description": "午餐品尝得莫利炖鱼"
+          },
+          {
+            "time": "18:30",
+            "location": "哈尔滨夜市",
+            "foodId": "锅包肉",
+            "description": "夜市扫街，锅包肉收尾完美一天"
+          }
+        ]
+      },
+      {
+        "id": "heilongjiang-route-2",
+        "name": "黑龙江深度寻味半日游",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "10:00",
+            "location": "哈尔滨老字号",
+            "foodId": "东北乱炖",
+            "description": "探访东北菜老字号"
+          },
+          {
+            "time": "12:30",
+            "location": "牡丹江美食街",
+            "foodId": "heilongjiang-mudanjiang-yuyan",
+            "description": "品鉴牡丹江江鲜鱼宴"
+          },
+          {
+            "time": "15:00",
+            "location": "五常米业",
+            "foodId": "heilongjiang-wuchang-mifan",
+            "description": "下午品尝五常大米饭"
+          }
+        ]
+      },
+      {
+        "id": "heilongjiang-route-3",
+        "name": "冰城夜宵烧烤之旅",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "18:00",
+            "location": "哈尔滨烧烤街",
+            "foodId": "heilongjiang-dongbei-kaorou",
+            "description": "东北烤肉，冰城夜宵首选"
+          },
+          {
+            "time": "20:00",
+            "location": "哈尔滨啤酒屋",
+            "foodId": "哈尔滨啤酒",
+            "description": "冰城啤酒配烤肉，痛快收尾"
+          }
+        ]
+      }
+    ],
+    "tips": [
+      {
+        "question": "黑龙江美食的最佳品尝时间？",
+        "answer": "建议在夏冬两季前往，夏季避暑品江鲜，冬季可体验冰雪美食与东北炖菜，别有风味。"
+      },
+      {
+        "question": "黑龙江有哪些必去美食街区？",
+        "answer": "推荐前往哈尔滨中央大街、老道外和牡丹江美食街，那里集中了最正宗的东北菜和俄式风味。"
+      },
+      {
+        "question": "在黑龙江点菜有什么避坑建议？",
+        "answer": "建议提前了解当地特色菜名，避免被不正规店铺误导；东北菜分量大，点菜时注意适量。"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "season": "spring",
+      "seasonName": "春季",
+      "foods": [
+        "哈尔滨红肠",
+        "五常大米",
+        "heilongjiang-wuchang-mifan"
+      ],
+      "description": "春暖花开，时鲜上市，品尝春日第一口鲜"
+    },
+    {
+      "season": "summer",
+      "seasonName": "夏季",
+      "foods": [
+        "哈尔滨啤酒",
+        "heilongjiang-youtiao",
+        "heilongjiang-suancai-fentiao"
+      ],
+      "description": "夏日炎炎，消暑解渴，清凉美味正当时"
+    },
+    {
+      "season": "autumn",
+      "seasonName": "秋季",
+      "foods": [
+        "锅包肉",
+        "heilongjiang-demoli-dunyu",
+        "heilongjiang-mudanjiang-yuyan"
+      ],
+      "description": "秋高气爽，丰收时节，贴秋膘品江鲜"
+    },
+    {
+      "season": "winter",
+      "seasonName": "冬季",
+      "foods": [
+        "东北乱炖",
+        "heilongjiang-dongbei-kaorou",
+        "heilongjiang-tangbao"
+      ],
+      "description": "寒冬腊月，温补暖身，热汤热食最抚慰"
     }
   ]
 }

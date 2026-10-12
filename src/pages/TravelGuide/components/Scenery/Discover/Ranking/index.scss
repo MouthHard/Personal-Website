@@ -1,0 +1,890 @@
+// ============================================================
+// Ranking · 全息数据卡牌 (Holo Data Card)
+// 赛博朋克：深蓝黑底 + 青霓虹 + 切角棱面 + HUD角标 + 等宽读数
+// ============================================================
+
+$ti-bright: #f1f5f9;
+$ti-mid: #cbd5e1;
+$ti-dark: #94a3b8;
+
+$cyan-bright: #67e8f9;
+$cyan: #22d3ee;
+$cyan-deep: #06b6d4;
+
+$gold: #fbbf24;
+$gold-bright: #fcd34d;
+$silver: #cbd5e1;
+$silver-bright: #e2e8f0;
+$bronze: #d97706;
+$bronze-bright: #f59e0b;
+
+$snow: #f8fafc;
+$space-1: #080c14;
+
+$holo-bg-deep: #050810;
+$holo-bg: #0a0e1a;
+$holo-bg-mid: #0f1626;
+
+.discover-ranking {
+  padding: 18px;
+
+  .ranking-board {
+    padding: 20px;
+
+    .board-header {
+      margin-bottom: 18px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(34, 211, 238, 0.15);
+
+      .board-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0 0 4px;
+        font-size: 21px;
+        font-weight: 800;
+        color: $snow;
+        letter-spacing: 1px;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6), 0 0 12px rgba(34, 211, 238, 0.5);
+
+        .title-icon {
+          color: $cyan-bright;
+          font-size: 24px;
+          filter: drop-shadow(0 0 10px rgba(34, 211, 238, 0.9));
+        }
+      }
+
+      .board-subtitle {
+        margin: 0;
+        font-size: 14px;
+        color: $ti-mid;
+        letter-spacing: 0.5px;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+      }
+    }
+
+    // ---------- 排序终端 ----------
+    .sort-bar {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 18px;
+
+      .sort-btn {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        padding: 10px 20px;
+        clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+        background: linear-gradient(180deg, $holo-bg-mid, $holo-bg-deep);
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow:
+          inset 0 0 0 1px rgba(34, 211, 238, 0.25),
+          inset 0 1px 0 rgba(226, 232, 240, 0.1);
+
+        .sort-label {
+          font-size: 14px;
+          font-weight: 700;
+          font-family: 'Courier New', monospace;
+          color: $ti-mid;
+          letter-spacing: 0.5px;
+        }
+
+        &:hover {
+          background: linear-gradient(180deg, rgba(34, 50, 70, 0.9), $holo-bg);
+          box-shadow:
+            inset 0 0 0 1px rgba(34, 211, 238, 0.55),
+            inset 0 1px 0 rgba(226, 232, 240, 0.15),
+            inset 0 0 12px rgba(34, 211, 238, 0.1);
+
+          .sort-label { color: $ti-bright; }
+        }
+
+        &.active {
+          background: linear-gradient(180deg, rgba(34, 211, 238, 0.22), rgba(6, 182, 212, 0.08));
+          box-shadow:
+            inset 0 0 0 1px $cyan-bright,
+            inset 0 1px 0 rgba(226, 232, 240, 0.2),
+            inset 0 0 16px rgba(34, 211, 238, 0.15);
+
+          .sort-label {
+            color: $snow;
+            text-shadow: 0 0 10px rgba(34, 211, 238, 0.6);
+          }
+        }
+      }
+    }
+
+    // ---------- 排名列表 ----------
+    .ranking-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+
+      .ranking-item {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 14px 16px 14px 22px;
+        clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px);
+        background:
+          radial-gradient(ellipse at 30% 0%, rgba(34, 211, 238, 0.06), transparent 60%),
+          linear-gradient(155deg, $holo-bg-mid, $holo-bg-deep);
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        position: relative;
+
+        box-shadow:
+          inset 0 0 0 1px rgba(34, 211, 238, 0.18),
+          inset 0 1px 0 rgba(226, 232, 240, 0.06),
+          inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+
+        filter: drop-shadow(0 5px 14px rgba(0, 0, 0, 0.55));
+
+        // 左侧能量指示条
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 18px;
+          bottom: 18px;
+          width: 2px;
+          background: linear-gradient(180deg,
+            transparent,
+            rgba(34, 211, 238, 0.4) 25%,
+            rgba(34, 211, 238, 0.4) 75%,
+            transparent
+          );
+          box-shadow: 0 0 4px rgba(34, 211, 238, 0.3);
+          pointer-events: none;
+          z-index: 1;
+          transition: all 0.4s ease;
+        }
+
+        // 顶部 HUD 状态线
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 14px;
+          right: 0;
+          height: 1px;
+          background: linear-gradient(90deg, rgba(34, 211, 238, 0.35), transparent 30%);
+          pointer-events: none;
+          z-index: 1;
+        }
+
+        // ---------- 排名徽章（六边形）----------
+        .rank-badge {
+          position: relative;
+          z-index: 1;
+          flex-shrink: 0;
+          width: 46px;
+          height: 46px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          // 外环旋转刻度（圆形·全息刻度流动）
+          &::before {
+            content: '';
+            position: absolute;
+            inset: -5px;
+            border-radius: 50%;
+            border: 1px dashed rgba(34, 211, 238, 0.2);
+            opacity: 0.6;
+            animation: badgeSpin 8s linear infinite;
+          }
+
+          .badge-ring {
+            position: absolute;
+            inset: 0;
+              clip-path: polygon(4px 0, calc(100% - 4px) 0, 100% 4px, 100% calc(100% - 4px), calc(100% - 4px) 100%, 4px 100%, 0 calc(100% - 4px), 0 4px);
+            background: radial-gradient(circle, $holo-bg-mid, $holo-bg-deep);
+            box-shadow:
+              inset 0 0 0 2px rgba(34, 211, 238, 0.45),
+              inset 0 1px 2px rgba(226, 232, 240, 0.1),
+              inset 0 0 10px rgba(34, 211, 238, 0.12);
+
+            &::before {
+              content: '';
+              position: absolute;
+              inset: 4px;
+            clip-path: polygon(6px 0, calc(100% - 6px) 0, 100% 6px, 100% calc(100% - 6px), calc(100% - 6px) 100%, 6px 100%, 0 calc(100% - 6px), 0 6px);
+              box-shadow: inset 0 0 0 1px rgba(34, 211, 238, 0.2);
+            }
+
+            &::after { content: none; }
+          }
+
+          .badge-num {
+            position: relative;
+            font-size: 17px;
+            font-weight: 800;
+            font-family: 'Courier New', monospace;
+            color: $cyan-bright;
+            text-shadow: 0 0 8px rgba(34, 211, 238, 0.8);
+            z-index: 2;
+          }
+        }
+
+        // ---------- 图片框（切角全息相框）----------
+        .rank-cover {
+          position: relative;
+          z-index: 1;
+          flex-shrink: 0;
+          width: 112px;
+          height: 88px;
+          clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+          background: $holo-bg-deep;
+          box-shadow:
+            inset 0 0 0 1px rgba(34, 211, 238, 0.3),
+            inset 0 1px 0 rgba(226, 232, 240, 0.1),
+            inset 0 0 8px rgba(0, 0, 0, 0.7);
+
+          .cover-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            filter: brightness(0.85) contrast(1.2) saturate(1.05) hue-rotate(-5deg);
+          }
+
+          .cover-frame {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+
+            &::before {
+              content: '';
+              position: absolute;
+              inset: 0;
+              background: linear-gradient(180deg, transparent 55%, rgba(5, 8, 16, 0.8) 100%);
+            }
+
+            // 右下 HUD 角标
+            &::after {
+              content: '';
+              position: absolute;
+              bottom: 3px;
+              right: 3px;
+              width: 8px;
+              height: 8px;
+              border-right: 1px solid rgba(34, 211, 238, 0.5);
+              border-bottom: 1px solid rgba(34, 211, 238, 0.5);
+            }
+          }
+
+          .cover-glow {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            transition: all 0.4s ease;
+            overflow: hidden;
+
+            &::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              height: 2px;
+              background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.6), transparent);
+            }
+
+            &::after {
+              content: '';
+              position: absolute;
+              left: 0;
+              right: 0;
+              height: 10px;
+              background: linear-gradient(180deg, transparent, rgba(103, 232, 249, 0.35) 50%, transparent);
+              animation: holoScan 2.8s linear infinite;
+            }
+          }
+        }
+
+        // ---------- 信息区 ----------
+        .rank-info {
+          flex: 1;
+          min-width: 0;
+          position: relative;
+          z-index: 1;
+
+          .info-head {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+
+            .rank-name {
+              font-size: 20px;
+              font-weight: 700;
+              color: $snow;
+              letter-spacing: 0.5px;
+              line-height: 1.3;
+              text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6), 0 0 10px rgba(34, 211, 238, 0.25);
+              cursor: pointer;
+              transition: all 0.3s ease;
+
+              &:hover {
+                color: $cyan-bright;
+                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6), 0 0 16px rgba(34, 211, 238, 0.6);
+              }
+            }
+
+            .rank-tag {
+              font-size: 11px;
+              font-weight: 700;
+              font-family: 'Courier New', monospace;
+              color: $cyan-bright;
+              padding: 3px 8px;
+              clip-path: polygon(3px 0, 100% 0, 100% calc(100% - 3px), calc(100% - 3px) 100%, 0 100%, 0 3px);
+              background: linear-gradient(180deg, rgba(8, 14, 24, 0.9), rgba(5, 10, 18, 0.95));
+              box-shadow:
+                inset 0 0 0 1px rgba(34, 211, 238, 0.55),
+                inset 0 1px 0 rgba(103, 232, 249, 0.25),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.4),
+                inset 0 0 8px rgba(34, 211, 238, 0.15);
+              filter: drop-shadow(0 0 4px rgba(34, 211, 238, 0.5)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.6));
+              text-shadow:
+                0 0 4px rgba(103, 232, 249, 0.9),
+                0 0 8px rgba(34, 211, 238, 0.6),
+                0 1px 1px rgba(0, 0, 0, 0.8);
+              white-space: nowrap;
+            }
+
+            .checked-stamp {
+              margin-left: auto;
+              padding: 4px 12px;
+              font-size: 14px;
+              font-weight: 800;
+              font-family: 'Courier New', monospace;
+              color: $space-1;
+              letter-spacing: 1.5px;
+              text-shadow: 0 0 6px rgba(252, 211, 77, 1);
+              background: linear-gradient(135deg, rgba(252, 211, 77, 0.95), rgba(251, 191, 36, 0.8));
+              border: 1px solid rgba(252, 211, 77, 0.9);
+              border-radius: 4px;
+              transform: rotate(-4deg);
+              box-shadow:
+                inset 0 1px 0 rgba(255, 251, 235, 0.5),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.4),
+                0 3px 6px rgba(0, 0, 0, 0.6),
+                0 0 12px rgba(251, 191, 36, 0.7);
+              animation: stampIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+              white-space: nowrap;
+            }
+          }
+
+          .rank-highlight {
+            font-size: 15px;
+            font-weight: 500;
+            color: $snow;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+          }
+
+          .rank-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+            position: relative;
+            padding-left: 16px;
+
+            &::before {
+              content: '';
+              position: absolute;
+              left: 0;
+              top: 50%;
+              transform: translateY(-50%);
+              width: 9px;
+              height: 16px;
+              background: repeating-linear-gradient(90deg, rgba(34, 211, 238, 0.9) 0, rgba(34, 211, 238, 0.9) 1px, transparent 1px, transparent 3px);
+              filter: drop-shadow(0 0 3px rgba(34, 211, 238, 0.7));
+            }
+
+            &::after {
+              content: '';
+              position: absolute;
+              left: 16px;
+              right: 0;
+              bottom: -4px;
+              height: 1px;
+              background: linear-gradient(90deg, rgba(34, 211, 238, 0.5), rgba(34, 211, 238, 0.15) 30%, transparent 70%);
+            }
+
+            .tag-level {
+              padding: 8px 16px;
+              font-size: 16px;
+              font-weight: 800;
+              color: $gold-bright;
+              font-family: 'Courier New', monospace;
+              letter-spacing: 0.5px;
+              clip-path: polygon(4px 0, 100% 0, 100% calc(100% - 4px), calc(100% - 4px) 100%, 0 100%, 0 4px);
+              background:
+                repeating-linear-gradient(45deg, transparent 0, transparent 5px, rgba(251, 191, 36, 0.04) 5px, rgba(251, 191, 36, 0.04) 6px),
+                repeating-linear-gradient(90deg, transparent 0, transparent 7px, rgba(252, 211, 77, 0.03) 7px, rgba(252, 211, 77, 0.03) 8px),
+                linear-gradient(180deg, rgba(40, 32, 14, 0.98) 0%, rgba(22, 24, 34, 1) 45%, rgba(6, 10, 18, 1) 100%);
+              box-shadow:
+                inset 0 0 0 1px rgba(251, 191, 36, 0.7),
+                inset 0 1px 0 rgba(252, 211, 77, 0.5),
+                inset 0 -2px 1px rgba(0, 0, 0, 0.85),
+                inset 0 2px 0 rgba(252, 211, 77, 0.15),
+                inset 0 -1px 0 rgba(251, 191, 36, 0.2),
+                inset 1px 0 0 rgba(252, 211, 77, 0.12),
+                inset -1px 0 0 rgba(0, 0, 0, 0.4),
+                inset 0 0 16px rgba(251, 191, 36, 0.22);
+              filter:
+                drop-shadow(0 3px 4px rgba(0, 0, 0, 0.8))
+                drop-shadow(0 0 7px rgba(251, 191, 36, 0.6))
+                drop-shadow(0 0 14px rgba(251, 191, 36, 0.3));
+              text-shadow:
+                0 1px 0 rgba(0, 0, 0, 0.9),
+                0 -1px 0 rgba(252, 211, 77, 0.4),
+                0 0 6px rgba(252, 211, 77, 1),
+                0 0 14px rgba(251, 191, 36, 0.75);
+            }
+
+            .tag-item {
+              padding: 8px 16px;
+              font-size: 16px;
+              font-weight: 700;
+              color: #c4b5fd;
+              font-family: 'Courier New', monospace;
+              letter-spacing: 0.3px;
+              clip-path: polygon(4px 0, 100% 0, 100% calc(100% - 4px), calc(100% - 4px) 100%, 0 100%, 0 4px);
+              background:
+                repeating-linear-gradient(-45deg, transparent 0, transparent 5px, rgba(167, 139, 250, 0.1) 5px, rgba(167, 139, 250, 0.1) 6px),
+                repeating-linear-gradient(0deg, transparent 0, transparent 7px, rgba(167, 139, 250, 0.08) 7px, rgba(167, 139, 250, 0.08) 8px),
+                linear-gradient(180deg, rgba(30, 20, 45, 0.98) 0%, rgba(18, 12, 30, 1) 45%, rgba(8, 4, 16, 1) 100%);
+              box-shadow:
+                inset 0 0 0 1px rgba(167, 139, 250, 0.6),
+                inset 0 1px 0 rgba(196, 181, 253, 0.35),
+                inset 0 -2px 1px rgba(0, 0, 0, 0.85),
+                inset 0 2px 0 rgba(196, 181, 253, 0.12),
+                inset 0 -1px 0 rgba(167, 139, 250, 0.18),
+                inset 1px 0 0 rgba(196, 181, 253, 0.1),
+                inset -1px 0 0 rgba(0, 0, 0, 0.4),
+                inset 0 0 16px rgba(167, 139, 250, 0.18);
+              filter:
+                drop-shadow(0 3px 4px rgba(0, 0, 0, 0.8))
+                drop-shadow(0 0 6px rgba(167, 139, 250, 0.55))
+                drop-shadow(0 0 12px rgba(167, 139, 250, 0.25));
+              text-shadow:
+                0 1px 0 rgba(0, 0, 0, 0.9),
+                0 -1px 0 rgba(196, 181, 253, 0.3),
+                0 0 6px rgba(196, 181, 253, 0.85),
+                0 0 14px rgba(167, 139, 250, 0.5);
+            }
+
+            .tag-time {
+              padding: 8px 16px;
+              font-size: 16px;
+              font-weight: 700;
+              color: #6ee7b7;
+              font-family: 'Courier New', monospace;
+              letter-spacing: 0.3px;
+              clip-path: polygon(4px 0, 100% 0, 100% calc(100% - 4px), calc(100% - 4px) 100%, 0 100%, 0 4px);
+              background:
+                repeating-linear-gradient(45deg, transparent 0, transparent 5px, rgba(52, 211, 153, 0.1) 5px, rgba(52, 211, 153, 0.1) 6px),
+                repeating-linear-gradient(90deg, transparent 0, transparent 7px, rgba(52, 211, 153, 0.08) 7px, rgba(52, 211, 153, 0.08) 8px),
+                linear-gradient(180deg, rgba(20, 35, 28, 0.98) 0%, rgba(10, 22, 16, 1) 45%, rgba(4, 10, 7, 1) 100%);
+              box-shadow:
+                inset 0 0 0 1px rgba(52, 211, 153, 0.65),
+                inset 0 1px 0 rgba(110, 231, 183, 0.4),
+                inset 0 -2px 1px rgba(0, 0, 0, 0.85),
+                inset 0 2px 0 rgba(110, 231, 183, 0.15),
+                inset 0 -1px 0 rgba(52, 211, 153, 0.22),
+                inset 1px 0 0 rgba(110, 231, 183, 0.12),
+                inset -1px 0 0 rgba(0, 0, 0, 0.4),
+                inset 0 0 16px rgba(52, 211, 153, 0.22);
+              filter:
+                drop-shadow(0 3px 4px rgba(0, 0, 0, 0.8))
+                drop-shadow(0 0 7px rgba(52, 211, 153, 0.65))
+                drop-shadow(0 0 14px rgba(52, 211, 153, 0.33));
+              text-shadow:
+                0 1px 0 rgba(0, 0, 0, 0.9),
+                0 -1px 0 rgba(110, 231, 183, 0.35),
+                0 0 6px rgba(110, 231, 183, 1),
+                0 0 14px rgba(52, 211, 153, 0.6);
+            }
+
+          }
+        }
+
+        // ---------- 数据区（HUD 读数仪表盘）----------
+        .rank-stats {
+          flex-shrink: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: stretch;
+          gap: 8px;
+          min-width: 180px;
+          position: relative;
+          z-index: 1;
+          padding: 6px 4px 6px 12px;
+          margin-left: 6px;
+
+          .stat-reputation {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+
+            .stat-rating {
+              display: flex;
+              align-items: center;
+              gap: 6px;
+              position: relative;
+              padding-bottom: 5px;
+
+              &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 2px;
+                background: linear-gradient(90deg, rgba(251, 191, 36, 0.85) 0%, rgba(251, 191, 36, 0.85) 92%, rgba(251, 191, 36, 0.2) 92%);
+                box-shadow: 0 0 4px rgba(251, 191, 36, 0.5);
+              }
+
+              .rating-value {
+                font-size: 32px;
+                font-weight: 800;
+                font-family: 'Courier New', monospace;
+                color: $gold-bright;
+                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6), 0 0 16px rgba(251, 191, 36, 0.95);
+                line-height: 1;
+              }
+
+              .rating-star {
+                font-size: 24px;
+                color: $gold-bright;
+                filter: drop-shadow(0 0 10px rgba(251, 191, 36, 0.95));
+              }
+            }
+
+            .meta-reviews {
+              font-size: 15px;
+              font-weight: 700;
+              color: $ti-bright;
+     
+              letter-spacing: 0.3px;
+              text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6), 0 0 6px rgba(34, 211, 238, 0.3);
+              white-space: nowrap;
+            }
+          }
+
+
+          .stat-decision {
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            gap: 6px;
+
+            .meta-price {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              flex: 1;
+              padding: 7px 8px;
+              font-size: 19px;
+              font-weight: 800;
+              color: $space-1;
+              font-family: 'Courier New', monospace;
+              letter-spacing: 0.5px;
+              clip-path: polygon(4px 0, 100% 0, 100% calc(100% - 4px), calc(100% - 4px) 100%, 0 100%, 0 4px);
+              background: linear-gradient(180deg, rgba(252, 211, 77, 0.98), rgba(251, 191, 36, 0.85) 50%, rgba(245, 158, 11, 0.75));
+              box-shadow:
+                inset 0 1px 0 rgba(255, 251, 235, 0.6),
+                inset 0 -2px 0 rgba(120, 53, 15, 0.5),
+                inset 0 0 12px rgba(252, 211, 77, 0.3),
+                inset 1px 0 0 rgba(255, 251, 235, 0.2),
+                inset -1px 0 0 rgba(120, 53, 15, 0.3);
+              filter:
+                drop-shadow(0 0 6px rgba(251, 191, 36, 0.7))
+                drop-shadow(0 0 12px rgba(252, 211, 77, 0.35))
+                drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+              text-shadow:
+                0 1px 0 rgba(255, 251, 235, 0.5),
+                0 -1px 0 rgba(120, 53, 15, 0.6),
+                0 0 4px rgba(252, 211, 77, 0.4);
+              white-space: nowrap;
+            }
+
+            .meta-dist {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              flex: 1;
+              padding: 7px 8px;
+              font-size: 16px;
+              font-weight: 700;
+              color: $cyan-bright;
+              font-family: 'Courier New', monospace;
+              letter-spacing: 0.3px;
+              clip-path: polygon(4px 0, 100% 0, 100% calc(100% - 4px), calc(100% - 4px) 100%, 0 100%, 0 4px);
+              background: linear-gradient(180deg, rgba(8, 14, 24, 0.95), rgba(5, 10, 18, 0.98));
+              box-shadow:
+                inset 0 0 0 1px rgba(34, 211, 238, 0.55),
+                inset 0 1px 0 rgba(103, 232, 249, 0.2),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.5),
+                inset 0 0 10px rgba(34, 211, 238, 0.18),
+                inset 1px 0 0 rgba(34, 211, 238, 0.15),
+                inset -1px 0 0 rgba(34, 211, 238, 0.15);
+              filter:
+                drop-shadow(0 0 5px rgba(34, 211, 238, 0.6))
+                drop-shadow(0 0 10px rgba(34, 211, 238, 0.3))
+                drop-shadow(0 2px 3px rgba(0, 0, 0, 0.5));
+              text-shadow:
+                0 0 4px rgba(103, 232, 249, 0.9),
+                0 0 8px rgba(34, 211, 238, 0.6),
+                0 1px 1px rgba(0, 0, 0, 0.8);
+              white-space: nowrap;
+            }
+          }
+
+        }
+
+
+        // ---------- 操作按钮组（想去 / 分享 / 去过）----------
+        .rank-actions {
+          position: relative;
+          z-index: 1;
+          flex-shrink: 0;
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          margin-left: 10px;
+
+          .rank-btn {
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            clip-path: polygon(5px 0, 100% 0, 100% calc(100% - 5px), calc(100% - 5px) 100%, 0 100%, 0 5px);
+            background: linear-gradient(180deg, rgba(24, 40, 58, 0.98) 0%, rgba(12, 24, 38, 1) 45%, rgba(6, 14, 24, 1) 100%);
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow:
+              inset 0 0 0 1px rgba(34, 211, 238, 0.45),
+              inset 0 1px 0 rgba(103, 232, 249, 0.25),
+              inset 0 -2px 1px rgba(0, 0, 0, 0.7);
+            filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 4px rgba(34, 211, 238, 0.2));
+
+            .btn-icon {
+              color: rgba(103, 232, 249, 0.5);
+              transition: all 0.25s ease;
+            }
+
+            &:hover {
+              background: linear-gradient(180deg, rgba(38, 62, 86, 0.98) 0%, rgba(22, 42, 62, 1) 45%, rgba(12, 26, 42, 1) 100%);
+              box-shadow:
+                inset 0 0 0 1px rgba(34, 211, 238, 0.8),
+                inset 0 1px 0 rgba(103, 232, 249, 0.4),
+                inset 0 -2px 1px rgba(0, 0, 0, 0.6),
+                inset 0 0 12px rgba(34, 211, 238, 0.2);
+              filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.7)) drop-shadow(0 0 8px rgba(34, 211, 238, 0.4));
+              transform: translateY(-2px);
+
+              .btn-icon {
+                color: $cyan-bright;
+                filter: drop-shadow(0 0 4px rgba(103, 232, 249, 0.8));
+              }
+            }
+
+            &:active {
+              transform: translateY(1px);
+              box-shadow:
+                inset 0 0 0 1px rgba(34, 211, 238, 0.5),
+                inset 0 2px 4px rgba(0, 0, 0, 0.6);
+            }
+
+            // 点赞 active — 翠绿色系
+            &.rank-like.active {
+              background: linear-gradient(180deg, rgba(20, 50, 35, 0.98) 0%, rgba(12, 35, 22, 1) 45%, rgba(6, 18, 12, 1) 100%);
+              box-shadow:
+                inset 0 0 0 1px rgba(16, 185, 129, 0.8),
+                inset 0 1px 0 rgba(167, 243, 208, 0.4),
+                inset 0 -2px 1px rgba(0, 0, 0, 0.6),
+                inset 0 0 14px rgba(16, 185, 129, 0.2);
+              filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 8px rgba(16, 185, 129, 0.5));
+
+              .btn-icon {
+                color: #34d399;
+                filter: drop-shadow(0 0 5px rgba(16, 185, 129, 0.9));
+              }
+            }
+
+            // 想去 active — 玫红色系
+            &.rank-want.active {
+              background: linear-gradient(180deg, rgba(70, 20, 35, 0.98) 0%, rgba(45, 12, 22, 1) 45%, rgba(25, 6, 12, 1) 100%);
+              box-shadow:
+                inset 0 0 0 1px rgba(244, 63, 94, 0.8),
+                inset 0 1px 0 rgba(254, 205, 211, 0.4),
+                inset 0 -2px 1px rgba(0, 0, 0, 0.6),
+                inset 0 0 14px rgba(244, 63, 94, 0.2);
+              filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 8px rgba(244, 63, 94, 0.5));
+
+              .btn-icon {
+                color: #fb7185;
+                filter: drop-shadow(0 0 5px rgba(244, 63, 94, 0.9));
+              }
+            }
+
+            // 去过 active — 琥珀色系
+            &.rank-been.active {
+              background: linear-gradient(180deg, rgba(66, 48, 14, 0.98) 0%, rgba(44, 30, 8, 1) 45%, rgba(22, 15, 4, 1) 100%);
+              box-shadow:
+                inset 0 0 0 1px rgba(252, 211, 77, 0.85),
+                inset 0 1px 0 rgba(252, 211, 77, 0.45),
+                inset 0 -2px 1px rgba(0, 0, 0, 0.6),
+                inset 0 0 14px rgba(251, 191, 36, 0.22);
+              filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 8px rgba(251, 191, 36, 0.5));
+
+              .btn-icon {
+                color: $gold-bright;
+                filter: drop-shadow(0 0 5px rgba(252, 211, 77, 0.9));
+              }
+            }
+          }
+        }
+
+
+        // ============================================
+        // hover：青霓虹激活
+        // ============================================
+        &:hover {
+          background:
+            radial-gradient(ellipse at 30% 0%, rgba(34, 211, 238, 0.18), transparent 60%),
+            radial-gradient(ellipse at 80% 100%, rgba(6, 182, 212, 0.1), transparent 55%),
+            linear-gradient(155deg, rgba(15, 30, 45, 0.9), $holo-bg-deep);
+          box-shadow:
+            inset 0 0 0 1px rgba(34, 211, 238, 0.65),
+            inset 0 1px 0 rgba(226, 232, 240, 0.15),
+            inset 0 0 24px rgba(34, 211, 238, 0.1);
+          filter: drop-shadow(0 10px 28px rgba(0, 0, 0, 0.7)) drop-shadow(0 0 20px rgba(34, 211, 238, 0.35));
+
+          &::before {
+            background: linear-gradient(180deg, transparent, rgba(103, 232, 249, 0.9) 20%, rgba(34, 211, 238, 1) 50%, rgba(103, 232, 249, 0.9) 80%, transparent);
+            box-shadow: 0 0 6px rgba(34, 211, 238, 0.8), 0 0 12px rgba(34, 211, 238, 0.4);
+          }
+
+          &::after {
+            background: linear-gradient(90deg, rgba(34, 211, 238, 0.8), transparent 40%);
+          }
+
+          .rank-cover {
+            .cover-img {
+              transform: scale(1.1);
+              filter: brightness(1.05) contrast(1.25) saturate(1.15) hue-rotate(-8deg);
+            }
+            .cover-glow::before {
+              background: linear-gradient(90deg, transparent, rgba(103, 232, 249, 0.95), transparent);
+              box-shadow: 0 0 8px rgba(34, 211, 238, 0.7);
+            }
+          }
+
+          .rank-badge .badge-ring {
+            box-shadow:
+              inset 0 0 0 2px rgba(34, 211, 238, 0.7),
+              inset 0 1px 2px rgba(226, 232, 240, 0.2),
+              inset 0 0 14px rgba(34, 211, 238, 0.25);
+          }
+        }
+
+        // ============================================
+        // checked：金色系全息盖章
+        // ============================================
+        &.checked {
+          background:
+            radial-gradient(ellipse at 30% 0%, rgba(251, 191, 36, 0.2), transparent 60%),
+            radial-gradient(ellipse at 80% 100%, rgba(217, 119, 6, 0.12), transparent 55%),
+            linear-gradient(155deg, rgba(251, 191, 36, 0.15), rgba(217, 119, 6, 0.08));
+          box-shadow:
+            inset 0 0 0 1px $gold-bright,
+            inset 0 1px 0 rgba(252, 211, 77, 0.2),
+            inset 0 0 28px rgba(251, 191, 36, 0.15);
+          filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.7)) drop-shadow(0 0 24px rgba(251, 191, 36, 0.4));
+
+          .rank-name {
+            color: $gold-bright;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6), 0 0 14px rgba(251, 191, 36, 0.7);
+          }
+
+          &::before {
+            background: linear-gradient(180deg, rgba(252, 211, 77, 0.5), rgba(251, 191, 36, 1) 30%, rgba(252, 211, 77, 1) 50%, rgba(251, 191, 36, 1) 70%, rgba(252, 211, 77, 0.5));
+            box-shadow: 0 0 8px rgba(251, 191, 36, 1), 0 0 16px rgba(251, 191, 36, 0.5);
+          }
+
+          &::after {
+            background: linear-gradient(90deg, rgba(251, 191, 36, 0.6), transparent 40%);
+          }
+
+          .rank-badge .badge-ring {
+            box-shadow:
+              inset 0 0 0 2px rgba(251, 191, 36, 0.7),
+              inset 0 1px 2px rgba(252, 211, 77, 0.2),
+              inset 0 0 16px rgba(251, 191, 36, 0.3);
+          }
+        }
+
+        // ============================================
+        // TOP3 特殊样式（金银铜）
+        // ============================================
+        &.rank-gold {
+          .rank-badge .badge-num {
+            color: $gold-bright;
+            text-shadow: 0 0 10px rgba(251, 191, 36, 0.9);
+          }
+        }
+
+        &.rank-silver {
+          .rank-badge .badge-num {
+            color: $silver-bright;
+            text-shadow: 0 0 8px rgba(203, 213, 225, 0.7);
+          }
+        }
+
+        &.rank-bronze {
+          .rank-badge .badge-num {
+            color: $bronze-bright;
+            text-shadow: 0 0 8px rgba(217, 119, 6, 0.7);
+          }
+        }
+
+      }
+    }
+  }
+}
+
+@keyframes badgeSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes holoScan {
+  0% { top: -10px; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+@keyframes stampIn {
+  0% { transform: rotate(-6deg) scale(1.6); opacity: 0; }
+  60% { transform: rotate(-6deg) scale(0.92); opacity: 1; }
+  100% { transform: rotate(-6deg) scale(1); opacity: 1; }
+}

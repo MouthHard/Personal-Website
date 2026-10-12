@@ -13,7 +13,7 @@
       "image": "https://picsum.photos/id/312/800/600",
       "price": 88,
       "rating": 4.9,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "粤式经典",
       "isPopular": true,
       "badgeColor": "#f44336",
@@ -41,7 +41,7 @@
       "image": "https://picsum.photos/id/313/800/600",
       "price": 98,
       "rating": 4.8,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "粤菜名品",
       "isPopular": true,
       "badgeColor": "#ff5722",
@@ -69,7 +69,7 @@
       "image": "https://picsum.photos/id/314/800/600",
       "price": 25,
       "rating": 4.7,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "广式面食",
       "isPopular": true,
       "badgeColor": "#4caf50",
@@ -97,7 +97,7 @@
       "image": "https://picsum.photos/id/315/800/600",
       "price": 48,
       "rating": 4.7,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "烧腊经典",
       "isPopular": true,
       "badgeColor": "#e91e63",
@@ -125,7 +125,7 @@
       "image": "https://picsum.photos/id/316/800/600",
       "price": 58,
       "rating": 4.8,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "白切鲜嫩",
       "isPopular": true,
       "badgeColor": "#4caf50",
@@ -153,7 +153,7 @@
       "image": "https://picsum.photos/id/317/800/600",
       "price": 78,
       "rating": 4.6,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "isPopular": false,
       "description": "鲜嫩清淡，保持原味",
       "recommendations": {
@@ -179,7 +179,7 @@
       "image": "https://picsum.photos/id/318/800/600",
       "price": 15,
       "rating": 4.5,
-      "category": "甜品",
+      "category": "甜品糕点",
       "isPopular": false,
       "description": "顺德甜品，奶香浓郁",
       "recommendations": {
@@ -205,7 +205,7 @@
       "image": "https://picsum.photos/id/319/800/600",
       "price": 12,
       "rating": 4.4,
-      "category": "甜品",
+      "category": "甜品糕点",
       "isPopular": false,
       "description": "香滑嫩白，姜味浓郁",
       "recommendations": {
@@ -231,7 +231,7 @@
       "image": "https://picsum.photos/id/320/800/600",
       "price": 22,
       "rating": 4.3,
-      "category": "小吃",
+      "category": "小吃零食",
       "isPopular": false,
       "description": "软糯入味，胶原蛋白丰富",
       "recommendations": {
@@ -257,7 +257,7 @@
       "image": "https://picsum.photos/id/321/800/600",
       "price": 18,
       "rating": 4.6,
-      "category": "主食",
+      "category": "面点主食",
       "isPopular": false,
       "description": "薄如蝉翼，爽滑可口",
       "recommendations": {
@@ -283,7 +283,7 @@
       "image": "https://picsum.photos/id/322/800/600",
       "price": 38,
       "rating": 4.3,
-      "category": "饮品",
+      "category": "汤羹饮品",
       "isPopular": false,
       "description": "香气浓郁，口感醇厚",
       "recommendations": {
@@ -294,6 +294,110 @@
           "菜肴"
         ],
         "eatingMethod": "直接饮用，可点心或小吃"
+      }
+    },
+    {
+      "id": "guangdong-xiajiao",
+      "name": "虾饺",
+      "tags": [
+        "广东特色",
+        "早茶经典",
+        "皮薄馅鲜",
+        "晶莹剔透",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/425/800/600",
+      "price": 28,
+      "rating": 4.7,
+      "category": "面点主食",
+      "isPopular": true,
+      "description": "广式早茶四大天王之首，皮薄晶莹虾肉鲜甜",
+      "recommendations": {
+        "pairings": [
+          "普洱茶",
+          "红茶",
+          "粥",
+          "小菜"
+        ],
+        "eatingMethod": "蘸酱食用，作为早茶点心"
+      }
+    },
+    {
+      "id": "guangdong-baozai-fan",
+      "name": "煲仔饭",
+      "tags": [
+        "广东特色",
+        "街头美食",
+        "锅巴香脆",
+        "食材丰富",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/426/800/600",
+      "price": 35,
+      "rating": 4.6,
+      "category": "面点主食",
+      "isPopular": false,
+      "description": "砂锅慢火煲制，米饭吸满酱汁锅巴香脆",
+      "recommendations": {
+        "pairings": [
+          "例汤",
+          "小菜",
+          "茶品",
+          "饮料"
+        ],
+        "eatingMethod": "直接食用，趁热拌匀最佳"
+      }
+    },
+    {
+      "id": "guangdong-laohuo-tang",
+      "name": "老火靓汤",
+      "tags": [
+        "广东特色",
+        "养生文化",
+        "慢火熬制",
+        "汤醇味浓",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/427/800/600",
+      "price": 58,
+      "rating": 4.8,
+      "category": "汤羹饮品",
+      "isPopular": false,
+      "description": "广东家庭养生精髓，慢火数小时熬制",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "小菜",
+          "点心",
+          "菜肴"
+        ],
+        "eatingMethod": "饭前饮用，温补养生"
+      }
+    },
+    {
+      "id": "guangdong-yangzhi-ganlu",
+      "name": "杨枝甘露",
+      "tags": [
+        "广东特色",
+        "港式甜品",
+        "清凉解暑",
+        "芒果香甜",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/428/800/600",
+      "price": 22,
+      "rating": 4.6,
+      "category": "甜品糕点",
+      "isPopular": false,
+      "description": "芒果西米柚子粒，港式经典糖水",
+      "recommendations": {
+        "pairings": [
+          "水果",
+          "茶品",
+          "点心",
+          "坚果"
+        ],
+        "eatingMethod": "冰镇食用，作为饭后甜品"
       }
     }
   ],
@@ -306,7 +410,7 @@
       "foods": [
         "dim-sum",
         "white-cut-chicken",
-        "wonton-noodles"
+        "wonton-noodle"
       ],
       "image": "https://picsum.photos/id/1096/800/600",
       "reason": "广州传统美食集中地",
@@ -319,12 +423,231 @@
       "type": "美食街",
       "foods": [
         "roast-goose",
-        "seafood",
+        "rice-rolls",
         "guangdong-hongcha"
       ],
       "image": "https://picsum.photos/id/1097/800/600",
       "reason": "深圳特色美食聚集地",
       "location": "深圳市"
+    },
+    {
+      "id": 3,
+      "icon": "🏘️",
+      "name": "顺德美食村",
+      "type": "美食街",
+      "foods": [
+        "double-skin-milk",
+        "char-siew",
+        "white-cut-chicken"
+      ],
+      "image": "https://picsum.photos/id/1098/800/600",
+      "reason": "世界美食之都，顺德菜发源地",
+      "location": "佛山市"
+    },
+    {
+      "id": 4,
+      "icon": "🏪",
+      "name": "潮汕老城区",
+      "type": "文化街",
+      "foods": [
+        "roast-goose",
+        "steamed-fish",
+        "ginger-milk-curd"
+      ],
+      "image": "https://picsum.photos/id/1099/800/600",
+      "reason": "潮汕美食文化聚集地",
+      "location": "汕头市"
+    }
+  ],
+  "souvenirs": [
+    {
+      "id": "guangdong-souvenir-1",
+      "name": "广式腊味",
+      "image": "https://picsum.photos/id/41/600/400",
+      "priceRange": "30-60元",
+      "description": "广式腊肠腊肉，酒香醇厚",
+      "buyAt": "广州酒家",
+      "storage": "阴凉通风",
+      "province": "广东"
+    },
+    {
+      "id": "guangdong-souvenir-2",
+      "name": "新会陈皮",
+      "image": "https://picsum.photos/id/40/600/400",
+      "priceRange": "50-500元",
+      "description": "越陈越香，药食同源",
+      "buyAt": "新会陈皮村",
+      "storage": "干燥通风",
+      "province": "广东"
+    },
+    {
+      "id": "guangdong-souvenir-3",
+      "name": "端砚",
+      "image": "https://picsum.photos/id/39/600/400",
+      "priceRange": "200-5000元",
+      "description": "中国四大名砚之首，发墨不损毫",
+      "buyAt": "肇庆端砚厂",
+      "storage": "干燥保存",
+      "province": "广东"
+    },
+    {
+      "id": "guangdong-souvenir-4",
+      "name": "广彩瓷",
+      "image": "https://picsum.photos/id/38/600/400",
+      "priceRange": "100-2000元",
+      "description": "广州织金彩瓷，金碧辉煌",
+      "buyAt": "广彩工坊",
+      "storage": "干燥保存",
+      "province": "广东"
+    },
+    {
+      "id": "guangdong-souvenir-5",
+      "name": "鸡仔饼",
+      "image": "https://picsum.photos/id/37/600/400",
+      "priceRange": "15-40元",
+      "description": "广州名饼，咸甜交融回味无穷",
+      "buyAt": "广州老字号饼家",
+      "storage": "密封防潮",
+      "province": "广东"
+    }
+  ],
+  "guide": {
+    "mealPlan": {
+      "breakfast": [
+        "dim-sum",
+        "char-siew",
+        "double-skin-milk"
+      ],
+      "lunch": [
+        "double-skin-milk",
+        "char-siew",
+        "dim-sum"
+      ],
+      "dinner": [
+        "dim-sum",
+        "steamed-fish"
+      ]
+    },
+    "routes": [
+      {
+        "id": "guangdong-route-1",
+        "name": "广东经典美食一日游",
+        "duration": "1天",
+        "steps": [
+          {
+            "time": "08:30",
+            "location": "广东老城区",
+            "foodId": "dim-sum",
+            "description": "清晨从一顿地道早餐开始"
+          },
+          {
+            "time": "12:00",
+            "location": "广东美食街",
+            "foodId": "char-siew",
+            "description": "午餐品尝当地招牌菜"
+          },
+          {
+            "time": "18:30",
+            "location": "广东夜市",
+            "foodId": "double-skin-milk",
+            "description": "夜市扫街，收尾完美一天"
+          }
+        ]
+      },
+      {
+        "id": "guangdong-route-2",
+        "name": "广东深度寻味半日游",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "10:00",
+            "location": "广东老字号",
+            "foodId": "steamed-fish",
+            "description": "探访百年老字号"
+          },
+          {
+            "time": "15:00",
+            "location": "广东特产市场",
+            "foodId": "rice-rolls",
+            "description": "下午茶时光品鉴特色小吃"
+          }
+        ]
+      },
+      {
+        "id": "guangdong-route-3",
+        "name": "顺德甜品寻味之旅",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "14:00",
+            "location": "顺德老街",
+            "foodId": "double-skin-milk",
+            "description": "品尝顺德双皮奶发源地"
+          },
+          {
+            "time": "16:00",
+            "location": "顺德甜品店",
+            "foodId": "guangdong-yangzhi-ganlu",
+            "description": "体验港式经典糖水"
+          }
+        ]
+      }
+    ],
+    "tips": [
+      {
+        "question": "广东美食的最佳品尝时间？",
+        "answer": "建议在春秋两季前往，气候宜人，食材当季，能品尝到最地道的广东风味。"
+      },
+      {
+        "question": "广东有哪些必去美食街区？",
+        "answer": "推荐前往老城区和夜市，那里集中了最正宗的广东小吃和老字号餐厅。"
+      },
+      {
+        "question": "在广东点菜有什么避坑建议？",
+        "answer": "建议提前了解当地特色菜名，避免被不正规店铺误导；选择人气旺的老店更靠谱。"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "season": "spring",
+      "seasonName": "春季",
+      "foods": [
+        "dim-sum",
+        "char-siew",
+        "double-skin-milk"
+      ],
+      "description": "春暖花开，时鲜上市，品尝春日第一口鲜"
+    },
+    {
+      "season": "summer",
+      "seasonName": "夏季",
+      "foods": [
+        "rice-rolls",
+        "ginger-milk-curd",
+        "guangdong-yangzhi-ganlu"
+      ],
+      "description": "夏日炎炎，消暑解渴，清凉美味正当时"
+    },
+    {
+      "season": "autumn",
+      "seasonName": "秋季",
+      "foods": [
+        "roast-goose",
+        "white-cut-chicken",
+        "guangdong-laohuo-tang"
+      ],
+      "description": "秋高气爽，丰收时节，贴秋膘品蟹黄"
+    },
+    {
+      "season": "winter",
+      "seasonName": "冬季",
+      "foods": [
+        "wonton-noodle",
+        "guangdong-baozai-fan",
+        "steamed-fish"
+      ],
+      "description": "寒冬腊月，温补暖身，热汤热食最抚慰"
     }
   ]
 }

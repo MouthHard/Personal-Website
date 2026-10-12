@@ -1,0 +1,10 @@
+.my-food-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+
+  .panel-body {
+    min-height: 240px;
+  }
+}

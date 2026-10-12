@@ -1,0 +1,1818 @@
+// ============================================================
+// WellnessRetreat · 香席茶案（左右两栏版 · 拟物增强版 II）
+// 布局：分类器物台（含"全部"）→ 左栏卡片列表 + 右栏卷笺详情 → 案脚铭牌
+// 强化：深木茶案厚重感 / 藤编竹垫编织真实感 / 宣纸纤维纹理 /
+//       卷轴轴杆3D轴头 / 多层阴影落差 / 反光高光 / 立体小部件
+// ============================================================
+
+$wood-void: #1c0f06;
+$wood-deep: #2e1a0c;
+$wood: #4a2d16;
+$wood-light: #6b4423;
+$wood-top: #8a5a2c;
+$wood-glow: #b07a3c;
+$bamboo: #c9b58a;
+$bamboo-light: #e0cc9c;
+$bamboo-deep: #8a7440;
+$bamboo-void: #5c4824;
+$cloth-l: #f5ecd8;
+$cloth-d: #e4d5b4;
+$paper: #fdf9ee;
+$paper-dim: #f4ecd6;
+$paper-deep: #e8dfc4;
+$ink: #2a1a08;
+$ink-body: #3e2e18;
+$ink-dim: #6a5840;
+$seal: #b8382b;
+$seal-deep: #8a2418;
+$gold: #f0d68a;
+$gold-deep: #b08d3e;
+$gold-dark: #7c5e1e;
+$gold-glow: #ffe9a8;
+$serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
+
+.wellness-retreat {
+  position: relative;
+  padding: 22px 18px;
+  min-height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+
+  // ============================================
+  // 厚实深木茶案（增强版：更厚重 + 更深暗腔 + 顶面高光 + 底部反射）
+  // ============================================
+  .tea-stand {
+    position: relative;
+    padding: 18px 20px 16px;
+    border-radius: 16px;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    background:
+      // 横向木纹（深木纹路）
+      repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.06) 0 1px, transparent 1px 3px, rgba(0, 0, 0, 0.03) 3px 5px, transparent 5px 11px),
+      // 纵向木纹细纹
+      repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.018) 0 1px, transparent 1px 4px),
+      // 顶部高光带（光从左上方斜照）
+      radial-gradient(ellipse 80% 40% at 28% 8%, rgba(255, 220, 160, 0.22), transparent 60%),
+      // 底部反射光
+      radial-gradient(ellipse 70% 30% at 50% 100%, rgba(176, 122, 60, 0.18), transparent 70%),
+      // 主木色渐变
+      linear-gradient(172deg, $wood 0%, $wood-deep 58%, $wood-void 100%);
+    border: 2px solid rgba(0, 0, 0, 0.72);
+    box-shadow:
+      // 内高光（顶面反光）
+      inset 0 3px 2px rgba(255, 220, 160, 0.22),
+      inset 0 1px 0 rgba(255, 255, 255, 0.18),
+      // 内暗影（深腔）
+      inset 0 -6px 16px rgba(0, 0, 0, 0.62),
+      inset 0 -2px 3px rgba(0, 0, 0, 0.4),
+      // 左右内暗影
+      inset 4px 0 12px rgba(0, 0, 0, 0.38),
+      inset -4px 0 12px rgba(0, 0, 0, 0.38),
+      // 外高光边
+      0 1px 0 rgba(255, 220, 160, 0.25),
+      // 外投影（多层落差）
+      0 4px 8px rgba(0, 0, 0, 0.4),
+      0 10px 18px rgba(0, 0, 0, 0.45),
+      0 24px 44px rgba(20, 12, 4, 0.6),
+      0 36px 64px rgba(20, 12, 4, 0.35);
+
+    // ============ 分类器物台（深凹面板开孔区） ============
+    .artifact-bar {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      padding: 18px 14px;
+      border-radius: 13px;
+      background:
+        // 横向木纹
+        repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.09) 0 1px, transparent 1px 3px, rgba(0, 0, 0, 0.05) 3px 5px, transparent 5px 10px),
+        // 纵向细纹
+        repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.06) 0 1px, transparent 1px 4px),
+        // 顶部微光
+        radial-gradient(ellipse 60% 30% at 50% 0%, rgba(255, 220, 160, 0.12), transparent 70%),
+        // 深凹面板主色
+        linear-gradient(180deg, #4a2e14 0%, #2e1a0a 60%, #1c0f06 100%);
+      border: 3px solid rgba(0, 0, 0, 0.78);
+      box-shadow:
+        // 深凹内阴影（开孔边缘切割面）
+        inset 0 5px 12px rgba(0, 0, 0, 0.72),
+        inset 0 2px 3px rgba(0, 0, 0, 0.5),
+        inset 0 -2px 3px rgba(255, 220, 160, 0.1),
+        inset 5px 0 14px rgba(0, 0, 0, 0.45),
+        inset -5px 0 14px rgba(0, 0, 0, 0.45),
+        // 开孔边缘高光线
+        inset 0 1px 0 rgba(176, 122, 60, 0.18),
+        // 外投影
+        0 2px 0 rgba(255, 220, 160, 0.12),
+        0 6px 12px rgba(0, 0, 0, 0.5),
+        0 16px 28px rgba(0, 0, 0, 0.4),
+        0 28px 48px rgba(20, 12, 4, 0.3);
+
+      .artifact {
+        position: relative;
+        appearance: none;
+        border: none;
+        cursor: pointer;
+        background: transparent;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 7px;
+        padding: 9px 12px 7px;
+        border-radius: 11px;
+        transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+        animation: artifactEnter 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+
+        &:disabled {
+          cursor: not-allowed;
+
+          .pedestal {
+            filter: grayscale(1) brightness(0.7);
+            opacity: 0.45;
+          }
+
+          .artifact-label {
+            color: rgba(245, 236, 216, 0.28);
+          }
+        }
+
+        // 藤编竹垫（增强版：多方向编织 + 竹节 + 立体投影 + 边缘高光）
+        .pedestal {
+          position: relative;
+          width: 66px;
+          height: 66px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          background:
+            // 交叉编织纹理（45° / -45°）
+            repeating-linear-gradient(45deg, rgba(92, 72, 36, 0.2) 0 2px, transparent 2px 4px, rgba(140, 110, 60, 0.12) 4px 6px, transparent 6px 9px),
+            repeating-linear-gradient(-45deg, rgba(92, 72, 36, 0.2) 0 2px, transparent 2px 4px, rgba(140, 110, 60, 0.12) 4px 6px, transparent 6px 9px),
+            // 竹节横纹
+            repeating-linear-gradient(0deg, rgba(92, 72, 36, 0.08) 0 1px, transparent 1px 8px),
+            // 顶部高光（光从左上方斜照，增强反光）
+            radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.78), transparent 50%),
+            // 底部暗影
+            radial-gradient(circle at 68% 80%, rgba(60, 44, 18, 0.35), transparent 55%),
+            // 主竹色渐变（提亮：更亮的竹色让 icon 更突出）
+            linear-gradient(180deg, #f0dca8 0%, #e0c890 50%, #c0a868 100%);
+          box-shadow:
+            // 内高光（顶面反光）
+            inset 0 2px 2px rgba(255, 255, 255, 0.8),
+            inset 0 1px 0 rgba(255, 255, 255, 0.5),
+            // 内暗影（底面深腔）
+            inset 0 -6px 10px rgba(60, 44, 18, 0.55),
+            inset 0 -2px 3px rgba(60, 44, 18, 0.3),
+            // 左右内暗影
+            inset 4px 0 8px rgba(60, 44, 18, 0.28),
+            inset -4px 0 8px rgba(60, 44, 18, 0.28),
+            // 外高光边
+            0 1px 0 rgba(255, 255, 255, 0.35),
+            // 外投影（多层落差）
+            0 3px 6px rgba(0, 0, 0, 0.4),
+            0 8px 14px rgba(0, 0, 0, 0.42),
+            0 16px 26px rgba(0, 0, 0, 0.3);
+          transition: box-shadow 0.28s ease, transform 0.28s ease;
+
+          .pedestal-rim {
+            position: absolute;
+            inset: 4px;
+            border: 2px solid rgba(92, 72, 36, 0.55);
+            border-radius: 50%;
+            box-shadow:
+              inset 0 1px 0 rgba(255, 255, 255, 0.45),
+              inset 0 -1px 2px rgba(60, 44, 18, 0.4),
+              0 1px 0 rgba(60, 44, 18, 0.4);
+            pointer-events: none;
+          }
+
+          .pedestal-icon {
+            position: relative;
+            z-index: 1;
+            color: #4a3818;
+            filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.45)) drop-shadow(0 0 1px rgba(255, 255, 255, 0.3));
+            transition: color 0.28s ease, filter 0.28s ease;
+          }
+        }
+
+        .artifact-label {
+          position: relative;
+          font-size: 13px;
+          font-weight: 700;
+          color: rgba(245, 236, 216, 0.9);
+          letter-spacing: 1.5px;
+          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+        }
+
+        // 鎏金计数徽章（增强版：金属质感 + 反光 + 立体投影）
+        .artifact-count {
+          position: absolute;
+          top: 0;
+          right: -2px;
+          min-width: 24px;
+          height: 24px;
+          padding: 0 6px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 999px;
+          background:
+            // 顶部高光（金属反光）
+            radial-gradient(circle at 32% 24%, rgba(255, 255, 255, 0.85), transparent 55%),
+            // 底部暗影
+            radial-gradient(circle at 68% 80%, rgba(124, 94, 30, 0.5), transparent 55%),
+            // 鎏金主色
+            linear-gradient(180deg, $gold-glow 0%, $gold 35%, $gold-deep 75%, $gold-dark 100%);
+          border: 2px solid $gold-dark;
+          color: #2e1a0c;
+          font-size: 11px;
+          font-weight: 800;
+          box-sizing: border-box;
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.85),
+            inset 0 -2px 3px rgba(124, 94, 30, 0.5),
+            inset 1px 0 1px rgba(255, 255, 255, 0.4),
+            inset -1px 0 1px rgba(124, 94, 30, 0.3),
+            0 2px 4px rgba(0, 0, 0, 0.55),
+            0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        &:hover:not(:disabled) {
+          transform: translateY(-8px) scale(1.05);
+
+          // 竹垫：亮黄色（与 active 一致）+ 柔和 sub-color 光晕
+          .pedestal {
+            background:
+              repeating-linear-gradient(45deg, rgba(92, 72, 36, 0.18) 0 2px, transparent 2px 4px, rgba(140, 110, 60, 0.1) 4px 6px, transparent 6px 9px),
+              repeating-linear-gradient(-45deg, rgba(92, 72, 36, 0.18) 0 2px, transparent 2px 4px, rgba(140, 110, 60, 0.1) 4px 6px, transparent 6px 9px),
+              repeating-linear-gradient(0deg, rgba(92, 72, 36, 0.06) 0 1px, transparent 1px 8px),
+              // 顶部高光增强（被灯光照亮）
+              radial-gradient(circle at 32% 24%, rgba(255, 255, 255, 0.95), transparent 50%),
+              radial-gradient(circle at 68% 80%, rgba(140, 100, 40, 0.25), transparent 55%),
+              // 亮黄色主渐变（与 active 一致）
+              linear-gradient(180deg, #fff0c0 0%, #fde088 45%, #f0c860 100%);
+            box-shadow:
+              inset 0 2px 2px rgba(255, 255, 255, 0.92),
+              inset 0 1px 0 rgba(255, 255, 255, 0.6),
+              inset 0 -6px 10px rgba(60, 44, 18, 0.55),
+              inset 0 -2px 3px rgba(60, 44, 18, 0.3),
+              inset 4px 0 8px rgba(60, 44, 18, 0.28),
+              inset -4px 0 8px rgba(60, 44, 18, 0.28),
+              0 1px 0 rgba(255, 255, 255, 0.5),
+              // 外投影加深（落差感）
+              0 8px 14px rgba(0, 0, 0, 0.5),
+              0 20px 32px rgba(0, 0, 0, 0.5),
+              0 36px 54px rgba(0, 0, 0, 0.35),
+              // 柔和 sub-color 外发光环（被拿起的光晕）
+              0 0 0 2px color-mix(in srgb, var(--sub-color, #{$gold-deep}) 50%, transparent),
+              0 0 24px color-mix(in srgb, var(--sub-color, #{$gold-deep}) 55%, transparent),
+              // 底部 sub-color 光晕投影
+              0 12px 28px color-mix(in srgb, var(--sub-color, #{$gold-deep}) 35%, transparent);
+          }
+
+          .pedestal-icon {
+            color: #4a3818;
+            filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 12px color-mix(in srgb, var(--sub-color, #{$gold-deep}) 75%, transparent));
+            transform: scale(1.1);
+          }
+
+          .artifact-label {
+            color: $gold;
+            text-shadow: 0 0 12px rgba(240, 214, 138, 0.7), 0 1px 2px rgba(0, 0, 0, 0.6);
+          }
+        }
+
+        &.active {
+          transform: translateY(-16px) scale(1.1);
+
+          // 底部聚光灯色晕（sub-color 统一色系）
+          &::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -10px;
+            transform: translateX(-50%);
+            width: 90%;
+            height: 22px;
+            border-radius: 50%;
+            background: radial-gradient(ellipse at 50% 50%, color-mix(in srgb, var(--sub-color, #{$gold-deep}) 95%, transparent), transparent 70%);
+            filter: blur(7px);
+            pointer-events: none;
+            z-index: 0;
+          }
+
+          // 底座变亮黄色（不染 sub-color，提亮竹色让 icon 更突出）
+          .pedestal {
+            background:
+              repeating-linear-gradient(45deg, rgba(92, 72, 36, 0.18) 0 2px, transparent 2px 4px, rgba(140, 110, 60, 0.1) 4px 6px, transparent 6px 9px),
+              repeating-linear-gradient(-45deg, rgba(92, 72, 36, 0.18) 0 2px, transparent 2px 4px, rgba(140, 110, 60, 0.1) 4px 6px, transparent 6px 9px),
+              repeating-linear-gradient(0deg, rgba(92, 72, 36, 0.06) 0 1px, transparent 1px 8px),
+              // 顶部高光（亮黄反光）
+              radial-gradient(circle at 32% 24%, rgba(255, 255, 255, 0.95), transparent 50%),
+              radial-gradient(circle at 68% 80%, rgba(140, 100, 40, 0.25), transparent 55%),
+              // 亮黄色主渐变
+              linear-gradient(180deg, #fff0c0 0%, #fde088 45%, #f0c860 100%);
+            box-shadow:
+              // 去掉向内发光（避免影响 icon），仅保留轻微立体感
+              inset 0 1px 0 rgba(255, 255, 255, 0.5),
+              inset 0 -4px 8px rgba(120, 90, 40, 0.3),
+              0 1px 0 rgba(255, 255, 255, 0.6),
+              // 外投影加深
+              0 12px 20px rgba(0, 0, 0, 0.6),
+              0 26px 42px rgba(0, 0, 0, 0.6),
+              0 48px 72px rgba(0, 0, 0, 0.45),
+              // 逐层往外散光（光晕，画在实心环之下，从内到外变淡）
+              0 0 60px 22px color-mix(in srgb, var(--sub-color, #{$gold-deep}) 8%, transparent),
+              0 0 40px 16px color-mix(in srgb, var(--sub-color, #{$gold-deep}) 16%, transparent),
+              0 0 24px 10px color-mix(in srgb, var(--sub-color, #{$gold-deep}) 30%, transparent),
+              0 0 12px 5px color-mix(in srgb, var(--sub-color, #{$gold-deep}) 50%, transparent),
+              // 明显边界的实心同心环（外层在下内层在上，每环边界清晰，浓度从内到外递减）
+              0 0 0 14px color-mix(in srgb, var(--sub-color, #{$gold-deep}) 26%, transparent),
+              0 0 0 9px color-mix(in srgb, var(--sub-color, #{$gold-deep}) 46%, transparent),
+              0 0 0 5px color-mix(in srgb, var(--sub-color, #{$gold-deep}) 70%, transparent),
+              0 0 0 2px var(--sub-color, #{$gold-deep});
+
+            // 内圈选中环（统一 sub-color 色系）
+            .pedestal-rim {
+              border-color: var(--sub-color, #{$gold-deep});
+              border-width: 3px;
+              box-shadow:
+                0 0 14px color-mix(in srgb, var(--sub-color, #{$gold-deep}) 85%, transparent),
+                0 1px 0 rgba(60, 44, 18, 0.4);
+            }
+          }
+
+          .pedestal-icon {
+            color: #4a3818;
+            filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 8px rgba(0, 0, 0, 0.3));
+            transform: scale(1.12);
+          }
+
+          .artifact-label {
+            color: $gold-deep;
+            text-shadow: 0 0 14px rgba(176, 141, 62, 0.8), 0 1px 2px rgba(0, 0, 0, 0.7);
+
+            // 底部装饰下划线（sub-color 选中标记）
+            &::after {
+              content: '';
+              position: absolute;
+              left: 50%;
+              bottom: -5px;
+              transform: translateX(-50%);
+              width: 80%;
+              height: 3px;
+              border-radius: 999px;
+              background: linear-gradient(90deg, transparent, var(--sub-color, #{$gold-deep}) 25%, var(--sub-color, #{$gold-deep}) 75%, transparent);
+              box-shadow: 0 0 10px color-mix(in srgb, var(--sub-color, #{$gold-deep}) 85%, transparent);
+            }
+
+          }
+        }
+
+        // "全部"按钮特殊样式——鎏金底座
+        &.artifact-all {
+          --sub-color: #{$gold-deep};
+
+          .pedestal {
+            background:
+              repeating-linear-gradient(45deg, rgba(124, 94, 30, 0.24) 0 2px, transparent 2px 4px, rgba(180, 141, 62, 0.16) 4px 6px, transparent 6px 9px),
+              repeating-linear-gradient(-45deg, rgba(124, 94, 30, 0.24) 0 2px, transparent 2px 4px, rgba(180, 141, 62, 0.16) 4px 6px, transparent 6px 9px),
+              repeating-linear-gradient(0deg, rgba(124, 94, 30, 0.12) 0 1px, transparent 1px 8px),
+              radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.75), transparent 50%),
+              radial-gradient(circle at 68% 80%, rgba(124, 94, 30, 0.45), transparent 55%),
+              linear-gradient(180deg, $gold-glow 0%, $gold 35%, $gold-deep 75%, $gold-dark 100%);
+
+            .pedestal-rim {
+              border-color: rgba(124, 94, 30, 0.65);
+            }
+
+            .pedestal-icon {
+              color: #2e1a0c;
+              filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.4)) drop-shadow(0 0 2px rgba(255, 233, 168, 0.5));
+            }
+          }
+
+          // active 时保持鎏金底座，仅增强发光与选中环
+          &.active {
+            .pedestal {
+              background:
+                repeating-linear-gradient(45deg, rgba(124, 94, 30, 0.24) 0 2px, transparent 2px 4px, rgba(180, 141, 62, 0.16) 4px 6px, transparent 6px 9px),
+                repeating-linear-gradient(-45deg, rgba(124, 94, 30, 0.24) 0 2px, transparent 2px 4px, rgba(180, 141, 62, 0.16) 4px 6px, transparent 6px 9px),
+                repeating-linear-gradient(0deg, rgba(124, 94, 30, 0.12) 0 1px, transparent 1px 8px),
+                radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.85), transparent 50%),
+                radial-gradient(circle at 68% 80%, rgba(124, 94, 30, 0.55), transparent 55%),
+                linear-gradient(180deg, $gold 0%, $gold-deep 45%, $gold-dark 100%);
+            }
+
+            .pedestal-icon {
+              color: #2e1a0c;
+              filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 14px rgba(176, 141, 62, 0.8));
+            }
+          }
+        }
+      }
+    }
+
+    // ============ 左右两栏：左卡片列表 + 右详情 ============
+    .main-split {
+      display: flex;
+      align-items: stretch;
+      gap: 18px;
+      margin-top: 18px;
+      flex: 1 1 auto;
+
+      // ---- 左栏（麻布案布托盘 · 增强版） ----
+      .left-pane {
+        flex: 1;
+        min-width: 300px;
+        position: relative;
+        padding: 16px 16px 18px;
+        border-radius: 14px;
+        background:
+          // 麻布双向斜纹
+          repeating-linear-gradient(45deg, rgba(90, 69, 48, 0.06) 0 1px, transparent 1px 4px),
+          repeating-linear-gradient(-45deg, rgba(90, 69, 48, 0.06) 0 1px, transparent 1px 4px),
+          // 麻布纤维细纹
+          repeating-linear-gradient(0deg, rgba(90, 69, 48, 0.03) 0 1px, transparent 1px 3px),
+          repeating-linear-gradient(90deg, rgba(90, 69, 48, 0.03) 0 1px, transparent 1px 3px),
+          // 顶部高光
+          radial-gradient(ellipse 70% 30% at 50% 0%, rgba(255, 255, 255, 0.6), transparent 65%),
+          // 底部暗影
+          radial-gradient(ellipse 60% 25% at 50% 100%, rgba(88, 66, 28, 0.18), transparent 70%),
+          // 主色
+          linear-gradient(180deg, $cloth-l 0%, $cloth-d 100%);
+        border: 3px solid rgba(88, 66, 28, 0.62);
+        box-shadow:
+          // 内高光
+          inset 0 2px 3px rgba(255, 255, 255, 0.95),
+          inset 0 1px 0 rgba(255, 255, 255, 0.7),
+          // 内暗影
+          inset 0 -6px 12px rgba(88, 66, 28, 0.35),
+          inset 5px 0 12px rgba(88, 66, 28, 0.16),
+          inset -5px 0 12px rgba(88, 66, 28, 0.16),
+          // 外高光边
+          0 2px 0 rgba(255, 255, 255, 0.5),
+          // 外投影（多层落差）
+          0 6px 12px rgba(0, 0, 0, 0.4),
+          0 16px 28px rgba(0, 0, 0, 0.42),
+          0 28px 48px rgba(20, 12, 4, 0.28);
+        display: flex;
+        flex-direction: column;
+
+        // 四角折角包边（麻布缝线感）
+        &::before,
+        &::after {
+          content: '';
+          position: absolute;
+          width: 18px;
+          height: 18px;
+          pointer-events: none;
+          opacity: 0.55;
+        }
+
+        &::before {
+          top: 6px;
+          left: 6px;
+          border-top: 2px solid rgba(88, 66, 28, 0.7);
+          border-left: 2px solid rgba(88, 66, 28, 0.7);
+          border-top-left-radius: 6px;
+        }
+
+        &::after {
+          bottom: 6px;
+          right: 6px;
+          border-bottom: 2px solid rgba(88, 66, 28, 0.7);
+          border-right: 2px solid rgba(88, 66, 28, 0.7);
+          border-bottom-right-radius: 6px;
+        }
+
+        .item-cards {
+          display: flex;
+          flex-direction: column;
+          gap: 14px;
+          flex: 1 1 auto;
+        }
+
+        .tray-empty {
+          position: relative;
+          padding: 40px 12px;
+          text-align: center;
+          color: $ink-dim;
+          font-size: 14px;
+          letter-spacing: 1px;
+          font-weight: 600;
+        }
+      }
+
+      // ---- 右栏 ----
+      .right-pane {
+        flex: 1.65;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+
+        .detail-empty {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100%;
+          min-height: 320px;
+          border-radius: 14px;
+          background:
+            radial-gradient(ellipse 70% 40% at 50% 50%, rgba(255, 255, 255, 0.5), transparent 70%),
+            repeating-linear-gradient(45deg, rgba(90, 69, 48, 0.04) 0 1px, transparent 1px 4px),
+            repeating-linear-gradient(-45deg, rgba(90, 69, 48, 0.04) 0 1px, transparent 1px 4px),
+            linear-gradient(180deg, $cloth-l 0%, $cloth-d 100%);
+          border: 3px solid rgba(88, 66, 28, 0.5);
+          box-shadow:
+            inset 0 2px 3px rgba(255, 255, 255, 0.95),
+            inset 0 -5px 10px rgba(88, 66, 28, 0.25),
+            0 6px 14px rgba(0, 0, 0, 0.3),
+            0 16px 28px rgba(0, 0, 0, 0.22);
+
+          .empty-hint {
+            font-family: $serif;
+            font-size: 17px;
+            font-weight: 700;
+            color: $ink-dim;
+            letter-spacing: 5px;
+            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.85);
+          }
+        }
+      }
+    }
+
+    // ============ 项目小卡（宣纸卡 · 增强版：纤维纹理 + 木纹相框 + 多层阴影落差） ============
+    .item-card {
+      position: relative;
+      appearance: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      display: flex;
+      gap: 13px;
+      padding: 11px;
+      border-radius: 10px;
+      background:
+        // 宣纸纤维纹理（横纵双向）
+        repeating-linear-gradient(0deg, rgba(120, 90, 45, 0.025) 0 1px, transparent 1px 3px),
+        repeating-linear-gradient(90deg, rgba(120, 90, 45, 0.02) 0 1px, transparent 1px 4px),
+        // 顶部高光（光从左上方斜照）
+        radial-gradient(circle at 28% 0%, rgba(255, 255, 255, 0.75), transparent 55%),
+        // 底部暗影
+        radial-gradient(circle at 72% 100%, rgba(120, 90, 45, 0.1), transparent 50%),
+        // 宣纸主色
+        linear-gradient(180deg, $paper 0%, $paper-dim 100%);
+      border: 2px solid rgba(120, 90, 45, 0.55);
+      box-shadow:
+        // 内高光
+        inset 0 1px 0 rgba(255, 255, 255, 1),
+        inset 0 2px 2px rgba(255, 255, 255, 0.6),
+        // 内暗影
+        inset 0 -3px 5px rgba(120, 90, 45, 0.2),
+        inset 2px 0 5px rgba(120, 90, 45, 0.1),
+        inset -2px 0 5px rgba(120, 90, 45, 0.1),
+        // 外高光边
+        0 2px 0 rgba(255, 255, 255, 0.7),
+        // 外投影（多层落差）
+        0 3px 5px rgba(88, 66, 28, 0.22),
+        0 6px 10px rgba(88, 66, 28, 0.28),
+        0 12px 20px rgba(88, 66, 28, 0.22),
+        0 20px 32px rgba(88, 66, 28, 0.14);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+      animation: cardEnter 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+
+      // 左侧子类色条（厚木纹相框感 · 自然态隐藏，hover/active 才出现）
+      &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 6px;
+        height: 70%;
+        border-radius: 0 4px 4px 0;
+        background:
+          repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.12) 0 1px, transparent 1px 3px),
+          linear-gradient(180deg, color-mix(in srgb, var(--sub-color) 82%, white), var(--sub-color));
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.55),
+          inset 0 -1px 2px rgba(0, 0, 0, 0.3),
+          inset 1px 0 1px rgba(255, 255, 255, 0.3),
+          0 2px 4px rgba(0, 0, 0, 0.35),
+          0 4px 8px rgba(0, 0, 0, 0.2);
+        opacity: 0;
+        transition: opacity 0.3s ease, width 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .card-img-wrap {
+        position: relative;
+        flex-shrink: 0;
+        width: 104px;
+        height: 98px;
+        border-radius: 6px;
+        overflow: hidden;
+        border: 3px solid $wood;
+        background: #000;
+        box-shadow:
+          // 内木纹相框高光
+          inset 0 0 0 1px rgba(176, 122, 60, 0.6),
+          inset 0 2px 4px rgba(0, 0, 0, 0.4),
+          inset 0 -1px 2px rgba(0, 0, 0, 0.5),
+          // 外投影
+          0 3px 6px rgba(0, 0, 0, 0.4),
+          0 6px 12px rgba(0, 0, 0, 0.25),
+          0 10px 18px rgba(0, 0, 0, 0.18);
+
+        .card-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+
+        // 非遗朱印（增强版：墨迹不均匀 + 立体投影）
+        .card-seal {
+          position: absolute;
+          top: 4px;
+          right: 4px;
+          padding: 2px 7px;
+          background:
+            radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.45), transparent 55%),
+            radial-gradient(circle at 68% 80%, rgba(90, 22, 14, 0.5), transparent 55%),
+            linear-gradient(180deg, #c84a3a, $seal 60%, $seal-deep);
+          border: 1px solid rgba(90, 22, 14, 0.75);
+          border-radius: 3px;
+          color: #fbe9d8;
+          font-size: 10px;
+          font-weight: 700;
+          letter-spacing: 1px;
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.45),
+            inset 0 -1px 2px rgba(90, 22, 14, 0.55),
+            0 2px 3px rgba(90, 22, 14, 0.55),
+            0 4px 6px rgba(90, 22, 14, 0.3);
+        }
+      }
+
+      .card-info {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        min-width: 0;
+        flex: 1;
+
+        .card-name {
+          font-size: 16px;
+          font-weight: 700;
+          color: $ink;
+          letter-spacing: 0.3px;
+          line-height: 1.3;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          text-shadow: 0 1px 0 rgba(255, 255, 255, 0.85);
+        }
+
+        // 信息 tags（竹片木牌签 · 立体胶囊 + 左侧色点 + 多层光影）
+        .card-tags {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 6px;
+
+          .card-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            max-width: 100%;
+            padding: 3px 11px 3px 9px;
+            font-size: 12.5px;
+            font-weight: 700;
+            line-height: 1.5;
+            letter-spacing: 0.3px;
+            border-radius: 11px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            position: relative;
+            border: 1px solid rgba(120, 90, 45, 0.45);
+            background:
+              linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 240, 220, 0.5) 45%, rgba(232, 216, 180, 0.3) 100%);
+            box-shadow:
+              inset 0 1px 0 rgba(255, 255, 255, 1),
+              inset 0 -2px 2px rgba(120, 90, 45, 0.22),
+              inset 1px 0 1px rgba(255, 255, 255, 0.5),
+              inset -1px 0 1px rgba(120, 90, 45, 0.15),
+              0 1px 0 rgba(255, 255, 255, 0.8),
+              0 2px 3px rgba(88, 66, 28, 0.25),
+              0 4px 6px rgba(88, 66, 28, 0.15);
+            color: #3a2a14;
+            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
+
+            // 左侧色点（立体小珠）
+            &::before {
+              content: '';
+              flex-shrink: 0;
+              width: 6px;
+              height: 6px;
+              border-radius: 50%;
+              background:
+                radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.95), transparent 55%),
+                var(--dot-color, rgba(120, 90, 45, 0.75));
+              box-shadow:
+                inset 0 -1px 1px rgba(0, 0, 0, 0.3),
+                0 1px 1px rgba(0, 0, 0, 0.2);
+            }
+
+            // 子类签：sub-color 色系
+            &.tag-sub {
+              color: var(--sub-color, #{$gold-deep});
+              --dot-color: var(--sub-color, #{$gold-deep});
+              border-color: color-mix(in srgb, var(--sub-color, #{$gold-deep}) 62%, transparent);
+              background:
+                linear-gradient(180deg,
+                  color-mix(in srgb, var(--sub-color, #{$gold-deep}) 20%, white) 0%,
+                  color-mix(in srgb, var(--sub-color, #{$gold-deep}) 11%, #f8f0dc) 50%,
+                  color-mix(in srgb, var(--sub-color, #{$gold-deep}) 6%, #f0e4c8) 100%);
+              box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 1),
+                inset 0 -2px 2px color-mix(in srgb, var(--sub-color, #{$gold-deep}) 38%, transparent),
+                inset 1px 0 1px rgba(255, 255, 255, 0.5),
+                0 1px 0 rgba(255, 255, 255, 0.85),
+                0 2px 3px color-mix(in srgb, var(--sub-color, #{$gold-deep}) 30%, transparent),
+                0 4px 7px color-mix(in srgb, var(--sub-color, #{$gold-deep}) 18%, transparent);
+              text-shadow: 0 1px 0 rgba(255, 255, 255, 0.95);
+              font-weight: 800;
+            }
+
+            // 地点签：墨色系
+            &.tag-loc {
+              color: #2a1c08;
+              --dot-color: #5a4220;
+              border-color: rgba(60, 44, 18, 0.5);
+              background:
+                linear-gradient(180deg, rgba(255, 252, 240, 0.98) 0%, rgba(238, 226, 198, 0.85) 50%, rgba(220, 204, 168, 0.6) 100%);
+              box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 1),
+                inset 0 -2px 2px rgba(88, 66, 28, 0.3),
+                inset 1px 0 1px rgba(255, 255, 255, 0.5),
+                0 1px 0 rgba(255, 255, 255, 0.8),
+                0 2px 3px rgba(88, 66, 28, 0.26),
+                0 4px 6px rgba(88, 66, 28, 0.16);
+            }
+
+            // 时长签：琥珀色系
+            &.tag-dur {
+              color: #6a3e10;
+              --dot-color: #b87a38;
+              border-color: rgba(176, 122, 60, 0.55);
+              background:
+                linear-gradient(180deg, rgba(255, 246, 218, 0.98) 0%, rgba(244, 222, 174, 0.88) 50%, rgba(228, 198, 150, 0.65) 100%);
+              box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 1),
+                inset 0 -2px 2px rgba(176, 122, 60, 0.34),
+                inset 1px 0 1px rgba(255, 255, 255, 0.5),
+                0 1px 0 rgba(255, 255, 255, 0.8),
+                0 2px 3px rgba(176, 122, 60, 0.3),
+                0 4px 6px rgba(176, 122, 60, 0.18);
+            }
+          }
+        }
+
+        .card-eff {
+          font-size: 12px;
+          color: $ink-body;
+          opacity: 0.92;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .card-price {
+          margin-top: auto;
+          font-size: 15px;
+          font-weight: 800;
+          color: $seal;
+          text-shadow: 0 1px 0 rgba(255, 255, 255, 0.85), 0 0 8px rgba(184, 56, 43, 0.3);
+        }
+      }
+
+      // 鎏金扫光动画（光带从左掠到右）
+      @keyframes cardSweep {
+        0% { background-position: -130% 0; }
+        100% { background-position: 130% 0; }
+      }
+
+      // Hover：鎏金扫光——光掠过宣纸表面 + 边缘透 sub-color 微光 + 轻上浮
+      &:hover {
+        transform: translateY(-5px);
+        border-color: color-mix(in srgb, var(--sub-color) 82%, $ink-dim);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 1),
+          inset 0 2px 2px rgba(255, 255, 255, 0.6),
+          inset 0 -3px 5px rgba(120, 90, 45, 0.2),
+          0 4px 0 rgba(255, 255, 255, 0.7),
+          0 10px 18px rgba(88, 66, 28, 0.45),
+          0 22px 36px rgba(88, 66, 28, 0.32),
+          0 34px 52px rgba(88, 66, 28, 0.2),
+          // 边缘 sub-color 微光
+          0 0 0 1px color-mix(in srgb, var(--sub-color) 48%, transparent),
+          0 0 16px color-mix(in srgb, var(--sub-color) 42%, transparent);
+
+        // 左侧色条流光变亮
+        &::before {
+          opacity: 1;
+          background:
+            repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0 1px, transparent 1px 3px),
+            linear-gradient(180deg, color-mix(in srgb, var(--sub-color) 92%, white), var(--sub-color));
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.7),
+            inset 0 -1px 2px rgba(0, 0, 0, 0.3),
+            inset 1px 0 1px rgba(255, 255, 255, 0.4),
+            0 2px 4px rgba(0, 0, 0, 0.35),
+            0 4px 8px rgba(0, 0, 0, 0.2),
+            0 0 12px color-mix(in srgb, var(--sub-color) 60%, transparent);
+        }
+
+        // 鎏金扫光光带（主角：光掠过宣纸表面）
+        &::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          border-radius: 10px;
+          background: linear-gradient(110deg,
+            transparent 38%,
+            rgba(255, 235, 165, 0.5) 47%,
+            rgba(255, 248, 210, 0.85) 50%,
+            rgba(255, 235, 165, 0.5) 53%,
+            transparent 62%);
+          background-size: 250% 100%;
+          pointer-events: none;
+          animation: cardSweep 0.75s ease;
+          z-index: 2;
+        }
+      }
+
+      // Active：展卷审视——上浮 + 水墨晕染 + 多层光环 + 莲花徽章右侧中间
+      &.active {
+        transform: translateY(-11px) scale(1.04);
+        border-color: var(--sub-color);
+        background:
+          // sub-color 水墨晕染（墨滴洇开）
+          radial-gradient(ellipse 70% 55% at 50% 45%, color-mix(in srgb, var(--sub-color) 16%, transparent), transparent 70%),
+          radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--sub-color) 8%, transparent), transparent 50%),
+          repeating-linear-gradient(0deg, rgba(120, 90, 45, 0.025) 0 1px, transparent 1px 3px),
+          repeating-linear-gradient(90deg, rgba(120, 90, 45, 0.02) 0 1px, transparent 1px 4px),
+          radial-gradient(circle at 28% 0%, rgba(255, 255, 255, 0.75), transparent 55%),
+          radial-gradient(circle at 72% 100%, rgba(120, 90, 45, 0.1), transparent 50%),
+          linear-gradient(180deg, $paper 0%, $paper-dim 100%);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 1),
+          inset 0 2px 2px rgba(255, 255, 255, 0.6),
+          inset 0 -3px 5px rgba(120, 90, 45, 0.2),
+          0 4px 0 rgba(255, 255, 255, 0.7),
+          0 14px 24px rgba(88, 66, 28, 0.5),
+          0 28px 44px rgba(88, 66, 28, 0.38),
+          0 44px 64px rgba(88, 66, 28, 0.24),
+          // 多层 sub-color 同心环（明显边界 + 逐层变淡）
+          0 0 0 2px var(--sub-color),
+          0 0 0 4px color-mix(in srgb, var(--sub-color) 55%, transparent),
+          0 0 0 7px color-mix(in srgb, var(--sub-color) 28%, transparent),
+          // 外散光晕
+          0 0 18px color-mix(in srgb, var(--sub-color) 60%, transparent),
+          0 0 36px color-mix(in srgb, var(--sub-color) 35%, transparent);
+
+        // 左侧色条变粗变亮 + 强发光（active 态隐藏，仅 active:hover 时显示）
+        &::before {
+          opacity: 0;
+          width: 8px;
+          background:
+            repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0 1px, transparent 1px 3px),
+            linear-gradient(180deg, color-mix(in srgb, var(--sub-color) 96%, white), var(--sub-color));
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.8),
+            inset 0 -1px 2px rgba(0, 0, 0, 0.3),
+            inset 1px 0 1px rgba(255, 255, 255, 0.5),
+            0 2px 4px rgba(0, 0, 0, 0.35),
+            0 4px 8px rgba(0, 0, 0, 0.2),
+            0 0 14px color-mix(in srgb, var(--sub-color) 75%, transparent);
+        }
+
+        // active 不显示折痕
+        &::after {
+          content: none;
+        }
+      }
+
+      // 选中莲花徽章（右侧中间外侧 · 鎏金双环 + 禅莲 icon）
+      .active-emblem {
+        position: absolute;
+        top: 50%;
+        right: -16px;
+        transform: translateY(-50%) scale(0.4);
+        width: 34px;
+        height: 34px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 4;
+
+        // 鎏金底座
+        background:
+          radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.98), transparent 55%),
+          radial-gradient(circle at 68% 80%, rgba(120, 80, 20, 0.5), transparent 55%),
+          linear-gradient(180deg, #f5d870, $gold 55%, $gold-deep);
+        border: 2px solid #6a4818;
+        border-radius: 50%;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.95),
+          inset 0 -2px 3px rgba(74, 40, 10, 0.55),
+          0 3px 6px rgba(74, 40, 10, 0.55),
+          0 6px 12px rgba(74, 40, 10, 0.35),
+          0 0 16px rgba(245, 216, 112, 0.75);
+
+        // 外圈装饰环（双环纹章感）
+        .emblem-ring {
+          position: absolute;
+          inset: -5px;
+          border: 1.5px solid color-mix(in srgb, $gold 70%, transparent);
+          border-radius: 50%;
+          box-shadow:
+            0 0 8px color-mix(in srgb, $gold 50%, transparent),
+            inset 0 0 4px color-mix(in srgb, $gold 30%, transparent);
+          pointer-events: none;
+        }
+
+        .emblem-icon {
+          color: #4a2c0a;
+          filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.6));
+          position: relative;
+          z-index: 1;
+        }
+      }
+
+      &.active .active-emblem {
+        opacity: 1;
+        transform: translateY(-50%) scale(1);
+      }
+
+      // Active + Hover：选中卡再 hover——卡片微浮 + 色条显现 + 莲花徽章旋转发光增强
+      &.active:hover {
+        transform: translateY(-13px) scale(1.05);
+
+        // 色条显现（active 态隐藏，hover 时显示）
+        &::before {
+          opacity: 1;
+        }
+
+        // 徽章旋转 + 放大 + 发光增强
+        .active-emblem {
+          transform: translateY(-50%) scale(1.1) rotate(20deg);
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.98),
+            inset 0 -2px 3px rgba(74, 40, 10, 0.55),
+            0 4px 8px rgba(74, 40, 10, 0.6),
+            0 8px 16px rgba(74, 40, 10, 0.4),
+            0 0 24px rgba(245, 216, 112, 1),
+            0 0 44px rgba(245, 216, 112, 0.55);
+        }
+      }
+    }
+
+    // ============ 详情卷笺（宣纸卷 · 增强版：纤维纹理 + 卷轴3D轴头 + 多层阴影落差） ============
+    .unfold-sheet {
+      position: relative;
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      border-radius: 8px;
+      background:
+        // 宣纸纤维纹理（横纵双向）
+        repeating-linear-gradient(0deg, rgba(120, 90, 45, 0.03) 0 1px, transparent 1px 4px),
+        repeating-linear-gradient(90deg, rgba(120, 90, 45, 0.022) 0 1px, transparent 1px 5px),
+        // 顶部高光
+        radial-gradient(ellipse 80% 30% at 50% 0%, rgba(255, 255, 255, 0.55), transparent 65%),
+        // 底部暗影
+        radial-gradient(ellipse 60% 25% at 50% 100%, rgba(120, 90, 45, 0.12), transparent 70%),
+        // 宣纸主色
+        linear-gradient(180deg, $paper 0%, $paper-dim 100%);
+      border: 2px solid rgba(120, 90, 45, 0.58);
+      box-shadow:
+        // 内高光
+        inset 0 2px 3px rgba(255, 255, 255, 1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8),
+        // 内暗影
+        inset 0 -5px 10px rgba(88, 66, 28, 0.25),
+        inset 3px 0 8px rgba(88, 66, 28, 0.12),
+        inset -3px 0 8px rgba(88, 66, 28, 0.12),
+        // 外投影（多层落差）
+        0 4px 8px rgba(0, 0, 0, 0.28),
+        0 12px 22px rgba(0, 0, 0, 0.42),
+        0 24px 40px rgba(0, 0, 0, 0.35),
+        0 40px 64px rgba(20, 12, 4, 0.22);
+
+      // 卷轴轴杆（增强版：木纹 + 3D轴头圆帽 + 金属端盖）
+      .sheet-roller {
+        height: 20px;
+        background:
+          // 横向木纹
+          repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0 1px, transparent 1px 3px, rgba(0, 0, 0, 0.05) 3px 5px, transparent 5px 9px),
+          // 纵向细纹
+          repeating-linear-gradient(90deg, rgba(255, 220, 160, 0.04) 0 1px, transparent 1px 4px),
+          // 顶部高光
+          radial-gradient(ellipse 60% 50% at 50% 0%, rgba(255, 220, 160, 0.25), transparent 70%),
+          // 主木色
+          linear-gradient(180deg, $wood-light 0%, $wood 45%, $wood-deep 90%);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 220, 160, 0.35),
+          inset 0 -3px 5px rgba(0, 0, 0, 0.55),
+          inset 3px 0 8px rgba(0, 0, 0, 0.35),
+          inset -3px 0 8px rgba(0, 0, 0, 0.35),
+          0 3px 6px rgba(0, 0, 0, 0.4),
+          0 6px 12px rgba(0, 0, 0, 0.25);
+        position: relative;
+        z-index: 1;
+
+        // 3D 轴头圆帽（两端蘑菇轴帽 + 金属端盖）
+        &::before,
+        &::after {
+          content: '';
+          position: absolute;
+          top: -3px;
+          width: 18px;
+          height: 26px;
+          border-radius: 6px;
+          background:
+            // 顶部高光（金属反光）
+            radial-gradient(circle at 32% 22%, rgba(255, 220, 160, 0.6), transparent 55%),
+            // 底部暗影
+            radial-gradient(circle at 68% 80%, rgba(0, 0, 0, 0.5), transparent 55%),
+            // 主木色 + 金属端盖
+            radial-gradient(circle at 35% 30%, lighten($wood-light, 18%), $wood-light 50%, $wood-deep);
+          box-shadow:
+            inset 0 1px 1px rgba(255, 220, 160, 0.5),
+            inset 0 -2px 3px rgba(0, 0, 0, 0.55),
+            inset 2px 0 3px rgba(0, 0, 0, 0.35),
+            inset -2px 0 3px rgba(0, 0, 0, 0.35),
+            0 3px 6px rgba(0, 0, 0, 0.45),
+            0 6px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        &::before {
+          left: 2px;
+        }
+
+        &::after {
+          right: 2px;
+        }
+      }
+
+      .sheet-body {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        padding: 18px;
+
+        .sheet-top {
+          display: grid;
+          grid-template-columns: 260px 1fr;
+          gap: 18px;
+
+          // 详情图片框（增强版：厚木纹相框 + 内阴影 + 多层外投影）
+          .sheet-image-frame {
+            position: relative;
+            height: 210px;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 5px solid $wood;
+            background: #000;
+            box-shadow:
+              // 内木纹相框高光
+              inset 0 0 0 1px rgba(176, 122, 60, 0.6),
+              inset 0 3px 6px rgba(0, 0, 0, 0.45),
+              inset 0 -1px 2px rgba(0, 0, 0, 0.5),
+              // 外投影
+              0 4px 10px rgba(0, 0, 0, 0.4),
+              0 10px 18px rgba(0, 0, 0, 0.3),
+              0 18px 30px rgba(0, 0, 0, 0.2);
+
+            .sheet-image {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              display: block;
+            }
+
+            // 子类签（增强版：立体胶囊 + 反光）
+            .sheet-subtype-tag {
+              position: absolute;
+              top: 8px;
+              left: 8px;
+              display: inline-flex;
+              align-items: center;
+              gap: 5px;
+              padding: 5px 11px;
+              border-radius: 5px;
+              background:
+                radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.45), transparent 55%),
+                radial-gradient(circle at 68% 80%, rgba(0, 0, 0, 0.3), transparent 55%),
+                linear-gradient(180deg, color-mix(in srgb, var(--sub-color) 88%, white), var(--sub-color));
+              border: 1px solid rgba(0, 0, 0, 0.45);
+              color: #fff;
+              font-size: 12px;
+              font-weight: 700;
+              letter-spacing: 1px;
+              box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.5),
+                inset 0 -2px 3px rgba(0, 0, 0, 0.35),
+                0 2px 4px rgba(0, 0, 0, 0.45),
+                0 4px 8px rgba(0, 0, 0, 0.25);
+            }
+
+            // 非遗朱印（增强版：墨迹不均匀 + 立体投影）
+            .sheet-seal {
+              position: absolute;
+              top: 8px;
+              right: 8px;
+              padding: 4px 9px;
+              background:
+                radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.45), transparent 55%),
+                radial-gradient(circle at 68% 80%, rgba(90, 22, 14, 0.5), transparent 55%),
+                linear-gradient(180deg, #c84a3a, $seal 60%, $seal-deep);
+              border: 1px solid rgba(90, 22, 14, 0.75);
+              border-radius: 3px;
+              color: #fbe9d8;
+              font-size: 11px;
+              font-weight: 700;
+              letter-spacing: 1px;
+              box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.45),
+                inset 0 -1px 2px rgba(90, 22, 14, 0.55),
+                0 2px 4px rgba(90, 22, 14, 0.55),
+                0 4px 8px rgba(90, 22, 14, 0.3);
+            }
+          }
+
+          .sheet-info {
+            display: flex;
+            flex-direction: column;
+            gap: 11px;
+            min-width: 0;
+
+            .sheet-title-row {
+              display: flex;
+              align-items: flex-start;
+              justify-content: space-between;
+              gap: 10px;
+
+              .sheet-title {
+                margin: 0;
+                font-family: $serif;
+                font-size: 25px;
+                font-weight: 700;
+                color: $ink;
+                letter-spacing: 1px;
+                line-height: 1.3;
+                text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9), 0 2px 4px rgba(120, 90, 45, 0.18);
+              }
+
+              .sheet-actions {
+                display: flex;
+                gap: 9px;
+                flex-shrink: 0;
+
+                // 操作按钮（宣纸印章 · 茶汤三盏）
+                // 自然态=素笺未盖 / hover=提起沾印 / active=盖印留痕 / active:hover=提起审视
+                @mixin seal-three-state($c, $c-deep, $c-bright, $c-glow) {
+                  flex: 0 0 auto;
+                  padding: 7px 13px;
+                  font-size: 12.5px;
+                  font-weight: 700;
+                  border-radius: 3px;
+                  cursor: pointer;
+                  transition: transform 0.28s cubic-bezier(0.34, 1.4, 0.64, 1),
+                             background 0.3s ease,
+                             border-color 0.3s ease,
+                             color 0.3s ease,
+                             box-shadow 0.3s ease;
+                  letter-spacing: 1.2px;
+                  position: relative;
+                  overflow: visible;
+                  display: inline-flex;
+                  align-items: center;
+                  gap: 5px;
+                  font-family: $serif;
+
+                  // 素笺未盖（自然态）
+                  background:
+                    repeating-linear-gradient(0deg, rgba(120, 90, 45, 0.025) 0 1px, transparent 1px 4px),
+                    repeating-linear-gradient(90deg, rgba(120, 90, 45, 0.018) 0 1px, transparent 1px 5px),
+                    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(255, 255, 255, 0.5), transparent 65%),
+                    linear-gradient(180deg, $paper 0%, $paper-dim 100%);
+                  border: 1.5px solid rgba($ink, 0.32);
+                  color: $ink-body;
+                  box-shadow:
+                    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+                    inset 0 -2px 3px rgba(120, 90, 45, 0.1),
+                    0 2px 4px rgba(88, 66, 28, 0.18),
+                    0 4px 8px rgba(88, 66, 28, 0.08);
+                  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+
+                  // icon 默认墨色描边
+                  :deep(svg) {
+                    color: $ink-body;
+                    transition: color 0.3s ease, filter 0.3s ease;
+                    filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.5));
+                  }
+
+                  // 提起沾印（hover）
+                  &:hover {
+                    transform: translateY(-3px) rotate(0.6deg);
+                    border: 1.5px solid rgba($ink, 0.55);
+                    color: $c-deep;
+                    box-shadow:
+                      inset 0 1px 0 rgba(255, 255, 255, 0.6),
+                      inset 0 -2px 3px rgba($c, 0.08),
+                      0 0 0 1px rgba($c, 0.15),
+                      0 0 12px rgba($c, 0.22),
+                      0 5px 10px rgba(88, 66, 28, 0.28),
+                      0 10px 18px rgba(88, 66, 28, 0.12);
+                    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5), 0 0 6px rgba($c, 0.3);
+
+                    :deep(svg) {
+                      color: $c;
+                      filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.4)) drop-shadow(0 0 4px rgba($c, 0.4));
+                    }
+
+                    // 底部印泥色渐隐光带（沾了印泥）
+                    &::after {
+                      content: '';
+                      position: absolute;
+                      bottom: -2px;
+                      left: 8px;
+                      right: 8px;
+                      height: 2px;
+                      background: linear-gradient(90deg, transparent, $c, transparent);
+                      border-radius: 1px;
+                      opacity: 0.7;
+                      box-shadow: 0 0 6px rgba($c, 0.5);
+                    }
+                  }
+
+                  // 盖印留痕（active）
+                  &.is-active {
+                    transform: translateY(1px) scale(0.97);
+                    background:
+                      radial-gradient(ellipse 80% 60% at 50% 30%, rgba(255, 255, 255, 0.18), transparent 60%),
+                      radial-gradient(ellipse 90% 70% at 50% 100%, rgba(0, 0, 0, 0.15), transparent 55%),
+                      linear-gradient(180deg, $c-bright 0%, $c 45%, $c-deep 100%);
+                    border: 2px solid $gold-deep;
+                    color: #fff;
+                    box-shadow:
+                      inset 0 2px 4px rgba(0, 0, 0, 0.3),
+                      inset 0 -2px 3px rgba(255, 255, 255, 0.15),
+                      inset 0 0 0 1px rgba($gold, 0.3),
+                      0 2px 5px rgba($c-deep, 0.5),
+                      0 0 14px rgba($c, 0.3),
+                      0 4px 8px rgba(0, 0, 0, 0.2);
+                    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+
+                    :deep(svg) {
+                      color: #fff;
+                      filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+                    }
+
+                    // 底部鎏金压痕线
+                    &::after {
+                      content: '';
+                      position: absolute;
+                      bottom: 1px;
+                      left: 6px;
+                      right: 6px;
+                      height: 2px;
+                      background: linear-gradient(90deg, transparent, $gold, $gold-glow, $gold, transparent);
+                      border-radius: 1px;
+                      box-shadow: 0 0 5px rgba($gold, 0.5);
+                    }
+
+                    // 印章再提起审视（active:hover）
+                    &:hover {
+                      transform: translateY(-2px) scale(0.99);
+                      border: 2px solid $gold;
+                      box-shadow:
+                        inset 0 2px 4px rgba(0, 0, 0, 0.25),
+                        inset 0 -2px 3px rgba(255, 255, 255, 0.2),
+                        inset 0 0 0 1px rgba($gold-glow, 0.4),
+                        0 0 0 1px rgba($gold, 0.3),
+                        0 0 18px rgba($c, 0.4),
+                        0 0 28px rgba($gold, 0.2),
+                        0 5px 10px rgba($c-deep, 0.45);
+                      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 0 8px rgba($c-glow, 0.4);
+
+                      :deep(svg) {
+                        color: #fff;
+                        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25)) drop-shadow(0 0 5px rgba($c-glow, 0.5));
+                      }
+
+                      &::after {
+                        height: 2.5px;
+                        box-shadow: 0 0 8px rgba($gold-glow, 0.7);
+                      }
+                    }
+                  }
+                }
+
+                .action-btn {
+                  // 朱砂印（收藏）— 宣纸朱印
+                  &.btn-fav { @include seal-three-state(#b8382b, #8a2418, #d4462f, #e85a4a); }
+                  // 茶汤珀（体验）— 茶汤琥珀
+                  &.btn-been { @include seal-three-state(#b08d3e, #7c5e1e, #d4a852, #f0d68a); }
+                  // 墨青瓷（分享）— 青瓷温泉
+                  &.btn-share { @include seal-three-state(#4a8b8c, #2e6b6c, #6baeb0, #8fc8ca); }
+                }
+
+                // 预约按钮（鎏金 · 增强版：金属质感 + 反光）
+                .sheet-book {
+                  background:
+                    radial-gradient(circle at 30% 22%, rgba(255, 255, 255, 0.75), transparent 50%),
+                    radial-gradient(circle at 70% 100%, rgba(124, 94, 30, 0.35), transparent 55%),
+                    linear-gradient(180deg, $gold-glow 0%, $gold 40%, $gold-deep 80%, $gold-dark 100%);
+                  border-color: $gold-dark;
+                  color: #2e1a0c;
+                  box-shadow:
+                    inset 0 1px 0 rgba(255, 255, 255, 0.85),
+                    inset 0 -3px 5px rgba(124, 94, 30, 0.35),
+                    0 3px 0 rgba(124, 94, 30, 0.6),
+                    0 5px 12px rgba(88, 66, 28, 0.48),
+                    0 10px 20px rgba(88, 66, 28, 0.25);
+
+                  .action-icon {
+                    color: #2e1a0c;
+                    filter: drop-shadow(0 1px 1px rgba(255, 255, 255, 0.5));
+                  }
+
+                  &:hover {
+                    border-color: $gold-dark;
+                    box-shadow:
+                      inset 0 1px 0 rgba(255, 255, 255, 0.9),
+                      inset 0 -3px 5px rgba(124, 94, 30, 0.35),
+                      0 4px 0 rgba(124, 94, 30, 0.6),
+                      0 8px 18px rgba(88, 66, 28, 0.52),
+                      0 16px 28px rgba(88, 66, 28, 0.28);
+                  }
+
+                  &:active {
+                    box-shadow:
+                      inset 0 2px 5px rgba(124, 94, 30, 0.4),
+                      inset 0 -1px 0 rgba(255, 255, 255, 0.5),
+                      0 1px 0 rgba(124, 94, 30, 0.6);
+                  }
+                }
+              }
+            }
+
+            // 评分（增强版：立体胶囊 + 反光）
+            .sheet-rating {
+              display: inline-flex;
+              align-items: center;
+              gap: 6px;
+              padding: 5px 13px;
+              border-radius: 999px;
+              background:
+                radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.7), transparent 55%),
+                radial-gradient(circle at 68% 80%, rgba(120, 90, 45, 0.15), transparent 55%),
+                linear-gradient(180deg, rgba(253, 249, 238, 0.75), rgba(240, 230, 205, 0.65));
+              border: 1px solid rgba(176, 141, 62, 0.5);
+              width: fit-content;
+              box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.95),
+                inset 0 -2px 3px rgba(88, 66, 28, 0.22),
+                0 2px 4px rgba(88, 66, 28, 0.25),
+                0 4px 8px rgba(88, 66, 28, 0.12);
+
+              .rating-star {
+                color: $gold-deep;
+                filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.25)) drop-shadow(0 0 2px rgba(240, 214, 138, 0.5));
+              }
+
+              .rating-num {
+                font-size: 15px;
+                font-weight: 700;
+                color: $ink;
+              }
+
+              .rating-count {
+                font-size: 13px;
+                color: $ink-dim;
+              }
+            }
+
+            .sheet-desc {
+              margin: 0;
+              font-size: 14px;
+              line-height: 1.7;
+              color: $ink-body;
+              display: -webkit-box;
+              -webkit-line-clamp: 3;
+              -webkit-box-orient: vertical;
+              overflow: hidden;
+            }
+
+            // 功效胶囊（增强版：立体 + 反光 + 子类色）
+            .sheet-efficacy {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 8px;
+
+              .efficacy-chip {
+                padding: 5px 13px;
+                border-radius: 999px;
+                border: 1px solid color-mix(in srgb, var(--sub-color) 72%, transparent);
+                background:
+                  radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.65), transparent 55%),
+                  radial-gradient(circle at 68% 80%, color-mix(in srgb, var(--sub-color) 30%, transparent), transparent 55%),
+                  linear-gradient(180deg, color-mix(in srgb, var(--sub-color) 22%, white), color-mix(in srgb, var(--sub-color) 12%, white));
+                color: $ink;
+                font-size: 13px;
+                font-weight: 700;
+                box-shadow:
+                  inset 0 1px 0 rgba(255, 255, 255, 0.95),
+                  inset 0 -2px 3px color-mix(in srgb, var(--sub-color) 28%, transparent),
+                  0 2px 4px rgba(88, 66, 28, 0.25),
+                  0 4px 8px rgba(88, 66, 28, 0.14);
+              }
+            }
+
+            // 信息格（增强版：立体面板 + 反光 + 多层阴影）
+            .sheet-meta-grid {
+              display: grid;
+              grid-template-columns: repeat(3, 1fr);
+              gap: 9px;
+
+              .meta-cell {
+                display: flex;
+                flex-direction: column;
+                gap: 3px;
+                padding: 9px 12px;
+                background:
+                  radial-gradient(circle at 30% 18%, rgba(255, 255, 255, 0.8), transparent 55%),
+                  radial-gradient(circle at 70% 100%, rgba(120, 90, 45, 0.12), transparent 55%),
+                  linear-gradient(180deg, rgba(253, 249, 238, 0.96), rgba(240, 230, 205, 0.9));
+                border: 1px solid rgba(120, 90, 45, 0.5);
+                border-radius: 7px;
+                box-shadow:
+                  inset 0 1px 0 rgba(255, 255, 255, 1),
+                  inset 0 -2px 4px rgba(88, 66, 28, 0.18),
+                  0 2px 4px rgba(88, 66, 28, 0.25),
+                  0 4px 8px rgba(88, 66, 28, 0.14),
+                  0 8px 14px rgba(88, 66, 28, 0.08);
+
+                .cell-key {
+                  font-size: 11px;
+                  color: $ink-dim;
+                  letter-spacing: 1px;
+                  font-weight: 600;
+                }
+
+                .cell-val {
+                  font-size: 14px;
+                  font-weight: 700;
+                  color: $ink;
+                  line-height: 1.4;
+
+                  &.price-val {
+                    color: $seal;
+                    font-weight: 800;
+                    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.85), 0 0 6px rgba(184, 56, 43, 0.3);
+                  }
+
+                  &[data-level='轻松'] { color: #4c7a4c; }
+                  &[data-level='适中'] { color: $gold-deep; }
+                  &[data-level='深度'] { color: #b04936; }
+                }
+              }
+            }
+          }
+        }
+
+        .sheet-bottom {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 11px;
+          margin-top: auto;
+          padding-top: 16px;
+
+          .block-label {
+            display: block;
+            font-size: 12px;
+            font-weight: 800;
+            color: $ink-dim;
+            letter-spacing: 2px;
+            margin-bottom: 7px;
+          }
+
+          // 套餐包含（增强版：立体面板 + 左侧子类色条 + 多层阴影）
+          .sheet-package {
+            padding: 11px 13px;
+            background:
+              radial-gradient(circle at 30% 0%, rgba(255, 255, 255, 0.6), transparent 55%),
+              radial-gradient(circle at 70% 100%, rgba(120, 90, 45, 0.1), transparent 55%),
+              linear-gradient(180deg, rgba(253, 249, 238, 0.92), rgba(240, 230, 205, 0.88));
+            border: 1px solid rgba(120, 90, 45, 0.5);
+            border-left: 5px solid var(--sub-color);
+            border-radius: 7px;
+            box-shadow:
+              inset 0 1px 0 rgba(255, 255, 255, 0.95),
+              inset 0 -2px 4px rgba(88, 66, 28, 0.15),
+              0 2px 5px rgba(88, 66, 28, 0.25),
+              0 4px 10px rgba(88, 66, 28, 0.14),
+              0 8px 16px rgba(88, 66, 28, 0.08);
+
+            .package-list {
+              margin: 0;
+              padding: 0;
+              list-style: none;
+              display: flex;
+              flex-direction: column;
+              gap: 5px;
+
+              li {
+                position: relative;
+                padding-left: 15px;
+                font-size: 13px;
+                line-height: 1.55;
+                color: $ink-body;
+                font-weight: 600;
+
+                &::before {
+                  content: '·';
+                  position: absolute;
+                  left: 2px;
+                  color: var(--sub-color);
+                  font-weight: 800;
+                  font-size: 16px;
+                }
+              }
+            }
+          }
+
+          // 适宜人群（增强版：立体面板 + 多层阴影）
+          .sheet-suitable {
+            padding: 11px 13px;
+            background:
+              radial-gradient(circle at 30% 0%, rgba(255, 255, 255, 0.6), transparent 55%),
+              radial-gradient(circle at 70% 100%, rgba(120, 90, 45, 0.1), transparent 55%),
+              linear-gradient(180deg, rgba(253, 249, 238, 0.92), rgba(240, 230, 205, 0.88));
+            border: 1px solid rgba(120, 90, 45, 0.5);
+            border-radius: 7px;
+            box-shadow:
+              inset 0 1px 0 rgba(255, 255, 255, 0.95),
+              inset 0 -2px 4px rgba(88, 66, 28, 0.15),
+              0 2px 5px rgba(88, 66, 28, 0.25),
+              0 4px 10px rgba(88, 66, 28, 0.14),
+              0 8px 16px rgba(88, 66, 28, 0.08);
+
+            .chip-row {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 8px;
+
+              // 适宜人群胶囊（增强版：立体 + 反光）
+              .suitable-chip {
+                padding: 5px 12px;
+                border-radius: 6px;
+                background:
+                  radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.55), transparent 55%),
+                  radial-gradient(circle at 68% 80%, rgba(176, 141, 62, 0.2), transparent 55%),
+                  linear-gradient(180deg, rgba(176, 141, 62, 0.3), rgba(176, 141, 62, 0.15));
+                border: 1px solid rgba(176, 141, 62, 0.58);
+                color: $ink-body;
+                font-size: 13px;
+                font-weight: 700;
+                box-shadow:
+                  inset 0 1px 0 rgba(255, 255, 255, 0.75),
+                  inset 0 -1px 2px rgba(120, 90, 45, 0.22),
+                  0 2px 4px rgba(88, 66, 28, 0.22),
+                  0 4px 8px rgba(88, 66, 28, 0.1);
+              }
+            }
+          }
+
+          // 标签（增强版：立体 + 反光 + 多层阴影）
+          .sheet-tags {
+            grid-column: 1 / -1;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+
+            .tag-chip {
+              font-size: 13px;
+              font-weight: 700;
+              padding: 6px 12px;
+              border-radius: 6px;
+              background:
+                radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.6), transparent 55%),
+                radial-gradient(circle at 68% 80%, rgba(120, 90, 45, 0.15), transparent 55%),
+                linear-gradient(180deg, rgba(120, 90, 45, 0.2), rgba(120, 90, 45, 0.1));
+              border: 1px solid rgba(120, 90, 45, 0.5);
+              color: $ink-body;
+              box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.85),
+                inset 0 -1px 2px rgba(120, 90, 45, 0.18),
+                0 2px 4px rgba(88, 66, 28, 0.22),
+                0 4px 8px rgba(88, 66, 28, 0.1);
+
+              // 非遗标签（朱印色 · 增强版）
+              &.tag-heritage {
+                background:
+                  radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.5), transparent 55%),
+                  radial-gradient(circle at 68% 80%, rgba(184, 56, 43, 0.25), transparent 55%),
+                  linear-gradient(180deg, rgba(184, 56, 43, 0.25), rgba(184, 56, 43, 0.12));
+                border-color: rgba(184, 56, 43, 0.62);
+                color: $seal;
+                font-weight: 800;
+                box-shadow:
+                  inset 0 1px 0 rgba(255, 255, 255, 0.75),
+                  inset 0 -1px 2px rgba(184, 56, 43, 0.28),
+                  0 2px 4px rgba(184, 56, 43, 0.28),
+                  0 4px 8px rgba(184, 56, 43, 0.14);
+              }
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+  // ============================================
+  // 空态 · 空茶案（增强版）
+  // ============================================
+  .empty-state {
+    position: relative;
+    text-align: center;
+    padding: 58px 20px;
+
+    .empty-table {
+      width: 232px;
+      margin: 0 auto 20px;
+      padding: 18px;
+      border-radius: 13px;
+      background:
+        repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.06) 0 1px, transparent 1px 3px, rgba(0, 0, 0, 0.03) 3px 5px, transparent 5px 9px),
+        radial-gradient(ellipse at 30% 10%, rgba(255, 220, 160, 0.15), transparent 46%),
+        linear-gradient(165deg, $wood 0%, $wood-deep 100%);
+      border: 2px solid rgba(0, 0, 0, 0.65);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 14px;
+      box-shadow:
+        inset 0 3px 8px rgba(0, 0, 0, 0.55),
+        inset 0 -1px 0 rgba(255, 220, 160, 0.12),
+        0 8px 16px rgba(0, 0, 0, 0.4),
+        0 16px 28px rgba(20, 12, 4, 0.5);
+
+      .empty-pedestal {
+        position: relative;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background:
+          repeating-linear-gradient(45deg, rgba(92, 72, 36, 0.18) 0 2px, transparent 2px 4px),
+          repeating-linear-gradient(-45deg, rgba(92, 72, 36, 0.18) 0 2px, transparent 2px 4px),
+          radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.55), transparent 50%),
+          linear-gradient(180deg, $bamboo-light, $bamboo-deep);
+        box-shadow:
+          inset 0 2px 2px rgba(255, 255, 255, 0.55),
+          inset 0 -3px 6px rgba(60, 44, 18, 0.45),
+          0 4px 8px rgba(0, 0, 0, 0.4),
+          0 8px 14px rgba(0, 0, 0, 0.25);
+        color: rgba(92, 69, 31, 0.55);
+      }
+
+      .empty-pedestal--small {
+        width: 40px;
+        height: 40px;
+      }
+
+      .empty-pedestal--tall {
+        width: 56px;
+        height: 56px;
+      }
+    }
+
+    .empty-title {
+      margin: 0 0 8px;
+      font-family: $serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: $ink;
+      letter-spacing: 2px;
+    }
+
+    .empty-desc {
+      margin: 0 0 20px;
+      font-size: 15px;
+      color: $ink;
+      opacity: 0.7;
+    }
+
+    .empty-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      justify-content: center;
+
+      .zen-tag {
+        font-size: 13px;
+        font-weight: 600;
+        padding: 6px 15px;
+        border-radius: 999px;
+        background:
+          radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.65), transparent 55%),
+          linear-gradient(180deg, #f5edd9, #ecdfc2);
+        border: 1px solid #ddcda8;
+        color: $ink;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.9),
+          inset 0 -1px 2px rgba(120, 90, 45, 0.22),
+          0 2px 4px rgba(120, 90, 45, 0.28),
+          0 4px 8px rgba(120, 90, 45, 0.12);
+      }
+    }
+  }
+}
+
+@keyframes artifactEnter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(11px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 860px) {
+  .wellness-retreat {
+    .main-split {
+      grid-template-columns: 1fr;
+    }
+
+    .unfold-sheet .sheet-body .sheet-top {
+      grid-template-columns: 1fr;
+
+      .sheet-image-frame {
+        height: 170px;
+      }
+    }
+
+    .sheet-bottom {
+      grid-template-columns: 1fr;
+    }
+
+    .sheet-meta-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .artifact-bar {
+      .artifact {
+        padding: 7px 8px;
+      }
+
+      .pedestal {
+        width: 56px;
+        height: 56px;
+      }
+    }
+  }
+}
+@keyframes btnScan {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}

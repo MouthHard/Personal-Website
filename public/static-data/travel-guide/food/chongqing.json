@@ -13,7 +13,7 @@
       "image": "https://picsum.photos/id/447/800/600",
       "price": 158,
       "rating": 4.9,
-      "category": "菜肴",
+      "category": "烧烤火锅",
       "badgeText": "山城名片",
       "isPopular": true,
       "badgeColor": "#f44336",
@@ -41,7 +41,7 @@
       "image": "https://picsum.photos/id/448/800/600",
       "price": 12,
       "rating": 4.7,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "重庆早餐",
       "isPopular": true,
       "badgeColor": "#ff9800",
@@ -69,7 +69,7 @@
       "image": "https://picsum.photos/id/449/800/600",
       "price": 15,
       "rating": 4.5,
-      "category": "小吃",
+      "category": "小吃零食",
       "badgeText": "重庆特产",
       "isPopular": true,
       "badgeColor": "#ff9800",
@@ -97,7 +97,7 @@
       "image": "https://picsum.photos/id/450/800/600",
       "price": 12,
       "rating": 4.6,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "重庆小吃",
       "isPopular": true,
       "badgeColor": "#e91e63",
@@ -125,7 +125,7 @@
       "image": "https://picsum.photos/id/451/800/600",
       "price": 88,
       "rating": 4.8,
-      "category": "菜肴",
+      "category": "烧烤火锅",
       "badgeText": "三峡名菜",
       "isPopular": true,
       "badgeColor": "#ff5722",
@@ -153,7 +153,7 @@
       "image": "https://picsum.photos/id/452/800/600",
       "price": 5,
       "rating": 4,
-      "category": "甜品",
+      "category": "甜品糕点",
       "isPopular": false,
       "description": "香甜可口，传统面点",
       "recommendations": {
@@ -179,7 +179,7 @@
       "image": "https://picsum.photos/id/453/800/600",
       "price": 38,
       "rating": 4.3,
-      "category": "饮品",
+      "category": "汤羹饮品",
       "isPopular": false,
       "description": "香气浓郁，口感醇厚",
       "recommendations": {
@@ -190,6 +190,166 @@
           "菜肴"
         ],
         "eatingMethod": "直接饮用，可点心或小吃"
+      }
+    },
+    {
+      "id": "chongqing-maoxuewang",
+      "name": "毛血旺",
+      "tags": [
+        "重庆特色",
+        "麻辣鲜香",
+        "传统名菜",
+        "用料丰富",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/454/800/600",
+      "price": 48,
+      "rating": 4.7,
+      "category": "菜品菜肴",
+      "badgeText": "山城名菜",
+      "isPopular": true,
+      "badgeColor": "#9c27b0",
+      "description": "麻辣鲜香，用料丰富，山城名菜",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "小菜",
+          "饮料"
+        ],
+        "eatingMethod": "作为主菜食用，配米饭"
+      }
+    },
+    {
+      "id": "chongqing-lazi-ji",
+      "name": "辣子鸡",
+      "tags": [
+        "重庆特色",
+        "麻辣鲜香",
+        "传统名菜",
+        "外酥里嫩",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/455/800/600",
+      "price": 58,
+      "rating": 4.6,
+      "category": "菜品菜肴",
+      "isPopular": false,
+      "description": "麻辣鲜香，外酥里嫩，歌乐山名菜",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "小菜",
+          "饮料"
+        ],
+        "eatingMethod": "作为主菜食用，配米饭"
+      }
+    },
+    {
+      "id": "chongqing-chaoshou",
+      "name": "重庆抄手",
+      "tags": [
+        "重庆特色",
+        "传统面食",
+        "皮薄馅大",
+        "红油调味",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/456/800/600",
+      "price": 18,
+      "rating": 4.6,
+      "category": "面点主食",
+      "badgeText": "老麻抄手",
+      "isPopular": true,
+      "badgeColor": "#4caf50",
+      "description": "皮薄馅大，红油抄手麻辣鲜香",
+      "recommendations": {
+        "pairings": [
+          "小菜",
+          "汤品",
+          "饮料",
+          "茶品"
+        ],
+        "eatingMethod": "直接食用，红油调味"
+      }
+    },
+    {
+      "id": "chongqing-douhua",
+      "name": "重庆豆花",
+      "tags": [
+        "重庆特色",
+        "传统小吃",
+        "嫩滑鲜美",
+        "蘸料丰富",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/457/800/600",
+      "price": 8,
+      "rating": 4.4,
+      "category": "菜品菜肴",
+      "isPopular": false,
+      "description": "嫩滑鲜美，蘸料丰富，山城味道",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "小菜",
+          "辣椒油",
+          "蒜泥"
+        ],
+        "eatingMethod": "直接食用，蘸调料"
+      }
+    },
+    {
+      "id": "chongqing-xiaotangyuan",
+      "name": "山城小汤圆",
+      "tags": [
+        "重庆特色",
+        "传统甜品",
+        "皮薄馅大",
+        "甜而不腻",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/458/800/600",
+      "price": 12,
+      "rating": 4.5,
+      "category": "甜品糕点",
+      "isPopular": false,
+      "description": "皮薄馅大，甜而不腻，山城传统甜品",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "咖啡",
+          "水果",
+          "饮料"
+        ],
+        "eatingMethod": "煮食，趁热食用"
+      }
+    },
+    {
+      "id": "chongqing-quanshui-ji",
+      "name": "泉水鸡",
+      "tags": [
+        "重庆特色",
+        "传统名菜",
+        "鲜嫩爽口",
+        "清汤滋补",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/459/800/600",
+      "price": 68,
+      "rating": 4.5,
+      "category": "菜品菜肴",
+      "isPopular": false,
+      "description": "鲜嫩爽口，清汤滋补，南山名菜",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "小菜",
+          "汤品"
+        ],
+        "eatingMethod": "作为主菜食用，配米饭"
       }
     }
   ],
@@ -206,7 +366,7 @@
       ],
       "image": "https://picsum.photos/id/326/800/600",
       "reason": "重庆传统古镇，美食丰富",
-      "location": "重庆市"
+      "location": "沙坪坝区"
     },
     {
       "id": 2,
@@ -220,7 +380,242 @@
       ],
       "image": "https://picsum.photos/id/327/800/600",
       "reason": "重庆标志性景区，美食聚集地",
-      "location": "重庆市"
+      "location": "渝中区"
+    },
+    {
+      "id": 3,
+      "icon": "🛣️",
+      "name": "解放碑八一路好吃街",
+      "type": "美食街",
+      "foods": [
+        "chongqing-maoxuewang",
+        "chongqing-lazi-ji",
+        "chongqing-chaoshou"
+      ],
+      "image": "https://picsum.photos/id/328/800/600",
+      "reason": "重庆最著名的好吃街，小吃云集",
+      "location": "渝中区"
+    },
+    {
+      "id": 4,
+      "icon": "🗺️",
+      "name": "南山一棵树",
+      "type": "美食区",
+      "foods": [
+        "重庆火锅",
+        "chongqing-quanshui-ji",
+        "chongqing-douhua"
+      ],
+      "image": "https://picsum.photos/id/329/800/600",
+      "reason": "观景品美食，泉水鸡发源地",
+      "location": "南岸区"
+    }
+  ],
+  "souvenirs": [
+    {
+      "id": "chongqing-souvenir-1",
+      "name": "火锅底料",
+      "image": "https://picsum.photos/id/461/600/400",
+      "priceRange": "15-40元",
+      "description": "麻辣鲜香，正宗重庆火锅味",
+      "buyAt": "桥头火锅店",
+      "storage": "阴凉干燥",
+      "province": "重庆"
+    },
+    {
+      "id": "chongqing-souvenir-2",
+      "name": "陈麻花",
+      "image": "https://picsum.photos/id/462/600/400",
+      "priceRange": "10-20元",
+      "description": "磁器口特产，酥脆化渣",
+      "buyAt": "磁器口陈麻花店",
+      "storage": "阴凉干燥",
+      "province": "重庆"
+    },
+    {
+      "id": "chongqing-souvenir-3",
+      "name": "合川桃片",
+      "image": "https://picsum.photos/id/463/600/400",
+      "priceRange": "15-30元",
+      "description": "糯米核桃仁切片，香甜软糯",
+      "buyAt": "合川桃片厂",
+      "storage": "密封防潮",
+      "province": "重庆"
+    },
+    {
+      "id": "chongqing-souvenir-4",
+      "name": "涪陵榨菜",
+      "image": "https://picsum.photos/id/464/600/400",
+      "priceRange": "5-15元",
+      "description": "世界三大名腌菜之一，脆嫩鲜香",
+      "buyAt": "涪陵榨菜厂",
+      "storage": "开封冷藏",
+      "province": "重庆"
+    },
+    {
+      "id": "chongqing-souvenir-5",
+      "name": "江津米花糖",
+      "image": "https://picsum.photos/id/465/600/400",
+      "priceRange": "10-25元",
+      "description": "糯米花生糖，酥脆香甜",
+      "buyAt": "江津米花糖厂",
+      "storage": "密封防潮",
+      "province": "重庆"
+    },
+    {
+      "id": "chongqing-souvenir-6",
+      "name": "永川松花皮蛋",
+      "image": "https://picsum.photos/id/466/600/400",
+      "priceRange": "15-30元",
+      "description": "松花纹理，鲜香爽口",
+      "buyAt": "永川皮蛋厂",
+      "storage": "阴凉干燥",
+      "province": "重庆"
+    }
+  ],
+  "guide": {
+    "mealPlan": {
+      "breakfast": [
+        "重庆火锅",
+        "磁器口陈麻花",
+        "万州烤鱼"
+      ],
+      "lunch": [
+        "万州烤鱼",
+        "磁器口陈麻花",
+        "重庆火锅"
+      ],
+      "dinner": [
+        "重庆火锅",
+        "重庆酸辣粉"
+      ]
+    },
+    "routes": [
+      {
+        "id": "chongqing-route-1",
+        "name": "重庆经典美食一日游",
+        "duration": "1天",
+        "steps": [
+          {
+            "time": "08:30",
+            "location": "重庆老城区",
+            "foodId": "重庆火锅",
+            "description": "清晨从一顿地道早餐开始"
+          },
+          {
+            "time": "12:00",
+            "location": "重庆美食街",
+            "foodId": "磁器口陈麻花",
+            "description": "午餐品尝当地招牌菜"
+          },
+          {
+            "time": "18:30",
+            "location": "重庆夜市",
+            "foodId": "万州烤鱼",
+            "description": "夜市扫街，收尾完美一天"
+          }
+        ]
+      },
+      {
+        "id": "chongqing-route-2",
+        "name": "重庆深度寻味半日游",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "10:00",
+            "location": "重庆老字号",
+            "foodId": "重庆酸辣粉",
+            "description": "探访百年老字号"
+          },
+          {
+            "time": "15:00",
+            "location": "重庆特产市场",
+            "foodId": "重庆火锅",
+            "description": "下午茶时光品鉴特色小吃"
+          }
+        ]
+      },
+      {
+        "id": "chongqing-route-3",
+        "name": "山城麻辣寻味之旅",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "11:30",
+            "location": "八一路好吃街",
+            "foodId": "chongqing-chaoshou",
+            "description": "正餐红油抄手开启麻辣之旅"
+          },
+          {
+            "time": "14:00",
+            "location": "解放碑老字号",
+            "foodId": "chongqing-maoxuewang",
+            "description": "午后毛血旺品味山城名菜"
+          },
+          {
+            "time": "17:30",
+            "location": "南山泉水鸡一条街",
+            "foodId": "chongqing-lazi-ji",
+            "description": "傍晚辣子鸡收尾麻辣之旅"
+          }
+        ]
+      }
+    ],
+    "tips": [
+      {
+        "question": "重庆美食的最佳品尝时间？",
+        "answer": "建议在春秋两季前往，气候宜人，食材当季，能品尝到最地道的重庆风味。"
+      },
+      {
+        "question": "重庆有哪些必去美食街区？",
+        "answer": "推荐前往老城区和夜市，那里集中了最正宗的重庆小吃和老字号餐厅。"
+      },
+      {
+        "question": "在重庆点菜有什么避坑建议？",
+        "answer": "建议提前了解当地特色菜名，避免被不正规店铺误导；选择人气旺的老店更靠谱。"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "season": "spring",
+      "seasonName": "春季",
+      "foods": [
+        "重庆小面",
+        "磁器口陈麻花",
+        "chongqing-chaoshou"
+      ],
+      "description": "春暖花开，时鲜上市，品尝春日第一口鲜"
+    },
+    {
+      "season": "summer",
+      "seasonName": "夏季",
+      "foods": [
+        "重庆酸辣粉",
+        "chongqing-lazi-ji",
+        "chongqing-douhua"
+      ],
+      "description": "夏日炎炎，消暑解渴，清凉美味正当时"
+    },
+    {
+      "season": "autumn",
+      "seasonName": "秋季",
+      "foods": [
+        "万州烤鱼",
+        "chongqing-maoxuewang",
+        "chongqing-quanshui-ji"
+      ],
+      "description": "秋高气爽，丰收时节，贴秋膘品蟹黄"
+    },
+    {
+      "season": "winter",
+      "seasonName": "冬季",
+      "foods": [
+        "重庆火锅",
+        "chongqing-xiaotangyuan",
+        "chongqing-hongcha"
+      ],
+      "description": "寒冬腊月，温补暖身，热汤热食最抚慰"
     }
   ]
 }

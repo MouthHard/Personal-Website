@@ -1,0 +1,180 @@
+// ============================================================
+// 景点详情弹窗 — 赛博朋克 / 机械HUD 全息终端 (斜照光影版)
+// 设计语言：纯黑底 + 斜照光照(160deg) + 饱和色调渐变 + 机械金属质感 + 霓虹边框
+// 色系：青蓝 #00e5ff / 琥珀 #ffb000 / 翠绿 #00ff9d / 朱红 #ff2d55 / 金 #ffd700
+// 光影：左上光源斜照 → 渐变 160deg 亮左上暗右下 + inset 顶/左高光 + 底/右暗影
+// 分层：弹窗纯黑(#020204) → aside/section 中亮带饱和色调 → 凸起部件更亮 → 凹陷部件深带色调
+// ============================================================
+
+$cyan: #00e5ff;
+$amber: #ffb000;
+$crimson: #ff2d55;
+$crimson-bright: #ffb8c8;
+$pink-bright: #ffe6ef;
+$green: #8effd9;
+$gold: #ffd700;
+$base: #020204;
+$panel: #030308;
+$panel-light: #0a0e18;
+$text: #ececf6;
+$text-dim: rgba(228, 228, 246, 0.82);
+$border: rgba(0, 229, 255, 0.2);
+$border-bright: rgba(0, 229, 255, 0.5);
+
+// ============================================
+// 遮罩 + 过渡
+// ============================================
+.spot-modal-mask {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(10px);
+}
+
+// ============================================
+// 弹窗主体 — 纯黑底 + 霓虹边框 + 深立体投影
+// ============================================
+.spot-modal {
+  position: relative;
+  width: 94vw;
+  max-width: 1280px;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 4px;
+  background: linear-gradient(160deg, #2a2d38 0%, #1a1d26 40%, #0e1018 100%);
+  border: 1px solid rgba(0, 0, 0, 0.85);
+  box-shadow:
+    0 50px 120px rgba(0, 0, 0, 0.95),
+    0 20px 50px rgba(0, 0, 0, 0.8),
+    0 8px 20px rgba(0, 0, 0, 0.6),
+    inset 0 2px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -2px 2px rgba(0, 0, 0, 0.7),
+    inset 1px 0 0 rgba(255, 255, 255, 0.06),
+    inset -1px 0 0 rgba(0, 0, 0, 0.5);
+
+  // 螺栓 — 3D 螺丝头
+  .bolt {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    z-index: 20;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 28%, #8a8a98 0%, #48484e 20%, #1e1e28 55%, #08080e 100%);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    box-shadow:
+      0 3px 6px rgba(0, 0, 0, 0.9), 0 1px 2px rgba(0, 0, 0, 0.7),
+      inset 0 1.5px 1.5px rgba(255, 255, 255, 0.4), inset 0 -2px 2px rgba(0, 0, 0, 0.8), inset 1px 0 0 rgba(255, 255, 255, 0.1);
+
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.3));
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+      border-radius: 1px;
+    }
+    &::before { width: 8px; height: 1.5px; transform: translate(-50%, -50%); }
+    &::after { width: 1.5px; height: 8px; transform: translate(-50%, -50%); }
+
+    &-tl { top: 8px; left: 8px; }
+    &-bl { bottom: 8px; left: 8px; }
+    &-br { bottom: 8px; right: 8px; }
+  }
+
+  // ============================================
+  // 顶部状态条 — 蓝调凹陷仪表栏
+  // ============================================
+  .modal-statusbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 14px 11px 32px;
+    position: relative;
+    background: linear-gradient(160deg, #1e2230 0%, #0e1018 100%);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+    font-size: 14px;
+    font-weight: 600;
+    color: $text-dim;
+    flex-shrink: 0;
+    overflow: hidden;
+    box-shadow: inset 0 -3px 6px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+    .statusbar-led {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 25%, #d0ffd0 0%, #00ff44 30%, #006622 70%, #002200 100%);
+      box-shadow: 0 0 12px rgba(0, 255, 68, 0.8), 0 0 24px rgba(0, 255, 68, 0.5), 0 1px 2px rgba(0, 0, 0, 0.6), inset 0 2px 2px rgba(255, 255, 255, 0.85), inset 0 -1.5px 1.5px rgba(0, 0, 0, 0.6);
+      animation: led-blink 2s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    .statusbar-power-label { font-size: 10px; font-weight: 700; color: rgba(0, 255, 68, 0.7); letter-spacing: 1.5px; font-family: 'Courier New', monospace; }
+
+    .statusbar-spacer { flex: 1; }
+
+    .statusbar-close {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      cursor: pointer;
+      color: $text-dim;
+      background: radial-gradient(circle at 38% 30%, #3e4858 0%, #1a2230 40%, #06080e 100%);
+      border: 1px solid rgba(0, 0, 0, 0.8);
+      border-top-color: rgba(255, 255, 255, 0.2);
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9), 0 2px 4px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(0, 229, 255, 0.35), inset 0 2px 3px rgba(0, 0, 0, 0.9), inset 0 -1.5px 0 rgba(255, 255, 255, 0.18), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+      flex-shrink: 0;
+      position: relative;
+
+      &::before { content: ''; position: absolute; inset: 5px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.12); box-shadow: inset 0 1.5px 2px rgba(0, 0, 0, 0.6); pointer-events: none; }
+
+      &:hover {
+        color: $crimson-bright;
+        background: radial-gradient(circle at 38% 30%, #6a2030 0%, #320a16 40%, #100408 100%);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 122, 158, 0.8), 0 0 28px rgba(255, 122, 158, 0.7), inset 0 2px 3px rgba(0, 0, 0, 0.8), inset 0 -1.5px 0 rgba(255, 150, 180, 0.4);
+      }
+      &:active { box-shadow: 0 1px 2px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 122, 158, 0.5), 0 0 18px rgba(255, 122, 158, 0.5), inset 0 6px 8px rgba(0, 0, 0, 0.95); }
+    }
+  }
+
+  @keyframes led-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+
+  // ============================================
+  // 主体
+  // ============================================
+  .modal-body {
+    display: flex;
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    &::-webkit-scrollbar { width: 6px; }
+    &::-webkit-scrollbar-track { background: $base; }
+    &::-webkit-scrollbar-thumb { background: rgba(255, 176, 0, 0.3); border-radius: 3px; }
+  }
+}
+
+// ============================================
+// 过渡动画
+// ============================================
+.spot-modal-enter-active,
+.spot-modal-leave-active {
+  transition: opacity 0.3s ease;
+  .spot-modal { transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease; }
+}
+.spot-modal-enter-from,
+.spot-modal-leave-to {
+  opacity: 0;
+  .spot-modal { transform: scale(0.94) translateY(16px); opacity: 0; }
+}

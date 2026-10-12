@@ -13,7 +13,7 @@
       "image": "https://picsum.photos/id/332/800/600",
       "price": 98,
       "rating": 4.7,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "杭帮名菜",
       "isPopular": true,
       "badgeColor": "#e91e63",
@@ -41,7 +41,7 @@
       "image": "https://picsum.photos/id/333/800/600",
       "price": 68,
       "rating": 4.8,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "杭州经典",
       "isPopular": true,
       "badgeColor": "#ff5722",
@@ -69,7 +69,7 @@
       "image": "https://picsum.photos/id/334/800/600",
       "price": 88,
       "rating": 4.7,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "茶香四溢",
       "isPopular": true,
       "badgeColor": "#4caf50",
@@ -97,7 +97,7 @@
       "image": "https://picsum.photos/id/335/800/600",
       "price": 128,
       "rating": 4.6,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "杭帮传奇",
       "isPopular": true,
       "badgeColor": "#ff9800",
@@ -125,7 +125,7 @@
       "image": "https://picsum.photos/id/336/800/600",
       "price": 38,
       "rating": 4.5,
-      "category": "饮品",
+      "category": "汤羹饮品",
       "badgeText": "千年佳酿",
       "isPopular": true,
       "badgeColor": "#795548",
@@ -153,7 +153,7 @@
       "image": "https://picsum.photos/id/337/800/600",
       "price": 18,
       "rating": 4.3,
-      "category": "主食",
+      "category": "面点主食",
       "isPopular": false,
       "description": "软糯香甜，寓意吉祥",
       "recommendations": {
@@ -179,7 +179,7 @@
       "image": "https://picsum.photos/id/338/800/600",
       "price": 158,
       "rating": 4.6,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "isPopular": false,
       "description": "酒香浓郁，肉质鲜美",
       "recommendations": {
@@ -205,7 +205,7 @@
       "image": "https://picsum.photos/id/339/800/600",
       "price": 28,
       "rating": 4.4,
-      "category": "小吃",
+      "category": "小吃零食",
       "isPopular": false,
       "description": "Q弹爽滑，鲜美可口",
       "recommendations": {
@@ -231,7 +231,7 @@
       "image": "https://picsum.photos/id/340/800/600",
       "price": 88,
       "rating": 4.5,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "isPopular": false,
       "description": "色香味俱全，腌制工艺精湛",
       "recommendations": {
@@ -257,7 +257,7 @@
       "image": "https://picsum.photos/id/341/800/600",
       "price": 22,
       "rating": 4.2,
-      "category": "甜品",
+      "category": "甜品糕点",
       "isPopular": false,
       "description": "晶莹剔透，清香爽口",
       "recommendations": {
@@ -269,6 +269,84 @@
         ],
         "eatingMethod": "冲调食用，作为甜品"
       }
+    },
+    {
+      "id": "zhejiang-tangyuan",
+      "name": "宁波汤圆",
+      "tags": [
+        "浙江特色",
+        "宁波特产",
+        "皮薄馅大",
+        "香甜软糯",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/342/800/600",
+      "price": 12,
+      "rating": 4.5,
+      "category": "甜品糕点",
+      "isPopular": true,
+      "description": "猪油芝麻馅，香甜软糯，宁波名点",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "水果",
+          "点心",
+          "甜品"
+        ],
+        "eatingMethod": "煮后食用，趁热最佳"
+      }
+    },
+    {
+      "id": "zhejiang-pianerchuan",
+      "name": "杭州片儿川",
+      "tags": [
+        "浙江特色",
+        "杭州特产",
+        "汤鲜面滑",
+        "配料丰富",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/343/800/600",
+      "price": 22,
+      "rating": 4.4,
+      "category": "面点主食",
+      "isPopular": false,
+      "description": "雪菜笋片肉丝面，杭州经典面食",
+      "recommendations": {
+        "pairings": [
+          "小菜",
+          "汤品",
+          "饮料",
+          "茶品"
+        ],
+        "eatingMethod": "直接食用，作为主食"
+      }
+    },
+    {
+      "id": "zhejiang-xiasha-beggar-chicken",
+      "name": "嘉兴粽子",
+      "tags": [
+        "浙江特色",
+        "嘉兴特产",
+        "糯香可口",
+        "馅料丰富",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/344/800/600",
+      "price": 15,
+      "rating": 4.6,
+      "category": "面点主食",
+      "isPopular": false,
+      "description": "肉粽蛋黄粽，端午名点",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "小菜",
+          "汤品",
+          "饮料"
+        ],
+        "eatingMethod": "蒸煮后食用，剥叶即食"
+      }
     }
   ],
   "locations": [
@@ -278,9 +356,9 @@
       "name": "杭州西湖",
       "type": "景区",
       "foods": [
-        "west-lake-fish",
+        "west-lake-vinegar-fish",
         "dongpo-pork",
-        "hangzhou-noodles"
+        "longjing-shrimp"
       ],
       "image": "https://picsum.photos/id/1090/800/600",
       "reason": "杭州标志性景点，美食聚集地",
@@ -292,13 +370,245 @@
       "name": "宁波天一广场",
       "type": "商业区",
       "foods": [
-        "ningbo-dumplings",
-        "yellow-wine-chicken",
-        "zhejiang-snacks"
+        "nian-gao",
+        "wenzhou-fish-ball",
+        "zhejiang-tangyuan"
       ],
       "image": "https://picsum.photos/id/1091/800/600",
       "reason": "宁波传统美食聚集地",
       "location": "宁波市"
+    },
+    {
+      "id": 3,
+      "icon": "🏮",
+      "name": "绍兴古城",
+      "type": "文化街",
+      "foods": [
+        "shaoxing-wine",
+        "stewed-hairy-crab",
+        "jinhua-ham"
+      ],
+      "image": "https://picsum.photos/id/1092/800/600",
+      "reason": "绍兴黄酒之乡，越菜发源地",
+      "location": "绍兴市"
+    },
+    {
+      "id": 4,
+      "icon": "🌃",
+      "name": "杭州河坊街",
+      "type": "历史街区",
+      "foods": [
+        "beggar-chicken",
+        "zhejiang-pianerchuan",
+        "lotus-root-starch"
+      ],
+      "image": "https://picsum.photos/id/1093/800/600",
+      "reason": "杭州老字号美食集中地",
+      "location": "杭州市"
+    }
+  ],
+  "souvenirs": [
+    {
+      "id": "zhejiang-souvenir-1",
+      "name": "龙井茶",
+      "image": "https://picsum.photos/id/973/600/400",
+      "priceRange": "50-500元",
+      "description": "西湖狮峰龙井，色绿香郁",
+      "buyAt": "杭州龙井村",
+      "storage": "密封冷藏",
+      "province": "浙江"
+    },
+    {
+      "id": "zhejiang-souvenir-2",
+      "name": "金华火腿",
+      "image": "https://picsum.photos/id/974/600/400",
+      "priceRange": "30-100元",
+      "description": "两头乌猪腿，咸香醇厚",
+      "buyAt": "金华火腿厂",
+      "storage": "阴凉通风",
+      "province": "浙江"
+    },
+    {
+      "id": "zhejiang-souvenir-3",
+      "name": "绍兴黄酒",
+      "image": "https://picsum.photos/id/975/600/400",
+      "priceRange": "15-80元",
+      "description": "女儿红状元红，醇厚温润",
+      "buyAt": "绍兴黄酒厂",
+      "storage": "阴凉避光",
+      "province": "浙江"
+    },
+    {
+      "id": "zhejiang-souvenir-4",
+      "name": "青田石雕",
+      "image": "https://picsum.photos/id/976/600/400",
+      "priceRange": "100-5000元",
+      "description": "封门青冻石，巧夺天工",
+      "buyAt": "青田石雕厂",
+      "storage": "干燥保存",
+      "province": "浙江"
+    },
+    {
+      "id": "zhejiang-souvenir-5",
+      "name": "嘉兴粽子",
+      "image": "https://picsum.photos/id/977/600/400",
+      "priceRange": "10-50元",
+      "description": "五芳斋粽子，糯香可口",
+      "buyAt": "嘉兴五芳斋",
+      "storage": "冷藏保存",
+      "province": "浙江"
+    }
+  ],
+  "guide": {
+    "mealPlan": {
+      "breakfast": [
+        "zhejiang-pianerchuan",
+        "zhejiang-tangyuan",
+        "zhejiang-xiasha-beggar-chicken"
+      ],
+      "lunch": [
+        "west-lake-vinegar-fish",
+        "dongpo-pork",
+        "longjing-shrimp"
+      ],
+      "dinner": [
+        "beggar-chicken",
+        "stewed-hairy-crab",
+        "shaoxing-wine"
+      ]
+    },
+    "routes": [
+      {
+        "id": "zhejiang-route-1",
+        "name": "杭州西湖美食一日游",
+        "duration": "1天",
+        "steps": [
+          {
+            "time": "08:30",
+            "location": "杭州河坊街",
+            "foodId": "zhejiang-pianerchuan",
+            "description": "清晨从一碗片儿川开始"
+          },
+          {
+            "time": "12:00",
+            "location": "杭州西湖",
+            "foodId": "west-lake-vinegar-fish",
+            "description": "午餐品尝西湖醋鱼"
+          },
+          {
+            "time": "18:30",
+            "location": "杭州河坊街",
+            "foodId": "beggar-chicken",
+            "description": "晚餐品鉴叫花鸡"
+          }
+        ]
+      },
+      {
+        "id": "zhejiang-route-2",
+        "name": "绍兴越菜寻味半日游",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "10:00",
+            "location": "绍兴古城",
+            "foodId": "stewed-hairy-crab",
+            "description": "探访绍兴品鉴醉蟹"
+          },
+          {
+            "time": "13:00",
+            "location": "绍兴古城",
+            "foodId": "shaoxing-wine",
+            "description": "品鉴千年绍兴黄酒"
+          },
+          {
+            "time": "15:30",
+            "location": "绍兴古城",
+            "foodId": "jinhua-ham",
+            "description": "下午茶时光品鉴金华火腿"
+          }
+        ]
+      },
+      {
+        "id": "zhejiang-route-3",
+        "name": "宁波海滨美食游",
+        "duration": "1天",
+        "steps": [
+          {
+            "time": "09:00",
+            "location": "宁波天一广场",
+            "foodId": "zhejiang-tangyuan",
+            "description": "清晨品尝宁波汤圆"
+          },
+          {
+            "time": "12:30",
+            "location": "宁波天一广场",
+            "foodId": "wenzhou-fish-ball",
+            "description": "午餐品鉴温州鱼丸"
+          },
+          {
+            "time": "18:00",
+            "location": "宁波天一广场",
+            "foodId": "nian-gao",
+            "description": "晚餐品鉴宁波年糕"
+          }
+        ]
+      }
+    ],
+    "tips": [
+      {
+        "question": "浙江美食的最佳品尝时间？",
+        "answer": "建议在春秋两季前往，气候宜人，食材当季，能品尝到最地道的浙江风味。秋季品蟹最佳。"
+      },
+      {
+        "question": "浙江有哪些必去美食街区？",
+        "answer": "推荐前往杭州河坊街、宁波天一广场和绍兴古城，那里集中了最正宗的浙江小吃和老字号餐厅。"
+      },
+      {
+        "question": "在浙江点菜有什么避坑建议？",
+        "answer": "建议提前了解当地特色菜名，避免被不正规店铺误导；选择人气旺的老店更靠谱。西湖醋鱼建议选草鱼正宗。"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "season": "spring",
+      "seasonName": "春季",
+      "foods": [
+        "west-lake-vinegar-fish",
+        "longjing-shrimp",
+        "zhejiang-pianerchuan"
+      ],
+      "description": "春暖花开，龙井新茶上市，品茶香虾仁正当时"
+    },
+    {
+      "season": "summer",
+      "seasonName": "夏季",
+      "foods": [
+        "wenzhou-fish-ball",
+        "lotus-root-starch",
+        "zhejiang-tangyuan"
+      ],
+      "description": "夏日炎炎，消暑解渴，清凉甜品正当时"
+    },
+    {
+      "season": "autumn",
+      "seasonName": "秋季",
+      "foods": [
+        "stewed-hairy-crab",
+        "dongpo-pork",
+        "jinhua-ham"
+      ],
+      "description": "秋高气爽，丰收时节，贴秋膘品醉蟹"
+    },
+    {
+      "season": "winter",
+      "seasonName": "冬季",
+      "foods": [
+        "beggar-chicken",
+        "shaoxing-wine",
+        "zhejiang-xiasha-beggar-chicken"
+      ],
+      "description": "寒冬腊月，温补暖身，黄酒暖胃最抚慰"
     }
   ]
 }

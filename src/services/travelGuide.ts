@@ -4,6 +4,15 @@ import type {
   SceneryData,
   FoodItem,
   FoodLocation,
+  FoodGuide,
+  FoodSouvenir,
+  FoodSeasonal,
+} from '@/typesOfPages/travelGuide';
+import type {
+  SceneryTab,
+  CultureTheme,
+  BestTime,
+  LandscapeType,
 } from '@/typesOfPages/travelGuide';
 
 export interface TravelGuideListResponse<T> {
@@ -28,6 +37,17 @@ export interface ProvinceScenery extends SceneryData {
 export interface ProvinceFood {
   items: FoodItem[];
   locations: FoodLocation[];
+  guide?: FoodGuide;
+  souvenirs?: FoodSouvenir[];
+  seasonal?: FoodSeasonal[];
+}
+
+export interface SceneryConfig {
+  sceneryTabs: SceneryTab[];
+  cultureThemes: CultureTheme[];
+  bestTimes: BestTime[];
+  landscapeTypes: LandscapeType[];
+  seasons: Array<{ value: string; label: string; icon: string }>;
 }
 
 function applyFilters<T extends Record<string, any>>(items: T[], params: TravelGuideQueryParams): T[] {
@@ -50,4 +70,7 @@ export async function fetchScenery(provinceId: string) {
 
 export async function fetchFood(provinceId: string) {
   return loadJSON<ProvinceFood>(`travel-guide/food/${provinceId}.json`);
+}
+export async function fetchSceneryConfig() {
+  return loadJSON<SceneryConfig>('travel-guide/scenery-config.json');
 }

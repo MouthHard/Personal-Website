@@ -1,0 +1,627 @@
+@use '../../variables' as *;
+
+@include guide-block;
+
+.meal-plan {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// -- 一日三餐 — 数据磁带舱 (Cyberpunk Data Cassette) --
+// 独立科幻视觉语言：双卷轴 / 磁带窗口 / 磁带纹理 / 音轨波形 / 读磁头导轨
+$magenta: #ff2d6f;
+$magenta-glow: rgba(255, 45, 111, 0.5);
+$magenta-soft: #ff6b9d;
+$magenta-deep: #c0185a;
+
+@keyframes reelSpin {
+  to { transform: rotate(360deg); }
+}
+@keyframes headSweep {
+  0% { left: 8%; }
+  50% { left: 88%; }
+  100% { left: 8%; }
+}
+@keyframes waveFlow {
+  0% { background-position: 0 0; }
+  100% { background-position: 20px 0; }
+}
+@keyframes glitchFlicker {
+  0%, 100% { opacity: 1; }
+  92% { opacity: 1; }
+  93% { opacity: 0.3; }
+  94% { opacity: 1; }
+  96% { opacity: 0.5; }
+  97% { opacity: 1; }
+}
+// 霓虹灯闪烁
+@keyframes neonFlicker {
+  0%, 100% { opacity: 1; }
+  3% { opacity: 0.4; }
+  6% { opacity: 1; }
+  9% { opacity: 0.6; }
+  12% { opacity: 1; }
+  70% { opacity: 1; }
+  72% { opacity: 0.5; }
+  74% { opacity: 1; }
+}
+// 磁带窗口扫光
+@keyframes windowScan {
+  0% { transform: translateX(-120%); }
+  100% { transform: translateX(120%); }
+}
+// 面板扫描线一扫到底
+@keyframes panelScan {
+  0% { transform: scaleX(0); transform-origin: left center; opacity: 0; }
+  10% { opacity: 1; }
+  45% { transform: scaleX(1); transform-origin: left center; opacity: 1; }
+  55% { transform: scaleX(1); transform-origin: right center; opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: scaleX(0); transform-origin: right center; opacity: 0; }
+}
+// 心电图波形流动（生命体征监护）
+@keyframes ecgFlow {
+  0% { background-position: 0 0; }
+  100% { background-position: -110px 0; }
+}
+// 卷轴中心脉冲
+@keyframes hubPulse {
+  0%, 100% { box-shadow: 0 0 8px $magenta-glow, 0 0 14px rgba(255, 45, 111, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.5); }
+  50% { box-shadow: 0 0 14px rgba(255, 45, 111, 0.8), 0 0 24px rgba(255, 45, 111, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.7); }
+}
+// 音轨项扫光
+@keyframes trackSweep {
+  0% { left: -30%; }
+  100% { left: 130%; }
+}
+// 导轨能量流
+@keyframes railFlow {
+  0% { background-position: 0 0; }
+  100% { background-position: 40px 0; }
+}
+// 导轨精致光点流动
+@keyframes railDotFlow {
+  0% { left: -10%; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { left: 110%; opacity: 0; }
+}
+// 边框光环旋转
+@keyframes borderRotate {
+  to { transform: rotate(360deg); }
+}
+
+.cassette-card {
+  position: relative;
+  background:
+    // 顶部金属高光反射
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, transparent 5%),
+    // 主体渐变
+    linear-gradient(180deg, #1a1420 0%, #0f0a14 100%);
+  border: 1px solid rgba(255, 45, 111, 0.35);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.35s ease;
+  box-shadow:
+    // 外层立体投影
+    0 10px 24px rgba(0, 0, 0, 0.6),
+    0 4px 8px rgba(0, 0, 0, 0.35),
+    0 1px 2px rgba(0, 0, 0, 0.5),
+    // 外发光
+    0 0 18px rgba(255, 45, 111, 0.12),
+    // 内层金属高光
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    inset 0 2px 0 rgba(255, 45, 111, 0.2),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.5);
+
+  // 顶部金属光带（增强发光）
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 45, 111, 0.3) 20%,
+      rgba(255, 138, 184, 0.9) 50%,
+      rgba(255, 45, 111, 0.3) 80%,
+      transparent);
+    box-shadow: 0 0 10px rgba(255, 45, 111, 0.6);
+    z-index: 4;
+    pointer-events: none;
+  }
+
+  // 内层旋转边框光晕（科幻氛围）
+  &::after {
+
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 10px;
+    background: conic-gradient(
+      from 0deg,
+      transparent 0deg,
+      rgba(255, 45, 111, 0.25) 60deg,
+      transparent 120deg,
+      rgba(255, 138, 184, 0.2) 180deg,
+      transparent 240deg,
+      rgba(255, 45, 111, 0.25) 300deg,
+      transparent 360deg
+    );
+    mask: radial-gradient(circle, transparent 98%, black 100%);
+    -webkit-mask: radial-gradient(circle, transparent 98%, black 100%);
+    animation: borderRotate 8s linear infinite;
+    opacity: 0.6;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  &:hover {
+    border-color: rgba(255, 45, 111, 0.75);
+    transform: translateY(-4px);
+    box-shadow:
+      0 20px 40px rgba(0, 0, 0, 0.7),
+      0 8px 16px rgba(0, 0, 0, 0.5),
+      0 2px 4px rgba(0, 0, 0, 0.4),
+      0 0 40px rgba(255, 45, 111, 0.45),
+      0 0 0 1px rgba(255, 45, 111, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      inset 0 2px 0 rgba(255, 45, 111, 0.32),
+      inset 0 -2px 0 rgba(0, 0, 0, 0.5);
+    animation: glitchFlicker 4s steps(1) infinite;
+
+    .reel-hub { animation-duration: 0.8s; }
+
+    .cassette-tape-bg::after { transform: translateX(200%); }
+    &::after { opacity: 1; animation-duration: 4s; }
+  }
+
+  // 顶部卷轴区
+  .cassette-reels {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem 0.55rem;
+    background:
+      // 顶部金属面板高光
+      linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, transparent 12%),
+      linear-gradient(180deg, rgba(255, 45, 111, 0.1) 0%, transparent 100%),
+      linear-gradient(180deg, #14101a 0%, #0f0a14 100%);
+    border-bottom: 1px solid rgba(255, 45, 111, 0.22);
+    box-shadow:
+      inset 0 -1px 0 rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+
+    .reel {
+      position: relative;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background:
+        // 3D 球面高光
+        radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.28), transparent 42%),
+        radial-gradient(circle at 70% 80%, rgba(255, 45, 111, 0.18), transparent 50%),
+        radial-gradient(circle, #2a1a2e 30%, #1a0f20 100%);
+      border: 1.5px solid rgba(255, 45, 111, 0.55);
+      box-shadow:
+        // 外立体投影
+        0 3px 8px rgba(0, 0, 0, 0.6),
+        0 1px 2px rgba(0, 0, 0, 0.4),
+        0 0 12px rgba(255, 45, 111, 0.25),
+        // 内金属高光
+        inset 0 1px 2px rgba(255, 255, 255, 0.15),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.7),
+        inset 0 0 0 1px rgba(255, 45, 111, 0.12);
+      flex-shrink: 0;
+      filter: drop-shadow(0 0 4px rgba(255, 45, 111, 0.2));
+
+      // 辐条
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 4px;
+        border-radius: 50%;
+        background:
+          conic-gradient(
+            from 0deg,
+            transparent 0deg, rgba(255, 45, 111, 0.4) 5deg, transparent 10deg,
+            transparent 85deg, rgba(255, 45, 111, 0.4) 90deg, transparent 95deg,
+            transparent 175deg, rgba(255, 45, 111, 0.4) 180deg, transparent 185deg,
+            transparent 265deg, rgba(255, 45, 111, 0.4) 270deg, transparent 275deg
+          );
+        box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .reel-hub {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 9px;
+        height: 9px;
+        margin: -4.5px 0 0 -4.5px;
+        border-radius: 50%;
+        background:
+          radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.6), transparent 50%),
+          radial-gradient(circle, $magenta-soft 20%, $magenta 60%, $magenta-deep 100%);
+        border: 1px solid rgba(255, 45, 111, 0.8);
+        box-shadow:
+          0 0 8px $magenta-glow,
+          0 0 14px rgba(255, 45, 111, 0.3),
+          inset 0 1px 1px rgba(255, 255, 255, 0.5);
+        animation: reelSpin 3s linear infinite, hubPulse 2s ease-in-out infinite;
+      }
+    }
+
+    // 中间磁带窗口
+    .reel-window {
+      position: relative;
+      flex: 1;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      // CRT 凹面感
+      background: radial-gradient(ellipse at 50% 50%, #0a0610 0%, #050308 70%, #020104 100%);
+      border: 1px solid rgba(255, 45, 111, 0.45);
+      border-radius: 3px;
+      box-shadow:
+        // 外金属框
+        0 1px 2px rgba(0, 0, 0, 0.5),
+        0 0 8px rgba(255, 45, 111, 0.2),
+        // 内凹面深阴影
+        inset 0 2px 4px rgba(0, 0, 0, 0.9),
+        inset 0 -1px 0 rgba(255, 45, 111, 0.2),
+        inset 1px 0 2px rgba(0, 0, 0, 0.7),
+        inset -1px 0 2px rgba(0, 0, 0, 0.7);
+      overflow: hidden;
+
+      // 心电图波形（限制在 title 所在小容器内，位于 title 下方层）
+      &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 20px;
+        margin-top: -10px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 24' preserveAspectRatio='none'%3E%3Cpath d='M0 12 H20 L23 12 L25 6 L27 18 L29 3 L31 21 L33 12 H50 L53 9 L56 12 H75 L78 12 L80 6 L82 18 L84 3 L86 21 L88 12 H105 L108 9 L111 12 H120' stroke='%23ff8ab8' stroke-width='1.2' fill='none' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E");
+        background-repeat: repeat-x;
+        background-size: 110px 20px;
+        background-position: 0 0;
+        filter:
+          drop-shadow(0 0 2px rgba(255, 138, 184, 0.35))
+          drop-shadow(0 0 4px rgba(255, 45, 111, 0.2));
+        animation: ecgFlow 2.8s linear infinite;
+        pointer-events: none;
+        z-index: 1;
+        opacity: 0.32;
+      }
+
+      .reel-label {
+        position: relative;
+        z-index: 2;
+        font-size: 1.5rem;
+        font-weight: 900;
+        color: #ffffff;
+        letter-spacing: 5px;
+        font-family: 'Courier New', monospace;
+        text-shadow:
+          0 0 6px rgba(255, 255, 255, 0.9),
+          0 0 14px rgba(255, 138, 184, 0.7),
+          0 0 24px rgba(255, 45, 111, 0.5);
+        animation: neonFlicker 5s linear infinite;
+      }
+    }
+  }
+
+  // 磁带主体
+  .cassette-body {
+    position: relative;
+    padding: 0.7rem 1rem 0.7rem;
+
+    // 磁带纹理背景
+    .cassette-tape-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(26, 20, 32, 0.5) 0%, rgba(15, 10, 20, 0.3) 100%);
+      pointer-events: none;
+
+      // 磁带光泽流动
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 30%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 45, 111, 0.15), transparent);
+        transform: translateX(-100%);
+        transition: transform 0.8s ease;
+        pointer-events: none;
+      }
+    }
+
+    // 音轨列表
+    .cassette-tracks {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+
+      .track-item {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.45rem 0.55rem;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, transparent 50%),
+          rgba(10, 6, 14, 0.6);
+        border: 1px solid rgba(255, 45, 111, 0.14);
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.03),
+          inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+
+        // hover 扫光带
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: -30%;
+          width: 30%;
+          background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 138, 184, 0.18) 45%,
+            rgba(255, 255, 255, 0.12) 50%,
+            rgba(255, 138, 184, 0.18) 55%,
+            transparent);
+          pointer-events: none;
+          z-index: 0;
+        }
+
+        &:hover {
+          background:
+            linear-gradient(180deg, rgba(255, 45, 111, 0.12) 0%, rgba(255, 45, 111, 0.04) 100%);
+          border-color: rgba(255, 45, 111, 0.55);
+          box-shadow:
+            0 2px 6px rgba(0, 0, 0, 0.4),
+            0 0 16px rgba(255, 45, 111, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+
+          &::before { animation: trackSweep 0.9s ease-out; }
+
+          .track-wave {
+            background-position: 0 0;
+            opacity: 1;
+          }
+
+          .track-image {
+            filter: brightness(1.2) saturate(1.2);
+            border-color: rgba(255, 45, 111, 0.65);
+            box-shadow:
+              0 1px 4px rgba(0, 0, 0, 0.5),
+              0 0 8px rgba(255, 45, 111, 0.3),
+              inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+          }
+
+          .track-name {
+            color: $magenta-soft;
+            text-shadow:
+              0 0 6px rgba(255, 138, 184, 0.6),
+              0 1px 0 rgba(0, 0, 0, 0.4);
+          }
+
+          .track-price {
+            color: #ffb3d1;
+            text-shadow:
+              0 0 6px rgba(255, 138, 184, 0.7),
+              0 0 10px rgba(255, 45, 111, 0.4),
+              0 1px 0 rgba(0, 0, 0, 0.5);
+          }
+        }
+
+        .track-no {
+          position: relative;
+          z-index: 1;
+          font-size: 0.74rem;
+          font-weight: 800;
+          color: #ff5a8f;
+          font-family: 'Courier New', monospace;
+          letter-spacing: 1px;
+          flex-shrink: 0;
+          min-width: 24px;
+          text-shadow: 0 0 5px rgba(255, 45, 111, 0.5);
+        }
+
+        // 波形装饰
+        .track-wave {
+          position: relative;
+          z-index: 1;
+          width: 20px;
+          height: 16px;
+          flex-shrink: 0;
+          background:
+            repeating-linear-gradient(90deg,
+              $magenta 0, $magenta 1.5px,
+              transparent 1.5px, transparent 3px,
+              $magenta-soft 3px, $magenta-soft 4.5px,
+              transparent 4.5px, transparent 6px);
+          background-size: 20px 100%;
+          background-position: 20px 0;
+          opacity: 0.55;
+          transition: opacity 0.3s ease;
+          animation: waveFlow 1.5s linear infinite paused;
+          border-radius: 1px;
+          filter: drop-shadow(0 0 3px rgba(255, 45, 111, 0.4));
+        }
+
+        .track-image {
+          position: relative;
+          z-index: 1;
+          width: 40px;
+          height: 40px;
+          border-radius: 4px;
+          object-fit: cover;
+          flex-shrink: 0;
+          filter: brightness(0.85) saturate(0.9);
+          transition: all 0.3s ease;
+          border: 1px solid rgba(255, 45, 111, 0.25);
+          box-shadow:
+            0 1px 3px rgba(0, 0, 0, 0.5),
+            inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+        }
+
+        .track-name {
+          position: relative;
+          z-index: 1;
+          flex: 1;
+          font-size: 1.18rem;
+          font-weight: 800;
+          color: $ice;
+          letter-spacing: 0.3px;
+          transition: all 0.25s ease;
+          text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+        }
+
+        .track-price {
+          position: relative;
+          z-index: 1;
+          font-size: 1.3rem;
+          font-weight: 900;
+          color: #ffd0e0;
+          font-family: 'Courier New', monospace;
+          text-shadow:
+            0 0 6px rgba(255, 138, 184, 0.7),
+            0 0 12px rgba(255, 45, 111, 0.5),
+            0 1px 0 rgba(0, 0, 0, 0.5);
+          flex-shrink: 0;
+          transition: all 0.25s ease;
+        }
+      }
+    }
+  }
+
+  // 底部读磁头导轨
+  .cassette-head {
+    position: relative;
+    height: 16px;
+    background:
+      // 金属导轨质感
+      linear-gradient(180deg, #050308 0%, #14101a 50%, #0a0610 100%);
+    border-top: 1px solid rgba(255, 45, 111, 0.28);
+    box-shadow:
+      inset 0 1px 2px rgba(0, 0, 0, 0.7),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.03);
+
+    .head-rail {
+      position: absolute;
+      top: 50%;
+      left: 6%;
+      right: 6%;
+      height: 2px;
+      margin-top: -1px;
+      // 双层光带：底层渐变 + 上层流动光段
+      background:
+        linear-gradient(90deg,
+          transparent 0%,
+          rgba(255, 45, 111, 0.35) 10%,
+          rgba(255, 138, 184, 0.65) 50%,
+          rgba(255, 45, 111, 0.35) 90%,
+          transparent 100%);
+      border-radius: 1px;
+      box-shadow:
+        0 0 6px rgba(255, 138, 184, 0.6),
+        0 0 12px rgba(255, 45, 111, 0.3);
+      overflow: hidden;
+
+      // 精致流动光点（替换原粗糙点阵）
+      &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 18px;
+        height: 4px;
+        margin-top: -2px;
+        border-radius: 2px;
+        background: radial-gradient(ellipse at 50% 50%,
+          rgba(255, 255, 255, 0.9) 0%,
+          rgba(255, 138, 184, 0.8) 30%,
+          rgba(255, 45, 111, 0.4) 60%,
+          transparent 100%);
+        box-shadow:
+          0 0 8px rgba(255, 138, 184, 0.9),
+          0 0 14px rgba(255, 45, 111, 0.5);
+        animation: railDotFlow 3s linear infinite;
+      }
+
+      // 导轨两端渐隐遮罩
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, #0a0610 0%, transparent 8%, transparent 92%, #0a0610 100%);
+        pointer-events: none;
+      }
+    }
+  }
+}
+
+// -- 美食路线 — 轨道离子推进器链 (Ion Thruster Track) --
+// 独立科幻视觉语言：离子推进器节点 / 离子尾焰 / 轨道数据舱 / 离子核心呼吸 / 尾焰粒子流
+// 玫瑰红色系（与 header、一日三餐统一）
+$ion: #ff2d6f;
+$ion-glow: rgba(255, 45, 111, 0.5);
+$ion-soft: #ff6b9d;
+$ion-deep: #c0185a;
+$ion-mist: rgba(255, 45, 111, 0.12);
+
+@keyframes ionPulse {
+  0%, 100% {
+    box-shadow:
+      0 0 8px $ion-glow,
+      0 0 16px rgba(255, 45, 111, 0.25),
+      inset 0 0 6px rgba(255, 107, 157, 0.4);
+  }
+  50% {
+    box-shadow:
+      0 0 14px rgba(255, 45, 111, 0.8),
+      0 0 28px rgba(255, 45, 111, 0.4),
+      inset 0 0 10px rgba(255, 107, 157, 0.7);
+  }
+}
+@keyframes ionStream {
+  0% { transform: translateY(-100%); opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translateY(100%); opacity: 0; }
+}
+@keyframes coreBreath {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.15); opacity: 1; }
+}
+@keyframes ringOrbit {
+  to { transform: rotate(360deg); }
+}
+@keyframes thrusterGlow {
+  0%, 100% { opacity: 0.5; height: 8px; }
+  50% { opacity: 0.85; height: 14px; }
+}
+

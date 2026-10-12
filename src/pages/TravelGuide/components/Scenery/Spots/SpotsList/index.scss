@@ -1,0 +1,932 @@
+// ============================================================
+// 景点卡片 — 全新视觉语言 V7（独立构思，不重复 V6 手法）
+// 5 种全新构造：各向异性 conic 反光 / 金属拉丝渐变叠加 /
+// 多层 inset 凹槽 / 切角斜面 clip-path / 镜面高光径向渐变
+// 不用警戒条/栅格/斑点/网格等纹理背景，确保文字清晰可读
+// hover 不位移，靠各向异性反光增强+金属拉丝提亮+凹槽加深
+// ============================================================
+
+$gold: #ffd700;
+$gold-bright: #ffe44d;
+$amber-bright: #fed7aa;
+$ember-bright: #ff9966;
+
+.spots-container {
+  padding: 30px;
+  padding-top: 8px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 28px;
+  position: relative;
+  z-index: 2;
+
+  // ============================================
+  // 卡片本体：金属拉丝装甲板 + 各向异性反光边框
+  // ============================================
+  .spot-card {
+    background:
+      linear-gradient(175deg, rgba(255, 220, 200, 0.04), transparent 30%),
+      linear-gradient(185deg, rgba(255, 220, 200, 0.03), transparent 25%),
+      linear-gradient(165deg, rgba(255, 220, 200, 0.05), transparent 35%),
+      linear-gradient(165deg, rgba(48, 36, 32, 0.98), rgba(6, 4, 3, 0.99));
+    border: 1px solid rgba(255, 200, 180, 0.32);
+    border-top-color: rgba(255, 220, 200, 0.5);
+    border-bottom-color: rgba(0, 0, 0, 0.6);
+    border-radius: 14px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-shadow:
+      inset 1px 1px 0 rgba(255, 220, 200, 0.18),
+      inset -1px -1px 0 rgba(0, 0, 0, 0.6),
+      inset 0 0 40px rgba(0, 0, 0, 0.55),
+      0 18px 44px rgba(0, 0, 0, 0.85),
+      0 8px 18px rgba(0, 0, 0, 0.7),
+      0 2px 5px rgba(0, 0, 0, 0.6);
+
+    // 各向异性 conic 反光边框
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 14px;
+      background: conic-gradient(
+        from 45deg,
+        rgba(255, 200, 160, 0.12),
+        rgba(255, 150, 100, 0.04),
+        rgba(255, 220, 180, 0.1),
+        rgba(255, 180, 130, 0.05),
+        rgba(255, 200, 160, 0.12)
+      );
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      padding: 1px;
+      pointer-events: none;
+      z-index: 40;
+      opacity: 0.7;
+      transition: opacity 0.4s ease;
+    }
+
+    &:hover {
+      border-color: rgba(255, 200, 180, 0.65);
+      border-top-color: rgba(255, 220, 200, 0.85);
+      box-shadow:
+        inset 1px 1px 0 rgba(255, 220, 200, 0.3),
+        inset -1px -1px 0 rgba(0, 0, 0, 0.5),
+        inset 0 0 52px rgba(0, 0, 0, 0.45),
+        0 32px 80px rgba(0, 0, 0, 0.95),
+        0 16px 36px rgba(0, 0, 0, 0.85),
+        0 4px 10px rgba(0, 0, 0, 0.7),
+        0 0 64px rgba(255, 150, 100, 0.35),
+        0 0 120px rgba(255, 120, 60, 0.15);
+      &::before { opacity: 1; }
+    }
+
+    // 四角铆钉：六角螺栓
+    .rivet {
+      position: absolute;
+      width: 14px; height: 14px; z-index: 30;
+      clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+      background:
+        linear-gradient(175deg, rgba(255, 220, 200, 0.15), transparent 40%),
+        linear-gradient(185deg, rgba(255, 220, 200, 0.1), transparent 35%),
+        radial-gradient(circle at 35% 28%, rgba(230, 210, 200, 0.98), rgba(90, 70, 60, 0.95) 55%, rgba(30, 22, 18, 1));
+      box-shadow:
+        inset 1px 1px 0 rgba(250, 230, 220, 0.5),
+        inset -1px -1px 0 rgba(0, 0, 0, 0.85),
+        inset 0 0 4px rgba(0, 0, 0, 0.7);
+      pointer-events: none;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 50%; top: 50%;
+        transform: translate(-50%, -50%);
+        width: 5px; height: 5px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 35% 35%, rgba(0, 0, 0, 0.9), rgba(20, 15, 12, 0.95));
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.9), inset 0 -1px 0 rgba(180, 160, 150, 0.3);
+      }
+      &-tl { top: 8px; left: 8px; }
+      &-tr { top: 8px; right: 8px; }
+      &-bl { bottom: 8px; left: 8px; }
+      &-br { bottom: 8px; right: 8px; }
+    }
+
+    // ============================================
+    // 图片区
+    // ============================================
+    .spot-image-wrapper {
+      position: relative;
+      overflow: hidden;
+      height: 190px;
+      box-shadow:
+        inset 0 3px 0 rgba(0, 0, 0, 0.4),
+        inset 0 -3px 0 rgba(255, 200, 180, 0.12),
+        inset 2px 0 4px rgba(0, 0, 0, 0.5),
+        inset -2px 0 4px rgba(0, 0, 0, 0.5),
+        inset 0 0 28px rgba(0, 0, 0, 0.5);
+
+      .spot-image { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+      &:hover .spot-image { transform: scale(1.06); }
+
+      // 景观类别标签：毛玻璃胶囊（Glassmorphism Pill）
+      .main-landscape-types {
+        display: flex; align-items: center; gap: 8px;
+        position: absolute; top: 14px; left: 14px; z-index: 5; flex-wrap: wrap;
+
+        .main-landscape-type {
+          padding: 7px 16px 7px 18px;
+          font-size: 12px; font-weight: 800; color: #fff;
+          letter-spacing: 0.5px;
+          border-radius: 999px;
+          background:
+            linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, transparent 40%),
+            radial-gradient(ellipse 90% 70% at 50% 0%, rgba(255, 255, 255, 0.24), transparent 60%),
+            linear-gradient(180deg, rgba(100, 180, 255, 0.3), rgba(40, 100, 180, 0.18));
+          backdrop-filter: blur(14px) saturate(1.6);
+          border: 1.5px solid rgba(180, 220, 255, 0.7);
+          box-shadow:
+            inset 0 2px 0 rgba(255, 255, 255, 0.6),
+            inset 0 -3px 0 rgba(0, 0, 0, 0.4),
+            inset 0 -1px 0 rgba(120, 200, 255, 0.2),
+            inset 0 0 12px rgba(120, 200, 255, 0.2),
+            0 6px 16px rgba(0, 0, 0, 0.7),
+            0 14px 32px rgba(0, 0, 0, 0.55),
+            0 24px 48px rgba(0, 0, 0, 0.4),
+            0 0 24px rgba(120, 200, 255, 0.55);
+          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5), 0 0 8px rgba(180, 220, 255, 0.5);
+          position: relative;
+
+          &::before {
+            content: '';
+            position: absolute;
+            left: 7px; top: 50%;
+            transform: translateY(-50%);
+            width: 5px; height: 5px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 35%, #e8f4ff, #4488cc);
+            box-shadow: 0 0 10px rgba(120, 200, 255, 1), inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 -1px 0 rgba(0, 0, 0, 0.4);
+          }
+        }
+      }
+
+      // 评分：悬浮圆角卡（Floating Glass Card）
+      .spot-rating {
+        display: flex; align-items: center; gap: 5px;
+        position: absolute; top: 14px; right: 14px; z-index: 6;
+        padding: 9px 16px;
+        border-radius: 14px;
+        background:
+          linear-gradient(140deg, rgba(255, 255, 255, 0.16) 0%, transparent 35%),
+          radial-gradient(ellipse 80% 50% at 50% 0%, rgba(255, 220, 120, 0.16), transparent 60%),
+          linear-gradient(180deg, rgba(35, 25, 10, 0.78), rgba(18, 12, 5, 0.92));
+        backdrop-filter: blur(16px) saturate(1.5);
+        border: 1.5px solid rgba(255, 200, 80, 0.48);
+        box-shadow:
+          inset 0 3px 0 rgba(255, 255, 255, 0.25),
+          inset 0 -3px 0 rgba(0, 0, 0, 0.45),
+          inset 0 -1px 0 rgba(255, 200, 80, 0.15),
+          inset 0 0 14px rgba(255, 180, 50, 0.12),
+          0 8px 20px rgba(0, 0, 0, 0.7),
+          0 18px 44px rgba(0, 0, 0, 0.6),
+          0 28px 60px rgba(0, 0, 0, 0.45),
+          0 0 30px rgba(255, 180, 50, 0.32);
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0; left: 16px; right: 16px;
+          height: 2px;
+          background: linear-gradient(90deg, transparent, rgba(255, 220, 120, 0.9), transparent);
+        }
+
+        .rating-icon {
+          display: flex;
+          color: $gold;
+          filter: drop-shadow(0 0 10px rgba(255, 215, 0, 1));
+        }
+        .rating-value {
+          font-size: 16px; font-weight: 900;
+          color: $gold-bright;
+          text-shadow: 0 0 14px rgba(255, 215, 0, 0.95), 0 1px 2px rgba(0, 0, 0, 0.8);
+          font-family: 'Courier New', monospace;
+          letter-spacing: 0.5px;
+        }
+        .review-count {
+          font-size: 11px; color: rgba(255, 215, 140, 0.85); font-weight: 700;
+          font-family: 'Courier New', monospace;
+        }
+      }
+
+      // 门票价格：右下角紧凑贴片
+      .spot-ticket-badge {
+        position: absolute; bottom: 12px; right: 12px; z-index: 6;
+        display: flex; align-items: center; gap: 5px;
+        padding: 5px 12px;
+        border-radius: 8px;
+        background: linear-gradient(145deg, rgba(80, 55, 28, 0.92), rgba(40, 26, 12, 0.95));
+        border: 1px solid rgba(255, 180, 100, 0.3);
+        box-shadow:
+          3px 3px 8px rgba(0, 0, 0, 0.7),
+          inset 1px 1px 2px rgba(255, 210, 160, 0.2),
+          inset -1px -1px 3px rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(4px);
+
+        .ticket-label {
+          font-size: 10px; color: rgba(255, 200, 160, 0.8);
+          font-weight: 700; letter-spacing: 1px;
+        }
+        .ticket-value {
+          font-size: 14px; font-weight: 900; color: #ffd0a0;
+          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+          letter-spacing: 0.5px;
+          font-family: 'Courier New', monospace;
+        }
+      }
+
+      // 地貌标签：丝带吊牌（Ribbon Price Tag）
+      .sub-landscape-types {
+        display: flex; align-items: center; gap: 10px;
+        position: absolute; bottom: 14px; left: 14px; z-index: 3; flex-wrap: wrap;
+
+        .landscape-type-tag {
+          padding: 7px 18px 7px 14px;
+          font-size: 12px; font-weight: 800; color: #fff;
+          clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%);
+          background:
+            linear-gradient(160deg, rgba(200, 255, 230, 0.24) 0%, transparent 35%),
+            linear-gradient(160deg, rgba(30, 90, 55, 0.95), rgba(12, 50, 30, 0.98));
+          box-shadow:
+            inset 0 0 0 1px rgba(180, 255, 220, 0.4),
+            inset 0 3px 0 rgba(180, 255, 220, 0.45),
+            inset 1px 0 0 rgba(180, 255, 220, 0.3),
+            inset 0 -4px 0 rgba(0, 0, 0, 0.55),
+            inset 0 -1px 0 rgba(80, 255, 180, 0.15);
+          filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.8)) drop-shadow(0 16px 32px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 16px rgba(80, 255, 180, 0.35));
+          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+          position: relative;
+
+          &::before {
+            content: '';
+            position: absolute;
+            left: 6px; top: 50%;
+            transform: translateY(-50%);
+            width: 4px; height: 4px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 35%, #e0fff0, #338866);
+            box-shadow: 0 0 8px rgba(80, 255, 180, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.7), inset 0 -1px 0 rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 60, 40, 0.6);
+          }
+        }
+      }
+    }
+
+    // ============================================
+    // 内容区
+    // ============================================
+    .spot-content {
+      padding: 16px 20px 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+
+      .spot-header {
+        display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;
+
+        .spot-name-wrapper { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .spot-name {
+          font-size: 20px; font-weight: 800; color: #fff; margin: 0;
+          letter-spacing: 0.5px;
+          text-shadow:
+            0 1px 0 rgba(0, 0, 0, 0.9),
+            0 2px 4px rgba(0, 0, 0, 0.8),
+            0 0 18px rgba(255, 200, 150, 0.3);
+
+          :deep(.search-highlight) {
+            color: #fed7aa;
+            background: rgba(255, 180, 80, 0.18);
+            border-radius: 2px;
+            padding: 0 2px;
+            text-shadow: 0 0 8px rgba(255, 200, 100, 0.6);
+          }
+        }
+
+        // 排名徽章：立体圆角金徽章（球体光照 + 多层阴影落差）
+        .rank-badge {
+          display: inline-block;
+          padding: 6px 14px;
+          border-radius: 8px;
+          font-size: 11px; font-weight: 800;
+          color: $gold-bright;
+          background:
+            radial-gradient(circle at 32% 26%, rgba(255, 240, 160, 0.5), transparent 50%),
+            radial-gradient(circle at 68% 78%, rgba(40, 25, 3, 0.92), rgba(70, 45, 8, 0.82) 60%, rgba(100, 65, 12, 0.7));
+          border: 1.5px solid rgba(255, 200, 50, 0.6);
+          box-shadow:
+            inset 0 2px 4px rgba(255, 255, 255, 0.3),
+            inset 0 -3px 6px rgba(0, 0, 0, 0.65),
+            inset 0 0 12px rgba(255, 200, 50, 0.25),
+            0 4px 10px rgba(0, 0, 0, 0.7),
+            0 10px 22px rgba(0, 0, 0, 0.45),
+            0 0 16px rgba(255, 200, 50, 0.4);
+          white-space: nowrap;
+          letter-spacing: 1px;
+          text-shadow: 0 0 12px rgba(255, 215, 0, 0.85), 0 1px 1px rgba(0, 0, 0, 0.7);
+          position: relative;
+
+          &::before {
+            content: '';
+            position: absolute;
+            top: 2px; left: 25%;
+            width: 50%; height: 30%;
+            border-radius: 50%;
+            background: radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.5), transparent 70%);
+            pointer-events: none;
+          }
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: 1px; left: 15%; right: 15%;
+            height: 2px;
+            border-radius: 50%;
+            background: rgba(255, 215, 0, 0.5);
+            box-shadow: 0 0 6px rgba(255, 215, 0, 0.6);
+            pointer-events: none;
+          }
+        }
+
+        // 点赞/收藏/分享：立体宝石球钮（3D球体光照 + 深底 + 亮icon反差）
+        .spot-actions {
+          display: flex; gap: 8px;
+
+          .action-btn {
+            display: flex; align-items: center; justify-content: center;
+            width: 38px; height: 38px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+
+            .action-count {
+              position: absolute;
+              bottom: -3px; right: -3px;
+              font-size: 9px; font-weight: 800;
+              color: #fff;
+              background: rgba(0, 0, 0, 0.9);
+              border-radius: 999px;
+              padding: 1px 5px;
+              min-width: 16px; text-align: center;
+              box-shadow: 0 1px 3px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+              z-index: 2;
+            }
+
+            // 球体顶部高光斑（ specular highlight）
+            &::before {
+              content: '';
+              position: absolute;
+              top: 3px; left: 30%;
+              width: 45%; height: 30%;
+              border-radius: 50%;
+              background: radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.6), transparent 70%);
+              pointer-events: none;
+              z-index: 1;
+            }
+
+            // 球体底部环境反射光弧
+            &::after {
+              content: '';
+              position: absolute;
+              bottom: 2px; left: 50%;
+              transform: translateX(-50%);
+              width: 60%; height: 3px;
+              border-radius: 50%;
+              pointer-events: none;
+            }
+
+            // 点赞 — 橙红宝石球
+            &.like-btn {
+              color: #ff9a6a;
+              background:
+                radial-gradient(circle at 32% 26%, rgba(255, 170, 110, 0.55), transparent 48%),
+                radial-gradient(circle at 68% 78%, rgba(30, 10, 5, 0.95), rgba(50, 18, 10, 0.85) 60%, rgba(80, 30, 15, 0.7));
+              border: 2px solid rgba(255, 100, 50, 0.62);
+              box-shadow:
+                inset 0 3px 5px rgba(255, 255, 255, 0.32),
+                inset 0 -5px 9px rgba(0, 0, 0, 0.72),
+                inset 0 0 14px rgba(255, 100, 50, 0.25),
+                0 5px 12px rgba(0, 0, 0, 0.7),
+                0 12px 24px rgba(0, 0, 0, 0.5),
+                0 0 16px rgba(255, 100, 50, 0.4);
+              &::after { background: rgba(255, 120, 60, 0.6); box-shadow: 0 0 8px rgba(255, 120, 60, 0.7); }
+              svg { filter: drop-shadow(0 0 5px rgba(255, 150, 90, 0.95)) drop-shadow(0 0 10px rgba(255, 100, 50, 0.5)); }
+              &:hover {
+                color: #ffb88a;
+                border-color: rgba(255, 140, 80, 0.9);
+                background:
+                  radial-gradient(circle at 32% 26%, rgba(255, 200, 140, 0.7), transparent 52%),
+                  radial-gradient(circle at 68% 78%, rgba(30, 10, 5, 0.9), rgba(60, 22, 12, 0.85) 60%, rgba(100, 40, 20, 0.7));
+                box-shadow:
+                  inset 0 3px 5px rgba(255, 255, 255, 0.42),
+                  inset 0 -5px 9px rgba(0, 0, 0, 0.62),
+                  inset 0 0 18px rgba(255, 100, 50, 0.4),
+                  0 7px 18px rgba(0, 0, 0, 0.7),
+                  0 16px 36px rgba(0, 0, 0, 0.55),
+                  0 0 30px rgba(255, 110, 60, 0.8);
+                svg { filter: drop-shadow(0 0 7px rgba(255, 180, 110, 1)) drop-shadow(0 0 14px rgba(255, 120, 60, 0.7)); }
+              }
+              &:active {
+                background:
+                  radial-gradient(circle at 32% 26%, rgba(255, 150, 100, 0.4), transparent 45%),
+                  radial-gradient(circle at 68% 78%, rgba(15, 5, 2, 0.98), rgba(35, 12, 6, 0.9) 60%, rgba(60, 22, 10, 0.75));
+                border-color: rgba(255, 90, 40, 0.55);
+                box-shadow:
+                  inset 0 4px 8px rgba(0, 0, 0, 0.75),
+                  inset 0 -2px 4px rgba(255, 100, 50, 0.2),
+                  inset 0 0 10px rgba(255, 80, 40, 0.3),
+                  0 2px 5px rgba(0, 0, 0, 0.6),
+                  0 0 10px rgba(255, 100, 50, 0.3);
+                svg { filter: drop-shadow(0 0 3px rgba(255, 130, 80, 0.8)); }
+              }
+            }
+
+            // 收藏 — 金黄宝石球
+            &.favor-btn {
+              color: #ffe84d;
+              background:
+                radial-gradient(circle at 32% 26%, rgba(255, 240, 180, 0.55), transparent 48%),
+                radial-gradient(circle at 68% 78%, rgba(28, 20, 3, 0.95), rgba(48, 36, 5, 0.85) 60%, rgba(75, 58, 8, 0.7));
+              border: 2px solid rgba(255, 200, 30, 0.62);
+              box-shadow:
+                inset 0 3px 5px rgba(255, 255, 255, 0.32),
+                inset 0 -5px 9px rgba(0, 0, 0, 0.72),
+                inset 0 0 14px rgba(255, 200, 30, 0.25),
+                0 5px 12px rgba(0, 0, 0, 0.7),
+                0 12px 24px rgba(0, 0, 0, 0.5),
+                0 0 16px rgba(255, 200, 30, 0.4);
+              &::after { background: rgba(255, 220, 50, 0.6); box-shadow: 0 0 8px rgba(255, 220, 50, 0.7); }
+              svg { filter: drop-shadow(0 0 5px rgba(255, 230, 80, 0.95)) drop-shadow(0 0 10px rgba(255, 200, 30, 0.5)); }
+              &:hover {
+                color: #fff070;
+                border-color: rgba(255, 220, 50, 0.9);
+                background:
+                  radial-gradient(circle at 32% 26%, rgba(255, 250, 200, 0.7), transparent 52%),
+                  radial-gradient(circle at 68% 78%, rgba(28, 20, 3, 0.9), rgba(58, 44, 6, 0.85) 60%, rgba(95, 72, 10, 0.7));
+                box-shadow:
+                  inset 0 3px 5px rgba(255, 255, 255, 0.42),
+                  inset 0 -5px 9px rgba(0, 0, 0, 0.62),
+                  inset 0 0 18px rgba(255, 200, 30, 0.4),
+                  0 7px 18px rgba(0, 0, 0, 0.7),
+                  0 16px 36px rgba(0, 0, 0, 0.55),
+                  0 0 30px rgba(255, 220, 50, 0.8);
+                svg { filter: drop-shadow(0 0 7px rgba(255, 240, 100, 1)) drop-shadow(0 0 14px rgba(255, 220, 50, 0.7)); }
+              }
+              &:active {
+                background:
+                  radial-gradient(circle at 32% 26%, rgba(255, 230, 160, 0.4), transparent 45%),
+                  radial-gradient(circle at 68% 78%, rgba(14, 10, 1, 0.98), rgba(32, 24, 3, 0.9) 60%, rgba(55, 42, 6, 0.75));
+                border-color: rgba(255, 190, 20, 0.55);
+                box-shadow:
+                  inset 0 4px 8px rgba(0, 0, 0, 0.75),
+                  inset 0 -2px 4px rgba(255, 200, 30, 0.2),
+                  inset 0 0 10px rgba(255, 180, 20, 0.3),
+                  0 2px 5px rgba(0, 0, 0, 0.6),
+                  0 0 10px rgba(255, 200, 30, 0.3);
+                svg { filter: drop-shadow(0 0 3px rgba(255, 220, 60, 0.8)); }
+              }
+            }
+
+            // 分享 — 青蓝宝石球
+            &.share-btn {
+              color: #5de8ff;
+              background:
+                radial-gradient(circle at 32% 26%, rgba(180, 245, 255, 0.55), transparent 48%),
+                radial-gradient(circle at 68% 78%, rgba(5, 22, 35, 0.95), rgba(10, 35, 55, 0.85) 60%, rgba(15, 50, 75, 0.7));
+              border: 2px solid rgba(40, 200, 255, 0.62);
+              box-shadow:
+                inset 0 3px 5px rgba(255, 255, 255, 0.32),
+                inset 0 -5px 9px rgba(0, 0, 0, 0.72),
+                inset 0 0 14px rgba(40, 200, 255, 0.25),
+                0 5px 12px rgba(0, 0, 0, 0.7),
+                0 12px 24px rgba(0, 0, 0, 0.5),
+                0 0 16px rgba(40, 200, 255, 0.4);
+              &::after { background: rgba(60, 220, 255, 0.6); box-shadow: 0 0 8px rgba(60, 220, 255, 0.7); }
+              svg { filter: drop-shadow(0 0 5px rgba(80, 230, 255, 0.95)) drop-shadow(0 0 10px rgba(40, 200, 255, 0.5)); }
+              &:hover {
+                color: #8af0ff;
+                border-color: rgba(60, 220, 255, 0.9);
+                background:
+                  radial-gradient(circle at 32% 26%, rgba(200, 250, 255, 0.7), transparent 52%),
+                  radial-gradient(circle at 68% 78%, rgba(5, 22, 35, 0.9), rgba(12, 42, 65, 0.85) 60%, rgba(20, 60, 90, 0.7));
+                box-shadow:
+                  inset 0 3px 5px rgba(255, 255, 255, 0.42),
+                  inset 0 -5px 9px rgba(0, 0, 0, 0.62),
+                  inset 0 0 18px rgba(40, 200, 255, 0.4),
+                  0 7px 18px rgba(0, 0, 0, 0.7),
+                  0 16px 36px rgba(0, 0, 0, 0.55),
+                  0 0 30px rgba(50, 210, 255, 0.8);
+                svg { filter: drop-shadow(0 0 7px rgba(100, 240, 255, 1)) drop-shadow(0 0 14px rgba(60, 220, 255, 0.7)); }
+              }
+              &:active {
+                background:
+                  radial-gradient(circle at 32% 26%, rgba(160, 235, 250, 0.4), transparent 45%),
+                  radial-gradient(circle at 68% 78%, rgba(2, 12, 20, 0.98), rgba(7, 25, 40, 0.9) 60%, rgba(12, 38, 58, 0.75));
+                border-color: rgba(30, 180, 230, 0.55);
+                box-shadow:
+                  inset 0 4px 8px rgba(0, 0, 0, 0.75),
+                  inset 0 -2px 4px rgba(40, 200, 255, 0.2),
+                  inset 0 0 10px rgba(30, 180, 230, 0.3),
+                  0 2px 5px rgba(0, 0, 0, 0.6),
+                  0 0 10px rgba(40, 200, 255, 0.3);
+                svg { filter: drop-shadow(0 0 3px rgba(60, 220, 255, 0.8)); }
+              }
+            }
+          }
+        }
+      }
+
+      // 宣传语：立体圆角全息条（球体光照 + 左侧发射端 + 底部反射光）
+      .spot-highlight {
+        color: $amber-bright;
+        font-size: 14px; font-weight: 700; font-style: italic;
+        margin-bottom: 8px;
+        padding: 8px 14px 10px;
+        border-radius: 10px;
+        background:
+          radial-gradient(circle at 30% 25%, rgba(255, 200, 100, 0.35), transparent 55%),
+          radial-gradient(circle at 70% 80%, rgba(20, 10, 3, 0.88), rgba(35, 18, 6, 0.78) 60%, rgba(50, 28, 10, 0.65));
+        border: 1.5px solid rgba(255, 160, 60, 0.5);
+        box-shadow:
+          inset 0 2px 4px rgba(255, 255, 255, 0.22),
+          inset 0 -3px 6px rgba(0, 0, 0, 0.6),
+          inset 0 0 14px rgba(255, 160, 60, 0.18),
+          0 4px 10px rgba(0, 0, 0, 0.6),
+          0 10px 22px rgba(0, 0, 0, 0.4),
+          0 0 18px rgba(255, 160, 60, 0.25);
+        line-height: 1.5;
+        text-shadow: 0 0 14px rgba(255, 180, 100, 0.85), 0 1px 2px rgba(0, 0, 0, 0.7);
+        white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        position: relative;
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 5px; top: 50%;
+          transform: translateY(-50%);
+          width: 3px; height: 10px;
+          border-radius: 1.5px;
+          background: linear-gradient(180deg, rgba(255, 220, 140, 0.95), rgba(255, 160, 60, 0.65));
+          box-shadow: 0 0 8px rgba(255, 180, 80, 0.95), inset 0 1px 0 rgba(255, 240, 200, 0.7);
+          pointer-events: none;
+        }
+        &::after {
+          content: '';
+          position: absolute;
+          left: 14px; right: 14px; bottom: 1px;
+          height: 2px;
+          border-radius: 50%;
+          background: rgba(255, 180, 80, 0.45);
+          box-shadow: 0 0 6px rgba(255, 180, 80, 0.5);
+          pointer-events: none;
+        }
+      }
+
+      // 描述（两行截断）
+      .spot-description {
+        color: rgba(255, 240, 230, 0.85);
+        font-size: 13px; line-height: 1.6; margin-bottom: 14px;
+        text-shadow: 0 1px 0 rgba(0, 0, 0, 0.6), 0 1px 2px rgba(0, 0, 0, 0.5);
+        display: -webkit-box;
+        -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      // 位置信息：3D 圆角水晶胶囊（全圆角 + 立体凸起 + 顶部高光 + 发光圆点）
+      .spot-meta {
+        display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap;
+
+        .meta-item {
+          display: flex; align-items: center; gap: 5px;
+          color: rgba(220, 255, 240, 0.95);
+          font-size: 12px; font-weight: 700;
+          padding: 7px 14px 7px 16px;
+          border-radius: 999px;
+          background:
+            linear-gradient(180deg, rgba(180, 255, 220, 0.15) 0%, transparent 40%),
+            linear-gradient(180deg, rgba(40, 80, 55, 0.95), rgba(20, 50, 35, 0.98));
+          border: 1px solid rgba(80, 255, 180, 0.35);
+          transition: all 0.3s ease;
+          box-shadow:
+            inset 0 1px 0 rgba(200, 255, 230, 0.4),
+            inset 0 -2px 3px rgba(0, 0, 0, 0.35),
+            inset 0 0 8px rgba(80, 255, 180, 0.08),
+            0 3px 8px rgba(0, 0, 0, 0.6),
+            0 8px 18px rgba(0, 0, 0, 0.35),
+            0 0 12px rgba(80, 255, 180, 0.12);
+          position: relative;
+          letter-spacing: 0.3px;
+
+          // 左侧发光圆点
+          &::before {
+            content: '';
+            position: absolute;
+            left: 6px; top: 50%;
+            transform: translateY(-50%);
+            width: 5px; height: 5px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 35%, rgba(200, 255, 230, 0.95), rgba(40, 120, 80, 0.9));
+            box-shadow:
+              inset 0 1px 0 rgba(255, 255, 255, 0.4),
+              0 0 6px rgba(80, 255, 180, 0.6);
+          }
+
+          &:hover {
+            border-color: rgba(100, 255, 200, 0.55);
+            box-shadow:
+              inset 0 1px 0 rgba(220, 255, 240, 0.5),
+              inset 0 -2px 3px rgba(0, 0, 0, 0.3),
+              inset 0 0 12px rgba(80, 255, 180, 0.15),
+              0 4px 12px rgba(0, 0, 0, 0.6),
+              0 12px 26px rgba(0, 0, 0, 0.4),
+              0 0 20px rgba(80, 255, 180, 0.3);
+          }
+
+          svg {
+            width: 13px; height: 13px;
+            color: rgba(160, 255, 210, 1);
+            flex-shrink: 0;
+            margin-left: 4px;
+            filter: drop-shadow(0 0 4px rgba(80, 255, 180, 0.8));
+          }
+        }
+      }
+
+
+      // 特色标签：粗野主义多层硬阴影（2px 粗边框 + 3px 实色偏移硬阴影 + 斜光照渐变）
+      .spot-tags {
+        display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 14px;
+
+        .tag-item {
+          display: inline-block;
+          padding: 6px 14px;
+          font-size: 11px; font-weight: 900; letter-spacing: 0.5px;
+          transition: transform 0.15s ease, box-shadow 0.15s ease;
+          cursor: pointer;
+          text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.6);
+          border-radius: 3px;
+          text-transform: uppercase;
+          position: relative;
+
+          // 青蓝
+          &.tag-0 {
+            color: #e8f4ff;
+            background: linear-gradient(135deg, #1e5a8e 0%, #0d3a5f 50%, #082845 100%);
+            border: 2px solid #4a9fd4;
+            box-shadow: 3px 3px 0 #0a2238, 6px 6px 0 #4a9fd4;
+            &:hover {
+              transform: translate(-2px, -2px);
+              box-shadow: 5px 5px 0 #0a2238, 10px 10px 0 #4a9fd4;
+            }
+            &:active {
+              transform: translate(3px, 3px);
+              box-shadow: 0 0 0 #0a2238, 0 0 0 #4a9fd4;
+            }
+          }
+
+          // 翠绿
+          &.tag-1 {
+            color: #e8ffe8;
+            background: linear-gradient(135deg, #1a7a3a 0%, #0d5024 50%, #083818 100%);
+            border: 2px solid #3acc6a;
+            box-shadow: 3px 3px 0 #062812, 6px 6px 0 #3acc6a;
+            &:hover {
+              transform: translate(-2px, -2px);
+              box-shadow: 5px 5px 0 #062812, 10px 10px 0 #3acc6a;
+            }
+            &:active {
+              transform: translate(3px, 3px);
+              box-shadow: 0 0 0 #062812, 0 0 0 #3acc6a;
+            }
+          }
+
+          // 暖橙
+          &.tag-2 {
+            color: #fff0e0;
+            background: linear-gradient(135deg, #b85a1e 0%, #8e3e0d 50%, #5e2808 100%);
+            border: 2px solid #f08a3a;
+            box-shadow: 3px 3px 0 #381804, 6px 6px 0 #f08a3a;
+            &:hover {
+              transform: translate(-2px, -2px);
+              box-shadow: 5px 5px 0 #381804, 10px 10px 0 #f08a3a;
+            }
+            &:active {
+              transform: translate(3px, 3px);
+              box-shadow: 0 0 0 #381804, 0 0 0 #f08a3a;
+            }
+          }
+        }
+      }
+
+      // 底部操作栏：玻璃珠按钮组（icon + 文字，可换行 2 行）
+      .card-action-bar {
+        margin-top: auto;
+        padding-top: 12px;
+        border-top: 1px solid rgba(255, 200, 180, 0.16);
+
+        .action-group {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 6px;
+          justify-content: center;
+        }
+
+        .bead-btn {
+          display: flex;
+          align-items: center;
+          gap: 4px;
+          padding: 6px 11px;
+          border-radius: 18px;
+          font-size: 12px;
+          font-weight: 800;
+          cursor: pointer;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          position: relative;
+          letter-spacing: 0.03em;
+          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+          overflow: hidden;
+
+          // 顶部高光斑（自然态显示，hover 变扫描线，active 隐藏）
+          &::before {
+            content: '';
+            position: absolute;
+            top: 2px; left: 15%;
+            width: 70%; height: 35%;
+            border-radius: 50%;
+            background: radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.35), transparent 70%);
+            pointer-events: none;
+            z-index: 1;
+            transition: all 0.3s ease;
+          }
+
+          // 底部锚条（active 态显示）
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 100%; height: 0;
+            transition: height 0.3s ease;
+            pointer-events: none;
+          }
+
+          // ===== 点赞 — 橙红 =====
+          &.bead-like {
+            color: #ff9a6a;
+            background: radial-gradient(circle at 35% 30%, rgba(255, 130, 70, 0.35) 0%, rgba(80, 20, 5, 0.9) 70%, rgba(40, 10, 3, 1) 100%);
+            border: 1.5px solid rgba(255, 100, 50, 0.55);
+            box-shadow: inset 0 1px 0 rgba(255, 200, 150, 0.2), inset 0 -2px 4px rgba(0, 0, 0, 0.5), 0 2px 5px rgba(0, 0, 0, 0.4);
+
+            // hover = 霓虹描边觉醒（暗芯+亮框+外发光）
+            &:hover {
+              color: #ffd0a8;
+              background: radial-gradient(circle at 35% 30%, rgba(255, 100, 50, 0.12) 0%, rgba(50, 12, 3, 0.95) 70%, rgba(25, 6, 2, 1) 100%);
+              border: 2px solid #ff7a3a;
+              box-shadow: 0 0 0 1px rgba(255, 120, 60, 0.3), 0 0 14px rgba(255, 100, 50, 0.55), 0 0 28px rgba(255, 80, 30, 0.25), inset 0 0 10px rgba(0, 0, 0, 0.4);
+              &::before { top: 0; left: 0; width: 100%; height: 2px; border-radius: 0; background: linear-gradient(90deg, transparent, #ff8a4a, transparent); }
+            }
+
+            // active = 实体印章（实心平涂+内凹压印+变方+底锚）
+            &.active {
+              color: #fff5e8;
+              background: #c84820;
+              border: 3px solid rgba(255, 220, 200, 0.85);
+              border-radius: 6px;
+              box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.45), inset 0 -2px 3px rgba(255, 180, 140, 0.2), 0 2px 4px rgba(0, 0, 0, 0.5);
+              text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+              &::before { opacity: 0; }
+              &::after { height: 3px; background: #ff7a3a; box-shadow: 0 0 6px rgba(255, 100, 50, 0.5); }
+              &:hover {
+                background: #d85228;
+                box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.4), inset 0 -2px 3px rgba(255, 190, 150, 0.25), 0 0 18px rgba(255, 100, 50, 0.4), 0 2px 4px rgba(0, 0, 0, 0.5);
+              }
+            }
+          }
+
+          // ===== 想去 — 玫红 =====
+          &.bead-want {
+            color: #fb7185;
+            background: radial-gradient(circle at 35% 30%, rgba(251, 113, 133, 0.35) 0%, rgba(70, 20, 35, 0.9) 70%, rgba(35, 10, 18, 1) 100%);
+            border: 1.5px solid rgba(244, 63, 94, 0.55);
+            box-shadow: inset 0 1px 0 rgba(254, 205, 211, 0.2), inset 0 -2px 4px rgba(0, 0, 0, 0.5), 0 2px 5px rgba(0, 0, 0, 0.4);
+
+            &:hover {
+              color: #ffc4d4;
+              background: radial-gradient(circle at 35% 30%, rgba(244, 63, 94, 0.12) 0%, rgba(45, 12, 22, 0.95) 70%, rgba(22, 6, 11, 1) 100%);
+              border: 2px solid #f75572;
+              box-shadow: 0 0 0 1px rgba(244, 80, 110, 0.3), 0 0 14px rgba(244, 63, 94, 0.55), 0 0 28px rgba(220, 50, 80, 0.25), inset 0 0 10px rgba(0, 0, 0, 0.4);
+              &::before { top: 0; left: 0; width: 100%; height: 2px; border-radius: 0; background: linear-gradient(90deg, transparent, #f75572, transparent); }
+            }
+
+            &.active {
+              color: #fff0f4;
+              background: #c01e3a;
+              border: 3px solid rgba(255, 210, 220, 0.85);
+              border-radius: 6px;
+              box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.45), inset 0 -2px 3px rgba(255, 180, 200, 0.2), 0 2px 4px rgba(0, 0, 0, 0.5);
+              text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+              &::before { opacity: 0; }
+              &::after { height: 3px; background: #f75572; box-shadow: 0 0 6px rgba(244, 63, 94, 0.5); }
+              &:hover {
+                background: #d0284a;
+                box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.4), inset 0 -2px 3px rgba(255, 190, 210, 0.25), 0 0 18px rgba(244, 63, 94, 0.4), 0 2px 4px rgba(0, 0, 0, 0.5);
+              }
+            }
+          }
+
+          // ===== 分享 — 青蓝 =====
+          &.bead-share {
+            color: #5de8ff;
+            background: radial-gradient(circle at 35% 30%, rgba(93, 232, 255, 0.35) 0%, rgba(8, 28, 40, 0.9) 70%, rgba(4, 14, 20, 1) 100%);
+            border: 1.5px solid rgba(40, 200, 255, 0.55);
+            box-shadow: inset 0 1px 0 rgba(180, 240, 255, 0.2), inset 0 -2px 4px rgba(0, 0, 0, 0.5), 0 2px 5px rgba(0, 0, 0, 0.4);
+
+            &:hover {
+              color: #b0f6ff;
+              background: radial-gradient(circle at 35% 30%, rgba(40, 200, 255, 0.12) 0%, rgba(5, 18, 26, 0.95) 70%, rgba(2, 9, 13, 1) 100%);
+              border: 2px solid #3dd8ff;
+              box-shadow: 0 0 0 1px rgba(50, 215, 255, 0.3), 0 0 14px rgba(40, 200, 255, 0.55), 0 0 28px rgba(30, 180, 230, 0.25), inset 0 0 10px rgba(0, 0, 0, 0.4);
+              &::before { top: 0; left: 0; width: 100%; height: 2px; border-radius: 0; background: linear-gradient(90deg, transparent, #3dd8ff, transparent); }
+            }
+          }
+
+          // ===== 去过 — 翠绿 =====
+          &.bead-been {
+            color: #34d399;
+            background: radial-gradient(circle at 35% 30%, rgba(52, 211, 153, 0.35) 0%, rgba(12, 35, 22, 0.9) 70%, rgba(6, 18, 12, 1) 100%);
+            border: 1.5px solid rgba(16, 185, 129, 0.55);
+            box-shadow: inset 0 1px 0 rgba(167, 243, 208, 0.2), inset 0 -2px 4px rgba(0, 0, 0, 0.5), 0 2px 5px rgba(0, 0, 0, 0.4);
+
+            &:hover {
+              color: #90eeb8;
+              background: radial-gradient(circle at 35% 30%, rgba(16, 185, 129, 0.12) 0%, rgba(8, 22, 14, 0.95) 70%, rgba(4, 11, 7, 1) 100%);
+              border: 2px solid #28c88a;
+              box-shadow: 0 0 0 1px rgba(30, 200, 140, 0.3), 0 0 14px rgba(16, 185, 129, 0.55), 0 0 28px rgba(10, 165, 115, 0.25), inset 0 0 10px rgba(0, 0, 0, 0.4);
+              &::before { top: 0; left: 0; width: 100%; height: 2px; border-radius: 0; background: linear-gradient(90deg, transparent, #28c88a, transparent); }
+            }
+
+            &.active {
+              color: #f0fff8;
+              background: #0a7a4a;
+              border: 3px solid rgba(200, 250, 220, 0.85);
+              border-radius: 6px;
+              box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.45), inset 0 -2px 3px rgba(180, 255, 220, 0.2), 0 2px 4px rgba(0, 0, 0, 0.5);
+              text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+              &::before { opacity: 0; }
+              &::after { height: 3px; background: #28c88a; box-shadow: 0 0 6px rgba(16, 185, 129, 0.5); }
+              &:hover {
+                background: #0c8a55;
+                box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.4), inset 0 -2px 3px rgba(190, 255, 230, 0.25), 0 0 18px rgba(16, 185, 129, 0.4), 0 2px 4px rgba(0, 0, 0, 0.5);
+              }
+            }
+          }
+
+          // ===== 导航 — 蓝色 =====
+          &.bead-nav {
+            color: #a8d8ff;
+            background: radial-gradient(circle at 35% 30%, rgba(168, 216, 255, 0.35) 0%, rgba(10, 31, 42, 0.9) 70%, rgba(5, 16, 21, 1) 100%);
+            border: 1.5px solid rgba(120, 200, 255, 0.55);
+            box-shadow: inset 0 1px 0 rgba(200, 230, 255, 0.2), inset 0 -2px 4px rgba(0, 0, 0, 0.5), 0 2px 5px rgba(0, 0, 0, 0.4);
+
+            &:hover {
+              color: #d8ecff;
+              background: radial-gradient(circle at 35% 30%, rgba(120, 200, 255, 0.12) 0%, rgba(6, 20, 26, 0.95) 70%, rgba(3, 10, 13, 1) 100%);
+              border: 2px solid #88c4ff;
+              box-shadow: 0 0 0 1px rgba(130, 210, 255, 0.3), 0 0 14px rgba(120, 200, 255, 0.5), 0 0 28px rgba(100, 180, 235, 0.22), inset 0 0 10px rgba(0, 0, 0, 0.4);
+              &::before { top: 0; left: 0; width: 100%; height: 2px; border-radius: 0; background: linear-gradient(90deg, transparent, #88c4ff, transparent); }
+            }
+          }
+
+          // ===== 详情 — 银白 =====
+          &.bead-detail {
+            color: #e0e8f0;
+            background: radial-gradient(circle at 35% 30%, rgba(224, 232, 240, 0.3) 0%, rgba(26, 31, 40, 0.9) 70%, rgba(13, 16, 20, 1) 100%);
+            border: 1.5px solid rgba(190, 205, 225, 0.5);
+            box-shadow: inset 0 1px 0 rgba(240, 245, 255, 0.2), inset 0 -2px 4px rgba(0, 0, 0, 0.5), 0 2px 5px rgba(0, 0, 0, 0.4);
+
+            &:hover {
+              color: #f8fbff;
+              background: radial-gradient(circle at 35% 30%, rgba(190, 205, 225, 0.1) 0%, rgba(18, 22, 28, 0.95) 70%, rgba(9, 11, 14, 1) 100%);
+              border: 2px solid #b8cce8;
+              box-shadow: 0 0 0 1px rgba(200, 215, 235, 0.25), 0 0 14px rgba(190, 205, 225, 0.4), 0 0 28px rgba(170, 185, 210, 0.18), inset 0 0 10px rgba(0, 0, 0, 0.4);
+              &::before { top: 0; left: 0; width: 100%; height: 2px; border-radius: 0; background: linear-gradient(90deg, transparent, #c0d4ec, transparent); }
+            }
+          }
+        }
+      }
+
+    }
+
+  }
+}

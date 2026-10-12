@@ -8,40 +8,47 @@
 
       <Categories :all-foods="allFoods" />
 
-      <Ranking :popular-foods="popularFoods" :all-foods="allFoods" />
-
-      <Map
+      <FoodMap
         :food-map-locations="foodMapLocations"
         :all-foods="allFoods"
       />
+
+      <Guide :guide="foodGuide" :all-foods="allFoods" />
+
+      <Souvenir :souvenirs="foodSouvenirs" />
+
+      <Seasonal :seasonal="foodSeasonal" :all-foods="allFoods" />
     </template>
   </div>
 </template>
 
 <script setup lang="ts">
   import { computed, ref, watch } from 'vue';
-  import type { Food, FoodItem, FoodLocation } from '@/typesOfPages/travelGuide/index.ts';
-  import { loadFoodDataByProvince, getLoadedFoodData, foodLocations } from '../../data/food/food.ts';
+  import type { Food, FoodItem, FoodLocation, FoodGuide, FoodSouvenir, FoodSeasonal } from '@/typesOfPages/travelGuide/index.ts';
+  import { useTravelGuideStore } from '@/stores/travelGuide';
 
-  import Popular from './popular/index.vue';
-  import Categories from './categories/index.vue';
-  import Ranking from './ranking/index.vue';
-  import Map from './map/index.vue';
+  import Popular from './Popular/index.vue';
+  import Categories from './Categories/index.vue';
+  import FoodMap from './Map/index.vue';
+  import Guide from './Guide/index.vue';
+  import Souvenir from './Souvenir/index.vue';
+  import Seasonal from './Seasonal/index.vue';
+
+  const travelStore = useTravelGuideStore();
 
   const props = defineProps<{
     provinceId?: string;
   }>();
 
   const isLoading = ref(true);
-
-  const foodData = computed(() => getLoadedFoodData());
+  const rawFoods = ref<FoodItem[]>([]);
+  const rawLocations = ref<FoodLocation[]>([]);
+  const foodGuide = ref<FoodGuide | null>(null);
+  const foodSouvenirs = ref<FoodSouvenir[]>([]);
+  const foodSeasonal = ref<FoodSeasonal[]>([]);
 
   const allFoods = computed(() => {
-    const provinceKey = props.provinceId || 'beijing';
-    const provinceFoods = foodData.value[provinceKey];
-    if (!provinceFoods) return [];
-
-    const result = provinceFoods.map((food: FoodItem) => ({
+    const result = rawFoods.value.map((food: FoodItem) => ({
       id: food.id,
       name: food.name,
       description: food.description,
@@ -50,8 +57,7 @@
       price: food.price,
       rating: food.rating,
       category: food.category,
-      badgeText: food.badgeText,
-      badgeColor: food.badgeColor,
+
       tags: food.tags || [],
       recommendations: food.recommendations
         ? {
@@ -59,8 +65,11 @@
             eatingMethod: food.recommendations.eatingMethod || '',
           }
         : undefined,
-      openingHours: '10:00-22:00',
-      address: `${food.name} `,
+      history: food.history,
+      taste: food.taste,
+      cookingMethod: food.cookingMethod,
+      reviewCount: food.reviewCount,
+
     }));
 
     return result;
@@ -72,17 +81,16 @@
   });
 
   const foodMapLocations = computed(() => {
-    const provinceKey = props.provinceId || 'beijing';
-    const provinceFoodLocations = foodLocations[provinceKey];
-    if (!provinceFoodLocations) return [];
+    const foodById = new Map<string, Food>();
+    for (const f of allFoods.value) foodById.set(f.id, f);
 
-    const result = provinceFoodLocations.map((location: FoodLocation) => {
+    const result = rawLocations.value.map((location: FoodLocation) => {
       let totalRating = 0;
       let count = 0;
 
-      if (location.foods && location.foods.length > 0 && allFoods.value) {
+      if (location.foods && location.foods.length > 0) {
         for (const foodId of location.foods) {
-          const food = allFoods.value.find((f: Food) => f.id === foodId);
+          const food = foodById.get(foodId);
           if (food && food.rating) {
             totalRating += food.rating;
             count++;
@@ -106,7 +114,12 @@
     () => props.provinceId,
     async (newProvinceId) => {
       isLoading.value = true;
-      await loadFoodDataByProvince(newProvinceId || 'beijing');
+      const pid = newProvinceId || 'beijing';
+      rawFoods.value = await travelStore.getFoodItems(pid);
+      rawLocations.value = await travelStore.getFoodLocations(pid);
+      foodGuide.value = await travelStore.getFoodGuide(pid);
+      foodSouvenirs.value = await travelStore.getFoodSouvenirs(pid);
+      foodSeasonal.value = await travelStore.getFoodSeasonal(pid);
       isLoading.value = false;
     },
     { immediate: true },

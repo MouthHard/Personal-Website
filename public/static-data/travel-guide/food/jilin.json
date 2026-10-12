@@ -13,7 +13,7 @@
       "image": "https://picsum.photos/id/402/800/600",
       "price": 25,
       "rating": 4.7,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "延边名片",
       "isPopular": true,
       "badgeColor": "#03a9f4",
@@ -41,7 +41,7 @@
       "image": "https://picsum.photos/id/403/800/600",
       "price": 58,
       "rating": 4.6,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "长春名菜",
       "isPopular": true,
       "badgeColor": "#795548",
@@ -69,7 +69,7 @@
       "image": "https://picsum.photos/id/404/800/600",
       "price": 198,
       "rating": 4.5,
-      "category": "中药材",
+      "category": "汤羹饮品",
       "isPopular": false,
       "description": "补气养血，营养丰富",
       "recommendations": {
@@ -95,7 +95,7 @@
       "image": "https://picsum.photos/id/405/800/600",
       "price": 88,
       "rating": 4.7,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "松花江特产",
       "isPopular": true,
       "badgeColor": "#4caf50",
@@ -123,7 +123,7 @@
       "image": "https://picsum.photos/id/406/800/600",
       "price": 68,
       "rating": 4.8,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "朝鲜族风味",
       "isPopular": true,
       "badgeColor": "#ff5722",
@@ -151,7 +151,7 @@
       "image": "https://picsum.photos/id/407/800/600",
       "price": 3,
       "rating": 4.1,
-      "category": "小吃",
+      "category": "小吃零食",
       "isPopular": false,
       "description": "外酥内软，早餐必备",
       "recommendations": {
@@ -177,7 +177,7 @@
       "image": "https://picsum.photos/id/408/800/600",
       "price": 5,
       "rating": 4,
-      "category": "甜品",
+      "category": "甜品糕点",
       "isPopular": false,
       "description": "香甜可口，传统面点",
       "recommendations": {
@@ -203,7 +203,7 @@
       "image": "https://picsum.photos/id/409/800/600",
       "price": 38,
       "rating": 4.3,
-      "category": "饮品",
+      "category": "汤羹饮品",
       "isPopular": false,
       "description": "香气浓郁，口感醇厚",
       "recommendations": {
@@ -215,6 +215,138 @@
         ],
         "eatingMethod": "直接饮用，可点心或小吃"
       }
+    },
+    {
+      "id": "jilin-chaoxian-lengmian",
+      "name": "朝鲜冷面",
+      "tags": [
+        "吉林特色",
+        "朝鲜族风味",
+        "酸辣爽口",
+        "清凉解暑",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/430/800/600",
+      "price": 22,
+      "rating": 4.6,
+      "category": "面点主食",
+      "isPopular": false,
+      "description": "朝鲜族传统冷面，酸辣爽口，清凉解暑",
+      "recommendations": {
+        "pairings": [
+          "泡菜",
+          "烤肉",
+          "小菜",
+          "辣白菜"
+        ],
+        "eatingMethod": "直接食用，夏季最佳"
+      }
+    },
+    {
+      "id": "jilin-changchun-chaofen",
+      "name": "长春炒粉",
+      "tags": [
+        "吉林特色",
+        "长春名吃",
+        "外酥内软",
+        "香甜可口",
+        "街头小吃"
+      ],
+      "image": "https://picsum.photos/id/431/800/600",
+      "price": 12,
+      "rating": 4.4,
+      "category": "小吃零食",
+      "isPopular": false,
+      "description": "长春传统街头小吃，外酥内软",
+      "recommendations": {
+        "pairings": [
+          "辣椒酱",
+          "醋",
+          "蒜泥",
+          "小菜"
+        ],
+        "eatingMethod": "直接食用，作为小吃"
+      }
+    },
+    {
+      "id": "jilin-shiguo-banfan",
+      "name": "石锅拌饭",
+      "tags": [
+        "吉林特色",
+        "朝鲜族风味",
+        "食材丰富",
+        "锅巴香脆",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/432/800/600",
+      "price": 35,
+      "rating": 4.7,
+      "category": "面点主食",
+      "badgeText": "朝鲜族经典",
+      "isPopular": true,
+      "badgeColor": "#ff9800",
+      "description": "朝鲜族传统石锅拌饭，食材丰富，锅巴香脆",
+      "recommendations": {
+        "pairings": [
+          "泡菜",
+          "辣酱",
+          "汤品",
+          "小菜"
+        ],
+        "eatingMethod": "将辣酱与饭菜拌匀食用"
+      }
+    },
+    {
+      "id": "jilin-guobaorou",
+      "name": "吉林锅包肉",
+      "tags": [
+        "吉林特色",
+        "东北名菜",
+        "外酥里嫩",
+        "酸甜可口",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/433/800/600",
+      "price": 46,
+      "rating": 4.7,
+      "category": "菜品菜肴",
+      "isPopular": false,
+      "description": "东北经典名菜，外酥里嫩，酸甜可口",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "馒头",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，搭配米饭"
+      }
+    },
+    {
+      "id": "jilin-kaorou-chuan",
+      "name": "延边烤肉串",
+      "tags": [
+        "吉林特色",
+        "延边特产",
+        "外焦里嫩",
+        "香气四溢",
+        "街头美食"
+      ],
+      "image": "https://picsum.photos/id/434/800/600",
+      "price": 30,
+      "rating": 4.5,
+      "category": "烧烤火锅",
+      "isPopular": false,
+      "description": "延边特色烤肉串，外焦里嫩，香气四溢",
+      "recommendations": {
+        "pairings": [
+          "啤酒",
+          "冷面",
+          "泡菜",
+          "饮料"
+        ],
+        "eatingMethod": "直接食用，作为夜宵或下酒菜"
+      }
     }
   ],
   "locations": [
@@ -225,8 +357,8 @@
       "type": "商业街",
       "foods": [
         "长春酱肉",
-        "朝鲜冷面",
-        "长春炒粉"
+        "jilin-chaoxian-lengmian",
+        "jilin-changchun-chaofen"
       ],
       "image": "https://picsum.photos/id/308/800/600",
       "reason": "长春传统美食聚集地",
@@ -240,11 +372,223 @@
       "foods": [
         "延边冷面",
         "延边烤肉",
-        "石锅拌饭"
+        "jilin-shiguo-banfan"
       ],
       "image": "https://picsum.photos/id/309/800/600",
       "reason": "朝鲜族特色美食集中地",
       "location": "延吉市"
+    },
+    {
+      "id": 3,
+      "icon": "🎣",
+      "name": "松花江江边",
+      "type": "江景美食",
+      "foods": [
+        "松花江鱼",
+        "jilin-guobaorou",
+        "jilin-kaorou-chuan"
+      ],
+      "image": "https://picsum.photos/id/435/800/600",
+      "reason": "松花江畔品鱼赏景，江鲜一绝",
+      "location": "吉林市"
+    }
+  ],
+  "souvenirs": [
+    {
+      "id": "jilin-souvenir-1",
+      "name": "长白山人参",
+      "image": "https://picsum.photos/id/795/600/400",
+      "priceRange": "100-1000元",
+      "description": "百草之王，补气安神",
+      "buyAt": "长白山特产",
+      "storage": "干燥保存",
+      "province": "吉林"
+    },
+    {
+      "id": "jilin-souvenir-2",
+      "name": "吉林鹿茸",
+      "image": "https://picsum.photos/id/794/600/400",
+      "priceRange": "50-500元",
+      "description": "滋补佳品，温补肾阳",
+      "buyAt": "吉林参茸店",
+      "storage": "干燥保存",
+      "province": "吉林"
+    },
+    {
+      "id": "jilin-souvenir-3",
+      "name": "朝鲜族泡菜",
+      "image": "https://picsum.photos/id/793/600/400",
+      "priceRange": "10-25元",
+      "description": "酸辣爽脆，民族风味",
+      "buyAt": "延吉特产店",
+      "storage": "冷藏保存",
+      "province": "吉林"
+    },
+    {
+      "id": "jilin-souvenir-4",
+      "name": "松子",
+      "image": "https://picsum.photos/id/792/600/400",
+      "priceRange": "20-50元",
+      "description": "长白山红松籽，香酥可口",
+      "buyAt": "东北山货店",
+      "storage": "密封干燥",
+      "province": "吉林"
+    },
+    {
+      "id": "jilin-souvenir-5",
+      "name": "长白山黑木耳",
+      "image": "https://picsum.photos/id/436/600/400",
+      "priceRange": "20-40元",
+      "description": "长白山特产，肉质厚实",
+      "buyAt": "长白山特产店",
+      "storage": "干燥防潮",
+      "province": "吉林"
+    }
+  ],
+  "guide": {
+    "mealPlan": {
+      "breakfast": [
+        "延边冷面",
+        "jilin-youtiao",
+        "jilin-changchun-chaofen"
+      ],
+      "lunch": [
+        "延边烤肉",
+        "jilin-shiguo-banfan",
+        "松花江鱼"
+      ],
+      "dinner": [
+        "长春酱肉",
+        "jilin-guobaorou",
+        "jilin-hongcha"
+      ]
+    },
+    "routes": [
+      {
+        "id": "jilin-route-1",
+        "name": "吉林经典美食一日游",
+        "duration": "1天",
+        "steps": [
+          {
+            "time": "08:30",
+            "location": "延吉美食街",
+            "foodId": "延边冷面",
+            "description": "清晨从一碗地道冷面开始"
+          },
+          {
+            "time": "12:00",
+            "location": "延吉烤肉店",
+            "foodId": "延边烤肉",
+            "description": "午餐品尝朝鲜族烤肉"
+          },
+          {
+            "time": "18:30",
+            "location": "长春重庆路",
+            "foodId": "长春酱肉",
+            "description": "夜市扫街，品尝长春酱肉收尾"
+          }
+        ]
+      },
+      {
+        "id": "jilin-route-2",
+        "name": "吉林深度寻味半日游",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "10:00",
+            "location": "延吉老字号",
+            "foodId": "jilin-shiguo-banfan",
+            "description": "探访朝鲜族石锅拌饭老店"
+          },
+          {
+            "time": "12:30",
+            "location": "吉林江边",
+            "foodId": "松花江鱼",
+            "description": "松花江畔品江鱼"
+          },
+          {
+            "time": "15:00",
+            "location": "长春小吃街",
+            "foodId": "jilin-changchun-chaofen",
+            "description": "下午茶时光品鉴长春炒粉"
+          }
+        ]
+      },
+      {
+        "id": "jilin-route-3",
+        "name": "延边风情夜宵之旅",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "17:00",
+            "location": "延吉夜市",
+            "foodId": "jilin-kaorou-chuan",
+            "description": "延边烤肉串，夜市必吃"
+          },
+          {
+            "time": "19:00",
+            "location": "延吉冷面馆",
+            "foodId": "jilin-chaoxian-lengmian",
+            "description": "收尾一碗朝鲜冷面，清爽解腻"
+          }
+        ]
+      }
+    ],
+    "tips": [
+      {
+        "question": "吉林美食的最佳品尝时间？",
+        "answer": "建议在夏秋两季前往，夏季可品尝冷面解暑，秋季人参正当季，能品尝到最地道的吉林风味。"
+      },
+      {
+        "question": "吉林有哪些必去美食街区？",
+        "answer": "推荐前往延吉美食街、长春重庆路和吉林松花江边，那里集中了最正宗的朝鲜族美食和东北菜。"
+      },
+      {
+        "question": "在吉林点菜有什么避坑建议？",
+        "answer": "建议提前了解当地特色菜名，避免被不正规店铺误导；朝鲜族美食选择人气旺的老店更靠谱。"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "season": "spring",
+      "seasonName": "春季",
+      "foods": [
+        "延边冷面",
+        "吉林人参",
+        "jilin-chaoxian-lengmian"
+      ],
+      "description": "春暖花开，时鲜上市，品尝春日第一口鲜"
+    },
+    {
+      "season": "summer",
+      "seasonName": "夏季",
+      "foods": [
+        "jilin-changchun-chaofen",
+        "jilin-shiguo-banfan",
+        "jilin-hongcha"
+      ],
+      "description": "夏日炎炎，消暑解渴，清凉美味正当时"
+    },
+    {
+      "season": "autumn",
+      "seasonName": "秋季",
+      "foods": [
+        "松花江鱼",
+        "jilin-guobaorou",
+        "长春酱肉"
+      ],
+      "description": "秋高气爽，丰收时节，贴秋膘品江鲜"
+    },
+    {
+      "season": "winter",
+      "seasonName": "冬季",
+      "foods": [
+        "延边烤肉",
+        "jilin-kaorou-chuan",
+        "jilin-tangbao"
+      ],
+      "description": "寒冬腊月，温补暖身，热汤热食最抚慰"
     }
   ]
 }

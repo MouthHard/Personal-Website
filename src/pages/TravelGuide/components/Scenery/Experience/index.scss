@@ -1,0 +1,519 @@
+// ============================================================
+// Experience · 频率通道切换器 (Frequency Channel Switcher)
+// 信息朋克风：品红/玫红通道 + 故障扫描 + 频率波形
+// ============================================================
+
+$ti-bright: #e2e8f0;
+$ti-mid: #cbd5e1;
+$ti-dark: #94a3b8;
+$ti-deep: #64748b;
+
+$space-0: #04060a;
+$space-1: #0a0810;
+$space-2: #1a0e1a;
+$space-3: #2a1428;
+
+$magenta-bright: #fda4d8;
+$magenta: #f472b6;
+$magenta-deep: #ec4899;
+$magenta-void: #db2777;
+$rose: #f43f5e;
+
+$snow: #fdf2f8;
+
+.scenery-experience {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  height: 100%;
+  overflow: hidden;
+
+  // ============================================
+  // 频谱导轨容器
+  // ============================================
+  .sub-tab-nav {
+    display: flex;
+    align-items: stretch;
+    gap: 5px;
+    padding: 6px 8px;
+    flex-shrink: 0;
+    position: relative;
+    height: 8%;
+     box-sizing: border-box;
+    background:
+      linear-gradient(180deg, rgba(26, 14, 26, 0.92), rgba(10, 8, 16, 0.96)),
+      repeating-linear-gradient(
+        90deg,
+        transparent 0,
+        transparent 2px,
+        rgba(244, 114, 182, 0.025) 2px,
+        rgba(244, 114, 182, 0.025) 3px
+      );
+    border-bottom: 1px solid rgba(244, 114, 182, 0.22);
+    box-shadow:
+      inset 0 1px 0 rgba(253, 244, 248, 0.08),
+      inset 0 -2px 0 rgba(0, 0, 0, 0.6),
+      0 6px 18px rgba(0, 0, 0, 0.5);
+
+    // 频谱端柱
+    .nav-spectrum {
+      width: 6px;
+      align-self: stretch;
+      background:
+        repeating-linear-gradient(
+          0deg,
+          rgba(244, 114, 182, 0.4) 0,
+          rgba(244, 114, 182, 0.4) 2px,
+          transparent 2px,
+          transparent 5px
+        );
+      box-shadow:
+        inset 0 0 2px rgba(253, 164, 216, 0.4),
+        0 0 4px rgba(244, 114, 182, 0.2);
+
+      &--end {
+        background:
+          repeating-linear-gradient(
+            0deg,
+            rgba(244, 114, 182, 0.4) 0,
+            rgba(244, 114, 182, 0.4) 2px,
+            transparent 2px,
+            transparent 5px
+          );
+      }
+    }
+
+    // ============================================
+    // 单个频率通道按钮 · 全息立体增强
+    // ============================================
+    .sub-tab-btn {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      padding: 3px 22px;
+ 
+      cursor: pointer;
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      isolation: isolate;
+
+      color: $ti-mid;
+      letter-spacing: 0.5px;
+
+      // 通道六边形切角
+      clip-path: polygon(
+        9px 0,
+        calc(100% - 9px) 0,
+        100% 50%,
+        calc(100% - 9px) 100%,
+        9px 100%,
+        0 50%
+      );
+
+      // 3D 立体背景：5层径向高光 + 线性纵深 + 边缘反光
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(253, 164, 216, 0.1), transparent 55%),
+        radial-gradient(ellipse at 50% 100%, rgba(0, 0, 0, 0.35), transparent 50%),
+        radial-gradient(ellipse at 0% 50%, rgba(253, 164, 216, 0.04), transparent 40%),
+        radial-gradient(ellipse at 100% 50%, rgba(0, 0, 0, 0.2), transparent 40%),
+        linear-gradient(160deg, rgba(52, 26, 50, 0.78) 0%, rgba(20, 10, 22, 0.92) 50%, rgba(6, 3, 10, 0.97) 100%);
+
+      // 10层阴影构筑全息3D立体落差
+      box-shadow:
+        inset 0 1px 0 rgba(253, 244, 248, 0.16),
+        inset 0 -2px 0 rgba(0, 0, 0, 0.7),
+        inset 1px 0 0 rgba(253, 244, 248, 0.08),
+        inset -1px 0 0 rgba(0, 0, 0, 0.5),
+        inset 0 0 14px rgba(0, 0, 0, 0.25),
+        inset 0 0 28px rgba(244, 114, 182, 0.03),
+        0 5px 12px rgba(0, 0, 0, 0.7),
+        0 3px 6px rgba(0, 0, 0, 0.8),
+        0 1px 2px rgba(0, 0, 0, 0.9),
+        0 0 1px rgba(244, 114, 182, 0.15);
+
+      // 玻璃扫光层（hover 触发）
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 0;
+        opacity: 0;
+        background: linear-gradient(
+          105deg,
+          transparent 25%,
+          rgba(253, 164, 216, 0.15) 45%,
+          rgba(253, 244, 248, 0.25) 50%,
+          rgba(253, 164, 216, 0.15) 55%,
+          transparent 75%
+        );
+        transition: opacity 0.3s ease, transform 0.5s ease;
+        transform: translateX(-30%);
+      }
+
+      // 全息网格纹理层（科幻底纹）
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 0;
+        opacity: 0.5;
+        background:
+          repeating-linear-gradient(
+            0deg,
+            transparent 0,
+            transparent 7px,
+            rgba(244, 114, 182, 0.02) 7px,
+            rgba(244, 114, 182, 0.02) 8px
+          ),
+          repeating-linear-gradient(
+            90deg,
+            transparent 0,
+            transparent 7px,
+            rgba(244, 114, 182, 0.02) 7px,
+            rgba(244, 114, 182, 0.02) 8px
+          );
+      }
+
+      // 故障扫描线（hover 主角特效）
+      .tab-glitch {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 1;
+        opacity: 0;
+        background:
+          linear-gradient(
+            0deg,
+            transparent 0%,
+            rgba(244, 114, 182, 0.18) 47%,
+            rgba(253, 164, 216, 0.35) 50%,
+            rgba(244, 114, 182, 0.18) 53%,
+            transparent 100%
+          );
+        mix-blend-mode: screen;
+        transition: opacity 0.3s ease;
+      }
+
+      // 图标舱 · 全息3D球体
+      .sub-tab-icon-housing {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        flex-shrink: 0;
+        z-index: 2;
+
+        // 3D 球体：4层径向渐变（高光点+中间过渡+底部暗面+边缘反光）
+        background:
+          radial-gradient(circle at 30% 25%, rgba(253, 164, 216, 0.22) 0%, transparent 35%),
+          radial-gradient(circle at 70% 80%, rgba(244, 114, 182, 0.06) 0%, transparent 30%),
+          radial-gradient(circle at 50% 50%, rgba(64, 32, 60, 0.7) 0%, rgba(8, 4, 12, 0.96) 75%),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+
+        border: 2px solid rgba(244, 114, 182, 0.3);
+        border-radius: 50%;
+
+        // 球体8层阴影：内凹高光+内部纵深+边缘反光+外投影+底部反射
+        box-shadow:
+          inset 0 2px 4px rgba(253, 244, 248, 0.2),
+          inset 0 -2px 5px rgba(0, 0, 0, 0.75),
+          inset 1px 0 2px rgba(253, 244, 248, 0.08),
+          inset -1px 0 2px rgba(0, 0, 0, 0.5),
+          inset 0 0 10px rgba(0, 0, 0, 0.35),
+          0 4px 8px rgba(0, 0, 0, 0.65),
+          0 2px 4px rgba(0, 0, 0, 0.8),
+          0 0 1px rgba(244, 114, 182, 0.2);
+
+        transition: all 0.35s ease;
+
+        .sub-tab-icon {
+          color: $ti-bright;
+          filter:
+            drop-shadow(0 0 4px rgba(244, 114, 182, 0.5))
+            drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
+          transition: all 0.35s ease;
+        }
+      }
+
+      .sub-tab-text {
+        font-size: 16px;
+        font-weight: 700;
+        color: #fff;
+        z-index: 2;
+        transition: all 0.35s ease;
+        text-shadow:
+          0 1px 3px rgba(0, 0, 0, 0.85),
+          0 0 6px rgba(253, 244, 248, 0.18),
+          0 0 12px rgba(244, 114, 182, 0.08);
+        letter-spacing: 1px;
+      }
+
+      // 底部波形（active 主角特效）
+      .sub-tab-wave {
+        position: absolute;
+        bottom: 0;
+        left: 10px;
+        right: 10px;
+        height: 2px;
+        background:
+          repeating-linear-gradient(
+            90deg,
+            transparent 0,
+            transparent 2px,
+            $magenta 2px,
+            $magenta 3px,
+            transparent 3px,
+            transparent 5px
+          );
+        background-size: 200% 100%;
+        box-shadow:
+          0 0 6px $magenta,
+          0 0 12px rgba(244, 114, 182, 0.5),
+          0 0 24px rgba(244, 114, 182, 0.2);
+        opacity: 0;
+        z-index: 3;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+
+      // ============================================
+      // hover：3D爆发 + 全息发光 + 玻璃扫光 + 故障扫描
+      // ============================================
+      &:hover {
+        color: $snow;
+
+        // 3D 爆发：6层径向高光增强
+        background:
+          radial-gradient(ellipse at 50% 0%, rgba(253, 164, 216, 0.2), transparent 55%),
+          radial-gradient(ellipse at 50% 100%, rgba(0, 0, 0, 0.4), transparent 50%),
+          radial-gradient(ellipse at 0% 50%, rgba(253, 164, 216, 0.08), transparent 40%),
+          radial-gradient(ellipse at 100% 50%, rgba(0, 0, 0, 0.25), transparent 40%),
+          radial-gradient(ellipse at 50% 50%, rgba(244, 114, 182, 0.04), transparent 70%),
+          linear-gradient(160deg, rgba(72, 36, 68, 0.85) 0%, rgba(28, 14, 28, 0.95) 50%, rgba(10, 5, 14, 0.97) 100%);
+
+        // 3D 爆发12层阴影：深落差 + 全息外发光 + 能量边缘
+        box-shadow:
+          inset 0 1px 0 rgba(253, 244, 248, 0.3),
+          inset 0 -2px 0 rgba(0, 0, 0, 0.6),
+          inset 1px 0 0 rgba(253, 244, 248, 0.12),
+          inset -1px 0 0 rgba(0, 0, 0, 0.5),
+          inset 0 0 18px rgba(244, 114, 182, 0.1),
+          inset 0 0 36px rgba(244, 114, 182, 0.04),
+          0 8px 20px rgba(0, 0, 0, 0.78),
+          0 4px 8px rgba(0, 0, 0, 0.85),
+          0 1px 2px rgba(0, 0, 0, 0.9),
+          0 0 22px rgba(244, 114, 182, 0.35),
+          0 0 44px rgba(244, 114, 182, 0.15),
+          0 0 1px rgba(253, 164, 216, 0.4);
+
+        // 玻璃扫光触发
+        &::before {
+          opacity: 1;
+          transform: translateX(30%);
+        }
+
+        // 全息网格增强
+        &::after {
+          opacity: 0.8;
+        }
+
+        .tab-glitch {
+          opacity: 1;
+          animation: glitchSweep 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        // 图标舱 3D 球体全息增强
+        .sub-tab-icon-housing {
+          border-color: rgba(244, 114, 182, 0.6);
+          box-shadow:
+            inset 0 2px 4px rgba(253, 244, 248, 0.3),
+            inset 0 -2px 5px rgba(0, 0, 0, 0.7),
+            inset 1px 0 2px rgba(253, 244, 248, 0.12),
+            inset -1px 0 2px rgba(0, 0, 0, 0.45),
+            inset 0 0 12px rgba(244, 114, 182, 0.22),
+            0 4px 10px rgba(0, 0, 0, 0.6),
+            0 0 16px rgba(244, 114, 182, 0.45),
+            0 0 32px rgba(244, 114, 182, 0.2),
+            0 0 1px rgba(253, 164, 216, 0.5);
+
+          .sub-tab-icon {
+            color: $magenta-bright;
+            filter:
+              drop-shadow(0 0 5px rgba(244, 114, 182, 0.95))
+              drop-shadow(0 0 12px rgba(244, 114, 182, 0.55))
+              drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4));
+          }
+        }
+
+        .sub-tab-text {
+          color: #fff;
+          text-shadow:
+            0 1px 3px rgba(0, 0, 0, 0.75),
+            0 0 10px rgba(253, 244, 248, 0.4),
+            0 0 20px rgba(244, 114, 182, 0.15);
+        }
+      }
+
+      // ============================================
+      // active：全息锁定 + 量子基座 + 波形流动 + 能量充盈
+      // ============================================
+      &.active {
+        color: $snow;
+
+        // 全息锁定：7层径向光 + 品红渗透 + 玻璃底光
+        background:
+          radial-gradient(ellipse at 50% 0%, rgba(253, 164, 216, 0.28), transparent 50%),
+          radial-gradient(ellipse at 50% 100%, rgba(244, 114, 182, 0.14), transparent 45%),
+          radial-gradient(ellipse at 0% 50%, rgba(253, 164, 216, 0.08), transparent 35%),
+          radial-gradient(ellipse at 100% 50%, rgba(244, 114, 182, 0.06), transparent 35%),
+          radial-gradient(ellipse at 50% 50%, rgba(244, 114, 182, 0.06), transparent 65%),
+          linear-gradient(160deg, rgba(244, 114, 182, 0.2) 0%, rgba(30, 15, 28, 0.95) 45%, rgba(10, 5, 14, 0.97) 100%);
+
+        // 全息锁定14层阴影：内凹锁定 + 量子外发光 + 能量边缘
+        box-shadow:
+          inset 0 1px 0 rgba(253, 164, 216, 0.45),
+          inset 0 -2px 0 rgba(0, 0, 0, 0.55),
+          inset 1px 0 0 rgba(253, 164, 216, 0.15),
+          inset -1px 0 0 rgba(0, 0, 0, 0.5),
+          inset 0 0 24px rgba(244, 114, 182, 0.16),
+          inset 0 0 48px rgba(244, 114, 182, 0.08),
+          inset 0 0 80px rgba(244, 114, 182, 0.03),
+          0 7px 18px rgba(0, 0, 0, 0.78),
+          0 3px 7px rgba(0, 0, 0, 0.85),
+          0 1px 2px rgba(0, 0, 0, 0.9),
+          0 0 30px rgba(244, 114, 182, 0.6),
+          0 0 60px rgba(244, 114, 182, 0.25),
+          0 0 100px rgba(244, 114, 182, 0.1),
+          0 0 1px rgba(253, 164, 216, 0.6);
+
+        // active 态玻璃扫光持续
+        &::before {
+          opacity: 0.6;
+          transform: translateX(0%);
+          animation: glassSweep 3s ease-in-out infinite;
+        }
+
+        // 全息网格增强
+        &::after {
+          opacity: 1;
+          background:
+            repeating-linear-gradient(
+              0deg,
+              transparent 0,
+              transparent 6px,
+              rgba(244, 114, 182, 0.035) 6px,
+              rgba(244, 114, 182, 0.035) 7px
+            ),
+            repeating-linear-gradient(
+              90deg,
+              transparent 0,
+              transparent 6px,
+              rgba(244, 114, 182, 0.035) 6px,
+              rgba(244, 114, 182, 0.035) 7px
+            );
+        }
+
+        // 图标舱 · 全息3D球体量子发光
+        .sub-tab-icon-housing {
+          background:
+            radial-gradient(circle at 30% 25%, rgba(253, 164, 216, 0.4) 0%, transparent 40%),
+            radial-gradient(circle at 70% 80%, rgba(244, 114, 182, 0.12) 0%, transparent 30%),
+            radial-gradient(circle at 50% 50%, rgba(244, 114, 182, 0.3) 0%, rgba(16, 7, 16, 0.92) 75%),
+            linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+          border: 2px solid $magenta;
+          box-shadow:
+            inset 0 2px 4px rgba(253, 164, 216, 0.45),
+            inset 0 -2px 5px rgba(0, 0, 0, 0.65),
+            inset 1px 0 2px rgba(253, 164, 216, 0.2),
+            inset -1px 0 2px rgba(0, 0, 0, 0.45),
+            inset 0 0 16px rgba(244, 114, 182, 0.35),
+            0 4px 10px rgba(0, 0, 0, 0.55),
+            0 0 20px rgba(244, 114, 182, 0.65),
+            0 0 40px rgba(244, 114, 182, 0.3),
+            0 0 60px rgba(244, 114, 182, 0.12),
+            0 0 1px rgba(253, 164, 216, 0.7);
+
+          .sub-tab-icon {
+            color: #fff;
+            filter:
+              drop-shadow(0 0 5px rgba(253, 164, 216, 1))
+              drop-shadow(0 0 14px rgba(244, 114, 182, 0.75))
+              drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+          }
+        }
+
+        .sub-tab-text {
+          color: #fff;
+          font-weight: 800;
+          text-shadow:
+            0 1px 3px rgba(0, 0, 0, 0.5),
+            0 0 12px rgba(244, 114, 182, 0.7),
+            0 0 24px rgba(244, 114, 182, 0.35),
+            0 0 36px rgba(244, 114, 182, 0.12);
+        }
+
+        .sub-tab-wave {
+          opacity: 1;
+          animation: waveFlow 1.6s linear infinite;
+        }
+      }
+    }
+
+  }
+
+  .sub-tab-content {
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+ 
+    border-radius: 0 0 4px 4px;
+    &::-webkit-scrollbar { display: none; }
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    .sub-tab-panel {
+      flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+      box-sizing: border-box;
+      &::-webkit-scrollbar { display: none; }
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      &.active {
+        animation: subPanelFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+    }
+  }
+}
+
+@keyframes subPanelFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes glitchSweep {
+  0% { transform: translateY(-100%); opacity: 1; }
+  100% { transform: translateY(100%); opacity: 1; }
+}
+
+@keyframes waveFlow {
+  0% { background-position: 0 0; }
+  100% { background-position: 40px 0; }
+}
+@keyframes glassSweep {
+  0%, 100% { transform: translateX(-25%); opacity: 0.3; }
+  50% { transform: translateX(25%); opacity: 0.6; }
+}

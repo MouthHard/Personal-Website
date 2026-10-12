@@ -1,0 +1,1210 @@
+// ---- 皮革封面 (Leather Cover · dark) ----
+$leather-darkest: #150b06;
+$leather-deep: #251610;
+$leather-mid: #382418;
+$leather-light: #4e3525;
+$leather-grain: #6b4a32;
+
+// ---- 黄铜配件 (Brass Hardware) ----
+$brass-bright: #f5d97a;
+$brass: #d4a843;
+$brass-deep: #a07820;
+$brass-shadow: #6b5010;
+$brass-rim: #c8943a;
+
+// ---- 牛皮纸内页 (Kraft Paper · light warm) ----
+$kraft-lightest: #f0dcb4;
+$kraft-light: #e6cf9c;
+$kraft: #d4b886;
+$kraft-deep: #b89a62;
+$kraft-shadow: #9a7c48;
+$kraft-fiber: #c4a672;
+
+// ---- 明信片纸 (Postcard · aged white) ----
+$card-white: #faf2dc;
+$card-cream: #f0e4c4;
+$card-edge: #d8c8a0;
+$card-shadow: #b8a478;
+
+// ---- 邮戳墨 (Postmark Ink · deep red) ----
+$ink-red: #9c3a3a;
+$ink-red-deep: #7a2a2a;
+$ink-red-bright: #c54a4a;
+
+// ---- 邮票 (Postage Stamp) ----
+$stamp-green: #4a8a4a;
+$stamp-teal: #2a7a6b;
+
+// ---- 墨水文字 (Ink Text · dark on kraft) ----
+$ink-darkest: #2a1a0e;
+$ink-dark: #3d2817;
+$ink-mid: #5a3a22;
+$ink-light: #7a5a3a;
+$ink-soft: #9a7a52;
+$ink-gold: #8b6a20;
+$ink-sepia: #6b4a2a;
+
+// ---- 强调色 (Accents on kraft) ----
+$accent-gold: #b8862a;
+$accent-amber: #d4a020;
+$accent-rust: #b85a2a;
+$accent-forest: #4a7a3a;
+$accent-berry: #9c3a5a;
+
+// ============================================================
+// ThemeDisplay · 放大展示页 (Display Page)
+// ============================================================
+
+.display-page {
+  flex: 1;
+  min-width: 0;
+  height: 72vh;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 20px 14px 16px 22px;
+  overflow-y: scroll;
+  position: relative;
+  // 摊开的手账纸页：横向书写格线 + 竖向装订折线 + 双层纤维 + 暖白渐变
+  background:
+    repeating-linear-gradient(180deg, transparent 0, transparent 28px, rgba(154,124,72,0.07) 28px, rgba(154,124,72,0.07) 29px),
+    repeating-linear-gradient(180deg, transparent 0, transparent 7px, rgba(154,124,72,0.025) 7px, rgba(154,124,72,0.025) 8px),
+    repeating-linear-gradient(0deg, rgba(154,124,72,0.03) 0, rgba(154,124,72,0.03) 1px, transparent 1px, transparent 8px),
+    repeating-linear-gradient(90deg, rgba(196,166,114,0.03) 0, rgba(196,166,114,0.03) 1px, transparent 1px, transparent 12px),
+    linear-gradient(170deg, $card-white 0%, $card-cream 55%, $kraft-light 100%);
+  border: 1px solid $kraft-shadow;
+  border-radius: 7px;
+  box-shadow:
+    inset 0 3px 9px rgba(120,90,50,0.28),
+    inset 0 -2px 5px rgba(255,250,235,0.3),
+    inset 4px 0 8px rgba(120,90,50,0.12),
+    inset -2px 0 5px rgba(120,90,50,0.06),
+    0 5px 14px rgba(0,0,0,0.4);
+
+  // 顶部胶装装订条：真实手账本被胶装封顶的木质夹条
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 12px;
+    background:
+      repeating-linear-gradient(90deg, rgba(0,0,0,0.09) 0, rgba(0,0,0,0.09) 1px, transparent 1px, transparent 5px),
+      linear-gradient(180deg, $kraft-shadow 0%, $kraft 40%, $kraft-deep 100%);
+    border-bottom: 1px solid rgba(120,90,50,0.6);
+    box-shadow:
+      inset 0 1px 0 rgba(255,245,200,0.4),
+      inset 0 -2px 3px rgba(0,0,0,0.25),
+      0 2px 5px rgba(0,0,0,0.25);
+    border-radius: 7px 7px 0 0;
+    z-index: 3;
+    pointer-events: none;
+  }
+
+  &::-webkit-scrollbar { width: 8px; }
+  &::-webkit-scrollbar-track {
+    background: rgba(154,124,72,0.15);
+    border-radius: 4px;
+    box-shadow: inset 0 0 0 1px rgba(154,124,72,0.15);
+  }
+  &::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, $accent-gold, $ink-gold);
+    border-radius: 4px;
+    border: 1px solid rgba(255,245,200,0.25);
+    box-shadow: inset 0 1px 0 rgba(255,245,200,0.4), 0 1px 3px rgba(0,0,0,0.3);
+  }
+  &::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, $accent-amber, $accent-gold); }
+
+ 
+
+  // ---------- 顶部英雄区（大图 + 信息吊牌并排，不独占行） ----------
+  .postcard-hero {
+    display: flex;
+    gap: 14px;
+    align-items: stretch;
+    padding-top: 12px;
+  }
+
+  // ---------- 大明信片（厚卡明信片 + 黄铜相角） ----------
+  .page-postcard {
+    position: relative;
+    flex: 0 0 42%;
+    min-width: 0;
+    height: 220px;
+    border-radius: 3px;
+    // 厚卡白边 + 泛黄纸缘（真实明信片的厚卡纸感）
+    border: 9px solid $card-white;
+    outline: 1px solid rgba(184,164,120,0.35);
+    outline-offset: -2px;
+    background: $leather-darkest;
+    transition: box-shadow 0.4s ease, transform 0.4s ease;
+    box-shadow:
+      inset 0 2px 6px rgba(0,0,0,0.45),
+      inset 0 -1px 0 rgba(255,250,235,0.18),
+      0 8px 20px rgba(0,0,0,0.32),
+      0 4px 8px rgba(0,0,0,0.16),
+      0 1px 2px rgba(0,0,0,0.12);
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow:
+        inset 0 2px 6px rgba(0,0,0,0.45),
+        inset 0 -1px 0 rgba(255,250,235,0.2),
+        0 12px 26px rgba(0,0,0,0.38),
+        0 6px 12px rgba(0,0,0,0.18),
+        0 0 22px rgba(184,134,42,0.18);
+    }
+
+    .pc-img {
+      width: 100%;
+      height: 100%;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      filter: brightness(0.92) contrast(1.1) saturate(1.08);
+    }
+
+    .pc-vignette {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, rgba(42,26,14,0.12) 0%, transparent 28%, transparent 52%, rgba(42,26,14,0.75) 100%),
+        linear-gradient(90deg, rgba(42,26,14,0.22) 0%, transparent 18%, transparent 82%, rgba(42,26,14,0.22) 100%),
+        radial-gradient(ellipse at 50% 38%, rgba(245,217,122,0.05) 0%, transparent 55%);
+    }
+
+    // 黄铜相角（相册里夹住照片的金属三角，四角压住厚卡）
+    .pc-corner {
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      z-index: 6;
+      pointer-events: none;
+      background: linear-gradient(135deg, $brass-bright 0%, $brass 38%, $brass-deep 72%, $brass-shadow 100%);
+      box-shadow:
+        inset 0 1px 1px rgba(255,245,200,0.55),
+        inset 0 -1px 2px rgba(0,0,0,0.5),
+        0 1px 3px rgba(0,0,0,0.4);
+      filter: drop-shadow(0 1px 2px rgba(0,0,0,0.35));
+
+      &--tl { top: -3px; left: -3px; clip-path: polygon(0 0, 100% 0, 0 100%); }
+      &--tr { top: -3px; right: -3px; clip-path: polygon(0 0, 100% 0, 100% 100%); }
+      &--bl { bottom: -3px; left: -3px; clip-path: polygon(0 0, 0 100%, 100% 100%); }
+      &--br { bottom: -3px; right: -3px; clip-path: polygon(100% 0, 100% 100%, 0 100%); }
+    }
+
+    // 邮戳（双层红章 + 内圈虚线 + 墨晕）
+    .pc-postmark {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      transform: rotate(4deg);
+
+      .ppm-ring {
+        position: absolute;
+        inset: 0;
+        border: 3px solid $ink-red;
+        border-radius: 50%;
+        opacity: 0.8;
+        background: radial-gradient(circle, rgba(156,58,58,0.07) 0%, transparent 55%);
+        box-shadow:
+          inset 0 0 0 2px rgba(156,58,58,0.3),
+          inset 0 0 10px rgba(156,58,58,0.12),
+          0 0 10px rgba(156,58,58,0.25),
+          0 2px 4px rgba(0,0,0,0.2);
+
+        &::after {
+          content: '';
+          position: absolute;
+          inset: 6px;
+          border: 1px dashed rgba(156,58,58,0.35);
+          border-radius: 50%;
+        }
+      }
+      .ppm-date {
+        position: relative;
+        font-size: 12px;
+        font-weight: 800;
+        color: $card-white;
+        text-align: center;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+        letter-spacing: 0.5px;
+        line-height: 1.2;
+        z-index: 1;
+      }
+    }
+
+    // 邮票
+    .pc-stamp {
+      position: absolute;
+      top: 12px;
+      left: 14px;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 34px;
+      color: $stamp-teal;
+      background:
+        radial-gradient(circle at 2.5px 2.5px, transparent 2px, $card-white 2px) 0 0 / 5px 5px,
+        linear-gradient(135deg, rgba(255,250,235,0.6) 0%, transparent 45%, rgba(184,164,120,0.22) 100%),
+        radial-gradient(ellipse at 50% 20%, rgba(255,250,235,0.55) 0%, transparent 70%),
+        linear-gradient(180deg, $card-cream 0%, $card-white 100%);
+      border: 1px dashed rgba(74,122,107,0.6);
+      border-radius: 3px;
+      transform: rotate(-3deg);
+      box-shadow:
+        inset 0 1px 0 rgba(255,250,235,0.7),
+        inset 0 -1px 1px rgba(184,164,120,0.3),
+        0 2px 4px rgba(0,0,0,0.25),
+        0 4px 8px rgba(0,0,0,0.12);
+      filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2));
+    }
+
+    .pc-titlebox {
+      position: absolute;
+      bottom: 12px;
+      left: 16px;
+      right: 16px;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+
+      .pc-name {
+        font-size: 22px;
+        font-weight: 800;
+        color: $card-white;
+        letter-spacing: 3px;
+        text-shadow:
+          0 2px 8px rgba(0,0,0,0.95),
+          0 0 20px rgba(212,160,32,0.35),
+          0 1px 1px rgba(0,0,0,0.6);
+      }
+
+      .pc-rating {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 15px;
+        font-weight: 800;
+        font-family: 'Courier New', monospace;
+        color: $brass-bright;
+        padding: 5px 13px;
+        // 鎏金铜牌：金属渐变 + 内高光 + 暗部 + 外投影
+        background:
+          linear-gradient(135deg, rgba(255,245,200,0.35) 0%, transparent 45%),
+          linear-gradient(180deg, rgba(160,120,32,0.85) 0%, rgba(107,80,16,0.9) 100%);
+        border: 1px solid $brass;
+        border-radius: 5px;
+        backdrop-filter: blur(2px);
+        text-shadow: 0 1px 1px rgba(0,0,0,0.6);
+        box-shadow:
+          inset 0 1px 0 rgba(245,217,122,0.35),
+          inset 0 -1px 2px rgba(0,0,0,0.4),
+          inset 0 0 0 1px rgba(245,217,122,0.12),
+          0 2px 5px rgba(0,0,0,0.45),
+          0 0 12px rgba(212,160,32,0.25);
+      }
+    }
+  }
+
+  // ---------- 信息吊牌（四色行李吊牌 · 2×2 网格） ----------
+  .info-stamps {
+    flex: 1;
+    min-width: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 1fr;
+    gap: 12px 10px;
+    padding-top: 4px;
+
+    .info-stamp {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 12px 10px 11px 32px;
+      border-radius: 6px 6px 5px 5px;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      // 默认绳色（子类块覆写为各自主题色）
+      $cable: $accent-gold;
+      $cable-deep: #8a6518;
+
+      // 吊牌穿出的挂绳（从顶部打孔处探出）
+      &::before {
+        content: '';
+        position: absolute;
+        top: -11px;
+        left: 15px;
+        width: 4px;
+        height: 13px;
+        border-radius: 2px;
+        z-index: 3;
+        background: linear-gradient(180deg, rgba(0,0,0,0.06) 0%, $cable 45%, $cable-deep 100%);
+        box-shadow:
+          inset 0 1px 0 rgba(255,255,255,0.25),
+          0 1px 1px rgba(0,0,0,0.18);
+      }
+
+      // 打孔金属圈（黄铜孔环）
+      .is-grommet {
+        position: absolute;
+        top: 50%;
+        left: 14px;
+        transform: translateY(-50%);
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 50% 45%, rgba(20,10,4,0.85) 0%, rgba(20,10,4,0.55) 55%, rgba(20,10,4,0.3) 100%);
+        border: 2px solid $brass-deep;
+        box-shadow:
+          inset 0 1px 2px rgba(0,0,0,0.7),
+          0 1px 1px rgba(255,250,235,0.5),
+          0 0 4px rgba(160,120,32,0.3);
+      }
+
+      .is-ico {
+        display: flex;
+        filter: drop-shadow(0 1px 1px rgba(0,0,0,0.2));
+        transition: all 0.35s ease;
+      }
+      .is-label {
+        font-size: 18px;
+        font-weight: bolder;
+        color: $ink-mid;
+        letter-spacing: 1px;
+        text-shadow: 0 1px 0 rgba(255,250,235,0.35);
+      }
+      .is-val {
+        font-size: 16px;
+        font-weight: 800;
+        color: $ink-darkest;
+        letter-spacing: 0.5px;
+        margin-left: auto;
+        text-shadow: 0 1px 0 rgba(255,250,235,0.4);
+      }
+
+      // 四色吊牌：金色/锈红/莓紫/森林绿（浅彩纸底 + 同色系绳）
+      &.is-days {
+        background:
+          repeating-linear-gradient(45deg, rgba(184,134,42,0.05) 0, rgba(184,134,42,0.05) 2px, transparent 2px, transparent 7px),
+          linear-gradient(165deg, #f8ecc9 0%, #f2dfae 100%);
+        border: 1px solid rgba(184,134,42,0.5);
+        $cable: #b8862a;
+        $cable-deep: #8a6518;
+        &::before { background: linear-gradient(180deg, rgba(0,0,0,0.06) 0%, $cable 45%, $cable-deep 100%); }
+        box-shadow:
+          inset 0 1px 0 rgba(255,252,235,0.7),
+          inset 0 -2px 4px rgba(184,134,42,0.22),
+          0 3px 7px rgba(0,0,0,0.2),
+          0 1px 2px rgba(0,0,0,0.1);
+        .is-ico { color: $accent-gold; }
+      }
+
+      &.is-budget {
+        background:
+          repeating-linear-gradient(0deg, rgba(184,90,42,0.05) 0, rgba(184,90,42,0.05) 1px, transparent 1px, transparent 6px),
+          linear-gradient(165deg, #f6ddd0 0%, #efc8b4 100%);
+        border: 1px solid rgba(184,90,42,0.5);
+        $cable: #b85a2a;
+        $cable-deep: #8a3f18;
+        &::before { background: linear-gradient(180deg, rgba(0,0,0,0.06) 0%, $cable 45%, $cable-deep 100%); }
+        box-shadow:
+          inset 0 1px 0 rgba(255,242,235,0.7),
+          inset 0 -2px 4px rgba(184,90,42,0.22),
+          0 3px 7px rgba(0,0,0,0.2),
+          0 1px 2px rgba(0,0,0,0.1);
+        .is-ico { color: $accent-rust; }
+      }
+
+      &.is-intensity {
+        background:
+          radial-gradient(circle at 85% 25%, rgba(156,58,90,0.08) 0%, transparent 45%),
+          linear-gradient(165deg, #efd3df 0%, #e2bccd 100%);
+        border: 1px solid rgba(156,58,90,0.45);
+        $cable: #9c3a5a;
+        $cable-deep: #742642;
+        &::before { background: linear-gradient(180deg, rgba(0,0,0,0.06) 0%, $cable 45%, $cable-deep 100%); }
+        box-shadow:
+          inset 0 1px 0 rgba(255,240,246,0.7),
+          inset 0 -2px 4px rgba(156,58,90,0.2),
+          0 3px 7px rgba(0,0,0,0.2),
+          0 1px 2px rgba(0,0,0,0.1);
+        .is-ico { color: $accent-berry; }
+      }
+
+      &.is-audience {
+        background:
+          radial-gradient(circle at 20% 80%, rgba(74,122,58,0.08) 0%, transparent 45%),
+          linear-gradient(165deg, #ddefd3 0%, #c6dfb8 100%);
+        border: 1px solid rgba(74,122,58,0.45);
+        $cable: #4a7a3a;
+        $cable-deep: #345a28;
+        &::before { background: linear-gradient(180deg, rgba(0,0,0,0.06) 0%, $cable 45%, $cable-deep 100%); }
+        box-shadow:
+          inset 0 1px 0 rgba(242,250,235,0.7),
+          inset 0 -2px 4px rgba(74,122,58,0.2),
+          0 3px 7px rgba(0,0,0,0.2),
+          0 1px 2px rgba(0,0,0,0.1);
+        .is-ico { color: $accent-forest; }
+      }
+
+      // hover：吊牌被拎起晃动（上浮 + 微旋 + 绳光）
+      &:hover {
+        transform: translateY(-4px) rotate(-0.8deg);
+        box-shadow:
+          inset 0 1px 0 rgba(255,255,255,0.75),
+          inset 0 -2px 4px rgba(0,0,0,0.08),
+          0 8px 18px rgba(0,0,0,0.28),
+          0 3px 6px rgba(0,0,0,0.14),
+          0 0 14px rgba(184,134,42,0.18);
+
+        &::before {
+          top: -14px;
+          box-shadow:
+            inset 0 1px 0 rgba(255,255,255,0.35),
+            0 0 6px rgba(212,160,32,0.4);
+        }
+
+        .is-ico {
+          transform: scale(1.12) rotate(-6deg);
+          filter: drop-shadow(0 1px 2px rgba(0,0,0,0.25)) drop-shadow(0 0 6px rgba(184,134,42,0.3));
+        }
+      }
+    }
+  }
+
+  // ---------- 亮点布贴（缝线布贴徽章条） ----------
+  .highlight-tags {
+    position: relative;
+    padding: 11px 13px;
+    // 麻布底：双向斜纹布织 + 缝线包边
+    background:
+      repeating-linear-gradient(45deg, rgba(154,124,72,0.07) 0, rgba(154,124,72,0.07) 1px, transparent 1px, transparent 5px),
+      repeating-linear-gradient(-45deg, rgba(154,124,72,0.05) 0, rgba(154,124,72,0.05) 1px, transparent 1px, transparent 6px),
+      linear-gradient(170deg, rgba(212,184,134,0.55) 0%, rgba(184,164,120,0.4) 100%);
+    border: 1px solid rgba(154,124,72,0.45);
+    border-radius: 6px;
+    box-shadow:
+      inset 0 1px 0 rgba(255,250,235,0.4),
+      inset 0 -2px 4px rgba(120,90,50,0.2),
+      0 2px 6px rgba(0,0,0,0.14);
+
+    // 缝线包边（麻布边缘的双针缝线）
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 3px;
+      border: 1px dashed rgba(120,90,50,0.35);
+      border-radius: 4px;
+      pointer-events: none;
+    }
+
+    .ht-label {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 22px;
+      font-weight: 900;
+      color: $ink-dark;
+      letter-spacing: 1.5px;
+      margin-bottom: 9px;
+      text-shadow: 0 1px 0 rgba(255,250,235,0.4);
+    }
+
+    .ht-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    // 缝线布贴徽章：圆角布片 + 内侧缝线 + 布纹渐变 + 左上高光弧
+    .ht-tag {
+      position: relative;
+      padding: 6px 13px 5px;
+      font-size: 14px;
+      font-weight: 800;
+      color: #fdf6e6;
+      letter-spacing: 0.5px;
+      border-radius: 5px;
+      text-shadow:
+        0 1px 1px rgba(0,0,0,0.45),
+        0 0 0.5px rgba(255,255,255,0.15);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      border: 1px solid rgba(0,0,0,0.18);
+
+      // 内侧缝线（布贴边缘的行针线）
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 2px;
+        border: 1px dashed rgba(255,255,255,0.45);
+        border-radius: 3px;
+        pointer-events: none;
+      }
+
+      // 左上布面高光弧（布料受光的隆起）
+      &::before {
+        content: '';
+        position: absolute;
+        top: 1px;
+        left: 3px;
+        right: 3px;
+        height: 45%;
+        border-radius: 4px 4px 50% 50%;
+        background: linear-gradient(180deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.06) 55%, transparent 100%);
+        pointer-events: none;
+      }
+
+      // 多色布贴循环：青绿 / 鎏金 / 锈橙 / 玫紫 / 森林绿
+      &:nth-child(5n + 1) {
+        background:
+          repeating-linear-gradient(45deg, rgba(255,255,255,0.05) 0, rgba(255,255,255,0.05) 2px, transparent 2px, transparent 6px),
+          linear-gradient(168deg, #2a7a6b 0%, #1d5a4f 100%);
+        box-shadow:
+          inset 0 1px 0 rgba(255,255,255,0.25),
+          inset 0 -2px 3px rgba(0,0,0,0.22),
+          inset 0 0 0 1px rgba(255,255,255,0.06),
+          0 2px 4px rgba(0,0,0,0.22),
+          0 4px 8px rgba(0,0,0,0.1);
+      }
+      &:nth-child(5n + 2) {
+        background:
+          repeating-linear-gradient(45deg, rgba(255,255,255,0.05) 0, rgba(255,255,255,0.05) 2px, transparent 2px, transparent 6px),
+          linear-gradient(168deg, #b8862a 0%, #8a6218 100%);
+        box-shadow:
+          inset 0 1px 0 rgba(255,255,255,0.25),
+          inset 0 -2px 3px rgba(0,0,0,0.22),
+          inset 0 0 0 1px rgba(255,255,255,0.06),
+          0 2px 4px rgba(0,0,0,0.22),
+          0 4px 8px rgba(0,0,0,0.1);
+      }
+      &:nth-child(5n + 3) {
+        background:
+          repeating-linear-gradient(45deg, rgba(255,255,255,0.05) 0, rgba(255,255,255,0.05) 2px, transparent 2px, transparent 6px),
+          linear-gradient(168deg, #b85a2a 0%, #8a3f18 100%);
+        box-shadow:
+          inset 0 1px 0 rgba(255,255,255,0.25),
+          inset 0 -2px 3px rgba(0,0,0,0.22),
+          inset 0 0 0 1px rgba(255,255,255,0.06),
+          0 2px 4px rgba(0,0,0,0.22),
+          0 4px 8px rgba(0,0,0,0.1);
+      }
+      &:nth-child(5n + 4) {
+        background:
+          repeating-linear-gradient(45deg, rgba(255,255,255,0.05) 0, rgba(255,255,255,0.05) 2px, transparent 2px, transparent 6px),
+          linear-gradient(168deg, #9c3a6a 0%, #74264e 100%);
+        box-shadow:
+          inset 0 1px 0 rgba(255,255,255,0.25),
+          inset 0 -2px 3px rgba(0,0,0,0.22),
+          inset 0 0 0 1px rgba(255,255,255,0.06),
+          0 2px 4px rgba(0,0,0,0.22),
+          0 4px 8px rgba(0,0,0,0.1);
+      }
+      &:nth-child(5n + 5) {
+        background:
+          repeating-linear-gradient(45deg, rgba(255,255,255,0.05) 0, rgba(255,255,255,0.05) 2px, transparent 2px, transparent 6px),
+          linear-gradient(168deg, #4a7a3a 0%, #345a28 100%);
+        box-shadow:
+          inset 0 1px 0 rgba(255,255,255,0.25),
+          inset 0 -2px 3px rgba(0,0,0,0.22),
+          inset 0 0 0 1px rgba(255,255,255,0.06),
+          0 2px 4px rgba(0,0,0,0.22),
+          0 4px 8px rgba(0,0,0,0.1);
+      }
+
+      // hover：布贴被拈起（上浮 + 展正 + 边缘透光）
+      &:hover {
+        transform: translateY(-3px) rotate(-1deg);
+        box-shadow:
+          inset 0 1px 0 rgba(255,255,255,0.35),
+          inset 0 -2px 3px rgba(0,0,0,0.18),
+          0 6px 14px rgba(0,0,0,0.28),
+          0 0 16px rgba(212,160,32,0.3);
+      }
+    }
+  }
+
+  // ---------- 景点图钉相卡（拍立得白边卡 + 黄铜大头钉） ----------
+  .spot-postcards {
+    .sp-label {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 22px;
+      font-weight: 900;
+      color: $ink-dark;
+      letter-spacing: 1.5px;
+      margin-bottom: 9px;
+      text-shadow: 0 1px 0 rgba(255,250,235,0.4);
+
+      // 景点数量鎏金铜牌徽章（独立容器，替代旧的 · 分隔符）
+      .sp-count {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 34px;
+        padding: 3px 10px;
+        margin-left: 4px;
+        font-size: 15px;
+        font-weight: 800;
+ 
+        color: $leather-darkest;
+        letter-spacing: 0.5px;
+        background:
+          linear-gradient(135deg, rgba(255,245,200,0.45) 0%, transparent 45%),
+          linear-gradient(180deg, $brass-bright 0%, $brass 40%, $brass-deep 100%);
+        border: 1px solid $brass-shadow;
+        border-radius: 11px;
+        text-shadow: 0 1px 0 rgba(255,245,200,0.45);
+        box-shadow:
+          inset 0 1px 0 rgba(255,245,200,0.55),
+          inset 0 -1px 2px rgba(107,80,16,0.4),
+          inset 0 0 0 1px rgba(255,245,200,0.12),
+          0 2px 4px rgba(0,0,0,0.28),
+          0 0 7px rgba(212,160,32,0.35);
+      }
+    }
+
+    .sp-list {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .spot-card {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 11px;
+      padding: 11px 12px 10px 14px;
+      // 拍立得白边卡纸 + 纤维纹理 + 顶部高光
+      background:
+        repeating-linear-gradient(0deg, rgba(216,200,160,0.05) 0, rgba(216,200,160,0.05) 1px, transparent 1px, transparent 8px),
+        radial-gradient(ellipse at 20% 0%, rgba(255,250,235,0.5) 0%, transparent 55%),
+        linear-gradient(175deg, $card-white 0%, $card-cream 100%);
+      border: 1px solid rgba(184,164,120,0.55);
+      border-radius: 6px 6px 4px 4px;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow:
+        inset 0 1px 0 rgba(255,250,235,0.55),
+        inset 0 -2px 3px rgba(184,164,120,0.2),
+        0 3px 7px rgba(0,0,0,0.2),
+        0 1px 2px rgba(0,0,0,0.1);
+
+      // 交替微倾（像随手钉上去的相卡）
+      &:nth-child(odd) { transform: rotate(-0.65deg); }
+      &:nth-child(even) { transform: rotate(0.65deg); }
+
+      // 相卡印刷内线（拍立得的纸边印刷线）
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 3px;
+        border: 1px solid rgba(216,200,160,0.35);
+        border-radius: 4px;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      // 黄铜大头钉（钉在卡纸顶部，穿过卡纸）
+      .sc-pin {
+        position: absolute;
+        top: -9px;
+        left: 50%;
+        transform: translateX(-50%) rotate(-14deg);
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        z-index: 5;
+        background: radial-gradient(circle at 36% 30%, $brass-bright 0%, $brass 42%, $brass-deep 74%, $brass-shadow 100%);
+        border: 1px solid $brass-shadow;
+        box-shadow:
+          inset 0 1px 1px rgba(255,245,200,0.6),
+          inset 0 -1px 2px rgba(0,0,0,0.45),
+          0 2px 4px rgba(0,0,0,0.35),
+          0 5px 11px rgba(0,0,0,0.2);
+        transition: all 0.35s ease;
+
+        // 钉帽高光点（金属反光）
+        &::after {
+          content: '';
+          position: absolute;
+          top: 2px;
+          left: 3px;
+          width: 5px;
+          height: 5px;
+          border-radius: 50%;
+          background: rgba(255,250,235,0.88);
+          filter: blur(0.5px);
+        }
+      }
+
+      .sc-num {
+        position: relative;
+        z-index: 1;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 26px;
+        height: 26px;
+        font-size: 15px;
+        font-weight: 800;
+        font-family: 'Courier New', monospace;
+        color: $card-white;
+        // 蜡封红章序号（墨迹圆印）
+        background: radial-gradient(circle at 35% 28%, $ink-red-bright 0%, $ink-red 65%, $ink-red-deep 100%);
+        border-radius: 50%;
+        border: 2px solid rgba(122,42,42,0.5);
+        box-shadow:
+          inset 0 1px 2px rgba(0,0,0,0.35),
+          inset 0 -1px 1px rgba(255,180,180,0.2),
+          0 2px 3px rgba(0,0,0,0.3),
+          0 0 0 1px rgba(197,74,74,0.25);
+        text-shadow: 0 1px 1px rgba(0,0,0,0.4);
+      }
+
+      .sc-photo {
+        position: relative;
+        z-index: 1;
+        flex-shrink: 0;
+        width: 58px;
+        height: 58px;
+        border-radius: 4px;
+        overflow: hidden;
+        border: 4px solid $card-white;
+        background: $leather-darkest;
+        box-shadow:
+          inset 0 1px 3px rgba(0,0,0,0.4),
+          0 2px 5px rgba(0,0,0,0.25),
+          0 0 0 1px rgba(184,164,120,0.35);
+
+        .sc-img {
+          width: 100%;
+          height: 100%;
+          min-width: 100%;
+          min-height: 100%;
+          object-fit: cover;
+          filter: saturate(1.05) contrast(1.04);
+        }
+      }
+
+      .sc-body {
+        position: relative;
+        z-index: 1;
+        flex: 1;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+
+        .sc-head {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+
+          .sc-name {
+            font-size: 18px;
+            font-weight: 800;
+            color: $ink-darkest;
+            letter-spacing: 1px;
+            text-shadow: 0 1px 0 rgba(255,250,235,0.4);
+          }
+        .sc-rate {
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            font-size: 15px;
+            font-weight: 700;
+            color: $ink-gold;
+            font-family: 'Courier New', monospace;
+            filter: drop-shadow(0 1px 0 rgba(255,250,235,0.4));
+          }
+        }
+
+        .sc-info {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+
+          .sc-loc, .sc-dur {
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            font-size: 15px;
+            color: $ink-dark;
+            font-weight: 600;
+          }
+        }
+
+        .sc-desc {
+          margin: 0;
+          font-size: 16px;
+          line-height: 1.45;
+          color: $ink-mid;
+          font-weight: 700;
+          display: -webkit-box;
+          -webkit-line-clamp: 1;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+      }
+
+      .sc-side {
+        position: relative;
+        z-index: 1;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 3px;
+        min-width: 62px;
+
+        .sc-price {
+          font-size: 25px;
+          font-weight: bolder;
+          color: $accent-rust;
+          font-family: 'Courier New', monospace;
+          text-shadow: 0 1px 0 rgba(255,250,235,0.3);
+        }
+        .sc-trans {
+          display: inline-flex;
+          align-items: center;
+          gap: 3px;
+          font-size: 15px;
+          color: $ink-mid;
+          font-weight: 700;
+        }
+      }
+
+      // 景点名称可点击
+      .sc-name {
+        cursor: pointer;
+        transition: all 0.25s ease;
+        &:hover {
+          color: $accent-gold;
+          text-shadow: 0 0 8px rgba(184,134,42,0.4);
+        }
+      }
+
+      // 4 按钮操作区
+      .sc-actions {
+        flex-basis: 100%;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        margin-top: 2px;
+        padding-top: 7px;
+        border-top: 1px dashed rgba(184,164,120,0.35);
+
+        .sc-btn {
+          width: 34px;
+          height: 34px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          border-radius: 6px;
+          transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+          &:active {
+            transform: translateY(1px);
+          }
+
+          // 点赞 — 翠绿色系
+          &.sc-like {
+            background: linear-gradient(180deg, rgba(20,50,35,0.9) 0%, rgba(12,35,22,1) 100%);
+            box-shadow:
+              inset 0 0 0 1px rgba(16,185,129,0.35),
+              inset 0 1px 0 rgba(167,243,208,0.15),
+              inset 0 -2px 3px rgba(0,0,0,0.4),
+              0 2px 4px rgba(0,0,0,0.25);
+            color: #34d399;
+            &:hover {
+              background: linear-gradient(180deg, rgba(28,68,46,0.95) 0%, rgba(18,48,30,1) 100%);
+              box-shadow:
+                inset 0 0 0 1px rgba(16,185,129,0.6),
+                inset 0 1px 0 rgba(167,243,208,0.3),
+                inset 0 -2px 3px rgba(0,0,0,0.35),
+                0 4px 8px rgba(0,0,0,0.3),
+                0 0 8px rgba(16,185,129,0.3);
+              transform: translateY(-2px);
+              color: #34d399;
+            }
+            &.active {
+              background: linear-gradient(180deg, rgba(20,50,35,0.98) 0%, rgba(12,35,22,1) 100%);
+              box-shadow:
+                inset 0 0 0 1px rgba(16,185,129,0.8),
+                inset 0 1px 0 rgba(167,243,208,0.4),
+                inset 0 -2px 3px rgba(0,0,0,0.4),
+                0 0 12px rgba(16,185,129,0.5);
+              color: #34d399;
+            }
+          }
+
+          // 想去 — 玫红色系
+          &.sc-want {
+            background: linear-gradient(180deg, rgba(70,20,35,0.9) 0%, rgba(45,12,22,1) 100%);
+            box-shadow:
+              inset 0 0 0 1px rgba(244,63,94,0.35),
+              inset 0 1px 0 rgba(254,205,211,0.15),
+              inset 0 -2px 3px rgba(0,0,0,0.4),
+              0 2px 4px rgba(0,0,0,0.25);
+            color: #fb7185;
+            &:hover {
+              background: linear-gradient(180deg, rgba(90,28,48,0.95) 0%, rgba(60,16,30,1) 100%);
+              box-shadow:
+                inset 0 0 0 1px rgba(244,63,94,0.6),
+                inset 0 1px 0 rgba(254,205,211,0.3),
+                inset 0 -2px 3px rgba(0,0,0,0.35),
+                0 4px 8px rgba(0,0,0,0.3),
+                0 0 8px rgba(244,63,94,0.3);
+              transform: translateY(-2px);
+              color: #fb7185;
+            }
+            &.active {
+              background: linear-gradient(180deg, rgba(70,20,35,0.98) 0%, rgba(45,12,22,1) 100%);
+              box-shadow:
+                inset 0 0 0 1px rgba(244,63,94,0.8),
+                inset 0 1px 0 rgba(254,205,211,0.4),
+                inset 0 -2px 3px rgba(0,0,0,0.4),
+                0 0 12px rgba(244,63,94,0.5);
+              color: #fb7185;
+            }
+          }
+
+          // 分享 — 青蓝色系
+          &.sc-share {
+            background: linear-gradient(180deg, rgba(14,40,55,0.9) 0%, rgba(8,28,40,1) 100%);
+            box-shadow:
+              inset 0 0 0 1px rgba(34,211,238,0.35),
+              inset 0 1px 0 rgba(103,232,249,0.15),
+              inset 0 -2px 3px rgba(0,0,0,0.4),
+              0 2px 4px rgba(0,0,0,0.25);
+            color: #67e8f9;
+            &:hover {
+              background: linear-gradient(180deg, rgba(20,55,75,0.95) 0%, rgba(12,38,54,1) 100%);
+              box-shadow:
+                inset 0 0 0 1px rgba(34,211,238,0.6),
+                inset 0 1px 0 rgba(103,232,249,0.3),
+                inset 0 -2px 3px rgba(0,0,0,0.35),
+                0 4px 8px rgba(0,0,0,0.3),
+                0 0 8px rgba(34,211,238,0.3);
+              transform: translateY(-2px);
+              color: #67e8f9;
+            }
+          }
+
+          // 去过 — 琥珀色系
+          &.sc-been {
+            background: linear-gradient(180deg, rgba(66,48,14,0.9) 0%, rgba(44,30,8,1) 100%);
+            box-shadow:
+              inset 0 0 0 1px rgba(252,211,77,0.35),
+              inset 0 1px 0 rgba(252,211,77,0.15),
+              inset 0 -2px 3px rgba(0,0,0,0.4),
+              0 2px 4px rgba(0,0,0,0.25);
+            color: #fcd34d;
+            &:hover {
+              background: linear-gradient(180deg, rgba(82,60,18,0.95) 0%, rgba(56,38,10,1) 100%);
+              box-shadow:
+                inset 0 0 0 1px rgba(252,211,77,0.6),
+                inset 0 1px 0 rgba(252,211,77,0.3),
+                inset 0 -2px 3px rgba(0,0,0,0.35),
+                0 4px 8px rgba(0,0,0,0.3),
+                0 0 8px rgba(251,191,36,0.3);
+              transform: translateY(-2px);
+              color: $brass-bright;
+            }
+            &.active {
+              background: linear-gradient(180deg, rgba(66,48,14,0.98) 0%, rgba(44,30,8,1) 100%);
+              box-shadow:
+                inset 0 0 0 1px rgba(252,211,77,0.8),
+                inset 0 1px 0 rgba(252,211,77,0.4),
+                inset 0 -2px 3px rgba(0,0,0,0.4),
+                0 0 12px rgba(251,191,36,0.5);
+              color: $brass-bright;
+            }
+          }
+        }
+      }
+
+      &:hover {
+        border-color: $accent-gold;
+        z-index: 2;
+        transform: translateY(-3px) rotate(0deg) scale(1.008);
+        box-shadow:
+          inset 0 1px 0 rgba(255,250,235,0.7),
+          inset 0 -2px 3px rgba(184,164,120,0.15),
+          0 10px 22px rgba(0,0,0,0.28),
+          0 4px 8px rgba(0,0,0,0.14),
+          0 0 20px rgba(184,134,42,0.28);
+
+        .sc-pin {
+          transform: translateX(-50%) rotate(-6deg) scale(1.15);
+          box-shadow:
+            inset 0 1px 1px rgba(255,245,200,0.7),
+            inset 0 -1px 2px rgba(0,0,0,0.4),
+            0 3px 6px rgba(0,0,0,0.4),
+            0 0 14px rgba(245,217,122,0.6);
+        }
+      }
+    }
+  }
+
+  // ---------- 手写贴士（黄色便利签 · 胶带 + 卷角） ----------
+  .tips-journal {
+    position: relative;
+    padding: 16px 14px 12px;
+    // 便利签纸：淡黄底 + 书写横格线 + 细纸纹
+    background:
+      repeating-linear-gradient(180deg, transparent 0, transparent 24px, rgba(184,134,42,0.07) 24px, rgba(184,134,42,0.07) 25px),
+      linear-gradient(175deg, #fdf6d8 0%, #f7ecc0 100%);
+    border: 1px solid rgba(184,134,42,0.35);
+    border-radius: 4px 4px 3px 3px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow:
+      inset 0 1px 0 rgba(255,252,235,0.6),
+      inset 0 -3px 5px rgba(184,134,42,0.12),
+      0 4px 10px rgba(0,0,0,0.16),
+      0 8px 16px rgba(0,0,0,0.1);
+
+    // 顶部半透明胶带（便利签被胶带粘在纸页上）
+    &::before {
+      content: '';
+      position: absolute;
+      top: -9px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-1deg);
+      width: 120px;
+      height: 22px;
+      background:
+        repeating-linear-gradient(180deg, rgba(255,255,255,0.12) 0, rgba(255,255,255,0.12) 2px, transparent 2px, transparent 6px),
+        linear-gradient(180deg, rgba(245,222,150,0.5) 0%, rgba(240,205,110,0.35) 100%);
+      border-radius: 2px;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.35),
+        inset 0 -1px 1px rgba(160,120,32,0.15),
+        0 2px 4px rgba(0,0,0,0.15);
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    // 右下卷角（便签被翻起的纸角）
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 18px;
+      height: 18px;
+      background:
+        linear-gradient(315deg, transparent 50%, rgba(184,134,42,0.18) 51%, rgba(240,205,110,0.32) 60%, rgba(253,246,216,0.9) 100%);
+      border-radius: 0 0 4px 0;
+      filter: drop-shadow(-1px -1px 1px rgba(120,90,50,0.14));
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    // hover：便签被捻起一角（上浮微旋）
+    &:hover {
+      transform: translateY(-2px) rotate(-0.4deg);
+      box-shadow:
+        inset 0 1px 0 rgba(255,252,235,0.7),
+        inset 0 -3px 5px rgba(184,134,42,0.1),
+        0 8px 20px rgba(0,0,0,0.22),
+        0 0 18px rgba(184,134,42,0.16);
+
+      &::before {
+        box-shadow:
+          inset 0 1px 0 rgba(255,255,255,0.45),
+          inset 0 -1px 1px rgba(160,120,32,0.18),
+          0 3px 6px rgba(0,0,0,0.2);
+      }
+    }
+
+    .tj-label {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 22px;
+      font-weight: 900;
+      color: $ink-dark;
+      letter-spacing: 1.5px;
+      margin-bottom: 9px;
+      z-index: 1;
+      text-shadow: 0 1px 0 rgba(255,252,235,0.5);
+    }
+
+    .tj-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      position: relative;
+      z-index: 1;
+
+      li {
+        position: relative;
+        padding: 6px 10px 7px 26px;
+        font-size: 16px;
+        line-height: 1.5;
+        color: $ink-dark;
+        letter-spacing: 0.3px;
+        font-weight: 600;
+        background: linear-gradient(90deg, rgba(253,246,216,0.55) 0%, rgba(253,246,216,0.2) 100%);
+        border-bottom: 1px dashed rgba(184,134,42,0.32);
+        text-shadow: 0 1px 0 rgba(255,252,235,0.4);
+        transition: all 0.25s ease;
+
+        // 铅笔圆点（手写要点记号）
+        &::before {
+          content: '';
+          position: absolute;
+          left: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          background: radial-gradient(circle at 35% 30%, #d97b4a 0%, $accent-rust 60%, #8a3f18 100%);
+          box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+        }
+
+        &:hover {
+          padding-left: 30px;
+          background: linear-gradient(90deg, rgba(253,246,216,0.8) 0%, rgba(255,252,235,0.4) 100%);
+        }
+      }
+    }
+  }
+}
+
+// ============================================
+// 详情切换过渡
+// ============================================
+.display-page {
+  animation: pageFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

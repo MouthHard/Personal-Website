@@ -3,26 +3,33 @@
  * 数据来源：后端 /api/travel-guide/*
  */
 import { defineStore } from 'pinia';
-import { ref } from 'vue';
+import { ref, shallowRef, triggerRef } from 'vue';
 import type {
   Province,
   FoodItem,
   FoodLocation,
+  FoodGuide,
+  FoodSouvenir,
+  FoodSeasonal,
 } from '@/typesOfPages/travelGuide';
 import {
   fetchProvinces,
   fetchScenery,
   fetchFood,
+  fetchSceneryConfig,
 } from '@/services/travelGuide';
 import type {
   ProvinceScenery,
   ProvinceFood,
+  SceneryConfig,
 } from '@/services/travelGuide';
 
 export const useTravelGuideStore = defineStore('travelGuide', () => {
   const provinces = ref<Province[]>([]);
-  const sceneryMap = ref<Record<string, ProvinceScenery>>({});
-  const foodMap = ref<Record<string, ProvinceFood>>({});
+  const sceneryMap = shallowRef<Record<string, ProvinceScenery>>({});
+  const foodMap = shallowRef<Record<string, ProvinceFood>>({});
+  const foodNameMap = shallowRef<Record<string, string>>({});
+  const sceneryConfig = ref<SceneryConfig | null>(null);
 
   const loading = ref(false);
   const error = ref<string | null>(null);
@@ -33,10 +40,12 @@ export const useTravelGuideStore = defineStore('travelGuide', () => {
     loading.value = true;
     error.value = null;
     try {
-      const [provinceRes] = await Promise.all([
+      const [provinceRes, config] = await Promise.all([
         fetchProvinces({ limit: 100 }),
+        fetchSceneryConfig(),
       ]);
       provinces.value = provinceRes.items;
+      sceneryConfig.value = config;
       loaded.value = true;
     } catch (e) {
       error.value = e instanceof Error ? e.message : '加载失败';
@@ -63,6 +72,7 @@ export const useTravelGuideStore = defineStore('travelGuide', () => {
     const request = fetchScenery(provinceId)
       .then((data) => {
         sceneryMap.value[provinceId] = data;
+        triggerRef(sceneryMap);
         return data;
       })
       .finally(() => {
@@ -79,6 +89,11 @@ export const useTravelGuideStore = defineStore('travelGuide', () => {
     const request = fetchFood(provinceId)
       .then((data) => {
         foodMap.value[provinceId] = data;
+        triggerRef(foodMap);
+        for (const item of data.items) {
+          foodNameMap.value[item.id] = item.name;
+        }
+        triggerRef(foodNameMap);
         return data;
       })
       .finally(() => {
@@ -143,10 +158,33 @@ export const useTravelGuideStore = defineStore('travelGuide', () => {
     return data?.locations || [];
   };
 
+  const getFoodGuide = async (
+    provinceId: string,
+  ): Promise<FoodGuide | null> => {
+    const data = await getFood(provinceId);
+    return data?.guide || null;
+  };
+
+  const getFoodSouvenirs = async (
+    provinceId: string,
+  ): Promise<FoodSouvenir[]> => {
+    const data = await getFood(provinceId);
+    return data?.souvenirs || [];
+  };
+
+  const getFoodSeasonal = async (
+    provinceId: string,
+  ): Promise<FoodSeasonal[]> => {
+    const data = await getFood(provinceId);
+    return data?.seasonal || [];
+  };
+
   return {
     provinces,
     sceneryMap,
     foodMap,
+    foodNameMap,
+    sceneryConfig,
     loading,
     error,
     loaded,
@@ -160,5 +198,8 @@ export const useTravelGuideStore = defineStore('travelGuide', () => {
     getFood,
     getFoodItems,
     getFoodLocations,
+    getFoodGuide,
+    getFoodSouvenirs,
+    getFoodSeasonal,
   };
 });

@@ -13,7 +13,7 @@
       "image": "https://picsum.photos/id/437/800/600",
       "price": 12,
       "rating": 4.7,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "桂林名片",
       "isPopular": true,
       "badgeColor": "#03a9f4",
@@ -41,7 +41,7 @@
       "image": "https://picsum.photos/id/438/800/600",
       "price": 15,
       "rating": 4.8,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "柳州名片",
       "isPopular": true,
       "badgeColor": "#f44336",
@@ -69,7 +69,7 @@
       "image": "https://picsum.photos/id/439/800/600",
       "price": 12,
       "rating": 4.6,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "邕城名吃",
       "isPopular": true,
       "badgeColor": "#ff9800",
@@ -97,7 +97,7 @@
       "image": "https://picsum.photos/id/440/800/600",
       "price": 88,
       "rating": 4.7,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "北部湾珍鲜",
       "isPopular": true,
       "badgeColor": "#03a9f4",
@@ -125,7 +125,7 @@
       "image": "https://picsum.photos/id/441/800/600",
       "price": 58,
       "rating": 4.4,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "isPopular": false,
       "description": "肉质紧实，香气浓郁",
       "recommendations": {
@@ -151,7 +151,7 @@
       "image": "https://picsum.photos/id/442/800/600",
       "price": 3,
       "rating": 4.1,
-      "category": "小吃",
+      "category": "小吃零食",
       "isPopular": false,
       "description": "外酥内软，早餐必备",
       "recommendations": {
@@ -177,7 +177,7 @@
       "image": "https://picsum.photos/id/443/800/600",
       "price": 5,
       "rating": 4,
-      "category": "甜品",
+      "category": "甜品糕点",
       "isPopular": false,
       "description": "香甜可口，传统面点",
       "recommendations": {
@@ -203,7 +203,7 @@
       "image": "https://picsum.photos/id/444/800/600",
       "price": 38,
       "rating": 4.3,
-      "category": "饮品",
+      "category": "汤羹饮品",
       "isPopular": false,
       "description": "香气浓郁，口感醇厚",
       "recommendations": {
@@ -214,6 +214,110 @@
           "菜肴"
         ],
         "eatingMethod": "直接饮用，可点心或小吃"
+      }
+    },
+    {
+      "id": "guangxi-bazheng-fen",
+      "name": "宾阳酸粉",
+      "tags": [
+        "广西特色",
+        "宾阳特产",
+        "酸爽开胃",
+        "配料丰富",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/445/800/600",
+      "price": 14,
+      "rating": 4.5,
+      "category": "面点主食",
+      "isPopular": false,
+      "description": "宾阳传统名吃，酸甜爽口配料丰富",
+      "recommendations": {
+        "pairings": [
+          "小菜",
+          "汤品",
+          "饮料",
+          "茶品"
+        ],
+        "eatingMethod": "直接食用，作为主食"
+      }
+    },
+    {
+      "id": "guangxi-yangshuo-pijiu-yu",
+      "name": "阳朔啤酒鱼",
+      "tags": [
+        "广西特色",
+        "阳朔特产",
+        "鱼肉鲜嫩",
+        "啤酒香浓",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/446/800/600",
+      "price": 78,
+      "rating": 4.6,
+      "category": "菜品菜肴",
+      "isPopular": true,
+      "description": "阳朔名菜，啤酒烧制鱼肉鲜嫩",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "啤酒",
+          "小菜"
+        ],
+        "eatingMethod": "作为主菜食用，配米饭"
+      }
+    },
+    {
+      "id": "guangxi-gongcheng-youcha",
+      "name": "恭城油茶",
+      "tags": [
+        "广西特色",
+        "恭城特产",
+        "瑶族风味",
+        "暖胃提神",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/447/800/600",
+      "price": 18,
+      "rating": 4.4,
+      "category": "汤羹饮品",
+      "isPopular": false,
+      "description": "瑶族传统饮品，茶叶姜蒜熬打",
+      "recommendations": {
+        "pairings": [
+          "点心",
+          "小吃",
+          "炒米",
+          "粑粑"
+        ],
+        "eatingMethod": "配炒米粑粑食用，作为早茶"
+      }
+    },
+    {
+      "id": "guangxi-niunai-ba",
+      "name": "牛奶粑",
+      "tags": [
+        "广西特色",
+        "壮族小吃",
+        "奶香软糯",
+        "甜而不腻",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/448/800/600",
+      "price": 8,
+      "rating": 4.2,
+      "category": "甜品糕点",
+      "isPopular": false,
+      "description": "壮族传统小吃，牛奶糯米制成",
+      "recommendations": {
+        "pairings": [
+          "茶品",
+          "咖啡",
+          "水果",
+          "饮料"
+        ],
+        "eatingMethod": "直接食用，作为甜品"
       }
     }
   ],
@@ -239,12 +343,231 @@
       "type": "文化街",
       "foods": [
         "桂林米粉",
-        "阳朔啤酒鱼",
-        "恭城油茶"
+        "guangxi-yangshuo-pijiu-yu",
+        "guangxi-gongcheng-youcha"
       ],
       "image": "https://picsum.photos/id/323/800/600",
       "reason": "桂林特色美食聚集地",
       "location": "桂林市"
+    },
+    {
+      "id": 3,
+      "icon": "🏪",
+      "name": "柳州螺蛳粉街",
+      "type": "美食街",
+      "foods": [
+        "螺蛳粉",
+        "guangxi-bazheng-fen",
+        "玉林牛巴"
+      ],
+      "image": "https://picsum.photos/id/324/800/600",
+      "reason": "螺蛳粉发源地，正宗酸爽",
+      "location": "柳州市"
+    },
+    {
+      "id": 4,
+      "icon": "🌊",
+      "name": "北部湾海鲜市场",
+      "type": "市场",
+      "foods": [
+        "钦州大蚝",
+        "guangxi-niunai-ba",
+        "guangxi-hongcha"
+      ],
+      "image": "https://picsum.photos/id/325/800/600",
+      "reason": "北部湾海鲜美食聚集地",
+      "location": "钦州市"
+    }
+  ],
+  "souvenirs": [
+    {
+      "id": "guangxi-souvenir-1",
+      "name": "罗汉果",
+      "image": "https://picsum.photos/id/598/600/400",
+      "priceRange": "10-30元",
+      "description": "桂林特产，天然甜味剂，润肺止咳",
+      "buyAt": "永福罗汉果厂",
+      "storage": "密封干燥",
+      "province": "广西"
+    },
+    {
+      "id": "guangxi-souvenir-2",
+      "name": "沙田柚",
+      "image": "https://picsum.photos/id/597/600/400",
+      "priceRange": "10-25元",
+      "description": "容县特产，清甜多汁",
+      "buyAt": "容县沙田柚园",
+      "storage": "常温保存",
+      "province": "广西"
+    },
+    {
+      "id": "guangxi-souvenir-3",
+      "name": "坭兴陶",
+      "image": "https://picsum.photos/id/596/600/400",
+      "priceRange": "100-2000元",
+      "description": "钦州名陶，窑变万彩",
+      "buyAt": "钦州坭兴陶厂",
+      "storage": "干燥保存",
+      "province": "广西"
+    },
+    {
+      "id": "guangxi-souvenir-4",
+      "name": "桂林三花酒",
+      "image": "https://picsum.photos/id/595/600/400",
+      "priceRange": "20-80元",
+      "description": "米香型白酒，蜜香清雅",
+      "buyAt": "桂林三花酒厂",
+      "storage": "阴凉避光",
+      "province": "广西"
+    },
+    {
+      "id": "guangxi-souvenir-5",
+      "name": "桂林腐乳",
+      "image": "https://picsum.photos/id/594/600/400",
+      "priceRange": "10-25元",
+      "description": "桂林三宝之一，色泽金黄味香醇",
+      "buyAt": "桂林特产店",
+      "storage": "密封冷藏",
+      "province": "广西"
+    }
+  ],
+  "guide": {
+    "mealPlan": {
+      "breakfast": [
+        "桂林米粉",
+        "南宁老友粉",
+        "玉林牛巴"
+      ],
+      "lunch": [
+        "玉林牛巴",
+        "南宁老友粉",
+        "桂林米粉"
+      ],
+      "dinner": [
+        "桂林米粉",
+        "玉林牛巴"
+      ]
+    },
+    "routes": [
+      {
+        "id": "guangxi-route-1",
+        "name": "广西经典美食一日游",
+        "duration": "1天",
+        "steps": [
+          {
+            "time": "08:30",
+            "location": "广西老城区",
+            "foodId": "桂林米粉",
+            "description": "清晨从一顿地道早餐开始"
+          },
+          {
+            "time": "12:00",
+            "location": "广西美食街",
+            "foodId": "南宁老友粉",
+            "description": "午餐品尝当地招牌菜"
+          },
+          {
+            "time": "18:30",
+            "location": "广西夜市",
+            "foodId": "玉林牛巴",
+            "description": "夜市扫街，收尾完美一天"
+          }
+        ]
+      },
+      {
+        "id": "guangxi-route-2",
+        "name": "广西深度寻味半日游",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "10:00",
+            "location": "广西老字号",
+            "foodId": "玉林牛巴",
+            "description": "探访百年老字号"
+          },
+          {
+            "time": "15:00",
+            "location": "广西特产市场",
+            "foodId": "桂林米粉",
+            "description": "下午茶时光品鉴特色小吃"
+          }
+        ]
+      },
+      {
+        "id": "guangxi-route-3",
+        "name": "柳州螺蛳粉寻味之旅",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "11:00",
+            "location": "柳州老街",
+            "foodId": "螺蛳粉",
+            "description": "品尝最正宗的柳州螺蛳粉"
+          },
+          {
+            "time": "15:00",
+            "location": "恭城瑶寨",
+            "foodId": "guangxi-gongcheng-youcha",
+            "description": "体验瑶族打油茶文化"
+          }
+        ]
+      }
+    ],
+    "tips": [
+      {
+        "question": "广西美食的最佳品尝时间？",
+        "answer": "建议在春秋两季前往，气候宜人，食材当季，能品尝到最地道的广西风味。"
+      },
+      {
+        "question": "广西有哪些必去美食街区？",
+        "answer": "推荐前往老城区和夜市，那里集中了最正宗的广西小吃和老字号餐厅。"
+      },
+      {
+        "question": "在广西点菜有什么避坑建议？",
+        "answer": "建议提前了解当地特色菜名，避免被不正规店铺误导；选择人气旺的老店更靠谱。"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "season": "spring",
+      "seasonName": "春季",
+      "foods": [
+        "桂林米粉",
+        "南宁老友粉",
+        "玉林牛巴"
+      ],
+      "description": "春暖花开，时鲜上市，品尝春日第一口鲜"
+    },
+    {
+      "season": "summer",
+      "seasonName": "夏季",
+      "foods": [
+        "螺蛳粉",
+        "guangxi-yangshuo-pijiu-yu",
+        "guangxi-niunai-ba"
+      ],
+      "description": "夏日炎炎，消暑解渴，清凉美味正当时"
+    },
+    {
+      "season": "autumn",
+      "seasonName": "秋季",
+      "foods": [
+        "钦州大蚝",
+        "guangxi-bazheng-fen",
+        "guangxi-gongcheng-youcha"
+      ],
+      "description": "秋高气爽，丰收时节，贴秋膘品蟹黄"
+    },
+    {
+      "season": "winter",
+      "seasonName": "冬季",
+      "foods": [
+        "guangxi-youtiao",
+        "guangxi-tangbao",
+        "guangxi-hongcha"
+      ],
+      "description": "寒冬腊月，温补暖身，热汤热食最抚慰"
     }
   ]
 }

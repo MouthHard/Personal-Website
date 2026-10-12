@@ -1,0 +1,161 @@
+.travel-toast-container {
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  pointer-events: none;
+
+  .toast-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .toast-item {
+    --toast-color: #60a5fa;
+    --toast-glow: rgba(96, 165, 250, 0.5);
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.7rem 1.4rem;
+    min-width: 200px;
+    max-width: 420px;
+    background: linear-gradient(135deg, rgba(8, 18, 28, 0.96), rgba(4, 10, 18, 0.98));
+    border: 1px solid var(--toast-color);
+    border-radius: 14px;
+    backdrop-filter: blur(16px) saturate(1.4);
+    -webkit-backdrop-filter: blur(16px) saturate(1.4);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.08),
+      0 0 18px var(--toast-glow),
+      0 0 40px var(--toast-glow),
+      0 6px 24px rgba(0, 0, 0, 0.6),
+      inset 0 1px 0 rgba(255, 255, 255, 0.14),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    pointer-events: auto;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    .toast-glow {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        ellipse at left center,
+        var(--toast-glow),
+        transparent 70%
+      );
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .toast-icon {
+      position: relative;
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      color: var(--toast-color);
+      filter: drop-shadow(0 0 6px var(--toast-glow));
+      z-index: 1;
+    }
+
+    .toast-message {
+      position: relative;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: #f0f6ff;
+      letter-spacing: 0.3px;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+      line-height: 1.4;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      z-index: 1;
+    }
+
+    &:hover {
+      transform: scale(0.92);
+      opacity: 0;
+      box-shadow: none;
+    }
+
+    // 点赞 — 鲜亮绿
+    &.toast-like,
+    &.toast-success,
+    &.toast-route-done {
+      --toast-color: #4ade80;
+      --toast-glow: rgba(74, 222, 128, 0.5);
+    }
+
+    // 想吃 — 鲜亮青
+    &.toast-want {
+      --toast-color: #22d3ee;
+      --toast-glow: rgba(34, 211, 238, 0.5);
+    }
+
+    // 已吃 — 鲜亮红
+    &.toast-eaten {
+      --toast-color: #fb7185;
+      --toast-glow: rgba(251, 113, 133, 0.5);
+    }
+
+    // 分享 — 鲜亮橙
+    &.toast-share {
+      --toast-color: #fb923c;
+      --toast-glow: rgba(251, 146, 60, 0.5);
+    }
+
+    // 想买 — 鲜亮琥珀
+    &.toast-souvenir-want,
+    &.toast-route-fav,
+    &.toast-warning {
+      --toast-color: #fbbf24;
+      --toast-glow: rgba(251, 191, 36, 0.5);
+    }
+
+    // 已买 — 鲜亮天蓝
+    &.toast-souvenir-bought {
+      --toast-color: #38bdf8;
+      --toast-glow: rgba(56, 189, 248, 0.5);
+    }
+
+    // 移除 — 鲜亮红
+    &.toast-remove {
+      --toast-color: #f87171;
+      --toast-glow: rgba(248, 113, 113, 0.5);
+    }
+
+    // 通用信息 — 鲜亮蓝
+    &.toast-info {
+      --toast-color: #60a5fa;
+      --toast-glow: rgba(96, 165, 250, 0.5);
+    }
+  }
+}
+
+// 滑入动画
+.toast-slide-enter-active {
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.toast-slide-leave-active {
+  transition: all 0.3s ease;
+}
+
+.toast-slide-enter-from {
+  opacity: 0;
+  transform: translateY(-24px) scale(0.85);
+}
+
+.toast-slide-leave-to {
+  opacity: 0;
+  transform: translateY(-16px) scale(0.9);
+}
+
+.toast-slide-move {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}

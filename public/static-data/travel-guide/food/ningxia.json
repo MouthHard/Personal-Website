@@ -13,7 +13,7 @@
       "image": "https://picsum.photos/id/494/800/600",
       "price": 68,
       "rating": 4.8,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "宁夏招牌",
       "isPopular": true,
       "badgeColor": "#795548",
@@ -41,7 +41,7 @@
       "image": "https://picsum.photos/id/495/800/600",
       "price": 128,
       "rating": 4.9,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "国宴用羊",
       "isPopular": true,
       "badgeColor": "#ff5722",
@@ -69,7 +69,7 @@
       "image": "https://picsum.photos/id/496/800/600",
       "price": 38,
       "rating": 4.4,
-      "category": "水果",
+      "category": "小吃零食",
       "isPopular": false,
       "description": "香甜可口，营养丰富",
       "recommendations": {
@@ -95,7 +95,7 @@
       "image": "https://picsum.photos/id/497/800/600",
       "price": 12,
       "rating": 4.5,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "银川名吃",
       "isPopular": true,
       "badgeColor": "#4caf50",
@@ -123,7 +123,7 @@
       "image": "https://picsum.photos/id/498/800/600",
       "price": 88,
       "rating": 4.6,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "isPopular": false,
       "description": "肉质鲜嫩，香气浓郁",
       "recommendations": {
@@ -149,7 +149,7 @@
       "image": "https://picsum.photos/id/499/800/600",
       "price": 3,
       "rating": 4.1,
-      "category": "小吃",
+      "category": "小吃零食",
       "isPopular": false,
       "description": "外酥内软，早餐必备",
       "recommendations": {
@@ -175,7 +175,7 @@
       "image": "https://picsum.photos/id/500/800/600",
       "price": 5,
       "rating": 4,
-      "category": "甜品",
+      "category": "甜品糕点",
       "isPopular": false,
       "description": "香甜可口，传统面点",
       "recommendations": {
@@ -201,7 +201,7 @@
       "image": "https://picsum.photos/id/501/800/600",
       "price": 38,
       "rating": 4.3,
-      "category": "饮品",
+      "category": "汤羹饮品",
       "isPopular": false,
       "description": "香气浓郁，口感醇厚",
       "recommendations": {
@@ -212,6 +212,112 @@
           "点心"
         ],
         "eatingMethod": "沸水冲泡，可加入枸杞、红枣同泡"
+      }
+    },
+    {
+      "id": "ningxia-gouqi",
+      "name": "中宁枸杞",
+      "tags": [
+        "宁夏特色",
+        "中宁特产",
+        "滋补佳品",
+        "药食同源",
+        "甲天下"
+      ],
+      "image": "https://picsum.photos/id/502/800/600",
+      "price": 50,
+      "rating": 4.7,
+      "category": "汤羹饮品",
+      "badgeText": "宁夏红宝",
+      "isPopular": true,
+      "badgeColor": "#e91e63",
+      "description": "粒大肉厚，滋补佳品",
+      "recommendations": {
+        "pairings": [
+          "红枣",
+          "菊花",
+          "银耳",
+          "泡酒"
+        ],
+        "eatingMethod": "可泡茶、煲汤、煮粥或直接嚼食"
+      }
+    },
+    {
+      "id": "ningxia-babaocha",
+      "name": "八宝茶",
+      "tags": [
+        "宁夏特色",
+        "回族茶俗",
+        "盖碗茶",
+        "回甘悠长",
+        "养生茶饮"
+      ],
+      "image": "https://picsum.photos/id/503/800/600",
+      "price": 25,
+      "rating": 4.5,
+      "category": "汤羹饮品",
+      "isPopular": false,
+      "description": "盖碗八味，回甘悠长",
+      "recommendations": {
+        "pairings": [
+          "油香",
+          "馓子",
+          "点心",
+          "干果"
+        ],
+        "eatingMethod": "沸水冲泡，盖碗闷泡后饮用"
+      }
+    },
+    {
+      "id": "ningxia-shaobing",
+      "name": "宁夏烧饼",
+      "tags": [
+        "宁夏特色",
+        "回族面点",
+        "外酥内软",
+        "芝麻香浓",
+        "早餐美食"
+      ],
+      "image": "https://picsum.photos/id/504/800/600",
+      "price": 4,
+      "rating": 4.2,
+      "category": "面点主食",
+      "isPopular": false,
+      "description": "外酥内软，芝麻香浓",
+      "recommendations": {
+        "pairings": [
+          "八宝茶",
+          "牛肉",
+          "豆浆",
+          "小菜"
+        ],
+        "eatingMethod": "趁热食用，配茶或夹肉皆可"
+      }
+    },
+    {
+      "id": "ningxia-lianggai",
+      "name": "宁夏凉糕",
+      "tags": [
+        "宁夏特色",
+        "回族点心",
+        "软糯清凉",
+        "香甜可口",
+        "夏季美食"
+      ],
+      "image": "https://picsum.photos/id/505/800/600",
+      "price": 6,
+      "rating": 4.1,
+      "category": "甜品糕点",
+      "isPopular": false,
+      "description": "软糯清凉，香甜可口",
+      "recommendations": {
+        "pairings": [
+          "红糖",
+          "蜂蜜",
+          "芝麻",
+          "豆沙"
+        ],
+        "eatingMethod": "冷藏后食用，清凉解暑"
       }
     }
   ],
@@ -243,6 +349,183 @@
       "image": "https://picsum.photos/id/341/800/600",
       "reason": "中卫特色美食集中地",
       "location": "中卫市"
+    },
+    {
+      "id": 3,
+      "icon": "🏘️",
+      "name": "银川老城区",
+      "type": "美食街",
+      "foods": [
+        "ningxia-shaobing",
+        "ningxia-babaocha",
+        "ningxia-gouqi"
+      ],
+      "image": "https://picsum.photos/id/342/800/600",
+      "reason": "回族传统美食聚集地，体验地道茶俗",
+      "location": "银川市"
+    }
+  ],
+  "souvenirs": [
+    {
+      "id": "ningxia-souvenir-1",
+      "name": "枸杞",
+      "image": "https://picsum.photos/id/677/600/400",
+      "priceRange": "20-80元",
+      "description": "中宁甲天下，滋补佳品",
+      "buyAt": "中宁枸杞市场",
+      "storage": "密封干燥",
+      "province": "宁夏"
+    },
+    {
+      "id": "ningxia-souvenir-2",
+      "name": "贺兰石砚",
+      "image": "https://picsum.photos/id/678/600/400",
+      "priceRange": "50-300元",
+      "description": "天然紫石，发墨如油",
+      "buyAt": "贺兰砚厂",
+      "storage": "干燥保存",
+      "province": "宁夏"
+    },
+    {
+      "id": "ningxia-souvenir-3",
+      "name": "滩羊二毛皮",
+      "image": "https://picsum.photos/id/679/600/400",
+      "priceRange": "200-1000元",
+      "description": "九道弯羊毛，轻暖美观",
+      "buyAt": "宁夏皮货店",
+      "storage": "干燥保存",
+      "province": "宁夏"
+    },
+    {
+      "id": "ningxia-souvenir-4",
+      "name": "八宝茶",
+      "image": "https://picsum.photos/id/680/600/400",
+      "priceRange": "15-40元",
+      "description": "盖碗八味，回甘悠长",
+      "buyAt": "宁夏茶庄",
+      "storage": "密封防潮",
+      "province": "宁夏"
+    }
+  ],
+  "guide": {
+    "mealPlan": {
+      "breakfast": [
+        "ningxia-shaobing",
+        "yinchuan-niangpi",
+        "ningxia-youtiao"
+      ],
+      "lunch": [
+        "ningxia-shouzhuayangrou",
+        "tongxin-yanggaorou",
+        "ningxia-tanyang"
+      ],
+      "dinner": [
+        "ningxia-tangbao",
+        "ningxia-lianggai",
+        "ningxia-babaocha"
+      ]
+    },
+    "routes": [
+      {
+        "id": "ningxia-route-1",
+        "name": "宁夏经典美食一日游",
+        "duration": "1天",
+        "steps": [
+          {
+            "time": "08:30",
+            "location": "银川老城区",
+            "foodId": "ningxia-shaobing",
+            "description": "清晨从一顿回族早餐开始"
+          },
+          {
+            "time": "12:00",
+            "location": "银川怀远夜市",
+            "foodId": "ningxia-shouzhuayangrou",
+            "description": "午餐品尝宁夏招牌手抓羊肉"
+          },
+          {
+            "time": "18:30",
+            "location": "中卫美食街",
+            "foodId": "zhongwei-xishagua",
+            "description": "傍晚品尝中卫硒砂瓜"
+          }
+        ]
+      },
+      {
+        "id": "ningxia-route-2",
+        "name": "宁夏深度寻味半日游",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "10:00",
+            "location": "中宁枸杞馆",
+            "foodId": "ningxia-gouqi",
+            "description": "探访中宁枸杞甲天下"
+          },
+          {
+            "time": "15:00",
+            "location": "银川老城区",
+            "foodId": "ningxia-babaocha",
+            "description": "下午茶时光品鉴回族八宝茶"
+          }
+        ]
+      }
+    ],
+    "tips": [
+      {
+        "question": "宁夏美食的最佳品尝时间？",
+        "answer": "建议在春秋两季前往，气候宜人，食材当季，能品尝到最地道的宁夏风味。"
+      },
+      {
+        "question": "宁夏有哪些必去美食街区？",
+        "answer": "推荐前往银川怀远夜市和老城区，那里集中了最正宗的宁夏小吃和回族餐厅。"
+      },
+      {
+        "question": "在宁夏点菜有什么避坑建议？",
+        "answer": "建议提前了解当地特色菜名，避免被不正规店铺误导；选择人气旺的老店更靠谱。"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "season": "spring",
+      "seasonName": "春季",
+      "foods": [
+        "yinchuan-niangpi",
+        "zhongwei-xishagua",
+        "ningxia-youtiao"
+      ],
+      "description": "春暖花开，时鲜上市，品尝春日第一口鲜"
+    },
+    {
+      "season": "summer",
+      "seasonName": "夏季",
+      "foods": [
+        "zhongwei-xishagua",
+        "ningxia-tangbao",
+        "ningxia-lianggai"
+      ],
+      "description": "夏日炎炎，消暑解渴，清凉美味正当时"
+    },
+    {
+      "season": "autumn",
+      "seasonName": "秋季",
+      "foods": [
+        "ningxia-shouzhuayangrou",
+        "ningxia-tanyang",
+        "tongxin-yanggaorou"
+      ],
+      "description": "秋高气爽，丰收时节，贴秋膘品羊香"
+    },
+    {
+      "season": "winter",
+      "seasonName": "冬季",
+      "foods": [
+        "ningxia-babaocha",
+        "ningxia-gouqi",
+        "ningxia-hongcha"
+      ],
+      "description": "寒冬腊月，温补暖身，热汤热食最抚慰"
     }
   ]
 }

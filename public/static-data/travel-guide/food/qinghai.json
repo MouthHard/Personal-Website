@@ -13,7 +13,7 @@
       "image": "https://picsum.photos/id/487/800/600",
       "price": 12,
       "rating": 4.6,
-      "category": "奶制品",
+      "category": "甜品糕点",
       "badgeText": "高原美味",
       "isPopular": true,
       "badgeColor": "#03a9f4",
@@ -41,7 +41,7 @@
       "image": "https://picsum.photos/id/488/800/600",
       "price": 68,
       "rating": 4.8,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "青海名吃",
       "isPopular": true,
       "badgeColor": "#795548",
@@ -69,7 +69,7 @@
       "image": "https://picsum.photos/id/489/800/600",
       "price": 15,
       "rating": 4.5,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "青海家常",
       "isPopular": true,
       "badgeColor": "#ff9800",
@@ -97,7 +97,7 @@
       "image": "https://picsum.photos/id/490/800/600",
       "price": 88,
       "rating": 4.4,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "isPopular": false,
       "description": "肉质鲜嫩，味道鲜美",
       "recommendations": {
@@ -123,7 +123,7 @@
       "image": "https://picsum.photos/id/491/800/600",
       "price": 8,
       "rating": 4.3,
-      "category": "甜品",
+      "category": "甜品糕点",
       "isPopular": false,
       "description": "香甜可口，清凉解暑",
       "recommendations": {
@@ -149,7 +149,7 @@
       "image": "https://picsum.photos/id/492/800/600",
       "price": 3,
       "rating": 4.1,
-      "category": "小吃",
+      "category": "小吃零食",
       "isPopular": false,
       "description": "外酥内软，早餐必备",
       "recommendations": {
@@ -175,7 +175,7 @@
       "image": "https://picsum.photos/id/493/800/600",
       "price": 38,
       "rating": 4.3,
-      "category": "饮品",
+      "category": "汤羹饮品",
       "isPopular": false,
       "description": "香气浓郁，口感醇厚",
       "recommendations": {
@@ -187,6 +187,138 @@
         ],
         "eatingMethod": "沸水冲泡，可反复冲泡3-5次"
       }
+    },
+    {
+      "id": "qinghai-niangpi",
+      "name": "青海酿皮",
+      "tags": [
+        "青海特色",
+        "西宁小吃",
+        "爽滑劲道",
+        "酸辣开胃",
+        "夏季美食"
+      ],
+      "image": "https://picsum.photos/id/494/800/600",
+      "price": 10,
+      "rating": 4.4,
+      "category": "小吃零食",
+      "badgeText": "西宁名吃",
+      "isPopular": true,
+      "badgeColor": "#4caf50",
+      "description": "爽滑劲道，酸辣开胃",
+      "recommendations": {
+        "pairings": [
+          "醋",
+          "辣椒油",
+          "蒜泥",
+          "芝麻酱"
+        ],
+        "eatingMethod": "拌入调料食用，夏天冷藏更佳"
+      }
+    },
+    {
+      "id": "qinghai-kaolengyang",
+      "name": "青海烤羊肉",
+      "tags": [
+        "青海特色",
+        "草原风味",
+        "外焦里嫩",
+        "孜然香浓",
+        "夜市美食"
+      ],
+      "image": "https://picsum.photos/id/495/800/600",
+      "price": 35,
+      "rating": 4.5,
+      "category": "菜品菜肴",
+      "isPopular": false,
+      "description": "外焦里嫩，孜然香浓",
+      "recommendations": {
+        "pairings": [
+          "啤酒",
+          "馕",
+          "洋葱",
+          "青稞酒"
+        ],
+        "eatingMethod": "现烤现吃，蘸椒盐或孜然粉食用"
+      }
+    },
+    {
+      "id": "qinghai-zangzu-mianba",
+      "name": "藏族糌粑",
+      "tags": [
+        "青海特色",
+        "藏族主食",
+        "青稞制作",
+        "营养丰富",
+        "高原风味"
+      ],
+      "image": "https://picsum.photos/id/496/800/600",
+      "price": 15,
+      "rating": 4.2,
+      "category": "面点主食",
+      "isPopular": false,
+      "description": "青稞炒面，藏族传统主食",
+      "recommendations": {
+        "pairings": [
+          "酥油茶",
+          "奶茶",
+          "白糖",
+          "奶渣"
+        ],
+        "eatingMethod": "用酥油茶拌成团后用手抓食"
+      }
+    },
+    {
+      "id": "qinghai-naichazhang",
+      "name": "青海奶茶",
+      "tags": [
+        "青海特色",
+        "高原茶饮",
+        "奶香浓郁",
+        "暖身暖胃",
+        "藏族风味"
+      ],
+      "image": "https://picsum.photos/id/497/800/600",
+      "price": 10,
+      "rating": 4.4,
+      "category": "汤羹饮品",
+      "isPopular": false,
+      "description": "奶香浓郁，暖身暖胃",
+      "recommendations": {
+        "pairings": [
+          "糌粑",
+          "馕",
+          "点心",
+          "风干肉"
+        ],
+        "eatingMethod": "趁热饮用，可加盐或糖调味"
+      }
+    },
+    {
+      "id": "qinghai-huangyutang",
+      "name": "湟鱼汤",
+      "tags": [
+        "青海特色",
+        "青海湖鲜",
+        "汤浓味鲜",
+        "营养丰富",
+        "高原美味"
+      ],
+      "image": "https://picsum.photos/id/498/800/600",
+      "price": 58,
+      "rating": 4.3,
+      "category": "汤羹饮品",
+      "isPopular": false,
+      "description": "汤浓味鲜，营养丰富",
+      "recommendations": {
+        "pairings": [
+          "馒头",
+          "米饭",
+          "香菜",
+          "胡椒"
+        ],
+        "eatingMethod": "趁热喝汤，鱼肉鲜嫩可口"
+      }
     }
   ],
   "locations": [
@@ -196,7 +328,7 @@
       "name": "西宁莫家街",
       "type": "美食街",
       "foods": [
-        "qinghai-yogurt",
+        "qinghai-suannai",
         "qinghai-shouzhuayangrou",
         "gaxianpian"
       ],
@@ -217,6 +349,183 @@
       "image": "https://picsum.photos/id/339/800/600",
       "reason": "青海湖周边美食聚集地",
       "location": "青海湖"
+    },
+    {
+      "id": 3,
+      "icon": "🌃",
+      "name": "西宁水井巷",
+      "type": "夜市",
+      "foods": [
+        "qinghai-niangpi",
+        "qinghai-naichazhang",
+        "qinghai-zangzu-mianba"
+      ],
+      "image": "https://picsum.photos/id/340/800/600",
+      "reason": "西宁最热闹的夜市，高原小吃聚集地",
+      "location": "西宁市"
+    }
+  ],
+  "souvenirs": [
+    {
+      "id": "qinghai-souvenir-1",
+      "name": "黑枸杞",
+      "image": "https://picsum.photos/id/290/600/400",
+      "priceRange": "30-100元",
+      "description": "花青素之王，抗氧佳品",
+      "buyAt": "青海特产",
+      "storage": "密封干燥",
+      "province": "青海"
+    },
+    {
+      "id": "qinghai-souvenir-2",
+      "name": "青稞酒",
+      "image": "https://picsum.photos/id/291/600/400",
+      "priceRange": "20-80元",
+      "description": "高原青稞酿，醇厚绵柔",
+      "buyAt": "互助青稞酒厂",
+      "storage": "阴凉避光",
+      "province": "青海"
+    },
+    {
+      "id": "qinghai-souvenir-3",
+      "name": "冬虫夏草",
+      "image": "https://picsum.photos/id/292/600/400",
+      "priceRange": "100-500元",
+      "description": "软黄金，补肺益肾",
+      "buyAt": "青海药材市场",
+      "storage": "干燥冷藏",
+      "province": "青海"
+    },
+    {
+      "id": "qinghai-souvenir-4",
+      "name": "藏毯",
+      "image": "https://picsum.photos/id/293/600/400",
+      "priceRange": "100-2000元",
+      "description": "手工编织，图案古朴",
+      "buyAt": "青海藏毯厂",
+      "storage": "干燥保存",
+      "province": "青海"
+    }
+  ],
+  "guide": {
+    "mealPlan": {
+      "breakfast": [
+        "qinghai-suannai",
+        "gaxianpian",
+        "qinghai-youtiao"
+      ],
+      "lunch": [
+        "qinghai-shouzhuayangrou",
+        "qinghaihu-huangyu",
+        "qinghai-niangpi"
+      ],
+      "dinner": [
+        "tianpei",
+        "qinghai-kaolengyang",
+        "qinghai-naichazhang"
+      ]
+    },
+    "routes": [
+      {
+        "id": "qinghai-route-1",
+        "name": "青海经典美食一日游",
+        "duration": "1天",
+        "steps": [
+          {
+            "time": "08:30",
+            "location": "西宁莫家街",
+            "foodId": "qinghai-suannai",
+            "description": "清晨从一碗高原酸奶开始"
+          },
+          {
+            "time": "12:00",
+            "location": "青海湖美食区",
+            "foodId": "qinghaihu-huangyu",
+            "description": "午餐品尝青海湖湟鱼"
+          },
+          {
+            "time": "18:30",
+            "location": "西宁水井巷",
+            "foodId": "qinghai-niangpi",
+            "description": "夜市扫街，收尾完美一天"
+          }
+        ]
+      },
+      {
+        "id": "qinghai-route-2",
+        "name": "青海深度寻味半日游",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "10:00",
+            "location": "藏族村寨",
+            "foodId": "qinghai-zangzu-mianba",
+            "description": "体验藏族糌粑制作"
+          },
+          {
+            "time": "15:00",
+            "location": "西宁莫家街",
+            "foodId": "tianpei",
+            "description": "下午茶时光品鉴甜醅"
+          }
+        ]
+      }
+    ],
+    "tips": [
+      {
+        "question": "青海美食的最佳品尝时间？",
+        "answer": "建议在夏秋两季前往，气候宜人，食材当季，能品尝到最地道的青海风味。"
+      },
+      {
+        "question": "青海有哪些必去美食街区？",
+        "answer": "推荐前往西宁莫家街和水井巷，那里集中了最正宗的青海小吃和高原美食。"
+      },
+      {
+        "question": "在青海点菜有什么避坑建议？",
+        "answer": "建议提前了解当地特色菜名，避免被不正规店铺误导；选择人气旺的老店更靠谱。"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "season": "spring",
+      "seasonName": "春季",
+      "foods": [
+        "qinghai-suannai",
+        "qinghai-niangpi",
+        "qinghai-youtiao"
+      ],
+      "description": "春暖花开，时鲜上市，品尝春日第一口鲜"
+    },
+    {
+      "season": "summer",
+      "seasonName": "夏季",
+      "foods": [
+        "tianpei",
+        "qinghai-naichazhang",
+        "gaxianpian"
+      ],
+      "description": "夏日炎炎，消暑解渴，清凉美味正当时"
+    },
+    {
+      "season": "autumn",
+      "seasonName": "秋季",
+      "foods": [
+        "qinghai-shouzhuayangrou",
+        "qinghaihu-huangyu",
+        "qinghai-kaolengyang"
+      ],
+      "description": "秋高气爽，丰收时节，贴秋膘品羊香"
+    },
+    {
+      "season": "winter",
+      "seasonName": "冬季",
+      "foods": [
+        "qinghai-zangzu-mianba",
+        "qinghai-hongcha",
+        "qinghai-huangyutang"
+      ],
+      "description": "寒冬腊月，温补暖身，热汤热食最抚慰"
     }
   ]
 }

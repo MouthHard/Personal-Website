@@ -13,7 +13,7 @@
       "image": "https://picsum.photos/id/442/800/600",
       "price": 88,
       "rating": 4.8,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "琼菜之首",
       "isPopular": true,
       "badgeColor": "#ff5722",
@@ -41,7 +41,7 @@
       "image": "https://picsum.photos/id/443/800/600",
       "price": 15,
       "rating": 4.7,
-      "category": "甜品",
+      "category": "甜品糕点",
       "badgeText": "热带甜品",
       "isPopular": true,
       "badgeColor": "#4caf50",
@@ -69,7 +69,7 @@
       "image": "https://picsum.photos/id/444/800/600",
       "price": 12,
       "rating": 4.6,
-      "category": "主食",
+      "category": "面点主食",
       "badgeText": "琼州粉面",
       "isPopular": true,
       "badgeColor": "#ff9800",
@@ -97,7 +97,7 @@
       "image": "https://picsum.photos/id/445/800/600",
       "price": 128,
       "rating": 4.8,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "万宁名产",
       "isPopular": true,
       "badgeColor": "#795548",
@@ -125,7 +125,7 @@
       "image": "https://picsum.photos/id/446/800/600",
       "price": 98,
       "rating": 4.7,
-      "category": "菜肴",
+      "category": "菜品菜肴",
       "badgeText": "万宁海鲜",
       "isPopular": true,
       "badgeColor": "#e91e63",
@@ -153,7 +153,7 @@
       "image": "https://picsum.photos/id/447/800/600",
       "price": 3,
       "rating": 4.1,
-      "category": "小吃",
+      "category": "小吃零食",
       "isPopular": false,
       "description": "外酥内软，早餐必备",
       "recommendations": {
@@ -179,7 +179,7 @@
       "image": "https://picsum.photos/id/448/800/600",
       "price": 38,
       "rating": 4.3,
-      "category": "饮品",
+      "category": "汤羹饮品",
       "isPopular": false,
       "description": "香气浓郁，口感醇厚",
       "recommendations": {
@@ -190,6 +190,110 @@
           "菜肴"
         ],
         "eatingMethod": "直接饮用，可点心或小吃"
+      }
+    },
+    {
+      "id": "hainan-jiafei-cha",
+      "name": "老爸茶",
+      "tags": [
+        "海南特色",
+        "海口特产",
+        "市井文化",
+        "悠闲时光",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/449/800/600",
+      "price": 25,
+      "rating": 4.5,
+      "category": "汤羹饮品",
+      "isPopular": true,
+      "description": "海口市井文化代表，茶点丰富悠闲自在",
+      "recommendations": {
+        "pairings": [
+          "点心",
+          "小吃",
+          "甜品",
+          "水果"
+        ],
+        "eatingMethod": "下午茶时光，配各类茶点"
+      }
+    },
+    {
+      "id": "hainan-jiadong-ya",
+      "name": "加积鸭",
+      "tags": [
+        "海南特色",
+        "琼海特产",
+        "皮薄肉嫩",
+        "骨软脂香",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/450/800/600",
+      "price": 78,
+      "rating": 4.6,
+      "category": "菜品菜肴",
+      "isPopular": false,
+      "description": "琼海加积镇名产，皮薄肉嫩骨软脂香",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "面条",
+          "小菜",
+          "蘸料"
+        ],
+        "eatingMethod": "作为主菜食用，配米饭"
+      }
+    },
+    {
+      "id": "hainan-houluo-fen",
+      "name": "后安粉",
+      "tags": [
+        "海南特色",
+        "万宁特产",
+        "汤浓粉滑",
+        "猪骨熬制",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/451/800/600",
+      "price": 14,
+      "rating": 4.4,
+      "category": "面点主食",
+      "isPopular": false,
+      "description": "万宁后安镇名吃，猪骨汤底粉滑汤浓",
+      "recommendations": {
+        "pairings": [
+          "小菜",
+          "汤品",
+          "饮料",
+          "茶品"
+        ],
+        "eatingMethod": "直接食用，作为早餐"
+      }
+    },
+    {
+      "id": "hainan-yezi-ji",
+      "name": "椰子鸡",
+      "tags": [
+        "海南特色",
+        "热带风味",
+        "椰香浓郁",
+        "鸡肉鲜嫩",
+        "必尝"
+      ],
+      "image": "https://picsum.photos/id/452/800/600",
+      "price": 108,
+      "rating": 4.7,
+      "category": "菜品菜肴",
+      "isPopular": false,
+      "description": "椰子水煮文昌鸡，椰香鸡鲜热带风味",
+      "recommendations": {
+        "pairings": [
+          "米饭",
+          "青菜",
+          "小菜",
+          "饮料"
+        ],
+        "eatingMethod": "火锅方式食用，先喝汤再吃鸡"
       }
     }
   ],
@@ -202,7 +306,7 @@
       "foods": [
         "海南粉",
         "清补凉",
-        "海口老爸茶"
+        "hainan-jiafei-cha"
       ],
       "image": "https://picsum.photos/id/324/800/600",
       "reason": "海口传统美食集中地",
@@ -221,6 +325,225 @@
       "image": "https://picsum.photos/id/325/800/600",
       "reason": "三亚海鲜美食聚集地",
       "location": "三亚市"
+    },
+    {
+      "id": 3,
+      "icon": "🌊",
+      "name": "万宁海鲜美食街",
+      "type": "美食街",
+      "foods": [
+        "东山羊",
+        "和乐蟹",
+        "hainan-houluo-fen"
+      ],
+      "image": "https://picsum.photos/id/326/800/600",
+      "reason": "万宁四宝美食聚集地",
+      "location": "万宁市"
+    },
+    {
+      "id": 4,
+      "icon": "🌴",
+      "name": "琼海加积老街",
+      "type": "文化街",
+      "foods": [
+        "hainan-jiadong-ya",
+        "hainan-yezi-ji",
+        "清补凉"
+      ],
+      "image": "https://picsum.photos/id/327/800/600",
+      "reason": "琼海特色美食与热带风情",
+      "location": "琼海市"
+    }
+  ],
+  "souvenirs": [
+    {
+      "id": "hainan-souvenir-1",
+      "name": "椰子糖",
+      "image": "https://picsum.photos/id/350/600/400",
+      "priceRange": "10-25元",
+      "description": "纯正椰奶熬制，椰香浓郁",
+      "buyAt": "海口特产店",
+      "storage": "阴凉干燥",
+      "province": "海南"
+    },
+    {
+      "id": "hainan-souvenir-2",
+      "name": "兴隆咖啡",
+      "image": "https://picsum.photos/id/351/600/400",
+      "priceRange": "30-80元",
+      "description": "海南特产咖啡，浓而不苦",
+      "buyAt": "兴隆咖啡厂",
+      "storage": "密封防潮",
+      "province": "海南"
+    },
+    {
+      "id": "hainan-souvenir-3",
+      "name": "黄灯笼辣椒酱",
+      "image": "https://picsum.photos/id/352/600/400",
+      "priceRange": "10-20元",
+      "description": "天下第一辣，鲜辣爽口",
+      "buyAt": "海南超市",
+      "storage": "开封冷藏",
+      "province": "海南"
+    },
+    {
+      "id": "hainan-souvenir-4",
+      "name": "黎锦",
+      "image": "https://picsum.photos/id/353/600/400",
+      "priceRange": "100-500元",
+      "description": "黎族传统织锦，色彩斑斓",
+      "buyAt": "五指山黎锦坊",
+      "storage": "干燥保存",
+      "province": "海南"
+    },
+    {
+      "id": "hainan-souvenir-5",
+      "name": "椰子粉",
+      "image": "https://picsum.photos/id/354/600/400",
+      "priceRange": "20-50元",
+      "description": "纯天然椰肉研磨，冲饮佳品",
+      "buyAt": "海南特产店",
+      "storage": "密封防潮",
+      "province": "海南"
+    }
+  ],
+  "guide": {
+    "mealPlan": {
+      "breakfast": [
+        "海南文昌鸡",
+        "海南粉",
+        "和乐蟹"
+      ],
+      "lunch": [
+        "和乐蟹",
+        "海南粉",
+        "海南文昌鸡"
+      ],
+      "dinner": [
+        "海南文昌鸡",
+        "东山羊"
+      ]
+    },
+    "routes": [
+      {
+        "id": "hainan-route-1",
+        "name": "海南经典美食一日游",
+        "duration": "1天",
+        "steps": [
+          {
+            "time": "08:30",
+            "location": "海南老城区",
+            "foodId": "海南文昌鸡",
+            "description": "清晨从一顿地道早餐开始"
+          },
+          {
+            "time": "12:00",
+            "location": "海南美食街",
+            "foodId": "海南粉",
+            "description": "午餐品尝当地招牌菜"
+          },
+          {
+            "time": "18:30",
+            "location": "海南夜市",
+            "foodId": "和乐蟹",
+            "description": "夜市扫街，收尾完美一天"
+          }
+        ]
+      },
+      {
+        "id": "hainan-route-2",
+        "name": "海南深度寻味半日游",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "10:00",
+            "location": "海南老字号",
+            "foodId": "东山羊",
+            "description": "探访百年老字号"
+          },
+          {
+            "time": "15:00",
+            "location": "海南特产市场",
+            "foodId": "海南文昌鸡",
+            "description": "下午茶时光品鉴特色小吃"
+          }
+        ]
+      },
+      {
+        "id": "hainan-route-3",
+        "name": "海口老爸茶慢享之旅",
+        "duration": "半天",
+        "steps": [
+          {
+            "time": "15:00",
+            "location": "海口骑楼老街",
+            "foodId": "hainan-jiafei-cha",
+            "description": "体验海口老爸茶市井文化"
+          },
+          {
+            "time": "17:00",
+            "location": "海口甜品店",
+            "foodId": "清补凉",
+            "description": "品尝热带解暑甜品"
+          }
+        ]
+      }
+    ],
+    "tips": [
+      {
+        "question": "海南美食的最佳品尝时间？",
+        "answer": "建议在春秋两季前往，气候宜人，食材当季，能品尝到最地道的海南风味。"
+      },
+      {
+        "question": "海南有哪些必去美食街区？",
+        "answer": "推荐前往老城区和夜市，那里集中了最正宗的海南小吃和老字号餐厅。"
+      },
+      {
+        "question": "在海南点菜有什么避坑建议？",
+        "answer": "建议提前了解当地特色菜名，避免被不正规店铺误导；选择人气旺的老店更靠谱。"
+      }
+    ]
+  },
+  "seasonal": [
+    {
+      "season": "spring",
+      "seasonName": "春季",
+      "foods": [
+        "海南文昌鸡",
+        "海南粉",
+        "和乐蟹"
+      ],
+      "description": "春暖花开，时鲜上市，品尝春日第一口鲜"
+    },
+    {
+      "season": "summer",
+      "seasonName": "夏季",
+      "foods": [
+        "清补凉",
+        "hainan-yezi-ji",
+        "hainan-jiafei-cha"
+      ],
+      "description": "夏日炎炎，消暑解渴，清凉美味正当时"
+    },
+    {
+      "season": "autumn",
+      "seasonName": "秋季",
+      "foods": [
+        "东山羊",
+        "hainan-jiadong-ya",
+        "hainan-houluo-fen"
+      ],
+      "description": "秋高气爽，丰收时节，贴秋膘品蟹黄"
+    },
+    {
+      "season": "winter",
+      "seasonName": "冬季",
+      "foods": [
+        "hainan-youtiao",
+        "hainan-hongcha",
+        "海南粉"
+      ],
+      "description": "寒冬腊月，温补暖身，热汤热食最抚慰"
     }
   ]
 }
