@@ -1,6 +1,6 @@
 <template>
   <div class="discover-theme">
-    <section class="theme-album">
+    <section class="theme-album" v-if="currentGroup">
       <!-- 黄铜护角 -->
       <span class="brass-corner brass-corner--tl"></span>
       <span class="brass-corner brass-corner--tr"></span>
@@ -83,7 +83,12 @@
             <span class="pc-corner pc-corner--br"></span>
             <div class="pc-postmark">
               <span class="ppm-ring"></span>
-              <span class="ppm-date">{{ currentTheme.bestSeason }}</span>
+              <div class="ppm-date">
+                <template v-if="currentTheme.bestSeason.includes(' / ')">
+                  <span class="ppm-season" v-for="s in currentTheme.bestSeason.split(' / ')" :key="s">{{ s }}</span>
+                </template>
+                <span v-else class="ppm-season">{{ currentTheme.bestSeason }}</span>
+              </div>
             </div>
             <div class="pc-stamp">
               <component :is="currentTheme.icon" :size="30" />
@@ -140,12 +145,12 @@
             <span class="sp-label"><MapIcon :size="20" /> 关联景点<span class="sp-count">{{ currentTheme.spots.length }}处</span></span>
             <div class="sp-list">
               <div
-                v-for="(spot, idx) in currentTheme.spots"
+                v-for="spot in currentTheme.spots"
                 :key="spot.id"
                 class="spot-card"
               >
                 <span class="sc-pin"></span>
-                <span class="sc-num">{{ String(idx + 1).padStart(2, '0') }}</span>
+
                 <div class="sc-photo">
                   <img
                     v-if="spot.image"
@@ -161,14 +166,14 @@
                     <span class="sc-rate" v-if="spot.rating"><StarIcon :size="16" /> {{ spot.rating }}</span>
                   </div>
                   <div class="sc-info">
-                    <span class="sc-loc"><LocationIcon :size="13" /> {{ spot.location }}</span>
-                    <span class="sc-dur" v-if="spot.visitDuration"><ClockIcon :size="13" /> {{ spot.visitDuration }}</span>
+                    <span class="sc-loc"><LocationIcon :size="14" /> {{ spot.location }}</span>
+                    <span class="sc-dur" v-if="spot.visitDuration"><ClockIcon :size="14" /> {{ spot.visitDuration }}</span>
                   </div>
                   <p class="sc-desc">{{ spot.highlight || spot.description }}</p>
-                </div>
-                <div class="sc-side">
-                  <span class="sc-price" v-if="spot.ticketPrice">{{ spot.ticketPrice }}</span>
-                  <span class="sc-trans" v-if="spot.transport"><BusIcon :size="13" /> {{ spot.transport }}</span>
+                  <div class="sc-foot">
+                    <span class="sc-price" v-if="spot.ticketPrice">{{ spot.ticketPrice }}</span>
+                    <span class="sc-trans" v-if="spot.transport"><BusIcon :size="14" /> {{ spot.transport }}</span>
+                  </div>
                 </div>
                 <div class="sc-actions">
                   <button class="sc-btn sc-like" :class="{ active: isSpotLike(spot.id) }" aria-label="点赞景点" @click="handleToggleLike(spot.id)">
@@ -211,7 +216,7 @@
 
 <script setup lang="ts">
   import type { SceneryData } from '@/typesOfPages/travelGuide';
-  import { computed, ref, markRaw, type Component } from 'vue';
+  import { computed, ref, watch, markRaw, type Component } from 'vue';
 
   import GalaxyIcon from '@/pages/TravelGuide/icons/pages/scenery/GalaxyIcon.vue';
   import LayersIcon from '@/pages/TravelGuide/icons/pages/scenery/LayersIcon.vue';
@@ -234,6 +239,11 @@
   import PaletteIcon from '@/pages/TravelGuide/icons/pages/scenery/PaletteIcon.vue';
   import LeafAutumnIcon from '@/pages/TravelGuide/icons/common/LeafAutumnIcon.vue';
   import SnowflakeIcon from '@/pages/TravelGuide/icons/common/SnowflakeIcon.vue';
+  import DropletIcon from '@/pages/TravelGuide/icons/pages/scenery/DropletIcon.vue';
+  import SunIcon from '@/pages/TravelGuide/icons/common/SunIcon.vue';
+  import RouteIcon from '@/pages/TravelGuide/icons/common/RouteIcon.vue';
+  import GourdIcon from '@/pages/TravelGuide/icons/pages/scenery/GourdIcon.vue';
+  import FlowerIcon from '@/pages/TravelGuide/icons/pages/scenery/FlowerIcon.vue';
   import { ThumbUpIcon, HeartIcon, ShareIcon, FlagIcon } from '@/pages/TravelGuide/icons/common';
   import { useTravelToast } from '@/composables/travelGuide/useTravelToast';
   import { useSceneryPrefs } from '@/composables/travelGuide/useSceneryPrefs';
@@ -283,288 +293,100 @@
     spots: ThemeSpot[];
   }
 
-  interface RawThemeSpot extends Omit<ThemeSpot, 'image'> {}
-  interface RawTheme extends Omit<Theme, 'coverImage' | 'spots'> {
-    spots: RawThemeSpot[];
-  }
+  const iconMap: Record<string, Component> = {
+    mountain: markRaw(MountainIcon),
+    energy: markRaw(EnergyIcon),
+    droplet: markRaw(DropletIcon),
+    sun: markRaw(SunIcon),
+    home: markRaw(HomeIcon),
+    museum: markRaw(MuseumIcon),
+    zen: markRaw(ZenIcon),
+    diamond: markRaw(DiamondIcon),
+    palette: markRaw(PaletteIcon),
+    route: markRaw(RouteIcon),
+    gourd: markRaw(GourdIcon),
+    flower: markRaw(FlowerIcon),
+    'leaf-autumn': markRaw(LeafAutumnIcon),
+    snowflake: markRaw(SnowflakeIcon),
+    calendar: markRaw(CalendarIcon),
+  };
+
+  const groupIconMap: Record<string, Component> = {
+    nature: markRaw(MountainIcon),
+    culture: markRaw(MuseumIcon),
+    outdoor: markRaw(RouteIcon),
+    season: markRaw(CalendarIcon),
+  };
 
   const activeMap = ref<Record<string, string | null>>({});
-  const activeGroup = ref('play');
+  const activeGroup = ref('nature');
 
-  const groupIcon = (key: string): Component => {
-    switch (key) {
-      case 'play': return markRaw(MountainIcon);
-      case 'culture': return markRaw(MuseumIcon);
-      case 'season': return markRaw(CalendarIcon);
-      default: return markRaw(GalaxyIcon);
-    }
-  };
+  const groupIcon = (key: string): Component => groupIconMap[key] || markRaw(GalaxyIcon);
 
   const selectTheme = (key: string) => {
     activeMap.value[activeGroup.value] = key;
   };
 
-  const MOUNTED_GROUPS: Array<{
-    key: string;
-    title: string;
-    items: RawTheme[];
-  }> = [
-    {
-      key: 'play',
-      title: '玩法主题',
-      items: [
-        {
-          key: 'mountain',
-          name: '名山朝圣',
-          icon: markRaw(MountainIcon),
-          coverSpotName: '黄山',
-          avgRating: 4.8,
-          bestSeason: '春秋 / 全年',
-          recommendedDays: '3-4 日',
-          budget: '¥600-1200',
-          intensity: '适中',
-          audience: '全人群',
-          highlights: ['观日出云海', '奇松怪石', '佛光奇观', '冬雪雾凇'],
-          tips: [
-            '山顶温差大，备好防风外套与保暖衣物',
-            '日出时间随季节变化，提前查好时刻表',
-            '建议住山顶酒店，方便次日看日出',
-          ],
-          spots: [
-            { id: 'hs', name: '黄山', location: '黄山市', rating: 4.9, ticketPrice: '¥190起', visitDuration: '2天', transport: '高铁+索道', description: '五绝归来不看岳', highlight: '奇松怪石云海日出冬雪，五绝奇观冠绝天下' },
-            { id: 'jhs', name: '九华山', location: '池州青阳', rating: 4.7, ticketPrice: '¥160起', visitDuration: '1-2天', transport: '高铁+大巴', description: '莲花佛国九十九峰', highlight: '地藏菩萨道场，莲花佛国九十九峰' },
-            { id: 'tzs', name: '天柱山', location: '安庆潜山', rating: 4.6, ticketPrice: '¥130起', visitDuration: '1-2天', transport: '高铁+公交', description: '古南岳擎天一柱', highlight: '古南岳擎天一柱，奇峰怪石飞瀑幽洞' },
-            { id: 'qys', name: '齐云山', location: '休宁县', rating: 4.5, ticketPrice: '¥68起', visitDuration: '1天', transport: '自驾', description: '道教四大名山', highlight: '丹霞地貌+道教石刻，月华街云雾缭绕' },
-          ],
-        },
-        {
-          key: 'heritage',
-          name: '世界遗产',
-          icon: markRaw(DiamondIcon),
-          coverSpotName: '宏村',
-          avgRating: 4.8,
-          bestSeason: '春秋',
-          recommendedDays: '2-3 日',
-          budget: '¥400-800',
-          intensity: '轻松',
-          audience: '家庭/摄影',
-          highlights: ['粉墙黛瓦', '牛形水系', '徽派三雕', '倒影如画'],
-          tips: [
-            '古村落石板路多，穿舒适平底鞋',
-            '清晨与傍晚光线最佳，适合摄影',
-            '尊重原住民生活，勿擅入私宅',
-          ],
-          spots: [
-            { id: 'hc', name: '宏村', location: '黟县', rating: 4.8, ticketPrice: '¥104起', visitDuration: '半天', transport: '自驾/大巴', description: '画里乡村牛形水系', highlight: '牛形水系古村，粉墙黛瓦倒影如画' },
-            { id: 'xd', name: '西递', location: '黟县', rating: 4.6, ticketPrice: '¥94起', visitDuration: '半天', transport: '自驾/大巴', description: '船形古村牌坊群', highlight: '船形古村，明清牌坊与楹联文化' },
-            { id: 'hs2', name: '黄山', location: '黄山市', rating: 4.9, ticketPrice: '¥190起', visitDuration: '2天', transport: '高铁+索道', description: '世界自然文化双遗产', highlight: '世界自然与文化双遗产，五绝奇观' },
-          ],
-        },
-        {
-          key: 'peaks',
-          name: '奇峰云海',
-          icon: markRaw(EnergyIcon),
-          coverSpotName: '黄山',
-          avgRating: 4.8,
-          bestSeason: '秋冬',
-          recommendedDays: '2 日',
-          budget: '¥500-900',
-          intensity: '适中',
-          audience: '摄影/户外',
-          highlights: ['云海翻涌', '日出金顶', '雾凇冰挂', '峰林夕照'],
-          tips: [
-            '云海多见于雨后初晴，关注天气预报',
-            '秋冬出现概率最高，清晨最佳',
-            '备好防滑鞋，山路湿滑注意安全',
-          ],
-          spots: [
-            { id: 'hs3', name: '黄山', location: '黄山市', rating: 4.9, ticketPrice: '¥190起', visitDuration: '2天', transport: '高铁+索道', description: '云海日出绝佳地', highlight: '观奇松怪石云海日出冬雪，五绝奇观冠绝天下' },
-            { id: 'tzs2', name: '天柱山', location: '安庆潜山', rating: 4.6, ticketPrice: '¥130起', visitDuration: '1-2天', transport: '高铁+公交', description: '擎天一柱云雾绕', highlight: '古南岳擎天一柱，奇峰怪石飞瀑幽洞' },
-            { id: 'mrqf', name: '马仁奇峰', location: '芜湖繁昌', rating: 4.4, ticketPrice: '¥80起', visitDuration: '1天', transport: '自驾', description: '奇峰林立楠木成林', highlight: '奇峰林立+楠木成林，玻璃栈道观云海' },
-          ],
-        },
-        {
-          key: 'village',
-          name: '古村寻幽',
-          icon: markRaw(HomeIcon),
-          coverSpotName: '宏村',
-          avgRating: 4.6,
-          bestSeason: '春秋',
-          recommendedDays: '2 日',
-          budget: '¥300-600',
-          intensity: '轻松',
-          audience: '家庭/文艺',
-          highlights: ['青石板巷', '马头墙影', '溪水绕村', '田园牧歌'],
-          tips: [
-            '古村适合慢游，勿赶行程',
-            '可住民宿体验徽州生活',
-            '尊重村民生活作息，夜间保持安静',
-          ],
-          spots: [
-            { id: 'hc2', name: '宏村', location: '黟县', rating: 4.8, ticketPrice: '¥104起', visitDuration: '半天', transport: '自驾/大巴', description: '画里乡村', highlight: '牛形水系古村，粉墙黛瓦倒影如画' },
-            { id: 'xd2', name: '西递', location: '黟县', rating: 4.6, ticketPrice: '¥94起', visitDuration: '半天', transport: '自驾/大巴', description: '船形古村', highlight: '船形古村，明清牌坊与楹联文化' },
-            { id: 'ck', name: '呈坎', location: '徽州区', rating: 4.5, ticketPrice: '¥107起', visitDuration: '半天', transport: '自驾', description: '八卦古村', highlight: '中国风水第一村，阴阳八卦布局' },
-            { id: 'tc', name: '塔川', location: '黟县', rating: 4.4, ticketPrice: '¥40起', visitDuration: '2小时', transport: '自驾', description: '秋色绝美', highlight: '塔川秋色，层林尽染田园如画' },
-          ],
-        },
-      ],
-    },
-    {
-      key: 'culture',
-      title: '人文体验',
-      items: [
-        {
-          key: 'zen',
-          name: '禅意养心',
-          icon: markRaw(ZenIcon),
-          coverSpotName: '九华山',
-          avgRating: 4.7,
-          bestSeason: '全年',
-          recommendedDays: '2-3 日',
-          budget: '¥400-800',
-          intensity: '轻松',
-          audience: '银发/养心',
-          highlights: ['梵音晨钟', '礼佛祈福', '素斋清心', '禅修体验'],
-          tips: [
-            '寺庙内勿大声喧哗，着装庄重',
-            '可预约寺院禅修/早课体验',
-            '素斋值得一尝，提前询问用斋时间',
-          ],
-          spots: [
-            { id: 'jhs2', name: '九华山', location: '池州青阳', rating: 4.7, ticketPrice: '¥160起', visitDuration: '1-2天', transport: '高铁+大巴', description: '地藏道场', highlight: '地藏菩萨道场，莲花佛国九十九峰' },
-            { id: 'tzs3', name: '天柱山', location: '安庆潜山', rating: 4.6, ticketPrice: '¥130起', visitDuration: '1-2天', transport: '高铁+公交', description: '三祖寺禅宗', highlight: '禅宗三祖寺，道佛共融名山' },
-            { id: 'sks', name: '司空山', location: '岳西县', rating: 4.3, ticketPrice: '¥60起', visitDuration: '1天', transport: '自驾', description: '禅宗二祖', highlight: '禅宗二祖慧可驻锡地，深山古寺清幽' },
-          ],
-        },
-        {
-          key: 'huipai',
-          name: '徽派古韵',
-          icon: markRaw(MuseumIcon),
-          coverSpotName: '宏村',
-          avgRating: 4.6,
-          bestSeason: '春秋',
-          recommendedDays: '2 日',
-          budget: '¥300-600',
-          intensity: '轻松',
-          audience: '文化/家庭',
-          highlights: ['三雕艺术', '马头墙', '天井院落', '徽商故里'],
-          tips: [
-            '可请讲解员，深度了解徽派建筑',
-            '徽州古城墙与渔梁坝值得一看',
-            '徽菜口味偏重，臭鳜鱼是招牌',
-          ],
-          spots: [
-            { id: 'hzgc', name: '徽州古城', location: '歙县', rating: 4.5, ticketPrice: '¥100起', visitDuration: '半天', transport: '高铁+公交', description: '四大古城之一', highlight: '中国四大古城之一，许国石坊与斗山街' },
-            { id: 'xd3', name: '西递', location: '黟县', rating: 4.6, ticketPrice: '¥94起', visitDuration: '半天', transport: '自驾/大巴', description: '明清古建', highlight: '船形古村，明清牌坊与楹联文化' },
-            { id: 'ylb', name: '渔梁坝', location: '歙县', rating: 4.3, ticketPrice: '¥30起', visitDuration: '2小时', transport: '公交', description: '古水利工程', highlight: '江南都江堰，千年滚水坝石工奇绝' },
-          ],
-        },
-        {
-          key: 'craft',
-          name: '非遗匠心',
-          icon: markRaw(PaletteIcon),
-          coverSpotName: '黄山',
-          avgRating: 4.5,
-          bestSeason: '全年',
-          recommendedDays: '1-2 日',
-          budget: '¥200-500',
-          intensity: '轻松',
-          audience: '亲子/文艺',
-          highlights: ['徽墨制作', '宣纸体验', '徽剧脸谱', '竹雕手作'],
-          tips: [
-            '非遗体验多需预约，提前联系工坊',
-            '可带孩子参与手作，寓教于乐',
-            '成品可作伴手礼，支持非遗传承',
-          ],
-          spots: [
-            { id: 'hmo', name: '徽墨工坊', location: '歙县', rating: 4.5, ticketPrice: '¥80起', visitDuration: '2小时', transport: '自驾', description: '徽墨非遗', highlight: '徽墨制作技艺，千年墨香非遗体验' },
-            { id: 'xz', name: '宣纸文化园', location: '泾县', rating: 4.6, ticketPrice: '¥60起', visitDuration: '2小时', transport: '自驾', description: '纸寿千年', highlight: '宣纸制作技艺，纸寿千年非遗探秘' },
-            { id: 'hj', name: '徽剧传习', location: '黄山市', rating: 4.3, ticketPrice: '¥50起', visitDuration: '1.5小时', transport: '市区公交', description: '京剧之源', highlight: '徽剧四大声腔，京剧之源脸谱彩绘' },
-          ],
-        },
-      ],
-    },
-    {
-      key: 'season',
-      title: '季节限定',
-      items: [
-        {
-          key: 'autumn',
-          name: '秋色摄影',
-          icon: markRaw(LeafAutumnIcon),
-          coverSpotName: '黄山',
-          avgRating: 4.7,
-          bestSeason: '10-11月',
-          recommendedDays: '2-3 日',
-          budget: '¥500-900',
-          intensity: '适中',
-          audience: '摄影/文艺',
-          highlights: ['层林尽染', '塔川秋色', '银杏金黄', '晨雾炊烟'],
-          tips: [
-            '10月下旬至11月中旬为最佳',
-            '清晨晨雾+炊烟最出片',
-            '备长焦镜头，远山层叠效果佳',
-          ],
-          spots: [
-            { id: 'tc2', name: '塔川', location: '黟县', rating: 4.4, ticketPrice: '¥40起', visitDuration: '2小时', transport: '自驾', description: '秋色绝美', highlight: '塔川秋色，层林尽染田园如画' },
-            { id: 'hs4', name: '黄山', location: '黄山市', rating: 4.9, ticketPrice: '¥190起', visitDuration: '2天', transport: '高铁+索道', description: '秋叶云海', highlight: '秋日层林尽染+云海日出，五绝齐现' },
-            { id: 'mrqf2', name: '马仁奇峰', location: '芜湖繁昌', rating: 4.4, ticketPrice: '¥80起', visitDuration: '1天', transport: '自驾', description: '楠木秋色', highlight: '奇峰林立+楠木成林，秋色层叠' },
-          ],
-        },
-        {
-          key: 'winter',
-          name: '冬日雪境',
-          icon: markRaw(SnowflakeIcon),
-          coverSpotName: '黄山',
-          avgRating: 4.8,
-          bestSeason: '12-2月',
-          recommendedDays: '2 日',
-          budget: '¥600-1000',
-          intensity: '挑战',
-          audience: '户外/摄影',
-          highlights: ['雾凇冰挂', '冬雪五绝', '寒梅初绽', '温泉暖身'],
-          tips: [
-            '山路结冰需防滑链或冰爪',
-            '山顶酒店冬季紧张，提前预订',
-            '雪后初晴云海概率极高',
-          ],
-          spots: [
-            { id: 'hs5', name: '黄山', location: '黄山市', rating: 4.9, ticketPrice: '¥150起', visitDuration: '2天', transport: '高铁+索道', description: '冬雪五绝', highlight: '冬雪雾凇冰挂，五绝齐现宛若仙境' },
-            { id: 'tzs4', name: '天柱山', location: '安庆潜山', rating: 4.6, ticketPrice: '¥130起', visitDuration: '1-2天', transport: '高铁+公交', description: '雪覆奇峰', highlight: '冬雪覆奇峰，擎天一柱银装素裹' },
-          ],
-        },
-      ],
-    },
-  ];
-
-  MOUNTED_GROUPS.forEach((g) => {
-    if (g.items.length) activeMap.value[g.key] = g.items[0].key;
-  });
-
-  const spotImageMap = computed<Record<string, string>>(() => {
-    const m: Record<string, string> = {};
+  const spotMap = computed<Record<string, ThemeSpot>>(() => {
+    const m: Record<string, ThemeSpot> = {};
     if (props.sceneryData?.spots) {
       props.sceneryData.spots.forEach((s) => {
-        if (s.image) m[s.name] = s.image;
+        m[s.id] = {
+          id: s.id,
+          name: s.name,
+          location: s.location || '',
+          rating: s.rating ?? 4.5,
+          ticketPrice: s.ticketPrice || '',
+          visitDuration: s.visitDuration || '',
+          transport: (s.transportInfo && s.transportInfo[0]) || '',
+          description: s.description || '',
+          highlight: s.highlight || s.description || '',
+          image: s.image || '',
+        };
       });
     }
     return m;
   });
 
   const themeGroups = computed(() => {
-    return MOUNTED_GROUPS.map((g) => ({
+    const rawThemes = props.sceneryData?.themes || [];
+    return rawThemes.map((g) => ({
       key: g.key,
       title: g.title,
       items: g.items.map((t) => {
-        const coverImage = spotImageMap.value[t.coverSpotName] || '';
-        const spots: ThemeSpot[] = t.spots.map((s) => ({
-          ...s,
-          image: spotImageMap.value[s.name] || '',
-        }));
-        return { ...t, coverImage, spots } as Theme;
+        const coverSpot = spotMap.value[t.coverSpotId];
+        const coverImage = coverSpot?.image || '';
+        const spots: ThemeSpot[] = t.spotIds
+          .map((id) => spotMap.value[id])
+          .filter((s): s is ThemeSpot => !!s);
+        return {
+          key: t.key,
+          name: t.name,
+          icon: iconMap[t.icon] || markRaw(GalaxyIcon),
+          coverSpotName: coverSpot?.name || '',
+          coverImage,
+          avgRating: t.avgRating,
+          bestSeason: t.bestSeason,
+          recommendedDays: t.recommendedDays,
+          budget: t.budget,
+          intensity: t.intensity,
+          audience: t.audience,
+          highlights: t.highlights,
+          tips: t.tips,
+          spots,
+        } as Theme;
       }),
     }));
   });
+
+  watch(themeGroups, (groups) => {
+    groups.forEach((g) => {
+      if (g.items.length && !activeMap.value[g.key]) activeMap.value[g.key] = g.items[0].key;
+    });
+    if (groups.length && !groups.find((g) => g.key === activeGroup.value)) {
+      activeGroup.value = groups[0].key;
+    }
+  }, { immediate: true });
 
   const currentGroup = computed(() => {
     return themeGroups.value.find((g) => g.key === activeGroup.value) || themeGroups.value[0];

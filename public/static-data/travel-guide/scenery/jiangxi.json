@@ -15,12 +15,137 @@
       "bestTime": "夏季",
       "location": "江西省九江市",
       "description": "中国十大名山之一,世界文化遗产",
+      "highlight": "世界文化景观遗产,匡庐奇秀",
+      "level": "5A景区",
+      "rankBadge": "必去",
+      "reviewCount": "87,654条点评",
+      "distance": "距南昌100km",
+      "ticketPrice": "¥160",
       "landformTags": [
         "山地景观"
       ],
       "landscapeType": "mountain",
       "landscapeCategory": [
-        "地理景观"
+        "自然景观"
+      ],
+      "openTime": "全天开放(核心景点06:00-18:00)",
+      "visitDuration": "2-3天",
+      "popularity": "★★★★★",
+      "audienceTags": [
+        "避暑度假者",
+        "登山爱好者",
+        "文化爱好者",
+        "摄影爱好者",
+        "家庭出游"
+      ],
+      "ticketDetails": [
+        "成人票¥160",
+        "学生票半价",
+        "儿童1.2米以下免票",
+        "观光车¥80"
+      ],
+      "transportInfo": [
+        "飞机:最近机场为九江庐山机场约1小时",
+        "高铁:九江站距庐山约40分钟",
+        "自驾:经福银高速庐山出口",
+        "长途客运:九江汽车站有班车直达"
+      ],
+      "openTimeDetail": [
+        "旺季(4-10月) 06:00-18:00",
+        "淡季(11-3月) 07:00-17:00",
+        "观光车 07:00-19:00"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "三叠泉-五老峰线",
+          "duration": "1天",
+          "difficulty": "中等",
+          "description": "观三叠泉瀑布,登五老峰俯瞰鄱阳湖",
+          "highlights": [
+            "三叠泉瀑布",
+            "五老峰俯瞰鄱阳湖",
+            "匡庐奇秀"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "瀑泉奇观",
+              "detail": "牯岭镇→三叠泉瀑布→五老峰登顶→俯瞰鄱阳湖→返程"
+            }
+          ],
+          "budget": "¥240-400",
+          "bestFor": "登山爱好者/摄影爱好者"
+        },
+        {
+          "name": "如琴湖-花径线",
+          "duration": "半天",
+          "difficulty": "轻松",
+          "description": "游如琴湖,漫步花径感受白居易诗意",
+          "highlights": [
+            "如琴湖湖光",
+            "花径白居易诗意",
+            "锦绣谷"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "湖径漫步",
+              "detail": "牯岭镇→如琴湖→花径→锦绣谷→返程"
+            }
+          ],
+          "budget": "¥160-300",
+          "bestFor": "家庭出游/文艺青年"
+        },
+        {
+          "name": "含鄱口-植物园线",
+          "duration": "半天",
+          "difficulty": "轻松",
+          "description": "含鄱口观日出,游植物园赏奇花",
+          "highlights": [
+            "含鄱口观日出",
+            "庐山植物园",
+            "云海奇观"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "日出云海",
+              "detail": "含鄱口观日出→庐山植物园→赏奇花异木→返程"
+            }
+          ],
+          "budget": "¥160-300",
+          "bestFor": "摄影爱好者/自然爱好者"
+        }
+      ],
+      "facilities": [
+        "索道:三叠泉索道往返¥80",
+        "餐饮:牯岭镇餐厅众多",
+        "住宿:牯岭镇酒店民宿丰富",
+        "停车场:各景点有停车场",
+        "观光车:景区观光车¥80"
+      ],
+      "tips": [
+        "山区温差大,备好保暖衣物",
+        "山路弯多,注意行车安全",
+        "雨后云海概率高,早起观日出",
+        "保护环境,勿乱扔垃圾"
+      ],
+      "photoSpots": [
+        "三叠泉瀑布",
+        "五老峰日出",
+        "含鄱口云海",
+        "如琴湖"
+      ],
+      "nearbySpots": [
+        "鄱阳湖 30km",
+        "东林寺 20km",
+        "白鹿洞书院 10km"
+      ],
+      "seasonalGuide": [
+        "春季山花烂漫,云雾缭绕",
+        "夏季凉爽宜人,避暑胜地",
+        "秋季红叶满山,秋色迷人",
+        "冬季银装素裹,雪景如画"
       ]
     },
     {
@@ -37,7 +162,115 @@
       "rating": 4.6,
       "bestTime": "全年",
       "location": "江西省景德镇市",
-      "description": "千年瓷都,中国瓷器的发源地"
+      "description": "千年瓷都,中国瓷器的发源地",
+      "highlight": "千年瓷都,陶瓷文化圣地",
+      "level": "5A景区",
+      "rankBadge": "必去",
+      "reviewCount": "65,432条点评",
+      "distance": "距南昌250km",
+      "ticketPrice": "¥95",
+      "landscapeCategory": [
+        "人文景观"
+      ],
+      "openTime": "08:00-17:30",
+      "visitDuration": "1-2天",
+      "popularity": "★★★★☆",
+      "audienceTags": [
+        "文化爱好者",
+        "工艺爱好者",
+        "艺术爱好者",
+        "家庭出游",
+        "学生"
+      ],
+      "ticketDetails": [
+        "古窑民俗博览区¥95",
+        "陶瓷馆免费",
+        "御窑厂¥50",
+        "学生半价"
+      ],
+      "transportInfo": [
+        "飞机:最近机场为景德镇罗家机场",
+        "高铁:景德镇北站约20分钟车程",
+        "自驾:经景鹰高速景德镇出口",
+        "长途客运:景德镇汽车站有公交直达"
+      ],
+      "openTimeDetail": [
+        "古窑民俗博览区 08:00-17:30",
+        "中国陶瓷博物馆 09:00-17:00",
+        "御窑厂 08:00-17:00"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "古窑-陶瓷馆线",
+          "duration": "1天",
+          "difficulty": "轻松",
+          "description": "参观古窑看制瓷工艺,游陶瓷馆赏历代瓷器",
+          "highlights": [
+            "古窑制瓷工艺",
+            "陶瓷馆珍品",
+            "千年瓷都"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "瓷都探秘",
+              "detail": "古窑民俗博览区→看制瓷工艺→中国陶瓷博物馆→赏历代瓷器"
+            }
+          ],
+          "budget": "¥95-200",
+          "bestFor": "文化爱好者/家庭出游"
+        },
+        {
+          "name": "御窑厂-陶溪川线",
+          "duration": "半天",
+          "difficulty": "轻松",
+          "description": "探御窑厂遗址,逛陶溪川文创街区",
+          "highlights": [
+            "御窑厂遗址",
+            "陶溪川文创",
+            "瓷都夜韵"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "文创体验",
+              "detail": "御窑厂遗址→陶溪川文创街区→赏瓷器→夜游陶溪川"
+            }
+          ],
+          "budget": "¥50-150",
+          "bestFor": "文艺青年/文化爱好者"
+        }
+      ],
+      "facilities": [
+        "餐饮:瓷都特色餐饮丰富",
+        "住宿:市区酒店众多",
+        "停车场:各景点有停车场",
+        "卫生间:景区内分布多处",
+        "游客中心:各景区有咨询处"
+      ],
+      "tips": [
+        "可亲手体验制瓷乐趣",
+        "保护文物,勿触摸展品",
+        "购买瓷器注意辨别真伪",
+        "建议请讲解员了解瓷文化"
+      ],
+      "photoSpots": [
+        "古窑遗址",
+        "陶瓷馆珍品",
+        "御窑厂遗址",
+        "陶溪川夜景"
+      ],
+      "nearbySpots": [
+        "瑶里古镇 50km",
+        "三宝村 10km",
+        "浮梁古县衙 20km"
+      ],
+      "seasonalGuide": [
+        "春季气候宜人,适合游览",
+        "夏季炎热,室内参观为主",
+        "秋季天高气爽,最佳游览季节",
+        "冬季偶有雪景,瓷韵悠长"
+      ]
     },
     {
       "id": "jinggangshan",
@@ -53,7 +286,115 @@
       "rating": 4.6,
       "bestTime": "全年",
       "location": "江西省吉安市井冈山市",
-      "description": "中国革命的摇篮,红色旅游胜地"
+      "description": "中国革命的摇篮,红色旅游胜地",
+      "highlight": "革命摇篮,红色圣地",
+      "level": "5A景区",
+      "rankBadge": "圣地",
+      "reviewCount": "54,321条点评",
+      "distance": "距南昌350km",
+      "ticketPrice": "¥165",
+      "landscapeCategory": [
+        "人文景观"
+      ],
+      "openTime": "07:00-17:30",
+      "visitDuration": "2天",
+      "popularity": "★★★★☆",
+      "audienceTags": [
+        "红色旅游爱好者",
+        "历史爱好者",
+        "教育团体",
+        "家庭出游",
+        "登山爱好者"
+      ],
+      "ticketDetails": [
+        "成人票¥165",
+        "学生票半价",
+        "儿童1.2米以下免票",
+        "观光车¥80"
+      ],
+      "transportInfo": [
+        "飞机:最近机场为井冈山机场约1小时",
+        "高铁:吉安西站距井冈山约1.5小时",
+        "自驾:经泰井高速井冈山出口",
+        "长途客运:吉安汽车站有班车直达"
+      ],
+      "openTimeDetail": [
+        "旺季(4-10月) 07:00-17:30",
+        "淡季(11-3月) 08:00-17:00",
+        "观光车 07:00-17:00"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "黄洋界-茨坪线",
+          "duration": "1天",
+          "difficulty": "中等",
+          "description": "登黄洋界看保卫战遗址,游茨坪革命旧址群",
+          "highlights": [
+            "黄洋界保卫战遗址",
+            "茨坪革命旧址",
+            "红色记忆"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "红色寻根",
+              "detail": "茨坪→黄洋界→保卫战遗址→茨坪革命旧址群→返程"
+            }
+          ],
+          "budget": "¥245-400",
+          "bestFor": "红色旅游爱好者/教育团体"
+        },
+        {
+          "name": "茅坪-龙市线",
+          "duration": "1天",
+          "difficulty": "轻松",
+          "description": "游茅坪八角楼,参观龙市会师广场",
+          "highlights": [
+            "茅坪八角楼",
+            "龙市会师广场",
+            "革命历史"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "革命足迹",
+              "detail": "茨坪→茅坪八角楼→龙市会师广场→返程"
+            }
+          ],
+          "budget": "¥245-400",
+          "bestFor": "红色旅游爱好者/历史爱好者"
+        }
+      ],
+      "facilities": [
+        "索道:笔架山索道往返¥150",
+        "餐饮:景区餐厅有红军餐",
+        "住宿:茨坪镇住宿丰富",
+        "停车场:各景点有停车场",
+        "观光车:景区观光车¥80"
+      ],
+      "tips": [
+        "红色景点请保持庄重",
+        "建议请讲解员了解革命历史",
+        "山区温差大,备好衣物",
+        "保护革命遗址,勿触摸展品"
+      ],
+      "photoSpots": [
+        "黄洋界",
+        "茨坪革命旧址",
+        "茅坪八角楼",
+        "五龙潭瀑布"
+      ],
+      "nearbySpots": [
+        "茨坪镇 5km",
+        "茅坪 30km",
+        "龙市 50km"
+      ],
+      "seasonalGuide": [
+        "春季山花烂漫,杜鹃花海",
+        "夏季凉爽宜人,避暑胜地",
+        "秋季红叶满山,革命圣地添彩",
+        "冬季银装素裹,红色记忆"
+      ]
     },
     {
       "id": "wuyuan",
@@ -70,12 +411,137 @@
       "bestTime": "春季",
       "location": "江西省上饶市婺源县",
       "description": "中国最美乡村,油菜花海",
+      "highlight": "中国最美乡村,油菜花海",
+      "level": "5A景区",
+      "rankBadge": "网红",
+      "reviewCount": "98,765条点评",
+      "distance": "距南昌250km",
+      "ticketPrice": "¥210",
       "landformTags": [
         "乡村景观"
       ],
       "landscapeType": "rural",
       "landscapeCategory": [
-        "人文景观"
+        "自然景观"
+      ],
+      "openTime": "07:00-18:00",
+      "visitDuration": "2-3天",
+      "popularity": "★★★★★",
+      "audienceTags": [
+        "摄影爱好者",
+        "文艺青年",
+        "乡村爱好者",
+        "家庭出游",
+        "自驾游"
+      ],
+      "ticketDetails": [
+        "通票¥210",
+        "单点¥60",
+        "学生半价",
+        "儿童1.2米以下免票"
+      ],
+      "transportInfo": [
+        "飞机:最近机场为黄山机场约1.5小时",
+        "高铁:婺源站距县城约15分钟",
+        "自驾:经景婺黄高速婺源出口",
+        "长途客运:婺源汽车站有班车直达各景点"
+      ],
+      "openTimeDetail": [
+        "旺季(3-5月,9-11月) 07:00-18:00",
+        "淡季 07:30-17:30",
+        "江岭油菜花 06:30-18:00"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "东线:李坑-江湾-篁岭",
+          "duration": "1天",
+          "difficulty": "轻松",
+          "description": "游李坑小桥流水,赏篁岭晒秋人家",
+          "highlights": [
+            "李坑小桥流水",
+            "江湾古镇",
+            "篁岭晒秋"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "徽韵东线",
+              "detail": "县城→李坑→江湾→篁岭晒秋→返程"
+            }
+          ],
+          "budget": "¥210-400",
+          "bestFor": "摄影爱好者/文艺青年"
+        },
+        {
+          "name": "北线:思溪延村-彩虹桥",
+          "duration": "1天",
+          "difficulty": "轻松",
+          "description": "游思溪延村古建,观彩虹桥廊桥",
+          "highlights": [
+            "思溪延村古建",
+            "彩虹桥廊桥",
+            "徽派建筑"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "古村北线",
+              "detail": "县城→思溪延村→彩虹桥→廊桥赏景→返程"
+            }
+          ],
+          "budget": "¥210-400",
+          "bestFor": "文化爱好者/摄影爱好者"
+        },
+        {
+          "name": "江岭-晓起线",
+          "duration": "半天",
+          "difficulty": "轻松",
+          "description": "赏江岭梯田花海,游晓起古村",
+          "highlights": [
+            "江岭梯田花海",
+            "晓起古村",
+            "油菜花"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "花海梯田",
+              "detail": "江岭梯田花海→晓起古村→赏油菜花→返程"
+            }
+          ],
+          "budget": "¥120-250",
+          "bestFor": "摄影爱好者/家庭出游"
+        }
+      ],
+      "facilities": [
+        "餐饮:农家乐和特色餐厅众多",
+        "住宿:古村民宿体验徽派生活",
+        "停车场:各景点有停车场",
+        "卫生间:景区内分布多处",
+        "游客中心:县城有咨询处"
+      ],
+      "tips": [
+        "油菜花季3-4月,需提前订房",
+        "晒秋9-11月,篁岭最经典",
+        "乡村道路窄,自驾注意安全",
+        "保护古村,勿擅入民宅"
+      ],
+      "photoSpots": [
+        "江岭梯田花海",
+        "篁岭晒秋",
+        "李坑小桥流水",
+        "彩虹桥"
+      ],
+      "nearbySpots": [
+        "三清山 80km",
+        "景德镇 80km",
+        "黄山 120km"
+      ],
+      "seasonalGuide": [
+        "春季油菜花海,最美季节",
+        "夏季绿意盎然,避暑乡村",
+        "秋季晒秋人家,色彩斑斓",
+        "冬季银装素裹,古韵悠然"
       ]
     },
     {
@@ -93,74 +559,116 @@
       "bestTime": "春秋",
       "location": "江西省上饶市玉山县",
       "description": "世界自然遗产,道教名山",
+      "highlight": "世界自然遗产,道教仙山",
+      "level": "5A景区",
+      "rankBadge": "必去",
+      "reviewCount": "43,210条点评",
+      "distance": "距南昌300km",
+      "ticketPrice": "¥175",
       "landformTags": [
         "山地景观"
       ],
       "landscapeType": "mountain",
       "landscapeCategory": [
-        "地理景观"
-      ]
-    },
-    {
-      "id": "tengwangPavilion",
-      "name": "滕王阁",
-      "tags": [
-        "名楼",
-        "历史",
-        "文化",
-        "建筑"
+        "自然景观"
       ],
-      "type": "culture",
-      "image": "https://picsum.photos/id/1385/600/400",
-      "rating": 4.5,
-      "bestTime": "全年",
-      "location": "江西省南昌市东湖区",
-      "description": "江南三大名楼之一"
-    },
-    {
-      "id": "poyangLake",
-      "name": "鄱阳湖",
-      "tags": [
-        "湖泊",
-        "湿地",
-        "候鸟",
-        "自然"
+      "openTime": "06:30-18:00",
+      "visitDuration": "1-2天",
+      "popularity": "★★★★☆",
+      "audienceTags": [
+        "登山爱好者",
+        "摄影爱好者",
+        "道教文化爱好者",
+        "自然爱好者"
       ],
-      "type": "nature",
-      "image": "https://picsum.photos/id/1386/600/400",
-      "rating": 4.5,
-      "bestTime": "冬季",
-      "location": "江西省九江市",
-      "description": "中国第一大淡水湖",
-      "landformTags": [
-        "湿地景观"
+      "ticketDetails": [
+        "成人票¥175",
+        "学生票半价",
+        "儿童1.2米以下免票",
+        "索道往返¥125"
       ],
-      "landscapeType": "wetland",
-      "landscapeCategory": [
-        "水体景观"
-      ]
-    },
-    {
-      "id": "longhushan",
-      "name": "龙虎山",
-      "tags": [
-        "名山",
-        "世界遗产",
-        "道教",
-        "自然"
+      "transportInfo": [
+        "飞机:最近机场为上饶三清山机场约1小时",
+        "高铁:玉山南站距景区约40分钟",
+        "自驾:经沪昆高速玉山出口",
+        "长途客运:玉山汽车站有班车直达"
       ],
-      "type": "nature",
-      "image": "https://picsum.photos/id/1387/600/400",
-      "rating": 4.6,
-      "bestTime": "春秋",
-      "location": "江西省鹰潭市",
-      "description": "世界自然遗产,道教发源地之一",
-      "landformTags": [
-        "山地景观"
+      "openTimeDetail": [
+        "旺季(3-11月) 06:30-18:00",
+        "淡季(12-2月) 07:00-17:00",
+        "索道 07:00-17:00"
       ],
-      "landscapeType": "mountain",
-      "landscapeCategory": [
-        "地理景观"
+      "recommendedRoutes": [
+        {
+          "name": "南清园-阳光海岸线",
+          "duration": "1天",
+          "difficulty": "中等",
+          "description": "游南清园看巨蟒出山,赏阳光海岸云海",
+          "highlights": [
+            "巨蟒出山",
+            "司春女神",
+            "阳光海岸云海"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "奇峰云海",
+              "detail": "外双溪索道→南清园→巨蟒出山→司春女神→阳光海岸→返程"
+            }
+          ],
+          "budget": "¥300-500",
+          "bestFor": "登山爱好者/摄影爱好者"
+        },
+        {
+          "name": "西海岸-三清宫线",
+          "duration": "1天",
+          "difficulty": "中等",
+          "description": "漫步西海岸栈道,参拜三清宫道观",
+          "highlights": [
+            "西海岸栈道",
+            "三清宫道观",
+            "高空栈道"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "道教仙山",
+              "detail": "外双溪索道→西海岸栈道→三清宫→参拜道观→返程"
+            }
+          ],
+          "budget": "¥300-500",
+          "bestFor": "登山爱好者/道教文化爱好者"
+        }
+      ],
+      "facilities": [
+        "索道:外双溪索道往返¥125",
+        "餐饮:山上山下均有餐厅",
+        "住宿:山上酒店和山下民宿",
+        "停车场:景区入口大型停车场",
+        "卫生间:景区内分布多处"
+      ],
+      "tips": [
+        "山上温差大,备好保暖衣物",
+        "雨后云海概率高,早起观景",
+        "栈道湿滑,注意安全",
+        "建议乘索道节省体力"
+      ],
+      "photoSpots": [
+        "巨蟒出山",
+        "司春女神",
+        "西海岸云海",
+        "三清宫"
+      ],
+      "nearbySpots": [
+        "婺源 80km",
+        "玉山县城 30km",
+        "怀玉山 20km"
+      ],
+      "seasonalGuide": [
+        "春季山花烂漫,云雾缭绕",
+        "夏季凉爽宜人,避暑胜地",
+        "秋季天高气爽,云海最美",
+        "冬季偶有雾凇,如仙境般"
       ]
     }
   ],
@@ -208,9 +716,12 @@
     ]
   },
   "overview": {
-    "totalSpots": 240,
-    "natureSpots": 120,
-    "cultureSpots": 120,
+    "fiveACount": 13,
+    "worldHeritageCount": 4,
+    "intangibleHeritageCount": 13,
+    "totalSpots": 5,
+    "natureSpots": 3,
+    "cultureSpots": 2,
     "topAttractions": [
       {
         "name": "庐山",
@@ -364,6 +875,182 @@
       ],
       "image": "https://picsum.photos/id/1385/600/400",
       "description": "江西独特的赣文化和客家文化"
+    }
+  ],
+  "themes": [
+    {
+      "key": "nature",
+      "title": "自然风光",
+      "items": [
+        {
+          "key": "mountain",
+          "name": "名山胜景",
+          "icon": "mountain",
+          "coverSpotId": "lushan",
+          "avgRating": 4.7,
+          "bestSeason": "春秋 / 全年",
+          "recommendedDays": "2-3 日",
+          "budget": "¥500-1200",
+          "intensity": "适中",
+          "audience": "全人群",
+          "highlights": [
+            "山岳胜景",
+            "云海日出",
+            "奇松怪石",
+            "登高望远"
+          ],
+          "tips": [
+            "山路崎岖，穿舒适登山鞋",
+            "提前关注天气，雨后云海概率高",
+            "山顶温差大，备好保暖衣物"
+          ],
+          "spotIds": [
+            "lushan",
+            "sanqingshan",
+            "jinggangshan"
+          ]
+        },
+        {
+          "key": "water",
+          "name": "江湖瀑布",
+          "icon": "droplet",
+          "coverSpotId": "poyangLake",
+          "avgRating": 4.5,
+          "bestSeason": "夏秋",
+          "recommendedDays": "1-2 日",
+          "budget": "¥200-500",
+          "intensity": "轻松",
+          "audience": "家庭/休闲",
+          "highlights": [
+            "飞瀑流泉",
+            "湖光山色",
+            "碧水蓝天",
+            "水上游览"
+          ],
+          "tips": [
+            "水边游玩注意安全，勿擅自下水",
+            "雨季水量充沛，枯水期景色减色",
+            "可乘船游览，体验更佳"
+          ],
+          "spotIds": []
+        }
+      ]
+    },
+    {
+      "key": "culture",
+      "title": "人文古迹",
+      "items": [
+        {
+          "key": "architecture",
+          "name": "古建风韵",
+          "icon": "museum",
+          "coverSpotId": "jingdezhen",
+          "avgRating": 4.6,
+          "bestSeason": "全年",
+          "recommendedDays": "1-2 日",
+          "budget": "¥200-400",
+          "intensity": "轻松",
+          "audience": "文化/家庭",
+          "highlights": [
+            "古建瑰宝",
+            "雕梁画栋",
+            "历史厚重",
+            "建筑美学"
+          ],
+          "tips": [
+            "可请讲解员，深度了解建筑历史",
+            "注意保护文物，勿触摸刻划",
+            "拍照注意光线，早晚最佳"
+          ],
+          "spotIds": [
+            "jingdezhen"
+          ]
+        },
+        {
+          "key": "religion",
+          "name": "宗教文化",
+          "icon": "zen",
+          "coverSpotId": "sanqingshan",
+          "avgRating": 4.6,
+          "bestSeason": "全年",
+          "recommendedDays": "1-2 日",
+          "budget": "¥200-400",
+          "intensity": "轻松",
+          "audience": "银发/养心",
+          "highlights": [
+            "梵音晨钟",
+            "礼佛祈福",
+            "禅修体验",
+            "清心养性"
+          ],
+          "tips": [
+            "寺庙内勿大声喧哗，着装庄重",
+            "可预约禅修/早课体验",
+            "素斋值得一尝，提前询问用斋时间"
+          ],
+          "spotIds": [
+            "sanqingshan"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "season",
+      "title": "季节限定",
+      "items": [
+        {
+          "key": "spring",
+          "name": "春花烂漫",
+          "icon": "flower",
+          "coverSpotId": "wuyuan",
+          "avgRating": 4.7,
+          "bestSeason": "3-5月",
+          "recommendedDays": "1 日",
+          "budget": "¥100-300",
+          "intensity": "轻松",
+          "audience": "摄影/家庭",
+          "highlights": [
+            "百花争艳",
+            "花海漫步",
+            "春意盎然",
+            "踏青赏花"
+          ],
+          "tips": [
+            "花期每年略有变化，提前查询",
+            "周末人多，建议工作日前往",
+            "备好相机，花粉过敏者注意防护"
+          ],
+          "spotIds": [
+            "wuyuan"
+          ]
+        },
+        {
+          "key": "summer",
+          "name": "夏日亲水",
+          "icon": "sun",
+          "coverSpotId": "lushan",
+          "avgRating": 4.8,
+          "bestSeason": "6-8月",
+          "recommendedDays": "1-2 日",
+          "budget": "¥200-500",
+          "intensity": "轻松",
+          "audience": "家庭/亲子",
+          "highlights": [
+            "清凉避暑",
+            "亲水嬉戏",
+            "绿意盎然",
+            "夏日乐趣"
+          ],
+          "tips": [
+            "注意防暑降温，多补充水分",
+            "水上活动穿好救生衣",
+            "避开正午烈日，早晚活动更舒适"
+          ],
+          "spotIds": [
+            "lushan"
+          ]
+        }
+      ]
     }
   ]
 }

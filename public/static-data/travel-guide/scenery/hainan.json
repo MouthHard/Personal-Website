@@ -15,12 +15,129 @@
       "bestTime": "冬季",
       "location": "海南省三亚市",
       "description": "东方夏威夷,中国著名的热带海滨旅游城市",
+      "highlight": "东方夏威夷,热带滨海胜地",
+      "level": "5A景区",
+      "rankBadge": "必去",
+      "reviewCount": "156,789条点评",
+      "distance": "距海口300km",
+      "ticketPrice": "免费",
       "landformTags": [
         "海滨景观"
       ],
       "landscapeType": "coastal",
       "landscapeCategory": [
-        "水体景观"
+        "自然景观"
+      ],
+      "openTime": "全天开放",
+      "visitDuration": "3-5天",
+      "popularity": "★★★★★",
+      "audienceTags": [
+        "度假游客",
+        "家庭出游",
+        "情侣蜜月",
+        "摄影爱好者"
+      ],
+      "ticketDetails": [
+        "三亚湾免费开放",
+        "亚龙湾沙滩免费",
+        "蜈支洲岛需另购票",
+        "部分景区单独收费"
+      ],
+      "transportInfo": [
+        "飞机:三亚凤凰国际机场",
+        "高铁:海南环岛高铁三亚站",
+        "自驾:G98海南环岛高速",
+        "长途客运:三亚客运总站"
+      ],
+      "openTimeDetail": [
+        "海滩区域 全天开放",
+        "景区一般 07:00-18:00",
+        "夜间活动 19:00-22:00"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "经典海湾游",
+          "duration": "3天",
+          "difficulty": "轻松",
+          "description": "三亚湾-亚龙湾-海棠湾,体验不同海湾风情",
+          "highlights": [
+            "三亚湾椰梦长廊日落",
+            "亚龙湾天下第一湾",
+            "海棠湾免税购物"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "三亚湾休闲",
+              "detail": "三亚湾椰梦长廊→海月广场→凤凰岛→椰梦长廊日落"
+            },
+            {
+              "day": "Day2",
+              "title": "亚龙湾度假",
+              "detail": "亚龙湾沙滩→海底世界→贝壳馆→沙滩日落"
+            },
+            {
+              "day": "Day3",
+              "title": "海棠湾购物",
+              "detail": "海棠湾→免税购物中心→蜈支洲岛码头→温泉体验"
+            }
+          ],
+          "budget": "¥1500-3000",
+          "bestFor": "度假游客/家庭出游"
+        },
+        {
+          "name": "海岛探险游",
+          "duration": "2天",
+          "difficulty": "中等",
+          "description": "蜈支洲岛-分界洲岛,享受潜水与水上运动",
+          "highlights": [
+            "蜈支洲岛潜水",
+            "分界洲岛水上运动",
+            "海底珊瑚礁"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "蜈支洲岛",
+              "detail": "蜈支洲岛登岛→情人桥→观日岩→潜水体验→妈祖庙"
+            },
+            {
+              "day": "Day2",
+              "title": "分界洲岛",
+              "detail": "分界洲岛登岛→海洋乐园→海钓平台→拖伞体验"
+            }
+          ],
+          "budget": "¥1000-2000",
+          "bestFor": "潜水爱好者/年轻群体"
+        }
+      ],
+      "facilities": [
+        "餐饮:海鲜餐厅众多",
+        "住宿:度假酒店集中",
+        "停车场:各海湾均有",
+        "游客中心:提供咨询服务"
+      ],
+      "tips": [
+        "注意防晒,备好防晒霜和遮阳帽",
+        "海鲜过敏者注意饮食选择",
+        "旅游旺季房价较高,建议提前预订",
+        "游泳注意安全,在指定区域活动"
+      ],
+      "photoSpots": [
+        "三亚湾椰梦长廊日落",
+        "亚龙湾沙滩全景",
+        "天涯海角石刻前"
+      ],
+      "nearbySpots": [
+        "亚龙湾 25km",
+        "蜈支洲岛 30km",
+        "南山文化旅游区 40km"
+      ],
+      "seasonalGuide": [
+        "春季气候宜人,适合海滨度假",
+        "夏季炎热多雨,注意防暑防晒",
+        "秋季台风多发,出行前关注天气",
+        "冬季温暖如春,是最佳旅游时节"
       ]
     },
     {
@@ -38,12 +155,114 @@
       "bestTime": "冬季",
       "location": "海南省三亚市吉阳区",
       "description": "天下第一湾,中国最美的海湾之一",
+      "highlight": "天下第一湾,最美热带海湾",
+      "level": "5A景区",
+      "rankBadge": "必去",
+      "reviewCount": "98,765条点评",
+      "distance": "距海口320km",
+      "ticketPrice": "免费",
       "landformTags": [
         "海滨景观"
       ],
       "landscapeType": "coastal",
       "landscapeCategory": [
-        "水体景观"
+        "自然景观"
+      ],
+      "openTime": "全天开放",
+      "visitDuration": "1-2天",
+      "popularity": "★★★★★",
+      "audienceTags": [
+        "度假游客",
+        "潜水爱好者",
+        "家庭出游",
+        "情侣蜜月"
+      ],
+      "ticketDetails": [
+        "沙滩免费开放",
+        "亚龙湾海底世界¥130",
+        "贝壳馆¥30",
+        "蝴蝶谷¥30"
+      ],
+      "transportInfo": [
+        "飞机:三亚凤凰国际机场约30km",
+        "高铁:三亚站约20km",
+        "自驾:G98环岛高速亚龙湾出口",
+        "长途客运:三亚公交15路可达"
+      ],
+      "openTimeDetail": [
+        "沙滩区域 全天开放",
+        "景区 08:00-17:30",
+        "夜间活动 19:00-22:00"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "沙滩休闲游",
+          "duration": "1天",
+          "difficulty": "轻松",
+          "description": "沙滩漫步-日光浴-海滨浴场",
+          "highlights": [
+            "天下第一湾沙滩",
+            "日光浴",
+            "海滨浴场"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "沙滩度假",
+              "detail": "亚龙湾沙滩漫步→日光浴→海滨浴场→沙滩日落"
+            }
+          ],
+          "budget": "¥200-500",
+          "bestFor": "度假游客/情侣蜜月"
+        },
+        {
+          "name": "海底探秘游",
+          "duration": "1天",
+          "difficulty": "中等",
+          "description": "潜水-海底世界-玻璃观光船",
+          "highlights": [
+            "海底珊瑚礁",
+            "玻璃观光船",
+            "潜水体验"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "海底探秘",
+              "detail": "亚龙湾海底世界→潜水体验→玻璃观光船→贝壳馆"
+            }
+          ],
+          "budget": "¥400-800",
+          "bestFor": "潜水爱好者/家庭出游"
+        }
+      ],
+      "facilities": [
+        "餐饮:海滨餐厅众多",
+        "住宿:高端度假酒店云集",
+        "停车场:沙滩区域免费",
+        "卫生间:沙滩沿线分布"
+      ],
+      "tips": [
+        "沙滩免费,但遮阳椅需租赁",
+        "潜水需持证或参加体验潜水",
+        "注意防晒,紫外线强烈",
+        "旺季人较多,建议错峰出行"
+      ],
+      "photoSpots": [
+        "亚龙湾沙滩全景",
+        "海底世界珊瑚礁",
+        "日落时分海天一色"
+      ],
+      "nearbySpots": [
+        "三亚湾 15km",
+        "蜈支洲岛 35km",
+        "天涯海角 25km"
+      ],
+      "seasonalGuide": [
+        "春季海水温度适宜,适合游泳",
+        "夏季炎热,注意防暑防晒",
+        "秋季海水清澈,适合潜水",
+        "冬季温暖,是避寒度假胜地"
       ]
     },
     {
@@ -60,7 +279,112 @@
       "rating": 4.5,
       "bestTime": "全年",
       "location": "海南省三亚市天涯区",
-      "description": "海南最具代表性的景点,爱情的象征"
+      "description": "海南最具代表性的景点,爱情的象征",
+      "highlight": "天之涯海之角,浪漫地标",
+      "level": "4A景区",
+      "reviewCount": "76,543条点评",
+      "distance": "距海口310km",
+      "ticketPrice": "¥81",
+      "rankBadge": "人文",
+      "landscapeCategory": [
+        "人文景观"
+      ],
+      "openTime": "07:30-18:00",
+      "visitDuration": "2-3小时",
+      "popularity": "★★★★☆",
+      "audienceTags": [
+        "情侣蜜月",
+        "摄影爱好者",
+        "文化爱好者",
+        "家庭出游"
+      ],
+      "ticketDetails": [
+        "成人票¥81",
+        "学生票半价",
+        "60岁以上老人免票",
+        "1.2米以下儿童免票"
+      ],
+      "transportInfo": [
+        "飞机:三亚凤凰国际机场约25km",
+        "高铁:三亚站约20km",
+        "自驾:G98环岛高速天涯出口",
+        "长途客运:三亚公交26路可达"
+      ],
+      "openTimeDetail": [
+        "旺季(11-4月) 07:30-18:00",
+        "淡季(5-10月) 07:30-18:00",
+        "建议上午游览避开正午高温"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "经典打卡游",
+          "duration": "2小时",
+          "difficulty": "轻松",
+          "description": "天涯石-海角石-南天一柱,经典石刻打卡",
+          "highlights": [
+            "天涯石",
+            "海角石",
+            "南天一柱"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "石刻打卡",
+              "detail": "天涯石→海角石→南天一柱→爱情广场"
+            }
+          ],
+          "budget": "¥100-200",
+          "bestFor": "情侣蜜月/首次游览"
+        },
+        {
+          "name": "海滨漫步游",
+          "duration": "3小时",
+          "difficulty": "轻松",
+          "description": "沙滩漫步-礁石观海-爱情广场",
+          "highlights": [
+            "沙滩漫步",
+            "礁石观海",
+            "爱情广场"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "海滨漫步",
+              "detail": "沙滩漫步→礁石观海→爱情广场→海滨栈道"
+            }
+          ],
+          "budget": "¥100-200",
+          "bestFor": "情侣蜜月/摄影爱好者"
+        }
+      ],
+      "facilities": [
+        "餐饮:景区内餐厅",
+        "停车场:免费停车",
+        "卫生间:多处分布",
+        "游客中心:提供导览服务"
+      ],
+      "tips": [
+        "景区以石刻景观为主,建议请讲解",
+        "正午日照强烈,做好防晒",
+        "海边礁石湿滑,注意安全",
+        "可与南山文化旅游区联游"
+      ],
+      "photoSpots": [
+        "天涯石刻前",
+        "南天一柱",
+        "海角石远景"
+      ],
+      "nearbySpots": [
+        "南山文化旅游区 25km",
+        "三亚湾 20km",
+        "西岛 10km"
+      ],
+      "seasonalGuide": [
+        "春季气候宜人,适合游览",
+        "夏季炎热,建议早晚游览",
+        "秋季天高气爽,拍照效果好",
+        "冬季温暖,游客较多"
+      ]
     },
     {
       "id": "nanshanCulturalTourismZone",
@@ -76,7 +400,114 @@
       "rating": 4.6,
       "bestTime": "全年",
       "location": "海南省三亚市崖州区",
-      "description": "中国最南端的山,佛教文化圣地"
+      "description": "中国最南端的山,佛教文化圣地",
+      "highlight": "海上观音圣像,佛教文化胜地",
+      "level": "5A景区",
+      "rankBadge": "圣地",
+      "reviewCount": "65,432条点评",
+      "distance": "距海口320km",
+      "ticketPrice": "¥122",
+      "landscapeCategory": [
+        "人文景观"
+      ],
+      "openTime": "08:00-17:30",
+      "visitDuration": "半天",
+      "popularity": "★★★★☆",
+      "audienceTags": [
+        "佛教信众",
+        "文化爱好者",
+        "家庭出游",
+        "银发游客"
+      ],
+      "ticketDetails": [
+        "成人票¥122",
+        "学生票半价",
+        "1.2米以下儿童免票",
+        "60岁以上老人免票"
+      ],
+      "transportInfo": [
+        "飞机:三亚凤凰国际机场约40km",
+        "高铁:三亚站约45km",
+        "自驾:G98环岛高速崖州出口",
+        "长途客运:三亚公交25路可达"
+      ],
+      "openTimeDetail": [
+        "景区 08:00-17:30",
+        "海上观音 08:00-17:00",
+        "素斋供应 11:00-13:30"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "礼佛祈福游",
+          "duration": "半天",
+          "difficulty": "轻松",
+          "description": "南山寺-海上观音-金玉观音阁",
+          "highlights": [
+            "108米海上观音",
+            "南山寺",
+            "金玉观音阁"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "礼佛祈福",
+              "detail": "南山寺→海上观音圣像→金玉观音阁→素斋体验"
+            }
+          ],
+          "budget": "¥200-400",
+          "bestFor": "佛教信众/银发游客"
+        },
+        {
+          "name": "文化深度游",
+          "duration": "1天",
+          "difficulty": "轻松",
+          "description": "不二法门-南山寺-观音阁-长寿谷",
+          "highlights": [
+            "不二法门",
+            "海上观音圣像",
+            "长寿谷",
+            "南山寺"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "文化深度",
+              "detail": "不二法门→南山寺→金玉观音阁→长寿谷→素斋午餐"
+            }
+          ],
+          "budget": "¥300-500",
+          "bestFor": "文化爱好者/家庭出游"
+        }
+      ],
+      "facilities": [
+        "餐饮:素斋餐厅",
+        "住宿:南山休闲会馆",
+        "停车场:免费停车",
+        "游客中心:提供导览服务",
+        "观光车:景区电瓶车"
+      ],
+      "tips": [
+        "寺庙内勿大声喧哗,着装庄重",
+        "可预约禅修/早课体验",
+        "素斋值得一尝,提前询问用斋时间",
+        "景区较大,建议乘坐观光车"
+      ],
+      "photoSpots": [
+        "108米海上观音圣像",
+        "南山寺山门",
+        "金玉观音阁内"
+      ],
+      "nearbySpots": [
+        "天涯海角 25km",
+        "大小洞天 5km",
+        "三亚湾 40km"
+      ],
+      "seasonalGuide": [
+        "春季气候宜人,适合礼佛",
+        "夏季炎热,注意防暑",
+        "秋季凉爽,游览舒适",
+        "冬季温暖,香火旺盛"
+      ]
     },
     {
       "id": "wuzhizhouIsland",
@@ -93,68 +524,117 @@
       "bestTime": "全年",
       "location": "海南省三亚市海棠区",
       "description": "中国的马尔代夫,潜水胜地",
+      "highlight": "中国的马尔代夫,潜水胜地",
+      "level": "5A景区",
+      "rankBadge": "网红",
+      "reviewCount": "87,654条点评",
+      "distance": "距海口330km",
+      "ticketPrice": "¥168",
       "landformTags": [
         "海岛景观"
       ],
       "landscapeType": "island",
       "landscapeCategory": [
-        "地理景观"
-      ]
-    },
-    {
-      "id": "haikouArcadeStreet",
-      "name": "海口骑楼老街",
-      "tags": [
-        "老街",
-        "历史",
-        "文化",
-        "建筑"
+        "自然景观"
       ],
-      "type": "culture",
-      "image": "https://picsum.photos/id/1525/600/400",
-      "rating": 4.4,
-      "bestTime": "全年",
-      "location": "海南省海口市龙华区",
-      "description": "海口最具特色的历史文化街区"
-    },
-    {
-      "id": "boundaryIsland",
-      "name": "分界洲岛",
-      "tags": [
-        "海岛",
+      "openTime": "08:00-17:30",
+      "visitDuration": "1天",
+      "popularity": "★★★★★",
+      "audienceTags": [
+        "潜水爱好者",
         "水上运动",
-        "度假",
-        "休闲"
+        "度假游客",
+        "年轻群体"
       ],
-      "type": "nature",
-      "image": "https://picsum.photos/id/1526/600/400",
-      "rating": 4.5,
-      "bestTime": "全年",
-      "location": "海南省陵水黎族自治县",
-      "description": "美丽的海岛,水上运动的天堂",
-      "landformTags": [
-        "海岛景观"
+      "ticketDetails": [
+        "成人票¥168(含船票)",
+        "学生票半价",
+        "1.2米以下儿童免票",
+        "水上项目另收费"
       ],
-      "landscapeType": "island",
-      "landscapeCategory": [
-        "地理景观"
+      "transportInfo": [
+        "飞机:三亚凤凰国际机场约30km",
+        "高铁:三亚站约30km",
+        "自驾:G98环岛高速海棠湾出口",
+        "长途客运:三亚公交28路至码头"
+      ],
+      "openTimeDetail": [
+        "登岛 08:00-16:00",
+        "离岛 17:30末班",
+        "水上项目 09:00-17:00"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "环岛观光游",
+          "duration": "半天",
+          "difficulty": "轻松",
+          "description": "电瓶车环岛-观日岩-妈祖庙",
+          "highlights": [
+            "电瓶车环岛",
+            "观日岩",
+            "妈祖庙"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "环岛观光",
+              "detail": "电瓶车环岛→观日岩→妈祖庙→情人桥"
+            }
+          ],
+          "budget": "¥200-400",
+          "bestFor": "度假游客/家庭出游"
+        },
+        {
+          "name": "水上运动游",
+          "duration": "1天",
+          "difficulty": "中等",
+          "description": "潜水-摩托艇-拖伞-海底漫步",
+          "highlights": [
+            "潜水体验",
+            "摩托艇",
+            "拖伞",
+            "海底漫步"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "水上运动",
+              "detail": "潜水体验→摩托艇→拖伞→海底漫步→情人桥日落"
+            }
+          ],
+          "budget": "¥800-1500",
+          "bestFor": "水上运动/年轻群体"
+        }
+      ],
+      "facilities": [
+        "餐饮:岛上餐厅",
+        "住宿:珊瑚酒店",
+        "停车场:码头免费",
+        "卫生间:多处分布",
+        "观光车:电瓶车环岛"
+      ],
+      "tips": [
+        "船票含在门票内,末班17:30离岛",
+        "潜水需持证或参加体验潜水",
+        "水上项目价格较高,可按需选择",
+        "建议自带泳衣和防晒用品"
+      ],
+      "photoSpots": [
+        "情人桥全景",
+        "观日岩日出",
+        "海底珊瑚礁"
+      ],
+      "nearbySpots": [
+        "亚龙湾 35km",
+        "三亚湾 30km",
+        "南田温泉 10km"
+      ],
+      "seasonalGuide": [
+        "春季海水温度适宜,适合水上活动",
+        "夏季炎热,注意防暑防晒",
+        "秋季海水清澈,潜水最佳",
+        "冬季温暖,是度假好时节"
       ]
-    },
-    {
-      "id": "boaop",
-      "name": "博鳌",
-      "tags": [
-        "论坛",
-        "现代",
-        "会议",
-        "文化"
-      ],
-      "type": "culture",
-      "image": "https://picsum.photos/id/1527/600/400",
-      "rating": 4.4,
-      "bestTime": "全年",
-      "location": "海南省琼海市博鳌镇",
-      "description": "博鳌亚洲论坛永久会址所在地"
     }
   ],
   "routes": [
@@ -203,9 +683,12 @@
     ]
   },
   "overview": {
-    "totalSpots": 180,
-    "natureSpots": 120,
-    "cultureSpots": 60,
+    "fiveACount": 7,
+    "worldHeritageCount": 0,
+    "intangibleHeritageCount": 9,
+    "totalSpots": 5,
+    "natureSpots": 3,
+    "cultureSpots": 2,
     "topAttractions": [
       {
         "name": "三亚",
@@ -321,5 +804,130 @@
     }
   ],
   "intangibleHeritage": [],
-  "folkCustomsElements": []
+  "folkCustomsElements": [],
+  "themes": [
+    {
+      "key": "nature",
+      "title": "自然风光",
+      "items": [
+        {
+          "key": "mountain",
+          "name": "名山胜景",
+          "icon": "mountain",
+          "coverSpotId": "nanshanCulturalTourismZone",
+          "avgRating": 4.6,
+          "bestSeason": "春秋 / 全年",
+          "recommendedDays": "2-3 日",
+          "budget": "¥500-1200",
+          "intensity": "适中",
+          "audience": "全人群",
+          "highlights": [
+            "山岳胜景",
+            "云海日出",
+            "奇松怪石",
+            "登高望远"
+          ],
+          "tips": [
+            "山路崎岖，穿舒适登山鞋",
+            "提前关注天气，雨后云海概率高",
+            "山顶温差大，备好保暖衣物"
+          ],
+          "spotIds": [
+            "nanshanCulturalTourismZone"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "culture",
+      "title": "人文古迹",
+      "items": [
+        {
+          "key": "architecture",
+          "name": "古建风韵",
+          "icon": "museum",
+          "coverSpotId": "haikouArcadeStreet",
+          "avgRating": 4.4,
+          "bestSeason": "全年",
+          "recommendedDays": "1-2 日",
+          "budget": "¥200-400",
+          "intensity": "轻松",
+          "audience": "文化/家庭",
+          "highlights": [
+            "古建瑰宝",
+            "雕梁画栋",
+            "历史厚重",
+            "建筑美学"
+          ],
+          "tips": [
+            "可请讲解员，深度了解建筑历史",
+            "注意保护文物，勿触摸刻划",
+            "拍照注意光线，早晚最佳"
+          ],
+          "spotIds": []
+        },
+        {
+          "key": "religion",
+          "name": "宗教文化",
+          "icon": "zen",
+          "coverSpotId": "nanshanCulturalTourismZone",
+          "avgRating": 4.6,
+          "bestSeason": "全年",
+          "recommendedDays": "1-2 日",
+          "budget": "¥200-400",
+          "intensity": "轻松",
+          "audience": "银发/养心",
+          "highlights": [
+            "梵音晨钟",
+            "礼佛祈福",
+            "禅修体验",
+            "清心养性"
+          ],
+          "tips": [
+            "寺庙内勿大声喧哗，着装庄重",
+            "可预约禅修/早课体验",
+            "素斋值得一尝，提前询问用斋时间"
+          ],
+          "spotIds": [
+            "nanshanCulturalTourismZone"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "outdoor",
+      "title": "户外休闲",
+      "items": [
+        {
+          "key": "coastal",
+          "name": "亲海避暑",
+          "icon": "flower",
+          "coverSpotId": "sanya",
+          "avgRating": 4.6,
+          "bestSeason": "夏秋",
+          "recommendedDays": "2-3 日",
+          "budget": "¥500-1500",
+          "intensity": "轻松",
+          "audience": "家庭/度假",
+          "highlights": [
+            "碧海蓝天",
+            "沙滩阳光",
+            "海岛风情",
+            "避暑胜地"
+          ],
+          "tips": [
+            "注意防晒，备好防晒霜和遮阳帽",
+            "游泳注意安全，在指定区域活动",
+            "海鲜过敏者注意饮食选择"
+          ],
+          "spotIds": [
+            "sanya",
+            "yalongBay",
+            "wuzhizhouIsland",
+            "tianyahaijiao"
+          ]
+        }
+      ]
+    }
+  ]
 }

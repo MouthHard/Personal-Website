@@ -15,12 +15,121 @@
       "bestTime": "夏季",
       "location": "青海省海南藏族自治州",
       "description": "中国最大的内陆湖,高原明珠",
+      "highlight": "中国最大咸水湖,高原蓝宝石",
+      "level": "5A景区",
+      "rankBadge": "必去",
+      "reviewCount": "87,654条点评",
+      "distance": "距西宁150km",
+      "ticketPrice": "¥100",
       "landformTags": [
         "湖泊景观"
       ],
       "landscapeType": "lake",
+      "openTime": "全天开放",
+      "visitDuration": "1-2天",
+      "popularity": "★★★★★",
+      "audienceTags": [
+        "摄影爱好者",
+        "自然爱好者",
+        "自驾爱好者",
+        "家庭游客"
+      ],
+      "ticketDetails": [
+        "成人票¥100",
+        "二郎剑景区¥100",
+        "学生票半价",
+        "儿童免票"
+      ],
+      "transportInfo": [
+        "西宁曹家堡机场距市区约30公里，再转车至青海湖",
+        "兰新高铁到西宁站，再转车至青海湖",
+        "西宁-青海湖，约150公里，环湖约360公里",
+        "西宁有旅游班车前往青海湖"
+      ],
+      "openTimeDetail": [
+        "全天开放",
+        "二郎剑景区 08:00-18:00",
+        "最佳观赏时间为白天"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "环湖一日游",
+          "duration": "1天",
+          "difficulty": "轻松",
+          "description": "西宁-二郎剑-鸟岛-西宁，经典环湖路线",
+          "highlights": [
+            "二郎剑景区",
+            "鸟岛",
+            "油菜花田",
+            "高原蓝宝石"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "环湖一日",
+              "detail": "西宁→二郎剑景区→黑马河→鸟岛→环湖西路→返程西宁"
+            }
+          ],
+          "budget": "¥300-500",
+          "bestFor": "首次游览/摄影爱好者"
+        },
+        {
+          "name": "环湖深度游",
+          "duration": "2天",
+          "difficulty": "中等",
+          "description": "环湖一周，体验不同角度湖光与油菜花田",
+          "highlights": [
+            "环湖一周",
+            "油菜花田",
+            "鸟岛",
+            "黑马河日落"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "西线至鸟岛",
+              "detail": "西宁→二郎剑→黑马河→鸟岛→宿黑马河"
+            },
+            {
+              "day": "Day2",
+              "title": "东线返程",
+              "detail": "黑马河日出→环湖东路→金银滩→返程西宁"
+            }
+          ],
+          "budget": "¥600-1000",
+          "bestFor": "深度游/自驾爱好者"
+        }
+      ],
+      "facilities": [
+        "停车场:景区有停车场",
+        "卫生间:多处分布",
+        "餐饮:简餐点",
+        "住宿:帐篷宾馆"
+      ],
+      "tips": [
+        "海拔高，注意高反",
+        "紫外线强，做好防晒",
+        "湖边风大，备保暖衣物",
+        "勿下水游泳"
+      ],
+      "photoSpots": [
+        "二郎剑景区",
+        "鸟岛",
+        "环湖油菜花田"
+      ],
+      "nearbySpots": [
+        "茶卡盐湖 150km",
+        "日月山 80km",
+        "塔尔寺 150km"
+      ],
+      "seasonalGuide": [
+        "春季候鸟归来",
+        "夏季油菜花盛开，最佳季",
+        "秋季湖光秋色",
+        "冬季湖面结冰"
+      ],
       "landscapeCategory": [
-        "水体景观"
+        "自然景观"
       ]
     },
     {
@@ -37,7 +146,114 @@
       "rating": 4.7,
       "bestTime": "全年",
       "location": "青海省西宁市湟中区",
-      "description": "藏传佛教格鲁派六大寺院之一"
+      "description": "藏传佛教格鲁派六大寺院之一",
+      "highlight": "藏传佛教格鲁派六大寺之一",
+      "level": "5A景区",
+      "rankBadge": "圣地",
+      "reviewCount": "54,321条点评",
+      "distance": "距西宁30km",
+      "ticketPrice": "¥70",
+      "openTime": "08:00-17:00",
+      "visitDuration": "2-3小时",
+      "popularity": "★★★★☆",
+      "audienceTags": [
+        "文化爱好者",
+        "佛教信徒",
+        "历史爱好者",
+        "建筑爱好者"
+      ],
+      "ticketDetails": [
+        "成人票¥70",
+        "学生票半价",
+        "儿童免票",
+        "含讲解费"
+      ],
+      "transportInfo": [
+        "西宁曹家堡机场距市区约30公里，再转车至湟中",
+        "兰新高铁到西宁站，再转公交至湟中",
+        "西宁-湟中，约30公里，路况较好",
+        "西宁有公交直达塔尔寺"
+      ],
+      "openTimeDetail": [
+        "旺季(4-10月) 08:00-17:00",
+        "淡季(11-3月) 08:30-16:30",
+        "佛事活动期间有变"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "寺内参观",
+          "duration": "2小时",
+          "difficulty": "轻松",
+          "description": "大金瓦殿-大经堂-八宝如意塔，看酥油花、壁画、堆绣",
+          "highlights": [
+            "大金瓦殿",
+            "八宝如意塔",
+            "酥油花",
+            "壁画堆绣"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "寺内参观",
+              "detail": "入口→八宝如意塔→大金瓦殿→大经堂→酥油花馆→返程"
+            }
+          ],
+          "budget": "¥70-150",
+          "bestFor": "文化爱好者/佛教信徒"
+        },
+        {
+          "name": "湟中文化游",
+          "duration": "1天",
+          "difficulty": "轻松",
+          "description": "塔尔寺+周边藏族文化村，体验藏传佛教文化",
+          "highlights": [
+            "塔尔寺",
+            "藏族文化村",
+            "酥油花",
+            "堆绣艺术"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "湟中文化一日",
+              "detail": "塔尔寺→酥油花馆→藏族文化村→堆绣工坊→返程西宁"
+            }
+          ],
+          "budget": "¥200-400",
+          "bestFor": "文化深度游/家庭出游"
+        }
+      ],
+      "facilities": [
+        "游客中心:提供讲解",
+        "卫生间:多处分布",
+        "停车场:寺外有停车场",
+        "售票处:现场购票"
+      ],
+      "tips": [
+        "殿内禁止拍照",
+        "着装庄重",
+        "勿大声喧哗",
+        "尊重宗教习俗"
+      ],
+      "photoSpots": [
+        "八宝如意塔",
+        "大金瓦殿",
+        "酥油花馆"
+      ],
+      "nearbySpots": [
+        "日月山 70km",
+        "青海湖 150km",
+        "西宁市 30km"
+      ],
+      "seasonalGuide": [
+        "春季适合参观",
+        "夏季最佳游览季",
+        "秋季天高气爽",
+        "冬季可体验佛事"
+      ],
+      "landscapeCategory": [
+        "人文景观"
+      ]
     },
     {
       "id": "chakaSaltLake",
@@ -54,12 +270,116 @@
       "bestTime": "夏季",
       "location": "青海省海西蒙古族藏族自治州乌兰县",
       "description": "天空之镜,中国最美的盐湖之一",
+      "highlight": "天空之镜,中国最美盐湖",
+      "level": "4A景区",
+      "rankBadge": "网红",
+      "reviewCount": "98,765条点评",
+      "distance": "距西宁300km",
+      "ticketPrice": "¥60",
       "landformTags": [
         "湖泊景观"
       ],
       "landscapeType": "lake",
+      "openTime": "07:00-18:30",
+      "visitDuration": "半天",
+      "popularity": "★★★★★",
+      "audienceTags": [
+        "摄影爱好者",
+        "自然爱好者",
+        "网红打卡",
+        "家庭游客"
+      ],
+      "ticketDetails": [
+        "成人票¥60",
+        "小火车¥50",
+        "学生票半价",
+        "儿童免票"
+      ],
+      "transportInfo": [
+        "西宁曹家堡机场下机后转车至茶卡，约300公里",
+        "兰新高铁到西宁站，再转车至茶卡",
+        "西宁-茶卡，约300公里，经京藏高速",
+        "西宁有旅游班车前往茶卡盐湖"
+      ],
+      "openTimeDetail": [
+        "旺季(5-10月) 07:00-18:30",
+        "淡季(11-4月) 08:00-17:00",
+        "最佳拍摄时间为上午"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "盐湖观光",
+          "duration": "半天",
+          "difficulty": "轻松",
+          "description": "小火车-盐湖中心-天空之镜拍照，网红打卡",
+          "highlights": [
+            "天空之镜",
+            "盐湖小火车",
+            "盐雕",
+            "倒影拍照"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "天空之镜",
+              "detail": "景区入口→小火车→盐湖中心→天空之镜拍照→盐雕→返程"
+            }
+          ],
+          "budget": "¥150-300",
+          "bestFor": "摄影爱好者/网红打卡"
+        },
+        {
+          "name": "盐湖深度游",
+          "duration": "1天",
+          "difficulty": "轻松",
+          "description": "盐湖+茶卡镇+周边盐田，体验盐湖文化",
+          "highlights": [
+            "天空之镜",
+            "茶卡镇",
+            "盐田",
+            "盐湖文化"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "盐湖深度",
+              "detail": "茶卡盐湖→小火车→盐湖中心→茶卡镇午餐→周边盐田→返程"
+            }
+          ],
+          "budget": "¥300-500",
+          "bestFor": "深度游/家庭出游"
+        }
+      ],
+      "facilities": [
+        "观光车:小火车",
+        "停车场:景区入口",
+        "卫生间:多处分布",
+        "餐饮:简餐点"
+      ],
+      "tips": [
+        "盐反光强，备墨镜",
+        "勿下水太深",
+        "保护盐层，勿踩踏",
+        "备好防晒"
+      ],
+      "photoSpots": [
+        "天空之镜",
+        "盐湖小火车",
+        "盐雕"
+      ],
+      "nearbySpots": [
+        "青海湖 150km",
+        "黑马河 80km",
+        "乌兰县 50km"
+      ],
+      "seasonalGuide": [
+        "春季水量少",
+        "夏季最佳拍摄季",
+        "秋季人少景美",
+        "冬季可能关闭"
+      ],
       "landscapeCategory": [
-        "水体景观"
+        "自然景观"
       ]
     },
     {
@@ -76,7 +396,114 @@
       "rating": 4.5,
       "bestTime": "夏季",
       "location": "青海省西宁市湟源县",
-      "description": "文成公主进藏经过的地方,文成公主的故乡"
+      "description": "文成公主进藏经过的地方,文成公主的故乡",
+      "highlight": "文成公主进山,日月宝镜",
+      "level": "4A景区",
+      "reviewCount": "32,109条点评",
+      "distance": "距西宁100km",
+      "ticketPrice": "¥40",
+      "rankBadge": "名山",
+      "openTime": "08:00-17:00",
+      "visitDuration": "1-2小时",
+      "popularity": "★★★☆☆",
+      "audienceTags": [
+        "文化爱好者",
+        "历史爱好者",
+        "摄影爱好者",
+        "自驾爱好者"
+      ],
+      "ticketDetails": [
+        "成人票¥40",
+        "学生票半价",
+        "儿童免票",
+        "含文成公主纪念馆"
+      ],
+      "transportInfo": [
+        "西宁曹家堡机场下机后转车至湟源",
+        "兰新高铁到西宁站，再转车至湟源",
+        "西宁-日月山，约100公里，经青藏公路",
+        "西宁有班车至湟源"
+      ],
+      "openTimeDetail": [
+        "旺季(5-10月) 08:00-17:00",
+        "淡季(11-4月) 09:00-16:00",
+        "最佳观赏时间为白天"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "日月山观光",
+          "duration": "2小时",
+          "difficulty": "轻松",
+          "description": "日亭-月亭-文成公主纪念馆，感受唐蕃古道历史",
+          "highlights": [
+            "日亭月亭",
+            "文成公主纪念馆",
+            "唐蕃古道",
+            "草原风光"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "日月山观光",
+              "detail": "入口→日亭→月亭→文成公主纪念馆→草原观景→返程"
+            }
+          ],
+          "budget": "¥50-150",
+          "bestFor": "文化爱好者/自驾游"
+        },
+        {
+          "name": "湟源文化游",
+          "duration": "1天",
+          "difficulty": "轻松",
+          "description": "日月山+湟源古城+丹噶尔古城，历史人文之旅",
+          "highlights": [
+            "日月山",
+            "丹噶尔古城",
+            "湟源古城",
+            "唐蕃古道"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "湟源人文一日",
+              "detail": "西宁→日月山→湟源古城→丹噶尔古城→返程西宁"
+            }
+          ],
+          "budget": "¥200-400",
+          "bestFor": "文化深度游/历史爱好者"
+        }
+      ],
+      "facilities": [
+        "停车场:景区入口",
+        "卫生间:基础设施",
+        "售票处:现场购票",
+        "餐饮:简餐点"
+      ],
+      "tips": [
+        "海拔高，注意高反",
+        "紫外线强，做好防晒",
+        "风大，备保暖衣物",
+        "尊重历史遗迹"
+      ],
+      "photoSpots": [
+        "日亭月亭",
+        "文成公主雕像",
+        "草原风光"
+      ],
+      "nearbySpots": [
+        "青海湖 80km",
+        "湟源古城 30km",
+        "塔尔寺 70km"
+      ],
+      "seasonalGuide": [
+        "春季草原返青",
+        "夏季最佳游览季",
+        "秋季草原金黄",
+        "冬季可能封山"
+      ],
+      "landscapeCategory": [
+        "人文景观"
+      ]
     },
     {
       "id": "hohXil",
@@ -93,81 +520,126 @@
       "bestTime": "夏季",
       "location": "青海省海西蒙古族藏族自治州",
       "description": "世界第三大无人区,藏羚羊的家园",
+      "highlight": "世界自然遗产,野生动物天堂",
+      "level": "4A景区",
+      "rankBadge": "必去",
+      "reviewCount": "43,210条点评",
+      "distance": "距西宁800km",
+      "ticketPrice": "免费",
       "landformTags": [
         "高原景观"
       ],
       "landscapeType": "plateau",
+      "openTime": "全天开放",
+      "visitDuration": "1-2天",
+      "popularity": "★★★★☆",
+      "audienceTags": [
+        "探险爱好者",
+        "摄影爱好者",
+        "自然爱好者",
+        "野生动物爱好者"
+      ],
+      "ticketDetails": [
+        "免费开放",
+        "需办理通行证",
+        "越野车推荐",
+        "部分区域禁止进入"
+      ],
+      "transportInfo": [
+        "格尔木机场下机后转车至可可西里",
+        "青藏铁路到格尔木站，再转车前往",
+        "格尔木-可可西里，需越野车，约200公里",
+        "无直达班车，需包车或自驾"
+      ],
+      "openTimeDetail": [
+        "全天开放",
+        "需办理通行证",
+        "部分区域禁止进入"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "无人区观光",
+          "duration": "1天",
+          "difficulty": "较难",
+          "description": "格尔木-索南达杰保护站-不冻泉，观藏羚羊",
+          "highlights": [
+            "藏羚羊",
+            "索南达杰保护站",
+            "不冻泉",
+            "无人区"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "无人区一日",
+              "detail": "格尔木→昆仑山口→不冻泉→索南达杰保护站→观藏羚羊→返程"
+            }
+          ],
+          "budget": "¥500-1000",
+          "bestFor": "探险爱好者/野生动物爱好者"
+        },
+        {
+          "name": "深度探险",
+          "duration": "3天",
+          "difficulty": "较难",
+          "description": "深入无人区，需专业装备和向导",
+          "highlights": [
+            "深入无人区",
+            "藏羚羊迁徙",
+            "高原野生动物",
+            "世界自然遗产"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "格尔木至保护站",
+              "detail": "格尔木→昆仑山口→不冻泉→索南达杰保护站→扎营"
+            },
+            {
+              "day": "Day2",
+              "title": "深入无人区",
+              "detail": "保护站→五道梁→野生动物观测→扎营"
+            },
+            {
+              "day": "Day3",
+              "title": "返程",
+              "detail": "营地→保护站→不冻泉→格尔木"
+            }
+          ],
+          "budget": "¥2000-4000",
+          "bestFor": "专业探险者/野生动物摄影"
+        }
+      ],
+      "facilities": [
+        "停车场:保护站有停车场",
+        "卫生间:基础设施",
+        "餐饮:自带干粮",
+        "住宿:帐篷或保护站"
+      ],
+      "tips": [
+        "海拔极高，注意高反",
+        "需办理通行证",
+        "天气多变，备好装备",
+        "勿靠近野生动物"
+      ],
+      "photoSpots": [
+        "藏羚羊观测点",
+        "索南达杰保护站",
+        "无人区风光"
+      ],
+      "nearbySpots": [
+        "格尔木 200km",
+        "昆仑山口 100km",
+        "不冻泉 50km"
+      ],
+      "seasonalGuide": [
+        "春季不适合",
+        "夏季最佳观测季",
+        "秋季动物迁徙",
+        "冬季严寒，不适合"
+      ],
       "landscapeCategory": [
-        "地理景观"
-      ]
-    },
-    {
-      "id": "mengdaTianchi",
-      "name": "孟达天池",
-      "tags": [
-        "湖泊",
-        "森林",
-        "自然",
-        "风光"
-      ],
-      "type": "nature",
-      "image": "https://picsum.photos/id/1685/600/400",
-      "rating": 4.4,
-      "bestTime": "夏季",
-      "location": "青海省海东市循化撒拉族自治县",
-      "description": "青藏高原的绿色明珠",
-      "landformTags": [
-        "湖泊景观"
-      ],
-      "landscapeType": "lake",
-      "landscapeCategory": [
-        "水体景观"
-      ]
-    },
-    {
-      "id": "kanbula",
-      "name": "坎布拉",
-      "tags": [
-        "丹霞",
-        "黄河",
-        "自然",
-        "风光"
-      ],
-      "type": "nature",
-      "image": "https://picsum.photos/id/1686/600/400",
-      "rating": 4.5,
-      "bestTime": "秋季",
-      "location": "青海省黄南藏族自治州尖扎县",
-      "description": "丹霞地貌与黄河风光的结合",
-      "landformTags": [
-        "山地景观"
-      ],
-      "landscapeType": "mountain",
-      "landscapeCategory": [
-        "地理景观"
-      ]
-    },
-    {
-      "id": "guideGeopark",
-      "name": "贵德地质公园",
-      "tags": [
-        "地质",
-        "奇观",
-        "自然",
-        "风光"
-      ],
-      "type": "nature",
-      "image": "https://picsum.photos/id/1687/600/400",
-      "rating": 4.4,
-      "bestTime": "全年",
-      "location": "青海省海南藏族自治州贵德县",
-      "description": "高原上的地质奇观",
-      "landformTags": [
-        "峡谷景观"
-      ],
-      "landscapeType": "canyon",
-      "landscapeCategory": [
-        "地理景观"
+        "自然景观"
       ]
     }
   ],
@@ -217,9 +689,12 @@
     ]
   },
   "overview": {
-    "totalSpots": 100,
-    "natureSpots": 70,
-    "cultureSpots": 30,
+    "fiveACount": 3,
+    "worldHeritageCount": 1,
+    "intangibleHeritageCount": 8,
+    "totalSpots": 5,
+    "natureSpots": 3,
+    "cultureSpots": 2,
     "topAttractions": [
       {
         "name": "青海湖",
@@ -335,5 +810,206 @@
     }
   ],
   "intangibleHeritage": [],
-  "folkCustomsElements": []
+  "folkCustomsElements": [],
+  "themes": [
+    {
+      "key": "nature",
+      "title": "自然风光",
+      "items": [
+        {
+          "key": "mountain",
+          "name": "名山胜景",
+          "icon": "mountain",
+          "coverSpotId": "riyueMountain",
+          "avgRating": 4.5,
+          "bestSeason": "春秋 / 全年",
+          "recommendedDays": "2-3 日",
+          "budget": "¥500-1200",
+          "intensity": "适中",
+          "audience": "全人群",
+          "highlights": [
+            "山岳胜景",
+            "云海日出",
+            "奇松怪石",
+            "登高望远"
+          ],
+          "tips": [
+            "山路崎岖，穿舒适登山鞋",
+            "提前关注天气，雨后云海概率高",
+            "山顶温差大，备好保暖衣物"
+          ],
+          "spotIds": [
+            "riyueMountain"
+          ]
+        },
+        {
+          "key": "peaks",
+          "name": "奇峰云海",
+          "icon": "energy",
+          "coverSpotId": "guideGeopark",
+          "avgRating": 4.4,
+          "bestSeason": "秋冬",
+          "recommendedDays": "2 日",
+          "budget": "¥400-900",
+          "intensity": "适中",
+          "audience": "摄影/户外",
+          "highlights": [
+            "奇峰林立",
+            "云海翻涌",
+            "峰林夕照",
+            "雾凇冰挂"
+          ],
+          "tips": [
+            "云海多见于雨后初晴，清晨最佳",
+            "备好防滑鞋，山路湿滑注意安全",
+            "建议提前预订山顶住宿"
+          ],
+          "spotIds": []
+        },
+        {
+          "key": "water",
+          "name": "江湖瀑布",
+          "icon": "droplet",
+          "coverSpotId": "qinghaiLake",
+          "avgRating": 4.6,
+          "bestSeason": "夏秋",
+          "recommendedDays": "1-2 日",
+          "budget": "¥200-500",
+          "intensity": "轻松",
+          "audience": "家庭/休闲",
+          "highlights": [
+            "飞瀑流泉",
+            "湖光山色",
+            "碧水蓝天",
+            "水上游览"
+          ],
+          "tips": [
+            "水边游玩注意安全，勿擅自下水",
+            "雨季水量充沛，枯水期景色减色",
+            "可乘船游览，体验更佳"
+          ],
+          "spotIds": [
+            "qinghaiLake",
+            "chakaSaltLake"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "culture",
+      "title": "人文古迹",
+      "items": [
+        {
+          "key": "architecture",
+          "name": "古建风韵",
+          "icon": "museum",
+          "coverSpotId": "kumbumMonastery",
+          "avgRating": 4.7,
+          "bestSeason": "全年",
+          "recommendedDays": "1-2 日",
+          "budget": "¥200-400",
+          "intensity": "轻松",
+          "audience": "文化/家庭",
+          "highlights": [
+            "古建瑰宝",
+            "雕梁画栋",
+            "历史厚重",
+            "建筑美学"
+          ],
+          "tips": [
+            "可请讲解员，深度了解建筑历史",
+            "注意保护文物，勿触摸刻划",
+            "拍照注意光线，早晚最佳"
+          ],
+          "spotIds": [
+            "kumbumMonastery"
+          ]
+        },
+        {
+          "key": "religion",
+          "name": "宗教文化",
+          "icon": "zen",
+          "coverSpotId": "kumbumMonastery",
+          "avgRating": 4.7,
+          "bestSeason": "全年",
+          "recommendedDays": "1-2 日",
+          "budget": "¥200-400",
+          "intensity": "轻松",
+          "audience": "银发/养心",
+          "highlights": [
+            "梵音晨钟",
+            "礼佛祈福",
+            "禅修体验",
+            "清心养性"
+          ],
+          "tips": [
+            "寺庙内勿大声喧哗，着装庄重",
+            "可预约禅修/早课体验",
+            "素斋值得一尝，提前询问用斋时间"
+          ],
+          "spotIds": [
+            "kumbumMonastery"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "outdoor",
+      "title": "户外休闲",
+      "items": [
+        {
+          "key": "hiking",
+          "name": "徒步自驾",
+          "icon": "route",
+          "coverSpotId": "hohXil",
+          "avgRating": 4.8,
+          "bestSeason": "春秋",
+          "recommendedDays": "2-3 日",
+          "budget": "¥300-800",
+          "intensity": "挑战",
+          "audience": "户外/探险",
+          "highlights": [
+            "徒步探险",
+            "自驾天堂",
+            "户外挑战",
+            "自然探索"
+          ],
+          "tips": [
+            "评估体力选合适路线，勿逞强",
+            "备足水和干粮，穿登山鞋",
+            "告知他人行程，保持手机有电"
+          ],
+          "spotIds": [
+            "hohXil"
+          ]
+        },
+        {
+          "key": "coastal",
+          "name": "亲海避暑",
+          "icon": "flower",
+          "coverSpotId": "qinghaiLake",
+          "avgRating": 4.8,
+          "bestSeason": "夏秋",
+          "recommendedDays": "2-3 日",
+          "budget": "¥500-1500",
+          "intensity": "轻松",
+          "audience": "家庭/度假",
+          "highlights": [
+            "碧海蓝天",
+            "沙滩阳光",
+            "海岛风情",
+            "避暑胜地"
+          ],
+          "tips": [
+            "注意防晒，备好防晒霜和遮阳帽",
+            "游泳注意安全，在指定区域活动",
+            "海鲜过敏者注意饮食选择"
+          ],
+          "spotIds": [
+            "qinghaiLake"
+          ]
+        }
+      ]
+    }
+  ]
 }

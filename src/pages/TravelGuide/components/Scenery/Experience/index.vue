@@ -34,6 +34,7 @@
 <script setup lang="ts">
   import { ref, computed, watch, markRaw } from 'vue';
   import { useTravelGuideStore } from '@/stores/travelGuide';
+  import { useSceneryTabState } from '../useSceneryTabState';
   import CraftWorkshops from './CraftWorkshops/index.vue';
   import Performances from './Performances/index.vue';
   import OutdoorAdventure from './OutdoorAdventure/index.vue';
@@ -51,7 +52,7 @@
     provinceId: string;
   }>();
 
-  const activeSubTab = ref('craft');
+  const { experienceActiveSubTab: activeSubTab } = useSceneryTabState();
   const craftWorkshops = ref<any[]>([]);
   const performances = ref<any[]>([]);
   const outdoorAdventure = ref<any[]>([]);

@@ -15,7 +15,115 @@
       "bestTime": "全年",
       "location": "广东省广州市海珠区阅江西路222号",
       "description": "广州新地标,昵称小蛮腰,是中国第一高塔和世界第三高塔",
-      "landscapeType": "urban"
+      "highlight": "广州新地标,小蛮腰",
+      "level": "4A景区",
+      "rankBadge": "网红",
+      "reviewCount": "123,456条点评",
+      "distance": "距广州0km",
+      "ticketPrice": "¥150",
+      "landscapeType": "urban",
+      "landscapeCategory": [
+        "人文景观"
+      ],
+      "openTime": "09:00-22:30",
+      "visitDuration": "2-3小时",
+      "popularity": "★★★★★",
+      "audienceTags": [
+        "摄影爱好者",
+        "情侣",
+        "家庭出游",
+        "夜景爱好者",
+        "文艺青年"
+      ],
+      "ticketDetails": [
+        "433米白云观光票¥150",
+        "488米摄影观光票¥228",
+        "塔顶游乐套票¥298",
+        "儿童老人优惠"
+      ],
+      "transportInfo": [
+        "飞机:广州白云机场约40分钟地铁",
+        "高铁:广州南站约30分钟地铁",
+        "自驾:APM线广州塔站直达",
+        "长途客运:省汽车站有地铁直达"
+      ],
+      "openTimeDetail": [
+        "日间 09:00-17:00",
+        "夜间 17:00-22:30",
+        "摩天轮 10:00-22:00"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "观光大厅-摩天轮线",
+          "duration": "2小时",
+          "difficulty": "轻松",
+          "description": "登观光大厅俯瞰广州,乘摩天轮赏全景",
+          "highlights": [
+            "观光大厅俯瞰广州",
+            "摩天轮全景",
+            "小蛮腰地标"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "登塔观景",
+              "detail": "广州塔入口→观光大厅→俯瞰广州→摩天轮→赏全景"
+            }
+          ],
+          "budget": "¥150-300",
+          "bestFor": "摄影爱好者/情侣"
+        },
+        {
+          "name": "塔顶-横向摩天轮线",
+          "duration": "1小时",
+          "difficulty": "轻松",
+          "description": "登塔顶观景,体验横向摩天轮",
+          "highlights": [
+            "塔顶观景",
+            "横向摩天轮",
+            "高空体验"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "塔顶体验",
+              "detail": "广州塔→塔顶观景台→横向摩天轮→高空体验"
+            }
+          ],
+          "budget": "¥228-400",
+          "bestFor": "刺激项目爱好者/情侣"
+        }
+      ],
+      "facilities": [
+        "餐饮:塔内有多层旋转餐厅",
+        "卫生间:塔内分布多处",
+        "游客中心:入口有咨询处",
+        "售票处:大堂售票窗口",
+        "停车场:地下停车场"
+      ],
+      "tips": [
+        "建议提前网上购票,旺季限流",
+        "夜间灯光秀别有风味",
+        "恐高者慎登塔顶观景台",
+        "备好相机,夜景最美"
+      ],
+      "photoSpots": [
+        "观光大厅俯瞰广州",
+        "塔顶全景",
+        "摩天轮",
+        "夜景灯光"
+      ],
+      "nearbySpots": [
+        "海心沙 1km",
+        "花城广场 2km",
+        "珠江夜游码头 2km"
+      ],
+      "seasonalGuide": [
+        "春季气候宜人,适合观光",
+        "夏季夜游凉爽,赏灯光秀",
+        "秋季天高气爽,最佳观光季节",
+        "冬季温暖,登塔观景舒适"
+      ]
     },
     {
       "id": "danxiaMountain",
@@ -32,12 +140,116 @@
       "bestTime": "春秋",
       "location": "广东省韶关市仁化县",
       "description": "世界自然遗产,丹霞地貌的命名地,以赤壁丹崖著称",
+      "highlight": "世界自然遗产,丹霞地貌命名地",
+      "level": "5A景区",
+      "rankBadge": "必去",
+      "reviewCount": "65,432条点评",
+      "distance": "距广州300km",
+      "ticketPrice": "¥150",
       "landformTags": [
         "山地景观"
       ],
       "landscapeType": "mountain",
       "landscapeCategory": [
-        "地理景观"
+        "自然景观"
+      ],
+      "openTime": "06:30-18:00",
+      "visitDuration": "1-2天",
+      "popularity": "★★★★★",
+      "audienceTags": [
+        "摄影爱好者",
+        "登山爱好者",
+        "地质爱好者",
+        "自然爱好者"
+      ],
+      "ticketDetails": [
+        "成人票¥150",
+        "学生票半价",
+        "儿童1.2米以下免票",
+        "索道往返¥60"
+      ],
+      "transportInfo": [
+        "飞机:最近机场为韶关丹霞机场约1小时",
+        "高铁:韶关站距景区约50分钟",
+        "自驾:经京港澳高速仁化出口",
+        "长途客运:韶关汽车站有班车直达"
+      ],
+      "openTimeDetail": [
+        "旺季(3-11月) 06:30-18:00",
+        "淡季(12-2月) 07:00-17:00",
+        "索道 07:00-17:00"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "长老峰-阳元石线",
+          "duration": "1天",
+          "difficulty": "中等",
+          "description": "登长老峰看丹霞全景,观阳元石奇景",
+          "highlights": [
+            "长老峰丹霞全景",
+            "阳元石奇景",
+            "赤壁丹崖"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "丹霞览胜",
+              "detail": "景区入口→长老峰→看丹霞全景→阳元石→返程"
+            }
+          ],
+          "budget": "¥210-400",
+          "bestFor": "摄影爱好者/登山爱好者"
+        },
+        {
+          "name": "锦江-翔龙湖线",
+          "duration": "半天",
+          "difficulty": "轻松",
+          "description": "游锦江赏丹崖碧水,漫步翔龙湖",
+          "highlights": [
+            "锦江丹崖碧水",
+            "翔龙湖",
+            "丹霞水景"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "碧水丹崖",
+              "detail": "锦江→赏丹崖碧水→翔龙湖→漫步湖畔"
+            }
+          ],
+          "budget": "¥150-300",
+          "bestFor": "家庭出游/休闲游"
+        }
+      ],
+      "facilities": [
+        "索道:长老峰索道往返¥60",
+        "餐饮:景区内外餐厅众多",
+        "住宿:景区门口酒店丰富",
+        "停车场:景区入口大型停车场",
+        "卫生间:景区内分布多处"
+      ],
+      "tips": [
+        "丹霞地貌脆弱,勿攀爬赤壁",
+        "山路陡峭,穿舒适登山鞋",
+        "日出日落最美,建议早起",
+        "保护地质遗迹,勿采集岩石"
+      ],
+      "photoSpots": [
+        "长老峰日出",
+        "阳元石",
+        "锦江丹崖",
+        "阴元石"
+      ],
+      "nearbySpots": [
+        "南华寺 50km",
+        "韶关市区 50km",
+        "珠玑巷 60km"
+      ],
+      "seasonalGuide": [
+        "春季山花烂漫,丹崖更艳",
+        "夏季凉爽宜人,避暑胜地",
+        "秋季天高气爽,最佳游览季节",
+        "冬季偶有红叶,丹霞别韵"
       ]
     },
     {
@@ -54,7 +266,115 @@
       "rating": 4.6,
       "bestTime": "全年",
       "location": "广东省江门市开平市",
-      "description": "世界文化遗产,集防卫、居住和中西建筑艺术于一体的多层塔楼式民居"
+      "description": "世界文化遗产,集防卫、居住和中西建筑艺术于一体的多层塔楼式民居",
+      "highlight": "世界文化遗产,华侨建筑奇观",
+      "level": "5A景区",
+      "rankBadge": "必去",
+      "reviewCount": "32,109条点评",
+      "distance": "距广州130km",
+      "ticketPrice": "¥80",
+      "landscapeCategory": [
+        "人文景观"
+      ],
+      "openTime": "08:30-17:30",
+      "visitDuration": "1天",
+      "popularity": "★★★★☆",
+      "audienceTags": [
+        "建筑爱好者",
+        "文化爱好者",
+        "历史爱好者",
+        "摄影爱好者",
+        "家庭出游"
+      ],
+      "ticketDetails": [
+        "立园¥50",
+        "自力村¥50",
+        "马降龙¥50",
+        "联票¥80"
+      ],
+      "transportInfo": [
+        "飞机:最近机场为广州白云机场约2小时",
+        "高铁:江门站距开平约1小时",
+        "自驾:经沈海高速开平出口",
+        "长途客运:江门汽车站有班车直达"
+      ],
+      "openTimeDetail": [
+        "立园 08:30-17:30",
+        "自力村 08:30-17:30",
+        "马降龙 08:30-17:30"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "立园-自力村线",
+          "duration": "半天",
+          "difficulty": "轻松",
+          "description": "游立园赏园林,参观自力村碉楼群",
+          "highlights": [
+            "立园园林",
+            "自力村碉楼群",
+            "华侨建筑"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "碉楼园林",
+              "detail": "立园→赏园林→自力村→参观碉楼群"
+            }
+          ],
+          "budget": "¥80-200",
+          "bestFor": "建筑爱好者/文化爱好者"
+        },
+        {
+          "name": "马降龙-锦江里线",
+          "duration": "半天",
+          "difficulty": "轻松",
+          "description": "游马降龙碉楼村,观锦江里瑞石楼",
+          "highlights": [
+            "马降龙碉楼村",
+            "瑞石楼",
+            "侨乡风情"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "侨乡探秘",
+              "detail": "马降龙碉楼村→锦江里→观瑞石楼→赏侨乡风情"
+            }
+          ],
+          "budget": "¥80-200",
+          "bestFor": "建筑爱好者/摄影爱好者"
+        }
+      ],
+      "facilities": [
+        "餐饮:景区内有侨乡特色餐厅",
+        "住宿:碉楼民宿体验",
+        "停车场:各景点有停车场",
+        "卫生间:景区内分布多处",
+        "游客中心:入口有咨询处"
+      ],
+      "tips": [
+        "碉楼多为文物,勿触摸刻划",
+        "建议请讲解员了解华侨历史",
+        "乡村道路窄,自驾注意安全",
+        "保护侨乡建筑,勿擅入民宅"
+      ],
+      "photoSpots": [
+        "立园园林",
+        "自力村碉楼群",
+        "马降龙碉楼",
+        "瑞石楼"
+      ],
+      "nearbySpots": [
+        "赤坎古镇 10km",
+        "梁金山 15km",
+        "开平市区 5km"
+      ],
+      "seasonalGuide": [
+        "春季气候宜人,适合游览",
+        "夏季炎热,建议早晚游览",
+        "秋季天高气爽,最佳游览季节",
+        "冬季温暖,侨乡韵味浓"
+      ]
     },
     {
       "id": "chimelongSafariPark",
@@ -70,7 +390,115 @@
       "rating": 4.6,
       "bestTime": "全年",
       "location": "广东省广州市番禺区长隆度假区",
-      "description": "中国最大的野生动物主题公园,拥有500多种动物"
+      "description": "中国最大的野生动物主题公园,拥有500多种动物",
+      "highlight": "世界级野生动物主题乐园",
+      "level": "5A景区",
+      "rankBadge": "网红",
+      "reviewCount": "87,654条点评",
+      "distance": "距广州30km",
+      "ticketPrice": "¥300",
+      "landscapeCategory": [
+        "人文景观"
+      ],
+      "openTime": "09:30-18:00",
+      "visitDuration": "1天",
+      "popularity": "★★★★★",
+      "audienceTags": [
+        "亲子家庭",
+        "动物爱好者",
+        "学生团体",
+        "科普爱好者",
+        "家庭出游"
+      ],
+      "ticketDetails": [
+        "成人票¥300",
+        "儿童票¥210",
+        "老人票¥210",
+        "自驾车¥300"
+      ],
+      "transportInfo": [
+        "飞机:广州白云机场约1小时车程",
+        "高铁:广州南站约30分钟车程",
+        "自驾:经华南快速干线长隆出口",
+        "长途客运:省汽车站有地铁直达"
+      ],
+      "openTimeDetail": [
+        "平日 09:30-18:00",
+        "节假日 09:00-18:30",
+        "小火车 10:00-17:00"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "乘车游览区-步行区线",
+          "duration": "1天",
+          "difficulty": "轻松",
+          "description": "乘小火车看猛兽,步行区近距离观动物",
+          "highlights": [
+            "小火车看猛兽",
+            "步行区近距离",
+            "空中缆车"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "动物世界",
+              "detail": "入园→乘小火车看猛兽→步行区近距离观动物→空中缆车→出园"
+            }
+          ],
+          "budget": "¥300-600",
+          "bestFor": "亲子家庭/动物爱好者"
+        },
+        {
+          "name": "熊猫馆-白虎馆线",
+          "duration": "半天",
+          "difficulty": "轻松",
+          "description": "观熊猫馆国宝,赏白虎馆猛兽",
+          "highlights": [
+            "熊猫馆国宝",
+            "白虎馆猛兽",
+            "长颈鹿区"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "国宝猛兽",
+              "detail": "入园→熊猫馆→白虎馆→长颈鹿区→出园"
+            }
+          ],
+          "budget": "¥300-500",
+          "bestFor": "亲子家庭/学生团体"
+        }
+      ],
+      "facilities": [
+        "餐饮:园内餐厅和小吃众多",
+        "住宿:长隆酒店和熊猫酒店",
+        "停车场:大型停车场",
+        "卫生间:园内分布多处",
+        "观光车:小火车和空中缆车"
+      ],
+      "tips": [
+        "建议提前网上购票,旺季限流",
+        "自驾游览区勿下车",
+        "保护动物,勿投喂",
+        "备好防晒和雨具"
+      ],
+      "photoSpots": [
+        "熊猫馆",
+        "白虎馆",
+        "长颈鹿区",
+        "空中缆车"
+      ],
+      "nearbySpots": [
+        "长隆欢乐世界 1km",
+        "长隆水上乐园 1km",
+        "长隆大马戏 1km"
+      ],
+      "seasonalGuide": [
+        "春季气候宜人,动物活跃",
+        "夏季炎热,注意防暑",
+        "秋季天高气爽,最佳游览季节",
+        "冬季温暖,适合亲子游"
+      ]
     },
     {
       "id": "shenzhenHappyValley",
@@ -86,75 +514,114 @@
       "rating": 4.5,
       "bestTime": "全年",
       "location": "广东省深圳市南山区华侨城",
-      "description": "中国知名连锁主题公园品牌,拥有众多刺激的游乐设施"
-    },
-    {
-      "id": "baiyunMountain",
-      "name": "白云山",
-      "tags": [
-        "名山",
-        "城市公园",
-        "健身",
-        "观景"
-      ],
-      "type": "nature",
-      "image": "https://picsum.photos/id/1485/600/400",
-      "rating": 4.4,
-      "bestTime": "全年",
-      "location": "广东省广州市白云区",
-      "description": "羊城第一秀,广州的城市绿肺,登顶可俯瞰全城",
-      "landformTags": [
-        "山地景观"
-      ],
-      "landscapeType": "mountain",
+      "description": "中国知名连锁主题公园品牌,拥有众多刺激的游乐设施",
+      "highlight": "现代主题乐园,都市娱乐",
+      "level": "4A景区",
+      "reviewCount": "54,321条点评",
+      "distance": "距广州130km",
+      "ticketPrice": "¥230",
+      "rankBadge": "人文",
       "landscapeCategory": [
-        "地理景观"
-      ]
-    },
-    {
-      "id": "xiqiaoMountain",
-      "name": "西樵山",
-      "tags": [
-        "名山",
-        "文化",
-        "宗教",
-        "自然"
+        "人文景观"
       ],
-      "type": "nature",
-      "image": "https://picsum.photos/id/1486/600/400",
-      "rating": 4.5,
-      "bestTime": "春秋",
-      "location": "广东省佛山市南海区",
-      "description": "广东四大名山之一,理学名山,以文化底蕴深厚著称",
-      "landformTags": [
-        "山地景观"
+      "openTime": "09:30-21:00",
+      "visitDuration": "1天",
+      "popularity": "★★★★☆",
+      "audienceTags": [
+        "年轻人",
+        "情侣",
+        "亲子家庭",
+        "刺激项目爱好者",
+        "家庭出游"
       ],
-      "landscapeType": "mountain",
-      "landscapeCategory": [
-        "地理景观"
-      ]
-    },
-    {
-      "id": "huizhouWestLake",
-      "name": "惠州西湖",
-      "tags": [
-        "湖泊",
-        "历史",
-        "文化",
-        "风光"
+      "ticketDetails": [
+        "成人票¥230",
+        "儿童票¥120",
+        "夜场¥100",
+        "年票¥680"
       ],
-      "type": "nature",
-      "image": "https://picsum.photos/id/1487/600/400",
-      "rating": 4.4,
-      "bestTime": "全年",
-      "location": "广东省惠州市惠城区",
-      "description": "岭南第一湖,苏东坡曾在此为官,留下许多诗篇",
-      "landformTags": [
-        "湖泊景观"
+      "transportInfo": [
+        "飞机:深圳宝安机场约1小时地铁",
+        "高铁:深圳北站约40分钟地铁",
+        "自驾:经广深高速深圳出口",
+        "长途客运:深圳汽车站有地铁直达"
       ],
-      "landscapeType": "lake",
-      "landscapeCategory": [
-        "水体景观"
+      "openTimeDetail": [
+        "平日 09:30-21:00",
+        "节假日 09:00-21:30",
+        "夜场 18:00-21:00"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "西班牙广场-魔幻城堡线",
+          "duration": "半天",
+          "difficulty": "轻松",
+          "description": "游西班牙广场,玩魔幻城堡亲子项目",
+          "highlights": [
+            "西班牙广场",
+            "魔幻城堡亲子项目",
+            "主题乐园"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "亲子乐园",
+              "detail": "入园→西班牙广场→魔幻城堡→玩亲子项目→出园"
+            }
+          ],
+          "budget": "¥230-400",
+          "bestFor": "亲子家庭/家庭出游"
+        },
+        {
+          "name": "欢乐时光-飓风湾线",
+          "duration": "半天",
+          "difficulty": "中等",
+          "description": "玩欢乐时光刺激项目,体验飓风湾冒险",
+          "highlights": [
+            "欢乐时光刺激项目",
+            "飓风湾冒险",
+            "过山车"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "刺激冒险",
+              "detail": "入园→欢乐时光→玩刺激项目→飓风湾→体验冒险→出园"
+            }
+          ],
+          "budget": "¥230-400",
+          "bestFor": "年轻人/刺激项目爱好者"
+        }
+      ],
+      "facilities": [
+        "餐饮:园内餐厅和小吃众多",
+        "停车场:大型停车场",
+        "卫生间:园内分布多处",
+        "游客中心:入口有咨询处",
+        "售票处:门口售票窗口"
+      ],
+      "tips": [
+        "刺激项目注意身体条件",
+        "建议提前网上购票",
+        "备好防晒和雨具",
+        "保管好随身物品"
+      ],
+      "photoSpots": [
+        "西班牙广场",
+        "过山车",
+        "魔幻城堡",
+        "夜景灯光"
+      ],
+      "nearbySpots": [
+        "世界之窗 1km",
+        "锦绣中华 2km",
+        "民俗文化村 1km"
+      ],
+      "seasonalGuide": [
+        "春季气候宜人,适合游玩",
+        "夏季炎热,注意防暑",
+        "秋季天高气爽,最佳游玩季节",
+        "冬季温暖,夜场别有风味"
       ]
     }
   ],
@@ -204,9 +671,12 @@
     ]
   },
   "overview": {
-    "totalSpots": 350,
-    "natureSpots": 180,
-    "cultureSpots": 170,
+    "fiveACount": 15,
+    "worldHeritageCount": 2,
+    "intangibleHeritageCount": 14,
+    "totalSpots": 5,
+    "natureSpots": 1,
+    "cultureSpots": 4,
     "topAttractions": [
       {
         "name": "广州塔",
@@ -322,5 +792,122 @@
     }
   ],
   "intangibleHeritage": [],
-  "folkCustomsElements": []
+  "folkCustomsElements": [],
+  "themes": [
+    {
+      "key": "nature",
+      "title": "自然风光",
+      "items": [
+        {
+          "key": "mountain",
+          "name": "名山胜景",
+          "icon": "mountain",
+          "coverSpotId": "danxiaMountain",
+          "avgRating": 4.5,
+          "bestSeason": "春秋 / 全年",
+          "recommendedDays": "2-3 日",
+          "budget": "¥500-1200",
+          "intensity": "适中",
+          "audience": "全人群",
+          "highlights": [
+            "山岳胜景",
+            "云海日出",
+            "奇松怪石",
+            "登高望远"
+          ],
+          "tips": [
+            "山路崎岖，穿舒适登山鞋",
+            "提前关注天气，雨后云海概率高",
+            "山顶温差大，备好保暖衣物"
+          ],
+          "spotIds": [
+            "danxiaMountain"
+          ]
+        },
+        {
+          "key": "water",
+          "name": "江湖瀑布",
+          "icon": "droplet",
+          "coverSpotId": "huizhouWestLake",
+          "avgRating": 4.4,
+          "bestSeason": "夏秋",
+          "recommendedDays": "1-2 日",
+          "budget": "¥200-500",
+          "intensity": "轻松",
+          "audience": "家庭/休闲",
+          "highlights": [
+            "飞瀑流泉",
+            "湖光山色",
+            "碧水蓝天",
+            "水上游览"
+          ],
+          "tips": [
+            "水边游玩注意安全，勿擅自下水",
+            "雨季水量充沛，枯水期景色减色",
+            "可乘船游览，体验更佳"
+          ],
+          "spotIds": []
+        }
+      ]
+    },
+    {
+      "key": "culture",
+      "title": "人文古迹",
+      "items": [
+        {
+          "key": "architecture",
+          "name": "古建风韵",
+          "icon": "museum",
+          "coverSpotId": "cantontower",
+          "avgRating": 4.6,
+          "bestSeason": "全年",
+          "recommendedDays": "1-2 日",
+          "budget": "¥200-400",
+          "intensity": "轻松",
+          "audience": "文化/家庭",
+          "highlights": [
+            "古建瑰宝",
+            "雕梁画栋",
+            "历史厚重",
+            "建筑美学"
+          ],
+          "tips": [
+            "可请讲解员，深度了解建筑历史",
+            "注意保护文物，勿触摸刻划",
+            "拍照注意光线，早晚最佳"
+          ],
+          "spotIds": [
+            "cantontower",
+            "kaipingDiaolou",
+            "chimelongSafariPark",
+            "shenzhenHappyValley"
+          ]
+        },
+        {
+          "key": "religion",
+          "name": "宗教文化",
+          "icon": "zen",
+          "coverSpotId": "xiqiaoMountain",
+          "avgRating": 4.5,
+          "bestSeason": "全年",
+          "recommendedDays": "1-2 日",
+          "budget": "¥200-400",
+          "intensity": "轻松",
+          "audience": "银发/养心",
+          "highlights": [
+            "梵音晨钟",
+            "礼佛祈福",
+            "禅修体验",
+            "清心养性"
+          ],
+          "tips": [
+            "寺庙内勿大声喧哗，着装庄重",
+            "可预约禅修/早课体验",
+            "素斋值得一尝，提前询问用斋时间"
+          ],
+          "spotIds": []
+        }
+      ]
+    }
+  ]
 }

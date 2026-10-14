@@ -245,21 +245,33 @@
          空状态
          ============================================ -->
     <div v-else class="empty-ticket">
-      <div class="empty-stub">
-        <div class="stub-perf perf-left">
-          <span class="perf-hole" v-for="h in 4" :key="h"></span>
+      <div class="empty-curtain empty-curtain--left"></div>
+      <div class="empty-curtain empty-curtain--right"></div>
+      <div class="empty-stage">
+        <div class="empty-stub">
+          <div class="stub-perf perf-left">
+            <span class="perf-hole" v-for="h in 4" :key="h"></span>
+          </div>
+          <div class="empty-stub-main">
+            <div class="empty-icon-housing">
+              <TheaterMasksIcon class="empty-icon" width="40" height="40" />
+            </div>
+            <h4 class="empty-title">票务待放票</h4>
+            <p class="empty-desc">该地区剧目票务正在排期中</p>
+            <div class="empty-show-tags">
+              <span class="show-tag">戏曲</span>
+              <span class="show-tag">话剧</span>
+              <span class="show-tag">歌舞</span>
+              <span class="show-tag">民乐</span>
+            </div>
+          </div>
+          <div class="stub-perf perf-right">
+            <span class="perf-hole" v-for="h in 4" :key="h"></span>
+          </div>
         </div>
-        <div class="empty-stub-main">
-          <TheaterMasksIcon class="empty-icon" width="36" height="36" />
-          <h4 class="empty-title">票务待放票</h4>
-          <p class="empty-desc">该地区剧目票务正在排期中</p>
+        <div class="empty-marquee">
+          <span class="marquee-text">敬请期待精彩上演 · 好戏即将开场 · 敬请期待精彩上演 · 好戏即将开场</span>
         </div>
-        <div class="stub-perf perf-right">
-          <span class="perf-hole" v-for="h in 4" :key="h"></span>
-        </div>
-      </div>
-      <div class="empty-marquee">
-        <span class="marquee-text">敬请期待精彩上演 · 好戏即将开场 · 敬请期待精彩上演 · 好戏即将开场</span>
       </div>
     </div>
 

@@ -1,7 +1,7 @@
 <template>
   <div class="scenery-gallery">
     <div v-if="sceneryGallery.length > 0" class="carousel-container">
-      <GalleryBackground />
+      <StarfieldBackground />
 
       <div class="carousel-header">
         <div class="header-content">
@@ -66,8 +66,12 @@
       </div>
 
       <div class="carousel-controls">
-        <button class="carousel-control prev" aria-label="上一个" @click="prevSlide"></button>
-        <button class="carousel-control next" aria-label="下一个" @click="nextSlide"></button>
+        <button class="carousel-control prev" aria-label="上一个" @click="prevSlide">
+          <GalleryPrevIcon class="control-icon" />
+        </button>
+        <button class="carousel-control next" aria-label="下一个" @click="nextSlide">
+          <GalleryNextIcon class="control-icon" />
+        </button>
       </div>
     </div>
 
@@ -95,7 +99,7 @@ import FlagIcon from '../../../../../icons/common/FlagIcon.vue';
 import { ref, computed } from 'vue';
 import type { ScenerySpot, SceneryData } from '@/typesOfPages/travelGuide';
 import {
-  GalleryBackground,
+  StarfieldBackground,
   GalleryPanelIcon,
   GalleryPrevIcon,
   GalleryNextIcon,

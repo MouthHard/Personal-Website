@@ -466,11 +466,11 @@ $snow: #fdf2f8;
 
   .sub-tab-content {
     flex: 1;
-    min-height: 0;
+ 
     overflow: hidden;
     display: flex;
     flex-direction: column;
- 
+    height: 75vh;
     border-radius: 0 0 4px 4px;
     &::-webkit-scrollbar { display: none; }
     -ms-overflow-style: none;

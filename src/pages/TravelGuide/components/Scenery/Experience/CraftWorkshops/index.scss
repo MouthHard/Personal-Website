@@ -1950,25 +1950,183 @@ $steel-black: #0f172a;
       align-items: center;
       justify-content: center;
       text-align: center;
+      position: relative;
 
-      .empty-icon-housing {
+      .empty-screw {
+        @include screw(12px);
+        &.screw-tl { top: 14px; left: 14px; }
+        &.screw-tr { top: 14px; right: 14px; }
+        &.screw-bl { bottom: 14px; left: 14px; }
+        &.screw-br { bottom: 14px; right: 14px; }
+      }
+
+      .empty-cast-plate {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        padding: 40px 36px;
+        border-radius: 14px;
+        @include cast-texture;
+        background:
+          radial-gradient(ellipse at 50% 0%, rgba($electric, 0.1), transparent 55%),
+          radial-gradient(ellipse at 50% 100%, rgba(0, 0, 0, 0.4), transparent 50%),
+          linear-gradient(160deg, $graphite-light 0%, $graphite 40%, $graphite-dark 80%, $graphite-void 100%);
+        border: 2px solid rgba($graphite-bright, 0.4);
+        border-top-color: rgba($electric, 0.35);
+        box-shadow:
+          inset 0 2px 0 rgba($graphite-bright, 0.25),
+          inset 0 -3px 6px rgba(0, 0, 0, 0.6),
+          inset 0 0 40px rgba(0, 0, 0, 0.3),
+          0 8px 24px rgba(0, 0, 0, 0.6),
+          0 0 30px rgba($electric, 0.06);
+        max-width: 420px;
+        width: 100%;
+      }
+
+      .empty-gear-housing {
+        position: relative;
+        width: 96px;
+        height: 96px;
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 72px;
-        height: 72px;
-        border-radius: 50%;
-        background: radial-gradient(circle at 30% 30%, rgba($electric, 0.2), $graphite-void 70%);
-        border: 3px solid rgba($electric, 0.35);
-        border-top-color: rgba($electric, 0.5);
-        margin-bottom: 18px;
-        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5), inset 0 -1px 0 rgba($electric, 0.1), 0 4px 12px rgba(0, 0, 0, 0.5), 0 0 16px rgba($electric, 0.1);
 
-        .empty-icon { color: $electric; filter: drop-shadow(0 0 10px rgba($electric, 0.5)); }
+        .empty-gear-ring {
+          position: absolute;
+          inset: 0;
+          border-radius: 50%;
+          border: 3px dashed rgba($electric, 0.3);
+          animation: gearSpin 12s linear infinite;
+        }
+
+        .empty-gear-core {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 72px;
+          height: 72px;
+          border-radius: 50%;
+          background:
+            radial-gradient(circle at 30% 25%, rgba($electric-glow, 0.3) 0%, transparent 40%),
+            radial-gradient(circle at 50% 50%, rgba($electric, 0.15) 0%, $graphite-void 75%),
+            linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, transparent 50%);
+          border: 3px solid rgba($electric, 0.45);
+          box-shadow:
+            inset 0 2px 4px rgba($electric-glow, 0.2),
+            inset 0 -3px 6px rgba(0, 0, 0, 0.7),
+            inset 0 0 16px rgba($electric, 0.12),
+            0 6px 14px rgba(0, 0, 0, 0.6),
+            0 0 24px rgba($electric, 0.2);
+
+          .empty-icon {
+            color: $electric-bright;
+            filter:
+              drop-shadow(0 0 6px rgba($electric, 0.7))
+              drop-shadow(0 0 14px rgba($electric, 0.35));
+          }
+        }
       }
 
-      .empty-title { font-size: 18px; font-weight: 700; color: $text-bright; margin: 0 0 8px; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6); }
-      .empty-desc { font-size: 14px; color: $text-dim; margin: 0; }
+      .empty-title {
+        font-size: 22px;
+        font-weight: 800;
+        color: $text-bright;
+        margin: 0;
+        letter-spacing: 2px;
+        text-shadow:
+          0 2px 4px rgba(0, 0, 0, 0.7),
+          0 0 12px rgba($electric, 0.25);
+      }
+
+      .empty-desc {
+        font-size: 15px;
+        color: $text-mid;
+        margin: 0;
+        letter-spacing: 1px;
+      }
+
+      .empty-status-bar {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 18px;
+        border-radius: 999px;
+        background:
+          linear-gradient(180deg, rgba($graphite-bright, 0.25), rgba($graphite-void, 0.6));
+        border: 1px solid rgba($electric, 0.25);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.08),
+          inset 0 -1px 2px rgba(0, 0, 0, 0.5),
+          0 2px 6px rgba(0, 0, 0, 0.4);
+
+        .status-led {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: radial-gradient(circle at 35% 35%, #fde68a, #f59e0b 60%, #b45309);
+          box-shadow:
+            inset 0 -1px 1px rgba(0, 0, 0, 0.4),
+            0 0 8px rgba(245, 158, 11, 0.7),
+            0 0 16px rgba(245, 158, 11, 0.35);
+          animation: ledBlink 1.6s ease-in-out infinite;
+        }
+
+        .status-text {
+          font-size: 14px;
+          font-weight: 700;
+          color: $text-bright;
+          letter-spacing: 1px;
+        }
+
+        .status-progress {
+          position: relative;
+          width: 64px;
+          height: 6px;
+          border-radius: 3px;
+          background: rgba($graphite-void, 0.8);
+          border: 1px solid rgba($electric, 0.2);
+          overflow: hidden;
+          box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.6);
+
+          .progress-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 35%;
+            border-radius: 3px;
+            background: linear-gradient(90deg, $electric-deep, $electric, $electric-glow);
+            box-shadow: 0 0 6px rgba($electric, 0.6);
+            animation: progressLoad 2.4s ease-in-out infinite;
+          }
+        }
+      }
+
+      .empty-craft-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 4px;
+
+        .craft-tag {
+          font-size: 14px;
+          font-weight: 700;
+          padding: 6px 16px;
+          border-radius: 4px;
+          letter-spacing: 1px;
+          color: $electric-glow;
+          background:
+            linear-gradient(180deg, rgba($electric-dark, 0.4), rgba($graphite-void, 0.6));
+          border: 1px solid rgba($electric, 0.3);
+          box-shadow:
+            inset 0 1px 0 rgba($electric-glow, 0.15),
+            inset 0 -1px 1px rgba(0, 0, 0, 0.4),
+            0 2px 4px rgba(0, 0, 0, 0.4);
+        }
+      }
     }
   }
 }
@@ -2009,4 +2167,19 @@ $steel-black: #0f172a;
 @keyframes btnScan {
   0% { left: -100%; }
   100% { left: 100%; }
+}
+@keyframes gearSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes ledBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+@keyframes progressLoad {
+  0% { width: 15%; }
+  50% { width: 55%; }
+  100% { width: 15%; }
 }

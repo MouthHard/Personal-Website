@@ -14,7 +14,115 @@
       "rating": 4.8,
       "bestTime": "冬季",
       "location": "黑龙江省哈尔滨市松北区",
-      "description": "世界最大的冰雪主题乐园"
+      "description": "世界最大的冰雪主题乐园",
+      "highlight": "冰雪奇观,世界最大冰雪乐园",
+      "level": "4A景区",
+      "rankBadge": "必去",
+      "reviewCount": "123,456条点评",
+      "distance": "距哈尔滨0km",
+      "ticketPrice": "¥300",
+      "landscapeCategory": [
+        "人文景观"
+      ],
+      "openTime": "11:00-21:30",
+      "visitDuration": "3-4小时",
+      "popularity": "★★★★★",
+      "audienceTags": [
+        "摄影爱好者",
+        "家庭亲子",
+        "冰雪爱好者",
+        "情侣约会"
+      ],
+      "ticketDetails": [
+        "成人票¥298",
+        "学生票半价",
+        "1.2米以下儿童免票",
+        "65岁以上老人半价"
+      ],
+      "transportInfo": [
+        "飞机:哈尔滨太平国际机场约40km",
+        "高铁:哈尔滨站或哈尔滨西站",
+        "自驾:松北区松北大道直达",
+        "长途客运:哈尔滨公路客运站转公交"
+      ],
+      "openTimeDetail": [
+        "日场11:00-15:00",
+        "夜场15:00-21:30",
+        "每年12月下旬至次年2月底开放"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "经典冰雪游",
+          "duration": "3-4小时",
+          "difficulty": "轻松",
+          "description": "游览主要冰雕雪雕作品，体验冰滑梯和雪花摩天轮",
+          "highlights": [
+            "巨型冰雕建筑群",
+            "冰滑梯体验",
+            "雪花摩天轮"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "冰雪主区游览",
+              "detail": "主冰雕区→冰滑梯体验→雪花摩天轮→冰雪城堡"
+            }
+          ],
+          "budget": "¥300-500",
+          "bestFor": "家庭亲子/首次游览"
+        },
+        {
+          "name": "夜景观赏游",
+          "duration": "2-3小时",
+          "difficulty": "轻松",
+          "description": "傍晚入园，欣赏冰雪灯光夜景和冰雕彩灯",
+          "highlights": [
+            "冰雪彩灯夜景",
+            "冰雕灯光秀",
+            "夜光城堡"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "冰雪夜景游览",
+              "detail": "傍晚入园→主冰雕彩灯区→冰滑梯夜滑→摩天轮夜景"
+            }
+          ],
+          "budget": "¥300-500",
+          "bestFor": "摄影爱好者/情侣约会"
+        }
+      ],
+      "facilities": [
+        "餐饮:设有热饮和小吃摊位",
+        "停车场:大型停车场",
+        "卫生间:多处分布",
+        "售票处:线上线下售票",
+        "游客中心:提供咨询和寄存"
+      ],
+      "tips": [
+        "注意保暖，气温常在零下20度以下",
+        "建议穿防滑鞋，地面湿滑",
+        "手机电量消耗快，备好充电宝",
+        "拍照注意相机防寒保温"
+      ],
+      "photoSpots": [
+        "主冰雕前",
+        "冰滑梯",
+        "雪花摩天轮",
+        "冰雪城堡"
+      ],
+      "nearbySpots": [
+        "太阳岛 5km",
+        "中央大街 15km",
+        "圣索菲亚教堂 16km",
+        "东北虎林园 8km"
+      ],
+      "seasonalGuide": [
+        "春季:景区闭园，无冰雪景观",
+        "夏季:景区闭园，可游览太阳岛",
+        "秋季:景区闭园，筹备期",
+        "冬季:最佳游览期，冰雪奇观"
+      ]
     },
     {
       "id": "sunIsland",
@@ -31,12 +139,117 @@
       "bestTime": "夏季",
       "location": "黑龙江省哈尔滨市松北区",
       "description": "哈尔滨著名的风景区,国家5A级景区",
+      "highlight": "哈尔滨明珠,雪博会主场",
+      "level": "5A景区",
+      "reviewCount": "54,321条点评",
+      "distance": "距哈尔滨10km",
+      "ticketPrice": "¥30",
       "landformTags": [
         "公园景观"
       ],
       "landscapeType": "park",
       "landscapeCategory": [
-        "生物景观"
+        "自然景观"
+      ],
+      "rankBadge": "避暑",
+      "openTime": "08:00-17:00",
+      "visitDuration": "半天",
+      "popularity": "★★★★☆",
+      "audienceTags": [
+        "家庭亲子",
+        "摄影爱好者",
+        "休闲度假",
+        "自然爱好者"
+      ],
+      "ticketDetails": [
+        "成人票¥30",
+        "学生票半价",
+        "1.2米以下儿童免票",
+        "60岁以上老人免票"
+      ],
+      "transportInfo": [
+        "飞机:哈尔滨太平国际机场约40km",
+        "高铁:哈尔滨站转公交或轮渡",
+        "自驾:松北区松北大道直达",
+        "长途客运:哈尔滨公路客运站转公交"
+      ],
+      "openTimeDetail": [
+        "旺季(6-9月) 08:00-17:00",
+        "淡季(10-5月) 08:30-16:30",
+        "雪博会期间另行公告"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "太阳岛公园游",
+          "duration": "半天",
+          "difficulty": "轻松",
+          "description": "游览太阳岛公园、俄罗斯风情小镇",
+          "highlights": [
+            "太阳石碑",
+            "俄罗斯风情小镇",
+            "松花江畔"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "太阳岛休闲游",
+              "detail": "太阳石碑→俄罗斯风情小镇→松花江畔→园区漫步"
+            }
+          ],
+          "budget": "¥50-100",
+          "bestFor": "家庭亲子/休闲度假"
+        },
+        {
+          "name": "雪博会专线",
+          "duration": "3-4小时",
+          "difficulty": "轻松",
+          "description": "冬季雪雕博览会，欣赏大型雪雕作品",
+          "highlights": [
+            "大型雪雕作品",
+            "雪雕广场",
+            "雪博会主展"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "雪博会观光",
+              "detail": "雪雕广场→大型雪雕群→雪博会主展区→园区观光"
+            }
+          ],
+          "budget": "¥100-200",
+          "bestFor": "摄影爱好者/冬季游览"
+        }
+      ],
+      "facilities": [
+        "餐饮:园区餐厅和小吃",
+        "停车场:大型停车场",
+        "卫生间:多处分布",
+        "游客中心:提供咨询",
+        "观光车:园区电瓶车"
+      ],
+      "tips": [
+        "夏季防晒，冬季保暖",
+        "可乘船游览松花江",
+        "雪博会期间门票另计",
+        "建议预留半天时间"
+      ],
+      "photoSpots": [
+        "太阳石碑前",
+        "俄罗斯风情小镇",
+        "雪雕广场",
+        "松花江畔"
+      ],
+      "nearbySpots": [
+        "冰雪大世界 5km",
+        "中央大街 10km",
+        "圣索菲亚教堂 11km",
+        "东北虎林园 3km"
+      ],
+      "seasonalGuide": [
+        "春季:踏青赏花，万物复苏",
+        "夏季:避暑纳凉，绿树成荫",
+        "秋季:秋色宜人，适合漫步",
+        "冬季:雪博会主场，雪雕奇观"
       ]
     },
     {
@@ -53,7 +266,115 @@
       "rating": 4.6,
       "bestTime": "全年",
       "location": "黑龙江省哈尔滨市道里区",
-      "description": "亚洲最长的步行街,充满异域风情"
+      "description": "亚洲最长的步行街,充满异域风情",
+      "highlight": "百年老街,欧式建筑博物馆",
+      "level": "4A景区",
+      "rankBadge": "网红",
+      "reviewCount": "87,654条点评",
+      "distance": "距哈尔滨0km",
+      "ticketPrice": "免费",
+      "landscapeCategory": [
+        "人文景观"
+      ],
+      "openTime": "全天开放",
+      "visitDuration": "2-3小时",
+      "popularity": "★★★★★",
+      "audienceTags": [
+        "购物爱好者",
+        "美食爱好者",
+        "摄影爱好者",
+        "情侣约会"
+      ],
+      "ticketDetails": [
+        "免费开放",
+        "无需门票",
+        "全天游览",
+        "部分店铺单独收费"
+      ],
+      "transportInfo": [
+        "飞机:哈尔滨太平国际机场约40km",
+        "高铁:哈尔滨站或哈尔滨西站转公交",
+        "自驾:道里区中央大街周边停车场",
+        "长途客运:哈尔滨公路客运站转公交"
+      ],
+      "openTimeDetail": [
+        "全天开放",
+        "商铺营业时间约10:00-22:00",
+        "夜间灯光景观最佳"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "中央大街步行游",
+          "duration": "2-3小时",
+          "difficulty": "轻松",
+          "description": "从防洪纪念塔至经纬街，欣赏欧式建筑",
+          "highlights": [
+            "百年欧式建筑",
+            "防洪纪念塔",
+            "方石路面"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "中央大街漫步",
+              "detail": "防洪纪念塔→中央大街漫步→欧式建筑群→经纬街"
+            }
+          ],
+          "budget": "免费",
+          "bestFor": "摄影爱好者/首次游览"
+        },
+        {
+          "name": "美食购物游",
+          "duration": "3-4小时",
+          "difficulty": "轻松",
+          "description": "品尝马迭尔冰棍、红肠等哈尔滨特色美食",
+          "highlights": [
+            "马迭尔冰棍",
+            "哈尔滨红肠",
+            "俄式美食"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "美食购物体验",
+              "detail": "中央大街→马迭尔宾馆→品尝特色美食→购物休闲"
+            }
+          ],
+          "budget": "¥100-300",
+          "bestFor": "美食爱好者/情侣约会"
+        }
+      ],
+      "facilities": [
+        "餐饮:众多餐厅和小吃",
+        "停车场:周边停车场",
+        "卫生间:多处分布",
+        "游客中心:附近有咨询点",
+        "售票处:免费无需购票"
+      ],
+      "tips": [
+        "夜晚灯光景观最美",
+        "免费开放，无需门票",
+        "可品尝马迭尔冰棍、红肠",
+        "周边有圣索菲亚教堂可一并游览"
+      ],
+      "photoSpots": [
+        "防洪纪念塔",
+        "马迭尔宾馆",
+        "欧式建筑群",
+        "夜景灯光"
+      ],
+      "nearbySpots": [
+        "圣索菲亚教堂 1km",
+        "防洪纪念塔 0km",
+        "松花江畔 0.5km",
+        "太阳岛 10km"
+      ],
+      "seasonalGuide": [
+        "春季:漫步老街，感受春意",
+        "夏季:避暑纳凉，品尝冰棍",
+        "秋季:秋色宜人，适合拍照",
+        "冬季:冰雕雪雕，冰雪风情"
+      ]
     },
     {
       "id": "wudalianchi",
@@ -70,12 +391,122 @@
       "bestTime": "夏季",
       "location": "黑龙江省黑河市五大连池市",
       "description": "世界地质公园,拥有独特的火山地貌",
+      "highlight": "火山地质博物馆,矿泉疗养地",
+      "level": "5A景区",
+      "reviewCount": "43,210条点评",
+      "distance": "距哈尔滨350km",
+      "ticketPrice": "¥80",
       "landformTags": [
         "火山景观"
       ],
       "landscapeType": "volcano",
       "landscapeCategory": [
-        "地理景观"
+        "自然景观"
+      ],
+      "rankBadge": "温泉",
+      "openTime": "08:00-17:00",
+      "visitDuration": "1-2天",
+      "popularity": "★★★★☆",
+      "audienceTags": [
+        "地质爱好者",
+        "摄影爱好者",
+        "温泉养生",
+        "自然爱好者"
+      ],
+      "ticketDetails": [
+        "成人票¥80",
+        "学生票半价",
+        "1.2米以下儿童免票",
+        "60岁以上老人半价"
+      ],
+      "transportInfo": [
+        "飞机:黑河瑷珲机场转车约230km",
+        "高铁:北安站转车约70km",
+        "自驾:绥北高速五大连池出口",
+        "长途客运:北安客运站转车"
+      ],
+      "openTimeDetail": [
+        "旺季(5-10月) 08:00-17:00",
+        "淡季(11-4月) 08:30-16:30",
+        "景区分多个景点分别售票"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "火山地质游",
+          "duration": "1天",
+          "difficulty": "中等",
+          "description": "游览老黑山、火烧山，观赏火山地貌",
+          "highlights": [
+            "老黑山火山口",
+            "火烧山",
+            "堰塞湖群"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "火山地貌游览",
+              "detail": "老黑山火山口→火烧山→堰塞湖→火山地质博物馆"
+            }
+          ],
+          "budget": "¥200-400",
+          "bestFor": "地质爱好者/自然探索"
+        },
+        {
+          "name": "矿泉疗养游",
+          "duration": "2天",
+          "difficulty": "轻松",
+          "description": "体验矿泉浴、温泊等疗养项目",
+          "highlights": [
+            "矿泉浴疗养",
+            "温泊观光",
+            "火山矿泉"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "矿泉疗养体验",
+              "detail": "矿泉浴体验→温泊观光→疗养院入住"
+            },
+            {
+              "day": "Day2",
+              "title": "药泉山观光",
+              "detail": "药泉山→二龙眼泉→矿泉博物馆→返程"
+            }
+          ],
+          "budget": "¥500-1000",
+          "bestFor": "温泉养生/休闲度假"
+        }
+      ],
+      "facilities": [
+        "餐饮:景区餐厅",
+        "住宿:疗养院和酒店",
+        "停车场:各景点停车场",
+        "卫生间:多处分布",
+        "游客中心:提供咨询"
+      ],
+      "tips": [
+        "建议预留1-2天时间",
+        "可体验矿泉浴",
+        "夏季最佳，注意防晒",
+        "景区面积大，建议自驾或包车"
+      ],
+      "photoSpots": [
+        "老黑山火山口",
+        "火烧山",
+        "温泊",
+        "堰塞湖"
+      ],
+      "nearbySpots": [
+        "北安市 60km",
+        "黑河市 250km",
+        "齐齐哈尔 200km",
+        "扎龙自然保护区 180km"
+      ],
+      "seasonalGuide": [
+        "春季:冰雪消融，万物复苏",
+        "夏季:最佳游览期，火山地貌清晰",
+        "秋季:秋色迷人，层林尽染",
+        "冬季:冰雪覆盖，矿泉温泊"
       ]
     },
     {
@@ -93,61 +524,118 @@
       "bestTime": "夏季",
       "location": "黑龙江省牡丹江市宁安市",
       "description": "中国最大的火山堰塞湖",
+      "highlight": "高山堰塞湖,北方西湖",
+      "level": "5A景区",
+      "reviewCount": "32,109条点评",
+      "distance": "距哈尔滨400km",
+      "ticketPrice": "¥80",
       "landformTags": [
         "湖泊景观"
       ],
       "landscapeType": "lake",
       "landscapeCategory": [
-        "水体景观"
+        "自然景观"
+      ],
+      "rankBadge": "瀑布",
+      "openTime": "08:00-17:00",
+      "visitDuration": "1天",
+      "popularity": "★★★★☆",
+      "audienceTags": [
+        "摄影爱好者",
+        "自然爱好者",
+        "家庭亲子",
+        "休闲度假"
+      ],
+      "ticketDetails": [
+        "成人票¥80",
+        "学生票半价",
+        "1.2米以下儿童免票",
+        "游船另收费"
+      ],
+      "transportInfo": [
+        "飞机:牡丹江海浪机场转车约100km",
+        "高铁:牡丹江站转车约100km",
+        "自驾:绥满高速宁安出口",
+        "长途客运:牡丹江客运站转车"
+      ],
+      "openTimeDetail": [
+        "旺季(5-10月) 08:00-17:00",
+        "淡季(11-4月) 08:30-16:30",
+        "瀑布水量夏季最盛"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "镜泊湖环湖游",
+          "duration": "1天",
+          "difficulty": "轻松",
+          "description": "乘船游览镜泊湖，观赏吊水楼瀑布",
+          "highlights": [
+            "吊水楼瀑布",
+            "镜泊湖湖面",
+            "珍珠门"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "环湖观光",
+              "detail": "镜泊湖乘船→珍珠门→白石砬子→吊水楼瀑布"
+            }
+          ],
+          "budget": "¥200-400",
+          "bestFor": "家庭亲子/休闲度假"
+        },
+        {
+          "name": "瀑布深度游",
+          "duration": "半天",
+          "difficulty": "轻松",
+          "description": "重点游览吊水楼瀑布，观赏瀑布跳水表演",
+          "highlights": [
+            "吊水楼瀑布",
+            "瀑布跳水表演",
+            "毛公崖"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "瀑布深度观赏",
+              "detail": "吊水楼瀑布→观赏跳水表演→毛公崖→瀑布周边观光"
+            }
+          ],
+          "budget": "¥100-200",
+          "bestFor": "摄影爱好者/首次游览"
+        }
+      ],
+      "facilities": [
+        "餐饮:湖畔餐厅",
+        "住宿:湖区酒店",
+        "停车场:景区停车场",
+        "卫生间:多处分布",
+        "观光车:景区电瓶车"
+      ],
+      "tips": [
+        "夏季瀑布水量最大",
+        "可乘船游湖",
+        "注意防晒",
+        "建议结合地下森林游览"
+      ],
+      "photoSpots": [
+        "吊水楼瀑布",
+        "镜泊湖湖面",
+        "珍珠门",
+        "白石砬子"
+      ],
+      "nearbySpots": [
+        "地下森林 30km",
+        "渤海国遗址 20km",
+        "牡丹江市 100km",
+        "雪乡 150km"
+      ],
+      "seasonalGuide": [
+        "春季:冰雪消融，春暖花开",
+        "夏季:瀑布水量最大，最佳游览期",
+        "秋季:秋色迷人，层林尽染",
+        "冬季:冰瀑奇观，别有风味"
       ]
-    },
-    {
-      "id": "yabuliSkiResort",
-      "name": "亚布力滑雪场",
-      "tags": [
-        "滑雪",
-        "运动",
-        "冰雪",
-        "休闲"
-      ],
-      "type": "nature",
-      "image": "https://picsum.photos/id/1265/600/400",
-      "rating": 4.7,
-      "bestTime": "冬季",
-      "location": "黑龙江省哈尔滨市尚志市",
-      "description": "中国最大的旅游滑雪场"
-    },
-    {
-      "id": "saintSophiaChurch",
-      "name": "圣索菲亚教堂",
-      "tags": [
-        "教堂",
-        "建筑",
-        "历史",
-        "宗教"
-      ],
-      "type": "culture",
-      "image": "https://picsum.photos/id/1266/600/400",
-      "rating": 4.5,
-      "bestTime": "全年",
-      "location": "黑龙江省哈尔滨市道里区",
-      "description": "远东地区最大的东正教教堂"
-    },
-    {
-      "id": "arcticVillage",
-      "name": "北极村",
-      "tags": [
-        "极光",
-        "北极",
-        "自然",
-        "探险"
-      ],
-      "type": "nature",
-      "image": "https://picsum.photos/id/1267/600/400",
-      "rating": 4.6,
-      "bestTime": "冬季",
-      "location": "黑龙江省大兴安岭地区漠河市",
-      "description": "中国最北的村庄,可观赏北极光"
     }
   ],
   "routes": [
@@ -196,9 +684,12 @@
     ]
   },
   "overview": {
-    "totalSpots": 160,
-    "natureSpots": 90,
-    "cultureSpots": 70,
+    "fiveACount": 5,
+    "worldHeritageCount": 0,
+    "intangibleHeritageCount": 10,
+    "totalSpots": 5,
+    "natureSpots": 3,
+    "cultureSpots": 2,
     "topAttractions": [
       {
         "name": "哈尔滨冰雪大世界",
@@ -352,6 +843,237 @@
       ],
       "image": "https://picsum.photos/id/1260/600/400",
       "description": "哈尔滨独特的冰雪艺术和文化"
+    }
+  ],
+  "themes": [
+    {
+      "key": "nature",
+      "title": "自然风光",
+      "items": [
+        {
+          "key": "mountain",
+          "name": "名山胜景",
+          "icon": "mountain",
+          "coverSpotId": "wudalianchi",
+          "avgRating": 4.7,
+          "bestSeason": "春秋 / 全年",
+          "recommendedDays": "2-3 日",
+          "budget": "¥500-1200",
+          "intensity": "适中",
+          "audience": "全人群",
+          "highlights": [
+            "山岳胜景",
+            "云海日出",
+            "奇松怪石",
+            "登高望远"
+          ],
+          "tips": [
+            "山路崎岖，穿舒适登山鞋",
+            "提前关注天气，雨后云海概率高",
+            "山顶温差大，备好保暖衣物"
+          ],
+          "spotIds": [
+            "wudalianchi"
+          ]
+        },
+        {
+          "key": "water",
+          "name": "江湖瀑布",
+          "icon": "droplet",
+          "coverSpotId": "jingpoLake",
+          "avgRating": 4.6,
+          "bestSeason": "夏秋",
+          "recommendedDays": "1-2 日",
+          "budget": "¥200-500",
+          "intensity": "轻松",
+          "audience": "家庭/休闲",
+          "highlights": [
+            "飞瀑流泉",
+            "湖光山色",
+            "碧水蓝天",
+            "水上游览"
+          ],
+          "tips": [
+            "水边游玩注意安全，勿擅自下水",
+            "雨季水量充沛，枯水期景色减色",
+            "可乘船游览，体验更佳"
+          ],
+          "spotIds": [
+            "jingpoLake"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "culture",
+      "title": "人文古迹",
+      "items": [
+        {
+          "key": "architecture",
+          "name": "古建风韵",
+          "icon": "museum",
+          "coverSpotId": "centralStreet",
+          "avgRating": 4.6,
+          "bestSeason": "全年",
+          "recommendedDays": "1-2 日",
+          "budget": "¥200-400",
+          "intensity": "轻松",
+          "audience": "文化/家庭",
+          "highlights": [
+            "古建瑰宝",
+            "雕梁画栋",
+            "历史厚重",
+            "建筑美学"
+          ],
+          "tips": [
+            "可请讲解员，深度了解建筑历史",
+            "注意保护文物，勿触摸刻划",
+            "拍照注意光线，早晚最佳"
+          ],
+          "spotIds": [
+            "centralStreet"
+          ]
+        },
+        {
+          "key": "religion",
+          "name": "宗教文化",
+          "icon": "zen",
+          "coverSpotId": "saintSophiaChurch",
+          "avgRating": 4.5,
+          "bestSeason": "全年",
+          "recommendedDays": "1-2 日",
+          "budget": "¥200-400",
+          "intensity": "轻松",
+          "audience": "银发/养心",
+          "highlights": [
+            "梵音晨钟",
+            "礼佛祈福",
+            "禅修体验",
+            "清心养性"
+          ],
+          "tips": [
+            "寺庙内勿大声喧哗，着装庄重",
+            "可预约禅修/早课体验",
+            "素斋值得一尝，提前询问用斋时间"
+          ],
+          "spotIds": []
+        }
+      ]
+    },
+    {
+      "key": "outdoor",
+      "title": "户外休闲",
+      "items": [
+        {
+          "key": "hiking",
+          "name": "徒步自驾",
+          "icon": "route",
+          "coverSpotId": "arcticVillage",
+          "avgRating": 4.6,
+          "bestSeason": "春秋",
+          "recommendedDays": "2-3 日",
+          "budget": "¥300-800",
+          "intensity": "挑战",
+          "audience": "户外/探险",
+          "highlights": [
+            "徒步探险",
+            "自驾天堂",
+            "户外挑战",
+            "自然探索"
+          ],
+          "tips": [
+            "评估体力选合适路线，勿逞强",
+            "备足水和干粮，穿登山鞋",
+            "告知他人行程，保持手机有电"
+          ],
+          "spotIds": []
+        },
+        {
+          "key": "coastal",
+          "name": "亲海避暑",
+          "icon": "flower",
+          "coverSpotId": "sunIsland",
+          "avgRating": 4.6,
+          "bestSeason": "夏秋",
+          "recommendedDays": "2-3 日",
+          "budget": "¥500-1500",
+          "intensity": "轻松",
+          "audience": "家庭/度假",
+          "highlights": [
+            "碧海蓝天",
+            "沙滩阳光",
+            "海岛风情",
+            "避暑胜地"
+          ],
+          "tips": [
+            "注意防晒，备好防晒霜和遮阳帽",
+            "游泳注意安全，在指定区域活动",
+            "海鲜过敏者注意饮食选择"
+          ],
+          "spotIds": [
+            "sunIsland"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "season",
+      "title": "季节限定",
+      "items": [
+        {
+          "key": "summer",
+          "name": "夏日亲水",
+          "icon": "sun",
+          "coverSpotId": "sunIsland",
+          "avgRating": 4.6,
+          "bestSeason": "6-8月",
+          "recommendedDays": "1-2 日",
+          "budget": "¥200-500",
+          "intensity": "轻松",
+          "audience": "家庭/亲子",
+          "highlights": [
+            "清凉避暑",
+            "亲水嬉戏",
+            "绿意盎然",
+            "夏日乐趣"
+          ],
+          "tips": [
+            "注意防暑降温，多补充水分",
+            "水上活动穿好救生衣",
+            "避开正午烈日，早晚活动更舒适"
+          ],
+          "spotIds": [
+            "sunIsland"
+          ]
+        },
+        {
+          "key": "winter",
+          "name": "冬日雪境",
+          "icon": "snowflake",
+          "coverSpotId": "harbinIceAndSnowWorld",
+          "avgRating": 4.7,
+          "bestSeason": "12-2月",
+          "recommendedDays": "2 日",
+          "budget": "¥500-1200",
+          "intensity": "适中",
+          "audience": "户外/摄影",
+          "highlights": [
+            "雾凇冰挂",
+            "冬雪皑皑",
+            "寒梅初绽",
+            "温泉暖身"
+          ],
+          "tips": [
+            "山路结冰需防滑链或冰爪",
+            "山顶酒店冬季紧张，提前预订",
+            "雪后初晴云海概率极高"
+          ],
+          "spotIds": [
+            "harbinIceAndSnowWorld",
+            "sunIsland"
+          ]
+        }
+      ]
     }
   ]
 }

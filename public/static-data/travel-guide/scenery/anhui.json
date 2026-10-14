@@ -15,12 +15,154 @@
       "bestTime": "春秋",
       "location": "安徽省黄山市",
       "description": "中国十大名山之一,世界文化与自然双重遗产",
+      "highlight": "奇松怪石云海温泉四绝闻名天下",
+      "level": "5A景区",
+      "rankBadge": "必去",
+      "reviewCount": "85,432条点评",
+      "distance": "距合肥280km",
+      "ticketPrice": "¥190",
       "landformTags": [
         "山地景观"
       ],
       "landscapeType": "mountain",
       "landscapeCategory": [
-        "地理景观"
+        "自然景观"
+      ],
+      "openTime": "06:00-17:30",
+      "visitDuration": "1-2天",
+      "popularity": "★★★★★",
+      "audienceTags": [
+        "摄影爱好者",
+        "登山爱好者",
+        "自然爱好者",
+        "户外探险"
+      ],
+      "ticketDetails": [
+        "成人票¥190",
+        "学生票半价",
+        "儿童1.2米以下免票",
+        "60岁以上老人免票"
+      ],
+      "transportInfo": [
+        "黄山屯溪机场距景区约60km，可乘机场大巴或打车前往",
+        "黄山北站高铁站距景区约50km，出站换乘景区大巴直达",
+        "沪蓉高速汤口出口下，沿指示牌行驶至汤口镇换乘中心",
+        "黄山市汽车客运总站有直达黄山风景区班车"
+      ],
+      "openTimeDetail": [
+        "旺季(3-11月) 06:00-17:30",
+        "淡季(12-2月) 07:00-17:00"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "经典两日游",
+          "duration": "2天",
+          "difficulty": "中等",
+          "description": "Day1后山云谷寺索道上山经始信峰北海住山顶；Day2前山看日出经鳌鱼峰莲花峰迎客松玉屏楼下",
+          "highlights": [
+            "日出云海",
+            "迎客松",
+            "光明顶",
+            "奇松怪石"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "后山入园",
+              "detail": "云谷寺索道上山→始信峰→北海宾馆→排云亭→西海大峡谷入住"
+            },
+            {
+              "day": "Day2",
+              "title": "前山下山",
+              "detail": "光明顶看日出→鳌鱼峰→莲花峰→百步云梯→玉屏楼→迎客松→慈光阁下山"
+            }
+          ],
+          "budget": "¥1500-2500",
+          "bestFor": "摄影爱好者/首次游览"
+        },
+        {
+          "name": "一日精华游",
+          "duration": "1天",
+          "difficulty": "较难",
+          "description": "索道上山游览始信峰北海西海排云亭，体力要求较高",
+          "highlights": [
+            "始信峰",
+            "北海景区",
+            "西海大峡谷"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "索道精华",
+              "detail": "云谷寺索道上山→始信峰→北海→西海→排云亭→原路下山"
+            }
+          ],
+          "budget": "¥800-1200",
+          "bestFor": "时间紧凑/体力较好"
+        },
+        {
+          "name": "深度三日游",
+          "duration": "3天",
+          "difficulty": "中等",
+          "description": "三天深度游览前后山及西海大峡谷，适合摄影爱好者",
+          "highlights": [
+            "日出云海",
+            "西海大峡谷",
+            "迎客松",
+            "天海景区"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "后山入园",
+              "detail": "云谷寺索道→始信峰→北海宾馆入住→排云亭看日落"
+            },
+            {
+              "day": "Day2",
+              "title": "西海深度",
+              "detail": "西海大峡谷→天海→光明顶→飞来石→北海住宿"
+            },
+            {
+              "day": "Day3",
+              "title": "前山下山",
+              "detail": "鳌鱼峰→莲花峰→百步云梯→玉屏楼→迎客松→玉屏索道下山"
+            }
+          ],
+          "budget": "¥2000-3500",
+          "bestFor": "摄影爱好者/深度游览"
+        }
+      ],
+      "facilities": [
+        "索道:云谷索道、玉屏索道、太平索道三条",
+        "餐饮:山顶各酒店有餐厅，价格较高",
+        "住宿:山顶多家酒店，需提前预订",
+        "停车场:汤口换乘中心有大型停车场",
+        "游客中心:汤口镇设有游客服务中心"
+      ],
+      "tips": [
+        "山顶温差大，即使夏季也需备外套",
+        "雨后初晴云海概率高，建议关注天气",
+        "山顶住宿紧张，旺季需提前一个月预订",
+        "索道排队时间长，建议早出晚归避开高峰",
+        "自备干粮和水，山顶物价较高"
+      ],
+      "photoSpots": [
+        "始信峰观云海",
+        "排云亭看日落",
+        "光明顶拍全景",
+        "迎客松前合影"
+      ],
+      "nearbySpots": [
+        "宏村 45km",
+        "西递 50km",
+        "徽州古城 60km",
+        "屯溪老街 60km"
+      ],
+      "seasonalGuide": [
+        "春季山花烂漫，杜鹃花海，适合踏青赏花",
+        "夏季避暑胜地，瀑布水量充沛，注意防雷雨",
+        "秋季红叶满山，天高气爽，是观日出云海最佳季节",
+        "冬季雾凇雪景如画，可观冰挂，山路注意防滑"
       ]
     },
     {
@@ -37,7 +179,120 @@
       "rating": 4.7,
       "bestTime": "全年",
       "location": "安徽省池州市青阳县",
-      "description": "中国四大佛教名山之一,地藏菩萨道场"
+      "description": "中国四大佛教名山之一,地藏菩萨道场",
+      "highlight": "地藏菩萨道场,佛教圣地",
+      "level": "5A景区",
+      "rankBadge": "圣地",
+      "reviewCount": "32,156条点评",
+      "distance": "距合肥200km",
+      "ticketPrice": "¥160",
+      "openTime": "06:00-17:00",
+      "visitDuration": "1-2天",
+      "popularity": "★★★★☆",
+      "audienceTags": [
+        "佛教信众",
+        "文化爱好者",
+        "登山爱好者",
+        "银发族"
+      ],
+      "ticketDetails": [
+        "成人票¥160",
+        "学生票半价",
+        "儿童1.2米以下免票",
+        "70岁以上老人免票"
+      ],
+      "transportInfo": [
+        "最近池州九华山机场，距景区约40km",
+        "池州站高铁站距景区约50km，有公交直达",
+        "京台高速九华山出口下，沿指示牌行驶",
+        "池州市汽车站有直达九华山班车"
+      ],
+      "openTimeDetail": [
+        "旺季(3-11月) 06:00-17:00",
+        "淡季(12-2月) 07:00-16:30"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "经典朝圣一日游",
+          "duration": "1天",
+          "difficulty": "中等",
+          "description": "化城寺-肉身宝殿-百岁宫-五百罗汉堂，核心朝圣路线",
+          "highlights": [
+            "化城寺",
+            "肉身宝殿",
+            "百岁宫"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "朝圣核心",
+              "detail": "化城寺→肉身宝殿→百岁宫→五百罗汉堂"
+            }
+          ],
+          "budget": "¥300-500",
+          "bestFor": "佛教信众/首次朝圣"
+        },
+        {
+          "name": "天台深度两日游",
+          "duration": "2天",
+          "difficulty": "较难",
+          "description": "Day1前山寺庙群；Day2登天台正顶赏全景，体力要求较高",
+          "highlights": [
+            "天台正顶",
+            "古寺群",
+            "九华全景"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "前山朝圣",
+              "detail": "化城寺→肉身宝殿→百岁宫→五百罗汉堂"
+            },
+            {
+              "day": "Day2",
+              "title": "天台登顶",
+              "detail": "天台索道上山→古拜经台→天台正顶→赏九华全景"
+            }
+          ],
+          "budget": "¥600-1000",
+          "bestFor": "佛教信众/登山爱好者"
+        }
+      ],
+      "facilities": [
+        "索道:百岁宫索道、天台索道",
+        "餐饮:景区内素斋馆多家",
+        "住宿:九华街有多家宾馆民宿",
+        "停车场:柯村新区有大停车场",
+        "游客中心:柯村新区游客服务中心"
+      ],
+      "tips": [
+        "寺庙内勿大声喧哗，着装庄重",
+        "朝拜需爬山，备好舒适鞋履",
+        "素斋值得一尝，提前询问用斋时间",
+        "香火可在寺内请购，勿外带",
+        "尊重佛教礼仪，勿用手指指佛像"
+      ],
+      "photoSpots": [
+        "天台正顶俯瞰群山",
+        "百岁宫悬崖古寺",
+        "化城寺古刹晨雾",
+        "肉身宝殿金顶"
+      ],
+      "nearbySpots": [
+        "平天湖 15km",
+        "池州古城 40km",
+        "太平湖 60km",
+        "黄山 120km"
+      ],
+      "seasonalGuide": [
+        "春季山花与古寺相映，适合踏青祈福",
+        "夏季避暑胜地，山中清凉宜人",
+        "秋季红叶层林尽染，佛国秋色迷人",
+        "冬季雪覆寺庙，禅意悠远，可体验腊八法会"
+      ],
+      "landscapeCategory": [
+        "人文景观"
+      ]
     },
     {
       "id": "hongcun",
@@ -53,7 +308,115 @@
       "rating": 4.8,
       "bestTime": "春秋",
       "location": "安徽省黄山市黟县宏村镇",
-      "description": "中国画里的乡村,世界文化遗产"
+      "description": "中国画里的乡村,世界文化遗产",
+      "highlight": "徽派古村,水墨画卷",
+      "level": "5A景区",
+      "rankBadge": "网红",
+      "reviewCount": "28,763条点评",
+      "distance": "距合肥320km",
+      "ticketPrice": "¥104",
+      "openTime": "07:00-17:30",
+      "visitDuration": "半天",
+      "popularity": "★★★★★",
+      "audienceTags": [
+        "摄影爱好者",
+        "文艺青年",
+        "文化爱好者",
+        "家庭游客"
+      ],
+      "ticketDetails": [
+        "成人票¥104",
+        "学生票半价",
+        "儿童1.2米以下免票",
+        "60岁以上老人免票"
+      ],
+      "transportInfo": [
+        "黄山屯溪机场距宏村约65km，可包车或乘班车",
+        "黄山北站高铁站距宏村约55km，有旅游班车",
+        "黄祁高速黟县出口下，距景区约10km",
+        "黄山市汽车站有直达宏村班车"
+      ],
+      "openTimeDetail": [
+        "旺季(3-11月) 07:00-17:30",
+        "淡季(12-2月) 08:00-17:00"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "经典半日游",
+          "duration": "半天",
+          "difficulty": "轻松",
+          "description": "南湖-月沼-承志堂-树人堂-南湖书院，领略水墨古村",
+          "highlights": [
+            "月沼倒影",
+            "南湖画桥",
+            "徽派古建"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "水墨古村",
+              "detail": "南湖→月沼→承志堂→树人堂→南湖书院"
+            }
+          ],
+          "budget": "¥150-300",
+          "bestFor": "摄影爱好者/文艺青年"
+        },
+        {
+          "name": "深度一日游",
+          "duration": "1天",
+          "difficulty": "轻松",
+          "description": "上午古建筑群，下午周边塔川、木雕楼，体验徽派文化",
+          "highlights": [
+            "徽派古村",
+            "塔川秋色",
+            "木雕艺术"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "徽文化深度",
+              "detail": "上午宏村古建筑群→下午塔川→卢村木雕楼"
+            }
+          ],
+          "budget": "¥300-500",
+          "bestFor": "文化爱好者/家庭出游"
+        }
+      ],
+      "facilities": [
+        "餐饮:村内外多家农家菜馆",
+        "住宿:古村内民宿众多，可体验徽派生活",
+        "停车场:村外有大型停车场",
+        "卫生间:村内多处公共卫生间",
+        "游客中心:村口设有售票及导览服务"
+      ],
+      "tips": [
+        "清晨和傍晚光线最佳，摄影爱好者勿错过",
+        "尊重原住民生活，勿擅入私宅",
+        "石板路湿滑，雨天注意脚下",
+        "可请导游讲解徽派建筑文化",
+        "旺季游客多，建议错峰游览"
+      ],
+      "photoSpots": [
+        "月沼倒影",
+        "南湖画桥",
+        "承志堂木雕",
+        "巷弄炊烟"
+      ],
+      "nearbySpots": [
+        "西递 18km",
+        "塔川 3km",
+        "木坑竹海 5km",
+        "卢村 2km"
+      ],
+      "seasonalGuide": [
+        "春季油菜花海与白墙黛瓦相映，最美季节",
+        "夏季荷塘月色，南湖荷花盛开",
+        "秋季塔川红叶闻名，徽州秋色如画",
+        "冬季雪覆马头墙，水墨意境浓郁"
+      ],
+      "landscapeCategory": [
+        "人文景观"
+      ]
     },
     {
       "id": "xidi",
@@ -69,7 +432,115 @@
       "rating": 4.7,
       "bestTime": "春秋",
       "location": "安徽省黄山市黟县西递镇",
-      "description": "明清古民居建筑群,世界文化遗产"
+      "description": "明清古民居建筑群,世界文化遗产",
+      "highlight": "明清古建,徽雕艺术",
+      "level": "5A景区",
+      "rankBadge": "世遗",
+      "reviewCount": "12,438条点评",
+      "distance": "距合肥330km",
+      "ticketPrice": "¥104",
+      "openTime": "07:00-17:30",
+      "visitDuration": "半天",
+      "popularity": "★★★★☆",
+      "audienceTags": [
+        "文化爱好者",
+        "建筑爱好者",
+        "摄影爱好者",
+        "家庭游客"
+      ],
+      "ticketDetails": [
+        "成人票¥104",
+        "学生票半价",
+        "儿童1.2米以下免票",
+        "60岁以上老人免票"
+      ],
+      "transportInfo": [
+        "黄山屯溪机场距西递约70km",
+        "黄山北站高铁站距西递约60km，换乘班车",
+        "黄祁高速黟县出口下，距景区约15km",
+        "黄山市汽车站有经黟县至西递班车"
+      ],
+      "openTimeDetail": [
+        "旺季(3-11月) 07:00-17:30",
+        "淡季(12-2月) 08:00-17:00"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "古民居精华游",
+          "duration": "半天",
+          "difficulty": "轻松",
+          "description": "胡文光刺史坊-大夫第-履福堂-西园，欣赏明清徽雕艺术",
+          "highlights": [
+            "胡文光刺史坊",
+            "徽雕艺术",
+            "明清古建"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "古建精华",
+              "detail": "胡文光刺史坊→大夫第→履福堂→西园"
+            }
+          ],
+          "budget": "¥150-300",
+          "bestFor": "建筑爱好者/文化爱好者"
+        },
+        {
+          "name": "徽文化深度游",
+          "duration": "1天",
+          "difficulty": "轻松",
+          "description": "西递古村结合周边牌坊群，深度了解徽商文化",
+          "highlights": [
+            "西递古村",
+            "牌坊群",
+            "徽商文化"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "徽文化深度",
+              "detail": "上午西递古村→下午棠樾牌坊群→鲍家花园"
+            }
+          ],
+          "budget": "¥300-500",
+          "bestFor": "文化爱好者/家庭出游"
+        }
+      ],
+      "facilities": [
+        "餐饮:村内农家菜馆若干",
+        "住宿:古民居客栈可体验徽派生活",
+        "停车场:村口有停车场",
+        "卫生间:村内公共卫生间",
+        "游客中心:村口售票处提供导览"
+      ],
+      "tips": [
+        "徽雕艺术精美，建议请讲解员深度了解",
+        "尊重居民生活，拍照前征得同意",
+        "古建筑内光线较暗，注意脚下",
+        "勿触摸刻划文物，保护文化遗产",
+        "与宏村联游更佳，可安排一日行程"
+      ],
+      "photoSpots": [
+        "胡文光刺史坊",
+        "大夫第天井",
+        "青石板巷弄",
+        "马头墙剪影"
+      ],
+      "nearbySpots": [
+        "宏村 18km",
+        "塔川 20km",
+        "屏山 15km",
+        "南屏 25km"
+      ],
+      "seasonalGuide": [
+        "春季油菜花田环绕古村，春意盎然",
+        "夏季古村清凉，避暑纳凉好去处",
+        "秋季稻田金黄，徽州秋收画卷",
+        "冬季古村宁静，雪后水墨意境"
+      ],
+      "landscapeCategory": [
+        "人文景观"
+      ]
     },
     {
       "id": "tianzhuMountain",
@@ -86,67 +557,117 @@
       "bestTime": "春秋",
       "location": "安徽省安庆市潜山市",
       "description": "安徽三大名山之一,以奇峰怪石著称",
+      "highlight": "奇峰怪石,道教名山",
+      "level": "5A景区",
+      "rankBadge": "名山",
+      "reviewCount": "8,521条点评",
+      "distance": "距合肥190km",
+      "ticketPrice": "¥130",
       "landformTags": [
         "山地景观"
       ],
       "landscapeType": "mountain",
       "landscapeCategory": [
-        "地理景观"
-      ]
-    },
-    {
-      "id": "huizhouAncientCity",
-      "name": "徽州古城",
-      "tags": [
-        "古城",
-        "历史",
-        "文化",
-        "徽派建筑"
+        "自然景观"
       ],
-      "type": "culture",
-      "image": "https://picsum.photos/id/1345/600/400",
-      "rating": 4.6,
-      "bestTime": "全年",
-      "location": "安徽省黄山市歙县",
-      "description": "中国四大古城之一,徽州文化的发源地"
-    },
-    {
-      "id": "sanheAncientTown",
-      "name": "三河古镇",
-      "tags": [
-        "古镇",
-        "水乡",
-        "历史",
-        "民俗"
+      "openTime": "07:00-17:00",
+      "visitDuration": "1天",
+      "popularity": "★★★★☆",
+      "audienceTags": [
+        "登山爱好者",
+        "自然爱好者",
+        "摄影爱好者",
+        "户外探险"
       ],
-      "type": "culture",
-      "image": "https://picsum.photos/id/1346/600/400",
-      "rating": 4.5,
-      "bestTime": "春秋",
-      "location": "安徽省合肥市肥西县三河镇",
-      "description": "中国历史文化名镇,江南水乡古镇"
-    },
-    {
-      "id": "tiantangzhai",
-      "name": "天堂寨",
-      "tags": [
-        "名山",
-        "森林",
-        "自然",
-        "避暑"
+      "ticketDetails": [
+        "成人票¥130",
+        "学生票半价",
+        "儿童1.2米以下免票",
+        "60岁以上老人免票"
       ],
-      "type": "nature",
-      "image": "https://picsum.photos/id/1347/600/400",
-      "rating": 4.5,
-      "bestTime": "夏季",
-      "location": "安徽省六安市金寨县",
-      "description": "大别山第二高峰,国家森林公园",
-      "landformTags": [
-        "山地景观"
+      "transportInfo": [
+        "最近合肥新桥机场，距景区约200km",
+        "潜山站高铁站距景区约20km，有公交直达",
+        "济广高速天柱山出口下，沿指示牌行驶",
+        "安庆市汽车站有直达天柱山班车"
       ],
-      "landscapeType": "mountain",
-      "landscapeCategory": [
-        "地理景观"
+      "openTimeDetail": [
+        "旺季(3-11月) 07:00-17:00",
+        "淡季(12-2月) 08:00-16:30"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "东关精华游",
+          "duration": "1天",
+          "difficulty": "中等",
+          "description": "索道上山经神秘谷-总关寨-天柱峰-炼丹湖，东关奇峰精华",
+          "highlights": [
+            "天柱峰",
+            "神秘谷",
+            "炼丹湖"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "东关奇峰",
+              "detail": "大龙窝索道上山→神秘谷→总关寨→天柱峰→炼丹湖"
+            }
+          ],
+          "budget": "¥300-500",
+          "bestFor": "登山爱好者/首次游览"
+        },
+        {
+          "name": "东西关环线游",
+          "duration": "1天",
+          "difficulty": "较难",
+          "description": "东关上西关下，完整游览奇峰怪石，体力要求较高",
+          "highlights": [
+            "东关奇峰",
+            "西关怪石",
+            "环线全景"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "环线游览",
+              "detail": "东关索道上山→神秘谷→天柱峰→西关→总关寨下山"
+            }
+          ],
+          "budget": "¥300-500",
+          "bestFor": "登山爱好者/体力较好"
+        }
+      ],
+      "facilities": [
+        "索道:大龙窝索道",
+        "餐饮:景区内及山上有餐饮点",
+        "住宿:山顶有简易住宿，山下酒店较多",
+        "停车场:景区入口大型停车场",
+        "游客中心:景区入口游客服务中心"
+      ],
+      "tips": [
+        "山路陡峭，穿防滑登山鞋",
+        "神秘谷狭窄，体胖者需注意",
+        "山顶温差大，备好保暖衣物",
+        "雨后云海概率高，关注天气",
+        "自备饮水干粮，山上物价较高"
+      ],
+      "photoSpots": [
+        "天柱峰雄姿",
+        "神秘谷奇石",
+        "炼丹湖倒影",
+        "总关寨险峻"
+      ],
+      "nearbySpots": [
+        "三祖寺 10km",
+        "薛家岗遗址 20km",
+        "安庆市 60km",
+        "花亭湖 50km"
+      ],
+      "seasonalGuide": [
+        "春季山花烂漫，气候宜人适合登山",
+        "夏季山中清凉，避暑纳凉好去处",
+        "秋季红叶层林尽染，天高气爽观景佳",
+        "冬季雪景雾凇可观，山路注意防滑"
       ]
     }
   ],
@@ -194,9 +715,12 @@
     ]
   },
   "overview": {
-    "totalSpots": 220,
-    "natureSpots": 110,
-    "cultureSpots": 110,
+    "fiveACount": 5,
+    "worldHeritageCount": 3,
+    "intangibleHeritageCount": 1,
+    "totalSpots": 5,
+    "natureSpots": 2,
+    "cultureSpots": 3,
     "topAttractions": [
       {
         "name": "黄山",
@@ -206,17 +730,34 @@
       {
         "name": "九华山",
         "image": "https://picsum.photos/id/1341/600/400",
-        "description": "中国四大佛教名山之一,地藏菩萨道场"
+        "description": "中国四大佛教名山之一,地藏菩萨道场",
+        "highlight": "地藏菩萨道场,佛教圣地",
+        "level": "5A景区",
+        "rankBadge": "圣地",
+        "reviewCount": "32,156条点评",
+        "distance": "距合肥200km",
+        "ticketPrice": "¥160"
       },
       {
         "name": "宏村",
         "image": "https://picsum.photos/id/1342/600/400",
-        "description": "中国画里的乡村,世界文化遗产"
+        "description": "中国画里的乡村,世界文化遗产",
+        "highlight": "徽派古村,水墨画卷",
+        "level": "5A景区",
+        "rankBadge": "网红",
+        "reviewCount": "28,763条点评",
+        "distance": "距合肥320km",
+        "ticketPrice": "¥104"
       },
       {
         "name": "西递",
         "image": "https://picsum.photos/id/1343/600/400",
-        "description": "明清古民居建筑群,世界文化遗产"
+        "description": "明清古民居建筑群,世界文化遗产",
+        "highlight": "明清古建,徽雕艺术",
+        "level": "5A景区",
+        "reviewCount": "12,438条点评",
+        "distance": "距合肥330km",
+        "ticketPrice": "¥104"
       },
       {
         "name": "天柱山",
@@ -226,12 +767,22 @@
       {
         "name": "徽州古城",
         "image": "https://picsum.photos/id/1345/600/400",
-        "description": "中国四大古城之一,徽州文化的发源地"
+        "description": "中国四大古城之一,徽州文化的发源地",
+        "highlight": "徽州文化发源地",
+        "level": "5A景区",
+        "reviewCount": "6,234条点评",
+        "distance": "距合肥300km",
+        "ticketPrice": "¥100"
       },
       {
         "name": "三河古镇",
         "image": "https://picsum.photos/id/1346/600/400",
-        "description": "中国历史文化名镇,江南水乡古镇"
+        "description": "中国历史文化名镇,江南水乡古镇",
+        "highlight": "水乡古镇,江淮风情",
+        "level": "5A景区",
+        "reviewCount": "4,812条点评",
+        "distance": "距合肥40km",
+        "ticketPrice": "免费"
       },
       {
         "name": "天堂寨",
@@ -350,6 +901,206 @@
       ],
       "image": "https://picsum.photos/id/1345/600/400",
       "description": "安徽独特的徽州文化和徽商精神"
+    }
+  ],
+  "themes": [
+    {
+      "key": "nature",
+      "title": "自然风光",
+      "items": [
+        {
+          "key": "mountain",
+          "name": "名山胜景",
+          "icon": "mountain",
+          "coverSpotId": "jiuhuaMountain",
+          "avgRating": 4.6,
+          "bestSeason": "春秋 / 全年",
+          "recommendedDays": "2-3 日",
+          "budget": "¥500-1200",
+          "intensity": "适中",
+          "audience": "全人群",
+          "highlights": [
+            "山岳胜景",
+            "云海日出",
+            "奇松怪石",
+            "登高望远"
+          ],
+          "tips": [
+            "山路崎岖，穿舒适登山鞋",
+            "提前关注天气，雨后云海概率高",
+            "山顶温差大，备好保暖衣物"
+          ],
+          "spotIds": [
+            "jiuhuaMountain"
+          ]
+        },
+        {
+          "key": "peaks",
+          "name": "奇峰云海",
+          "icon": "energy",
+          "coverSpotId": "huangshan",
+          "avgRating": 4.8,
+          "bestSeason": "秋冬",
+          "recommendedDays": "2 日",
+          "budget": "¥400-900",
+          "intensity": "适中",
+          "audience": "摄影/户外",
+          "highlights": [
+            "奇峰林立",
+            "云海翻涌",
+            "峰林夕照",
+            "雾凇冰挂"
+          ],
+          "tips": [
+            "云海多见于雨后初晴，清晨最佳",
+            "备好防滑鞋，山路湿滑注意安全",
+            "建议提前预订山顶住宿"
+          ],
+          "spotIds": [
+            "huangshan",
+            "tianzhuMountain"
+          ]
+        },
+        {
+          "key": "water",
+          "name": "江湖瀑布",
+          "icon": "droplet",
+          "coverSpotId": "sanheAncientTown",
+          "avgRating": 4.5,
+          "bestSeason": "夏秋",
+          "recommendedDays": "1-2 日",
+          "budget": "¥200-500",
+          "intensity": "轻松",
+          "audience": "家庭/休闲",
+          "highlights": [
+            "飞瀑流泉",
+            "湖光山色",
+            "碧水蓝天",
+            "水上游览"
+          ],
+          "tips": [
+            "水边游玩注意安全，勿擅自下水",
+            "雨季水量充沛，枯水期景色减色",
+            "可乘船游览，体验更佳"
+          ],
+          "spotIds": []
+        }
+      ]
+    },
+    {
+      "key": "culture",
+      "title": "人文古迹",
+      "items": [
+        {
+          "key": "village",
+          "name": "古镇古村",
+          "icon": "home",
+          "coverSpotId": "hongcun",
+          "avgRating": 4.7,
+          "bestSeason": "春秋",
+          "recommendedDays": "1-2 日",
+          "budget": "¥200-500",
+          "intensity": "轻松",
+          "audience": "家庭/文艺",
+          "highlights": [
+            "青石板巷",
+            "古朴民居",
+            "田园牧歌",
+            "慢生活体验"
+          ],
+          "tips": [
+            "古村适合慢游，勿赶行程",
+            "尊重原住民生活，勿擅入私宅",
+            "可住民宿体验当地生活"
+          ],
+          "spotIds": [
+            "hongcun"
+          ]
+        },
+        {
+          "key": "architecture",
+          "name": "古建风韵",
+          "icon": "museum",
+          "coverSpotId": "xidi",
+          "avgRating": 4.7,
+          "bestSeason": "全年",
+          "recommendedDays": "1-2 日",
+          "budget": "¥200-400",
+          "intensity": "轻松",
+          "audience": "文化/家庭",
+          "highlights": [
+            "古建瑰宝",
+            "雕梁画栋",
+            "历史厚重",
+            "建筑美学"
+          ],
+          "tips": [
+            "可请讲解员，深度了解建筑历史",
+            "注意保护文物，勿触摸刻划",
+            "拍照注意光线，早晚最佳"
+          ],
+          "spotIds": [
+            "xidi"
+          ]
+        },
+        {
+          "key": "religion",
+          "name": "宗教文化",
+          "icon": "zen",
+          "coverSpotId": "jiuhuaMountain",
+          "avgRating": 4.7,
+          "bestSeason": "全年",
+          "recommendedDays": "1-2 日",
+          "budget": "¥200-400",
+          "intensity": "轻松",
+          "audience": "银发/养心",
+          "highlights": [
+            "梵音晨钟",
+            "礼佛祈福",
+            "禅修体验",
+            "清心养性"
+          ],
+          "tips": [
+            "寺庙内勿大声喧哗，着装庄重",
+            "可预约禅修/早课体验",
+            "素斋值得一尝，提前询问用斋时间"
+          ],
+          "spotIds": [
+            "jiuhuaMountain",
+            "tianzhuMountain"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "season",
+      "title": "季节限定",
+      "items": [
+        {
+          "key": "summer",
+          "name": "夏日亲水",
+          "icon": "sun",
+          "coverSpotId": "tiantangzhai",
+          "avgRating": 4.5,
+          "bestSeason": "6-8月",
+          "recommendedDays": "1-2 日",
+          "budget": "¥200-500",
+          "intensity": "轻松",
+          "audience": "家庭/亲子",
+          "highlights": [
+            "清凉避暑",
+            "亲水嬉戏",
+            "绿意盎然",
+            "夏日乐趣"
+          ],
+          "tips": [
+            "注意防暑降温，多补充水分",
+            "水上活动穿好救生衣",
+            "避开正午烈日，早晚活动更舒适"
+          ],
+          "spotIds": []
+        }
+      ]
     }
   ]
 }

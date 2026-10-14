@@ -15,12 +15,125 @@
       "bestTime": "春秋",
       "location": "浙江省杭州市西湖区",
       "description": "中国十大风景名胜之一,世界文化遗产",
+      "highlight": "人间天堂,世界文化遗产",
+      "level": "5A景区",
+      "rankBadge": "必去",
+      "reviewCount": "285,432条点评",
+      "distance": "距杭州0km",
+      "ticketPrice": "免费",
       "landformTags": [
         "湖泊景观"
       ],
       "landscapeType": "lake",
       "landscapeCategory": [
-        "水体景观"
+        "自然景观"
+      ],
+      "openTime": "全天开放",
+      "visitDuration": "1天",
+      "popularity": "★★★★★",
+      "audienceTags": [
+        "摄影爱好者",
+        "文化爱好者",
+        "家庭游客",
+        "休闲游客"
+      ],
+      "ticketDetails": [
+        "西湖免费开放",
+        "雷峰塔¥40",
+        "三潭印月船票¥55",
+        "岳王庙¥25"
+      ],
+      "transportInfo": [
+        "杭州萧山机场距西湖约30km，机场大巴可达",
+        "杭州东站/杭州站高铁直达，地铁1号线可达",
+        "杭甬高速杭州出口下",
+        "杭州汽车站有公交可达西湖"
+      ],
+      "openTimeDetail": [
+        "西湖全天开放",
+        "雷峰塔 08:00-20:00",
+        "游船 08:00-17:00"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "西湖十景一日游",
+          "duration": "1天",
+          "difficulty": "轻松",
+          "description": "断桥-白堤-平湖秋月-苏堤-花港观鱼-雷峰塔-南屏晚钟，环湖经典",
+          "highlights": [
+            "断桥残雪",
+            "苏堤春晓",
+            "雷峰夕照",
+            "三潭印月"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "环湖经典",
+              "detail": "断桥→白堤→平湖秋月→苏堤→花港观鱼→雷峰塔→南屏晚钟"
+            }
+          ],
+          "budget": "¥100-300",
+          "bestFor": "首次游览/家庭出游"
+        },
+        {
+          "name": "西湖深度两日游",
+          "duration": "2天",
+          "difficulty": "轻松",
+          "description": "Day1北线断桥白堤孤山；Day2南线苏堤雷峰塔三潭印月",
+          "highlights": [
+            "断桥白堤",
+            "孤山",
+            "苏堤",
+            "三潭印月"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "北线游览",
+              "detail": "断桥→白堤→孤山→平湖秋月"
+            },
+            {
+              "day": "Day2",
+              "title": "南线游览",
+              "detail": "苏堤→花港观鱼→雷峰塔→三潭印月"
+            }
+          ],
+          "budget": "¥300-600",
+          "bestFor": "摄影爱好者/深度游览"
+        }
+      ],
+      "facilities": [
+        "餐饮:楼外楼西湖醋鱼为必尝",
+        "住宿:西湖周边酒店民宿丰富",
+        "停车场:环湖多处停车场",
+        "卫生间:环湖多处公共卫生间",
+        "游客中心:湖滨旅游咨询服务点"
+      ],
+      "tips": [
+        "西湖免费，是世界文化遗产",
+        "环湖可步行骑行或乘游船",
+        "断桥残雪冬季最美",
+        "春季苏堤春晓桃红柳绿",
+        "音乐喷泉晚上观赏"
+      ],
+      "photoSpots": [
+        "断桥残雪",
+        "雷峰夕照",
+        "三潭印月",
+        "苏堤春晓"
+      ],
+      "nearbySpots": [
+        "灵隐寺 5km",
+        "雷峰塔 3km",
+        "岳王庙 3km",
+        "宋城 10km"
+      ],
+      "seasonalGuide": [
+        "春季苏堤春晓桃红柳绿，最美季节",
+        "夏季曲院风荷荷花盛开，避暑佳处",
+        "秋季平湖秋月满陇桂雨，桂香四溢",
+        "冬季断桥残雪闻名，雪景如画"
       ]
     },
     {
@@ -37,7 +150,122 @@
       "rating": 4.8,
       "bestTime": "全年",
       "location": "浙江省舟山市普陀区",
-      "description": "中国四大佛教名山之一,海天佛国"
+      "description": "中国四大佛教名山之一,海天佛国",
+      "highlight": "海天佛国,观音菩萨道场",
+      "level": "5A景区",
+      "rankBadge": "圣地",
+      "reviewCount": "89,432条点评",
+      "distance": "距杭州250km",
+      "ticketPrice": "¥160",
+      "openTime": "06:00-18:00",
+      "visitDuration": "1-2天",
+      "popularity": "★★★★★",
+      "audienceTags": [
+        "佛教信众",
+        "文化爱好者",
+        "度假游客",
+        "家庭游客"
+      ],
+      "ticketDetails": [
+        "进山门票¥160",
+        "学生票半价",
+        "儿童1.2米以下免票",
+        "70岁以上老人免票"
+      ],
+      "transportInfo": [
+        "舟山普陀山机场距景区约5km",
+        "宁波站高铁转舟山，再乘船至普陀山",
+        "甬舟高速朱家尖出口下，乘船登岛",
+        "舟山汽车站有班车至朱家尖蜈蚣峙码头"
+      ],
+      "openTimeDetail": [
+        "旺季(2-11月) 06:00-18:00",
+        "淡季(12-1月) 07:00-17:00"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "普陀山朝圣一日游",
+          "duration": "1天",
+          "difficulty": "中等",
+          "description": "普济寺-法雨寺-慧济寺-南海观音，三大寺朝圣",
+          "highlights": [
+            "普济寺",
+            "法雨寺",
+            "慧济寺",
+            "南海观音"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "三大寺朝圣",
+              "detail": "普济寺→法雨寺→慧济寺→南海观音"
+            }
+          ],
+          "budget": "¥400-600",
+          "bestFor": "佛教信众/首次朝圣"
+        },
+        {
+          "name": "普陀山深度两日游",
+          "duration": "2天",
+          "difficulty": "轻松",
+          "description": "Day1三大寺朝圣；Day2紫竹林-百步沙-洛迦山，深度礼佛",
+          "highlights": [
+            "三大寺",
+            "紫竹林",
+            "百步沙",
+            "洛迦山"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "三大寺朝圣",
+              "detail": "普济寺→法雨寺→慧济寺"
+            },
+            {
+              "day": "Day2",
+              "title": "海滨礼佛",
+              "detail": "紫竹林→百步沙→洛迦山"
+            }
+          ],
+          "budget": "¥800-1500",
+          "bestFor": "佛教信众/度假游客"
+        }
+      ],
+      "facilities": [
+        "索道:佛顶山慧济寺索道",
+        "餐饮:素斋馆众多，素斋值得一尝",
+        "住宿:普济寺周边宾馆民宿众多",
+        "停车场:码头有停车场",
+        "游客中心:码头游客服务中心"
+      ],
+      "tips": [
+        "进山需购门票，含保险",
+        "寺庙内勿喧哗，着装庄重",
+        "素斋为普陀山特色",
+        "可请香祈福，香火寺内请购",
+        "海岛气候多变，备好雨具"
+      ],
+      "photoSpots": [
+        "南海观音铜像",
+        "普济寺古刹",
+        "百步沙海景",
+        "佛顶山远眺"
+      ],
+      "nearbySpots": [
+        "朱家尖 5km",
+        "洛迦山 6km",
+        "沈家门 10km",
+        "桃花岛 20km"
+      ],
+      "seasonalGuide": [
+        "春季海天佛国春色，朝圣佳期",
+        "夏季海岛避暑，海水浴场开放",
+        "秋季海天一色，朝圣观海",
+        "冬季香火旺盛，腊八法会闻名"
+      ],
+      "landscapeCategory": [
+        "人文景观"
+      ]
     },
     {
       "id": "wuzhen",
@@ -53,7 +281,123 @@
       "rating": 4.7,
       "bestTime": "春秋",
       "location": "浙江省嘉兴市桐乡市乌镇",
-      "description": "中国十大历史文化名镇之一,江南水乡的代表"
+      "description": "中国十大历史文化名镇之一,江南水乡的代表",
+      "highlight": "江南水乡典范,千年古镇",
+      "level": "5A景区",
+      "rankBadge": "网红",
+      "reviewCount": "92,321条点评",
+      "distance": "距杭州80km",
+      "ticketPrice": "¥150",
+      "openTime": "07:00-22:30",
+      "visitDuration": "1天",
+      "popularity": "★★★★★",
+      "audienceTags": [
+        "文艺青年",
+        "摄影爱好者",
+        "文化爱好者",
+        "家庭游客"
+      ],
+      "ticketDetails": [
+        "西栅¥150",
+        "东栅¥110",
+        "东西栅联票¥190",
+        "儿童1.2米以下免票"
+      ],
+      "transportInfo": [
+        "最近杭州萧山机场距乌镇约80km",
+        "桐乡站高铁站距乌镇约30km，有班车",
+        "申嘉湖高速乌镇出口下",
+        "桐乡汽车站有直达乌镇班车"
+      ],
+      "openTimeDetail": [
+        "东栅 07:00-18:00",
+        "西栅 09:00-22:30",
+        "夜游西栅 18:00-22:30"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "西栅一日游",
+          "duration": "1天",
+          "difficulty": "轻松",
+          "description": "草木本色染坊-水上集市-白莲塔-老邮局，西栅水乡精华",
+          "highlights": [
+            "草木本色染坊",
+            "水上集市",
+            "白莲塔",
+            "西栅夜景"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "西栅精华",
+              "detail": "草木本色染坊→水上集市→白莲塔→老邮局→夜游西栅"
+            }
+          ],
+          "budget": "¥200-400",
+          "bestFor": "文艺青年/首次游览"
+        },
+        {
+          "name": "乌镇两日深度游",
+          "duration": "2天",
+          "difficulty": "轻松",
+          "description": "Day1东栅茅盾故居；Day2西栅夜游，深度体验水乡",
+          "highlights": [
+            "东栅原生态",
+            "茅盾故居",
+            "西栅夜景",
+            "水乡晨昏"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "东栅原生态",
+              "detail": "东栅→茅盾故居→草木染坊→入住西栅"
+            },
+            {
+              "day": "Day2",
+              "title": "西栅深度",
+              "detail": "西栅水巷→白莲塔→老邮局→夜游西栅"
+            }
+          ],
+          "budget": "¥500-1000",
+          "bestFor": "文艺青年/深度游览"
+        }
+      ],
+      "facilities": [
+        "餐饮:乌镇酱鸡、定胜糕为特色",
+        "住宿:西栅内民宿众多，可宿水乡",
+        "停车场:景区外大型停车场",
+        "卫生间:景区内多处",
+        "游客中心:入口游客服务中心"
+      ],
+      "tips": [
+        "西栅夜景闻名，建议夜游",
+        "可宿西栅内，体验水乡晨昏",
+        "乌镇戏剧节10月举办",
+        "互联网大会永久会址",
+        "东栅原生态，西栅精致"
+      ],
+      "photoSpots": [
+        "西栅水巷夜景",
+        "白莲塔",
+        "草木染坊",
+        "老邮局"
+      ],
+      "nearbySpots": [
+        "西塘古镇 60km",
+        "南浔古镇 30km",
+        "盐官观潮 50km",
+        "杭州 80km"
+      ],
+      "seasonalGuide": [
+        "春季水乡春色，柳绿花红",
+        "夏季荷塘水巷，可避暑",
+        "秋季乌镇戏剧节，文艺盛宴",
+        "冬季雪覆水巷，水墨意境"
+      ],
+      "landscapeCategory": [
+        "人文景观"
+      ]
     },
     {
       "id": "qiandaoLake",
@@ -70,12 +414,118 @@
       "bestTime": "春秋",
       "location": "浙江省杭州市淳安县",
       "description": "天下第一秀水,拥有1078个岛屿",
+      "highlight": "天下第一秀水,1078个岛屿",
+      "level": "5A景区",
+      "rankBadge": "必去",
+      "reviewCount": "65,432条点评",
+      "distance": "距杭州130km",
+      "ticketPrice": "¥130",
       "landformTags": [
         "湖泊景观"
       ],
       "landscapeType": "lake",
       "landscapeCategory": [
-        "水体景观"
+        "自然景观"
+      ],
+      "openTime": "08:00-16:30",
+      "visitDuration": "1-2天",
+      "popularity": "★★★★★",
+      "audienceTags": [
+        "度假游客",
+        "家庭游客",
+        "摄影爱好者",
+        "户外爱好者"
+      ],
+      "ticketDetails": [
+        "成人票¥130",
+        "学生票半价",
+        "儿童1.2米以下免票",
+        "60岁以上老人免票"
+      ],
+      "transportInfo": [
+        "最近杭州萧山机场距千岛湖约130km",
+        "千岛湖站高铁站距景区约30km",
+        "杭新景高速千岛湖出口下",
+        "杭州汽车西站有直达千岛湖班车"
+      ],
+      "openTimeDetail": [
+        "旺季(3-11月) 08:00-16:30",
+        "淡季(12-2月) 09:00-16:00"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "中心湖区一日游",
+          "duration": "1天",
+          "difficulty": "轻松",
+          "description": "梅峰岛-鸵鸟岛-猴岛-龙山岛，乘船游湖赏千岛",
+          "highlights": [
+            "梅峰观岛",
+            "鸵鸟岛",
+            "猴岛",
+            "龙山岛"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "中心湖游",
+              "detail": "梅峰岛→鸵鸟岛→猴岛→龙山岛"
+            }
+          ],
+          "budget": "¥300-500",
+          "bestFor": "家庭出游/首次游览"
+        },
+        {
+          "name": "东南湖区游",
+          "duration": "1天",
+          "difficulty": "轻松",
+          "description": "黄山尖-天池岛-蜜山岛，东南湖区深度游",
+          "highlights": [
+            "黄山尖",
+            "天池岛",
+            "蜜山岛"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "东南湖游",
+              "detail": "黄山尖→天池岛→蜜山岛"
+            }
+          ],
+          "budget": "¥300-500",
+          "bestFor": "度假游客/深度游览"
+        }
+      ],
+      "facilities": [
+        "餐饮:千岛湖鱼头为必尝美食",
+        "住宿:千岛湖镇酒店众多",
+        "停车场:码头停车场",
+        "卫生间:码头及岛上多处",
+        "游客中心:码头游客服务中心"
+      ],
+      "tips": [
+        "千岛湖鱼头为必尝美食",
+        "游船游览，注意班次时间",
+        "梅峰观岛为最佳观景台",
+        "可环湖骑行，绿道完善",
+        "注意防晒，湖面紫外线强"
+      ],
+      "photoSpots": [
+        "梅峰观岛全景",
+        "千岛湖大桥",
+        "龙山岛",
+        "湖上日落"
+      ],
+      "nearbySpots": [
+        "文渊狮城 30km",
+        "森林氧吧 20km",
+        "姜家镇 25km",
+        "杭州 130km"
+      ],
+      "seasonalGuide": [
+        "春季湖光山色，踏青佳处",
+        "夏季避暑胜地，水上项目开放",
+        "秋季秋色迷人，能见度高",
+        "冬季湖光寂寥，宁静致远"
       ]
     },
     {
@@ -93,61 +543,124 @@
       "bestTime": "春秋",
       "location": "浙江省温州市乐清市",
       "description": "东南第一山,以奇峰怪石著称",
+      "highlight": "东南第一山,奇峰怪石",
+      "level": "5A景区",
+      "rankBadge": "必去",
+      "reviewCount": "43,210条点评",
+      "distance": "距杭州300km",
+      "ticketPrice": "¥200",
       "landformTags": [
         "山地景观"
       ],
       "landscapeType": "mountain",
       "landscapeCategory": [
-        "地理景观"
+        "自然景观"
+      ],
+      "openTime": "06:30-18:00",
+      "visitDuration": "1-2天",
+      "popularity": "★★★★☆",
+      "audienceTags": [
+        "登山爱好者",
+        "摄影爱好者",
+        "自然爱好者",
+        "地质爱好者"
+      ],
+      "ticketDetails": [
+        "成人票¥200",
+        "学生票半价",
+        "儿童1.2米以下免票",
+        "60岁以上老人免票"
+      ],
+      "transportInfo": [
+        "最近温州龙湾机场距景区约80km",
+        "雁荡山站高铁站距景区约10km，有公交",
+        "沈海高速雁荡山出口下",
+        "温州市汽车站有直达雁荡山班车"
+      ],
+      "openTimeDetail": [
+        "旺季(3-11月) 06:30-18:00",
+        "淡季(12-2月) 07:00-17:00"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "北雁荡精华游",
+          "duration": "1天",
+          "difficulty": "中等",
+          "description": "大龙湫-灵岩-灵峰，雁荡三绝一日尽览",
+          "highlights": [
+            "大龙湫瀑布",
+            "灵岩",
+            "灵峰"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "雁荡三绝",
+              "detail": "大龙湫→灵岩→灵峰"
+            }
+          ],
+          "budget": "¥300-500",
+          "bestFor": "登山爱好者/首次游览"
+        },
+        {
+          "name": "雁荡深度两日游",
+          "duration": "2天",
+          "difficulty": "中等",
+          "description": "Day1大龙湫灵岩；Day2灵峰夜景显胜门，深度游览",
+          "highlights": [
+            "大龙湫",
+            "灵岩",
+            "灵峰夜景",
+            "显胜门"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "三绝游览",
+              "detail": "大龙湫→灵岩→灵峰"
+            },
+            {
+              "day": "Day2",
+              "title": "深度游览",
+              "detail": "灵峰夜景→显胜门→方洞景区"
+            }
+          ],
+          "budget": "¥600-1000",
+          "bestFor": "摄影爱好者/深度游览"
+        }
+      ],
+      "facilities": [
+        "索道:灵岩索道",
+        "餐饮:雁荡山特色海鲜、香鱼",
+        "住宿:景区内外酒店民宿众多",
+        "停车场:各景区入口停车场",
+        "游客中心:景区入口游客服务中心"
+      ],
+      "tips": [
+        "大龙湫瀑布为中国四大瀑布之一",
+        "灵峰夜景奇绝，勿错过",
+        "雁荡三绝为大龙湫灵岩灵峰",
+        "山路湿滑，穿防滑鞋",
+        "可请讲解了解地质奇观"
+      ],
+      "photoSpots": [
+        "大龙湫瀑布",
+        "灵峰夜景",
+        "灵岩飞渡",
+        "合掌峰"
+      ],
+      "nearbySpots": [
+        "楠溪江 50km",
+        "方洞景区 5km",
+        "显胜门 10km",
+        "温州 80km"
+      ],
+      "seasonalGuide": [
+        "春季山花烂漫，气候宜人",
+        "夏季瀑布水量充沛，避暑佳处",
+        "秋季秋高气爽，观景最佳",
+        "冬季雾凇雪景可观，山路注意防滑"
       ]
-    },
-    {
-      "id": "xitangAncientTown",
-      "name": "西塘古镇",
-      "tags": [
-        "古镇",
-        "水乡",
-        "历史",
-        "民俗"
-      ],
-      "type": "culture",
-      "image": "https://picsum.photos/id/1325/600/400",
-      "rating": 4.6,
-      "bestTime": "春秋",
-      "location": "浙江省嘉兴市嘉善县西塘镇",
-      "description": "江南六大古镇之一,生活着的千年古镇"
-    },
-    {
-      "id": "lingyinTemple",
-      "name": "灵隐寺",
-      "tags": [
-        "寺庙",
-        "佛教",
-        "历史",
-        "文化"
-      ],
-      "type": "culture",
-      "image": "https://picsum.photos/id/1326/600/400",
-      "rating": 4.6,
-      "bestTime": "全年",
-      "location": "浙江省杭州市西湖区",
-      "description": "杭州著名的佛教寺院,东南佛国"
-    },
-    {
-      "id": "hengdianWorldStudios",
-      "name": "横店影视城",
-      "tags": [
-        "影视",
-        "主题公园",
-        "娱乐",
-        "文化"
-      ],
-      "type": "culture",
-      "image": "https://picsum.photos/id/1327/600/400",
-      "rating": 4.5,
-      "bestTime": "全年",
-      "location": "浙江省金华市东阳市横店镇",
-      "description": "中国最大的影视拍摄基地"
     }
   ],
   "routes": [
@@ -196,9 +709,12 @@
     ]
   },
   "overview": {
-    "totalSpots": 320,
-    "natureSpots": 160,
-    "cultureSpots": 160,
+    "fiveACount": 20,
+    "worldHeritageCount": 4,
+    "intangibleHeritageCount": 15,
+    "totalSpots": 5,
+    "natureSpots": 3,
+    "cultureSpots": 2,
     "topAttractions": [
       {
         "name": "西湖",
@@ -352,6 +868,233 @@
       ],
       "image": "https://picsum.photos/id/1322/600/400",
       "description": "江南独特的水乡文化和生活方式"
+    }
+  ],
+  "themes": [
+    {
+      "key": "nature",
+      "title": "自然风光",
+      "items": [
+        {
+          "key": "mountain",
+          "name": "名山胜景",
+          "icon": "mountain",
+          "coverSpotId": "putuoMountain",
+          "avgRating": 4.8,
+          "bestSeason": "春秋 / 全年",
+          "recommendedDays": "2-3 日",
+          "budget": "¥500-1200",
+          "intensity": "适中",
+          "audience": "全人群",
+          "highlights": [
+            "山岳胜景",
+            "云海日出",
+            "奇松怪石",
+            "登高望远"
+          ],
+          "tips": [
+            "山路崎岖，穿舒适登山鞋",
+            "提前关注天气，雨后云海概率高",
+            "山顶温差大，备好保暖衣物"
+          ],
+          "spotIds": [
+            "putuoMountain"
+          ]
+        },
+        {
+          "key": "peaks",
+          "name": "奇峰云海",
+          "icon": "energy",
+          "coverSpotId": "yandangMountain",
+          "avgRating": 4.6,
+          "bestSeason": "秋冬",
+          "recommendedDays": "2 日",
+          "budget": "¥400-900",
+          "intensity": "适中",
+          "audience": "摄影/户外",
+          "highlights": [
+            "奇峰林立",
+            "云海翻涌",
+            "峰林夕照",
+            "雾凇冰挂"
+          ],
+          "tips": [
+            "云海多见于雨后初晴，清晨最佳",
+            "备好防滑鞋，山路湿滑注意安全",
+            "建议提前预订山顶住宿"
+          ],
+          "spotIds": [
+            "yandangMountain"
+          ]
+        },
+        {
+          "key": "water",
+          "name": "江湖瀑布",
+          "icon": "droplet",
+          "coverSpotId": "westLake",
+          "avgRating": 4.8,
+          "bestSeason": "夏秋",
+          "recommendedDays": "1-2 日",
+          "budget": "¥200-500",
+          "intensity": "轻松",
+          "audience": "家庭/休闲",
+          "highlights": [
+            "飞瀑流泉",
+            "湖光山色",
+            "碧水蓝天",
+            "水上游览"
+          ],
+          "tips": [
+            "水边游玩注意安全，勿擅自下水",
+            "雨季水量充沛，枯水期景色减色",
+            "可乘船游览，体验更佳"
+          ],
+          "spotIds": [
+            "westLake",
+            "qiandaoLake"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "culture",
+      "title": "人文古迹",
+      "items": [
+        {
+          "key": "village",
+          "name": "古镇古村",
+          "icon": "home",
+          "coverSpotId": "xitangAncientTown",
+          "avgRating": 4.6,
+          "bestSeason": "春秋",
+          "recommendedDays": "1-2 日",
+          "budget": "¥200-500",
+          "intensity": "轻松",
+          "audience": "家庭/文艺",
+          "highlights": [
+            "青石板巷",
+            "古朴民居",
+            "田园牧歌",
+            "慢生活体验"
+          ],
+          "tips": [
+            "古村适合慢游，勿赶行程",
+            "尊重原住民生活，勿擅入私宅",
+            "可住民宿体验当地生活"
+          ],
+          "spotIds": []
+        },
+        {
+          "key": "architecture",
+          "name": "古建风韵",
+          "icon": "museum",
+          "coverSpotId": "wuzhen",
+          "avgRating": 4.6,
+          "bestSeason": "全年",
+          "recommendedDays": "1-2 日",
+          "budget": "¥200-400",
+          "intensity": "轻松",
+          "audience": "文化/家庭",
+          "highlights": [
+            "古建瑰宝",
+            "雕梁画栋",
+            "历史厚重",
+            "建筑美学"
+          ],
+          "tips": [
+            "可请讲解员，深度了解建筑历史",
+            "注意保护文物，勿触摸刻划",
+            "拍照注意光线，早晚最佳"
+          ],
+          "spotIds": [
+            "wuzhen"
+          ]
+        },
+        {
+          "key": "religion",
+          "name": "宗教文化",
+          "icon": "zen",
+          "coverSpotId": "putuoMountain",
+          "avgRating": 4.7,
+          "bestSeason": "全年",
+          "recommendedDays": "1-2 日",
+          "budget": "¥200-400",
+          "intensity": "轻松",
+          "audience": "银发/养心",
+          "highlights": [
+            "梵音晨钟",
+            "礼佛祈福",
+            "禅修体验",
+            "清心养性"
+          ],
+          "tips": [
+            "寺庙内勿大声喧哗，着装庄重",
+            "可预约禅修/早课体验",
+            "素斋值得一尝，提前询问用斋时间"
+          ],
+          "spotIds": [
+            "putuoMountain"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "outdoor",
+      "title": "户外休闲",
+      "items": [
+        {
+          "key": "hiking",
+          "name": "徒步自驾",
+          "icon": "route",
+          "coverSpotId": "yandangMountain",
+          "avgRating": 4.6,
+          "bestSeason": "春秋",
+          "recommendedDays": "2-3 日",
+          "budget": "¥300-800",
+          "intensity": "挑战",
+          "audience": "户外/探险",
+          "highlights": [
+            "徒步探险",
+            "自驾天堂",
+            "户外挑战",
+            "自然探索"
+          ],
+          "tips": [
+            "评估体力选合适路线，勿逞强",
+            "备足水和干粮，穿登山鞋",
+            "告知他人行程，保持手机有电"
+          ],
+          "spotIds": [
+            "yandangMountain"
+          ]
+        },
+        {
+          "key": "coastal",
+          "name": "亲海避暑",
+          "icon": "flower",
+          "coverSpotId": "qiandaoLake",
+          "avgRating": 4.7,
+          "bestSeason": "夏秋",
+          "recommendedDays": "2-3 日",
+          "budget": "¥500-1500",
+          "intensity": "轻松",
+          "audience": "家庭/度假",
+          "highlights": [
+            "碧海蓝天",
+            "沙滩阳光",
+            "海岛风情",
+            "避暑胜地"
+          ],
+          "tips": [
+            "注意防晒，备好防晒霜和遮阳帽",
+            "游泳注意安全，在指定区域活动",
+            "海鲜过敏者注意饮食选择"
+          ],
+          "spotIds": [
+            "qiandaoLake"
+          ]
+        }
+      ]
     }
   ]
 }

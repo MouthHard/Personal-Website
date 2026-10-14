@@ -207,18 +207,28 @@
 
     <!-- ============ 空态 ============ -->
     <div v-else class="empty-state">
-      <div class="empty-table">
-        <span class="empty-pedestal"><LeafIcon :size="30" /></span>
-        <span class="empty-pedestal empty-pedestal--small"></span>
-        <span class="empty-pedestal empty-pedestal--tall"></span>
-      </div>
-      <h4 class="empty-title">茶案空空 · 典藏待备</h4>
-      <p class="empty-desc">该地区的休闲养生项目正在收录整理中</p>
-      <div class="empty-tags">
-        <span class="zen-tag">温泉汤池</span>
-        <span class="zen-tag">禅修静心</span>
-        <span class="zen-tag">茶道品鉴</span>
-        <span class="zen-tag">森林康养</span>
+      <div class="empty-tea-table">
+        <div class="empty-table-top">
+          <span class="empty-pedestal">
+            <LeafIcon :size="32" />
+          </span>
+          <span class="empty-pedestal empty-pedestal--small"></span>
+          <span class="empty-pedestal empty-pedestal--tall"></span>
+        </div>
+        <div class="empty-table-body">
+          <h4 class="empty-title">茶案空空 · 典藏待备</h4>
+          <p class="empty-desc">该地区的休闲养生项目正在收录整理中</p>
+          <div class="empty-ink-seal">
+            <span class="seal-ring"></span>
+            <span class="seal-char">待</span>
+          </div>
+          <div class="empty-tags">
+            <span class="zen-tag">温泉汤池</span>
+            <span class="zen-tag">禅修静心</span>
+            <span class="zen-tag">茶道品鉴</span>
+            <span class="zen-tag">森林康养</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>

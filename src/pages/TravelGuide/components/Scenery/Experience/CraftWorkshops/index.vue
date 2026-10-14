@@ -176,13 +176,33 @@
       </div>
 
       <div class="detail-panel empty-detail" v-else>
-        <div class="empty-icon-housing">
-          <span class="empty-icon">
-            <PaletteIcon />
-          </span>
+        <span class="empty-screw screw-tl"></span>
+        <span class="empty-screw screw-tr"></span>
+        <span class="empty-screw screw-bl"></span>
+        <span class="empty-screw screw-br"></span>
+        <div class="empty-cast-plate">
+          <div class="empty-gear-housing">
+            <span class="empty-gear-ring"></span>
+            <span class="empty-gear-core">
+              <span class="empty-icon"><PaletteIcon /></span>
+            </span>
+          </div>
+          <h4 class="empty-title">工坊正在筹备中</h4>
+          <p class="empty-desc">该地区的手作工坊体验正在采集中</p>
+          <div class="empty-status-bar">
+            <span class="status-led"></span>
+            <span class="status-text">采集中</span>
+            <span class="status-progress">
+              <span class="progress-fill"></span>
+            </span>
+          </div>
+          <div class="empty-craft-tags">
+            <span class="craft-tag">木雕</span>
+            <span class="craft-tag">陶艺</span>
+            <span class="craft-tag">竹编</span>
+            <span class="craft-tag">漆器</span>
+          </div>
         </div>
-        <h4 class="empty-title">工坊正在筹备中</h4>
-        <p class="empty-desc">该地区的手作工坊体验正在采集中</p>
       </div>
     </div>
 

@@ -1,3 +1,4 @@
+@use 'sass:color';
 // ============================================================
 // WellnessRetreat · 香席茶案（左右两栏版 · 拟物增强版 II）
 // 布局：分类器物台（含"全部"）→ 左栏卡片列表 + 右栏卷笺详情 → 案脚铭牌
@@ -1057,7 +1058,7 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
             // 底部暗影
             radial-gradient(circle at 68% 80%, rgba(0, 0, 0, 0.5), transparent 55%),
             // 主木色 + 金属端盖
-            radial-gradient(circle at 35% 30%, lighten($wood-light, 18%), $wood-light 50%, $wood-deep);
+            radial-gradient(circle at 35% 30%, color.adjust($wood-light, $lightness: 18%), $wood-light 50%, $wood-deep);
           box-shadow:
             inset 0 1px 1px rgba(255, 220, 160, 0.5),
             inset 0 -2px 3px rgba(0, 0, 0, 0.55),
@@ -1659,101 +1660,156 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
   // ============================================
   .empty-state {
     position: relative;
-    text-align: center;
-    padding: 58px 20px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+    padding: 10px 0;
 
-    .empty-table {
-      width: 232px;
-      margin: 0 auto 20px;
-      padding: 18px;
-      border-radius: 13px;
+    .empty-tea-table {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 460px;
+      border-radius: 16px;
+      overflow: hidden;
       background:
         repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.06) 0 1px, transparent 1px 3px, rgba(0, 0, 0, 0.03) 3px 5px, transparent 5px 9px),
-        radial-gradient(ellipse at 30% 10%, rgba(255, 220, 160, 0.15), transparent 46%),
         linear-gradient(165deg, $wood 0%, $wood-deep 100%);
-      border: 2px solid rgba(0, 0, 0, 0.65);
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      gap: 14px;
+      border: 3px solid rgba(0, 0, 0, 0.6);
       box-shadow:
         inset 0 3px 8px rgba(0, 0, 0, 0.55),
         inset 0 -1px 0 rgba(255, 220, 160, 0.12),
-        0 8px 16px rgba(0, 0, 0, 0.4),
-        0 16px 28px rgba(20, 12, 4, 0.5);
+        0 10px 28px rgba(0, 0, 0, 0.5),
+        0 18px 36px rgba(20, 12, 4, 0.45);
 
-      .empty-pedestal {
+      .empty-table-top {
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        gap: 16px;
+        padding: 24px 20px 18px;
+        background:
+          linear-gradient(180deg, rgba(255, 220, 160, 0.08) 0%, transparent 60%),
+          repeating-linear-gradient(90deg, transparent 0 4px, rgba(0, 0, 0, 0.04) 4px 5px);
+        border-bottom: 2px solid rgba(0, 0, 0, 0.4);
+        box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.3);
+
+        .empty-pedestal {
+          position: relative;
+          width: 56px;
+          height: 56px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          background:
+            repeating-linear-gradient(45deg, rgba(92, 72, 36, 0.18) 0 2px, transparent 2px 4px),
+            repeating-linear-gradient(-45deg, rgba(92, 72, 36, 0.18) 0 2px, transparent 2px 4px),
+            radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.55), transparent 50%),
+            linear-gradient(180deg, $bamboo-light, $bamboo-deep);
+          box-shadow:
+            inset 0 2px 2px rgba(255, 255, 255, 0.55),
+            inset 0 -3px 6px rgba(60, 44, 18, 0.45),
+            0 4px 8px rgba(0, 0, 0, 0.4),
+            0 8px 14px rgba(0, 0, 0, 0.25);
+          color: rgba(92, 69, 31, 0.55);
+        }
+
+        .empty-pedestal--small {
+          width: 44px;
+          height: 44px;
+        }
+
+        .empty-pedestal--tall {
+          width: 62px;
+          height: 62px;
+        }
+      }
+
+      .empty-table-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+        padding: 32px 28px;
+        text-align: center;
+        background:
+          repeating-linear-gradient(0deg, transparent 0, transparent 3px, rgba(58, 46, 31, 0.02) 3px, rgba(58, 46, 31, 0.02) 4px),
+          linear-gradient(180deg, $cloth-l 0%, $cloth-d 100%);
+      }
+
+      .empty-title {
+        margin: 0;
+        font-family: $serif;
+        font-size: 24px;
+        font-weight: 800;
+        color: $ink;
+        letter-spacing: 3px;
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+      }
+
+      .empty-desc {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 600;
+        color: $ink-body;
+        letter-spacing: 1px;
+      }
+
+      .empty-ink-seal {
         position: relative;
-        width: 50px;
-        height: 50px;
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 50%;
-        background:
-          repeating-linear-gradient(45deg, rgba(92, 72, 36, 0.18) 0 2px, transparent 2px 4px),
-          repeating-linear-gradient(-45deg, rgba(92, 72, 36, 0.18) 0 2px, transparent 2px 4px),
-          radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.55), transparent 50%),
-          linear-gradient(180deg, $bamboo-light, $bamboo-deep);
-        box-shadow:
-          inset 0 2px 2px rgba(255, 255, 255, 0.55),
-          inset 0 -3px 6px rgba(60, 44, 18, 0.45),
-          0 4px 8px rgba(0, 0, 0, 0.4),
-          0 8px 14px rgba(0, 0, 0, 0.25);
-        color: rgba(92, 69, 31, 0.55);
+        width: 60px;
+        height: 60px;
+
+        .seal-ring {
+          position: absolute;
+          inset: 0;
+          border-radius: 50%;
+          border: 3px solid rgba($seal, 0.55);
+          box-shadow: inset 0 0 0 2px rgba($seal, 0.2);
+        }
+
+        .seal-char {
+          font-family: $serif;
+          font-size: 24px;
+          font-weight: 800;
+          color: $seal;
+          opacity: 0.78;
+          transform: rotate(-8deg);
+        }
       }
 
-      .empty-pedestal--small {
-        width: 40px;
-        height: 40px;
-      }
+      .empty-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
 
-      .empty-pedestal--tall {
-        width: 56px;
-        height: 56px;
-      }
-    }
-
-    .empty-title {
-      margin: 0 0 8px;
-      font-family: $serif;
-      font-size: 20px;
-      font-weight: 700;
-      color: $ink;
-      letter-spacing: 2px;
-    }
-
-    .empty-desc {
-      margin: 0 0 20px;
-      font-size: 15px;
-      color: $ink;
-      opacity: 0.7;
-    }
-
-    .empty-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-      justify-content: center;
-
-      .zen-tag {
-        font-size: 13px;
-        font-weight: 600;
-        padding: 6px 15px;
-        border-radius: 999px;
-        background:
-          radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.65), transparent 55%),
-          linear-gradient(180deg, #f5edd9, #ecdfc2);
-        border: 1px solid #ddcda8;
-        color: $ink;
-        box-shadow:
-          inset 0 1px 0 rgba(255, 255, 255, 0.9),
-          inset 0 -1px 2px rgba(120, 90, 45, 0.22),
-          0 2px 4px rgba(120, 90, 45, 0.28),
-          0 4px 8px rgba(120, 90, 45, 0.12);
+        .zen-tag {
+          font-size: 14px;
+          font-weight: 600;
+          padding: 7px 16px;
+          border-radius: 999px;
+          background:
+            radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.65), transparent 55%),
+            linear-gradient(180deg, #f5edd9, #ecdfc2);
+          border: 1px solid #ddcda8;
+          color: $ink;
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.9),
+            inset 0 -1px 2px rgba(120, 90, 45, 0.22),
+            0 2px 4px rgba(120, 90, 45, 0.28),
+            0 4px 8px rgba(120, 90, 45, 0.12);
+        }
       }
     }
   }
+
 }
 
 @keyframes artifactEnter {

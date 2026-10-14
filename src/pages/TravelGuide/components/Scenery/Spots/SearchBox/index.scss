@@ -1,0 +1,1403 @@
+// ============================================================
+// 景点搜索 / 筛选模块 — 重型机械装甲板
+// 强反差阴影 + 凹凸互锁 + 三态差异化
+// ============================================================
+
+$hi: rgba(255, 220, 220, 0.35);
+$hi-mid: rgba(255, 200, 200, 0.18);
+$lo: rgba(0, 0, 0, 0.9);
+$lo-mid: rgba(0, 0, 0, 0.7);
+$edge: rgba(255, 100, 100, 0.45);
+$edge-deep: rgba(255, 60, 60, 0.75);
+$glow: rgba(255, 80, 80, 0.55);
+$amber: #fdba74;
+$amber-bright: #fed7aa;
+$amber-glow: rgba(251, 146, 60, 0.5);
+
+// ============================================================
+// 景点搜索模块 — 装甲板内嵌仪表面板 + 筛选 + 排序
+// ============================================================
+
+.filter-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 24px;
+  box-sizing: border-box;
+  width: 100%;
+  background:
+    linear-gradient(165deg, rgba(55, 28, 28, 0.95), rgba(12, 4, 4, 0.98)),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 2px,
+      rgba(255, 100, 100, 0.022) 2px,
+      rgba(255, 100, 100, 0.022) 3px
+    );
+  border: 1px solid rgba(255, 100, 100, 0.28);
+  border-radius: 14px;
+  box-shadow:
+    inset 0 2px 0 $hi,
+    inset 0 -4px 0 $lo-mid,
+    inset 2px 0 0 $hi-mid,
+    inset -2px 0 0 $lo-mid,
+    0 16px 48px rgba(0, 0, 0, 0.8),
+    0 6px 18px rgba(0, 0, 0, 0.6),
+    0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.filter-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+// ============================================
+// 分类 tab：凸起装甲按钮（强三态差异化）
+// ============================================
+.filter-options {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.filter-chip {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 20px;
+  box-sizing: border-box;
+  position: relative;
+  background:
+    linear-gradient(160deg, rgba(78, 40, 40, 0.95), rgba(28, 12, 12, 0.98)),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 2px,
+      rgba(255, 120, 120, 0.035) 2px,
+      rgba(255, 120, 120, 0.035) 3px
+    );
+  border: 1px solid rgba(255, 100, 100, 0.32);
+  border-radius: 8px;
+  color: rgba(255, 235, 235, 0.88);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  box-shadow:
+    inset 0 2px 0 $hi-mid,
+    inset 0 -3px 0 $lo-mid,
+    inset 1px 0 0 rgba(255, 200, 200, 0.08),
+    inset -1px 0 0 $lo-mid,
+    inset 0 0 10px rgba(0, 0, 0, 0.35),
+    0 5px 12px rgba(0, 0, 0, 0.65),
+    0 2px 5px $lo;
+
+  // 四角铆钉
+  &::before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 230, 210, 0.85), rgba(60, 30, 30, 0.95));
+    box-shadow:
+      0 0 2px $lo,
+      calc(100% - 8px) 0 0 -1px rgba(255, 230, 210, 0.7),
+      calc(100% - 8px) 0 3px 0 rgba(0, 0, 0, 0.6),
+      0 calc(100% - 8px) 0 -1px rgba(255, 230, 210, 0.7),
+      0 calc(100% - 8px) 3px 0 rgba(0, 0, 0, 0.6),
+      calc(100% - 8px) calc(100% - 8px) 0 -1px rgba(255, 230, 210, 0.7),
+      calc(100% - 8px) calc(100% - 8px) 3px 0 rgba(0, 0, 0, 0.6);
+    pointer-events: none;
+    z-index: 3;
+    transition: all 0.3s ease;
+  }
+
+  // 顶部金属高光刻线
+  &::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 12px;
+    right: 12px;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      $hi-mid 30%,
+      $hi 50%,
+      $hi-mid 70%,
+      transparent
+    );
+    pointer-events: none;
+    z-index: 3;
+    transition: all 0.3s ease;
+  }
+
+  .chip-text {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.65);
+    position: relative;
+    z-index: 2;
+  }
+
+  .chip-count {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 26px;
+    height: 22px;
+    padding: 0 7px;
+    font-size: 14px;
+    font-weight: 800;
+    color: rgba(255, 188, 100, 0.95);
+    background:
+      linear-gradient(180deg, rgba(255, 188, 100, 0.22), rgba(255, 140, 60, 0.1)),
+      repeating-linear-gradient(
+        90deg,
+        transparent 0,
+        transparent 1px,
+        rgba(255, 188, 100, 0.04) 1px,
+        rgba(255, 188, 100, 0.04) 2px
+      );
+    border: 1px solid rgba(255, 188, 100, 0.35);
+    border-radius: 5px;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 220, 180, 0.3),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.45),
+      inset 0 0 4px rgba(0, 0, 0, 0.2),
+      0 1px 3px rgba(0, 0, 0, 0.45);
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+  }
+
+  &:hover {
+    border-color: $edge;
+    color: #fff;
+    transform: translateY(-3px);
+    background:
+      linear-gradient(160deg, rgba(95, 48, 48, 0.98), rgba(38, 18, 18, 1)),
+      repeating-linear-gradient(
+        90deg,
+        transparent 0,
+        transparent 2px,
+        rgba(255, 120, 120, 0.045) 2px,
+        rgba(255, 120, 120, 0.045) 3px
+      );
+    box-shadow:
+      inset 0 2px 0 rgba(255, 200, 200, 0.3),
+      inset 0 -3px 0 $lo-mid,
+      inset 1px 0 0 rgba(255, 200, 200, 0.12),
+      inset -1px 0 0 $lo-mid,
+      inset 0 0 12px rgba(255, 80, 80, 0.08),
+      0 10px 24px rgba(0, 0, 0, 0.75),
+      0 5px 12px $lo,
+      0 0 22px rgba(255, 100, 100, 0.22);
+
+    &::before {
+      background: radial-gradient(circle at 30% 30%, rgba(255, 240, 220, 0.95), rgba(80, 40, 40, 0.9));
+    }
+
+    &::after {
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 200, 200, 0.3) 30%,
+        rgba(255, 220, 220, 0.45) 50%,
+        rgba(255, 200, 200, 0.3) 70%,
+        transparent
+      );
+    }
+
+    .chip-count {
+      color: $amber-bright;
+      border-color: rgba(255, 188, 100, 0.55);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 220, 180, 0.4),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.35),
+        inset 0 0 6px rgba(255, 188, 100, 0.1),
+        0 1px 4px rgba(0, 0, 0, 0.4),
+        0 0 10px rgba(255, 188, 100, 0.25);
+    }
+  }
+
+  &.active {
+    background:
+      linear-gradient(160deg, rgba(255, 85, 85, 0.38), rgba(170, 28, 28, 0.32)),
+      repeating-linear-gradient(
+        45deg,
+        transparent 0,
+        transparent 4px,
+        rgba(255, 200, 100, 0.04) 4px,
+        rgba(255, 200, 100, 0.04) 8px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent 0,
+        transparent 2px,
+        rgba(255, 120, 120, 0.05) 2px,
+        rgba(255, 120, 120, 0.05) 3px
+      );
+    border-color: $edge-deep;
+    color: #fff;
+    transform: translateY(0);
+    box-shadow:
+      inset 0 4px 8px rgba(0, 0, 0, 0.55),
+      inset 0 -2px 0 rgba(255, 200, 200, 0.22),
+      inset 1px 0 0 rgba(255, 100, 100, 0.15),
+      inset -1px 0 0 rgba(0, 0, 0, 0.4),
+      inset 0 0 20px rgba(255, 60, 60, 0.18),
+      0 2px 6px rgba(0, 0, 0, 0.6),
+      0 0 28px $glow,
+      0 0 56px rgba(255, 100, 100, 0.22);
+
+    &::before {
+      background: radial-gradient(circle at 30% 30%, rgba(255, 220, 200, 0.95), rgba(180, 40, 40, 0.9));
+      box-shadow:
+        0 0 3px rgba(255, 100, 100, 0.5),
+        calc(100% - 8px) 0 0 -1px rgba(255, 220, 200, 0.85),
+        calc(100% - 8px) 0 3px 0 rgba(255, 60, 60, 0.5),
+        0 calc(100% - 8px) 0 -1px rgba(255, 220, 200, 0.85),
+        0 calc(100% - 8px) 3px 0 rgba(255, 60, 60, 0.5),
+        calc(100% - 8px) calc(100% - 8px) 0 -1px rgba(255, 220, 200, 0.85),
+        calc(100% - 8px) calc(100% - 8px) 3px 0 rgba(255, 60, 60, 0.5);
+    }
+
+    &::after {
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 180, 140, 0.4) 30%,
+        rgba(255, 210, 170, 0.55) 50%,
+        rgba(255, 180, 140, 0.4) 70%,
+        transparent
+      );
+    }
+
+    .chip-text {
+      text-shadow: 0 0 12px rgba(255, 150, 150, 0.55);
+    }
+
+    .chip-count {
+      color: #fff;
+      background:
+        linear-gradient(180deg, rgba(255, 100, 100, 0.5), rgba(255, 50, 50, 0.28)),
+        repeating-linear-gradient(
+          90deg,
+          transparent 0,
+          transparent 1px,
+          rgba(255, 100, 100, 0.06) 1px,
+          rgba(255, 100, 100, 0.06) 2px
+        );
+      border-color: rgba(255, 140, 140, 0.65);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 200, 200, 0.35),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+        inset 0 0 6px rgba(255, 60, 60, 0.15),
+        0 1px 3px rgba(0, 0, 0, 0.4),
+        0 0 12px rgba(255, 100, 100, 0.45);
+      text-shadow: 0 0 6px rgba(255, 150, 150, 0.5);
+    }
+  }
+
+  &.active:hover {
+    transform: translateY(-1px);
+    box-shadow:
+      inset 0 4px 8px rgba(0, 0, 0, 0.45),
+      inset 0 -2px 0 rgba(255, 200, 200, 0.28),
+      inset 1px 0 0 rgba(255, 100, 100, 0.2),
+      inset -1px 0 0 rgba(0, 0, 0, 0.35),
+      inset 0 0 22px rgba(255, 60, 60, 0.22),
+      0 4px 14px rgba(0, 0, 0, 0.6),
+      0 0 32px $glow,
+      0 0 64px rgba(255, 100, 100, 0.28);
+  }
+}
+
+
+// ============================================
+// 排序选项：齿轮传动选择器（独立机械风视觉语言）
+// 六边形蜂巢纹理 + 径向齿轮高光 + 仪表刻度 + conic 齿轮光环
+// ============================================
+.sort-options {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  .sort-label {
+    font-size: 14px;
+    font-weight: 800;
+    color: rgba(255, 230, 190, 0.92);
+    letter-spacing: 1.5px;
+    margin-right: 6px;
+    padding: 6px 12px;
+    background:
+      linear-gradient(180deg, rgba(70, 52, 32, 0.7), rgba(34, 24, 14, 0.8));
+    border: 1px solid rgba(255, 190, 110, 0.45);
+    border-radius: 3px;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 230, 190, 0.3),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+    text-transform: uppercase;
+  }
+
+  .sort-chip {
+    padding: 10px 18px;
+    box-sizing: border-box;
+    position: relative;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    color: rgba(255, 240, 220, 0.95);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    // 六边形蜂巢纹理 + 径向齿轮中心高光 + 钢灰金属底
+    background:
+      radial-gradient(circle at 50% 30%, rgba(255, 210, 160, 0.15), transparent 60%),
+      repeating-linear-gradient(
+        60deg,
+        transparent 0,
+        transparent 3px,
+        rgba(0, 0, 0, 0.06) 3px,
+        rgba(0, 0, 0, 0.06) 4px
+      ),
+      repeating-linear-gradient(
+        120deg,
+        transparent 0,
+        transparent 3px,
+        rgba(255, 190, 130, 0.03) 3px,
+        rgba(255, 190, 130, 0.03) 4px
+      ),
+      linear-gradient(165deg, rgba(62, 50, 38, 0.92), rgba(28, 21, 14, 0.96));
+
+    border: 1px solid rgba(255, 175, 90, 0.42);
+    // 不对称斜切角：机械零件感
+    border-radius: 10px 4px 10px 4px;
+
+    box-shadow:
+      inset 0 1px 0 rgba(255, 225, 185, 0.35),
+      inset 0 -2px 0 rgba(0, 0, 0, 0.7),
+      inset 1px 0 0 rgba(255, 210, 160, 0.12),
+      inset -1px 0 0 rgba(0, 0, 0, 0.5),
+      0 4px 10px rgba(0, 0, 0, 0.6),
+      0 1px 3px rgba(0, 0, 0, 0.7);
+
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.65);
+
+    // 顶部弧形金属反光带
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 15%;
+      right: 15%;
+      height: 40%;
+      border-radius: 10px 10px 50% 50%;
+      background: linear-gradient(
+        180deg,
+        rgba(255, 225, 185, 0.22),
+        transparent
+      );
+      pointer-events: none;
+      transition: all 0.3s ease;
+    }
+
+    // 底部仪表刻度线（3 条）
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 3px;
+      left: 30%;
+      right: 30%;
+      height: 2px;
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 195, 110, 0.4) 20%,
+          transparent 25%,
+          rgba(255, 195, 110, 0.4) 45%,
+          transparent 50%,
+          rgba(255, 195, 110, 0.4) 70%,
+          transparent 75%,
+          rgba(255, 195, 110, 0.4) 95%,
+          transparent
+        );
+      pointer-events: none;
+      transition: all 0.3s ease;
+    }
+
+    &:hover {
+      color: #fff;
+      border-color: rgba(255, 185, 90, 0.75);
+      transform: translateY(-2px);
+      background:
+        radial-gradient(circle at 50% 30%, rgba(255, 220, 170, 0.25), transparent 65%),
+        repeating-linear-gradient(
+          60deg,
+          transparent 0,
+          transparent 3px,
+          rgba(0, 0, 0, 0.05) 3px,
+          rgba(0, 0, 0, 0.05) 4px
+        ),
+        repeating-linear-gradient(
+          120deg,
+          transparent 0,
+          transparent 3px,
+          rgba(255, 190, 130, 0.04) 3px,
+          rgba(255, 190, 130, 0.04) 4px
+        ),
+        linear-gradient(165deg, rgba(78, 62, 46, 0.96), rgba(36, 27, 18, 1));
+
+      box-shadow:
+        inset 0 1px 0 rgba(255, 230, 190, 0.45),
+        inset 0 -2px 0 rgba(0, 0, 0, 0.65),
+        inset 1px 0 0 rgba(255, 210, 160, 0.18),
+        inset -1px 0 0 rgba(0, 0, 0, 0.45),
+        0 7px 16px rgba(0, 0, 0, 0.7),
+        0 3px 6px rgba(0, 0, 0, 0.8),
+        0 0 20px rgba(255, 175, 85, 0.35);
+
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+
+      &::before {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 235, 195, 0.38),
+          transparent
+        );
+      }
+
+      &::after {
+        background:
+          linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 210, 130, 0.65) 20%,
+            transparent 25%,
+            rgba(255, 210, 130, 0.65) 45%,
+            transparent 50%,
+            rgba(255, 210, 130, 0.65) 70%,
+            transparent 75%,
+            rgba(255, 210, 130, 0.65) 95%,
+            transparent
+          );
+      }
+    }
+
+    &.active {
+      color: #fff;
+      border-color: rgba(255, 195, 90, 0.85);
+      // conic-gradient 齿轮咬合光环 + 蜂巢纹理 + 电橙底
+      background:
+        conic-gradient(
+          from 0deg,
+          rgba(255, 195, 90, 0.22),
+          rgba(255, 155, 45, 0.08),
+          rgba(255, 215, 115, 0.18),
+          rgba(255, 155, 45, 0.08),
+          rgba(255, 195, 90, 0.22)
+        ),
+        repeating-linear-gradient(
+          60deg,
+          transparent 0,
+          transparent 3px,
+          rgba(0, 0, 0, 0.05) 3px,
+          rgba(0, 0, 0, 0.05) 4px
+        ),
+        repeating-linear-gradient(
+          120deg,
+          transparent 0,
+          transparent 3px,
+          rgba(255, 195, 130, 0.05) 3px,
+          rgba(255, 195, 130, 0.05) 4px
+        ),
+        linear-gradient(165deg, rgba(90, 60, 32, 0.75), rgba(44, 28, 14, 0.82));
+
+      box-shadow:
+        inset 0 2px 5px rgba(0, 0, 0, 0.5),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.4),
+        inset 0 0 16px rgba(255, 175, 65, 0.22),
+        0 2px 6px rgba(0, 0, 0, 0.5),
+        0 0 26px rgba(255, 165, 55, 0.55),
+        0 0 52px rgba(255, 165, 55, 0.25);
+
+      text-shadow: 0 0 14px rgba(255, 200, 110, 0.75);
+
+      &::before {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 230, 170, 0.45),
+          transparent
+        );
+      }
+
+      &::after {
+        background:
+          linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 210, 110, 0.85) 20%,
+            transparent 25%,
+            rgba(255, 210, 110, 0.85) 45%,
+            transparent 50%,
+            rgba(255, 210, 110, 0.85) 70%,
+            transparent 75%,
+            rgba(255, 210, 110, 0.85) 95%,
+            transparent
+          );
+        box-shadow: 0 0 8px rgba(255, 190, 80, 0.45);
+      }
+
+      &:hover {
+        transform: translateY(-1px);
+        box-shadow:
+          inset 0 2px 5px rgba(0, 0, 0, 0.45),
+          inset 0 -1px 0 rgba(0, 0, 0, 0.35),
+          inset 0 0 18px rgba(255, 175, 65, 0.28),
+          0 4px 12px rgba(0, 0, 0, 0.5),
+          0 0 32px rgba(255, 165, 55, 0.65),
+          0 0 64px rgba(255, 165, 55, 0.3);
+      }
+    }
+  }
+}
+
+// ============================================
+// 搜索框 — 晶莹剔透宝石镶嵌面板
+// 玻璃通透 + 宝石切面 + 光彩流转
+// ============================================
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 16px 0 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 56px;
+  background:
+    linear-gradient(180deg, rgba(255, 180, 180, 0.08) 0%, transparent 35%),
+    linear-gradient(180deg, rgba(22, 10, 12, 0.88), rgba(10, 4, 6, 0.94)),
+    radial-gradient(ellipse at 50% 0%, rgba(255, 120, 120, 0.1), transparent 65%);
+  border: 1px solid rgba(255, 130, 130, 0.32);
+  border-radius: 14px;
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.6),
+    inset 0 -1px 0 rgba(255, 150, 150, 0.18),
+    inset 0 0 24px rgba(255, 80, 80, 0.05),
+    0 8px 24px rgba(0, 0, 0, 0.65),
+    0 2px 8px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(0, 0, 0, 0.4);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+
+  // 顶部宝石高光带
+  &::before {
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 12px;
+    right: 12px;
+    height: 40%;
+    border-radius: 14px 14px 50% 50%;
+    background: linear-gradient(180deg, rgba(255, 220, 220, 0.12), transparent);
+    pointer-events: none;
+    z-index: 4;
+  }
+
+  // 底部反光线
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 1px;
+    left: 20px;
+    right: 20px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 160, 160, 0.3) 50%, transparent);
+    pointer-events: none;
+    z-index: 4;
+  }
+
+  &:focus-within {
+    border-color: rgba(255, 100, 100, 0.55);
+    box-shadow:
+      inset 0 2px 4px rgba(0, 0, 0, 0.5),
+      inset 0 -1px 0 rgba(255, 170, 170, 0.3),
+      inset 0 0 28px rgba(255, 80, 80, 0.12),
+      0 8px 24px rgba(0, 0, 0, 0.65),
+      0 0 36px rgba(255, 80, 80, 0.22),
+      0 0 72px rgba(255, 60, 60, 0.08);
+  }
+}
+
+// 搜索图标 — 红宝石镶嵌座
+.search-icon-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  color: rgba(255, 240, 240, 1);
+  background:
+    radial-gradient(circle at 50% 28%, rgba(255, 220, 220, 0.4) 0%, transparent 42%),
+    radial-gradient(circle at 50% 50%, rgba(210, 60, 60, 0.6) 0%, rgba(100, 25, 25, 0.78) 55%, rgba(35, 10, 10, 0.9) 100%),
+    linear-gradient(180deg, rgba(80, 30, 30, 0.55), rgba(25, 8, 8, 0.7));
+  border-right: 1px solid rgba(255, 100, 100, 0.2);
+  border-top-left-radius: 14px;
+  border-bottom-left-radius: 14px;
+  box-shadow:
+    inset 0 2px 4px rgba(255, 170, 170, 0.3),
+    inset 0 -3px 8px rgba(0, 0, 0, 0.7),
+    inset 2px 0 6px rgba(0, 0, 0, 0.4),
+    inset 0 0 18px rgba(255, 80, 80, 0.18);
+  text-shadow: 0 0 14px rgba(255, 120, 120, 0.8);
+  transition: all 0.35s ease;
+
+  // 宝石切面高光（左上→右下对角闪光线）
+  &::before {
+    content: '';
+    position: absolute;
+    top: 18%;
+    left: 22%;
+    width: 56%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255, 250, 250, 0.85) 50%, transparent);
+    transform: rotate(-32deg);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 3;
+    animation: gem-facet-shimmer 2.4s ease-in-out infinite;
+  }
+
+  // 宝石内部光芒环
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 34px;
+    height: 34px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 1px solid rgba(255, 160, 160, 0.25);
+    background: conic-gradient(
+      from 0deg,
+      transparent 0deg,
+      rgba(255, 200, 200, 0.28) 60deg,
+      transparent 120deg,
+      rgba(255, 170, 170, 0.18) 200deg,
+      transparent 280deg,
+      rgba(255, 200, 200, 0.22) 340deg,
+      transparent 360deg
+    );
+    pointer-events: none;
+    animation: gem-inner-glow 3.5s linear infinite;
+  }
+
+  svg {
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.7)) drop-shadow(0 0 6px rgba(255, 120, 120, 0.7));
+  }
+}
+
+// 聚焦态：宝石觉醒，光芒绽放
+.search-box:focus-within .search-icon-wrapper {
+  color: rgba(255, 240, 240, 1);
+  text-shadow: 0 0 16px rgba(255, 120, 120, 0.9);
+  background:
+    radial-gradient(circle at 50% 28%, rgba(255, 230, 230, 0.4) 0%, transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba(220, 60, 60, 0.65) 0%, rgba(110, 25, 25, 0.8) 55%, rgba(40, 10, 10, 0.92) 100%),
+    linear-gradient(180deg, rgba(90, 30, 30, 0.6), rgba(25, 8, 8, 0.8));
+  box-shadow:
+    inset 0 2px 4px rgba(255, 180, 180, 0.3),
+    inset 0 -3px 8px rgba(0, 0, 0, 0.6),
+    inset 2px 0 6px rgba(0, 0, 0, 0.3),
+    inset 0 0 20px rgba(255, 80, 80, 0.2),
+    0 0 16px rgba(255, 80, 80, 0.3);
+}
+
+.search-input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  padding: 0 8px;
+  box-sizing: border-box;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: rgba(255, 240, 240, 0.95);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+
+  &::placeholder {
+    color: rgba(255, 180, 180, 0.42);
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    text-shadow: none;
+  }
+
+  &::selection {
+    background: rgba(255, 80, 80, 0.3);
+    color: #fff;
+  }
+}
+
+// 清除按钮 — 水晶珠
+.search-clear-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  color: rgba(255, 220, 220, 0.88);
+  background:
+    radial-gradient(circle at 35% 28%, rgba(255, 240, 240, 0.35) 0%, transparent 38%),
+    radial-gradient(circle at 50% 50%, rgba(80, 30, 30, 0.6) 0%, rgba(30, 12, 12, 0.85) 70%, rgba(15, 5, 5, 0.95) 100%);
+  border: 1px solid rgba(255, 130, 130, 0.38);
+  border-radius: 50%;
+  box-shadow:
+    inset 0 2px 3px rgba(255, 200, 200, 0.25),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.7),
+    inset 0 0 8px rgba(255, 80, 80, 0.1),
+    0 2px 6px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(0, 0, 0, 0.3);
+  transition: all 0.25s ease;
+
+  // 水晶顶部高光点
+  &::before {
+    content: '';
+    position: absolute;
+    top: 18%;
+    left: 28%;
+    width: 32%;
+    height: 25%;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at 50% 50%, rgba(255, 250, 250, 0.55), transparent 70%);
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  // 水晶底部反光弧
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 15%;
+    left: 25%;
+    right: 25%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 180, 180, 0.3) 50%, transparent);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  svg {
+    position: relative;
+    z-index: 3;
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.6));
+  }
+
+  &:hover {
+    color: rgba(255, 245, 245, 1);
+    border-color: rgba(255, 100, 100, 0.65);
+    background:
+      radial-gradient(circle at 35% 28%, rgba(255, 250, 250, 0.45) 0%, transparent 40%),
+      radial-gradient(circle at 50% 50%, rgba(120, 40, 40, 0.75) 0%, rgba(50, 18, 18, 0.9) 70%, rgba(25, 8, 8, 1) 100%);
+    box-shadow:
+      inset 0 2px 3px rgba(255, 220, 220, 0.35),
+      inset 0 -2px 4px rgba(0, 0, 0, 0.6),
+      inset 0 0 12px rgba(255, 80, 80, 0.18),
+      0 3px 8px rgba(0, 0, 0, 0.7),
+      0 0 16px rgba(255, 80, 80, 0.4),
+      0 0 32px rgba(255, 60, 60, 0.15);
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(0.9);
+    box-shadow:
+      inset 0 3px 5px rgba(0, 0, 0, 0.8),
+      inset 0 0 8px rgba(255, 60, 60, 0.25);
+  }
+}
+
+
+// ============================================
+// 下拉菜单 — 玫瑰红熔岩锻造阀
+// 深炭锻钢外壳 + 内壁熔岩裂纹透光 + 六角锻造螺栓
+// 刻槽导轨 / 珐琅铭牌 / 锻造勋章 / 阀杆按键
+// ============================================
+.search-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  right: 0;
+  z-index: 50;
+  padding: 20px 22px 18px;
+  box-sizing: border-box;
+  // 深炭锻钢外壳 + 锤痕纹理 + 内壁熔岩透光
+  background:
+    radial-gradient(ellipse at 50% 100%, rgba(255, 50, 45, 0.14), transparent 72%),
+    radial-gradient(ellipse at 18% 82%, rgba(255, 40, 35, 0.09), transparent 50%),
+    radial-gradient(ellipse at 82% 82%, rgba(255, 40, 35, 0.09), transparent 50%),
+    repeating-linear-gradient(48deg, transparent 0, transparent 4px, rgba(255, 120, 100, 0.016) 4px, rgba(255, 120, 100, 0.016) 5px),
+    repeating-linear-gradient(132deg, transparent 0, transparent 6px, rgba(0, 0, 0, 0.09) 6px, rgba(0, 0, 0, 0.09) 7px),
+    repeating-linear-gradient(90deg, transparent 0, transparent 2px, rgba(255, 100, 80, 0.014) 2px, rgba(255, 100, 80, 0.014) 3px),
+    linear-gradient(168deg, rgba(34, 23, 22, 0.98), rgba(12, 7, 7, 0.99));
+  border: 1px solid rgba(255, 95, 85, 0.42);
+  border-radius: 12px;
+  box-shadow:
+    inset 0 2px 0 rgba(255, 165, 150, 0.2),
+    inset 0 -3px 0 rgba(0, 0, 0, 0.72),
+    inset 0 0 38px rgba(255, 50, 45, 0.07),
+    0 24px 58px rgba(0, 0, 0, 0.9),
+    0 8px 22px rgba(0, 0, 0, 0.7),
+    0 0 34px rgba(255, 60, 55, 0.13);
+  animation: forge-open 0.38s cubic-bezier(0.34, 1.4, 0.64, 1);
+  overflow: hidden;
+
+  // 顶部锻造接缝线
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 26px;
+    right: 26px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255, 135, 115, 0.38) 15%, rgba(255, 95, 75, 0.55) 50%, rgba(255, 135, 115, 0.38) 85%, transparent);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+    pointer-events: none;
+    z-index: 4;
+  }
+
+  // 底部熔岩裂缝发光带
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, rgba(255, 65, 50, 0.42) 20%, rgba(255, 105, 85, 0.6) 50%, rgba(255, 65, 50, 0.42) 80%, transparent);
+    box-shadow: 0 0 14px rgba(255, 75, 60, 0.45);
+    pointer-events: none;
+    z-index: 4;
+    animation: lava-seep 2.8s ease-in-out infinite;
+  }
+
+  // 六角锻造螺栓
+  .dropdown-rivet {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    pointer-events: none;
+    z-index: 5;
+    background: linear-gradient(145deg, rgba(190, 135, 122, 0.92), rgba(68, 42, 38, 0.96));
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 7px;
+      height: 1.5px;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 0, 0, 0.65);
+      border-radius: 1px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 1.5px;
+      height: 7px;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 0, 0, 0.65);
+      border-radius: 1px;
+    }
+
+    &-tl { top: 8px; left: 8px; }
+    &-tr { top: 8px; right: 8px; }
+    &-bl { bottom: 8px; left: 8px; }
+    &-br { bottom: 8px; right: 8px; }
+  }
+}
+
+// 锻造隔舱
+.dropdown-section {
+  & + .dropdown-section {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid transparent;
+    background-image: linear-gradient(90deg, transparent, rgba(255, 95, 80, 0.3) 18%, rgba(255, 115, 95, 0.38) 50%, rgba(255, 95, 80, 0.3) 82%, transparent);
+    background-size: 100% 1px;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+  }
+}
+
+.dropdown-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+// 锻造钢印标题
+.dropdown-title {
+  display: flex;
+  align-items: center;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: rgba(255, 228, 222, 0.96);
+  text-transform: uppercase;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7), 0 -1px 0 rgba(255, 150, 135, 0.12);
+
+  // 锻造钢印方块（冲压凸起感）
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 18px;
+    margin-right: 10px;
+    border-radius: 1px;
+    background: linear-gradient(180deg, rgba(255, 105, 85, 0.95), rgba(200, 50, 40, 0.85));
+    box-shadow:
+      inset 0 1px 0 rgba(255, 205, 190, 0.4),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.5),
+      0 0 8px rgba(255, 80, 60, 0.5);
+  }
+}
+
+// 锻造刻度铭牌
+.suggestion-count {
+  font-size: 15px;
+  color: rgba(255, 215, 205, 0.95);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 4px 12px;
+  border-radius: 4px;
+  background:
+    linear-gradient(180deg, rgba(62, 36, 33, 0.72), rgba(26, 14, 12, 0.86)),
+    repeating-linear-gradient(90deg, transparent 0, transparent 3px, rgba(255, 120, 100, 0.04) 3px, rgba(255, 120, 100, 0.04) 4px);
+  border: 1px solid rgba(255, 115, 95, 0.32);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 185, 165, 0.16),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.4),
+    0 1px 3px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+// 锻造泄压阀按钮
+.clear-history-btn {
+  background:
+    linear-gradient(165deg, rgba(58, 32, 29, 0.72), rgba(22, 11, 10, 0.9)),
+    repeating-linear-gradient(90deg, transparent 0, transparent 2px, rgba(255, 100, 80, 0.02) 2px, rgba(255, 100, 80, 0.02) 3px);
+  border: 1px solid rgba(255, 105, 90, 0.32);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 15px;
+  color: rgba(255, 205, 200, 0.9);
+  letter-spacing: 0.5px;
+  padding: 5px 14px;
+  transition: all 0.25s ease;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 165, 150, 0.16),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.4),
+    0 1px 3px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+
+  &:hover {
+    color: rgba(255, 165, 150, 1);
+    border-color: rgba(255, 115, 90, 0.62);
+    background:
+      linear-gradient(165deg, rgba(84, 40, 36, 0.92), rgba(32, 15, 13, 0.96)),
+      repeating-linear-gradient(90deg, transparent 0, transparent 2px, rgba(255, 100, 80, 0.03) 2px, rgba(255, 100, 80, 0.03) 3px);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 195, 180, 0.26),
+      inset 0 -1px 1px rgba(0, 0, 0, 0.4),
+      0 3px 8px rgba(0, 0, 0, 0.5),
+      0 0 12px rgba(255, 80, 60, 0.25);
+    transform: translateY(-2px);
+  }
+}
+
+// 刻槽导轨
+.suggestion-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 4px 0;
+  position: relative;
+}
+
+// 刻槽导轨滑块
+.suggestion-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 14px 11px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 1px solid rgba(255, 95, 80, 0.1);
+  transition: all 0.22s ease;
+  background:
+    linear-gradient(165deg, rgba(38, 23, 21, 0.5), rgba(17, 9, 8, 0.6)),
+    repeating-linear-gradient(90deg, transparent 0, transparent 2px, rgba(255, 100, 80, 0.012) 2px, rgba(255, 100, 80, 0.012) 3px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 155, 140, 0.06),
+    inset 3px 0 0 rgba(0, 0, 0, 0.3),
+    0 1px 2px rgba(0, 0, 0, 0.3);
+
+  &:hover,
+  &.active {
+    background:
+      linear-gradient(90deg, rgba(255, 75, 60, 0.22), rgba(255, 55, 45, 0.06) 60%, transparent),
+      linear-gradient(165deg, rgba(52, 26, 23, 0.72), rgba(21, 11, 9, 0.82));
+    border-color: rgba(255, 105, 88, 0.46);
+    box-shadow:
+      inset 3px 0 0 rgba(255, 115, 92, 0.95),
+      inset 0 1px 0 rgba(255, 185, 170, 0.16),
+      inset 0 0 16px rgba(255, 65, 52, 0.15),
+      0 3px 10px rgba(0, 0, 0, 0.45),
+      0 0 14px rgba(255, 75, 60, 0.16);
+    transform: translateX(4px);
+  }
+}
+
+.suggestion-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: rgba(255, 246, 244, 1);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+
+  :deep(mark.search-highlight) {
+    color: rgba(255, 222, 205, 1);
+    background: linear-gradient(180deg, rgba(255, 105, 85, 0.38), rgba(255, 65, 52, 0.22));
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-weight: 800;
+    box-shadow: inset 0 0 5px rgba(255, 85, 65, 0.22), 0 0 6px rgba(255, 85, 65, 0.28);
+  }
+}
+
+.suggestion-meta {
+  font-size: 15px;
+  color: rgba(255, 212, 207, 0.85);
+  letter-spacing: 0.3px;
+  flex-shrink: 0;
+  padding: 3px 11px;
+  border-radius: 4px;
+  background:
+    linear-gradient(165deg, rgba(52, 29, 26, 0.66), rgba(23, 12, 10, 0.78)),
+    repeating-linear-gradient(90deg, transparent 0, transparent 3px, rgba(255, 100, 80, 0.03) 3px, rgba(255, 100, 80, 0.03) 4px);
+  border: 1px solid rgba(255, 105, 88, 0.2);
+  box-shadow: inset 0 1px 0 rgba(255, 165, 150, 0.1), 0 1px 2px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+.dropdown-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  padding: 2px 0;
+}
+
+// 珐琅铭牌标签
+.history-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(255, 237, 234, 0.95);
+  background:
+    linear-gradient(165deg, rgba(125, 48, 42, 0.58), rgba(52, 19, 17, 0.86)),
+    repeating-linear-gradient(90deg, transparent 0, transparent 2px, rgba(255, 100, 80, 0.02) 2px, rgba(255, 100, 80, 0.02) 3px);
+  border: 1px solid rgba(255, 105, 88, 0.32);
+  border-radius: 4px;
+  transition: all 0.25s ease;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 175, 162, 0.18),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.45),
+    0 2px 5px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+
+  &:hover {
+    color: rgba(255, 251, 249, 1);
+    border-color: rgba(255, 115, 90, 0.66);
+    background:
+      linear-gradient(165deg, rgba(168, 58, 50, 0.72), rgba(68, 23, 20, 0.92)),
+      repeating-linear-gradient(90deg, transparent 0, transparent 2px, rgba(255, 100, 80, 0.03) 2px, rgba(255, 100, 80, 0.03) 3px);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 205, 192, 0.3),
+      inset 0 -1px 2px rgba(0, 0, 0, 0.4),
+      inset 0 0 10px rgba(255, 85, 65, 0.13),
+      0 4px 11px rgba(0, 0, 0, 0.6),
+      0 0 18px rgba(255, 85, 65, 0.32);
+    transform: translateY(-2px);
+  }
+}
+
+// 锻造铆钉点
+.history-tag-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, rgba(255, 222, 212, 1), rgba(255, 135, 115, 0.9));
+  box-shadow: 0 0 6px rgba(255, 125, 100, 0.8), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+// 锻造勋章标签
+.hot-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  color: rgba(255, 242, 238, 1);
+  background:
+    linear-gradient(165deg, rgba(72, 33, 29, 0.82), rgba(25, 11, 9, 0.92)),
+    repeating-linear-gradient(90deg, transparent 0, transparent 2px, rgba(255, 100, 80, 0.02) 2px, rgba(255, 100, 80, 0.02) 3px);
+  border: 1px solid rgba(255, 115, 92, 0.34);
+  border-radius: 4px;
+  transition: all 0.25s ease;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 185, 168, 0.15),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.45),
+    0 2px 5px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+
+  &:hover {
+    color: rgba(255, 251, 249, 1);
+    border-color: rgba(255, 122, 96, 0.7);
+    background:
+      linear-gradient(165deg, rgba(104, 44, 36, 0.92), rgba(33, 14, 11, 0.98)),
+      repeating-linear-gradient(90deg, transparent 0, transparent 2px, rgba(255, 100, 80, 0.03) 2px, rgba(255, 100, 80, 0.03) 3px);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 215, 198, 0.3),
+      inset 0 -1px 2px rgba(0, 0, 0, 0.4),
+      inset 0 0 12px rgba(255, 85, 65, 0.15),
+      0 4px 11px rgba(0, 0, 0, 0.6),
+      0 0 20px rgba(255, 85, 65, 0.34);
+    transform: translateY(-2px);
+  }
+
+  &.hot-top {
+    border-color: rgba(255, 115, 88, 0.56);
+    background:
+      linear-gradient(165deg, rgba(92, 39, 32, 0.88), rgba(29, 12, 10, 0.96)),
+      repeating-linear-gradient(90deg, transparent 0, transparent 2px, rgba(255, 100, 80, 0.025) 2px, rgba(255, 100, 80, 0.025) 3px);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 205, 188, 0.2),
+      inset 0 -1px 2px rgba(0, 0, 0, 0.4),
+      0 2px 6px rgba(0, 0, 0, 0.5);
+  }
+
+  &.hot-first {
+    border-color: rgba(255, 102, 76, 0.74);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 215, 198, 0.3),
+      inset 0 -1px 2px rgba(0, 0, 0, 0.4),
+      inset 0 0 14px rgba(255, 72, 55, 0.13),
+      0 2px 6px rgba(0, 0, 0, 0.5),
+      0 0 14px rgba(255, 85, 62, 0.3);
+  }
+}
+
+// 锻造序号徽章
+.hot-rank {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 23px;
+  height: 23px;
+  font-size: 14px;
+  font-weight: 800;
+  color: rgba(255, 227, 218, 1);
+  background:
+    radial-gradient(circle at 35% 30%, rgba(125, 58, 47, 0.86), rgba(42, 19, 14, 0.95)),
+    repeating-linear-gradient(90deg, transparent 0, transparent 2px, rgba(255, 100, 80, 0.03) 2px, rgba(255, 100, 80, 0.03) 3px);
+  border: 1px solid rgba(255, 115, 92, 0.44);
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow:
+    inset 0 1px 1px rgba(255, 195, 178, 0.22),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.5),
+    0 1px 2px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+
+  .hot-first & {
+    color: rgba(255, 247, 242, 1);
+    background: radial-gradient(circle at 35% 30%, rgba(225, 82, 60, 0.9), rgba(105, 32, 20, 0.95));
+    border-color: rgba(255, 135, 102, 0.66);
+    box-shadow:
+      inset 0 1px 1px rgba(255, 225, 205, 0.35),
+      inset 0 -1px 2px rgba(0, 0, 0, 0.5),
+      0 1px 3px rgba(0, 0, 0, 0.4),
+      0 0 8px rgba(255, 95, 72, 0.42);
+  }
+}
+
+// 锻钢趋势指示
+.hot-trend {
+  width: 0;
+  height: 0;
+  flex-shrink: 0;
+
+  &.trend-top {
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 9px solid rgba(255, 115, 88, 1);
+    filter: drop-shadow(0 0 5px rgba(255, 105, 78, 0.8));
+  }
+  &.trend-up {
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 7px solid rgba(255, 175, 152, 0.95);
+    filter: drop-shadow(0 0 3px rgba(255, 145, 112, 0.5));
+  }
+  &.trend-flat {
+    width: 9px;
+    height: 3px;
+    background: rgba(255, 185, 172, 0.8);
+    border-radius: 2px;
+  }
+}
+
+// 熔岩火舌
+.hot-flame-icon {
+  width: 14px;
+  height: 18px;
+  background:
+    radial-gradient(ellipse at 50% 75%, rgba(255, 115, 82, 1), rgba(255, 62, 42, 0.7) 55%, transparent),
+    linear-gradient(180deg, rgba(255, 145, 92, 0.3), transparent);
+  border-radius: 50% 50% 50% 50% / 70% 70% 30% 30%;
+  filter: drop-shadow(0 0 6px rgba(255, 92, 62, 0.8));
+  animation: lava-flicker 1.6s ease-in-out infinite;
+}
+
+// 阀杆控制台
+.dropdown-footer {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid transparent;
+  background-image: linear-gradient(90deg, transparent, rgba(255, 95, 80, 0.26) 15%, rgba(255, 115, 92, 0.32) 50%, rgba(255, 95, 80, 0.26) 85%, transparent);
+  background-size: 100% 1px;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  font-size: 15px;
+  color: rgba(255, 212, 207, 0.85);
+}
+
+// 3D 阀杆按键
+.footer-key {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 30px;
+  padding: 0 9px;
+  font-size: 14px;
+  font-weight: 800;
+  color: rgba(255, 227, 218, 1);
+  background:
+    linear-gradient(180deg, rgba(78, 44, 39, 0.9), rgba(29, 14, 12, 0.97)),
+    repeating-linear-gradient(90deg, transparent 0, transparent 2px, rgba(255, 100, 80, 0.02) 2px, rgba(255, 100, 80, 0.02) 3px);
+  border: 1px solid rgba(255, 105, 88, 0.34);
+  border-radius: 5px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 195, 182, 0.26),
+    inset 0 -2px 3px rgba(0, 0, 0, 0.6),
+    0 2px 4px rgba(0, 0, 0, 0.5),
+    0 1px 0 rgba(0, 0, 0, 0.4);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: rgba(255, 242, 232, 1);
+    border-color: rgba(255, 115, 88, 0.56);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 215, 198, 0.36),
+      inset 0 -2px 3px rgba(0, 0, 0, 0.55),
+      inset 0 0 8px rgba(255, 85, 65, 0.16),
+      0 3px 6px rgba(0, 0, 0, 0.5),
+      0 0 10px rgba(255, 85, 65, 0.26);
+  }
+}
+
+.footer-text {
+  letter-spacing: 0.5px;
+}
+
+.footer-divider {
+  width: 1px;
+  height: 14px;
+  background: rgba(255, 105, 88, 0.3);
+  margin: 0 2px;
+}
+
+// ============================================
+// 动画关键帧
+// ============================================
+@keyframes forge-open {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scaleY(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+  }
+}
+
+@keyframes lava-seep {
+  0%, 100% { opacity: 0.65; }
+  50% { opacity: 1; }
+}
+
+@keyframes lava-flicker {
+  0%, 100% { transform: scaleY(1) scaleX(1); opacity: 0.9; }
+  50% { transform: scaleY(1.18) scaleX(0.9); opacity: 1; }
+}
+
+@keyframes gem-facet-shimmer {
+  0%, 100% { opacity: 0.3; transform: rotate(-32deg) translateX(0); }
+  50% { opacity: 1; transform: rotate(-32deg) translateX(3px); }
+}
+
+@keyframes gem-inner-glow {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}

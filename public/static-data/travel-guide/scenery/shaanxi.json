@@ -14,7 +14,111 @@
       "rating": 4.9,
       "bestTime": "全年",
       "location": "陕西省西安市临潼区",
-      "description": "世界文化遗产,秦始皇陵的陪葬坑"
+      "description": "世界文化遗产,秦始皇陵的陪葬坑",
+      "highlight": "世界第八大奇迹,秦始皇陵",
+      "level": "5A景区",
+      "rankBadge": "必去",
+      "reviewCount": "156,789条点评",
+      "distance": "距西安40km",
+      "ticketPrice": "¥120",
+      "landscapeCategory": [
+        "人文景观"
+      ],
+      "openTime": "08:30-18:00",
+      "visitDuration": "3-4小时",
+      "popularity": "★★★★★",
+      "audienceTags": [
+        "历史爱好者",
+        "文化爱好者",
+        "考古爱好者",
+        "家庭游客"
+      ],
+      "ticketDetails": [
+        "成人票¥120",
+        "学生票半价",
+        "65岁以上免票",
+        "含秦始皇帝陵"
+      ],
+      "transportInfo": [
+        "飞机:西安咸阳机场距景区50km",
+        "高铁:西安北站转地铁",
+        "自驾:G30高速临潼出口",
+        "客运:西安火车站游5路"
+      ],
+      "openTimeDetail": [
+        "旺季(3-11月) 08:30-18:00",
+        "淡季(12-2月) 08:30-17:00"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "三坑参观线",
+          "duration": "3小时",
+          "difficulty": "轻松",
+          "description": "一号坑-二号坑-三号坑",
+          "highlights": [
+            "一号坑军阵",
+            "二号坑骑兵",
+            "三号坑指挥部"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "三坑参观",
+              "detail": "景区入口→一号坑(主坑)→二号坑→三号坑→陈列厅"
+            }
+          ],
+          "budget": "¥120",
+          "bestFor": "历史爱好者/首次游览"
+        },
+        {
+          "name": "深度游览线",
+          "duration": "4小时",
+          "difficulty": "轻松",
+          "description": "含铜车马展厅与秦始皇帝陵",
+          "highlights": [
+            "铜车马",
+            "三坑军阵",
+            "秦始皇帝陵"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "深度游览",
+              "detail": "景区入口→一号坑→二号坑→三号坑→铜车马展厅→秦始皇帝陵遗址"
+            }
+          ],
+          "budget": "¥120-150",
+          "bestFor": "历史爱好者/深度游览"
+        }
+      ],
+      "facilities": [
+        "游客中心:提供讲解",
+        "停车场:免费停车",
+        "卫生间:多处分布",
+        "售票处:网上预约"
+      ],
+      "tips": [
+        "提前网上预约",
+        "建议请讲解员",
+        "禁止使用闪光灯",
+        "旺季人流大错峰前往"
+      ],
+      "photoSpots": [
+        "一号坑全景",
+        "铜车马展厅",
+        "二号坑近观"
+      ],
+      "nearbySpots": [
+        "华清池 3km",
+        "秦始皇陵 2km",
+        "骊山 5km"
+      ],
+      "seasonalGuide": [
+        "春季气候宜人，适合游览",
+        "夏季人流大，注意防暑",
+        "秋季最佳游览季节",
+        "冬季游客较少，可静心参观"
+      ]
     },
     {
       "id": "huashan",
@@ -31,12 +135,115 @@
       "bestTime": "春秋",
       "location": "陕西省渭南市华阴市",
       "description": "中国五岳之一的西岳,奇险天下第一山",
+      "highlight": "五岳之西岳,天下第一险",
+      "level": "5A景区",
+      "rankBadge": "必去",
+      "reviewCount": "87,654条点评",
+      "distance": "距西安120km",
+      "ticketPrice": "¥160",
       "landformTags": [
         "山地景观"
       ],
       "landscapeType": "mountain",
       "landscapeCategory": [
-        "地理景观"
+        "自然景观"
+      ],
+      "openTime": "07:00-19:00",
+      "visitDuration": "1天",
+      "popularity": "★★★★★",
+      "audienceTags": [
+        "登山爱好者",
+        "户外爱好者",
+        "摄影爱好者",
+        "探险爱好者"
+      ],
+      "ticketDetails": [
+        "成人票¥160",
+        "学生票半价",
+        "索道¥80-150",
+        "进山车¥40"
+      ],
+      "transportInfo": [
+        "飞机:西安咸阳机场距景区130km",
+        "高铁:华山北站距景区5km",
+        "自驾:G30高速华阴出口",
+        "客运:西安火车站直达大巴"
+      ],
+      "openTimeDetail": [
+        "旺季(3-11月) 07:00-19:00",
+        "淡季(12-2月) 08:00-17:00"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "索道游览线",
+          "duration": "1天",
+          "difficulty": "中等",
+          "description": "西峰上北峰下，索道代步",
+          "highlights": [
+            "西峰索道",
+            "长空栈道",
+            "南峰最高峰",
+            "苍龙岭"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "索道游华山",
+              "detail": "游客中心→西峰索道上山→西峰→南峰→长空栈道→中峰→苍龙岭→北峰索道下山"
+            }
+          ],
+          "budget": "¥400-600",
+          "bestFor": "首次游览/家庭出游"
+        },
+        {
+          "name": "徒步登山线",
+          "duration": "1天",
+          "difficulty": "较难",
+          "description": "自古华山一条路徒步登顶",
+          "highlights": [
+            "千尺幢",
+            "百尺峡",
+            "苍龙岭",
+            "五峰连穿"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "徒步登顶",
+              "detail": "玉泉院→五里关→千尺幢→百尺峡→苍龙岭→金锁关→中峰→东峰→南峰→西峰→北峰索道下山"
+            }
+          ],
+          "budget": "¥240-400",
+          "bestFor": "登山爱好者/户外探险"
+        }
+      ],
+      "facilities": [
+        "索道:西峰北峰索道",
+        "餐饮:山顶有餐厅",
+        "住宿:山顶可住宿",
+        "卫生间:多处分布"
+      ],
+      "tips": [
+        "山路险峻注意安全",
+        "穿防滑登山鞋",
+        "山顶温差大带外套",
+        "夜爬看日出需备手电"
+      ],
+      "photoSpots": [
+        "长空栈道",
+        "西峰日落",
+        "南峰远眺"
+      ],
+      "nearbySpots": [
+        "西岳庙 5km",
+        "仙峪 10km",
+        "玉泉院 3km"
+      ],
+      "seasonalGuide": [
+        "春季山花烂漫，气候宜人",
+        "夏季避暑胜地，注意防雨",
+        "秋季红叶满山，最佳季节",
+        "冬季雪景壮观，注意防寒"
       ]
     },
     {
@@ -53,7 +260,111 @@
       "rating": 4.6,
       "bestTime": "全年",
       "location": "陕西省西安市雁塔区",
-      "description": "西安的标志性建筑,唐代佛教建筑艺术的杰作"
+      "description": "西安的标志性建筑,唐代佛教建筑艺术的杰作",
+      "highlight": "世界文化遗产,唐代建筑",
+      "level": "5A景区",
+      "reviewCount": "65,432条点评",
+      "distance": "距西安0km",
+      "ticketPrice": "¥40",
+      "rankBadge": "人文",
+      "landscapeCategory": [
+        "人文景观"
+      ],
+      "openTime": "08:00-17:00",
+      "visitDuration": "1-2小时",
+      "popularity": "★★★★☆",
+      "audienceTags": [
+        "文化爱好者",
+        "历史爱好者",
+        "建筑爱好者",
+        "家庭游客"
+      ],
+      "ticketDetails": [
+        "大慈恩寺¥30",
+        "登塔¥30",
+        "学生票半价",
+        "65岁以上免票"
+      ],
+      "transportInfo": [
+        "飞机:西安咸阳机场距景区40km",
+        "高铁:西安北站转地铁",
+        "自驾:市区停车位紧张",
+        "客运:地铁3号线大雁塔站"
+      ],
+      "openTimeDetail": [
+        "旺季(3-10月) 08:00-17:00",
+        "淡季(11-2月) 08:30-16:30"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "塔寺参观线",
+          "duration": "1小时",
+          "difficulty": "轻松",
+          "description": "大慈恩寺-大雁塔登塔",
+          "highlights": [
+            "大雁塔",
+            "大慈恩寺",
+            "唐代建筑"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "塔寺参观",
+              "detail": "大慈恩寺入口→寺院游览→大雁塔登塔俯瞰→出口"
+            }
+          ],
+          "budget": "¥60",
+          "bestFor": "文化爱好者/首次游览"
+        },
+        {
+          "name": "广场游览线",
+          "duration": "2小时",
+          "difficulty": "轻松",
+          "description": "含南北广场与音乐喷泉",
+          "highlights": [
+            "音乐喷泉",
+            "南北广场",
+            "大唐不夜城"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "广场游览",
+              "detail": "大雁塔南广场→大慈恩寺→北广场音乐喷泉→大唐不夜城漫步"
+            }
+          ],
+          "budget": "¥60-100",
+          "bestFor": "家庭出游/休闲游"
+        }
+      ],
+      "facilities": [
+        "游客中心:提供讲解",
+        "停车场:周边有停车",
+        "卫生间:多处分布",
+        "餐饮:周边商圈丰富"
+      ],
+      "tips": [
+        "登塔楼梯陡峭注意安全",
+        "广场音乐喷泉夜间最美",
+        "建议傍晚前往",
+        "周边美食丰富"
+      ],
+      "photoSpots": [
+        "大雁塔正面",
+        "音乐喷泉夜景",
+        "广场全景"
+      ],
+      "nearbySpots": [
+        "大唐不夜城 0km",
+        "陕西历史博物馆 3km",
+        "城墙 5km"
+      ],
+      "seasonalGuide": [
+        "春季气候宜人，适合游览",
+        "夏季傍晚游览避开高温",
+        "秋季最佳游览季节",
+        "冬季雪景别有韵味"
+      ]
     },
     {
       "id": "cityWall",
@@ -69,7 +380,111 @@
       "rating": 4.5,
       "bestTime": "全年",
       "location": "陕西省西安市市中心",
-      "description": "中国现存最完整的古代城垣建筑"
+      "description": "中国现存最完整的古代城垣建筑",
+      "highlight": "中国现存最完整古城墙",
+      "level": "5A景区",
+      "rankBadge": "必去",
+      "reviewCount": "54,321条点评",
+      "distance": "距西安0km",
+      "ticketPrice": "¥54",
+      "landscapeCategory": [
+        "人文景观"
+      ],
+      "openTime": "08:00-22:00",
+      "visitDuration": "2-3小时",
+      "popularity": "★★★★★",
+      "audienceTags": [
+        "历史爱好者",
+        "文化爱好者",
+        "家庭游客",
+        "摄影爱好者"
+      ],
+      "ticketDetails": [
+        "成人票¥54",
+        "学生票半价",
+        "65岁以上免票",
+        "自行车租赁¥45"
+      ],
+      "transportInfo": [
+        "飞机:西安咸阳机场距景区40km",
+        "高铁:西安北站转地铁",
+        "自驾:市区停车位紧张",
+        "客运:多条地铁直达"
+      ],
+      "openTimeDetail": [
+        "旺季(3-10月) 08:00-22:00",
+        "淡季(11-2月) 08:00-19:00"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "城墙骑行线",
+          "duration": "2小时",
+          "difficulty": "轻松",
+          "description": "环城骑行一周约14km",
+          "highlights": [
+            "环城骑行",
+            "城墙全景",
+            "角楼"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "城墙骑行",
+              "detail": "南门租自行车→东行至东门→北门→西门→南门环城一周"
+            }
+          ],
+          "budget": "¥99",
+          "bestFor": "运动爱好者/家庭出游"
+        },
+        {
+          "name": "城墙漫步线",
+          "duration": "2小时",
+          "difficulty": "轻松",
+          "description": "南门至东门段步行游览",
+          "highlights": [
+            "南门城楼",
+            "城墙漫步",
+            "角楼远眺"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "城墙漫步",
+              "detail": "南门登城→城墙漫步→东门→角楼拍照→返程"
+            }
+          ],
+          "budget": "¥54",
+          "bestFor": "休闲游/家庭出游"
+        }
+      ],
+      "facilities": [
+        "停车场:周边有停车",
+        "卫生间:多处分布",
+        "餐饮:城门周边丰富",
+        "观光车:电瓶车代步"
+      ],
+      "tips": [
+        "傍晚登城看日落",
+        "骑行注意安全",
+        "夏季注意防晒",
+        "南门仪式表演值得看"
+      ],
+      "photoSpots": [
+        "南门城楼",
+        "城墙角楼",
+        "城墙夜景"
+      ],
+      "nearbySpots": [
+        "碑林博物馆 1km",
+        "钟鼓楼 2km",
+        "大雁塔 5km"
+      ],
+      "seasonalGuide": [
+        "春季气候宜人，最佳骑行季",
+        "夏季傍晚游览避开高温",
+        "秋季最佳游览季节",
+        "冬季雪后城墙别有韵味"
+      ]
     },
     {
       "id": "huaqingPalace",
@@ -85,61 +500,112 @@
       "rating": 4.5,
       "bestTime": "全年",
       "location": "陕西省西安市临潼区",
-      "description": "唐代皇家温泉行宫,唐玄宗与杨贵妃的爱情故事发生地"
-    },
-    {
-      "id": "famenTemple",
-      "name": "法门寺",
-      "tags": [
-        "寺庙",
-        "佛教",
-        "圣地",
-        "文化"
-      ],
-      "type": "culture",
-      "image": "https://picsum.photos/id/1645/600/400",
-      "rating": 4.6,
-      "bestTime": "全年",
-      "location": "陕西省宝鸡市扶风县",
-      "description": "中国著名的佛教圣地,供奉佛指舍利"
-    },
-    {
-      "id": "yellowEmperorMausoleum",
-      "name": "黄帝陵",
-      "tags": [
-        "陵墓",
-        "历史",
-        "始祖",
-        "文化"
-      ],
-      "type": "culture",
-      "image": "https://picsum.photos/id/1646/600/400",
-      "rating": 4.5,
-      "bestTime": "全年",
-      "location": "陕西省延安市黄陵县",
-      "description": "中华民族始祖黄帝的陵墓"
-    },
-    {
-      "id": "hukouWaterfall",
-      "name": "壶口瀑布",
-      "tags": [
-        "瀑布",
-        "黄河",
-        "壮观",
-        "自然"
-      ],
-      "type": "nature",
-      "image": "https://picsum.photos/id/1647/600/400",
-      "rating": 4.7,
-      "bestTime": "春秋",
-      "location": "陕西省延安市宜川县",
-      "description": "黄河上最大的瀑布,气势磅礴",
-      "landformTags": [
-        "瀑布景观"
-      ],
-      "landscapeType": "waterfall",
+      "description": "唐代皇家温泉行宫,唐玄宗与杨贵妃的爱情故事发生地",
+      "highlight": "唐明皇与杨贵妃,皇家温泉",
+      "level": "5A景区",
+      "reviewCount": "43,210条点评",
+      "distance": "距西安30km",
+      "ticketPrice": "¥120",
+      "rankBadge": "温泉",
       "landscapeCategory": [
-        "水体景观"
+        "人文景观"
+      ],
+      "openTime": "07:00-19:00",
+      "visitDuration": "2-3小时",
+      "popularity": "★★★★☆",
+      "audienceTags": [
+        "历史爱好者",
+        "文化爱好者",
+        "家庭游客",
+        "温泉爱好者"
+      ],
+      "ticketDetails": [
+        "成人票¥120",
+        "学生票半价",
+        "65岁以上免票",
+        "长恨歌演出另购"
+      ],
+      "transportInfo": [
+        "飞机:西安咸阳机场距景区50km",
+        "高铁:西安北站转地铁",
+        "自驾:G30高速临潼出口",
+        "客运:西安火车站游5路"
+      ],
+      "openTimeDetail": [
+        "旺季(3-11月) 07:00-19:00",
+        "淡季(12-2月) 07:30-18:00"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "温泉宫殿线",
+          "duration": "2小时",
+          "difficulty": "轻松",
+          "description": "贵妃池-九龙湖-五间厅",
+          "highlights": [
+            "贵妃池",
+            "九龙湖",
+            "五间厅",
+            "唐御汤遗址"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "温泉宫殿游览",
+              "detail": "景区入口→九龙湖→飞霜殿→贵妃池→五间厅→出口"
+            }
+          ],
+          "budget": "¥120",
+          "bestFor": "历史爱好者/首次游览"
+        },
+        {
+          "name": "骊山游览线",
+          "duration": "3小时",
+          "difficulty": "中等",
+          "description": "含骊山老母殿与兵谏亭",
+          "highlights": [
+            "骊山老母殿",
+            "兵谏亭",
+            "烽火台",
+            "骊山索道"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "骊山游览",
+              "detail": "华清池→骊山索道→老母殿→兵谏亭→烽火台→下山"
+            }
+          ],
+          "budget": "¥150-180",
+          "bestFor": "历史爱好者/登山爱好者"
+        }
+      ],
+      "facilities": [
+        "索道:骊山索道",
+        "停车场:免费停车",
+        "卫生间:多处分布",
+        "餐饮:景区有餐厅"
+      ],
+      "tips": [
+        "长恨歌演出值得看",
+        "温泉体验需另付费",
+        "建议傍晚游览",
+        "历史故事建议听讲解"
+      ],
+      "photoSpots": [
+        "九龙湖",
+        "贵妃池",
+        "骊山远眺"
+      ],
+      "nearbySpots": [
+        "兵马俑 3km",
+        "骊山 0km",
+        "秦始皇陵 5km"
+      ],
+      "seasonalGuide": [
+        "春季气候宜人，适合游览",
+        "夏季长恨歌演出季",
+        "秋季最佳游览季节",
+        "冬季温泉体验最佳"
       ]
     }
   ],
@@ -189,9 +655,12 @@
     ]
   },
   "overview": {
-    "totalSpots": 270,
-    "natureSpots": 120,
-    "cultureSpots": 150,
+    "fiveACount": 10,
+    "worldHeritageCount": 3,
+    "intangibleHeritageCount": 12,
+    "totalSpots": 5,
+    "natureSpots": 1,
+    "cultureSpots": 4,
     "topAttractions": [
       {
         "name": "兵马俑",
@@ -307,5 +776,148 @@
     }
   ],
   "intangibleHeritage": [],
-  "folkCustomsElements": []
+  "folkCustomsElements": [],
+  "themes": [
+    {
+      "key": "nature",
+      "title": "自然风光",
+      "items": [
+        {
+          "key": "mountain",
+          "name": "名山胜景",
+          "icon": "mountain",
+          "coverSpotId": "huashan",
+          "avgRating": 4.9,
+          "bestSeason": "春秋 / 全年",
+          "recommendedDays": "2-3 日",
+          "budget": "¥500-1200",
+          "intensity": "适中",
+          "audience": "全人群",
+          "highlights": [
+            "山岳胜景",
+            "云海日出",
+            "奇松怪石",
+            "登高望远"
+          ],
+          "tips": [
+            "山路崎岖，穿舒适登山鞋",
+            "提前关注天气，雨后云海概率高",
+            "山顶温差大，备好保暖衣物"
+          ],
+          "spotIds": [
+            "huashan"
+          ]
+        },
+        {
+          "key": "water",
+          "name": "江湖瀑布",
+          "icon": "droplet",
+          "coverSpotId": "hukouWaterfall",
+          "avgRating": 4.7,
+          "bestSeason": "夏秋",
+          "recommendedDays": "1-2 日",
+          "budget": "¥200-500",
+          "intensity": "轻松",
+          "audience": "家庭/休闲",
+          "highlights": [
+            "飞瀑流泉",
+            "湖光山色",
+            "碧水蓝天",
+            "水上游览"
+          ],
+          "tips": [
+            "水边游玩注意安全，勿擅自下水",
+            "雨季水量充沛，枯水期景色减色",
+            "可乘船游览，体验更佳"
+          ],
+          "spotIds": []
+        }
+      ]
+    },
+    {
+      "key": "culture",
+      "title": "人文古迹",
+      "items": [
+        {
+          "key": "architecture",
+          "name": "古建风韵",
+          "icon": "museum",
+          "coverSpotId": "terracottaWarriors",
+          "avgRating": 4.6,
+          "bestSeason": "全年",
+          "recommendedDays": "1-2 日",
+          "budget": "¥200-400",
+          "intensity": "轻松",
+          "audience": "文化/家庭",
+          "highlights": [
+            "古建瑰宝",
+            "雕梁画栋",
+            "历史厚重",
+            "建筑美学"
+          ],
+          "tips": [
+            "可请讲解员，深度了解建筑历史",
+            "注意保护文物，勿触摸刻划",
+            "拍照注意光线，早晚最佳"
+          ],
+          "spotIds": [
+            "terracottaWarriors",
+            "bigWildGoosePagoda",
+            "cityWall",
+            "huaqingPalace"
+          ]
+        },
+        {
+          "key": "religion",
+          "name": "宗教文化",
+          "icon": "zen",
+          "coverSpotId": "bigWildGoosePagoda",
+          "avgRating": 4.6,
+          "bestSeason": "全年",
+          "recommendedDays": "1-2 日",
+          "budget": "¥200-400",
+          "intensity": "轻松",
+          "audience": "银发/养心",
+          "highlights": [
+            "梵音晨钟",
+            "礼佛祈福",
+            "禅修体验",
+            "清心养性"
+          ],
+          "tips": [
+            "寺庙内勿大声喧哗，着装庄重",
+            "可预约禅修/早课体验",
+            "素斋值得一尝，提前询问用斋时间"
+          ],
+          "spotIds": [
+            "bigWildGoosePagoda"
+          ]
+        },
+        {
+          "key": "heritage",
+          "name": "世界遗产",
+          "icon": "diamond",
+          "coverSpotId": "yellowEmperorMausoleum",
+          "avgRating": 4.5,
+          "bestSeason": "全年",
+          "recommendedDays": "1-2 日",
+          "budget": "¥300-600",
+          "intensity": "轻松",
+          "audience": "文化/家庭",
+          "highlights": [
+            "世界遗产",
+            "人类瑰宝",
+            "历史见证",
+            "文化传承"
+          ],
+          "tips": [
+            "提前预约门票，旺季限流",
+            "建议请讲解员或租语音导览",
+            "保护遗产，勿触摸攀爬文物"
+          ],
+          "spotIds": []
+        }
+      ]
+    }
+  ]
 }

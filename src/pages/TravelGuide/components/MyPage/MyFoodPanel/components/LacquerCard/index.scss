@@ -1,5 +1,6 @@
 @use '../../variables' as *;
 
+@use 'sass:color';
 // ==========================================================================
 // 朱红漆器食盒（美食卡片）
 // ==========================================================================
@@ -503,7 +504,7 @@
       z-index: 2;
       margin: 5px 8px 0;
       padding: 0.55rem 0.65rem;
-      background: linear-gradient(90deg, $lacquer-pit 0%, $ink 70%, darken($ink, 4%) 100%);
+      background: linear-gradient(90deg, $lacquer-pit 0%, $ink 70%, color.adjust($ink, $lightness: -4%) 100%);
       border-radius: 5px;
       border: 1.5px solid rgba(212, 164, 74, 0.4);
       box-shadow:

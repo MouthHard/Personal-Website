@@ -79,6 +79,7 @@
   import SpotsSubModule from './Spots/index.vue';
   import ExperienceSubModule from './Experience/index.vue';
   import { useTravelGuideStore } from '@/stores/travelGuide';
+  import { useSceneryTabState } from './useSceneryTabState';
   import SparklesIcon from '../../icons/common/SparklesIcon.vue';
   import MapIcon from '../../icons/common/MapIcon.vue';
   import TheaterMasksIcon from '../../icons/common/TheaterMasksIcon.vue';
@@ -90,7 +91,7 @@
     provinceId: string;
   }>();
 
-  const activeTab = ref('discover');
+  const { sceneryActiveTab: activeTab } = useSceneryTabState();
   const spotsSearchQuery = ref('');
 
   const handleNavigateToSpot = (spotName: string) => {

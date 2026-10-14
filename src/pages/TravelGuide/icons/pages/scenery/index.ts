@@ -1,15 +1,9 @@
 
+export { default as StarfieldBackground } from './backgrounds/StarfieldBackground.vue';
 export { default as CheckedHoloIcon } from './CheckedHoloIcon.vue';
-export { default as GalleryBackground } from './GalleryBackground.vue';
-export { default as HeritageFavoriteIcon } from './HeritageFavoriteIcon.vue';
 export { default as GalleryPanelIcon } from './GalleryPanelIcon.vue';
-export { default as RouteBackground } from './RouteBackground.vue';
-export { default as RouteIcon } from './RouteIcon.vue';
 export { default as SeasonsPanelIcon } from './SeasonsPanelIcon.vue';
-export { default as StarsAnimation } from './StarsAnimation.vue';
 export { default as StatsIcon } from './StatsIcon.vue';
-export { default as FolkCustomHeaderIcon } from './FolkCustomHeaderIcon.vue';
-export { default as FolkCustomDecorIcon } from './FolkCustomDecorIcon.vue';
 export { default as SortActiveIndicator } from './SortActiveIndicator.vue';
 export { default as GalleryPrevIcon } from './GalleryPrevIcon.vue';
 export { default as GalleryNextIcon } from './GalleryNextIcon.vue';

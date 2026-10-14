@@ -14,7 +14,118 @@
       "rating": 4.8,
       "bestTime": "春秋",
       "location": "山西省晋中市平遥县",
-      "description": "中国保存最完整的古城,世界文化遗产"
+      "description": "中国保存最完整的古城,世界文化遗产",
+      "highlight": "世界文化遗产,保存最完整古城",
+      "level": "5A景区",
+      "rankBadge": "必去",
+      "reviewCount": "87,654条点评",
+      "distance": "距太原100km",
+      "ticketPrice": "¥125",
+      "landscapeCategory": [
+        "人文景观"
+      ],
+      "openTime": "08:00-17:30",
+      "visitDuration": "1天",
+      "popularity": "★★★★★",
+      "audienceTags": [
+        "历史爱好者",
+        "文化爱好者",
+        "摄影爱好者",
+        "家庭游客"
+      ],
+      "ticketDetails": [
+        "成人票¥125",
+        "学生票半价",
+        "60岁以上免票",
+        "含22个景点通票"
+      ],
+      "transportInfo": [
+        "飞机:太原武宿机场距景区90km",
+        "高铁:平遥古城站距景区5km",
+        "自驾:G5高速平遥出口",
+        "客运:太原建南汽车站直达"
+      ],
+      "openTimeDetail": [
+        "旺季(4-10月) 08:00-17:30",
+        "淡季(11-3月) 08:30-17:00"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "古城经典线",
+          "duration": "1天",
+          "difficulty": "轻松",
+          "description": "城墙-日升昌-县衙-城隍庙",
+          "highlights": [
+            "古城城墙",
+            "日升昌票号",
+            "明清街市",
+            "县衙"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "古城经典游览",
+              "detail": "北门登城墙→日升昌票号→明清一条街→平遥县衙→城隍庙→南门"
+            }
+          ],
+          "budget": "¥125",
+          "bestFor": "文化爱好者/首次游览"
+        },
+        {
+          "name": "深度文化线",
+          "duration": "2天",
+          "difficulty": "轻松",
+          "description": "含双林寺与镇国寺",
+          "highlights": [
+            "古城全景",
+            "双林寺彩塑",
+            "镇国寺万佛殿",
+            "又见平遥演出"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "古城深度游",
+              "detail": "城墙环游→日升昌→明清街→县衙→城隍庙→文庙→城隍庙"
+            },
+            {
+              "day": "Day2",
+              "title": "周边古寺游览",
+              "detail": "双林寺彩塑→镇国寺万佛殿→又见平遥演出"
+            }
+          ],
+          "budget": "¥300-500",
+          "bestFor": "文化爱好者/深度游览"
+        }
+      ],
+      "facilities": [
+        "游客中心:提供讲解",
+        "停车场:城外停车",
+        "卫生间:多处分布",
+        "餐饮:古城内丰富"
+      ],
+      "tips": [
+        "通票含22个景点",
+        "建议住古城内体验夜色",
+        "又见平遥演出值得看",
+        "穿舒适鞋子走石板路"
+      ],
+      "photoSpots": [
+        "古城城墙",
+        "日升昌票号",
+        "明清街夜景"
+      ],
+      "nearbySpots": [
+        "乔家大院 40km",
+        "双林寺 6km",
+        "镇国寺 15km"
+      ],
+      "seasonalGuide": [
+        "春季气候宜人，适合游览",
+        "夏季较热，注意防暑",
+        "秋季最佳游览季节",
+        "冬季平遥年味最浓"
+      ]
     },
     {
       "id": "yungangGrottoes",
@@ -30,7 +141,112 @@
       "rating": 4.7,
       "bestTime": "春秋",
       "location": "山西省大同市云冈区",
-      "description": "中国四大石窟之一,世界文化遗产"
+      "description": "中国四大石窟之一,世界文化遗产",
+      "highlight": "世界文化遗产,北魏石刻艺术",
+      "level": "5A景区",
+      "rankBadge": "必去",
+      "reviewCount": "65,432条点评",
+      "distance": "距太原300km",
+      "ticketPrice": "¥120",
+      "landscapeCategory": [
+        "人文景观"
+      ],
+      "openTime": "08:00-17:30",
+      "visitDuration": "3-4小时",
+      "popularity": "★★★★★",
+      "audienceTags": [
+        "文化爱好者",
+        "艺术爱好者",
+        "历史爱好者",
+        "摄影爱好者"
+      ],
+      "ticketDetails": [
+        "成人票¥120",
+        "学生票半价",
+        "60岁以上免票",
+        "含景区电瓶车"
+      ],
+      "transportInfo": [
+        "飞机:大同云冈机场距景区20km",
+        "高铁:大同南站距景区15km",
+        "自驾:G55高速大同出口",
+        "客运:大同市区公交3路"
+      ],
+      "openTimeDetail": [
+        "旺季(4-10月) 08:00-17:30",
+        "淡季(11-3月) 08:30-17:00"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "石窟参观线",
+          "duration": "3小时",
+          "difficulty": "轻松",
+          "description": "第1-45窟依次游览",
+          "highlights": [
+            "第20窟大佛",
+            "第5-6窟双窟",
+            "昙曜五窟"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "石窟参观",
+              "detail": "景区入口→第1-4窟→第5-6窟(双窟)→昙曜五窟(16-20)→第20窟大佛"
+            }
+          ],
+          "budget": "¥120",
+          "bestFor": "文化爱好者/首次游览"
+        },
+        {
+          "name": "深度文化线",
+          "duration": "4小时",
+          "difficulty": "轻松",
+          "description": "含云冈博物馆与灵岩寺",
+          "highlights": [
+            "云冈博物馆",
+            "灵岩寺",
+            "第20窟大佛",
+            "石窟全景"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "深度文化游览",
+              "detail": "云冈博物馆→灵岩寺→第1-4窟→第5-6窟→昙曜五窟→第20窟大佛→石窟全景"
+            }
+          ],
+          "budget": "¥120-150",
+          "bestFor": "艺术爱好者/深度游览"
+        }
+      ],
+      "facilities": [
+        "游客中心:提供讲解",
+        "停车场:免费停车",
+        "卫生间:多处分布",
+        "观光车:区间车接驳"
+      ],
+      "tips": [
+        "建议请讲解员",
+        "洞窟内禁止拍照",
+        "第20窟最经典",
+        "先看博物馆再参观"
+      ],
+      "photoSpots": [
+        "第20窟大佛",
+        "第5-6窟双窟",
+        "石窟全景"
+      ],
+      "nearbySpots": [
+        "悬空寺 75km",
+        "华严寺 15km",
+        "九龙壁 15km"
+      ],
+      "seasonalGuide": [
+        "春季气候宜人，适合游览",
+        "夏季凉爽，避暑胜地",
+        "秋季最佳游览季节",
+        "冬季雪后石窟别有韵味"
+      ]
     },
     {
       "id": "wutaiMountain",
@@ -46,7 +262,118 @@
       "rating": 4.8,
       "bestTime": "夏季",
       "location": "山西省忻州市五台县",
-      "description": "中国四大佛教名山之一,世界文化遗产"
+      "description": "中国四大佛教名山之一,世界文化遗产",
+      "highlight": "世界文化遗产,佛教四大名山之首",
+      "level": "5A景区",
+      "rankBadge": "圣地",
+      "reviewCount": "76,543条点评",
+      "distance": "距太原200km",
+      "ticketPrice": "¥135",
+      "landscapeCategory": [
+        "人文景观"
+      ],
+      "openTime": "全天开放",
+      "visitDuration": "1-2天",
+      "popularity": "★★★★★",
+      "audienceTags": [
+        "宗教文化爱好者",
+        "文化爱好者",
+        "登山爱好者",
+        "祈福游客"
+      ],
+      "ticketDetails": [
+        "成人票¥135",
+        "学生票半价",
+        "60岁以上免票",
+        "部分寺院单独收费"
+      ],
+      "transportInfo": [
+        "飞机:五台山机场距景区30km",
+        "高铁:忻州西站转大巴",
+        "自驾:G55高速五台山出口",
+        "客运:太原客运东直达"
+      ],
+      "openTimeDetail": [
+        "旺季(5-9月) 全天开放",
+        "淡季(10-4月) 08:00-17:00"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "台怀朝圣线",
+          "duration": "1天",
+          "difficulty": "轻松",
+          "description": "显通寺-塔院寺-菩萨顶",
+          "highlights": [
+            "显通寺",
+            "塔院寺大白塔",
+            "菩萨顶",
+            "五爷庙"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "台怀朝圣",
+              "detail": "台怀镇→显通寺→塔院寺(大白塔)→五爷庙→菩萨顶→殊像寺"
+            }
+          ],
+          "budget": "¥135-200",
+          "bestFor": "祈福朝圣/首次游览"
+        },
+        {
+          "name": "大朝台线",
+          "duration": "2天",
+          "difficulty": "较难",
+          "description": "五座台顶环线朝拜",
+          "highlights": [
+            "东台望海峰",
+            "中台翠岩峰",
+            "南台锦绣峰",
+            "五台连穿"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "朝东台北台中台",
+              "detail": "台怀镇→东台望海峰→北台叶斗峰(最高)→中台翠岩峰→住宿"
+            },
+            {
+              "day": "Day2",
+              "title": "朝南台西台",
+              "detail": "中台→西台挂月峰→南台锦绣峰→返回台怀镇"
+            }
+          ],
+          "budget": "¥500-800",
+          "bestFor": "朝圣爱好者/登山爱好者"
+        }
+      ],
+      "facilities": [
+        "索道:菩萨顶索道",
+        "餐饮:素斋丰富",
+        "住宿:寺院可挂单",
+        "停车场:多处分布"
+      ],
+      "tips": [
+        "寺院内勿喧哗",
+        "着装庄重",
+        "海拔高注意高反",
+        "素斋值得一尝"
+      ],
+      "photoSpots": [
+        "塔院寺大白塔",
+        "菩萨顶远眺",
+        "东台日出"
+      ],
+      "nearbySpots": [
+        "佛光寺 50km",
+        "南禅寺 60km",
+        "雁门关 60km"
+      ],
+      "seasonalGuide": [
+        "春季山花烂漫，气候宜人",
+        "夏季避暑胜地，最佳季节",
+        "秋季红叶满山，层林尽染",
+        "冬季雪景壮观，注意防寒"
+      ]
     },
     {
       "id": "qiaoFamilyCourtyard",
@@ -62,7 +389,113 @@
       "rating": 4.6,
       "bestTime": "春秋",
       "location": "山西省晋中市祁县",
-      "description": "清代晋商民居建筑群,被誉为北方民居建筑的一颗明珠"
+      "description": "清代晋商民居建筑群,被誉为北方民居建筑的一颗明珠",
+      "highlight": "清代北方民居,晋商大院",
+      "level": "4A景区",
+      "reviewCount": "54,321条点评",
+      "distance": "距太原60km",
+      "ticketPrice": "¥115",
+      "rankBadge": "人文",
+      "landscapeCategory": [
+        "人文景观"
+      ],
+      "openTime": "08:00-17:30",
+      "visitDuration": "2-3小时",
+      "popularity": "★★★★☆",
+      "audienceTags": [
+        "历史爱好者",
+        "文化爱好者",
+        "建筑爱好者",
+        "家庭游客"
+      ],
+      "ticketDetails": [
+        "成人票¥115",
+        "学生票半价",
+        "60岁以上免票",
+        "含全院六个院落"
+      ],
+      "transportInfo": [
+        "飞机:太原武宿机场距景区60km",
+        "高铁:祁县东站距景区5km",
+        "自驾:G5高速祁县出口",
+        "客运:太原建南汽车站直达"
+      ],
+      "openTimeDetail": [
+        "旺季(4-10月) 08:00-17:30",
+        "淡季(11-3月) 08:30-17:00"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "大院参观线",
+          "duration": "2小时",
+          "difficulty": "轻松",
+          "description": "六个院落依次参观",
+          "highlights": [
+            "六个院落",
+            "晋商大院",
+            "木雕砖雕",
+            "大红灯笼取景地"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "大院参观",
+              "detail": "大院入口→六个院落依次参观→木雕砖雕细赏→出口"
+            }
+          ],
+          "budget": "¥115",
+          "bestFor": "文化爱好者/首次游览"
+        },
+        {
+          "name": "晋商文化线",
+          "duration": "3小时",
+          "difficulty": "轻松",
+          "description": "含晋商文化展览",
+          "highlights": [
+            "晋商文化展",
+            "院落建筑",
+            "木雕砖雕",
+            "晋商历史"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "晋商文化深度游",
+              "detail": "大院入口→六个院落→晋商文化展览→木雕砖雕细赏→晋商历史陈列"
+            }
+          ],
+          "budget": "¥115-150",
+          "bestFor": "历史爱好者/文化爱好者"
+        }
+      ],
+      "facilities": [
+        "游客中心:提供讲解",
+        "停车场:免费停车",
+        "卫生间:多处分布",
+        "餐饮:周边有餐厅"
+      ],
+      "tips": [
+        "建议请讲解员了解晋商文化",
+        "大院结构精巧值得细看",
+        "拍照注意光线",
+        "《大红灯笼》取景地"
+      ],
+      "photoSpots": [
+        "大院全景",
+        "院落照壁",
+        "木雕砖雕细节"
+      ],
+      "nearbySpots": [
+        "平遥古城 40km",
+        "渠家大院 20km",
+        "晋祠 60km"
+      ],
+      "seasonalGuide": [
+        "春季气候宜人，适合游览",
+        "夏季较热，注意防暑",
+        "秋季最佳游览季节",
+        "冬季游客少，可静心参观"
+      ]
     },
     {
       "id": "hukouWaterfall",
@@ -79,61 +512,115 @@
       "bestTime": "春秋",
       "location": "山西省临汾市吉县",
       "description": "黄河上最大的瀑布,气势磅礴",
+      "highlight": "黄河奇观,金色瀑布",
+      "level": "4A景区",
+      "rankBadge": "必去",
+      "reviewCount": "43,210条点评",
+      "distance": "距太原400km",
+      "ticketPrice": "¥100",
       "landformTags": [
         "瀑布景观"
       ],
       "landscapeType": "waterfall",
       "landscapeCategory": [
-        "水体景观"
+        "自然景观"
+      ],
+      "openTime": "08:00-18:00",
+      "visitDuration": "2-3小时",
+      "popularity": "★★★★★",
+      "audienceTags": [
+        "摄影爱好者",
+        "自然爱好者",
+        "地质爱好者",
+        "家庭游客"
+      ],
+      "ticketDetails": [
+        "成人票¥100",
+        "学生票半价",
+        "60岁以上免票",
+        "含景区观光车"
+      ],
+      "transportInfo": [
+        "飞机:临汾乔家营机场距景区100km",
+        "高铁:临汾西站转大巴",
+        "自驾:G22高速壶口出口",
+        "客运:临汾客运站直达"
+      ],
+      "openTimeDetail": [
+        "旺季(4-10月) 08:00-18:00",
+        "淡季(11-3月) 08:30-17:00"
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "主瀑布观景线",
+          "duration": "2小时",
+          "difficulty": "轻松",
+          "description": "两岸观景台多角度观赏",
+          "highlights": [
+            "黄河瀑布",
+            "金色瀑布",
+            "水雾彩虹"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "瀑布观赏",
+              "detail": "景区入口→观景台→主瀑布正面→侧观景台→返程"
+            }
+          ],
+          "budget": "¥100",
+          "bestFor": "摄影爱好者/家庭出游"
+        },
+        {
+          "name": "深度体验线",
+          "duration": "3小时",
+          "difficulty": "中等",
+          "description": "含十里龙槽与孟门山",
+          "highlights": [
+            "十里龙槽",
+            "孟门山",
+            "主瀑布",
+            "黄河奇观"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "深度体验",
+              "detail": "景区入口→主瀑布→十里龙槽→孟门山→返程"
+            }
+          ],
+          "budget": "¥100-130",
+          "bestFor": "地质爱好者/深度游览"
+        }
+      ],
+      "facilities": [
+        "观光车:区间车接驳",
+        "停车场:免费停车",
+        "卫生间:多处分布",
+        "餐饮:周边有农家乐"
+      ],
+      "tips": [
+        "水雾大注意保护相机",
+        "岸边注意安全",
+        "雨季水量最壮观",
+        "穿防滑鞋"
+      ],
+      "photoSpots": [
+        "主瀑布正面",
+        "十里龙槽",
+        "彩虹飞瀑"
+      ],
+      "nearbySpots": [
+        "平遥古城 180km",
+        "五台山 350km",
+        "晋祠 200km"
+      ],
+      "seasonalGuide": [
+        "春季冰凌消退，桃花汛壮观",
+        "夏季水量最大，最为壮观",
+        "秋季金色瀑布，最佳季节",
+        "冬季冰瀑奇观，别有韵味"
       ]
-    },
-    {
-      "id": "huangchengXiangfu",
-      "name": "皇城相府",
-      "tags": [
-        "官邸",
-        "建筑",
-        "历史",
-        "文化"
-      ],
-      "type": "culture",
-      "image": "https://picsum.photos/id/1185/600/400",
-      "rating": 4.5,
-      "bestTime": "春秋",
-      "location": "山西省晋城市阳城县",
-      "description": "清代文渊阁大学士陈廷敬的故居"
-    },
-    {
-      "id": "jinci",
-      "name": "晋祠",
-      "tags": [
-        "园林",
-        "古建",
-        "历史",
-        "文化"
-      ],
-      "type": "culture",
-      "image": "https://picsum.photos/id/1186/600/400",
-      "rating": 4.6,
-      "bestTime": "春秋",
-      "location": "山西省太原市晋源区",
-      "description": "中国现存最早的皇家祭祀园林"
-    },
-    {
-      "id": "yanmenPass",
-      "name": "雁门关",
-      "tags": [
-        "长城",
-        "关隘",
-        "军事",
-        "历史"
-      ],
-      "type": "culture",
-      "image": "https://picsum.photos/id/1187/600/400",
-      "rating": 4.5,
-      "bestTime": "春秋",
-      "location": "山西省忻州市代县",
-      "description": "长城上的重要关隘,历史悠久的军事要塞"
     }
   ],
   "routes": [
@@ -180,9 +667,12 @@
     ]
   },
   "overview": {
-    "totalSpots": 250,
-    "natureSpots": 100,
-    "cultureSpots": 150,
+    "fiveACount": 10,
+    "worldHeritageCount": 3,
+    "intangibleHeritageCount": 13,
+    "totalSpots": 5,
+    "natureSpots": 1,
+    "cultureSpots": 4,
     "topAttractions": [
       {
         "name": "平遥古城",
@@ -336,6 +826,152 @@
       ],
       "image": "https://picsum.photos/id/1183/600/400",
       "description": "明清时期晋商的商业文化和精神"
+    }
+  ],
+  "themes": [
+    {
+      "key": "nature",
+      "title": "自然风光",
+      "items": [
+        {
+          "key": "mountain",
+          "name": "名山胜景",
+          "icon": "mountain",
+          "coverSpotId": "wutaiMountain",
+          "avgRating": 4.8,
+          "bestSeason": "春秋 / 全年",
+          "recommendedDays": "2-3 日",
+          "budget": "¥500-1200",
+          "intensity": "适中",
+          "audience": "全人群",
+          "highlights": [
+            "山岳胜景",
+            "云海日出",
+            "奇松怪石",
+            "登高望远"
+          ],
+          "tips": [
+            "山路崎岖，穿舒适登山鞋",
+            "提前关注天气，雨后云海概率高",
+            "山顶温差大，备好保暖衣物"
+          ],
+          "spotIds": [
+            "wutaiMountain"
+          ]
+        },
+        {
+          "key": "water",
+          "name": "江湖瀑布",
+          "icon": "droplet",
+          "coverSpotId": "hukouWaterfall",
+          "avgRating": 4.7,
+          "bestSeason": "夏秋",
+          "recommendedDays": "1-2 日",
+          "budget": "¥200-500",
+          "intensity": "轻松",
+          "audience": "家庭/休闲",
+          "highlights": [
+            "飞瀑流泉",
+            "湖光山色",
+            "碧水蓝天",
+            "水上游览"
+          ],
+          "tips": [
+            "水边游玩注意安全，勿擅自下水",
+            "雨季水量充沛，枯水期景色减色",
+            "可乘船游览，体验更佳"
+          ],
+          "spotIds": [
+            "hukouWaterfall"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "culture",
+      "title": "人文古迹",
+      "items": [
+        {
+          "key": "architecture",
+          "name": "古建风韵",
+          "icon": "museum",
+          "coverSpotId": "pingyaoAncientCity",
+          "avgRating": 4.6,
+          "bestSeason": "全年",
+          "recommendedDays": "1-2 日",
+          "budget": "¥200-400",
+          "intensity": "轻松",
+          "audience": "文化/家庭",
+          "highlights": [
+            "古建瑰宝",
+            "雕梁画栋",
+            "历史厚重",
+            "建筑美学"
+          ],
+          "tips": [
+            "可请讲解员，深度了解建筑历史",
+            "注意保护文物，勿触摸刻划",
+            "拍照注意光线，早晚最佳"
+          ],
+          "spotIds": [
+            "pingyaoAncientCity",
+            "qiaoFamilyCourtyard"
+          ]
+        },
+        {
+          "key": "religion",
+          "name": "宗教文化",
+          "icon": "zen",
+          "coverSpotId": "wutaiMountain",
+          "avgRating": 4.8,
+          "bestSeason": "全年",
+          "recommendedDays": "1-2 日",
+          "budget": "¥200-400",
+          "intensity": "轻松",
+          "audience": "银发/养心",
+          "highlights": [
+            "梵音晨钟",
+            "礼佛祈福",
+            "禅修体验",
+            "清心养性"
+          ],
+          "tips": [
+            "寺庙内勿大声喧哗，着装庄重",
+            "可预约禅修/早课体验",
+            "素斋值得一尝，提前询问用斋时间"
+          ],
+          "spotIds": [
+            "wutaiMountain",
+            "yungangGrottoes"
+          ]
+        },
+        {
+          "key": "heritage",
+          "name": "世界遗产",
+          "icon": "diamond",
+          "coverSpotId": "yungangGrottoes",
+          "avgRating": 4.7,
+          "bestSeason": "全年",
+          "recommendedDays": "1-2 日",
+          "budget": "¥300-600",
+          "intensity": "轻松",
+          "audience": "文化/家庭",
+          "highlights": [
+            "世界遗产",
+            "人类瑰宝",
+            "历史见证",
+            "文化传承"
+          ],
+          "tips": [
+            "提前预约门票，旺季限流",
+            "建议请讲解员或租语音导览",
+            "保护遗产，勿触摸攀爬文物"
+          ],
+          "spotIds": [
+            "yungangGrottoes"
+          ]
+        }
+      ]
     }
   ]
 }

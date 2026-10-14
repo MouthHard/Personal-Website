@@ -21,9 +21,27 @@
       </div>
 
       <div v-if="totalFestivalCount === 0" class="empty-state">
-        <span class="empty-icon"><GalaxyIcon /></span>
-        <h5 class="empty-title">暂无节庆数据</h5>
-        <p class="empty-desc">该地区的特色节庆活动正在收录中</p>
+        <div class="empty-calendar-page">
+          <div class="empty-binding-holes">
+            <span v-for="r in 5" :key="r" class="hole"></span>
+          </div>
+          <div class="empty-page-body">
+            <div class="empty-icon-wrap">
+              <span class="empty-icon"><GalaxyIcon /></span>
+            </div>
+            <h5 class="empty-title">暂无节庆数据</h5>
+            <p class="empty-desc">该地区的特色节庆活动正在收录中</p>
+            <div class="empty-wax-seal">
+              <span class="seal-text">录</span>
+            </div>
+            <div class="empty-season-tags">
+              <span class="season-tag season-spring">春</span>
+              <span class="season-tag season-summer">夏</span>
+              <span class="season-tag season-autumn">秋</span>
+              <span class="season-tag season-winter">冬</span>
+            </div>
+          </div>
+        </div>
       </div>
 
       <template v-else>

@@ -208,16 +208,27 @@
 
       <!-- 空状态 -->
       <div v-if="!items || items.length === 0" class="empty-state">
-        <div class="empty-icon-housing">
-          <span class="empty-icon"><MapIcon /></span>
-        </div>
-        <h4 class="empty-title">路线勘测中</h4>
-        <p class="empty-desc">该地区的徒步路线正在规划收录</p>
-        <div class="empty-tags">
-          <span class="empty-tag">徒步穿越</span>
-          <span class="empty-tag">山地骑行</span>
-          <span class="empty-tag">峡谷漂流</span>
-          <span class="empty-tag">岩壁攀爬</span>
+        <div class="empty-journal-page">
+          <div class="empty-binding-edge">
+            <span v-for="r in 6" :key="r" class="binding-hole"></span>
+          </div>
+          <div class="empty-page-content">
+            <div class="empty-icon-housing">
+              <span class="empty-icon"><MapIcon /></span>
+            </div>
+            <h4 class="empty-title">路线勘测中</h4>
+            <p class="empty-desc">该地区的徒步路线正在规划收录</p>
+            <div class="empty-stamp">
+              <span class="stamp-ring"></span>
+              <span class="stamp-text">勘测</span>
+            </div>
+            <div class="empty-tags">
+              <span class="empty-tag">徒步穿越</span>
+              <span class="empty-tag">山地骑行</span>
+              <span class="empty-tag">峡谷漂流</span>
+              <span class="empty-tag">岩壁攀爬</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
