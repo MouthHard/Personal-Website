@@ -346,7 +346,11 @@
 
   watch(
     () => props.items,
-    () => { activeIndex.value = 0; },
+    (newItems) => {
+      if (activeIndex.value !== null && activeIndex.value >= (newItems?.length || 0)) {
+        activeIndex.value = 0;
+      }
+    },
   );
 
   const heritageLabel: Record<string, string> = {

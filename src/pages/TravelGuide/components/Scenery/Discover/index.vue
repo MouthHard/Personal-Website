@@ -36,7 +36,7 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, computed, onMounted, watch, markRaw } from 'vue';
+  import { ref, computed, watch, markRaw } from 'vue';
   import { useTravelGuideStore } from '@/stores/travelGuide';
   import type { SceneryData } from '@/typesOfPages/travelGuide';
   import { useSceneryTabState } from '../useSceneryTabState';
@@ -101,9 +101,6 @@
     { immediate: true },
   );
 
-  onMounted(() => {
-    loadData(props.provinceId);
-  });
 </script>
 
 <style scoped src="./index.scss" lang="scss" />

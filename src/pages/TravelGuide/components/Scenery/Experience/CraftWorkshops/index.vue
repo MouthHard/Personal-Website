@@ -273,8 +273,10 @@ const activeIndex = ref(0);
 
 const currentItem = computed(() => props.items?.[activeIndex.value] || null);
 
-watch(() => props.items, () => {
-  activeIndex.value = 0;
+watch(() => props.items, (newItems) => {
+  if (activeIndex.value >= (newItems?.length || 0)) {
+    activeIndex.value = 0;
+  }
 });
 
 const heritageLabel: Record<string, string> = {

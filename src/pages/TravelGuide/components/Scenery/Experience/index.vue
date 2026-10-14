@@ -102,11 +102,16 @@
     try {
       const data = await travelStore.getScenery(props.provinceId);
       if (data) {
-        craftWorkshops.value = (data as any).craftWorkshops || [];
-        performances.value = (data as any).performances || [];
-        outdoorAdventure.value = (data as any).outdoorAdventure || [];
-        festivals.value = (data as any).festivals || [];
-        wellnessRetreat.value = (data as any).wellnessRetreat || [];
+        const nextCraft = (data as any).craftWorkshops || [];
+        const nextPerf = (data as any).performances || [];
+        const nextOutdoor = (data as any).outdoorAdventure || [];
+        const nextFest = (data as any).festivals || [];
+        const nextWellness = (data as any).wellnessRetreat || [];
+        if (craftWorkshops.value !== nextCraft) craftWorkshops.value = nextCraft;
+        if (performances.value !== nextPerf) performances.value = nextPerf;
+        if (outdoorAdventure.value !== nextOutdoor) outdoorAdventure.value = nextOutdoor;
+        if (festivals.value !== nextFest) festivals.value = nextFest;
+        if (wellnessRetreat.value !== nextWellness) wellnessRetreat.value = nextWellness;
       }
     } catch (error) {
       console.error('Failed to load scenery data:', error);
