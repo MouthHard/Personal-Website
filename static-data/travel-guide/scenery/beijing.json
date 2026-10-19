@@ -14,7 +14,166 @@
       "rating": 4.9,
       "bestTime": "春季",
       "location": "北京市东城区景山前街4号",
-      "description": "中国明清两代的皇家宫殿,是世界上现存规模最大、保存最为完整的木质结构古建筑之一"
+      "description": "故宫，故宫，中国明清两代的皇家宫殿，是世界上现存规模最大、保存最为完整的木质结构古建筑之一。人文荟萃之地，令人叹为观止流连忘返。。足以令旅人魂牵梦萦，心驰神往。",
+      "highlight": "明清皇家宫殿,世界五大宫之首",
+      "level": "5A景区",
+      "rankBadge": "必去",
+      "reviewCount": "156,789条点评",
+      "distance": "距北京0km",
+      "ticketPrice": "¥60",
+      "landscapeCategory": [
+        "人文景观"
+      ],
+      "openTime": "08:30-17:00",
+      "visitDuration": "半天",
+      "audienceTags": [
+        "文化爱好者",
+        "历史爱好者",
+        "建筑爱好者",
+        "摄影爱好者"
+      ],
+      "ticketDetails": [
+        {
+          "type": "成人票",
+          "price": "¥60"
+        },
+        {
+          "type": "珍宝馆",
+          "price": "¥10"
+        },
+        {
+          "type": "钟表馆",
+          "price": "¥10"
+        },
+        {
+          "type": "60岁以上",
+          "price": "免票"
+        }
+      ],
+      "transportInfo": [
+        {
+          "mode": "飞机",
+          "detail": "北京首都国际机场距市区约30km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "北京站、北京西站、北京南站可达"
+        },
+        {
+          "mode": "自驾",
+          "detail": "不建议自驾,周边限行"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "北京各长途汽车站可达"
+        }
+      ],
+      "openTimeDetail": [
+        {
+          "season": "旺季",
+          "months": "4-10月",
+          "time": "08:30-17:00"
+        },
+        {
+          "season": "淡季",
+          "months": "11-3月",
+          "time": "08:30-16:30"
+        },
+        {
+          "season": "周一闭馆",
+          "months": "",
+          "time": ""
+        }
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "中轴线经典游",
+          "duration": "半天",
+          "difficulty": "轻松",
+          "description": "午门-太和殿-中和殿-保和殿-乾清宫-神武门",
+          "highlights": [
+            "太和殿",
+            "午门",
+            "乾清宫",
+            "中轴线建筑"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "中轴线经典游",
+              "detail": "午门→太和殿→中和殿→保和殿→乾清宫→交泰殿→坤宁宫→神武门"
+            }
+          ],
+          "budget": {
+            "currency": "¥",
+            "min": 60,
+            "max": 100
+          },
+          "bestFor": [
+            "首次游览",
+            "文化爱好者"
+          ]
+        },
+        {
+          "name": "东西六宫深度游",
+          "duration": "1天",
+          "difficulty": "轻松",
+          "description": "中轴线+东西六宫+珍宝馆+钟表馆",
+          "highlights": [
+            "东西六宫",
+            "珍宝馆",
+            "钟表馆",
+            "御花园"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "故宫深度游",
+              "detail": "午门→中轴线→东西六宫→珍宝馆→钟表馆→御花园→神武门"
+            }
+          ],
+          "budget": {
+            "currency": "¥",
+            "min": 80,
+            "max": 150
+          },
+          "bestFor": [
+            "文化爱好者",
+            "深度游览"
+          ]
+        }
+      ],
+      "facilities": [
+        "餐饮:内有餐饮点",
+        "停车场:不建议自驾",
+        "卫生间:内多处",
+        "游客中心:提供讲解",
+        "售票处:网上预约"
+      ],
+      "tips": [
+        "必须网上预约购票",
+        "周一闭馆,注意安排",
+        "珍宝馆、钟表馆值得一看",
+        "建议请讲解员或租讲解器"
+      ],
+      "photoSpots": [
+        "太和殿",
+        "午门",
+        "角楼",
+        "乾清宫"
+      ],
+      "nearbySpots": [
+        "天安门 0km",
+        "景山公园 1km",
+        "北海公园 2km",
+        "王府井 2km"
+      ],
+      "seasonalGuide": [
+        "春季百花盛开,气候宜人",
+        "夏季注意防晒,人流较大",
+        "秋季天高气爽,最佳季节",
+        "冬季雪景如画,游客较少"
+      ]
     },
     {
       "id": "greatWall",
@@ -30,13 +189,164 @@
       "rating": 4.8,
       "bestTime": "秋季",
       "location": "北京市延庆区八达岭长城",
-      "description": "中国古代伟大的防御工程,是中华民族的象征",
+      "description": "坐落于京华大地的长城，北京长城，鬼斧神工天作之美，列世界遗产之林，中国古代伟大的防御工程，是中华民族的象征，实乃游历北京不可错过之胜境。。列世界遗产之林，堪称天地造化与人文底蕴之交响。",
+      "highlight": "中华民族的象征,世界七大奇迹",
+      "level": "5A景区",
+      "rankBadge": "必去",
+      "reviewCount": "98,432条点评",
+      "distance": "距北京70km",
+      "ticketPrice": "¥40",
       "landformTags": [
         "山地景观"
       ],
       "landscapeType": "mountain",
       "landscapeCategory": [
-        "地理景观"
+        "自然景观"
+      ],
+      "openTime": "06:30-18:00",
+      "visitDuration": "半天",
+      "audienceTags": [
+        "登山爱好者",
+        "历史爱好者",
+        "摄影爱好者",
+        "户外爱好者"
+      ],
+      "ticketDetails": [
+        {
+          "type": "成人票",
+          "price": "¥40"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "60岁以上",
+          "price": "免票"
+        },
+        {
+          "type": "索道单程",
+          "price": "¥100"
+        }
+      ],
+      "transportInfo": [
+        {
+          "mode": "飞机",
+          "detail": "北京首都国际机场距八达岭约70km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "八达岭长城站直达"
+        },
+        {
+          "mode": "自驾",
+          "detail": "京藏高速八达岭出口下"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "德胜门有877路公交"
+        }
+      ],
+      "openTimeDetail": [
+        {
+          "season": "旺季",
+          "months": "4-10月",
+          "time": "06:30-18:00"
+        },
+        {
+          "season": "淡季",
+          "months": "11-3月",
+          "time": "07:30-17:00"
+        }
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "八达岭经典游",
+          "duration": "半天",
+          "difficulty": "中等",
+          "description": "登八达岭长城,赏北八楼、南八楼",
+          "highlights": [
+            "北八楼最高点",
+            "好汉坡",
+            "烽火台",
+            "长城蜿蜒"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "八达岭长城",
+              "detail": "登城口→北八楼→好汉坡→烽火台→原路返回"
+            }
+          ],
+          "budget": {
+            "currency": "¥",
+            "min": 100,
+            "max": 200
+          },
+          "bestFor": [
+            "首次游览",
+            "家庭出游"
+          ]
+        },
+        {
+          "name": "慕田峪深度游",
+          "duration": "1天",
+          "difficulty": "中等",
+          "description": "慕田峪长城,人少景美",
+          "highlights": [
+            "慕田峪长城",
+            "人少景美",
+            "正关台",
+            "敌楼群"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "慕田峪长城游",
+              "detail": "慕田峪登城→正关台→敌楼群→最高点→索道下山"
+            }
+          ],
+          "budget": {
+            "currency": "¥",
+            "min": 150,
+            "max": 300
+          },
+          "bestFor": [
+            "摄影爱好者",
+            "户外爱好者"
+          ]
+        }
+      ],
+      "facilities": [
+        "索道:八达岭有索道",
+        "餐饮:景区有餐饮点",
+        "停车场:景区有停车场",
+        "卫生间:景区内多处",
+        "游客中心:提供讲解"
+      ],
+      "tips": [
+        "穿舒适登山鞋",
+        "山顶温差大,备好衣物",
+        "节假日人流较大,建议早到",
+        "可乘索道,节省体力"
+      ],
+      "photoSpots": [
+        "北八楼最高点",
+        "好汉坡",
+        "长城蜿蜒",
+        "烽火台"
+      ],
+      "nearbySpots": [
+        "明十三陵 30km",
+        "龙庆峡 20km",
+        "慕田峪 70km",
+        "居庸关 15km"
+      ],
+      "seasonalGuide": [
+        "春季山花烂漫,适合登高",
+        "夏季避暑纳凉,绿荫蔽日",
+        "秋季红叶满山,最佳季节",
+        "冬季雪景如画,注意防滑"
       ]
     },
     {
@@ -53,7 +363,161 @@
       "rating": 4.7,
       "bestTime": "春季",
       "location": "北京市海淀区新建宫门路19号",
-      "description": "中国现存规模最大、保存最完整的皇家园林"
+      "description": "京华颐和园，北京颐和园，古迹斑驳岁月悠悠，移步换景曲径通幽，中国现存规模最大、保存最完整的皇家园林，实乃游历北京不可错过之胜境。。移步换景曲径通幽，每一处景致皆是造物主的匠心独运。",
+      "highlight": "皇家园林博物馆,中国园林之最",
+      "level": "5A景区",
+      "rankBadge": "必去",
+      "reviewCount": "76,543条点评",
+      "distance": "距北京15km",
+      "ticketPrice": "¥30",
+      "landscapeCategory": [
+        "人文景观"
+      ],
+      "openTime": "06:30-18:00",
+      "visitDuration": "半天",
+      "audienceTags": [
+        "文化爱好者",
+        "园林爱好者",
+        "摄影爱好者",
+        "家庭游客"
+      ],
+      "ticketDetails": [
+        {
+          "type": "成人票",
+          "price": "¥30"
+        },
+        {
+          "type": "联票¥60(含苏州街)",
+          "price": ""
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "60岁以上",
+          "price": "免票"
+        }
+      ],
+      "transportInfo": [
+        {
+          "mode": "飞机",
+          "detail": "北京首都国际机场距市区约30km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "北京西站可达"
+        },
+        {
+          "mode": "自驾",
+          "detail": "京藏高速颐和园出口下"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "北京各长途汽车站可达"
+        }
+      ],
+      "openTimeDetail": [
+        {
+          "season": "旺季",
+          "months": "4-10月",
+          "time": "06:30-18:00"
+        },
+        {
+          "season": "淡季",
+          "months": "11-3月",
+          "time": "07:00-17:00"
+        }
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "长廊-佛香阁游",
+          "duration": "半天",
+          "difficulty": "轻松",
+          "description": "长廊-佛香阁-排云殿-昆明湖",
+          "highlights": [
+            "长廊",
+            "佛香阁",
+            "十七孔桥",
+            "昆明湖"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "长廊佛香阁游",
+              "detail": "东宫门→仁寿殿→长廊→佛香阁→排云殿→昆明湖→十七孔桥"
+            }
+          ],
+          "budget": {
+            "currency": "¥",
+            "min": 30,
+            "max": 60
+          },
+          "bestFor": [
+            "首次游览",
+            "家庭出游"
+          ]
+        },
+        {
+          "name": "颐和园深度游",
+          "duration": "1天",
+          "difficulty": "轻松",
+          "description": "全园游览+苏州街+西堤",
+          "highlights": [
+            "长廊",
+            "佛香阁",
+            "苏州街",
+            "西堤桃花"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "颐和园全景游",
+              "detail": "东宫门→长廊→佛香阁→排云殿→苏州街→西堤→十七孔桥→铜牛"
+            }
+          ],
+          "budget": {
+            "currency": "¥",
+            "min": 60,
+            "max": 120
+          },
+          "bestFor": [
+            "园林爱好者",
+            "深度游览"
+          ]
+        }
+      ],
+      "facilities": [
+        "餐饮:内有餐饮点",
+        "停车场:东宫门有停车场",
+        "卫生间:内多处",
+        "游客中心:提供讲解",
+        "观光车:有游船"
+      ],
+      "tips": [
+        "建议租讲解器,了解园林历史",
+        "可乘游船游昆明湖",
+        "春季西堤桃花最美",
+        "避开节假日,人流较大"
+      ],
+      "photoSpots": [
+        "佛香阁",
+        "十七孔桥",
+        "长廊",
+        "西堤"
+      ],
+      "nearbySpots": [
+        "圆明园 3km",
+        "香山 8km",
+        "北大 3km",
+        "清华 4km"
+      ],
+      "seasonalGuide": [
+        "春季西堤桃花盛开,最美",
+        "夏季荷花满湖,纳凉好去处",
+        "秋季红叶满山,天高气爽",
+        "冬季雪景如画,昆明湖滑冰"
+      ]
     }
   ],
   "routes": [
@@ -139,6 +603,9 @@
     ]
   },
   "overview": {
+    "fiveACount": 8,
+    "worldHeritageCount": 6,
+    "intangibleHeritageCount": 12,
     "totalSpots": 220,
     "natureSpots": 90,
     "cultureSpots": 130,
@@ -146,17 +613,17 @@
       {
         "name": "故宫",
         "image": "https://picsum.photos/id/1076/600/400",
-        "description": "中国明清两代的皇家宫殿,是世界上现存规模最大、保存最为完整的木质结构古建筑之一"
+        "description": "坐落于京华大地的故宫，故宫——中国明清两代的皇家宫殿，是世界上现存规模最大、保存最为完整的木质结构古建筑之一，实乃游历此地不可错过之胜境。。每一处景致皆是造物主的匠心独运。"
       },
       {
         "name": "长城",
         "image": "https://picsum.photos/id/1077/600/400",
-        "description": "中国古代伟大的防御工程,是中华民族的象征"
+        "description": "京华长城，北京名胜长城，中国古代伟大的防御工程，是中华民族的象征，令人心驰神往流连忘返。。当属此地名胜之首推，不容错过。"
       },
       {
         "name": "颐和园",
         "image": "https://picsum.photos/id/1080/600/400",
-        "description": "中国现存规模最大、保存最完整的皇家园林"
+        "description": "颐和园者，京华之胜境也。颐和园者，北京之中国现存规模最大、保存最完整的皇家园林，堪称此地风光之冠冕。。令人叹为观止，流连忘返。"
       }
     ]
   },
@@ -214,7 +681,31 @@
       "month": "2月",
       "isUnique": true,
       "location": "地坛公园",
-      "description": "农历新年期间举行的传统民俗活动"
+      "description": "地坛庙会始于明代祭地之典，1985年恢复举办，仿清代祭地表演、老北京花会、非遗手工艺、传统小吃汇聚一堂，京味年味浓郁醇厚。",
+      "type": "民俗节庆",
+      "heritageLevel": "国家级非遗",
+      "duration": "约15天",
+      "origin": "地坛庙会始于1985年，恢复自明代地坛祭地传统，是北京最著名的春节庙会之一。",
+      "highlights": [
+        "仿清代祭地表演",
+        "老北京民俗花会",
+        "传统小吃一条街",
+        "非遗手工艺展示",
+        "书画展览"
+      ],
+      "bestTime": "正月初一至初五人流最大",
+      "ticket": "免费",
+      "transport": "地铁2号线或5号线雍和宫站",
+      "tips": [
+        "春节期间人流密集，建议错峰前往",
+        "注意保管随身物品",
+        "建议使用公共交通，周边无停车位"
+      ],
+      "relatedSpots": [
+        "地坛公园",
+        "雍和宫",
+        "孔庙"
+      ]
     },
     {
       "id": "2",
@@ -223,7 +714,30 @@
       "month": "2月",
       "isUnique": true,
       "location": "故宫",
-      "description": "农历正月十五举行的传统灯展活动"
+      "description": "故宫元宵灯会延续明清宫廷灯会传统，城墙灯光秀与角楼夜景交相辉映，于紫禁城中赏灯如梦，感受六百年宫墙内的上元华灯之盛。",
+      "type": "民俗节庆",
+      "heritageLevel": "国家级非遗",
+      "duration": "约7天",
+      "origin": "故宫元宵灯会延续明清宫廷灯会传统，近年作为故宫夜场开放活动引发广泛关注。",
+      "highlights": [
+        "故宫城墙灯光秀",
+        "宫廷灯彩展示",
+        "角楼夜景观赏",
+        "故宫文创市集"
+      ],
+      "bestTime": "正月十五前后",
+      "ticket": "需预约，免费",
+      "transport": "地铁1号线天安门东站",
+      "tips": [
+        "必须提前网上预约",
+        "禁止携带大型摄影器材",
+        "故宫内禁止使用闪光灯"
+      ],
+      "relatedSpots": [
+        "故宫",
+        "天安门",
+        "景山公园"
+      ]
     },
     {
       "id": "3",
@@ -232,7 +746,29 @@
       "month": "9月",
       "isUnique": false,
       "location": "颐和园",
-      "description": "传统节日,家人团聚赏月吃月饼"
+      "description": "颐和园中秋赏月活动依托皇家园林夜景，昆明湖畔长廊灯火，宫廷月饼品鉴、古琴雅集，于\"海上生明月天涯共此时\"之境感受皇家中秋雅韵。",
+      "type": "传统节庆",
+      "duration": "1天",
+      "origin": "颐和园中秋赏月活动依托皇家园林夜景，延续清代宫廷中秋传统。",
+      "highlights": [
+        "昆明湖赏月",
+        "长廊夜景灯光",
+        "宫廷月饼品鉴",
+        "古琴雅集"
+      ],
+      "bestTime": "日落至21:00",
+      "ticket": "颐和园门票¥30（夜场）",
+      "transport": "地铁4号线北宫门站",
+      "tips": [
+        "秋季夜间较凉，需带外套",
+        "建议自备望远镜赏月",
+        "夜场开放区域有限"
+      ],
+      "relatedSpots": [
+        "颐和园",
+        "圆明园",
+        "香山"
+      ]
     }
   ],
   "activities": [
@@ -262,7 +798,7 @@
   "intangibleHeritage": [
     {
       "id": "1",
-      "icon": "🎭",
+      "icon": "theater",
       "name": "京剧",
       "image": "https://picsum.photos/id/1094/600/400",
       "level": "national",
@@ -277,7 +813,7 @@
     },
     {
       "id": "2",
-      "icon": "🍗",
+      "icon": "food",
       "name": "北京烤鸭制作技艺",
       "image": "https://picsum.photos/id/1080/600/400",
       "level": "national",
@@ -315,6 +851,429 @@
       ],
       "image": "https://picsum.photos/id/1078/600/400",
       "description": "北京传统民居形式,承载着丰富的历史文化"
+    }
+  ],
+  "themes": [
+    {
+      "key": "nature",
+      "title": "自然风光",
+      "items": [
+        {
+          "key": "mountain",
+          "name": "名山胜景",
+          "icon": "mountain",
+          "coverSpotId": "greatWall",
+          "avgRating": 4.8,
+          "bestSeason": "春秋 / 全年",
+          "recommendedDays": "2-3 日",
+          "budget": {
+            "currency": "¥",
+            "min": 500,
+            "max": 1200
+          },
+          "intensity": "适中",
+          "audience": "全人群",
+          "highlights": [
+            "山岳胜景",
+            "云海日出",
+            "奇松怪石",
+            "登高望远"
+          ],
+          "tips": [
+            "山路崎岖，穿舒适登山鞋",
+            "提前关注天气，雨后云海概率高",
+            "山顶温差大，备好保暖衣物"
+          ],
+          "spotIds": [
+            "greatWall"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "culture",
+      "title": "人文古迹",
+      "items": [
+        {
+          "key": "architecture",
+          "name": "古建风韵",
+          "icon": "museum",
+          "coverSpotId": "forbiddenCity",
+          "avgRating": 4.8,
+          "bestSeason": "全年",
+          "recommendedDays": "1-2 日",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
+          "intensity": "轻松",
+          "audience": "文化/家庭",
+          "highlights": [
+            "古建瑰宝",
+            "雕梁画栋",
+            "历史厚重",
+            "建筑美学"
+          ],
+          "tips": [
+            "可请讲解员，深度了解建筑历史",
+            "注意保护文物，勿触摸刻划",
+            "拍照注意光线，早晚最佳"
+          ],
+          "spotIds": [
+            "forbiddenCity",
+            "summerPalace"
+          ]
+        }
+      ]
+    }
+  ],
+  "craftWorkshops": [
+    {
+      "id": "beijing-craft-1",
+      "image": "https://picsum.photos/id/1342/600/400",
+      "category": "craft",
+      "name": "景泰蓝制作体验",
+      "type": "金属工艺",
+      "location": "北京市珐琅厂",
+      "duration": "3小时",
+      "difficulty": "中等",
+      "price": "280",
+      "rating": 4.9,
+      "reviewCount": 512,
+      "instructor": "国家级非遗传承人",
+      "heritageLevel": "national",
+      "highlights": [
+        "亲手掐丝构图",
+        "点蓝填色",
+        "了解景泰蓝600年历史"
+      ],
+      "steps": [
+        "选铜胎",
+        "掐丝构图",
+        "点蓝填色",
+        "烧蓝定型",
+        "打磨镀金"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "手工艺爱好者"
+      ],
+      "tags": [
+        "非遗",
+        "景泰蓝",
+        "宫廷工艺"
+      ],
+      "description": "景泰蓝学名铜胎掐丝珐琅，大明景泰年间蔚然成风，皇家御用之器流光溢彩。于传承人指导下亲手掐丝点蓝，铜丝金线间勾勒出六百年宫廷华彩，感受燕京八绝之璀璨夺目。"
+    },
+    {
+      "id": "beijing-craft-2",
+      "image": "https://picsum.photos/id/1344/600/400",
+      "category": "craft",
+      "name": "京绣手工体验",
+      "type": "刺绣",
+      "location": "北京京绣工坊",
+      "duration": "3小时",
+      "difficulty": "简单",
+      "price": "220",
+      "rating": 4.7,
+      "reviewCount": 234,
+      "instructor": "京绣传承人",
+      "heritageLevel": "national",
+      "highlights": [
+        "盘金绣技法",
+        "龙纹样稿体验",
+        "作品可带走"
+      ],
+      "steps": [
+        "选缎面",
+        "拓纹样",
+        "盘金线",
+        "固定收边"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "手工艺爱好者"
+      ],
+      "tags": [
+        "非遗",
+        "京绣",
+        "宫廷"
+      ],
+      "description": "京绣为明清两代宫廷刺绣之巅峰，燕京八绝之一，盘金绣法金线流转。于绣房中执针引线，摹龙纹凤稿，一针一线皆承皇家气象，品味这宫墙之内传承千年的锦绣华章。"
+    }
+  ],
+  "performances": [
+    {
+      "id": "beijing-perf-1",
+      "image": "https://picsum.photos/id/1400/600/400",
+      "category": "performance",
+      "name": "京剧《贵妃醉酒》·湖广会馆",
+      "type": "戏曲",
+      "location": "北京湖广会馆",
+      "duration": "2小时",
+      "difficulty": "简单",
+      "price": "180",
+      "rating": 4.8,
+      "reviewCount": 567,
+      "highlights": [
+        "梅派经典名剧",
+        "百年会馆戏楼",
+        "京胡伴奏赏析"
+      ],
+      "suitableFor": [
+        "戏曲爱好者",
+        "文化体验者"
+      ],
+      "tags": [
+        "非遗",
+        "京剧",
+        "国粹"
+      ],
+      "description": "湖广会馆红木雕梁间，京剧名角水袖轻扬，一颦一笑皆见功底。《贵妃醉酒》中杨玉环的百转千回，于百年戏楼中回荡，恍若穿越梨园盛世，品味国粹之绝代风华。",
+      "heritageLevel": "national"
+    },
+    {
+      "id": "beijing-perf-2",
+      "image": "https://picsum.photos/id/1401/600/400",
+      "category": "performance",
+      "name": "德云社相声专场",
+      "type": "曲艺",
+      "location": "北京德云社三庆园",
+      "duration": "2小时",
+      "difficulty": "简单",
+      "price": "120",
+      "rating": 4.7,
+      "reviewCount": 892,
+      "highlights": [
+        "郭德纲于谦经典段子",
+        "传统相声与现代梗",
+        "砸挂互动笑翻全场"
+      ],
+      "suitableFor": [
+        "年轻群体",
+        "曲艺爱好者"
+      ],
+      "tags": [
+        "相声",
+        "曲艺",
+        "德云社"
+      ],
+      "description": "三庆园里醒木一拍，说学逗唱轮番上阵。传统段子与新潮热梗交织，捧哏逗哏间妙语连珠，满堂喝彩此起彼伏。于这京城最接地气的曲艺场子里，笑出腹肌笑出泪，方知相声魅力之所在。"
+    },
+    {
+      "id": "beijing-perf-3",
+      "image": "https://picsum.photos/id/1402/600/400",
+      "category": "performance",
+      "name": "国家大剧院交响乐之夜",
+      "type": "交响乐",
+      "location": "北京国家大剧院音乐厅",
+      "duration": "2小时",
+      "difficulty": "简单",
+      "price": "280",
+      "rating": 4.8,
+      "reviewCount": 345,
+      "highlights": [
+        "世界名曲演绎",
+        "顶级声学音乐厅",
+        "指挥大师执棒"
+      ],
+      "suitableFor": [
+        "音乐爱好者",
+        "情侣约会"
+      ],
+      "tags": [
+        "交响乐",
+        "高雅艺术",
+        "国家大剧院"
+      ],
+      "description": "国家大剧院穹顶之下，琴弦齐鸣如天籁倾泻。从贝多芬到柴可夫斯基，交响乐的恢弘磅礴在顶级声学空间中层层激荡，每一音符都叩击心扉，于这东方艺术殿堂中领略世界音乐之巅。"
+    }
+  ],
+  "outdoorAdventure": [
+    {
+      "id": "beijing-outdoor-1",
+      "image": "https://picsum.photos/id/1363/600/400",
+      "category": "outdoor",
+      "name": "箭扣长城野徒步",
+      "type": "徒步穿越",
+      "location": "怀柔区箭扣段",
+      "duration": "1天",
+      "difficulty": "中等",
+      "price": "免费",
+      "rating": 4.9,
+      "reviewCount": 3421,
+      "totalAscent": 650,
+      "maxElevation": 980,
+      "routeType": "环线",
+      "surfaceType": "石阶",
+      "accessInfo": "高铁至最近站，转景区交通",
+      "gearList": [
+        "登山杖",
+        "手套",
+        "防滑鞋",
+        "头灯"
+      ],
+      "safetyTips": [
+        "碎石路段注意防滑",
+        "雨天禁止攀登",
+        "结伴同行"
+      ],
+      "bestMonths": "4-5月·9-10月",
+      "highlights": [
+        "野长城原貌",
+        "将军把关险段",
+        "长城日落"
+      ],
+      "tags": [
+        "徒步",
+        "长城",
+        "野趣"
+      ],
+      "description": "箭扣长城蜿蜒于燕山之巅，未加修缮的野长城苍凉雄浑。碎石残垣间手脚并用，将军把关处俯瞰群峰叠嶂，日落长城如金蛇蜿蜒，此乃原汁原味之边塞雄关，令人荡气回肠。"
+    },
+    {
+      "id": "beijing-outdoor-2",
+      "image": "https://picsum.photos/id/1366/600/400",
+      "category": "outdoor",
+      "name": "香山红叶徒步",
+      "type": "徒步赏景",
+      "location": "海淀区香山公园",
+      "duration": "半天",
+      "difficulty": "简单",
+      "price": "10",
+      "rating": 4.5,
+      "reviewCount": 2156,
+      "totalAscent": 420,
+      "maxElevation": 575,
+      "routeType": "往返",
+      "surfaceType": "石阶",
+      "accessInfo": "高铁至最近站，转景区交通",
+      "gearList": [
+        "登山鞋",
+        "保暖衣",
+        "相机"
+      ],
+      "safetyTips": [
+        "秋季人多错峰前往",
+        "山路注意防滑"
+      ],
+      "bestMonths": "4-5月·9-10月",
+      "highlights": [
+        "红叶岭漫山红遍",
+        "双清别墅",
+        "鬼见愁登顶"
+      ],
+      "tags": [
+        "徒步",
+        "红叶",
+        "秋景"
+      ],
+      "description": "香山红叶始盛于金代，\"西山红叶\"名列燕京八景。秋霜染尽漫山红遍，黄栌如火层林尽染，双清别墅至鬼见愁一路踏红而行，\"霜叶红于二月花\"之诗意于此方得真味。"
+    }
+  ],
+  "wellnessRetreat": [
+    {
+      "id": "beijing-wellness-1",
+      "image": "https://picsum.photos/id/1420/600/400",
+      "category": "wellness",
+      "name": "颐和园太极晨练",
+      "type": "太极养生",
+      "location": "海淀区颐和园昆明湖畔",
+      "duration": "1.5小时",
+      "difficulty": "简单",
+      "price": "40",
+      "rating": 4.6,
+      "reviewCount": 423,
+      "efficacyTags": [
+        "皇家园林晨练",
+        "太极名师指导",
+        "湖光山色养心"
+      ],
+      "bestSeason": "全年",
+      "packageIncludes": [
+        "门票",
+        "太极教学",
+        "茶饮"
+      ],
+      "suitableFor": [
+        "养生爱好者",
+        "银发族"
+      ],
+      "tags": [
+        "太极",
+        "皇家园林",
+        "颐和园"
+      ],
+      "description": "晨曦微露，昆明湖畔白鹤亮翅。于这皇家御苑中随太极名师舒展筋骨，一招一式如行云流水，远借万寿山翠色，近揽湖面波光，身心在这百年园林中与天地同频，尽享皇家气韵之养生。"
+    },
+    {
+      "id": "beijing-wellness-2",
+      "image": "https://picsum.photos/id/1421/600/400",
+      "category": "wellness",
+      "name": "故宫御医文化体验",
+      "type": "中医养生",
+      "location": "东城区故宫周边中医馆",
+      "duration": "2小时",
+      "difficulty": "简单",
+      "price": "200",
+      "rating": 4.5,
+      "reviewCount": 234,
+      "efficacyTags": [
+        "御医脉诊",
+        "宫廷药方",
+        "本草辨识"
+      ],
+      "bestSeason": "全年",
+      "packageIncludes": [
+        "中医诊疗",
+        "药方讲解",
+        "本草辨识"
+      ],
+      "suitableFor": [
+        "养生爱好者",
+        "文化体验者"
+      ],
+      "tags": [
+        "中医",
+        "御医",
+        "故宫"
+      ],
+      "description": "故宫周边百年中医馆中，御医传人望闻问切，一方一药皆有讲究。从宫廷秘方到本草辨识，于药香氤氲中领略岐黄之术的精微玄妙，体验这传承六百年的御医文化之精髓。"
+    },
+    {
+      "id": "beijing-wellness-3",
+      "image": "https://picsum.photos/id/1422/600/400",
+      "category": "wellness",
+      "name": "奥林匹克森林公园氧吧",
+      "type": "森林康养",
+      "location": "朝阳区奥林匹克森林公园",
+      "duration": "半天",
+      "difficulty": "简单",
+      "price": "免费",
+      "rating": 4.7,
+      "reviewCount": 678,
+      "efficacyTags": [
+        "城市绿肺漫步",
+        "负氧离子沐浴",
+        "慢跑绿道骑行"
+      ],
+      "bestSeason": "春秋",
+      "packageIncludes": [
+        "公园免费",
+        "绿道",
+        "骑行道"
+      ],
+      "suitableFor": [
+        "休闲度假",
+        "运动爱好者"
+      ],
+      "tags": [
+        "森林",
+        "氧吧",
+        "奥运"
+      ],
+      "description": "奥林匹克森林公园花木扶疏，十公里绿道蜿蜒其间。于这城市绿肺中慢跑骑行，负氧离子如甘霖润泽，都市喧嚣尽抛脑后，在钢筋森林之外寻得一方自然净土，身心俱轻。"
     }
   ]
 }

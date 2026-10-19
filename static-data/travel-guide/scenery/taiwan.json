@@ -14,7 +14,163 @@
       "rating": 4.7,
       "bestTime": "全年",
       "location": "台湾省台北市信义区",
-      "description": "曾经的世界第一高楼,台北的标志性建筑"
+      "description": "台北101，台湾台北101，人文荟萃之地，曾经的世界第一高楼，台北的标志性建筑，实乃游历台湾不可错过之胜境。。足以令旅人魂牵梦萦，心驰神往。",
+      "highlight": "曾是世界第一高楼,台北地标",
+      "level": "台湾必游",
+      "rankBadge": "网红",
+      "reviewCount": "87,654条点评",
+      "distance": "距台北0km",
+      "ticketPrice": "¥600",
+      "openTime": "09:00-22:00",
+      "visitDuration": "2-3小时",
+      "audienceTags": [
+        "观光客",
+        "摄影爱好者",
+        "购物爱好者",
+        "家庭游客"
+      ],
+      "ticketDetails": [
+        {
+          "type": "观景台票",
+          "price": "¥600"
+        },
+        {
+          "type": "学生票",
+          "price": "¥450"
+        },
+        {
+          "type": "儿童",
+          "price": "免票"
+        },
+        {
+          "type": "含语音导览",
+          "price": ""
+        }
+      ],
+      "transportInfo": [
+        {
+          "mode": "其他",
+          "detail": "台北松山机场或桃园机场下机后转捷运至市政府站"
+        },
+        {
+          "mode": "其他",
+          "detail": "高铁台北站转捷运板南线至市政府站"
+        },
+        {
+          "mode": "其他",
+          "detail": "市区自驾，有地下停车场"
+        },
+        {
+          "mode": "其他",
+          "detail": "捷运板南线市政府站步行可达"
+        }
+      ],
+      "openTimeDetail": [
+        {
+          "season": "观景台",
+          "months": "",
+          "time": "09:00-22:00"
+        },
+        {
+          "season": "购物中心",
+          "months": "",
+          "time": "11:00-21:30"
+        },
+        {
+          "season": "最后入场 21:30",
+          "months": "",
+          "time": ""
+        }
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "观景台观光",
+          "duration": "2小时",
+          "difficulty": "轻松",
+          "description": "高速电梯-89楼观景台-91楼户外，俯瞰台北",
+          "highlights": [
+            "89楼观景台",
+            "91楼户外观景",
+            "高速电梯",
+            "台北全景"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "观景台观光",
+              "detail": "入口→高速电梯→89楼室内观景台→91楼户外观景台→购物→返程"
+            }
+          ],
+          "budget": {
+            "currency": "¥",
+            "min": 600,
+            "max": 800
+          },
+          "bestFor": [
+            "观光客",
+            "首次游览"
+          ]
+        },
+        {
+          "name": "101深度游",
+          "duration": "半天",
+          "difficulty": "轻松",
+          "description": "观景台+购物中心+美食街，体验信义商圈",
+          "highlights": [
+            "观景台",
+            "购物中心",
+            "美食街",
+            "信义商圈"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "信义商圈半日",
+              "detail": "台北101观景台→购物中心→美食街→信义商圈→象山日落"
+            }
+          ],
+          "budget": {
+            "currency": "¥",
+            "min": 800,
+            "max": 1500
+          },
+          "bestFor": [
+            "购物爱好者",
+            "家庭出游"
+          ]
+        }
+      ],
+      "facilities": [
+        "游客中心:提供咨询",
+        "卫生间:多处分布",
+        "餐饮:美食街丰富",
+        "停车场:地下停车场"
+      ],
+      "tips": [
+        "高峰期需排队",
+        "观景台备防风外套",
+        "可预约快速通道",
+        "拍照注意反光"
+      ],
+      "photoSpots": [
+        "89楼观景台",
+        "91楼户外观景台",
+        "台北101外观"
+      ],
+      "nearbySpots": [
+        "国父纪念馆 1km",
+        "台北世贸中心 0km",
+        "象山 2km"
+      ],
+      "seasonalGuide": [
+        "春季适合观光",
+        "夏季避暑好去处",
+        "秋季观景最佳",
+        "冬季跨年烟火"
+      ],
+      "landscapeCategory": [
+        "人文景观"
+      ]
     },
     {
       "id": "alishan",
@@ -30,13 +186,171 @@
       "rating": 4.8,
       "bestTime": "春季",
       "location": "台湾省嘉义市阿里山乡",
-      "description": "台湾最著名的风景区,以日出、云海、晚霞、森林、铁路五奇著称",
+      "description": "坐落于宝岛大地的阿里山，坐落于台湾的阿里山，台湾最著名的风景区，以日出、云海、晚霞、森林、铁路五奇著称。层峦叠嶂巍峨耸立，鬼斧神工天作之美，令人叹为观止流连忘返。。层峦叠嶂巍峨耸立，堪称天地造化与人文底蕴之交响。",
+      "highlight": "阿里山云海,森林小火车",
+      "level": "台湾必游",
+      "rankBadge": "必去",
+      "reviewCount": "65,432条点评",
+      "distance": "距台北300km",
+      "ticketPrice": "¥200",
       "landformTags": [
         "山地景观"
       ],
       "landscapeType": "mountain",
+      "openTime": "全天开放",
+      "visitDuration": "1-2天",
+      "audienceTags": [
+        "摄影爱好者",
+        "自然爱好者",
+        "赏花爱好者",
+        "铁路爱好者"
+      ],
+      "ticketDetails": [
+        {
+          "type": "成人票",
+          "price": "¥200"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "儿童",
+          "price": "免票"
+        },
+        {
+          "type": "森林小火车另购票",
+          "price": ""
+        }
+      ],
+      "transportInfo": [
+        {
+          "mode": "其他",
+          "detail": "嘉义机场下机后转车至阿里山"
+        },
+        {
+          "mode": "其他",
+          "detail": "高铁嘉义站转台湾好行巴士直达阿里山"
+        },
+        {
+          "mode": "其他",
+          "detail": "嘉义-阿里山，约70公里山路"
+        },
+        {
+          "mode": "其他",
+          "detail": "嘉义有台湾好行巴士直达阿里山"
+        }
+      ],
+      "openTimeDetail": [
+        {
+          "season": "全天开放",
+          "months": "",
+          "time": ""
+        },
+        {
+          "season": "森林小火车",
+          "months": "",
+          "time": "06:00-16:00"
+        },
+        {
+          "season": "日出时间需查询",
+          "months": "",
+          "time": ""
+        }
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "阿里山经典游",
+          "duration": "1天",
+          "difficulty": "轻松",
+          "description": "森林小火车-神木群-姊妹潭-观日平台，看五奇",
+          "highlights": [
+            "森林小火车",
+            "神木群",
+            "姊妹潭",
+            "观日平台"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "阿里山一日",
+              "detail": "嘉义→阿里山→森林小火车→神木群→姊妹潭→观日平台→返程"
+            }
+          ],
+          "budget": {
+            "currency": "¥",
+            "min": 500,
+            "max": 800
+          },
+          "bestFor": [
+            "首次游览",
+            "自然爱好者"
+          ]
+        },
+        {
+          "name": "阿里山深度游",
+          "duration": "2天",
+          "difficulty": "中等",
+          "description": "日出+森林+云海+晚霞，住阿里山体验五奇",
+          "highlights": [
+            "阿里山日出",
+            "森林小火车",
+            "云海晚霞",
+            "五奇体验"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "森林与神木",
+              "detail": "嘉义→阿里山→森林小火车→神木群→姊妹潭→宿阿里山"
+            },
+            {
+              "day": "Day2",
+              "title": "日出与云海",
+              "detail": "观日平台日出→云海→晚霞→返程嘉义"
+            }
+          ],
+          "budget": {
+            "currency": "¥",
+            "min": 1200,
+            "max": 2000
+          },
+          "bestFor": [
+            "摄影爱好者",
+            "深度游"
+          ]
+        }
+      ],
+      "facilities": [
+        "观光车:森林小火车",
+        "停车场:景区入口",
+        "卫生间:多处分布",
+        "住宿:阿里山宾馆"
+      ],
+      "tips": [
+        "海拔高，注意保暖",
+        "日出需早起，提前查询时间",
+        "小火车票需提前预订",
+        "雨季注意路况"
+      ],
+      "photoSpots": [
+        "观日平台",
+        "神木群",
+        "姊妹潭"
+      ],
+      "nearbySpots": [
+        "玉山 50km",
+        "嘉义市 70km",
+        "奋起湖 30km"
+      ],
+      "seasonalGuide": [
+        "春季樱花盛开，最佳季",
+        "夏季避暑好去处",
+        "秋季云海最美",
+        "冬季偶有霜雪"
+      ],
       "landscapeCategory": [
-        "地理景观"
+        "自然景观"
       ]
     },
     {
@@ -53,13 +367,166 @@
       "rating": 4.7,
       "bestTime": "全年",
       "location": "台湾省南投县鱼池乡",
-      "description": "台湾最大的天然湖泊,台湾八景之一",
+      "description": "宝岛日月潭，台湾日月潭，天地造化之奇，碧波荡漾水光潋滟，台湾最大的天然湖泊，台湾八景之一，实乃游历台湾不可错过之胜境。。碧波荡漾水光潋滟，每一处景致皆是造物主的匠心独运。",
+      "highlight": "台湾八景之首,双湖映月",
+      "level": "台湾必游",
+      "rankBadge": "必去",
+      "reviewCount": "76,543条点评",
+      "distance": "距台北200km",
+      "ticketPrice": "¥300",
       "landformTags": [
         "湖泊景观"
       ],
       "landscapeType": "lake",
+      "openTime": "全天开放",
+      "visitDuration": "1天",
+      "audienceTags": [
+        "摄影爱好者",
+        "自然爱好者",
+        "家庭游客",
+        "骑行爱好者"
+      ],
+      "ticketDetails": [
+        {
+          "type": "成人票",
+          "price": "¥300"
+        },
+        {
+          "type": "含游船",
+          "price": ""
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "儿童",
+          "price": "免票"
+        }
+      ],
+      "transportInfo": [
+        {
+          "mode": "其他",
+          "detail": "台中机场下机后转车至日月潭"
+        },
+        {
+          "mode": "其他",
+          "detail": "高铁台中站转台湾好行巴士直达日月潭"
+        },
+        {
+          "mode": "其他",
+          "detail": "台中-日月潭，约80公里"
+        },
+        {
+          "mode": "其他",
+          "detail": "台中有台湾好行巴士直达日月潭"
+        }
+      ],
+      "openTimeDetail": [
+        {
+          "season": "全天开放",
+          "months": "",
+          "time": ""
+        },
+        {
+          "season": "游船",
+          "months": "",
+          "time": "09:00-17:00"
+        },
+        {
+          "season": "自行车道全天开放",
+          "months": "",
+          "time": ""
+        }
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "日月潭环湖",
+          "duration": "1天",
+          "difficulty": "轻松",
+          "description": "游船-文武庙-伊达邵-玄光寺，环湖经典",
+          "highlights": [
+            "游船环湖",
+            "文武庙",
+            "伊达邵",
+            "玄光寺"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "环湖一日",
+              "detail": "水社码头→游船→文武庙→伊达邵→玄光寺→返程"
+            }
+          ],
+          "budget": {
+            "currency": "¥",
+            "min": 500,
+            "max": 800
+          },
+          "bestFor": [
+            "首次游览",
+            "家庭出游"
+          ]
+        },
+        {
+          "name": "骑行环湖",
+          "duration": "1天",
+          "difficulty": "中等",
+          "description": "环湖自行车道，约30公里，CNN最美自行车道",
+          "highlights": [
+            "CNN最美自行车道",
+            "环湖骑行",
+            "湖光山色",
+            "30公里"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "骑行环湖",
+              "detail": "水社码头租车→环湖自行车道→向山→伊达邵→玄光寺→返程还车"
+            }
+          ],
+          "budget": {
+            "currency": "¥",
+            "min": 300,
+            "max": 500
+          },
+          "bestFor": [
+            "骑行爱好者",
+            "运动游"
+          ]
+        }
+      ],
+      "facilities": [
+        "观光车:游船",
+        "停车场:多处分布",
+        "卫生间:多处分布",
+        "餐饮:伊达邵美食"
+      ],
+      "tips": [
+        "防晒很重要",
+        "骑行注意安全",
+        "游船班次需查询",
+        "备好雨具"
+      ],
+      "photoSpots": [
+        "日月潭环湖",
+        "文武庙",
+        "伊达邵码头"
+      ],
+      "nearbySpots": [
+        "九族文化村 5km",
+        "埔里 20km",
+        "台中 80km"
+      ],
+      "seasonalGuide": [
+        "春季适合游览",
+        "夏季避暑好去处",
+        "秋季天高气爽",
+        "冬季偶有雨"
+      ],
       "landscapeCategory": [
-        "水体景观"
+        "自然景观"
       ]
     },
     {
@@ -76,13 +543,171 @@
       "rating": 4.7,
       "bestTime": "全年",
       "location": "台湾省花莲县秀林乡",
-      "description": "台湾最著名的峡谷风景区,以雄伟的大理石峡谷著称",
+      "description": "太鲁阁者，宝岛之胜境也。太鲁阁者，台湾最著名的峡谷风景区，以雄伟的大理石峡谷著称。峡谷幽深壁立千仞，大自然之鬼斧神工，令人叹为观止流连忘返。。峡谷幽深壁立千仞，当属此地名胜之首推，不容错过。",
+      "highlight": "台湾最美峡谷,大理岩峡谷",
+      "level": "台湾必游",
+      "rankBadge": "必去",
+      "reviewCount": "54,321条点评",
+      "distance": "距台北150km",
+      "ticketPrice": "免费",
       "landformTags": [
         "峡谷景观"
       ],
       "landscapeType": "canyon",
+      "openTime": "08:00-17:00",
+      "visitDuration": "1天",
+      "audienceTags": [
+        "自然爱好者",
+        "徒步爱好者",
+        "摄影爱好者",
+        "探险爱好者"
+      ],
+      "ticketDetails": [
+        {
+          "type": "通用",
+          "price": "免费开放"
+        },
+        {
+          "type": "部分步道需申请",
+          "price": ""
+        },
+        {
+          "type": "观光车另收费",
+          "price": ""
+        },
+        {
+          "type": "含游客中心",
+          "price": ""
+        }
+      ],
+      "transportInfo": [
+        {
+          "mode": "其他",
+          "detail": "花莲机场下机后转车至太鲁阁"
+        },
+        {
+          "mode": "其他",
+          "detail": "台铁到花莲站，再转台湾好行巴士"
+        },
+        {
+          "mode": "其他",
+          "detail": "花莲-太鲁阁，约30公里"
+        },
+        {
+          "mode": "其他",
+          "detail": "花莲有台湾好行巴士直达太鲁阁"
+        }
+      ],
+      "openTimeDetail": [
+        {
+          "season": "游客中心",
+          "months": "",
+          "time": "08:00-17:00"
+        },
+        {
+          "season": "步道全天开放",
+          "months": "",
+          "time": ""
+        },
+        {
+          "season": "部分步道需申请",
+          "months": "",
+          "time": ""
+        }
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "太鲁阁经典游",
+          "duration": "1天",
+          "difficulty": "中等",
+          "description": "游客中心-长春祠-燕子口-九曲洞-天祥，看大理石峡谷",
+          "highlights": [
+            "大理石峡谷",
+            "长春祠",
+            "燕子口",
+            "九曲洞"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "峡谷经典一日",
+              "detail": "游客中心→长春祠→燕子口→九曲洞→天祥→返程花莲"
+            }
+          ],
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
+          "bestFor": [
+            "自然爱好者",
+            "首次游览"
+          ]
+        },
+        {
+          "name": "步道深度游",
+          "duration": "2天",
+          "difficulty": "较难",
+          "description": "白杨步道+砂卡礑步道+绿水步道，徒步深度体验",
+          "highlights": [
+            "白杨步道",
+            "砂卡礑步道",
+            "绿水步道",
+            "峡谷徒步"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "白杨砂卡礑",
+              "detail": "游客中心→白杨步道→砂卡礑步道→宿天祥"
+            },
+            {
+              "day": "Day2",
+              "title": "绿水与峡谷",
+              "detail": "天祥→绿水步道→九曲洞→长春祠→返程"
+            }
+          ],
+          "budget": {
+            "currency": "¥",
+            "min": 600,
+            "max": 1000
+          },
+          "bestFor": [
+            "徒步爱好者",
+            "深度游"
+          ]
+        }
+      ],
+      "facilities": [
+        "游客中心:提供咨询",
+        "停车场:多处分布",
+        "卫生间:多处分布",
+        "餐饮:天祥有餐饮"
+      ],
+      "tips": [
+        "注意落石，戴安全帽",
+        "部分步道需申请",
+        "勿靠近悬崖",
+        "备好登山鞋"
+      ],
+      "photoSpots": [
+        "长春祠",
+        "燕子口",
+        "九曲洞"
+      ],
+      "nearbySpots": [
+        "花莲市 30km",
+        "清水断崖 20km",
+        "天祥 15km"
+      ],
+      "seasonalGuide": [
+        "春季适合徒步",
+        "夏季注意落石",
+        "秋季最佳游览季",
+        "冬季偶有雨"
+      ],
       "landscapeCategory": [
-        "地理景观"
+        "自然景观"
       ]
     },
     {
@@ -99,62 +724,163 @@
       "rating": 4.6,
       "bestTime": "全年",
       "location": "台湾省新北市瑞芳区",
-      "description": "台湾最著名的小镇之一,充满怀旧风情"
-    },
-    {
-      "id": "kenting",
-      "name": "垦丁",
-      "tags": [
-        "海滨",
-        "度假",
-        "阳光",
-        "沙滩"
+      "description": "名为九份，台湾九份，人文荟萃之地，台湾最著名的小镇之一，充满怀旧风情，实乃游历台湾不可错过之胜境。。令人叹为观止，流连忘返。",
+      "highlight": "千与千寻原型,山城老街",
+      "level": "台湾必游",
+      "rankBadge": "网红",
+      "reviewCount": "43,210条点评",
+      "distance": "距台北30km",
+      "ticketPrice": "免费",
+      "openTime": "全天开放",
+      "visitDuration": "半天",
+      "audienceTags": [
+        "摄影爱好者",
+        "美食爱好者",
+        "文艺爱好者",
+        "怀旧爱好者"
       ],
-      "type": "nature",
-      "image": "https://picsum.photos/id/1785/600/400",
-      "rating": 4.6,
-      "bestTime": "冬季",
-      "location": "台湾省屏东县恒春镇",
-      "description": "台湾最著名的海滨度假胜地,台湾的夏威夷",
-      "landformTags": [
-        "海滨景观"
+      "ticketDetails": [
+        {
+          "type": "通用",
+          "price": "免费开放"
+        },
+        {
+          "type": "部分景点单独收费",
+          "price": ""
+        },
+        {
+          "type": "观光车另收费",
+          "price": ""
+        },
+        {
+          "type": "含老街游览",
+          "price": ""
+        }
       ],
-      "landscapeType": "coastal",
+      "transportInfo": [
+        {
+          "mode": "其他",
+          "detail": "台北松山机场下机后转车至九份"
+        },
+        {
+          "mode": "其他",
+          "detail": "高铁台北站转台铁至瑞芳，再转公交"
+        },
+        {
+          "mode": "其他",
+          "detail": "台北-九份，约30公里山路"
+        },
+        {
+          "mode": "其他",
+          "detail": "台北有公交直达九份"
+        }
+      ],
+      "openTimeDetail": [
+        {
+          "season": "全天开放",
+          "months": "",
+          "time": ""
+        },
+        {
+          "season": "店铺",
+          "months": "",
+          "time": "10:00-20:00"
+        },
+        {
+          "season": "最佳游览时间为白天至傍晚",
+          "months": "",
+          "time": ""
+        }
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "九份老街游",
+          "duration": "半天",
+          "difficulty": "轻松",
+          "description": "基山街-竖崎路-升平戏院-茶馆，体验山城怀旧",
+          "highlights": [
+            "基山街老街",
+            "竖崎路",
+            "升平戏院",
+            "阿妹茶楼"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "山城怀旧半日",
+              "detail": "九份入口→基山街→竖崎路→升平戏院→阿妹茶楼→海景夕阳"
+            }
+          ],
+          "budget": {
+            "currency": "¥",
+            "min": 100,
+            "max": 300
+          },
+          "bestFor": [
+            "文艺爱好者",
+            "美食爱好者"
+          ]
+        },
+        {
+          "name": "瑞芳深度游",
+          "duration": "1天",
+          "difficulty": "轻松",
+          "description": "九份+金瓜石+黄金博物馆，金九矿区之旅",
+          "highlights": [
+            "九份老街",
+            "金瓜石",
+            "黄金博物馆",
+            "金九矿区"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "金九矿区一日",
+              "detail": "瑞芳→九份老街→金瓜石→黄金博物馆→黄金瀑布→返程"
+            }
+          ],
+          "budget": {
+            "currency": "¥",
+            "min": 300,
+            "max": 500
+          },
+          "bestFor": [
+            "文化深度游",
+            "家庭出游"
+          ]
+        }
+      ],
+      "facilities": [
+        "游客中心:提供咨询",
+        "停车场:山下有停车场",
+        "卫生间:多处分布",
+        "餐饮:小吃丰富"
+      ],
+      "tips": [
+        "周末人多，建议平日前往",
+        "山路陡峭，穿舒适鞋",
+        "备好雨具",
+        "勿错过夕阳"
+      ],
+      "photoSpots": [
+        "九份老街",
+        "阿妹茶楼",
+        "海景"
+      ],
+      "nearbySpots": [
+        "金瓜石 5km",
+        "黄金博物馆 5km",
+        "瑞芳 10km"
+      ],
+      "seasonalGuide": [
+        "春季适合游览",
+        "夏季避暑好去处",
+        "秋季天高气爽",
+        "冬季有雨，注意防滑"
+      ],
       "landscapeCategory": [
-        "水体景观"
+        "人文景观"
       ]
-    },
-    {
-      "id": "nationalPalaceMuseum",
-      "name": "故宫博物院",
-      "tags": [
-        "博物馆",
-        "文物",
-        "文化",
-        "历史"
-      ],
-      "type": "culture",
-      "image": "https://picsum.photos/id/1786/600/400",
-      "rating": 4.8,
-      "bestTime": "全年",
-      "location": "台湾省台北市士林区",
-      "description": "世界四大博物馆之一,收藏了大量的中华文物"
-    },
-    {
-      "id": "danshui",
-      "name": "淡水",
-      "tags": [
-        "古镇",
-        "历史",
-        "文化",
-        "美食"
-      ],
-      "type": "culture",
-      "image": "https://picsum.photos/id/1787/600/400",
-      "rating": 4.5,
-      "bestTime": "全年",
-      "location": "台湾省新北市淡水区",
-      "description": "台湾著名的历史文化古镇"
     }
   ],
   "routes": [
@@ -205,49 +931,52 @@
     ]
   },
   "overview": {
-    "totalSpots": 150,
-    "natureSpots": 80,
-    "cultureSpots": 70,
+    "fiveACount": 0,
+    "worldHeritageCount": 0,
+    "intangibleHeritageCount": 5,
+    "totalSpots": 5,
+    "natureSpots": 3,
+    "cultureSpots": 2,
     "topAttractions": [
       {
         "name": "台北101",
         "image": "https://picsum.photos/id/1780/600/400",
-        "description": "曾经的世界第一高楼,台北的标志性建筑"
+        "description": "坐落于宝岛大地的台北101，台北101——曾经的世界第一高楼，台北的标志性建筑，实乃游历此地不可错过之胜境。。每一处景致皆是造物主的匠心独运。"
       },
       {
         "name": "阿里山",
         "image": "https://picsum.photos/id/1781/600/400",
-        "description": "台湾最著名的风景区,以日出、云海、晚霞、森林、铁路五奇著称"
+        "description": "宝岛阿里山，台湾名胜阿里山，台湾最著名的风景区，以日出、云海、晚霞、森林、铁路五奇著称，令人心驰神往流连忘返。。当属此地名胜之首推，不容错过。"
       },
       {
         "name": "日月潭",
         "image": "https://picsum.photos/id/1782/600/400",
-        "description": "台湾最大的天然湖泊,台湾八景之一"
+        "description": "日月潭者，宝岛之胜境也。日月潭者，台湾之台湾最大的天然湖泊，台湾八景之一，堪称此地风光之冠冕。。令人叹为观止，流连忘返。"
       },
       {
         "name": "太鲁阁",
         "image": "https://picsum.photos/id/1783/600/400",
-        "description": "台湾最著名的峡谷风景区,以雄伟的大理石峡谷著称"
+        "description": "名为太鲁阁，誉为台湾明珠的太鲁阁，台湾最著名的峡谷风景区，以雄伟的大理石峡谷著称，每一处皆是造化与人文的交响。。实乃游历此地不可错过之胜境。"
       },
       {
         "name": "九份",
         "image": "https://picsum.photos/id/1784/600/400",
-        "description": "台湾最著名的小镇之一,充满怀旧风情"
+        "description": "宝岛名胜九份，九份，台湾最著名的小镇之一，充满怀旧风情，足以令旅人魂牵梦萦。。足以令旅人魂牵梦萦，心驰神往。"
       },
       {
         "name": "垦丁",
         "image": "https://picsum.photos/id/1785/600/400",
-        "description": "台湾最著名的海滨度假胜地,台湾的夏威夷"
+        "description": "垦丁，垦丁——台湾最著名的海滨度假胜地，台湾的夏威夷，当属此地名胜之首推。。堪称天地造化与人文底蕴之交响。"
       },
       {
         "name": "故宫博物院",
         "image": "https://picsum.photos/id/1786/600/400",
-        "description": "世界四大博物馆之一,收藏了大量的中华文物"
+        "description": "坐落于宝岛大地的故宫博物院，台湾名胜故宫博物院，世界四大博物馆之一，收藏了大量的中华文物，实乃游历此地不可错过之胜境。。每一处景致皆是造物主的匠心独运。"
       },
       {
         "name": "淡水",
         "image": "https://picsum.photos/id/1787/600/400",
-        "description": "台湾著名的历史文化古镇"
+        "description": "宝岛淡水，淡水者，台湾之台湾著名的历史文化古镇，令人心驰神往流连忘返。。当属此地名胜之首推，不容错过。"
       }
     ]
   },
@@ -297,7 +1026,73 @@
       "description": "温暖如春,是旅游的好时节"
     }
   ],
-  "festivals": [],
+  "festivals": [
+    {
+      "id": "1",
+      "name": "台湾灯会",
+      "month": "2月",
+      "day": "15日",
+      "location": "台北",
+      "isUnique": true,
+      "description": "由交通部观光署主办，每年在不同城市举办，台湾最大元宵灯会，主灯点灯仪式、生肖主题灯区、祈福灯林，于\"宝岛\"感受这\"花灯如雨人潮如织\"之元宵盛况与台湾灯艺之精巧。",
+      "type": "民俗节庆",
+      "heritageLevel": "国家级非遗",
+      "duration": "约7天",
+      "origin": "台湾灯会始于1990年，由交通部观光署主办，每年在不同城市举办，是台湾最大元宵灯会。",
+      "highlights": [
+        "主灯点灯仪式",
+        "生肖主题灯区",
+        "祈福灯林",
+        "猜灯谜",
+        "地方特色灯组"
+      ],
+      "bestTime": "元宵正日点灯",
+      "ticket": "免费",
+      "transport": "高铁至主办城市站，转接驳车",
+      "tips": [
+        "每年主办城市不同，需查官网",
+        "人潮极多，建议搭乘公共交通",
+        "周边有美食区与文创市集"
+      ],
+      "relatedSpots": [
+        "台北101",
+        "中正纪念堂",
+        "龙山寺"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "中秋澎湖湾焰火节",
+      "month": "9月",
+      "day": "15日",
+      "location": "澎湖",
+      "isUnique": false,
+      "description": "以澎湖海湾为舞台结合烟火与音乐演出，海上烟火施放、音乐演出、无人机灯光秀、海鲜美食摊位，于\"菊岛\"澎湖感受这\"海上花火\"之璀璨与海湾夜空之浪漫。",
+      "type": "节庆赛事",
+      "duration": "约3天",
+      "origin": "澎湖湾海上花火节始于2003年，以澎湖海湾为舞台，结合烟火与音乐演出。",
+      "highlights": [
+        "海上烟火施放",
+        "音乐演出",
+        "无人机灯光秀",
+        "海鲜美食摊位",
+        "沙滩派对"
+      ],
+      "bestTime": "烟火施放时段",
+      "ticket": "免费",
+      "transport": "飞机至澎湖马公机场，转车至活动场地",
+      "tips": [
+        "需提前预订机位和住宿",
+        "9月澎湖气候佳，海水温暖",
+        "海鲜以小管、石斑为特色"
+      ],
+      "relatedSpots": [
+        "澎湖",
+        "跨海大桥",
+        "吉贝岛"
+      ]
+    }
+  ],
   "activities": [
     {
       "id": "1",
@@ -323,5 +1118,552 @@
     }
   ],
   "intangibleHeritage": [],
-  "folkCustomsElements": []
+  "folkCustomsElements": [],
+  "themes": [
+    {
+      "key": "nature",
+      "title": "自然风光",
+      "items": [
+        {
+          "key": "peaks",
+          "name": "奇峰云海",
+          "icon": "energy",
+          "coverSpotId": "alishan",
+          "avgRating": 4.8,
+          "bestSeason": "秋冬",
+          "recommendedDays": "2 日",
+          "budget": {
+            "currency": "¥",
+            "min": 400,
+            "max": 900
+          },
+          "intensity": "适中",
+          "audience": "摄影/户外",
+          "highlights": [
+            "奇峰林立",
+            "云海翻涌",
+            "峰林夕照",
+            "雾凇冰挂"
+          ],
+          "tips": [
+            "云海多见于雨后初晴，清晨最佳",
+            "备好防滑鞋，山路湿滑注意安全",
+            "建议提前预订山顶住宿"
+          ],
+          "spotIds": [
+            "alishan",
+            "tarokoGorge"
+          ]
+        },
+        {
+          "key": "water",
+          "name": "江湖瀑布",
+          "icon": "droplet",
+          "coverSpotId": "sunMoonLake",
+          "avgRating": 4.6,
+          "bestSeason": "夏秋",
+          "recommendedDays": "1-2 日",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 500
+          },
+          "intensity": "轻松",
+          "audience": "家庭/休闲",
+          "highlights": [
+            "飞瀑流泉",
+            "湖光山色",
+            "碧水蓝天",
+            "水上游览"
+          ],
+          "tips": [
+            "水边游玩注意安全，勿擅自下水",
+            "雨季水量充沛，枯水期景色减色",
+            "可乘船游览，体验更佳"
+          ],
+          "spotIds": [
+            "sunMoonLake"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "culture",
+      "title": "人文古迹",
+      "items": [
+        {
+          "key": "architecture",
+          "name": "古建风韵",
+          "icon": "museum",
+          "coverSpotId": "nationalPalaceMuseum",
+          "avgRating": 4.7,
+          "bestSeason": "全年",
+          "recommendedDays": "1-2 日",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
+          "intensity": "轻松",
+          "audience": "文化/家庭",
+          "highlights": [
+            "古建瑰宝",
+            "雕梁画栋",
+            "历史厚重",
+            "建筑美学"
+          ],
+          "tips": [
+            "可请讲解员，深度了解建筑历史",
+            "注意保护文物，勿触摸刻划",
+            "拍照注意光线，早晚最佳"
+          ],
+          "spotIds": [
+            "taipei101",
+            "jiufen"
+          ]
+        },
+        {
+          "key": "religion",
+          "name": "宗教文化",
+          "icon": "zen",
+          "coverSpotId": "tarokoGorge",
+          "avgRating": 4.7,
+          "bestSeason": "全年",
+          "recommendedDays": "1-2 日",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
+          "intensity": "轻松",
+          "audience": "银发/养心",
+          "highlights": [
+            "梵音晨钟",
+            "礼佛祈福",
+            "禅修体验",
+            "清心养性"
+          ],
+          "tips": [
+            "寺庙内勿大声喧哗，着装庄重",
+            "可预约禅修/早课体验",
+            "素斋值得一尝，提前询问用斋时间"
+          ],
+          "spotIds": [
+            "tarokoGorge"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "outdoor",
+      "title": "户外休闲",
+      "items": [
+        {
+          "key": "hiking",
+          "name": "徒步自驾",
+          "icon": "route",
+          "coverSpotId": "tarokoGorge",
+          "avgRating": 4.7,
+          "bestSeason": "春秋",
+          "recommendedDays": "2-3 日",
+          "budget": {
+            "currency": "¥",
+            "min": 300,
+            "max": 800
+          },
+          "intensity": "挑战",
+          "audience": "户外/探险",
+          "highlights": [
+            "徒步探险",
+            "自驾天堂",
+            "户外挑战",
+            "自然探索"
+          ],
+          "tips": [
+            "评估体力选合适路线，勿逞强",
+            "备足水和干粮，穿登山鞋",
+            "告知他人行程，保持手机有电"
+          ],
+          "spotIds": [
+            "tarokoGorge"
+          ]
+        },
+        {
+          "key": "coastal",
+          "name": "亲海避暑",
+          "icon": "flower",
+          "coverSpotId": "kenting",
+          "avgRating": 4.6,
+          "bestSeason": "夏秋",
+          "recommendedDays": "2-3 日",
+          "budget": {
+            "currency": "¥",
+            "min": 500,
+            "max": 1500
+          },
+          "intensity": "轻松",
+          "audience": "家庭/度假",
+          "highlights": [
+            "碧海蓝天",
+            "沙滩阳光",
+            "海岛风情",
+            "避暑胜地"
+          ],
+          "tips": [
+            "注意防晒，备好防晒霜和遮阳帽",
+            "游泳注意安全，在指定区域活动",
+            "海鲜过敏者注意饮食选择"
+          ],
+          "spotIds": []
+        }
+      ]
+    }
+  ],
+  "craftWorkshops": [
+    {
+      "id": "taiwan-craft-1",
+      "image": "https://picsum.photos/id/1342/600/400",
+      "category": "craft",
+      "name": "莺歌陶瓷拉坯",
+      "type": "陶瓷",
+      "location": "新北市莺歌区",
+      "duration": "3小时",
+      "difficulty": "中等",
+      "price": "150",
+      "rating": 4.6,
+      "reviewCount": 234,
+      "instructor": "陶艺师",
+      "highlights": [
+        "手拉坯",
+        "釉烧体验",
+        "陶瓷老街"
+      ],
+      "steps": [
+        "练泥",
+        "拉坯",
+        "上釉",
+        "烧制"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "手工艺爱好者"
+      ],
+      "tags": [
+        "陶瓷",
+        "莺歌",
+        "台湾"
+      ],
+      "description": "莺歌为台湾陶瓷重镇200年制陶史\"手拉坯釉烧陶艺老街\"。于莺歌亲手拉坯釉烧，陶瓷老街窑火传承，感受这\"台湾景德镇\"之传承与莺歌陶艺之匠心。"
+    },
+    {
+      "id": "taiwan-craft-2",
+      "image": "https://picsum.photos/id/1344/600/400",
+      "category": "craft",
+      "name": "三峡蓝染体验",
+      "type": "蓝染",
+      "location": "新北市三峡区",
+      "duration": "3小时",
+      "difficulty": "简单",
+      "price": "120",
+      "rating": 4.5,
+      "reviewCount": 89,
+      "instructor": "蓝染艺人",
+      "highlights": [
+        "马蓝植物",
+        "扎染技法",
+        "蓝染方巾"
+      ],
+      "steps": [
+        "选布",
+        "扎花",
+        "蓝染",
+        "拆花"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "手工艺爱好者"
+      ],
+      "tags": [
+        "蓝染",
+        "三峡",
+        "台湾"
+      ],
+      "description": "三峡为台湾传统蓝染重镇以马蓝为染料\"蓝染方巾扎花技法\"。于三峡选布扎花蓝染，马蓝植物染料天然成韵，感受这\"台湾蓝染\"之传承与草木染之古法雅韵。"
+    }
+  ],
+  "performances": [
+    {
+      "id": "taiwan-perf-1",
+      "image": "https://picsum.photos/id/2680/600/400",
+      "category": "performance",
+      "name": "歌仔戏·台北",
+      "type": "戏曲",
+      "location": "台北市大稻埕戏苑",
+      "duration": "2小时",
+      "difficulty": "简单",
+      "price": "80",
+      "rating": 4.7,
+      "reviewCount": 234,
+      "highlights": [
+        "台湾本土戏曲",
+        "歌仔调民谣",
+        "庙埕野台戏韵味"
+      ],
+      "suitableFor": [
+        "戏曲爱好者",
+        "文化体验者"
+      ],
+      "tags": [
+        "非遗",
+        "歌仔戏",
+        "台湾"
+      ],
+      "description": "歌仔戏\"台湾唯一本土戏曲\"，从宜兰落地扫到庙埕野台戏。歌仔调悠扬如诉\"都马调\"\"哭调\"缠绵悱恻，于这大稻埕百年戏苑中，品味\"台湾人的戏曲\"之乡土温情与百年传承。",
+      "heritageLevel": "national"
+    },
+    {
+      "id": "taiwan-perf-2",
+      "image": "https://picsum.photos/id/2681/600/400",
+      "category": "performance",
+      "name": "布袋戏操偶·云林",
+      "type": "偶戏",
+      "location": "云林县虎尾镇布袋戏馆",
+      "duration": "1.5小时",
+      "difficulty": "简单",
+      "price": "60",
+      "rating": 4.8,
+      "reviewCount": 345,
+      "highlights": [
+        "霹雳布袋戏",
+        "操偶绝技体验",
+        "金光戏声光特效"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "家庭游客"
+      ],
+      "tags": [
+        "非遗",
+        "布袋戏",
+        "云林"
+      ],
+      "description": "云林布袋戏\"一口说出千古事十指弄出百万兵\"，霹雳布袋戏将传统偶戏推向新潮。操偶师以指代身让戏偶腾跃如飞，金光戏声光电特效震撼，于这\"台湾偶戏之都\"感受传统与新潮之完美交融。",
+      "heritageLevel": "national"
+    },
+    {
+      "id": "taiwan-perf-3",
+      "image": "https://picsum.photos/id/2682/600/400",
+      "category": "performance",
+      "name": "优人神鼓·山上剧场",
+      "type": "鼓舞",
+      "location": "台北市优人神鼓山上剧场",
+      "duration": "1.5小时",
+      "difficulty": "简单",
+      "price": "280",
+      "rating": 4.8,
+      "reviewCount": 432,
+      "highlights": [
+        "道艺合一击鼓",
+        "山林剧场禅修",
+        "先民鼓声震撼"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "音乐爱好者"
+      ],
+      "tags": [
+        "鼓舞",
+        "禅鼓",
+        "优人"
+      ],
+      "description": "优人神鼓\"先学静坐再学击鼓\"，道艺合一于山林剧场。鼓声从沉雷到疾雨，舞者如行云流水，于这\"云脚优人\"的山林禅鼓中，感受\"一击鼓一声雷\"之震撼，领略\"道\"与\"艺\"之合一境界。"
+    }
+  ],
+  "outdoorAdventure": [
+    {
+      "id": "taiwan-outdoor-1",
+      "image": "https://picsum.photos/id/1363/600/400",
+      "category": "outdoor",
+      "name": "玉山主峰徒步",
+      "type": "徒步穿越",
+      "location": "南投县玉山",
+      "duration": "1天",
+      "difficulty": "中等",
+      "price": "100",
+      "rating": 4.9,
+      "reviewCount": 234,
+      "totalAscent": 1400,
+      "maxElevation": 3952,
+      "routeType": "环线",
+      "surfaceType": "石阶",
+      "accessInfo": "高铁至最近站，转景区交通",
+      "gearList": [
+        "登山杖",
+        "冲锋衣",
+        "头灯",
+        "补给"
+      ],
+      "safetyTips": [
+        "需申请入山证",
+        "海拔高注意高反",
+        "天气多变"
+      ],
+      "bestMonths": "4-5月·9-10月",
+      "highlights": [
+        "台湾之巅",
+        "排云山屋",
+        "东亚最高"
+      ],
+      "tags": [
+        "徒步",
+        "玉山",
+        "台湾之巅"
+      ],
+      "description": "玉山为台湾最高峰3952米东亚最高\"台湾之巅排云山屋\"。登玉山主峰俯瞰台湾，排云山屋观日出云海，感受这\"东亚之巅\"之雄伟与玉山日出之壮美。"
+    },
+    {
+      "id": "taiwan-outdoor-2",
+      "image": "https://picsum.photos/id/1366/600/400",
+      "category": "outdoor",
+      "name": "太鲁阁峡谷穿越",
+      "type": "峡谷穿越",
+      "location": "花莲县太鲁阁",
+      "duration": "半天",
+      "difficulty": "简单",
+      "price": "免费",
+      "rating": 4.8,
+      "reviewCount": 567,
+      "totalAscent": 200,
+      "maxElevation": 950,
+      "routeType": "往返",
+      "surfaceType": "石阶",
+      "accessInfo": "高铁至最近站，转景区交通",
+      "gearList": [
+        "登山鞋",
+        "安全帽",
+        "水",
+        "防晒"
+      ],
+      "safetyTips": [
+        "落石区需戴安全帽",
+        "注意落石"
+      ],
+      "bestMonths": "4-5月·9-10月",
+      "highlights": [
+        "大理岩峡谷",
+        "燕子口",
+        "九曲洞"
+      ],
+      "tags": [
+        "峡谷",
+        "太鲁阁",
+        "台湾"
+      ],
+      "description": "太鲁阁为台湾最美峡谷大理岩绝壁\"燕子口九曲洞震撼\"。于太鲁阁穿行峡谷，大理岩绝壁如削立九曲洞幽深曲折，感受这\"太鲁阁峡谷\"之壮美与大理岩壁之奇绝。"
+    }
+  ],
+  "wellnessRetreat": [
+    {
+      "id": "taiwan-wellness-1",
+      "image": "https://picsum.photos/id/2700/600/400",
+      "category": "wellness",
+      "name": "北投硫磺温泉",
+      "type": "温泉养生",
+      "location": "台北市北投区温泉路",
+      "duration": "3小时",
+      "difficulty": "简单",
+      "price": "180",
+      "rating": 4.8,
+      "reviewCount": 567,
+      "efficacyTags": [
+        "百年温泉乡",
+        "青磺硫磺泉",
+        "日式汤浴文化"
+      ],
+      "bestSeason": "全年",
+      "packageIncludes": [
+        "温泉票",
+        "浴衣",
+        "茶点"
+      ],
+      "suitableFor": [
+        "养生爱好者",
+        "文化体验者"
+      ],
+      "tags": [
+        "温泉",
+        "硫磺",
+        "北投"
+      ],
+      "description": "北投\"台北后花园\"，温泉博物馆诉说百年温泉乡故事。青磺泉富含硫磺对皮肤病有奇效，日式汤浴文化在此传承，于这\"台北人的温泉乡\"氤氲汤池中涤尽尘疲，尽享百年温泉之康养底蕴。"
+    },
+    {
+      "id": "taiwan-wellness-2",
+      "image": "https://picsum.photos/id/2701/600/400",
+      "category": "wellness",
+      "name": "坪林茶禅一味",
+      "type": "茶禅养生",
+      "location": "新北市坪林区茶业博物馆",
+      "duration": "半天",
+      "difficulty": "简单",
+      "price": "100",
+      "rating": 4.7,
+      "reviewCount": 234,
+      "efficacyTags": [
+        "文山包种茶品鉴",
+        "茶乡古道漫步",
+        "茶禅一味体验"
+      ],
+      "bestSeason": "春秋",
+      "packageIncludes": [
+        "茶席",
+        "包种茶",
+        "茶食"
+      ],
+      "suitableFor": [
+        "茶道爱好者",
+        "文化体验者"
+      ],
+      "tags": [
+        "茶禅",
+        "包种",
+        "坪林"
+      ],
+      "description": "坪林\"包种茶之乡\"，文山包种茶清香雅韵。于茶园古道漫步，茶师以\"闻香\"品评包种茶之花韵，一盏入喉清鲜回甘，于这\"台北茶乡\"品味\"茶禅一味\"，感悟\"吃茶去\"之公案。"
+    },
+    {
+      "id": "taiwan-wellness-3",
+      "image": "https://picsum.photos/id/2702/600/400",
+      "category": "wellness",
+      "name": "日月潭环湖骑行冥想",
+      "type": "运动养生",
+      "location": "南投县日月潭环湖步道",
+      "duration": "1天",
+      "difficulty": "中等",
+      "price": "免费",
+      "rating": 4.8,
+      "reviewCount": 432,
+      "efficacyTags": [
+        "自行车环湖",
+        "日月潭湖光",
+        "玄光寺冥想"
+      ],
+      "bestSeason": "春秋",
+      "packageIncludes": [
+        "自行车租赁",
+        "游船",
+        "茶饮"
+      ],
+      "suitableFor": [
+        "运动爱好者",
+        "休闲度假"
+      ],
+      "tags": [
+        "骑行",
+        "日月潭",
+        "冥想"
+      ],
+      "description": "日月潭\"台湾最大湖泊\"，拉鲁岛如明珠嵌碧波。环湖自行车道蜿蜒三十公里，穿行玄光寺伊达邵，于这\"台湾八景\"之畔骑行冥想，湖光山色间涤尽尘嚣，尽享\"水沙莲\"之康养闲趣。"
+    }
+  ]
 }
