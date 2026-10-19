@@ -151,21 +151,14 @@ export function useMyData() {
       if (sc?.outdoorAdventure) result.push(...sc.outdoorAdventure.map((it: any) => ({ ...it, experienceCategory: 'outdoor', provinceId: key })));
       if (sc?.wellnessRetreat) result.push(...sc.wellnessRetreat.map((it: any) => ({ ...it, experienceCategory: 'wellness', provinceId: key })));
       if (sc?.festivals) {
-        for (const fest of sc.festivals) {
-          result.push({
-            id: fest.id,
-            name: fest.name,
-            type: '节庆',
-            image: fest.image || '',
+        result.push(
+          ...sc.festivals.map((it: any) => ({
+            ...it,
             category: 'festival',
             experienceCategory: 'festival',
-            duration: fest.day || '',
-            location: fest.location || '',
-            difficulty: '',
-            description: fest.description || '',
             provinceId: key,
-          } as any);
-        }
+          })),
+        );
       }
     }
     return result;

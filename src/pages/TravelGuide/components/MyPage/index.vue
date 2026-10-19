@@ -1,6 +1,7 @@
 <script setup lang="ts">
-  import { ref, computed, onMounted } from 'vue';
+  import { computed, onMounted } from 'vue';
   import { useMyData } from './useMyData';
+  import { useMyPageState, type MainTab } from './useMyPageState';
   import { useTravelToast } from '@/composables/travelGuide/useTravelToast';
   import {
     FoodIcon,
@@ -24,6 +25,7 @@
     experienceWant,
     experienceBeen,
     experiencesByCategory,
+    routeDone,
     removeFoodEaten,
     removeFoodWant,
     removeFoodSouvenirWant,
@@ -44,14 +46,7 @@
 
   const { show: showToast } = useTravelToast();
 
-  type MainTab = 'food' | 'scenery';
-  const mainTab = ref<MainTab>('food');
-  const activeLeaf = ref('eaten');
-
-  const expanded = ref<Record<MainTab, boolean>>({
-    food: true,
-    scenery: false,
-  });
+  const { mainTab, activeLeaf, expanded } = useMyPageState();
 
   interface Leaf {
     key: string;
@@ -168,12 +163,7 @@
     b.subBranches.reduce((s, sub) => s + sub.leaves.reduce((ls, l) => ls + l.count, 0), 0);
 
   const toggleBranch = (key: MainTab): void => {
-    if (mainTab.value === key) {
-      expanded.value[key] = !expanded.value[key];
-    } else {
-      mainTab.value = key;
-      expanded.value[key] = true;
-    }
+    expanded.value[key] = !expanded.value[key];
   };
 
   const selectLeaf = (main: MainTab, leafKey: string): void => {

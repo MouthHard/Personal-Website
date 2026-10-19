@@ -70,7 +70,7 @@
                   <span class="rating-count" v-if="currentItem.reviewCount">· {{ currentItem.reviewCount }}条</span>
                 </div>
                 <div class="meta-price" v-if="currentItem.price">
-                  <span class="price-val">{{ currentItem.price }}</span>
+                  <span class="price-val">¥{{ currentItem.price }}</span>
                 </div>
               </div>
             </div>
@@ -151,24 +151,35 @@
                 :class="{ 'is-active': isExperienceFavorite(currentItem.id, provinceId, 'craft') }"
                 @click="onToggleFavorite(currentItem)"
               >
-                <BookmarkIcon :size="16" :filled="isExperienceFavorite(currentItem.id, provinceId, 'craft')" />
-                <span>{{ isExperienceFavorite(currentItem.id, provinceId, 'craft') ? '已收藏' : '收藏' }}</span>
+                <span class="btn-rivet rivet-tl"></span>
+                <span class="btn-rivet rivet-br"></span>
+                <span class="btn-icon-socket">
+                  <BookmarkIcon :size="15" :filled="isExperienceFavorite(currentItem.id, provinceId, 'craft')" />
+                </span>
+                <span class="btn-label">{{ isExperienceFavorite(currentItem.id, provinceId, 'craft') ? '已收藏' : '收藏' }}</span>
               </button>
               <button
-
                 class="action-btn btn-been"
                 :class="{ 'is-active': isExperienceBeen(currentItem.id, provinceId, 'craft') }"
                 @click="onToggleBeen(currentItem)"
               >
-                <FlagIcon :size="16" :filled="isExperienceBeen(currentItem.id, provinceId, 'craft')" />
-                <span>{{ isExperienceBeen(currentItem.id, provinceId, 'craft') ? '已体验' : '体验' }}</span>
+                <span class="btn-rivet rivet-tl"></span>
+                <span class="btn-rivet rivet-br"></span>
+                <span class="btn-icon-socket">
+                  <FlagIcon :size="15" :filled="isExperienceBeen(currentItem.id, provinceId, 'craft')" />
+                </span>
+                <span class="btn-label">{{ isExperienceBeen(currentItem.id, provinceId, 'craft') ? '已体验' : '体验' }}</span>
               </button>
               <button
                 class="action-btn btn-share"
                 @click="shareExperience(currentItem)"
               >
-                <ShareIcon :size="16" />
-                <span>分享</span>
+                <span class="btn-rivet rivet-tl"></span>
+                <span class="btn-rivet rivet-br"></span>
+                <span class="btn-icon-socket">
+                  <ShareIcon :size="15" />
+                </span>
+                <span class="btn-label">分享</span>
               </button>
             </div>
           </div>
@@ -176,13 +187,33 @@
       </div>
 
       <div class="detail-panel empty-detail" v-else>
-        <div class="empty-icon-housing">
-          <span class="empty-icon">
-            <PaletteIcon />
-          </span>
+        <span class="empty-screw screw-tl"></span>
+        <span class="empty-screw screw-tr"></span>
+        <span class="empty-screw screw-bl"></span>
+        <span class="empty-screw screw-br"></span>
+        <div class="empty-cast-plate">
+          <div class="empty-gear-housing">
+            <span class="empty-gear-ring"></span>
+            <span class="empty-gear-core">
+              <span class="empty-icon"><PaletteIcon /></span>
+            </span>
+          </div>
+          <h4 class="empty-title">工坊正在筹备中</h4>
+          <p class="empty-desc">该地区的手作工坊体验正在采集中</p>
+          <div class="empty-status-bar">
+            <span class="status-led"></span>
+            <span class="status-text">采集中</span>
+            <span class="status-progress">
+              <span class="progress-fill"></span>
+            </span>
+          </div>
+          <div class="empty-craft-tags">
+            <span class="craft-tag">木雕</span>
+            <span class="craft-tag">陶艺</span>
+            <span class="craft-tag">竹编</span>
+            <span class="craft-tag">漆器</span>
+          </div>
         </div>
-        <h4 class="empty-title">工坊正在筹备中</h4>
-        <p class="empty-desc">该地区的手作工坊体验正在采集中</p>
       </div>
     </div>
 
@@ -200,7 +231,7 @@
 import { ref, computed, watch } from 'vue';
 import PaletteIcon from '../../../../icons/pages/scenery/PaletteIcon.vue';
 import BookmarkIcon from '../../../../icons/common/BookmarkIcon.vue';
-import HeartIcon from '../../../../icons/common/HeartIcon.vue';
+ 
 import FlagIcon from '../../../../icons/common/FlagIcon.vue';
 import ShareIcon from '../../../../icons/common/ShareIcon.vue';
 
@@ -212,10 +243,10 @@ const { shareVisible, shareTitle, shareText, shareUrl, openShare, closeShare } =
 const { show: showToast } = useTravelToast();
 const {
   isExperienceFavorite,
-  isExperienceWant,
+ 
   isExperienceBeen,
   toggleExperienceFavorite,
-  toggleExperienceWant,
+ 
   toggleExperienceBeen,
 } = useSceneryPrefs();
 
@@ -231,12 +262,7 @@ const onToggleFavorite = (item: any): void => {
   toggleExperienceFavorite(item.id, props.provinceId, 'craft');
   showToast({ type: 'info', message: wasFav ? `已取消收藏 ${item.name}` : `已收藏 ${item.name}` });
 };
-const onToggleWant = (item: any): void => {
-  if (!item?.id) return;
-  const wasWant = isExperienceWant(item.id, props.provinceId, 'craft');
-  toggleExperienceWant(item.id, props.provinceId, 'craft');
-  showToast({ type: 'want', message: wasWant ? `已移除想去 ${item.name}` : `已加入想去 ${item.name}` });
-};
+ 
 const onToggleBeen = (item: any): void => {
   if (!item?.id) return;
   const wasBeen = isExperienceBeen(item.id, props.provinceId, 'craft');
@@ -253,8 +279,10 @@ const activeIndex = ref(0);
 
 const currentItem = computed(() => props.items?.[activeIndex.value] || null);
 
-watch(() => props.items, () => {
-  activeIndex.value = 0;
+watch(() => props.items, (newItems) => {
+  if (activeIndex.value >= (newItems?.length || 0)) {
+    activeIndex.value = 0;
+  }
 });
 
 const heritageLabel: Record<string, string> = {

@@ -1,0 +1,1057 @@
+// ============================================================
+// CraftDisplay · 非遗匠作长卷（渐变色系·模块立体版）
+// 每条体验 = 一幅横贯容器的「匠作长卷」
+// 卷面：深青蓝渐变绢本（卷首深青 → 卷中深靛 → 卷尾深黛），横向渐变色系
+// 模块：统一「绢纸装裱签条」— 装裱边框 + 左上受光高光 + 右下背光深影 + 投影
+// 视觉：鎏金轴头 / 绢丝做旧卷面 / 天地镶边 / 朱印点缀
+// 三态：自然=画卷静置；hover=聚光点亮+画心反光+朱印红晕；active=绢本热辉
+// 全程无位移
+// ============================================================
+
+// ---- 绢本渐变色系（深青蓝 → 深靛 → 深黛）----
+$silk-start: #2c4a6e;
+$silk-mid: #1e3a5a;
+$silk-end: #14263d;
+$silk-void: #0d1a2b;
+
+// ---- 绢纸模块底（比卷面略亮，装裱签条质感）----
+$paper-top: #3a5a7e;
+$paper-mid: #2a4a6a;
+$paper-low: #1e3a52;
+
+// ---- 装裱边框 ----
+$mount-edge: rgba(58, 90, 122, 0.7);
+$mount-gold: rgba(201, 165, 92, 0.5);
+
+// ---- 文字（亮色系，与深青卷面拉开色差）----
+$ink-hi: #ffffff;
+$ink-bright: #eaf2fc;
+$ink-main: #d0ddf0;
+$ink-dim: #a8bcd8;
+
+// ---- 鎏金 / 朱砂点缀 ----
+$gold-hi: #f8df9a;
+$gold-mid: #d9a94e;
+$gold-deep: #9a6f2b;
+
+$cinnebar: #c23a2b;
+$cinn-deep: #7d1c12;
+
+// ---- 亮 icon 色 ----
+$icon-loc: #f8df9a;
+$icon-time: #aec8ff;
+$icon-star: #f8df9a;
+
+// 绢丝纹理（细腻横竖交织 + 做旧斑）
+@mixin silk-skin {
+  background:
+    radial-gradient(ellipse 20% 12% at 18% 22%, rgba(214, 178, 96, 0.05), transparent 70%),
+    radial-gradient(ellipse 16% 9% at 78% 72%, rgba(120, 160, 200, 0.06), transparent 70%),
+    radial-gradient(ellipse 30% 18% at 60% 12%, rgba(214, 178, 96, 0.035), transparent 70%),
+    repeating-linear-gradient(0deg, transparent 0 17px, rgba(255, 255, 255, 0.022) 17px 18px),
+    repeating-linear-gradient(90deg, transparent 0 29px, rgba(255, 255, 255, 0.015) 29px 30px),
+    repeating-linear-gradient(0deg, transparent 0 3px, rgba(255, 255, 255, 0.008) 3px 4px),
+    repeating-linear-gradient(90deg, transparent 0 5px, rgba(255, 255, 255, 0.006) 5px 6px);
+}
+
+// 绢纸装裱签条（统一立体模块：阳光左上斜照 + 右下背光 + 投影 + 内发光）
+@mixin scroll-module {
+  position: relative;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  border-top-color: rgba(255, 250, 230, 0.3);
+  border-bottom-color: rgba(0, 0, 0, 0.75);
+  background:
+    linear-gradient(168deg, rgba(255, 245, 220, 0.12) 0%, transparent 35%),
+    linear-gradient(180deg, $paper-top 0%, $paper-mid 50%, $paper-low 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 250, 230, 0.3),
+    inset 0 -1px 3px rgba(0, 0, 0, 0.5),
+    inset 1px 1px 0 rgba(255, 245, 220, 0.15),
+    inset -1px -1px 2px rgba(0, 0, 0, 0.4),
+    inset 2px 2px 8px rgba(255, 238, 170, 0.08),
+    inset 0 0 12px rgba(58, 90, 122, 0.15),
+    0 3px 6px rgba(0, 0, 0, 0.4),
+    0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+@mixin rivet-spot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 30%, $ink-hi, #8f99ad 55%, #4a5160);
+  box-shadow:
+    inset 0 -1px 1px rgba(0, 0, 0, 0.7),
+    inset 0 1px 1px rgba(255, 255, 255, 0.45),
+    0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.scroll-rack {
+  list-style: none;
+  margin: 0;
+  padding: 24px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+
+  .scroll-row {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+
+    // ============================================
+    // 两端真实轴头 — 粗金属圆柱轴身 + 两段鎏金轴帽（加粗版）
+    // ============================================
+    .scroll-stick {
+      position: relative;
+      width: 30px;
+      flex-shrink: 0;
+      margin: 0 -3px;
+      border-radius: 7px;
+      background:
+        repeating-linear-gradient(180deg, rgba(0, 0, 0, 0.16) 0 3px, transparent 3px 10px, rgba(255, 255, 255, 0.12) 10px 13px, transparent 13px 22px),
+        linear-gradient(90deg, #9aa4b8 0%, #6a7386 20%, #4a5366 40%, #2e3543 60%, #1e2530 80%, #3a4252 100%);
+      box-shadow:
+        inset 2px 0 0 rgba(255, 255, 255, 0.28),
+        inset -2px 0 0 rgba(0, 0, 0, 0.65),
+        inset 0 0 8px rgba(0, 0, 0, 0.3),
+        2px 3px 6px rgba(0, 0, 0, 0.5),
+        -1px 2px 4px rgba(0, 0, 0, 0.35);
+      z-index: 4;
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        width: 36px;
+        height: 18px;
+        transform: translateX(-50%);
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.3), transparent 40%),
+          linear-gradient(180deg, #f8e2a2 0%, $gold-mid 48%, $gold-deep 78%, #4a3210 100%);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.6),
+          inset 0 -2px 2px rgba(0, 0, 0, 0.6),
+          inset 0 0 6px rgba(255, 220, 150, 0.2),
+          0 2px 4px rgba(0, 0, 0, 0.55),
+          0 1px 1px rgba(0, 0, 0, 0.3);
+        z-index: 3;
+      }
+      &::before {
+        top: -10px;
+        border-radius: 12px 12px 4px 4px;
+      }
+      &::after {
+        bottom: -10px;
+        border-radius: 4px 4px 12px 12px;
+      }
+
+      & > i {
+        position: absolute;
+        left: 50%;
+        top: -3px;
+        width: 7px;
+        height: 7px;
+        transform: translateX(-50%);
+        border-radius: 50%;
+        background: radial-gradient(circle at 35% 35%, #5a3f12, #201407 70%);
+        box-shadow:
+          inset 0 1px 1px rgba(255, 200, 100, 0.3),
+          0 1px 2px rgba(0, 0, 0, 0.5);
+        z-index: 5;
+      }
+    }
+    .stick-l { border-radius: 9px 3px 3px 9px; }
+    .stick-r { border-radius: 3px 9px 9px 3px; }
+
+    // ============================================
+    // 卷身 — 渐变色系绢本（阳光斜照 + 天地镶边 + 卷曲弧度 + 绢丝微光）
+    // ============================================
+    .scroll-roll {
+      position: relative;
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 24px 30px 20px;
+      color: $ink-main;
+      background:
+        // 天地装裱镶边（上下深色带）
+        linear-gradient(180deg, rgba(8, 14, 24, 0.6) 0 8px, transparent 8px 16px, rgba(8, 14, 24, 0.4) calc(100% - 14px) calc(100% - 8px), rgba(8, 14, 24, 0.7) calc(100% - 8px)),
+        // 阳光斜照暖光（从左上角斜射，暖金色光斑）
+        radial-gradient(ellipse 70% 80% at 15% 10%, rgba(255, 235, 180, 0.18), transparent 55%),
+        // 阳光次级反射（中上偏左）
+        radial-gradient(ellipse 50% 40% at 35% 5%, rgba(255, 220, 150, 0.1), transparent 50%),
+        // 右下背光深影（阳光照不到的暗区）
+        radial-gradient(ellipse 60% 70% at 90% 95%, rgba(0, 5, 15, 0.25), transparent 50%),
+        // 卷面整体明暗（左上亮右下暗，模拟阳光方向）
+        linear-gradient(135deg, rgba(255, 245, 220, 0.06) 0%, transparent 40%, rgba(0, 0, 0, 0.08) 80%),
+        // 原有弧面光影
+        radial-gradient(ellipse 92% 62% at 50% 22%, rgba(255, 255, 255, 0.1), transparent 62%),
+        // 绢本渐变色系
+        linear-gradient(95deg, $silk-start 0%, $silk-mid 45%, $silk-end 80%, $silk-void 100%);
+      box-shadow:
+        // 左右卷曲弧度阴影（两端更暗，模拟卷曲）
+        inset 14px 0 20px rgba(0, 0, 0, 0.32),
+        inset -14px 0 20px rgba(0, 0, 0, 0.32),
+        // 上下高光/深影
+        inset 0 1px 0 rgba(255, 250, 230, 0.35),
+        inset 0 -2px 0 rgba(0, 0, 0, 0.55),
+        // 阳光内发光（左上暖光）
+        inset 4px 4px 20px rgba(255, 230, 170, 0.08),
+        // 环境光
+        inset 0 0 50px rgba(58, 90, 122, 0.1),
+        // 投影
+        6px 5px 0 #0a1220,
+        0 16px 32px rgba(4, 12, 24, 0.65),
+        0 32px 64px rgba(4, 12, 24, 0.3);
+      border-radius: 6px;
+      transition: background 0.4s ease, box-shadow 0.4s ease;
+      overflow: hidden;
+      z-index: 1;
+
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        @include silk-skin;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      // 阳光斜照光带（一条从左上到右下的对角线光带）
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(125deg, transparent 30%, rgba(255, 240, 200, 0.06) 45%, rgba(255, 240, 200, 0.03) 55%, transparent 70%);
+        pointer-events: none;
+        z-index: 2;
+      }
+
+      &:hover {
+        background:
+          linear-gradient(180deg, rgba(8, 14, 24, 0.6) 0 8px, transparent 8px 16px, rgba(8, 14, 24, 0.4) calc(100% - 14px) calc(100% - 8px), rgba(8, 14, 24, 0.7) calc(100% - 8px)),
+          radial-gradient(ellipse 70% 80% at 15% 10%, rgba(255, 235, 180, 0.24), transparent 55%),
+          radial-gradient(ellipse 50% 40% at 35% 5%, rgba(255, 220, 150, 0.14), transparent 50%),
+          radial-gradient(ellipse 60% 70% at 90% 95%, rgba(0, 5, 15, 0.2), transparent 50%),
+          linear-gradient(135deg, rgba(255, 245, 220, 0.08) 0%, transparent 40%, rgba(0, 0, 0, 0.06) 80%),
+          radial-gradient(ellipse 92% 62% at 50% 22%, rgba(255, 255, 255, 0.16), transparent 62%),
+          linear-gradient(95deg, #3a5a7e 0%, #2a4a6a 45%, #1e3a52 80%, #15263d 100%);
+        box-shadow:
+          inset 14px 0 20px rgba(0, 0, 0, 0.3),
+          inset -14px 0 20px rgba(0, 0, 0, 0.3),
+          inset 0 1px 0 rgba(255, 250, 230, 0.4),
+          inset 0 -2px 0 rgba(0, 0, 0, 0.55),
+          inset 4px 4px 24px rgba(255, 230, 170, 0.12),
+          inset 0 0 50px rgba(244, 190, 110, 0.1),
+          6px 5px 0 #0a1220,
+          0 18px 36px rgba(4, 12, 24, 0.65),
+          0 0 0 1px rgba(248, 223, 154, 0.22),
+          0 0 28px rgba(248, 223, 154, 0.1);
+
+        .header-title {
+          text-shadow:
+            0 1px 0 rgba(255, 255, 255, 0.35),
+            0 -1px 0 rgba(0, 0, 0, 0.55),
+            0 0 14px rgba(248, 223, 154, 0.5),
+            0 0 30px rgba(217, 169, 78, 0.4);
+        }
+
+        .painting-frame {
+          box-shadow:
+            0 0 0 2px rgba(194, 58, 43, 0.22),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2),
+            0 5px 14px rgba(0, 0, 0, 0.6),
+            0 0 30px rgba(248, 223, 154, 0.12);
+        }
+
+        .frame-thread {
+          transform: translateX(260%);
+          transition: transform 0.9s cubic-bezier(0.2, 0.7, 0.3, 1);
+        }
+
+        .painting-seal {
+          box-shadow:
+            0 0 0 4px rgba(194, 58, 43, 0.24),
+            0 0 16px rgba(194, 58, 43, 0.55),
+            inset 0 0 7px rgba(80, 10, 4, 0.4);
+        }
+
+        .spark {
+          animation: sparkFlicker 0.8s ease-in-out infinite alternate;
+        }
+      }
+
+      &:active {
+        background:
+          linear-gradient(180deg, rgba(8, 14, 24, 0.6) 0 8px, transparent 8px 16px, rgba(8, 14, 24, 0.4) calc(100% - 14px) calc(100% - 8px), rgba(8, 14, 24, 0.7) calc(100% - 8px)),
+          radial-gradient(ellipse 70% 80% at 15% 10%, rgba(255, 235, 180, 0.14), transparent 55%),
+          linear-gradient(135deg, rgba(255, 245, 220, 0.04) 0%, transparent 40%, rgba(0, 0, 0, 0.1) 80%),
+          linear-gradient(95deg, #1e3a5a 0%, #14263d 40%, #0d1a2b 75%, #08121e 100%);
+        box-shadow:
+          inset 14px 0 20px rgba(0, 0, 0, 0.3),
+          inset -14px 0 20px rgba(0, 0, 0, 0.3),
+          inset 0 0 30px rgba(217, 169, 78, 0.15),
+          inset 4px 4px 16px rgba(255, 230, 170, 0.06),
+          6px 5px 0 #0a1220,
+          0 12px 20px rgba(4, 12, 24, 0.58);
+
+        .painting-seal {
+          background: radial-gradient(circle at 30% 30%, #d84a38, $cinnebar 55%, $cinn-deep);
+        }
+
+        .header-title {
+          color: $gold-hi;
+        }
+      }
+    }
+
+    // ============================================
+    // 引首题签
+    // ============================================
+    .roll-header {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 2px 4px 13px;
+      z-index: 2;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 4px;
+        right: 4px;
+        bottom: -1px;
+        height: 3px;
+        background: linear-gradient(90deg, transparent, rgba(248, 223, 154, 0.6) 16%, rgba(248, 223, 154, 0.14) 64%, transparent);
+      }
+
+      .header-label {
+        flex-shrink: 0;
+        font-size: 0.9rem;
+        font-weight: 800;
+        color: $gold-hi;
+        letter-spacing: 5px;
+        padding: 7px 12px;
+        border: 1px solid rgba(248, 223, 154, 0.5);
+        border-top-color: rgba(248, 223, 154, 0.7);
+        border-radius: 3px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 50%),
+          linear-gradient(180deg, rgba(13, 22, 36, 0.7), rgba(8, 14, 24, 0.9));
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.22),
+          inset 0 -1px 0 rgba(0, 0, 0, 0.5),
+          inset 0 0 8px rgba(248, 223, 154, 0.1),
+          0 2px 4px rgba(0, 0, 0, 0.5),
+          0 1px 1px rgba(0, 0, 0, 0.3);
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5), 0 0 10px rgba(248, 223, 154, 0.35);
+      }
+
+      .header-title {
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: $ink-hi;
+        letter-spacing: 3px;
+        text-shadow:
+          0 1px 0 rgba(255, 255, 255, 0.3),
+          0 -1px 0 rgba(0, 0, 0, 0.5),
+          0 2px 4px rgba(0, 0, 0, 0.75);
+        transition: text-shadow 0.35s ease, color 0.3s ease;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .header-rating {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        margin-left: 14px;
+        flex-shrink: 0;
+        padding: 4px 12px 4px 10px;
+        border-radius: 4px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.1), transparent 50%),
+          linear-gradient(180deg, rgba(10, 18, 30, 0.6), rgba(6, 12, 22, 0.85));
+        border: 1px solid rgba(0, 0, 0, 0.5);
+        border-top-color: rgba(255, 255, 255, 0.18);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.18),
+          inset 0 -1px 1px rgba(0, 0, 0, 0.4),
+          0 2px 4px rgba(0, 0, 0, 0.45);
+
+        svg {
+          width: 18px;
+          height: 18px;
+          color: $icon-star;
+          filter: drop-shadow(0 0 6px rgba(248, 223, 154, 0.6));
+        }
+
+        b {
+          font-size: 1.2rem;
+          font-weight: 800;
+          color: $gold-hi;
+          text-shadow: 0 0 10px rgba(248, 223, 154, 0.4);
+        }
+
+        i {
+          font-size: 0.9rem;
+          font-style: normal;
+          font-weight: 700;
+          color: $ink-bright;
+        }
+      }
+    }
+
+    // ============================================
+    // 三栏主体：左·标签元数据 / 中·内容详述 / 右·画心价签
+    // 左中栏内容过多可 y 轴滚动（冷钢绢本定制滚动条）
+    // ============================================
+    .roll-main {
+      flex: 1;
+      min-width: 0;
+      display: grid;
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.3fr) auto;
+      gap: 20px;
+      align-items: stretch;
+      max-height: 460px;
+      z-index: 2;
+    }
+
+    // ---- 冷钢绢本滚动条 ----
+    %scroll-rack {
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(248, 223, 154, 0.45) rgba(0, 0, 0, 0.3);
+
+      &::-webkit-scrollbar {
+        width: 7px;
+      }
+      &::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.28);
+        border-radius: 4px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, $gold-mid, $gold-deep);
+        border-radius: 4px;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      }
+    }
+
+    // ============================================
+    // 左栏：标签与元数据
+    // ============================================
+    .main-left {
+      @extend %scroll-rack;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-width: 0;
+      padding-right: 4px;
+
+      .meta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+
+        .plate-heritage {
+          padding: 5px 13px;
+          font-size: 0.95rem;
+          font-weight: 800;
+          color: #fff;
+          background:
+            linear-gradient(180deg, rgba(255, 255, 255, 0.18), transparent 45%),
+            linear-gradient(160deg, #e04a38, $cinnebar 60%, $cinn-deep);
+          border: 1px solid rgba(125, 28, 18, 0.9);
+          border-top-color: rgba(255, 205, 195, 0.5);
+          border-radius: 4px;
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.35),
+            inset 0 -1px 2px rgba(80, 10, 4, 0.4),
+            inset 0 0 8px rgba(255, 100, 80, 0.15),
+            0 3px 5px rgba(0, 0, 0, 0.5),
+            0 1px 2px rgba(0, 0, 0, 0.3);
+          text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+          letter-spacing: 1px;
+        }
+
+        .plate-type {
+          padding: 5px 13px;
+          font-size: 0.95rem;
+          font-weight: 700;
+          color: $ink-hi;
+          background: linear-gradient(180deg, #4a6a8e, #2e4a6a);
+          border: 1px solid rgba(0, 0, 0, 0.45);
+          border-top-color: rgba(255, 255, 255, 0.26);
+          border-radius: 4px;
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.22),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.35),
+            0 2px 4px rgba(0, 0, 0, 0.4);
+          text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+        }
+      }
+
+      .info-bar {
+        display: flex;
+        align-items: stretch;
+        align-self: flex-start;
+        gap: 0;
+        border-radius: 4px;
+        overflow: hidden;
+        background: linear-gradient(180deg, #3a5a7e, #1e3a5a);
+        border: 1px solid rgba(0, 0, 0, 0.48);
+        border-top-color: rgba(255, 255, 255, 0.2);
+        border-bottom-color: rgba(0, 0, 0, 0.65);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.18),
+          inset 0 -2px 3px rgba(0, 0, 0, 0.32),
+          0 2px 3px rgba(0, 0, 0, 0.42);
+
+        .bar-cell {
+          display: inline-flex;
+          align-items: center;
+          gap: 7px;
+          padding: 6px 13px;
+          font-size: 0.95rem;
+          font-weight: 700;
+          color: $ink-hi;
+          letter-spacing: 0.4px;
+          text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+
+          & + .bar-cell {
+            border-left: 1px solid rgba(0, 0, 0, 0.5);
+            box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.12);
+          }
+
+          svg {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+            filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.4));
+          }
+
+          &.is-loc svg { color: $icon-loc; }
+          &.is-time svg { color: $icon-time; }
+          &.is-hard {
+            color: $gold-hi;
+
+            &::before {
+              content: '◆';
+              font-size: 0.78rem;
+              color: $gold-mid;
+            }
+          }
+        }
+      }
+
+      .left-block {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 10px 12px;
+        border-radius: 5px;
+        border: 1px solid rgba(0, 0, 0, 0.6);
+        border-top-color: rgba(255, 255, 255, 0.2);
+        border-bottom-color: rgba(0, 0, 0, 0.7);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.2),
+          inset 0 -1px 2px rgba(0, 0, 0, 0.45),
+          0 2px 4px rgba(0, 0, 0, 0.35);
+
+        // 适合人群 — 青色签
+        &:first-of-type {
+          background:
+            linear-gradient(168deg, rgba(255, 255, 255, 0.1) 0%, transparent 40%),
+            linear-gradient(180deg, #1a4a5a 0%, #0e3a4a 50%, #062a3a 100%);
+          border-top-color: rgba(180, 220, 240, 0.25);
+        }
+
+        // 分类标签 — 靛紫签
+        &:last-of-type {
+          background:
+            linear-gradient(168deg, rgba(255, 255, 255, 0.1) 0%, transparent 40%),
+            linear-gradient(180deg, #3a2a5a 0%, #2a1a4a 50%, #1a0a3a 100%);
+          border-top-color: rgba(200, 180, 240, 0.25);
+        }
+
+        .block-cap {
+          flex-shrink: 0;
+          font-size: 1rem;
+          font-weight: 800;
+          color: $gold-hi;
+          letter-spacing: 2px;
+          padding: 4px 6px;
+          border-left: 2px solid $gold-deep;
+          text-shadow: 0 0 10px rgba(248, 223, 154, 0.4);
+          line-height: 1.4;
+        }
+
+        .block-tags {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 7px;
+
+          .tag-suit {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 12px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: $ink-hi;
+            border: 1px dashed rgba(248, 223, 154, 0.5);
+            border-radius: 3px;
+            letter-spacing: 0.4px;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.45);
+
+            &::before {
+              content: '';
+              width: 7px;
+              height: 7px;
+              border-radius: 1px;
+              background: $gold-mid;
+              transform: rotate(45deg);
+              box-shadow: 0 0 5px rgba(217, 169, 78, 0.55);
+            }
+          }
+
+          .tag-mark {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 12px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: $ink-hi;
+            border: 1px solid rgba(248, 223, 154, 0.45);
+            border-radius: 99px;
+            letter-spacing: 0.4px;
+            background: rgba(217, 169, 78, 0.09);
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.45);
+
+            &::before {
+              content: '✚';
+              font-size: 0.72rem;
+              color: $gold-mid;
+            }
+          }
+        }
+      }
+    }
+
+    // ============================================
+    // 中栏：内容详述（描述 + 亮点 + 工序）
+    // ============================================
+    .main-mid {
+      @extend %scroll-rack;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      min-width: 0;
+      padding: 2px 6px 2px 0;
+
+      .mid-desc {
+        margin: 0;
+        padding: 12px 14px;
+        font-size: 1rem;
+        line-height: 1.8;
+        font-weight: 600;
+        color: #3a2810;
+        text-shadow: 0 1px 0 rgba(255, 240, 210, 0.4);
+        border-radius: 5px;
+        border: 1px solid rgba(120, 80, 30, 0.5);
+        border-top-color: rgba(255, 235, 190, 0.6);
+        border-bottom-color: rgba(80, 50, 15, 0.6);
+        background:
+          linear-gradient(168deg, rgba(255, 255, 255, 0.2) 0%, transparent 40%),
+          linear-gradient(180deg, #f0d8a0 0%, #e0c480 50%, #d0b060 100%);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.4),
+          inset 0 -1px 3px rgba(100, 70, 20, 0.3),
+          inset 0 0 12px rgba(180, 140, 60, 0.15),
+          0 3px 6px rgba(0, 0, 0, 0.35),
+          0 1px 2px rgba(0, 0, 0, 0.2);
+      }
+
+      .mid-benefit {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-height: 30px;
+        padding: 8px 12px;
+        border-radius: 5px;
+        border: 1px solid rgba(122, 84, 26, 0.6);
+        border-top-color: rgba(255, 235, 180, 0.5);
+        border-bottom-color: rgba(80, 50, 15, 0.7);
+        background:
+          linear-gradient(168deg, rgba(255, 255, 255, 0.15) 0%, transparent 40%),
+          linear-gradient(180deg, #4a3a1a 0%, #3a2a10 50%, #2a1e08 100%);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 220, 150, 0.25),
+          inset 0 -1px 2px rgba(0, 0, 0, 0.5),
+          inset 0 0 10px rgba(217, 169, 78, 0.12),
+          0 2px 4px rgba(0, 0, 0, 0.4);
+
+        .benefit-bellows {
+          position: relative;
+          width: 30px;
+          height: 19px;
+          flex-shrink: 0;
+          background: linear-gradient(180deg, #4a6a8e, #2a4a6a);
+          border: 1px solid rgba(0, 0, 0, 0.5);
+          border-top-color: rgba(255, 255, 255, 0.22);
+          border-radius: 50% 50% 34% 34% / 60% 60% 40% 40%;
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.24),
+            inset 0 -2px 3px rgba(0, 0, 0, 0.4),
+            0 1px 3px rgba(0, 0, 0, 0.45);
+
+          &::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -6px;
+            width: 10px;
+            height: 7px;
+            transform: translateX(-50%);
+            background: linear-gradient(180deg, $gold-mid, $gold-deep);
+            border-radius: 0 0 2px 2px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+          }
+        }
+
+        .benefit-dots {
+          position: relative;
+          width: 30px;
+          height: 21px;
+          flex-shrink: 0;
+
+          .spark {
+            position: absolute;
+            background: radial-gradient(circle, $gold-hi, $gold-mid 55%, transparent 75%);
+            border-radius: 50%;
+            box-shadow: 0 0 7px rgba(248, 223, 154, 0.9);
+          }
+          .sp-a { width: 7px; height: 7px; top: 0; left: 5px; }
+          .sp-b { width: 4px; height: 4px; top: 8px; left: 20px; }
+          .sp-c { width: 3px; height: 3px; bottom: 1px; left: 13px; }
+        }
+
+        .benefit-text {
+          font-size: 0.95rem;
+          font-weight: 700;
+          color: $gold-hi;
+          text-shadow: 0 1px 1px rgba(0, 0, 0, 0.6), 0 0 8px rgba(248, 223, 154, 0.3);
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+
+      .mid-steps {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 10px 12px;
+        border-radius: 5px;
+        border: 1px solid rgba(0, 50, 40, 0.6);
+        border-top-color: rgba(180, 240, 220, 0.25);
+        border-bottom-color: rgba(0, 30, 25, 0.7);
+        background:
+          linear-gradient(168deg, rgba(255, 255, 255, 0.1) 0%, transparent 40%),
+          linear-gradient(180deg, #1a4a3e 0%, #0e3a2e 50%, #062a1e 100%);
+        box-shadow:
+          inset 0 1px 0 rgba(180, 240, 220, 0.2),
+          inset 0 -1px 2px rgba(0, 0, 0, 0.5),
+          inset 0 0 12px rgba(60, 160, 120, 0.12),
+          0 2px 4px rgba(0, 0, 0, 0.4);
+
+        .steps-cap {
+          flex-shrink: 0;
+          font-size: 0.95rem;
+          font-weight: 800;
+          color: #8ee0c0;
+          letter-spacing: 3px;
+          writing-mode: vertical-rl;
+          padding: 4px 6px;
+          border-left: 2px solid #2a8a6a;
+          text-shadow: 0 0 10px rgba(120, 220, 180, 0.4);
+        }
+
+        .steps-lane {
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 5px;
+
+          .lane-knot {
+            width: 16px;
+            height: 2px;
+            background: repeating-linear-gradient(90deg, #4ac090 0 2px, transparent 2px 5px);
+            opacity: 0.7;
+            flex-shrink: 0;
+          }
+
+          .lane-paper {
+            padding: 5px 13px;
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: $ink-hi;
+            white-space: nowrap;
+            border-radius: 3px;
+            background: linear-gradient(180deg, #2a6a5a, #144a3a);
+            border: 1px solid rgba(0, 0, 0, 0.45);
+            border-top-color: rgba(180, 240, 220, 0.2);
+            box-shadow: inset 0 1px 0 rgba(180, 240, 220, 0.15), 0 2px 3px rgba(0, 0, 0, 0.35);
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+          }
+        }
+      }
+    }
+
+    // ============================================
+    // 右栏：题跋挂签（独立卡片：画心 + 价签）
+    // ============================================
+    .main-right {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 14px;
+      min-width: 0;
+      padding: 14px 16px;
+      border-radius: 7px;
+      border: 1px solid rgba(10, 13, 20, 0.6);
+      border-top-color: rgba(255, 255, 255, 0.18);
+      background:
+        repeating-linear-gradient(0deg, transparent 0 12px, rgba(255, 255, 255, 0.04) 12px 13px),
+        repeating-linear-gradient(90deg, transparent 0 19px, rgba(255, 255, 255, 0.03) 19px 20px),
+        linear-gradient(168deg, #3a5a7e 0%, #2a4a6a 46%, #1e3a52 100%);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.22),
+        inset 0 -2px 0 rgba(0, 0, 0, 0.3),
+        0 3px 8px rgba(0, 0, 0, 0.4);
+
+      .side-painting {
+        margin: 0;
+        padding: 8px 0;
+        position: relative;
+        display: flex;
+        justify-content: center;
+
+        &::before,
+        &::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          right: 0;
+          height: 2px;
+          background: linear-gradient(90deg, transparent, $gold-mid 30%, $gold-mid 70%, transparent);
+          opacity: 0.55;
+        }
+        &::before { top: 0; }
+        &::after { bottom: 0; }
+
+        .painting-frame {
+          position: relative;
+          width: 168px;
+          height: 168px;
+          border-radius: 4px;
+          overflow: hidden;
+          background: #05070b;
+          box-shadow:
+            0 0 0 2px rgba(194, 58, 43, 0.2),
+            0 0 0 3px rgba(0, 0, 0, 0.5),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2),
+            inset 0 -4px 8px rgba(0, 0, 0, 0.7),
+            inset 2px 0 0 rgba(255, 255, 255, 0.08),
+            inset -2px 0 0 rgba(0, 0, 0, 0.4),
+            0 6px 14px rgba(0, 0, 0, 0.65),
+            0 2px 4px rgba(0, 0, 0, 0.4);
+          transition: box-shadow 0.4s ease;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+          }
+
+          .frame-thread {
+            position: absolute;
+            inset: 0;
+            width: 60%;
+            background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+            transform: translateX(-210%);
+            pointer-events: none;
+            z-index: 2;
+          }
+
+          .frame-knot {
+            position: absolute;
+            @include rivet-spot;
+            z-index: 3;
+          }
+          .k-tl { top: 6px; left: 6px; }
+          .k-tr { top: 6px; right: 6px; }
+          .k-bl { bottom: 6px; left: 6px; }
+          .k-br { bottom: 6px; right: 6px; }
+
+          .painting-seal {
+            position: absolute;
+            right: 8px;
+            bottom: 8px;
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border: 2px solid $cinnebar;
+            background: radial-gradient(circle at 32% 30%, #dd4a36, $cinnebar 58%, $cinn-deep);
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            line-height: 1;
+            text-align: center;
+            border-radius: 2px;
+            transform: rotate(-6deg);
+            box-shadow:
+              inset 0 1px 0 rgba(255, 255, 255, 0.28),
+              inset 0 -1px 2px rgba(0, 0, 0, 0.42),
+              0 2px 4px rgba(0, 0, 0, 0.5);
+            transition: box-shadow 0.35s ease, background 0.35s ease;
+            pointer-events: none;
+            z-index: 3;
+
+            &::before {
+              content: '';
+              position: absolute;
+              inset: 2px;
+              border: 1px solid rgba(255, 240, 230, 0.45);
+              border-radius: 1px;
+              pointer-events: none;
+            }
+          }
+        }
+      }
+
+      .side-quote {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+
+        .quote-price {
+          padding: 8px 16px;
+          font-size: 1.35rem;
+          font-weight: 800;
+          color: #241704;
+          background:
+            linear-gradient(180deg, rgba(255, 255, 255, 0.25), transparent 40%),
+            linear-gradient(180deg, $gold-hi, $gold-mid 62%, $gold-deep);
+          border: 1px solid rgba(122, 84, 26, 0.85);
+          border-top-color: rgba(255, 235, 180, 0.7);
+          border-radius: 4px;
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.65),
+            inset 0 -2px 3px rgba(122, 84, 26, 0.4),
+            inset 0 0 10px rgba(255, 220, 150, 0.2),
+            0 3px 6px rgba(0, 0, 0, 0.5),
+            0 1px 2px rgba(0, 0, 0, 0.3),
+            0 0 18px rgba(217, 169, 78, 0.22);
+          text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+          text-align: center;
+        }
+
+        .quote-master {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          padding: 6px 12px;
+          font-size: 0.92rem;
+          font-weight: 700;
+          color: $ink-hi;
+          background: linear-gradient(180deg, #4a6a8e, #2a4a6a);
+          border: 1px solid rgba(0, 0, 0, 0.5);
+          border-top-color: rgba(255, 255, 255, 0.24);
+          border-radius: 3px;
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.2),
+            0 2px 4px rgba(0, 0, 0, 0.4);
+          letter-spacing: 0.6px;
+          text-shadow: 0 1px 1px rgba(0, 0, 0, 0.45);
+
+          &::before {
+            content: '锻';
+            display: grid;
+            place-items: center;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            font-size: 0.78rem;
+            color: $gold-hi;
+            border: 1px solid rgba(248, 223, 154, 0.6);
+            background: radial-gradient(circle at 32% 30%, #3a5a7e, #14263d);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            flex-shrink: 0;
+          }
+        }
+      }
+    }
+
+    // ---- 移除钮：红漆旋座 ----
+    .scroll-remove {
+      position: absolute;
+      top: 12px;
+      right: 36px;
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      border: 2px solid rgba(194, 58, 43, 0.72);
+      background: radial-gradient(circle at 35% 30%, #dd4a36, $cinn-deep 75%);
+      color: #fff;
+      cursor: pointer;
+      transition: box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
+      z-index: 5;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.38),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.45),
+        0 2px 4px rgba(0, 0, 0, 0.5);
+
+      &:hover {
+        background: radial-gradient(circle at 35% 30%, #ec5a44, #a82618 75%);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.42),
+          inset 0 -1px 2px rgba(0, 0, 0, 0.45),
+          0 0 12px rgba(194, 58, 43, 0.75),
+          0 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      &:active {
+        color: #fff;
+        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.55);
+      }
+    }
+  }
+}
+
+@keyframes sparkFlicker {
+  from {
+    opacity: 0.35;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}

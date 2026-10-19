@@ -1,26 +1,28 @@
 <template>
   <div class="discover-ranking">
     <section class="ranking-board">
-      <header class="board-header">
-        <h3 class="board-title">
-          <span class="title-icon"><StarIcon /></span>
-          必打卡榜单
-        </h3>
-        <p class="board-subtitle">综合评分与人气排名，游客必去打卡地</p>
-      </header>
+      <div class="board-top-row">
+        <header class="board-header">
+          <h3 class="board-title">
+            <span class="title-icon"><StarIcon /></span>
+            必打卡榜单
+          </h3>
+          <p class="board-subtitle">综合评分与人气排名，游客必去打卡地</p>
+        </header>
 
-      <div class="sort-bar">
-        <button
-          v-for="opt in sortOptions"
-          :key="opt.key"
-          class="sort-btn"
-          :class="{ active: sortKey === opt.key }"
-          @click="sortKey = opt.key"
-        >
+        <div class="sort-bar">
+          <button
+            v-for="opt in sortOptions"
+            :key="opt.key"
+            class="sort-btn"
+            :class="{ active: sortKey === opt.key }"
+            @click="sortKey = opt.key"
+          >
 
-          <SortActiveIndicator v-if="sortKey === opt.key" />
-          <span class="sort-label">{{ opt.label }}</span>
-        </button>
+            <SortActiveIndicator v-if="sortKey === opt.key" />
+            <span class="sort-label">{{ opt.label }}</span>
+          </button>
+        </div>
       </div>
 
       <ol class="ranking-list">

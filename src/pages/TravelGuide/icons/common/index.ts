@@ -13,7 +13,7 @@ export { default as ChartIcon } from './ChartIcon.vue';
 export { default as CheckIcon } from './CheckIcon.vue';
 export { default as ChevronLeftIcon } from './ChevronLeftIcon.vue';
 export { default as ChevronRightIcon } from './ChevronRightIcon.vue';
-export { default as CircusIcon } from './CircusIcon.vue';
+
 export { default as ClipboardIcon } from './ClipboardIcon.vue';
 export { default as ClockIcon } from './ClockIcon.vue';
 export { default as CloseIcon } from './CloseIcon.vue';
@@ -24,13 +24,13 @@ export { default as EmailIcon } from './EmailIcon.vue';
 export { default as FeishuIcon } from './FeishuIcon.vue';
 export { default as FireIcon } from './FireIcon.vue';
 export { default as FlagIcon } from './FlagIcon.vue';
-export { default as GamepadIcon } from './GamepadIcon.vue';
+
 export { default as HashIcon } from './HashIcon.vue';
 export { default as HeartIcon } from './HeartIcon.vue';
 export { default as HomeIcon } from './HomeIcon.vue';
 export { default as ImageIcon } from './ImageIcon.vue';
 export { default as KuaishouIcon } from './KuaishouIcon.vue';
-export { default as LanternIcon } from './LanternIcon.vue';
+
 export { default as LeafAutumnIcon } from './LeafAutumnIcon.vue';
 export { default as LeafIcon } from './LeafIcon.vue';
 export { default as LightbulbIcon } from './LightbulbIcon.vue';

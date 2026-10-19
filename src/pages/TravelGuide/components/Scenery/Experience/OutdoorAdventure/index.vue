@@ -23,23 +23,9 @@
               <div class="tape tape--br"></div>
             </div>
 
-            <!-- 手写页码 -->
-            <div class="page-no">
-              <span class="no-current">{{ String(activeIndex + 1).padStart(2, '0') }}</span>
-              <span class="no-sep">/</span>
-              <span class="no-total">{{ String(items.length).padStart(2, '0') }}</span>
-            </div>
-
             <!-- 难度印章 -->
             <div class="diff-stamp" :data-level="currentItem.difficulty">
               <span class="stamp-text">{{ currentItem.difficulty }}</span>
-            </div>
-
-            <!-- 评分（手绘） -->
-            <div v-if="currentItem.rating" class="rating-sketch">
-              <StarIcon class="sketch-star" width="14" height="14" />
-              <span class="sketch-val">{{ currentItem.rating }}</span>
-              <span v-if="currentItem.reviewCount" class="sketch-count">({{ currentItem.reviewCount }})</span>
             </div>
 
             <!-- 底部填写表格：距离/时长/路面/适合 -->
@@ -88,6 +74,13 @@
 
             <!-- 路线标题（手写体） -->
             <h4 class="route-title">{{ currentItem.name }}</h4>
+
+            <!-- 评分（手绘） -->
+            <div v-if="currentItem.rating" class="rating-sketch">
+              <StarIcon class="sketch-star" width="14" height="14" />
+              <span class="sketch-val">{{ currentItem.rating }}</span>
+              <span v-if="currentItem.reviewCount" class="sketch-count">({{ currentItem.reviewCount }})</span>
+            </div>
 
             <!-- 描述（手写体） -->
             <p class="route-desc">{{ currentItem.description }}</p>
@@ -197,10 +190,10 @@
           :data-level="item.difficulty"
           @click="activeIndex = idx"
         >
+          <div class="bookmark-ribbon"></div>
           <div class="bookmark-img-wrap">
             <img loading="lazy" :src="item.image" :alt="item.name" class="bookmark-img" />
           </div>
-          <span class="bookmark-no">{{ String(idx + 1).padStart(2, '0') }}</span>
           <span class="bookmark-name">{{ item.name }}</span>
           <span class="bookmark-diff">{{ item.difficulty }}</span>
         </button>
@@ -208,16 +201,27 @@
 
       <!-- 空状态 -->
       <div v-if="!items || items.length === 0" class="empty-state">
-        <div class="empty-icon-housing">
-          <span class="empty-icon"><MapIcon /></span>
-        </div>
-        <h4 class="empty-title">路线勘测中</h4>
-        <p class="empty-desc">该地区的徒步路线正在规划收录</p>
-        <div class="empty-tags">
-          <span class="empty-tag">徒步穿越</span>
-          <span class="empty-tag">山地骑行</span>
-          <span class="empty-tag">峡谷漂流</span>
-          <span class="empty-tag">岩壁攀爬</span>
+        <div class="empty-journal-page">
+          <div class="empty-binding-edge">
+            <span v-for="r in 6" :key="r" class="binding-hole"></span>
+          </div>
+          <div class="empty-page-content">
+            <div class="empty-icon-housing">
+              <span class="empty-icon"><MapIcon /></span>
+            </div>
+            <h4 class="empty-title">路线勘测中</h4>
+            <p class="empty-desc">该地区的徒步路线正在规划收录</p>
+            <div class="empty-stamp">
+              <span class="stamp-ring"></span>
+              <span class="stamp-text">勘测</span>
+            </div>
+            <div class="empty-tags">
+              <span class="empty-tag">徒步穿越</span>
+              <span class="empty-tag">山地骑行</span>
+              <span class="empty-tag">峡谷漂流</span>
+              <span class="empty-tag">岩壁攀爬</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -252,7 +256,6 @@
   import UsersIcon from '../../../../icons/pages/scenery/UsersIcon.vue';
 
   import BookmarkIcon from '../../../../icons/common/BookmarkIcon.vue';
-  import HeartIcon from '../../../../icons/common/HeartIcon.vue';
   import FlagIcon from '../../../../icons/common/FlagIcon.vue';
   import ShareIcon from '../../../../icons/common/ShareIcon.vue';
 
@@ -263,10 +266,8 @@
 
   const {
     isExperienceFavorite,
-    isExperienceWant,
     isExperienceBeen,
     toggleExperienceFavorite,
-    toggleExperienceWant,
     toggleExperienceBeen,
   } = useSceneryPrefs();
   const { show: showToast } = useTravelToast();
@@ -289,12 +290,7 @@
     toggleExperienceFavorite(item.id, props.provinceId, 'outdoor');
     showToast({ type: 'info', message: wasFav ? `已取消收藏 ${item.name}` : `已收藏 ${item.name}` });
   };
-  const onToggleWant = (item: any): void => {
-    if (!item?.id) return;
-    const wasWant = isExperienceWant(item.id, props.provinceId, 'outdoor');
-    toggleExperienceWant(item.id, props.provinceId, 'outdoor');
-    showToast({ type: 'want', message: wasWant ? `已移除想去 ${item.name}` : `已加入想去 ${item.name}` });
-  };
+
   const onToggleBeen = (item: any): void => {
     if (!item?.id) return;
     const wasBeen = isExperienceBeen(item.id, props.provinceId, 'outdoor');

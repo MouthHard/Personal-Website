@@ -1,0 +1,29 @@
+@mixin panel-section-base {
+  position: relative;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(100, 255, 255, 0.2);
+  border-radius: 16px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+
+  .panel-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #ffffff;
+    margin: 0;
+    .panel-icon {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      svg {
+        filter: drop-shadow(0 0 4px currentColor);
+      }
+    }
+  }
+  &:hover {
+    border-color: rgba(100, 255, 255, 0.4);
+    transform: translateY(-2px) scale(1.01);
+  }
+}

@@ -1,0 +1,88 @@
+// ============================================================
+// Theme · 旅行明信片纪念册 (Travel Postcard Memorial Album)
+// 硬壳皮革精装册 + 书签索引 + 明信片收藏格 + 放大展示页
+// ============================================================
+
+// ---- 皮革封面 (Leather Cover · dark) ----
+$leather-darkest: #150b06;
+$leather-deep: #251610;
+$leather-mid: #382418;
+$leather-light: #4e3525;
+$leather-grain: #6b4a32;
+
+// ---- 黄铜配件 (Brass Hardware) ----
+$brass-bright: #f5d97a;
+$brass: #d4a843;
+$brass-deep: #a07820;
+$brass-shadow: #6b5010;
+$brass-rim: #c8943a;
+
+// ---- 牛皮纸内页 (Kraft Paper · light warm) ----
+$kraft-lightest: #f0dcb4;
+$kraft-light: #e6cf9c;
+$kraft: #d4b886;
+$kraft-deep: #b89a62;
+$kraft-shadow: #9a7c48;
+$kraft-fiber: #c4a672;
+
+// ---- 明信片纸 (Postcard · aged white) ----
+$card-white: #faf2dc;
+$card-cream: #f0e4c4;
+$card-edge: #d8c8a0;
+$card-shadow: #b8a478;
+
+// ---- 邮戳墨 (Postmark Ink · deep red) ----
+$ink-red: #9c3a3a;
+$ink-red-deep: #7a2a2a;
+$ink-red-bright: #c54a4a;
+
+// ---- 邮票 (Postage Stamp) ----
+$stamp-green: #4a8a4a;
+$stamp-teal: #2a7a6b;
+
+// ---- 墨水文字 (Ink Text · dark on kraft) ----
+$ink-darkest: #2a1a0e;
+$ink-dark: #3d2817;
+$ink-mid: #5a3a22;
+$ink-light: #7a5a3a;
+$ink-soft: #9a7a52;
+$ink-gold: #8b6a20;
+$ink-sepia: #6b4a2a;
+
+// ---- 强调色 (Accents on kraft) ----
+$accent-gold: #b8862a;
+$accent-amber: #d4a020;
+$accent-rust: #b85a2a;
+$accent-forest: #4a7a3a;
+$accent-berry: #9c3a5a;
+
+// ---- 皮革纹理 mixin ----
+@mixin leather-texture {
+  background:
+    repeating-linear-gradient(0deg, rgba(0,0,0,0.06) 0, rgba(0,0,0,0.06) 1px, transparent 1px, transparent 4px),
+    repeating-linear-gradient(90deg, rgba(0,0,0,0.04) 0, rgba(0,0,0,0.04) 1px, transparent 1px, transparent 6px),
+    repeating-linear-gradient(45deg, rgba(107,74,50,0.06) 0, rgba(107,74,50,0.06) 2px, transparent 2px, transparent 9px),
+    linear-gradient(160deg, $leather-mid 0%, $leather-deep 50%, $leather-darkest 100%);
+}
+
+// ---- 牛皮纸纹理 mixin ----
+@mixin kraft-texture {
+  background:
+    repeating-linear-gradient(0deg, rgba(154,124,72,0.05) 0, rgba(154,124,72,0.05) 1px, transparent 1px, transparent 7px),
+    repeating-linear-gradient(90deg, rgba(154,124,72,0.04) 0, rgba(154,124,72,0.04) 1px, transparent 1px, transparent 11px),
+    repeating-linear-gradient(37deg, rgba(196,166,114,0.06) 0, rgba(196,166,114,0.06) 1px, transparent 1px, transparent 5px),
+    linear-gradient(170deg, $kraft-light 0%, $kraft 50%, $kraft-deep 100%);
+}
+
+// ---- 缝线 mixin ----
+@mixin stitched-border($color: rgba(212,168,67,0.4), $inset: 5px) {
+  &::before {
+    content: '';
+    position: absolute;
+    inset: $inset;
+    border: 1px dashed $color;
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 1;
+  }
+}

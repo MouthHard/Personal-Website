@@ -1,0 +1,539 @@
+@use '../variables' as *;
+
+.postcard-grid {
+  flex: 0 0 228px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 8px 8px;
+  overflow-y: auto;
+  @include kraft-texture;
+  border: 1px solid $kraft-shadow;
+  border-radius: 7px;
+  box-shadow:
+    inset 0 2px 5px rgba(0,0,0,0.25),
+    inset 0 -1px 0 rgba(255,245,200,0.2),
+    0 5px 14px rgba(0,0,0,0.4);
+
+  .grid-caption {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 5px 11px;
+    margin-bottom: 9px;
+    // 双线底部装饰（金线 + 浅线）
+    border-bottom: 2px solid rgba(184,134,42,0.4);
+    box-shadow: 0 1px 0 rgba(154,124,72,0.2);
+
+    .gc-bar {
+      flex: 0 0 5px;
+      height: 18px;
+      // 金属质感渐变
+      background: linear-gradient(180deg, $brass-bright 0%, $accent-amber 50%, $brass-deep 100%);
+      box-shadow:
+        0 0 6px rgba(212,160,32,0.45),
+        inset 0 1px 0 rgba(255,245,200,0.5);
+      border-radius: 1px;
+    }
+    .gc-text {
+      flex: 1;
+      font-size: 15px;
+      font-weight: 800;
+      color: $ink-darkest;
+      letter-spacing: 2.5px;
+      // 多层浮雕文字
+      text-shadow:
+        0 1px 0 rgba(255,245,200,0.5),
+        0 -1px 0 rgba(0,0,0,0.08),
+        0 0 1px rgba(255,245,200,0.2);
+    }
+    // 邮票面值风格计数
+    .gc-count {
+      font-size: 12px;
+      font-weight: 800;
+
+      color: $ink-gold;
+      padding: 3px 8px;
+      background:
+        radial-gradient(circle at 2px 2px, transparent 1px, rgba(255,245,200,0.6) 1px) 0 0 / 4px 4px,
+        linear-gradient(180deg, $card-cream 0%, $card-white 100%);
+      border: 1px dashed rgba(184,134,42,0.45);
+      border-radius: 3px;
+      text-shadow: 0 1px 0 rgba(255,245,200,0.4);
+      box-shadow:
+        inset 0 1px 0 rgba(255,250,235,0.5),
+        0 1px 2px rgba(0,0,0,0.1);
+    }
+  }
+
+  .grid-slots {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .postcard-slot {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    padding: 12px 10px 11px;
+    cursor: pointer;
+    // 牛皮纸册页上的明信片——多层纸纹 + 纸张立体感
+    background:
+      repeating-linear-gradient(0deg, rgba(216,200,160,0.06) 0, rgba(216,200,160,0.06) 1px, transparent 1px, transparent 8px),
+      repeating-linear-gradient(90deg, rgba(184,164,120,0.04) 0, rgba(184,164,120,0.04) 1px, transparent 1px, transparent 12px),
+      radial-gradient(ellipse at 30% 20%, rgba(255,250,235,0.5) 0%, transparent 60%),
+      linear-gradient(175deg, $card-white 0%, $card-cream 100%);
+    border: 1px solid $card-edge;
+    border-radius: 3px;
+    transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow:
+      inset 0 1px 0 rgba(255,250,235,0.6),
+      inset 0 -2px 3px rgba(184,164,120,0.3),
+      inset 0 0 0 1px rgba(216,200,160,0.2),
+      0 3px 7px rgba(0,0,0,0.2),
+      0 1px 2px rgba(0,0,0,0.1);
+
+    // 倾斜
+    &.tilt {
+      transform: rotate(-1.2deg);
+    }
+
+    // 照片相角——金属折角贴片（默认隐藏，仅 hover 显示）
+    .ps-corner {
+      position: absolute;
+      width: 13px;
+      height: 13px;
+      background:
+        // 左上斜照光照（阳光从左上撒下，亮金→深金）
+        linear-gradient(135deg, $brass-bright 0%, $brass 35%, $brass-deep 75%, $brass-shadow 100%);
+      z-index: 3;
+      opacity: 0;
+      transition: all 0.4s ease;
+      filter: drop-shadow(0 1.5px 1px rgba(0,0,0,0.45)) drop-shadow(0 0 2px rgba(212,168,67,0.35));
+      box-shadow:
+        inset 1.5px 1.5px 1.5px rgba(255,245,200,0.65),
+        inset -1.5px -1.5px 1.5px rgba(0,0,0,0.5);
+
+      &--tl {
+        top: 3px; left: 3px;
+        clip-path: polygon(0 0, 100% 0, 0 100%);
+      }
+
+      &--bl {
+        bottom: 3px; left: 3px;
+        clip-path: polygon(0 0, 0 100%, 100% 100%);
+      }
+      &--br {
+        bottom: 3px; right: 3px;
+        clip-path: polygon(100% 0, 100% 100%, 0 100%);
+      }
+    }
+
+    // 金线流光 + 角花鎏金（active 装饰 · 默认隐藏，active 时浮现）
+    .ps-active-ring {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 4;
+      opacity: 0;
+      transition: opacity 0.45s ease;
+      box-shadow: inset 0 0 10px rgba(245, 217, 122, 0.08);
+      // 流光扫掠（横向 →）
+      &::before {
+        content: '';
+        position: absolute;
+        top: -20%;
+        bottom: -20%;
+        left: -50%;
+        width: 50%;
+        background: linear-gradient(90deg,
+          transparent 0%,
+          rgba(245, 217, 122, 0.0) 15%,
+          rgba(245, 217, 122, 0.28) 50%,
+          rgba(245, 217, 122, 0.0) 85%,
+          transparent 100%
+        );
+        filter: blur(2px);
+      }
+      // 角花鎏金（4 角 L 形金线）
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background:
+          linear-gradient(135deg, rgba(245,217,122,0.6) 0%, rgba(245,217,122,0.6) 1.5px, transparent 1.5px) top left / 10px 10px no-repeat,
+          linear-gradient(225deg, rgba(245,217,122,0.6) 0%, rgba(245,217,122,0.6) 1.5px, transparent 1.5px) top right / 10px 10px no-repeat,
+          linear-gradient(45deg, rgba(245,217,122,0.6) 0%, rgba(245,217,122,0.6) 1.5px, transparent 1.5px) bottom left / 10px 10px no-repeat,
+          linear-gradient(315deg, rgba(245,217,122,0.6) 0%, rgba(245,217,122,0.6) 1.5px, transparent 1.5px) bottom right / 10px 10px no-repeat;
+      }
+    }
+
+    // 邮戳评分——蜡封印章（实底红章 + 浮雕白字 + 微倾）
+    .ps-postmark {
+      position: absolute;
+      top: 5px;
+      left: 7px;
+      z-index: 4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      transform: rotate(-6deg);
+      transition: all 0.45s ease;
+
+      .pm-ring {
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        background:
+          // 左上斜照光照（阳光从左上撒下）
+          linear-gradient(135deg, rgba(255,210,210,0.3) 0%, transparent 45%, rgba(0,0,0,0.18) 100%),
+          // 内圈刻线环
+          radial-gradient(circle, transparent 30%, rgba(122,42,42,0.35) 31%, rgba(122,42,42,0.35) 33%, transparent 34%),
+          // 外圈深红环
+          radial-gradient(circle, transparent 36%, rgba(122,42,42,0.2) 38%, rgba(122,42,42,0.2) 41%, transparent 43%),
+          // 主体红章
+          radial-gradient(circle at 50% 28%, $ink-red 0%, $ink-red-deep 70%, #5a1e1e 100%);
+        box-shadow:
+          inset 0 1.5px 2px rgba(0,0,0,0.4),
+          inset 0 -1.5px 2px rgba(255,180,180,0.18),
+          inset 0 0 0 1px rgba(122,42,42,0.5),
+          0 2px 4px rgba(0,0,0,0.35),
+          0 0 0 1px rgba(122,42,42,0.4),
+          0 3px 5px rgba(122,42,42,0.2);
+        opacity: 0.9;
+        transition: all 0.45s ease;
+      }
+      .pm-num {
+        position: relative;
+        font-size: 15px;
+        font-weight: 900;
+
+        color: #fff8e8;
+        letter-spacing: -0.5px;
+        text-shadow:
+          0 1px 1px rgba(0,0,0,0.5),
+          0 -1px 0 rgba(255,255,255,0.12);
+        transition: all 0.45s ease;
+      }
+    }
+
+    // 邮票图标——厚纸邮票（齿孔凹陷 + 多层阴影 + 双线边框 + 微倾）
+    .ps-stamp {
+      position: absolute;
+      top: 5px;
+      right: 7px;
+      z-index: 4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 30px;
+      color: $stamp-teal;
+      background:
+        // 齿孔凹陷
+        radial-gradient(circle at 2px 2px, rgba(0,0,0,0.12) 1.2px, transparent 1.6px) 0 0 / 4px 4px,
+        radial-gradient(circle at 2px 2px, rgba(0,0,0,0.12) 1.2px, transparent 1.6px) 2px 2px / 4px 4px,
+        // 左上斜照光照（阳光从左上撒下）
+        linear-gradient(135deg, rgba(255,250,235,0.55) 0%, transparent 45%, rgba(184,164,120,0.2) 100%),
+        // 纸面高光
+        radial-gradient(ellipse at 50% 20%, rgba(255,250,235,0.5) 0%, transparent 70%),
+        linear-gradient(180deg, $card-cream 0%, $card-white 60%, $card-cream 100%);
+      border: 1px solid rgba(74,122,107,0.55);
+      border-radius: 2px;
+      transform: rotate(3deg);
+      box-shadow:
+        inset 0 1px 0 rgba(255,250,235,0.7),
+        inset 0 -1px 1px rgba(184,164,120,0.3),
+        inset 0 0 0 1px rgba(255,250,235,0.25),
+        0 2px 3px rgba(0,0,0,0.25),
+        0 4px 6px rgba(0,0,0,0.12);
+      transition: all 0.45s ease;
+    }
+
+    .ps-caption {
+      margin-top: 26px;
+      font-size: 19px;
+      font-weight: 900;
+      color: $ink-darkest;
+      letter-spacing: 2px;
+      text-shadow:
+        0 1px 0 rgba(255,250,235,0.6),
+        0 -1px 0 rgba(0,0,0,0.06);
+      transition: all 0.45s ease;
+    }
+
+    // 副信息——两个多彩立体小标签（景点数 + 季节）
+    .ps-tags {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.45s ease;
+    }
+
+    .ps-tag {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      padding: 3px 9px 2px;
+      border-radius: 3px;
+      transition: all 0.45s ease;
+
+      // 景点数——青绿色系胶囊（自然山林色）
+      &--spots {
+        color: #2a5a4a;
+        background:
+          // 左上斜照光照
+          linear-gradient(135deg, rgba(220,245,230,0.7) 0%, rgba(180,220,200,0.5) 50%, rgba(120,170,150,0.25) 100%),
+          linear-gradient(180deg, #e8f5ee 0%, #d4ebde 100%);
+        border: 1px solid rgba(74,138,74,0.45);
+        box-shadow:
+          inset 0 1px 0 rgba(255,255,255,0.6),
+          inset 0 -1px 1px rgba(74,138,74,0.2),
+          inset 0 0 0 1px rgba(255,255,255,0.2),
+          0 1px 2px rgba(0,0,0,0.12),
+          0 2px 3px rgba(74,138,74,0.1);
+        text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+      }
+
+      // 季节——琥珀色系胶囊（季节暖色）
+      &--season {
+        color: #6b4a1a;
+        background:
+          // 左上斜照光照
+          linear-gradient(135deg, rgba(255,240,200,0.7) 0%, rgba(240,210,160,0.5) 50%, rgba(200,160,90,0.25) 100%),
+          linear-gradient(180deg, #fdf0d4 0%, #f0dfa8 100%);
+        border: 1px solid rgba(184,134,42,0.45);
+        box-shadow:
+          inset 0 1px 0 rgba(255,255,255,0.6),
+          inset 0 -1px 1px rgba(184,134,42,0.2),
+          inset 0 0 0 1px rgba(255,255,255,0.2),
+          0 1px 2px rgba(0,0,0,0.12),
+          0 2px 3px rgba(184,134,42,0.1);
+        text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+      }
+    }
+
+    // ====== hover：四角金三角浮现 + 金边双层发光 + 軻抬放大 ======
+    &:hover {
+      border-color: $accent-gold;
+      transform: rotate(0deg) translateY(-4px) scale(1.02);
+      box-shadow:
+        inset 0 1px 0 rgba(255,250,235,0.7),
+        inset 0 -2px 3px rgba(184,164,120,0.25),
+        inset 0 0 0 1px rgba(184,134,42,0.35),
+        0 8px 18px rgba(0,0,0,0.28),
+        0 3px 6px rgba(0,0,0,0.15),
+        0 0 18px rgba(184,134,42,0.3),
+        0 0 36px rgba(184,134,42,0.15);
+
+      // 四角金三角浮现 + 增强发光
+      .ps-corner {
+        opacity: 1;
+        background: linear-gradient(135deg, $brass-bright 0%, $brass 40%, $brass-deep 100%);
+        filter: drop-shadow(0 2px 1.5px rgba(0,0,0,0.5)) drop-shadow(0 0 4px rgba(245,217,122,0.6));
+        box-shadow:
+          inset 1px 1px 1px rgba(255,245,200,0.65),
+          inset -1px -1px 1px rgba(0,0,0,0.5);
+      }
+      // 邮戳变清晰 + 扶正
+      .ps-postmark {
+        transform: rotate(-3deg);
+        .pm-ring {
+          opacity: 0.96;
+          box-shadow:
+            inset 0 1.5px 2px rgba(0,0,0,0.4),
+            inset 0 -1.5px 2px rgba(255,180,180,0.2),
+            inset 0 0 0 1px rgba(122,42,42,0.55),
+            0 2px 5px rgba(0,0,0,0.4),
+            0 0 0 1px rgba(122,42,42,0.5),
+            0 0 10px rgba(197,74,74,0.4);
+        }
+        .pm-num {
+          text-shadow:
+            0 1px 1px rgba(0,0,0,0.5),
+            0 0 5px rgba(255,200,200,0.4);
+        }
+      }
+      // 邮票变绿 + 扶正 + 提亮
+      .ps-stamp {
+        color: $stamp-green;
+        border-color: rgba(74,138,74,0.7);
+        transform: rotate(2deg);
+        box-shadow:
+          inset 0 1px 0 rgba(255,250,235,0.8),
+          inset 0 -1px 1px rgba(184,164,120,0.3),
+          inset 0 0 0 1px rgba(74,138,74,0.2),
+          0 2px 4px rgba(0,0,0,0.3),
+          0 4px 8px rgba(0,0,0,0.15),
+          0 0 8px rgba(74,138,74,0.25);
+      }
+      .ps-caption {
+        color: $ink-darkest;
+        text-shadow:
+          0 1px 0 rgba(255,250,235,0.7),
+          0 0 8px rgba(184,134,42,0.3);
+      }
+      .ps-tag {
+        &--spots {
+          box-shadow:
+            inset 0 1px 0 rgba(255,255,255,0.7),
+            inset 0 -1px 1px rgba(74,138,74,0.25),
+            inset 0 0 0 1px rgba(255,255,255,0.25),
+            0 1px 3px rgba(0,0,0,0.15),
+            0 2px 4px rgba(74,138,74,0.15),
+            0 0 8px rgba(74,138,74,0.2);
+        }
+        &--season {
+          box-shadow:
+            inset 0 1px 0 rgba(255,255,255,0.7),
+            inset 0 -1px 1px rgba(184,134,42,0.25),
+            inset 0 0 0 1px rgba(255,255,255,0.25),
+            0 1px 3px rgba(0,0,0,0.15),
+            0 2px 4px rgba(184,134,42,0.15),
+            0 0 8px rgba(184,134,42,0.2);
+        }
+      }
+    }
+
+    // ====== active：深色皮革底座 + 鎏金镶嵌 + 金光光环 ======
+    &.active {
+      border-color: $accent-amber;
+      border-width: 2px;
+      transform: rotate(0deg) translateY(-3px);
+      background:
+        repeating-linear-gradient(0deg, rgba(0,0,0,0.05) 0, rgba(0,0,0,0.05) 1px, transparent 1px, transparent 6px),
+        radial-gradient(ellipse at 50% 50%, rgba(212,160,32,0.12) 0%, transparent 70%),
+        linear-gradient(175deg, $leather-mid 0%, $leather-deep 100%);
+      box-shadow:
+        inset 0 1px 0 rgba(245,217,122,0.25),
+        inset 0 -2px 4px rgba(0,0,0,0.4),
+        inset 0 0 0 1px rgba(212,160,32,0.3),
+        0 8px 20px rgba(0,0,0,0.35),
+        0 2px 6px rgba(0,0,0,0.2),
+        0 0 24px rgba(212,160,32,0.3),
+        0 0 48px rgba(212,160,32,0.12);
+
+      // 四角三角隐藏（仅 hover 显示）
+      .ps-corner {
+        opacity: 0;
+      }
+      // 金线流光 + 角花鎏金浮现
+      .ps-active-ring {
+        opacity: 1;
+        box-shadow: inset 0 0 14px rgba(245, 217, 122, 0.15);
+        &::before {
+          animation: sweepRight 2.8s ease-in-out infinite;
+        }
+        &::after {
+          animation: cornerGlow 2.8s ease-in-out infinite;
+        }
+      }
+      // 邮戳变亮红 + 发光 + 扶正
+      .ps-postmark {
+        transform: rotate(-4deg);
+        .pm-ring {
+          background:
+            radial-gradient(circle, transparent 30%, rgba(197,74,74,0.4) 31%, rgba(197,74,74,0.4) 33%, transparent 34%),
+            radial-gradient(circle, transparent 36%, rgba(197,74,74,0.25) 38%, rgba(197,74,74,0.25) 41%, transparent 43%),
+            radial-gradient(circle at 50% 28%, $ink-red-bright 0%, $ink-red 70%, #7a2a2a 100%);
+          opacity: 0.95;
+          box-shadow:
+            inset 0 1.5px 2px rgba(0,0,0,0.4),
+            inset 0 -1.5px 2px rgba(255,180,180,0.22),
+            inset 0 0 0 1px rgba(197,74,74,0.6),
+            0 2px 5px rgba(0,0,0,0.45),
+            0 0 0 1px rgba(197,74,74,0.55),
+            0 0 12px rgba(197,74,74,0.55);
+        }
+        .pm-num {
+          color: #fff8e8;
+          text-shadow:
+            0 1px 1px rgba(0,0,0,0.5),
+            0 0 6px rgba(255,200,200,0.4);
+        }
+      }
+      // 邮票——深色 icon 避免与浅黄邮票背景混淆
+      .ps-stamp {
+        color: $brass-shadow;
+        border-color: rgba(212,168,67,0.7);
+        background:
+          radial-gradient(circle at 2px 2px, rgba(0,0,0,0.12) 1.2px, transparent 1.6px) 0 0 / 4px 4px,
+          radial-gradient(circle at 2px 2px, rgba(0,0,0,0.12) 1.2px, transparent 1.6px) 2px 2px / 4px 4px,
+          radial-gradient(ellipse at 50% 20%, rgba(255,250,235,0.5) 0%, transparent 70%),
+          linear-gradient(180deg, $kraft-lightest 0%, $kraft-light 60%, $kraft 100%);
+        transform: rotate(2deg);
+        box-shadow:
+          inset 0 1px 0 rgba(255,250,235,0.6),
+          inset 0 -1px 1px rgba(184,164,120,0.35),
+          inset 0 0 0 1px rgba(212,168,67,0.25),
+          0 2px 4px rgba(0,0,0,0.35),
+          0 4px 8px rgba(0,0,0,0.18),
+          0 0 8px rgba(212,168,67,0.4);
+      }
+      // 鎏金文字
+      .ps-caption {
+        color: $brass-bright;
+        text-shadow:
+          0 1px 0 rgba(0,0,0,0.4),
+          0 0 10px rgba(245,217,122,0.5),
+          0 0 20px rgba(212,160,32,0.3);
+      }
+      .ps-tag {
+        color: $brass-bright;
+        font-weight: 800;
+        text-shadow:
+          0 1px 0 rgba(0,0,0,0.4),
+          0 0 4px rgba(245,217,122,0.2);
+        &--spots {
+          background:
+            linear-gradient(135deg, rgba(245,217,122,0.2) 0%, rgba(74,138,74,0.15) 50%, rgba(0,0,0,0.2) 100%),
+            linear-gradient(180deg, rgba(74,138,74,0.2) 0%, rgba(40,80,60,0.3) 100%);
+          border-color: rgba(74,138,74,0.5);
+          box-shadow:
+            inset 0 1px 0 rgba(245,217,122,0.25),
+            inset 0 -1px 1px rgba(0,0,0,0.3),
+            0 1px 2px rgba(0,0,0,0.35),
+            0 0 6px rgba(74,138,74,0.3);
+        }
+        &--season {
+          background:
+            linear-gradient(135deg, rgba(245,217,122,0.2) 0%, rgba(212,160,32,0.15) 50%, rgba(0,0,0,0.2) 100%),
+            linear-gradient(180deg, rgba(212,160,32,0.2) 0%, rgba(150,100,20,0.3) 100%);
+          border-color: rgba(212,168,67,0.5);
+          box-shadow:
+            inset 0 1px 0 rgba(245,217,122,0.25),
+            inset 0 -1px 1px rgba(0,0,0,0.3),
+            0 1px 2px rgba(0,0,0,0.35),
+            0 0 6px rgba(212,168,67,0.3);
+        }
+      }
+    }
+
+    // ====== active:hover：金光涌动 + 四角金三角再现 ======
+    &.active:hover {
+      transform: rotate(0deg) translateY(-4px);
+      box-shadow:
+        inset 0 1px 0 rgba(245,217,122,0.35),
+        inset 0 -2px 4px rgba(0,0,0,0.4),
+        inset 0 0 0 1px rgba(212,160,32,0.4),
+        0 10px 24px rgba(0,0,0,0.4),
+        0 3px 8px rgba(0,0,0,0.25),
+        0 0 32px rgba(212,160,32,0.4),
+        0 0 64px rgba(212,160,32,0.18);
+
+      // 四角金三角在 active:hover 也显示
+      .ps-corner {
+        opacity: 1;
+        background: linear-gradient(135deg, $brass-bright 0%, $brass 100%);
+        box-shadow: 0 1px 2px rgba(0,0,0,0.3), 0 0 8px rgba(245,217,122,0.6);
+      }
+    }
+  }
+}

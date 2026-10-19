@@ -34,6 +34,7 @@
 <script setup lang="ts">
   import { ref, computed, watch, markRaw } from 'vue';
   import { useTravelGuideStore } from '@/stores/travelGuide';
+  import { useSceneryTabState } from '../useSceneryTabState';
   import CraftWorkshops from './CraftWorkshops/index.vue';
   import Performances from './Performances/index.vue';
   import OutdoorAdventure from './OutdoorAdventure/index.vue';
@@ -51,7 +52,7 @@
     provinceId: string;
   }>();
 
-  const activeSubTab = ref('craft');
+  const { experienceActiveSubTab: activeSubTab } = useSceneryTabState();
   const craftWorkshops = ref<any[]>([]);
   const performances = ref<any[]>([]);
   const outdoorAdventure = ref<any[]>([]);
@@ -101,11 +102,16 @@
     try {
       const data = await travelStore.getScenery(props.provinceId);
       if (data) {
-        craftWorkshops.value = (data as any).craftWorkshops || [];
-        performances.value = (data as any).performances || [];
-        outdoorAdventure.value = (data as any).outdoorAdventure || [];
-        festivals.value = (data as any).festivals || [];
-        wellnessRetreat.value = (data as any).wellnessRetreat || [];
+        const nextCraft = (data as any).craftWorkshops || [];
+        const nextPerf = (data as any).performances || [];
+        const nextOutdoor = (data as any).outdoorAdventure || [];
+        const nextFest = (data as any).festivals || [];
+        const nextWellness = (data as any).wellnessRetreat || [];
+        if (craftWorkshops.value !== nextCraft) craftWorkshops.value = nextCraft;
+        if (performances.value !== nextPerf) performances.value = nextPerf;
+        if (outdoorAdventure.value !== nextOutdoor) outdoorAdventure.value = nextOutdoor;
+        if (festivals.value !== nextFest) festivals.value = nextFest;
+        if (wellnessRetreat.value !== nextWellness) wellnessRetreat.value = nextWellness;
       }
     } catch (error) {
       console.error('Failed to load scenery data:', error);

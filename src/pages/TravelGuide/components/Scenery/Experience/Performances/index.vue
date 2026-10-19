@@ -158,23 +158,31 @@
                     :class="{ 'is-active': isExperienceFavorite(item.id, provinceId, 'performance') }"
                     @click="onToggleFavorite(item)"
                   >
-                    <BookmarkIcon :size="15" :filled="isExperienceFavorite(item.id, provinceId, 'performance')" />
-                    <span>{{ isExperienceFavorite(item.id, provinceId, 'performance') ? '已收藏' : '收藏' }}</span>
+                    <span class="btn-stamp">
+                      <BookmarkIcon :size="14" :filled="isExperienceFavorite(item.id, provinceId, 'performance')" />
+                    </span>
+                    <span class="btn-perf"></span>
+                    <span class="btn-text">{{ isExperienceFavorite(item.id, provinceId, 'performance') ? '已收藏' : '收藏' }}</span>
                   </button>
 
                   <button
-
                     class="action-btn btn-been"
                     :class="{ 'is-active': isExperienceBeen(item.id, provinceId, 'performance') }"
                     @click="onToggleBeen(item)"
                   >
-                    <FlagIcon :size="15" :filled="isExperienceBeen(item.id, provinceId, 'performance')" />
-                    <span>{{ isExperienceBeen(item.id, provinceId, 'performance') ? '已体验' : '体验' }}</span>
+                    <span class="btn-stamp">
+                      <FlagIcon :size="14" :filled="isExperienceBeen(item.id, provinceId, 'performance')" />
+                    </span>
+                    <span class="btn-perf"></span>
+                    <span class="btn-text">{{ isExperienceBeen(item.id, provinceId, 'performance') ? '已体验' : '体验' }}</span>
                   </button>
 
                   <button class="action-btn btn-share" @click="sharePerformance(item)">
-                    <ShareIcon :size="15" />
-                    <span>分享</span>
+                    <span class="btn-stamp">
+                      <ShareIcon :size="14" />
+                    </span>
+                    <span class="btn-perf"></span>
+                    <span class="btn-text">分享</span>
                   </button>
                 </div>
               </div>
@@ -245,21 +253,33 @@
          空状态
          ============================================ -->
     <div v-else class="empty-ticket">
-      <div class="empty-stub">
-        <div class="stub-perf perf-left">
-          <span class="perf-hole" v-for="h in 4" :key="h"></span>
+      <div class="empty-curtain empty-curtain--left"></div>
+      <div class="empty-curtain empty-curtain--right"></div>
+      <div class="empty-stage">
+        <div class="empty-stub">
+          <div class="stub-perf perf-left">
+            <span class="perf-hole" v-for="h in 4" :key="h"></span>
+          </div>
+          <div class="empty-stub-main">
+            <div class="empty-icon-housing">
+              <TheaterMasksIcon class="empty-icon" width="40" height="40" />
+            </div>
+            <h4 class="empty-title">票务待放票</h4>
+            <p class="empty-desc">该地区剧目票务正在排期中</p>
+            <div class="empty-show-tags">
+              <span class="show-tag">戏曲</span>
+              <span class="show-tag">话剧</span>
+              <span class="show-tag">歌舞</span>
+              <span class="show-tag">民乐</span>
+            </div>
+          </div>
+          <div class="stub-perf perf-right">
+            <span class="perf-hole" v-for="h in 4" :key="h"></span>
+          </div>
         </div>
-        <div class="empty-stub-main">
-          <TheaterMasksIcon class="empty-icon" width="36" height="36" />
-          <h4 class="empty-title">票务待放票</h4>
-          <p class="empty-desc">该地区剧目票务正在排期中</p>
+        <div class="empty-marquee">
+          <span class="marquee-text">敬请期待精彩上演 · 好戏即将开场 · 敬请期待精彩上演 · 好戏即将开场</span>
         </div>
-        <div class="stub-perf perf-right">
-          <span class="perf-hole" v-for="h in 4" :key="h"></span>
-        </div>
-      </div>
-      <div class="empty-marquee">
-        <span class="marquee-text">敬请期待精彩上演 · 好戏即将开场 · 敬请期待精彩上演 · 好戏即将开场</span>
       </div>
     </div>
 
@@ -334,7 +354,11 @@
 
   watch(
     () => props.items,
-    () => { activeIndex.value = 0; },
+    (newItems) => {
+      if (activeIndex.value !== null && activeIndex.value >= (newItems?.length || 0)) {
+        activeIndex.value = 0;
+      }
+    },
   );
 
   const heritageLabel: Record<string, string> = {

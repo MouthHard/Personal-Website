@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import type { Food } from '@/typesOfPages/travelGuide';
 import { CloseIcon, StarIcon, ThumbUpIcon, ShareIcon, HeartIcon, UtensilsIcon } from '@/pages/TravelGuide/icons/common';
-import LacquerCornerIcon from '../LacquerCornerIcon.vue';
-import CellNameCornerIcon from '../CellNameCornerIcon.vue';
-import LacquerOrnamentIcon from '../LacquerOrnamentIcon.vue';
+import LacquerCornerIcon from '../../../../../icons/pages/food/LacquerCornerIcon.vue';
+import CellNameCornerIcon from '../../../../../icons/pages/food/CellNameCornerIcon.vue';
+import LacquerOrnamentIcon from '../../../../../icons/pages/food/LacquerOrnamentIcon.vue';
 
 defineProps<{
   foods: Food[];

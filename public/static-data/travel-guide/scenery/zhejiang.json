@@ -14,13 +14,175 @@
       "rating": 4.9,
       "bestTime": "春秋",
       "location": "浙江省杭州市西湖区",
-      "description": "中国十大风景名胜之一,世界文化遗产",
+      "description": "西湖，浙江西湖，造化钟神秀，碧波荡漾水光潋滟，中国十大风景名胜之一，世界文化遗产，实乃游历浙江不可错过之胜境。。碧波荡漾水光潋滟，足以令旅人魂牵梦萦，心驰神往。",
+      "highlight": "人间天堂,世界文化遗产",
+      "level": "5A景区",
+      "rankBadge": "必去",
+      "reviewCount": "285,432条点评",
+      "distance": "距杭州0km",
+      "ticketPrice": "免费",
       "landformTags": [
         "湖泊景观"
       ],
       "landscapeType": "lake",
       "landscapeCategory": [
-        "水体景观"
+        "自然景观"
+      ],
+      "openTime": "全天开放",
+      "visitDuration": "1天",
+      "audienceTags": [
+        "摄影爱好者",
+        "文化爱好者",
+        "家庭游客",
+        "休闲游客"
+      ],
+      "ticketDetails": [
+        {
+          "type": "西湖",
+          "price": "免费开放"
+        },
+        {
+          "type": "雷峰塔",
+          "price": "¥40"
+        },
+        {
+          "type": "三潭印月船票",
+          "price": "¥55"
+        },
+        {
+          "type": "岳王庙",
+          "price": "¥25"
+        }
+      ],
+      "transportInfo": [
+        {
+          "mode": "其他",
+          "detail": "杭州萧山机场距西湖约30km，机场大巴可达"
+        },
+        {
+          "mode": "其他",
+          "detail": "杭州东站/杭州站高铁直达，地铁1号线可达"
+        },
+        {
+          "mode": "其他",
+          "detail": "杭甬高速杭州出口下"
+        },
+        {
+          "mode": "其他",
+          "detail": "杭州汽车站有公交可达西湖"
+        }
+      ],
+      "openTimeDetail": [
+        {
+          "season": "西湖全天开放",
+          "months": "",
+          "time": ""
+        },
+        {
+          "season": "雷峰塔",
+          "months": "",
+          "time": "08:00-20:00"
+        },
+        {
+          "season": "游船",
+          "months": "",
+          "time": "08:00-17:00"
+        }
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "西湖十景一日游",
+          "duration": "1天",
+          "difficulty": "轻松",
+          "description": "断桥-白堤-平湖秋月-苏堤-花港观鱼-雷峰塔-南屏晚钟，环湖经典",
+          "highlights": [
+            "断桥残雪",
+            "苏堤春晓",
+            "雷峰夕照",
+            "三潭印月"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "环湖经典",
+              "detail": "断桥→白堤→平湖秋月→苏堤→花港观鱼→雷峰塔→南屏晚钟"
+            }
+          ],
+          "budget": {
+            "currency": "¥",
+            "min": 100,
+            "max": 300
+          },
+          "bestFor": [
+            "首次游览",
+            "家庭出游"
+          ]
+        },
+        {
+          "name": "西湖深度两日游",
+          "duration": "2天",
+          "difficulty": "轻松",
+          "description": "Day1北线断桥白堤孤山；Day2南线苏堤雷峰塔三潭印月",
+          "highlights": [
+            "断桥白堤",
+            "孤山",
+            "苏堤",
+            "三潭印月"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "北线游览",
+              "detail": "断桥→白堤→孤山→平湖秋月"
+            },
+            {
+              "day": "Day2",
+              "title": "南线游览",
+              "detail": "苏堤→花港观鱼→雷峰塔→三潭印月"
+            }
+          ],
+          "budget": {
+            "currency": "¥",
+            "min": 300,
+            "max": 600
+          },
+          "bestFor": [
+            "摄影爱好者",
+            "深度游览"
+          ]
+        }
+      ],
+      "facilities": [
+        "餐饮:楼外楼西湖醋鱼为必尝",
+        "住宿:西湖周边酒店民宿丰富",
+        "停车场:环湖多处停车场",
+        "卫生间:环湖多处公共卫生间",
+        "游客中心:湖滨旅游咨询服务点"
+      ],
+      "tips": [
+        "西湖免费，是世界文化遗产",
+        "环湖可步行骑行或乘游船",
+        "断桥残雪冬季最美",
+        "春季苏堤春晓桃红柳绿",
+        "音乐喷泉晚上观赏"
+      ],
+      "photoSpots": [
+        "断桥残雪",
+        "雷峰夕照",
+        "三潭印月",
+        "苏堤春晓"
+      ],
+      "nearbySpots": [
+        "灵隐寺 5km",
+        "雷峰塔 3km",
+        "岳王庙 3km",
+        "宋城 10km"
+      ],
+      "seasonalGuide": [
+        "春季苏堤春晓桃红柳绿，最美季节",
+        "夏季曲院风荷荷花盛开，避暑佳处",
+        "秋季平湖秋月满陇桂雨，桂香四溢",
+        "冬季断桥残雪闻名，雪景如画"
       ]
     },
     {
@@ -37,7 +199,167 @@
       "rating": 4.8,
       "bestTime": "全年",
       "location": "浙江省舟山市普陀区",
-      "description": "中国四大佛教名山之一,海天佛国"
+      "description": "坐落于越秀大地的普陀山，浙江普陀山，千年文脉传承之所，层峦叠嶂巍峨耸立，中国四大佛教名山之一，海天佛国，实乃游历浙江不可错过之胜境。。层峦叠嶂巍峨耸立，堪称天地造化与人文底蕴之交响。",
+      "highlight": "海天佛国,观音菩萨道场",
+      "level": "5A景区",
+      "rankBadge": "圣地",
+      "reviewCount": "89,432条点评",
+      "distance": "距杭州250km",
+      "ticketPrice": "¥160",
+      "openTime": "06:00-18:00",
+      "visitDuration": "1-2天",
+      "audienceTags": [
+        "佛教信众",
+        "文化爱好者",
+        "度假游客",
+        "家庭游客"
+      ],
+      "ticketDetails": [
+        {
+          "type": "进山门票",
+          "price": "¥160"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "儿童1.2米以下",
+          "price": "免票"
+        },
+        {
+          "type": "70岁以上老人",
+          "price": "免票"
+        }
+      ],
+      "transportInfo": [
+        {
+          "mode": "其他",
+          "detail": "舟山普陀山机场距景区约5km"
+        },
+        {
+          "mode": "其他",
+          "detail": "宁波站高铁转舟山，再乘船至普陀山"
+        },
+        {
+          "mode": "其他",
+          "detail": "甬舟高速朱家尖出口下，乘船登岛"
+        },
+        {
+          "mode": "其他",
+          "detail": "舟山汽车站有班车至朱家尖蜈蚣峙码头"
+        }
+      ],
+      "openTimeDetail": [
+        {
+          "season": "旺季",
+          "months": "2-11月",
+          "time": "06:00-18:00"
+        },
+        {
+          "season": "淡季",
+          "months": "12-1月",
+          "time": "07:00-17:00"
+        }
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "普陀山朝圣一日游",
+          "duration": "1天",
+          "difficulty": "中等",
+          "description": "普济寺-法雨寺-慧济寺-南海观音，三大寺朝圣",
+          "highlights": [
+            "普济寺",
+            "法雨寺",
+            "慧济寺",
+            "南海观音"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "三大寺朝圣",
+              "detail": "普济寺→法雨寺→慧济寺→南海观音"
+            }
+          ],
+          "budget": {
+            "currency": "¥",
+            "min": 400,
+            "max": 600
+          },
+          "bestFor": [
+            "佛教信众",
+            "首次朝圣"
+          ]
+        },
+        {
+          "name": "普陀山深度两日游",
+          "duration": "2天",
+          "difficulty": "轻松",
+          "description": "Day1三大寺朝圣；Day2紫竹林-百步沙-洛迦山，深度礼佛",
+          "highlights": [
+            "三大寺",
+            "紫竹林",
+            "百步沙",
+            "洛迦山"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "三大寺朝圣",
+              "detail": "普济寺→法雨寺→慧济寺"
+            },
+            {
+              "day": "Day2",
+              "title": "海滨礼佛",
+              "detail": "紫竹林→百步沙→洛迦山"
+            }
+          ],
+          "budget": {
+            "currency": "¥",
+            "min": 800,
+            "max": 1500
+          },
+          "bestFor": [
+            "佛教信众",
+            "度假游客"
+          ]
+        }
+      ],
+      "facilities": [
+        "索道:佛顶山慧济寺索道",
+        "餐饮:素斋馆众多，素斋值得一尝",
+        "住宿:普济寺周边宾馆民宿众多",
+        "停车场:码头有停车场",
+        "游客中心:码头游客服务中心"
+      ],
+      "tips": [
+        "进山需购门票，含保险",
+        "寺庙内勿喧哗，着装庄重",
+        "素斋为普陀山特色",
+        "可请香祈福，香火寺内请购",
+        "海岛气候多变，备好雨具"
+      ],
+      "photoSpots": [
+        "南海观音铜像",
+        "普济寺古刹",
+        "百步沙海景",
+        "佛顶山远眺"
+      ],
+      "nearbySpots": [
+        "朱家尖 5km",
+        "洛迦山 6km",
+        "沈家门 10km",
+        "桃花岛 20km"
+      ],
+      "seasonalGuide": [
+        "春季海天佛国春色，朝圣佳期",
+        "夏季海岛避暑，海水浴场开放",
+        "秋季海天一色，朝圣观海",
+        "冬季香火旺盛，腊八法会闻名"
+      ],
+      "landscapeCategory": [
+        "人文景观"
+      ]
     },
     {
       "id": "wuzhen",
@@ -53,7 +375,172 @@
       "rating": 4.7,
       "bestTime": "春秋",
       "location": "浙江省嘉兴市桐乡市乌镇",
-      "description": "中国十大历史文化名镇之一,江南水乡的代表"
+      "description": "越秀乌镇，浙江乌镇，古迹斑驳岁月悠悠，青砖黛瓦古韵悠然，中国十大历史文化名镇之一，江南水乡的代表，实乃游历浙江不可错过之胜境。。青砖黛瓦古韵悠然，每一处景致皆是造物主的匠心独运。",
+      "highlight": "江南水乡典范,千年古镇",
+      "level": "5A景区",
+      "rankBadge": "网红",
+      "reviewCount": "92,321条点评",
+      "distance": "距杭州80km",
+      "ticketPrice": "¥150",
+      "openTime": "07:00-22:30",
+      "visitDuration": "1天",
+      "audienceTags": [
+        "文艺青年",
+        "摄影爱好者",
+        "文化爱好者",
+        "家庭游客"
+      ],
+      "ticketDetails": [
+        {
+          "type": "西栅",
+          "price": "¥150"
+        },
+        {
+          "type": "东栅",
+          "price": "¥110"
+        },
+        {
+          "type": "东西栅联票",
+          "price": "¥190"
+        },
+        {
+          "type": "儿童1.2米以下",
+          "price": "免票"
+        }
+      ],
+      "transportInfo": [
+        {
+          "mode": "其他",
+          "detail": "最近杭州萧山机场距乌镇约80km"
+        },
+        {
+          "mode": "其他",
+          "detail": "桐乡站高铁站距乌镇约30km，有班车"
+        },
+        {
+          "mode": "其他",
+          "detail": "申嘉湖高速乌镇出口下"
+        },
+        {
+          "mode": "其他",
+          "detail": "桐乡汽车站有直达乌镇班车"
+        }
+      ],
+      "openTimeDetail": [
+        {
+          "season": "东栅",
+          "months": "",
+          "time": "07:00-18:00"
+        },
+        {
+          "season": "西栅",
+          "months": "",
+          "time": "09:00-22:30"
+        },
+        {
+          "season": "夜游西栅",
+          "months": "",
+          "time": "18:00-22:30"
+        }
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "西栅一日游",
+          "duration": "1天",
+          "difficulty": "轻松",
+          "description": "草木本色染坊-水上集市-白莲塔-老邮局，西栅水乡精华",
+          "highlights": [
+            "草木本色染坊",
+            "水上集市",
+            "白莲塔",
+            "西栅夜景"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "西栅精华",
+              "detail": "草木本色染坊→水上集市→白莲塔→老邮局→夜游西栅"
+            }
+          ],
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
+          "bestFor": [
+            "文艺青年",
+            "首次游览"
+          ]
+        },
+        {
+          "name": "乌镇两日深度游",
+          "duration": "2天",
+          "difficulty": "轻松",
+          "description": "Day1东栅茅盾故居；Day2西栅夜游，深度体验水乡",
+          "highlights": [
+            "东栅原生态",
+            "茅盾故居",
+            "西栅夜景",
+            "水乡晨昏"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "东栅原生态",
+              "detail": "东栅→茅盾故居→草木染坊→入住西栅"
+            },
+            {
+              "day": "Day2",
+              "title": "西栅深度",
+              "detail": "西栅水巷→白莲塔→老邮局→夜游西栅"
+            }
+          ],
+          "budget": {
+            "currency": "¥",
+            "min": 500,
+            "max": 1000
+          },
+          "bestFor": [
+            "文艺青年",
+            "深度游览"
+          ]
+        }
+      ],
+      "facilities": [
+        "餐饮:乌镇酱鸡、定胜糕为特色",
+        "住宿:西栅内民宿众多，可宿水乡",
+        "停车场:景区外大型停车场",
+        "卫生间:景区内多处",
+        "游客中心:入口游客服务中心"
+      ],
+      "tips": [
+        "西栅夜景闻名，建议夜游",
+        "可宿西栅内，体验水乡晨昏",
+        "乌镇戏剧节10月举办",
+        "互联网大会永久会址",
+        "东栅原生态，西栅精致"
+      ],
+      "photoSpots": [
+        "西栅水巷夜景",
+        "白莲塔",
+        "草木染坊",
+        "老邮局"
+      ],
+      "nearbySpots": [
+        "西塘古镇 60km",
+        "南浔古镇 30km",
+        "盐官观潮 50km",
+        "杭州 80km"
+      ],
+      "seasonalGuide": [
+        "春季水乡春色，柳绿花红",
+        "夏季荷塘水巷，可避暑",
+        "秋季乌镇戏剧节，文艺盛宴",
+        "冬季雪覆水巷，水墨意境"
+      ],
+      "landscapeCategory": [
+        "人文景观"
+      ]
     },
     {
       "id": "qiandaoLake",
@@ -69,13 +556,164 @@
       "rating": 4.7,
       "bestTime": "春秋",
       "location": "浙江省杭州市淳安县",
-      "description": "天下第一秀水,拥有1078个岛屿",
+      "description": "千岛湖者，越秀之胜境也。浙江千岛湖，大自然之鬼斧神工，碧波荡漾水光潋滟，天下第一秀水，拥有1078个岛屿，实乃游历浙江不可错过之胜境。。碧波荡漾水光潋滟，当属此地名胜之首推，不容错过。",
+      "highlight": "天下第一秀水,1078个岛屿",
+      "level": "5A景区",
+      "rankBadge": "必去",
+      "reviewCount": "65,432条点评",
+      "distance": "距杭州130km",
+      "ticketPrice": "¥130",
       "landformTags": [
         "湖泊景观"
       ],
       "landscapeType": "lake",
       "landscapeCategory": [
-        "水体景观"
+        "自然景观"
+      ],
+      "openTime": "08:00-16:30",
+      "visitDuration": "1-2天",
+      "audienceTags": [
+        "度假游客",
+        "家庭游客",
+        "摄影爱好者",
+        "户外爱好者"
+      ],
+      "ticketDetails": [
+        {
+          "type": "成人票",
+          "price": "¥130"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "儿童1.2米以下",
+          "price": "免票"
+        },
+        {
+          "type": "60岁以上老人",
+          "price": "免票"
+        }
+      ],
+      "transportInfo": [
+        {
+          "mode": "其他",
+          "detail": "最近杭州萧山机场距千岛湖约130km"
+        },
+        {
+          "mode": "其他",
+          "detail": "千岛湖站高铁站距景区约30km"
+        },
+        {
+          "mode": "其他",
+          "detail": "杭新景高速千岛湖出口下"
+        },
+        {
+          "mode": "其他",
+          "detail": "杭州汽车西站有直达千岛湖班车"
+        }
+      ],
+      "openTimeDetail": [
+        {
+          "season": "旺季",
+          "months": "3-11月",
+          "time": "08:00-16:30"
+        },
+        {
+          "season": "淡季",
+          "months": "12-2月",
+          "time": "09:00-16:00"
+        }
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "中心湖区一日游",
+          "duration": "1天",
+          "difficulty": "轻松",
+          "description": "梅峰岛-鸵鸟岛-猴岛-龙山岛，乘船游湖赏千岛",
+          "highlights": [
+            "梅峰观岛",
+            "鸵鸟岛",
+            "猴岛",
+            "龙山岛"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "中心湖游",
+              "detail": "梅峰岛→鸵鸟岛→猴岛→龙山岛"
+            }
+          ],
+          "budget": {
+            "currency": "¥",
+            "min": 300,
+            "max": 500
+          },
+          "bestFor": [
+            "家庭出游",
+            "首次游览"
+          ]
+        },
+        {
+          "name": "东南湖区游",
+          "duration": "1天",
+          "difficulty": "轻松",
+          "description": "黄山尖-天池岛-蜜山岛，东南湖区深度游",
+          "highlights": [
+            "黄山尖",
+            "天池岛",
+            "蜜山岛"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "东南湖游",
+              "detail": "黄山尖→天池岛→蜜山岛"
+            }
+          ],
+          "budget": {
+            "currency": "¥",
+            "min": 300,
+            "max": 500
+          },
+          "bestFor": [
+            "度假游客",
+            "深度游览"
+          ]
+        }
+      ],
+      "facilities": [
+        "餐饮:千岛湖鱼头为必尝美食",
+        "住宿:千岛湖镇酒店众多",
+        "停车场:码头停车场",
+        "卫生间:码头及岛上多处",
+        "游客中心:码头游客服务中心"
+      ],
+      "tips": [
+        "千岛湖鱼头为必尝美食",
+        "游船游览，注意班次时间",
+        "梅峰观岛为最佳观景台",
+        "可环湖骑行，绿道完善",
+        "注意防晒，湖面紫外线强"
+      ],
+      "photoSpots": [
+        "梅峰观岛全景",
+        "千岛湖大桥",
+        "龙山岛",
+        "湖上日落"
+      ],
+      "nearbySpots": [
+        "文渊狮城 30km",
+        "森林氧吧 20km",
+        "姜家镇 25km",
+        "杭州 130km"
+      ],
+      "seasonalGuide": [
+        "春季湖光山色，踏青佳处",
+        "夏季避暑胜地，水上项目开放",
+        "秋季秋色迷人，能见度高",
+        "冬季湖光寂寥，宁静致远"
       ]
     },
     {
@@ -92,62 +730,170 @@
       "rating": 4.6,
       "bestTime": "春秋",
       "location": "浙江省温州市乐清市",
-      "description": "东南第一山,以奇峰怪石著称",
+      "description": "名为雁荡山，浙江雁荡山，造化钟神秀，层峦叠嶂巍峨耸立，东南第一山，以奇峰怪石著称，实乃游历浙江不可错过之胜境。。层峦叠嶂巍峨耸立，令人叹为观止，流连忘返。",
+      "highlight": "东南第一山,奇峰怪石",
+      "level": "5A景区",
+      "rankBadge": "必去",
+      "reviewCount": "43,210条点评",
+      "distance": "距杭州300km",
+      "ticketPrice": "¥200",
       "landformTags": [
         "山地景观"
       ],
       "landscapeType": "mountain",
       "landscapeCategory": [
-        "地理景观"
+        "自然景观"
+      ],
+      "openTime": "06:30-18:00",
+      "visitDuration": "1-2天",
+      "audienceTags": [
+        "登山爱好者",
+        "摄影爱好者",
+        "自然爱好者",
+        "地质爱好者"
+      ],
+      "ticketDetails": [
+        {
+          "type": "成人票",
+          "price": "¥200"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "儿童1.2米以下",
+          "price": "免票"
+        },
+        {
+          "type": "60岁以上老人",
+          "price": "免票"
+        }
+      ],
+      "transportInfo": [
+        {
+          "mode": "其他",
+          "detail": "最近温州龙湾机场距景区约80km"
+        },
+        {
+          "mode": "其他",
+          "detail": "雁荡山站高铁站距景区约10km，有公交"
+        },
+        {
+          "mode": "其他",
+          "detail": "沈海高速雁荡山出口下"
+        },
+        {
+          "mode": "其他",
+          "detail": "温州市汽车站有直达雁荡山班车"
+        }
+      ],
+      "openTimeDetail": [
+        {
+          "season": "旺季",
+          "months": "3-11月",
+          "time": "06:30-18:00"
+        },
+        {
+          "season": "淡季",
+          "months": "12-2月",
+          "time": "07:00-17:00"
+        }
+      ],
+      "recommendedRoutes": [
+        {
+          "name": "北雁荡精华游",
+          "duration": "1天",
+          "difficulty": "中等",
+          "description": "大龙湫-灵岩-灵峰，雁荡三绝一日尽览",
+          "highlights": [
+            "大龙湫瀑布",
+            "灵岩",
+            "灵峰"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "雁荡三绝",
+              "detail": "大龙湫→灵岩→灵峰"
+            }
+          ],
+          "budget": {
+            "currency": "¥",
+            "min": 300,
+            "max": 500
+          },
+          "bestFor": [
+            "登山爱好者",
+            "首次游览"
+          ]
+        },
+        {
+          "name": "雁荡深度两日游",
+          "duration": "2天",
+          "difficulty": "中等",
+          "description": "Day1大龙湫灵岩；Day2灵峰夜景显胜门，深度游览",
+          "highlights": [
+            "大龙湫",
+            "灵岩",
+            "灵峰夜景",
+            "显胜门"
+          ],
+          "itinerary": [
+            {
+              "day": "Day1",
+              "title": "三绝游览",
+              "detail": "大龙湫→灵岩→灵峰"
+            },
+            {
+              "day": "Day2",
+              "title": "深度游览",
+              "detail": "灵峰夜景→显胜门→方洞景区"
+            }
+          ],
+          "budget": {
+            "currency": "¥",
+            "min": 600,
+            "max": 1000
+          },
+          "bestFor": [
+            "摄影爱好者",
+            "深度游览"
+          ]
+        }
+      ],
+      "facilities": [
+        "索道:灵岩索道",
+        "餐饮:雁荡山特色海鲜、香鱼",
+        "住宿:景区内外酒店民宿众多",
+        "停车场:各景区入口停车场",
+        "游客中心:景区入口游客服务中心"
+      ],
+      "tips": [
+        "大龙湫瀑布为中国四大瀑布之一",
+        "灵峰夜景奇绝，勿错过",
+        "雁荡三绝为大龙湫灵岩灵峰",
+        "山路湿滑，穿防滑鞋",
+        "可请讲解了解地质奇观"
+      ],
+      "photoSpots": [
+        "大龙湫瀑布",
+        "灵峰夜景",
+        "灵岩飞渡",
+        "合掌峰"
+      ],
+      "nearbySpots": [
+        "楠溪江 50km",
+        "方洞景区 5km",
+        "显胜门 10km",
+        "温州 80km"
+      ],
+      "seasonalGuide": [
+        "春季山花烂漫，气候宜人",
+        "夏季瀑布水量充沛，避暑佳处",
+        "秋季秋高气爽，观景最佳",
+        "冬季雾凇雪景可观，山路注意防滑"
       ]
-    },
-    {
-      "id": "xitangAncientTown",
-      "name": "西塘古镇",
-      "tags": [
-        "古镇",
-        "水乡",
-        "历史",
-        "民俗"
-      ],
-      "type": "culture",
-      "image": "https://picsum.photos/id/1325/600/400",
-      "rating": 4.6,
-      "bestTime": "春秋",
-      "location": "浙江省嘉兴市嘉善县西塘镇",
-      "description": "江南六大古镇之一,生活着的千年古镇"
-    },
-    {
-      "id": "lingyinTemple",
-      "name": "灵隐寺",
-      "tags": [
-        "寺庙",
-        "佛教",
-        "历史",
-        "文化"
-      ],
-      "type": "culture",
-      "image": "https://picsum.photos/id/1326/600/400",
-      "rating": 4.6,
-      "bestTime": "全年",
-      "location": "浙江省杭州市西湖区",
-      "description": "杭州著名的佛教寺院,东南佛国"
-    },
-    {
-      "id": "hengdianWorldStudios",
-      "name": "横店影视城",
-      "tags": [
-        "影视",
-        "主题公园",
-        "娱乐",
-        "文化"
-      ],
-      "type": "culture",
-      "image": "https://picsum.photos/id/1327/600/400",
-      "rating": 4.5,
-      "bestTime": "全年",
-      "location": "浙江省金华市东阳市横店镇",
-      "description": "中国最大的影视拍摄基地"
     }
   ],
   "routes": [
@@ -196,49 +942,52 @@
     ]
   },
   "overview": {
-    "totalSpots": 320,
-    "natureSpots": 160,
-    "cultureSpots": 160,
+    "fiveACount": 20,
+    "worldHeritageCount": 4,
+    "intangibleHeritageCount": 15,
+    "totalSpots": 5,
+    "natureSpots": 3,
+    "cultureSpots": 2,
     "topAttractions": [
       {
         "name": "西湖",
         "image": "https://picsum.photos/id/1320/600/400",
-        "description": "中国十大风景名胜之一,世界文化遗产"
+        "description": "坐落于越秀大地的西湖，西湖——中国十大风景名胜之一，世界文化遗产，实乃游历此地不可错过之胜境。。每一处景致皆是造物主的匠心独运。"
       },
       {
         "name": "普陀山",
         "image": "https://picsum.photos/id/1321/600/400",
-        "description": "中国四大佛教名山之一,海天佛国"
+        "description": "越秀普陀山，浙江名胜普陀山，中国四大佛教名山之一，海天佛国，令人心驰神往流连忘返。。当属此地名胜之首推，不容错过。"
       },
       {
         "name": "乌镇",
         "image": "https://picsum.photos/id/1322/600/400",
-        "description": "中国十大历史文化名镇之一,江南水乡的代表"
+        "description": "乌镇者，越秀之胜境也。乌镇者，浙江之中国十大历史文化名镇之一，江南水乡的代表，堪称此地风光之冠冕。。令人叹为观止，流连忘返。"
       },
       {
         "name": "千岛湖",
         "image": "https://picsum.photos/id/1323/600/400",
-        "description": "天下第一秀水,拥有1078个岛屿"
+        "description": "名为千岛湖，誉为浙江明珠的千岛湖，天下第一秀水，拥有1078个岛屿，每一处皆是造化与人文的交响。。实乃游历此地不可错过之胜境。"
       },
       {
         "name": "雁荡山",
         "image": "https://picsum.photos/id/1324/600/400",
-        "description": "东南第一山,以奇峰怪石著称"
+        "description": "越秀名胜雁荡山，雁荡山，东南第一山，以奇峰怪石著称，足以令旅人魂牵梦萦。。足以令旅人魂牵梦萦，心驰神往。"
       },
       {
         "name": "西塘古镇",
         "image": "https://picsum.photos/id/1325/600/400",
-        "description": "江南六大古镇之一,生活着的千年古镇"
+        "description": "西塘古镇，西塘古镇——江南六大古镇之一，生活着的千年古镇，当属此地名胜之首推。。堪称天地造化与人文底蕴之交响。"
       },
       {
         "name": "灵隐寺",
         "image": "https://picsum.photos/id/1326/600/400",
-        "description": "杭州著名的佛教寺院,东南佛国"
+        "description": "坐落于越秀大地的灵隐寺，浙江名胜灵隐寺，杭州著名的佛教寺院，东南佛国，实乃游历此地不可错过之胜境。。每一处景致皆是造物主的匠心独运。"
       },
       {
         "name": "横店影视城",
         "image": "https://picsum.photos/id/1327/600/400",
-        "description": "中国最大的影视拍摄基地"
+        "description": "越秀横店影视城，横店影视城者，浙江之中国最大的影视拍摄基地，令人心驰神往流连忘返。。当属此地名胜之首推，不容错过。"
       }
     ]
   },
@@ -296,7 +1045,62 @@
       "month": "10月",
       "isUnique": true,
       "location": "杭州",
-      "description": "杭州特色的国际性博览会"
+      "description": "始于1929年，中国最早博览会，2000年恢复举办，西湖烟花大会、国际休闲产业展、丝绸时尚展、西湖音乐节，于\"淡妆浓抹总相宜\"之西湖感受这\"人间天堂\"之繁华与西博会之百年传承。",
+      "type": "文化节庆",
+      "duration": "约20天",
+      "origin": "西湖国际博览会始于1929年，是中国最早的博览会，2000年恢复举办。",
+      "highlights": [
+        "西湖烟花大会",
+        "国际休闲产业展",
+        "丝绸时尚展",
+        "西湖音乐节",
+        "桂花赏花活动"
+      ],
+      "bestTime": "开幕日烟花大会",
+      "ticket": "免费（展会部分收费）",
+      "transport": "高铁至杭州东站，地铁1号线至西湖",
+      "tips": [
+        "烟花大会人潮极多，注意安全",
+        "10月桂花盛开，满觉陇为赏桂佳处",
+        "西湖周边可租自行车环湖游览"
+      ],
+      "relatedSpots": [
+        "西湖",
+        "灵隐寺",
+        "宋城"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "乌镇戏剧节",
+      "month": "10月",
+      "day": "25日",
+      "location": "乌镇",
+      "isUnique": false,
+      "description": "由陈向宏、赖声川、黄磊等发起，中国最具影响力国际戏剧节之一，特邀剧目展演、青年竞演单元、小镇对话、街头嘉年华，于\"来过便不曾离开\"之乌镇感受这\"戏剧水乡\"之艺术与江南古镇之诗意。",
+      "type": "艺术节庆",
+      "duration": "约10天",
+      "origin": "乌镇戏剧节始于2013年，由陈向宏、赖声川、黄磊等发起，是中国最具影响力的国际戏剧节之一。",
+      "highlights": [
+        "特邀剧目展演",
+        "青年竞演单元",
+        "小镇对话",
+        "戏剧工作坊",
+        "街头嘉年华"
+      ],
+      "bestTime": "周末场次",
+      "ticket": "¥80-680",
+      "transport": "高铁至桐乡站，转K282公交至乌镇",
+      "tips": [
+        "特邀剧目票开售即售罄",
+        "乌镇西栅景区门票¥150另购",
+        "戏剧节期间住宿翻倍，需提前订"
+      ],
+      "relatedSpots": [
+        "乌镇西栅",
+        "乌镇东栅",
+        "茅盾故居"
+      ]
     }
   ],
   "activities": [
@@ -326,7 +1130,7 @@
   "intangibleHeritage": [
     {
       "id": "1",
-      "icon": "🎭",
+      "icon": "theater",
       "name": "越剧",
       "image": "https://picsum.photos/id/1320/600/400",
       "level": "national",
@@ -352,6 +1156,614 @@
       ],
       "image": "https://picsum.photos/id/1322/600/400",
       "description": "江南独特的水乡文化和生活方式"
+    }
+  ],
+  "themes": [
+    {
+      "key": "nature",
+      "title": "自然风光",
+      "items": [
+        {
+          "key": "mountain",
+          "name": "名山胜景",
+          "icon": "mountain",
+          "coverSpotId": "putuoMountain",
+          "avgRating": 4.8,
+          "bestSeason": "春秋 / 全年",
+          "recommendedDays": "2-3 日",
+          "budget": {
+            "currency": "¥",
+            "min": 500,
+            "max": 1200
+          },
+          "intensity": "适中",
+          "audience": "全人群",
+          "highlights": [
+            "山岳胜景",
+            "云海日出",
+            "奇松怪石",
+            "登高望远"
+          ],
+          "tips": [
+            "山路崎岖，穿舒适登山鞋",
+            "提前关注天气，雨后云海概率高",
+            "山顶温差大，备好保暖衣物"
+          ],
+          "spotIds": [
+            "putuoMountain"
+          ]
+        },
+        {
+          "key": "peaks",
+          "name": "奇峰云海",
+          "icon": "energy",
+          "coverSpotId": "yandangMountain",
+          "avgRating": 4.6,
+          "bestSeason": "秋冬",
+          "recommendedDays": "2 日",
+          "budget": {
+            "currency": "¥",
+            "min": 400,
+            "max": 900
+          },
+          "intensity": "适中",
+          "audience": "摄影/户外",
+          "highlights": [
+            "奇峰林立",
+            "云海翻涌",
+            "峰林夕照",
+            "雾凇冰挂"
+          ],
+          "tips": [
+            "云海多见于雨后初晴，清晨最佳",
+            "备好防滑鞋，山路湿滑注意安全",
+            "建议提前预订山顶住宿"
+          ],
+          "spotIds": [
+            "yandangMountain"
+          ]
+        },
+        {
+          "key": "water",
+          "name": "江湖瀑布",
+          "icon": "droplet",
+          "coverSpotId": "westLake",
+          "avgRating": 4.8,
+          "bestSeason": "夏秋",
+          "recommendedDays": "1-2 日",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 500
+          },
+          "intensity": "轻松",
+          "audience": "家庭/休闲",
+          "highlights": [
+            "飞瀑流泉",
+            "湖光山色",
+            "碧水蓝天",
+            "水上游览"
+          ],
+          "tips": [
+            "水边游玩注意安全，勿擅自下水",
+            "雨季水量充沛，枯水期景色减色",
+            "可乘船游览，体验更佳"
+          ],
+          "spotIds": [
+            "westLake",
+            "qiandaoLake"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "culture",
+      "title": "人文古迹",
+      "items": [
+        {
+          "key": "village",
+          "name": "古镇古村",
+          "icon": "home",
+          "coverSpotId": "xitangAncientTown",
+          "avgRating": 4.6,
+          "bestSeason": "春秋",
+          "recommendedDays": "1-2 日",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 500
+          },
+          "intensity": "轻松",
+          "audience": "家庭/文艺",
+          "highlights": [
+            "青石板巷",
+            "古朴民居",
+            "田园牧歌",
+            "慢生活体验"
+          ],
+          "tips": [
+            "古村适合慢游，勿赶行程",
+            "尊重原住民生活，勿擅入私宅",
+            "可住民宿体验当地生活"
+          ],
+          "spotIds": []
+        },
+        {
+          "key": "architecture",
+          "name": "古建风韵",
+          "icon": "museum",
+          "coverSpotId": "wuzhen",
+          "avgRating": 4.6,
+          "bestSeason": "全年",
+          "recommendedDays": "1-2 日",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
+          "intensity": "轻松",
+          "audience": "文化/家庭",
+          "highlights": [
+            "古建瑰宝",
+            "雕梁画栋",
+            "历史厚重",
+            "建筑美学"
+          ],
+          "tips": [
+            "可请讲解员，深度了解建筑历史",
+            "注意保护文物，勿触摸刻划",
+            "拍照注意光线，早晚最佳"
+          ],
+          "spotIds": [
+            "wuzhen"
+          ]
+        },
+        {
+          "key": "religion",
+          "name": "宗教文化",
+          "icon": "zen",
+          "coverSpotId": "putuoMountain",
+          "avgRating": 4.7,
+          "bestSeason": "全年",
+          "recommendedDays": "1-2 日",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
+          "intensity": "轻松",
+          "audience": "银发/养心",
+          "highlights": [
+            "梵音晨钟",
+            "礼佛祈福",
+            "禅修体验",
+            "清心养性"
+          ],
+          "tips": [
+            "寺庙内勿大声喧哗，着装庄重",
+            "可预约禅修/早课体验",
+            "素斋值得一尝，提前询问用斋时间"
+          ],
+          "spotIds": [
+            "putuoMountain"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "outdoor",
+      "title": "户外休闲",
+      "items": [
+        {
+          "key": "hiking",
+          "name": "徒步自驾",
+          "icon": "route",
+          "coverSpotId": "yandangMountain",
+          "avgRating": 4.6,
+          "bestSeason": "春秋",
+          "recommendedDays": "2-3 日",
+          "budget": {
+            "currency": "¥",
+            "min": 300,
+            "max": 800
+          },
+          "intensity": "挑战",
+          "audience": "户外/探险",
+          "highlights": [
+            "徒步探险",
+            "自驾天堂",
+            "户外挑战",
+            "自然探索"
+          ],
+          "tips": [
+            "评估体力选合适路线，勿逞强",
+            "备足水和干粮，穿登山鞋",
+            "告知他人行程，保持手机有电"
+          ],
+          "spotIds": [
+            "yandangMountain"
+          ]
+        },
+        {
+          "key": "coastal",
+          "name": "亲海避暑",
+          "icon": "flower",
+          "coverSpotId": "qiandaoLake",
+          "avgRating": 4.7,
+          "bestSeason": "夏秋",
+          "recommendedDays": "2-3 日",
+          "budget": {
+            "currency": "¥",
+            "min": 500,
+            "max": 1500
+          },
+          "intensity": "轻松",
+          "audience": "家庭/度假",
+          "highlights": [
+            "碧海蓝天",
+            "沙滩阳光",
+            "海岛风情",
+            "避暑胜地"
+          ],
+          "tips": [
+            "注意防晒，备好防晒霜和遮阳帽",
+            "游泳注意安全，在指定区域活动",
+            "海鲜过敏者注意饮食选择"
+          ],
+          "spotIds": [
+            "qiandaoLake"
+          ]
+        }
+      ]
+    }
+  ],
+  "craftWorkshops": [
+    {
+      "id": "zhejiang-craft-1",
+      "image": "https://picsum.photos/id/1342/600/400",
+      "category": "craft",
+      "name": "龙泉宝剑锻制",
+      "type": "宝剑",
+      "location": "丽水龙泉市",
+      "duration": "3小时",
+      "difficulty": "中等",
+      "price": "300",
+      "rating": 4.8,
+      "reviewCount": 167,
+      "instructor": "铸剑师",
+      "heritageLevel": "national",
+      "highlights": [
+        "欧冶子铸剑",
+        "折叠锻打",
+        "淬火研磨"
+      ],
+      "steps": [
+        "选钢",
+        "折叠锻打",
+        "淬火",
+        "研磨",
+        "装具"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "手工艺爱好者"
+      ],
+      "tags": [
+        "非遗",
+        "龙泉剑",
+        "欧冶子"
+      ],
+      "description": "龙泉剑列中国十大名剑之首欧冶子铸剑之地\"折叠锻打淬火研磨\"。于龙泉亲手选钢折叠锻打，剑身寒光凛凛锋刃如霜，感受这\"剑中之冠\"之传承与欧冶子铸剑之千年传奇。"
+    },
+    {
+      "id": "zhejiang-craft-2",
+      "image": "https://picsum.photos/id/1344/600/400",
+      "category": "craft",
+      "name": "青田石雕体验",
+      "type": "石雕",
+      "location": "丽水青田县",
+      "duration": "3小时",
+      "difficulty": "简单",
+      "price": "260",
+      "rating": 4.7,
+      "reviewCount": 134,
+      "instructor": "石雕传承人",
+      "heritageLevel": "national",
+      "highlights": [
+        "封门青冻石",
+        "镂空透雕",
+        "石雕技艺"
+      ],
+      "steps": [
+        "选石",
+        "设计",
+        "粗雕",
+        "精雕",
+        "打蜡"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "手工艺爱好者"
+      ],
+      "tags": [
+        "非遗",
+        "石雕",
+        "青田"
+      ],
+      "description": "青田石雕以封门青冻石为材\"以石为金镂刻成画\"镂空透雕。于青田选石雕琢镂空透雕，封门青冻石温润如玉，感受这\"石雕之乡\"之传承与青田石雕\"镂空透雕\"之精妙。"
+    }
+  ],
+  "performances": [
+    {
+      "id": "zhejiang-perf-1",
+      "image": "https://picsum.photos/id/1840/600/400",
+      "category": "performance",
+      "name": "宋城千古情·杭州",
+      "type": "大型实景",
+      "location": "杭州市宋城景区",
+      "duration": "1小时",
+      "difficulty": "简单",
+      "price": "300",
+      "rating": 4.9,
+      "reviewCount": 2345,
+      "highlights": [
+        "杭州标志性演出",
+        "声光电水幕特效",
+        "良渚到南宋穿越"
+      ],
+      "suitableFor": [
+        "家庭游客",
+        "文化体验者"
+      ],
+      "tags": [
+        "千古情",
+        "大型演出",
+        "宋城"
+      ],
+      "description": "宋城千古情以声光电水幕织就杭州千年画卷，从良渚先民到南宋繁华，从白蛇传到梁祝化蝶，一幕幕如梦如幻。这\"一生必看的演出\"以极致视听震撼，将人间天堂的前世今生磅礴呈现。"
+    },
+    {
+      "id": "zhejiang-perf-2",
+      "image": "https://picsum.photos/id/1841/600/400",
+      "category": "performance",
+      "name": "印象西湖·实景演出",
+      "type": "大型实景",
+      "location": "杭州市岳湖口西湖景区",
+      "duration": "1小时",
+      "difficulty": "简单",
+      "price": "260",
+      "rating": 4.8,
+      "reviewCount": 678,
+      "highlights": [
+        "张艺谋导演作品",
+        "西湖水面为舞台",
+        "白蛇传梁山伯意境"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "情侣约会"
+      ],
+      "tags": [
+        "印象",
+        "实景",
+        "西湖"
+      ],
+      "description": "印象西湖以天地为幕，西湖为台。张艺谋以光影魔术将白蛇传的断桥相会、梁祝的十八相送投射于湖面之上，月色荷香间演出如诗如画，于这人间天堂的夜色中，领略\"印象\"系列之巅峰美学。"
+    },
+    {
+      "id": "zhejiang-perf-3",
+      "image": "https://picsum.photos/id/1842/600/400",
+      "category": "performance",
+      "name": "越剧《梁祝》·嵊州",
+      "type": "戏曲",
+      "location": "绍兴市嵊州越剧艺术学校",
+      "duration": "2小时",
+      "difficulty": "简单",
+      "price": "60",
+      "rating": 4.7,
+      "reviewCount": 234,
+      "highlights": [
+        "越剧发源地学唱",
+        "梁祝经典全本",
+        "女子越剧水袖"
+      ],
+      "suitableFor": [
+        "戏曲爱好者",
+        "文化体验者"
+      ],
+      "tags": [
+        "非遗",
+        "越剧",
+        "梁祝"
+      ],
+      "description": "嵊州为越剧诞生地，女子越剧的柔美唱腔自此发源。《梁祝》中十八相送的缠绵、化蝶的凄美，于越剧故乡聆听最纯正的尺调腔，水袖轻扬间品味这江南第二大剧种之婉约风韵。",
+      "heritageLevel": "national"
+    }
+  ],
+  "outdoorAdventure": [
+    {
+      "id": "zhejiang-outdoor-1",
+      "image": "https://picsum.photos/id/1363/600/400",
+      "category": "outdoor",
+      "name": "雁荡山灵峰夜景",
+      "type": "徒步穿越",
+      "location": "温州乐清雁荡山",
+      "duration": "1天",
+      "difficulty": "中等",
+      "price": "200",
+      "rating": 4.7,
+      "reviewCount": 1234,
+      "totalAscent": 300,
+      "maxElevation": 1108,
+      "routeType": "环线",
+      "surfaceType": "石阶",
+      "accessInfo": "高铁至最近站，转景区交通",
+      "gearList": [
+        "登山鞋",
+        "头灯",
+        "水",
+        "相机"
+      ],
+      "safetyTips": [
+        "夜游需头灯",
+        "山路注意安全"
+      ],
+      "bestMonths": "4-5月·9-10月",
+      "highlights": [
+        "灵峰夜景",
+        "移步换形",
+        "大龙湫瀑布"
+      ],
+      "tags": [
+        "徒步",
+        "雁荡山",
+        "流纹岩"
+      ],
+      "description": "雁荡山列三山五岳之一火山流纹岩地貌\"灵峰夜景移步换形\"。于灵峰夜游移步换形，大龙湫瀑布飞泻百米，感受这\"东南第一山\"之奇绝与灵峰夜景\"移步换形\"之妙趣。"
+    },
+    {
+      "id": "zhejiang-outdoor-2",
+      "image": "https://picsum.photos/id/1366/600/400",
+      "category": "outdoor",
+      "name": "千岛湖绿道骑行",
+      "type": "骑行",
+      "location": "杭州淳安千岛湖",
+      "duration": "半天",
+      "difficulty": "简单",
+      "price": "50",
+      "rating": 4.8,
+      "reviewCount": 2345,
+      "totalAscent": 200,
+      "maxElevation": 300,
+      "routeType": "往返",
+      "surfaceType": "石阶",
+      "accessInfo": "高铁至最近站，转景区交通",
+      "gearList": [
+        "公路车",
+        "头盔",
+        "水",
+        "防晒"
+      ],
+      "safetyTips": [
+        "注意交通",
+        "防晒必备"
+      ],
+      "bestMonths": "4-5月·9-10月",
+      "highlights": [
+        "1078岛",
+        "环湖绿道",
+        "农夫山泉水源"
+      ],
+      "tags": [
+        "骑行",
+        "千岛湖",
+        "绿道"
+      ],
+      "description": "千岛湖为人工湖1078个岛环湖绿道150公里\"山水间骑行千岛碧波\"。于环湖绿道骑行，千岛碧波万顷农夫山泉水源清冽，感受这\"天下第一秀水\"之壮阔与环湖骑行之酣畅。"
+    }
+  ],
+  "wellnessRetreat": [
+    {
+      "id": "zhejiang-wellness-1",
+      "image": "https://picsum.photos/id/1860/600/400",
+      "category": "wellness",
+      "name": "普陀山禅修朝拜",
+      "type": "禅修养生",
+      "location": "舟山市普陀山普济寺",
+      "duration": "1天",
+      "difficulty": "简单",
+      "price": "100",
+      "rating": 4.8,
+      "reviewCount": 567,
+      "efficacyTags": [
+        "海天佛国禅修",
+        "观音道场朝拜",
+        "海浪梵音静心"
+      ],
+      "bestSeason": "春秋",
+      "packageIncludes": [
+        "寺院挂单",
+        "素斋",
+        "禅修指导"
+      ],
+      "suitableFor": [
+        "禅修爱好者",
+        "佛教信众"
+      ],
+      "tags": [
+        "禅修",
+        "佛教",
+        "普陀山"
+      ],
+      "description": "普陀山海天一色，梵音与涛声交响。于普济寺中盘膝坐禅，海风送来观音大士的慈悲，晨钟暮鼓涤荡凡尘。在这海天佛国里朝山礼佛，感悟\"千处祈求千处应\"之悲愿，身心俱获安宁。"
+    },
+    {
+      "id": "zhejiang-wellness-2",
+      "image": "https://picsum.photos/id/1861/600/400",
+      "category": "wellness",
+      "name": "千岛湖森林氧吧骑行",
+      "type": "森林康养",
+      "location": "杭州市淳安县千岛湖绿道",
+      "duration": "1天",
+      "difficulty": "简单",
+      "price": "80",
+      "rating": 4.7,
+      "reviewCount": 345,
+      "efficacyTags": [
+        "环湖绿道骑行",
+        "千岛碧水森林",
+        "负氧离子深呼吸"
+      ],
+      "bestSeason": "春秋",
+      "packageIncludes": [
+        "骑行租赁",
+        "游船",
+        "午餐"
+      ],
+      "suitableFor": [
+        "运动爱好者",
+        "自然爱好者"
+      ],
+      "tags": [
+        "森林",
+        "骑行",
+        "千岛湖"
+      ],
+      "description": "千岛湖一千零七十八座翠岛散落碧波，环湖绿道蜿蜒百余公里。穿行于水天之间的林荫道上，负氧离子如甘霖润泽，骑行歇处凭栏眺千岛，于这人间仙境中畅骑深呼吸，尽享湖光山色之康养。"
+    },
+    {
+      "id": "zhejiang-wellness-3",
+      "image": "https://picsum.photos/id/1862/600/400",
+      "category": "wellness",
+      "name": "杭州龙井茶禅一味",
+      "type": "茶禅养生",
+      "location": "杭州市西湖区龙井村",
+      "duration": "半天",
+      "difficulty": "简单",
+      "price": "88",
+      "rating": 4.6,
+      "reviewCount": 234,
+      "efficacyTags": [
+        "龙井茶园采茶",
+        "手工炒茶体验",
+        "茶禅一味品鉴"
+      ],
+      "bestSeason": "春秋",
+      "packageIncludes": [
+        "采茶体验",
+        "炒茶",
+        "茶席"
+      ],
+      "suitableFor": [
+        "茶道爱好者",
+        "文化体验者"
+      ],
+      "tags": [
+        "茶禅",
+        "龙井",
+        "西湖"
+      ],
+      "description": "龙井村狮峰山下，十八棵御茶青翠欲滴。于茶园亲手采撷明前嫩芽，看炒茶师傅在铁锅中\"抖搭拓捺\"手法翻飞，一盏龙井入喉清鲜回甘，于这茶禅一味中品味\"江南\"二字之真味。"
     }
   ]
 }

@@ -1,3 +1,4 @@
+@use 'sass:color';
 // ============================================================
 // WellnessRetreat · 香席茶案（左右两栏版 · 拟物增强版 II）
 // 布局：分类器物台（含"全部"）→ 左栏卡片列表 + 右栏卷笺详情 → 案脚铭牌
@@ -203,7 +204,7 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
 
         .artifact-label {
           position: relative;
-          font-size: 13px;
+          font-size: 14px;
           font-weight: 700;
           color: rgba(245, 236, 216, 0.9);
           letter-spacing: 1.5px;
@@ -231,7 +232,7 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
             linear-gradient(180deg, $gold-glow 0%, $gold 35%, $gold-deep 75%, $gold-dark 100%);
           border: 2px solid $gold-dark;
           color: #2e1a0c;
-          font-size: 11px;
+          font-size: 13px;
           font-weight: 800;
           box-sizing: border-box;
           box-shadow:
@@ -425,14 +426,15 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
       align-items: stretch;
       gap: 18px;
       margin-top: 18px;
-      flex: 1 1 auto;
+      flex: 0 0 auto;
+      height: 53vh;
 
       // ---- 左栏（麻布案布托盘 · 增强版） ----
       .left-pane {
         flex: 1;
         min-width: 300px;
         position: relative;
-        padding: 16px 16px 18px;
+        padding: 8px ;
         border-radius: 14px;
         background:
           // 麻布双向斜纹
@@ -464,6 +466,8 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
           0 28px 48px rgba(20, 12, 4, 0.28);
         display: flex;
         flex-direction: column;
+        min-height: 0;
+        overflow: hidden;
 
         // 四角折角包边（麻布缝线感）
         &::before,
@@ -497,6 +501,15 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
           flex-direction: column;
           gap: 14px;
           flex: 1 1 auto;
+          min-height: 0;
+          overflow-x: hidden;
+          overflow-y: auto;
+          padding: 4px 8px;
+
+          &::-webkit-scrollbar { width: 6px; }
+          &::-webkit-scrollbar-track { background: rgba(88, 66, 28, 0.08); border-radius: 3px; }
+          &::-webkit-scrollbar-thumb { background: rgba(120, 90, 45, 0.45); border-radius: 3px; }
+          &::-webkit-scrollbar-thumb:hover { background: rgba(120, 90, 45, 0.65); }
         }
 
         .tray-empty {
@@ -516,6 +529,8 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
         position: relative;
         display: flex;
         flex-direction: column;
+        min-height: 0;
+        overflow: hidden;
 
         .detail-empty {
           display: flex;
@@ -650,7 +665,7 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
           border: 1px solid rgba(90, 22, 14, 0.75);
           border-radius: 3px;
           color: #fbe9d8;
-          font-size: 10px;
+          font-size: 12px;
           font-weight: 700;
           letter-spacing: 1px;
           box-shadow:
@@ -786,7 +801,7 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
         }
 
         .card-eff {
-          font-size: 12px;
+          font-size: 14px;
           color: $ink-body;
           opacity: 0.92;
           white-space: nowrap;
@@ -876,17 +891,13 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
           inset 0 1px 0 rgba(255, 255, 255, 1),
           inset 0 2px 2px rgba(255, 255, 255, 0.6),
           inset 0 -3px 5px rgba(120, 90, 45, 0.2),
+          inset 0 0 0 2px var(--sub-color),
+          inset 0 0 0 4px color-mix(in srgb, var(--sub-color) 40%, transparent),
+          inset 0 0 12px color-mix(in srgb, var(--sub-color) 35%, transparent),
           0 4px 0 rgba(255, 255, 255, 0.7),
           0 14px 24px rgba(88, 66, 28, 0.5),
           0 28px 44px rgba(88, 66, 28, 0.38),
-          0 44px 64px rgba(88, 66, 28, 0.24),
-          // 多层 sub-color 同心环（明显边界 + 逐层变淡）
-          0 0 0 2px var(--sub-color),
-          0 0 0 4px color-mix(in srgb, var(--sub-color) 55%, transparent),
-          0 0 0 7px color-mix(in srgb, var(--sub-color) 28%, transparent),
-          // 外散光晕
-          0 0 18px color-mix(in srgb, var(--sub-color) 60%, transparent),
-          0 0 36px color-mix(in srgb, var(--sub-color) 35%, transparent);
+          0 44px 64px rgba(88, 66, 28, 0.24);
 
         // 左侧色条变粗变亮 + 强发光（active 态隐藏，仅 active:hover 时显示）
         &::before {
@@ -914,7 +925,7 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
       .active-emblem {
         position: absolute;
         top: 50%;
-        right: -16px;
+        right: 6px;
         transform: translateY(-50%) scale(0.4);
         width: 34px;
         height: 34px;
@@ -943,7 +954,7 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
         // 外圈装饰环（双环纹章感）
         .emblem-ring {
           position: absolute;
-          inset: -5px;
+          inset: -3px;
           border: 1.5px solid color-mix(in srgb, $gold 70%, transparent);
           border-radius: 50%;
           box-shadow:
@@ -994,7 +1005,14 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
       flex: 1 1 auto;
       display: flex;
       flex-direction: column;
+      min-height: 0;
+      overflow-y: auto;
       border-radius: 8px;
+
+      &::-webkit-scrollbar { width: 6px; }
+      &::-webkit-scrollbar-track { background: rgba(120, 90, 45, 0.06); border-radius: 3px; }
+      &::-webkit-scrollbar-thumb { background: rgba(184, 56, 43, 0.35); border-radius: 3px; }
+      &::-webkit-scrollbar-thumb:hover { background: rgba(184, 56, 43, 0.55); }
       background:
         // 宣纸纤维纹理（横纵双向）
         repeating-linear-gradient(0deg, rgba(120, 90, 45, 0.03) 0 1px, transparent 1px 4px),
@@ -1057,7 +1075,7 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
             // 底部暗影
             radial-gradient(circle at 68% 80%, rgba(0, 0, 0, 0.5), transparent 55%),
             // 主木色 + 金属端盖
-            radial-gradient(circle at 35% 30%, lighten($wood-light, 18%), $wood-light 50%, $wood-deep);
+            radial-gradient(circle at 35% 30%, color.adjust($wood-light, $lightness: 18%), $wood-light 50%, $wood-deep);
           box-shadow:
             inset 0 1px 1px rgba(255, 220, 160, 0.5),
             inset 0 -2px 3px rgba(0, 0, 0, 0.55),
@@ -1128,7 +1146,7 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
                 linear-gradient(180deg, color-mix(in srgb, var(--sub-color) 88%, white), var(--sub-color));
               border: 1px solid rgba(0, 0, 0, 0.45);
               color: #fff;
-              font-size: 12px;
+              font-size: 14px;
               font-weight: 700;
               letter-spacing: 1px;
               box-shadow:
@@ -1151,7 +1169,7 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
               border: 1px solid rgba(90, 22, 14, 0.75);
               border-radius: 3px;
               color: #fbe9d8;
-              font-size: 11px;
+              font-size: 14px;
               font-weight: 700;
               letter-spacing: 1px;
               box-shadow:
@@ -1195,7 +1213,7 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
                 @mixin seal-three-state($c, $c-deep, $c-bright, $c-glow) {
                   flex: 0 0 auto;
                   padding: 7px 13px;
-                  font-size: 12.5px;
+                  font-size: 14px;
                   font-weight: 700;
                   border-radius: 3px;
                   cursor: pointer;
@@ -1210,6 +1228,7 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
                   display: inline-flex;
                   align-items: center;
                   gap: 5px;
+                  white-space: nowrap;
                   font-family: $serif;
 
                   // 素笺未盖（自然态）
@@ -1229,6 +1248,9 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
 
                   // icon 默认墨色描边
                   :deep(svg) {
+                    width: 17px;
+                    height: 17px;
+                    flex-shrink: 0;
                     color: $ink-body;
                     transition: color 0.3s ease, filter 0.3s ease;
                     filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.5));
@@ -1394,31 +1416,33 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
               border: 1px solid rgba(176, 141, 62, 0.5);
               width: fit-content;
               box-shadow:
-                inset 0 1px 0 rgba(255, 255, 255, 0.95),
-                inset 0 -2px 3px rgba(88, 66, 28, 0.22),
-                0 2px 4px rgba(88, 66, 28, 0.25),
-                0 4px 8px rgba(88, 66, 28, 0.12);
+                inset 0 1px 0 rgba(255, 255, 255, 1),
+                inset 0 -2px 4px rgba(88, 66, 28, 0.28),
+                inset 1px 0 0 rgba(255, 255, 255, 0.3),
+                0 3px 6px rgba(88, 66, 28, 0.3),
+                0 6px 12px rgba(88, 66, 28, 0.18),
+                0 12px 20px rgba(88, 66, 28, 0.08);
 
               .rating-star {
-                color: $gold-deep;
+                color: #8a6d2e;
                 filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.25)) drop-shadow(0 0 2px rgba(240, 214, 138, 0.5));
               }
 
               .rating-num {
-                font-size: 15px;
+                font-size: 16px;
                 font-weight: 700;
                 color: $ink;
               }
 
               .rating-count {
-                font-size: 13px;
-                color: $ink-dim;
+                font-size: 15px;
+                color: $ink-body;
               }
             }
 
             .sheet-desc {
               margin: 0;
-              font-size: 14px;
+              font-size: 15px;
               line-height: 1.7;
               color: $ink-body;
               display: -webkit-box;
@@ -1442,13 +1466,15 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
                   radial-gradient(circle at 68% 80%, color-mix(in srgb, var(--sub-color) 30%, transparent), transparent 55%),
                   linear-gradient(180deg, color-mix(in srgb, var(--sub-color) 22%, white), color-mix(in srgb, var(--sub-color) 12%, white));
                 color: $ink;
-                font-size: 13px;
+                font-size: 15px;
                 font-weight: 700;
                 box-shadow:
-                  inset 0 1px 0 rgba(255, 255, 255, 0.95),
-                  inset 0 -2px 3px color-mix(in srgb, var(--sub-color) 28%, transparent),
-                  0 2px 4px rgba(88, 66, 28, 0.25),
-                  0 4px 8px rgba(88, 66, 28, 0.14);
+                  inset 0 1px 0 rgba(255, 255, 255, 1),
+                  inset 0 -2px 4px color-mix(in srgb, var(--sub-color) 35%, transparent),
+                  inset 1px 0 0 rgba(255, 255, 255, 0.3),
+                  0 3px 6px rgba(88, 66, 28, 0.3),
+                  0 6px 12px rgba(88, 66, 28, 0.18),
+                  0 12px 20px rgba(88, 66, 28, 0.08);
               }
             }
 
@@ -1471,20 +1497,22 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
                 border-radius: 7px;
                 box-shadow:
                   inset 0 1px 0 rgba(255, 255, 255, 1),
-                  inset 0 -2px 4px rgba(88, 66, 28, 0.18),
-                  0 2px 4px rgba(88, 66, 28, 0.25),
-                  0 4px 8px rgba(88, 66, 28, 0.14),
-                  0 8px 14px rgba(88, 66, 28, 0.08);
+                  inset 0 -2px 4px rgba(88, 66, 28, 0.25),
+                  inset 1px 0 0 rgba(255, 255, 255, 0.3),
+                  inset -1px 0 0 rgba(88, 66, 28, 0.08),
+                  0 3px 6px rgba(88, 66, 28, 0.3),
+                  0 6px 12px rgba(88, 66, 28, 0.18),
+                  0 12px 20px rgba(88, 66, 28, 0.1);
 
                 .cell-key {
-                  font-size: 11px;
-                  color: $ink-dim;
+                  font-size: 14px;
+                  color: $ink-body;
                   letter-spacing: 1px;
                   font-weight: 600;
                 }
 
                 .cell-val {
-                  font-size: 14px;
+                  font-size: 15px;
                   font-weight: 700;
                   color: $ink;
                   line-height: 1.4;
@@ -1495,8 +1523,8 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
                     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.85), 0 0 6px rgba(184, 56, 43, 0.3);
                   }
 
-                  &[data-level='轻松'] { color: #4c7a4c; }
-                  &[data-level='适中'] { color: $gold-deep; }
+                  &[data-level='轻松'] { color: #2d5d2d; }
+                  &[data-level='适中'] { color: #7c5e1e; }
                   &[data-level='深度'] { color: #b04936; }
                 }
               }
@@ -1513,9 +1541,9 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
 
           .block-label {
             display: block;
-            font-size: 12px;
+            font-size: 15px;
             font-weight: 800;
-            color: $ink-dim;
+            color: $ink-body;
             letter-spacing: 2px;
             margin-bottom: 7px;
           }
@@ -1531,11 +1559,12 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
             border-left: 5px solid var(--sub-color);
             border-radius: 7px;
             box-shadow:
-              inset 0 1px 0 rgba(255, 255, 255, 0.95),
-              inset 0 -2px 4px rgba(88, 66, 28, 0.15),
-              0 2px 5px rgba(88, 66, 28, 0.25),
-              0 4px 10px rgba(88, 66, 28, 0.14),
-              0 8px 16px rgba(88, 66, 28, 0.08);
+              inset 0 1px 0 rgba(255, 255, 255, 1),
+              inset 0 -2px 4px rgba(88, 66, 28, 0.22),
+              inset 1px 0 0 rgba(255, 255, 255, 0.3),
+              0 3px 6px rgba(88, 66, 28, 0.3),
+              0 6px 12px rgba(88, 66, 28, 0.18),
+              0 12px 20px rgba(88, 66, 28, 0.1);
 
             .package-list {
               margin: 0;
@@ -1548,7 +1577,7 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
               li {
                 position: relative;
                 padding-left: 15px;
-                font-size: 13px;
+                font-size: 15px;
                 line-height: 1.55;
                 color: $ink-body;
                 font-weight: 600;
@@ -1575,11 +1604,12 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
             border: 1px solid rgba(120, 90, 45, 0.5);
             border-radius: 7px;
             box-shadow:
-              inset 0 1px 0 rgba(255, 255, 255, 0.95),
-              inset 0 -2px 4px rgba(88, 66, 28, 0.15),
-              0 2px 5px rgba(88, 66, 28, 0.25),
-              0 4px 10px rgba(88, 66, 28, 0.14),
-              0 8px 16px rgba(88, 66, 28, 0.08);
+              inset 0 1px 0 rgba(255, 255, 255, 1),
+              inset 0 -2px 4px rgba(88, 66, 28, 0.22),
+              inset 1px 0 0 rgba(255, 255, 255, 0.3),
+              0 3px 6px rgba(88, 66, 28, 0.3),
+              0 6px 12px rgba(88, 66, 28, 0.18),
+              0 12px 20px rgba(88, 66, 28, 0.1);
 
             .chip-row {
               display: flex;
@@ -1596,13 +1626,15 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
                   linear-gradient(180deg, rgba(176, 141, 62, 0.3), rgba(176, 141, 62, 0.15));
                 border: 1px solid rgba(176, 141, 62, 0.58);
                 color: $ink-body;
-                font-size: 13px;
+                font-size: 15px;
                 font-weight: 700;
                 box-shadow:
-                  inset 0 1px 0 rgba(255, 255, 255, 0.75),
-                  inset 0 -1px 2px rgba(120, 90, 45, 0.22),
-                  0 2px 4px rgba(88, 66, 28, 0.22),
-                  0 4px 8px rgba(88, 66, 28, 0.1);
+                  inset 0 1px 0 rgba(255, 255, 255, 0.9),
+                  inset 0 -2px 3px rgba(120, 90, 45, 0.28),
+                  inset 1px 0 0 rgba(255, 255, 255, 0.25),
+                  0 3px 6px rgba(88, 66, 28, 0.28),
+                  0 6px 12px rgba(88, 66, 28, 0.16),
+                  0 12px 20px rgba(88, 66, 28, 0.08);
               }
             }
           }
@@ -1615,7 +1647,7 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
             gap: 8px;
 
             .tag-chip {
-              font-size: 13px;
+              font-size: 15px;
               font-weight: 700;
               padding: 6px 12px;
               border-radius: 6px;
@@ -1626,10 +1658,12 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
               border: 1px solid rgba(120, 90, 45, 0.5);
               color: $ink-body;
               box-shadow:
-                inset 0 1px 0 rgba(255, 255, 255, 0.85),
-                inset 0 -1px 2px rgba(120, 90, 45, 0.18),
-                0 2px 4px rgba(88, 66, 28, 0.22),
-                0 4px 8px rgba(88, 66, 28, 0.1);
+                inset 0 1px 0 rgba(255, 255, 255, 0.95),
+                inset 0 -2px 3px rgba(120, 90, 45, 0.25),
+                inset 1px 0 0 rgba(255, 255, 255, 0.25),
+                0 3px 6px rgba(88, 66, 28, 0.28),
+                0 6px 12px rgba(88, 66, 28, 0.16),
+                0 12px 20px rgba(88, 66, 28, 0.08);
 
               // 非遗标签（朱印色 · 增强版）
               &.tag-heritage {
@@ -1659,101 +1693,156 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
   // ============================================
   .empty-state {
     position: relative;
-    text-align: center;
-    padding: 58px 20px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+    padding: 10px 0;
 
-    .empty-table {
-      width: 232px;
-      margin: 0 auto 20px;
-      padding: 18px;
-      border-radius: 13px;
+    .empty-tea-table {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 460px;
+      border-radius: 16px;
+      overflow: hidden;
       background:
         repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.06) 0 1px, transparent 1px 3px, rgba(0, 0, 0, 0.03) 3px 5px, transparent 5px 9px),
-        radial-gradient(ellipse at 30% 10%, rgba(255, 220, 160, 0.15), transparent 46%),
         linear-gradient(165deg, $wood 0%, $wood-deep 100%);
-      border: 2px solid rgba(0, 0, 0, 0.65);
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      gap: 14px;
+      border: 3px solid rgba(0, 0, 0, 0.6);
       box-shadow:
         inset 0 3px 8px rgba(0, 0, 0, 0.55),
         inset 0 -1px 0 rgba(255, 220, 160, 0.12),
-        0 8px 16px rgba(0, 0, 0, 0.4),
-        0 16px 28px rgba(20, 12, 4, 0.5);
+        0 10px 28px rgba(0, 0, 0, 0.5),
+        0 18px 36px rgba(20, 12, 4, 0.45);
 
-      .empty-pedestal {
+      .empty-table-top {
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        gap: 16px;
+        padding: 24px 20px 18px;
+        background:
+          linear-gradient(180deg, rgba(255, 220, 160, 0.08) 0%, transparent 60%),
+          repeating-linear-gradient(90deg, transparent 0 4px, rgba(0, 0, 0, 0.04) 4px 5px);
+        border-bottom: 2px solid rgba(0, 0, 0, 0.4);
+        box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.3);
+
+        .empty-pedestal {
+          position: relative;
+          width: 56px;
+          height: 56px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          background:
+            repeating-linear-gradient(45deg, rgba(92, 72, 36, 0.18) 0 2px, transparent 2px 4px),
+            repeating-linear-gradient(-45deg, rgba(92, 72, 36, 0.18) 0 2px, transparent 2px 4px),
+            radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.55), transparent 50%),
+            linear-gradient(180deg, $bamboo-light, $bamboo-deep);
+          box-shadow:
+            inset 0 2px 2px rgba(255, 255, 255, 0.55),
+            inset 0 -3px 6px rgba(60, 44, 18, 0.45),
+            0 4px 8px rgba(0, 0, 0, 0.4),
+            0 8px 14px rgba(0, 0, 0, 0.25);
+          color: rgba(92, 69, 31, 0.55);
+        }
+
+        .empty-pedestal--small {
+          width: 44px;
+          height: 44px;
+        }
+
+        .empty-pedestal--tall {
+          width: 62px;
+          height: 62px;
+        }
+      }
+
+      .empty-table-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+        padding: 32px 28px;
+        text-align: center;
+        background:
+          repeating-linear-gradient(0deg, transparent 0, transparent 3px, rgba(58, 46, 31, 0.02) 3px, rgba(58, 46, 31, 0.02) 4px),
+          linear-gradient(180deg, $cloth-l 0%, $cloth-d 100%);
+      }
+
+      .empty-title {
+        margin: 0;
+        font-family: $serif;
+        font-size: 24px;
+        font-weight: 800;
+        color: $ink;
+        letter-spacing: 3px;
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+      }
+
+      .empty-desc {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 600;
+        color: $ink-body;
+        letter-spacing: 1px;
+      }
+
+      .empty-ink-seal {
         position: relative;
-        width: 50px;
-        height: 50px;
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 50%;
-        background:
-          repeating-linear-gradient(45deg, rgba(92, 72, 36, 0.18) 0 2px, transparent 2px 4px),
-          repeating-linear-gradient(-45deg, rgba(92, 72, 36, 0.18) 0 2px, transparent 2px 4px),
-          radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.55), transparent 50%),
-          linear-gradient(180deg, $bamboo-light, $bamboo-deep);
-        box-shadow:
-          inset 0 2px 2px rgba(255, 255, 255, 0.55),
-          inset 0 -3px 6px rgba(60, 44, 18, 0.45),
-          0 4px 8px rgba(0, 0, 0, 0.4),
-          0 8px 14px rgba(0, 0, 0, 0.25);
-        color: rgba(92, 69, 31, 0.55);
+        width: 60px;
+        height: 60px;
+
+        .seal-ring {
+          position: absolute;
+          inset: 0;
+          border-radius: 50%;
+          border: 3px solid rgba($seal, 0.55);
+          box-shadow: inset 0 0 0 2px rgba($seal, 0.2);
+        }
+
+        .seal-char {
+          font-family: $serif;
+          font-size: 24px;
+          font-weight: 800;
+          color: $seal;
+          opacity: 0.78;
+          transform: rotate(-8deg);
+        }
       }
 
-      .empty-pedestal--small {
-        width: 40px;
-        height: 40px;
-      }
+      .empty-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
 
-      .empty-pedestal--tall {
-        width: 56px;
-        height: 56px;
-      }
-    }
-
-    .empty-title {
-      margin: 0 0 8px;
-      font-family: $serif;
-      font-size: 20px;
-      font-weight: 700;
-      color: $ink;
-      letter-spacing: 2px;
-    }
-
-    .empty-desc {
-      margin: 0 0 20px;
-      font-size: 15px;
-      color: $ink;
-      opacity: 0.7;
-    }
-
-    .empty-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-      justify-content: center;
-
-      .zen-tag {
-        font-size: 13px;
-        font-weight: 600;
-        padding: 6px 15px;
-        border-radius: 999px;
-        background:
-          radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.65), transparent 55%),
-          linear-gradient(180deg, #f5edd9, #ecdfc2);
-        border: 1px solid #ddcda8;
-        color: $ink;
-        box-shadow:
-          inset 0 1px 0 rgba(255, 255, 255, 0.9),
-          inset 0 -1px 2px rgba(120, 90, 45, 0.22),
-          0 2px 4px rgba(120, 90, 45, 0.28),
-          0 4px 8px rgba(120, 90, 45, 0.12);
+        .zen-tag {
+          font-size: 14px;
+          font-weight: 600;
+          padding: 7px 16px;
+          border-radius: 999px;
+          background:
+            radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.65), transparent 55%),
+            linear-gradient(180deg, #f5edd9, #ecdfc2);
+          border: 1px solid #ddcda8;
+          color: $ink;
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.9),
+            inset 0 -1px 2px rgba(120, 90, 45, 0.22),
+            0 2px 4px rgba(120, 90, 45, 0.28),
+            0 4px 8px rgba(120, 90, 45, 0.12);
+        }
       }
     }
   }
+
 }
 
 @keyframes artifactEnter {

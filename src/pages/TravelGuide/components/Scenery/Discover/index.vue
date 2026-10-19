@@ -36,9 +36,10 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, computed, onMounted, watch, markRaw } from 'vue';
+  import { ref, computed, watch, markRaw } from 'vue';
   import { useTravelGuideStore } from '@/stores/travelGuide';
   import type { SceneryData } from '@/typesOfPages/travelGuide';
+  import { useSceneryTabState } from '../useSceneryTabState';
   import Overview from './Overview/index.vue';
   import Ranking from './Ranking/index.vue';
   import Theme from './Theme/index.vue';
@@ -60,7 +61,7 @@
     emit('navigate-to-spot', spotName);
   };
 
-  const activeSubTab = ref('overview');
+  const { discoverActiveSubTab: activeSubTab } = useSceneryTabState();
   const sceneryData = ref<SceneryData | null>(null);
   const loading = ref(false);
 
@@ -100,9 +101,6 @@
     { immediate: true },
   );
 
-  onMounted(() => {
-    loadData(props.provinceId);
-  });
 </script>
 
 <style scoped src="./index.scss" lang="scss" />

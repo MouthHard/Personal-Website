@@ -12,23 +12,27 @@
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <!-- 主飞镖箭头：流线型填充，方向明确向左 -->
-    <path
-      d="M27 9 Q18 9 11 16 Q18 23 27 23 L21 16 Z"
-      fill="currentColor"
-      opacity="0.95"
-    />
-    <!-- 箭头高光描边 -->
-    <path
-      d="M27 9 Q18 9 11 16"
-      stroke="currentColor"
-      stroke-width="0.8"
-      opacity="0.5"
-      stroke-linecap="round"
-      fill="none"
-    />
-    <!-- 尾部运动刻线（两条，表示方向运动） -->
-    <line x1="30" y1="13" x2="30" y2="19" stroke="currentColor" stroke-width="2" opacity="0.55" stroke-linecap="round" />
-    <line x1="27.5" y1="14.5" x2="27.5" y2="17.5" stroke="currentColor" stroke-width="1.4" opacity="0.32" stroke-linecap="round" />
+    <!-- 飞行拖尾（右侧，表示向左飞行的尾迹） -->
+    <line x1="28" y1="16" x2="30.5" y2="16" stroke="currentColor" stroke-width="1.6" opacity="0.35" stroke-linecap="round" />
+    <line x1="28" y1="13.5" x2="29.8" y2="13.5" stroke="currentColor" stroke-width="0.9" opacity="0.22" stroke-linecap="round" />
+    <line x1="28" y1="18.5" x2="29.8" y2="18.5" stroke="currentColor" stroke-width="0.9" opacity="0.22" stroke-linecap="round" />
+
+    <!-- 上翼面（亮，折纸主面） -->
+    <path d="M3 16 L27 9 L20 16 Z" fill="currentColor" opacity="0.95" />
+    <!-- 下翼面（亮，折纸主面） -->
+    <path d="M3 16 L27 23 L20 16 Z" fill="currentColor" opacity="0.95" />
+    <!-- 后翼折叠面（暗，表现纸飞机尾部折叠） -->
+    <path d="M20 16 L27 9 L27 23 Z" fill="currentColor" opacity="0.38" />
+
+    <!-- 中线折痕（机头到机尾中点） -->
+    <line x1="3.5" y1="16" x2="20" y2="16" stroke="currentColor" stroke-width="0.5" opacity="0.55" stroke-linecap="round" />
+
+    <!-- 上翼内侧高光（表现折纸棱线） -->
+    <path d="M5 15.5 L20 15.5" stroke="currentColor" stroke-width="0.35" opacity="0.3" stroke-linecap="round" />
+    <!-- 下翼内侧暗线 -->
+    <path d="M5 16.5 L20 16.5" stroke="currentColor" stroke-width="0.35" opacity="0.25" stroke-linecap="round" />
+
+    <!-- 机头高光点 -->
+    <circle cx="4" cy="16" r="0.7" fill="currentColor" opacity="0.75" />
   </svg>
 </template>

@@ -1,16 +1,18 @@
 <script setup lang="ts">
   import { computed, ref } from 'vue';
   import type { ScenerySpot, ExperienceItem } from '@/typesOfPages/travelGuide';
-  import {
-    CloseIcon,
-    LocationIcon,
-  } from '@/pages/TravelGuide/icons/common';
   import MyEmpty from '../MyEmpty/index.vue';
   import ScenerySpotModal from '../../ScenerySpotModal/index.vue';
   import TravelShareModal from '../../TravelShareModal/index.vue';
   import { useTravelShare } from '../../TravelShareModal/useTravelShare';
   import { useSceneryPrefs } from '@/composables/travelGuide/useSceneryPrefs';
   import { useTravelToast } from '@/composables/travelGuide/useTravelToast';
+  import SpotDisplay from './SpotDisplay/index.vue';
+  import OutdoorDisplay from './OutdoorDisplay/index.vue';
+  import CraftDisplay from './CraftDisplay/index.vue';
+  import PerformanceDisplay from './PerformanceDisplay/index.vue';
+  import WellnessDisplay from './WellnessDisplay/index.vue';
+  import FestivalDisplay from './FestivalDisplay/index.vue';
 
   const {
     isSpotLike,
@@ -62,7 +64,6 @@
     return ALL_KEYS.includes(v) ? v : 'spotBeen';
   });
 
-  // 展示模式：6种类型各一种完全不同的展示方式
   type DisplayMode = 'spot' | 'outdoor' | 'craft' | 'performance' | 'wellness' | 'festival';
   const displayMode = computed<DisplayMode>(() => {
     const key = activeSubSafe.value;
@@ -74,7 +75,6 @@
     if (key.startsWith('festival')) return 'festival';
     return 'spot';
   });
-
 
   const currentSpots = computed<ScenerySpot[]>(() => {
     if (activeSubSafe.value === 'spotBeen') return props.spotBeen;
@@ -121,13 +121,6 @@
     else emit('remove-experience-favorite', id, provinceId, category);
   };
 
-  // 拍立得微旋转（基于 id 稳定）
-  const polaroidRotate = (id: string): number => {
-    let hash = 0;
-    for (let i = 0; i < id.length; i++) hash = (hash * 31 + id.charCodeAt(i)) & 0xffff;
-    return ((hash % 700) - 350) / 100; // -3.5° ~ 3.5°
-  };
-
   // ===== 景点详情弹窗 =====
   const modalVisible = ref(false);
   const selectedSpot = ref<ScenerySpot | null>(null);
@@ -172,18 +165,6 @@
       window.open(`https://www.amap.com/search?query=${query}`, '_blank', 'noopener,noreferrer');
     }
   };
-
-  // 日历日期（从 duration 或 name 提取）
-  const festivalDay = (exp: ExperienceItem): string => {
-    const m = (exp.duration || '').match(/(\d+)/);
-    return m ? m[1] : '·';
-  };
-  const festivalMonth = (exp: ExperienceItem): string => {
-    const m = (exp.duration || '').match(/(\d+)\D+(\d+)/);
-    if (m) return m[1];
-    const m2 = (exp.duration || '').match(/(\d+)/);
-    return m2 ? m2[1] : '·';
-  };
 </script>
 
 <template>
@@ -191,188 +172,44 @@
     <div class="panel-body">
       <MyEmpty v-if="isEmpty" :title="emptyText.title" :hint="emptyText.hint" />
 
-      <!-- ====================================================== -->
-      <!-- 1. 景点 — 拍立得照片墙（白色相纸 + 微旋转散落 + 手写地名） -->
-      <!-- ====================================================== -->
-      <ul v-else-if="displayMode === 'spot'" class="polaroid-wall">
-        <li
-          v-for="(spot, i) in currentSpots"
-          :key="spot.id"
-          class="polaroid"
-          :style="{ transform: `rotate(${polaroidRotate(spot.id)}deg)`, zIndex: i }"
-          @click="openSpotModal(spot)"
-        >
-          <div class="polaroid-photo">
-            <img :src="spot.image" :alt="spot.name" loading="lazy" />
-            <span v-if="spot.level" class="polaroid-level">{{ spot.level }}</span>
-          </div>
-          <div class="polaroid-caption">
-            <span class="caption-name">{{ spot.name }}</span>
-            <span class="caption-loc"><LocationIcon :size="10" /> {{ spot.location }}</span>
-            <span v-if="spot.rating" class="caption-star">★ {{ spot.rating.toFixed(1) }}</span>
-          </div>
-          <div v-if="spot.tags && spot.tags.length" class="polaroid-tags">
-            <span v-for="t in spot.tags.slice(0, 2)" :key="t" class="ptag">{{ t }}</span>
-          </div>
-          <button class="polaroid-pin" title="移除" @click.stop="handleRemoveSpot(spot.id)">
-            <CloseIcon :size="10" />
-          </button>
-        </li>
-      </ul>
-
-      <!-- ====================================================== -->
-      <!-- 2. 户外探险 — 登山日志卡片（牛皮纸 + 穿绳孔 + 海拔信息） -->
-      <!-- ====================================================== -->
-      <ul v-else-if="displayMode === 'outdoor'" class="trail-log">
-        <li v-for="exp in currentExperiences" :key="exp.id" class="log-entry">
-          <div class="log-bind-holes">
-            <span></span><span></span><span></span>
-          </div>
-          <div class="log-photo">
-            <img :src="exp.image" :alt="exp.name" loading="lazy" />
-          </div>
-          <div class="log-content">
-            <div class="log-header">
-              <span class="log-title">{{ exp.name }}</span>
-              <span class="log-diff" :data-d="exp.difficulty">{{ exp.difficulty }}</span>
-            </div>
-            <div class="log-stats">
-              <span v-if="(exp as any).maxElevation" class="log-stat stat-alt">
-                <span class="stat-label">海拔</span>
-                <span class="stat-val">{{ (exp as any).maxElevation }}m</span>
-              </span>
-              <span v-if="exp.duration" class="log-stat stat-dur">
-                <span class="stat-label">时长</span>
-                <span class="stat-val">{{ exp.duration }}</span>
-              </span>
-              <span class="log-stat stat-loc">
-                <span class="stat-label">位置</span>
-                <span class="stat-val">{{ exp.location }}</span>
-              </span>
-            </div>
-            <p v-if="exp.description" class="log-desc">{{ exp.description }}</p>
-          </div>
-          <button class="log-remove" title="移除" @click="handleRemoveExp(exp.id, (exp as any).provinceId, (exp as any).experienceCategory)">
-            <CloseIcon :size="11" />
-          </button>
-        </li>
-      </ul>
-
-      <!-- ====================================================== -->
-      <!-- 3. 工坊体验 — 匠人印章册（宣纸 + 朱印 + 竖排工坊名） -->
-      <!-- ====================================================== -->
-      <ul v-else-if="displayMode === 'craft'" class="seal-album">
-        <li v-for="exp in currentExperiences" :key="exp.id" class="seal-card">
-          <div class="seal-paper">
-            <div class="seal-img-frame">
-              <img :src="exp.image" :alt="exp.name" loading="lazy" />
-            </div>
-            <div class="seal-info">
-              <div class="seal-stamp">
-                <span class="stamp-text">{{ exp.name }}</span>
-              </div>
-              <div class="seal-meta">
-                <span v-if="exp.heritageLevel" class="seal-herit">{{ exp.heritageLevel === 'national' ? '国家级非遗' : exp.heritageLevel === 'provincial' ? '省级非遗' : '市级非遗' }}</span>
-                <span class="seal-type">{{ exp.type }}</span>
-              </div>
-              <span class="seal-loc"><LocationIcon :size="10" /> {{ exp.location }}</span>
-              <span v-if="exp.duration" class="seal-dur">{{ exp.duration }}</span>
-            </div>
-            <span v-if="exp.heritageLevel" class="seal-red-stamp">非遗</span>
-          </div>
-          <button class="seal-remove" title="移除" @click="handleRemoveExp(exp.id, (exp as any).provinceId, (exp as any).experienceCategory)">
-            <CloseIcon :size="11" />
-          </button>
-        </li>
-      </ul>
-
-      <!-- ====================================================== -->
-      <!-- 4. 演艺节目 — 老式戏票（撕票根 + 锯齿边 + 座位号） -->
-      <!-- ====================================================== -->
-      <ul v-else-if="displayMode === 'performance'" class="ticket-stub">
-        <li v-for="(exp, i) in currentExperiences" :key="exp.id" class="ticket">
-          <div class="ticket-left">
-            <span class="stub-no">No.{{ String(i + 1).padStart(3, '0') }}</span>
-            <span class="stub-type">{{ exp.type }}</span>
-            <span v-if="exp.duration" class="stub-time">{{ exp.duration }}</span>
-          </div>
-          <div class="ticket-tear"></div>
-          <div class="ticket-main">
-            <div class="ticket-img">
-              <img :src="exp.image" :alt="exp.name" loading="lazy" />
-            </div>
-            <div class="ticket-detail">
-              <span class="ticket-name">{{ exp.name }}</span>
-              <span class="ticket-loc"><LocationIcon :size="10" /> {{ exp.location }}</span>
-              <span v-if="exp.price" class="ticket-price">¥ {{ exp.price }}</span>
-              <p v-if="exp.description" class="ticket-desc">{{ exp.description }}</p>
-            </div>
-          </div>
-          <button class="ticket-remove" title="移除" @click="handleRemoveExp(exp.id, (exp as any).provinceId, (exp as any).experienceCategory)">
-            <CloseIcon :size="11" />
-          </button>
-        </li>
-      </ul>
-
-      <!-- ====================================================== -->
-      <!-- 5. 休闲养生 — 茶笺药方签（宣纸卷轴 + 茶汤色 + 功效标签） -->
-      <!-- ====================================================== -->
-      <ul v-else-if="displayMode === 'wellness'" class="tea-scroll">
-        <li v-for="exp in currentExperiences" :key="exp.id" class="tea-card">
-          <div class="tea-roller-top"></div>
-          <div class="tea-paper">
-            <div class="tea-img-box">
-              <img :src="exp.image" :alt="exp.name" loading="lazy" />
-            </div>
-            <div class="tea-body">
-              <span class="tea-name">{{ exp.name }}</span>
-              <span class="tea-type">{{ exp.type }}</span>
-              <div class="tea-info">
-                <span class="tea-loc"><LocationIcon :size="10" /> {{ exp.location }}</span>
-                <span v-if="exp.duration" class="tea-dur">{{ exp.duration }}</span>
-              </div>
-              <div v-if="(exp as any).efficacyTags && (exp as any).efficacyTags.length" class="tea-eff">
-                <span v-for="t in (exp as any).efficacyTags.slice(0, 3)" :key="t" class="eff-chip">{{ t }}</span>
-              </div>
-              <div v-else-if="exp.tags && exp.tags.length" class="tea-eff">
-                <span v-for="t in exp.tags.slice(0, 3)" :key="t" class="eff-chip">{{ t }}</span>
-              </div>
-            </div>
-            <span v-if="exp.heritageLevel" class="tea-seal">非遗</span>
-          </div>
-          <div class="tea-roller-bot"></div>
-          <button class="tea-remove" title="移除" @click="handleRemoveExp(exp.id, (exp as any).provinceId, (exp as any).experienceCategory)">
-            <CloseIcon :size="11" />
-          </button>
-        </li>
-      </ul>
-
-      <!-- ====================================================== -->
-      <!-- 6. 节庆日历 — 日历翻页（日历页 + 大日期 + 翻页折角） -->
-      <!-- ====================================================== -->
-      <ul v-else-if="displayMode === 'festival'" class="calendar-flip">
-        <li v-for="exp in currentExperiences" :key="exp.id" class="cal-page">
-          <div class="cal-top">
-            <span class="cal-month">{{ festivalMonth(exp) }}月</span>
-            <div class="cal-rings">
-              <span></span><span></span>
-            </div>
-          </div>
-          <div class="cal-day">{{ festivalDay(exp) }}</div>
-          <div class="cal-body">
-            <div class="cal-img">
-              <img :src="exp.image" :alt="exp.name" loading="lazy" />
-            </div>
-            <span class="cal-name">{{ exp.name }}</span>
-            <span class="cal-loc"><LocationIcon :size="10" /> {{ exp.location }}</span>
-            <p v-if="exp.description" class="cal-desc">{{ exp.description }}</p>
-          </div>
-          <div class="cal-fold"></div>
-          <button class="cal-remove" title="移除" @click="handleRemoveExp(exp.id, (exp as any).provinceId, (exp as any).experienceCategory)">
-            <CloseIcon :size="11" />
-          </button>
-        </li>
-      </ul>
+      <SpotDisplay
+        v-else-if="displayMode === 'spot'"
+        :spots="currentSpots"
+        :is-like="isSpotLike"
+        :is-want="isSpotWant"
+        :is-been="isSpotBeen"
+        @open="openSpotModal"
+        @remove="handleRemoveSpot"
+        @like="toggleLike"
+        @want="toggleWant"
+        @been="toggleBeen"
+        @share="handleShare"
+      />
+      <OutdoorDisplay
+        v-else-if="displayMode === 'outdoor'"
+        :experiences="currentExperiences"
+        @remove="handleRemoveExp"
+      />
+      <CraftDisplay
+        v-else-if="displayMode === 'craft'"
+        :experiences="currentExperiences"
+        @remove="handleRemoveExp"
+      />
+      <PerformanceDisplay
+        v-else-if="displayMode === 'performance'"
+        :experiences="currentExperiences"
+        @remove="handleRemoveExp"
+      />
+      <WellnessDisplay
+        v-else-if="displayMode === 'wellness'"
+        :experiences="currentExperiences"
+        @remove="handleRemoveExp"
+      />
+      <FestivalDisplay
+        v-else-if="displayMode === 'festival'"
+        :experiences="currentExperiences"
+        @remove="handleRemoveExp"
+      />
     </div>
 
     <ScenerySpotModal

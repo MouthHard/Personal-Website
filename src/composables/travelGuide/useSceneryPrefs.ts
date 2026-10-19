@@ -60,6 +60,16 @@ const sceneryChecked = ref<string[]>(
   asStringArr(readJson<unknown>(SCENERY_CHECKED_KEY, [])),
 );
 
+const spotFavoriteSet = computed(() => new Set(sceneryPrefs.value.spotFavorites));
+const spotWantSet = computed(() => new Set(sceneryPrefs.value.spotWant));
+const spotBeenSet = computed(() => new Set(sceneryPrefs.value.spotBeen));
+const spotLikeSet = computed(() => new Set(sceneryPrefs.value.spotLikes));
+const routeDoneSet = computed(() => new Set(sceneryPrefs.value.routeDone));
+const experienceFavoriteSet = computed(() => new Set(sceneryPrefs.value.experienceFavorites));
+const experienceWantSet = computed(() => new Set(sceneryPrefs.value.experienceWant));
+const experienceBeenSet = computed(() => new Set(sceneryPrefs.value.experienceBeen));
+const checkedSet = computed(() => new Set(sceneryChecked.value));
+
 function persistSceneryPrefs(): void {
   writeJson(SCENERY_PREFS_KEY, sceneryPrefs.value);
 }
@@ -68,14 +78,6 @@ function persistSceneryChecked(): void {
 }
 
 export function useSceneryPrefs() {
-  const spotFavoriteSet = computed(() => new Set(sceneryPrefs.value.spotFavorites));
-  const spotWantSet = computed(() => new Set(sceneryPrefs.value.spotWant));
-  const spotBeenSet = computed(() => new Set(sceneryPrefs.value.spotBeen));
-  const spotLikeSet = computed(() => new Set(sceneryPrefs.value.spotLikes));
-  const routeDoneSet = computed(() => new Set(sceneryPrefs.value.routeDone));
-  const experienceFavoriteSet = computed(() => new Set(sceneryPrefs.value.experienceFavorites));
-  const experienceWantSet = computed(() => new Set(sceneryPrefs.value.experienceWant));
-  const experienceBeenSet = computed(() => new Set(sceneryPrefs.value.experienceBeen));
 
   const toggleSpotFavorite = (id: string): void => {
     if (spotFavoriteSet.value.has(id)) sceneryPrefs.value.spotFavorites = sceneryPrefs.value.spotFavorites.filter((x) => x !== id);
@@ -139,7 +141,7 @@ export function useSceneryPrefs() {
   const isExperienceWant = (id: string, provinceId: string, category: string): boolean => experienceWantSet.value.has(expKey(id, provinceId, category));
   const isExperienceBeen = (id: string, provinceId: string, category: string): boolean => experienceBeenSet.value.has(expKey(id, provinceId, category));
 
-  const checkedSet = computed(() => new Set(sceneryChecked.value));
+
   const toggleChecked = (id: string): boolean => {
     const wasChecked = checkedSet.value.has(id);
     if (wasChecked) sceneryChecked.value = sceneryChecked.value.filter((x) => x !== id);

@@ -29,6 +29,7 @@ $snow: #f8fafc;
   display: flex;
   flex-direction: column;
   height: 100%;
+  overflow: hidden;
 
   // ============================================
   // 切片导轨容器
@@ -397,10 +398,11 @@ $snow: #f8fafc;
   .sub-tab-content {
     flex: 1;
     min-height: 0;
-    overflow-y: auto;
+ 
+    height: 80vh;
     display: flex;
     flex-direction: column;
- 
+    
     border-radius: 0 0 4px 4px;
 
     &::-webkit-scrollbar { display: none; }

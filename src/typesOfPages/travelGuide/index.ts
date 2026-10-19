@@ -273,14 +273,18 @@ export interface ScenerySpot {
   likeCount?: number;
   wantCount?: number;
   beenCount?: number;
-  ticketDetails?: string[];
-  transportInfo?: string[];
-  openTimeDetail?: string[];
+  ticketDetails?: Array<{ type: string; price: string }>;
+  transportInfo?: Array<{ mode: string; detail: string }>;
+  openTimeDetail?: Array<{ season: string; months?: string; time: string }>;
   recommendedRoutes?: Array<{
     name: string;
     duration: string;
     difficulty: string;
     description: string;
+    highlights?: string[];
+    itinerary?: Array<{ day: string; title: string; detail: string }>;
+    budget?: { currency: string; min: number; max: number };
+    bestFor?: string[];
   }>;
   facilities?: string[];
   tips?: string[];
@@ -365,6 +369,8 @@ export interface ExperienceItem {
   efficacyTags?: string[];
   bestSeason?: string;
   reservation?: string;
+  provinceId?: string;
+  experienceCategory?: string;
 }
 
 /**
@@ -382,9 +388,41 @@ export interface ExperienceItem {
  * @property wellnessRetreat  - 休闲养生体验列表（来自后端 scenery_experiences 表，category=wellness）
  * @property festivals        - 节庆时令列表（可选，来自后端）
  */
+
+/**
+ * 风光主题推荐 — 主题分组与主题项
+ *
+ * 【字段来源】前端静态数据，按省份在 JSON 中配置
+ * - 一级分类（4个）：自然风光、人文古迹、户外休闲、季节限定
+ * - 二级分类（15个）：名山胜景、奇峰云海、江湖瀑布、草原沙漠、古镇古村、古建风韵、
+ *   宗教文化、世界遗产、非遗匠心、徒步自驾、温泉度假、亲海避暑、春花烂漫、夏日亲水、秋色摄影、冬日雪境
+ */
+export interface SceneryThemeItem {
+  key: string;
+  name: string;
+  icon: string;
+  coverSpotId: string;
+  avgRating: number;
+  bestSeason: string;
+  recommendedDays: string;
+  budget: { currency: string; min: number; max: number };
+  intensity: string;
+  audience: string;
+  highlights: string[];
+  tips: string[];
+  spotIds: string[];
+}
+
+export interface SceneryThemeGroup {
+  key: string;
+  title: string;
+  items: SceneryThemeItem[];
+}
+
 export interface SceneryData {
   overview: SceneryOverview;
   spots: ScenerySpot[];
+  themes?: SceneryThemeGroup[];
   seasonal: Array<{
     name: string;
     description: string;

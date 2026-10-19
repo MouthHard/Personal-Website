@@ -1,0 +1,1006 @@
+// ============================================================
+// PerformanceDisplayModal · 戏台红帷幕详情弹窗
+// 视觉语言：红丝绒幕布舞台 / 鎏金幕杆+火焰珠 / 暗红幕影 / 木质台基 / 金穗流苏
+// 色系：红丝绒 / 鎏金 / 暗红幕影 / 木质台基 / 金穗
+// 与卡片方案五·戏台红帷幕风格统一和谐
+// ============================================================
+
+// 红丝绒系
+$velvet: #9a1a1a;
+$velvet-bright: #c8281e;
+$velvet-light: #e8382a;
+$velvet-mid: #7a1212;
+$velvet-deep: #5a0808;
+$velvet-shadow: #2a0404;
+$velvet-dark: #1a0202;
+
+// 鎏金系
+$gold: #f5c860;
+$gold-bright: #fde08a;
+$gold-light: #fff3c4;
+$gold-deep: #b8862a;
+$gold-glow: #fff3c4;
+$gold-shadow: #6a4a10;
+$gold-dark: #4a3a08;
+
+// 木质台基系
+$wood: #4a3a1a;
+$wood-light: #6a4a2a;
+$wood-mid: #2a1a0a;
+$wood-deep: #1a0a04;
+
+// 文字
+$text-bright: #fff8e0;
+$text-mid: #f0d8a0;
+$text-dim: #c8a878;
+
+// 幕布褶皱 mixin
+%mixin-pleats {
+  background:
+    repeating-linear-gradient(90deg,
+      rgba(0, 0, 0, 0.32) 0px,
+      rgba(0, 0, 0, 0.22) 3px,
+      rgba(0, 0, 0, 0.12) 6px,
+      rgba(0, 0, 0, 0.04) 10px,
+      transparent 14px,
+      rgba(255, 200, 180, 0.03) 17px,
+      rgba(255, 200, 180, 0.08) 20px,
+      rgba(255, 200, 180, 0.12) 22px,
+      rgba(255, 200, 180, 0.08) 25px,
+      rgba(255, 200, 180, 0.03) 28px,
+      transparent 31px,
+      rgba(0, 0, 0, 0.04) 35px,
+      rgba(0, 0, 0, 0.12) 39px,
+      rgba(0, 0, 0, 0.22) 43px,
+      rgba(0, 0, 0, 0.32) 46px);
+}
+
+// ============================================
+// 过渡动画
+// ============================================
+.perf-modal-enter-active,
+.perf-modal-leave-active {
+  transition: opacity 0.3s ease;
+  .perf-modal { transition: transform 0.34s cubic-bezier(0.22, 1, 0.36, 1); }
+}
+.perf-modal-enter-from,
+.perf-modal-leave-to {
+  opacity: 0;
+  .perf-modal { transform: scale(0.94) translateY(14px); }
+}
+
+.pm-mask {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  background: rgba(8, 2, 2, 0.82);
+  backdrop-filter: blur(8px);
+}
+
+// ============================================
+// 弹窗主体 — 戏台红帷幕
+// ============================================
+.perf-modal {
+  position: relative;
+  width: min(960px, 100%);
+  max-height: 88vh;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  border-radius: 6px;
+  background:
+    linear-gradient(180deg,
+      $velvet-light 0%,
+      $velvet-bright 6%,
+      $velvet 18%,
+      $velvet-mid 40%,
+      $velvet-deep 70%,
+      $velvet-shadow 92%,
+      $velvet-dark 100%);
+  border: 2px solid $velvet-shadow;
+  box-shadow:
+    inset 0 0 0 1px rgba($gold-deep, 0.4),
+    inset 0 5px 18px rgba(0, 0, 0, 0.5),
+    inset 0 -5px 18px rgba(0, 0, 0, 0.6),
+    inset 5px 0 16px rgba(0, 0, 0, 0.35),
+    inset -5px 0 16px rgba(0, 0, 0, 0.35),
+    0 30px 72px rgba(0, 0, 0, 0.75),
+    0 14px 36px rgba(0, 0, 0, 0.55);
+  overflow: hidden;
+
+  // 幕布褶皱光影
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    @extend %mixin-pleats;
+    z-index: 0;
+  }
+
+  // 丝绒高光
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 80% 40% at 50% 5%, rgba(255, 210, 190, 0.2), transparent 70%),
+      radial-gradient(ellipse 60% 30% at 20% 50%, rgba(255, 200, 180, 0.08), transparent 70%),
+      radial-gradient(ellipse 60% 30% at 80% 50%, rgba(255, 200, 180, 0.08), transparent 70%),
+      radial-gradient(ellipse 100% 30% at 50% 95%, rgba(0, 0, 0, 0.3), transparent 70%);
+    z-index: 0;
+  }
+
+  // 四角鎏金包角（替代铜钉）
+  .pm-nail {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    z-index: 7;
+    pointer-events: none;
+
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      background: linear-gradient(135deg, $gold-light 0%, $gold-bright 30%, $gold 60%, $gold-deep 100%);
+      box-shadow:
+        inset 0 1px 1.5px rgba(255, 240, 200, 0.6),
+        inset 0 -1px 1.5px rgba(0, 0, 0, 0.4),
+        0 1px 3px rgba(0, 0, 0, 0.5);
+      border-radius: 2px;
+    }
+
+    &.pm-nail-tl { top: 8px; left: 8px; }
+    &.pm-nail-tr { top: 8px; right: 8px; }
+    &.pm-nail-bl { bottom: 8px; left: 8px; }
+    &.pm-nail-br { bottom: 8px; right: 8px; }
+
+    &.pm-nail-tl::before { top: 0; left: 0; width: 20px; height: 5px; }
+    &.pm-nail-tl::after { top: 0; left: 0; width: 5px; height: 20px; }
+    &.pm-nail-tr::before { top: 0; right: 0; width: 20px; height: 5px; }
+    &.pm-nail-tr::after { top: 0; right: 0; width: 5px; height: 20px; }
+    &.pm-nail-bl::before { bottom: 0; left: 0; width: 20px; height: 5px; }
+    &.pm-nail-bl::after { bottom: 0; left: 0; width: 5px; height: 20px; }
+    &.pm-nail-br::before { bottom: 0; right: 0; width: 20px; height: 5px; }
+    &.pm-nail-br::after { bottom: 0; right: 0; width: 5px; height: 20px; }
+  }
+}
+
+// ============================================
+// 头部 — 鎏金幕杆 + 戏名投影
+// ============================================
+.pm-header {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  padding: 18px 28px 18px;
+  border-bottom: 2px solid rgba($gold, 0.45);
+  z-index: 5;
+  flex-shrink: 0;
+
+  // 顶部鎏金幕杆线
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 16px;
+    right: 16px;
+    height: 4px;
+    background:
+      linear-gradient(180deg, $gold-light 0%, $gold-bright 30%, $gold 50%, $gold-deep 80%, $gold-shadow 100%);
+    border-radius: 2px;
+    box-shadow:
+      inset 0 1px 1.5px rgba(255, 240, 200, 0.7),
+      inset 0 -1px 1.5px rgba(0, 0, 0, 0.4),
+      0 2px 5px rgba(0, 0, 0, 0.5);
+  }
+
+  .pm-hanger {
+    width: 120px;
+    height: 40px;
+    flex-shrink: 0;
+    margin-bottom: -8px;
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.5));
+  }
+
+  .pm-title-wrap {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    min-width: 0;
+
+    .pm-house {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 16px;
+      font-weight: 800;
+      color: $gold;
+      letter-spacing: 3px;
+      text-shadow: 0 0 8px rgba($gold-deep, 0.8), 0 1px 1px rgba(0, 0, 0, 0.6);
+    }
+    .pm-title {
+      margin: 0;
+      font-size: 36px;
+      font-weight: 900;
+      color: $gold-bright;
+      letter-spacing: 4px;
+      line-height: 1.2;
+      text-shadow:
+        0 0 16px rgba($gold, 0.8),
+        0 0 32px rgba($gold-deep, 0.55),
+        0 0 48px rgba($gold-shadow, 0.35),
+        0 3px 0 rgba(0, 0, 0, 0.6),
+        0 5px 10px rgba(0, 0, 0, 0.45);
+    }
+    .pm-heritage {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 16px;
+      border-radius: 16px;
+      background:
+        linear-gradient(180deg, #3a2418 0%, #26140a 60%, #160a04 100%),
+        repeating-linear-gradient(90deg, transparent 0, transparent 3px, rgba(0, 0, 0, 0.08) 3px, rgba(0, 0, 0, 0.08) 4px);
+      background-blend-mode: multiply, multiply;
+      border: 1.5px solid rgba($gold, 0.68);
+      border-top-color: rgba($gold-bright, 0.85);
+      box-shadow:
+        inset 0 1px 2px rgba(255, 200, 140, 0.2),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.4),
+        0 2px 5px rgba(0, 0, 0, 0.5),
+        0 0 12px rgba($gold, 0.2);
+      color: $gold-bright;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-shadow: 0 0 6px rgba($gold-deep, 0.9), 0 1px 1px rgba(0, 0, 0, 0.6);
+      align-self: flex-start;
+    }
+  }
+
+  .pm-close {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    border: 1.5px solid rgba($gold, 0.6);
+    background:
+      radial-gradient(circle at 35% 35%, rgba($velvet-bright, 0.9) 0%, rgba($velvet-deep, 0.92) 100%);
+    color: $gold-bright;
+    cursor: pointer;
+    transition: all 0.22s ease;
+    flex-shrink: 0;
+    box-shadow:
+      inset 0 1px 1.5px rgba(255, 200, 140, 0.25),
+      inset 0 -1px 2px rgba(0, 0, 0, 0.4),
+      0 2px 5px rgba(0, 0, 0, 0.5);
+
+    &:hover {
+      background: radial-gradient(circle at 35% 35%, $velvet-light 0%, $velvet 100%);
+      color: $text-bright;
+      border-color: $gold-bright;
+      box-shadow:
+        inset 0 1px 1.5px rgba(255, 200, 140, 0.35),
+        0 0 12px rgba($gold, 0.6),
+        0 2px 5px rgba(0, 0, 0, 0.5);
+    }
+  }
+}
+
+// ============================================
+// 主体 — 舞台内部
+// ============================================
+.pm-body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  gap: 24px;
+  padding: 22px 28px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: $gold rgba($velvet-dark, 0.5);
+  z-index: 5;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+
+  &::-webkit-scrollbar { width: 10px; }
+  &::-webkit-scrollbar-track {
+    background: rgba($velvet-dark, 0.6);
+    border-radius: 5px;
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.5);
+  }
+  &::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, $gold-bright, $gold 50%, $gold-deep);
+    border-radius: 5px;
+    border: 1px solid rgba($velvet-dark, 0.4);
+    box-shadow:
+      inset 0 1px 1px rgba(255, 240, 200, 0.5),
+      0 1px 2px rgba(0, 0, 0, 0.4);
+    &:hover {
+      background: linear-gradient(180deg, $gold-light, $gold-bright 50%, $gold);
+      box-shadow:
+        inset 0 1px 1px rgba(255, 240, 200, 0.7),
+        0 0 6px rgba($gold, 0.6);
+    }
+  }
+}
+
+// 左侧
+.pm-aside {
+  flex-shrink: 0;
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @media (max-width: 768px) { width: 100%; }
+
+  .pm-poster {
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 2.5px solid $gold-deep;
+    box-shadow:
+      inset 0 0 0 1px rgba($gold, 0.5),
+      inset 0 0 0 2px rgba($gold-deep, 0.3),
+      inset 0 3px 12px rgba(0, 0, 0, 0.55),
+      0 5px 14px rgba(0, 0, 0, 0.6);
+    aspect-ratio: 3 / 4;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: saturate(1.1) brightness(1.05) contrast(1.05);
+    }
+
+    .pm-poster-rating {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 13px;
+      border-radius: 16px;
+      background:
+        linear-gradient(180deg, rgba($velvet-dark, 0.9), rgba($velvet-shadow, 0.75)),
+        radial-gradient(circle at 30% 30%, rgba($gold, 0.18), transparent 70%);
+      backdrop-filter: blur(5px);
+      border: 1.5px solid rgba($gold, 0.65);
+      color: $gold-bright;
+      font-size: 16px;
+      font-weight: 800;
+      text-shadow: 0 0 6px rgba($gold, 0.65), 0 1px 1px rgba(0, 0, 0, 0.5);
+      box-shadow:
+        inset 0 1px 1.5px rgba(255, 240, 200, 0.25),
+        0 2px 5px rgba(0, 0, 0, 0.5);
+
+      .pm-rate-count {
+        color: $text-mid;
+        font-size: 13px;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .pm-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+
+    .pm-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: 3px;
+      border: 1.5px solid rgba($gold, 0.6);
+      border-top-color: rgba($gold-bright, 0.8);
+      background:
+        linear-gradient(180deg, rgba(255, 245, 220, 0.28) 0%, transparent 40%),
+        linear-gradient(180deg, #3a2418 0%, #26140a 50%, #160a04 100%),
+        repeating-linear-gradient(90deg, transparent 0, transparent 3px, rgba(0, 0, 0, 0.08) 3px, rgba(0, 0, 0, 0.08) 4px);
+      background-blend-mode: overlay, multiply, multiply;
+      box-shadow:
+        inset 0 1.5px 2px rgba(255, 230, 180, 0.3),
+        inset 1px 1px 2px rgba(255, 220, 170, 0.22),
+        inset -1px -1px 2px rgba(0, 0, 0, 0.45),
+        inset 0 -2px 3px rgba(0, 0, 0, 0.4),
+        0 3px 6px rgba(0, 0, 0, 0.5),
+        0 1px 2px rgba(0, 0, 0, 0.35);
+      color: $text-bright;
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-shadow: 0 0 6px rgba($gold, 0.5), 0 1px 1px rgba(0, 0, 0, 0.6);
+
+      &.pm-badge-price {
+        background:
+          linear-gradient(180deg, rgba(255, 245, 220, 0.32) 0%, transparent 38%),
+          linear-gradient(180deg, $velvet-light 0%, $velvet-bright 30%, $velvet 60%, $velvet-deep 100%);
+        color: $gold-glow;
+        font-weight: 900;
+        font-size: 18px;
+        border-color: rgba($gold, 0.65);
+        border-top-color: rgba($gold-bright, 0.85);
+        box-shadow:
+          inset 0 1.5px 2.5px rgba(255, 230, 180, 0.38),
+          inset 1px 1px 2.5px rgba(255, 220, 170, 0.35),
+          inset -1px -1px 2.5px rgba(0, 0, 0, 0.4),
+          inset 0 -2px 3px rgba(0, 0, 0, 0.35),
+          0 3px 7px rgba(0, 0, 0, 0.6),
+          0 1px 2px rgba(0, 0, 0, 0.4);
+      }
+    }
+  }
+
+  .pm-loc {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 14px;
+    border-radius: 3px;
+    background:
+      linear-gradient(180deg, rgba(255, 245, 220, 0.25) 0%, transparent 42%),
+      linear-gradient(180deg, #2a1410 0%, #1a0a06 100%),
+      repeating-linear-gradient(90deg, transparent 0, transparent 3px, rgba(0, 0, 0, 0.08) 3px, rgba(0, 0, 0, 0.08) 4px);
+    background-blend-mode: overlay, multiply, multiply;
+    border: 1.5px solid rgba($gold, 0.5);
+    color: $text-bright;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.6);
+    box-shadow:
+      inset 0 1.5px 2px rgba(255, 230, 180, 0.25),
+      inset 1px 1px 2px rgba(255, 220, 170, 0.18),
+      inset -1px -1px 2px rgba(0, 0, 0, 0.45),
+      inset 0 -2px 3px rgba(0, 0, 0, 0.4),
+      0 3px 6px rgba(0, 0, 0, 0.5),
+      0 1px 2px rgba(0, 0, 0, 0.35);
+  }
+
+  .pm-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+
+    .pm-tag {
+      position: relative;
+      padding: 5px 13px 5px 15px;
+      border-radius: 1px 3px 3px 1px;
+      background:
+        linear-gradient(180deg, rgba(255, 245, 220, 0.28) 0%, transparent 40%),
+        linear-gradient(180deg, #3a2a18 0%, #2a1a0a 50%, #1a0a04 100%),
+        repeating-linear-gradient(90deg, transparent 0, transparent 3px, rgba(0, 0, 0, 0.08) 3px, rgba(0, 0, 0, 0.08) 4px);
+      background-blend-mode: overlay, multiply, multiply;
+      border: 1.5px solid $gold-deep;
+      border-left: 3px solid $gold;
+      color: $gold-bright;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-shadow: 0 0 5px rgba($gold-deep, 0.7), 0 1px 1px rgba(0, 0, 0, 0.6);
+      box-shadow:
+        inset 0 1.5px 2px rgba(255, 230, 180, 0.3),
+        inset 1px 1px 2px rgba(255, 220, 170, 0.25),
+        inset -1px -1px 2px rgba(0, 0, 0, 0.5),
+        inset 0 -2px 3px rgba(0, 0, 0, 0.45),
+        0 3px 6px rgba(0, 0, 0, 0.5),
+        0 1px 2px rgba(0, 0, 0, 0.35);
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: -5px;
+        left: 12px;
+        width: 2px;
+        height: 6px;
+        background: linear-gradient(180deg, $gold 0%, $gold-deep 100%);
+        border-radius: 1px;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: 10px;
+        width: 6px;
+        height: 5px;
+        background: radial-gradient(ellipse 50% 60% at 50% 30%, $gold-bright 0%, $gold 40%, $gold-deep 100%);
+        border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+        box-shadow:
+          inset 0 0.5px 1px rgba(255, 240, 200, 0.5),
+          0 1px 1px rgba(0, 0, 0, 0.4);
+      }
+
+      &.pm-tag-heritage {
+        background:
+          linear-gradient(180deg, rgba($velvet-bright, 0.35) 0%, rgba($velvet-deep, 0.2) 100%),
+          linear-gradient(180deg, #3a2a18 0%, #1a0a04 100%),
+          repeating-linear-gradient(90deg, transparent 0, transparent 3px, rgba(0, 0, 0, 0.08) 3px, rgba(0, 0, 0, 0.08) 4px);
+        background-blend-mode: overlay, multiply, multiply;
+        border-color: $gold;
+        border-left-color: $gold-bright;
+        color: $gold-glow;
+        font-weight: 800;
+        text-shadow: 0 0 7px rgba($gold, 0.85), 0 1px 1px rgba(0, 0, 0, 0.6);
+        box-shadow:
+          inset 0 1px 1.5px rgba(255, 200, 140, 0.22),
+          inset 0 -1px 1.5px rgba(0, 0, 0, 0.35),
+          0 2px 5px rgba(0, 0, 0, 0.45),
+          0 0 8px rgba($gold, 0.25);
+      }
+    }
+  }
+}
+
+// 右侧详情
+.pm-detail {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+
+  .pm-stamp {
+    padding: 16px 20px;
+    border-radius: 4px;
+    background:
+      linear-gradient(180deg, rgba(255, 245, 220, 0.25) 0%, transparent 42%),
+      linear-gradient(180deg, #2a1410 0%, #180a06 60%, #100604 100%),
+      repeating-linear-gradient(90deg, transparent 0, transparent 4px, rgba(0, 0, 0, 0.06) 4px, rgba(0, 0, 0, 0.06) 5px);
+    background-blend-mode: overlay, multiply, multiply;
+    border: 1.5px solid rgba($gold, 0.45);
+    border-left: 4px solid $gold;
+    box-shadow:
+      inset 0 1.5px 3px rgba(255, 220, 170, 0.25),
+      inset 1px 1px 3px rgba(255, 210, 160, 0.18),
+      inset -1px -1px 3px rgba(0, 0, 0, 0.45),
+      inset 0 -2px 4px rgba(0, 0, 0, 0.4),
+      0 3px 7px rgba(0, 0, 0, 0.5),
+      0 1px 2px rgba(0, 0, 0, 0.35);
+
+    .pm-stamp-text {
+      margin: 0;
+      color: $text-bright;
+      font-size: 17px;
+      line-height: 1.75;
+      letter-spacing: 0.3px;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.6);
+    }
+  }
+
+  .pm-data-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+
+    .pm-cell {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 12px 14px;
+      border-radius: 3px;
+      background:
+        linear-gradient(180deg, rgba(255, 245, 220, 0.28) 0%, transparent 40%),
+        linear-gradient(180deg, #352218 0%, #221008 60%, #120604 100%),
+        repeating-linear-gradient(90deg, transparent 0, transparent 3px, rgba(0, 0, 0, 0.07) 3px, rgba(0, 0, 0, 0.07) 4px);
+      background-blend-mode: overlay, multiply, multiply;
+      border: 1.5px solid rgba($gold, 0.5);
+      border-top-color: rgba($gold-bright, 0.6);
+      box-shadow:
+        inset 0 1.5px 2px rgba(255, 230, 180, 0.28),
+        inset 1px 1px 2px rgba(255, 220, 170, 0.2),
+        inset -1px -1px 2px rgba(0, 0, 0, 0.45),
+        inset 0 -2px 3px rgba(0, 0, 0, 0.4),
+        0 3px 6px rgba(0, 0, 0, 0.5),
+        0 1px 2px rgba(0, 0, 0, 0.35);
+      color: $text-bright;
+
+      .pm-cell-label {
+        font-size: 14px;
+        color: $text-mid;
+        letter-spacing: 1px;
+        font-weight: 700;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.6);
+      }
+      .pm-cell-val {
+        font-size: 16px;
+        font-weight: 800;
+        color: $gold-bright;
+        letter-spacing: 0.3px;
+        text-shadow: 0 0 6px rgba($gold, 0.55), 0 1px 1px rgba(0, 0, 0, 0.5);
+        margin-left: auto;
+      }
+    }
+  }
+
+  .pm-instructor {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: 3px;
+    background:
+      linear-gradient(180deg, rgba(255, 245, 220, 0.28) 0%, transparent 40%),
+      linear-gradient(180deg, #3a2418 0%, #24120a 60%, #140804 100%),
+      repeating-linear-gradient(90deg, transparent 0, transparent 3px, rgba(0, 0, 0, 0.07) 3px, rgba(0, 0, 0, 0.07) 4px);
+    background-blend-mode: overlay, multiply, multiply;
+    border: 1.5px solid rgba($gold, 0.55);
+    border-top-color: rgba($gold-bright, 0.7);
+    box-shadow:
+      inset 0 1.5px 2px rgba(255, 230, 180, 0.3),
+      inset 1px 1px 2px rgba(255, 220, 170, 0.22),
+      inset -1px -1px 2px rgba(0, 0, 0, 0.45),
+      inset 0 -2px 3px rgba(0, 0, 0, 0.4),
+      0 3px 6px rgba(0, 0, 0, 0.5),
+      0 1px 2px rgba(0, 0, 0, 0.35);
+
+    .pm-instructor-label {
+      font-size: 15px;
+      color: $text-mid;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.6);
+    }
+    .pm-instructor-val {
+      font-size: 18px;
+      font-weight: 800;
+      color: $gold-bright;
+      letter-spacing: 0.5px;
+      text-shadow: 0 0 7px rgba($gold, 0.65), 0 1px 1px rgba(0, 0, 0, 0.5);
+      margin-left: auto;
+    }
+  }
+
+  .pm-block {
+    .pm-block-head {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding-bottom: 10px;
+      margin-bottom: 12px;
+      border-bottom: 1.5px solid rgba($gold, 0.4);
+      color: $gold;
+
+      svg {
+        color: $gold;
+        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.45));
+      }
+
+      span {
+        font-size: 18px;
+        font-weight: 800;
+        color: $gold-bright;
+        letter-spacing: 1.5px;
+        text-shadow: 0 0 7px rgba($gold, 0.6), 0 1px 1px rgba(0, 0, 0, 0.5);
+      }
+    }
+
+    // ── 剧目看点 · 鎏金描框剧目牌 ──
+    &.pm-block-highlights {
+      position: relative;
+      padding: 16px 18px 14px;
+      border-radius: 5px;
+      background:
+        linear-gradient(180deg, #352218 0%, #241008 55%, #130604 100%),
+        repeating-linear-gradient(90deg, transparent 0, transparent 4px, rgba(0, 0, 0, 0.07) 4px, rgba(0, 0, 0, 0.07) 5px);
+      background-blend-mode: multiply, multiply;
+      border: 2px solid rgba($gold-deep, 0.9);
+      box-shadow:
+        inset 0 0 0 1.5px rgba($gold, 0.35),
+        inset 0 0 0 4px rgba(0, 0, 0, 0.25),
+        inset 0 2px 6px rgba(255, 230, 180, 0.08),
+        inset 0 -3px 8px rgba(0, 0, 0, 0.5),
+        0 4px 10px rgba(0, 0, 0, 0.5);
+
+      // 四角鎏金角花
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        pointer-events: none;
+        background:
+          linear-gradient(135deg, $gold-bright 0%, $gold 40%, transparent 40%),
+          linear-gradient(225deg, transparent 60%, $gold-deep 60%);
+      }
+      &::before { top: 5px; left: 5px; }
+      &::after { bottom: 5px; right: 5px; transform: rotate(180deg); }
+
+      // 右上/左下水滴饰
+      .pm-block-head {
+        position: relative;
+        margin-bottom: 14px;
+
+        &::before {
+          content: '';
+          position: absolute;
+          right: 4px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: radial-gradient(circle at 35% 35%, $gold-light 0%, $gold 45%, $gold-deep 100%);
+          box-shadow: 0 0 6px rgba($gold, 0.6);
+        }
+      }
+
+      .pm-list {
+        li {
+          position: relative;
+          display: flex;
+          align-items: flex-start;
+          padding-left: 24px;
+          margin-bottom: 9px;
+          color: $text-bright;
+          font-size: 15px;
+          letter-spacing: 0.4px;
+          text-shadow: 0 1px 1px rgba(0, 0, 0, 0.6);
+          line-height: 1.7;
+
+          &:last-child { margin-bottom: 0; }
+
+          &::after {
+            content: '';
+            position: absolute;
+            left: 22px;
+            right: 2px;
+            bottom: -5px;
+            height: 1px;
+            background: linear-gradient(90deg, rgba($gold, 0.35), transparent 85%);
+          }
+          &:last-child::after { display: none; }
+        }
+
+        .pm-list-mark {
+          left: 2px;
+          top: 11px;
+          width: 9px;
+          height: 9px;
+          border-radius: 1px;
+          transform: rotate(45deg);
+          background: linear-gradient(135deg, $gold-light 0%, $gold 40%, $gold-deep 100%);
+          box-shadow:
+            0 0 6px rgba($gold, 0.85),
+            inset 0 1px 1px rgba(255, 240, 200, 0.6);
+        }
+      }
+    }
+
+    .pm-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      li {
+        position: relative;
+        padding-left: 22px;
+        color: $text-bright;
+        font-size: 16px;
+        line-height: 1.65;
+        letter-spacing: 0.3px;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+      }
+      .pm-list-mark {
+        position: absolute;
+        left: 0;
+        top: 10px;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 35% 35%, $gold-light 0%, $gold 50%, $gold-deep 100%);
+        box-shadow: 0 0 6px rgba($gold, 0.8);
+      }
+
+      &.pm-list-ordered {
+        counter-reset: pmstep;
+        li {
+          counter-increment: pmstep;
+          padding-left: 32px;
+          &::before {
+            content: counter(pmstep);
+            position: absolute;
+            left: 0;
+            top: 1px;
+            width: 22px;
+            height: 22px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: linear-gradient(180deg, $gold-bright, $gold 50%, $gold-deep);
+            color: $velvet-dark;
+            font-size: 14px;
+            font-weight: 900;
+            box-shadow:
+              inset 0 1px 1px rgba(255, 240, 200, 0.5),
+              0 1px 3px rgba(0, 0, 0, 0.5);
+          }
+        }
+      }
+    }
+
+    .pm-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+
+      .pm-pill {
+        position: relative;
+        padding: 7px 15px 7px 17px;
+        border-radius: 1px 3px 3px 1px;
+        background:
+          linear-gradient(180deg, rgba(255, 245, 220, 0.28) 0%, transparent 40%),
+          linear-gradient(180deg, #3a2a18 0%, #2a1a0a 50%, #1a0a04 100%),
+          repeating-linear-gradient(90deg, transparent 0, transparent 3px, rgba(0, 0, 0, 0.08) 3px, rgba(0, 0, 0, 0.08) 4px);
+        background-blend-mode: overlay, multiply, multiply;
+        border: 1.5px solid $gold-deep;
+        border-left: 3px solid $gold;
+        color: $gold-bright;
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-shadow: 0 0 5px rgba($gold-deep, 0.7), 0 1px 1px rgba(0, 0, 0, 0.6);
+        box-shadow:
+          inset 0 1.5px 2px rgba(255, 230, 180, 0.3),
+          inset 1px 1px 2px rgba(255, 220, 170, 0.25),
+          inset -1px -1px 2px rgba(0, 0, 0, 0.5),
+          inset 0 -2px 3px rgba(0, 0, 0, 0.45),
+          0 3px 6px rgba(0, 0, 0, 0.5),
+          0 1px 2px rgba(0, 0, 0, 0.35);
+      }
+    }
+  }
+}
+
+// ============================================
+// 底部按钮 — 台基朱批
+// ============================================
+.pm-actions {
+  display: flex;
+  gap: 16px;
+  padding: 24px 28px 16px;
+  border-top: 2px solid rgba($gold, 0.45);
+  z-index: 5;
+  flex-shrink: 0;
+
+  @mixin pm-action-btn($c, $c-bright, $c-deep, $c-glow) {
+    position: relative;
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 14px 18px 17px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    background:
+      linear-gradient(180deg, rgba(255, 250, 230, 0.32) 0%, transparent 42%),
+      linear-gradient(135deg, rgba(255, 240, 210, 0.2) 0%, rgba(255, 230, 190, 0.07) 30%, transparent 50%),
+      radial-gradient(ellipse 135% 118% at 50% 42%, $c 0%, $c-deep 55%, rgba(0, 0, 0, 0.5) 100%),
+      repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0 2px, transparent 2px 9px),
+      radial-gradient(ellipse 55% 45% at 28% 20%, rgba(255, 255, 255, 0.22), transparent 70%);
+    background-blend-mode: overlay, overlay, normal, overlay, normal;
+    border: none;
+    box-shadow:
+      inset 0 4px 6px rgba(255, 250, 230, 0.4),
+      inset 1.5px 1.5px 5px rgba(255, 240, 210, 0.25),
+      inset -1.5px -1.5px 5px rgba(0, 0, 0, 0.45),
+      inset 0 -6px 14px rgba(0, 0, 0, 0.55),
+      0 7px 16px rgba(0, 0, 0, 0.65),
+      0 2px 5px rgba(0, 0, 0, 0.4);
+    color: $text-bright;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-shadow:
+      0 0 6px rgba($c, 0.45),
+      0 1px 2px rgba(0, 0, 0, 0.7);
+
+    // 鎏金灯盖
+    &::before {
+      content: '';
+      position: absolute;
+      top: -9px;
+      left: 22%;
+      right: 22%;
+      height: 9px;
+      background: linear-gradient(180deg, $gold-light 0%, $gold 40%, $gold-deep 100%);
+      border-radius: 8px 8px 3px 3px;
+      box-shadow:
+        inset 0 1px 1.5px rgba(255, 240, 200, 0.6),
+        inset 0 -1px 1.5px rgba(0, 0, 0, 0.3),
+        0 2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    // 鎏金灯座
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -9px;
+      left: 18%;
+      right: 18%;
+      height: 8px;
+      background: linear-gradient(180deg, $gold-deep 0%, $gold 45%, $gold-deep 100%);
+      border-radius: 2px;
+      box-shadow:
+        inset 0 1px 1.5px rgba(255, 240, 200, 0.4),
+        inset 0 -1px 1.5px rgba(0, 0, 0, 0.35),
+        0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    &:hover {
+      background:
+        linear-gradient(180deg, rgba(255, 250, 230, 0.4) 0%, transparent 40%),
+        linear-gradient(135deg, rgba(255, 240, 210, 0.25) 0%, rgba(255, 230, 190, 0.08) 30%, transparent 50%),
+        radial-gradient(ellipse 135% 118% at 50% 42%, $c-bright 0%, $c 45%, $c-deep 100%),
+        repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.14) 0 2px, transparent 2px 9px),
+        radial-gradient(ellipse 55% 45% at 28% 20%, rgba(255, 255, 255, 0.35), transparent 70%);
+      background-blend-mode: overlay, overlay, normal, overlay, normal;
+      box-shadow:
+        inset 0 4px 7px rgba(255, 250, 230, 0.45),
+        inset 1.5px 1.5px 5px rgba(255, 240, 210, 0.3),
+        inset -1.5px -1.5px 5px rgba(0, 0, 0, 0.4),
+        inset 0 -6px 14px rgba(0, 0, 0, 0.48),
+        0 7px 16px rgba(0, 0, 0, 0.6),
+        0 2px 5px rgba(0, 0, 0, 0.35),
+        0 0 16px rgba($c, 0.5);
+      color: #fff;
+      text-shadow:
+        0 0 8px rgba($c-bright, 0.6),
+        0 1px 2px rgba(0, 0, 0, 0.6);
+    }
+
+    &.is-active {
+      background:
+        linear-gradient(180deg, rgba(255, 252, 240, 0.5) 0%, transparent 38%),
+        linear-gradient(135deg, rgba(255, 250, 230, 0.3) 0%, transparent 25%),
+        linear-gradient(135deg, $c-glow 0%, $c-bright 35%, $c 70%, $c-deep 100%),
+        radial-gradient(ellipse 60% 50% at 30% 25%, rgba(255, 255, 255, 0.4), transparent 70%),
+        repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.18) 0 2px, transparent 2px 9px);
+      background-blend-mode: overlay, overlay, normal, normal, overlay;
+      box-shadow:
+        inset 0 4px 8px rgba(255, 250, 230, 0.5),
+        inset 1.5px 1.5px 6px rgba(255, 245, 220, 0.35),
+        inset -1.5px -1.5px 6px rgba(0, 0, 0, 0.3),
+        inset 0 -5px 14px rgba(0, 0, 0, 0.35),
+        0 7px 16px rgba(0, 0, 0, 0.55),
+        0 0 22px rgba($c, 0.7),
+        0 0 38px rgba($c-glow, 0.45);
+      color: #fff;
+      font-weight: 900;
+      text-shadow:
+        0 0 11px rgba($c-glow, 0.85),
+        0 1px 3px rgba(0, 0, 0, 0.7),
+        0 -1px 0 rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .pm-action {
+    &.pm-action-fav { @include pm-action-btn(#0277a8, #00b8d4, #004d5c, #4dd0e1); }
+    &.pm-action-been { @include pm-action-btn(#e67e00, #ff8f00, #b85c00, #ffb74d); }
+    &.pm-action-share { @include pm-action-btn(#00a844, #00c853, #006630, #5cd68a); }
+  }
+}

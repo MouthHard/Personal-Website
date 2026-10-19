@@ -2,10 +2,14 @@
   <div class="scenery-module">
     <nav class="tab-navigation" aria-label="风光导航">
       <div class="nav-hud-top">
-        <span class="hud-label">SCENERY · NAV</span>
+        <span class="hud-emblem">
+          <span class="emblem-plate"></span>
+          <span class="emblem-rivet emblem-rivet--l"></span>
+          <span class="emblem-rivet emblem-rivet--r"></span>
+        </span>
         <span class="hud-status">
           <span class="status-dot"></span>
-          <span class="status-text">ONLINE</span>
+          <span class="status-bar"></span>
         </span>
       </div>
 
@@ -75,6 +79,7 @@
   import SpotsSubModule from './Spots/index.vue';
   import ExperienceSubModule from './Experience/index.vue';
   import { useTravelGuideStore } from '@/stores/travelGuide';
+  import { useSceneryTabState } from './useSceneryTabState';
   import SparklesIcon from '../../icons/common/SparklesIcon.vue';
   import MapIcon from '../../icons/common/MapIcon.vue';
   import TheaterMasksIcon from '../../icons/common/TheaterMasksIcon.vue';
@@ -86,7 +91,7 @@
     provinceId: string;
   }>();
 
-  const activeTab = ref('discover');
+  const { sceneryActiveTab: activeTab } = useSceneryTabState();
   const spotsSearchQuery = ref('');
 
   const handleNavigateToSpot = (spotName: string) => {
