@@ -31,7 +31,7 @@ import { fileURLToPath, URL } from "node:url";
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
-import viteCompression from "vite-plugin-compression";
+
 
 export default defineConfig(({ mode }) => {
   /** 加载 .env 环境变量（如 VITE_BASE） */
@@ -54,20 +54,7 @@ export default defineConfig(({ mode }) => {
         resolvers: [ElementPlusResolver()],
         dts: "types/components.d.ts",
       }),
-      /** Gzip 压缩：生成 .gz 文件，Nginx 开启 gzip_static 后可直接使用 */
-      viteCompression({
-        algorithm: "gzip",
-        ext: ".gz",
-        threshold: 10240,
-        deleteOriginFile: false,
-      }),
-      /** Brotli 压缩：比 gzip 压缩率更高，现代浏览器都支持 */
-      viteCompression({
-        algorithm: "brotliCompress",
-        ext: ".br",
-        threshold: 10240,
-        deleteOriginFile: false,
-      }),
+
     ],
 
     resolve: {
