@@ -44,7 +44,7 @@
               class="time-row"
             >
               <span class="time-dot"></span>
-              <span class="time-text">{{ t }}</span>
+              <span class="time-text">{{ t.season }}<template v-if="t.months">（{{ t.months }}）</template> {{ t.time }}</span>
             </div>
           </div>
         </div>
@@ -54,10 +54,10 @@
           <span class="strip-value">{{ spot.visitDuration }}</span>
           <span class="strip-line"></span>
         </div>
-        <div v-if="spot.popularity" class="info-strip">
+        <div v-if="spot.rating" class="info-strip">
           <span class="strip-port"><FireIcon width="16" height="16" /></span>
           <span class="strip-label">热度</span>
-          <span class="strip-value">{{ spot.popularity }}</span>
+          <span class="strip-value">{{ '★'.repeat(Math.round(spot.rating)) }}{{ '☆'.repeat(5 - Math.round(spot.rating)) }}</span>
           <span class="strip-line"></span>
         </div>
       </div>
@@ -178,9 +178,9 @@
           class="transit-sign"
           :class="`ts-${i % 4}`"
         >
-          <span class="ts-badge">{{ ['飞机', '高铁', '自驾', '长途'][i] || '其他' }}</span>
+          <span class="ts-badge">{{ t.mode }}</span>
           <span class="ts-arrow">▶</span>
-          <span class="ts-text">{{ t }}</span>
+          <span class="ts-text">{{ t.detail }}</span>
         </div>
       </div>
     </section>
@@ -213,7 +213,7 @@
                 </span>
                 <span v-if="r.budget" class="stat-chip stat-budget">
                   <ShoppingBagIcon width="13" height="13" />
-                  {{ r.budget }}
+                  {{ r.budget.currency }}{{ r.budget.min }}-{{ r.budget.max }}
                 </span>
               </div>
             </div>
@@ -242,9 +242,9 @@
                 </div>
               </div>
             </div>
-            <div v-if="r.bestFor" class="route-bestfor">
+            <div v-if="r.bestFor?.length" class="route-bestfor">
               <CheckIcon width="14" height="14" />
-              <span>{{ r.bestFor }}</span>
+              <span>{{ r.bestFor.join(' / ') }}</span>
             </div>
           </div>
         </div>
@@ -562,15 +562,8 @@
 
   const ticketParsed = computed(() =>
     (props.spot?.ticketDetails ?? []).map((t) => {
-      let m = t.match(/^(.+?)(¥\d+(?:\.\d+)?)$/);
-      if (m) return { main: m[1].trim(), price: m[2] };
-      m = t.match(/^(.+?)(免票)$/);
-      if (m) return { main: m[1].trim(), price: '免票' };
-      m = t.match(/^(.+?)(半价)$/);
-      if (m) return { main: m[1].trim(), price: '半价' };
-      m = t.match(/^(.+?)(免费开放|免费)$/);
-      if (m) return { main: m[1].trim(), price: '免费' };
-      return { main: t, price: '' };
+      if (typeof t === 'object' && t !== null) return { main: t.type || '', price: t.price || '' };
+      return { main: String(t), price: '' };
     }),
   );
 

@@ -14,7 +14,7 @@
       "rating": 4.7,
       "bestTime": "春秋",
       "location": "湖北省武汉市武昌区",
-      "description": "江南三大名楼之一,武汉的标志性建筑",
+      "description": "黄鹤楼，湖北黄鹤楼，人文荟萃之地，江南三大名楼之一，武汉的标志性建筑，实乃游历湖北不可错过之胜境。。足以令旅人魂牵梦萦，心驰神往。",
       "highlight": "天下江山第一楼,江南三大名楼",
       "level": "5A景区",
       "rankBadge": "必去",
@@ -26,7 +26,6 @@
       ],
       "openTime": "08:00-18:00",
       "visitDuration": "2-3小时",
-      "popularity": "★★★★★",
       "audienceTags": [
         "文化爱好者",
         "历史爱好者",
@@ -34,21 +33,57 @@
         "摄影爱好者"
       ],
       "ticketDetails": [
-        "成人票¥70",
-        "学生票半价",
-        "1.2米以下儿童免票",
-        "60岁以上老人免票"
+        {
+          "type": "成人票",
+          "price": "¥70"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "1.2米以下儿童",
+          "price": "免票"
+        },
+        {
+          "type": "60岁以上老人",
+          "price": "免票"
+        }
       ],
       "transportInfo": [
-        "飞机:武汉天河国际机场约30km",
-        "高铁:武汉站约15km",
-        "自驾:导航至黄鹤楼",
-        "长途客运:武汉公交多路可达"
+        {
+          "mode": "飞机",
+          "detail": "武汉天河国际机场约30km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "武汉站约15km"
+        },
+        {
+          "mode": "自驾",
+          "detail": "导航至黄鹤楼"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "武汉公交多路可达"
+        }
       ],
       "openTimeDetail": [
-        "旺季(4-10月) 08:00-18:00",
-        "淡季(11-3月) 08:00-17:00",
-        "建议傍晚登楼赏日落"
+        {
+          "season": "旺季",
+          "months": "4-10月",
+          "time": "08:00-18:00"
+        },
+        {
+          "season": "淡季",
+          "months": "11-3月",
+          "time": "08:00-17:00"
+        },
+        {
+          "season": "建议傍晚登楼赏日落",
+          "months": "",
+          "time": ""
+        }
       ],
       "recommendedRoutes": [
         {
@@ -68,8 +103,15 @@
               "detail": "黄鹤楼→白云阁→诗碑廊→搁笔亭→登楼赏长江"
             }
           ],
-          "budget": "¥100-200",
-          "bestFor": "文化爱好者/首次游览"
+          "budget": {
+            "currency": "¥",
+            "min": 100,
+            "max": 200
+          },
+          "bestFor": [
+            "文化爱好者",
+            "首次游览"
+          ]
         },
         {
           "name": "文化深度游",
@@ -88,8 +130,15 @@
               "detail": "黄鹤楼→岳武亭→千禧吉祥钟→古碑廊→户部巷小吃"
             }
           ],
-          "budget": "¥150-300",
-          "bestFor": "文化爱好者/家庭出游"
+          "budget": {
+            "currency": "¥",
+            "min": 150,
+            "max": 300
+          },
+          "bestFor": [
+            "文化爱好者",
+            "家庭出游"
+          ]
         }
       ],
       "facilities": [
@@ -136,7 +185,7 @@
       "rating": 4.8,
       "bestTime": "春秋",
       "location": "湖北省十堰市丹江口市",
-      "description": "中国道教圣地,世界文化遗产",
+      "description": "坐落于荆楚大地的武当山，湖北武当山，千年文脉传承之所，层峦叠嶂巍峨耸立，中国道教圣地，世界文化遗产，实乃游历湖北不可错过之胜境。。层峦叠嶂巍峨耸立，堪称天地造化与人文底蕴之交响。",
       "highlight": "世界文化遗产,道教圣地",
       "level": "5A景区",
       "rankBadge": "圣地",
@@ -148,7 +197,6 @@
       ],
       "openTime": "07:00-17:30",
       "visitDuration": "1-2天",
-      "popularity": "★★★★★",
       "audienceTags": [
         "道教信众",
         "武术爱好者",
@@ -156,21 +204,57 @@
         "登山爱好者"
       ],
       "ticketDetails": [
-        "成人票¥130(含观光车)",
-        "学生票半价",
-        "1.2米以下儿童免票",
-        "索道另收费"
+        {
+          "type": "成人票¥130(含观光车)",
+          "price": ""
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "1.2米以下儿童",
+          "price": "免票"
+        },
+        {
+          "type": "索道另收费",
+          "price": ""
+        }
       ],
       "transportInfo": [
-        "飞机:十堰武当山机场约30km",
-        "高铁:武当山西站约15km",
-        "自驾:汉十高速武当山出口",
-        "长途客运:十堰汽车站转乘"
+        {
+          "mode": "飞机",
+          "detail": "十堰武当山机场约30km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "武当山西站约15km"
+        },
+        {
+          "mode": "自驾",
+          "detail": "汉十高速武当山出口"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "十堰汽车站转乘"
+        }
       ],
       "openTimeDetail": [
-        "景区 07:00-17:30",
-        "金顶 08:00-16:00",
-        "索道 07:30-16:30"
+        {
+          "season": "景区",
+          "months": "",
+          "time": "07:00-17:30"
+        },
+        {
+          "season": "金顶",
+          "months": "",
+          "time": "08:00-16:00"
+        },
+        {
+          "season": "索道",
+          "months": "",
+          "time": "07:30-16:30"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -191,8 +275,15 @@
               "detail": "太子坡→紫霄宫→南岩宫→琼台索道→金顶"
             }
           ],
-          "budget": "¥400-700",
-          "bestFor": "道教信众/首次游览"
+          "budget": {
+            "currency": "¥",
+            "min": 400,
+            "max": 700
+          },
+          "bestFor": [
+            "道教信众",
+            "首次游览"
+          ]
         },
         {
           "name": "深度两日游",
@@ -217,8 +308,15 @@
               "detail": "琼台索道→金顶看日出→老营玉虚宫→武当武术体验"
             }
           ],
-          "budget": "¥800-1200",
-          "bestFor": "武术爱好者/深度游览"
+          "budget": {
+            "currency": "¥",
+            "min": 800,
+            "max": 1200
+          },
+          "bestFor": [
+            "武术爱好者",
+            "深度游览"
+          ]
         }
       ],
       "facilities": [
@@ -265,7 +363,7 @@
       "rating": 4.6,
       "bestTime": "全年",
       "location": "湖北省宜昌市夷陵区",
-      "description": "世界上最大的水利枢纽工程",
+      "description": "荆楚三峡大坝，湖北三峡大坝，古迹斑驳岁月悠悠，世界上最大的水利枢纽工程，实乃游历湖北不可错过之胜境。。每一处景致皆是造物主的匠心独运。",
       "highlight": "世界最大水利枢纽工程",
       "level": "5A景区",
       "rankBadge": "必去",
@@ -277,7 +375,6 @@
       ],
       "openTime": "08:00-17:30",
       "visitDuration": "半天",
-      "popularity": "★★★★☆",
       "audienceTags": [
         "工程爱好者",
         "家庭出游",
@@ -285,21 +382,57 @@
         "摄影爱好者"
       ],
       "ticketDetails": [
-        "景区免费开放",
-        "需预约参观",
-        "观光车¥35",
-        "升船机另收费"
+        {
+          "type": "景区",
+          "price": "免费开放"
+        },
+        {
+          "type": "需预约参观",
+          "price": ""
+        },
+        {
+          "type": "观光车",
+          "price": "¥35"
+        },
+        {
+          "type": "升船机另收费",
+          "price": ""
+        }
       ],
       "transportInfo": [
-        "飞机:宜昌三峡国际机场约40km",
-        "高铁:宜昌东站约30km",
-        "自驾:汉宜高速宜昌出口",
-        "长途客运:宜昌汽车站转乘"
+        {
+          "mode": "飞机",
+          "detail": "宜昌三峡国际机场约40km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "宜昌东站约30km"
+        },
+        {
+          "mode": "自驾",
+          "detail": "汉宜高速宜昌出口"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "宜昌汽车站转乘"
+        }
       ],
       "openTimeDetail": [
-        "景区 08:00-17:30",
-        "截流纪念园 08:00-17:00",
-        "建议提前预约"
+        {
+          "season": "景区",
+          "months": "",
+          "time": "08:00-17:30"
+        },
+        {
+          "season": "截流纪念园",
+          "months": "",
+          "time": "08:00-17:00"
+        },
+        {
+          "season": "建议提前预约",
+          "months": "",
+          "time": ""
+        }
       ],
       "recommendedRoutes": [
         {
@@ -319,8 +452,15 @@
               "detail": "坛子岭→185观景平台→截流纪念园→大坝全貌"
             }
           ],
-          "budget": "¥100-200",
-          "bestFor": "家庭出游/教育研学"
+          "budget": {
+            "currency": "¥",
+            "min": 100,
+            "max": 200
+          },
+          "bestFor": [
+            "家庭出游",
+            "教育研学"
+          ]
         },
         {
           "name": "深度工程游",
@@ -339,8 +479,15 @@
               "detail": "大坝观光→升船机体验→三峡人家→葛洲坝远眺"
             }
           ],
-          "budget": "¥300-500",
-          "bestFor": "工程爱好者/家庭出游"
+          "budget": {
+            "currency": "¥",
+            "min": 300,
+            "max": 500
+          },
+          "bestFor": [
+            "工程爱好者",
+            "家庭出游"
+          ]
         }
       ],
       "facilities": [
@@ -387,7 +534,7 @@
       "rating": 4.7,
       "bestTime": "夏季",
       "location": "湖北省神农架林区",
-      "description": "世界自然遗产,神秘的原始森林",
+      "description": "神农架者，荆楚之胜境也。湖北神农架，大自然之鬼斧神工，世界自然遗产，神秘的原始森林，实乃游历湖北不可错过之胜境。。当属此地名胜之首推，不容错过。",
       "highlight": "世界自然遗产,华中屋脊",
       "level": "5A景区",
       "rankBadge": "必去",
@@ -403,7 +550,6 @@
       ],
       "openTime": "07:00-17:30",
       "visitDuration": "2-3天",
-      "popularity": "★★★★☆",
       "audienceTags": [
         "探险游客",
         "自然爱好者",
@@ -411,21 +557,57 @@
         "徒步爱好者"
       ],
       "ticketDetails": [
-        "成人票¥140",
-        "学生票半价",
-        "1.2米以下儿童免票",
-        "景区内观光车另收费"
+        {
+          "type": "成人票",
+          "price": "¥140"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "1.2米以下儿童",
+          "price": "免票"
+        },
+        {
+          "type": "景区内观光车另收费",
+          "price": ""
+        }
       ],
       "transportInfo": [
-        "飞机:神农架红坪机场约10km",
-        "高铁:兴山站约60km",
-        "自驾:宜巴高速兴山出口",
-        "长途客运:木鱼镇汽车站"
+        {
+          "mode": "飞机",
+          "detail": "神农架红坪机场约10km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "兴山站约60km"
+        },
+        {
+          "mode": "自驾",
+          "detail": "宜巴高速兴山出口"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "木鱼镇汽车站"
+        }
       ],
       "openTimeDetail": [
-        "旺季(4-10月) 07:00-17:30",
-        "淡季(11-3月) 08:00-17:00",
-        "建议清晨入园"
+        {
+          "season": "旺季",
+          "months": "4-10月",
+          "time": "07:00-17:30"
+        },
+        {
+          "season": "淡季",
+          "months": "11-3月",
+          "time": "08:00-17:00"
+        },
+        {
+          "season": "建议清晨入园",
+          "months": "",
+          "time": ""
+        }
       ],
       "recommendedRoutes": [
         {
@@ -451,8 +633,15 @@
               "detail": "大九湖湿地→天生桥→官门山→木鱼镇"
             }
           ],
-          "budget": "¥600-1000",
-          "bestFor": "自然爱好者/摄影爱好者"
+          "budget": {
+            "currency": "¥",
+            "min": 600,
+            "max": 1000
+          },
+          "bestFor": [
+            "自然爱好者",
+            "摄影爱好者"
+          ]
         },
         {
           "name": "深度三日游",
@@ -482,8 +671,15 @@
               "detail": "天燕景区→燕子垭→天门垭→木鱼镇"
             }
           ],
-          "budget": "¥900-1500",
-          "bestFor": "探险游客/徒步爱好者"
+          "budget": {
+            "currency": "¥",
+            "min": 900,
+            "max": 1500
+          },
+          "bestFor": [
+            "探险游客",
+            "徒步爱好者"
+          ]
         }
       ],
       "facilities": [
@@ -530,7 +726,7 @@
       "rating": 4.6,
       "bestTime": "春秋",
       "location": "湖北省武汉市武昌区",
-      "description": "中国最大的城中湖,武汉的城市绿肺",
+      "description": "名为东湖，湖北东湖，造化钟神秀，碧波荡漾水光潋滟，中国最大的城中湖，武汉的城市绿肺，实乃游历湖北不可错过之胜境。。碧波荡漾水光潋滟，令人叹为观止，流连忘返。",
       "highlight": "中国最大城中湖,楚文化胜地",
       "level": "5A景区",
       "reviewCount": "43,210条点评",
@@ -546,7 +742,6 @@
       "rankBadge": "湖泊",
       "openTime": "全天开放",
       "visitDuration": "半天",
-      "popularity": "★★★★☆",
       "audienceTags": [
         "家庭出游",
         "休闲游客",
@@ -554,21 +749,57 @@
         "骑行爱好者"
       ],
       "ticketDetails": [
-        "景区免费开放",
-        "游船另收费",
-        "部分景点收费",
-        "骑行租赁另收费"
+        {
+          "type": "景区",
+          "price": "免费开放"
+        },
+        {
+          "type": "游船另收费",
+          "price": ""
+        },
+        {
+          "type": "部分景点收费",
+          "price": ""
+        },
+        {
+          "type": "骑行租赁另收费",
+          "price": ""
+        }
       ],
       "transportInfo": [
-        "飞机:武汉天河国际机场约35km",
-        "高铁:武汉站约10km",
-        "自驾:导航至东湖",
-        "长途客运:武汉公交多路可达"
+        {
+          "mode": "飞机",
+          "detail": "武汉天河国际机场约35km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "武汉站约10km"
+        },
+        {
+          "mode": "自驾",
+          "detail": "导航至东湖"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "武汉公交多路可达"
+        }
       ],
       "openTimeDetail": [
-        "景区 全天开放",
-        "游船 08:00-17:00",
-        "樱花园 07:00-22:00"
+        {
+          "season": "景区 全天开放",
+          "months": "",
+          "time": ""
+        },
+        {
+          "season": "游船",
+          "months": "",
+          "time": "08:00-17:00"
+        },
+        {
+          "season": "樱花园",
+          "months": "",
+          "time": "07:00-22:00"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -588,8 +819,15 @@
               "detail": "听涛景区→磨山景区→樱花园→楚天台"
             }
           ],
-          "budget": "¥100-200",
-          "bestFor": "家庭出游/休闲游客"
+          "budget": {
+            "currency": "¥",
+            "min": 100,
+            "max": 200
+          },
+          "bestFor": [
+            "家庭出游",
+            "休闲游客"
+          ]
         },
         {
           "name": "骑行环湖游",
@@ -609,8 +847,15 @@
               "detail": "环湖绿道骑行→听涛景区→磨山→落雁→樱花园"
             }
           ],
-          "budget": "¥100-300",
-          "bestFor": "骑行爱好者/家庭出游"
+          "budget": {
+            "currency": "¥",
+            "min": 100,
+            "max": 300
+          },
+          "bestFor": [
+            "骑行爱好者",
+            "家庭出游"
+          ]
         }
       ],
       "facilities": [
@@ -700,42 +945,42 @@
       {
         "name": "黄鹤楼",
         "image": "https://picsum.photos/id/1440/600/400",
-        "description": "江南三大名楼之一,武汉的标志性建筑"
+        "description": "坐落于荆楚大地的黄鹤楼，黄鹤楼——江南三大名楼之一，武汉的标志性建筑，实乃游历此地不可错过之胜境。。每一处景致皆是造物主的匠心独运。"
       },
       {
         "name": "武当山",
         "image": "https://picsum.photos/id/1441/600/400",
-        "description": "中国道教圣地,世界文化遗产"
+        "description": "荆楚武当山，湖北名胜武当山，中国道教圣地，世界文化遗产，令人心驰神往流连忘返。。当属此地名胜之首推，不容错过。"
       },
       {
         "name": "三峡大坝",
         "image": "https://picsum.photos/id/1442/600/400",
-        "description": "世界上最大的水利枢纽工程"
+        "description": "三峡大坝者，荆楚之胜境也。三峡大坝者，湖北之世界上最大的水利枢纽工程，堪称此地风光之冠冕。。令人叹为观止，流连忘返。"
       },
       {
         "name": "神农架",
         "image": "https://picsum.photos/id/1443/600/400",
-        "description": "世界自然遗产,神秘的原始森林"
+        "description": "名为神农架，誉为湖北明珠的神农架，世界自然遗产，神秘的原始森林，每一处皆是造化与人文的交响。。实乃游历此地不可错过之胜境。"
       },
       {
         "name": "东湖",
         "image": "https://picsum.photos/id/1444/600/400",
-        "description": "中国最大的城中湖,武汉的城市绿肺"
+        "description": "荆楚名胜东湖，东湖，中国最大的城中湖，武汉的城市绿肺，足以令旅人魂牵梦萦。。足以令旅人魂牵梦萦，心驰神往。"
       },
       {
         "name": "恩施大峡谷",
         "image": "https://picsum.photos/id/1445/600/400",
-        "description": "世界地质公园,以奇峰怪石著称"
+        "description": "恩施大峡谷，恩施大峡谷——世界地质公园，以奇峰怪石著称，当属此地名胜之首推。。堪称天地造化与人文底蕴之交响。"
       },
       {
         "name": "三峡",
         "image": "https://picsum.photos/id/1446/600/400",
-        "description": "中国十大风景名胜之一,长江三峡"
+        "description": "坐落于荆楚大地的三峡，湖北名胜三峡，中国十大风景名胜之一，长江三峡，实乃游历此地不可错过之胜境。。每一处景致皆是造物主的匠心独运。"
       },
       {
         "name": "木兰天池",
         "image": "https://picsum.photos/id/1447/600/400",
-        "description": "武汉著名的自然风景区"
+        "description": "荆楚木兰天池，木兰天池者，湖北之武汉著名的自然风景区，令人心驰神往流连忘返。。当属此地名胜之首推，不容错过。"
       }
     ]
   },
@@ -793,7 +1038,62 @@
       "month": "9月",
       "isUnique": true,
       "location": "武汉",
-      "description": "武汉特色的旅游节庆活动"
+      "description": "展示武汉\"江城\"风貌与荆楚文化，两江四岸灯光秀、东湖樱花夜游、荆楚文化展演、热干面美食节，于大江大湖大武汉感受这\"极目楚天舒\"之豪迈与荆楚文化之璀璨。",
+      "type": "旅游节庆",
+      "duration": "约5天",
+      "origin": "武汉国际旅游节始于2004年，展示武汉\"江城\"风貌与荆楚文化。",
+      "highlights": [
+        "两江四岸灯光秀",
+        "东湖樱花夜游",
+        "荆楚文化展演",
+        "热干面美食节",
+        "旅游推介会"
+      ],
+      "bestTime": "开幕日灯光秀",
+      "ticket": "免费（部分活动收费）",
+      "transport": "高铁至武汉站，地铁通达各会场",
+      "tips": [
+        "9月武汉仍较热，注意防暑",
+        "两江游船¥120另购",
+        "户部巷小吃街可一并游览"
+      ],
+      "relatedSpots": [
+        "黄鹤楼",
+        "东湖",
+        "户部巷"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "三峡国际旅游节",
+      "month": "4月",
+      "day": "15日",
+      "location": "宜昌",
+      "isUnique": false,
+      "description": "依托三峡大坝水利枢纽与长江三峡风光，三峡大坝参观、长江三峡游轮、屈原故里端午体验、纤夫文化表演，于高峡平湖感受这\"截断巫山云雨高峡出平湖\"之壮举与三峡千古风流。",
+      "type": "旅游节庆",
+      "duration": "约5天",
+      "origin": "三峡国际旅游节始于1992年，依托三峡大坝水利枢纽与长江三峡风光。",
+      "highlights": [
+        "三峡大坝参观",
+        "长江三峡游轮",
+        "屈原故里端午体验",
+        "三峡人家民俗展",
+        "纤夫文化表演"
+      ],
+      "bestTime": "4月春游季",
+      "ticket": "三峡大坝¥35，游轮¥200起",
+      "transport": "高铁至宜昌东站，转大巴至景区",
+      "tips": [
+        "三峡大坝需安检，携带身份证",
+        "游轮建议选涉外游轮，设施更好",
+        "4月水位适中，景色最佳"
+      ],
+      "relatedSpots": [
+        "三峡大坝",
+        "三峡人家",
+        "屈原故里"
+      ]
     }
   ],
   "activities": [
@@ -823,7 +1123,7 @@
   "intangibleHeritage": [
     {
       "id": "1",
-      "icon": "🎭",
+      "icon": "theater",
       "name": "楚剧",
       "image": "https://picsum.photos/id/1440/600/400",
       "level": "national",
@@ -864,7 +1164,11 @@
           "avgRating": 4.8,
           "bestSeason": "春秋 / 全年",
           "recommendedDays": "2-3 日",
-          "budget": "¥500-1200",
+          "budget": {
+            "currency": "¥",
+            "min": 500,
+            "max": 1200
+          },
           "intensity": "适中",
           "audience": "全人群",
           "highlights": [
@@ -890,7 +1194,11 @@
           "avgRating": 4.7,
           "bestSeason": "秋冬",
           "recommendedDays": "2 日",
-          "budget": "¥400-900",
+          "budget": {
+            "currency": "¥",
+            "min": 400,
+            "max": 900
+          },
           "intensity": "适中",
           "audience": "摄影/户外",
           "highlights": [
@@ -914,7 +1222,11 @@
           "avgRating": 4.5,
           "bestSeason": "夏秋",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-500",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 500
+          },
           "intensity": "轻松",
           "audience": "家庭/休闲",
           "highlights": [
@@ -946,7 +1258,11 @@
           "avgRating": 4.7,
           "bestSeason": "全年",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-400",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
           "intensity": "轻松",
           "audience": "文化/家庭",
           "highlights": [
@@ -973,7 +1289,11 @@
           "avgRating": 4.8,
           "bestSeason": "全年",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-400",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
           "intensity": "轻松",
           "audience": "银发/养心",
           "highlights": [
@@ -1005,7 +1325,11 @@
           "avgRating": 4.7,
           "bestSeason": "春秋",
           "recommendedDays": "2-3 日",
-          "budget": "¥300-800",
+          "budget": {
+            "currency": "¥",
+            "min": 300,
+            "max": 800
+          },
           "intensity": "挑战",
           "audience": "户外/探险",
           "highlights": [
@@ -1024,6 +1348,354 @@
           ]
         }
       ]
+    }
+  ],
+  "craftWorkshops": [
+    {
+      "id": "hubei-craft-1",
+      "image": "https://picsum.photos/id/1342/600/400",
+      "category": "craft",
+      "name": "汉绣体验",
+      "type": "刺绣",
+      "location": "武汉汉绣工坊",
+      "duration": "3小时",
+      "difficulty": "中等",
+      "price": "180",
+      "rating": 4.6,
+      "reviewCount": 134,
+      "instructor": "汉绣传承人",
+      "heritageLevel": "national",
+      "highlights": [
+        "平金夹绣",
+        "楚风纹样",
+        "汉绣历史"
+      ],
+      "steps": [
+        "选缎",
+        "拓样",
+        "平金",
+        "夹绣"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "手工艺爱好者"
+      ],
+      "tags": [
+        "非遗",
+        "汉绣",
+        "楚绣"
+      ],
+      "description": "汉绣承楚绣之脉，以\"平金夹绣\"著称，\"楚风汉韵绣中奇葩\"。于武汉工坊亲手平金夹绣，楚风纹样在指尖流淌，感受这荆楚大地之绣艺传承与两千年楚绣之华彩。"
+    },
+    {
+      "id": "hubei-craft-2",
+      "image": "https://picsum.photos/id/1344/600/400",
+      "category": "craft",
+      "name": "楚式漆器髹饰",
+      "type": "漆器",
+      "location": "荆州楚式漆器工坊",
+      "duration": "3小时",
+      "difficulty": "简单",
+      "price": "220",
+      "rating": 4.7,
+      "reviewCount": 89,
+      "instructor": "漆器传承人",
+      "heritageLevel": "national",
+      "highlights": [
+        "楚式髹漆",
+        "朱地黑彩",
+        "战国纹样"
+      ],
+      "steps": [
+        "制胎",
+        "刮灰",
+        "髹漆",
+        "彩绘"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "手工艺爱好者"
+      ],
+      "tags": [
+        "非遗",
+        "漆器",
+        "楚式"
+      ],
+      "description": "楚式漆器承战国楚墓漆器之统，朱地黑彩\"楚红天下\"之艳。于荆州工坊亲手髹漆彩绘，朱地黑彩间战国纹样重现，感受这楚文化之瑰丽与战国漆器之千年华彩。"
+    }
+  ],
+  "performances": [
+    {
+      "id": "hubei-perf-1",
+      "image": "https://picsum.photos/id/2000/600/400",
+      "category": "performance",
+      "name": "《知音号》·长江漂移剧场",
+      "type": "沉浸式演出",
+      "location": "武汉市江岸区知音号码头",
+      "duration": "1.5小时",
+      "difficulty": "简单",
+      "price": "228",
+      "rating": 4.9,
+      "reviewCount": 892,
+      "highlights": [
+        "长江游轮沉浸式话剧",
+        "上世纪老汉口风情",
+        "观众换装穿越"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "年轻群体"
+      ],
+      "tags": [
+        "沉浸式",
+        "知音号",
+        "长江"
+      ],
+      "description": "知音号游轮驶离码头的一刻，你已穿越至上世纪二十年代的老汉口。换上旗袍长衫，穿行于三层船舱的实景剧场，与舞女报童茶商擦肩，在长江夜色中沉浸式体验\"高山流水觅知音\"之江城往事。"
+    },
+    {
+      "id": "hubei-perf-2",
+      "image": "https://picsum.photos/id/2001/600/400",
+      "category": "performance",
+      "name": "楚剧·武汉楚剧院",
+      "type": "戏曲",
+      "location": "武汉市武昌区楚剧院",
+      "duration": "2小时",
+      "difficulty": "简单",
+      "price": "40",
+      "rating": 4.5,
+      "reviewCount": 178,
+      "highlights": [
+        "楚调迻腔地方戏",
+        "《葛麻》经典折子",
+        "鄂东风情唱腔"
+      ],
+      "suitableFor": [
+        "戏曲爱好者",
+        "文化体验者"
+      ],
+      "tags": [
+        "非遗",
+        "楚剧",
+        "鄂东"
+      ],
+      "description": "楚剧扎根荆楚大地，迻腔质朴如田间秧歌。从《葛麻》的诙谐到《百日缘》的缠绵，这湖北地方戏种以乡音道尽百姓悲欢，于这千湖之省领略楚调之\"接地气\"与\"有味道\"。",
+      "heritageLevel": "provincial"
+    },
+    {
+      "id": "hubei-perf-3",
+      "image": "https://picsum.photos/id/2002/600/400",
+      "category": "performance",
+      "name": "三峡人家·巴王寨民俗表演",
+      "type": "民俗演出",
+      "location": "宜昌市夷陵区三峡人家风景区",
+      "duration": "1小时",
+      "difficulty": "简单",
+      "price": "150",
+      "rating": 4.7,
+      "reviewCount": 345,
+      "highlights": [
+        "峡江号子高亢",
+        "巴人薅草锣鼓",
+        "土家哭嫁婚俗"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "家庭游客"
+      ],
+      "tags": [
+        "民俗",
+        "峡江",
+        "三峡"
+      ],
+      "description": "三峡人家龙进溪畔，峡江号子高亢穿云。巴王寨中薅草锣鼓激昂，土家哭嫁歌哀婉动人，于这长江三峡的青山碧水间，聆听巴楚先民的劳作与婚俗之歌，感受峡江文明之厚重鲜活。"
+    }
+  ],
+  "outdoorAdventure": [
+    {
+      "id": "hubei-outdoor-1",
+      "image": "https://picsum.photos/id/1363/600/400",
+      "category": "outdoor",
+      "name": "神农架原始森林徒步",
+      "type": "森林穿越",
+      "location": "神农架林区",
+      "duration": "1天",
+      "difficulty": "中等",
+      "price": "140",
+      "rating": 4.8,
+      "reviewCount": 4567,
+      "totalAscent": 1200,
+      "maxElevation": 3105,
+      "routeType": "环线",
+      "surfaceType": "石阶",
+      "accessInfo": "高铁至最近站，转景区交通",
+      "gearList": [
+        "登山杖",
+        "冲锋衣",
+        "头灯",
+        "驱蚊"
+      ],
+      "safetyTips": [
+        "海拔高注意保暖",
+        "森林易迷路",
+        "注意蛇虫"
+      ],
+      "bestMonths": "4-5月·9-10月",
+      "highlights": [
+        "华中屋脊",
+        "原始森林",
+        "金丝猴"
+      ],
+      "tags": [
+        "徒步",
+        "神农架",
+        "世界遗产"
+      ],
+      "description": "神农架列世界自然遗产，\"华中屋脊\"原始森林\"野人\"传说之地。穿越原始森林至神农顶，金丝猴跃于枝头古木参天蔽日，感受这华中之巅的原始秘境与自然遗产之壮美。"
+    },
+    {
+      "id": "hubei-outdoor-2",
+      "image": "https://picsum.photos/id/1366/600/400",
+      "category": "outdoor",
+      "name": "武当山古神道徒步",
+      "type": "徒步穿越",
+      "location": "十堰武当山",
+      "duration": "半天",
+      "difficulty": "简单",
+      "price": "130",
+      "rating": 4.7,
+      "reviewCount": 3456,
+      "totalAscent": 1100,
+      "maxElevation": 1612,
+      "routeType": "往返",
+      "surfaceType": "石阶",
+      "accessInfo": "高铁至最近站，转景区交通",
+      "gearList": [
+        "登山杖",
+        "雨衣",
+        "水",
+        "香"
+      ],
+      "safetyTips": [
+        "石阶湿滑",
+        "雷雨勿登顶"
+      ],
+      "bestMonths": "4-5月·9-10月",
+      "highlights": [
+        "古神道",
+        "金顶铜殿",
+        "南岩悬空"
+      ],
+      "tags": [
+        "徒步",
+        "武当",
+        "世界遗产"
+      ],
+      "description": "武当山列世界文化遗产，道教圣地古神道蜿蜒\"道教第一山\"。沿太子洞至南岩宫登金顶，铜殿金顶云海缭绕，感受这\"亘古无双胜境天下第一仙山\"之道韵与武当古建之宏伟。"
+    }
+  ],
+  "wellnessRetreat": [
+    {
+      "id": "hubei-wellness-1",
+      "image": "https://picsum.photos/id/2020/600/400",
+      "category": "wellness",
+      "name": "武当太极养生",
+      "type": "太极养生",
+      "location": "十堰市武当山紫霄宫",
+      "duration": "1天",
+      "difficulty": "简单",
+      "price": "130",
+      "rating": 4.8,
+      "reviewCount": 567,
+      "efficacyTags": [
+        "张三丰太极发源地",
+        "武当道修吐纳",
+        "紫霄宫晨练"
+      ],
+      "bestSeason": "春秋",
+      "packageIncludes": [
+        "门票",
+        "太极教学",
+        "素斋"
+      ],
+      "suitableFor": [
+        "太极爱好者",
+        "养生爱好者"
+      ],
+      "tags": [
+        "太极",
+        "道教",
+        "武当"
+      ],
+      "description": "武当山为张三丰创太极之地，\"天下第一仙山\"。于紫霄宫随道长习太极，云手绵绵如抽丝，吐纳间天地真气流转，于这道教圣地以太极养生，感悟\"道法自然，柔能克刚\"之玄妙。"
+    },
+    {
+      "id": "hubei-wellness-2",
+      "image": "https://picsum.photos/id/2021/600/400",
+      "category": "wellness",
+      "name": "神农架原始森林氧吧",
+      "type": "森林康养",
+      "location": "神农架林区木鱼镇",
+      "duration": "2天",
+      "difficulty": "简单",
+      "price": "200",
+      "rating": 4.8,
+      "reviewCount": 345,
+      "efficacyTags": [
+        "原始森林徒步",
+        "华中屋脊避暑",
+        "金丝猴寻踪"
+      ],
+      "bestSeason": "夏秋",
+      "packageIncludes": [
+        "门票",
+        "向导",
+        "林间住宿"
+      ],
+      "suitableFor": [
+        "自然爱好者",
+        "避暑游客"
+      ],
+      "tags": [
+        "森林",
+        "氧吧",
+        "神农架"
+      ],
+      "description": "神农架\"华中屋脊\"海拔三千余米，原始冷杉遮天蔽日。负氧离子含量极高，穿行林间偶遇金丝猴群，于这\"华中之肺\"深呼吸涤尽尘肺，在炎夏中觅得二十度的清凉净土，尽享原始森林之康养。"
+    },
+    {
+      "id": "hubei-wellness-3",
+      "image": "https://picsum.photos/id/2022/600/400",
+      "category": "wellness",
+      "name": "恩施土家药浴",
+      "type": "药浴养生",
+      "location": "恩施州恩施市土家女儿城",
+      "duration": "半天",
+      "difficulty": "简单",
+      "price": "120",
+      "rating": 4.7,
+      "reviewCount": 234,
+      "efficacyTags": [
+        "土家草药浴",
+        "女儿会民俗",
+        "硒都富硒养生"
+      ],
+      "bestSeason": "全年",
+      "packageIncludes": [
+        "药浴",
+        "土家餐",
+        "民俗体验"
+      ],
+      "suitableFor": [
+        "养生爱好者",
+        "文化体验者"
+      ],
+      "tags": [
+        "药浴",
+        "土家",
+        "恩施"
+      ],
+      "description": "恩施\"世界硒都\"，土家草药浴传承千年。数十种山中草药煎汤入浴，温润药水浸润间祛风除湿通经活络，配以富硒食材滋补，于这鄂西秘境中体验土家族\"洗去一身病\"之药浴奇效。"
     }
   ]
 }

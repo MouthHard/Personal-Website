@@ -1,0 +1,658 @@
+// === 立体景区门票 · 明亮色系版 ===
+// 亮渐变背景 + 深色文字 + 超强立体拟物 — 零位移三态
+
+$accent: #0d9488;
+$accent-d: #0f766e;
+$accent-glow: rgba(13, 148, 136, 0.25);
+$like-c: #0284c7;
+$want-c: #db2777;
+$been-c: #16a34a;
+$share-c: #ea580c;
+$rm-c: #dc2626;
+$gold: #d97706;
+$gold-l: #f59e0b;
+$paper: #f7f3eb;
+$paper-h: #fbf8f1;
+$stub-bg: #f0ebe0;
+$stub-bg-h: #f5f0e6;
+$ink: #1e293b;
+$ink-2: #475569;
+$ink-3: #64748b;
+
+.ticket-board {
+  list-style: none;
+  margin: 0;
+  padding: 8px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 1.2rem;
+
+  .ticket {
+    display: flex;
+    align-items: stretch;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow:
+      0 2px 5px rgba(100, 80, 50, 0.2),
+      0 8px 18px rgba(100, 80, 50, 0.22),
+      0 18px 40px rgba(100, 80, 50, 0.16),
+      0 32px 68px rgba(100, 80, 50, 0.1),
+      0 0 0 1px rgba(180, 160, 120, 0.2),
+      inset 0 2px 0 rgba(255, 255, 255, 0.9),
+      inset 0 -3px 0 rgba(160, 140, 100, 0.2),
+      inset 3px 0 6px rgba(255, 245, 225, 0.35),
+      inset -3px 0 8px rgba(120, 100, 70, 0.12),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(180, 160, 120, 0.25);
+    transition: box-shadow 0.4s ease, border-color 0.4s ease;
+
+    .ticket-main {
+      position: relative;
+      flex: 1;
+      min-width: 0;
+      background:
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 3px,
+          rgba(180, 160, 120, 0.025) 3px,
+          rgba(180, 160, 120, 0.025) 4px
+        ),
+        linear-gradient(105deg, #fffefb 0%, #faf4ea 25%, #f0e8d6 55%, #e2d9c5 100%);
+      padding: 14px 14px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      border-right: 1px dashed rgba(180, 160, 120, 0.3);
+      transition: background 0.4s ease;
+
+      .watermark {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-28deg);
+        font-size: 3rem;
+        font-weight: 900;
+        color: rgba(180, 160, 120, 0.08);
+        letter-spacing: 6px;
+        pointer-events: none;
+        z-index: 0;
+        transition: color 0.4s ease;
+      }
+
+      .ticket-photo {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid rgba(180, 160, 120, 0.25);
+        box-shadow:
+          3px 5px 14px rgba(100, 80, 50, 0.28),
+          5px 8px 20px rgba(100, 80, 50, 0.15),
+          1px 2px 4px rgba(100, 80, 50, 0.12),
+          inset 0 2px 0 rgba(255, 255, 255, 0.7),
+          inset 0 -3px 0 rgba(120, 100, 70, 0.15),
+          inset 2px 0 4px rgba(255, 245, 225, 0.3),
+          inset -2px 0 4px rgba(120, 100, 70, 0.1),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+        z-index: 1;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+          filter: brightness(1.0) saturate(1.05);
+          transition: filter 0.45s ease, transform 0.5s ease;
+        }
+
+        .photo-vignette {
+          position: absolute;
+          inset: 0;
+          background: radial-gradient(
+            ellipse at center,
+            transparent 50%,
+            rgba(80, 60, 30, 0.15) 100%
+          );
+          pointer-events: none;
+          transition: opacity 0.4s ease;
+        }
+      }
+
+      .ticket-title-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        z-index: 1;
+
+        .ticket-level {
+          padding: 4px 10px;
+          font-size: 0.78rem;
+          font-weight: 800;
+          color: #fff;
+          background: linear-gradient(145deg, $gold-l 0%, $gold 40%, #b45309 100%);
+          border: 1px solid rgba(180, 120, 20, 0.5);
+          border-radius: 4px;
+          letter-spacing: 0.5px;
+          text-shadow: 0 1px 1px rgba(120, 80, 0, 0.4);
+          box-shadow:
+            2px 3px 7px rgba(140, 90, 10, 0.4),
+            4px 5px 12px rgba(140, 90, 10, 0.2),
+            1px 1px 3px rgba(140, 90, 10, 0.15),
+            inset 0 2px 0 rgba(255, 255, 255, 0.55),
+            inset 0 -2px 0 rgba(100, 60, 0, 0.35),
+            inset 1px 0 0 rgba(255, 220, 150, 0.25),
+            inset -1px 0 0 rgba(100, 60, 0, 0.15);
+          flex-shrink: 0;
+        }
+
+        .ticket-name {
+          margin: 0;
+          font-size: 1.3rem;
+          font-weight: 800;
+          color: $ink;
+          line-height: 1.2;
+          letter-spacing: 0.4px;
+          text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+          transition: color 0.3s ease, text-shadow 0.3s ease;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          flex: 1;
+        }
+      }
+
+      .ticket-loc {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.88rem;
+        font-weight: 700;
+        color: $ink-2;
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+        z-index: 1;
+        transition: color 0.3s ease;
+        white-space: nowrap;
+        overflow: hidden;
+
+        span {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+
+      .ticket-tags {
+        display: flex;
+        gap: 6px;
+        z-index: 1;
+
+        .tt-tag {
+          padding: 3px 10px;
+          font-size: 0.78rem;
+          font-weight: 700;
+          color: $ink-2;
+          background: linear-gradient(100deg, rgba(255, 255, 255, 0.9), rgba(238, 230, 218, 0.6));
+          border: 1px solid rgba(180, 160, 120, 0.3);
+          border-radius: 4px;
+          letter-spacing: 0.3px;
+          box-shadow:
+            2px 3px 5px rgba(100, 80, 50, 0.18),
+            3px 4px 8px rgba(100, 80, 50, 0.1),
+            inset 0 1px 0 rgba(255, 255, 255, 0.7),
+            inset 0 -1px 0 rgba(160, 140, 100, 0.12),
+            inset 1px 0 2px rgba(255, 245, 225, 0.25),
+            inset -1px 0 2px rgba(120, 100, 70, 0.08);
+          transition: color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+      }
+    }
+
+    .ticket-tear {
+      position: relative;
+      width: 2px;
+      flex-shrink: 0;
+      background: transparent;
+
+      .tear-notch {
+        position: absolute;
+        left: 50%;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: #e8e0d0;
+        transform: translateX(-50%);
+        z-index: 5;
+        box-shadow: inset 0 1px 2px rgba(120, 100, 70, 0.2);
+      }
+      .tear-notch.top { top: -7px; }
+      .tear-notch.bottom { bottom: -7px; }
+
+      .tear-line {
+        position: absolute;
+        top: 7px;
+        bottom: 7px;
+        left: 50%;
+        width: 1px;
+        transform: translateX(-50%);
+        background-image: linear-gradient(
+          180deg,
+          rgba(180, 160, 120, 0.3) 0,
+          rgba(180, 160, 120, 0.3) 3px,
+          transparent 3px,
+          transparent 6px
+        );
+        background-size: 1px 6px;
+        transition: background-image 0.4s ease;
+      }
+    }
+
+    .ticket-stub {
+      width: 140px;
+      flex-shrink: 0;
+      background:
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 3px,
+          rgba(180, 160, 120, 0.02) 3px,
+          rgba(180, 160, 120, 0.02) 4px
+        ),
+        linear-gradient(105deg, #f2ede2 0%, #ebe4d4 35%, #ddd4c2 65%, #cfc6b0 100%);
+      padding: 14px 12px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: background 0.4s ease;
+
+
+      .stub-rating {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        color: $gold;
+        filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.5));
+        transition: color 0.3s ease, filter 0.3s ease;
+
+        b {
+          font-size: 1.15rem;
+          font-weight: 800;
+          color: $ink;
+          text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+        }
+
+        .rating-label {
+          font-size: 0.75rem;
+          font-weight: 700;
+          color: $ink-3;
+        }
+      }
+
+      .stub-type {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: $ink-2;
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+        transition: color 0.3s ease;
+
+        .type-dot {
+          display: inline-block;
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: $accent;
+          box-shadow:
+            0 0 6px rgba(13, 148, 136, 0.4),
+            inset 0 1px 0 rgba(255, 255, 255, 0.4);
+
+          &.nature {
+            background: $been-c;
+            box-shadow:
+              0 0 6px rgba(22, 163, 74, 0.4),
+              inset 0 1px 0 rgba(255, 255, 255, 0.4);
+          }
+          &.culture {
+            background: $share-c;
+            box-shadow:
+              0 0 6px rgba(234, 88, 12, 0.4),
+              inset 0 1px 0 rgba(255, 255, 255, 0.4);
+          }
+        }
+      }
+
+      .stub-divider {
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(180, 160, 120, 0.3), transparent);
+        margin: 4px 0;
+        transition: background 0.35s ease;
+      }
+
+      .stub-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+
+        .s-act {
+          display: grid;
+          place-items: center;
+          width: 34px;
+          height: 34px;
+          border-radius: 7px;
+          border: 1px solid rgba(180, 160, 120, 0.3);
+          background: linear-gradient(100deg, #ffffff, #ede5d3);
+          color: $ink-3;
+          cursor: pointer;
+          box-shadow:
+            2px 3px 6px rgba(100, 80, 50, 0.22),
+            3px 5px 10px rgba(100, 80, 50, 0.12),
+            inset 0 1px 0 rgba(255, 255, 255, 0.9),
+            inset 0 -2px 0 rgba(160, 140, 100, 0.15),
+            inset 2px 0 3px rgba(255, 245, 225, 0.3),
+            inset -2px 0 3px rgba(120, 100, 70, 0.08);
+          transition: all 0.25s ease;
+
+          &:active {
+            background: linear-gradient(180deg, #e8e0d0, #ddd4c2);
+            box-shadow:
+              0 1px 2px rgba(100, 80, 50, 0.12),
+              inset 0 3px 6px rgba(140, 120, 80, 0.3),
+              inset 0 1px 0 rgba(255, 255, 255, 0.15);
+          }
+
+          &.s-like {
+            &:hover {
+              background: linear-gradient(180deg, rgba($like-c, 0.15), rgba($like-c, 0.05));
+              border-color: $like-c;
+              color: $like-c;
+              box-shadow:
+                0 0 12px rgba($like-c, 0.35),
+                0 4px 8px rgba(100, 80, 50, 0.22),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5),
+                inset 0 -2px 0 rgba(160, 140, 100, 0.1);
+            }
+            &.on {
+              background: linear-gradient(180deg, rgba($like-c, 0.95), rgba($like-c, 0.75));
+              border-color: $like-c;
+              color: #fff;
+              box-shadow:
+                0 0 14px rgba($like-c, 0.5),
+                0 3px 6px rgba(100, 80, 50, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.35),
+                inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+              &:hover {
+                box-shadow:
+                  0 0 20px rgba($like-c, 0.65),
+                  0 5px 10px rgba(100, 80, 50, 0.28),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.45),
+                  inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+              }
+              &:active {
+                background: linear-gradient(180deg, rgba($like-c, 0.8), rgba($like-c, 0.65));
+                box-shadow:
+                  0 0 8px rgba($like-c, 0.3),
+                  inset 0 3px 6px rgba(0, 0, 0, 0.25),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.15);
+              }
+            }
+          }
+
+          &.s-want {
+            &:hover {
+              background: linear-gradient(180deg, rgba($want-c, 0.15), rgba($want-c, 0.05));
+              border-color: $want-c;
+              color: $want-c;
+              box-shadow:
+                0 0 12px rgba($want-c, 0.35),
+                0 4px 8px rgba(100, 80, 50, 0.22),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5),
+                inset 0 -2px 0 rgba(160, 140, 100, 0.1);
+            }
+            &.on {
+              background: linear-gradient(180deg, rgba($want-c, 0.95), rgba($want-c, 0.75));
+              border-color: $want-c;
+              color: #fff;
+              box-shadow:
+                0 0 14px rgba($want-c, 0.5),
+                0 3px 6px rgba(100, 80, 50, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.35),
+                inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+              &:hover {
+                box-shadow:
+                  0 0 20px rgba($want-c, 0.65),
+                  0 5px 10px rgba(100, 80, 50, 0.28),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.45),
+                  inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+              }
+              &:active {
+                background: linear-gradient(180deg, rgba($want-c, 0.8), rgba($want-c, 0.65));
+                box-shadow:
+                  0 0 8px rgba($want-c, 0.3),
+                  inset 0 3px 6px rgba(0, 0, 0, 0.25),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.15);
+              }
+            }
+          }
+
+          &.s-been {
+            &:hover {
+              background: linear-gradient(180deg, rgba($been-c, 0.15), rgba($been-c, 0.05));
+              border-color: $been-c;
+              color: $been-c;
+              box-shadow:
+                0 0 12px rgba($been-c, 0.35),
+                0 4px 8px rgba(100, 80, 50, 0.22),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5),
+                inset 0 -2px 0 rgba(160, 140, 100, 0.1);
+            }
+            &.on {
+              background: linear-gradient(180deg, rgba($been-c, 0.95), rgba($been-c, 0.75));
+              border-color: $been-c;
+              color: #fff;
+              box-shadow:
+                0 0 14px rgba($been-c, 0.5),
+                0 3px 6px rgba(100, 80, 50, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.35),
+                inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+              &:hover {
+                box-shadow:
+                  0 0 20px rgba($been-c, 0.65),
+                  0 5px 10px rgba(100, 80, 50, 0.28),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.45),
+                  inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+              }
+              &:active {
+                background: linear-gradient(180deg, rgba($been-c, 0.8), rgba($been-c, 0.65));
+                box-shadow:
+                  0 0 8px rgba($been-c, 0.3),
+                  inset 0 3px 6px rgba(0, 0, 0, 0.25),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.15);
+              }
+            }
+          }
+
+          &.s-share {
+            &:hover {
+              background: linear-gradient(180deg, rgba($share-c, 0.15), rgba($share-c, 0.05));
+              border-color: $share-c;
+              color: $share-c;
+              box-shadow:
+                0 0 12px rgba($share-c, 0.35),
+                0 4px 8px rgba(100, 80, 50, 0.22),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5),
+                inset 0 -2px 0 rgba(160, 140, 100, 0.1);
+            }
+          }
+
+          &.s-remove {
+            &:hover {
+              background: linear-gradient(180deg, rgba($rm-c, 0.15), rgba($rm-c, 0.05));
+              border-color: $rm-c;
+              color: $rm-c;
+              box-shadow:
+                0 0 12px rgba($rm-c, 0.35),
+                0 4px 8px rgba(100, 80, 50, 0.22),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5),
+                inset 0 -2px 0 rgba(160, 140, 100, 0.1);
+            }
+          }
+        }
+      }
+
+      .stub-barcode {
+        height: 26px;
+        margin-top: 6px;
+        background: repeating-linear-gradient(
+          90deg,
+          rgba(60, 50, 35, 0.7) 0,
+          rgba(60, 50, 35, 0.7) 1px,
+          transparent 1px,
+          transparent 3px,
+          rgba(60, 50, 35, 0.7) 3px,
+          rgba(60, 50, 35, 0.7) 5px,
+          transparent 5px,
+          transparent 6px,
+          rgba(60, 50, 35, 0.5) 6px,
+          rgba(60, 50, 35, 0.5) 8px,
+          transparent 8px,
+          transparent 10px,
+          rgba(60, 50, 35, 0.7) 10px,
+          rgba(60, 50, 35, 0.7) 11px,
+          transparent 11px,
+          transparent 13px
+        );
+        border-radius: 3px;
+        opacity: 0.75;
+        border: 1px solid rgba(180, 160, 120, 0.2);
+        box-shadow:
+          0 2px 4px rgba(100, 80, 50, 0.12),
+          inset 0 1px 0 rgba(255, 255, 255, 0.5),
+          inset 0 -1px 0 rgba(120, 100, 70, 0.08);
+        transition: opacity 0.4s ease;
+      }
+
+      .stub-no {
+        font-size: 0.68rem;
+        font-weight: 700;
+        color: $ink-3;
+        text-align: center;
+        letter-spacing: 1.5px;
+        transition: color 0.3s ease;
+      }
+    }
+
+    &:hover {
+      border-color: rgba($accent, 0.4);
+      box-shadow:
+        0 4px 10px rgba(100, 80, 50, 0.28),
+        0 14px 28px rgba(100, 80, 50, 0.25),
+        0 28px 56px rgba(100, 80, 50, 0.18),
+        0 44px 88px rgba(100, 80, 50, 0.12),
+        0 0 0 1px rgba($accent, 0.3),
+        0 0 32px $accent-glow,
+        inset 0 2px 0 rgba(255, 255, 255, 0.95),
+        inset 0 -3px 0 rgba(160, 140, 100, 0.2),
+        inset 4px 0 8px rgba(255, 245, 225, 0.45),
+        inset -4px 0 10px rgba(120, 100, 70, 0.15),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+
+      .ticket-main {
+        background:
+          repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 3px,
+            rgba(180, 160, 120, 0.035) 3px,
+            rgba(180, 160, 120, 0.035) 4px
+          ),
+          linear-gradient(105deg, #fffffe 0%, #fdf9f2 25%, #f5eee0 55%, #e8e0d0 100%);
+
+        .watermark {
+          color: rgba($accent, 0.1);
+        }
+
+        .ticket-photo img {
+          filter: brightness(1.08) saturate(1.15);
+          transform: scale(1.05);
+        }
+
+        .photo-vignette {
+          opacity: 0.5;
+        }
+
+        .ticket-name {
+          color: $accent-d;
+          text-shadow: 0 0 10px $accent-glow, 0 1px 0 rgba(255, 255, 255, 0.8);
+        }
+
+        .ticket-loc {
+          color: $ink;
+        }
+
+        .tt-tag {
+          color: $ink;
+          border-color: rgba($accent, 0.4);
+          box-shadow:
+            3px 4px 7px rgba(100, 80, 50, 0.2),
+            4px 6px 12px rgba(100, 80, 50, 0.12),
+            inset 0 1px 0 rgba(255, 255, 255, 0.8),
+            inset 0 -1px 0 rgba(160, 140, 100, 0.12),
+            inset 1px 0 2px rgba(255, 245, 225, 0.3),
+            inset -1px 0 2px rgba(120, 100, 70, 0.08),
+            0 0 8px rgba($accent, 0.15);
+        }
+      }
+
+      .ticket-tear .tear-line {
+        background-image: linear-gradient(
+          180deg,
+          rgba($accent, 0.4) 0,
+          rgba($accent, 0.4) 3px,
+          transparent 3px,
+          transparent 6px
+        );
+      }
+
+      .ticket-stub {
+        background:
+          repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 3px,
+            rgba(180, 160, 120, 0.03) 3px,
+            rgba(180, 160, 120, 0.03) 4px
+          ),
+          linear-gradient(105deg, #f5f0e6 0%, #ede6d6 35%, #e0d8c6 65%, #d2c9b4 100%);
+
+
+        .stub-rating {
+          color: $gold;
+          filter: drop-shadow(0 0 4px rgba(217, 119, 6, 0.3));
+          b { color: $ink; }
+        }
+        .stub-type { color: $ink; }
+        .stub-divider { background: linear-gradient(90deg, transparent, rgba($accent, 0.3), transparent); }
+
+        .s-act {
+          background: linear-gradient(100deg, #ffffff, #f2ebda);
+          color: $ink-2;
+          border-color: rgba(180, 160, 120, 0.4);
+          box-shadow:
+            2px 3px 7px rgba(100, 80, 50, 0.24),
+            4px 6px 12px rgba(100, 80, 50, 0.14),
+            inset 0 1px 0 rgba(255, 255, 255, 0.95),
+            inset 0 -2px 0 rgba(160, 140, 100, 0.15),
+            inset 2px 0 3px rgba(255, 245, 225, 0.35),
+            inset -2px 0 3px rgba(120, 100, 70, 0.08);
+        }
+
+        .stub-barcode { opacity: 0.85; }
+        .stub-no { color: $ink-2; }
+      }
+    }
+  }
+}

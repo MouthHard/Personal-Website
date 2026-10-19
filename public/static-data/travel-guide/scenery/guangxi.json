@@ -14,7 +14,7 @@
       "rating": 4.9,
       "bestTime": "春秋",
       "location": "广西壮族自治区桂林市",
-      "description": "桂林山水甲天下,中国山水风光的代表",
+      "description": "桂林山水，广西桂林山水，造化钟神秀，桂林山水甲天下，中国山水风光的代表，实乃游历广西不可错过之胜境。。足以令旅人魂牵梦萦，心驰神往。",
       "highlight": "桂林山水甲天下,喀斯特奇观",
       "level": "5A景区",
       "rankBadge": "必去",
@@ -30,7 +30,6 @@
       ],
       "openTime": "全天开放(各景点06:00-18:00)",
       "visitDuration": "2-3天",
-      "popularity": "★★★★★",
       "audienceTags": [
         "摄影爱好者",
         "自然爱好者",
@@ -39,21 +38,57 @@
         "文艺青年"
       ],
       "ticketDetails": [
-        "两江四湖¥185",
-        "象山¥55",
-        "叠彩山¥25",
-        "七星公园¥60"
+        {
+          "type": "两江四湖",
+          "price": "¥185"
+        },
+        {
+          "type": "象山",
+          "price": "¥55"
+        },
+        {
+          "type": "叠彩山",
+          "price": "¥25"
+        },
+        {
+          "type": "七星公园",
+          "price": "¥60"
+        }
       ],
       "transportInfo": [
-        "飞机:桂林两江机场约40分钟车程",
-        "高铁:桂林站约30分钟车程",
-        "自驾:经桂柳高速桂林出口",
-        "长途客运:桂林汽车站有公交直达"
+        {
+          "mode": "飞机",
+          "detail": "桂林两江机场约40分钟车程"
+        },
+        {
+          "mode": "高铁",
+          "detail": "桂林站约30分钟车程"
+        },
+        {
+          "mode": "自驾",
+          "detail": "经桂柳高速桂林出口"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "桂林汽车站有公交直达"
+        }
       ],
       "openTimeDetail": [
-        "景区 06:00-18:00",
-        "两江四湖夜游 19:30-21:30",
-        "象山 07:00-18:00"
+        {
+          "season": "景区",
+          "months": "",
+          "time": "06:00-18:00"
+        },
+        {
+          "season": "两江四湖夜游",
+          "months": "",
+          "time": "19:30-21:30"
+        },
+        {
+          "season": "象山",
+          "months": "",
+          "time": "07:00-18:00"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -73,8 +108,15 @@
               "detail": "象山→看桂林城徽→叠彩山→伏波山→赏全景"
             }
           ],
-          "budget": "¥135-300",
-          "bestFor": "摄影爱好者/首次游览"
+          "budget": {
+            "currency": "¥",
+            "min": 135,
+            "max": 300
+          },
+          "bestFor": [
+            "摄影爱好者",
+            "首次游览"
+          ]
         },
         {
           "name": "两江四湖-七星公园线",
@@ -93,8 +135,15 @@
               "detail": "白天游七星公园→赏喀斯特→夜游两江四湖→赏夜景"
             }
           ],
-          "budget": "¥245-450",
-          "bestFor": "家庭出游/摄影爱好者"
+          "budget": {
+            "currency": "¥",
+            "min": 245,
+            "max": 450
+          },
+          "bestFor": [
+            "家庭出游",
+            "摄影爱好者"
+          ]
         }
       ],
       "facilities": [
@@ -142,7 +191,7 @@
       "rating": 4.8,
       "bestTime": "春秋",
       "location": "广西壮族自治区桂林市阳朔县",
-      "description": "桂林山水精华所在,被誉为中国第一旅游名县",
+      "description": "坐落于八桂大地的阳朔，广西阳朔，鬼斧神工天作之美，桂林山水精华所在，被誉为中国第一旅游名县，实乃游历广西不可错过之胜境。。堪称天地造化与人文底蕴之交响。",
       "highlight": "阳朔山水甲桂林,十里画廊",
       "level": "5A景区",
       "rankBadge": "必去",
@@ -158,7 +207,6 @@
       ],
       "openTime": "全天开放(各景点07:00-18:00)",
       "visitDuration": "2-3天",
-      "popularity": "★★★★★",
       "audienceTags": [
         "骑行爱好者",
         "摄影爱好者",
@@ -167,21 +215,57 @@
         "户外爱好者"
       ],
       "ticketDetails": [
-        "遇龙河竹筏¥160",
-        "十里画廊¥50",
-        "西街免费",
-        "大榕树¥20"
+        {
+          "type": "遇龙河竹筏",
+          "price": "¥160"
+        },
+        {
+          "type": "十里画廊",
+          "price": "¥50"
+        },
+        {
+          "type": "西街",
+          "price": "免费"
+        },
+        {
+          "type": "大榕树",
+          "price": "¥20"
+        }
       ],
       "transportInfo": [
-        "飞机:桂林两江机场约1.5小时车程",
-        "高铁:阳朔站约30分钟车程",
-        "自驾:经桂柳高速阳朔出口",
-        "长途客运:阳朔汽车站有班车直达"
+        {
+          "mode": "飞机",
+          "detail": "桂林两江机场约1.5小时车程"
+        },
+        {
+          "mode": "高铁",
+          "detail": "阳朔站约30分钟车程"
+        },
+        {
+          "mode": "自驾",
+          "detail": "经桂柳高速阳朔出口"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "阳朔汽车站有班车直达"
+        }
       ],
       "openTimeDetail": [
-        "景区 07:00-18:00",
-        "遇龙河竹筏 08:00-17:00",
-        "西街 全天开放"
+        {
+          "season": "景区",
+          "months": "",
+          "time": "07:00-18:00"
+        },
+        {
+          "season": "遇龙河竹筏",
+          "months": "",
+          "time": "08:00-17:00"
+        },
+        {
+          "season": "西街 全天开放",
+          "months": "",
+          "time": ""
+        }
       ],
       "recommendedRoutes": [
         {
@@ -201,8 +285,15 @@
               "detail": "阳朔→骑行十里画廊→遇龙河→乘竹筏漂流→返程"
             }
           ],
-          "budget": "¥210-400",
-          "bestFor": "骑行爱好者/文艺青年"
+          "budget": {
+            "currency": "¥",
+            "min": 210,
+            "max": 400
+          },
+          "bestFor": [
+            "骑行爱好者",
+            "文艺青年"
+          ]
         },
         {
           "name": "西街-大榕树线",
@@ -221,8 +312,15 @@
               "detail": "西街→感受洋气→大榕树→赏田园"
             }
           ],
-          "budget": "¥20-150",
-          "bestFor": "文艺青年/家庭出游"
+          "budget": {
+            "currency": "¥",
+            "min": 20,
+            "max": 150
+          },
+          "bestFor": [
+            "文艺青年",
+            "家庭出游"
+          ]
         }
       ],
       "facilities": [
@@ -270,7 +368,7 @@
       "rating": 4.9,
       "bestTime": "春秋",
       "location": "广西壮族自治区桂林市",
-      "description": "桂林的母亲河,百里漓江百里画廊",
+      "description": "八桂漓江，广西漓江，天地造化之奇，桂林的母亲河，百里漓江百里画廊，实乃游历广西不可错过之胜境。。每一处景致皆是造物主的匠心独运。",
       "highlight": "百里画廊,世界自然遗产",
       "level": "5A景区",
       "rankBadge": "必去",
@@ -286,7 +384,6 @@
       ],
       "openTime": "08:00-17:00",
       "visitDuration": "4-5小时",
-      "popularity": "★★★★★",
       "audienceTags": [
         "摄影爱好者",
         "山水爱好者",
@@ -295,21 +392,57 @@
         "文艺青年"
       ],
       "ticketDetails": [
-        "游船¥215",
-        "竹筏¥160",
-        "兴坪渔村¥20",
-        "儿童老人优惠"
+        {
+          "type": "游船",
+          "price": "¥215"
+        },
+        {
+          "type": "竹筏",
+          "price": "¥160"
+        },
+        {
+          "type": "兴坪渔村",
+          "price": "¥20"
+        },
+        {
+          "type": "儿童老人优惠",
+          "price": ""
+        }
       ],
       "transportInfo": [
-        "飞机:桂林两江机场约40分钟车程",
-        "高铁:桂林站约30分钟车程",
-        "自驾:经桂柳高速至竹江码头",
-        "长途客运:桂林汽车站有班车至码头"
+        {
+          "mode": "飞机",
+          "detail": "桂林两江机场约40分钟车程"
+        },
+        {
+          "mode": "高铁",
+          "detail": "桂林站约30分钟车程"
+        },
+        {
+          "mode": "自驾",
+          "detail": "经桂柳高速至竹江码头"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "桂林汽车站有班车至码头"
+        }
       ],
       "openTimeDetail": [
-        "游船 08:00-17:00",
-        "竹筏 08:00-16:00",
-        "夜游 19:30-21:00"
+        {
+          "season": "游船",
+          "months": "",
+          "time": "08:00-17:00"
+        },
+        {
+          "season": "竹筏",
+          "months": "",
+          "time": "08:00-16:00"
+        },
+        {
+          "season": "夜游",
+          "months": "",
+          "time": "19:30-21:00"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -329,8 +462,15 @@
               "detail": "竹江码头→乘游船→赏百里画廊→阳朔→返程"
             }
           ],
-          "budget": "¥215-400",
-          "bestFor": "摄影爱好者/家庭出游"
+          "budget": {
+            "currency": "¥",
+            "min": 215,
+            "max": 400
+          },
+          "bestFor": [
+            "摄影爱好者",
+            "家庭出游"
+          ]
         },
         {
           "name": "兴坪-九马画山线",
@@ -349,8 +489,15 @@
               "detail": "兴坪→乘竹筏→九马画山→观奇景→返程"
             }
           ],
-          "budget": "¥160-300",
-          "bestFor": "摄影爱好者/文艺青年"
+          "budget": {
+            "currency": "¥",
+            "min": 160,
+            "max": 300
+          },
+          "bestFor": [
+            "摄影爱好者",
+            "文艺青年"
+          ]
         }
       ],
       "facilities": [
@@ -398,7 +545,7 @@
       "rating": 4.6,
       "bestTime": "春秋",
       "location": "广西壮族自治区北海市银海区",
-      "description": "天下第一滩,中国最美的海滨之一",
+      "description": "北海银滩者，八桂之胜境也。广西北海银滩，大自然之鬼斧神工，天下第一滩，中国最美的海滨之一，实乃游历广西不可错过之胜境。。碧海银沙椰风海韵，当属此地名胜之首推，不容错过。",
       "highlight": "天下第一滩,银白沙滩",
       "level": "4A景区",
       "rankBadge": "网红",
@@ -414,7 +561,6 @@
       ],
       "openTime": "全天开放",
       "visitDuration": "半天",
-      "popularity": "★★★★☆",
       "audienceTags": [
         "海滨度假者",
         "家庭出游",
@@ -423,21 +569,57 @@
         "日落爱好者"
       ],
       "ticketDetails": [
-        "沙滩免费",
-        "更衣淋浴¥10",
-        "沙滩椅¥30",
-        "游乐项目另收费"
+        {
+          "type": "沙滩",
+          "price": "免费"
+        },
+        {
+          "type": "更衣淋浴",
+          "price": "¥10"
+        },
+        {
+          "type": "沙滩椅",
+          "price": "¥30"
+        },
+        {
+          "type": "游乐项目另收费",
+          "price": ""
+        }
       ],
       "transportInfo": [
-        "飞机:北海福成机场约30分钟车程",
-        "高铁:北海站约20分钟车程",
-        "自驾:经兰海高速北海出口",
-        "长途客运:北海汽车站有公交直达"
+        {
+          "mode": "飞机",
+          "detail": "北海福成机场约30分钟车程"
+        },
+        {
+          "mode": "高铁",
+          "detail": "北海站约20分钟车程"
+        },
+        {
+          "mode": "自驾",
+          "detail": "经兰海高速北海出口"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "北海汽车站有公交直达"
+        }
       ],
       "openTimeDetail": [
-        "沙滩 全天开放",
-        "更衣淋浴 08:00-22:00",
-        "游乐项目 09:00-21:00"
+        {
+          "season": "沙滩 全天开放",
+          "months": "",
+          "time": ""
+        },
+        {
+          "season": "更衣淋浴",
+          "months": "",
+          "time": "08:00-22:00"
+        },
+        {
+          "season": "游乐项目",
+          "months": "",
+          "time": "09:00-21:00"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -457,8 +639,15 @@
               "detail": "银滩→漫步赏日落→侨港风情街→品海鲜"
             }
           ],
-          "budget": "¥0-150",
-          "bestFor": "海滨度假者/家庭出游"
+          "budget": {
+            "currency": "¥",
+            "min": 0,
+            "max": 150
+          },
+          "bestFor": [
+            "海滨度假者",
+            "家庭出游"
+          ]
         },
         {
           "name": "银滩公园-海滩公园线",
@@ -477,8 +666,15 @@
               "detail": "银滩公园→漫步→海滩公园→赏海景"
             }
           ],
-          "budget": "¥0-100",
-          "bestFor": "家庭出游/亲子家庭"
+          "budget": {
+            "currency": "¥",
+            "min": 0,
+            "max": 100
+          },
+          "bestFor": [
+            "家庭出游",
+            "亲子家庭"
+          ]
         }
       ],
       "facilities": [
@@ -526,7 +722,7 @@
       "rating": 4.7,
       "bestTime": "春秋",
       "location": "广西壮族自治区桂林市龙胜各族自治县",
-      "description": "世界梯田之冠,壮丽的农业景观",
+      "description": "名为龙脊梯田，广西龙脊梯田，造化钟神秀，世界梯田之冠，壮丽的农业景观，实乃游历广西不可错过之胜境。。令人叹为观止，流连忘返。",
       "highlight": "世界梯田之冠,壮族奇观",
       "level": "4A景区",
       "rankBadge": "网红",
@@ -542,7 +738,6 @@
       ],
       "openTime": "07:00-18:00",
       "visitDuration": "1天",
-      "popularity": "★★★★☆",
       "audienceTags": [
         "摄影爱好者",
         "文化爱好者",
@@ -551,21 +746,57 @@
         "家庭出游"
       ],
       "ticketDetails": [
-        "成人票¥80",
-        "学生票半价",
-        "儿童1.2米以下免票",
-        "索道往返¥60"
+        {
+          "type": "成人票",
+          "price": "¥80"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "儿童1.2米以下",
+          "price": "免票"
+        },
+        {
+          "type": "索道往返",
+          "price": "¥60"
+        }
       ],
       "transportInfo": [
-        "飞机:桂林两江机场约1.5小时车程",
-        "高铁:桂林站约1.5小时车程",
-        "自驾:经桂柳高速至龙胜县",
-        "长途客运:桂林汽车站有班车至龙胜"
+        {
+          "mode": "飞机",
+          "detail": "桂林两江机场约1.5小时车程"
+        },
+        {
+          "mode": "高铁",
+          "detail": "桂林站约1.5小时车程"
+        },
+        {
+          "mode": "自驾",
+          "detail": "经桂柳高速至龙胜县"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "桂林汽车站有班车至龙胜"
+        }
       ],
       "openTimeDetail": [
-        "旺季(4-10月) 07:00-18:00",
-        "淡季(11-3月) 08:00-17:00",
-        "索道 08:00-17:00"
+        {
+          "season": "旺季",
+          "months": "4-10月",
+          "time": "07:00-18:00"
+        },
+        {
+          "season": "淡季",
+          "months": "11-3月",
+          "time": "08:00-17:00"
+        },
+        {
+          "season": "索道",
+          "months": "",
+          "time": "08:00-17:00"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -585,8 +816,15 @@
               "detail": "金坑大寨→看梯田全景→田头寨→赏日出→返程"
             }
           ],
-          "budget": "¥140-300",
-          "bestFor": "摄影爱好者/文化爱好者"
+          "budget": {
+            "currency": "¥",
+            "min": 140,
+            "max": 300
+          },
+          "bestFor": [
+            "摄影爱好者",
+            "文化爱好者"
+          ]
         },
         {
           "name": "平安寨-中六寨线",
@@ -605,8 +843,15 @@
               "detail": "平安寨→九龙五虎→中六寨→赏梯田→返程"
             }
           ],
-          "budget": "¥80-200",
-          "bestFor": "摄影爱好者/民族风情爱好者"
+          "budget": {
+            "currency": "¥",
+            "min": 80,
+            "max": 200
+          },
+          "bestFor": [
+            "摄影爱好者",
+            "民族风情爱好者"
+          ]
         }
       ],
       "facilities": [
@@ -697,42 +942,42 @@
       {
         "name": "桂林山水",
         "image": "https://picsum.photos/id/1500/600/400",
-        "description": "桂林山水甲天下,中国山水风光的代表"
+        "description": "坐落于八桂大地的桂林山水，桂林山水——桂林山水甲天下，中国山水风光的代表，实乃游历此地不可错过之胜境。。每一处景致皆是造物主的匠心独运。"
       },
       {
         "name": "阳朔",
         "image": "https://picsum.photos/id/1501/600/400",
-        "description": "桂林山水精华所在,被誉为中国第一旅游名县"
+        "description": "八桂阳朔，广西名胜阳朔，桂林山水精华所在，被誉为中国第一旅游名县，令人心驰神往流连忘返。。当属此地名胜之首推，不容错过。"
       },
       {
         "name": "漓江",
         "image": "https://picsum.photos/id/1502/600/400",
-        "description": "桂林的母亲河,百里漓江百里画廊"
+        "description": "漓江者，八桂之胜境也。漓江者，广西之桂林的母亲河，百里漓江百里画廊，堪称此地风光之冠冕。。令人叹为观止，流连忘返。"
       },
       {
         "name": "北海银滩",
         "image": "https://picsum.photos/id/1503/600/400",
-        "description": "天下第一滩,中国最美的海滨之一"
+        "description": "名为北海银滩，誉为广西明珠的北海银滩，天下第一滩，中国最美的海滨之一，每一处皆是造化与人文的交响。。实乃游历此地不可错过之胜境。"
       },
       {
         "name": "龙脊梯田",
         "image": "https://picsum.photos/id/1504/600/400",
-        "description": "世界梯田之冠,壮丽的农业景观"
+        "description": "八桂名胜龙脊梯田，龙脊梯田，世界梯田之冠，壮丽的农业景观，足以令旅人魂牵梦萦。。足以令旅人魂牵梦萦，心驰神往。"
       },
       {
         "name": "德天瀑布",
         "image": "https://picsum.photos/id/1505/600/400",
-        "description": "亚洲第一大跨国瀑布"
+        "description": "德天瀑布，德天瀑布——亚洲第一大跨国瀑布，当属此地名胜之首推。。堪称天地造化与人文底蕴之交响。"
       },
       {
         "name": "涠洲岛",
         "image": "https://picsum.photos/id/1506/600/400",
-        "description": "中国最年轻的火山岛,美丽的海岛风光"
+        "description": "坐落于八桂大地的涠洲岛，广西名胜涠洲岛，中国最年轻的火山岛，美丽的海岛风光，实乃游历此地不可错过之胜境。。每一处景致皆是造物主的匠心独运。"
       },
       {
         "name": "青秀山",
         "image": "https://picsum.photos/id/1507/600/400",
-        "description": "南宁著名的风景区,城市绿肺"
+        "description": "八桂青秀山，青秀山者，广西之南宁著名的风景区，城市绿肺，令人心驰神往流连忘返。。当属此地名胜之首推，不容错过。"
       }
     ]
   },
@@ -782,7 +1027,73 @@
       "description": "冬季温暖,是旅游的好时节,北海银滩别有一番风味"
     }
   ],
-  "festivals": [],
+  "festivals": [
+    {
+      "id": "1",
+      "name": "壮族三月三歌圩节",
+      "month": "4月",
+      "day": "3日",
+      "location": "南宁",
+      "isUnique": true,
+      "description": "壮族最古老之节日，源于先秦骆越人歌唱择偶之俗，山歌对唱、抛绣球、竹竿舞、五色糯米饭，于歌海之中感受\"以歌传情以歌择偶\"之骆越古韵。",
+      "type": "民俗节庆",
+      "heritageLevel": "国家级非遗",
+      "duration": "约3天",
+      "origin": "壮族三月三歌圩节是壮族最古老节日，源于先秦骆越人歌唱择偶习俗，2014年入选国家级非遗。",
+      "highlights": [
+        "山歌对唱比赛",
+        "抛绣球",
+        "竹竿舞",
+        "五色糯米饭",
+        "铜鼓表演"
+      ],
+      "bestTime": "农历三月初三",
+      "ticket": "免费",
+      "transport": "高铁至南宁东站，转公交至武鸣",
+      "tips": [
+        "三月三是广西法定假日",
+        "五色糯米饭为节日必备食品",
+        "歌圩对歌有特定礼仪，不宜打断"
+      ],
+      "relatedSpots": [
+        "青秀山",
+        "大明山",
+        "伊岭岩"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "桂林山水旅游节",
+      "month": "10月",
+      "day": "1日",
+      "location": "桂林",
+      "isUnique": false,
+      "description": "以桂林喀斯特地貌世界自然遗产为依托，漓江精华游船、印象刘三姐演出、山水摄影大赛，于\"桂林山水甲天下\"之境感受千年山水诗画之灵秀。",
+      "type": "旅游节庆",
+      "duration": "约5天",
+      "origin": "桂林山水旅游节始于1992年，以桂林喀斯特地貌世界自然遗产为依托。",
+      "highlights": [
+        "漓江精华游船",
+        "印象刘三姐演出",
+        "山水摄影大赛",
+        "攀岩体验",
+        "米粉文化节"
+      ],
+      "bestTime": "开幕日",
+      "ticket": "漓江游船¥215起",
+      "transport": "高铁至桂林站，转景区大巴",
+      "tips": [
+        "漓江游船需提前预订",
+        "4-10月为丰水期，景色最佳",
+        "印象刘三姐演出¥238另购"
+      ],
+      "relatedSpots": [
+        "漓江",
+        "阳朔",
+        "象鼻山"
+      ]
+    }
+  ],
   "activities": [
     {
       "id": "1",
@@ -822,7 +1133,11 @@
           "avgRating": 4.6,
           "bestSeason": "春秋 / 全年",
           "recommendedDays": "2-3 日",
-          "budget": "¥500-1200",
+          "budget": {
+            "currency": "¥",
+            "min": 500,
+            "max": 1200
+          },
           "intensity": "适中",
           "audience": "全人群",
           "highlights": [
@@ -848,7 +1163,11 @@
           "avgRating": 4.9,
           "bestSeason": "秋冬",
           "recommendedDays": "2 日",
-          "budget": "¥400-900",
+          "budget": {
+            "currency": "¥",
+            "min": 400,
+            "max": 900
+          },
           "intensity": "适中",
           "audience": "摄影/户外",
           "highlights": [
@@ -875,7 +1194,11 @@
           "avgRating": 4.8,
           "bestSeason": "夏秋",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-500",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 500
+          },
           "intensity": "轻松",
           "audience": "家庭/休闲",
           "highlights": [
@@ -908,7 +1231,11 @@
           "avgRating": 4.6,
           "bestSeason": "夏秋",
           "recommendedDays": "2-3 日",
-          "budget": "¥500-1500",
+          "budget": {
+            "currency": "¥",
+            "min": 500,
+            "max": 1500
+          },
           "intensity": "轻松",
           "audience": "家庭/度假",
           "highlights": [
@@ -940,7 +1267,11 @@
           "avgRating": 4.9,
           "bestSeason": "6-8月",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-500",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 500
+          },
           "intensity": "轻松",
           "audience": "家庭/亲子",
           "highlights": [
@@ -959,6 +1290,352 @@
           ]
         }
       ]
+    }
+  ],
+  "craftWorkshops": [
+    {
+      "id": "guangxi-craft-1",
+      "image": "https://picsum.photos/id/1342/600/400",
+      "category": "craft",
+      "name": "壮锦织造体验",
+      "type": "织锦",
+      "location": "靖西市壮锦工坊",
+      "duration": "3小时",
+      "difficulty": "中等",
+      "price": "150",
+      "rating": 4.7,
+      "reviewCount": 167,
+      "instructor": "壮锦传承人",
+      "heritageLevel": "national",
+      "highlights": [
+        "竹笼织机",
+        "五彩织锦",
+        "壮乡纹样"
+      ],
+      "steps": [
+        "选棉线",
+        "排经",
+        "穿综",
+        "织造"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "手工艺爱好者"
+      ],
+      "tags": [
+        "非遗",
+        "壮锦",
+        "壮族"
+      ],
+      "description": "壮锦位列中国四大名锦，始于宋代五彩斑斓，竹笼织机嘎吱作响。于靖西工坊亲手穿综织造，壮乡纹样在指尖流淌，感受这壮族千年织锦之华彩与骆越先民之智慧。"
+    },
+    {
+      "id": "guangxi-craft-2",
+      "image": "https://picsum.photos/id/1344/600/400",
+      "category": "craft",
+      "name": "钦州坭兴陶拉坯",
+      "type": "陶艺",
+      "location": "钦州坭兴陶艺城",
+      "duration": "3小时",
+      "difficulty": "简单",
+      "price": "180",
+      "rating": 4.6,
+      "reviewCount": 123,
+      "instructor": "坭兴陶艺师",
+      "heritageLevel": "national",
+      "highlights": [
+        "拉坯成型",
+        "窑变釉色",
+        "打磨抛光"
+      ],
+      "steps": [
+        "练泥",
+        "拉坯",
+        "雕刻",
+        "入窑"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "手工艺爱好者"
+      ],
+      "tags": [
+        "非遗",
+        "坭兴陶",
+        "钦州"
+      ],
+      "description": "钦州坭兴陶位列中国四大名陶，窑变之美不可方物，\"坭出四彩窑变万彩\"之奇。于陶艺城亲手拉坯入窑，烈火淬炼间釉色变幻莫测，感受这南国陶艺之窑变天工与千年传承。"
+    }
+  ],
+  "performances": [
+    {
+      "id": "guangxi-perf-1",
+      "image": "https://picsum.photos/id/2160/600/400",
+      "category": "performance",
+      "name": "印象刘三姐·阳朔实景",
+      "type": "大型实景",
+      "location": "桂林市阳朔县漓江印象剧场",
+      "duration": "1.5小时",
+      "difficulty": "简单",
+      "price": "238",
+      "rating": 4.9,
+      "reviewCount": 1234,
+      "highlights": [
+        "张艺谋导演作品",
+        "漓江十二公里实景",
+        "壮族歌仙传奇"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "情侣约会"
+      ],
+      "tags": [
+        "印象",
+        "实景",
+        "刘三姐"
+      ],
+      "description": "印象刘三姐以漓江十二公里为台，两岸峰林为幕。六百演员在江面上竹筏对歌，渔火点点如星落漓江，刘三姐的山歌穿云破雾，于这桂林山水甲天下的实景中，领略壮族歌仙之绝代风华。"
+    },
+    {
+      "id": "guangxi-perf-2",
+      "image": "https://picsum.photos/id/2161/600/400",
+      "category": "performance",
+      "name": "桂林千古情·宋城",
+      "type": "大型演出",
+      "location": "桂林市阳朔县千古情景区",
+      "duration": "1小时",
+      "difficulty": "简单",
+      "price": "260",
+      "rating": 4.8,
+      "reviewCount": 567,
+      "highlights": [
+        "桂林千年历史",
+        "靖江王府穿越",
+        "声光电水幕特效"
+      ],
+      "suitableFor": [
+        "家庭游客",
+        "文化体验者"
+      ],
+      "tags": [
+        "千古情",
+        "大型演出",
+        "桂林"
+      ],
+      "description": "桂林千古情以桂林千年为线，从甑皮岩先民到靖江王府，从刘三姐到抗战文化城，声光电水幕织就八桂画卷。于这宋城出品的大型演出中，在山水之外读懂桂林之人文厚度。"
+    },
+    {
+      "id": "guangxi-perf-3",
+      "image": "https://picsum.photos/id/2162/600/400",
+      "category": "performance",
+      "name": "侗族大歌·三江侗寨",
+      "type": "民族合唱",
+      "location": "柳州市三江县侗族村寨",
+      "duration": "1.5小时",
+      "difficulty": "简单",
+      "price": "免费",
+      "rating": 4.8,
+      "reviewCount": 234,
+      "highlights": [
+        "世界非遗多声部",
+        "无指挥无伴奏",
+        "鼓楼对歌千年"
+      ],
+      "suitableFor": [
+        "音乐爱好者",
+        "文化体验者"
+      ],
+      "tags": [
+        "非遗",
+        "大歌",
+        "侗族"
+      ],
+      "description": "侗族大歌众低独高多声部合唱，无指挥无伴奏却和谐如天成。鼓楼之下男女对歌通宵达旦，蝉虫鸟鸣皆入歌腔，于这歌养心饭养身的侗寨中，聆听人类口头非遗之天籁绝响。",
+      "heritageLevel": "national"
+    }
+  ],
+  "outdoorAdventure": [
+    {
+      "id": "guangxi-outdoor-1",
+      "image": "https://picsum.photos/id/1363/600/400",
+      "category": "outdoor",
+      "name": "猫儿山华南之巅徒步",
+      "type": "徒步穿越",
+      "location": "桂林兴安县猫儿山",
+      "duration": "1天",
+      "difficulty": "中等",
+      "price": "80",
+      "rating": 4.7,
+      "reviewCount": 567,
+      "totalAscent": 1200,
+      "maxElevation": 2141,
+      "routeType": "环线",
+      "surfaceType": "石阶",
+      "accessInfo": "高铁至最近站，转景区交通",
+      "gearList": [
+        "登山杖",
+        "冲锋衣",
+        "头灯",
+        "补给"
+      ],
+      "safetyTips": [
+        "海拔高注意保暖",
+        "迷路风险大需向导"
+      ],
+      "bestMonths": "4-5月·9-10月",
+      "highlights": [
+        "华南之巅",
+        "漓江源",
+        "原始森林"
+      ],
+      "tags": [
+        "徒步",
+        "华南之巅",
+        "原始森林"
+      ],
+      "description": "猫儿山为华南最高峰，海拔2141米称\"华南之巅\"，漓江发源于此。穿越原始森林至峰顶，云海翻涌如瑶池，古木参天蔽日，\"江源之上万山之巅\"之壮阔令人心胸豁然。"
+    },
+    {
+      "id": "guangxi-outdoor-2",
+      "image": "https://picsum.photos/id/1366/600/400",
+      "category": "outdoor",
+      "name": "漓江竹筏漂流",
+      "type": "水上漂流",
+      "location": "桂林阳朔漓江",
+      "duration": "半天",
+      "difficulty": "简单",
+      "price": "118",
+      "rating": 4.8,
+      "reviewCount": 8901,
+      "totalAscent": 0,
+      "maxElevation": 150,
+      "routeType": "往返",
+      "surfaceType": "石阶",
+      "accessInfo": "高铁至最近站，转景区交通",
+      "gearList": [
+        "防晒",
+        "救生衣",
+        "防水袋"
+      ],
+      "safetyTips": [
+        "穿救生衣",
+        "贵重物品防水"
+      ],
+      "bestMonths": "4-5月·9-10月",
+      "highlights": [
+        "竹筏漂流",
+        "九马画山",
+        "黄布倒影"
+      ],
+      "tags": [
+        "漂流",
+        "漓江",
+        "喀斯特"
+      ],
+      "description": "漓江位列世界自然遗产，竹筏漂流精华段两岸峰林如画。九马画山壁上骏马奔腾，黄布倒影滩上群峰映水，\"桂林山水甲天下\"之誉于此方得真证，人在画中游之诗意沁人心脾。"
+    }
+  ],
+  "wellnessRetreat": [
+    {
+      "id": "guangxi-wellness-1",
+      "image": "https://picsum.photos/id/2180/600/400",
+      "category": "wellness",
+      "name": "巴马长寿村养生探秘",
+      "type": "长寿养生",
+      "location": "河池市巴马县甲篆乡",
+      "duration": "2天",
+      "difficulty": "简单",
+      "price": "200",
+      "rating": 4.8,
+      "reviewCount": 432,
+      "efficacyTags": [
+        "世界长寿之乡",
+        "百岁老人访谈",
+        "富硒火麻食材"
+      ],
+      "bestSeason": "全年",
+      "packageIncludes": [
+        "住宿",
+        "长寿宴",
+        "向导"
+      ],
+      "suitableFor": [
+        "养生爱好者",
+        "银发族"
+      ],
+      "tags": [
+        "长寿",
+        "富硒",
+        "巴马"
+      ],
+      "description": "巴马世界长寿之乡，百岁老人比例冠绝全球。盘阳河畔富硒土壤火麻油为长寿秘诀，与百岁老人对坐聊家常，品长寿宴火麻汤，于这人瑞圣地探秘长寿密码，感悟淡泊宁静之养生真谛。"
+    },
+    {
+      "id": "guangxi-wellness-2",
+      "image": "https://picsum.photos/id/2181/600/400",
+      "category": "wellness",
+      "name": "漓江竹筏慢生活漂流",
+      "type": "慢生活",
+      "location": "桂林市漓江杨堤至兴坪段",
+      "duration": "半天",
+      "difficulty": "简单",
+      "price": "150",
+      "rating": 4.8,
+      "reviewCount": 567,
+      "efficacyTags": [
+        "漓江精华段漂流",
+        "二十元背景图",
+        "九马画山慢赏"
+      ],
+      "bestSeason": "春秋",
+      "packageIncludes": [
+        "竹筏",
+        "午餐",
+        "摄影"
+      ],
+      "suitableFor": [
+        "休闲度假",
+        "摄影爱好者"
+      ],
+      "tags": [
+        "慢生活",
+        "漓江",
+        "竹筏"
+      ],
+      "description": "漓江竹筏缓缓漂行，江作青罗带山如碧玉簪。从杨堤到兴坪，九马画山黄布倒影二十元背景图缓缓展开，于这甲天下的山水长卷中放空随波，尽享舟行碧波上人在画中游之慢。"
+    },
+    {
+      "id": "guangxi-wellness-3",
+      "image": "https://picsum.photos/id/2182/600/400",
+      "category": "wellness",
+      "name": "北海银滩海滨瑜伽日落",
+      "type": "瑜伽养生",
+      "location": "北海市银海区北海银滩",
+      "duration": "1.5小时",
+      "difficulty": "简单",
+      "price": "免费",
+      "rating": 4.7,
+      "reviewCount": 234,
+      "efficacyTags": [
+        "天下第一滩日落瑜伽",
+        "银沙细软赤足",
+        "海风冥想"
+      ],
+      "bestSeason": "春秋",
+      "packageIncludes": [
+        "瑜伽垫",
+        "免费",
+        "茶饮"
+      ],
+      "suitableFor": [
+        "瑜伽爱好者",
+        "休闲度假"
+      ],
+      "tags": [
+        "瑜伽",
+        "海滨",
+        "银滩"
+      ],
+      "description": "北海银滩滩长平沙细白水温净浪柔软无鲨鱼。于这天下第一滩铺开瑜伽垫，赤足踏银沙面朝落日，海风送来北部湾的温润，一呼一吸间余晖染金天际，尽享海滨瑜伽之畅然。"
     }
   ]
 }

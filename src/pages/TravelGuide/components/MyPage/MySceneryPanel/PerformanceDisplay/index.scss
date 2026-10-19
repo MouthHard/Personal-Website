@@ -1,0 +1,957 @@
+// ============================================================
+// PerformanceDisplay · 戏台红帷幕 (Stage Red Velvet Curtain) — 增强版
+// 视觉语言：鎏金幕杆 / 红丝绒幕布垂直褶皱 / 鎏金戏名投影 / 幕布拉开露舞台 / 金穗流苏
+// 色系：红丝绒 / 鎏金幕杆 / 暗红幕影 / 木质台基 / 金穗流苏
+// 三态：自然帷幕 → hover 幕布泛光+鎏金灼灼 → active 金光满台（无位移）
+// ============================================================
+
+// 红丝绒系
+$velvet: #9a1a1a;
+$velvet-bright: #c8281e;
+$velvet-light: #e8382a;
+$velvet-mid: #7a1212;
+$velvet-deep: #5a0808;
+$velvet-shadow: #2a0404;
+$velvet-dark: #1a0202;
+
+// 鎏金系
+$gold: #f5c860;
+$gold-bright: #fde08a;
+$gold-light: #fff3c4;
+$gold-deep: #b8862a;
+$gold-glow: #fff3c4;
+$gold-shadow: #6a4a10;
+$gold-dark: #4a3a08;
+
+// 木质台基系
+$wood: #4a3a1a;
+$wood-light: #6a4a2a;
+$wood-mid: #2a1a0a;
+$wood-deep: #1a0a04;
+
+// 文字
+$text-bright: #fff8e0;
+$text-mid: #f0d8a0;
+$text-dim: #c8a878;
+
+.curtain-wall {
+  list-style: none;
+  margin: 0;
+  padding: 24px 8px 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 28px;
+}
+
+// ============================================
+// 单座戏台帷幕
+// ============================================
+.curtain-set {
+  position: relative;
+  cursor: pointer;
+  transition: filter 0.3s ease;
+
+  // ── 鎏金幕杆 ──
+  .curtain-rod {
+    position: relative;
+    height: 18px;
+    margin: 0 4px;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+
+    .rod-bar {
+      flex: 1;
+      height: 10px;
+      background:
+        linear-gradient(180deg,
+          $gold-light 0%,
+          $gold-bright 15%,
+          $gold 35%,
+          $gold-deep 65%,
+          $gold-shadow 90%,
+          $gold-dark 100%),
+        repeating-linear-gradient(90deg,
+          transparent 0,
+          transparent 2px,
+          rgba(0, 0, 0, 0.06) 2px,
+          rgba(0, 0, 0, 0.06) 3px);
+      background-blend-mode: multiply, multiply;
+      border-radius: 5px;
+      box-shadow:
+        inset 0 1.5px 2px rgba(255, 240, 200, 0.7),
+        inset 0 -2px 3px rgba(0, 0, 0, 0.5),
+        inset 0 0 0 1px rgba($gold-deep, 0.4),
+        0 3px 6px rgba(0, 0, 0, 0.55),
+        0 1px 2px rgba(0, 0, 0, 0.4);
+    }
+
+    // 幕杆端帽（球形）
+    .rod-cap {
+      flex-shrink: 0;
+      width: 16px;
+      height: 14px;
+      background:
+        radial-gradient(ellipse 60% 80% at 35% 30%, $gold-light 0%, $gold-bright 25%, $gold 50%, $gold-deep 80%, $gold-shadow 100%);
+      border-radius: 50%;
+      box-shadow:
+        inset 0 1.5px 2px rgba(255, 240, 200, 0.6),
+        inset 0 -2px 3px rgba(0, 0, 0, 0.45),
+        0 2px 4px rgba(0, 0, 0, 0.5);
+
+      &.rod-cap-l { border-radius: 60% 40% 50% 50%; }
+      &.rod-cap-r { border-radius: 40% 60% 50% 50%; }
+    }
+
+    // 幕杆鎏金顶尖饰（火焰珠）
+    .rod-finial {
+      position: absolute;
+      top: -14px;
+      width: 14px;
+      height: 20px;
+      pointer-events: none;
+      z-index: 6;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 10px;
+        height: 16px;
+        background:
+          radial-gradient(ellipse 50% 50% at 50% 25%, $gold-light 0%, $gold-bright 30%, $gold 55%, $gold-deep 85%, $gold-shadow 100%);
+        border-radius: 50% 50% 50% 50% / 65% 65% 35% 35%;
+        box-shadow:
+          inset 0 1.5px 2px rgba(255, 240, 200, 0.6),
+          inset 0 -2px 3px rgba(0, 0, 0, 0.35),
+          0 2px 4px rgba(0, 0, 0, 0.45);
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 8px;
+        height: 8px;
+        background:
+          radial-gradient(circle at 35% 35%, $gold-bright 0%, $gold 40%, $gold-deep 100%);
+        border-radius: 50%;
+        box-shadow:
+          inset 0 1px 1px rgba(255, 240, 200, 0.5),
+          inset 0 -1px 2px rgba(0, 0, 0, 0.4),
+          0 1px 2px rgba(0, 0, 0, 0.4);
+      }
+
+      &.rod-finial-l { left: 6px; }
+      &.rod-finial-r { right: 6px; }
+    }
+  }
+
+  // ── 红丝绒幕布 ──
+  .curtain-drape {
+    position: relative;
+    margin: -6px 4px 0;
+    padding: 22px 18px 16px;
+    border-radius: 0 0 6px 6px;
+    background:
+      linear-gradient(180deg,
+        $velvet-light 0%,
+        $velvet-bright 8%,
+        $velvet 25%,
+        $velvet-mid 50%,
+        $velvet-deep 75%,
+        $velvet-shadow 95%,
+        $velvet-dark 100%);
+    border: 1px solid $velvet-shadow;
+    border-top: none;
+    box-shadow:
+      inset 0 0 0 1px rgba($gold-deep, 0.35),
+      inset 0 4px 14px rgba(0, 0, 0, 0.45),
+      inset 0 -4px 14px rgba(0, 0, 0, 0.55),
+      inset 4px 0 12px rgba(0, 0, 0, 0.35),
+      inset -4px 0 12px rgba(0, 0, 0, 0.35),
+      0 6px 16px rgba(0, 0, 0, 0.55),
+      0 2px 4px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    z-index: 2;
+    transition: box-shadow 0.3s ease;
+  }
+
+  // 垂直褶皱光影（更细腻更真实丝绒质感）
+  .drape-pleats {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      repeating-linear-gradient(90deg,
+        rgba(0, 0, 0, 0.32) 0px,
+        rgba(0, 0, 0, 0.22) 3px,
+        rgba(0, 0, 0, 0.12) 6px,
+        rgba(0, 0, 0, 0.04) 10px,
+        transparent 14px,
+        rgba(255, 200, 180, 0.03) 17px,
+        rgba(255, 200, 180, 0.08) 20px,
+        rgba(255, 200, 180, 0.12) 22px,
+        rgba(255, 200, 180, 0.08) 25px,
+        rgba(255, 200, 180, 0.03) 28px,
+        transparent 31px,
+        rgba(0, 0, 0, 0.04) 35px,
+        rgba(0, 0, 0, 0.12) 39px,
+        rgba(0, 0, 0, 0.22) 43px,
+        rgba(0, 0, 0, 0.32) 46px);
+    z-index: 0;
+  }
+
+  // 丝绒高光（绒毛质感+丝绸光泽）
+  .drape-sheen {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 75% 40% at 50% 6%, rgba(255, 210, 190, 0.22), transparent 70%),
+      radial-gradient(ellipse 55% 30% at 25% 45%, rgba(255, 200, 180, 0.1), transparent 70%),
+      radial-gradient(ellipse 55% 30% at 75% 45%, rgba(255, 200, 180, 0.1), transparent 70%),
+      radial-gradient(ellipse 40% 20% at 50% 70%, rgba(255, 190, 170, 0.06), transparent 70%),
+      radial-gradient(ellipse 95% 30% at 50% 94%, rgba(0, 0, 0, 0.28), transparent 70%);
+    z-index: 0;
+  }
+
+  // 幕布顶部挂环（鎏金吊环）
+  .drape-rings {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    pointer-events: none;
+    background:
+      repeating-linear-gradient(90deg,
+        transparent 0px,
+        transparent 26px,
+        rgba($gold-deep, 0.6) 26px,
+        rgba($gold-deep, 0.6) 28px,
+        rgba($gold, 0.4) 28px,
+        rgba($gold, 0.4) 30px,
+        transparent 30px,
+        transparent 34px);
+    z-index: 1;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  // ── 鎏金戏名投影 ──
+  .drape-title {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    margin-bottom: 14px;
+    padding: 6px 0;
+
+    .title-sub {
+      display: block;
+      font-size: 15px;
+      font-weight: 800;
+      color: $gold;
+      letter-spacing: 4px;
+      text-shadow:
+        0 0 8px rgba($gold-deep, 0.9),
+        0 0 16px rgba($gold-shadow, 0.5),
+        0 1px 1px rgba(0, 0, 0, 0.7);
+      margin-bottom: 7px;
+    }
+
+    .title-gold {
+      margin: 0;
+      font-size: 26px;
+      font-weight: 900;
+      color: $gold-bright;
+      letter-spacing: 4px;
+      line-height: 1.2;
+      text-shadow:
+        0 0 12px rgba($gold, 0.8),
+        0 0 24px rgba($gold-deep, 0.6),
+        0 0 36px rgba($gold-shadow, 0.4),
+        0 0 48px rgba($gold-dark, 0.2),
+        0 3px 0 rgba(0, 0, 0, 0.65),
+        0 5px 8px rgba(0, 0, 0, 0.5);
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    .title-heritage {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 9px;
+      padding: 5px 14px;
+      border-radius: 14px;
+      background:
+        linear-gradient(180deg, rgba($gold, 0.32), rgba($gold-deep, 0.2)),
+        radial-gradient(circle at 30% 30%, rgba($gold-bright, 0.22), transparent 70%);
+      border: 1.5px solid rgba($gold, 0.68);
+      box-shadow:
+        inset 0 1px 2px rgba(255, 240, 200, 0.4),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.3),
+        0 2px 5px rgba(0, 0, 0, 0.45),
+        0 0 12px rgba($gold, 0.28);
+      color: $gold-bright;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-shadow: 0 0 6px rgba($gold-deep, 0.9), 0 1px 1px rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  // ── 舞台剧照（幕布拉开露舞台）──
+  .stage-aperture {
+    position: relative;
+    z-index: 2;
+    margin: 0 auto 14px;
+    max-width: 100%;
+
+    // 左右幕布堆积褶皱（更立体）
+    .aperture-pleat {
+      position: absolute;
+      top: -6px;
+      bottom: -6px;
+      width: 18px;
+      z-index: 3;
+      pointer-events: none;
+
+      &.aperture-pleat-l {
+        left: -9px;
+        background:
+          linear-gradient(90deg,
+            $velvet-dark 0%,
+            $velvet-shadow 15%,
+            $velvet-deep 35%,
+            $velvet-mid 55%,
+            $velvet 75%,
+            transparent 100%),
+          repeating-linear-gradient(90deg,
+            transparent 0,
+            transparent 2px,
+            rgba(0, 0, 0, 0.25) 2px,
+            rgba(0, 0, 0, 0.25) 3px);
+        border-radius: 6px 0 0 6px;
+        box-shadow:
+          inset 0 3px 8px rgba(0, 0, 0, 0.5),
+          inset -3px 0 6px rgba(0, 0, 0, 0.35),
+          inset 0 -3px 8px rgba(0, 0, 0, 0.4),
+          3px 0 8px rgba(0, 0, 0, 0.5);
+      }
+
+      &.aperture-pleat-r {
+        right: -9px;
+        background:
+          linear-gradient(270deg,
+            $velvet-dark 0%,
+            $velvet-shadow 15%,
+            $velvet-deep 35%,
+            $velvet-mid 55%,
+            $velvet 75%,
+            transparent 100%),
+          repeating-linear-gradient(90deg,
+            transparent 0,
+            transparent 2px,
+            rgba(0, 0, 0, 0.25) 2px,
+            rgba(0, 0, 0, 0.25) 3px);
+        border-radius: 0 6px 6px 0;
+        box-shadow:
+          inset 0 3px 8px rgba(0, 0, 0, 0.5),
+          inset 3px 0 6px rgba(0, 0, 0, 0.35),
+          inset 0 -3px 8px rgba(0, 0, 0, 0.4),
+          -3px 0 8px rgba(0, 0, 0, 0.5);
+      }
+    }
+
+    .stage-photo {
+      position: relative;
+      border-radius: 2px;
+      overflow: hidden;
+      border: 2.5px solid $gold-deep;
+      box-shadow:
+        inset 0 0 0 1px rgba($gold, 0.5),
+        inset 0 0 0 2px rgba($gold-deep, 0.3),
+        inset 0 3px 10px rgba(0, 0, 0, 0.55),
+        0 4px 14px rgba(0, 0, 0, 0.65),
+        0 2px 4px rgba(0, 0, 0, 0.4);
+      aspect-ratio: 16 / 10;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        filter: saturate(1.12) brightness(1.06) contrast(1.06);
+      }
+
+      .photo-rating {
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        padding: 4px 11px;
+        border-radius: 3px;
+        background:
+          linear-gradient(180deg, rgba(255, 245, 220, 0.28) 0%, transparent 40%),
+          linear-gradient(135deg, rgba(255, 235, 190, 0.18) 0%, transparent 40%),
+          linear-gradient(180deg, rgba($velvet-dark, 0.9), rgba($velvet-shadow, 0.75)),
+          radial-gradient(circle at 30% 30%, rgba($gold, 0.18), transparent 70%);
+        border: 1.5px solid rgba($gold, 0.65);
+        color: $gold-bright;
+        font-size: 13px;
+        font-weight: 800;
+        text-shadow: 0 0 6px rgba($gold, 0.65), 0 1px 1px rgba(0, 0, 0, 0.5);
+        box-shadow:
+          inset 0 1.5px 2px rgba(255, 235, 190, 0.32),
+          inset 1px 1px 2px rgba(255, 230, 180, 0.28),
+          inset -1px -1px 2px rgba(0, 0, 0, 0.45),
+          inset 0 -2px 3px rgba(0, 0, 0, 0.4),
+          0 3px 6px rgba(0, 0, 0, 0.55),
+          0 1px 2px rgba(0, 0, 0, 0.35);
+
+        .rating-count {
+          color: $text-mid;
+          font-size: 11px;
+          font-weight: 600;
+        }
+      }
+
+      .photo-price {
+        position: absolute;
+        bottom: 8px;
+        right: 8px;
+        padding: 5px 13px;
+        border-radius: 2px;
+        background:
+          linear-gradient(180deg, rgba(255, 245, 220, 0.32) 0%, transparent 38%),
+          linear-gradient(135deg, rgba(255, 240, 200, 0.22) 0%, transparent 35%),
+          linear-gradient(180deg, $velvet-light 0%, $velvet-bright 30%, $velvet 60%, $velvet-deep 100%);
+        border: 1.5px solid rgba($gold, 0.65);
+        border-top-color: rgba($gold-bright, 0.85);
+        color: $gold-glow;
+        font-size: 16px;
+        font-weight: 900;
+        letter-spacing: 0.5px;
+        text-shadow: 0 0 7px rgba($gold, 0.65), 0 1px 1px rgba(0, 0, 0, 0.5);
+        box-shadow:
+          inset 0 1.5px 2.5px rgba(255, 230, 180, 0.38),
+          inset 1px 1px 2.5px rgba(255, 220, 170, 0.35),
+          inset -1px -1px 2.5px rgba(0, 0, 0, 0.4),
+          inset 0 -2px 3px rgba(0, 0, 0, 0.35),
+          0 3px 7px rgba(0, 0, 0, 0.6),
+          0 1px 2px rgba(0, 0, 0, 0.4);
+      }
+    }
+  }
+
+  // ── 演出信息 ──
+  .drape-info {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-bottom: 9px;
+
+    .info-chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 13px;
+      border-radius: 3px;
+      background:
+        linear-gradient(180deg, rgba(255, 245, 220, 0.3) 0%, transparent 40%),
+        linear-gradient(135deg, rgba(255, 235, 190, 0.22) 0%, rgba(255, 225, 170, 0.08) 30%, transparent 50%),
+        linear-gradient(180deg, rgba($gold, 0.32) 0%, rgba($gold-deep, 0.18) 100%),
+        radial-gradient(circle at 30% 30%, rgba($gold-bright, 0.18), transparent 70%);
+      border: 1.5px solid rgba($gold, 0.6);
+      border-top-color: rgba($gold-bright, 0.8);
+      box-shadow:
+        inset 0 1.5px 2.5px rgba(255, 235, 190, 0.35),
+        inset 1px 1px 2.5px rgba(255, 235, 190, 0.3),
+        inset -1px -1px 2.5px rgba(0, 0, 0, 0.4),
+        inset 0 -2px 3px rgba(0, 0, 0, 0.35),
+        0 3px 6px rgba(0, 0, 0, 0.5),
+        0 1px 2px rgba(0, 0, 0, 0.35),
+        0 0 10px rgba($gold, 0.2);
+      color: $text-bright;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+      text-shadow: 0 0 6px rgba($gold, 0.65), 0 1px 1px rgba(0, 0, 0, 0.5);
+    }
+
+    .info-sep {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, $gold-light 0%, $gold-bright 40%, $gold-deep 100%);
+      box-shadow: 0 0 5px rgba($gold, 0.8);
+    }
+
+    .info-text {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: $text-bright;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  // ── tags ──
+  .drape-tags {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+
+    .tag-tassel {
+      position: relative;
+      padding: 5px 13px 5px 15px;
+      border-radius: 1px 3px 3px 1px;
+      background:
+        linear-gradient(180deg, rgba(255, 245, 220, 0.3) 0%, transparent 40%),
+        linear-gradient(135deg, rgba(255, 230, 180, 0.17) 0%, rgba(255, 220, 160, 0.06) 25%, transparent 45%),
+        linear-gradient(180deg, #3a2a18 0%, #2a1a0a 50%, #1a0a04 100%),
+        repeating-linear-gradient(90deg, transparent 0, transparent 3px, rgba(0, 0, 0, 0.08) 3px, rgba(0, 0, 0, 0.08) 4px);
+      background-blend-mode: overlay, overlay, multiply, multiply;
+      border: 1.5px solid $gold-deep;
+      border-left: 3px solid $gold;
+      box-shadow:
+        inset 0 1.5px 2px rgba(255, 230, 180, 0.3),
+        inset 1px 1px 2px rgba(255, 220, 170, 0.28),
+        inset -1px -1px 2px rgba(0, 0, 0, 0.5),
+        inset 0 -2px 3px rgba(0, 0, 0, 0.45),
+        0 3px 6px rgba(0, 0, 0, 0.5),
+        0 1px 2px rgba(0, 0, 0, 0.35);
+      color: $gold-bright;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      text-shadow: 0 0 5px rgba($gold-deep, 0.7), 0 1px 1px rgba(0, 0, 0, 0.5);
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: -5px;
+        left: 10px;
+        width: 2px;
+        height: 6px;
+        background: linear-gradient(180deg, $gold 0%, $gold-deep 100%);
+        border-radius: 1px;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: 8px;
+        width: 6px;
+        height: 5px;
+        background: radial-gradient(ellipse 50% 60% at 50% 30%, $gold-bright 0%, $gold 40%, $gold-deep 100%);
+        border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+        box-shadow:
+          inset 0 0.5px 1px rgba(255, 240, 200, 0.5),
+          0 1px 1px rgba(0, 0, 0, 0.4);
+      }
+
+      &.tag-heritage {
+        background:
+          linear-gradient(180deg, rgba(255, 245, 220, 0.32) 0%, transparent 38%),
+          linear-gradient(135deg, rgba(255, 230, 180, 0.2) 0%, rgba(255, 220, 160, 0.07) 25%, transparent 45%),
+          linear-gradient(180deg, rgba($velvet-bright, 0.35) 0%, rgba($velvet-deep, 0.2) 100%),
+          linear-gradient(180deg, #3a2a18 0%, #1a0a04 100%),
+          repeating-linear-gradient(90deg, transparent 0, transparent 3px, rgba(0, 0, 0, 0.08) 3px, rgba(0, 0, 0, 0.08) 4px);
+        background-blend-mode: overlay, overlay, overlay, multiply, multiply;
+        border-color: $gold;
+        border-left-color: $gold-bright;
+        color: $gold-glow;
+        font-weight: 800;
+        text-shadow: 0 0 7px rgba($gold, 0.85), 0 1px 1px rgba(0, 0, 0, 0.5);
+        box-shadow:
+          inset 0 1.5px 2px rgba(255, 230, 180, 0.35),
+          inset 1px 1px 2.5px rgba(255, 220, 170, 0.32),
+          inset -1px -1px 2.5px rgba(0, 0, 0, 0.45),
+          inset 0 -2px 3px rgba(0, 0, 0, 0.4),
+          0 3px 6px rgba(0, 0, 0, 0.5),
+          0 0 10px rgba($gold, 0.3);
+      }
+    }
+  }
+
+  // ── 木质台基 ──
+  .curtain-base {
+    position: relative;
+    margin: 0 4px;
+    z-index: 2;
+
+    .base-top {
+      height: 7px;
+      background:
+        linear-gradient(135deg, rgba(255, 220, 170, 0.15) 0%, transparent 40%),
+        linear-gradient(180deg, $wood-light 0%, $wood 40%, $wood-mid 100%),
+        repeating-linear-gradient(90deg, transparent 0, transparent 4px, rgba(0, 0, 0, 0.08) 4px, rgba(0, 0, 0, 0.08) 5px);
+      background-blend-mode: overlay, multiply, multiply;
+      border-radius: 3px 3px 0 0;
+      box-shadow:
+        inset 0 1.5px 2px rgba(255, 200, 140, 0.2),
+        inset 0 -1.5px 2px rgba(0, 0, 0, 0.45),
+        inset 1px 0 2px rgba(255, 220, 170, 0.12),
+        0 1px 3px rgba(0, 0, 0, 0.45);
+    }
+
+    .base-body {
+      padding: 12px 16px 10px;
+      background:
+        linear-gradient(135deg, rgba(255, 220, 170, 0.12) 0%, rgba(255, 210, 150, 0.04) 30%, transparent 50%),
+        linear-gradient(180deg, $wood 0%, $wood-mid 50%, $wood-deep 100%),
+        repeating-linear-gradient(91deg, transparent 0, transparent 3px, rgba(0, 0, 0, 0.1) 3px, rgba(0, 0, 0, 0.1) 4px);
+      background-blend-mode: overlay, multiply, multiply;
+      border-radius: 0 0 4px 4px;
+      box-shadow:
+        inset 0 3px 6px rgba(0, 0, 0, 0.45),
+        inset 0 -3px 6px rgba(0, 0, 0, 0.55),
+        inset 2px 0 4px rgba(0, 0, 0, 0.3),
+        inset -2px 0 4px rgba(0, 0, 0, 0.3),
+        inset 1px 1px 3px rgba(255, 220, 170, 0.15),
+        0 6px 14px rgba(0, 0, 0, 0.55),
+        0 2px 4px rgba(0, 0, 0, 0.4);
+
+      .base-actions {
+        display: flex;
+        gap: 9px;
+        padding-top: 12px;
+        margin-bottom: 14px;
+
+        @mixin base-act-btn($c, $c-bright, $c-deep, $c-glow) {
+          position: relative;
+          flex: 1;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 6px;
+          padding: 13px 8px 16px;
+          border-radius: 13px;
+          cursor: pointer;
+          transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+          background:
+            linear-gradient(180deg, rgba(255, 250, 230, 0.32) 0%, transparent 42%),
+            linear-gradient(135deg, rgba(255, 240, 210, 0.2) 0%, rgba(255, 230, 190, 0.07) 30%, transparent 50%),
+            radial-gradient(ellipse 135% 118% at 50% 42%, $c 0%, $c-deep 55%, rgba(0, 0, 0, 0.5) 100%),
+            repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0 2px, transparent 2px 8px),
+            radial-gradient(ellipse 55% 45% at 28% 20%, rgba(255, 255, 255, 0.22), transparent 70%);
+          background-blend-mode: overlay, overlay, normal, overlay, normal;
+          border: none;
+          box-shadow:
+            inset 0 3px 5px rgba(255, 250, 230, 0.4),
+            inset 1.5px 1.5px 4px rgba(255, 240, 210, 0.25),
+            inset -1.5px -1.5px 4px rgba(0, 0, 0, 0.45),
+            inset 0 -6px 12px rgba(0, 0, 0, 0.55),
+            0 6px 14px rgba(0, 0, 0, 0.65),
+            0 2px 4px rgba(0, 0, 0, 0.4);
+          color: $text-bright;
+          font-size: 15px;
+          font-weight: 800;
+          letter-spacing: 1px;
+          text-shadow:
+            0 0 5px rgba($c, 0.45),
+            0 1px 2px rgba(0, 0, 0, 0.7);
+
+          // 鎏金灯盖（顶部横盖，圆润弧角）
+          &::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 24%;
+            right: 24%;
+            height: 8px;
+            background: linear-gradient(180deg, $gold-light 0%, $gold 40%, $gold-deep 100%);
+            border-radius: 7px 7px 3px 3px;
+            box-shadow:
+              inset 0 1px 1px rgba(255, 240, 200, 0.6),
+              inset 0 -1px 1px rgba(0, 0, 0, 0.3),
+              0 2px 4px rgba(0, 0, 0, 0.5);
+          }
+
+          // 鎏金灯座（底部横座）
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 20%;
+            right: 20%;
+            height: 7px;
+            background: linear-gradient(180deg, $gold-deep 0%, $gold 45%, $gold-deep 100%);
+            border-radius: 2px;
+            box-shadow:
+              inset 0 1px 1px rgba(255, 240, 200, 0.4),
+              inset 0 -1px 1px rgba(0, 0, 0, 0.35),
+              0 2px 3px rgba(0, 0, 0, 0.5);
+          }
+
+          &:hover {
+            background:
+              linear-gradient(180deg, rgba(255, 250, 230, 0.4) 0%, transparent 40%),
+              linear-gradient(135deg, rgba(255, 240, 210, 0.25) 0%, rgba(255, 230, 190, 0.08) 30%, transparent 50%),
+              radial-gradient(ellipse 135% 118% at 50% 42%, $c-bright 0%, $c 45%, $c-deep 100%),
+              repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.14) 0 2px, transparent 2px 8px),
+              radial-gradient(ellipse 55% 45% at 28% 20%, rgba(255, 255, 255, 0.35), transparent 70%);
+            background-blend-mode: overlay, overlay, normal, overlay, normal;
+            box-shadow:
+              inset 0 3px 6px rgba(255, 250, 230, 0.45),
+              inset 1.5px 1.5px 5px rgba(255, 240, 210, 0.3),
+              inset -1.5px -1.5px 4px rgba(0, 0, 0, 0.4),
+              inset 0 -6px 12px rgba(0, 0, 0, 0.48),
+              0 6px 14px rgba(0, 0, 0, 0.6),
+              0 2px 4px rgba(0, 0, 0, 0.35),
+              0 0 14px rgba($c, 0.5);
+            color: #fff;
+            text-shadow:
+              0 0 7px rgba($c-bright, 0.6),
+              0 1px 2px rgba(0, 0, 0, 0.6);
+          }
+
+          &.is-active {
+            background:
+              linear-gradient(180deg, rgba(255, 252, 240, 0.5) 0%, transparent 38%),
+              linear-gradient(135deg, rgba(255, 250, 230, 0.3) 0%, transparent 25%),
+              linear-gradient(135deg, $c-glow 0%, $c-bright 35%, $c 70%, $c-deep 100%),
+              radial-gradient(ellipse 60% 50% at 30% 25%, rgba(255, 255, 255, 0.4), transparent 70%),
+              repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.18) 0 2px, transparent 2px 8px);
+            background-blend-mode: overlay, overlay, normal, normal, overlay;
+            box-shadow:
+              inset 0 3px 6px rgba(255, 250, 230, 0.5),
+              inset 1.5px 1.5px 5px rgba(255, 245, 220, 0.35),
+              inset -1.5px -1.5px 5px rgba(0, 0, 0, 0.3),
+              inset 0 -5px 12px rgba(0, 0, 0, 0.35),
+              0 6px 14px rgba(0, 0, 0, 0.55),
+              0 0 20px rgba($c, 0.7),
+              0 0 34px rgba($c-glow, 0.45);
+            color: #fff;
+            font-weight: 900;
+            text-shadow:
+              0 0 10px rgba($c-glow, 0.85),
+              0 1px 3px rgba(0, 0, 0, 0.7),
+              0 -1px 0 rgba(0, 0, 0, 0.3);
+          }
+        }
+
+        .base-act {
+          &.act-fav { @include base-act-btn(#0277a8, #00b8d4, #004d5c, #4dd0e1); }
+          &.act-been { @include base-act-btn(#e67e00, #ff8f00, #b85c00, #ffb74d); }
+          &.act-share { @include base-act-btn(#00a844, #00c853, #006630, #5cd68a); }
+        }
+      }
+
+      .base-hint {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        padding-top: 6px;
+        border-top: 1px solid rgba($gold, 0.28);
+
+        span {
+          font-size: 15px;
+          font-weight: 800;
+          color: $gold;
+          letter-spacing: 3px;
+          text-shadow: 0 0 6px rgba($gold-deep, 0.8), 0 1px 1px rgba(0, 0, 0, 0.5);
+        }
+
+        .hint-arrow {
+          font-size: 18px;
+          color: $gold-bright;
+          text-shadow: 0 0 8px rgba($gold, 0.8);
+        }
+      }
+    }
+
+    // ── 金穗流苏（更精致）──
+    .base-tassels {
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-start;
+      padding: 4px 12px 0;
+
+      .tassel {
+        position: relative;
+        width: 4px;
+        height: 16px;
+        background: linear-gradient(180deg, $gold 0%, $gold-deep 60%, $gold-shadow 100%);
+        border-radius: 0 0 50% 50%;
+        box-shadow:
+          inset 0 -1px 1px rgba(0, 0, 0, 0.3),
+          inset 0 1px 1px rgba(255, 240, 200, 0.3);
+
+        // 穗头（球形结）
+        &::before {
+          content: '';
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 9px;
+          height: 10px;
+          background:
+            radial-gradient(ellipse 50% 60% at 50% 20%, $gold-light 0%, $gold-bright 25%, $gold 50%, $gold-deep 80%, $gold-shadow 100%);
+          border-radius: 50% 50% 50% 50% / 35% 35% 65% 65%;
+          box-shadow:
+            inset 0 1.5px 2px rgba(255, 240, 200, 0.5),
+            inset 0 -1.5px 2px rgba(0, 0, 0, 0.35),
+            0 1px 2px rgba(0, 0, 0, 0.4);
+        }
+
+        // 穗须（散开的金丝）
+        &::after {
+          content: '';
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 6px;
+          height: 7px;
+          margin-top: 6px;
+          background:
+            linear-gradient(180deg,
+              $gold-deep 0%,
+              $gold-shadow 40%,
+              transparent 100%),
+            repeating-linear-gradient(90deg,
+              transparent 0px,
+              transparent 1px,
+              rgba($gold, 0.4) 1px,
+              rgba($gold, 0.4) 2px);
+          border-radius: 0 0 40% 40%;
+        }
+      }
+    }
+  }
+
+  // ── hover：幕布泛光 + 鎏金灼灼（无位移）──
+  &:hover {
+    .curtain-drape {
+      box-shadow:
+        inset 0 0 0 1px rgba($gold-bright, 0.45),
+        inset 0 4px 14px rgba(0, 0, 0, 0.38),
+        inset 0 -4px 14px rgba(0, 0, 0, 0.48),
+        inset 4px 0 12px rgba(0, 0, 0, 0.28),
+        inset -4px 0 12px rgba(0, 0, 0, 0.28),
+        0 6px 16px rgba(0, 0, 0, 0.55),
+        0 0 24px rgba($velvet-light, 0.25),
+        0 0 12px rgba($gold, 0.15);
+    }
+
+    .drape-sheen {
+      background:
+        radial-gradient(ellipse 75% 40% at 50% 6%, rgba(255, 220, 200, 0.3), transparent 70%),
+        radial-gradient(ellipse 55% 30% at 25% 45%, rgba(255, 210, 190, 0.14), transparent 70%),
+        radial-gradient(ellipse 55% 30% at 75% 45%, rgba(255, 210, 190, 0.14), transparent 70%),
+        radial-gradient(ellipse 40% 20% at 50% 70%, rgba(255, 200, 180, 0.08), transparent 70%),
+        radial-gradient(ellipse 95% 30% at 50% 94%, rgba(0, 0, 0, 0.2), transparent 70%);
+    }
+
+    .drape-title .title-gold {
+      color: $gold-light;
+      text-shadow:
+        0 0 16px rgba($gold-bright, 0.9),
+        0 0 32px rgba($gold, 0.65),
+        0 0 48px rgba($gold-deep, 0.45),
+        0 0 64px rgba($gold-shadow, 0.25),
+        0 3px 0 rgba(0, 0, 0, 0.55),
+        0 5px 10px rgba(0, 0, 0, 0.45);
+    }
+
+    .drape-title .title-sub {
+      text-shadow:
+        0 0 10px rgba($gold, 0.9),
+        0 0 20px rgba($gold-deep, 0.6),
+        0 1px 1px rgba(0, 0, 0, 0.7);
+    }
+
+    .curtain-rod .rod-bar {
+      box-shadow:
+        inset 0 1.5px 2px rgba(255, 240, 200, 0.8),
+        inset 0 -2px 3px rgba(0, 0, 0, 0.4),
+        inset 0 0 0 1px rgba($gold, 0.5),
+        0 3px 6px rgba(0, 0, 0, 0.55),
+        0 0 14px rgba($gold, 0.4);
+    }
+
+    .curtain-rod .rod-finial::before {
+      box-shadow:
+        inset 0 1.5px 2px rgba(255, 240, 200, 0.7),
+        inset 0 -2px 3px rgba(0, 0, 0, 0.3),
+        0 2px 4px rgba(0, 0, 0, 0.45),
+        0 0 10px rgba($gold, 0.4);
+    }
+  }
+
+  // ── active：金光满台（无位移）──
+  &:active {
+    .curtain-drape {
+      box-shadow:
+        inset 0 0 0 1px rgba($gold-bright, 0.55),
+        inset 0 4px 14px rgba(0, 0, 0, 0.32),
+        inset 0 -4px 14px rgba(0, 0, 0, 0.42),
+        inset 4px 0 12px rgba(0, 0, 0, 0.22),
+        inset -4px 0 12px rgba(0, 0, 0, 0.22),
+        0 6px 16px rgba(0, 0, 0, 0.55),
+        0 0 30px rgba($gold, 0.3),
+        0 0 16px rgba($gold-bright, 0.2);
+    }
+
+    .drape-title .title-gold {
+      color: $gold-light;
+      text-shadow:
+        0 0 18px rgba($gold-light, 1),
+        0 0 36px rgba($gold-bright, 0.75),
+        0 0 54px rgba($gold, 0.5),
+        0 3px 0 rgba(0, 0, 0, 0.5),
+        0 5px 10px rgba(0, 0, 0, 0.4);
+    }
+  }
+
+  // ── 移除按钮 ──
+  .curtain-remove {
+    position: absolute;
+    top: 24px;
+    right: 12px;
+    width: 26px;
+    height: 26px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    border: 1.5px solid rgba($gold, 0.55);
+    background:
+      radial-gradient(circle at 35% 35%, rgba($velvet-bright, 0.9) 0%, rgba($velvet-deep, 0.92) 100%);
+    color: $gold-bright;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 10;
+    box-shadow:
+      inset 0 1px 1.5px rgba(255, 200, 140, 0.2),
+      inset 0 -1px 2px rgba(0, 0, 0, 0.4),
+      0 2px 4px rgba(0, 0, 0, 0.5);
+
+    &:hover {
+      background: radial-gradient(circle at 35% 35%, $velvet-light 0%, $velvet 100%);
+      color: $text-bright;
+      border-color: $gold-bright;
+      box-shadow:
+        inset 0 1px 1.5px rgba(255, 200, 140, 0.3),
+        0 0 10px rgba($gold, 0.6),
+        0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+  }
+}

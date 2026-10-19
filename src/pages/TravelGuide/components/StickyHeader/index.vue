@@ -14,7 +14,7 @@
 
     <div class="header-center">
       <div class="header-title">
-        <h1 class="hero-title">{{ currentProvinceName }}旅游指引</h1>
+        <h1 class="hero-title">{{ activeTab === 'mypage' ? '我的旅游足迹' : `${currentProvinceName}旅游指引` }}</h1>
       </div>
     </div>
 

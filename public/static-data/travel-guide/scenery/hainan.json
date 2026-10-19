@@ -14,7 +14,7 @@
       "rating": 4.8,
       "bestTime": "冬季",
       "location": "海南省三亚市",
-      "description": "东方夏威夷,中国著名的热带海滨旅游城市",
+      "description": "三亚，海南三亚，造化钟神秀，东方夏威夷，中国著名的热带海滨旅游城市，实乃游历海南不可错过之胜境。。碧海银沙椰风海韵，足以令旅人魂牵梦萦，心驰神往。",
       "highlight": "东方夏威夷,热带滨海胜地",
       "level": "5A景区",
       "rankBadge": "必去",
@@ -30,7 +30,6 @@
       ],
       "openTime": "全天开放",
       "visitDuration": "3-5天",
-      "popularity": "★★★★★",
       "audienceTags": [
         "度假游客",
         "家庭出游",
@@ -38,21 +37,57 @@
         "摄影爱好者"
       ],
       "ticketDetails": [
-        "三亚湾免费开放",
-        "亚龙湾沙滩免费",
-        "蜈支洲岛需另购票",
-        "部分景区单独收费"
+        {
+          "type": "三亚湾",
+          "price": "免费开放"
+        },
+        {
+          "type": "亚龙湾沙滩",
+          "price": "免费"
+        },
+        {
+          "type": "蜈支洲岛需另购票",
+          "price": ""
+        },
+        {
+          "type": "部分景区单独收费",
+          "price": ""
+        }
       ],
       "transportInfo": [
-        "飞机:三亚凤凰国际机场",
-        "高铁:海南环岛高铁三亚站",
-        "自驾:G98海南环岛高速",
-        "长途客运:三亚客运总站"
+        {
+          "mode": "飞机",
+          "detail": "三亚凤凰国际机场"
+        },
+        {
+          "mode": "高铁",
+          "detail": "海南环岛高铁三亚站"
+        },
+        {
+          "mode": "自驾",
+          "detail": "G98海南环岛高速"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "三亚客运总站"
+        }
       ],
       "openTimeDetail": [
-        "海滩区域 全天开放",
-        "景区一般 07:00-18:00",
-        "夜间活动 19:00-22:00"
+        {
+          "season": "海滩区域 全天开放",
+          "months": "",
+          "time": ""
+        },
+        {
+          "season": "景区一般",
+          "months": "",
+          "time": "07:00-18:00"
+        },
+        {
+          "season": "夜间活动",
+          "months": "",
+          "time": "19:00-22:00"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -82,8 +117,15 @@
               "detail": "海棠湾→免税购物中心→蜈支洲岛码头→温泉体验"
             }
           ],
-          "budget": "¥1500-3000",
-          "bestFor": "度假游客/家庭出游"
+          "budget": {
+            "currency": "¥",
+            "min": 1500,
+            "max": 3000
+          },
+          "bestFor": [
+            "度假游客",
+            "家庭出游"
+          ]
         },
         {
           "name": "海岛探险游",
@@ -107,8 +149,15 @@
               "detail": "分界洲岛登岛→海洋乐园→海钓平台→拖伞体验"
             }
           ],
-          "budget": "¥1000-2000",
-          "bestFor": "潜水爱好者/年轻群体"
+          "budget": {
+            "currency": "¥",
+            "min": 1000,
+            "max": 2000
+          },
+          "bestFor": [
+            "潜水爱好者",
+            "年轻群体"
+          ]
         }
       ],
       "facilities": [
@@ -154,7 +203,7 @@
       "rating": 4.7,
       "bestTime": "冬季",
       "location": "海南省三亚市吉阳区",
-      "description": "天下第一湾,中国最美的海湾之一",
+      "description": "坐落于琼崖大地的亚龙湾，海南亚龙湾，鬼斧神工天作之美，天下第一湾，中国最美的海湾之一，实乃游历海南不可错过之胜境。。碧海银沙椰风海韵，堪称天地造化与人文底蕴之交响。",
       "highlight": "天下第一湾,最美热带海湾",
       "level": "5A景区",
       "rankBadge": "必去",
@@ -170,7 +219,6 @@
       ],
       "openTime": "全天开放",
       "visitDuration": "1-2天",
-      "popularity": "★★★★★",
       "audienceTags": [
         "度假游客",
         "潜水爱好者",
@@ -178,21 +226,57 @@
         "情侣蜜月"
       ],
       "ticketDetails": [
-        "沙滩免费开放",
-        "亚龙湾海底世界¥130",
-        "贝壳馆¥30",
-        "蝴蝶谷¥30"
+        {
+          "type": "沙滩",
+          "price": "免费开放"
+        },
+        {
+          "type": "亚龙湾海底世界",
+          "price": "¥130"
+        },
+        {
+          "type": "贝壳馆",
+          "price": "¥30"
+        },
+        {
+          "type": "蝴蝶谷",
+          "price": "¥30"
+        }
       ],
       "transportInfo": [
-        "飞机:三亚凤凰国际机场约30km",
-        "高铁:三亚站约20km",
-        "自驾:G98环岛高速亚龙湾出口",
-        "长途客运:三亚公交15路可达"
+        {
+          "mode": "飞机",
+          "detail": "三亚凤凰国际机场约30km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "三亚站约20km"
+        },
+        {
+          "mode": "自驾",
+          "detail": "G98环岛高速亚龙湾出口"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "三亚公交15路可达"
+        }
       ],
       "openTimeDetail": [
-        "沙滩区域 全天开放",
-        "景区 08:00-17:30",
-        "夜间活动 19:00-22:00"
+        {
+          "season": "沙滩区域 全天开放",
+          "months": "",
+          "time": ""
+        },
+        {
+          "season": "景区",
+          "months": "",
+          "time": "08:00-17:30"
+        },
+        {
+          "season": "夜间活动",
+          "months": "",
+          "time": "19:00-22:00"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -212,8 +296,15 @@
               "detail": "亚龙湾沙滩漫步→日光浴→海滨浴场→沙滩日落"
             }
           ],
-          "budget": "¥200-500",
-          "bestFor": "度假游客/情侣蜜月"
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 500
+          },
+          "bestFor": [
+            "度假游客",
+            "情侣蜜月"
+          ]
         },
         {
           "name": "海底探秘游",
@@ -232,8 +323,15 @@
               "detail": "亚龙湾海底世界→潜水体验→玻璃观光船→贝壳馆"
             }
           ],
-          "budget": "¥400-800",
-          "bestFor": "潜水爱好者/家庭出游"
+          "budget": {
+            "currency": "¥",
+            "min": 400,
+            "max": 800
+          },
+          "bestFor": [
+            "潜水爱好者",
+            "家庭出游"
+          ]
         }
       ],
       "facilities": [
@@ -279,7 +377,7 @@
       "rating": 4.5,
       "bestTime": "全年",
       "location": "海南省三亚市天涯区",
-      "description": "海南最具代表性的景点,爱情的象征",
+      "description": "琼崖天涯海角，海南天涯海角，古迹斑驳岁月悠悠，海南最具代表性的景点，爱情的象征，实乃游历海南不可错过之胜境。。每一处景致皆是造物主的匠心独运。",
       "highlight": "天之涯海之角,浪漫地标",
       "level": "4A景区",
       "reviewCount": "76,543条点评",
@@ -291,7 +389,6 @@
       ],
       "openTime": "07:30-18:00",
       "visitDuration": "2-3小时",
-      "popularity": "★★★★☆",
       "audienceTags": [
         "情侣蜜月",
         "摄影爱好者",
@@ -299,21 +396,57 @@
         "家庭出游"
       ],
       "ticketDetails": [
-        "成人票¥81",
-        "学生票半价",
-        "60岁以上老人免票",
-        "1.2米以下儿童免票"
+        {
+          "type": "成人票",
+          "price": "¥81"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "60岁以上老人",
+          "price": "免票"
+        },
+        {
+          "type": "1.2米以下儿童",
+          "price": "免票"
+        }
       ],
       "transportInfo": [
-        "飞机:三亚凤凰国际机场约25km",
-        "高铁:三亚站约20km",
-        "自驾:G98环岛高速天涯出口",
-        "长途客运:三亚公交26路可达"
+        {
+          "mode": "飞机",
+          "detail": "三亚凤凰国际机场约25km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "三亚站约20km"
+        },
+        {
+          "mode": "自驾",
+          "detail": "G98环岛高速天涯出口"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "三亚公交26路可达"
+        }
       ],
       "openTimeDetail": [
-        "旺季(11-4月) 07:30-18:00",
-        "淡季(5-10月) 07:30-18:00",
-        "建议上午游览避开正午高温"
+        {
+          "season": "旺季",
+          "months": "11-4月",
+          "time": "07:30-18:00"
+        },
+        {
+          "season": "淡季",
+          "months": "5-10月",
+          "time": "07:30-18:00"
+        },
+        {
+          "season": "建议上午游览避开正午高温",
+          "months": "",
+          "time": ""
+        }
       ],
       "recommendedRoutes": [
         {
@@ -333,8 +466,15 @@
               "detail": "天涯石→海角石→南天一柱→爱情广场"
             }
           ],
-          "budget": "¥100-200",
-          "bestFor": "情侣蜜月/首次游览"
+          "budget": {
+            "currency": "¥",
+            "min": 100,
+            "max": 200
+          },
+          "bestFor": [
+            "情侣蜜月",
+            "首次游览"
+          ]
         },
         {
           "name": "海滨漫步游",
@@ -353,8 +493,15 @@
               "detail": "沙滩漫步→礁石观海→爱情广场→海滨栈道"
             }
           ],
-          "budget": "¥100-200",
-          "bestFor": "情侣蜜月/摄影爱好者"
+          "budget": {
+            "currency": "¥",
+            "min": 100,
+            "max": 200
+          },
+          "bestFor": [
+            "情侣蜜月",
+            "摄影爱好者"
+          ]
         }
       ],
       "facilities": [
@@ -400,7 +547,7 @@
       "rating": 4.6,
       "bestTime": "全年",
       "location": "海南省三亚市崖州区",
-      "description": "中国最南端的山,佛教文化圣地",
+      "description": "南山文化旅游区者，琼崖之胜境也。海南南山文化旅游区，人文底蕴深厚之地，中国最南端的山，佛教文化圣地，实乃游历海南不可错过之胜境。。当属此地名胜之首推，不容错过。",
       "highlight": "海上观音圣像,佛教文化胜地",
       "level": "5A景区",
       "rankBadge": "圣地",
@@ -412,7 +559,6 @@
       ],
       "openTime": "08:00-17:30",
       "visitDuration": "半天",
-      "popularity": "★★★★☆",
       "audienceTags": [
         "佛教信众",
         "文化爱好者",
@@ -420,21 +566,57 @@
         "银发游客"
       ],
       "ticketDetails": [
-        "成人票¥122",
-        "学生票半价",
-        "1.2米以下儿童免票",
-        "60岁以上老人免票"
+        {
+          "type": "成人票",
+          "price": "¥122"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "1.2米以下儿童",
+          "price": "免票"
+        },
+        {
+          "type": "60岁以上老人",
+          "price": "免票"
+        }
       ],
       "transportInfo": [
-        "飞机:三亚凤凰国际机场约40km",
-        "高铁:三亚站约45km",
-        "自驾:G98环岛高速崖州出口",
-        "长途客运:三亚公交25路可达"
+        {
+          "mode": "飞机",
+          "detail": "三亚凤凰国际机场约40km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "三亚站约45km"
+        },
+        {
+          "mode": "自驾",
+          "detail": "G98环岛高速崖州出口"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "三亚公交25路可达"
+        }
       ],
       "openTimeDetail": [
-        "景区 08:00-17:30",
-        "海上观音 08:00-17:00",
-        "素斋供应 11:00-13:30"
+        {
+          "season": "景区",
+          "months": "",
+          "time": "08:00-17:30"
+        },
+        {
+          "season": "海上观音",
+          "months": "",
+          "time": "08:00-17:00"
+        },
+        {
+          "season": "素斋供应",
+          "months": "",
+          "time": "11:00-13:30"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -454,8 +636,15 @@
               "detail": "南山寺→海上观音圣像→金玉观音阁→素斋体验"
             }
           ],
-          "budget": "¥200-400",
-          "bestFor": "佛教信众/银发游客"
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
+          "bestFor": [
+            "佛教信众",
+            "银发游客"
+          ]
         },
         {
           "name": "文化深度游",
@@ -475,8 +664,15 @@
               "detail": "不二法门→南山寺→金玉观音阁→长寿谷→素斋午餐"
             }
           ],
-          "budget": "¥300-500",
-          "bestFor": "文化爱好者/家庭出游"
+          "budget": {
+            "currency": "¥",
+            "min": 300,
+            "max": 500
+          },
+          "bestFor": [
+            "文化爱好者",
+            "家庭出游"
+          ]
         }
       ],
       "facilities": [
@@ -523,7 +719,7 @@
       "rating": 4.6,
       "bestTime": "全年",
       "location": "海南省三亚市海棠区",
-      "description": "中国的马尔代夫,潜水胜地",
+      "description": "名为蜈支洲岛，海南蜈支洲岛，造化钟神秀，中国的马尔代夫，潜水胜地，实乃游历海南不可错过之胜境。。碧海银沙椰风海韵，令人叹为观止，流连忘返。",
       "highlight": "中国的马尔代夫,潜水胜地",
       "level": "5A景区",
       "rankBadge": "网红",
@@ -539,7 +735,6 @@
       ],
       "openTime": "08:00-17:30",
       "visitDuration": "1天",
-      "popularity": "★★★★★",
       "audienceTags": [
         "潜水爱好者",
         "水上运动",
@@ -547,21 +742,57 @@
         "年轻群体"
       ],
       "ticketDetails": [
-        "成人票¥168(含船票)",
-        "学生票半价",
-        "1.2米以下儿童免票",
-        "水上项目另收费"
+        {
+          "type": "成人票¥168(含船票)",
+          "price": ""
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "1.2米以下儿童",
+          "price": "免票"
+        },
+        {
+          "type": "水上项目另收费",
+          "price": ""
+        }
       ],
       "transportInfo": [
-        "飞机:三亚凤凰国际机场约30km",
-        "高铁:三亚站约30km",
-        "自驾:G98环岛高速海棠湾出口",
-        "长途客运:三亚公交28路至码头"
+        {
+          "mode": "飞机",
+          "detail": "三亚凤凰国际机场约30km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "三亚站约30km"
+        },
+        {
+          "mode": "自驾",
+          "detail": "G98环岛高速海棠湾出口"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "三亚公交28路至码头"
+        }
       ],
       "openTimeDetail": [
-        "登岛 08:00-16:00",
-        "离岛 17:30末班",
-        "水上项目 09:00-17:00"
+        {
+          "season": "登岛",
+          "months": "",
+          "time": "08:00-16:00"
+        },
+        {
+          "season": "离岛 17:30末班",
+          "months": "",
+          "time": ""
+        },
+        {
+          "season": "水上项目",
+          "months": "",
+          "time": "09:00-17:00"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -581,8 +812,15 @@
               "detail": "电瓶车环岛→观日岩→妈祖庙→情人桥"
             }
           ],
-          "budget": "¥200-400",
-          "bestFor": "度假游客/家庭出游"
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
+          "bestFor": [
+            "度假游客",
+            "家庭出游"
+          ]
         },
         {
           "name": "水上运动游",
@@ -602,8 +840,15 @@
               "detail": "潜水体验→摩托艇→拖伞→海底漫步→情人桥日落"
             }
           ],
-          "budget": "¥800-1500",
-          "bestFor": "水上运动/年轻群体"
+          "budget": {
+            "currency": "¥",
+            "min": 800,
+            "max": 1500
+          },
+          "bestFor": [
+            "水上运动",
+            "年轻群体"
+          ]
         }
       ],
       "facilities": [
@@ -693,42 +938,42 @@
       {
         "name": "三亚",
         "image": "https://picsum.photos/id/1520/600/400",
-        "description": "东方夏威夷,中国著名的热带海滨旅游城市"
+        "description": "坐落于琼崖大地的三亚，三亚——东方夏威夷，中国著名的热带海滨旅游城市，实乃游历此地不可错过之胜境。。每一处景致皆是造物主的匠心独运。"
       },
       {
         "name": "亚龙湾",
         "image": "https://picsum.photos/id/1521/600/400",
-        "description": "天下第一湾,中国最美的海湾之一"
+        "description": "琼崖亚龙湾，海南名胜亚龙湾，天下第一湾，中国最美的海湾之一，令人心驰神往流连忘返。。当属此地名胜之首推，不容错过。"
       },
       {
         "name": "天涯海角",
         "image": "https://picsum.photos/id/1522/600/400",
-        "description": "海南最具代表性的景点,爱情的象征"
+        "description": "天涯海角者，琼崖之胜境也。天涯海角者，海南之海南最具代表性的景点，爱情的象征，堪称此地风光之冠冕。。令人叹为观止，流连忘返。"
       },
       {
         "name": "南山文化旅游区",
         "image": "https://picsum.photos/id/1523/600/400",
-        "description": "中国最南端的山,佛教文化圣地"
+        "description": "名为南山文化旅游区，誉为海南明珠的南山文化旅游区，中国最南端的山，佛教文化圣地，每一处皆是造化与人文的交响。。实乃游历此地不可错过之胜境。"
       },
       {
         "name": "蜈支洲岛",
         "image": "https://picsum.photos/id/1524/600/400",
-        "description": "中国的马尔代夫,潜水胜地"
+        "description": "琼崖名胜蜈支洲岛，蜈支洲岛，中国的马尔代夫，潜水胜地，足以令旅人魂牵梦萦。。足以令旅人魂牵梦萦，心驰神往。"
       },
       {
         "name": "海口骑楼老街",
         "image": "https://picsum.photos/id/1525/600/400",
-        "description": "海口最具特色的历史文化街区"
+        "description": "海口骑楼老街，海口骑楼老街——海口最具特色的历史文化街区，当属此地名胜之首推。。堪称天地造化与人文底蕴之交响。"
       },
       {
         "name": "分界洲岛",
         "image": "https://picsum.photos/id/1526/600/400",
-        "description": "美丽的海岛,水上运动的天堂"
+        "description": "坐落于琼崖大地的分界洲岛，海南名胜分界洲岛，美丽的海岛，水上运动的天堂，实乃游历此地不可错过之胜境。。每一处景致皆是造物主的匠心独运。"
       },
       {
         "name": "博鳌",
         "image": "https://picsum.photos/id/1527/600/400",
-        "description": "博鳌亚洲论坛永久会址所在地"
+        "description": "琼崖博鳌，博鳌者，海南之博鳌亚洲论坛永久会址所在地，令人心驰神往流连忘返。。当属此地名胜之首推，不容错过。"
       }
     ]
   },
@@ -778,7 +1023,73 @@
       "description": "温暖如春,是海南旅游的最佳时节"
     }
   ],
-  "festivals": [],
+  "festivals": [
+    {
+      "id": "1",
+      "name": "海南国际旅游岛欢乐节",
+      "month": "11月",
+      "day": "20日",
+      "location": "海口",
+      "isUnique": true,
+      "description": "海南最大旅游节庆，开幕式大型演出、国际沙滩音乐节、高尔夫邀请赛、免税购物节，于椰风海韵中感受这热带海岛之欢乐盛典与度假天堂之惬意。",
+      "type": "旅游节庆",
+      "duration": "约15天",
+      "origin": "海南国际旅游岛欢乐节始于2000年，原名海南岛欢乐节，是海南最大旅游节庆活动。",
+      "highlights": [
+        "开幕式大型演出",
+        "国际沙滩音乐节",
+        "高尔夫邀请赛",
+        "免税购物节",
+        "海岛婚摄展"
+      ],
+      "bestTime": "开幕周末",
+      "ticket": "免费（部分活动收费）",
+      "transport": "飞机至海口美兰机场",
+      "tips": [
+        "海南11月气候温暖宜人",
+        "防晒霜必备",
+        "免税购物需出示离岛凭证"
+      ],
+      "relatedSpots": [
+        "骑楼老街",
+        "假日海滩",
+        "火山口公园"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "三月三爱情节",
+      "month": "3月",
+      "day": "3日",
+      "location": "三亚",
+      "isUnique": false,
+      "description": "黎族苗族传统节日，源于黎族祖先创世传说，黎族对歌、竹竿舞、黎锦技艺展示、篝火晚会，于五指山下感受这\"东方情人节\"之原始浪漫与黎苗风情之热烈。",
+      "type": "民俗节庆",
+      "heritageLevel": "国家级非遗",
+      "duration": "约3天",
+      "origin": "三月三爱情节是黎族苗族传统节日，源于黎族祖先创世传说，2006年入选国家级非遗。",
+      "highlights": [
+        "黎族对歌",
+        "竹竿舞",
+        "黎锦技艺展示",
+        "传统射弩",
+        "篝火晚会"
+      ],
+      "bestTime": "农历三月初三",
+      "ticket": "免费",
+      "transport": "飞机至三亚，转大巴至保亭或五指山",
+      "tips": [
+        "三月三是海南黎族苗族法定假日",
+        "黎锦为世界非遗，可作纪念品",
+        "山区蚊虫多，带驱蚊用品"
+      ],
+      "relatedSpots": [
+        "五指山",
+        "槟榔谷",
+        "天涯海角"
+      ]
+    }
+  ],
   "activities": [
     {
       "id": "1",
@@ -818,7 +1129,11 @@
           "avgRating": 4.6,
           "bestSeason": "春秋 / 全年",
           "recommendedDays": "2-3 日",
-          "budget": "¥500-1200",
+          "budget": {
+            "currency": "¥",
+            "min": 500,
+            "max": 1200
+          },
           "intensity": "适中",
           "audience": "全人群",
           "highlights": [
@@ -850,7 +1165,11 @@
           "avgRating": 4.4,
           "bestSeason": "全年",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-400",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
           "intensity": "轻松",
           "audience": "文化/家庭",
           "highlights": [
@@ -874,7 +1193,11 @@
           "avgRating": 4.6,
           "bestSeason": "全年",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-400",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
           "intensity": "轻松",
           "audience": "银发/养心",
           "highlights": [
@@ -906,7 +1229,11 @@
           "avgRating": 4.6,
           "bestSeason": "夏秋",
           "recommendedDays": "2-3 日",
-          "budget": "¥500-1500",
+          "budget": {
+            "currency": "¥",
+            "min": 500,
+            "max": 1500
+          },
           "intensity": "轻松",
           "audience": "家庭/度假",
           "highlights": [
@@ -928,6 +1255,352 @@
           ]
         }
       ]
+    }
+  ],
+  "craftWorkshops": [
+    {
+      "id": "hainan-craft-1",
+      "image": "https://picsum.photos/id/1342/600/400",
+      "category": "craft",
+      "name": "黎锦腰织体验",
+      "type": "织锦",
+      "location": "保亭县槟榔谷",
+      "duration": "3小时",
+      "difficulty": "中等",
+      "price": "150",
+      "rating": 4.8,
+      "reviewCount": 234,
+      "instructor": "黎锦传承人",
+      "heritageLevel": "world",
+      "highlights": [
+        "腰织机织造",
+        "黎族纹样",
+        "扎染絣织"
+      ],
+      "steps": [
+        "整经",
+        "絣染",
+        "腰织",
+        "修整"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "手工艺爱好者"
+      ],
+      "tags": [
+        "非遗",
+        "黎锦",
+        "世界遗产"
+      ],
+      "description": "黎锦乃世界非遗之珍，腰织机为最古老织机，\"吉贝\"纺织千年传承。于槟榔谷腰织机前亲手穿综，黎族纹样在指尖流淌，感受这海南先民之纺织智慧与黎锦华彩之千年不辍。"
+    },
+    {
+      "id": "hainan-craft-2",
+      "image": "https://picsum.photos/id/1344/600/400",
+      "category": "craft",
+      "name": "海南椰雕",
+      "type": "雕刻",
+      "location": "海口市椰雕工坊",
+      "duration": "3小时",
+      "difficulty": "简单",
+      "price": "100",
+      "rating": 4.5,
+      "reviewCount": 67,
+      "instructor": "椰雕艺人",
+      "heritageLevel": "national",
+      "highlights": [
+        "椰壳雕刻",
+        "镶嵌工艺",
+        "椰雕器皿"
+      ],
+      "steps": [
+        "选椰壳",
+        "设计",
+        "雕刻",
+        "抛光"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "手工艺爱好者"
+      ],
+      "tags": [
+        "非遗",
+        "椰雕",
+        "海南"
+      ],
+      "description": "海南椰雕始于唐代，以椰壳为材雕琢成器，\"椰壳虽小可容天地\"之趣。于工坊选椰壳雕刻抛光，椰雕器皿质朴而雅致，感受这天涯海岛之椰风工艺与南国匠心之巧。"
+    }
+  ],
+  "performances": [
+    {
+      "id": "hainan-perf-1",
+      "image": "https://picsum.photos/id/2200/600/400",
+      "category": "performance",
+      "name": "三亚千古情·宋城",
+      "type": "大型演出",
+      "location": "三亚市吉阳区千古情景区",
+      "duration": "1小时",
+      "difficulty": "简单",
+      "price": "280",
+      "rating": 4.9,
+      "reviewCount": 678,
+      "highlights": [
+        "三亚千年历史",
+        "落笔洞先民",
+        "海上丝路风情"
+      ],
+      "suitableFor": [
+        "家庭游客",
+        "文化体验者"
+      ],
+      "tags": [
+        "千古情",
+        "大型演出",
+        "三亚"
+      ],
+      "description": "三亚千古情以鹿城千年为线，从落笔洞先民到海上丝路，从冼夫人到鹿回头传说，声光电水幕织就天涯画卷。于这宋城出品的大型演出中，在椰风海韵之外读懂三亚之人文厚度。"
+    },
+    {
+      "id": "hainan-perf-2",
+      "image": "https://picsum.photos/id/2201/600/400",
+      "category": "performance",
+      "name": "《浪漫天涯》实景演出",
+      "type": "大型实景",
+      "location": "三亚市天涯海角游览区",
+      "duration": "1.5小时",
+      "difficulty": "简单",
+      "price": "200",
+      "rating": 4.8,
+      "reviewCount": 345,
+      "highlights": [
+        "天涯海角实景",
+        "黎苗歌舞风情",
+        "海上日落舞台"
+      ],
+      "suitableFor": [
+        "情侣约会",
+        "文化体验者"
+      ],
+      "tags": [
+        "实景演出",
+        "天涯",
+        "浪漫"
+      ],
+      "description": "天涯海角礁石为台，碧海落日为幕。黎苗歌舞在沙滩上翩跹，竹竿舞邀客共跳，海上日落将南天一柱染成金剪影，于这天之涯海之角的实景浪漫中，感受陪你到天涯海角之极致柔情。"
+    },
+    {
+      "id": "hainan-perf-3",
+      "image": "https://picsum.photos/id/2202/600/400",
+      "category": "performance",
+      "name": "黎族打柴舞·三亚黎寨",
+      "type": "民族舞蹈",
+      "location": "三亚市槟榔河黎苗文化旅游区",
+      "duration": "1小时",
+      "difficulty": "简单",
+      "price": "60",
+      "rating": 4.6,
+      "reviewCount": 234,
+      "highlights": [
+        "竹竿舞互动",
+        "黎族打柴绝技",
+        "三月三对歌"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "家庭游客"
+      ],
+      "tags": [
+        "非遗",
+        "黎族",
+        "竹竿舞"
+      ],
+      "description": "黎族打柴舞竹竿开合如机杼穿梭，舞者在竹间腾跃轻灵如燕。呃呃呼喝节奏由缓入急，一不留神脚踝被夹引满堂大笑，于这海南第一舞中与黎族乡亲共舞，感受黎族三月三之欢乐奔放。",
+      "heritageLevel": "national"
+    }
+  ],
+  "outdoorAdventure": [
+    {
+      "id": "hainan-outdoor-1",
+      "image": "https://picsum.photos/id/1363/600/400",
+      "category": "outdoor",
+      "name": "五指山热带雨林穿越",
+      "type": "雨林穿越",
+      "location": "五指山市热带雨林",
+      "duration": "1天",
+      "difficulty": "中等",
+      "price": "50",
+      "rating": 4.7,
+      "reviewCount": 678,
+      "totalAscent": 800,
+      "maxElevation": 1867,
+      "routeType": "环线",
+      "surfaceType": "石阶",
+      "accessInfo": "高铁至最近站，转景区交通",
+      "gearList": [
+        "溯溪鞋",
+        "防水袋",
+        "驱蚊",
+        "砍刀"
+      ],
+      "safetyTips": [
+        "雨林易迷路需向导",
+        "注意蛇虫蚂蟥"
+      ],
+      "bestMonths": "4-5月·9-10月",
+      "highlights": [
+        "热带雨林",
+        "溯溪穿越",
+        "珍稀植物"
+      ],
+      "tags": [
+        "雨林",
+        "溯溪",
+        "五指山"
+      ],
+      "description": "五指山为海南最高峰，热带雨林保存最完整，溯溪穿越于古木藤蔓间。珍稀植物触手可及，瀑布清泉沿途相伴，\"热带绿宝石\"之原始生态令人叹为观止，此乃雨林探秘之极致体验。"
+    },
+    {
+      "id": "hainan-outdoor-2",
+      "image": "https://picsum.photos/id/1366/600/400",
+      "category": "outdoor",
+      "name": "尖峰岭天池徒步",
+      "type": "徒步穿越",
+      "location": "乐东县尖峰岭",
+      "duration": "半天",
+      "difficulty": "简单",
+      "price": "40",
+      "rating": 4.6,
+      "reviewCount": 234,
+      "totalAscent": 500,
+      "maxElevation": 1412,
+      "routeType": "往返",
+      "surfaceType": "石阶",
+      "accessInfo": "高铁至最近站，转景区交通",
+      "gearList": [
+        "登山鞋",
+        "驱蚊",
+        "保暖衣"
+      ],
+      "safetyTips": [
+        "雨林蚊虫多",
+        "注意防蚊"
+      ],
+      "bestMonths": "4-5月·9-10月",
+      "highlights": [
+        "热带雨林",
+        "天池云海",
+        "日出观景"
+      ],
+      "tags": [
+        "徒步",
+        "雨林",
+        "天池"
+      ],
+      "description": "尖峰岭为中国面积最大热带雨林，天池云海日出震撼心灵。于雨林中穿行至天池，古木参天蔽日，云海翻涌如瑶池，\"海上仙山热带秘境\"之奇观令人流连忘返。"
+    }
+  ],
+  "wellnessRetreat": [
+    {
+      "id": "hainan-wellness-1",
+      "image": "https://picsum.photos/id/2220/600/400",
+      "category": "wellness",
+      "name": "三亚亚龙湾海滨瑜伽日出",
+      "type": "瑜伽养生",
+      "location": "三亚市吉阳区亚龙湾沙滩",
+      "duration": "1.5小时",
+      "difficulty": "简单",
+      "price": "150",
+      "rating": 4.8,
+      "reviewCount": 432,
+      "efficacyTags": [
+        "热带海滨日出瑜伽",
+        "天下第一湾沙滩",
+        "椰风海韵冥想"
+      ],
+      "bestSeason": "全年",
+      "packageIncludes": [
+        "瑜伽垫",
+        "教学",
+        "椰汁"
+      ],
+      "suitableFor": [
+        "瑜伽爱好者",
+        "休闲度假"
+      ],
+      "tags": [
+        "瑜伽",
+        "海滨",
+        "亚龙湾"
+      ],
+      "description": "亚龙湾天下第一湾沙白如银水碧如玉。晨曦未露时铺开瑜伽垫，面朝南海迎第一缕曙光，椰风送爽涛声入耳，拜日式与日出同频，于这热带天堂的海岸上，以瑜伽唤醒身心，以海韵涤尽尘嚣。"
+    },
+    {
+      "id": "hainan-wellness-2",
+      "image": "https://picsum.photos/id/2221/600/400",
+      "category": "wellness",
+      "name": "五指山热带雨林黎药浴",
+      "type": "药浴养生",
+      "location": "五指山市水满乡热带雨林",
+      "duration": "半天",
+      "difficulty": "简单",
+      "price": "120",
+      "rating": 4.7,
+      "reviewCount": 234,
+      "efficacyTags": [
+        "祛风除湿",
+        "通经活络",
+        "热带雨林疗愈"
+      ],
+      "bestSeason": "全年",
+      "packageIncludes": [
+        "药浴",
+        "草药体验",
+        "素斋"
+      ],
+      "suitableFor": [
+        "养生爱好者",
+        "文化体验者"
+      ],
+      "tags": [
+        "药浴",
+        "热带",
+        "五指山"
+      ],
+      "description": "五指山热带雨林翡翠山城，黎族草药浴传承千年。数十种雨林草药煎汤入浴，药香氤氲间祛风除湿通经活络，于这海南之肺的热带秘境中，以黎药浴洗涤尘疲，感受黎族黎药三百方之康养智慧。"
+    },
+    {
+      "id": "hainan-wellness-3",
+      "image": "https://picsum.photos/id/2222/600/400",
+      "category": "wellness",
+      "name": "博鳌禅修静心",
+      "type": "禅修养生",
+      "location": "琼海市博鳌镇玉佛寺",
+      "duration": "1天",
+      "difficulty": "简单",
+      "price": "100",
+      "rating": 4.7,
+      "reviewCount": 198,
+      "efficacyTags": [
+        "静心减压",
+        "修身养性",
+        "禅意疗愈"
+      ],
+      "bestSeason": "春秋",
+      "packageIncludes": [
+        "禅修课程",
+        "素斋",
+        "禅房"
+      ],
+      "suitableFor": [
+        "禅修爱好者",
+        "文化体验者"
+      ],
+      "tags": [
+        "禅修",
+        "佛教",
+        "博鳌"
+      ],
+      "description": "博鳌玉佛寺钟磬悠扬，万泉河畔椰风送爽。于古刹中盘膝坐禅，梵音与河风交响，晨钟暮鼓涤荡凡尘，于这亚洲论坛永久会址旁的佛门净土中，修一颗菩提心，感悟本来无一物之禅境。"
     }
   ]
 }

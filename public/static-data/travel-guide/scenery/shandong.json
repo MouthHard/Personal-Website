@@ -14,7 +14,7 @@
       "rating": 4.9,
       "bestTime": "春秋",
       "location": "山东省泰安市",
-      "description": "中国十大名山之首,世界文化与自然双重遗产",
+      "description": "泰山，山东泰山，造化钟神秀，层峦叠嶂巍峨耸立，中国十大名山之首，世界文化与自然双重遗产，实乃游历山东不可错过之胜境。。层峦叠嶂巍峨耸立，足以令旅人魂牵梦萦，心驰神往。",
       "highlight": "五岳之首,世界双遗产",
       "level": "5A景区",
       "rankBadge": "必去",
@@ -30,7 +30,6 @@
       ],
       "openTime": "06:00-18:00",
       "visitDuration": "1-2天",
-      "popularity": "★★★★★",
       "audienceTags": [
         "登山爱好者",
         "摄影爱好者",
@@ -38,20 +37,52 @@
         "自然爱好者"
       ],
       "ticketDetails": [
-        "成人票¥115",
-        "学生票半价",
-        "60岁以上免票",
-        "1.4米以下儿童免票"
+        {
+          "type": "成人票",
+          "price": "¥115"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "60岁以上",
+          "price": "免票"
+        },
+        {
+          "type": "1.4米以下儿童",
+          "price": "免票"
+        }
       ],
       "transportInfo": [
-        "飞机:济南遥墙机场距泰山约90km",
-        "高铁:泰安站距景区约10km",
-        "自驾:京沪高速泰安出口下",
-        "长途客运:泰安长途汽车站有班车"
+        {
+          "mode": "飞机",
+          "detail": "济南遥墙机场距泰山约90km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "泰安站距景区约10km"
+        },
+        {
+          "mode": "自驾",
+          "detail": "京沪高速泰安出口下"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "泰安长途汽车站有班车"
+        }
       ],
       "openTimeDetail": [
-        "旺季(3-11月) 06:00-18:00",
-        "淡季(12-2月) 07:00-17:00"
+        {
+          "season": "旺季",
+          "months": "3-11月",
+          "time": "06:00-18:00"
+        },
+        {
+          "season": "淡季",
+          "months": "12-2月",
+          "time": "07:00-17:00"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -72,8 +103,15 @@
               "detail": "红门→中天门→十八盘→南天门→玉皇顶→原路下山"
             }
           ],
-          "budget": "¥200-400",
-          "bestFor": "登山爱好者/首次游览"
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
+          "bestFor": [
+            "登山爱好者",
+            "首次游览"
+          ]
         },
         {
           "name": "天外村路线",
@@ -93,8 +131,15 @@
               "detail": "天外村→中天门(乘车)→南天门(索道)→玉皇顶→碧霞祠"
             }
           ],
-          "budget": "¥300-500",
-          "bestFor": "家庭出游/体力一般者"
+          "budget": {
+            "currency": "¥",
+            "min": 300,
+            "max": 500
+          },
+          "bestFor": [
+            "家庭出游",
+            "体力一般者"
+          ]
         },
         {
           "name": "岱庙-红门路线",
@@ -119,8 +164,15 @@
               "detail": "红门→中天门→十八盘→南天门→玉皇顶→观日出"
             }
           ],
-          "budget": "¥500-800",
-          "bestFor": "文化爱好者/深度游览"
+          "budget": {
+            "currency": "¥",
+            "min": 500,
+            "max": 800
+          },
+          "bestFor": [
+            "文化爱好者",
+            "深度游览"
+          ]
         }
       ],
       "facilities": [
@@ -169,7 +221,7 @@
       "rating": 4.8,
       "bestTime": "全年",
       "location": "山东省济宁市曲阜市",
-      "description": "孔庙、孔府、孔林,世界文化遗产",
+      "description": "坐落于齐鲁大地的曲阜三孔，山东曲阜三孔，千年文脉传承之所，列世界遗产之林，孔庙、孔府、孔林，世界文化遗产，实乃游历山东不可错过之胜境。。列世界遗产之林，堪称天地造化与人文底蕴之交响。",
       "highlight": "世界文化遗产,儒家文化圣地",
       "level": "5A景区",
       "rankBadge": "圣地",
@@ -181,7 +233,6 @@
       ],
       "openTime": "08:00-17:00",
       "visitDuration": "1天",
-      "popularity": "★★★★★",
       "audienceTags": [
         "文化爱好者",
         "历史爱好者",
@@ -189,20 +240,52 @@
         "家庭游客"
       ],
       "ticketDetails": [
-        "三孔联票¥140",
-        "孔庙¥90",
-        "孔府¥60",
-        "孔林¥40"
+        {
+          "type": "三孔联票",
+          "price": "¥140"
+        },
+        {
+          "type": "孔庙",
+          "price": "¥90"
+        },
+        {
+          "type": "孔府",
+          "price": "¥60"
+        },
+        {
+          "type": "孔林",
+          "price": "¥40"
+        }
       ],
       "transportInfo": [
-        "飞机:济南遥墙机场距曲阜约150km",
-        "高铁:曲阜东站距景区约15km",
-        "自驾:京台高速曲阜出口下",
-        "长途客运:曲阜汽车站有班车"
+        {
+          "mode": "飞机",
+          "detail": "济南遥墙机场距曲阜约150km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "曲阜东站距景区约15km"
+        },
+        {
+          "mode": "自驾",
+          "detail": "京台高速曲阜出口下"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "曲阜汽车站有班车"
+        }
       ],
       "openTimeDetail": [
-        "旺季(4-10月) 08:00-17:00",
-        "淡季(11-3月) 08:30-16:30"
+        {
+          "season": "旺季",
+          "months": "4-10月",
+          "time": "08:00-17:00"
+        },
+        {
+          "season": "淡季",
+          "months": "11-3月",
+          "time": "08:30-16:30"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -223,8 +306,15 @@
               "detail": "孔庙(上午)→孔府(下午)→孔林(下午)"
             }
           ],
-          "budget": "¥200-300",
-          "bestFor": "文化爱好者/首次游览"
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 300
+          },
+          "bestFor": [
+            "文化爱好者",
+            "首次游览"
+          ]
         },
         {
           "name": "孔庙深度游",
@@ -244,8 +334,15 @@
               "detail": "万仞宫墙→奎文阁→十三碑亭→杏坛→大成殿"
             }
           ],
-          "budget": "¥100-200",
-          "bestFor": "文化爱好者/深度游览"
+          "budget": {
+            "currency": "¥",
+            "min": 100,
+            "max": 200
+          },
+          "bestFor": [
+            "文化爱好者",
+            "深度游览"
+          ]
         }
       ],
       "facilities": [
@@ -294,7 +391,7 @@
       "rating": 4.7,
       "bestTime": "夏季",
       "location": "山东省青岛市",
-      "description": "海滨城市,红瓦绿树,碧海蓝天",
+      "description": "齐鲁青岛，山东青岛，天地造化之奇，海滨城市，红瓦绿树，碧海蓝天，实乃游历山东不可错过之胜境。。碧海银沙椰风海韵，每一处景致皆是造物主的匠心独运。",
       "highlight": "东方瑞士,红瓦绿树碧海蓝天",
       "level": "5A景区",
       "rankBadge": "网红",
@@ -310,7 +407,6 @@
       ],
       "openTime": "全天开放",
       "visitDuration": "2-3天",
-      "popularity": "★★★★★",
       "audienceTags": [
         "度假游客",
         "摄影爱好者",
@@ -318,21 +414,57 @@
         "美食爱好者"
       ],
       "ticketDetails": [
-        "栈桥免费",
-        "八大关免费",
-        "崂山另购门票¥90",
-        "海底世界¥150"
+        {
+          "type": "栈桥",
+          "price": "免费"
+        },
+        {
+          "type": "八大关",
+          "price": "免费"
+        },
+        {
+          "type": "崂山另购门票",
+          "price": "¥90"
+        },
+        {
+          "type": "海底世界",
+          "price": "¥150"
+        }
       ],
       "transportInfo": [
-        "飞机:青岛胶东国际机场距市区约40km",
-        "高铁:青岛站、青岛北站直达市区",
-        "自驾:青银高速、沈海高速可达",
-        "长途客运:青岛长途汽车站有班车"
+        {
+          "mode": "飞机",
+          "detail": "青岛胶东国际机场距市区约40km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "青岛站、青岛北站直达市区"
+        },
+        {
+          "mode": "自驾",
+          "detail": "青银高速、沈海高速可达"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "青岛长途汽车站有班车"
+        }
       ],
       "openTimeDetail": [
-        "栈桥 全天开放",
-        "八大关 全天开放",
-        "海底世界 08:00-17:00"
+        {
+          "season": "栈桥 全天开放",
+          "months": "",
+          "time": ""
+        },
+        {
+          "season": "八大关 全天开放",
+          "months": "",
+          "time": ""
+        },
+        {
+          "season": "海底世界",
+          "months": "",
+          "time": "08:00-17:00"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -353,8 +485,15 @@
               "detail": "栈桥→小鱼山→鲁迅公园→八大关→五四广场→奥帆中心"
             }
           ],
-          "budget": "¥100-200",
-          "bestFor": "首次游览/家庭出游"
+          "budget": {
+            "currency": "¥",
+            "min": 100,
+            "max": 200
+          },
+          "bestFor": [
+            "首次游览",
+            "家庭出游"
+          ]
         },
         {
           "name": "崂山一日游",
@@ -374,8 +513,15 @@
               "detail": "太清宫→上清宫→明霞洞→仰口→觅天洞"
             }
           ],
-          "budget": "¥200-400",
-          "bestFor": "自然爱好者/登山爱好者"
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
+          "bestFor": [
+            "自然爱好者",
+            "登山爱好者"
+          ]
         },
         {
           "name": "老城深度游",
@@ -400,8 +546,15 @@
               "detail": "青岛啤酒博物馆→台东商业街→五四广场夜景"
             }
           ],
-          "budget": "¥300-500",
-          "bestFor": "文化爱好者/美食爱好者"
+          "budget": {
+            "currency": "¥",
+            "min": 300,
+            "max": 500
+          },
+          "bestFor": [
+            "文化爱好者",
+            "美食爱好者"
+          ]
         }
       ],
       "facilities": [
@@ -450,7 +603,7 @@
       "rating": 4.6,
       "bestTime": "夏季",
       "location": "山东省烟台市蓬莱市",
-      "description": "中国四大名楼之一,人间仙境",
+      "description": "蓬莱阁者，齐鲁之胜境也。山东蓬莱阁，人文底蕴深厚之地，中国四大名楼之一，人间仙境，实乃游历山东不可错过之胜境。。当属此地名胜之首推，不容错过。",
       "highlight": "人间仙境,海市蜃楼",
       "level": "5A景区",
       "reviewCount": "43,210条点评",
@@ -462,7 +615,6 @@
       ],
       "openTime": "07:00-18:00",
       "visitDuration": "半天",
-      "popularity": "★★★★☆",
       "audienceTags": [
         "文化爱好者",
         "摄影爱好者",
@@ -470,20 +622,52 @@
         "神话传说爱好者"
       ],
       "ticketDetails": [
-        "成人票¥100",
-        "学生票半价",
-        "60岁以上免票",
-        "1.4米以下儿童免票"
+        {
+          "type": "成人票",
+          "price": "¥100"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "60岁以上",
+          "price": "免票"
+        },
+        {
+          "type": "1.4米以下儿童",
+          "price": "免票"
+        }
       ],
       "transportInfo": [
-        "飞机:烟台蓬莱国际机场距景区约40km",
-        "高铁:烟台站距蓬莱约70km",
-        "自驾:荣乌高速蓬莱出口下",
-        "长途客运:蓬莱汽车站有班车"
+        {
+          "mode": "飞机",
+          "detail": "烟台蓬莱国际机场距景区约40km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "烟台站距蓬莱约70km"
+        },
+        {
+          "mode": "自驾",
+          "detail": "荣乌高速蓬莱出口下"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "蓬莱汽车站有班车"
+        }
       ],
       "openTimeDetail": [
-        "旺季(4-10月) 07:00-18:00",
-        "淡季(11-3月) 08:00-17:00"
+        {
+          "season": "旺季",
+          "months": "4-10月",
+          "time": "07:00-18:00"
+        },
+        {
+          "season": "淡季",
+          "months": "11-3月",
+          "time": "08:00-17:00"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -504,8 +688,15 @@
               "detail": "蓬莱阁主阁→天后宫→三清殿→田横山"
             }
           ],
-          "budget": "¥100-200",
-          "bestFor": "文化爱好者/首次游览"
+          "budget": {
+            "currency": "¥",
+            "min": 100,
+            "max": 200
+          },
+          "bestFor": [
+            "文化爱好者",
+            "首次游览"
+          ]
         },
         {
           "name": "蓬莱深度游",
@@ -525,8 +716,15 @@
               "detail": "蓬莱阁(上午)→八仙过海景区(下午)→三仙山(下午)"
             }
           ],
-          "budget": "¥300-500",
-          "bestFor": "家庭出游/神话传说爱好者"
+          "budget": {
+            "currency": "¥",
+            "min": 300,
+            "max": 500
+          },
+          "bestFor": [
+            "家庭出游",
+            "神话传说爱好者"
+          ]
         }
       ],
       "facilities": [
@@ -575,7 +773,7 @@
       "rating": 4.5,
       "bestTime": "春秋",
       "location": "山东省济南市历下区",
-      "description": "天下第一泉,济南七十二名泉之首",
+      "description": "名为趵突泉，山东趵突泉，造化钟神秀，移步换景曲径通幽，天下第一泉，济南七十二名泉之首，实乃游历山东不可错过之胜境。。移步换景曲径通幽，令人叹为观止，流连忘返。",
       "highlight": "天下第一泉,济南名片",
       "level": "5A景区",
       "reviewCount": "54,321条点评",
@@ -591,7 +789,6 @@
       "rankBadge": "自然",
       "openTime": "07:00-19:00",
       "visitDuration": "2-3小时",
-      "popularity": "★★★★☆",
       "audienceTags": [
         "家庭游客",
         "文化爱好者",
@@ -599,20 +796,52 @@
         "老年游客"
       ],
       "ticketDetails": [
-        "成人票¥40",
-        "学生票半价",
-        "60岁以上免票",
-        "1.4米以下儿童免票"
+        {
+          "type": "成人票",
+          "price": "¥40"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "60岁以上",
+          "price": "免票"
+        },
+        {
+          "type": "1.4米以下儿童",
+          "price": "免票"
+        }
       ],
       "transportInfo": [
-        "飞机:济南遥墙机场距市区约40km",
-        "高铁:济南站、济南西站可达",
-        "自驾:京沪高速济南出口下",
-        "长途客运:济南长途汽车站有班车"
+        {
+          "mode": "飞机",
+          "detail": "济南遥墙机场距市区约40km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "济南站、济南西站可达"
+        },
+        {
+          "mode": "自驾",
+          "detail": "京沪高速济南出口下"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "济南长途汽车站有班车"
+        }
       ],
       "openTimeDetail": [
-        "旺季(4-10月) 07:00-19:00",
-        "淡季(11-3月) 07:30-18:00"
+        {
+          "season": "旺季",
+          "months": "4-10月",
+          "time": "07:00-19:00"
+        },
+        {
+          "season": "淡季",
+          "months": "11-3月",
+          "time": "07:30-18:00"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -633,8 +862,15 @@
               "detail": "东门入园→趵突泉主泉→观澜亭→李清照纪念堂→万竹园"
             }
           ],
-          "budget": "¥50-100",
-          "bestFor": "家庭出游/老年游客"
+          "budget": {
+            "currency": "¥",
+            "min": 50,
+            "max": 100
+          },
+          "bestFor": [
+            "家庭出游",
+            "老年游客"
+          ]
         },
         {
           "name": "济南名泉游",
@@ -654,8 +890,15 @@
               "detail": "趵突泉→黑虎泉→五龙潭→大明湖→曲水亭街"
             }
           ],
-          "budget": "¥100-200",
-          "bestFor": "家庭出游/首次游览"
+          "budget": {
+            "currency": "¥",
+            "min": 100,
+            "max": 200
+          },
+          "bestFor": [
+            "家庭出游",
+            "首次游览"
+          ]
         }
       ],
       "facilities": [
@@ -745,42 +988,42 @@
       {
         "name": "泰山",
         "image": "https://picsum.photos/id/1400/600/400",
-        "description": "中国十大名山之首,世界文化与自然双重遗产"
+        "description": "坐落于齐鲁大地的泰山，泰山——中国十大名山之首，世界文化与自然双重遗产，实乃游历此地不可错过之胜境。。每一处景致皆是造物主的匠心独运。"
       },
       {
         "name": "曲阜三孔",
         "image": "https://picsum.photos/id/1401/600/400",
-        "description": "孔庙、孔府、孔林,世界文化遗产"
+        "description": "齐鲁曲阜三孔，山东名胜曲阜三孔，孔庙、孔府、孔林，世界文化遗产，令人心驰神往流连忘返。。当属此地名胜之首推，不容错过。"
       },
       {
         "name": "青岛",
         "image": "https://picsum.photos/id/1402/600/400",
-        "description": "海滨城市,红瓦绿树,碧海蓝天"
+        "description": "青岛者，齐鲁之胜境也。青岛者，山东之海滨城市，红瓦绿树，碧海蓝天，堪称此地风光之冠冕。。令人叹为观止，流连忘返。"
       },
       {
         "name": "蓬莱阁",
         "image": "https://picsum.photos/id/1403/600/400",
-        "description": "中国四大名楼之一,人间仙境"
+        "description": "名为蓬莱阁，誉为山东明珠的蓬莱阁，中国四大名楼之一，人间仙境，每一处皆是造化与人文的交响。。实乃游历此地不可错过之胜境。"
       },
       {
         "name": "趵突泉",
         "image": "https://picsum.photos/id/1404/600/400",
-        "description": "天下第一泉,济南七十二名泉之首"
+        "description": "齐鲁名胜趵突泉，趵突泉，天下第一泉，济南七十二名泉之首，足以令旅人魂牵梦萦。。足以令旅人魂牵梦萦，心驰神往。"
       },
       {
         "name": "刘公岛",
         "image": "https://picsum.photos/id/1405/600/400",
-        "description": "甲午海战纪念地,国家森林公园"
+        "description": "刘公岛，刘公岛——甲午海战纪念地，国家森林公园，当属此地名胜之首推。。堪称天地造化与人文底蕴之交响。"
       },
       {
         "name": "崂山",
         "image": "https://picsum.photos/id/1406/600/400",
-        "description": "海上第一名山,道教名山"
+        "description": "坐落于齐鲁大地的崂山，山东名胜崂山，海上第一名山，道教名山，实乃游历此地不可错过之胜境。。每一处景致皆是造物主的匠心独运。"
       },
       {
         "name": "台儿庄古城",
         "image": "https://picsum.photos/id/1407/600/400",
-        "description": "中国第一座二战纪念城市"
+        "description": "齐鲁台儿庄古城，台儿庄古城者，山东之中国第一座二战纪念城市，令人心驰神往流连忘返。。当属此地名胜之首推，不容错过。"
       }
     ]
   },
@@ -838,7 +1081,62 @@
       "month": "8月",
       "isUnique": true,
       "location": "青岛",
-      "description": "青岛特色的啤酒盛会"
+      "description": "亚洲最大啤酒节，啤酒大棚畅饮、国际啤酒品鉴、花车巡游、啤酒竞饮大赛、海滨嘉年华，于\"红瓦绿树碧海蓝天\"之青岛感受这\"举城同饮不醉不归\"之酣畅与海滨啤酒狂欢之热烈。",
+      "type": "节庆赛事",
+      "duration": "约16天",
+      "origin": "青岛国际啤酒节始于1991年，亚洲最大啤酒节，每年8月第二个周末开幕。",
+      "highlights": [
+        "啤酒大棚畅饮",
+        "国际啤酒品鉴",
+        "花车巡游",
+        "啤酒竞饮大赛",
+        "海滨嘉年华"
+      ],
+      "bestTime": "开幕周末",
+      "ticket": "日票¥20，夜票¥30（酒费另计）",
+      "transport": "飞机至青岛胶东机场，公交至崂山区会场",
+      "tips": [
+        "青岛啤酒原浆仅在节庆期间供应",
+        "海鲜与啤酒同食注意痛风",
+        "建议公共交通前往，停车位紧张"
+      ],
+      "relatedSpots": [
+        "栈桥",
+        "八大关",
+        "崂山"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "泰山国际登山节",
+      "month": "9月",
+      "day": "6日",
+      "location": "泰安",
+      "isUnique": false,
+      "description": "以五岳之首泰山为赛道，中国最具影响力登山赛事之一，国际登山比赛、泰山日出观赏、封禅大典表演，于\"会当凌绝顶一览众山小\"之泰山感受这\"五岳独尊\"之雄伟与登山竞速之豪迈。",
+      "type": "体育节庆",
+      "duration": "约3天",
+      "origin": "泰山国际登山节始于1987年，以五岳之首泰山为赛道，是中国最具影响力的登山赛事之一。",
+      "highlights": [
+        "国际登山比赛",
+        "群众登山活动",
+        "泰山日出观赏",
+        "封禅大典表演",
+        "泰山文化论坛"
+      ],
+      "bestTime": "比赛日清晨",
+      "ticket": "泰山¥115",
+      "transport": "高铁至泰安站，转公交至红门登山口",
+      "tips": [
+        "登顶约需4-6小时，量力而行",
+        "夜爬看日出需备手电和外套",
+        "山顶物价高，自带水和干粮"
+      ],
+      "relatedSpots": [
+        "泰山",
+        "岱庙",
+        "曲阜三孔"
+      ]
     }
   ],
   "activities": [
@@ -868,7 +1166,7 @@
   "intangibleHeritage": [
     {
       "id": "1",
-      "icon": "🎭",
+      "icon": "theater",
       "name": "山东梆子",
       "image": "https://picsum.photos/id/1400/600/400",
       "level": "national",
@@ -909,7 +1207,11 @@
           "avgRating": 4.8,
           "bestSeason": "春秋 / 全年",
           "recommendedDays": "2-3 日",
-          "budget": "¥500-1200",
+          "budget": {
+            "currency": "¥",
+            "min": 500,
+            "max": 1200
+          },
           "intensity": "适中",
           "audience": "全人群",
           "highlights": [
@@ -935,7 +1237,11 @@
           "avgRating": 4.5,
           "bestSeason": "夏秋",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-500",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 500
+          },
           "intensity": "轻松",
           "audience": "家庭/休闲",
           "highlights": [
@@ -967,7 +1273,11 @@
           "avgRating": 4.7,
           "bestSeason": "全年",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-400",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
           "intensity": "轻松",
           "audience": "文化/家庭",
           "highlights": [
@@ -993,7 +1303,11 @@
           "avgRating": 4.6,
           "bestSeason": "全年",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-400",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
           "intensity": "轻松",
           "audience": "银发/养心",
           "highlights": [
@@ -1025,7 +1339,11 @@
           "avgRating": 4.6,
           "bestSeason": "夏秋",
           "recommendedDays": "2-3 日",
-          "budget": "¥500-1500",
+          "budget": {
+            "currency": "¥",
+            "min": 500,
+            "max": 1500
+          },
           "intensity": "轻松",
           "audience": "家庭/度假",
           "highlights": [
@@ -1044,6 +1362,351 @@
           ]
         }
       ]
+    }
+  ],
+  "craftWorkshops": [
+    {
+      "id": "shandong-craft-1",
+      "image": "https://picsum.photos/id/1342/600/400",
+      "category": "craft",
+      "name": "潍坊风筝扎制",
+      "type": "风筝",
+      "location": "潍坊杨家埠",
+      "duration": "3小时",
+      "difficulty": "中等",
+      "price": "100",
+      "rating": 4.7,
+      "reviewCount": 234,
+      "instructor": "风筝传承人",
+      "heritageLevel": "national",
+      "highlights": [
+        "扎糊绘放",
+        "龙头蜈蚣",
+        "风筝博物馆"
+      ],
+      "steps": [
+        "扎骨架",
+        "糊纸面",
+        "绘彩画",
+        "拴提线"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "手工艺爱好者"
+      ],
+      "tags": [
+        "非遗",
+        "风筝",
+        "潍坊"
+      ],
+      "description": "潍坊为世界风筝都\"扎糊绘放四艺\"龙头蜈蚣风筝闻名。于杨家埠亲手扎骨架糊纸绘彩，风筝博物馆藏珍无数，感受这\"世界风筝都\"之传承与潍坊风筝之精工巧制。"
+    },
+    {
+      "id": "shandong-craft-2",
+      "image": "https://picsum.photos/id/1344/600/400",
+      "category": "craft",
+      "name": "杨家埠木版年画",
+      "type": "版画",
+      "location": "潍坊杨家埠",
+      "duration": "3小时",
+      "difficulty": "简单",
+      "price": "80",
+      "rating": 4.6,
+      "reviewCount": 167,
+      "instructor": "年画传承人",
+      "heritageLevel": "national",
+      "highlights": [
+        "古版套印",
+        "年画配色",
+        "门神灶王"
+      ],
+      "steps": [
+        "刻版",
+        "刷墨",
+        "套色印刷",
+        "晾干"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "手工艺爱好者"
+      ],
+      "tags": [
+        "非遗",
+        "年画",
+        "杨家埠"
+      ],
+      "description": "杨家埠年画列中国三大年画之一\"古版套印门神灶王\"色彩浓烈。于杨家埠刻版套色印刷，年画配色鲜艳年味盎然，感受这\"齐鲁民间艺术\"之传承与木版年画之古朴。"
+    }
+  ],
+  "performances": [
+    {
+      "id": "shandong-perf-1",
+      "image": "https://picsum.photos/id/1920/600/400",
+      "category": "performance",
+      "name": "《中华泰山·封禅大典》",
+      "type": "大型实景",
+      "location": "泰安市泰山天烛峰景区",
+      "duration": "1.5小时",
+      "difficulty": "简单",
+      "price": "200",
+      "rating": 4.8,
+      "reviewCount": 567,
+      "highlights": [
+        "泰山封禅千年盛典",
+        "历代帝王祭祀再现",
+        "天地间实景史诗"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "家庭游客"
+      ],
+      "tags": [
+        "实景演出",
+        "封禅",
+        "泰山"
+      ],
+      "description": "泰山封禅大典以天地为台，从秦始皇到汉武帝，从唐玄宗到宋真宗，五朝帝王的封禅盛典在泰山之麓磅礴再现。旌旗蔽日仪仗赫赫，于这\"五岳独尊\"之圣地，领略中华帝王与天地对话之恢弘。"
+    },
+    {
+      "id": "shandong-perf-2",
+      "image": "https://picsum.photos/id/1921/600/400",
+      "category": "performance",
+      "name": "曲阜《金声玉振》·孔府礼乐",
+      "type": "文化演出",
+      "location": "济宁市曲阜孔子文化会展中心",
+      "duration": "1.5小时",
+      "difficulty": "简单",
+      "price": "180",
+      "rating": 4.7,
+      "reviewCount": 432,
+      "highlights": [
+        "孔子一生礼乐史诗",
+        "八佾舞雅乐",
+        "儒家文化沉浸"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "家庭游客"
+      ],
+      "tags": [
+        "礼乐",
+        "儒家",
+        "孔府"
+      ],
+      "description": "金声玉振以孔子一生为线，从尼山降诞到周游列国，从删诗定书到杏坛讲学。八佾舞起雅乐奏鸣，礼乐文明的光华在眼前流转，于这东方圣城领略\"有朋自远方来\"之儒家气象。"
+    },
+    {
+      "id": "shandong-perf-3",
+      "image": "https://picsum.photos/id/1922/600/400",
+      "category": "performance",
+      "name": "青岛奥帆中心灯光秀",
+      "type": "光影演出",
+      "location": "青岛市市南区奥帆中心",
+      "duration": "1小时",
+      "difficulty": "简单",
+      "price": "免费",
+      "rating": 4.6,
+      "reviewCount": 345,
+      "highlights": [
+        "浮山湾灯光音乐秀",
+        "帆船之都夜景",
+        "上合灯光秀经典"
+      ],
+      "suitableFor": [
+        "家庭游客",
+        "情侣约会"
+      ],
+      "tags": [
+        "灯光秀",
+        "夜景",
+        "青岛"
+      ],
+      "description": "奥帆中心浮山湾畔，万盏灯光将帆船之都染成璀璨画卷。音乐喷泉随交响起伏，上合灯光秀的经典在此重现，海风习习中漫步情人坝，于这黄海之滨的夜色中感受青岛之浪漫摩登。"
+    }
+  ],
+  "outdoorAdventure": [
+    {
+      "id": "shandong-outdoor-1",
+      "image": "https://picsum.photos/id/1363/600/400",
+      "category": "outdoor",
+      "name": "泰山十八盘徒步",
+      "type": "徒步穿越",
+      "location": "泰安泰山",
+      "duration": "1天",
+      "difficulty": "中等",
+      "price": "115",
+      "rating": 4.8,
+      "reviewCount": 8901,
+      "totalAscent": 1200,
+      "maxElevation": 1545,
+      "routeType": "环线",
+      "surfaceType": "石阶",
+      "accessInfo": "高铁至最近站，转景区交通",
+      "gearList": [
+        "登山杖",
+        "头灯",
+        "保暖衣",
+        "水"
+      ],
+      "safetyTips": [
+        "十八盘陡峭量力而行",
+        "夜爬需头灯"
+      ],
+      "bestMonths": "4-5月·9-10月",
+      "highlights": [
+        "十八盘",
+        "南天门",
+        "日观峰日出"
+      ],
+      "tags": [
+        "徒步",
+        "泰山",
+        "五岳之首"
+      ],
+      "description": "泰山为五岳之首十八盘1633级石阶\"会当凌绝顶一览众山小\"。登十八盘至南天门日观峰迎日出，感受这\"五岳独尊\"之雄伟与泰山日出之壮美辉煌。"
+    },
+    {
+      "id": "shandong-outdoor-2",
+      "image": "https://picsum.photos/id/1366/600/400",
+      "category": "outdoor",
+      "name": "崂山太清宫徒步",
+      "type": "徒步穿越",
+      "location": "青岛崂山",
+      "duration": "半天",
+      "difficulty": "简单",
+      "price": "90",
+      "rating": 4.6,
+      "reviewCount": 2345,
+      "totalAscent": 500,
+      "maxElevation": 1132,
+      "routeType": "往返",
+      "surfaceType": "石阶",
+      "accessInfo": "高铁至最近站，转景区交通",
+      "gearList": [
+        "登山鞋",
+        "水",
+        "防晒"
+      ],
+      "safetyTips": [
+        "山路注意防滑",
+        "海边注意潮汐"
+      ],
+      "bestMonths": "4-5月·9-10月",
+      "highlights": [
+        "太清宫",
+        "海上名山",
+        "巨峰览海"
+      ],
+      "tags": [
+        "徒步",
+        "崂山",
+        "道教"
+      ],
+      "description": "崂山为海上名山第一道教胜地\"山海奇观太清古观\"。于太清宫面海登巨峰览海，蒲松龄曾在此写《聊斋》，感受这\"海上仙山\"之灵秀与崂山道文化之深邃。"
+    }
+  ],
+  "wellnessRetreat": [
+    {
+      "id": "shandong-wellness-1",
+      "image": "https://picsum.photos/id/1940/600/400",
+      "category": "wellness",
+      "name": "崂山太清宫道修养生",
+      "type": "道修养生",
+      "location": "青岛市崂山区太清宫",
+      "duration": "1天",
+      "difficulty": "简单",
+      "price": "90",
+      "rating": 4.7,
+      "reviewCount": 345,
+      "efficacyTags": [
+        "海上名山道修",
+        "太清宫打坐吐纳",
+        "蒲松龄聊斋缘"
+      ],
+      "bestSeason": "春秋",
+      "packageIncludes": [
+        "门票",
+        "道修指导",
+        "素斋"
+      ],
+      "suitableFor": [
+        "养生爱好者",
+        "文化体验者"
+      ],
+      "tags": [
+        "道修",
+        "道教",
+        "崂山"
+      ],
+      "description": "崂山太清宫背山面海，为\"道教天下第二丛林\"。于三清殿前盘膝吐纳，海风送来松涛与涛声，蒲松龄曾在此写《崂山道士》，于这海上仙山中修道养性，感悟\"道法自然\"之玄妙。"
+    },
+    {
+      "id": "shandong-wellness-2",
+      "image": "https://picsum.photos/id/1941/600/400",
+      "category": "wellness",
+      "name": "威海天沐温泉",
+      "type": "温泉养生",
+      "location": "威海市文登区天沐温泉度假村",
+      "duration": "3小时",
+      "difficulty": "简单",
+      "price": "168",
+      "rating": 4.7,
+      "reviewCount": 234,
+      "efficacyTags": [
+        "胶东温泉之乡",
+        "室内外汤池百余",
+        "海水温泉特色"
+      ],
+      "bestSeason": "全年",
+      "packageIncludes": [
+        "温泉票",
+        "浴袍",
+        "水果"
+      ],
+      "suitableFor": [
+        "养生爱好者",
+        "休闲度假"
+      ],
+      "tags": [
+        "温泉",
+        "胶东",
+        "威海"
+      ],
+      "description": "威海天沐温泉取自地下花岗岩裂隙，富含偏硅酸与锶。百余座室内外汤池散布林间，于这\"中国温泉之乡\"氤氲汤池中远眺胶东青山，温润泉水涤尽尘疲，尽享海滨温泉之康养闲趣。"
+    },
+    {
+      "id": "shandong-wellness-3",
+      "image": "https://picsum.photos/id/1942/600/400",
+      "category": "wellness",
+      "name": "曲阜孔府礼乐修身",
+      "type": "文化养生",
+      "location": "济宁市曲阜孔府孔庙",
+      "duration": "1天",
+      "difficulty": "简单",
+      "price": "150",
+      "rating": 4.8,
+      "reviewCount": 432,
+      "efficacyTags": [
+        "儒家六艺体验",
+        "孔府家宴品鉴",
+        "圣人故里修身"
+      ],
+      "bestSeason": "春秋",
+      "packageIncludes": [
+        "三孔联票",
+        "六艺体验",
+        "家宴"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "教育旅游"
+      ],
+      "tags": [
+        "文化",
+        "儒家",
+        "曲阜"
+      ],
+      "description": "曲阜三孔圣地，\"礼乐射御书数\"六艺可亲身体验。于孔庙杏坛前正襟危坐，于孔府品圣人府第家宴，在这\"东方耶路撒冷\"以儒家之礼修身，以圣人之道养心，感悟\"仁者寿\"之真谛。"
     }
   ]
 }

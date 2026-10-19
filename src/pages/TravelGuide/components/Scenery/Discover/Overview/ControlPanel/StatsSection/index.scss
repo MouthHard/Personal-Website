@@ -1,0 +1,165 @@
+@use '../_shared' as *;
+
+.panel-section.stats-section {
+  @include panel-section-base;
+
+  min-height: 140px;
+  background: linear-gradient(
+    145deg,
+    rgb(26, 1, 49) 0%,
+    rgb(31, 59, 116) 50%,
+    rgba(10, 20, 40, 1) 100%
+  );
+  border-color: rgba(100, 180, 255, 0.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+  &:hover {
+    border-color: rgba(100, 180, 255, 1);
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 0.5rem;
+
+    .stat-item {
+      position: relative;
+      border-radius: 8px;
+      padding: 0.5rem 0.6rem;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      text-align: center;
+      overflow: hidden;
+
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, transparent 35%),
+        linear-gradient(135deg, var(--panel-tint, rgba(80, 200, 255, 0.3)) 0%, transparent 65%),
+        linear-gradient(45deg, rgba(0, 0, 0, 0.5) 0%, transparent 55%),
+        rgb(20, 20, 26);
+
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.2),
+        inset 0 -2px 2px rgba(0, 0, 0, 0.6),
+        inset 0 0 0 1px var(--panel-tint, rgba(80, 200, 255, 0.4)),
+        0 3px 6px rgba(0, 0, 0, 0.5),
+        0 6px 12px rgba(0, 0, 0, 0.35);
+
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 8px;
+        pointer-events: none;
+        background:
+          radial-gradient(circle at 5px 5px, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.15) 1.5px, transparent 2.5px),
+          radial-gradient(circle at calc(100% - 5px) 5px, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.15) 1.5px, transparent 2.5px),
+          radial-gradient(circle at 5px calc(100% - 5px), rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.15) 1.5px, transparent 2.5px),
+          radial-gradient(circle at calc(100% - 5px) calc(100% - 5px), rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.15) 1.5px, transparent 2.5px);
+        transition: all 0.4s ease;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -120%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(110deg, transparent 35%, rgba(255, 255, 255, 0.22) 50%, transparent 65%);
+        transition: left 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        pointer-events: none;
+      }
+
+      &:hover {
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.3),
+          inset 0 -2px 2px rgba(0, 0, 0, 0.6),
+          inset 0 0 0 1px var(--glow-color, rgba(100, 220, 255, 1)),
+          0 4px 8px rgba(0, 0, 0, 0.6),
+          0 8px 18px rgba(0, 0, 0, 0.45),
+          0 0 22px var(--glow-color, rgba(100, 220, 255, 0.6));
+
+        &::before {
+          background:
+            radial-gradient(circle at 5px 5px, var(--glow-color, rgba(100, 220, 255, 1)) 0%, rgba(255, 255, 255, 0.3) 1.5px, transparent 2.5px),
+            radial-gradient(circle at calc(100% - 5px) 5px, var(--glow-color, rgba(100, 220, 255, 1)) 0%, rgba(255, 255, 255, 0.3) 1.5px, transparent 2.5px),
+            radial-gradient(circle at 5px calc(100% - 5px), var(--glow-color, rgba(100, 220, 255, 1)) 0%, rgba(255, 255, 255, 0.3) 1.5px, transparent 2.5px),
+            radial-gradient(circle at calc(100% - 5px) calc(100% - 5px), var(--glow-color, rgba(100, 220, 255, 1)) 0%, rgba(255, 255, 255, 0.3) 1.5px, transparent 2.5px);
+        }
+
+        &::after {
+          left: 120%;
+        }
+
+        .stat-value {
+          text-shadow:
+            0 0 12px var(--glow-color, rgba(100, 220, 255, 1)),
+            0 0 24px var(--glow-color, rgba(100, 220, 255, 0.5)),
+            0 2px 4px rgba(0, 0, 0, 0.8);
+        }
+      }
+
+      .stat-value {
+        font-size: 1.25rem;
+        font-weight: 900;
+        font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+        color: var(--value-color, #b3e7ff);
+        text-shadow:
+          0 0 8px var(--glow-color, rgba(100, 220, 255, 0.7)),
+          0 0 16px var(--glow-color, rgba(100, 220, 255, 0.35)),
+          0 2px 4px rgba(0, 0, 0, 0.8);
+        transition: all 0.4s ease;
+        position: relative;
+        z-index: 1;
+        line-height: 1.2;
+      }
+
+      .stat-label {
+        font-size: 0.7rem;
+        color: rgba(255, 255, 255, 0.88);
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+        margin-top: 0.2rem;
+        position: relative;
+        z-index: 1;
+        transition: all 0.4s ease;
+      }
+
+      &:nth-child(1) {
+        --panel-tint: rgba(80, 200, 255, 0.3);
+        --glow-color: rgba(100, 220, 255, 1);
+        --value-color: #b3e7ff;
+      }
+
+      &:nth-child(2) {
+        --panel-tint: rgba(80, 255, 150, 0.3);
+        --glow-color: rgba(100, 255, 180, 1);
+        --value-color: #72ffa6;
+      }
+
+      &:nth-child(3) {
+        --panel-tint: rgba(255, 220, 80, 0.3);
+        --glow-color: rgba(255, 240, 100, 1);
+        --value-color: #fddd8e;
+      }
+
+      &:nth-child(4) {
+        --panel-tint: rgba(255, 120, 80, 0.3);
+        --glow-color: rgba(255, 140, 100, 1);
+        --value-color: #ffa861;
+      }
+
+      &:nth-child(5) {
+        --panel-tint: rgba(255, 105, 180, 0.3);
+        --glow-color: rgba(255, 130, 200, 1);
+        --value-color: #ff9ec9;
+      }
+
+      &:nth-child(6) {
+        --panel-tint: rgba(255, 80, 80, 0.3);
+        --glow-color: rgba(255, 100, 100, 1);
+        --value-color: #ff8a8a;
+      }
+    }
+  }
+}

@@ -1,0 +1,639 @@
+@use 'sass:color';
+@use '../variables' as *;
+
+%season-band {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 7px;
+  filter: blur(0.4px);
+  opacity: 0.92;
+}
+
+.desk-calendar {
+  position: relative;
+  border-radius: 14px 14px 18px 18px;
+  padding: 32px 26px 26px;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255, 220, 160, 0.08) 0%, transparent 55%),
+    radial-gradient(ellipse at 50% 100%, rgba(0, 0, 0, 0.35) 0%, transparent 60%),
+    repeating-linear-gradient(102deg, transparent 0, transparent 2px, rgba(0, 0, 0, 0.04) 2px, rgba(0, 0, 0, 0.04) 3px),
+    repeating-linear-gradient(78deg, transparent 0, transparent 3px, rgba(255, 255, 255, 0.025) 3px, rgba(255, 255, 255, 0.025) 4px),
+    linear-gradient(160deg, $c-leather 0%, $c-leather-dark 100%);
+  box-shadow:
+    0 2px 0 rgba(255, 255, 255, 0.08) inset,
+    0 -6px 18px rgba(0, 0, 0, 0.5) inset,
+    0 0 0 1px rgba(0, 0, 0, 0.4),
+    0 30px 60px -20px rgba(0, 0, 0, 0.7),
+    0 14px 28px -10px rgba(0, 0, 0, 0.55),
+    0 4px 10px rgba(0, 0, 0, 0.4);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 7px;
+    border-radius: 10px 10px 14px 14px;
+    border: 1px solid rgba(201, 164, 76, 0.2);
+    pointer-events: none;
+  }
+
+  .binding-spine {
+    position: absolute;
+    top: -10px;
+    left: 26px;
+    right: 26px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    z-index: 4;
+
+    .binding-ring {
+      position: absolute;
+      top: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 4px solid #9a9a9a;
+      border-top-color: #e0e0e0;
+      border-bottom-color: #4a4a4a;
+      border-left-color: #b8b8b8;
+      border-right-color: #7a7a7a;
+      background: radial-gradient(circle at 35% 30%, #d8d8d8, #6e6e6e 70%);
+      box-shadow:
+        0 4px 7px rgba(0, 0, 0, 0.65),
+        inset 0 2px 3px rgba(255, 255, 255, 0.7),
+        inset 0 -2px 3px rgba(0, 0, 0, 0.5);
+
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 3px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 40% 35%, #3a3a3a, #1a1a1a);
+        box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.2);
+      }
+    }
+  }
+
+  .cover-header {
+    position: relative;
+    text-align: center;
+    margin-bottom: 24px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(201, 164, 76, 0.28);
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 30%;
+      right: 30%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201, 164, 76, 0.6), transparent);
+    }
+
+    .cover-title-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 7px;
+
+      .cover-ornament {
+        display: inline-flex;
+        color: rgba(201, 164, 76, 0.75);
+        filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.5));
+        svg { width: 24px; height: 24px; }
+      }
+    }
+
+    .cover-title {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 27px;
+      font-weight: 700;
+      margin: 0;
+      letter-spacing: 4px;
+      color: $c-gold;
+      text-shadow:
+        0 1px 0 rgba(0, 0, 0, 0.7),
+        0 -1px 0 rgba(255, 255, 255, 0.12),
+        0 0 16px rgba(201, 164, 76, 0.3);
+    }
+
+    .cover-subtitle {
+      font-size: 13px;
+      margin: 0;
+      color: rgba(245, 236, 215, 0.6);
+      letter-spacing: 3px;
+    }
+  }
+
+  .empty-state {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+    padding: 20px 0;
+
+    .empty-calendar-page {
+      position: relative;
+      display: flex;
+      align-items: stretch;
+      width: 100%;
+      max-width: 460px;
+      border-radius: 14px;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(255, 220, 160, 0.1) 0%, transparent 55%),
+        repeating-linear-gradient(102deg, transparent 0, transparent 2px, rgba(0, 0, 0, 0.04) 2px, rgba(0, 0, 0, 0.04) 3px),
+        linear-gradient(160deg, $c-leather 0%, $c-leather-dark 100%);
+      border: 3px solid rgba(0, 0, 0, 0.5);
+      box-shadow:
+        inset 0 2px 4px rgba(255, 255, 255, 0.08),
+        inset 0 -4px 10px rgba(0, 0, 0, 0.5),
+        0 10px 28px rgba(0, 0, 0, 0.5);
+
+      .empty-binding-holes {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        padding: 24px 8px;
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0.3), transparent);
+        border-right: 2px solid rgba(0, 0, 0, 0.25);
+
+        .hole {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: radial-gradient(circle at 40% 40%, #000 0%, #1a0f08 60%, #2e1f12 100%);
+          box-shadow:
+            inset 0 2px 3px rgba(0, 0, 0, 0.9),
+            0 1px 2px rgba(0, 0, 0, 0.5);
+        }
+      }
+
+      .empty-page-body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        padding: 40px 28px;
+        text-align: center;
+        background:
+          repeating-linear-gradient(0deg, transparent 0, transparent 3px, rgba(58, 46, 31, 0.02) 3px, rgba(58, 46, 31, 0.02) 4px),
+          linear-gradient(160deg, $c-paper 0%, $c-paper-shade 100%);
+      }
+
+      .empty-icon-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 84px;
+        height: 84px;
+        border-radius: 50%;
+        background:
+          radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.55), transparent 50%),
+          linear-gradient(180deg, $c-paper, $c-paper-shade);
+        border: 3px solid rgba(201, 164, 76, 0.5);
+        box-shadow:
+          inset 0 2px 4px rgba(255, 255, 255, 0.5),
+          inset 0 -3px 6px rgba(58, 46, 31, 0.25),
+          0 4px 10px rgba(0, 0, 0, 0.25);
+
+        .empty-icon {
+          color: $c-stamp;
+          svg { width: 44px; height: 44px; }
+          filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+        }
+      }
+
+      .empty-title {
+        font-family: Georgia, serif;
+        color: $c-ink;
+        margin: 0;
+        font-size: 24px;
+        font-weight: 800;
+        letter-spacing: 2px;
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+      }
+      .empty-desc {
+        color: $c-ink-soft;
+        margin: 0;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 1px;
+      }
+
+      .empty-wax-seal {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background:
+          radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.3), transparent 45%),
+          radial-gradient(circle at 50% 50%, $c-stamp 0%, $c-stamp-deep 80%);
+        box-shadow:
+          inset 0 -2px 4px rgba(0, 0, 0, 0.4),
+          inset 0 2px 3px rgba(255, 255, 255, 0.15),
+          0 3px 8px rgba(0, 0, 0, 0.4);
+
+        .seal-text {
+          font-family: Georgia, serif;
+          font-size: 22px;
+          font-weight: 800;
+          color: rgba(255, 235, 210, 0.85);
+          letter-spacing: 1px;
+        }
+      }
+
+      .empty-season-tags {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+
+        .season-tag {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          font-family: Georgia, serif;
+          font-size: 18px;
+          font-weight: 800;
+          color: $c-ink;
+          background:
+            radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.6), transparent 55%),
+            linear-gradient(180deg, $c-paper, $c-paper-shade);
+          border: 2px solid rgba(58, 46, 31, 0.2);
+          box-shadow:
+            inset 0 1px 2px rgba(255, 255, 255, 0.5),
+            inset 0 -2px 3px rgba(58, 46, 31, 0.2),
+            0 2px 5px rgba(0, 0, 0, 0.2);
+
+          &.season-spring { border-color: rgba($c-spring, 0.45); color: darken($c-spring, 25%); }
+          &.season-summer { border-color: rgba($c-summer, 0.45); color: darken($c-summer, 25%); }
+          &.season-autumn { border-color: rgba($c-autumn, 0.45); color: darken($c-autumn, 18%); }
+          &.season-winter { border-color: rgba($c-winter, 0.45); color: darken($c-winter, 22%); }
+        }
+      }
+    }
+  }
+
+  .calendar-pages {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+
+    .page {
+      position: relative;
+      height: 192px;
+      border-radius: 6px;
+      padding: 14px 12px 12px;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.55) 0%, transparent 38%),
+        linear-gradient(315deg, rgba(0, 0, 0, 0.04) 0%, transparent 30%),
+        radial-gradient(circle 1px at 18% 22%, rgba(58, 46, 31, 0.05), transparent),
+        radial-gradient(circle 1px at 72% 14%, rgba(58, 46, 31, 0.04), transparent),
+        radial-gradient(circle 1px at 88% 68%, rgba(58, 46, 31, 0.05), transparent),
+        radial-gradient(circle 1px at 30% 80%, rgba(58, 46, 31, 0.04), transparent),
+        radial-gradient(circle 1px at 55% 45%, rgba(58, 46, 31, 0.03), transparent),
+        repeating-linear-gradient(0deg, transparent 0, transparent 3px, rgba(58, 46, 31, 0.018) 3px, rgba(58, 46, 31, 0.018) 4px),
+        repeating-linear-gradient(90deg, transparent 0, transparent 24px, rgba(58, 46, 31, 0.012) 24px, rgba(58, 46, 31, 0.012) 25px),
+        $c-paper;
+      box-shadow:
+        0 1px 0 #fff inset,
+        0 0 0 1px rgba(58, 46, 31, 0.13),
+        0 7px 13px -4px rgba(0, 0, 0, 0.42),
+        0 2px 5px rgba(0, 0, 0, 0.22);
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      .punch-hole {
+        position: absolute;
+        top: 6px;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: $c-leather-dark;
+        box-shadow:
+          0 1px 2px rgba(0, 0, 0, 0.6) inset,
+          0 1px 0 rgba(255, 255, 255, 0.4);
+        z-index: 3;
+        &.hole-left { left: 10px; }
+        &.hole-right { right: 10px; }
+      }
+
+      .page-fold {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 24px;
+        height: 24px;
+        background: linear-gradient(135deg, transparent 50%, $c-paper-back 50%, $c-paper-shade 100%);
+        border-bottom-right-radius: 6px;
+        box-shadow: -2px -2px 4px rgba(0, 0, 0, 0.12);
+        z-index: 2;
+      }
+
+      &.season-spring::before { @extend %season-band; background: linear-gradient(90deg, color.adjust($c-spring, $lightness: 12%), $c-spring 50%, color.adjust($c-spring, $lightness: -10%)); }
+      &.season-summer::before { @extend %season-band; background: linear-gradient(90deg, color.adjust($c-summer, $lightness: 12%), $c-summer 50%, color.adjust($c-summer, $lightness: -10%)); }
+      &.season-autumn::before { @extend %season-band; background: linear-gradient(90deg, color.adjust($c-autumn, $lightness: 12%), $c-autumn 50%, color.adjust($c-autumn, $lightness: -10%)); }
+      &.season-winter::before { @extend %season-band; background: linear-gradient(90deg, color.adjust($c-winter, $lightness: 12%), $c-winter 50%, color.adjust($c-winter, $lightness: -10%)); }
+
+      .page-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 6px;
+        padding-top: 5px;
+
+        .page-season-tag {
+          font-size: 11px;
+          font-weight: 700;
+          color: #fff;
+          padding: 2px 9px;
+          border-radius: 3px;
+          letter-spacing: 2px;
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+        }
+
+        .page-month-num {
+          font-family: Georgia, serif;
+          font-size: 23px;
+          font-weight: 700;
+          color: $c-ink;
+          letter-spacing: 1px;
+          text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+        }
+
+        .page-count-chip {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          min-width: 22px;
+          height: 22px;
+          padding: 0 7px;
+          font-size: 12px;
+          font-weight: 700;
+          color: #fff;
+          background: linear-gradient(135deg, color.adjust($c-stamp, $lightness: 8%), $c-stamp);
+          border: 1px solid $c-stamp-deep;
+          border-radius: 11px;
+          box-shadow:
+            0 2px 4px rgba(0, 0, 0, 0.35),
+            inset 0 1px 1px rgba(255, 255, 255, 0.3);
+        }
+      }
+
+      &.season-spring .page-season-tag { background: linear-gradient(135deg, color.adjust($c-spring, $lightness: 8%), $c-spring); }
+      &.season-summer .page-season-tag { background: linear-gradient(135deg, color.adjust($c-summer, $lightness: 8%), $c-summer); }
+      &.season-autumn .page-season-tag { background: linear-gradient(135deg, color.adjust($c-autumn, $lightness: 8%), $c-autumn); }
+      &.season-winter .page-season-tag { background: linear-gradient(135deg, color.adjust($c-winter, $lightness: 8%), $c-winter); }
+
+      .page-body {
+        flex: 1;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        .stickers {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          flex: 1;
+          padding-top: 4px;
+
+          .sticker {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            padding: 6px 8px;
+            border-radius: 4px;
+            box-shadow:
+              0 3px 5px rgba(0, 0, 0, 0.28),
+              0 1px 2px rgba(0, 0, 0, 0.18);
+
+            &.tilt-1 { transform: rotate(-1.8deg); }
+            &.tilt-2 { transform: rotate(1.2deg); }
+            &.tilt-3 { transform: rotate(-0.6deg); }
+
+            .sticker-tape {
+              position: absolute;
+              top: -5px;
+              left: -8px;
+              right: -8px;
+              height: 11px;
+              background: linear-gradient(180deg, rgba(255, 255, 255, 0.78) 0%, rgba(255, 255, 255, 0.45) 100%);
+              border-left: 1px dashed rgba(255, 255, 255, 0.7);
+              border-right: 1px dashed rgba(255, 255, 255, 0.7);
+              box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
+              transform: rotate(-2deg);
+              z-index: 1;
+            }
+
+            &.stamp-red {
+              background: linear-gradient(135deg, color.adjust($c-stamp, $lightness: 8%), $c-stamp);
+              border: 1px solid $c-stamp-deep;
+              .sticker-name { color: #fff; text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3); }
+              .sticker-date {
+                color: #fff;
+                background: rgba(0, 0, 0, 0.22);
+                border: 1px solid rgba(255, 255, 255, 0.4);
+              }
+              .sticker-type-mark {
+                color: #fff;
+                background: rgba(0, 0, 0, 0.25);
+                border: 1px solid rgba(255, 255, 255, 0.3);
+              }
+            }
+
+            &.note-blue {
+              background: linear-gradient(135deg, #eaf2f8, #d4e6f1);
+              border: 1px solid $c-note;
+              border-left: 3px solid $c-note;
+              .sticker-name { color: $c-note; }
+              .sticker-date {
+                color: #fff;
+                background: $c-note;
+                border: 1px solid color.adjust($c-note, $lightness: -10%);
+              }
+              .sticker-type-mark {
+                color: $c-note;
+                background: rgba(44, 95, 124, 0.14);
+                border: 1px solid rgba(44, 95, 124, 0.3);
+              }
+            }
+
+            .sticker-date {
+              flex-shrink: 0;
+              font-size: 10px;
+              font-weight: 700;
+              padding: 2px 5px;
+              border-radius: 3px;
+              position: relative;
+              z-index: 2;
+            }
+
+            .sticker-name {
+              flex: 1;
+              min-width: 0;
+              font-size: 12px;
+              font-weight: 700;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              position: relative;
+              z-index: 2;
+            }
+
+            .sticker-type-mark {
+              flex-shrink: 0;
+              font-size: 9px;
+              font-weight: 700;
+              padding: 1px 5px;
+              border-radius: 2px;
+              letter-spacing: 1px;
+              position: relative;
+              z-index: 2;
+            }
+          }
+
+          .more-chip {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+            align-self: flex-start;
+            font-size: 11px;
+            font-weight: 700;
+            color: #fff;
+            padding: 3px 10px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, color.adjust($c-ink-soft, $lightness: 10%), $c-ink-soft);
+            border: 1px solid $c-ink;
+            box-shadow:
+              0 2px 4px rgba(0, 0, 0, 0.25),
+              0 1px 2px rgba(0, 0, 0, 0.12),
+              inset 0 1px 1px rgba(255, 255, 255, 0.25);
+            letter-spacing: 1px;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+          }
+
+          .page-cta {
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 3px;
+            font-size: 11px;
+            font-weight: 600;
+            color: $c-ink-soft;
+            .cta-arrow {
+              display: inline-flex;
+              svg { width: 13px; height: 13px; }
+            }
+          }
+        }
+
+        .blank-page {
+          flex: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+
+          .blank-grid {
+            position: absolute;
+            inset: 0;
+            background:
+              repeating-linear-gradient(0deg, transparent 0, transparent 11px, rgba(58, 46, 31, 0.06) 11px, rgba(58, 46, 31, 0.06) 12px),
+              repeating-linear-gradient(90deg, transparent 0, transparent 11px, rgba(58, 46, 31, 0.06) 11px, rgba(58, 46, 31, 0.06) 12px);
+            opacity: 0.55;
+          }
+
+          .blank-text {
+            position: relative;
+            font-size: 12px;
+            color: rgba(58, 46, 31, 0.38);
+            letter-spacing: 2px;
+            background: $c-paper;
+            padding: 2px 10px;
+          }
+        }
+      }
+
+      &:hover {
+        transform: translateY(-5px) rotate(-0.4deg);
+        box-shadow:
+          0 1px 0 #fff inset,
+          0 0 0 1px rgba(58, 46, 31, 0.18),
+          0 16px 26px -6px rgba(0, 0, 0, 0.48),
+          0 5px 10px rgba(0, 0, 0, 0.28);
+      }
+
+      &.season-spring:hover { box-shadow: 0 1px 0 #fff inset, 0 0 0 2px rgba($c-spring, 0.65), 0 16px 26px -6px rgba(0, 0, 0, 0.48); }
+      &.season-summer:hover { box-shadow: 0 1px 0 #fff inset, 0 0 0 2px rgba($c-summer, 0.65), 0 16px 26px -6px rgba(0, 0, 0, 0.48); }
+      &.season-autumn:hover { box-shadow: 0 1px 0 #fff inset, 0 0 0 2px rgba($c-autumn, 0.65), 0 16px 26px -6px rgba(0, 0, 0, 0.48); }
+      &.season-winter:hover { box-shadow: 0 1px 0 #fff inset, 0 0 0 2px rgba($c-winter, 0.65), 0 16px 26px -6px rgba(0, 0, 0, 0.48); }
+
+      &.has-festivals { cursor: pointer; }
+
+      &.is-current {
+        &::after {
+          content: '今';
+          position: absolute;
+          bottom: 5px;
+          left: 5px;
+          top: auto;
+          right: auto;
+          width: 20px;
+          height: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-family: Georgia, serif;
+          font-size: 12px;
+          font-weight: 700;
+          color: #fff;
+          background: radial-gradient(circle at 38% 32%, color.adjust($c-stamp, $lightness: 10%), $c-stamp 55%, $c-stamp-deep);
+          border-radius: 50% 48% 52% 50% / 50% 52% 48% 50%;
+          box-shadow:
+            0 2px 4px rgba(0, 0, 0, 0.45),
+            inset 0 1px 1px rgba(255, 255, 255, 0.3),
+            inset 0 -1px 2px rgba(0, 0, 0, 0.3);
+          text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+          z-index: 3;
+        }
+      }
+
+
+      &.is-active {
+        transform: translateY(-3px);
+        box-shadow:
+          0 1px 0 #fff inset,
+          0 0 0 2px $c-stamp,
+          0 18px 30px -6px rgba(0, 0, 0, 0.52);
+
+        .page-fold {
+          width: 32px;
+          height: 32px;
+          background: linear-gradient(135deg, transparent 50%, $c-stamp 50%, $c-stamp-deep 100%);
+          box-shadow: -3px -3px 6px rgba(0, 0, 0, 0.2);
+        }
+      }
+    }
+  }
+}

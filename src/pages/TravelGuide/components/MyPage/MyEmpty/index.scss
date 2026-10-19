@@ -3,76 +3,188 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 3rem 1rem;
-  gap: 0.75rem;
+  flex: 1;
+  min-height: 60vh;
+  gap: 1.2rem;
+  position: relative;
 
-  .empty-orb {
+  .radar-scope {
     position: relative;
-    width: 96px;
-    height: 96px;
-    display: grid;
-    place-items: center;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid rgba(0, 229, 255, 0.3);
+    background: radial-gradient(
+      circle at center,
+      rgba(0, 229, 255, 0.06) 0%,
+      rgba(8, 16, 32, 0.6) 60%,
+      rgba(8, 16, 32, 0.9) 100%
+    );
+    box-shadow:
+      0 0 30px rgba(0, 229, 255, 0.2),
+      0 0 60px rgba(0, 229, 255, 0.08),
+      inset 0 0 30px rgba(0, 229, 255, 0.08),
+      inset 0 2px 4px rgba(255, 255, 255, 0.05);
 
-    .orb-ring {
+    .radar-sweep {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: conic-gradient(
+        from 0deg,
+        rgba(0, 229, 255, 0.35) 0deg,
+        rgba(0, 229, 255, 0.08) 30deg,
+        transparent 60deg,
+        transparent 360deg
+      );
+      animation: radarSweep 3s linear infinite;
+    }
+
+    .radar-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(0deg, transparent 49%, rgba(0, 229, 255, 0.04) 50%, transparent 51%),
+        linear-gradient(90deg, transparent 49%, rgba(0, 229, 255, 0.04) 50%, transparent 51%);
+      background-size: 20px 20px;
+      pointer-events: none;
+    }
+
+    .radar-ring {
       position: absolute;
       border-radius: 50%;
-      border: 1px solid rgba(0, 229, 255, 0.35);
-      animation: orbPulse 2.4s ease-in-out infinite;
+      border: 1px solid rgba(0, 229, 255, 0.15);
+      pointer-events: none;
     }
-    .ring-1 {
-      inset: 0;
+    .r1 { inset: 25%; }
+    .r2 { inset: 12%; border-color: rgba(0, 229, 255, 0.12); }
+    .r3 { inset: 2%; border-color: rgba(0, 229, 255, 0.1); border-style: dashed; }
+
+    .radar-crosshair {
+      position: absolute;
+      background: rgba(0, 229, 255, 0.12);
+      pointer-events: none;
     }
-    .ring-2 {
-      inset: 12px;
-      border-color: rgba(255, 196, 0, 0.35);
-      animation-delay: 0.4s;
+    .ch-h {
+      top: 50%;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      transform: translateY(-50%);
     }
-    .ring-3 {
-      inset: 24px;
-      border-color: rgba(0, 229, 255, 0.25);
-      animation-delay: 0.8s;
+    .ch-v {
+      left: 50%;
+      top: 10%;
+      bottom: 10%;
+      width: 1px;
+      transform: translateX(-50%);
     }
-    .orb-core {
-      position: relative;
-      width: 48px;
-      height: 48px;
+
+    .radar-bracket {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border: 2px solid rgba(0, 229, 255, 0.5);
+      pointer-events: none;
+    }
+    .br-tl { top: -2px; left: -2px; border-right: none; border-bottom: none; border-top-left-radius: 6px; }
+    .br-tr { top: -2px; right: -2px; border-left: none; border-bottom: none; border-top-right-radius: 6px; }
+    .br-bl { bottom: -2px; left: -2px; border-right: none; border-top: none; border-bottom-left-radius: 6px; }
+    .br-br { bottom: -2px; right: -2px; border-left: none; border-top: none; border-bottom-right-radius: 6px; }
+
+    .radar-core {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 52px;
+      height: 52px;
       border-radius: 50%;
       display: grid;
       place-items: center;
       color: #00e5ff;
       background: radial-gradient(
         circle at 35% 30%,
-        rgba(0, 229, 255, 0.35),
-        rgba(8, 16, 32, 0.9) 70%
+        rgba(0, 229, 255, 0.4),
+        rgba(8, 16, 32, 0.8) 70%
       );
       box-shadow:
-        0 0 18px rgba(0, 229, 255, 0.55),
-        inset 0 0 12px rgba(0, 229, 255, 0.35);
+        0 0 20px rgba(0, 229, 255, 0.5),
+        0 0 40px rgba(0, 229, 255, 0.2),
+        inset 0 0 14px rgba(0, 229, 255, 0.35),
+        inset 0 2px 3px rgba(255, 255, 255, 0.12),
+        inset 0 -2px 3px rgba(0, 0, 0, 0.3);
+      z-index: 10;
+      animation: corePulse 2s ease-in-out infinite;
     }
+
+    .radar-blip {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #00e5ff;
+      box-shadow: 0 0 6px #00e5ff, 0 0 12px rgba(0, 229, 255, 0.4);
+      animation: blipPulse 2s ease-in-out infinite;
+      z-index: 5;
+    }
+    .blip-1 { top: 22%; left: 65%; animation-delay: 0s; }
+    .blip-2 { top: 68%; left: 30%; animation-delay: 0.4s; background: #ffc400; box-shadow: 0 0 6px #ffc400, 0 0 12px rgba(255, 196, 0, 0.4); }
+    .blip-3 { top: 40%; left: 78%; animation-delay: 0.8s; }
+    .blip-4 { top: 75%; left: 60%; animation-delay: 1.2s; background: #ffc400; box-shadow: 0 0 6px #ffc400, 0 0 12px rgba(255, 196, 0, 0.4); }
+    .blip-5 { top: 30%; left: 25%; animation-delay: 1.6s; }
   }
 
   .empty-title {
     margin: 0;
-    font-size: 1.05rem;
-    font-weight: 700;
+    font-size: 1.5rem;
+    font-weight: 800;
     letter-spacing: 0.04em;
-    color: #c7d6ee;
+    color: #dbeafe;
+    text-shadow: 0 0 14px rgba(0, 229, 255, 0.35), 0 2px 4px rgba(0, 0, 0, 0.3);
   }
   .empty-hint {
     margin: 0;
-    font-size: 0.85rem;
-    color: #6f7d99;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #94a3b8;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    letter-spacing: 0.02em;
   }
 }
 
-@keyframes orbPulse {
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 0.6;
+@keyframes radarSweep {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes corePulse {
+  0%, 100% {
+    box-shadow:
+      0 0 20px rgba(0, 229, 255, 0.5),
+      0 0 40px rgba(0, 229, 255, 0.2),
+      inset 0 0 14px rgba(0, 229, 255, 0.35),
+      inset 0 2px 3px rgba(255, 255, 255, 0.12),
+      inset 0 -2px 3px rgba(0, 0, 0, 0.3);
   }
   50% {
-    transform: scale(1.12);
+    box-shadow:
+      0 0 28px rgba(0, 229, 255, 0.7),
+      0 0 56px rgba(0, 229, 255, 0.3),
+      inset 0 0 18px rgba(0, 229, 255, 0.45),
+      inset 0 2px 3px rgba(255, 255, 255, 0.15),
+      inset 0 -2px 3px rgba(0, 0, 0, 0.3);
+  }
+}
+
+@keyframes blipPulse {
+  0%, 100% {
+    transform: scale(0.6);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.3);
     opacity: 1;
   }
 }

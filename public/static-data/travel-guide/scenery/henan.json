@@ -14,7 +14,7 @@
       "rating": 4.8,
       "bestTime": "春秋",
       "location": "河南省郑州市登封市",
-      "description": "中国佛教禅宗祖庭,少林武术发源地",
+      "description": "少林寺，河南少林寺，人文荟萃之地，梵音袅袅香火鼎盛，中国佛教禅宗祖庭，少林武术发源地，实乃游历河南不可错过之胜境。。梵音袅袅香火鼎盛，足以令旅人魂牵梦萦，心驰神往。",
       "highlight": "天下第一名刹,禅宗祖庭",
       "level": "5A景区",
       "rankBadge": "必去",
@@ -26,7 +26,6 @@
       ],
       "openTime": "08:00-17:30",
       "visitDuration": "半天",
-      "popularity": "★★★★★",
       "audienceTags": [
         "武术爱好者",
         "佛教信众",
@@ -34,21 +33,57 @@
         "家庭出游"
       ],
       "ticketDetails": [
-        "成人票¥80",
-        "学生票半价",
-        "1.2米以下儿童免票",
-        "60岁以上老人免票"
+        {
+          "type": "成人票",
+          "price": "¥80"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "1.2米以下儿童",
+          "price": "免票"
+        },
+        {
+          "type": "60岁以上老人",
+          "price": "免票"
+        }
       ],
       "transportInfo": [
-        "飞机:郑州新郑国际机场约100km",
-        "高铁:郑州东站约80km",
-        "自驾:郑少洛高速登封出口",
-        "长途客运:郑州汽车站转乘"
+        {
+          "mode": "飞机",
+          "detail": "郑州新郑国际机场约100km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "郑州东站约80km"
+        },
+        {
+          "mode": "自驾",
+          "detail": "郑少洛高速登封出口"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "郑州汽车站转乘"
+        }
       ],
       "openTimeDetail": [
-        "景区 08:00-17:30",
-        "武术表演 09:30/10:30/15:00",
-        "建议上午游览"
+        {
+          "season": "景区",
+          "months": "",
+          "time": "08:00-17:30"
+        },
+        {
+          "season": "武术表演 09:30/10:30/15:00",
+          "months": "",
+          "time": ""
+        },
+        {
+          "season": "建议上午游览",
+          "months": "",
+          "time": ""
+        }
       ],
       "recommendedRoutes": [
         {
@@ -68,8 +103,15 @@
               "detail": "山门→天王殿→大雄宝殿→塔林→初祖庵"
             }
           ],
-          "budget": "¥100-200",
-          "bestFor": "文化爱好者/首次游览"
+          "budget": {
+            "currency": "¥",
+            "min": 100,
+            "max": 200
+          },
+          "bestFor": [
+            "文化爱好者",
+            "首次游览"
+          ]
         },
         {
           "name": "武术体验游",
@@ -88,8 +130,15 @@
               "detail": "少林寺→武术表演→武术馆体验→塔林→达摩洞"
             }
           ],
-          "budget": "¥200-400",
-          "bestFor": "武术爱好者/家庭出游"
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
+          "bestFor": [
+            "武术爱好者",
+            "家庭出游"
+          ]
         }
       ],
       "facilities": [
@@ -136,7 +185,7 @@
       "rating": 4.8,
       "bestTime": "春秋",
       "location": "河南省洛阳市洛龙区",
-      "description": "中国四大石窟之一,世界文化遗产",
+      "description": "坐落于中原大地的龙门石窟，河南龙门石窟，千年文脉传承之所，列世界遗产之林，中国四大石窟之一，世界文化遗产，实乃游历河南不可错过之胜境。。列世界遗产之林，堪称天地造化与人文底蕴之交响。",
       "highlight": "世界文化遗产,石刻艺术宝库",
       "level": "5A景区",
       "rankBadge": "必去",
@@ -148,7 +197,6 @@
       ],
       "openTime": "08:00-17:30",
       "visitDuration": "半天",
-      "popularity": "★★★★★",
       "audienceTags": [
         "文化爱好者",
         "历史爱好者",
@@ -156,21 +204,57 @@
         "摄影爱好者"
       ],
       "ticketDetails": [
-        "成人票¥90",
-        "学生票半价",
-        "1.2米以下儿童免票",
-        "60岁以上老人免票"
+        {
+          "type": "成人票",
+          "price": "¥90"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "1.2米以下儿童",
+          "price": "免票"
+        },
+        {
+          "type": "60岁以上老人",
+          "price": "免票"
+        }
       ],
       "transportInfo": [
-        "飞机:洛阳北郊机场约15km",
-        "高铁:洛阳龙门站约5km",
-        "自驾:二广高速洛阳出口",
-        "长途客运:洛阳汽车站转乘"
+        {
+          "mode": "飞机",
+          "detail": "洛阳北郊机场约15km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "洛阳龙门站约5km"
+        },
+        {
+          "mode": "自驾",
+          "detail": "二广高速洛阳出口"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "洛阳汽车站转乘"
+        }
       ],
       "openTimeDetail": [
-        "旺季(3-10月) 08:00-17:30",
-        "淡季(11-2月) 08:00-17:00",
-        "夜游 18:30-21:00"
+        {
+          "season": "旺季",
+          "months": "3-10月",
+          "time": "08:00-17:30"
+        },
+        {
+          "season": "淡季",
+          "months": "11-2月",
+          "time": "08:00-17:00"
+        },
+        {
+          "season": "夜游",
+          "months": "",
+          "time": "18:30-21:00"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -190,8 +274,15 @@
               "detail": "西山石窟→卢舍那大佛→东山石窟→香山寺"
             }
           ],
-          "budget": "¥100-200",
-          "bestFor": "文化爱好者/首次游览"
+          "budget": {
+            "currency": "¥",
+            "min": 100,
+            "max": 200
+          },
+          "bestFor": [
+            "文化爱好者",
+            "首次游览"
+          ]
         },
         {
           "name": "深度文化游",
@@ -211,8 +302,15 @@
               "detail": "西山石窟→东山石窟→香山寺→白园(白居易墓)→夜游灯光"
             }
           ],
-          "budget": "¥200-400",
-          "bestFor": "文化爱好者/摄影爱好者"
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
+          "bestFor": [
+            "文化爱好者",
+            "摄影爱好者"
+          ]
         }
       ],
       "facilities": [
@@ -259,7 +357,7 @@
       "rating": 4.7,
       "bestTime": "夏季",
       "location": "河南省焦作市修武县",
-      "description": "世界地质公园,以山水风光著称",
+      "description": "中原云台山，河南云台山，天地造化之奇，层峦叠嶂巍峨耸立，世界地质公园，以山水风光著称，实乃游历河南不可错过之胜境。。层峦叠嶂巍峨耸立，每一处景致皆是造物主的匠心独运。",
       "highlight": "世界地质公园,峡谷奇观",
       "level": "5A景区",
       "rankBadge": "必去",
@@ -275,7 +373,6 @@
       ],
       "openTime": "06:00-18:30",
       "visitDuration": "1-2天",
-      "popularity": "★★★★☆",
       "audienceTags": [
         "自然爱好者",
         "摄影爱好者",
@@ -283,21 +380,57 @@
         "家庭出游"
       ],
       "ticketDetails": [
-        "成人票¥120(2日内有效)",
-        "学生票半价",
-        "1.2米以下儿童免票",
-        "景区内观光车免费"
+        {
+          "type": "成人票¥120(2日内有效)",
+          "price": ""
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "1.2米以下儿童",
+          "price": "免票"
+        },
+        {
+          "type": "景区内观光车",
+          "price": "免费"
+        }
       ],
       "transportInfo": [
-        "飞机:郑州新郑国际机场约100km",
-        "高铁:郑州东站约80km",
-        "自驾:郑云高速修武出口",
-        "长途客运:焦作汽车站转乘"
+        {
+          "mode": "飞机",
+          "detail": "郑州新郑国际机场约100km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "郑州东站约80km"
+        },
+        {
+          "mode": "自驾",
+          "detail": "郑云高速修武出口"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "焦作汽车站转乘"
+        }
       ],
       "openTimeDetail": [
-        "旺季(3-11月) 06:00-18:30",
-        "淡季(12-2月) 07:00-17:30",
-        "建议清晨入园"
+        {
+          "season": "旺季",
+          "months": "3-11月",
+          "time": "06:00-18:30"
+        },
+        {
+          "season": "淡季",
+          "months": "12-2月",
+          "time": "07:00-17:30"
+        },
+        {
+          "season": "建议清晨入园",
+          "months": "",
+          "time": ""
+        }
       ],
       "recommendedRoutes": [
         {
@@ -317,8 +450,15 @@
               "detail": "红石峡→潭瀑峡→泉瀑峡→茱萸峰→万善寺"
             }
           ],
-          "budget": "¥200-400",
-          "bestFor": "自然爱好者/家庭出游"
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
+          "bestFor": [
+            "自然爱好者",
+            "家庭出游"
+          ]
         },
         {
           "name": "深度两日游",
@@ -343,8 +483,15 @@
               "detail": "茱萸峰→万善寺→百家岩→岸上村"
             }
           ],
-          "budget": "¥400-700",
-          "bestFor": "登山爱好者/深度游览"
+          "budget": {
+            "currency": "¥",
+            "min": 400,
+            "max": 700
+          },
+          "bestFor": [
+            "登山爱好者",
+            "深度游览"
+          ]
         }
       ],
       "facilities": [
@@ -391,7 +538,7 @@
       "rating": 4.5,
       "bestTime": "全年",
       "location": "河南省开封市鼓楼区",
-      "description": "北宋时期的府衙,包拯曾在此任职",
+      "description": "开封府者，中原之胜境也。河南开封府，人文底蕴深厚之地，北宋时期的府衙，包拯曾在此任职，实乃游历河南不可错过之胜境。。当属此地名胜之首推，不容错过。",
       "highlight": "北宋天下首府,包公故事",
       "level": "4A景区",
       "reviewCount": "43,210条点评",
@@ -403,7 +550,6 @@
       ],
       "openTime": "07:30-18:30",
       "visitDuration": "2-3小时",
-      "popularity": "★★★★☆",
       "audienceTags": [
         "历史爱好者",
         "文化爱好者",
@@ -411,21 +557,57 @@
         "教育研学"
       ],
       "ticketDetails": [
-        "成人票¥65",
-        "学生票半价",
-        "1.2米以下儿童免票",
-        "60岁以上老人免票"
+        {
+          "type": "成人票",
+          "price": "¥65"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "1.2米以下儿童",
+          "price": "免票"
+        },
+        {
+          "type": "60岁以上老人",
+          "price": "免票"
+        }
       ],
       "transportInfo": [
-        "飞机:郑州新郑国际机场约80km",
-        "高铁:郑州东站约60km",
-        "自驾:连霍高速开封出口",
-        "长途客运:开封汽车站转乘"
+        {
+          "mode": "飞机",
+          "detail": "郑州新郑国际机场约80km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "郑州东站约60km"
+        },
+        {
+          "mode": "自驾",
+          "detail": "连霍高速开封出口"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "开封汽车站转乘"
+        }
       ],
       "openTimeDetail": [
-        "景区 07:30-18:30",
-        "表演 09:30/10:30/14:30",
-        "建议上午游览"
+        {
+          "season": "景区",
+          "months": "",
+          "time": "07:30-18:30"
+        },
+        {
+          "season": "表演 09:30/10:30/14:30",
+          "months": "",
+          "time": ""
+        },
+        {
+          "season": "建议上午游览",
+          "months": "",
+          "time": ""
+        }
       ],
       "recommendedRoutes": [
         {
@@ -445,8 +627,15 @@
               "detail": "府门→大堂→议事厅→包公祠→包公审案表演"
             }
           ],
-          "budget": "¥100-200",
-          "bestFor": "历史爱好者/家庭出游"
+          "budget": {
+            "currency": "¥",
+            "min": 100,
+            "max": 200
+          },
+          "bestFor": [
+            "历史爱好者",
+            "家庭出游"
+          ]
         },
         {
           "name": "文化深度游",
@@ -465,8 +654,15 @@
               "detail": "府衙→包公祠→清明上河园→北宋文化体验"
             }
           ],
-          "budget": "¥200-400",
-          "bestFor": "文化爱好者/家庭出游"
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
+          "bestFor": [
+            "文化爱好者",
+            "家庭出游"
+          ]
         }
       ],
       "facilities": [
@@ -513,7 +709,7 @@
       "rating": 4.6,
       "bestTime": "全年",
       "location": "河南省开封市龙亭区",
-      "description": "以北宋名画清明上河图为蓝本建造的主题公园",
+      "description": "名为清明上河园，河南清明上河园，人文荟萃之地，以北宋名画清明上河图为蓝本建造的主题公园，实乃游历河南不可错过之胜境。。令人叹为观止，流连忘返。",
       "highlight": "一朝步入画卷,梦回大宋",
       "level": "5A景区",
       "rankBadge": "网红",
@@ -525,7 +721,6 @@
       ],
       "openTime": "09:00-22:00",
       "visitDuration": "半天",
-      "popularity": "★★★★★",
       "audienceTags": [
         "文化爱好者",
         "家庭出游",
@@ -533,21 +728,57 @@
         "年轻群体"
       ],
       "ticketDetails": [
-        "成人票¥120",
-        "学生票半价",
-        "1.2米以下儿童免票",
-        "夜游需另购票"
+        {
+          "type": "成人票",
+          "price": "¥120"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "1.2米以下儿童",
+          "price": "免票"
+        },
+        {
+          "type": "夜游需另购票",
+          "price": ""
+        }
       ],
       "transportInfo": [
-        "飞机:郑州新郑国际机场约80km",
-        "高铁:郑州东站约60km",
-        "自驾:连霍高速开封出口",
-        "长途客运:开封汽车站转乘"
+        {
+          "mode": "飞机",
+          "detail": "郑州新郑国际机场约80km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "郑州东站约60km"
+        },
+        {
+          "mode": "自驾",
+          "detail": "连霍高速开封出口"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "开封汽车站转乘"
+        }
       ],
       "openTimeDetail": [
-        "日场 09:00-22:00",
-        "夜游 18:00-22:00",
-        "大宋东京梦华 20:10-21:10"
+        {
+          "season": "日场",
+          "months": "",
+          "time": "09:00-22:00"
+        },
+        {
+          "season": "夜游",
+          "months": "",
+          "time": "18:00-22:00"
+        },
+        {
+          "season": "大宋东京梦华",
+          "months": "",
+          "time": "20:10-21:10"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -567,8 +798,15 @@
               "detail": "虹桥→上善门→孙羊正店→拂云阁→宋代市井"
             }
           ],
-          "budget": "¥150-300",
-          "bestFor": "家庭出游/年轻群体"
+          "budget": {
+            "currency": "¥",
+            "min": 150,
+            "max": 300
+          },
+          "bestFor": [
+            "家庭出游",
+            "年轻群体"
+          ]
         },
         {
           "name": "深度体验游",
@@ -588,8 +826,15 @@
               "detail": "日场游览→民俗表演→宋服体验→夜游灯光秀→大宋东京梦华"
             }
           ],
-          "budget": "¥300-500",
-          "bestFor": "文化爱好者/家庭出游"
+          "budget": {
+            "currency": "¥",
+            "min": 300,
+            "max": 500
+          },
+          "bestFor": [
+            "文化爱好者",
+            "家庭出游"
+          ]
         }
       ],
       "facilities": [
@@ -679,42 +924,42 @@
       {
         "name": "少林寺",
         "image": "https://picsum.photos/id/1420/600/400",
-        "description": "中国佛教禅宗祖庭,少林武术发源地"
+        "description": "坐落于中原大地的少林寺，少林寺——中国佛教禅宗祖庭，少林武术发源地，实乃游历此地不可错过之胜境。。每一处景致皆是造物主的匠心独运。"
       },
       {
         "name": "龙门石窟",
         "image": "https://picsum.photos/id/1421/600/400",
-        "description": "中国四大石窟之一,世界文化遗产"
+        "description": "中原龙门石窟，河南名胜龙门石窟，中国四大石窟之一，世界文化遗产，令人心驰神往流连忘返。。当属此地名胜之首推，不容错过。"
       },
       {
         "name": "云台山",
         "image": "https://picsum.photos/id/1422/600/400",
-        "description": "世界地质公园,以山水风光著称"
+        "description": "云台山者，中原之胜境也。云台山者，河南之世界地质公园，以山水风光著称，堪称此地风光之冠冕。。令人叹为观止，流连忘返。"
       },
       {
         "name": "开封府",
         "image": "https://picsum.photos/id/1423/600/400",
-        "description": "北宋时期的府衙,包拯曾在此任职"
+        "description": "名为开封府，誉为河南明珠的开封府，北宋时期的府衙，包拯曾在此任职，每一处皆是造化与人文的交响。。实乃游历此地不可错过之胜境。"
       },
       {
         "name": "清明上河园",
         "image": "https://picsum.photos/id/1424/600/400",
-        "description": "以北宋名画清明上河图为蓝本建造的主题公园"
+        "description": "中原名胜清明上河园，清明上河园，以北宋名画清明上河图为蓝本建造的主题公园，足以令旅人魂牵梦萦。。足以令旅人魂牵梦萦，心驰神往。"
       },
       {
         "name": "殷墟",
         "image": "https://picsum.photos/id/1425/600/400",
-        "description": "中国考古学的诞生地,世界文化遗产"
+        "description": "殷墟，殷墟——中国考古学的诞生地，世界文化遗产，当属此地名胜之首推。。堪称天地造化与人文底蕴之交响。"
       },
       {
         "name": "嵩山",
         "image": "https://picsum.photos/id/1426/600/400",
-        "description": "中国五岳之一的中岳,少林寺所在地"
+        "description": "坐落于中原大地的嵩山，河南名胜嵩山，中国五岳之一的中岳，少林寺所在地，实乃游历此地不可错过之胜境。。每一处景致皆是造物主的匠心独运。"
       },
       {
         "name": "白马寺",
         "image": "https://picsum.photos/id/1427/600/400",
-        "description": "中国第一座古刹,佛教传入中国的第一座寺院"
+        "description": "中原白马寺，白马寺者，河南之中国第一座古刹，佛教传入中国的第一座寺院，令人心驰神往流连忘返。。当属此地名胜之首推，不容错过。"
       }
     ]
   },
@@ -772,7 +1017,63 @@
       "month": "4月",
       "isUnique": true,
       "location": "洛阳",
-      "description": "洛阳特色的牡丹花会"
+      "description": "洛阳牡丹栽培始于隋唐，\"洛阳牡丹甲天下\"之誉传颂千年，牡丹花展、宫廷牡丹园夜游、牡丹诗词吟诵，于神都洛阳感受这\"唯有牡丹真国色花开时节动京城\"之盛世花韵。",
+      "type": "花卉节庆",
+      "duration": "约30天",
+      "origin": "洛阳牡丹文化节始于1983年，洛阳牡丹栽培始于隋唐，有\"洛阳牡丹甲天下\"之誉。",
+      "highlights": [
+        "牡丹花展",
+        "牡丹插花艺术展",
+        "宫廷牡丹园夜游",
+        "洛阳历史文化展",
+        "牡丹诗词吟诵会"
+      ],
+      "bestTime": "4月中旬盛花期",
+      "ticket": "王城公园¥40，隋唐遗址¥60",
+      "transport": "高铁至洛阳龙门站，转公交",
+      "tips": [
+        "花期受气温影响，每年略有变化",
+        "周末人流量大，建议工作日前往",
+        "洛阳水席为当地特色宴席"
+      ],
+      "relatedSpots": [
+        "龙门石窟",
+        "白马寺",
+        "洛阳博物馆"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "少林武术节",
+      "month": "10月",
+      "day": "1日",
+      "location": "登封",
+      "isUnique": false,
+      "description": "依托少林寺1500余年禅武传统，少林武僧团表演、国际武术邀请赛、禅武文化论坛、少林寺禅修体验，于嵩山脚下感受这\"天下功夫出少林\"之武学博大与禅武一味之深邃。",
+      "type": "武术节庆",
+      "heritageLevel": "国家级非遗",
+      "duration": "约5天",
+      "origin": "少林武术节始于1991年，依托少林寺1500余年禅武传统。少林功夫2006年入选国家级非遗。",
+      "highlights": [
+        "少林武僧团表演",
+        "国际武术邀请赛",
+        "禅武文化论坛",
+        "少林寺禅修体验",
+        "武术用品展销"
+      ],
+      "bestTime": "开幕日武僧表演",
+      "ticket": "少林寺门票¥80",
+      "transport": "高铁至郑州东站，转大巴至登封约1.5小时",
+      "tips": [
+        "少林寺景区含常住院、塔林等",
+        "武术表演每日定时，提前查询场次",
+        "登封住宿条件一般，可住郑州"
+      ],
+      "relatedSpots": [
+        "少林寺",
+        "塔林",
+        "嵩山"
+      ]
     }
   ],
   "activities": [
@@ -802,7 +1103,7 @@
   "intangibleHeritage": [
     {
       "id": "1",
-      "icon": "🎭",
+      "icon": "theater",
       "name": "豫剧",
       "image": "https://picsum.photos/id/1423/600/400",
       "level": "national",
@@ -843,7 +1144,11 @@
           "avgRating": 4.7,
           "bestSeason": "春秋 / 全年",
           "recommendedDays": "2-3 日",
-          "budget": "¥500-1200",
+          "budget": {
+            "currency": "¥",
+            "min": 500,
+            "max": 1200
+          },
           "intensity": "适中",
           "audience": "全人群",
           "highlights": [
@@ -869,7 +1174,11 @@
           "avgRating": 4.6,
           "bestSeason": "夏秋",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-500",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 500
+          },
           "intensity": "轻松",
           "audience": "家庭/休闲",
           "highlights": [
@@ -901,7 +1210,11 @@
           "avgRating": 4.6,
           "bestSeason": "全年",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-400",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
           "intensity": "轻松",
           "audience": "文化/家庭",
           "highlights": [
@@ -928,7 +1241,11 @@
           "avgRating": 4.7,
           "bestSeason": "全年",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-400",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
           "intensity": "轻松",
           "audience": "银发/养心",
           "highlights": [
@@ -955,7 +1272,11 @@
           "avgRating": 4.8,
           "bestSeason": "全年",
           "recommendedDays": "1-2 日",
-          "budget": "¥300-600",
+          "budget": {
+            "currency": "¥",
+            "min": 300,
+            "max": 600
+          },
           "intensity": "轻松",
           "audience": "文化/家庭",
           "highlights": [
@@ -974,6 +1295,353 @@
           ]
         }
       ]
+    }
+  ],
+  "craftWorkshops": [
+    {
+      "id": "henan-craft-1",
+      "image": "https://picsum.photos/id/1342/600/400",
+      "category": "craft",
+      "name": "汴绣刺绣体验",
+      "type": "刺绣",
+      "location": "开封市汴绣工坊",
+      "duration": "3小时",
+      "difficulty": "中等",
+      "price": "200",
+      "rating": 4.7,
+      "reviewCount": 178,
+      "instructor": "汴绣传承人",
+      "heritageLevel": "national",
+      "highlights": [
+        "宋绣技法",
+        "清明上河图绣稿",
+        "宫廷绣样"
+      ],
+      "steps": [
+        "选缎",
+        "拓稿",
+        "刺绣",
+        "装裱"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "手工艺爱好者"
+      ],
+      "tags": [
+        "非遗",
+        "汴绣",
+        "北宋"
+      ],
+      "description": "汴绣源于北宋宫廷绣，以《清明上河图》绣作闻名天下，\"宋绣之冠宫廷之艺\"。于开封工坊摹宋画绣稿，一针一线重现汴京繁华，感受这北宋皇城之绣艺华章与千年汴绣之传承。"
+    },
+    {
+      "id": "henan-craft-2",
+      "image": "https://picsum.photos/id/1344/600/400",
+      "category": "craft",
+      "name": "洛阳唐三彩烧制",
+      "type": "陶瓷",
+      "location": "洛阳唐三彩窑",
+      "duration": "3小时",
+      "difficulty": "简单",
+      "price": "220",
+      "rating": 4.7,
+      "reviewCount": 234,
+      "instructor": "三彩工艺师",
+      "heritageLevel": "national",
+      "highlights": [
+        "三彩施釉",
+        "入窑烧制",
+        "唐风器型"
+      ],
+      "steps": [
+        "选胎",
+        "施釉",
+        "入窑",
+        "出窑"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "手工艺爱好者"
+      ],
+      "tags": [
+        "非遗",
+        "唐三彩",
+        "洛阳"
+      ],
+      "description": "唐三彩为洛阳名片始于唐代，黄绿白三彩斑斓\"大唐之色丝路之韵\"。于三彩窑亲手施釉入窑，烈火淬炼间唐风器型华彩夺目，感受这盛唐气象之斑斓与丝路起点之文化积淀。"
+    }
+  ],
+  "performances": [
+    {
+      "id": "henan-perf-1",
+      "image": "https://picsum.photos/id/1960/600/400",
+      "category": "performance",
+      "name": "《禅宗少林·音乐大典》",
+      "type": "大型实景",
+      "location": "郑州市登封少林寺待仙沟",
+      "duration": "1.5小时",
+      "difficulty": "简单",
+      "price": "260",
+      "rating": 4.9,
+      "reviewCount": 678,
+      "highlights": [
+        "谭盾作曲原创",
+        "水乐风乐光乐",
+        "少林武僧实景演绎"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "家庭游客"
+      ],
+      "tags": [
+        "实景演出",
+        "少林",
+        "禅宗"
+      ],
+      "description": "待仙沟中谭盾的音乐如天籁倾泻，水乐风乐光乐三部曲交织。少林武僧于松林间腾跃，钟磬木鱼与溪水松风合鸣，于这禅宗祖庭的实景大典中，以音声入禅，以武悟道，感受\"直指人心\"之震撼。"
+    },
+    {
+      "id": "henan-perf-2",
+      "image": "https://picsum.photos/id/1961/600/400",
+      "category": "performance",
+      "name": "《大宋·东京梦华》·清明上河园",
+      "type": "大型实景",
+      "location": "开封市清明上河园景龙湖",
+      "duration": "1小时",
+      "difficulty": "简单",
+      "price": "198",
+      "rating": 4.8,
+      "reviewCount": 567,
+      "highlights": [
+        "八百演员实景重现",
+        "北宋汴京繁华",
+        "宋词经典吟诵"
+      ],
+      "suitableFor": [
+        "家庭游客",
+        "文化体验者"
+      ],
+      "tags": [
+        "实景演出",
+        "北宋",
+        "开封"
+      ],
+      "description": "清明上河园景龙湖上，八百演员重现北宋汴京盛世。从《青玉案》到《水调歌头》，宋词经典在灯火辉煌中吟诵，虹桥市井漕运繁忙，于这\"一朝步入画卷，一日梦回千年\"中领略大宋风华。"
+    },
+    {
+      "id": "henan-perf-3",
+      "image": "https://picsum.photos/id/1962/600/400",
+      "category": "performance",
+      "name": "豫剧《花木兰》·郑州",
+      "type": "戏曲",
+      "location": "郑州市豫剧院",
+      "duration": "2小时",
+      "difficulty": "简单",
+      "price": "50",
+      "rating": 4.6,
+      "reviewCount": 234,
+      "highlights": [
+        "豫剧经典名剧",
+        "高亢豪迈唱腔",
+        "中原方言韵味"
+      ],
+      "suitableFor": [
+        "戏曲爱好者",
+        "文化体验者"
+      ],
+      "tags": [
+        "非遗",
+        "豫剧",
+        "中原"
+      ],
+      "description": "豫剧高亢豪迈如中原大地之风雷，常香玉的\"刘大哥讲话理太偏\"传唱天下。《花木兰》中替父从军的巾帼豪情，于豫剧的铿锵腔调中更显壮烈，品味这全国第一大地方剧种之乡土力量。",
+      "heritageLevel": "national"
+    }
+  ],
+  "outdoorAdventure": [
+    {
+      "id": "henan-outdoor-1",
+      "image": "https://picsum.photos/id/1363/600/400",
+      "category": "outdoor",
+      "name": "太行大峡谷穿越",
+      "type": "峡谷穿越",
+      "location": "安阳林州太行大峡谷",
+      "duration": "1天",
+      "difficulty": "中等",
+      "price": "80",
+      "rating": 4.7,
+      "reviewCount": 3456,
+      "totalAscent": 600,
+      "maxElevation": 1700,
+      "routeType": "环线",
+      "surfaceType": "石阶",
+      "accessInfo": "高铁至最近站，转景区交通",
+      "gearList": [
+        "登山鞋",
+        "头灯",
+        "水",
+        "相机"
+      ],
+      "safetyTips": [
+        "挂壁公路注意落石",
+        "窄路注意会车"
+      ],
+      "bestMonths": "4-5月·9-10月",
+      "highlights": [
+        "挂壁公路",
+        "郭亮村",
+        "太行绝壁"
+      ],
+      "tags": [
+        "徒步",
+        "太行",
+        "挂壁公路"
+      ],
+      "description": "太行大峡谷为南太行最美段，郭亮村挂壁公路凿壁而成\"绝壁长廊\"。穿越挂壁公路与太行绝壁，红旗渠精神震撼心灵，感受这太行雄奇之壮美与人工天河之传奇。"
+    },
+    {
+      "id": "henan-outdoor-2",
+      "image": "https://picsum.photos/id/1366/600/400",
+      "category": "outdoor",
+      "name": "老君山金顶徒步",
+      "type": "徒步穿越",
+      "location": "洛阳栾川县老君山",
+      "duration": "半天",
+      "difficulty": "简单",
+      "price": "100",
+      "rating": 4.8,
+      "reviewCount": 5678,
+      "totalAscent": 900,
+      "maxElevation": 2217,
+      "routeType": "往返",
+      "surfaceType": "石阶",
+      "accessInfo": "高铁至最近站，转景区交通",
+      "gearList": [
+        "登山杖",
+        "冲锋衣",
+        "头灯",
+        "补给"
+      ],
+      "safetyTips": [
+        "海拔高注意保暖",
+        "索道可半程"
+      ],
+      "bestMonths": "4-5月·9-10月",
+      "highlights": [
+        "金顶云海",
+        "十里画屏",
+        "道教仙山"
+      ],
+      "tags": [
+        "徒步",
+        "老君山",
+        "云海"
+      ],
+      "description": "老君山为道教仙山，金顶云海日出\"远赴人间惊鸿宴一睹人间盛世颜\"。登金顶览十里画屏，云海翻涌如瑶池仙境，感受这伏牛山深处之仙山胜境与道教名山之超凡脱俗。"
+    }
+  ],
+  "wellnessRetreat": [
+    {
+      "id": "henan-wellness-1",
+      "image": "https://picsum.photos/id/1980/600/400",
+      "category": "wellness",
+      "name": "少林禅修体验",
+      "type": "禅修养生",
+      "location": "郑州市登封少林寺",
+      "duration": "1天",
+      "difficulty": "简单",
+      "price": "180",
+      "rating": 4.8,
+      "reviewCount": 567,
+      "efficacyTags": [
+        "禅宗祖庭坐禅",
+        "少林功夫体验",
+        "素斋禅房住宿"
+      ],
+      "bestSeason": "春秋",
+      "packageIncludes": [
+        "禅修课程",
+        "素斋",
+        "禅房"
+      ],
+      "suitableFor": [
+        "禅修爱好者",
+        "文化体验者"
+      ],
+      "tags": [
+        "禅修",
+        "佛教",
+        "少林"
+      ],
+      "description": "少林寺为禅宗祖庭，达摩面壁九年于此。于古刹中随武僧坐禅行禅，晨钟暮鼓间感悟\"明心见性\"，或随少林功夫舒展筋骨，于这天下第一名刹中修禅习武，体验\"禅武合一\"之境界。"
+    },
+    {
+      "id": "henan-wellness-2",
+      "image": "https://picsum.photos/id/1981/600/400",
+      "category": "wellness",
+      "name": "陈家沟太极拳发源地",
+      "type": "太极养生",
+      "location": "焦作市温县陈家沟",
+      "duration": "1天",
+      "difficulty": "简单",
+      "price": "100",
+      "rating": 4.7,
+      "reviewCount": 345,
+      "efficacyTags": [
+        "太极拳发源地",
+        "陈式太极名家指导",
+        "阴阳开合悟道"
+      ],
+      "bestSeason": "全年",
+      "packageIncludes": [
+        "太极教学",
+        "拳场体验",
+        "午餐"
+      ],
+      "suitableFor": [
+        "太极爱好者",
+        "养生爱好者"
+      ],
+      "tags": [
+        "太极",
+        "陈式",
+        "陈家沟"
+      ],
+      "description": "陈家沟为太极拳发源地，陈王廷创拳于此。于太极拳祖庭随陈氏传人习练，云手揽雀如行云流水，阴阳开合间感悟\"四两拨千斤\"之妙，于这中原村落中寻太极之源，修养生之本。"
+    },
+    {
+      "id": "henan-wellness-3",
+      "image": "https://picsum.photos/id/1982/600/400",
+      "category": "wellness",
+      "name": "洛阳牡丹药膳花养",
+      "type": "药膳养生",
+      "location": "洛阳市牡丹园区",
+      "duration": "半天",
+      "difficulty": "简单",
+      "price": "120",
+      "rating": 4.6,
+      "reviewCount": 234,
+      "efficacyTags": [
+        "牡丹花茶品鉴",
+        "牡丹药膳炖品",
+        "花养食疗讲座"
+      ],
+      "bestSeason": "春季",
+      "packageIncludes": [
+        "花茶",
+        "药膳",
+        "花宴"
+      ],
+      "suitableFor": [
+        "养生爱好者",
+        "文化体验者"
+      ],
+      "tags": [
+        "药膳",
+        "牡丹",
+        "洛阳"
+      ],
+      "description": "洛阳牡丹甲天下，\"唯有牡丹真国色，花开时节动京城\"。牡丹花茶清润养颜，花瓣入馔温补气血，于这十三朝古都的花海中品花养食疗，以国色天香之花入药，尽享\"花养\"之雅致康养。"
     }
   ]
 }

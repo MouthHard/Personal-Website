@@ -14,7 +14,7 @@
       "rating": 4.8,
       "bestTime": "春秋",
       "location": "山西省晋中市平遥县",
-      "description": "中国保存最完整的古城,世界文化遗产",
+      "description": "平遥古城，山西平遥古城，人文荟萃之地，古城沧桑千年风华，中国保存最完整的古城，世界文化遗产，实乃游历山西不可错过之胜境。。古城沧桑千年风华，足以令旅人魂牵梦萦，心驰神往。",
       "highlight": "世界文化遗产,保存最完整古城",
       "level": "5A景区",
       "rankBadge": "必去",
@@ -26,7 +26,6 @@
       ],
       "openTime": "08:00-17:30",
       "visitDuration": "1天",
-      "popularity": "★★★★★",
       "audienceTags": [
         "历史爱好者",
         "文化爱好者",
@@ -34,20 +33,52 @@
         "家庭游客"
       ],
       "ticketDetails": [
-        "成人票¥125",
-        "学生票半价",
-        "60岁以上免票",
-        "含22个景点通票"
+        {
+          "type": "成人票",
+          "price": "¥125"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "60岁以上",
+          "price": "免票"
+        },
+        {
+          "type": "含22个景点通票",
+          "price": ""
+        }
       ],
       "transportInfo": [
-        "飞机:太原武宿机场距景区90km",
-        "高铁:平遥古城站距景区5km",
-        "自驾:G5高速平遥出口",
-        "客运:太原建南汽车站直达"
+        {
+          "mode": "飞机",
+          "detail": "太原武宿机场距景区90km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "平遥古城站距景区5km"
+        },
+        {
+          "mode": "自驾",
+          "detail": "G5高速平遥出口"
+        },
+        {
+          "mode": "客运",
+          "detail": "太原建南汽车站直达"
+        }
       ],
       "openTimeDetail": [
-        "旺季(4-10月) 08:00-17:30",
-        "淡季(11-3月) 08:30-17:00"
+        {
+          "season": "旺季",
+          "months": "4-10月",
+          "time": "08:00-17:30"
+        },
+        {
+          "season": "淡季",
+          "months": "11-3月",
+          "time": "08:30-17:00"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -69,7 +100,10 @@
             }
           ],
           "budget": "¥125",
-          "bestFor": "文化爱好者/首次游览"
+          "bestFor": [
+            "文化爱好者",
+            "首次游览"
+          ]
         },
         {
           "name": "深度文化线",
@@ -94,8 +128,15 @@
               "detail": "双林寺彩塑→镇国寺万佛殿→又见平遥演出"
             }
           ],
-          "budget": "¥300-500",
-          "bestFor": "文化爱好者/深度游览"
+          "budget": {
+            "currency": "¥",
+            "min": 300,
+            "max": 500
+          },
+          "bestFor": [
+            "文化爱好者",
+            "深度游览"
+          ]
         }
       ],
       "facilities": [
@@ -141,7 +182,7 @@
       "rating": 4.7,
       "bestTime": "春秋",
       "location": "山西省大同市云冈区",
-      "description": "中国四大石窟之一,世界文化遗产",
+      "description": "坐落于三晋大地的云冈石窟，山西云冈石窟，千年文脉传承之所，列世界遗产之林，中国四大石窟之一，世界文化遗产，实乃游历山西不可错过之胜境。。列世界遗产之林，堪称天地造化与人文底蕴之交响。",
       "highlight": "世界文化遗产,北魏石刻艺术",
       "level": "5A景区",
       "rankBadge": "必去",
@@ -153,7 +194,6 @@
       ],
       "openTime": "08:00-17:30",
       "visitDuration": "3-4小时",
-      "popularity": "★★★★★",
       "audienceTags": [
         "文化爱好者",
         "艺术爱好者",
@@ -161,20 +201,52 @@
         "摄影爱好者"
       ],
       "ticketDetails": [
-        "成人票¥120",
-        "学生票半价",
-        "60岁以上免票",
-        "含景区电瓶车"
+        {
+          "type": "成人票",
+          "price": "¥120"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "60岁以上",
+          "price": "免票"
+        },
+        {
+          "type": "含景区电瓶车",
+          "price": ""
+        }
       ],
       "transportInfo": [
-        "飞机:大同云冈机场距景区20km",
-        "高铁:大同南站距景区15km",
-        "自驾:G55高速大同出口",
-        "客运:大同市区公交3路"
+        {
+          "mode": "飞机",
+          "detail": "大同云冈机场距景区20km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "大同南站距景区15km"
+        },
+        {
+          "mode": "自驾",
+          "detail": "G55高速大同出口"
+        },
+        {
+          "mode": "客运",
+          "detail": "大同市区公交3路"
+        }
       ],
       "openTimeDetail": [
-        "旺季(4-10月) 08:00-17:30",
-        "淡季(11-3月) 08:30-17:00"
+        {
+          "season": "旺季",
+          "months": "4-10月",
+          "time": "08:00-17:30"
+        },
+        {
+          "season": "淡季",
+          "months": "11-3月",
+          "time": "08:30-17:00"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -195,7 +267,10 @@
             }
           ],
           "budget": "¥120",
-          "bestFor": "文化爱好者/首次游览"
+          "bestFor": [
+            "文化爱好者",
+            "首次游览"
+          ]
         },
         {
           "name": "深度文化线",
@@ -215,8 +290,15 @@
               "detail": "云冈博物馆→灵岩寺→第1-4窟→第5-6窟→昙曜五窟→第20窟大佛→石窟全景"
             }
           ],
-          "budget": "¥120-150",
-          "bestFor": "艺术爱好者/深度游览"
+          "budget": {
+            "currency": "¥",
+            "min": 120,
+            "max": 150
+          },
+          "bestFor": [
+            "艺术爱好者",
+            "深度游览"
+          ]
         }
       ],
       "facilities": [
@@ -262,7 +344,7 @@
       "rating": 4.8,
       "bestTime": "夏季",
       "location": "山西省忻州市五台县",
-      "description": "中国四大佛教名山之一,世界文化遗产",
+      "description": "三晋五台山，山西五台山，古迹斑驳岁月悠悠，层峦叠嶂巍峨耸立，中国四大佛教名山之一，世界文化遗产，实乃游历山西不可错过之胜境。。层峦叠嶂巍峨耸立，每一处景致皆是造物主的匠心独运。",
       "highlight": "世界文化遗产,佛教四大名山之首",
       "level": "5A景区",
       "rankBadge": "圣地",
@@ -274,7 +356,6 @@
       ],
       "openTime": "全天开放",
       "visitDuration": "1-2天",
-      "popularity": "★★★★★",
       "audienceTags": [
         "宗教文化爱好者",
         "文化爱好者",
@@ -282,20 +363,52 @@
         "祈福游客"
       ],
       "ticketDetails": [
-        "成人票¥135",
-        "学生票半价",
-        "60岁以上免票",
-        "部分寺院单独收费"
+        {
+          "type": "成人票",
+          "price": "¥135"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "60岁以上",
+          "price": "免票"
+        },
+        {
+          "type": "部分寺院单独收费",
+          "price": ""
+        }
       ],
       "transportInfo": [
-        "飞机:五台山机场距景区30km",
-        "高铁:忻州西站转大巴",
-        "自驾:G55高速五台山出口",
-        "客运:太原客运东直达"
+        {
+          "mode": "飞机",
+          "detail": "五台山机场距景区30km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "忻州西站转大巴"
+        },
+        {
+          "mode": "自驾",
+          "detail": "G55高速五台山出口"
+        },
+        {
+          "mode": "客运",
+          "detail": "太原客运东直达"
+        }
       ],
       "openTimeDetail": [
-        "旺季(5-9月) 全天开放",
-        "淡季(10-4月) 08:00-17:00"
+        {
+          "season": "旺季",
+          "months": "5-9月",
+          "time": "全天开放"
+        },
+        {
+          "season": "淡季",
+          "months": "10-4月",
+          "time": "08:00-17:00"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -316,8 +429,15 @@
               "detail": "台怀镇→显通寺→塔院寺(大白塔)→五爷庙→菩萨顶→殊像寺"
             }
           ],
-          "budget": "¥135-200",
-          "bestFor": "祈福朝圣/首次游览"
+          "budget": {
+            "currency": "¥",
+            "min": 135,
+            "max": 200
+          },
+          "bestFor": [
+            "祈福朝圣",
+            "首次游览"
+          ]
         },
         {
           "name": "大朝台线",
@@ -342,8 +462,15 @@
               "detail": "中台→西台挂月峰→南台锦绣峰→返回台怀镇"
             }
           ],
-          "budget": "¥500-800",
-          "bestFor": "朝圣爱好者/登山爱好者"
+          "budget": {
+            "currency": "¥",
+            "min": 500,
+            "max": 800
+          },
+          "bestFor": [
+            "朝圣爱好者",
+            "登山爱好者"
+          ]
         }
       ],
       "facilities": [
@@ -389,7 +516,7 @@
       "rating": 4.6,
       "bestTime": "春秋",
       "location": "山西省晋中市祁县",
-      "description": "清代晋商民居建筑群,被誉为北方民居建筑的一颗明珠",
+      "description": "乔家大院者，三晋之胜境也。乔家大院者，清代晋商民居建筑群，被誉为北方民居建筑的一颗明珠。人文底蕴深厚之地，令人叹为观止流连忘返。。当属此地名胜之首推，不容错过。",
       "highlight": "清代北方民居,晋商大院",
       "level": "4A景区",
       "reviewCount": "54,321条点评",
@@ -401,7 +528,6 @@
       ],
       "openTime": "08:00-17:30",
       "visitDuration": "2-3小时",
-      "popularity": "★★★★☆",
       "audienceTags": [
         "历史爱好者",
         "文化爱好者",
@@ -409,20 +535,52 @@
         "家庭游客"
       ],
       "ticketDetails": [
-        "成人票¥115",
-        "学生票半价",
-        "60岁以上免票",
-        "含全院六个院落"
+        {
+          "type": "成人票",
+          "price": "¥115"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "60岁以上",
+          "price": "免票"
+        },
+        {
+          "type": "含全院六个院落",
+          "price": ""
+        }
       ],
       "transportInfo": [
-        "飞机:太原武宿机场距景区60km",
-        "高铁:祁县东站距景区5km",
-        "自驾:G5高速祁县出口",
-        "客运:太原建南汽车站直达"
+        {
+          "mode": "飞机",
+          "detail": "太原武宿机场距景区60km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "祁县东站距景区5km"
+        },
+        {
+          "mode": "自驾",
+          "detail": "G5高速祁县出口"
+        },
+        {
+          "mode": "客运",
+          "detail": "太原建南汽车站直达"
+        }
       ],
       "openTimeDetail": [
-        "旺季(4-10月) 08:00-17:30",
-        "淡季(11-3月) 08:30-17:00"
+        {
+          "season": "旺季",
+          "months": "4-10月",
+          "time": "08:00-17:30"
+        },
+        {
+          "season": "淡季",
+          "months": "11-3月",
+          "time": "08:30-17:00"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -444,7 +602,10 @@
             }
           ],
           "budget": "¥115",
-          "bestFor": "文化爱好者/首次游览"
+          "bestFor": [
+            "文化爱好者",
+            "首次游览"
+          ]
         },
         {
           "name": "晋商文化线",
@@ -464,8 +625,15 @@
               "detail": "大院入口→六个院落→晋商文化展览→木雕砖雕细赏→晋商历史陈列"
             }
           ],
-          "budget": "¥115-150",
-          "bestFor": "历史爱好者/文化爱好者"
+          "budget": {
+            "currency": "¥",
+            "min": 115,
+            "max": 150
+          },
+          "bestFor": [
+            "历史爱好者",
+            "文化爱好者"
+          ]
         }
       ],
       "facilities": [
@@ -511,7 +679,7 @@
       "rating": 4.7,
       "bestTime": "春秋",
       "location": "山西省临汾市吉县",
-      "description": "黄河上最大的瀑布,气势磅礴",
+      "description": "名为壶口瀑布，山西壶口瀑布，造化钟神秀，飞流直下银河落天，黄河上最大的瀑布，气势磅礴，实乃游历山西不可错过之胜境。。飞流直下银河落天，令人叹为观止，流连忘返。",
       "highlight": "黄河奇观,金色瀑布",
       "level": "4A景区",
       "rankBadge": "必去",
@@ -527,7 +695,6 @@
       ],
       "openTime": "08:00-18:00",
       "visitDuration": "2-3小时",
-      "popularity": "★★★★★",
       "audienceTags": [
         "摄影爱好者",
         "自然爱好者",
@@ -535,20 +702,52 @@
         "家庭游客"
       ],
       "ticketDetails": [
-        "成人票¥100",
-        "学生票半价",
-        "60岁以上免票",
-        "含景区观光车"
+        {
+          "type": "成人票",
+          "price": "¥100"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "60岁以上",
+          "price": "免票"
+        },
+        {
+          "type": "含景区观光车",
+          "price": ""
+        }
       ],
       "transportInfo": [
-        "飞机:临汾乔家营机场距景区100km",
-        "高铁:临汾西站转大巴",
-        "自驾:G22高速壶口出口",
-        "客运:临汾客运站直达"
+        {
+          "mode": "飞机",
+          "detail": "临汾乔家营机场距景区100km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "临汾西站转大巴"
+        },
+        {
+          "mode": "自驾",
+          "detail": "G22高速壶口出口"
+        },
+        {
+          "mode": "客运",
+          "detail": "临汾客运站直达"
+        }
       ],
       "openTimeDetail": [
-        "旺季(4-10月) 08:00-18:00",
-        "淡季(11-3月) 08:30-17:00"
+        {
+          "season": "旺季",
+          "months": "4-10月",
+          "time": "08:00-18:00"
+        },
+        {
+          "season": "淡季",
+          "months": "11-3月",
+          "time": "08:30-17:00"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -569,7 +768,10 @@
             }
           ],
           "budget": "¥100",
-          "bestFor": "摄影爱好者/家庭出游"
+          "bestFor": [
+            "摄影爱好者",
+            "家庭出游"
+          ]
         },
         {
           "name": "深度体验线",
@@ -589,8 +791,15 @@
               "detail": "景区入口→主瀑布→十里龙槽→孟门山→返程"
             }
           ],
-          "budget": "¥100-130",
-          "bestFor": "地质爱好者/深度游览"
+          "budget": {
+            "currency": "¥",
+            "min": 100,
+            "max": 130
+          },
+          "bestFor": [
+            "地质爱好者",
+            "深度游览"
+          ]
         }
       ],
       "facilities": [
@@ -677,42 +886,42 @@
       {
         "name": "平遥古城",
         "image": "https://picsum.photos/id/1180/600/400",
-        "description": "中国保存最完整的古城,世界文化遗产"
+        "description": "坐落于三晋大地的平遥古城，平遥古城——中国保存最完整的古城，世界文化遗产，实乃游历此地不可错过之胜境。。每一处景致皆是造物主的匠心独运。"
       },
       {
         "name": "云冈石窟",
         "image": "https://picsum.photos/id/1181/600/400",
-        "description": "中国四大石窟之一,世界文化遗产"
+        "description": "三晋云冈石窟，山西名胜云冈石窟，中国四大石窟之一，世界文化遗产，令人心驰神往流连忘返。。当属此地名胜之首推，不容错过。"
       },
       {
         "name": "五台山",
         "image": "https://picsum.photos/id/1182/600/400",
-        "description": "中国四大佛教名山之一,世界文化遗产"
+        "description": "五台山者，三晋之胜境也。五台山者，山西之中国四大佛教名山之一，世界文化遗产，堪称此地风光之冠冕。。令人叹为观止，流连忘返。"
       },
       {
         "name": "乔家大院",
         "image": "https://picsum.photos/id/1183/600/400",
-        "description": "清代晋商民居建筑群,被誉为北方民居建筑的一颗明珠"
+        "description": "名为乔家大院，誉为山西明珠的乔家大院，清代晋商民居建筑群，被誉为北方民居建筑的一颗明珠，每一处皆是造化与人文的交响。。实乃游历此地不可错过之胜境。"
       },
       {
         "name": "壶口瀑布",
         "image": "https://picsum.photos/id/1184/600/400",
-        "description": "黄河上最大的瀑布,气势磅礴"
+        "description": "三晋名胜壶口瀑布，壶口瀑布，黄河上最大的瀑布，气势磅礴，足以令旅人魂牵梦萦。。足以令旅人魂牵梦萦，心驰神往。"
       },
       {
         "name": "皇城相府",
         "image": "https://picsum.photos/id/1185/600/400",
-        "description": "清代文渊阁大学士陈廷敬的故居"
+        "description": "皇城相府，皇城相府——清代文渊阁大学士陈廷敬的故居，当属此地名胜之首推。。堪称天地造化与人文底蕴之交响。"
       },
       {
         "name": "晋祠",
         "image": "https://picsum.photos/id/1186/600/400",
-        "description": "中国现存最早的皇家祭祀园林"
+        "description": "坐落于三晋大地的晋祠，山西名胜晋祠，中国现存最早的皇家祭祀园林，实乃游历此地不可错过之胜境。。每一处景致皆是造物主的匠心独运。"
       },
       {
         "name": "雁门关",
         "image": "https://picsum.photos/id/1187/600/400",
-        "description": "长城上的重要关隘,历史悠久的军事要塞"
+        "description": "三晋雁门关，雁门关者，山西之长城上的重要关隘，历史悠久的军事要塞，令人心驰神往流连忘返。。当属此地名胜之首推，不容错过。"
       }
     ]
   },
@@ -770,7 +979,62 @@
       "month": "9月",
       "isUnique": true,
       "location": "平遥古城",
-      "description": "国际性的摄影艺术盛会"
+      "description": "以世界遗产平遥古城为展场，中国最大国际摄影节，国际摄影展、古城实景展览、摄影学术论坛，于\"明清古城\"之中感受这\"光影古城\"之艺术与平遥\"日升昌\"之晋商底蕴。",
+      "type": "文化节庆",
+      "duration": "约10天",
+      "origin": "平遥国际摄影大展始于2001年，以世界遗产平遥古城为展场，是中国最大国际摄影节。",
+      "highlights": [
+        "国际摄影展",
+        "古城实景展览",
+        "摄影学术论坛",
+        "摄影师见面会",
+        "古城漫游"
+      ],
+      "bestTime": "开幕周末",
+      "ticket": "平遥古城¥125",
+      "transport": "高铁至平遥古城站，步行约15分钟入城",
+      "tips": [
+        "古城内多处展场，建议买通票",
+        "摄影展作品可购买",
+        "古城住宿为明清窑洞风格，体验独特"
+      ],
+      "relatedSpots": [
+        "平遥古城",
+        "双林寺",
+        "镇国寺"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "五台山佛教文化节",
+      "month": "8月",
+      "day": "1日",
+      "location": "五台山",
+      "isUnique": false,
+      "description": "依托中国佛教四大名山之首五台山，文殊菩萨道场，文殊菩萨圣诞法会、佛学讲座、青庙黄庙联展、朝台徒步，于\"清凉圣境\"感受这\"文殊道场\"之佛韵与五台\"青黄并存\"之独特。",
+      "type": "宗教节庆",
+      "duration": "约5天",
+      "origin": "五台山佛教文化节依托中国佛教四大名山之首五台山，文殊菩萨道场，展示佛教文化与清凉避暑胜地。",
+      "highlights": [
+        "文殊菩萨圣诞法会",
+        "佛学讲座",
+        "青庙黄庙联展",
+        "素斋体验",
+        "朝台徒步"
+      ],
+      "bestTime": "农历六月初四文殊圣诞",
+      "ticket": "五台山¥135",
+      "transport": "高铁至太原站，转大巴至五台山约3小时",
+      "tips": [
+        "五台山海拔高，昼夜温差大",
+        "寺庙分青庙（汉传）黄庙（藏传）",
+        "朝台徒步需1-2天，备好补给"
+      ],
+      "relatedSpots": [
+        "五台山",
+        "显通寺",
+        "塔院寺"
+      ]
     }
   ],
   "activities": [
@@ -800,7 +1064,7 @@
   "intangibleHeritage": [
     {
       "id": "1",
-      "icon": "🎭",
+      "icon": "theater",
       "name": "晋剧",
       "image": "https://picsum.photos/id/1180/600/400",
       "level": "national",
@@ -841,7 +1105,11 @@
           "avgRating": 4.8,
           "bestSeason": "春秋 / 全年",
           "recommendedDays": "2-3 日",
-          "budget": "¥500-1200",
+          "budget": {
+            "currency": "¥",
+            "min": 500,
+            "max": 1200
+          },
           "intensity": "适中",
           "audience": "全人群",
           "highlights": [
@@ -867,7 +1135,11 @@
           "avgRating": 4.7,
           "bestSeason": "夏秋",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-500",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 500
+          },
           "intensity": "轻松",
           "audience": "家庭/休闲",
           "highlights": [
@@ -899,7 +1171,11 @@
           "avgRating": 4.6,
           "bestSeason": "全年",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-400",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
           "intensity": "轻松",
           "audience": "文化/家庭",
           "highlights": [
@@ -926,7 +1202,11 @@
           "avgRating": 4.8,
           "bestSeason": "全年",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-400",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
           "intensity": "轻松",
           "audience": "银发/养心",
           "highlights": [
@@ -953,7 +1233,11 @@
           "avgRating": 4.7,
           "bestSeason": "全年",
           "recommendedDays": "1-2 日",
-          "budget": "¥300-600",
+          "budget": {
+            "currency": "¥",
+            "min": 300,
+            "max": 600
+          },
           "intensity": "轻松",
           "audience": "文化/家庭",
           "highlights": [
@@ -972,6 +1256,355 @@
           ]
         }
       ]
+    }
+  ],
+  "craftWorkshops": [
+    {
+      "id": "shanxi-craft-1",
+      "image": "https://picsum.photos/id/1342/600/400",
+      "category": "craft",
+      "name": "平遥推光漆器",
+      "type": "漆器",
+      "location": "平遥古城漆器厂",
+      "duration": "3小时",
+      "difficulty": "中等",
+      "price": "260",
+      "rating": 4.7,
+      "reviewCount": 134,
+      "instructor": "漆器传承人",
+      "heritageLevel": "national",
+      "highlights": [
+        "手掌推光",
+        "描金彩绘",
+        "唐代漆艺"
+      ],
+      "steps": [
+        "制胎",
+        "刮灰",
+        "髹漆",
+        "推光",
+        "描金"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "手工艺爱好者"
+      ],
+      "tags": [
+        "非遗",
+        "推光漆",
+        "平遥"
+      ],
+      "description": "平遥推光漆器始于唐代手掌推光为绝技\"掌光如镜描金彩绘\"。于漆器厂亲手髹漆推光，手掌推光光泽如镜描金华彩，感受这\"平遥漆艺\"之巅峰与推光绝技之巧夺天工。"
+    },
+    {
+      "id": "shanxi-craft-2",
+      "image": "https://picsum.photos/id/1344/600/400",
+      "category": "craft",
+      "name": "广灵剪纸刻纸",
+      "type": "剪纸",
+      "location": "大同广灵县",
+      "duration": "3小时",
+      "difficulty": "简单",
+      "price": "80",
+      "rating": 4.6,
+      "reviewCount": 89,
+      "instructor": "剪纸传承人",
+      "heritageLevel": "national",
+      "highlights": [
+        "以刻代剪",
+        "点染上色",
+        "细如发丝"
+      ],
+      "steps": [
+        "选纸",
+        "刻花",
+        "点染",
+        "装裱"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "手工艺爱好者"
+      ],
+      "tags": [
+        "非遗",
+        "剪纸",
+        "广灵"
+      ],
+      "description": "广灵剪纸以刻代剪点染上色\"细如发丝中华一绝\"。于广灵工坊刻花点染装裱，剪纸精细如发丝色彩斑斓，感受这\"剪纸之乡\"之传承与广灵刻纸之精微绝伦。"
+    }
+  ],
+  "performances": [
+    {
+      "id": "shanxi-perf-1",
+      "image": "https://picsum.photos/id/1600/600/400",
+      "category": "performance",
+      "name": "又见平遥·沉浸式演出",
+      "type": "沉浸式演出",
+      "location": "晋中市平遥古城又见剧场",
+      "duration": "1.5小时",
+      "difficulty": "简单",
+      "price": "238",
+      "rating": 4.9,
+      "reviewCount": 1234,
+      "highlights": [
+        "王潮歌导演作品",
+        "穿梭明清古城街巷",
+        "晋商票号风云再现"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "年轻群体"
+      ],
+      "tags": [
+        "沉浸式",
+        "又见",
+        "平遥"
+      ],
+      "description": "又见平遥不是看戏，是穿越。观众分批穿梭于清末民初的平遥街巷，与晋商票号掌柜擦肩，与镖师同行，与选妻少女对望。在这沉浸式情境中，晋商的忠义诚信如潮水般将你包围，恍若梦回六百年。"
+    },
+    {
+      "id": "shanxi-perf-2",
+      "image": "https://picsum.photos/id/1601/600/400",
+      "category": "performance",
+      "name": "又见五台山·情境体验剧",
+      "type": "大型演出",
+      "location": "忻州市五台山又见剧场",
+      "duration": "1.5小时",
+      "difficulty": "简单",
+      "price": "198",
+      "rating": 4.8,
+      "reviewCount": 567,
+      "highlights": [
+        "佛教文化沉浸体验",
+        "文殊菩萨道场",
+        "光影声电史诗"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "佛教信众"
+      ],
+      "tags": [
+        "情境演出",
+        "佛教",
+        "五台山"
+      ],
+      "description": "又见五台山以光影声电织就佛国净土，从经筒旋转到金刚怒目，从晨钟暮鼓到梵音绕梁。在这情境体验中，文殊菩萨的智慧之光如甘露洒心，于这清凉圣境中感悟\"般若\"之真谛。"
+    },
+    {
+      "id": "shanxi-perf-3",
+      "image": "https://picsum.photos/id/1602/600/400",
+      "category": "performance",
+      "name": "晋剧梆子·太原",
+      "type": "戏曲",
+      "location": "太原市晋剧院",
+      "duration": "2小时",
+      "difficulty": "简单",
+      "price": "50",
+      "rating": 4.4,
+      "reviewCount": 156,
+      "highlights": [
+        "晋剧高腔折子戏",
+        "梆子击节铿锵",
+        "三晋戏曲韵味"
+      ],
+      "suitableFor": [
+        "戏曲爱好者",
+        "文化体验者"
+      ],
+      "tags": [
+        "非遗",
+        "晋剧",
+        "梆子"
+      ],
+      "description": "晋剧梆子铿锵，如三晋大地之风雷激荡。从《打金枝》的皇家趣事到《算粮登殿》的民间悲欢，高腔一启四座皆惊，于这黄土高原上领略晋剧之慷慨与细腻交织的独特韵味。",
+      "heritageLevel": "provincial"
+    }
+  ],
+  "outdoorAdventure": [
+    {
+      "id": "shanxi-outdoor-1",
+      "image": "https://picsum.photos/id/1363/600/400",
+      "category": "outdoor",
+      "name": "五台山大朝台徒步",
+      "type": "徒步穿越",
+      "location": "忻州五台山",
+      "duration": "1天",
+      "difficulty": "中等",
+      "price": "135",
+      "rating": 4.8,
+      "reviewCount": 456,
+      "totalAscent": 2000,
+      "maxElevation": 3061,
+      "routeType": "环线",
+      "surfaceType": "石阶",
+      "accessInfo": "高铁至最近站，转景区交通",
+      "gearList": [
+        "登山杖",
+        "冲锋衣",
+        "帐篷",
+        "头灯"
+      ],
+      "safetyTips": [
+        "海拔高注意保暖",
+        "天气多变需向导",
+        "量力而行"
+      ],
+      "bestMonths": "4-5月·9-10月",
+      "highlights": [
+        "五台连登",
+        "高山草甸",
+        "佛教朝圣"
+      ],
+      "tags": [
+        "徒步",
+        "五台山",
+        "朝台"
+      ],
+      "description": "五台山大朝台连登五座台顶约50公里\"五台连登高山草甸佛教朝圣\"。于五台连登中朝圣，高山草甸繁花金莲，感受这\"佛教四大名山之首\"之圣洁与大朝台之壮阔。"
+    },
+    {
+      "id": "shanxi-outdoor-2",
+      "image": "https://picsum.photos/id/1366/600/400",
+      "category": "outdoor",
+      "name": "太行山挂壁公路",
+      "type": "徒步穿越",
+      "location": "陵川县锡崖沟",
+      "duration": "半天",
+      "difficulty": "简单",
+      "price": "50",
+      "rating": 4.7,
+      "reviewCount": 234,
+      "totalAscent": 600,
+      "maxElevation": 1700,
+      "routeType": "往返",
+      "surfaceType": "石阶",
+      "accessInfo": "高铁至最近站，转景区交通",
+      "gearList": [
+        "登山鞋",
+        "头灯",
+        "水",
+        "相机"
+      ],
+      "safetyTips": [
+        "挂壁公路注意落石",
+        "窄路注意会车"
+      ],
+      "bestMonths": "4-5月·9-10月",
+      "highlights": [
+        "挂壁公路",
+        "太行绝壁",
+        "凿壁精神"
+      ],
+      "tags": [
+        "徒步",
+        "太行",
+        "挂壁公路"
+      ],
+      "description": "锡崖沟挂壁公路为村民凿壁15年而成\"绝壁长廊凿壁精神\"。于挂壁公路穿越太行绝壁，凿壁精神震撼心灵，感受这\"太行奇迹\"之壮美与人工凿壁之传奇。"
+    }
+  ],
+  "wellnessRetreat": [
+    {
+      "id": "shanxi-wellness-1",
+      "image": "https://picsum.photos/id/1620/600/400",
+      "category": "wellness",
+      "name": "五台山禅修朝拜",
+      "type": "禅修养生",
+      "location": "忻州市五台山黛螺顶",
+      "duration": "1天",
+      "difficulty": "简单",
+      "price": "100",
+      "rating": 4.7,
+      "reviewCount": 432,
+      "efficacyTags": [
+        "文殊菩萨智慧禅",
+        "黛螺顶五方朝台",
+        "晨钟暮鼓静心"
+      ],
+      "bestSeason": "春秋",
+      "packageIncludes": [
+        "寺院挂单",
+        "素斋",
+        "禅修指导"
+      ],
+      "suitableFor": [
+        "禅修爱好者",
+        "佛教信众"
+      ],
+      "tags": [
+        "禅修",
+        "佛教",
+        "五台山"
+      ],
+      "description": "五台山黛螺顶五方文殊齐聚，一螺顶朝遍五台。于古刹中盘膝坐禅，晨钟暮鼓涤荡凡尘，梵音袅袅中感悟文殊大智，在这清凉佛国里修一颗菩提心，体验\"智\"之化境。"
+    },
+    {
+      "id": "shanxi-wellness-2",
+      "image": "https://picsum.photos/id/1621/600/400",
+      "category": "wellness",
+      "name": "平遥古城慢生活",
+      "type": "慢生活",
+      "location": "晋中市平遥古城",
+      "duration": "1天",
+      "difficulty": "简单",
+      "price": "125",
+      "rating": 4.8,
+      "reviewCount": 678,
+      "efficacyTags": [
+        "明清街巷漫步",
+        "票号镖局探秘",
+        "古城墙骑行"
+      ],
+      "bestSeason": "春秋",
+      "packageIncludes": [
+        "通票",
+        "自行车租赁",
+        "老醋体验"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "休闲度假"
+      ],
+      "tags": [
+        "慢生活",
+        "古城",
+        "平遥"
+      ],
+      "description": "平遥古城明清街巷宛若时光凝固，票号镖局青砖灰瓦间晋商风流宛在。于古城墙上骑行环顾，穿街过巷品味老醋陈香，在这世界文化遗产中放慢脚步，让六百年光阴从指尖缓缓流过。"
+    },
+    {
+      "id": "shanxi-wellness-3",
+      "image": "https://picsum.photos/id/1622/600/400",
+      "category": "wellness",
+      "name": "太行山红岩大峡谷徒步",
+      "type": "徒步养生",
+      "location": "长治市壶关县太行大峡谷",
+      "duration": "1天",
+      "difficulty": "较难",
+      "price": "100",
+      "rating": 4.8,
+      "reviewCount": 345,
+      "efficacyTags": [
+        "强身健体",
+        "舒筋活络",
+        "清肺洗氧"
+      ],
+      "bestSeason": "春秋",
+      "packageIncludes": [
+        "门票",
+        "导览图",
+        "登山杖"
+      ],
+      "suitableFor": [
+        "登山爱好者",
+        "运动爱好者"
+      ],
+      "tags": [
+        "徒步",
+        "峡谷",
+        "太行"
+      ],
+      "description": "太行大峡谷刀劈斧削，八泉峡碧水幽深红豆峡丹壁如火。沿悬崖栈道蜿蜒而上，飞瀑从天而降清凉袭人，于这太行雄峡中挥洒汗水畅快心胸，领略\"太行之魂\"之壮美。"
     }
   ]
 }

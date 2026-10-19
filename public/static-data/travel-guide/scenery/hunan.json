@@ -14,7 +14,7 @@
       "rating": 4.9,
       "bestTime": "春秋",
       "location": "湖南省张家界市",
-      "description": "世界自然遗产,以奇峰怪石著称",
+      "description": "张家界，湖南张家界，造化钟神秀，层峦叠嶂巍峨耸立，世界自然遗产，以奇峰怪石著称，实乃游历湖南不可错过之胜境。。层峦叠嶂巍峨耸立，足以令旅人魂牵梦萦，心驰神往。",
       "highlight": "世界自然遗产,阿凡达悬浮山",
       "level": "5A景区",
       "rankBadge": "必去",
@@ -30,7 +30,6 @@
       ],
       "openTime": "07:00-18:00",
       "visitDuration": "2-3天",
-      "popularity": "★★★★★",
       "audienceTags": [
         "摄影爱好者",
         "登山爱好者",
@@ -38,21 +37,57 @@
         "探险游客"
       ],
       "ticketDetails": [
-        "成人票¥225(4日内有效)",
-        "学生票半价",
-        "1.2米以下儿童免票",
-        "索道/电梯另收费"
+        {
+          "type": "成人票¥225(4日内有效)",
+          "price": ""
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "1.2米以下儿童",
+          "price": "免票"
+        },
+        {
+          "type": "索道/电梯另收费",
+          "price": ""
+        }
       ],
       "transportInfo": [
-        "飞机:张家界荷花国际机场",
-        "高铁:张家界西站",
-        "自驾:长张高速直达",
-        "长途客运:张家界中心汽车站"
+        {
+          "mode": "飞机",
+          "detail": "张家界荷花国际机场"
+        },
+        {
+          "mode": "高铁",
+          "detail": "张家界西站"
+        },
+        {
+          "mode": "自驾",
+          "detail": "长张高速直达"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "张家界中心汽车站"
+        }
       ],
       "openTimeDetail": [
-        "旺季(3-11月) 07:00-18:00",
-        "淡季(12-2月) 08:00-17:00",
-        "建议清晨入园避开人流"
+        {
+          "season": "旺季",
+          "months": "3-11月",
+          "time": "07:00-18:00"
+        },
+        {
+          "season": "淡季",
+          "months": "12-2月",
+          "time": "08:00-17:00"
+        },
+        {
+          "season": "建议清晨入园避开人流",
+          "months": "",
+          "time": ""
+        }
       ],
       "recommendedRoutes": [
         {
@@ -78,8 +113,15 @@
               "detail": "天子山→贺龙公园→西海石林→金鞭溪→十里画廊"
             }
           ],
-          "budget": "¥800-1500",
-          "bestFor": "摄影爱好者/首次游览"
+          "budget": {
+            "currency": "¥",
+            "min": 800,
+            "max": 1500
+          },
+          "bestFor": [
+            "摄影爱好者",
+            "首次游览"
+          ]
         },
         {
           "name": "深度三日游",
@@ -109,8 +151,15 @@
               "detail": "杨家界→天然长城→一步登天→十里画廊"
             }
           ],
-          "budget": "¥1200-2000",
-          "bestFor": "登山爱好者/深度游览"
+          "budget": {
+            "currency": "¥",
+            "min": 1200,
+            "max": 2000
+          },
+          "bestFor": [
+            "登山爱好者",
+            "深度游览"
+          ]
         }
       ],
       "facilities": [
@@ -157,7 +206,7 @@
       "rating": 4.8,
       "bestTime": "春秋",
       "location": "湖南省湘西土家族苗族自治州凤凰县",
-      "description": "中国最美小城之一,湘西明珠",
+      "description": "坐落于湘楚大地的凤凰古城，湖南凤凰古城，千年文脉传承之所，古城沧桑千年风华，中国最美小城之一，湘西明珠，实乃游历湖南不可错过之胜境。。古城沧桑千年风华，堪称天地造化与人文底蕴之交响。",
       "highlight": "中国最美小城,沈从文故里",
       "level": "4A景区",
       "rankBadge": "必去",
@@ -169,7 +218,6 @@
       ],
       "openTime": "全天开放",
       "visitDuration": "1-2天",
-      "popularity": "★★★★★",
       "audienceTags": [
         "文化爱好者",
         "摄影爱好者",
@@ -177,21 +225,57 @@
         "情侣蜜月"
       ],
       "ticketDetails": [
-        "古城免费开放",
-        "九景联票¥148",
-        "学生票半价",
-        "1.2米以下儿童免票"
+        {
+          "type": "古城",
+          "price": "免费开放"
+        },
+        {
+          "type": "九景联票",
+          "price": "¥148"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "1.2米以下儿童",
+          "price": "免票"
+        }
       ],
       "transportInfo": [
-        "飞机:铜仁凤凰机场约40km",
-        "高铁:怀化南站约60km",
-        "自驾:G56杭瑞高速凤凰出口",
-        "长途客运:凤凰古城汽车站"
+        {
+          "mode": "飞机",
+          "detail": "铜仁凤凰机场约40km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "怀化南站约60km"
+        },
+        {
+          "mode": "自驾",
+          "detail": "G56杭瑞高速凤凰出口"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "凤凰古城汽车站"
+        }
       ],
       "openTimeDetail": [
-        "古城 全天开放",
-        "九景 07:30-18:00",
-        "夜游 19:00-22:00"
+        {
+          "season": "古城 全天开放",
+          "months": "",
+          "time": ""
+        },
+        {
+          "season": "九景",
+          "months": "",
+          "time": "07:30-18:00"
+        },
+        {
+          "season": "夜游",
+          "months": "",
+          "time": "19:00-22:00"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -212,8 +296,15 @@
               "detail": "沱江泛舟→虹桥→东门城楼→沈从文故居→夜景沱江"
             }
           ],
-          "budget": "¥200-500",
-          "bestFor": "文艺青年/情侣蜜月"
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 500
+          },
+          "bestFor": [
+            "文艺青年",
+            "情侣蜜月"
+          ]
         },
         {
           "name": "深度文化游",
@@ -238,8 +329,15 @@
               "detail": "九景联票→苗人古寨→南方长城→奇梁洞"
             }
           ],
-          "budget": "¥500-900",
-          "bestFor": "文化爱好者/深度游览"
+          "budget": {
+            "currency": "¥",
+            "min": 500,
+            "max": 900
+          },
+          "bestFor": [
+            "文化爱好者",
+            "深度游览"
+          ]
         }
       ],
       "facilities": [
@@ -286,7 +384,7 @@
       "rating": 4.6,
       "bestTime": "全年",
       "location": "湖南省岳阳市岳阳楼区",
-      "description": "江南三大名楼之一,洞庭湖畔的千古名楼",
+      "description": "湘楚岳阳楼，湖南岳阳楼，古迹斑驳岁月悠悠，江南三大名楼之一，洞庭湖畔的千古名楼，实乃游历湖南不可错过之胜境。。每一处景致皆是造物主的匠心独运。",
       "highlight": "江南三大名楼,洞庭天下水",
       "level": "5A景区",
       "rankBadge": "必去",
@@ -298,7 +396,6 @@
       ],
       "openTime": "07:30-18:30",
       "visitDuration": "2-3小时",
-      "popularity": "★★★★☆",
       "audienceTags": [
         "文化爱好者",
         "历史爱好者",
@@ -306,21 +403,57 @@
         "家庭出游"
       ],
       "ticketDetails": [
-        "成人票¥70",
-        "学生票半价",
-        "1.2米以下儿童免票",
-        "60岁以上老人免票"
+        {
+          "type": "成人票",
+          "price": "¥70"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "1.2米以下儿童",
+          "price": "免票"
+        },
+        {
+          "type": "60岁以上老人",
+          "price": "免票"
+        }
       ],
       "transportInfo": [
-        "飞机:岳阳三荷机场约20km",
-        "高铁:岳阳东站约15km",
-        "自驾:京港澳高速岳阳出口",
-        "长途客运:岳阳汽车站转乘"
+        {
+          "mode": "飞机",
+          "detail": "岳阳三荷机场约20km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "岳阳东站约15km"
+        },
+        {
+          "mode": "自驾",
+          "detail": "京港澳高速岳阳出口"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "岳阳汽车站转乘"
+        }
       ],
       "openTimeDetail": [
-        "旺季(4-10月) 07:30-18:30",
-        "淡季(11-3月) 08:00-18:00",
-        "建议上午游览"
+        {
+          "season": "旺季",
+          "months": "4-10月",
+          "time": "07:30-18:30"
+        },
+        {
+          "season": "淡季",
+          "months": "11-3月",
+          "time": "08:00-18:00"
+        },
+        {
+          "season": "建议上午游览",
+          "months": "",
+          "time": ""
+        }
       ],
       "recommendedRoutes": [
         {
@@ -340,8 +473,15 @@
               "detail": "岳阳楼→三醉亭→仙梅亭→碑廊→登楼观洞庭"
             }
           ],
-          "budget": "¥100-200",
-          "bestFor": "文化爱好者/首次游览"
+          "budget": {
+            "currency": "¥",
+            "min": 100,
+            "max": 200
+          },
+          "bestFor": [
+            "文化爱好者",
+            "首次游览"
+          ]
         },
         {
           "name": "洞庭风光游",
@@ -360,8 +500,15 @@
               "detail": "岳阳楼→洞庭湖游船→君山岛→湘妃祠"
             }
           ],
-          "budget": "¥200-400",
-          "bestFor": "家庭出游/文化爱好者"
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
+          "bestFor": [
+            "家庭出游",
+            "文化爱好者"
+          ]
         }
       ],
       "facilities": [
@@ -408,7 +555,7 @@
       "rating": 4.6,
       "bestTime": "全年",
       "location": "湖南省湘潭市韶山市",
-      "description": "毛泽东主席的故乡,红色旅游胜地",
+      "description": "韶山者，湘楚之胜境也。湖南韶山，人文底蕴深厚之地，毛泽东主席的故乡，红色旅游胜地，实乃游历湖南不可错过之胜境。。当属此地名胜之首推，不容错过。",
       "highlight": "毛主席故乡,红色圣地",
       "level": "5A景区",
       "rankBadge": "圣地",
@@ -420,7 +567,6 @@
       ],
       "openTime": "08:00-17:30",
       "visitDuration": "半天",
-      "popularity": "★★★★☆",
       "audienceTags": [
         "红色旅游",
         "历史爱好者",
@@ -428,21 +574,57 @@
         "家庭出游"
       ],
       "ticketDetails": [
-        "景区免费开放",
-        "故居需预约",
-        "纪念馆免费",
-        "电瓶车另收费"
+        {
+          "type": "景区",
+          "price": "免费开放"
+        },
+        {
+          "type": "故居需预约",
+          "price": ""
+        },
+        {
+          "type": "纪念馆",
+          "price": "免费"
+        },
+        {
+          "type": "电瓶车另收费",
+          "price": ""
+        }
       ],
       "transportInfo": [
-        "飞机:长沙黄花国际机场约60km",
-        "高铁:韶山南站约5km",
-        "自驾:沪昆高速韶山出口",
-        "长途客运:韶山汽车站转乘"
+        {
+          "mode": "飞机",
+          "detail": "长沙黄花国际机场约60km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "韶山南站约5km"
+        },
+        {
+          "mode": "自驾",
+          "detail": "沪昆高速韶山出口"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "韶山汽车站转乘"
+        }
       ],
       "openTimeDetail": [
-        "故居 08:00-17:30",
-        "纪念馆 08:30-17:00",
-        "建议上午游览"
+        {
+          "season": "故居",
+          "months": "",
+          "time": "08:00-17:30"
+        },
+        {
+          "season": "纪念馆",
+          "months": "",
+          "time": "08:30-17:00"
+        },
+        {
+          "season": "建议上午游览",
+          "months": "",
+          "time": ""
+        }
       ],
       "recommendedRoutes": [
         {
@@ -462,8 +644,15 @@
               "detail": "毛泽东故居→纪念馆→铜像广场→敬献花篮"
             }
           ],
-          "budget": "¥100-200",
-          "bestFor": "红色旅游/教育研学"
+          "budget": {
+            "currency": "¥",
+            "min": 100,
+            "max": 200
+          },
+          "bestFor": [
+            "红色旅游",
+            "教育研学"
+          ]
         },
         {
           "name": "深度教育游",
@@ -483,8 +672,15 @@
               "detail": "毛泽东故居→纪念馆→遗物馆→铜像广场→滴水洞"
             }
           ],
-          "budget": "¥200-400",
-          "bestFor": "红色旅游/家庭出游"
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
+          "bestFor": [
+            "红色旅游",
+            "家庭出游"
+          ]
         }
       ],
       "facilities": [
@@ -531,7 +727,7 @@
       "rating": 4.7,
       "bestTime": "春秋",
       "location": "湖南省衡阳市南岳区",
-      "description": "中国五岳之一的南岳,佛教圣地",
+      "description": "名为衡山，湖南衡山，造化钟神秀，层峦叠嶂巍峨耸立，中国五岳之一的南岳，佛教圣地，实乃游历湖南不可错过之胜境。。层峦叠嶂巍峨耸立，令人叹为观止，流连忘返。",
       "highlight": "五岳之南岳,寿岳之称",
       "level": "5A景区",
       "reviewCount": "43,210条点评",
@@ -547,7 +743,6 @@
       "rankBadge": "圣地",
       "openTime": "全天开放",
       "visitDuration": "1-2天",
-      "popularity": "★★★★☆",
       "audienceTags": [
         "登山爱好者",
         "佛教信众",
@@ -555,21 +750,57 @@
         "自然爱好者"
       ],
       "ticketDetails": [
-        "成人票¥120",
-        "学生票半价",
-        "1.2米以下儿童免票",
-        "索道另收费"
+        {
+          "type": "成人票",
+          "price": "¥120"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "1.2米以下儿童",
+          "price": "免票"
+        },
+        {
+          "type": "索道另收费",
+          "price": ""
+        }
       ],
       "transportInfo": [
-        "飞机:衡阳南岳机场约30km",
-        "高铁:衡阳东站约20km",
-        "自驾:京港澳高速衡山出口",
-        "长途客运:衡阳汽车站转乘"
+        {
+          "mode": "飞机",
+          "detail": "衡阳南岳机场约30km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "衡阳东站约20km"
+        },
+        {
+          "mode": "自驾",
+          "detail": "京港澳高速衡山出口"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "衡阳汽车站转乘"
+        }
       ],
       "openTimeDetail": [
-        "景区 全天开放",
-        "索道 07:00-17:30",
-        "寺庙 06:00-18:00"
+        {
+          "season": "景区 全天开放",
+          "months": "",
+          "time": ""
+        },
+        {
+          "season": "索道",
+          "months": "",
+          "time": "07:00-17:30"
+        },
+        {
+          "season": "寺庙",
+          "months": "",
+          "time": "06:00-18:00"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -589,8 +820,15 @@
               "detail": "南岳大庙→忠烈祠→祝融峰→祈福许愿"
             }
           ],
-          "budget": "¥300-600",
-          "bestFor": "佛教信众/祈福游客"
+          "budget": {
+            "currency": "¥",
+            "min": 300,
+            "max": 600
+          },
+          "bestFor": [
+            "佛教信众",
+            "祈福游客"
+          ]
         },
         {
           "name": "登山深度游",
@@ -615,8 +853,15 @@
               "detail": "祝融峰看日出→会仙桥→高台寺→下山"
             }
           ],
-          "budget": "¥600-1000",
-          "bestFor": "登山爱好者/摄影爱好者"
+          "budget": {
+            "currency": "¥",
+            "min": 600,
+            "max": 1000
+          },
+          "bestFor": [
+            "登山爱好者",
+            "摄影爱好者"
+          ]
         }
       ],
       "facilities": [
@@ -704,42 +949,42 @@
       {
         "name": "张家界",
         "image": "https://picsum.photos/id/1460/600/400",
-        "description": "世界自然遗产,以奇峰怪石著称"
+        "description": "坐落于湘楚大地的张家界，张家界——世界自然遗产，以奇峰怪石著称，实乃游历此地不可错过之胜境。。每一处景致皆是造物主的匠心独运。"
       },
       {
         "name": "凤凰古城",
         "image": "https://picsum.photos/id/1461/600/400",
-        "description": "中国最美小城之一,湘西明珠"
+        "description": "湘楚凤凰古城，湖南名胜凤凰古城，中国最美小城之一，湘西明珠，令人心驰神往流连忘返。。当属此地名胜之首推，不容错过。"
       },
       {
         "name": "岳阳楼",
         "image": "https://picsum.photos/id/1462/600/400",
-        "description": "江南三大名楼之一,洞庭湖畔的千古名楼"
+        "description": "岳阳楼者，湘楚之胜境也。岳阳楼者，湖南之江南三大名楼之一，洞庭湖畔的千古名楼，堪称此地风光之冠冕。。令人叹为观止，流连忘返。"
       },
       {
         "name": "韶山",
         "image": "https://picsum.photos/id/1463/600/400",
-        "description": "毛泽东主席的故乡,红色旅游胜地"
+        "description": "名为韶山，誉为湖南明珠的韶山，毛泽东主席的故乡，红色旅游胜地，每一处皆是造化与人文的交响。。实乃游历此地不可错过之胜境。"
       },
       {
         "name": "衡山",
         "image": "https://picsum.photos/id/1464/600/400",
-        "description": "中国五岳之一的南岳,佛教圣地"
+        "description": "湘楚名胜衡山，衡山，中国五岳之一的南岳，佛教圣地，足以令旅人魂牵梦萦。。足以令旅人魂牵梦萦，心驰神往。"
       },
       {
         "name": "洞庭湖",
         "image": "https://picsum.photos/id/1465/600/400",
-        "description": "中国第二大淡水湖,八百里洞庭"
+        "description": "洞庭湖，洞庭湖——中国第二大淡水湖，八百里洞庭，当属此地名胜之首推。。堪称天地造化与人文底蕴之交响。"
       },
       {
         "name": "橘子洲头",
         "image": "https://picsum.photos/id/1466/600/400",
-        "description": "长沙著名景点,湘江中的橘子洲"
+        "description": "坐落于湘楚大地的橘子洲头，湖南名胜橘子洲头，长沙著名景点，湘江中的橘子洲，实乃游历此地不可错过之胜境。。每一处景致皆是造物主的匠心独运。"
       },
       {
         "name": "岳麓山",
         "image": "https://picsum.photos/id/1467/600/400",
-        "description": "长沙著名风景区,岳麓书院所在地"
+        "description": "湘楚岳麓山，岳麓山者，湖南之长沙著名风景区，岳麓书院所在地，令人心驰神往流连忘返。。当属此地名胜之首推，不容错过。"
       }
     ]
   },
@@ -797,7 +1042,62 @@
       "month": "9月",
       "isUnique": true,
       "location": "张家界",
-      "description": "张家界特色的森林保护节"
+      "description": "以中国第一个国家森林公园张家界为载体，森林徒步大会、天门山翼装飞行、土家族民俗表演，于\"扩大的盆景缩小的仙境\"中感受这\"潘多拉星球\"之奇幻与武陵源之绝美。",
+      "type": "生态节庆",
+      "duration": "约5天",
+      "origin": "张家界国际森林保护节始于1991年，以中国第一个国家森林公园张家界为载体。",
+      "highlights": [
+        "森林徒步大会",
+        "天门山翼装飞行",
+        "张家界地貌科普展",
+        "土家族民俗表演",
+        "森林摄影大赛"
+      ],
+      "bestTime": "开幕日",
+      "ticket": "张家界国家森林公园¥225",
+      "transport": "飞机至张家界荷花机场，或高铁至张家界西站",
+      "tips": [
+        "门票4日内有效，可多次入园",
+        "天门山索道¥25另购",
+        "山上猴子多，不要手持食物"
+      ],
+      "relatedSpots": [
+        "张家界",
+        "天门山",
+        "芙蓉镇"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "凤凰古城旅游节",
+      "month": "5月",
+      "day": "1日",
+      "location": "凤凰",
+      "isUnique": false,
+      "description": "依托沈从文笔下边城凤凰，沱江泛舟夜游、苗族银饰展、边城文学讲座、湘西赶尸文化探秘，于沱江烟雨中感受这\"等一城烟雨渡一世情缘\"之边城诗意与湘西风情之神秘。",
+      "type": "旅游节庆",
+      "duration": "约3天",
+      "origin": "凤凰古城旅游节依托沈从文笔下边城凤凰，展示湘西苗族土家族文化。",
+      "highlights": [
+        "沱江泛舟夜游",
+        "苗族银饰展",
+        "边城文学讲座",
+        "湘西赶尸文化探秘",
+        "篝火晚会"
+      ],
+      "bestTime": "傍晚沱江夜游",
+      "ticket": "凤凰九景联票¥148",
+      "transport": "高铁至怀化南站，转大巴至凤凰约1小时",
+      "tips": [
+        "古城内住宿需提前预订",
+        "沱江泛舟¥50另购",
+        "苗族银饰为非遗，可作纪念品"
+      ],
+      "relatedSpots": [
+        "凤凰古城",
+        "南方长城",
+        "奇梁洞"
+      ]
     }
   ],
   "activities": [
@@ -827,7 +1127,7 @@
   "intangibleHeritage": [
     {
       "id": "1",
-      "icon": "🎭",
+      "icon": "theater",
       "name": "湘剧",
       "image": "https://picsum.photos/id/1466/600/400",
       "level": "national",
@@ -868,7 +1168,11 @@
           "avgRating": 4.6,
           "bestSeason": "春秋 / 全年",
           "recommendedDays": "2-3 日",
-          "budget": "¥500-1200",
+          "budget": {
+            "currency": "¥",
+            "min": 500,
+            "max": 1200
+          },
           "intensity": "适中",
           "audience": "全人群",
           "highlights": [
@@ -896,7 +1200,11 @@
           "avgRating": 4.9,
           "bestSeason": "秋冬",
           "recommendedDays": "2 日",
-          "budget": "¥400-900",
+          "budget": {
+            "currency": "¥",
+            "min": 400,
+            "max": 900
+          },
           "intensity": "适中",
           "audience": "摄影/户外",
           "highlights": [
@@ -922,7 +1230,11 @@
           "avgRating": 4.5,
           "bestSeason": "夏秋",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-500",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 500
+          },
           "intensity": "轻松",
           "audience": "家庭/休闲",
           "highlights": [
@@ -952,7 +1264,11 @@
           "avgRating": 4.6,
           "bestSeason": "全年",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-400",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
           "intensity": "轻松",
           "audience": "文化/家庭",
           "highlights": [
@@ -979,7 +1295,11 @@
           "avgRating": 4.7,
           "bestSeason": "全年",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-400",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
           "intensity": "轻松",
           "audience": "银发/养心",
           "highlights": [
@@ -998,6 +1318,351 @@
           ]
         }
       ]
+    }
+  ],
+  "craftWorkshops": [
+    {
+      "id": "hunan-craft-1",
+      "image": "https://picsum.photos/id/1342/600/400",
+      "category": "craft",
+      "name": "湘绣体验",
+      "type": "刺绣",
+      "location": "长沙沙坪湘绣城",
+      "duration": "3小时",
+      "difficulty": "中等",
+      "price": "200",
+      "rating": 4.8,
+      "reviewCount": 345,
+      "instructor": "湘绣传承人",
+      "heritageLevel": "national",
+      "highlights": [
+        "鬅毛针技法",
+        "绣虎体验",
+        "平绣双面"
+      ],
+      "steps": [
+        "选缎",
+        "拓稿",
+        "刺绣",
+        "装裱"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "手工艺爱好者"
+      ],
+      "tags": [
+        "非遗",
+        "湘绣",
+        "四大名绣"
+      ],
+      "description": "湘绣位列中国四大名绣，以\"鬅毛针\"绣虎毛根根分明\"绣虎如真天下一绝\"。于沙坪湘绣城亲手鬅毛针绣虎，虎眼炯炯虎毛森森，感受这湘楚大地之绣艺巅峰与鬅毛针之绝技。"
+    },
+    {
+      "id": "hunan-craft-2",
+      "image": "https://picsum.photos/id/1344/600/400",
+      "category": "craft",
+      "name": "醴陵釉下五彩瓷",
+      "type": "陶瓷",
+      "location": "醴陵市陶瓷谷",
+      "duration": "3小时",
+      "difficulty": "简单",
+      "price": "180",
+      "rating": 4.7,
+      "reviewCount": 234,
+      "instructor": "醴陵陶艺师",
+      "heritageLevel": "national",
+      "highlights": [
+        "釉下彩绘",
+        "高温烧制",
+        "五彩缤纷"
+      ],
+      "steps": [
+        "拉坯",
+        "彩绘",
+        "罩釉",
+        "烧制"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "手工艺爱好者"
+      ],
+      "tags": [
+        "非遗",
+        "釉下五彩",
+        "醴陵"
+      ],
+      "description": "醴陵釉下五彩为国家级非遗，\"白如玉明如镜薄如纸声如磬\"五彩缤纷。于陶瓷谷亲手釉下彩绘入窑烧制，高温淬炼间五彩绽放，感受这湘东瓷都之釉下五彩与千年窑火之传承。"
+    }
+  ],
+  "performances": [
+    {
+      "id": "hunan-perf-1",
+      "image": "https://picsum.photos/id/2040/600/400",
+      "category": "performance",
+      "name": "《天门狐仙》·张家界实景",
+      "type": "大型实景",
+      "location": "张家界市天门山天门狐仙剧场",
+      "duration": "1.5小时",
+      "difficulty": "简单",
+      "price": "258",
+      "rating": 4.9,
+      "reviewCount": 678,
+      "highlights": [
+        "刘海砍樵新编",
+        "天门山实景舞台",
+        "狐仙与人绝恋"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "情侣约会"
+      ],
+      "tags": [
+        "实景演出",
+        "狐仙",
+        "天门山"
+      ],
+      "description": "天门山悬崖为幕，天门洞前狐仙与樵夫的跨界绝恋磅礴上演。五百演员在峡谷间腾跃，灯光将天门洞染成梦幻天宫，刘海与胡秀英的爱情如山间清泉，于这湖南第一演出中领略湘西浪漫之极致。"
+    },
+    {
+      "id": "hunan-perf-2",
+      "image": "https://picsum.photos/id/2041/600/400",
+      "category": "performance",
+      "name": "张家界千古情·宋城",
+      "type": "大型演出",
+      "location": "张家界市武陵源千古情景区",
+      "duration": "1小时",
+      "difficulty": "简单",
+      "price": "260",
+      "rating": 4.8,
+      "reviewCount": 567,
+      "highlights": [
+        "土家族苗族风情",
+        "大庸古城穿越",
+        "声光电水幕特效"
+      ],
+      "suitableFor": [
+        "家庭游客",
+        "文化体验者"
+      ],
+      "tags": [
+        "千古情",
+        "大型演出",
+        "张家界"
+      ],
+      "description": "张家界千古情以土苗风情为魂，从茅古斯舞到摆手舞，从大庸古城到天门仙境，声光电水幕织就湘西千年画卷。于这宋城出品的大型演出中，领略张家界不只有奇峰，更有民族风情之绚烂。"
+    },
+    {
+      "id": "hunan-perf-3",
+      "image": "https://picsum.photos/id/2042/600/400",
+      "category": "performance",
+      "name": "湘剧高腔·长沙老茶馆",
+      "type": "戏曲",
+      "location": "长沙市坡子街湘江剧场",
+      "duration": "2小时",
+      "difficulty": "简单",
+      "price": "50",
+      "rating": 4.5,
+      "reviewCount": 178,
+      "highlights": [
+        "湘剧高腔折子",
+        "琵琶记经典",
+        "弹腔北路南路"
+      ],
+      "suitableFor": [
+        "戏曲爱好者",
+        "文化体验者"
+      ],
+      "tags": [
+        "非遗",
+        "湘剧",
+        "高腔"
+      ],
+      "description": "湘江剧场里高腔一启四座皆惊，湘剧高低腔如湘江之水激荡。从琵琶记的赵五娘剪发卖发到拜月记的蒋世隆王瑞兰，于这湖湘大地的老茶馆中，品味湘剧之慷慨与细腻并存的独特风韵。",
+      "heritageLevel": "provincial"
+    }
+  ],
+  "outdoorAdventure": [
+    {
+      "id": "hunan-outdoor-1",
+      "image": "https://picsum.photos/id/1363/600/400",
+      "category": "outdoor",
+      "name": "张家界天门山玻璃栈道",
+      "type": "徒步穿越",
+      "location": "张家界天门山",
+      "duration": "1天",
+      "difficulty": "中等",
+      "price": "235",
+      "rating": 4.8,
+      "reviewCount": 8901,
+      "totalAscent": 600,
+      "maxElevation": 1518,
+      "routeType": "环线",
+      "surfaceType": "石阶",
+      "accessInfo": "高铁至最近站，转景区交通",
+      "gearList": [
+        "登山鞋",
+        "防滑鞋套",
+        "相机"
+      ],
+      "safetyTips": [
+        "玻璃栈道勿跳跃",
+        "恐高者慎重"
+      ],
+      "bestMonths": "4-5月·9-10月",
+      "highlights": [
+        "玻璃栈道",
+        "天门洞",
+        "99弯公路"
+      ],
+      "tags": [
+        "徒步",
+        "天门山",
+        "玻璃栈道"
+      ],
+      "description": "天门山玻璃栈道悬于绝壁，99弯通天大道蜿蜒如龙\"天门洞开穿山溶洞\"。于玻璃栈道凌空而行，脚下万丈深渊天门洞如天门大开，感受这\"武陵之魂\"的惊险刺激与天门奇观之震撼。"
+    },
+    {
+      "id": "hunan-outdoor-2",
+      "image": "https://picsum.photos/id/1366/600/400",
+      "category": "outdoor",
+      "name": "南岳衡山祝融峰徒步",
+      "type": "徒步穿越",
+      "location": "衡阳南岳衡山",
+      "duration": "半天",
+      "difficulty": "简单",
+      "price": "110",
+      "rating": 4.6,
+      "reviewCount": 2345,
+      "totalAscent": 800,
+      "maxElevation": 1300,
+      "routeType": "往返",
+      "surfaceType": "石阶",
+      "accessInfo": "高铁至最近站，转景区交通",
+      "gearList": [
+        "登山杖",
+        "头灯",
+        "保暖衣"
+      ],
+      "safetyTips": [
+        "夜爬需头灯",
+        "山顶寒冷"
+      ],
+      "bestMonths": "4-5月·9-10月",
+      "highlights": [
+        "祝融峰日出",
+        "南岳大庙",
+        "万寿大鼎"
+      ],
+      "tags": [
+        "徒步",
+        "南岳",
+        "五岳"
+      ],
+      "description": "南岳衡山位列五岳之一，祝融峰观日出\"万里衡阳雁此峰最高处\"。于夜爬中登祝融峰迎日出，南岳大庙香火鼎盛万寿大鼎巍然，感受这\"五岳独秀\"之南岳气韵与衡山日出之壮美。"
+    }
+  ],
+  "wellnessRetreat": [
+    {
+      "id": "hunan-wellness-1",
+      "image": "https://picsum.photos/id/2060/600/400",
+      "category": "wellness",
+      "name": "南岳衡山禅修静心",
+      "type": "禅修养生",
+      "location": "衡阳市南岳衡山福严寺",
+      "duration": "1天",
+      "difficulty": "简单",
+      "price": "100",
+      "rating": 4.7,
+      "reviewCount": 345,
+      "efficacyTags": [
+        "禅宗祖庭静心",
+        "福严寺坐禅",
+        "磨镜台悟道"
+      ],
+      "bestSeason": "春秋",
+      "packageIncludes": [
+        "寺院挂单",
+        "素斋",
+        "禅修"
+      ],
+      "suitableFor": [
+        "禅修爱好者",
+        "佛教信众"
+      ],
+      "tags": [
+        "禅修",
+        "佛教",
+        "南岳"
+      ],
+      "description": "南岳衡山为禅宗祖庭，怀让磨砖不能成镜？马祖一闻即悟。于福严寺中盘膝坐禅，晨钟暮鼓涤荡凡尘，在这五岳独秀之圣地修一颗平常心，感悟即心即佛之禅宗妙谛。"
+    },
+    {
+      "id": "hunan-wellness-2",
+      "image": "https://picsum.photos/id/2061/600/400",
+      "category": "wellness",
+      "name": "张家界天子山森林徒步",
+      "type": "森林康养",
+      "location": "张家界市武陵源天子山景区",
+      "duration": "1天",
+      "difficulty": "中等",
+      "price": "228",
+      "rating": 4.9,
+      "reviewCount": 567,
+      "efficacyTags": [
+        "世界自然遗产徒步",
+        "峰林奇观养眼",
+        "负氧离子深呼吸"
+      ],
+      "bestSeason": "春秋",
+      "packageIncludes": [
+        "门票",
+        "索道",
+        "登山杖"
+      ],
+      "suitableFor": [
+        "登山爱好者",
+        "自然爱好者"
+      ],
+      "tags": [
+        "森林",
+        "徒步",
+        "张家界"
+      ],
+      "description": "天子山不游天子山枉到武陵源。峰林如剑直插云霄，云海翻涌如瑶池仙境。穿行于这世界自然遗产的石峰丛林间，负氧离子涤尽尘肺，于这扩大的盆景缩小的仙境中徒步养生。"
+    },
+    {
+      "id": "hunan-wellness-3",
+      "image": "https://picsum.photos/id/2062/600/400",
+      "category": "wellness",
+      "name": "岳阳洞庭湖滨太极晨练",
+      "type": "太极养生",
+      "location": "岳阳市岳阳楼洞庭湖畔",
+      "duration": "1.5小时",
+      "difficulty": "简单",
+      "price": "免费",
+      "rating": 4.6,
+      "reviewCount": 234,
+      "efficacyTags": [
+        "洞庭湖畔太极",
+        "岳阳楼前晨练",
+        "烟波浩渺养心"
+      ],
+      "bestSeason": "春秋",
+      "packageIncludes": [
+        "免费",
+        "太极教学",
+        "茶饮"
+      ],
+      "suitableFor": [
+        "养生爱好者",
+        "文化体验者"
+      ],
+      "tags": [
+        "太极",
+        "洞庭",
+        "岳阳"
+      ],
+      "description": "岳阳楼下洞庭湖畔，衔远山吞长江浩浩汤汤。晨曦中太极方阵随乐而动，白鹤亮翅面朝烟波，云手揽过万顷碧波，于这先天下之忧的千古名楼前，以太极修身，以洞庭养心。"
     }
   ]
 }

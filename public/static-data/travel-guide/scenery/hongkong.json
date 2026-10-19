@@ -14,7 +14,7 @@
       "rating": 4.8,
       "bestTime": "全年",
       "location": "香港特别行政区",
-      "description": "世界三大天然良港之一,香港的标志性景观",
+      "description": "维多利亚港，香港维多利亚港，造化钟神秀，世界三大天然良港之一，香港的标志性景观，实乃游历香港不可错过之胜境。。足以令旅人魂牵梦萦，心驰神往。",
       "highlight": "世界三大夜景,东方之珠",
       "level": "香港必游",
       "rankBadge": "必去",
@@ -26,7 +26,6 @@
       ],
       "openTime": "全天开放",
       "visitDuration": "1-2小时",
-      "popularity": "★★★★★",
       "audienceTags": [
         "摄影爱好者",
         "夜游爱好者",
@@ -34,20 +33,52 @@
         "家庭游客"
       ],
       "ticketDetails": [
-        "免费观赏",
-        "天星小轮¥3",
-        "维港游船¥150",
-        "灯光秀免费"
+        {
+          "type": "免费观赏",
+          "price": ""
+        },
+        {
+          "type": "天星小轮",
+          "price": "¥3"
+        },
+        {
+          "type": "维港游船",
+          "price": "¥150"
+        },
+        {
+          "type": "灯光秀",
+          "price": "免费"
+        }
       ],
       "transportInfo": [
-        "飞机:香港国际机场距市区约35km",
-        "高铁:西九龙站直达",
-        "自驾:香港不建议自驾",
-        "长途客运:港澳码头有巴士"
+        {
+          "mode": "飞机",
+          "detail": "香港国际机场距市区约35km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "西九龙站直达"
+        },
+        {
+          "mode": "自驾",
+          "detail": "香港不建议自驾"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "港澳码头有巴士"
+        }
       ],
       "openTimeDetail": [
-        "全天开放",
-        "灯光秀 20:00-20:13"
+        {
+          "season": "全天开放",
+          "months": "",
+          "time": ""
+        },
+        {
+          "season": "灯光秀",
+          "months": "",
+          "time": "20:00-20:13"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -68,8 +99,15 @@
               "detail": "尖沙咀海滨→星光大道→灯光秀(20:00)→天星小轮"
             }
           ],
-          "budget": "¥50-150",
-          "bestFor": "摄影爱好者/首次游览"
+          "budget": {
+            "currency": "¥",
+            "min": 50,
+            "max": 150
+          },
+          "bestFor": [
+            "摄影爱好者",
+            "首次游览"
+          ]
         },
         {
           "name": "天星小轮游",
@@ -89,8 +127,15 @@
               "detail": "尖沙咀码头→乘天星小轮→中环码头→海滨观景"
             }
           ],
-          "budget": "¥3-50",
-          "bestFor": "首次游览/家庭出游"
+          "budget": {
+            "currency": "¥",
+            "min": 3,
+            "max": 50
+          },
+          "bestFor": [
+            "首次游览",
+            "家庭出游"
+          ]
         }
       ],
       "facilities": [
@@ -139,7 +184,7 @@
       "rating": 4.7,
       "bestTime": "全年",
       "location": "香港特别行政区中西区",
-      "description": "香港最高点,俯瞰香港全景的最佳地点",
+      "description": "坐落于香江大地的太平山顶，香港太平山顶，鬼斧神工天作之美，香港最高点，俯瞰香港全景的最佳地点，实乃游历香港不可错过之胜境。。堪称天地造化与人文底蕴之交响。",
       "highlight": "香港最佳观景台,俯瞰维港",
       "level": "香港必游",
       "rankBadge": "必去",
@@ -151,7 +196,6 @@
       ],
       "openTime": "07:00-24:00",
       "visitDuration": "2-3小时",
-      "popularity": "★★★★★",
       "audienceTags": [
         "摄影爱好者",
         "情侣",
@@ -159,20 +203,52 @@
         "观景爱好者"
       ],
       "ticketDetails": [
-        "山顶缆车双程¥65",
-        "凌霄阁免费",
-        "摩天台¥75",
-        "蜡像馆¥350"
+        {
+          "type": "山顶缆车双程",
+          "price": "¥65"
+        },
+        {
+          "type": "凌霄阁",
+          "price": "免费"
+        },
+        {
+          "type": "摩天台",
+          "price": "¥75"
+        },
+        {
+          "type": "蜡像馆",
+          "price": "¥350"
+        }
       ],
       "transportInfo": [
-        "飞机:香港国际机场距市区约35km",
-        "高铁:西九龙站可达",
-        "自驾:香港不建议自驾",
-        "长途客运:中环有巴士"
+        {
+          "mode": "飞机",
+          "detail": "香港国际机场距市区约35km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "西九龙站可达"
+        },
+        {
+          "mode": "自驾",
+          "detail": "香港不建议自驾"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "中环有巴士"
+        }
       ],
       "openTimeDetail": [
-        "山顶缆车 07:00-24:00",
-        "凌霄阁 10:00-22:00"
+        {
+          "season": "山顶缆车",
+          "months": "",
+          "time": "07:00-24:00"
+        },
+        {
+          "season": "凌霄阁",
+          "months": "",
+          "time": "10:00-22:00"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -193,8 +269,15 @@
               "detail": "中环→乘山顶缆车→凌霄阁→观景台→俯瞰维港"
             }
           ],
-          "budget": "¥65-150",
-          "bestFor": "首次游览/摄影爱好者"
+          "budget": {
+            "currency": "¥",
+            "min": 65,
+            "max": 150
+          },
+          "bestFor": [
+            "首次游览",
+            "摄影爱好者"
+          ]
         },
         {
           "name": "山顶徒步",
@@ -214,8 +297,15 @@
               "detail": "山顶→卢吉道→环山径→夏力道→山顶广场"
             }
           ],
-          "budget": "¥65-100",
-          "bestFor": "户外爱好者/摄影爱好者"
+          "budget": {
+            "currency": "¥",
+            "min": 65,
+            "max": 100
+          },
+          "bestFor": [
+            "户外爱好者",
+            "摄影爱好者"
+          ]
         }
       ],
       "facilities": [
@@ -264,7 +354,7 @@
       "rating": 4.6,
       "bestTime": "全年",
       "location": "香港特别行政区大屿山",
-      "description": "世界著名主题乐园,家庭旅游的首选",
+      "description": "香江迪士尼乐园，香港迪士尼乐园，古迹斑驳岁月悠悠，世界著名主题乐园，家庭旅游的首选，实乃游历香港不可错过之胜境。。每一处景致皆是造物主的匠心独运。",
       "highlight": "梦幻乐园,七大主题园区",
       "level": "主题乐园",
       "rankBadge": "必去",
@@ -276,7 +366,6 @@
       ],
       "openTime": "10:00-21:00",
       "visitDuration": "1天",
-      "popularity": "★★★★★",
       "audienceTags": [
         "家庭游客",
         "亲子",
@@ -284,20 +373,52 @@
         "年轻人"
       ],
       "ticketDetails": [
-        "成人票¥639",
-        "儿童(3-11岁)¥475",
-        "老人(65岁以上)¥100",
-        "年票¥1500"
+        {
+          "type": "成人票",
+          "price": "¥639"
+        },
+        {
+          "type": "儿童(3-11岁)",
+          "price": "¥475"
+        },
+        {
+          "type": "老人(65岁以上)",
+          "price": "¥100"
+        },
+        {
+          "type": "年票",
+          "price": "¥1500"
+        }
       ],
       "transportInfo": [
-        "飞机:香港国际机场距迪士尼约15km",
-        "高铁:青衣站转迪士尼线",
-        "自驾:有停车场,¥150/天",
-        "长途客运:有巴士直达"
+        {
+          "mode": "飞机",
+          "detail": "香港国际机场距迪士尼约15km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "青衣站转迪士尼线"
+        },
+        {
+          "mode": "自驾",
+          "detail": "有停车场,¥150/天"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "有巴士直达"
+        }
       ],
       "openTimeDetail": [
-        "平日 10:00-20:00",
-        "节假日 10:00-21:00"
+        {
+          "season": "平日",
+          "months": "",
+          "time": "10:00-20:00"
+        },
+        {
+          "season": "节假日",
+          "months": "",
+          "time": "10:00-21:00"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -318,8 +439,15 @@
               "detail": "美国小镇→幻想世界→明日世界→探险世界→反斗奇兵大本营→迷离庄园→灰熊山谷→烟花秀"
             }
           ],
-          "budget": "¥700-1200",
-          "bestFor": "家庭出游/亲子游"
+          "budget": {
+            "currency": "¥",
+            "min": 700,
+            "max": 1200
+          },
+          "bestFor": [
+            "家庭出游",
+            "亲子游"
+          ]
         },
         {
           "name": "亲子深度游",
@@ -344,8 +472,15 @@
               "detail": "反斗奇兵大本营→迷离庄园→灰熊山谷→迪士尼酒店"
             }
           ],
-          "budget": "¥1500-3000",
-          "bestFor": "亲子游/家庭出游"
+          "budget": {
+            "currency": "¥",
+            "min": 1500,
+            "max": 3000
+          },
+          "bestFor": [
+            "亲子游",
+            "家庭出游"
+          ]
         }
       ],
       "facilities": [
@@ -394,7 +529,7 @@
       "rating": 4.5,
       "bestTime": "全年",
       "location": "香港特别行政区南区",
-      "description": "亚洲著名主题公园,集海洋动物与机动游戏于一体",
+      "description": "海洋公园者，香江之胜境也。海洋公园者，亚洲著名主题公园，集海洋动物与机动游戏于一体。人文底蕴深厚之地，令人叹为观止流连忘返。。碧海银沙椰风海韵，当属此地名胜之首推，不容错过。",
       "highlight": "香港经典主题乐园,海洋奇观",
       "level": "主题乐园",
       "rankBadge": "必去",
@@ -406,7 +541,6 @@
       ],
       "openTime": "10:00-19:00",
       "visitDuration": "1天",
-      "popularity": "★★★★☆",
       "audienceTags": [
         "家庭游客",
         "亲子",
@@ -414,20 +548,52 @@
         "年轻人"
       ],
       "ticketDetails": [
-        "成人票¥498",
-        "儿童(3-11岁)¥249",
-        "老人(65岁以上)¥100",
-        "年票¥1000"
+        {
+          "type": "成人票",
+          "price": "¥498"
+        },
+        {
+          "type": "儿童(3-11岁)",
+          "price": "¥249"
+        },
+        {
+          "type": "老人(65岁以上)",
+          "price": "¥100"
+        },
+        {
+          "type": "年票",
+          "price": "¥1000"
+        }
       ],
       "transportInfo": [
-        "飞机:香港国际机场距海洋公园约35km",
-        "高铁:香港站转巴士",
-        "自驾:有停车场",
-        "长途客运:有巴士直达"
+        {
+          "mode": "飞机",
+          "detail": "香港国际机场距海洋公园约35km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "香港站转巴士"
+        },
+        {
+          "mode": "自驾",
+          "detail": "有停车场"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "有巴士直达"
+        }
       ],
       "openTimeDetail": [
-        "平日 10:00-19:00",
-        "节假日 10:00-20:00"
+        {
+          "season": "平日",
+          "months": "",
+          "time": "10:00-19:00"
+        },
+        {
+          "season": "节假日",
+          "months": "",
+          "time": "10:00-20:00"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -448,8 +614,15 @@
               "detail": "海滨乐园→海洋奇观→熊猫馆→乘缆车→山顶乐园→海豚表演→机动游戏"
             }
           ],
-          "budget": "¥500-800",
-          "bestFor": "家庭出游/亲子游"
+          "budget": {
+            "currency": "¥",
+            "min": 500,
+            "max": 800
+          },
+          "bestFor": [
+            "家庭出游",
+            "亲子游"
+          ]
         },
         {
           "name": "山顶机动游",
@@ -469,8 +642,15 @@
               "detail": "乘缆车上山→山顶机动游戏→山顶观景→海豚表演"
             }
           ],
-          "budget": "¥500-700",
-          "bestFor": "年轻人/刺激爱好者"
+          "budget": {
+            "currency": "¥",
+            "min": 500,
+            "max": 700
+          },
+          "bestFor": [
+            "年轻人",
+            "刺激爱好者"
+          ]
         }
       ],
       "facilities": [
@@ -520,7 +700,7 @@
       "rating": 4.5,
       "bestTime": "全年",
       "location": "香港特别行政区中西区",
-      "description": "香港的商业金融中心,繁华的都市景观",
+      "description": "名为中环，香港中环，人文荟萃之地，香港的商业金融中心，繁华的都市景观，实乃游历香港不可错过之胜境。。令人叹为观止，流连忘返。",
       "highlight": "金融中心,繁华都市",
       "level": "香港必游",
       "rankBadge": "网红",
@@ -532,7 +712,6 @@
       ],
       "openTime": "全天开放",
       "visitDuration": "半天",
-      "popularity": "★★★★☆",
       "audienceTags": [
         "购物爱好者",
         "商务人士",
@@ -540,20 +719,52 @@
         "建筑爱好者"
       ],
       "ticketDetails": [
-        "免费开放",
-        "半山扶梯免费",
-        "个别景点收费",
-        "摩天轮¥100"
+        {
+          "type": "通用",
+          "price": "免费开放"
+        },
+        {
+          "type": "半山扶梯",
+          "price": "免费"
+        },
+        {
+          "type": "个别景点收费",
+          "price": ""
+        },
+        {
+          "type": "摩天轮",
+          "price": "¥100"
+        }
       ],
       "transportInfo": [
-        "飞机:香港国际机场距市区约35km",
-        "高铁:西九龙站可达",
-        "自驾:香港不建议自驾",
-        "长途客运:中环码头有巴士"
+        {
+          "mode": "飞机",
+          "detail": "香港国际机场距市区约35km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "西九龙站可达"
+        },
+        {
+          "mode": "自驾",
+          "detail": "香港不建议自驾"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "中环码头有巴士"
+        }
       ],
       "openTimeDetail": [
-        "全天开放",
-        "店铺 10:00-22:00"
+        {
+          "season": "全天开放",
+          "months": "",
+          "time": ""
+        },
+        {
+          "season": "店铺",
+          "months": "",
+          "time": "10:00-22:00"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -575,7 +786,10 @@
             }
           ],
           "budget": "免费",
-          "bestFor": "摄影爱好者/情侣"
+          "bestFor": [
+            "摄影爱好者",
+            "情侣"
+          ]
         },
         {
           "name": "中环购物",
@@ -595,8 +809,15 @@
               "detail": "IFC→置地广场→太古广场→中环街市→摩天轮"
             }
           ],
-          "budget": "¥500-2000",
-          "bestFor": "购物爱好者/商务人士"
+          "budget": {
+            "currency": "¥",
+            "min": 500,
+            "max": 2000
+          },
+          "bestFor": [
+            "购物爱好者",
+            "商务人士"
+          ]
         }
       ],
       "facilities": [
@@ -688,42 +909,42 @@
       {
         "name": "维多利亚港",
         "image": "https://picsum.photos/id/1740/600/400",
-        "description": "世界三大天然良港之一,香港的标志性景观"
+        "description": "坐落于香江大地的维多利亚港，维多利亚港——世界三大天然良港之一，香港的标志性景观，实乃游历此地不可错过之胜境。。每一处景致皆是造物主的匠心独运。"
       },
       {
         "name": "太平山顶",
         "image": "https://picsum.photos/id/1741/600/400",
-        "description": "香港最高点,俯瞰香港全景的最佳地点"
+        "description": "香江太平山顶，香港名胜太平山顶，香港最高点，俯瞰香港全景的最佳地点，令人心驰神往流连忘返。。当属此地名胜之首推，不容错过。"
       },
       {
         "name": "迪士尼乐园",
         "image": "https://picsum.photos/id/1742/600/400",
-        "description": "世界著名主题乐园,家庭旅游的首选"
+        "description": "迪士尼乐园者，香江之胜境也。迪士尼乐园者，香港之世界著名主题乐园，家庭旅游的首选，堪称此地风光之冠冕。。令人叹为观止，流连忘返。"
       },
       {
         "name": "海洋公园",
         "image": "https://picsum.photos/id/1743/600/400",
-        "description": "亚洲著名主题公园,集海洋动物与机动游戏于一体"
+        "description": "名为海洋公园，誉为香港明珠的海洋公园，亚洲著名主题公园，集海洋动物与机动游戏于一体，每一处皆是造化与人文的交响。。实乃游历此地不可错过之胜境。"
       },
       {
         "name": "中环",
         "image": "https://picsum.photos/id/1744/600/400",
-        "description": "香港的商业金融中心,繁华的都市景观"
+        "description": "香江名胜中环，中环，香港的商业金融中心，繁华的都市景观，足以令旅人魂牵梦萦。。足以令旅人魂牵梦萦，心驰神往。"
       },
       {
         "name": "尖沙咀",
         "image": "https://picsum.photos/id/1745/600/400",
-        "description": "香港著名的购物和旅游区"
+        "description": "尖沙咀，尖沙咀——香港著名的购物和旅游区，当属此地名胜之首推。。堪称天地造化与人文底蕴之交响。"
       },
       {
         "name": "浅水湾",
         "image": "https://picsum.photos/id/1746/600/400",
-        "description": "香港最著名的海滩,富人区"
+        "description": "坐落于香江大地的浅水湾，香港名胜浅水湾，香港最著名的海滩，富人区，实乃游历此地不可错过之胜境。。每一处景致皆是造物主的匠心独运。"
       },
       {
         "name": "赤柱",
         "image": "https://picsum.photos/id/1747/600/400",
-        "description": "香港著名的海滩小镇,充满欧陆风情"
+        "description": "香江赤柱，赤柱者，香港之香港著名的海滩小镇，充满欧陆风情，令人心驰神往流连忘返。。当属此地名胜之首推，不容错过。"
       }
     ]
   },
@@ -773,7 +994,73 @@
       "description": "温暖如春,是旅游的好时节"
     }
   ],
-  "festivals": [],
+  "festivals": [
+    {
+      "id": "1",
+      "name": "香港艺术节",
+      "month": "2月",
+      "day": "20日",
+      "location": "香港",
+      "isUnique": true,
+      "description": "亚洲历史最悠久的国际综合艺术节，每年邀请全球顶尖艺术团体演出，国际交响乐、现代舞、戏剧展演、室内乐，于东方之珠感受这\"亚洲艺术之都\"之璀璨与中西文化交融之盛宴。",
+      "type": "艺术节庆",
+      "duration": "约4周",
+      "origin": "香港艺术节始于1973年，是亚洲历史最悠久的国际综合艺术节，每年邀请全球顶尖艺术团体演出。",
+      "highlights": [
+        "国际交响乐演出",
+        "现代舞专场",
+        "戏剧展演",
+        "室内乐音乐会",
+        "艺术讲座与工作坊"
+      ],
+      "bestTime": "开幕周末及周末场次",
+      "ticket": "¥150-1200",
+      "transport": "港铁至金钟或尖沙咀站",
+      "tips": [
+        "热门演出票开售即售罄，需提前抢票",
+        "设学生及长者优惠票",
+        "演出场馆分散，注意查地址"
+      ],
+      "relatedSpots": [
+        "香港文化中心",
+        "艺术馆",
+        "太平山顶"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "中秋彩灯会",
+      "month": "9月",
+      "day": "15日",
+      "location": "维多利亚公园",
+      "isUnique": false,
+      "description": "维多利亚公园中秋彩灯会是香港最大中秋庆祝活动，大型彩灯展、猜灯谜、大坑舞火龙、维港赏月，于\"海上生明月\"之境感受这东方之珠的中秋华灯与广府赏灯古俗之传承。",
+      "type": "传统节庆",
+      "heritageLevel": "国家级非遗",
+      "duration": "约3天",
+      "origin": "维多利亚公园中秋彩灯会是香港最大中秋庆祝活动，延续广府中秋赏灯传统。",
+      "highlights": [
+        "大型彩灯展",
+        "猜灯谜",
+        "舞火龙（大坑）",
+        "中秋市集",
+        "维港赏月"
+      ],
+      "bestTime": "中秋正日傍晚",
+      "ticket": "免费",
+      "transport": "港铁铜锣湾站",
+      "tips": [
+        "人潮极多，注意安全",
+        "大坑舞火龙为国家级非遗，值得一看",
+        "维港烟花可能配合中秋燃放"
+      ],
+      "relatedSpots": [
+        "维多利亚公园",
+        "太平山顶",
+        "星光大道"
+      ]
+    }
+  ],
   "activities": [
     {
       "id": "1",
@@ -813,7 +1100,11 @@
           "avgRating": 4.8,
           "bestSeason": "春秋 / 全年",
           "recommendedDays": "2-3 日",
-          "budget": "¥500-1200",
+          "budget": {
+            "currency": "¥",
+            "min": 500,
+            "max": 1200
+          },
           "intensity": "适中",
           "audience": "全人群",
           "highlights": [
@@ -840,7 +1131,11 @@
           "avgRating": 4.4,
           "bestSeason": "夏秋",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-500",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 500
+          },
           "intensity": "轻松",
           "audience": "家庭/休闲",
           "highlights": [
@@ -864,7 +1159,11 @@
           "avgRating": 4.6,
           "bestSeason": "春秋",
           "recommendedDays": "2-3 日",
-          "budget": "¥300-800",
+          "budget": {
+            "currency": "¥",
+            "min": 300,
+            "max": 800
+          },
           "intensity": "适中",
           "audience": "探险/摄影",
           "highlights": [
@@ -894,7 +1193,11 @@
           "avgRating": 4.5,
           "bestSeason": "全年",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-400",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
           "intensity": "轻松",
           "audience": "文化/家庭",
           "highlights": [
@@ -927,7 +1230,11 @@
           "avgRating": 4.5,
           "bestSeason": "夏秋",
           "recommendedDays": "2-3 日",
-          "budget": "¥500-1500",
+          "budget": {
+            "currency": "¥",
+            "min": 500,
+            "max": 1500
+          },
           "intensity": "轻松",
           "audience": "家庭/度假",
           "highlights": [
@@ -946,6 +1253,352 @@
           ]
         }
       ]
+    }
+  ],
+  "craftWorkshops": [
+    {
+      "id": "hongkong-craft-1",
+      "image": "https://picsum.photos/id/1342/600/400",
+      "category": "craft",
+      "name": "港式丝袜奶茶制作",
+      "type": "饮食工艺",
+      "location": "中环老字号茶餐厅",
+      "duration": "3小时",
+      "difficulty": "中等",
+      "price": "80",
+      "rating": 4.6,
+      "reviewCount": 234,
+      "instructor": "茶餐厅师傅",
+      "heritageLevel": "provincial",
+      "highlights": [
+        "拉茶技法",
+        "丝袜茶袋",
+        "茶餐厅文化"
+      ],
+      "steps": [
+        "煮茶",
+        "拉茶",
+        "撞奶",
+        "调味"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "手工艺爱好者"
+      ],
+      "tags": [
+        "非遗",
+        "奶茶",
+        "港式"
+      ],
+      "description": "港式丝袜奶茶乃香港文化符号，\"丝袜拉茶撞奶三绝\"以白瓷壶拉出茶香浓郁。于中环老字号茶餐厅跟师傅学拉茶，茶餐厅烟火气与港式情怀交织，感受这东方之珠的市井文化之魂。"
+    },
+    {
+      "id": "hongkong-craft-2",
+      "image": "https://picsum.photos/id/1344/600/400",
+      "category": "craft",
+      "name": "广彩瓷手绘",
+      "type": "彩瓷",
+      "location": "香港广彩工坊",
+      "duration": "3小时",
+      "difficulty": "简单",
+      "price": "180",
+      "rating": 4.5,
+      "reviewCount": 67,
+      "instructor": "广彩艺人",
+      "heritageLevel": "provincial",
+      "highlights": [
+        "织金彩瓷",
+        "岭南花卉",
+        "手绘体验"
+      ],
+      "steps": [
+        "选白瓷",
+        "构图",
+        "织金",
+        "烧制"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "手工艺爱好者"
+      ],
+      "tags": [
+        "非遗",
+        "广彩",
+        "港式"
+      ],
+      "description": "广彩为广州织金彩瓷，在香港传承发展\"织金彩瓷岭南之花\"。于广彩工坊在白瓷上织金画花，金线勾勒花卉娇艳，感受这海上丝路之彩瓷工艺与中西交融之港式美学。"
+    }
+  ],
+  "performances": [
+    {
+      "id": "hongkong-perf-1",
+      "image": "https://picsum.photos/id/2600/600/400",
+      "category": "performance",
+      "name": "幻彩咏香江·维港灯光汇",
+      "type": "灯光秀",
+      "location": "香港岛维多利亚港沿岸",
+      "duration": "1小时",
+      "difficulty": "简单",
+      "price": "免费",
+      "rating": 4.8,
+      "reviewCount": 678,
+      "highlights": [
+        "吉尼斯最长灯光秀",
+        "维港两岸摩楼联动",
+        "交响乐配灯光"
+      ],
+      "suitableFor": [
+        "游客",
+        "情侣约会"
+      ],
+      "tags": [
+        "灯光秀",
+        "维港",
+        "幻彩"
+      ],
+      "description": "幻彩咏香江\"全球最大永久灯光秀\"，维港两岸四十余栋摩天楼联动。镭射光束穿透夜空，交响乐与灯光节拍同步，于这\"东方之珠\"的璀璨夜色中，感受\"动感之都\"之极致摩登。"
+    },
+    {
+      "id": "hongkong-perf-2",
+      "image": "https://picsum.photos/id/2601/600/400",
+      "category": "performance",
+      "name": "香港管弦乐团·文化中心",
+      "type": "交响乐",
+      "location": "九龙尖沙咀香港文化中心",
+      "duration": "2小时",
+      "difficulty": "简单",
+      "price": "380",
+      "rating": 4.7,
+      "reviewCount": 345,
+      "highlights": [
+        "亚洲顶级乐团",
+        "大师指挥执棒",
+        "维港畔古典乐"
+      ],
+      "suitableFor": [
+        "音乐爱好者",
+        "文化体验者"
+      ],
+      "tags": [
+        "交响乐",
+        "高雅",
+        "港乐"
+      ],
+      "description": "香港文化中心飞翼形建筑面朝维港，港乐\"亚洲最顶尖乐团\"在此奏响。从马勒到肖斯塔科维奇，交响乐的恢弘在顶级声学中激荡，于这\"东方巴黎\"的音乐殿堂中，领略世界级交响之巅。"
+    },
+    {
+      "id": "hongkong-perf-3",
+      "image": "https://picsum.photos/id/2602/600/400",
+      "category": "performance",
+      "name": "粤剧·油麻地戏院",
+      "type": "戏曲",
+      "location": "九龙油麻地戏院",
+      "duration": "2小时",
+      "difficulty": "简单",
+      "price": "80",
+      "rating": 4.6,
+      "reviewCount": 234,
+      "highlights": [
+        "百年戏院粤韵",
+        "帝女花经典折子",
+        "岭南红船文化"
+      ],
+      "suitableFor": [
+        "戏曲爱好者",
+        "文化体验者"
+      ],
+      "tags": [
+        "非遗",
+        "粤剧",
+        "油麻地"
+      ],
+      "description": "油麻地戏院\"香港现存最古老戏院\"，粤剧红船文化在此延续。唐涤生词曲任剑辉唱腔，\"落花满天蔽月光\"的帝女花在百年戏台回荡，于这岭南文化最后的堡垒中，品味粤韵芳华之不绝如缕。",
+      "heritageLevel": "national"
+    }
+  ],
+  "outdoorAdventure": [
+    {
+      "id": "hongkong-outdoor-1",
+      "image": "https://picsum.photos/id/1363/600/400",
+      "category": "outdoor",
+      "name": "麦理浩径徒步",
+      "type": "徒步穿越",
+      "location": "西贡麦理浩径",
+      "duration": "1天",
+      "difficulty": "中等",
+      "price": "免费",
+      "rating": 4.8,
+      "reviewCount": 1234,
+      "totalAscent": 400,
+      "maxElevation": 440,
+      "routeType": "环线",
+      "surfaceType": "石阶",
+      "accessInfo": "高铁至最近站，转景区交通",
+      "gearList": [
+        "登山鞋",
+        "水",
+        "防晒",
+        "八达通"
+      ],
+      "safetyTips": [
+        "夏季炎热多带水",
+        "注意防晒"
+      ],
+      "bestMonths": "4-5月·9-10月",
+      "highlights": [
+        "万宜水库",
+        "浪茄湾",
+        "全球20佳远足径"
+      ],
+      "tags": [
+        "徒步",
+        "远足径",
+        "西贡"
+      ],
+      "description": "麦理浩径为香港最长远足径，100公里\"全球20佳远足径\"之一。穿行于西贡山水之间，万宜水库碧波荡漾浪茄湾洁白如玉，感受这郊野公园之山海交响与远足之乐。"
+    },
+    {
+      "id": "hongkong-outdoor-2",
+      "image": "https://picsum.photos/id/1366/600/400",
+      "category": "outdoor",
+      "name": "龙脊远足",
+      "type": "徒步穿越",
+      "location": "港岛龙脊",
+      "duration": "半天",
+      "difficulty": "简单",
+      "price": "免费",
+      "rating": 4.7,
+      "reviewCount": 567,
+      "totalAscent": 280,
+      "maxElevation": 284,
+      "routeType": "往返",
+      "surfaceType": "石阶",
+      "accessInfo": "高铁至最近站，转景区交通",
+      "gearList": [
+        "登山鞋",
+        "水",
+        "防晒"
+      ],
+      "safetyTips": [
+        "夏季炎热",
+        "注意防晒"
+      ],
+      "bestMonths": "4-5月·9-10月",
+      "highlights": [
+        "龙脊山径",
+        "大浪湾",
+        "港岛南海"
+      ],
+      "tags": [
+        "徒步",
+        "龙脊",
+        "港岛"
+      ],
+      "description": "龙脊为港岛最佳远足径，山脊如龙背起伏蜿蜒，远眺大浪湾碧海银沙。于龙脊上迎海风而行，\"龙脊远眺海天一色\"之开阔令人心旷神怡，感受这港岛之巅的山海之美。"
+    }
+  ],
+  "wellnessRetreat": [
+    {
+      "id": "hongkong-wellness-1",
+      "image": "https://picsum.photos/id/2620/600/400",
+      "category": "wellness",
+      "name": "浅水湾海滨瑜伽",
+      "type": "瑜伽养生",
+      "location": "香港岛南区浅水湾",
+      "duration": "1.5小时",
+      "difficulty": "简单",
+      "price": "150",
+      "rating": 4.7,
+      "reviewCount": 345,
+      "efficacyTags": [
+        "港岛南岸日出瑜伽",
+        "滩长沙细赤足",
+        "富豪海湾慢生活"
+      ],
+      "bestSeason": "春秋",
+      "packageIncludes": [
+        "瑜伽垫",
+        "教学",
+        "冷饮"
+      ],
+      "suitableFor": [
+        "瑜伽爱好者",
+        "白领群体"
+      ],
+      "tags": [
+        "瑜伽",
+        "海滨",
+        "浅水湾"
+      ],
+      "description": "浅水湾\"香港最美海滩\"，张爱玲笔下\"倾城之恋\"之地。于这港岛南岸铺开瑜伽垫，面朝太平洋迎第一缕曙光，海风送来南中国海的温润，于这富豪海湾的静谧中，以瑜伽唤醒身心。"
+    },
+    {
+      "id": "hongkong-wellness-2",
+      "image": "https://picsum.photos/id/2621/600/400",
+      "category": "wellness",
+      "name": "太平山顶冥想观景",
+      "type": "冥想养生",
+      "location": "香港岛中西区太平山顶",
+      "duration": "1小时",
+      "difficulty": "简单",
+      "price": "免费",
+      "rating": 4.7,
+      "reviewCount": 234,
+      "efficacyTags": [
+        "维港全景冥想",
+        "凌霄阁放空",
+        "都市夜景疗愈"
+      ],
+      "bestSeason": "全年",
+      "packageIncludes": [
+        "缆车",
+        "免费",
+        "茶饮"
+      ],
+      "suitableFor": [
+        "白领群体",
+        "游客"
+      ],
+      "tags": [
+        "冥想",
+        "山顶",
+        "太平山"
+      ],
+      "description": "太平山顶\"香港最高点\"，凌霄阁360度俯瞰维港。于山顶静坐冥想，都市丛林在脚下灯火万千，维港如银河倒悬，于这\"东方之巅\"放空心灵，让都市焦虑随山顶清风散去。"
+    },
+    {
+      "id": "hongkong-wellness-3",
+      "image": "https://picsum.photos/id/2622/600/400",
+      "category": "wellness",
+      "name": "南丫岛离岛慢生活",
+      "type": "慢生活",
+      "location": "香港岛南区南丫岛",
+      "duration": "1天",
+      "difficulty": "简单",
+      "price": "免费",
+      "rating": 4.8,
+      "reviewCount": 432,
+      "efficacyTags": [
+        "无汽车离岛慢行",
+        "海鲜素食料理",
+        "榕树湾文艺漫步"
+      ],
+      "bestSeason": "春秋",
+      "packageIncludes": [
+        "渡轮",
+        "自行车",
+        "海鲜"
+      ],
+      "suitableFor": [
+        "文艺青年",
+        "休闲度假"
+      ],
+      "tags": [
+        "慢生活",
+        "离岛",
+        "南丫岛"
+      ],
+      "description": "南丫岛\"香港最后桃花源\"，无汽车无连锁店。榕树湾索罟湾间行山径幽静，海鲜素食料理清新，周润发故乡的文艺气息弥漫，于这离岛慢城中放慢脚步，尽享\"慢活\"之港式康养。"
     }
   ]
 }

@@ -273,9 +273,9 @@ export interface ScenerySpot {
   likeCount?: number;
   wantCount?: number;
   beenCount?: number;
-  ticketDetails?: string[];
-  transportInfo?: string[];
-  openTimeDetail?: string[];
+  ticketDetails?: Array<{ type: string; price: string }>;
+  transportInfo?: Array<{ mode: string; detail: string }>;
+  openTimeDetail?: Array<{ season: string; months?: string; time: string }>;
   recommendedRoutes?: Array<{
     name: string;
     duration: string;
@@ -283,8 +283,8 @@ export interface ScenerySpot {
     description: string;
     highlights?: string[];
     itinerary?: Array<{ day: string; title: string; detail: string }>;
-    budget?: string;
-    bestFor?: string;
+    budget?: { currency: string; min: number; max: number };
+    bestFor?: string[];
   }>;
   facilities?: string[];
   tips?: string[];
@@ -369,6 +369,8 @@ export interface ExperienceItem {
   efficacyTags?: string[];
   bestSeason?: string;
   reservation?: string;
+  provinceId?: string;
+  experienceCategory?: string;
 }
 
 /**
@@ -403,7 +405,7 @@ export interface SceneryThemeItem {
   avgRating: number;
   bestSeason: string;
   recommendedDays: string;
-  budget: string;
+  budget: { currency: string; min: number; max: number };
   intensity: string;
   audience: string;
   highlights: string[];

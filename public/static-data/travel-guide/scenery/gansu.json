@@ -14,7 +14,7 @@
       "rating": 4.9,
       "bestTime": "春秋",
       "location": "甘肃省酒泉市敦煌市",
-      "description": "世界文化遗产,中国石窟艺术的瑰宝",
+      "description": "莫高窟，甘肃莫高窟，人文荟萃之地，列世界遗产之林，世界文化遗产，中国石窟艺术的瑰宝，实乃游历甘肃不可错过之胜境。。列世界遗产之林，足以令旅人魂牵梦萦，心驰神往。",
       "highlight": "世界文化遗产,佛教艺术宝库",
       "level": "5A景区",
       "rankBadge": "必去",
@@ -26,7 +26,6 @@
       ],
       "openTime": "08:00-18:00",
       "visitDuration": "3-4小时",
-      "popularity": "★★★★★",
       "audienceTags": [
         "文化爱好者",
         "艺术爱好者",
@@ -34,20 +33,52 @@
         "摄影爱好者"
       ],
       "ticketDetails": [
-        "成人票¥180",
-        "学生票半价",
-        "60岁以上免票",
-        "需预约参观"
+        {
+          "type": "成人票",
+          "price": "¥180"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "60岁以上",
+          "price": "免票"
+        },
+        {
+          "type": "需预约参观",
+          "price": ""
+        }
       ],
       "transportInfo": [
-        "飞机:敦煌机场距景区13km",
-        "高铁:柳园南站距景区130km",
-        "自驾:连霍高速敦煌出口",
-        "客运:敦煌市区公交直达"
+        {
+          "mode": "飞机",
+          "detail": "敦煌机场距景区13km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "柳园南站距景区130km"
+        },
+        {
+          "mode": "自驾",
+          "detail": "连霍高速敦煌出口"
+        },
+        {
+          "mode": "客运",
+          "detail": "敦煌市区公交直达"
+        }
       ],
       "openTimeDetail": [
-        "旺季(5-10月) 08:00-18:00",
-        "淡季(11-4月) 09:00-17:30"
+        {
+          "season": "旺季",
+          "months": "5-10月",
+          "time": "08:00-18:00"
+        },
+        {
+          "season": "淡季",
+          "months": "11-4月",
+          "time": "09:00-17:30"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -68,7 +99,10 @@
             }
           ],
           "budget": "¥180",
-          "bestFor": "首次游览/文化爱好者"
+          "bestFor": [
+            "首次游览",
+            "文化爱好者"
+          ]
         },
         {
           "name": "深度特窟线",
@@ -87,8 +121,15 @@
               "detail": "数字展示中心→普通窟群→特窟讲解(第45窟、第57窟等)→陈列中心"
             }
           ],
-          "budget": "¥360-520",
-          "bestFor": "艺术爱好者/深度游览"
+          "budget": {
+            "currency": "¥",
+            "min": 360,
+            "max": 520
+          },
+          "bestFor": [
+            "艺术爱好者",
+            "深度游览"
+          ]
         }
       ],
       "facilities": [
@@ -134,7 +175,7 @@
       "rating": 4.7,
       "bestTime": "春秋",
       "location": "甘肃省嘉峪关市",
-      "description": "天下第一雄关,明长城的西端起点",
+      "description": "坐落于陇原大地的嘉峪关，甘肃嘉峪关，千年文脉传承之所，天下第一雄关，明长城的西端起点，实乃游历甘肃不可错过之胜境。。堪称天地造化与人文底蕴之交响。",
       "highlight": "天下第一雄关,长城西端",
       "level": "5A景区",
       "rankBadge": "必去",
@@ -146,7 +187,6 @@
       ],
       "openTime": "08:00-18:00",
       "visitDuration": "2-3小时",
-      "popularity": "★★★★☆",
       "audienceTags": [
         "历史爱好者",
         "文化爱好者",
@@ -154,20 +194,52 @@
         "家庭游客"
       ],
       "ticketDetails": [
-        "成人票¥110",
-        "学生票半价",
-        "60岁以上免票",
-        "联票含悬壁长城"
+        {
+          "type": "成人票",
+          "price": "¥110"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "60岁以上",
+          "price": "免票"
+        },
+        {
+          "type": "联票含悬壁长城",
+          "price": ""
+        }
       ],
       "transportInfo": [
-        "飞机:嘉峪关机场距景区15km",
-        "高铁:嘉峪关南站距景区10km",
-        "自驾:连霍高速嘉峪关出口",
-        "客运:市区公交5路直达"
+        {
+          "mode": "飞机",
+          "detail": "嘉峪关机场距景区15km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "嘉峪关南站距景区10km"
+        },
+        {
+          "mode": "自驾",
+          "detail": "连霍高速嘉峪关出口"
+        },
+        {
+          "mode": "客运",
+          "detail": "市区公交5路直达"
+        }
       ],
       "openTimeDetail": [
-        "旺季(5-10月) 08:00-18:00",
-        "淡季(11-4月) 08:30-17:30"
+        {
+          "season": "旺季",
+          "months": "5-10月",
+          "time": "08:00-18:00"
+        },
+        {
+          "season": "淡季",
+          "months": "11-4月",
+          "time": "08:30-17:30"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -188,7 +260,10 @@
             }
           ],
           "budget": "¥110",
-          "bestFor": "历史爱好者/首次游览"
+          "bestFor": [
+            "历史爱好者",
+            "首次游览"
+          ]
         },
         {
           "name": "长城全线",
@@ -207,8 +282,15 @@
               "detail": "嘉峪关关城→悬壁长城→长城第一墩→返程"
             }
           ],
-          "budget": "¥150-200",
-          "bestFor": "长城爱好者/深度游览"
+          "budget": {
+            "currency": "¥",
+            "min": 150,
+            "max": 200
+          },
+          "bestFor": [
+            "长城爱好者",
+            "深度游览"
+          ]
         }
       ],
       "facilities": [
@@ -254,7 +336,7 @@
       "rating": 4.8,
       "bestTime": "秋季",
       "location": "甘肃省张掖市临泽县",
-      "description": "世界十大神奇地理奇观之一",
+      "description": "陇原张掖丹霞，甘肃张掖丹霞，天地造化之奇，世界十大神奇地理奇观之一，实乃游历甘肃不可错过之胜境。。每一处景致皆是造物主的匠心独运。",
       "highlight": "彩虹山,七彩丹霞奇观",
       "level": "5A景区",
       "rankBadge": "网红",
@@ -270,7 +352,6 @@
       ],
       "openTime": "06:00-18:00",
       "visitDuration": "3-4小时",
-      "popularity": "★★★★★",
       "audienceTags": [
         "摄影爱好者",
         "自然爱好者",
@@ -278,20 +359,52 @@
         "家庭游客"
       ],
       "ticketDetails": [
-        "成人票¥54",
-        "观光车¥20",
-        "学生票半价",
-        "60岁以上免票"
+        {
+          "type": "成人票",
+          "price": "¥54"
+        },
+        {
+          "type": "观光车",
+          "price": "¥20"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "60岁以上",
+          "price": "免票"
+        }
       ],
       "transportInfo": [
-        "飞机:张掖甘州机场距景区40km",
-        "高铁:张掖西站距景区35km",
-        "自驾:G30高速临泽出口",
-        "客运:张掖市区旅游专线"
+        {
+          "mode": "飞机",
+          "detail": "张掖甘州机场距景区40km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "张掖西站距景区35km"
+        },
+        {
+          "mode": "自驾",
+          "detail": "G30高速临泽出口"
+        },
+        {
+          "mode": "客运",
+          "detail": "张掖市区旅游专线"
+        }
       ],
       "openTimeDetail": [
-        "旺季(5-10月) 06:00-18:00",
-        "淡季(11-4月) 07:00-17:00"
+        {
+          "season": "旺季",
+          "months": "5-10月",
+          "time": "06:00-18:00"
+        },
+        {
+          "season": "淡季",
+          "months": "11-4月",
+          "time": "07:00-17:00"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -312,7 +425,10 @@
             }
           ],
           "budget": "¥74",
-          "bestFor": "摄影爱好者/家庭出游"
+          "bestFor": [
+            "摄影爱好者",
+            "家庭出游"
+          ]
         },
         {
           "name": "日出拍摄线",
@@ -331,8 +447,15 @@
               "detail": "清晨提前入园→4号观景台拍日出→1号观景台晨光→2号观景台全景"
             }
           ],
-          "budget": "¥74-150",
-          "bestFor": "摄影爱好者/早起游客"
+          "budget": {
+            "currency": "¥",
+            "min": 74,
+            "max": 150
+          },
+          "bestFor": [
+            "摄影爱好者",
+            "早起游客"
+          ]
         }
       ],
       "facilities": [
@@ -378,7 +501,7 @@
       "rating": 4.6,
       "bestTime": "全年",
       "location": "甘肃省天水市麦积区",
-      "description": "中国四大石窟之一,东方雕塑馆",
+      "description": "麦积山石窟者，陇原之胜境也。甘肃麦积山石窟，人文底蕴深厚之地，中国四大石窟之一，东方雕塑馆，实乃游历甘肃不可错过之胜境。。当属此地名胜之首推，不容错过。",
       "highlight": "东方雕塑馆,四大石窟之一",
       "level": "5A景区",
       "reviewCount": "32,109条点评",
@@ -390,7 +513,6 @@
       ],
       "openTime": "08:00-17:00",
       "visitDuration": "2-3小时",
-      "popularity": "★★★★☆",
       "audienceTags": [
         "文化爱好者",
         "艺术爱好者",
@@ -398,20 +520,52 @@
         "登山爱好者"
       ],
       "ticketDetails": [
-        "成人票¥80",
-        "学生票半价",
-        "60岁以上免票",
-        "含景区电瓶车"
+        {
+          "type": "成人票",
+          "price": "¥80"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "60岁以上",
+          "price": "免票"
+        },
+        {
+          "type": "含景区电瓶车",
+          "price": ""
+        }
       ],
       "transportInfo": [
-        "飞机:天水麦积机场距景区30km",
-        "高铁:天水南站距景区25km",
-        "自驾:G30高速麦积出口",
-        "客运:天水市区公交34路"
+        {
+          "mode": "飞机",
+          "detail": "天水麦积机场距景区30km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "天水南站距景区25km"
+        },
+        {
+          "mode": "自驾",
+          "detail": "G30高速麦积出口"
+        },
+        {
+          "mode": "客运",
+          "detail": "天水市区公交34路"
+        }
       ],
       "openTimeDetail": [
-        "旺季(4-10月) 08:00-17:00",
-        "淡季(11-3月) 09:00-16:30"
+        {
+          "season": "旺季",
+          "months": "4-10月",
+          "time": "08:00-17:00"
+        },
+        {
+          "season": "淡季",
+          "months": "11-3月",
+          "time": "09:00-16:30"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -432,7 +586,10 @@
             }
           ],
           "budget": "¥80",
-          "bestFor": "文化爱好者/首次游览"
+          "bestFor": [
+            "文化爱好者",
+            "首次游览"
+          ]
         },
         {
           "name": "环山游览线",
@@ -451,8 +608,15 @@
               "detail": "瑞应寺→栈道参观石窟→第133窟→第127窟→麦积山全景远眺"
             }
           ],
-          "budget": "¥80-120",
-          "bestFor": "艺术爱好者/深度游览"
+          "budget": {
+            "currency": "¥",
+            "min": 80,
+            "max": 120
+          },
+          "bestFor": [
+            "艺术爱好者",
+            "深度游览"
+          ]
         }
       ],
       "facilities": [
@@ -498,7 +662,7 @@
       "rating": 4.7,
       "bestTime": "春秋",
       "location": "甘肃省酒泉市敦煌市",
-      "description": "沙漠奇观,沙泉共存",
+      "description": "名为鸣沙山月牙泉，甘肃鸣沙山月牙泉，造化钟神秀，大漠孤烟黄沙漫漫，沙漠奇观，沙泉共存，实乃游历甘肃不可错过之胜境。。大漠孤烟黄沙漫漫，令人叹为观止，流连忘返。",
       "highlight": "沙漠绿洲,塞外奇观",
       "level": "5A景区",
       "rankBadge": "必去",
@@ -514,7 +678,6 @@
       ],
       "openTime": "06:00-19:30",
       "visitDuration": "3-4小时",
-      "popularity": "★★★★★",
       "audienceTags": [
         "摄影爱好者",
         "自然爱好者",
@@ -522,20 +685,52 @@
         "探险爱好者"
       ],
       "ticketDetails": [
-        "成人票¥110",
-        "学生票半价",
-        "60岁以上免票",
-        "含景区电瓶车"
+        {
+          "type": "成人票",
+          "price": "¥110"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "60岁以上",
+          "price": "免票"
+        },
+        {
+          "type": "含景区电瓶车",
+          "price": ""
+        }
       ],
       "transportInfo": [
-        "飞机:敦煌机场距景区15km",
-        "高铁:柳园南站距景区135km",
-        "自驾:敦煌市区向南3km",
-        "客运:敦煌市区公交直达"
+        {
+          "mode": "飞机",
+          "detail": "敦煌机场距景区15km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "柳园南站距景区135km"
+        },
+        {
+          "mode": "自驾",
+          "detail": "敦煌市区向南3km"
+        },
+        {
+          "mode": "客运",
+          "detail": "敦煌市区公交直达"
+        }
       ],
       "openTimeDetail": [
-        "旺季(5-10月) 06:00-19:30",
-        "淡季(11-4月) 07:00-18:00"
+        {
+          "season": "旺季",
+          "months": "5-10月",
+          "time": "06:00-19:30"
+        },
+        {
+          "season": "淡季",
+          "months": "11-4月",
+          "time": "07:00-18:00"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -556,7 +751,10 @@
             }
           ],
           "budget": "¥110",
-          "bestFor": "家庭出游/首次游览"
+          "bestFor": [
+            "家庭出游",
+            "首次游览"
+          ]
         },
         {
           "name": "沙漠体验线",
@@ -575,8 +773,15 @@
               "detail": "景区入口→骑骆驼至沙山→滑沙体验→登沙山看日落→月牙泉夜景"
             }
           ],
-          "budget": "¥200-350",
-          "bestFor": "探险爱好者/家庭出游"
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 350
+          },
+          "bestFor": [
+            "探险爱好者",
+            "家庭出游"
+          ]
         }
       ],
       "facilities": [
@@ -665,42 +870,42 @@
       {
         "name": "莫高窟",
         "image": "https://picsum.photos/id/1660/600/400",
-        "description": "世界文化遗产,中国石窟艺术的瑰宝"
+        "description": "坐落于陇原大地的莫高窟，莫高窟——世界文化遗产，中国石窟艺术的瑰宝，实乃游历此地不可错过之胜境。。每一处景致皆是造物主的匠心独运。"
       },
       {
         "name": "嘉峪关",
         "image": "https://picsum.photos/id/1661/600/400",
-        "description": "天下第一雄关,明长城的西端起点"
+        "description": "陇原嘉峪关，甘肃名胜嘉峪关，天下第一雄关，明长城的西端起点，令人心驰神往流连忘返。。当属此地名胜之首推，不容错过。"
       },
       {
         "name": "张掖丹霞",
         "image": "https://picsum.photos/id/1662/600/400",
-        "description": "世界十大神奇地理奇观之一"
+        "description": "张掖丹霞者，陇原之胜境也。张掖丹霞者，甘肃之世界十大神奇地理奇观之一，堪称此地风光之冠冕。。令人叹为观止，流连忘返。"
       },
       {
         "name": "麦积山石窟",
         "image": "https://picsum.photos/id/1663/600/400",
-        "description": "中国四大石窟之一,东方雕塑馆"
+        "description": "名为麦积山石窟，誉为甘肃明珠的麦积山石窟，中国四大石窟之一，东方雕塑馆，每一处皆是造化与人文的交响。。实乃游历此地不可错过之胜境。"
       },
       {
         "name": "鸣沙山月牙泉",
         "image": "https://picsum.photos/id/1664/600/400",
-        "description": "沙漠奇观,沙泉共存"
+        "description": "陇原名胜鸣沙山月牙泉，鸣沙山月牙泉，沙漠奇观，沙泉共存，足以令旅人魂牵梦萦。。足以令旅人魂牵梦萦，心驰神往。"
       },
       {
         "name": "崆峒山",
         "image": "https://picsum.photos/id/1665/600/400",
-        "description": "西来第一山,道教圣地"
+        "description": "崆峒山，崆峒山——西来第一山，道教圣地，当属此地名胜之首推。。堪称天地造化与人文底蕴之交响。"
       },
       {
         "name": "拉卜楞寺",
         "image": "https://picsum.photos/id/1666/600/400",
-        "description": "藏传佛教格鲁派六大寺院之一"
+        "description": "坐落于陇原大地的拉卜楞寺，甘肃名胜拉卜楞寺，藏传佛教格鲁派六大寺院之一，实乃游历此地不可错过之胜境。。每一处景致皆是造物主的匠心独运。"
       },
       {
         "name": "黄河石林",
         "image": "https://picsum.photos/id/1667/600/400",
-        "description": "中国最美的自然奇观之一"
+        "description": "陇原黄河石林，黄河石林者，甘肃之中国最美的自然奇观之一，令人心驰神往流连忘返。。当属此地名胜之首推，不容错过。"
       }
     ]
   },
@@ -750,7 +955,71 @@
       "description": "银装素裹,是体验甘肃风情的好时节"
     }
   ],
-  "festivals": [],
+  "festivals": [
+    {
+      "id": "1",
+      "name": "敦煌行丝绸之路国际旅游节",
+      "month": "9月",
+      "day": "15日",
+      "location": "敦煌",
+      "isUnique": true,
+      "description": "以敦煌丝路文化遗产为舞台，壁画临摹工坊、沙漠露营体验、驼队穿越、丝路旅游推介，于莫高窟下感悟千年丝路文明之璀璨与大漠孤烟之苍茫。",
+      "type": "旅游节庆",
+      "duration": "约10天",
+      "origin": "敦煌行丝绸之路国际旅游节始于2010年，依托敦煌丝绸之路文化遗产，是西北最大旅游节庆。",
+      "highlights": [
+        "敦煌文化主题展",
+        "丝路沿线旅游推介",
+        "沙漠露营体验",
+        "壁画临摹工坊",
+        "驼队穿越体验"
+      ],
+      "bestTime": "开幕日及周末",
+      "ticket": "莫高窟门票¥180",
+      "transport": "飞机至敦煌机场，或火车至敦煌站",
+      "tips": [
+        "莫高窟需提前30天预约",
+        "沙漠昼夜温差大，备好衣物",
+        "9月敦煌气候宜人，是最佳季节"
+      ],
+      "relatedSpots": [
+        "莫高窟",
+        "鸣沙山月牙泉",
+        "玉门关"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "嘉峪关长城文化节",
+      "month": "7月",
+      "day": "1日",
+      "location": "嘉峪关",
+      "isUnique": false,
+      "description": "依托万里长城西端起点嘉峪关，长城防御演练、边塞诗词吟诵、关城夜景灯光秀，于天下第一雄关感受明代边塞之雄浑与金戈铁马之豪情。",
+      "type": "文化节庆",
+      "duration": "约3天",
+      "origin": "嘉峪关长城文化节依托万里长城西端起点嘉峪关，展示明代长城军事防御文化。",
+      "highlights": [
+        "长城防御演练表演",
+        "边塞诗词吟诵",
+        "古代军事装备展",
+        "关城夜景灯光秀"
+      ],
+      "bestTime": "傍晚关城灯光秀",
+      "ticket": "嘉峪关城楼门票¥110",
+      "transport": "高铁至嘉峪关南站，转公交约20分钟",
+      "tips": [
+        "城楼区域风大，注意防风",
+        "夏季日照强烈，做好防晒",
+        "建议傍晚游览避开高温"
+      ],
+      "relatedSpots": [
+        "嘉峪关关城",
+        "悬壁长城",
+        "天下第一墩"
+      ]
+    }
+  ],
   "activities": [
     {
       "id": "1",
@@ -790,7 +1059,11 @@
           "avgRating": 4.7,
           "bestSeason": "春秋 / 全年",
           "recommendedDays": "2-3 日",
-          "budget": "¥500-1200",
+          "budget": {
+            "currency": "¥",
+            "min": 500,
+            "max": 1200
+          },
           "intensity": "适中",
           "audience": "全人群",
           "highlights": [
@@ -818,7 +1091,11 @@
           "avgRating": 4.5,
           "bestSeason": "秋冬",
           "recommendedDays": "2 日",
-          "budget": "¥400-900",
+          "budget": {
+            "currency": "¥",
+            "min": 400,
+            "max": 900
+          },
           "intensity": "适中",
           "audience": "摄影/户外",
           "highlights": [
@@ -842,7 +1119,11 @@
           "avgRating": 4.6,
           "bestSeason": "夏秋",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-500",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 500
+          },
           "intensity": "轻松",
           "audience": "家庭/休闲",
           "highlights": [
@@ -868,7 +1149,11 @@
           "avgRating": 4.7,
           "bestSeason": "春秋",
           "recommendedDays": "2-3 日",
-          "budget": "¥300-800",
+          "budget": {
+            "currency": "¥",
+            "min": 300,
+            "max": 800
+          },
           "intensity": "适中",
           "audience": "探险/摄影",
           "highlights": [
@@ -900,7 +1185,11 @@
           "avgRating": 4.7,
           "bestSeason": "全年",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-400",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
           "intensity": "轻松",
           "audience": "文化/家庭",
           "highlights": [
@@ -926,7 +1215,11 @@
           "avgRating": 4.7,
           "bestSeason": "全年",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-400",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
           "intensity": "轻松",
           "audience": "银发/养心",
           "highlights": [
@@ -953,7 +1246,11 @@
           "avgRating": 4.8,
           "bestSeason": "全年",
           "recommendedDays": "1-2 日",
-          "budget": "¥300-600",
+          "budget": {
+            "currency": "¥",
+            "min": 300,
+            "max": 600
+          },
           "intensity": "轻松",
           "audience": "文化/家庭",
           "highlights": [
@@ -973,6 +1270,353 @@
           ]
         }
       ]
+    }
+  ],
+  "craftWorkshops": [
+    {
+      "id": "gansu-craft-1",
+      "image": "https://picsum.photos/id/1342/600/400",
+      "category": "craft",
+      "name": "洮砚雕刻体验",
+      "type": "砚台",
+      "location": "卓尼县洮砚工坊",
+      "duration": "3小时",
+      "difficulty": "中等",
+      "price": "300",
+      "rating": 4.7,
+      "reviewCount": 89,
+      "instructor": "洮砚传承人",
+      "heritageLevel": "national",
+      "highlights": [
+        "选洮河绿石",
+        "雕刻砚池",
+        "了解四大名砚"
+      ],
+      "steps": [
+        "选石料",
+        "设计砚形",
+        "粗雕",
+        "精雕",
+        "打磨"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "手工艺爱好者"
+      ],
+      "tags": [
+        "非遗",
+        "洮砚",
+        "文房"
+      ],
+      "description": "洮砚位列中国四大名砚，洮河绿石温润如玉，始于宋代传誉千年。于卓尼工坊选石雕砚，刀锋刻处碧绿生辉，感受这陇上文房之宝的砚池深韵与洮水之畔的千年匠心。"
+    },
+    {
+      "id": "gansu-craft-2",
+      "image": "https://picsum.photos/id/1344/600/400",
+      "category": "craft",
+      "name": "兰州刻葫芦",
+      "type": "微雕",
+      "location": "兰州葫芦工坊",
+      "duration": "3小时",
+      "difficulty": "简单",
+      "price": "180",
+      "rating": 4.6,
+      "reviewCount": 67,
+      "instructor": "刻葫芦艺人",
+      "highlights": [
+        "葫芦微刻",
+        "针刻技法",
+        "山水人物题材"
+      ],
+      "steps": [
+        "选葫芦",
+        "设计画面",
+        "针刻",
+        "着色"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "手工艺爱好者"
+      ],
+      "tags": [
+        "非遗",
+        "微雕",
+        "兰州"
+      ],
+      "description": "兰州刻葫芦乃陇原一绝，始于清末，鸡蛋大小的葫芦上微刻山水人物。针尖游走处方寸乾坤，山水楼阁纤毫毕现，感受这黄河之滨的微雕绝技与匠心之精微。"
+    }
+  ],
+  "performances": [
+    {
+      "id": "gansu-perf-1",
+      "image": "https://picsum.photos/id/2360/600/400",
+      "category": "performance",
+      "name": "又见敦煌·情境融入式演出",
+      "type": "沉浸式演出",
+      "location": "敦煌市又见敦煌剧场",
+      "duration": "1.5小时",
+      "difficulty": "简单",
+      "price": "298",
+      "rating": 4.9,
+      "reviewCount": 678,
+      "highlights": [
+        "王潮歌导演作品",
+        "穿梭千年敦煌",
+        "丝路人物对话"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "年轻群体"
+      ],
+      "tags": [
+        "沉浸式",
+        "又见",
+        "敦煌"
+      ],
+      "description": "又见敦煌不是看戏，是穿越。观众分批穿梭于莫高窟、玉门关、阳关之间，与张骞与王道士与飞天对话，千年丝路在眼前流转。于这情境融入式演出中，感悟\"一瞬间就是千年\"之丝路沧桑。"
+    },
+    {
+      "id": "gansu-perf-2",
+      "image": "https://picsum.photos/id/2361/600/400",
+      "category": "performance",
+      "name": "《丝路花雨》经典舞剧",
+      "type": "舞剧",
+      "location": "兰州市甘肃大剧院",
+      "duration": "2小时",
+      "difficulty": "简单",
+      "price": "180",
+      "rating": 4.8,
+      "reviewCount": 345,
+      "highlights": [
+        "敦煌壁画复活",
+        "反弹琵琶绝技",
+        "飞天舞经典"
+      ],
+      "suitableFor": [
+        "艺术爱好者",
+        "文化体验者"
+      ],
+      "tags": [
+        "舞剧",
+        "敦煌",
+        "丝路花雨"
+      ],
+      "description": "丝路花雨以敦煌壁画为魂，反弹琵琶的飞天舞姿惊艳天下。从波斯商队到盛唐霓裳，壁画中的凝固瞬间在舞台上复活流转，于这中国舞剧经典中，领略敦煌艺术之\"天衣飞扬，满壁风动\"。",
+      "heritageLevel": "national"
+    },
+    {
+      "id": "gansu-perf-3",
+      "image": "https://picsum.photos/id/2362/600/400",
+      "category": "performance",
+      "name": "兰州太平鼓·黄河之滨",
+      "type": "鼓舞",
+      "location": "兰州市西固区太平鼓传习所",
+      "duration": "1小时",
+      "difficulty": "简单",
+      "price": "免费",
+      "rating": 4.6,
+      "reviewCount": 178,
+      "highlights": [
+        "千年太平鼓",
+        "黄河鼓声震天",
+        "鼓阵排山倒海"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "音乐爱好者"
+      ],
+      "tags": [
+        "非遗",
+        "太平鼓",
+        "黄河"
+      ],
+      "description": "兰州太平鼓鼓身修长鼓声如雷，传为明代徐达克兰州后百姓欢庆所击。百鼓齐鸣震天动地，鼓阵排山倒海气势磅礴，于这黄河之滨聆听千年鼓韵，感受金城兰州之豪迈鼓魂。",
+      "heritageLevel": "national"
+    }
+  ],
+  "outdoorAdventure": [
+    {
+      "id": "gansu-outdoor-1",
+      "image": "https://picsum.photos/id/1363/600/400",
+      "category": "outdoor",
+      "name": "张掖丹霞徒步",
+      "type": "徒步赏景",
+      "location": "张掖七彩丹霞景区",
+      "duration": "1天",
+      "difficulty": "中等",
+      "price": "54",
+      "rating": 4.7,
+      "reviewCount": 5678,
+      "totalAscent": 200,
+      "maxElevation": 1800,
+      "routeType": "环线",
+      "surfaceType": "石阶",
+      "accessInfo": "高铁至最近站，转景区交通",
+      "gearList": [
+        "徒步鞋",
+        "防晒",
+        "相机"
+      ],
+      "safetyTips": [
+        "景区栈道行走",
+        "防晒必备"
+      ],
+      "bestMonths": "4-5月·9-10月",
+      "highlights": [
+        "七彩丹霞",
+        "日出光影",
+        "地质奇观"
+      ],
+      "tags": [
+        "徒步",
+        "丹霞",
+        "地质奇观"
+      ],
+      "description": "张掖七彩丹霞绵延数十里，赤橙黄绿层叠如锦，地质奇观震撼人心。于彩色丘陵间穿行，日出光影变幻丹霞如焰，\"不望祁连山顶雪，错将张掖认江南\"之奇境令人叹为天工。"
+    },
+    {
+      "id": "gansu-outdoor-2",
+      "image": "https://picsum.photos/id/1366/600/400",
+      "category": "outdoor",
+      "name": "鸣沙山沙漠穿越",
+      "type": "沙漠穿越",
+      "location": "敦煌鸣沙山",
+      "duration": "半天",
+      "difficulty": "简单",
+      "price": "110",
+      "rating": 4.6,
+      "reviewCount": 3456,
+      "totalAscent": 150,
+      "maxElevation": 1715,
+      "routeType": "往返",
+      "surfaceType": "石阶",
+      "accessInfo": "高铁至最近站，转景区交通",
+      "gearList": [
+        "防沙鞋套",
+        "纱巾",
+        "墨镜",
+        "水"
+      ],
+      "safetyTips": [
+        "沙漠易迷路跟随向导",
+        "防晒脱水"
+      ],
+      "bestMonths": "4-5月·9-10月",
+      "highlights": [
+        "骑骆驼穿越",
+        "月牙泉",
+        "滑沙"
+      ],
+      "tags": [
+        "沙漠",
+        "丝路",
+        "驼队"
+      ],
+      "description": "鸣沙山月牙泉沙海奇观，沙鸣如雷泉形如月，千年不涸不掩。骑骆驼穿越沙丘，驼铃叮当回荡大漠，滑沙飞驰扬沙如金，体验这丝路古道之苍茫与沙泉共生之奇迹。"
+    }
+  ],
+  "wellnessRetreat": [
+    {
+      "id": "gansu-wellness-1",
+      "image": "https://picsum.photos/id/2380/600/400",
+      "category": "wellness",
+      "name": "崆峒山道修养生",
+      "type": "道修养生",
+      "location": "平凉市崆峒山道教建筑群",
+      "duration": "1天",
+      "difficulty": "简单",
+      "price": "120",
+      "rating": 4.7,
+      "reviewCount": 345,
+      "efficacyTags": [
+        "天下道教第一山",
+        "黄帝问道广成子",
+        "丹崖道修吐纳"
+      ],
+      "bestSeason": "春秋",
+      "packageIncludes": [
+        "门票",
+        "道修指导",
+        "素斋"
+      ],
+      "suitableFor": [
+        "养生爱好者",
+        "文化体验者"
+      ],
+      "tags": [
+        "道修",
+        "道教",
+        "崆峒山"
+      ],
+      "description": "崆峒山\"天下道教第一山\"，黄帝曾问道于广成子。丹崖赤壁间古观隐现，于朝天门内盘膝吐纳，天地真气绵绵入体，于这\"崆峒武术发源地\"修道养真，感悟\"至道之精，窈窈冥冥\"之玄妙。"
+    },
+    {
+      "id": "gansu-wellness-2",
+      "image": "https://picsum.photos/id/2381/600/400",
+      "category": "wellness",
+      "name": "敦煌鸣沙山沙疗",
+      "type": "沙疗养生",
+      "location": "敦煌市鸣沙山月牙泉景区",
+      "duration": "半天",
+      "difficulty": "简单",
+      "price": "80",
+      "rating": 4.7,
+      "reviewCount": 234,
+      "efficacyTags": [
+        "沙漠温沙埋身",
+        "月牙泉伴沙疗",
+        "滑沙冲浪解压"
+      ],
+      "bestSeason": "夏秋",
+      "packageIncludes": [
+        "沙疗",
+        "滑沙",
+        "骆驼骑行"
+      ],
+      "suitableFor": [
+        "养生爱好者",
+        "体验爱好者"
+      ],
+      "tags": [
+        "沙疗",
+        "沙漠",
+        "鸣沙山"
+      ],
+      "description": "鸣沙山沙鸣如雷，月牙泉沙不掩泉千年不涸。温热细沙埋身如天然热敷，促进循环舒缓关节，于这塞外大漠的金色沙海中，沙疗与滑沙冲浪交织，尽享丝路大漠之康养奇趣。"
+    },
+    {
+      "id": "gansu-wellness-3",
+      "image": "https://picsum.photos/id/2382/600/400",
+      "category": "wellness",
+      "name": "兰州百合药膳",
+      "type": "药膳养生",
+      "location": "兰州市七里河区百合餐厅",
+      "duration": "2小时",
+      "difficulty": "简单",
+      "price": "100",
+      "rating": 4.6,
+      "reviewCount": 198,
+      "efficacyTags": [
+        "兰州百合甜润",
+        "药膳炖品滋补",
+        "黄河之滨品膳"
+      ],
+      "bestSeason": "秋冬",
+      "packageIncludes": [
+        "药膳套餐",
+        "百合羹",
+        "茶饮"
+      ],
+      "suitableFor": [
+        "养生爱好者",
+        "美食爱好者"
+      ],
+      "tags": [
+        "药膳",
+        "百合",
+        "兰州"
+      ],
+      "description": "兰州百合\"洁白如玉，甘甜如饴\"，入药膳润肺止咳清心安神。一盅百合炖雪梨温润入喉，百合莲子羹清甜养胃，于这黄河之滨品百合药膳，以\"蔬中珍品\"滋补养生，尽享金城秋日之暖。"
     }
   ]
 }

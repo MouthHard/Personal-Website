@@ -14,7 +14,7 @@
       "rating": 4.9,
       "bestTime": "夏季",
       "location": "内蒙古自治区呼伦贝尔市",
-      "description": "世界三大草原之一,被誉为牧草王国",
+      "description": "呼伦贝尔大草原，内蒙古呼伦贝尔大草原，造化钟神秀，碧草连天一望无际，世界三大草原之一，被誉为牧草王国，实乃游历内蒙古不可错过之胜境。。碧草连天一望无际，足以令旅人魂牵梦萦，心驰神往。",
       "highlight": "世界最美草原,牧草王国",
       "level": "5A景区",
       "rankBadge": "必去",
@@ -30,7 +30,6 @@
       ],
       "openTime": "全天开放",
       "visitDuration": "2-3天",
-      "popularity": "★★★★★",
       "audienceTags": [
         "摄影爱好者",
         "自然爱好者",
@@ -38,21 +37,57 @@
         "民族文化爱好者"
       ],
       "ticketDetails": [
-        "免费开放",
-        "部分景区单独收费",
-        "骑马、射箭等项目另收费",
-        "那达慕大会期间免费"
+        {
+          "type": "通用",
+          "price": "免费开放"
+        },
+        {
+          "type": "部分景区单独收费",
+          "price": ""
+        },
+        {
+          "type": "骑马、射箭等项目另收费",
+          "price": ""
+        },
+        {
+          "type": "那达慕大会期间",
+          "price": "免费"
+        }
       ],
       "transportInfo": [
-        "飞机:海拉尔东山机场",
-        "高铁:海拉尔站转车",
-        "自驾:绥满高速海拉尔出口",
-        "长途客运:海拉尔客运站转车"
+        {
+          "mode": "飞机",
+          "detail": "海拉尔东山机场"
+        },
+        {
+          "mode": "高铁",
+          "detail": "海拉尔站转车"
+        },
+        {
+          "mode": "自驾",
+          "detail": "绥满高速海拉尔出口"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "海拉尔客运站转车"
+        }
       ],
       "openTimeDetail": [
-        "全天开放",
-        "最佳游览期6-8月",
-        "那达慕大会通常8月举行"
+        {
+          "season": "全天开放",
+          "months": "",
+          "time": ""
+        },
+        {
+          "season": "最佳游览期6-8月",
+          "months": "",
+          "time": ""
+        },
+        {
+          "season": "那达慕大会通常8月举行",
+          "months": "",
+          "time": ""
+        }
       ],
       "recommendedRoutes": [
         {
@@ -82,8 +117,15 @@
               "detail": "额尔古纳湿地→呼伦湖→返程"
             }
           ],
-          "budget": "¥1500-3000",
-          "bestFor": "自然爱好者/深度体验"
+          "budget": {
+            "currency": "¥",
+            "min": 1500,
+            "max": 3000
+          },
+          "bestFor": [
+            "自然爱好者",
+            "深度体验"
+          ]
         },
         {
           "name": "那达慕体验游",
@@ -102,8 +144,15 @@
               "detail": "那达慕大会现场→骑马比赛→射箭体验→摔跤观赏"
             }
           ],
-          "budget": "¥200-500",
-          "bestFor": "民族文化爱好者/夏季游览"
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 500
+          },
+          "bestFor": [
+            "民族文化爱好者",
+            "夏季游览"
+          ]
         }
       ],
       "facilities": [
@@ -152,7 +201,7 @@
       "rating": 4.7,
       "bestTime": "夏季",
       "location": "内蒙古自治区兴安盟阿尔山市",
-      "description": "国家4A级景区,拥有丰富的自然景观",
+      "description": "坐落于草原大地的阿尔山国家森林公园，内蒙古阿尔山国家森林公园，鬼斧神工天作之美，汤泉氤氲温润如玉，国家4A级景区，拥有丰富的自然景观，实乃游历内蒙古不可错过之胜境。。汤泉氬氳温润如玉，堪称天地造化与人文底蕴之交响。",
       "highlight": "火山温泉,森林秘境",
       "level": "5A景区",
       "reviewCount": "43,210条点评",
@@ -168,7 +217,6 @@
       "rankBadge": "森林",
       "openTime": "08:00-17:00",
       "visitDuration": "1-2天",
-      "popularity": "★★★★☆",
       "audienceTags": [
         "自然爱好者",
         "摄影爱好者",
@@ -176,21 +224,57 @@
         "森林探险"
       ],
       "ticketDetails": [
-        "成人票¥180",
-        "学生票半价",
-        "1.2米以下儿童免票",
-        "环保车另收费"
+        {
+          "type": "成人票",
+          "price": "¥180"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "1.2米以下儿童",
+          "price": "免票"
+        },
+        {
+          "type": "环保车另收费",
+          "price": ""
+        }
       ],
       "transportInfo": [
-        "飞机:阿尔山伊尔施机场约30km",
-        "高铁:阿尔山站转车",
-        "自驾:绥满高速阿尔山出口",
-        "长途客运:阿尔山客运站转车"
+        {
+          "mode": "飞机",
+          "detail": "阿尔山伊尔施机场约30km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "阿尔山站转车"
+        },
+        {
+          "mode": "自驾",
+          "detail": "绥满高速阿尔山出口"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "阿尔山客运站转车"
+        }
       ],
       "openTimeDetail": [
-        "旺季(6-9月) 08:00-17:00",
-        "淡季(10-5月) 08:30-16:30",
-        "冬季部分区域封闭"
+        {
+          "season": "旺季",
+          "months": "6-9月",
+          "time": "08:00-17:00"
+        },
+        {
+          "season": "淡季",
+          "months": "10-5月",
+          "time": "08:30-16:30"
+        },
+        {
+          "season": "冬季部分区域封闭",
+          "months": "",
+          "time": ""
+        }
       ],
       "recommendedRoutes": [
         {
@@ -210,8 +294,15 @@
               "detail": "阿尔山天池→三潭峡→火山温泉→温泉体验"
             }
           ],
-          "budget": "¥300-500",
-          "bestFor": "温泉养生/自然爱好者"
+          "budget": {
+            "currency": "¥",
+            "min": 300,
+            "max": 500
+          },
+          "bestFor": [
+            "温泉养生",
+            "自然爱好者"
+          ]
         },
         {
           "name": "森林深度游",
@@ -235,8 +326,15 @@
               "detail": "天池→三潭峡→鹿鸣湖→森林观光"
             }
           ],
-          "budget": "¥600-1000",
-          "bestFor": "森林探险/摄影爱好者"
+          "budget": {
+            "currency": "¥",
+            "min": 600,
+            "max": 1000
+          },
+          "bestFor": [
+            "森林探险",
+            "摄影爱好者"
+          ]
         }
       ],
       "facilities": [
@@ -285,7 +383,7 @@
       "rating": 4.6,
       "bestTime": "全年",
       "location": "内蒙古自治区鄂尔多斯市伊金霍洛旗",
-      "description": "蒙古帝国创始人成吉思汗的陵墓",
+      "description": "草原成吉思汗陵，内蒙古成吉思汗陵，古迹斑驳岁月悠悠，蒙古帝国创始人成吉思汗的陵墓，实乃游历内蒙古不可错过之胜境。。每一处景致皆是造物主的匠心独运。",
       "highlight": "一代天骄陵寝,蒙古圣地",
       "level": "5A景区",
       "rankBadge": "圣地",
@@ -297,7 +395,6 @@
       ],
       "openTime": "08:00-17:30",
       "visitDuration": "2-3小时",
-      "popularity": "★★★★☆",
       "audienceTags": [
         "历史爱好者",
         "文化爱好者",
@@ -305,21 +402,57 @@
         "民族文化爱好者"
       ],
       "ticketDetails": [
-        "成人票¥150",
-        "学生票半价",
-        "1.2米以下儿童免票",
-        "60岁以上老人半价"
+        {
+          "type": "成人票",
+          "price": "¥150"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "1.2米以下儿童",
+          "price": "免票"
+        },
+        {
+          "type": "60岁以上老人",
+          "price": "半价"
+        }
       ],
       "transportInfo": [
-        "飞机:鄂尔多斯伊金霍洛机场约30km",
-        "高铁:鄂尔多斯站转车",
-        "自驾:包茂高速伊金霍洛出口",
-        "长途客运:鄂尔多斯客运站转车"
+        {
+          "mode": "飞机",
+          "detail": "鄂尔多斯伊金霍洛机场约30km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "鄂尔多斯站转车"
+        },
+        {
+          "mode": "自驾",
+          "detail": "包茂高速伊金霍洛出口"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "鄂尔多斯客运站转车"
+        }
       ],
       "openTimeDetail": [
-        "旺季(5-10月) 08:00-17:30",
-        "淡季(11-4月) 08:30-17:00",
-        "祭祀活动期间延长开放"
+        {
+          "season": "旺季",
+          "months": "5-10月",
+          "time": "08:00-17:30"
+        },
+        {
+          "season": "淡季",
+          "months": "11-4月",
+          "time": "08:30-17:00"
+        },
+        {
+          "season": "祭祀活动期间延长开放",
+          "months": "",
+          "time": ""
+        }
       ],
       "recommendedRoutes": [
         {
@@ -339,8 +472,15 @@
               "detail": "陵宫正殿→成吉思汗铜像→蒙古帝国历史展→陵宫全景"
             }
           ],
-          "budget": "¥150-200",
-          "bestFor": "历史爱好者/文化游览"
+          "budget": {
+            "currency": "¥",
+            "min": 150,
+            "max": 200
+          },
+          "bestFor": [
+            "历史爱好者",
+            "文化游览"
+          ]
         },
         {
           "name": "祭祀文化游",
@@ -359,8 +499,15 @@
               "detail": "祭祀仪式观赏→达尔扈特人讲解→苏勒德祭坛→蒙古文化体验"
             }
           ],
-          "budget": "¥150-200",
-          "bestFor": "民族文化爱好者/历史探索"
+          "budget": {
+            "currency": "¥",
+            "min": 150,
+            "max": 200
+          },
+          "bestFor": [
+            "民族文化爱好者",
+            "历史探索"
+          ]
         }
       ],
       "facilities": [
@@ -409,7 +556,7 @@
       "rating": 4.5,
       "bestTime": "春秋",
       "location": "内蒙古自治区鄂尔多斯市达拉特旗",
-      "description": "会唱歌的沙漠,神奇的沙漠景观",
+      "description": "响沙湾者，草原之胜境也。内蒙古响沙湾，大自然之鬼斧神工，大漠孤烟黄沙漫漫，会唱歌的沙漠，神奇的沙漠景观，实乃游历内蒙古不可错过之胜境。。大漠孤烟黄沙漫漫，当属此地名胜之首推，不容错过。",
       "highlight": "沙漠迪斯尼,响沙奇观",
       "level": "5A景区",
       "rankBadge": "网红",
@@ -425,7 +572,6 @@
       ],
       "openTime": "08:00-18:00",
       "visitDuration": "半天",
-      "popularity": "★★★★☆",
       "audienceTags": [
         "探险爱好者",
         "家庭亲子",
@@ -433,21 +579,57 @@
         "沙漠体验"
       ],
       "ticketDetails": [
-        "成人票¥80",
-        "学生票半价",
-        "1.2米以下儿童免票",
-        "索道和娱乐项目另收费"
+        {
+          "type": "成人票",
+          "price": "¥80"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "1.2米以下儿童",
+          "price": "免票"
+        },
+        {
+          "type": "索道和娱乐项目另收费",
+          "price": ""
+        }
       ],
       "transportInfo": [
-        "飞机:鄂尔多斯伊金霍洛机场约50km",
-        "高铁:鄂尔多斯站转车",
-        "自驾:包茂高速响沙湾出口",
-        "长途客运:鄂尔多斯客运站转车"
+        {
+          "mode": "飞机",
+          "detail": "鄂尔多斯伊金霍洛机场约50km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "鄂尔多斯站转车"
+        },
+        {
+          "mode": "自驾",
+          "detail": "包茂高速响沙湾出口"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "鄂尔多斯客运站转车"
+        }
       ],
       "openTimeDetail": [
-        "旺季(5-10月) 08:00-18:00",
-        "淡季(11-4月) 08:30-17:00",
-        "夏季可体验沙漠露营"
+        {
+          "season": "旺季",
+          "months": "5-10月",
+          "time": "08:00-18:00"
+        },
+        {
+          "season": "淡季",
+          "months": "11-4月",
+          "time": "08:30-17:00"
+        },
+        {
+          "season": "夏季可体验沙漠露营",
+          "months": "",
+          "time": ""
+        }
       ],
       "recommendedRoutes": [
         {
@@ -467,8 +649,15 @@
               "detail": "索道入沙漠→响沙奇观体验→沙漠娱乐→莲花酒店"
             }
           ],
-          "budget": "¥200-400",
-          "bestFor": "家庭亲子/首次游览"
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
+          "bestFor": [
+            "家庭亲子",
+            "首次游览"
+          ]
         },
         {
           "name": "沙漠深度游",
@@ -487,8 +676,15 @@
               "detail": "索道入沙漠→骆驼骑行→沙漠腹地→沙漠日落→露营体验"
             }
           ],
-          "budget": "¥500-1000",
-          "bestFor": "探险爱好者/深度体验"
+          "budget": {
+            "currency": "¥",
+            "min": 500,
+            "max": 1000
+          },
+          "bestFor": [
+            "探险爱好者",
+            "深度体验"
+          ]
         }
       ],
       "facilities": [
@@ -537,7 +733,7 @@
       "rating": 4.8,
       "bestTime": "秋季",
       "location": "内蒙古自治区阿拉善盟额济纳旗",
-      "description": "中国最美的胡杨林,秋季金黄一片",
+      "description": "名为额济纳胡杨林，内蒙古额济纳胡杨林，造化钟神秀，中国最美的胡杨林，秋季金黄一片，实乃游历内蒙古不可错过之胜境。。令人叹为观止，流连忘返。",
       "highlight": "千年不死不朽,金色胡杨",
       "level": "4A景区",
       "rankBadge": "必去",
@@ -553,7 +749,6 @@
       ],
       "openTime": "08:00-18:00",
       "visitDuration": "1-2天",
-      "popularity": "★★★★★",
       "audienceTags": [
         "摄影爱好者",
         "自然爱好者",
@@ -561,21 +756,57 @@
         "文艺爱好者"
       ],
       "ticketDetails": [
-        "成人票¥240",
-        "学生票半价",
-        "1.2米以下儿童免票",
-        "60岁以上老人半价"
+        {
+          "type": "成人票",
+          "price": "¥240"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "1.2米以下儿童",
+          "price": "免票"
+        },
+        {
+          "type": "60岁以上老人",
+          "price": "半价"
+        }
       ],
       "transportInfo": [
-        "飞机:额济纳桃来机场约15km",
-        "高铁:无直达，需转车",
-        "自驾:京新高速额济纳出口",
-        "长途客运:额济纳客运站转车"
+        {
+          "mode": "飞机",
+          "detail": "额济纳桃来机场约15km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "无直达，需转车"
+        },
+        {
+          "mode": "自驾",
+          "detail": "京新高速额济纳出口"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "额济纳客运站转车"
+        }
       ],
       "openTimeDetail": [
-        "最佳观赏期10月",
-        "旺季(9-10月) 08:00-18:00",
-        "淡季其他时间游客较少"
+        {
+          "season": "最佳观赏期10月",
+          "months": "",
+          "time": ""
+        },
+        {
+          "season": "旺季",
+          "months": "9-10月",
+          "time": "08:00-18:00"
+        },
+        {
+          "season": "淡季其他时间游客较少",
+          "months": "",
+          "time": ""
+        }
       ],
       "recommendedRoutes": [
         {
@@ -595,8 +826,15 @@
               "detail": "二道桥胡杨→四道桥胡杨→八道桥→怪树林日落"
             }
           ],
-          "budget": "¥300-500",
-          "bestFor": "摄影爱好者/秋季游览"
+          "budget": {
+            "currency": "¥",
+            "min": 300,
+            "max": 500
+          },
+          "bestFor": [
+            "摄影爱好者",
+            "秋季游览"
+          ]
         },
         {
           "name": "居延海游",
@@ -615,8 +853,15 @@
               "detail": "居延海日出→候鸟观赏→湖泊风光→周边观光"
             }
           ],
-          "budget": "¥100-200",
-          "bestFor": "摄影爱好者/自然观赏"
+          "budget": {
+            "currency": "¥",
+            "min": 100,
+            "max": 200
+          },
+          "bestFor": [
+            "摄影爱好者",
+            "自然观赏"
+          ]
         }
       ],
       "facilities": [
@@ -706,42 +951,42 @@
       {
         "name": "呼伦贝尔大草原",
         "image": "https://picsum.photos/id/1200/600/400",
-        "description": "世界三大草原之一,被誉为牧草王国"
+        "description": "坐落于草原大地的呼伦贝尔大草原，呼伦贝尔大草原——世界三大草原之一，被誉为牧草王国，实乃游历此地不可错过之胜境。。每一处景致皆是造物主的匠心独运。"
       },
       {
         "name": "阿尔山国家森林公园",
         "image": "https://picsum.photos/id/1201/600/400",
-        "description": "国家4A级景区,拥有丰富的自然景观"
+        "description": "草原阿尔山国家森林公园，内蒙古名胜阿尔山国家森林公园，国家4A级景区，拥有丰富的自然景观，令人心驰神往流连忘返。。当属此地名胜之首推，不容错过。"
       },
       {
         "name": "成吉思汗陵",
         "image": "https://picsum.photos/id/1202/600/400",
-        "description": "蒙古帝国创始人成吉思汗的陵墓"
+        "description": "成吉思汗陵者，草原之胜境也。成吉思汗陵者，内蒙古之蒙古帝国创始人成吉思汗的陵墓，堪称此地风光之冠冕。。令人叹为观止，流连忘返。"
       },
       {
         "name": "响沙湾",
         "image": "https://picsum.photos/id/1203/600/400",
-        "description": "会唱歌的沙漠,神奇的沙漠景观"
+        "description": "名为响沙湾，誉为内蒙古明珠的响沙湾，会唱歌的沙漠，神奇的沙漠景观，每一处皆是造化与人文的交响。。实乃游历此地不可错过之胜境。"
       },
       {
         "name": "额济纳胡杨林",
         "image": "https://picsum.photos/id/1204/600/400",
-        "description": "中国最美的胡杨林,秋季金黄一片"
+        "description": "草原名胜额济纳胡杨林，额济纳胡杨林，中国最美的胡杨林，秋季金黄一片，足以令旅人魂牵梦萦。。足以令旅人魂牵梦萦，心驰神往。"
       },
       {
         "name": "满洲里",
         "image": "https://picsum.photos/id/1205/600/400",
-        "description": "中俄边境城市,拥有独特的异域风情"
+        "description": "满洲里，满洲里——中俄边境城市，拥有独特的异域风情，当属此地名胜之首推。。堪称天地造化与人文底蕴之交响。"
       },
       {
         "name": "乌兰布统草原",
         "image": "https://picsum.photos/id/1206/600/400",
-        "description": "皇家猎苑,拥有壮美的草原风光"
+        "description": "坐落于草原大地的乌兰布统草原，内蒙古名胜乌兰布统草原，皇家猎苑，拥有壮美的草原风光，实乃游历此地不可错过之胜境。。每一处景致皆是造物主的匠心独运。"
       },
       {
         "name": "五当召",
         "image": "https://picsum.photos/id/1207/600/400",
-        "description": "内蒙古最大的藏传佛教寺院"
+        "description": "草原五当召，五当召者，内蒙古之内蒙古最大的藏传佛教寺院，令人心驰神往流连忘返。。当属此地名胜之首推，不容错过。"
       }
     ]
   },
@@ -799,7 +1044,63 @@
       "month": "8月",
       "isUnique": true,
       "location": "呼伦贝尔大草原",
-      "description": "蒙古族传统节日,盛大的草原盛会"
+      "description": "源于蒙古族传统，\"那达慕\"意为娱乐游戏，摔跤、赛马、射箭男儿三艺，蒙古族歌舞表演、篝火晚会与烤全羊，于\"天苍苍野茫茫风吹草低见牛羊\"之草原感受这千年那达慕之豪迈与蒙古男儿三艺之精彩。",
+      "type": "民俗节庆",
+      "heritageLevel": "国家级非遗",
+      "duration": "约7天",
+      "origin": "那达慕大会源于蒙古族传统，\"那达慕\"意为娱乐游戏，含摔跤、赛马、射箭男儿三艺，2006年入选国家级非遗。",
+      "highlights": [
+        "摔跤比赛",
+        "赛马",
+        "射箭比赛",
+        "蒙古族歌舞表演",
+        "篝火晚会与烤全羊"
+      ],
+      "bestTime": "开幕日三艺决赛",
+      "ticket": "免费",
+      "transport": "飞机至海拉尔，转大巴至呼伦贝尔草原",
+      "tips": [
+        "草原昼夜温差大，备外套",
+        "蒙古包住宿需提前预订",
+        "烤全羊需提前预约，¥1500起"
+      ],
+      "relatedSpots": [
+        "呼伦贝尔大草原",
+        "满洲里",
+        "额尔古纳湿地"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "呼伦贝尔草原旅游节",
+      "month": "7月",
+      "day": "15日",
+      "location": "呼伦贝尔",
+      "isUnique": false,
+      "description": "依托中国最美草原展示蒙古族游牧文化与草原生态，草原骑马体验、蒙古包住宿体验、挤牛奶做奶食、草原日出观赏，于\"天下第一草原\"感受这游牧文化之古老与草原日出之壮美。",
+      "type": "旅游节庆",
+      "duration": "约5天",
+      "origin": "呼伦贝尔草原旅游节依托中国最美草原，展示蒙古族游牧文化与草原生态。",
+      "highlights": [
+        "草原骑马体验",
+        "蒙古包住宿体验",
+        "挤牛奶做奶食",
+        "草原日出观赏",
+        "民族服饰试穿"
+      ],
+      "bestTime": "7-8月草最绿时",
+      "ticket": "草原景区¥60起",
+      "transport": "飞机至海拉尔，租车或包车前往",
+      "tips": [
+        "7-8月为旺季，住宿需提前订",
+        "草原蚊虫多，带驱蚊用品",
+        "骑马需听从指导，注意安全"
+      ],
+      "relatedSpots": [
+        "呼伦贝尔大草原",
+        "莫日格勒河",
+        "白桦林"
+      ]
     }
   ],
   "activities": [
@@ -829,7 +1130,7 @@
   "intangibleHeritage": [
     {
       "id": "1",
-      "icon": "🎵",
+      "icon": "music",
       "name": "蒙古族长调",
       "image": "https://picsum.photos/id/1200/600/400",
       "level": "national",
@@ -870,7 +1171,11 @@
           "avgRating": 4.7,
           "bestSeason": "春秋 / 全年",
           "recommendedDays": "2-3 日",
-          "budget": "¥500-1200",
+          "budget": {
+            "currency": "¥",
+            "min": 500,
+            "max": 1200
+          },
           "intensity": "适中",
           "audience": "全人群",
           "highlights": [
@@ -896,7 +1201,11 @@
           "avgRating": 4.7,
           "bestSeason": "春秋",
           "recommendedDays": "2-3 日",
-          "budget": "¥300-800",
+          "budget": {
+            "currency": "¥",
+            "min": 300,
+            "max": 800
+          },
           "intensity": "适中",
           "audience": "探险/摄影",
           "highlights": [
@@ -929,7 +1238,11 @@
           "avgRating": 4.5,
           "bestSeason": "全年",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-400",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
           "intensity": "轻松",
           "audience": "文化/家庭",
           "highlights": [
@@ -953,7 +1266,11 @@
           "avgRating": 4.6,
           "bestSeason": "全年",
           "recommendedDays": "1-2 日",
-          "budget": "¥300-600",
+          "budget": {
+            "currency": "¥",
+            "min": 300,
+            "max": 600
+          },
           "intensity": "轻松",
           "audience": "文化/家庭",
           "highlights": [
@@ -985,7 +1302,11 @@
           "avgRating": 4.5,
           "bestSeason": "春秋",
           "recommendedDays": "2-3 日",
-          "budget": "¥300-800",
+          "budget": {
+            "currency": "¥",
+            "min": 300,
+            "max": 800
+          },
           "intensity": "挑战",
           "audience": "户外/探险",
           "highlights": [
@@ -1011,7 +1332,11 @@
           "avgRating": 4.5,
           "bestSeason": "夏秋",
           "recommendedDays": "2-3 日",
-          "budget": "¥500-1500",
+          "budget": {
+            "currency": "¥",
+            "min": 500,
+            "max": 1500
+          },
           "intensity": "轻松",
           "audience": "家庭/度假",
           "highlights": [
@@ -1043,7 +1368,11 @@
           "avgRating": 4.8,
           "bestSeason": "10-11月",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-500",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 500
+          },
           "intensity": "轻松",
           "audience": "摄影/文艺",
           "highlights": [
@@ -1062,6 +1391,353 @@
           ]
         }
       ]
+    }
+  ],
+  "craftWorkshops": [
+    {
+      "id": "neimenggu-craft-1",
+      "image": "https://picsum.photos/id/1342/600/400",
+      "category": "craft",
+      "name": "蒙古皮画烫画",
+      "type": "皮艺",
+      "location": "呼和浩特皮画工坊",
+      "duration": "3小时",
+      "difficulty": "中等",
+      "price": "180",
+      "rating": 4.6,
+      "reviewCount": 67,
+      "instructor": "皮画艺人",
+      "highlights": [
+        "牛皮烫画",
+        "蒙古纹样",
+        "草原艺术"
+      ],
+      "steps": [
+        "选牛皮",
+        "构图",
+        "烙烫",
+        "上色"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "手工艺爱好者"
+      ],
+      "tags": [
+        "皮画",
+        "蒙古",
+        "草原"
+      ],
+      "description": "蒙古皮画以牛皮为画布烙铁烫画，\"牛皮烙画草原艺术\"蒙古纹样古朴。于呼和浩特工坊选牛皮烫画，烙铁游走处草原图案渐成，感受这\"马背民族\"之艺术与草原皮艺之粗犷。"
+    },
+    {
+      "id": "neimenggu-craft-2",
+      "image": "https://picsum.photos/id/1344/600/400",
+      "category": "craft",
+      "name": "蒙古银器锻制",
+      "type": "银饰",
+      "location": "通辽蒙古银器厂",
+      "duration": "3小时",
+      "difficulty": "简单",
+      "price": "260",
+      "rating": 4.7,
+      "reviewCount": 89,
+      "instructor": "银器匠人",
+      "heritageLevel": "national",
+      "highlights": [
+        "錾刻掐丝",
+        "蒙古头饰",
+        "银酒具"
+      ],
+      "steps": [
+        "熔银",
+        "锻打",
+        "錾刻",
+        "焊接"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "手工艺爱好者"
+      ],
+      "tags": [
+        "非遗",
+        "银器",
+        "蒙古"
+      ],
+      "description": "蒙古银器以錾刻掐丝见长，头饰腰带酒具为蒙古族必备\"银光闪烁草原华彩\"。于通辽银器厂亲手錾刻掐丝，银饰纹样繁复精美，感受这蒙古族银饰之华美与草原匠心之精微。"
+    }
+  ],
+  "performances": [
+    {
+      "id": "neimenggu-perf-1",
+      "image": "https://picsum.photos/id/1640/600/400",
+      "category": "performance",
+      "name": "《千古马颂》大型民族歌舞",
+      "type": "大型歌舞",
+      "location": "呼和浩特市内蒙古赛马场",
+      "duration": "1.5小时",
+      "difficulty": "简单",
+      "price": "180",
+      "rating": 4.7,
+      "reviewCount": 432,
+      "highlights": [
+        "蒙古马文化史诗",
+        "百匹骏马实景奔腾",
+        "民族歌舞盛宴"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "家庭游客"
+      ],
+      "tags": [
+        "大型演出",
+        "马文化",
+        "蒙古"
+      ],
+      "description": "千古马颂以马为魂，百匹骏马在赛马场疾驰奔腾，马蹄声碎如战鼓雷鸣。从成吉思汗的铁骑弯刀到草原牧人的套马杆，蒙古族与马共生共荣的千年传奇在眼前磅礴展开，领略马背民族之豪迈。"
+    },
+    {
+      "id": "neimenggu-perf-2",
+      "image": "https://picsum.photos/id/1641/600/400",
+      "category": "performance",
+      "name": "蒙古长调·呼伦贝尔草原",
+      "type": "民歌",
+      "location": "呼伦贝尔市草原蒙古包",
+      "duration": "1.5小时",
+      "difficulty": "简单",
+      "price": "80",
+      "rating": 4.6,
+      "reviewCount": 234,
+      "highlights": [
+        "世界非遗长调",
+        "苍茫草原露天",
+        "马头琴伴奏"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "音乐爱好者"
+      ],
+      "tags": [
+        "非遗",
+        "长调",
+        "草原"
+      ],
+      "description": "蒙古长调悠远绵长，一个音符可延宕数十拍。夜幕下草原篝火旁，牧人引吭高歌，马头琴呜咽应和，歌声如苍狼白鹿穿越千年时空，在这穹庐天地间感受\"天苍苍野茫茫\"之辽阔苍凉。",
+      "heritageLevel": "national"
+    },
+    {
+      "id": "neimenggu-perf-3",
+      "image": "https://picsum.photos/id/1642/600/400",
+      "category": "performance",
+      "name": "呼麦喉音艺术演唱",
+      "type": "喉音艺术",
+      "location": "呼和浩特市内蒙古艺术学院",
+      "duration": "1.5小时",
+      "difficulty": "简单",
+      "price": "60",
+      "rating": 4.5,
+      "reviewCount": 178,
+      "highlights": [
+        "一人同时发双音",
+        "泛音演唱绝技",
+        "图瓦呼麦传承"
+      ],
+      "suitableFor": [
+        "音乐爱好者",
+        "文化体验者"
+      ],
+      "tags": [
+        "非遗",
+        "呼麦",
+        "喉音"
+      ],
+      "description": "呼麦一人同发双声，基音如洪钟深沉，泛音如哨声高亢，两音交织恍若天籁。这来自草原深处的喉音绝技，被誉为\"大自然的声音\"，于这古老的人声艺术中，聆听大地与苍穹的共鸣。",
+      "heritageLevel": "national"
+    }
+  ],
+  "outdoorAdventure": [
+    {
+      "id": "neimenggu-outdoor-1",
+      "image": "https://picsum.photos/id/1363/600/400",
+      "category": "outdoor",
+      "name": "呼伦贝尔草原骑马穿越",
+      "type": "骑马穿越",
+      "location": "呼伦贝尔陈巴尔虎旗",
+      "duration": "1天",
+      "difficulty": "中等",
+      "price": "300",
+      "rating": 4.8,
+      "reviewCount": 567,
+      "totalAscent": 100,
+      "maxElevation": 700,
+      "routeType": "环线",
+      "surfaceType": "石阶",
+      "accessInfo": "高铁至最近站，转景区交通",
+      "gearList": [
+        "骑马装备",
+        "防晒",
+        "水",
+        "驱蚊"
+      ],
+      "safetyTips": [
+        "骑马需听从马倌指导",
+        "注意防蚊"
+      ],
+      "bestMonths": "4-5月·9-10月",
+      "highlights": [
+        "草原纵马",
+        "莫日格勒河",
+        "额尔古纳湿地"
+      ],
+      "tags": [
+        "骑马",
+        "草原",
+        "呼伦贝尔"
+      ],
+      "description": "呼伦贝尔为中国最美草原，骑马穿越莫日格勒河至额尔古纳湿地\"草原纵马河畔飞驰\"。于马背上穿越草原，莫日格勒河蜿蜒如带额尔古纳湿地碧波万顷，感受这\"天下第一草原\"之辽阔与纵马驰骋之豪迈。"
+    },
+    {
+      "id": "neimenggu-outdoor-2",
+      "image": "https://picsum.photos/id/1366/600/400",
+      "category": "outdoor",
+      "name": "库布齐沙漠徒步",
+      "type": "沙漠穿越",
+      "location": "鄂尔多斯库布齐沙漠",
+      "duration": "半天",
+      "difficulty": "简单",
+      "price": "150",
+      "rating": 4.6,
+      "reviewCount": 234,
+      "totalAscent": 200,
+      "maxElevation": 1200,
+      "routeType": "往返",
+      "surfaceType": "石阶",
+      "accessInfo": "高铁至最近站，转景区交通",
+      "gearList": [
+        "防沙鞋套",
+        "纱巾",
+        "墨镜",
+        "水"
+      ],
+      "safetyTips": [
+        "沙漠易迷路需向导",
+        "防晒脱水"
+      ],
+      "bestMonths": "4-5月·9-10月",
+      "highlights": [
+        "沙漠徒步",
+        "滑沙体验",
+        "响沙湾"
+      ],
+      "tags": [
+        "沙漠",
+        "徒步",
+        "库布齐"
+      ],
+      "description": "库布齐为中国第七大沙漠，沙漠徒步与沙丘滑沙\"大漠孤烟沙海无垠\"。于沙漠中徒步穿越，沙丘连绵如金海滑沙飞驰扬沙如雾，感受这\"沙漠之门\"之苍茫与库布齐沙海之壮阔。"
+    }
+  ],
+  "wellnessRetreat": [
+    {
+      "id": "neimenggu-wellness-1",
+      "image": "https://picsum.photos/id/1660/600/400",
+      "category": "wellness",
+      "name": "阿尔山火山温泉",
+      "type": "温泉养生",
+      "location": "兴安盟阿尔山市温泉博物馆",
+      "duration": "半天",
+      "difficulty": "简单",
+      "price": "168",
+      "rating": 4.7,
+      "reviewCount": 345,
+      "efficacyTags": [
+        "火山地热矿泉",
+        "48眼温泉星罗",
+        "高负氧离子"
+      ],
+      "bestSeason": "全年",
+      "packageIncludes": [
+        "温泉票",
+        "浴袍",
+        "矿泉水"
+      ],
+      "suitableFor": [
+        "养生爱好者",
+        "休闲度假"
+      ],
+      "tags": [
+        "温泉",
+        "火山",
+        "阿尔山"
+      ],
+      "description": "阿尔山全名\"哈伦阿尔山\"，意为\"热的圣泉\"。四十八眼温泉散布林间，火山地热孕育的矿泉富含偏硅酸与氡，于这塞北雪乡的温润泉水中洗涤尘疲，头顶蓝天脚踏暖泉，尽享火山温泉之奇。"
+    },
+    {
+      "id": "neimenggu-wellness-2",
+      "image": "https://picsum.photos/id/1661/600/400",
+      "category": "wellness",
+      "name": "呼伦贝尔草原马背骑行",
+      "type": "运动养生",
+      "location": "呼伦贝尔市陈巴尔虎旗草原",
+      "duration": "1天",
+      "difficulty": "中等",
+      "price": "200",
+      "rating": 4.8,
+      "reviewCount": 567,
+      "efficacyTags": [
+        "策马草原放空",
+        "蒙古包星空露营",
+        "牧人生活体验"
+      ],
+      "bestSeason": "夏秋",
+      "packageIncludes": [
+        "骑马",
+        "蒙古包住宿",
+        "手把肉"
+      ],
+      "suitableFor": [
+        "运动爱好者",
+        "自然爱好者"
+      ],
+      "tags": [
+        "骑行",
+        "草原",
+        "马背"
+      ],
+      "description": "呼伦贝尔碧草连天，策马驰骋于这世界最美草原。风从耳畔呼啸而过，天地间唯余马蹄声声，夜宿蒙古包仰望银河垂落，于这苍茫草原上策马放空，找回游牧民族之自由灵魂。"
+    },
+    {
+      "id": "neimenggu-wellness-3",
+      "image": "https://picsum.photos/id/1662/600/400",
+      "category": "wellness",
+      "name": "响沙湾沙漠沙疗",
+      "type": "沙疗养生",
+      "location": "鄂尔多斯市达拉特旗响沙湾",
+      "duration": "半天",
+      "difficulty": "简单",
+      "price": "150",
+      "rating": 4.6,
+      "reviewCount": 234,
+      "efficacyTags": [
+        "沙漠温沙埋身",
+        "沙地越野冲浪",
+        "鄂尔多斯婚礼表演"
+      ],
+      "bestSeason": "夏秋",
+      "packageIncludes": [
+        "沙疗",
+        "越野车",
+        "滑沙"
+      ],
+      "suitableFor": [
+        "休闲度假",
+        "体验爱好者"
+      ],
+      "tags": [
+        "沙疗",
+        "沙漠",
+        "响沙"
+      ],
+      "description": "响沙湾沙鸣如雷，滑沙而下轰隆作响。温热细沙埋身如天然热敷，促进血液循环舒缓关节，在这库布其沙漠的金色沙海中，沙疗与冲浪滑沙交织，尽享大漠豪情之康养奇趣。"
     }
   ]
 }

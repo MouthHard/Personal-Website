@@ -14,7 +14,7 @@
       "rating": 4.8,
       "bestTime": "全年",
       "location": "重庆市大足区",
-      "description": "世界文化遗产,中国石窟艺术的瑰宝",
+      "description": "大足石刻，重庆大足石刻，人文荟萃之地，列世界遗产之林，世界文化遗产，中国石窟艺术的瑰宝，实乃游历重庆不可错过之胜境。。列世界遗产之林，足以令旅人魂牵梦萦，心驰神往。",
       "highlight": "世界文化遗产,石窟艺术瑰宝",
       "level": "5A景区",
       "rankBadge": "必去",
@@ -26,7 +26,6 @@
       ],
       "openTime": "08:30-17:30",
       "visitDuration": "半天",
-      "popularity": "★★★★☆",
       "audienceTags": [
         "历史爱好者",
         "文化爱好者",
@@ -34,20 +33,52 @@
         "佛教文化爱好者"
       ],
       "ticketDetails": [
-        "宝顶山石刻¥115",
-        "北山石刻¥70",
-        "联票¥140",
-        "学生票半价"
+        {
+          "type": "宝顶山石刻",
+          "price": "¥115"
+        },
+        {
+          "type": "北山石刻",
+          "price": "¥70"
+        },
+        {
+          "type": "联票",
+          "price": "¥140"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        }
       ],
       "transportInfo": [
-        "飞机:重庆江北机场转大巴约2小时",
-        "高铁:重庆北站至大足南站约1小时",
-        "自驾:重庆出发约120km",
-        "长途客运:重庆陈家坪车站有直达班车"
+        {
+          "mode": "飞机",
+          "detail": "重庆江北机场转大巴约2小时"
+        },
+        {
+          "mode": "高铁",
+          "detail": "重庆北站至大足南站约1小时"
+        },
+        {
+          "mode": "自驾",
+          "detail": "重庆出发约120km"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "重庆陈家坪车站有直达班车"
+        }
       ],
       "openTimeDetail": [
-        "旺季(3-10月) 08:30-17:30",
-        "淡季(11-2月) 08:30-17:00"
+        {
+          "season": "旺季",
+          "months": "3-10月",
+          "time": "08:30-17:30"
+        },
+        {
+          "season": "淡季",
+          "months": "11-2月",
+          "time": "08:30-17:00"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -67,8 +98,15 @@
               "detail": "宝顶山入口→大佛湾→千手观音造像→释迦涅槃卧佛→华严三圣→父母恩重经变相→出口"
             }
           ],
-          "budget": "¥150-250",
-          "bestFor": "文化爱好者/首次游览"
+          "budget": {
+            "currency": "¥",
+            "min": 150,
+            "max": 250
+          },
+          "bestFor": [
+            "文化爱好者",
+            "首次游览"
+          ]
         },
         {
           "name": "北山线",
@@ -87,8 +125,15 @@
               "detail": "北山入口→佛湾摩崖造像→数珠手观音→媚态观音→多宝塔→出口"
             }
           ],
-          "budget": "¥100-150",
-          "bestFor": "艺术爱好者/文化深度游"
+          "budget": {
+            "currency": "¥",
+            "min": 100,
+            "max": 150
+          },
+          "bestFor": [
+            "艺术爱好者",
+            "文化深度游"
+          ]
         }
       ],
       "facilities": [
@@ -137,7 +182,7 @@
       "rating": 4.7,
       "bestTime": "春秋",
       "location": "重庆市武隆区",
-      "description": "世界自然遗产,世界最大的天生桥群",
+      "description": "坐落于巴渝大地的武隆天生三桥，重庆武隆天生三桥，鬼斧神工天作之美，列世界遗产之林，世界自然遗产，世界最大的天生桥群，实乃游历重庆不可错过之胜境。。列世界遗产之林，堪称天地造化与人文底蕴之交响。",
       "highlight": "世界自然遗产,喀斯特天生桥奇观",
       "level": "5A景区",
       "rankBadge": "必去",
@@ -153,7 +198,6 @@
       ],
       "openTime": "08:00-17:00",
       "visitDuration": "半天",
-      "popularity": "★★★★☆",
       "audienceTags": [
         "摄影爱好者",
         "自然爱好者",
@@ -161,20 +205,52 @@
         "徒步爱好者"
       ],
       "ticketDetails": [
-        "成人票¥135",
-        "学生票半价",
-        "含电梯票",
-        "仙女山联票优惠"
+        {
+          "type": "成人票",
+          "price": "¥135"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "含电梯票",
+          "price": ""
+        },
+        {
+          "type": "仙女山联票优惠",
+          "price": ""
+        }
       ],
       "transportInfo": [
-        "飞机:重庆江北机场转大巴约3小时",
-        "高铁:重庆北站至武隆站约2小时转班车",
-        "自驾:重庆出发约180km",
-        "长途客运:重庆朝天门车站有直达班车"
+        {
+          "mode": "飞机",
+          "detail": "重庆江北机场转大巴约3小时"
+        },
+        {
+          "mode": "高铁",
+          "detail": "重庆北站至武隆站约2小时转班车"
+        },
+        {
+          "mode": "自驾",
+          "detail": "重庆出发约180km"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "重庆朝天门车站有直达班车"
+        }
       ],
       "openTimeDetail": [
-        "旺季(3-10月) 08:00-17:00",
-        "淡季(11-2月) 08:30-16:30"
+        {
+          "season": "旺季",
+          "months": "3-10月",
+          "time": "08:00-17:00"
+        },
+        {
+          "season": "淡季",
+          "months": "11-2月",
+          "time": "08:30-16:30"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -194,8 +270,15 @@
               "detail": "景区入口乘电梯→天龙桥→天福官驿→青龙桥→黑龙桥一线天→出口"
             }
           ],
-          "budget": "¥200-300",
-          "bestFor": "摄影爱好者/自然爱好者"
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 300
+          },
+          "bestFor": [
+            "摄影爱好者",
+            "自然爱好者"
+          ]
         },
         {
           "name": "天坑地缝线",
@@ -214,8 +297,15 @@
               "detail": "天生三桥→天龙天坑玻璃观景台→龙水峡地缝→地缝幽谷徒步→返回"
             }
           ],
-          "budget": "¥300-500",
-          "bestFor": "探险爱好者/地质爱好者"
+          "budget": {
+            "currency": "¥",
+            "min": 300,
+            "max": 500
+          },
+          "bestFor": [
+            "探险爱好者",
+            "地质爱好者"
+          ]
         }
       ],
       "facilities": [
@@ -264,7 +354,7 @@
       "rating": 4.9,
       "bestTime": "春秋",
       "location": "重庆市",
-      "description": "中国十大风景名胜之一,世界著名大峡谷",
+      "description": "巴渝长江三峡，重庆长江三峡，天地造化之奇，峡谷幽深壁立千仞，中国十大风景名胜之一，世界著名大峡谷，实乃游历重庆不可错过之胜境。。峡谷幽深壁立千仞，每一处景致皆是造物主的匠心独运。",
       "highlight": "壮丽峡谷,长江山水精华",
       "level": "5A景区",
       "rankBadge": "必去",
@@ -280,7 +370,6 @@
       ],
       "openTime": "全天开放",
       "visitDuration": "2-4天",
-      "popularity": "★★★★★",
       "audienceTags": [
         "摄影爱好者",
         "自然爱好者",
@@ -288,21 +377,57 @@
         "文化爱好者"
       ],
       "ticketDetails": [
-        "游船票¥180-3000",
-        "三峡人家¥180",
-        "三峡大坝¥35",
-        "学生票半价"
+        {
+          "type": "游船票¥180-3000",
+          "price": ""
+        },
+        {
+          "type": "三峡人家",
+          "price": "¥180"
+        },
+        {
+          "type": "三峡大坝",
+          "price": "¥35"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        }
       ],
       "transportInfo": [
-        "飞机:宜昌三峡机场或重庆江北机场",
-        "高铁:宜昌东站或重庆北站",
-        "自驾:沿沪渝高速可至各景点",
-        "长途客运:重庆宜昌均有游船码头"
+        {
+          "mode": "飞机",
+          "detail": "宜昌三峡机场或重庆江北机场"
+        },
+        {
+          "mode": "高铁",
+          "detail": "宜昌东站或重庆北站"
+        },
+        {
+          "mode": "自驾",
+          "detail": "沿沪渝高速可至各景点"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "重庆宜昌均有游船码头"
+        }
       ],
       "openTimeDetail": [
-        "游船航线 全天开放",
-        "三峡人家 08:00-17:30",
-        "三峡大坝 08:00-17:00"
+        {
+          "season": "游船航线 全天开放",
+          "months": "",
+          "time": ""
+        },
+        {
+          "season": "三峡人家",
+          "months": "",
+          "time": "08:00-17:30"
+        },
+        {
+          "season": "三峡大坝",
+          "months": "",
+          "time": "08:00-17:00"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -332,8 +457,15 @@
               "detail": "西陵峡→三峡大坝参观→升船机体验→宜昌茅坪港离船"
             }
           ],
-          "budget": "¥1800-3000",
-          "bestFor": "家庭出游/摄影爱好者"
+          "budget": {
+            "currency": "¥",
+            "min": 1800,
+            "max": 3000
+          },
+          "bestFor": [
+            "家庭出游",
+            "摄影爱好者"
+          ]
         },
         {
           "name": "三峡大坝线",
@@ -352,8 +484,15 @@
               "detail": "宜昌出发→三峡大坝游客中心→185观景平台→截流纪念园→升船机观垂直提升→返回宜昌"
             }
           ],
-          "budget": "¥200-400",
-          "bestFor": "家庭出游/工程爱好者"
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
+          "bestFor": [
+            "家庭出游",
+            "工程爱好者"
+          ]
         }
       ],
       "facilities": [
@@ -402,7 +541,7 @@
       "rating": 4.6,
       "bestTime": "全年",
       "location": "重庆市渝中区",
-      "description": "重庆最具特色的吊脚楼建筑群",
+      "description": "洪崖洞者，巴渝之胜境也。重庆洪崖洞，人文底蕴深厚之地，重庆最具特色的吊脚楼建筑群，实乃游历重庆不可错过之胜境。。当属此地名胜之首推，不容错过。",
       "highlight": "吊脚楼奇观,千与千寻原型",
       "level": "4A景区",
       "rankBadge": "网红",
@@ -414,7 +553,6 @@
       ],
       "openTime": "全天开放",
       "visitDuration": "2-3小时",
-      "popularity": "★★★★★",
       "audienceTags": [
         "摄影爱好者",
         "家庭游客",
@@ -422,21 +560,57 @@
         "美食爱好者"
       ],
       "ticketDetails": [
-        "免费开放",
-        "内部商铺消费另计",
-        "夜景最佳18:00后",
-        "建议错峰游览"
+        {
+          "type": "通用",
+          "price": "免费开放"
+        },
+        {
+          "type": "内部商铺消费另计",
+          "price": ""
+        },
+        {
+          "type": "夜景最佳18:00后",
+          "price": ""
+        },
+        {
+          "type": "建议错峰游览",
+          "price": ""
+        }
       ],
       "transportInfo": [
-        "飞机:重庆江北机场打车约40分钟",
-        "高铁:重庆北站打车约20分钟",
-        "自驾:导航至洪崖洞附近停车场",
-        "长途客运:市内多路公交可达"
+        {
+          "mode": "飞机",
+          "detail": "重庆江北机场打车约40分钟"
+        },
+        {
+          "mode": "高铁",
+          "detail": "重庆北站打车约20分钟"
+        },
+        {
+          "mode": "自驾",
+          "detail": "导航至洪崖洞附近停车场"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "市内多路公交可达"
+        }
       ],
       "openTimeDetail": [
-        "商铺 10:00-22:00",
-        "夜景 18:00-23:00",
-        "全天可观赏外观"
+        {
+          "season": "商铺",
+          "months": "",
+          "time": "10:00-22:00"
+        },
+        {
+          "season": "夜景",
+          "months": "",
+          "time": "18:00-23:00"
+        },
+        {
+          "season": "全天可观赏外观",
+          "months": "",
+          "time": ""
+        }
       ],
       "recommendedRoutes": [
         {
@@ -456,8 +630,15 @@
               "detail": "洪崖洞11层进入→逐层下行逛商铺→底层江边观夜景→千厮门大桥拍全景→返回"
             }
           ],
-          "budget": "¥50-150",
-          "bestFor": "摄影爱好者/年轻游客"
+          "budget": {
+            "currency": "¥",
+            "min": 50,
+            "max": 150
+          },
+          "bestFor": [
+            "摄影爱好者",
+            "年轻游客"
+          ]
         },
         {
           "name": "周边联游线",
@@ -476,8 +657,15 @@
               "detail": "洪崖洞→千厮门大桥→解放碑步行街→八一路好吃街→朝天门观两江汇流→返回"
             }
           ],
-          "budget": "¥100-300",
-          "bestFor": "家庭出游/美食爱好者"
+          "budget": {
+            "currency": "¥",
+            "min": 100,
+            "max": 300
+          },
+          "bestFor": [
+            "家庭出游",
+            "美食爱好者"
+          ]
         }
       ],
       "facilities": [
@@ -526,7 +714,7 @@
       "rating": 4.5,
       "bestTime": "全年",
       "location": "重庆市渝中区",
-      "description": "重庆的标志性建筑,中国西部第一街",
+      "description": "名为解放碑，重庆解放碑，人文荟萃之地，重庆的标志性建筑，中国西部第一街，实乃游历重庆不可错过之胜境。。令人叹为观止，流连忘返。",
       "highlight": "重庆地标,繁华商圈",
       "level": "4A景区",
       "reviewCount": "56,789条点评",
@@ -538,7 +726,6 @@
       ],
       "openTime": "全天开放",
       "visitDuration": "2-3小时",
-      "popularity": "★★★★☆",
       "audienceTags": [
         "购物爱好者",
         "美食爱好者",
@@ -546,21 +733,57 @@
         "年轻游客"
       ],
       "ticketDetails": [
-        "免费开放",
-        "商圈消费另计",
-        "全天可游览",
-        "建议夜间游览"
+        {
+          "type": "通用",
+          "price": "免费开放"
+        },
+        {
+          "type": "商圈消费另计",
+          "price": ""
+        },
+        {
+          "type": "全天可游览",
+          "price": ""
+        },
+        {
+          "type": "建议夜间游览",
+          "price": ""
+        }
       ],
       "transportInfo": [
-        "飞机:重庆江北机场打车约40分钟",
-        "高铁:重庆北站打车约20分钟",
-        "自驾:导航至解放碑周边停车场",
-        "长途客运:市内多路公交地铁可达"
+        {
+          "mode": "飞机",
+          "detail": "重庆江北机场打车约40分钟"
+        },
+        {
+          "mode": "高铁",
+          "detail": "重庆北站打车约20分钟"
+        },
+        {
+          "mode": "自驾",
+          "detail": "导航至解放碑周边停车场"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "市内多路公交地铁可达"
+        }
       ],
       "openTimeDetail": [
-        "全天开放",
-        "商铺 10:00-22:00",
-        "夜景建议19:00后游览"
+        {
+          "season": "全天开放",
+          "months": "",
+          "time": ""
+        },
+        {
+          "season": "商铺",
+          "months": "",
+          "time": "10:00-22:00"
+        },
+        {
+          "season": "夜景建议19:00后游览",
+          "months": "",
+          "time": ""
+        }
       ],
       "recommendedRoutes": [
         {
@@ -580,8 +803,15 @@
               "detail": "解放碑纪念碑→步行街逛商圈→周边购物中心→夜景霓虹拍照→八一路好吃街"
             }
           ],
-          "budget": "¥100-500",
-          "bestFor": "购物爱好者/年轻游客"
+          "budget": {
+            "currency": "¥",
+            "min": 100,
+            "max": 500
+          },
+          "bestFor": [
+            "购物爱好者",
+            "年轻游客"
+          ]
         },
         {
           "name": "周边联游线",
@@ -600,8 +830,15 @@
               "detail": "解放碑→八一路好吃街品美食→洪崖洞观夜景→朝天门码头→返回"
             }
           ],
-          "budget": "¥100-300",
-          "bestFor": "美食爱好者/家庭出游"
+          "budget": {
+            "currency": "¥",
+            "min": 100,
+            "max": 300
+          },
+          "bestFor": [
+            "美食爱好者",
+            "家庭出游"
+          ]
         }
       ],
       "facilities": [
@@ -693,42 +930,42 @@
       {
         "name": "大足石刻",
         "image": "https://picsum.photos/id/1540/600/400",
-        "description": "世界文化遗产,中国石窟艺术的瑰宝"
+        "description": "坐落于巴渝大地的大足石刻，大足石刻——世界文化遗产，中国石窟艺术的瑰宝，实乃游历此地不可错过之胜境。。每一处景致皆是造物主的匠心独运。"
       },
       {
         "name": "武隆天生三桥",
         "image": "https://picsum.photos/id/1541/600/400",
-        "description": "世界自然遗产,世界最大的天生桥群"
+        "description": "巴渝武隆天生三桥，重庆名胜武隆天生三桥，世界自然遗产，世界最大的天生桥群，令人心驰神往流连忘返。。当属此地名胜之首推，不容错过。"
       },
       {
         "name": "长江三峡",
         "image": "https://picsum.photos/id/1542/600/400",
-        "description": "中国十大风景名胜之一,世界著名大峡谷"
+        "description": "长江三峡者，巴渝之胜境也。长江三峡者，重庆之中国十大风景名胜之一，世界著名大峡谷，堪称此地风光之冠冕。。令人叹为观止，流连忘返。"
       },
       {
         "name": "洪崖洞",
         "image": "https://picsum.photos/id/1543/600/400",
-        "description": "重庆最具特色的吊脚楼建筑群"
+        "description": "名为洪崖洞，誉为重庆明珠的洪崖洞，重庆最具特色的吊脚楼建筑群，每一处皆是造化与人文的交响。。实乃游历此地不可错过之胜境。"
       },
       {
         "name": "解放碑",
         "image": "https://picsum.photos/id/1544/600/400",
-        "description": "重庆的标志性建筑,中国西部第一街"
+        "description": "巴渝名胜解放碑，解放碑，重庆的标志性建筑，中国西部第一街，足以令旅人魂牵梦萦。。足以令旅人魂牵梦萦，心驰神往。"
       },
       {
         "name": "磁器口古镇",
         "image": "https://picsum.photos/id/1545/600/400",
-        "description": "重庆最具特色的古镇,千年古镇"
+        "description": "磁器口古镇，磁器口古镇——重庆最具特色的古镇，千年古镇，当属此地名胜之首推。。堪称天地造化与人文底蕴之交响。"
       },
       {
         "name": "白公馆",
         "image": "https://picsum.photos/id/1546/600/400",
-        "description": "著名的红色旅游景点,渣滓洞监狱旧址"
+        "description": "坐落于巴渝大地的白公馆，重庆名胜白公馆，著名的红色旅游景点，渣滓洞监狱旧址，实乃游历此地不可错过之胜境。。每一处景致皆是造物主的匠心独运。"
       },
       {
         "name": "仙女山",
         "image": "https://picsum.photos/id/1547/600/400",
-        "description": "东方瑞士,重庆的避暑胜地"
+        "description": "巴渝仙女山，仙女山者，重庆之东方瑞士，重庆的避暑胜地，令人心驰神往流连忘返。。当属此地名胜之首推，不容错过。"
       }
     ]
   },
@@ -778,7 +1015,71 @@
       "description": "银装素裹,是体验重庆火锅和雪景的好时节"
     }
   ],
-  "festivals": [],
+  "festivals": [
+    {
+      "id": "1",
+      "name": "重庆火锅文化节",
+      "month": "10月",
+      "day": "1日",
+      "location": "重庆",
+      "isUnique": true,
+      "description": "以重庆火锅入选国家级非遗为契机，万人火锅宴、麻辣调味品展销、火锅技艺大赛，于两江交汇处共赴这场麻辣盛宴，感受山城火锅之魂。",
+      "type": "美食节庆",
+      "duration": "约7天",
+      "origin": "重庆火锅文化节始于2007年，以重庆火锅入选国家级非遗为契机，推广麻辣火锅文化。",
+      "highlights": [
+        "万人火锅宴",
+        "火锅文化论坛",
+        "麻辣调味品展销",
+        "火锅技艺大赛",
+        "夜游两江"
+      ],
+      "bestTime": "开幕周末",
+      "ticket": "免费（餐饮自费）",
+      "transport": "轻轨2号线较场口站",
+      "tips": [
+        "重庆火锅辣度可调，不擅辣可点微辣",
+        "建议搭配酸梅汤解辣",
+        "人均消费约80-150元"
+      ],
+      "relatedSpots": [
+        "洪崖洞",
+        "解放碑",
+        "磁器口"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "重庆都市旅游节",
+      "month": "5月",
+      "day": "1日",
+      "location": "重庆",
+      "isUnique": false,
+      "description": "展示山城都市风貌与两江汇流之独特地理，两江游船观光、山城步道徒步、都市摄影大赛，于雾都夜景中领略\"8D魔幻城市\"之奇趣。",
+      "type": "旅游节庆",
+      "duration": "约5天",
+      "origin": "重庆都市旅游节始于2010年，展示山城都市风貌与两江汇流独特地理景观。",
+      "highlights": [
+        "两江游船观光",
+        "山城步道徒步",
+        "都市摄影大赛",
+        "旅游推介会"
+      ],
+      "bestTime": "开幕日",
+      "ticket": "免费",
+      "transport": "轻轨1号线小什字站",
+      "tips": [
+        "夏季炎热，注意防暑",
+        "山城坡道多，穿舒适鞋",
+        "夜游两江需提前购票"
+      ],
+      "relatedSpots": [
+        "洪崖洞",
+        "长江索道",
+        "南山一棵树"
+      ]
+    }
+  ],
   "activities": [
     {
       "id": "1",
@@ -818,7 +1119,11 @@
           "avgRating": 4.6,
           "bestSeason": "春秋 / 全年",
           "recommendedDays": "2-3 日",
-          "budget": "¥500-1200",
+          "budget": {
+            "currency": "¥",
+            "min": 500,
+            "max": 1200
+          },
           "intensity": "适中",
           "audience": "全人群",
           "highlights": [
@@ -842,7 +1147,11 @@
           "avgRating": 4.8,
           "bestSeason": "秋冬",
           "recommendedDays": "2 日",
-          "budget": "¥400-900",
+          "budget": {
+            "currency": "¥",
+            "min": 400,
+            "max": 900
+          },
           "intensity": "适中",
           "audience": "摄影/户外",
           "highlights": [
@@ -869,7 +1178,11 @@
           "avgRating": 4.9,
           "bestSeason": "夏秋",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-500",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 500
+          },
           "intensity": "轻松",
           "audience": "家庭/休闲",
           "highlights": [
@@ -901,7 +1214,11 @@
           "avgRating": 4.5,
           "bestSeason": "春秋",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-500",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 500
+          },
           "intensity": "轻松",
           "audience": "家庭/文艺",
           "highlights": [
@@ -925,7 +1242,11 @@
           "avgRating": 4.5,
           "bestSeason": "全年",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-400",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
           "intensity": "轻松",
           "audience": "文化/家庭",
           "highlights": [
@@ -952,7 +1273,11 @@
           "avgRating": 4.8,
           "bestSeason": "全年",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-400",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
           "intensity": "轻松",
           "audience": "银发/养心",
           "highlights": [
@@ -978,7 +1303,11 @@
           "avgRating": 4.8,
           "bestSeason": "全年",
           "recommendedDays": "1-2 日",
-          "budget": "¥300-600",
+          "budget": {
+            "currency": "¥",
+            "min": 300,
+            "max": 600
+          },
           "intensity": "轻松",
           "audience": "文化/家庭",
           "highlights": [
@@ -1010,7 +1339,11 @@
           "avgRating": 4.7,
           "bestSeason": "春秋",
           "recommendedDays": "2-3 日",
-          "budget": "¥300-800",
+          "budget": {
+            "currency": "¥",
+            "min": 300,
+            "max": 800
+          },
           "intensity": "挑战",
           "audience": "户外/探险",
           "highlights": [
@@ -1042,7 +1375,11 @@
           "avgRating": 4.6,
           "bestSeason": "6-8月",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-500",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 500
+          },
           "intensity": "轻松",
           "audience": "家庭/亲子",
           "highlights": [
@@ -1059,6 +1396,351 @@
           "spotIds": []
         }
       ]
+    }
+  ],
+  "craftWorkshops": [
+    {
+      "id": "chongqing-craft-1",
+      "image": "https://picsum.photos/id/1342/600/400",
+      "category": "craft",
+      "name": "荣昌折扇制作",
+      "type": "竹木工艺",
+      "location": "荣昌区折扇工坊",
+      "duration": "3小时",
+      "difficulty": "中等",
+      "price": "150",
+      "rating": 4.7,
+      "reviewCount": 198,
+      "instructor": "荣昌折扇传承人",
+      "heritageLevel": "national",
+      "highlights": [
+        "选竹制扇骨",
+        "手绘扇面",
+        "了解折扇400年历史"
+      ],
+      "steps": [
+        "选竹料",
+        "烤直扇骨",
+        "裱糊扇面",
+        "手绘画稿"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "手工艺爱好者"
+      ],
+      "tags": [
+        "非遗",
+        "折扇",
+        "荣昌"
+      ],
+      "description": "荣昌折扇始制于明嘉靖年间，位列中国三大名扇，四百年传承不辍。选竹烤骨、裱糊绘面，一道道工序精雕细琢，折开合拢间尽显巴渝匠人之风骨，清风徐来有雅韵。"
+    },
+    {
+      "id": "chongqing-craft-2",
+      "image": "https://picsum.photos/id/1344/600/400",
+      "category": "craft",
+      "name": "梁平木版年画拓印",
+      "type": "版画",
+      "location": "梁平区年画作坊",
+      "duration": "3小时",
+      "difficulty": "简单",
+      "price": "100",
+      "rating": 4.6,
+      "reviewCount": 156,
+      "instructor": "年画传承人",
+      "heritageLevel": "national",
+      "highlights": [
+        "古版拓印体验",
+        "年画色彩寓意",
+        "门神文化讲解"
+      ],
+      "steps": [
+        "选纸",
+        "刷墨",
+        "覆纸拓印",
+        "手工上色"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "手工艺爱好者"
+      ],
+      "tags": [
+        "非遗",
+        "年画",
+        "民俗"
+      ],
+      "description": "梁平木版年画始于明代，西南三大年画之一，门神威严色彩浓烈。于古法作坊中刷墨覆纸拓印，套色间年味盎然，感受这巴渝大地岁末祈福之民间艺术，纸上年神护佑家宅。"
+    }
+  ],
+  "performances": [
+    {
+      "id": "chongqing-perf-1",
+      "image": "https://picsum.photos/id/1520/600/400",
+      "category": "performance",
+      "name": "《重庆1949》沉浸式话剧",
+      "type": "沉浸式话剧",
+      "location": "沙坪坝区重庆1949大剧院",
+      "duration": "1.5小时",
+      "difficulty": "简单",
+      "price": "260",
+      "rating": 4.8,
+      "reviewCount": 678,
+      "highlights": [
+        "亚洲最大沉浸式剧场",
+        "旋转观众席",
+        "红岩精神史诗"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "年轻群体"
+      ],
+      "tags": [
+        "沉浸式",
+        "话剧",
+        "红岩"
+      ],
+      "description": "重庆1949大剧院以亚洲最大沉浸式舞台再现红岩往事。旋转观众席带您穿越渣滓洞与白公馆，革命者的信仰与牺牲在眼前真实上演，于这震撼心灵的红色史诗中，感受山城之魂的滚烫温度。"
+    },
+    {
+      "id": "chongqing-perf-2",
+      "image": "https://picsum.photos/id/1521/600/400",
+      "category": "performance",
+      "name": "《烽烟三国》实景演出",
+      "type": "大型实景",
+      "location": "忠县三峡港湾",
+      "duration": "1.5小时",
+      "difficulty": "简单",
+      "price": "180",
+      "rating": 4.7,
+      "reviewCount": 345,
+      "highlights": [
+        "长江之上水战实景",
+        "战马铁骑冲锋",
+        "三国史诗再现"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "家庭游客"
+      ],
+      "tags": [
+        "实景演出",
+        "三国",
+        "长江"
+      ],
+      "description": "长江之畔，烽烟再起。战马嘶鸣铁骑驰骋，水战实景点燃江面，《烽烟三国》以天地为舞台、以长江为幕布，将三国英雄的壮怀激烈演绎得淋漓尽致，于这巴山楚水间重温千古风云。"
+    },
+    {
+      "id": "chongqing-perf-3",
+      "image": "https://picsum.photos/id/1522/600/400",
+      "category": "performance",
+      "name": "川剧变脸吐火·磁器口",
+      "type": "戏曲",
+      "location": "沙坪坝区磁器口古镇",
+      "duration": "1小时",
+      "difficulty": "简单",
+      "price": "60",
+      "rating": 4.6,
+      "reviewCount": 432,
+      "highlights": [
+        "变脸绝技零距离",
+        "吐火滚灯川剧绝活",
+        "古镇茶馆看戏"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "家庭游客"
+      ],
+      "tags": [
+        "非遗",
+        "川剧",
+        "变脸"
+      ],
+      "description": "磁器口青石板路旁，老茶馆里川剧锣鼓骤起。变脸演员疾步旋身，脸谱瞬息万变令人目不暇接，吐火绝技更引满堂惊呼。一碗盖碗茶一碟瓜子，于这千年古镇中领略川剧绝活之奇诡。",
+      "heritageLevel": "national"
+    }
+  ],
+  "outdoorAdventure": [
+    {
+      "id": "chongqing-outdoor-1",
+      "image": "https://picsum.photos/id/1363/600/400",
+      "category": "outdoor",
+      "name": "武隆天坑地缝徒步",
+      "type": "徒步穿越",
+      "location": "武隆区喀斯特景区",
+      "duration": "1天",
+      "difficulty": "中等",
+      "price": "135",
+      "rating": 4.8,
+      "reviewCount": 4567,
+      "totalAscent": 320,
+      "maxElevation": 850,
+      "routeType": "环线",
+      "surfaceType": "石阶",
+      "accessInfo": "高铁至最近站，转景区交通",
+      "gearList": [
+        "登山鞋",
+        "雨衣",
+        "头灯"
+      ],
+      "safetyTips": [
+        "地缝湿滑注意防滑",
+        "雨天可能关闭"
+      ],
+      "bestMonths": "4-5月·9-10月",
+      "highlights": [
+        "天生三桥奇观",
+        "地缝峡谷穿越",
+        "天坑玻璃眺台"
+      ],
+      "tags": [
+        "徒步",
+        "天坑",
+        "世界遗产"
+      ],
+      "description": "武隆天坑群列世界自然遗产，天生三桥鬼斧神工，地缝峡谷幽深莫测。穿越喀斯特溶洞天坑，仰观天桥飞跨如虹，俯瞰地缝深壑如渊，《满城尽带黄金甲》之取景胜境令人叹为观止。"
+    },
+    {
+      "id": "chongqing-outdoor-2",
+      "image": "https://picsum.photos/id/1366/600/400",
+      "category": "outdoor",
+      "name": "金佛山杜鹃花海徒步",
+      "type": "徒步赏花",
+      "location": "南川区金佛山",
+      "duration": "半天",
+      "difficulty": "简单",
+      "price": "80",
+      "rating": 4.6,
+      "reviewCount": 1234,
+      "totalAscent": 580,
+      "maxElevation": 2238,
+      "routeType": "往返",
+      "surfaceType": "石阶",
+      "accessInfo": "高铁至最近站，转景区交通",
+      "gearList": [
+        "登山杖",
+        "保暖衣",
+        "相机"
+      ],
+      "safetyTips": [
+        "海拔高注意保暖",
+        "花期受气候影响"
+      ],
+      "bestMonths": "4-5月·9-10月",
+      "highlights": [
+        "杜鹃花海",
+        "金佛朝圣",
+        "古佛洞"
+      ],
+      "tags": [
+        "徒步",
+        "花海",
+        "世界遗产"
+      ],
+      "description": "金佛山位列世界自然遗产，五十六种杜鹃竞相怒放，春日花海漫山如锦。于金佛朝圣之径拾级而上，杜鹃花海中穿行，古佛洞前远眺云海，\"花山花海花满天\"之盛景醉人心脾。"
+    }
+  ],
+  "wellnessRetreat": [
+    {
+      "id": "chongqing-wellness-1",
+      "image": "https://picsum.photos/id/1540/600/400",
+      "category": "wellness",
+      "name": "缙云山森林浴",
+      "type": "森林康养",
+      "location": "北碚区缙云山国家级自然保护区",
+      "duration": "1天",
+      "difficulty": "简单",
+      "price": "60",
+      "rating": 4.7,
+      "reviewCount": 345,
+      "efficacyTags": [
+        "亚热带森林氧吧",
+        "古寺禅意漫步",
+        "避暑纳凉胜地"
+      ],
+      "bestSeason": "夏秋",
+      "packageIncludes": [
+        "门票",
+        "导览",
+        "素斋"
+      ],
+      "suitableFor": [
+        "自然爱好者",
+        "避暑游客"
+      ],
+      "tags": [
+        "森林",
+        "氧吧",
+        "缙云山"
+      ],
+      "description": "缙云山古木参天，九峰连绵如黛。晨雾缭绕间，负氧离子含量超都市百倍，深呼吸间涤尽肺腑尘埃。沿石阶探访缙云古寺，禅意悠悠林涛阵阵，于这巴渝名山中尽享森林康养之清幽。"
+    },
+    {
+      "id": "chongqing-wellness-2",
+      "image": "https://picsum.photos/id/1541/600/400",
+      "category": "wellness",
+      "name": "金佛山禅修静心",
+      "type": "禅修养生",
+      "location": "南川区金佛山古佛洞",
+      "duration": "1天",
+      "difficulty": "简单",
+      "price": "120",
+      "rating": 4.6,
+      "reviewCount": 234,
+      "efficacyTags": [
+        "古佛洞冥想",
+        "金佛朝拜礼佛",
+        "山巅云海禅修"
+      ],
+      "bestSeason": "春秋",
+      "packageIncludes": [
+        "索道票",
+        "禅修指导",
+        "素斋"
+      ],
+      "suitableFor": [
+        "禅修爱好者",
+        "文化体验者"
+      ],
+      "tags": [
+        "禅修",
+        "佛教",
+        "金佛山"
+      ],
+      "description": "金佛山古佛洞中，石佛含笑已逾千年。于洞中盘膝而坐，万籁俱寂唯闻滴水声声，梵音袅袅涤荡心尘。朝拜金佛大像，远眺山巅云海翻涌，于这巴蜀佛教名山中感悟\"本来无一物\"之禅境。"
+    },
+    {
+      "id": "chongqing-wellness-3",
+      "image": "https://picsum.photos/id/1542/600/400",
+      "category": "wellness",
+      "name": "武隆天生三桥徒步",
+      "type": "徒步养生",
+      "location": "武隆区天生三桥景区",
+      "duration": "1天",
+      "difficulty": "中等",
+      "price": "135",
+      "rating": 4.8,
+      "reviewCount": 567,
+      "efficacyTags": [
+        "强身健体",
+        "舒展筋骨",
+        "清肺洗氧"
+      ],
+      "bestSeason": "春秋",
+      "packageIncludes": [
+        "门票",
+        "导览图",
+        "登山杖"
+      ],
+      "suitableFor": [
+        "登山爱好者",
+        "自然爱好者"
+      ],
+      "tags": [
+        "徒步",
+        "喀斯特",
+        "武隆"
+      ],
+      "description": "天生三桥天龙桥青龙桥黑龙桥横亘幽谷，喀斯特天坑地缝鬼斧神工。沿谷底栈道穿行于亿年溶洞之间，仰望天桥如虹飞架，飞瀑直泻清凉袭人，于这世界自然遗产中徒步养生，叹造化之神奇。"
     }
   ]
 }

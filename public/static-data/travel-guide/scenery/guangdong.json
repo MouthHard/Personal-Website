@@ -14,7 +14,7 @@
       "rating": 4.7,
       "bestTime": "全年",
       "location": "广东省广州市海珠区阅江西路222号",
-      "description": "广州新地标,昵称小蛮腰,是中国第一高塔和世界第三高塔",
+      "description": "广州塔，广州塔，广州新地标，昵称小蛮腰，是中国第一高塔和世界第三高塔。人文荟萃之地，令人叹为观止流连忘返。。足以令旅人魂牵梦萦，心驰神往。",
       "highlight": "广州新地标,小蛮腰",
       "level": "4A景区",
       "rankBadge": "网红",
@@ -27,7 +27,6 @@
       ],
       "openTime": "09:00-22:30",
       "visitDuration": "2-3小时",
-      "popularity": "★★★★★",
       "audienceTags": [
         "摄影爱好者",
         "情侣",
@@ -36,21 +35,57 @@
         "文艺青年"
       ],
       "ticketDetails": [
-        "433米白云观光票¥150",
-        "488米摄影观光票¥228",
-        "塔顶游乐套票¥298",
-        "儿童老人优惠"
+        {
+          "type": "433米白云观光票",
+          "price": "¥150"
+        },
+        {
+          "type": "488米摄影观光票",
+          "price": "¥228"
+        },
+        {
+          "type": "塔顶游乐套票",
+          "price": "¥298"
+        },
+        {
+          "type": "儿童老人优惠",
+          "price": ""
+        }
       ],
       "transportInfo": [
-        "飞机:广州白云机场约40分钟地铁",
-        "高铁:广州南站约30分钟地铁",
-        "自驾:APM线广州塔站直达",
-        "长途客运:省汽车站有地铁直达"
+        {
+          "mode": "飞机",
+          "detail": "广州白云机场约40分钟地铁"
+        },
+        {
+          "mode": "高铁",
+          "detail": "广州南站约30分钟地铁"
+        },
+        {
+          "mode": "自驾",
+          "detail": "APM线广州塔站直达"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "省汽车站有地铁直达"
+        }
       ],
       "openTimeDetail": [
-        "日间 09:00-17:00",
-        "夜间 17:00-22:30",
-        "摩天轮 10:00-22:00"
+        {
+          "season": "日间",
+          "months": "",
+          "time": "09:00-17:00"
+        },
+        {
+          "season": "夜间",
+          "months": "",
+          "time": "17:00-22:30"
+        },
+        {
+          "season": "摩天轮",
+          "months": "",
+          "time": "10:00-22:00"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -70,8 +105,15 @@
               "detail": "广州塔入口→观光大厅→俯瞰广州→摩天轮→赏全景"
             }
           ],
-          "budget": "¥150-300",
-          "bestFor": "摄影爱好者/情侣"
+          "budget": {
+            "currency": "¥",
+            "min": 150,
+            "max": 300
+          },
+          "bestFor": [
+            "摄影爱好者",
+            "情侣"
+          ]
         },
         {
           "name": "塔顶-横向摩天轮线",
@@ -90,8 +132,15 @@
               "detail": "广州塔→塔顶观景台→横向摩天轮→高空体验"
             }
           ],
-          "budget": "¥228-400",
-          "bestFor": "刺激项目爱好者/情侣"
+          "budget": {
+            "currency": "¥",
+            "min": 228,
+            "max": 400
+          },
+          "bestFor": [
+            "刺激项目爱好者",
+            "情侣"
+          ]
         }
       ],
       "facilities": [
@@ -139,7 +188,7 @@
       "rating": 4.7,
       "bestTime": "春秋",
       "location": "广东省韶关市仁化县",
-      "description": "世界自然遗产,丹霞地貌的命名地,以赤壁丹崖著称",
+      "description": "坐落于岭南大地的丹霞山，坐落于广东的丹霞山，世界自然遗产，丹霞地貌的命名地，以赤壁丹崖著称。列世界遗产之林，鬼斧神工天作之美，令人叹为观止流连忘返。。列世界遗产之林，堪称天地造化与人文底蕴之交响。",
       "highlight": "世界自然遗产,丹霞地貌命名地",
       "level": "5A景区",
       "rankBadge": "必去",
@@ -155,7 +204,6 @@
       ],
       "openTime": "06:30-18:00",
       "visitDuration": "1-2天",
-      "popularity": "★★★★★",
       "audienceTags": [
         "摄影爱好者",
         "登山爱好者",
@@ -163,21 +211,57 @@
         "自然爱好者"
       ],
       "ticketDetails": [
-        "成人票¥150",
-        "学生票半价",
-        "儿童1.2米以下免票",
-        "索道往返¥60"
+        {
+          "type": "成人票",
+          "price": "¥150"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "儿童1.2米以下",
+          "price": "免票"
+        },
+        {
+          "type": "索道往返",
+          "price": "¥60"
+        }
       ],
       "transportInfo": [
-        "飞机:最近机场为韶关丹霞机场约1小时",
-        "高铁:韶关站距景区约50分钟",
-        "自驾:经京港澳高速仁化出口",
-        "长途客运:韶关汽车站有班车直达"
+        {
+          "mode": "飞机",
+          "detail": "最近机场为韶关丹霞机场约1小时"
+        },
+        {
+          "mode": "高铁",
+          "detail": "韶关站距景区约50分钟"
+        },
+        {
+          "mode": "自驾",
+          "detail": "经京港澳高速仁化出口"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "韶关汽车站有班车直达"
+        }
       ],
       "openTimeDetail": [
-        "旺季(3-11月) 06:30-18:00",
-        "淡季(12-2月) 07:00-17:00",
-        "索道 07:00-17:00"
+        {
+          "season": "旺季",
+          "months": "3-11月",
+          "time": "06:30-18:00"
+        },
+        {
+          "season": "淡季",
+          "months": "12-2月",
+          "time": "07:00-17:00"
+        },
+        {
+          "season": "索道",
+          "months": "",
+          "time": "07:00-17:00"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -197,8 +281,15 @@
               "detail": "景区入口→长老峰→看丹霞全景→阳元石→返程"
             }
           ],
-          "budget": "¥210-400",
-          "bestFor": "摄影爱好者/登山爱好者"
+          "budget": {
+            "currency": "¥",
+            "min": 210,
+            "max": 400
+          },
+          "bestFor": [
+            "摄影爱好者",
+            "登山爱好者"
+          ]
         },
         {
           "name": "锦江-翔龙湖线",
@@ -217,8 +308,15 @@
               "detail": "锦江→赏丹崖碧水→翔龙湖→漫步湖畔"
             }
           ],
-          "budget": "¥150-300",
-          "bestFor": "家庭出游/休闲游"
+          "budget": {
+            "currency": "¥",
+            "min": 150,
+            "max": 300
+          },
+          "bestFor": [
+            "家庭出游",
+            "休闲游"
+          ]
         }
       ],
       "facilities": [
@@ -266,7 +364,7 @@
       "rating": 4.6,
       "bestTime": "全年",
       "location": "广东省江门市开平市",
-      "description": "世界文化遗产,集防卫、居住和中西建筑艺术于一体的多层塔楼式民居",
+      "description": "岭南开平碉楼，广东开平碉楼，世界文化遗产，集防卫、居住和中西建筑艺术于一体的多层塔楼式民居。列世界遗产之林，古迹斑驳岁月悠悠，令人叹为观止流连忘返。。列世界遗产之林，每一处景致皆是造物主的匠心独运。",
       "highlight": "世界文化遗产,华侨建筑奇观",
       "level": "5A景区",
       "rankBadge": "必去",
@@ -278,7 +376,6 @@
       ],
       "openTime": "08:30-17:30",
       "visitDuration": "1天",
-      "popularity": "★★★★☆",
       "audienceTags": [
         "建筑爱好者",
         "文化爱好者",
@@ -287,21 +384,57 @@
         "家庭出游"
       ],
       "ticketDetails": [
-        "立园¥50",
-        "自力村¥50",
-        "马降龙¥50",
-        "联票¥80"
+        {
+          "type": "立园",
+          "price": "¥50"
+        },
+        {
+          "type": "自力村",
+          "price": "¥50"
+        },
+        {
+          "type": "马降龙",
+          "price": "¥50"
+        },
+        {
+          "type": "联票",
+          "price": "¥80"
+        }
       ],
       "transportInfo": [
-        "飞机:最近机场为广州白云机场约2小时",
-        "高铁:江门站距开平约1小时",
-        "自驾:经沈海高速开平出口",
-        "长途客运:江门汽车站有班车直达"
+        {
+          "mode": "飞机",
+          "detail": "最近机场为广州白云机场约2小时"
+        },
+        {
+          "mode": "高铁",
+          "detail": "江门站距开平约1小时"
+        },
+        {
+          "mode": "自驾",
+          "detail": "经沈海高速开平出口"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "江门汽车站有班车直达"
+        }
       ],
       "openTimeDetail": [
-        "立园 08:30-17:30",
-        "自力村 08:30-17:30",
-        "马降龙 08:30-17:30"
+        {
+          "season": "立园",
+          "months": "",
+          "time": "08:30-17:30"
+        },
+        {
+          "season": "自力村",
+          "months": "",
+          "time": "08:30-17:30"
+        },
+        {
+          "season": "马降龙",
+          "months": "",
+          "time": "08:30-17:30"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -321,8 +454,15 @@
               "detail": "立园→赏园林→自力村→参观碉楼群"
             }
           ],
-          "budget": "¥80-200",
-          "bestFor": "建筑爱好者/文化爱好者"
+          "budget": {
+            "currency": "¥",
+            "min": 80,
+            "max": 200
+          },
+          "bestFor": [
+            "建筑爱好者",
+            "文化爱好者"
+          ]
         },
         {
           "name": "马降龙-锦江里线",
@@ -341,8 +481,15 @@
               "detail": "马降龙碉楼村→锦江里→观瑞石楼→赏侨乡风情"
             }
           ],
-          "budget": "¥80-200",
-          "bestFor": "建筑爱好者/摄影爱好者"
+          "budget": {
+            "currency": "¥",
+            "min": 80,
+            "max": 200
+          },
+          "bestFor": [
+            "建筑爱好者",
+            "摄影爱好者"
+          ]
         }
       ],
       "facilities": [
@@ -390,7 +537,7 @@
       "rating": 4.6,
       "bestTime": "全年",
       "location": "广东省广州市番禺区长隆度假区",
-      "description": "中国最大的野生动物主题公园,拥有500多种动物",
+      "description": "长隆野生动物世界者，岭南之胜境也。长隆野生动物世界者，中国最大的野生动物主题公园，拥有500多种动物。人文底蕴深厚之地，令人叹为观止流连忘返。。当属此地名胜之首推，不容错过。",
       "highlight": "世界级野生动物主题乐园",
       "level": "5A景区",
       "rankBadge": "网红",
@@ -402,7 +549,6 @@
       ],
       "openTime": "09:30-18:00",
       "visitDuration": "1天",
-      "popularity": "★★★★★",
       "audienceTags": [
         "亲子家庭",
         "动物爱好者",
@@ -411,21 +557,57 @@
         "家庭出游"
       ],
       "ticketDetails": [
-        "成人票¥300",
-        "儿童票¥210",
-        "老人票¥210",
-        "自驾车¥300"
+        {
+          "type": "成人票",
+          "price": "¥300"
+        },
+        {
+          "type": "儿童票",
+          "price": "¥210"
+        },
+        {
+          "type": "老人票",
+          "price": "¥210"
+        },
+        {
+          "type": "自驾车",
+          "price": "¥300"
+        }
       ],
       "transportInfo": [
-        "飞机:广州白云机场约1小时车程",
-        "高铁:广州南站约30分钟车程",
-        "自驾:经华南快速干线长隆出口",
-        "长途客运:省汽车站有地铁直达"
+        {
+          "mode": "飞机",
+          "detail": "广州白云机场约1小时车程"
+        },
+        {
+          "mode": "高铁",
+          "detail": "广州南站约30分钟车程"
+        },
+        {
+          "mode": "自驾",
+          "detail": "经华南快速干线长隆出口"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "省汽车站有地铁直达"
+        }
       ],
       "openTimeDetail": [
-        "平日 09:30-18:00",
-        "节假日 09:00-18:30",
-        "小火车 10:00-17:00"
+        {
+          "season": "平日",
+          "months": "",
+          "time": "09:30-18:00"
+        },
+        {
+          "season": "节假日",
+          "months": "",
+          "time": "09:00-18:30"
+        },
+        {
+          "season": "小火车",
+          "months": "",
+          "time": "10:00-17:00"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -445,8 +627,15 @@
               "detail": "入园→乘小火车看猛兽→步行区近距离观动物→空中缆车→出园"
             }
           ],
-          "budget": "¥300-600",
-          "bestFor": "亲子家庭/动物爱好者"
+          "budget": {
+            "currency": "¥",
+            "min": 300,
+            "max": 600
+          },
+          "bestFor": [
+            "亲子家庭",
+            "动物爱好者"
+          ]
         },
         {
           "name": "熊猫馆-白虎馆线",
@@ -465,8 +654,15 @@
               "detail": "入园→熊猫馆→白虎馆→长颈鹿区→出园"
             }
           ],
-          "budget": "¥300-500",
-          "bestFor": "亲子家庭/学生团体"
+          "budget": {
+            "currency": "¥",
+            "min": 300,
+            "max": 500
+          },
+          "bestFor": [
+            "亲子家庭",
+            "学生团体"
+          ]
         }
       ],
       "facilities": [
@@ -514,7 +710,7 @@
       "rating": 4.5,
       "bestTime": "全年",
       "location": "广东省深圳市南山区华侨城",
-      "description": "中国知名连锁主题公园品牌,拥有众多刺激的游乐设施",
+      "description": "名为深圳欢乐谷，名为深圳欢乐谷，中国知名连锁主题公园品牌，拥有众多刺激的游乐设施。人文荟萃之地，令人叹为观止流连忘返。。令人叹为观止，流连忘返。",
       "highlight": "现代主题乐园,都市娱乐",
       "level": "4A景区",
       "reviewCount": "54,321条点评",
@@ -526,7 +722,6 @@
       ],
       "openTime": "09:30-21:00",
       "visitDuration": "1天",
-      "popularity": "★★★★☆",
       "audienceTags": [
         "年轻人",
         "情侣",
@@ -535,21 +730,57 @@
         "家庭出游"
       ],
       "ticketDetails": [
-        "成人票¥230",
-        "儿童票¥120",
-        "夜场¥100",
-        "年票¥680"
+        {
+          "type": "成人票",
+          "price": "¥230"
+        },
+        {
+          "type": "儿童票",
+          "price": "¥120"
+        },
+        {
+          "type": "夜场",
+          "price": "¥100"
+        },
+        {
+          "type": "年票",
+          "price": "¥680"
+        }
       ],
       "transportInfo": [
-        "飞机:深圳宝安机场约1小时地铁",
-        "高铁:深圳北站约40分钟地铁",
-        "自驾:经广深高速深圳出口",
-        "长途客运:深圳汽车站有地铁直达"
+        {
+          "mode": "飞机",
+          "detail": "深圳宝安机场约1小时地铁"
+        },
+        {
+          "mode": "高铁",
+          "detail": "深圳北站约40分钟地铁"
+        },
+        {
+          "mode": "自驾",
+          "detail": "经广深高速深圳出口"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "深圳汽车站有地铁直达"
+        }
       ],
       "openTimeDetail": [
-        "平日 09:30-21:00",
-        "节假日 09:00-21:30",
-        "夜场 18:00-21:00"
+        {
+          "season": "平日",
+          "months": "",
+          "time": "09:30-21:00"
+        },
+        {
+          "season": "节假日",
+          "months": "",
+          "time": "09:00-21:30"
+        },
+        {
+          "season": "夜场",
+          "months": "",
+          "time": "18:00-21:00"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -569,8 +800,15 @@
               "detail": "入园→西班牙广场→魔幻城堡→玩亲子项目→出园"
             }
           ],
-          "budget": "¥230-400",
-          "bestFor": "亲子家庭/家庭出游"
+          "budget": {
+            "currency": "¥",
+            "min": 230,
+            "max": 400
+          },
+          "bestFor": [
+            "亲子家庭",
+            "家庭出游"
+          ]
         },
         {
           "name": "欢乐时光-飓风湾线",
@@ -589,8 +827,15 @@
               "detail": "入园→欢乐时光→玩刺激项目→飓风湾→体验冒险→出园"
             }
           ],
-          "budget": "¥230-400",
-          "bestFor": "年轻人/刺激项目爱好者"
+          "budget": {
+            "currency": "¥",
+            "min": 230,
+            "max": 400
+          },
+          "bestFor": [
+            "年轻人",
+            "刺激项目爱好者"
+          ]
         }
       ],
       "facilities": [
@@ -681,42 +926,42 @@
       {
         "name": "广州塔",
         "image": "https://picsum.photos/id/1480/600/400",
-        "description": "广州新地标,中国第一高塔"
+        "description": "坐落于岭南大地的广州塔，广州塔——广州新地标，中国第一高塔，实乃游历此地不可错过之胜境。。每一处景致皆是造物主的匠心独运。"
       },
       {
         "name": "丹霞山",
         "image": "https://picsum.photos/id/1481/600/400",
-        "description": "世界自然遗产,丹霞地貌命名地"
+        "description": "岭南丹霞山，广东名胜丹霞山，世界自然遗产，丹霞地貌命名地，令人心驰神往流连忘返。。当属此地名胜之首推，不容错过。"
       },
       {
         "name": "开平碉楼",
         "image": "https://picsum.photos/id/1482/600/400",
-        "description": "世界文化遗产,中西合璧的建筑奇迹"
+        "description": "开平碉楼者，岭南之胜境也。开平碉楼者，广东之世界文化遗产，中西合璧的建筑奇迹，堪称此地风光之冠冕。。令人叹为观止，流连忘返。"
       },
       {
         "name": "长隆野生动物世界",
         "image": "https://picsum.photos/id/1483/600/400",
-        "description": "中国最大的野生动物主题公园"
+        "description": "名为长隆野生动物世界，誉为广东明珠的长隆野生动物世界，中国最大的野生动物主题公园，每一处皆是造化与人文的交响。。实乃游历此地不可错过之胜境。"
       },
       {
         "name": "深圳欢乐谷",
         "image": "https://picsum.photos/id/1484/600/400",
-        "description": "中国知名连锁主题公园品牌"
+        "description": "岭南名胜深圳欢乐谷，深圳欢乐谷，中国知名连锁主题公园品牌，足以令旅人魂牵梦萦。。足以令旅人魂牵梦萦，心驰神往。"
       },
       {
         "name": "白云山",
         "image": "https://picsum.photos/id/1485/600/400",
-        "description": "羊城第一秀,广州城市绿肺"
+        "description": "白云山，白云山——羊城第一秀，广州城市绿肺，当属此地名胜之首推。。堪称天地造化与人文底蕴之交响。"
       },
       {
         "name": "西樵山",
         "image": "https://picsum.photos/id/1486/600/400",
-        "description": "广东四大名山之一,理学名山"
+        "description": "坐落于岭南大地的西樵山，广东名胜西樵山，广东四大名山之一，理学名山，实乃游历此地不可错过之胜境。。每一处景致皆是造物主的匠心独运。"
       },
       {
         "name": "惠州西湖",
         "image": "https://picsum.photos/id/1487/600/400",
-        "description": "岭南第一湖,苏东坡曾在此为官"
+        "description": "岭南惠州西湖，惠州西湖者，广东之岭南第一湖，苏东坡曾在此为官，令人心驰神往流连忘返。。当属此地名胜之首推，不容错过。"
       }
     ]
   },
@@ -766,7 +1011,74 @@
       "description": "冬季温暖,是旅游的好时节,广州塔夜景别有一番风味"
     }
   ],
-  "festivals": [],
+  "festivals": [
+    {
+      "id": "1",
+      "name": "广府庙会",
+      "month": "2月",
+      "day": "15日",
+      "location": "广州",
+      "isUnique": true,
+      "description": "以北京路文化核心区为场地，广府文化巡游、粤剧粤曲展演、广彩广绣展示、醒狮表演，于千年商都复兴广府庙会，感受岭南文化之繁华与市井烟火。",
+      "type": "民俗节庆",
+      "heritageLevel": "省级非遗",
+      "duration": "约7天",
+      "origin": "广府庙会始于2011年，以北京路文化核心区为场地，复兴广府传统庙会文化。",
+      "highlights": [
+        "广府文化巡游",
+        "粤剧粤曲展演",
+        "广彩广绣展示",
+        "传统美食市集",
+        "醒狮表演"
+      ],
+      "bestTime": "开幕日巡游",
+      "ticket": "免费",
+      "transport": "地铁1号线或6号线北京路站",
+      "tips": [
+        "春节期间人流量大",
+        "广式小吃建议尝鲜品，种类多",
+        "周边北京路步行街可一并游览"
+      ],
+      "relatedSpots": [
+        "北京路",
+        "陈家祠",
+        "沙面"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "广州迎春花市",
+      "month": "1月",
+      "day": "28日",
+      "location": "广州",
+      "isUnique": false,
+      "description": "广州迎春花市始于明代，广府人\"行花街\"传统绵延数百年，年宵花展销、金桔选购、桃花许愿，于花城感受\"花市灯如昼人潮涌如海\"之迎春盛况。",
+      "type": "民俗节庆",
+      "heritageLevel": "国家级非遗",
+      "duration": "约3天",
+      "origin": "广州迎春花市始于明代，是广府人\"行花街\"传统，2019年入选国家级非遗。",
+      "highlights": [
+        "年宵花展销",
+        "金桔选购",
+        "桃花许愿",
+        "迎春文艺表演",
+        "非遗手作市集"
+      ],
+      "bestTime": "除夕前一两天",
+      "ticket": "免费",
+      "transport": "地铁2号线公园前站",
+      "tips": [
+        "花市人潮极大，注意财物安全",
+        "金桔桃花最畅销，傍晚后品种减少",
+        "可还价，一般可砍10-20%"
+      ],
+      "relatedSpots": [
+        "越秀公园",
+        "北京路",
+        "沙面"
+      ]
+    }
+  ],
   "activities": [
     {
       "id": "1",
@@ -806,7 +1118,11 @@
           "avgRating": 4.5,
           "bestSeason": "春秋 / 全年",
           "recommendedDays": "2-3 日",
-          "budget": "¥500-1200",
+          "budget": {
+            "currency": "¥",
+            "min": 500,
+            "max": 1200
+          },
           "intensity": "适中",
           "audience": "全人群",
           "highlights": [
@@ -832,7 +1148,11 @@
           "avgRating": 4.4,
           "bestSeason": "夏秋",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-500",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 500
+          },
           "intensity": "轻松",
           "audience": "家庭/休闲",
           "highlights": [
@@ -862,7 +1182,11 @@
           "avgRating": 4.6,
           "bestSeason": "全年",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-400",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
           "intensity": "轻松",
           "audience": "文化/家庭",
           "highlights": [
@@ -891,7 +1215,11 @@
           "avgRating": 4.5,
           "bestSeason": "全年",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-400",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
           "intensity": "轻松",
           "audience": "银发/养心",
           "highlights": [
@@ -908,6 +1236,351 @@
           "spotIds": []
         }
       ]
+    }
+  ],
+  "craftWorkshops": [
+    {
+      "id": "guangdong-craft-1",
+      "image": "https://picsum.photos/id/1342/600/400",
+      "category": "craft",
+      "name": "广绣刺绣体验",
+      "type": "刺绣",
+      "location": "广州广绣工坊",
+      "duration": "3小时",
+      "difficulty": "中等",
+      "price": "200",
+      "rating": 4.7,
+      "reviewCount": 234,
+      "instructor": "广绣传承人",
+      "heritageLevel": "national",
+      "highlights": [
+        "盘金绣技法",
+        "岭南花卉纹样",
+        "作品可带走"
+      ],
+      "steps": [
+        "选缎面",
+        "拓纹样",
+        "刺绣",
+        "装裱"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "手工艺爱好者"
+      ],
+      "tags": [
+        "非遗",
+        "广绣",
+        "岭南"
+      ],
+      "description": "广绣位列中国四大名绣，始于唐代盘金绣法金线流转，岭南花卉跃然缎上。于绣房中执针引线，一针一线皆绘岭南春色，感受这南国绣艺之瑰丽与海上丝路之文化积淀。"
+    },
+    {
+      "id": "guangdong-craft-2",
+      "image": "https://picsum.photos/id/1344/600/400",
+      "category": "craft",
+      "name": "石湾陶塑捏塑",
+      "type": "陶塑",
+      "location": "佛山石湾陶艺城",
+      "duration": "3小时",
+      "difficulty": "简单",
+      "price": "180",
+      "rating": 4.6,
+      "reviewCount": 178,
+      "instructor": "石湾陶艺师",
+      "heritageLevel": "national",
+      "highlights": [
+        "捏塑石湾公仔",
+        "釉色体验",
+        "陶艺窑烧"
+      ],
+      "steps": [
+        "练泥",
+        "捏塑",
+        "上釉",
+        "入窑"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "手工艺爱好者"
+      ],
+      "tags": [
+        "非遗",
+        "石湾陶",
+        "佛山"
+      ],
+      "description": "石湾公仔陶塑始于宋明，釉色斑斓人物传神，\"石湾瓦甲天下\"之誉。于陶艺城亲手捏塑，指间泥胎渐成形，入窑烈火淬出万彩，感受这南国陶都之窑火传承与塑泥成艺之妙。"
+    }
+  ],
+  "performances": [
+    {
+      "id": "guangdong-perf-1",
+      "image": "https://picsum.photos/id/2120/600/400",
+      "category": "performance",
+      "name": "长隆国际大马戏·广州",
+      "type": "大型马戏",
+      "location": "广州市番禺区长隆欢乐世界",
+      "duration": "1.5小时",
+      "difficulty": "简单",
+      "price": "380",
+      "rating": 4.9,
+      "reviewCount": 1234,
+      "highlights": [
+        "国际马戏金奖",
+        "空中飞人惊险",
+        "动物表演萌趣"
+      ],
+      "suitableFor": [
+        "亲子家庭",
+        "年轻群体"
+      ],
+      "tags": [
+        "马戏",
+        "长隆",
+        "国际"
+      ],
+      "description": "长隆大马戏汇聚全球金奖马戏精英，空中飞人惊险窒息，生死轮旋转令人心跳骤停。从皇家马术到萌宠互动，声光电与惊险杂技交织，于这亚洲顶级马戏殿堂中，感受肾上腺飙升的极致震撼。"
+    },
+    {
+      "id": "guangdong-perf-2",
+      "image": "https://picsum.photos/id/2121/600/400",
+      "category": "performance",
+      "name": "广州大剧院《图兰朵》",
+      "type": "歌剧",
+      "location": "天河区广州大剧院",
+      "duration": "3小时",
+      "difficulty": "简单",
+      "price": "480",
+      "rating": 4.8,
+      "reviewCount": 345,
+      "highlights": [
+        "图兰朵经典歌剧",
+        "普契尼绝笔之作",
+        "茉莉花旋律融入"
+      ],
+      "suitableFor": [
+        "艺术爱好者",
+        "文化体验者"
+      ],
+      "tags": [
+        "歌剧",
+        "高雅艺术",
+        "图兰朵"
+      ],
+      "description": "广州大剧院双砾造型如两块珠江巨石，图兰朵的冰冷公主在此唱响。普契尼将茉莉花融入西方歌剧，今夜无人入睡的咏叹在顶级声学中回荡，于这南方艺术殿堂领略中西交融之歌剧巅峰。"
+    },
+    {
+      "id": "guangdong-perf-3",
+      "image": "https://picsum.photos/id/2122/600/400",
+      "category": "performance",
+      "name": "粤剧《帝女花》·广州",
+      "type": "戏曲",
+      "location": "越秀区广州粤剧院",
+      "duration": "2小时",
+      "difficulty": "简单",
+      "price": "80",
+      "rating": 4.7,
+      "reviewCount": 267,
+      "highlights": [
+        "唐涤生经典名剧",
+        "粤韵芳华",
+        "长平公主驸马悲剧"
+      ],
+      "suitableFor": [
+        "戏曲爱好者",
+        "文化体验者"
+      ],
+      "tags": [
+        "非遗",
+        "粤剧",
+        "帝女花"
+      ],
+      "description": "粤剧帝女花落花满天蔽月光，唐涤生为任剑辉白雪仙量身打造。长平公主与周世显的殉情绝恋，在粤韵芳腔中更显凄美，于这南国红豆的婉转唱腔中，品味岭南戏曲之有声皆歌无动不舞。",
+      "heritageLevel": "national"
+    }
+  ],
+  "outdoorAdventure": [
+    {
+      "id": "guangdong-outdoor-1",
+      "image": "https://picsum.photos/id/1363/600/400",
+      "category": "outdoor",
+      "name": "丹霞山长老峰徒步",
+      "type": "徒步穿越",
+      "location": "韶关丹霞山",
+      "duration": "1天",
+      "difficulty": "中等",
+      "price": "100",
+      "rating": 4.7,
+      "reviewCount": 3456,
+      "totalAscent": 400,
+      "maxElevation": 618,
+      "routeType": "环线",
+      "surfaceType": "石阶",
+      "accessInfo": "高铁至最近站，转景区交通",
+      "gearList": [
+        "登山鞋",
+        "水",
+        "防晒"
+      ],
+      "safetyTips": [
+        "夏季炎热多带水",
+        "栈道注意防滑"
+      ],
+      "bestMonths": "4-5月·9-10月",
+      "highlights": [
+        "丹霞地貌",
+        "阳元石奇观",
+        "锦江览胜"
+      ],
+      "tags": [
+        "徒步",
+        "丹霞",
+        "世界地质"
+      ],
+      "description": "丹霞山为世界地质公园，丹霞地貌命名之地，赤壁丹崖如火焰灼天。登长老峰览锦江碧水环绕，阳元石奇观令人叹为天工，\"色如渥丹灿若明霞\"之诗意于此方得真味。"
+    },
+    {
+      "id": "guangdong-outdoor-2",
+      "image": "https://picsum.photos/id/1366/600/400",
+      "category": "outdoor",
+      "name": "罗浮山飞云顶徒步",
+      "type": "徒步穿越",
+      "location": "惠州罗浮山",
+      "duration": "半天",
+      "difficulty": "简单",
+      "price": "30",
+      "rating": 4.5,
+      "reviewCount": 1234,
+      "totalAscent": 650,
+      "maxElevation": 1281,
+      "routeType": "往返",
+      "surfaceType": "石阶",
+      "accessInfo": "高铁至最近站，转景区交通",
+      "gearList": [
+        "登山杖",
+        "头灯",
+        "保暖衣"
+      ],
+      "safetyTips": [
+        "夜爬需头灯",
+        "注意蛇虫"
+      ],
+      "bestMonths": "4-5月·9-10月",
+      "highlights": [
+        "飞云顶日出",
+        "冲虚古观",
+        "百草油文化"
+      ],
+      "tags": [
+        "徒步",
+        "道教",
+        "岭南"
+      ],
+      "description": "罗浮山为道教第七洞天，岭南第一山，葛洪炼丹于此。登飞云顶观日出云海，冲虚古观香火袅袅，百草油药香沁人，感受这岭南仙山之道韵与罗浮洞天之清幽。"
+    }
+  ],
+  "wellnessRetreat": [
+    {
+      "id": "guangdong-wellness-1",
+      "image": "https://picsum.photos/id/2140/600/400",
+      "category": "wellness",
+      "name": "广州早茶慢生活",
+      "type": "饮食养生",
+      "location": "荔湾区陶陶居",
+      "duration": "2小时",
+      "difficulty": "简单",
+      "price": "80",
+      "rating": 4.8,
+      "reviewCount": 678,
+      "efficacyTags": [
+        "一盅两件早茶",
+        "虾饺烧卖肠粉",
+        "老字号茶楼文化"
+      ],
+      "bestSeason": "全年",
+      "packageIncludes": [
+        "早茶",
+        "茶位",
+        "点心"
+      ],
+      "suitableFor": [
+        "休闲度假",
+        "文化体验者"
+      ],
+      "tags": [
+        "早茶",
+        "慢生活",
+        "广州"
+      ],
+      "description": "广州饮和食德，早茶一盅两件是岭南人的生活方式。陶陶居里虾饺晶萤烧麦鲜香肠粉滑嫩，凤凰球叉烧包甜咸交织，于这百年茶楼中慢悠悠叹早茶，品味食在广州之养生慢哲学。"
+    },
+    {
+      "id": "guangdong-wellness-2",
+      "image": "https://picsum.photos/id/2141/600/400",
+      "category": "wellness",
+      "name": "罗浮山药膳道家养生",
+      "type": "药膳养生",
+      "location": "惠州市博罗县罗浮山葛洪博物馆",
+      "duration": "1天",
+      "difficulty": "简单",
+      "price": "150",
+      "rating": 4.7,
+      "reviewCount": 234,
+      "efficacyTags": [
+        "葛洪炼丹圣地",
+        "道家药膳炖品",
+        "岭南草药辨识"
+      ],
+      "bestSeason": "春秋",
+      "packageIncludes": [
+        "药膳",
+        "道修",
+        "草药体验"
+      ],
+      "suitableFor": [
+        "养生爱好者",
+        "文化体验者"
+      ],
+      "tags": [
+        "药膳",
+        "道家",
+        "罗浮山"
+      ],
+      "description": "罗浮山为葛洪炼丹之地，岭南第一山。葛洪于此著肘后方传世千年，于冲虚古观品药膳炖品，以岭南草药温补祛湿，在这道教第十洞天中，以药膳养生，以道法修真。"
+    },
+    {
+      "id": "guangdong-wellness-3",
+      "image": "https://picsum.photos/id/2142/600/400",
+      "category": "wellness",
+      "name": "深圳大鹏半岛海滨瑜伽",
+      "type": "瑜伽养生",
+      "location": "深圳市大鹏新区西涌海滨",
+      "duration": "1天",
+      "difficulty": "简单",
+      "price": "120",
+      "rating": 4.7,
+      "reviewCount": 345,
+      "efficacyTags": [
+        "半岛海岸瑜伽",
+        "星空露营冥想",
+        "珊瑚礁浮潜"
+      ],
+      "bestSeason": "春秋",
+      "packageIncludes": [
+        "瑜伽垫",
+        "露营",
+        "浮潜"
+      ],
+      "suitableFor": [
+        "瑜伽爱好者",
+        "年轻群体"
+      ],
+      "tags": [
+        "瑜伽",
+        "海滨",
+        "大鹏"
+      ],
+      "description": "大鹏半岛西涌沙滩三面环山，海水碧透珊瑚可见。于这深圳最后的桃花源海岸铺开瑜伽垫，日出瑜伽日落冥想，夜幕下星空露营听涛入眠，于这南海之滨找回都市失落之宁静。"
     }
   ]
 }

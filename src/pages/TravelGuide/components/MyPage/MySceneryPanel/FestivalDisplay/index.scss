@@ -1,0 +1,881 @@
+// ============================================================
+// FestivalDisplay · 节庆台历 (Desk Calendar)
+// 参考图：金属环装订台历 / 暖奶油纸面 / 砖红日期 / 纸张多层卷边 / 左上阳光斜照
+// 色系：暖奶油白 / 黄铜装订 / 砖红日期 / 暖棕墨色 / 温调按钮
+// 立体感：多层背面页 + 纸张厚度边缘 + 卷边图片框 + 阳光135deg强对比 + 右下长投影
+// ============================================================
+
+$paper-light: #faf5ed;
+$paper-base: #f5ede0;
+$paper-deep: #ede3d0;
+$paper-shadow: #ddd3bc;
+$paper-dark: #c8bea4;
+
+$brass-bright: #f0d088;
+$brass: #d4a858;
+$brass-deep: #a87830;
+$brass-shadow: #6a5018;
+
+$date-red: #c45a3a;
+$date-red-deep: #9a3a20;
+$date-red-bright: #e07a5a;
+
+$ink: #4a3525;
+$ink-mid: #6a5238;
+$ink-light: #9a8268;
+
+$gold: #d4a838;
+$gold-bright: #f0c860;
+
+// 阳光暖色（强对比 · 左上斜照 · 明暗分明）
+$sun-bright: rgba(255, 252, 225, 0.88);
+$sun-warm: rgba(255, 242, 200, 0.55);
+$sun-shadow: rgba(78, 52, 28, 0.32);
+$sun-ray: rgba(255, 250, 220, 0.95);
+
+$cal-radius: 8px;
+
+.cal-wall {
+  list-style: none;
+  margin: 0;
+  padding: 32px  24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 64px;
+}
+
+.cal-unit {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.4s ease, filter 0.4s ease;
+
+  // ── 挂绳（金属挂钉 · 真实金属质感） ──
+  .cal-hanger {
+    width: 2px;
+    height: 22px;
+    background: linear-gradient(180deg, #8a7a5a 0%, #6a5a3a 50%, #4a3a1a 100%);
+    box-shadow:
+      1px 0 1px rgba(0, 0, 0, 0.35),
+      inset 0 0 0 0.5px rgba(255, 240, 200, 0.2);
+    margin-bottom: -2px;
+    z-index: 5;
+    position: relative;
+
+    // 金属挂钉头
+    &::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 32% 28%,
+          #fff5d8 0%,
+          #d4b878 25%,
+          #9a7a3a 55%,
+          #5a3a18 85%,
+          #2a1a08 100%
+        );
+      box-shadow:
+        inset 0 1px 1.5px rgba(255, 250, 220, 0.6),
+        inset 0 -1px 1.5px rgba(0, 0, 0, 0.5),
+        2px 2.5px 4px rgba(0, 0, 0, 0.3),
+        0 1px 2px rgba(0, 0, 0, 0.45);
+    }
+  }
+
+  // ── 顶部黄铜装订条（真实金属圆柱体 · 高度感 · 对下方纸张投影） ──
+  .cal-binding {
+    width: 100%;
+    height: 28px;
+    background:
+      // 沿长度方向的金属圆柱体顶部反射高光带
+      linear-gradient(90deg,
+        rgba(0, 0, 0, 0.12) 0%,
+        rgba(0, 0, 0, 0.04) 6%,
+        rgba(255, 252, 220, 0.35) 28%,
+        rgba(255, 254, 230, 0.55) 50%,
+        rgba(255, 252, 220, 0.35) 72%,
+        rgba(0, 0, 0, 0.04) 94%,
+        rgba(0, 0, 0, 0.12) 100%
+      ),
+      // 圆柱体径向光影（顶部强高光 → 底部深暗影）
+      linear-gradient(180deg,
+        #fce8a0 0%,
+        $brass-bright 12%,
+        #e8c878 28%,
+        $brass 48%,
+        $brass-deep 78%,
+        $brass-shadow 100%
+      );
+    border-radius: $cal-radius $cal-radius 0 0;
+    box-shadow:
+      // 顶部内高光（凸起感 · 金属镜面）
+      inset 0 2px 3px rgba(255, 252, 220, 0.95),
+      inset 0 -2px 5px rgba(0, 0, 0, 0.55),
+      inset 0 0 14px rgba($brass, 0.45),
+      // 左右两端金属反射
+      inset 2px 0 4px rgba(255, 250, 220, 0.3),
+      inset -2px 0 4px rgba(60, 40, 15, 0.3),
+      // 阳光投影（右下方向）
+      6px 6px 14px rgba(0, 0, 0, 0.35),
+      3px 3px 6px rgba(0, 0, 0, 0.25),
+      // 装订条压下方纸张的投影（高度感 · 拉长下方阴影）
+      0 12px 24px rgba(0, 0, 0, 0.44),
+      0 6px 12px rgba(0, 0, 0, 0.34),
+      0 2px 5px rgba(0, 0, 0, 0.22);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 22px;
+    position: relative;
+    z-index: 8;
+
+    // 左端金属端盖
+    &::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: -4px;
+      bottom: -1px;
+      width: 10px;
+      border-radius: 4px 0 0 4px;
+      background:
+        linear-gradient(180deg, $brass-bright 0%, $brass 40%, $brass-deep 80%, $brass-shadow 100%);
+      box-shadow:
+        inset 0 1.5px 2px rgba(255, 252, 220, 0.8),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.4),
+        inset 1px 0 2px rgba(255, 250, 220, 0.3),
+        -2px 2px 4px rgba(0, 0, 0, 0.3);
+      z-index: 1;
+    }
+
+    // 右端金属端盖
+    &::after {
+      content: '';
+      position: absolute;
+      top: -1px;
+      right: -4px;
+      bottom: -1px;
+      width: 10px;
+      border-radius: 0 4px 4px 0;
+      background:
+        linear-gradient(180deg, $brass-bright 0%, $brass 40%, $brass-deep 80%, $brass-shadow 100%);
+      box-shadow:
+        inset 0 1.5px 2px rgba(255, 252, 220, 0.8),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.4),
+        inset -1px 0 2px rgba(60, 40, 15, 0.3),
+        2px 2px 4px rgba(0, 0, 0, 0.3);
+      z-index: 1;
+    }
+
+    // 金属环（穿过纸张的装订环 · 真实金属环形 + 圆柱体高光 + 内孔）
+    .binding-ring {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 34% 28%,
+          #fff5d8 0%,
+          $brass-bright 22%,
+          $brass 48%,
+          $brass-deep 75%,
+          $brass-shadow 100%
+        );
+      box-shadow:
+        // 顶部金属高光
+        inset 0 1.5px 2px rgba(255, 252, 220, 0.9),
+        // 底部暗影
+        inset 0 -1.5px 2px rgba(0, 0, 0, 0.6),
+        // 外投影（阳光右下方向）
+        1.5px 2px 3.5px rgba(0, 0, 0, 0.42),
+        0 0 1px rgba(255, 250, 220, 0.35);
+      position: relative;
+
+      // 内孔（穿过纸张的孔洞 · 暗影 + 微妙反光）
+      &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 4.5px;
+        height: 4.5px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 40% 38%,
+          #1a0e04 0%,
+          #3a2a12 50%,
+          $brass-shadow 100%
+        );
+        box-shadow:
+          inset 0 0 1.5px rgba(0, 0, 0, 0.85),
+          inset 0 0.5px 0.5px rgba(255, 240, 200, 0.25);
+      }
+
+      // 环形顶部高光点（金属镜面反射）
+      &::after {
+        content: '';
+        position: absolute;
+        top: 1px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 5px;
+        height: 2px;
+        border-radius: 50%;
+        background: linear-gradient(180deg, rgba(255, 255, 240, 0.9) 0%, transparent 100%);
+        pointer-events: none;
+      }
+    }
+  }
+
+  // ── 日历主体（包裹多张纸页 + 正面内容页） ──
+  .cal-body {
+    position: relative;
+    width: 100%;
+    z-index: 2;
+  }
+
+  // ── 多张日历纸页堆叠（被风吹动 · 每张纸独立弯曲卷 · 逐层变暗） ──
+  // 每张纸是完整的独立纸张，有不同的 rotate（风吹）+ translate（错位）+ 弯曲卷曲程度
+  // 越上层弯曲越多、旋转越大、越亮；越下层弯曲越少、越暗（阳光照射层次感）
+  .cal-stack {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .cal-sheet {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 0 0 $cal-radius $cal-radius;
+    // 纸纹纤维（横向 + 纵向 + 斜向 · 真实纸张质感）
+    background:
+      repeating-linear-gradient(0deg, transparent 0, transparent 3px, rgba(90, 65, 35, 0.022) 3px, rgba(90, 65, 35, 0.022) 4px),
+      repeating-linear-gradient(90deg, transparent 0, transparent 5px, rgba(90, 65, 35, 0.014) 5px, rgba(90, 65, 35, 0.014) 6px),
+      repeating-linear-gradient(45deg, transparent 0, transparent 7px, rgba(90, 65, 35, 0.008) 7px, rgba(90, 65, 35, 0.008) 8px),
+      linear-gradient(180deg, $paper-base 0%, $paper-deep 100%);
+
+    // 右下角弯曲卷曲（每张纸独立卷曲 · clip-path 二次贝塞尔曲线 · 真实卷曲背面）
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 72px;
+      height: 72px;
+      background:
+        // 卷曲背面高光
+        linear-gradient(135deg, rgba(255, 245, 210, 0.35) 0%, transparent 42%),
+        // 卷曲背面阴影
+        linear-gradient(315deg, rgba(60, 40, 20, 0.2) 0%, transparent 55%),
+        // 卷曲棱边反光线
+        linear-gradient(225deg, transparent 0%, transparent 48%, rgba(255, 240, 200, 0.25) 50%, transparent 53%),
+        // 卷曲背面纸张色
+        linear-gradient(135deg, $paper-deep 0%, $paper-shadow 60%, $paper-dark 100%);
+      clip-path: path('M 72,72 L 24,72 Q 72,72 72,24 Z');
+      filter:
+        drop-shadow(-3px -3px 6px rgba(0, 0, 0, 0.22))
+        drop-shadow(-1px -1px 1.5px rgba(0, 0, 0, 0.12));
+    }
+  }
+
+  // 第4层（从上往下第2张 · 稍暗 · 弯曲较大 · 风吹稍倾）
+  .cal-sheet-2 {
+    transform: rotate(-0.6deg) translate(-3px, 2px);
+    z-index: 4;
+    background:
+      repeating-linear-gradient(0deg, transparent 0, transparent 3px, rgba(90, 65, 35, 0.026) 3px, rgba(90, 65, 35, 0.026) 4px),
+      repeating-linear-gradient(90deg, transparent 0, transparent 5px, rgba(90, 65, 35, 0.016) 5px, rgba(90, 65, 35, 0.016) 6px),
+      repeating-linear-gradient(45deg, transparent 0, transparent 7px, rgba(90, 65, 35, 0.01) 7px, rgba(90, 65, 35, 0.01) 8px),
+      linear-gradient(135deg, rgba(255, 240, 195, 0.22) 0%, transparent 45%),
+      linear-gradient(180deg, $paper-deep 0%, $paper-shadow 100%);
+    box-shadow:
+      inset 0 0 0 1px rgba($brass-deep, 0.12),
+      inset 0 2px 4px rgba(255, 245, 220, 0.15),
+      5px 6px 16px rgba(0, 0, 0, 0.3),
+      2px 3px 8px rgba(0, 0, 0, 0.16);
+    &::after {
+      clip-path: path('M 72,72 L 26,72 Q 72,72 72,26 Z');
+    }
+  }
+
+  // 第3层（中间 · 中等暗 · 弯曲中等 · 风吹中倾）
+  .cal-sheet-3 {
+    transform: rotate(0.4deg) translate(-6px, 4px);
+    z-index: 3;
+    background:
+      repeating-linear-gradient(0deg, transparent 0, transparent 3px, rgba(90, 65, 35, 0.03) 3px, rgba(90, 65, 35, 0.03) 4px),
+      linear-gradient(135deg, rgba(255, 235, 185, 0.14) 0%, transparent 45%),
+      linear-gradient(180deg, $paper-shadow 0%, $paper-dark 100%);
+    box-shadow:
+      inset 0 0 0 1px rgba($brass-deep, 0.12),
+      7px 8px 20px rgba(0, 0, 0, 0.32),
+      3px 4px 10px rgba(0, 0, 0, 0.18);
+    &::after {
+      background:
+        linear-gradient(315deg, rgba(0, 0, 0, 0.2) 0%, transparent 55%),
+        linear-gradient(135deg, $paper-dark 0%, #b0a488 100%);
+      clip-path: path('M 72,72 L 32,72 Q 72,72 72,32 Z');
+    }
+  }
+
+  // 第2层（较暗 · 弯曲较小 · 风吹反倾）
+  .cal-sheet-4 {
+    transform: rotate(1.2deg) translate(-9px, 6px);
+    z-index: 2;
+    background:
+      repeating-linear-gradient(0deg, transparent 0, transparent 3px, rgba(90, 65, 35, 0.035) 3px, rgba(90, 65, 35, 0.035) 4px),
+      linear-gradient(135deg, rgba(255, 230, 175, 0.08) 0%, transparent 45%),
+      linear-gradient(180deg, $paper-dark 0%, #b8ae94 100%);
+    box-shadow:
+      inset 0 0 0 1px rgba($brass-deep, 0.14),
+      9px 10px 24px rgba(0, 0, 0, 0.34),
+      4px 5px 12px rgba(0, 0, 0, 0.2);
+    &::after {
+      background:
+        linear-gradient(315deg, rgba(0, 0, 0, 0.24) 0%, transparent 55%),
+        linear-gradient(135deg, #b0a488 0%, #988e74 100%);
+      clip-path: path('M 72,72 L 38,72 Q 72,72 72,38 Z');
+    }
+  }
+
+  // 第1层（最底层 · 最暗 · 弯曲最小 · 风吹大倾）
+  .cal-sheet-5 {
+    transform: rotate(2deg) translate(-12px, 8px);
+    z-index: 1;
+    background:
+      repeating-linear-gradient(0deg, transparent 0, transparent 3px, rgba(90, 65, 35, 0.04) 3px, rgba(90, 65, 35, 0.04) 4px),
+      linear-gradient(180deg, #b8ae94 0%, #a0967c 100%);
+    box-shadow:
+      inset 0 0 0 1px rgba($brass-deep, 0.16),
+      11px 12px 28px rgba(0, 0, 0, 0.36),
+      5px 6px 14px rgba(0, 0, 0, 0.22);
+    &::after {
+      background:
+        linear-gradient(315deg, rgba(0, 0, 0, 0.28) 0%, transparent 55%),
+        linear-gradient(135deg, #988e74 0%, #807662 100%);
+      clip-path: path('M 72,72 L 44,72 Q 72,72 72,44 Z');
+    }
+  }
+
+  // ── 挂历页面（风吹摇摆 · 真实纸张纤维纹理 + 阳光斜照光影 + 打孔） ──
+  .cal-page {
+    position: relative;
+    width: 100%;
+    background:
+      // 纸纹横向纤维（主纤维方向）
+      repeating-linear-gradient(0deg, transparent 0, transparent 3px, rgba(90, 65, 35, 0.024) 3px, rgba(90, 65, 35, 0.024) 4px),
+      // 纸纹纵向纤维（交叉纤维）
+      repeating-linear-gradient(90deg, transparent 0, transparent 5px, rgba(90, 65, 35, 0.016) 5px, rgba(90, 65, 35, 0.016) 6px),
+      // 纸纹斜向纤维（增加真实感）
+      repeating-linear-gradient(45deg, transparent 0, transparent 7px, rgba(90, 65, 35, 0.008) 7px, rgba(90, 65, 35, 0.008) 8px),
+      // 打孔孔洞（5 个 · 与金属环位置对应 · 金属环穿过纸张的孔洞暗影 + 边缘金属高光）
+      radial-gradient(circle at 10% 0%, rgba(20, 12, 4, 0.7) 0%, rgba(30, 18, 5, 0.45) 2px, rgba($brass, 0.35) 3px, rgba($brass-deep, 0.18) 4px, transparent 6px),
+      radial-gradient(circle at 30% 0%, rgba(20, 12, 4, 0.7) 0%, rgba(30, 18, 5, 0.45) 2px, rgba($brass, 0.35) 3px, rgba($brass-deep, 0.18) 4px, transparent 6px),
+      radial-gradient(circle at 50% 0%, rgba(20, 12, 4, 0.7) 0%, rgba(30, 18, 5, 0.45) 2px, rgba($brass, 0.35) 3px, rgba($brass-deep, 0.18) 4px, transparent 6px),
+      radial-gradient(circle at 70% 0%, rgba(20, 12, 4, 0.7) 0%, rgba(30, 18, 5, 0.45) 2px, rgba($brass, 0.35) 3px, rgba($brass-deep, 0.18) 4px, transparent 6px),
+      radial-gradient(circle at 90% 0%, rgba(20, 12, 4, 0.7) 0%, rgba(30, 18, 5, 0.45) 2px, rgba($brass, 0.35) 3px, rgba($brass-deep, 0.18) 4px, transparent 6px),
+      // 纸张微妙 noise 纹理（模拟纸张不均匀性）
+      radial-gradient(circle at 23% 17%, rgba(90, 65, 35, 0.04) 0%, transparent 8%),
+      radial-gradient(circle at 67% 38%, rgba(90, 65, 35, 0.03) 0%, transparent 6%),
+      radial-gradient(circle at 41% 63%, rgba(90, 65, 35, 0.035) 0%, transparent 7%),
+      radial-gradient(circle at 82% 78%, rgba(90, 65, 35, 0.03) 0%, transparent 6%),
+      radial-gradient(circle at 15% 85%, rgba(90, 65, 35, 0.025) 0%, transparent 5%),
+      // 左上角阳光直射光斑（强光斑 · 观感分明的关键）
+      radial-gradient(ellipse 85% 65% at 0% 0%,
+        $sun-ray 0%,
+        rgba(255, 248, 215, 0.58) 18%,
+        rgba(255, 240, 195, 0.3) 38%,
+        transparent 62%
+      ),
+      // 阳光方向性渐变（135deg 左上亮 → 右下暗 · 明暗分明）
+      linear-gradient(135deg,
+        rgba(255, 250, 220, 0.75) 0%,
+        rgba(255, 240, 195, 0.44) 22%,
+        transparent 52%,
+        rgba(90, 60, 32, 0.18) 78%,
+        $sun-shadow 100%
+      ),
+      // 右下角背光暗影（让明暗对比更强）
+      radial-gradient(ellipse 70% 55% at 100% 100%,
+        rgba(70, 45, 22, 0.28) 0%,
+        rgba(90, 60, 32, 0.14) 30%,
+        transparent 55%
+      ),
+      // 纸张基色（微妙渐变 · 模拟纸张厚度不均匀）
+      linear-gradient(180deg, $paper-light 0%, #f7efe2 35%, $paper-base 65%, $paper-deep 100%);
+    box-shadow:
+      inset 0 0 0 1px rgba($brass-deep, 0.18),
+      // 顶部内高光（受光面）
+      inset 0 3px 7px rgba(255, 250, 235, 0.75),
+      // 底部内暗影（背光面）
+      inset 0 -4px 9px rgba(110, 80, 45, 0.18),
+      // 左侧受光
+      inset 2px 0 5px rgba(255, 245, 220, 0.22),
+      // 右侧背光
+      inset -5px 0 10px rgba(90, 65, 35, 0.16),
+      // 阳光投影（右下方向，多层 · 最上层纸张投影最长 · 模拟阳光长阴影）
+      14px 16px 36px rgba(0, 0, 0, 0.44),
+      7px 9px 20px rgba(0, 0, 0, 0.32),
+      3px 4px 9px rgba(0, 0, 0, 0.16);
+    border-radius: 0 0 $cal-radius $cal-radius;
+    display: flex;
+    flex-direction: column;
+    z-index: 6;
+    overflow: visible;
+    transform-origin: top center;
+    animation: cal-sway-top 6s ease-in-out infinite;
+    transition: box-shadow 0.4s ease, transform 0.4s ease;
+
+    // 顶部边缘高光（阳光照亮顶边）
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      border-radius: 0 0 50% 50%;
+      background:
+        // 顶部受光高光带（阳光照亮顶边 · 沿长度方向渐变）
+        linear-gradient(90deg,
+          transparent 0%,
+          rgba(255, 252, 230, 0.5) 8%,
+          rgba(255, 254, 235, 0.95) 28%,
+          rgba(255, 252, 225, 0.7) 55%,
+          rgba(255, 245, 210, 0.35) 82%,
+          transparent 100%
+        );
+      box-shadow: 0 1px 2px rgba(255, 248, 210, 0.4);
+      z-index: 5;
+      pointer-events: none;
+    }
+
+    // 右下角弯曲卷曲（最上层纸张 · 弯曲最多 · 弧形卷边非折角 · 真实卷曲背面）
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      right: -2px;
+      width: 86px;
+      height: 86px;
+      background:
+        // 卷曲背面高光（卷起边缘受光面）
+        linear-gradient(135deg, rgba(255, 250, 220, 0.6) 0%, transparent 42%),
+        // 卷曲背面阴影（卷起边缘背光面）
+        linear-gradient(315deg, rgba(60, 40, 20, 0.22) 0%, transparent 55%),
+        // 卷曲边缘高光线（卷起的棱边反光）
+        linear-gradient(225deg, transparent 0%, transparent 48%, rgba(255, 245, 210, 0.35) 50%, transparent 53%),
+        // 卷曲背面纸张色（略深于正面 · 模拟纸张背面）
+        linear-gradient(135deg, $paper-deep 0%, $paper-shadow 60%, $paper-dark 100%);
+      clip-path: path('M 86,86 L 12,86 Q 86,86 86,12 Z');
+      filter:
+        drop-shadow(-4px -4px 8px rgba(0, 0, 0, 0.26))
+        drop-shadow(-1px -1px 2px rgba(0, 0, 0, 0.15));
+      z-index: 7;
+      pointer-events: none;
+    }
+
+    // ── 日期大字区 ──
+    .cal-date-block {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 2px;
+      padding: 18px 16px 10px;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 4px;
+        left: 20%;
+        right: 20%;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba($date-red, 0.25), transparent);
+      }
+
+      .date-month,
+      .date-day {
+        font-size: 50px;
+        font-weight: 900;
+        color: $date-red;
+        line-height: 1;
+        letter-spacing: 1px;
+        // 油墨印迹质感（微渗透 + 凸版压痕 + 阳光投影）
+        text-shadow:
+          0.5px 0.5px 0 rgba($date-red-deep, 0.25),
+          1px 1px 0 rgba($date-red-deep, 0.2),
+          2px 2px 3px rgba(0, 0, 0, 0.14),
+          3px 3px 6px rgba(0, 0, 0, 0.08),
+          0 0 16px rgba($date-red, 0.14);
+      }
+
+      .date-suffix {
+        font-size: 21px;
+        font-weight: 700;
+        color: $date-red-deep;
+        margin-left: 1px;
+        text-shadow:
+          0.5px 0.5px 0 rgba(0, 0, 0, 0.1),
+          1px 1px 2px rgba(0, 0, 0, 0.08);
+      }
+
+      .date-divider {
+        width: 1px;
+        height: 32px;
+        background: linear-gradient(180deg, transparent, rgba($ink, 0.22), transparent);
+        margin: 0 8px;
+        box-shadow: 1px 0 1px rgba(0, 0, 0, 0.06);
+      }
+    }
+
+    // ── 节日名 + tags ──
+    .cal-header {
+      padding: 4px 18px 8px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 7px;
+
+      .cal-title {
+        margin: 0;
+        font-size: 23px;
+        font-weight: 900;
+        color: $ink;
+        letter-spacing: 2px;
+        line-height: 1.3;
+        // 油墨印迹质感（凸版压痕 + 阳光投影）
+        text-shadow:
+          0.5px 0.5px 0 rgba(255, 255, 255, 0.5),
+          1px 1px 0 rgba(255, 255, 255, 0.4),
+          1px 1px 2px rgba(0, 0, 0, 0.1),
+          2px 2px 4px rgba(0, 0, 0, 0.06);
+      }
+
+      .cal-tags-row {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .cal-type {
+          font-size: 14px;
+          font-weight: 700;
+          color: $ink-mid;
+          letter-spacing: 1px;
+          padding: 3px 12px;
+          border-radius: 11px;
+          background:
+            linear-gradient(135deg, rgba(255, 250, 220, 0.35) 0%, transparent 50%),
+            linear-gradient(180deg, rgba($date-red, 0.12) 0%, rgba($date-red, 0.06) 100%);
+          border: 1px solid rgba($date-red, 0.22);
+          box-shadow:
+            inset 0 1px 1px rgba(255, 255, 255, 0.5),
+            1px 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        .cal-heritage {
+          display: inline-flex;
+          align-items: center;
+          gap: 4px;
+          padding: 3px 12px;
+          border-radius: 11px;
+          background:
+            linear-gradient(135deg, rgba(255, 250, 220, 0.4) 0%, transparent 50%),
+            linear-gradient(180deg, rgba($gold, 0.28), rgba($gold, 0.14));
+          border: 1px solid rgba($gold, 0.58);
+          box-shadow:
+            inset 0 1px 2px rgba(255, 255, 255, 0.65),
+            inset 0 -1px 2px rgba(0, 0, 0, 0.08),
+            1px 1px 3px rgba(0, 0, 0, 0.1),
+            0 0 10px rgba($gold, 0.14);
+          color: $brass-deep;
+          font-size: 13px;
+          font-weight: 800;
+          letter-spacing: 0.5px;
+        }
+      }
+    }
+
+    // ── 插图区（真实相框 · 凹陷+卷边+鎏金内框） ──
+    .cal-image {
+      position: relative;
+      margin: 4px 18px 16px;
+      border-radius: 5px;
+      overflow: hidden;
+      border: 3px solid $ink;
+      box-shadow:
+        // 鎏金内框线
+        inset 0 0 0 1px rgba($brass, 0.6),
+        inset 0 0 0 2px rgba($brass-deep, 0.25),
+        // 凹陷内阴影（相框凹陷感）
+        inset 0 5px 10px rgba(0, 0, 0, 0.35),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.18),
+        inset 2px 0 7px rgba(0, 0, 0, 0.14),
+        inset -2px 0 7px rgba(0, 0, 0, 0.14),
+        // 阳光投影（右下方向 · 相框悬浮感）
+        6px 8px 18px rgba(0, 0, 0, 0.3),
+        3px 4px 8px rgba(0, 0, 0, 0.18),
+        1px 2px 4px rgba(0, 0, 0, 0.1);
+      aspect-ratio: 16 / 9;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        // 印刷质感（微妙的色彩饱和 + 亮度 + 纸张印迹感）
+        filter: saturate(1.08) brightness(1.04) contrast(1.02);
+      }
+
+    }
+
+    // ── 撕页虚线 ──
+    .cal-tear-line {
+      height: 0;
+      margin: 0 14px;
+      border-top: 2px dashed rgba($ink, 0.25);
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 6px;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.07), transparent);
+      }
+    }
+
+    // ── 信息栏（时长 + 地点 · 融入同一张纸） ──
+    .cal-meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 12px 16px 6px;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+
+      .meta-text {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        color: $ink-mid;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+        text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.4);
+      }
+      .meta-dot {
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: $brass;
+        box-shadow:
+          0 0 4px rgba($brass, 0.55),
+          1px 1px 1px rgba(0, 0, 0, 0.12);
+      }
+    }
+
+    // ── 操作按钮（2×2 网格 · 融入同一张纸） ──
+    .cal-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      padding: 4px 16px 16px;
+      position: relative;
+      z-index: 2;
+
+      // 按钮 mixin · 深色背景 + 浅色文字 · 色差拉大 · 一深一浅
+      @mixin cal-act-btn($c, $c-bright, $c-deep, $c-glow) {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        padding: 10px 8px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        // 自然态：深色背景（$c-deep → $c）+ 浅色文字（白色）
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, transparent 40%, rgba(0, 0, 0, 0.12) 100%),
+          linear-gradient(135deg, rgba(255, 250, 220, 0.12) 0%, transparent 50%),
+          linear-gradient(180deg, $c 0%, $c-deep 100%);
+        border: 1.5px solid $c-deep;
+        border-top-color: rgba($c-bright, 0.6);
+        box-shadow:
+          inset 0 1px 2px rgba(255, 255, 255, 0.25),
+          inset 0 -1px 2px rgba(0, 0, 0, 0.25),
+          2px 3px 6px rgba(0, 0, 0, 0.2),
+          1px 1px 3px rgba(0, 0, 0, 0.12);
+        color: #fff;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+
+        // hover 态：略亮背景 + 浅色文字
+        &:hover {
+          background:
+            linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, transparent 40%, rgba(0, 0, 0, 0.08) 100%),
+            linear-gradient(135deg, rgba(255, 250, 220, 0.18) 0%, transparent 50%),
+            linear-gradient(180deg, $c-bright 0%, $c 100%);
+          border-color: $c-deep;
+          border-top-color: rgba(255, 255, 255, 0.5);
+          box-shadow:
+            inset 0 1px 2px rgba(255, 255, 255, 0.35),
+            inset 0 -1px 2px rgba(0, 0, 0, 0.2),
+            3px 4px 8px rgba(0, 0, 0, 0.22),
+            1px 2px 4px rgba(0, 0, 0, 0.12),
+            0 0 14px rgba($c, 0.4);
+          color: #fff;
+        }
+
+        // active 态：渐变色系 + 浅色文字
+        &.is-active {
+          background:
+            linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, transparent 40%, rgba(0, 0, 0, 0.08) 100%),
+            linear-gradient(135deg, rgba(255, 250, 220, 0.2) 0%, transparent 50%),
+            linear-gradient(180deg, $c-bright 0%, $c 60%, $c-deep 100%);
+          border-color: $c-deep;
+          border-top-color: rgba(255, 255, 255, 0.6);
+          box-shadow:
+            inset 0 1px 2px rgba(255, 255, 255, 0.4),
+            inset 0 -1px 2px rgba(0, 0, 0, 0.15),
+            2px 3px 7px rgba(0, 0, 0, 0.2),
+            1px 1px 3px rgba(0, 0, 0, 0.1),
+            0 0 18px rgba($c-bright, 0.5);
+          color: #fff;
+          font-weight: 800;
+        }
+      }
+
+      .cal-act {
+        &.act-fav { @include cal-act-btn(#d05050, #ff8080, #8a1818, #ffc0c0); }
+        &.act-been { @include cal-act-btn(#4a9a5a, #80d890, #1a6a2a, #c0f6ca); }
+        &.act-share { @include cal-act-btn(#3090c0, #70c8f0, #0a5080, #a0e8f5); }
+        &.act-detail { @include cal-act-btn(#e09030, #ffb860, #a05000, #ffe0a0); }
+      }
+    }
+
+    // ── 左上角阳光斜照光束（最上层纸张 · 阳光从一边照射进来 · 整个纸张每个地方观感不一样） ──
+    .cal-sunbeam {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 75%;
+      height: 75%;
+      pointer-events: none;
+      z-index: 3;
+      background:
+        // 斜向光束（从左上角向右下扩散）
+        linear-gradient(135deg,
+          rgba(255, 252, 225, 0.5) 0%,
+          rgba(255, 245, 200, 0.26) 18%,
+          rgba(255, 240, 185, 0.12) 35%,
+          transparent 55%
+        ),
+        // 左上角强光斑中心
+        radial-gradient(ellipse 55% 45% at 6% 4%,
+          rgba(255, 254, 235, 0.6) 0%,
+          rgba(255, 248, 210, 0.3) 35%,
+          transparent 65%
+        );
+      mix-blend-mode: screen;
+      opacity: 0.7;
+    }
+  }
+
+
+  // ── hover 效果（不产生任何位移和变数 · 仅微妙阴影加深） ──
+  &:hover {
+    .cal-page {
+      box-shadow:
+        inset 0 0 0 1px rgba($brass-deep, 0.2),
+        inset 0 3px 7px rgba(255, 250, 235, 0.78),
+        inset 0 -4px 9px rgba(110, 80, 45, 0.18),
+        inset 2px 0 5px rgba(255, 245, 220, 0.22),
+        inset -5px 0 10px rgba(90, 65, 35, 0.16),
+        15px 17px 38px rgba(0, 0, 0, 0.46),
+        7px 9px 20px rgba(0, 0, 0, 0.32),
+        3px 4px 9px rgba(0, 0, 0, 0.16),
+        0 0 28px rgba($brass, 0.16);
+    }
+  }
+
+  // ── 移除按钮（纸张右上角 · 真实金属质感） ──
+  .cal-remove {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 28px;
+    height: 28px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    border: 1.5px solid rgba($ink, 0.3);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, transparent 50%),
+      linear-gradient(135deg, rgba(255, 250, 220, 0.4) 0%, transparent 50%),
+      rgba($paper-deep, 0.96);
+    color: $ink;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 9;
+    box-shadow:
+      inset 0 1.5px 2px rgba(255, 255, 255, 0.7),
+      inset 0 -1px 2px rgba(0, 0, 0, 0.15),
+      2px 3px 6px rgba(0, 0, 0, 0.18),
+      1px 1px 3px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, transparent 50%),
+        $date-red;
+      color: $paper-light;
+      border-color: $date-red-deep;
+      box-shadow:
+        inset 0 1.5px 2px rgba(255, 255, 255, 0.4),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.2),
+        2px 3px 7px rgba(0, 0, 0, 0.22),
+        0 0 16px rgba($date-red, 0.48);
+    }
+  }
+}
+
+// ── 风吹摇摆动画（最上层纸张 · 摆幅最大） ──
+@keyframes cal-sway-top {
+  0%   { transform: rotate(-1.8deg); }
+  25%  { transform: rotate(-0.6deg); }
+  50%  { transform: rotate(1.2deg); }
+  75%  { transform: rotate(-0.4deg); }
+  100% { transform: rotate(-1.8deg); }
+}
+
+// ── 风吹摇摆动画（通用） ──
+@keyframes cal-sway {
+  0%   { transform: rotate(-0.8deg); }
+  25%  { transform: rotate(-0.3deg); }
+  50%  { transform: rotate(0.5deg); }
+  75%  { transform: rotate(-0.2deg); }
+  100% { transform: rotate(-0.8deg); }
+}

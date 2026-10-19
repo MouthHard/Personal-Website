@@ -14,7 +14,7 @@
       "rating": 4.9,
       "bestTime": "春秋",
       "location": "福建省南平市武夷山市",
-      "description": "世界文化与自然双重遗产,中国十大名山之一",
+      "description": "武夷山，福建武夷山，造化钟神秀，层峦叠嶂巍峨耸立，世界文化与自然双重遗产，中国十大名山之一，实乃游历福建不可错过之胜境。。层峦叠嶂巍峨耸立，足以令旅人魂牵梦萦，心驰神往。",
       "highlight": "世界双遗产,丹霞碧水名山",
       "level": "5A景区",
       "rankBadge": "必去",
@@ -30,7 +30,6 @@
       ],
       "openTime": "06:30-18:00",
       "visitDuration": "2-3天",
-      "popularity": "★★★★★",
       "audienceTags": [
         "摄影爱好者",
         "登山爱好者",
@@ -38,21 +37,57 @@
         "自然爱好者"
       ],
       "ticketDetails": [
-        "一日游¥140",
-        "二日游¥150",
-        "三日游¥165",
-        "观光车¥85"
+        {
+          "type": "一日游",
+          "price": "¥140"
+        },
+        {
+          "type": "二日游",
+          "price": "¥150"
+        },
+        {
+          "type": "三日游",
+          "price": "¥165"
+        },
+        {
+          "type": "观光车",
+          "price": "¥85"
+        }
       ],
       "transportInfo": [
-        "飞机:武夷山机场距景区约15分钟车程",
-        "高铁:武夷山北站距景区约20分钟",
-        "自驾:经宁上高速武夷山出口",
-        "长途客运:武夷山客运站有班车直达"
+        {
+          "mode": "飞机",
+          "detail": "武夷山机场距景区约15分钟车程"
+        },
+        {
+          "mode": "高铁",
+          "detail": "武夷山北站距景区约20分钟"
+        },
+        {
+          "mode": "自驾",
+          "detail": "经宁上高速武夷山出口"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "武夷山客运站有班车直达"
+        }
       ],
       "openTimeDetail": [
-        "旺季(3-11月) 06:30-18:00",
-        "淡季(12-2月) 07:00-17:00",
-        "观光车 07:00-17:00"
+        {
+          "season": "旺季",
+          "months": "3-11月",
+          "time": "06:30-18:00"
+        },
+        {
+          "season": "淡季",
+          "months": "12-2月",
+          "time": "07:00-17:00"
+        },
+        {
+          "season": "观光车",
+          "months": "",
+          "time": "07:00-17:00"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -72,8 +107,15 @@
               "detail": "武夷宫→天游峰登顶俯瞰九曲溪全景→桃源洞探幽谷→武夷宫返程"
             }
           ],
-          "budget": "¥230-350",
-          "bestFor": "登山爱好者/摄影爱好者"
+          "budget": {
+            "currency": "¥",
+            "min": 230,
+            "max": 350
+          },
+          "bestFor": [
+            "登山爱好者",
+            "摄影爱好者"
+          ]
         },
         {
           "name": "九曲溪竹筏-武夷宫线",
@@ -92,8 +134,15 @@
               "detail": "星村码头→乘竹筏漂流九曲溪→武夷宫→品武夷岩茶"
             }
           ],
-          "budget": "¥255-400",
-          "bestFor": "家庭出游/休闲游"
+          "budget": {
+            "currency": "¥",
+            "min": 255,
+            "max": 400
+          },
+          "bestFor": [
+            "家庭出游",
+            "休闲游"
+          ]
         },
         {
           "name": "大红袍-水帘洞线",
@@ -112,8 +161,15 @@
               "detail": "大红袍景区→观大红袍母树→水帘洞→品岩茶体验"
             }
           ],
-          "budget": "¥140-250",
-          "bestFor": "茶文化爱好者/休闲游"
+          "budget": {
+            "currency": "¥",
+            "min": 140,
+            "max": 250
+          },
+          "bestFor": [
+            "茶文化爱好者",
+            "休闲游"
+          ]
         }
       ],
       "facilities": [
@@ -161,7 +217,7 @@
       "rating": 4.8,
       "bestTime": "全年",
       "location": "福建省厦门市思明区",
-      "description": "世界文化遗产,海上花园",
+      "description": "坐落于闽都大地的鼓浪屿，福建鼓浪屿，千年文脉传承之所，列世界遗产之林，世界文化遗产，海上花园，实乃游历福建不可错过之胜境。。碧海银沙椰风海韵，堪称天地造化与人文底蕴之交响。",
       "highlight": "海上花园,万国建筑博览",
       "level": "5A景区",
       "rankBadge": "必去",
@@ -173,7 +229,6 @@
       ],
       "openTime": "全天开放(轮渡06:00-21:30)",
       "visitDuration": "1天",
-      "popularity": "★★★★★",
       "audienceTags": [
         "文艺青年",
         "摄影爱好者",
@@ -182,21 +237,57 @@
         "家庭出游"
       ],
       "ticketDetails": [
-        "轮渡往返¥35",
-        "核心景点联票¥100",
-        "日光岩¥50",
-        "菽庄花园¥30"
+        {
+          "type": "轮渡往返",
+          "price": "¥35"
+        },
+        {
+          "type": "核心景点联票",
+          "price": "¥100"
+        },
+        {
+          "type": "日光岩",
+          "price": "¥50"
+        },
+        {
+          "type": "菽庄花园",
+          "price": "¥30"
+        }
       ],
       "transportInfo": [
-        "飞机:厦门高崎机场距轮渡码头约30分钟",
-        "高铁:厦门站距轮渡码头约20分钟",
-        "自驾:需至东渡邮轮中心停车后乘船",
-        "长途客运:梧村汽车站有公交直达码头"
+        {
+          "mode": "飞机",
+          "detail": "厦门高崎机场距轮渡码头约30分钟"
+        },
+        {
+          "mode": "高铁",
+          "detail": "厦门站距轮渡码头约20分钟"
+        },
+        {
+          "mode": "自驾",
+          "detail": "需至东渡邮轮中心停车后乘船"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "梧村汽车站有公交直达码头"
+        }
       ],
       "openTimeDetail": [
-        "轮渡 06:00-21:30",
-        "日光岩 07:30-18:00",
-        "菽庄花园 07:30-17:30"
+        {
+          "season": "轮渡",
+          "months": "",
+          "time": "06:00-21:30"
+        },
+        {
+          "season": "日光岩",
+          "months": "",
+          "time": "07:30-18:00"
+        },
+        {
+          "season": "菽庄花园",
+          "months": "",
+          "time": "07:30-17:30"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -216,8 +307,15 @@
               "detail": "轮渡登岛→日光岩登顶俯瞰全岛→菽庄花园赏海景→钢琴博物馆"
             }
           ],
-          "budget": "¥115-200",
-          "bestFor": "文艺青年/摄影爱好者"
+          "budget": {
+            "currency": "¥",
+            "min": 115,
+            "max": 200
+          },
+          "bestFor": [
+            "文艺青年",
+            "摄影爱好者"
+          ]
         },
         {
           "name": "风琴博物馆-皓月园线",
@@ -236,8 +334,15 @@
               "detail": "风琴博物馆→八卦楼→皓月园听海浪→海滨漫步"
             }
           ],
-          "budget": "¥65-150",
-          "bestFor": "文艺青年/情侣"
+          "budget": {
+            "currency": "¥",
+            "min": 65,
+            "max": 150
+          },
+          "bestFor": [
+            "文艺青年",
+            "情侣"
+          ]
         },
         {
           "name": "万国建筑漫步线",
@@ -256,8 +361,15 @@
               "detail": "三丘田码头→万国建筑群→复兴路→漳州路→小巷漫步"
             }
           ],
-          "budget": "¥35-100",
-          "bestFor": "建筑爱好者/文艺青年"
+          "budget": {
+            "currency": "¥",
+            "min": 35,
+            "max": 100
+          },
+          "bestFor": [
+            "建筑爱好者",
+            "文艺青年"
+          ]
         }
       ],
       "facilities": [
@@ -305,7 +417,7 @@
       "rating": 4.6,
       "bestTime": "全年",
       "location": "福建省厦门市思明区",
-      "description": "中国最美大学之一",
+      "description": "闽都厦门大学，福建厦门大学，古迹斑驳岁月悠悠，中国最美大学之一，实乃游历福建不可错过之胜境。。每一处景致皆是造物主的匠心独运。",
       "highlight": "中国最美大学,嘉庚建筑",
       "level": "4A景区",
       "rankBadge": "网红",
@@ -317,7 +429,6 @@
       ],
       "openTime": "08:00-18:00(需预约)",
       "visitDuration": "2-3小时",
-      "popularity": "★★★★☆",
       "audienceTags": [
         "文艺青年",
         "摄影爱好者",
@@ -326,21 +437,57 @@
         "家庭出游"
       ],
       "ticketDetails": [
-        "免费参观",
-        "需提前预约",
-        "节假日限流",
-        "校园卡可入内"
+        {
+          "type": "免费参观",
+          "price": ""
+        },
+        {
+          "type": "需提前预约",
+          "price": ""
+        },
+        {
+          "type": "节假日限流",
+          "price": ""
+        },
+        {
+          "type": "校园卡可入内",
+          "price": ""
+        }
       ],
       "transportInfo": [
-        "飞机:厦门高崎机场约30分钟车程",
-        "高铁:厦门站约15分钟车程",
-        "自驾:周边停车位紧张",
-        "长途客运:梧村汽车站有公交直达"
+        {
+          "mode": "飞机",
+          "detail": "厦门高崎机场约30分钟车程"
+        },
+        {
+          "mode": "高铁",
+          "detail": "厦门站约15分钟车程"
+        },
+        {
+          "mode": "自驾",
+          "detail": "周边停车位紧张"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "梧村汽车站有公交直达"
+        }
       ],
       "openTimeDetail": [
-        "工作日 08:00-18:00",
-        "周末 08:00-18:00",
-        "节假日 08:00-18:00(限流)"
+        {
+          "season": "工作日",
+          "months": "",
+          "time": "08:00-18:00"
+        },
+        {
+          "season": "周末",
+          "months": "",
+          "time": "08:00-18:00"
+        },
+        {
+          "season": "节假日 08:00-18:00(限流)",
+          "months": "",
+          "time": ""
+        }
       ],
       "recommendedRoutes": [
         {
@@ -361,7 +508,10 @@
             }
           ],
           "budget": "免费",
-          "bestFor": "文艺青年/情侣"
+          "bestFor": [
+            "文艺青年",
+            "情侣"
+          ]
         },
         {
           "name": "建南大会堂-上弦场线",
@@ -381,7 +531,10 @@
             }
           ],
           "budget": "免费",
-          "bestFor": "建筑爱好者/学生"
+          "bestFor": [
+            "建筑爱好者",
+            "学生"
+          ]
         }
       ],
       "facilities": [
@@ -428,7 +581,7 @@
       "rating": 4.7,
       "bestTime": "全年",
       "location": "福建省龙岩市永定区",
-      "description": "世界文化遗产,独特的客家民居建筑",
+      "description": "土楼者，闽都之胜境也。福建土楼，人文底蕴深厚之地，列世界遗产之林，世界文化遗产，独特的客家民居建筑，实乃游历福建不可错过之胜境。。列世界遗产之林，当属此地名胜之首推，不容错过。",
       "highlight": "世界文化遗产,客家建筑奇观",
       "level": "5A景区",
       "rankBadge": "必去",
@@ -440,7 +593,6 @@
       ],
       "openTime": "08:00-17:30",
       "visitDuration": "1天",
-      "popularity": "★★★★☆",
       "audienceTags": [
         "文化爱好者",
         "建筑爱好者",
@@ -448,20 +600,52 @@
         "历史爱好者"
       ],
       "ticketDetails": [
-        "振成楼¥50",
-        "承启楼¥50",
-        "联票¥90",
-        "儿童老人半价"
+        {
+          "type": "振成楼",
+          "price": "¥50"
+        },
+        {
+          "type": "承启楼",
+          "price": "¥50"
+        },
+        {
+          "type": "联票",
+          "price": "¥90"
+        },
+        {
+          "type": "儿童老人",
+          "price": "半价"
+        }
       ],
       "transportInfo": [
-        "飞机:最近机场为厦门高崎机场约3小时",
-        "高铁:龙岩站距土楼约1.5小时",
-        "自驾:经厦蓉高速永定出口",
-        "长途客运:龙岩汽车站有班车直达"
+        {
+          "mode": "飞机",
+          "detail": "最近机场为厦门高崎机场约3小时"
+        },
+        {
+          "mode": "高铁",
+          "detail": "龙岩站距土楼约1.5小时"
+        },
+        {
+          "mode": "自驾",
+          "detail": "经厦蓉高速永定出口"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "龙岩汽车站有班车直达"
+        }
       ],
       "openTimeDetail": [
-        "旺季(3-10月) 08:00-17:30",
-        "淡季(11-2月) 08:00-17:00"
+        {
+          "season": "旺季",
+          "months": "3-10月",
+          "time": "08:00-17:30"
+        },
+        {
+          "season": "淡季",
+          "months": "11-2月",
+          "time": "08:00-17:00"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -481,8 +665,15 @@
               "detail": "洪坑土楼群→振成楼→福裕楼→客家民俗体验"
             }
           ],
-          "budget": "¥90-200",
-          "bestFor": "文化爱好者/家庭出游"
+          "budget": {
+            "currency": "¥",
+            "min": 90,
+            "max": 200
+          },
+          "bestFor": [
+            "文化爱好者",
+            "家庭出游"
+          ]
         },
         {
           "name": "承启楼-世泽楼线",
@@ -501,8 +692,15 @@
               "detail": "高头土楼群→承启楼→世泽楼→了解客家生活"
             }
           ],
-          "budget": "¥90-200",
-          "bestFor": "建筑爱好者/文化爱好者"
+          "budget": {
+            "currency": "¥",
+            "min": 90,
+            "max": 200
+          },
+          "bestFor": [
+            "建筑爱好者",
+            "文化爱好者"
+          ]
         }
       ],
       "facilities": [
@@ -550,7 +748,7 @@
       "rating": 4.5,
       "bestTime": "全年",
       "location": "福建省福州市鼓楼区",
-      "description": "中国十大历史文化名街之一",
+      "description": "名为三坊七巷，福建三坊七巷，人文荟萃之地，中国十大历史文化名街之一，实乃游历福建不可错过之胜境。。令人叹为观止，流连忘返。",
       "highlight": "明清建筑博物馆,里坊活化石",
       "level": "5A景区",
       "rankBadge": "网红",
@@ -562,7 +760,6 @@
       ],
       "openTime": "全天开放(展馆09:00-17:00)",
       "visitDuration": "3-4小时",
-      "popularity": "★★★★☆",
       "audienceTags": [
         "文化爱好者",
         "历史爱好者",
@@ -571,21 +768,57 @@
         "家庭出游"
       ],
       "ticketDetails": [
-        "街区免费",
-        "联票¥120",
-        "单馆¥20-30",
-        "儿童老人优惠"
+        {
+          "type": "街区",
+          "price": "免费"
+        },
+        {
+          "type": "联票",
+          "price": "¥120"
+        },
+        {
+          "type": "单馆¥20-30",
+          "price": ""
+        },
+        {
+          "type": "儿童老人优惠",
+          "price": ""
+        }
       ],
       "transportInfo": [
-        "飞机:福州长乐机场约1小时车程",
-        "高铁:福州站约20分钟车程",
-        "自驾:市中心停车位紧张",
-        "长途客运:福州汽车站有公交直达"
+        {
+          "mode": "飞机",
+          "detail": "福州长乐机场约1小时车程"
+        },
+        {
+          "mode": "高铁",
+          "detail": "福州站约20分钟车程"
+        },
+        {
+          "mode": "自驾",
+          "detail": "市中心停车位紧张"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "福州汽车站有公交直达"
+        }
       ],
       "openTimeDetail": [
-        "街区 全天开放",
-        "展馆 09:00-17:00",
-        "夜间灯光 18:00-22:00"
+        {
+          "season": "街区 全天开放",
+          "months": "",
+          "time": ""
+        },
+        {
+          "season": "展馆",
+          "months": "",
+          "time": "09:00-17:00"
+        },
+        {
+          "season": "夜间灯光",
+          "months": "",
+          "time": "18:00-22:00"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -605,8 +838,15 @@
               "detail": "南后街牌坊→漫步南后街→衣锦坊→水榭戏台"
             }
           ],
-          "budget": "¥0-120",
-          "bestFor": "文化爱好者/家庭出游"
+          "budget": {
+            "currency": "¥",
+            "min": 0,
+            "max": 120
+          },
+          "bestFor": [
+            "文化爱好者",
+            "家庭出游"
+          ]
         },
         {
           "name": "文儒坊-光禄坊线",
@@ -625,8 +865,15 @@
               "detail": "文儒坊→名人故居→光禄坊→古巷幽深→出坊"
             }
           ],
-          "budget": "¥0-120",
-          "bestFor": "历史爱好者/文艺青年"
+          "budget": {
+            "currency": "¥",
+            "min": 0,
+            "max": 120
+          },
+          "bestFor": [
+            "历史爱好者",
+            "文艺青年"
+          ]
         }
       ],
       "facilities": [
@@ -717,42 +964,42 @@
       {
         "name": "武夷山",
         "image": "https://picsum.photos/id/1360/600/400",
-        "description": "世界文化与自然双重遗产,中国十大名山之一"
+        "description": "坐落于闽都大地的武夷山，武夷山——世界文化与自然双重遗产，中国十大名山之一，实乃游历此地不可错过之胜境。。每一处景致皆是造物主的匠心独运。"
       },
       {
         "name": "鼓浪屿",
         "image": "https://picsum.photos/id/1361/600/400",
-        "description": "世界文化遗产,海上花园"
+        "description": "闽都鼓浪屿，福建名胜鼓浪屿，世界文化遗产，海上花园，令人心驰神往流连忘返。。当属此地名胜之首推，不容错过。"
       },
       {
         "name": "厦门大学",
         "image": "https://picsum.photos/id/1362/600/400",
-        "description": "中国最美大学之一"
+        "description": "厦门大学者，闽都之胜境也。厦门大学者，福建之中国最美大学之一，堪称此地风光之冠冕。。令人叹为观止，流连忘返。"
       },
       {
         "name": "土楼",
         "image": "https://picsum.photos/id/1363/600/400",
-        "description": "世界文化遗产,独特的客家民居建筑"
+        "description": "名为土楼，誉为福建明珠的土楼，世界文化遗产，独特的客家民居建筑，每一处皆是造化与人文的交响。。实乃游历此地不可错过之胜境。"
       },
       {
         "name": "三坊七巷",
         "image": "https://picsum.photos/id/1364/600/400",
-        "description": "中国十大历史文化名街之一"
+        "description": "闽都名胜三坊七巷，三坊七巷，中国十大历史文化名街之一，足以令旅人魂牵梦萦。。足以令旅人魂牵梦萦，心驰神往。"
       },
       {
         "name": "湄洲岛",
         "image": "https://picsum.photos/id/1365/600/400",
-        "description": "妈祖圣地,南海圣境"
+        "description": "湄洲岛，湄洲岛——妈祖圣地，南海圣境，当属此地名胜之首推。。堪称天地造化与人文底蕴之交响。"
       },
       {
         "name": "太姥山",
         "image": "https://picsum.photos/id/1366/600/400",
-        "description": "海上仙都,以奇石著称"
+        "description": "坐落于闽都大地的太姥山，福建名胜太姥山，海上仙都，以奇石著称，实乃游历此地不可错过之胜境。。每一处景致皆是造物主的匠心独运。"
       },
       {
         "name": "清源山",
         "image": "https://picsum.photos/id/1367/600/400",
-        "description": "泉州著名风景区,闽海蓬莱第一山"
+        "description": "闽都清源山，清源山者，福建之泉州著名风景区，闽海蓬莱第一山，令人心驰神往流连忘返。。当属此地名胜之首推，不容错过。"
       }
     ]
   },
@@ -810,7 +1057,63 @@
       "month": "4月",
       "isUnique": true,
       "location": "湄洲岛",
-      "description": "妈祖文化的盛大节庆活动"
+      "description": "纪念海神妈祖诞辰，妈祖巡安绕境、海祭大典、莆仙戏表演，湄洲岛上信众云集，感受这世界非遗\"海上女神\"信仰之虔诚与海峡两岸文化之交融。",
+      "type": "民俗节庆",
+      "heritageLevel": "世界非遗",
+      "duration": "约5天",
+      "origin": "妈祖文化旅游节始于1994年，纪念海神妈祖诞辰。妈祖信俗2009年入选联合国人类非物质文化遗产。",
+      "highlights": [
+        "妈祖巡安绕境",
+        "海祭大典",
+        "妈祖文创展",
+        "莆仙戏表演",
+        "海峡两岸文化交流"
+      ],
+      "bestTime": "农历三月廿三妈祖诞辰日",
+      "ticket": "湄洲岛门票¥65",
+      "transport": "高铁至莆田站，转轮渡至湄洲岛",
+      "tips": [
+        "需乘船登岛，注意航班时间",
+        "海岛紫外线强，做好防晒",
+        "绕境活动人潮拥挤，注意安全"
+      ],
+      "relatedSpots": [
+        "湄洲岛",
+        "妈祖祖庙",
+        "鹅尾神石园"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "福建茶文化节",
+      "month": "5月",
+      "day": "1日",
+      "location": "武夷山",
+      "isUnique": false,
+      "description": "依托武夷岩茶大红袍传统制作技艺，岩茶品鉴、茶艺表演、制茶展示、茶山徒步，于丹霞碧水间品味\"岩骨花香\"之韵与千年茶道之雅。",
+      "type": "文化节庆",
+      "duration": "约3天",
+      "origin": "福建茶文化节依托武夷岩茶（大红袍）传统制作技艺，该技艺2006年入选国家级非遗。",
+      "highlights": [
+        "岩茶品鉴会",
+        "茶艺表演",
+        "制茶技艺展示",
+        "茶山徒步",
+        "茶文化论坛"
+      ],
+      "bestTime": "春茶上市期间",
+      "ticket": "武夷山门票¥140",
+      "transport": "高铁至武夷山东站，转景区公交",
+      "tips": [
+        "岩茶价格差异大，建议正规渠道购买",
+        "茶山徒步需2-3小时",
+        "景区内观光车¥85另购"
+      ],
+      "relatedSpots": [
+        "武夷山",
+        "大红袍景区",
+        "天游峰"
+      ]
     }
   ],
   "activities": [
@@ -840,7 +1143,7 @@
   "intangibleHeritage": [
     {
       "id": "1",
-      "icon": "🎵",
+      "icon": "music",
       "name": "福建南音",
       "image": "https://picsum.photos/id/1360/600/400",
       "level": "national",
@@ -881,7 +1184,11 @@
           "avgRating": 4.7,
           "bestSeason": "春秋 / 全年",
           "recommendedDays": "2-3 日",
-          "budget": "¥500-1200",
+          "budget": {
+            "currency": "¥",
+            "min": 500,
+            "max": 1200
+          },
           "intensity": "适中",
           "audience": "全人群",
           "highlights": [
@@ -907,7 +1214,11 @@
           "avgRating": 4.6,
           "bestSeason": "秋冬",
           "recommendedDays": "2 日",
-          "budget": "¥400-900",
+          "budget": {
+            "currency": "¥",
+            "min": 400,
+            "max": 900
+          },
           "intensity": "适中",
           "audience": "摄影/户外",
           "highlights": [
@@ -937,7 +1248,11 @@
           "avgRating": 4.6,
           "bestSeason": "全年",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-400",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
           "intensity": "轻松",
           "audience": "文化/家庭",
           "highlights": [
@@ -965,7 +1280,11 @@
           "avgRating": 4.5,
           "bestSeason": "全年",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-400",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
           "intensity": "轻松",
           "audience": "银发/养心",
           "highlights": [
@@ -995,7 +1314,11 @@
           "avgRating": 4.5,
           "bestSeason": "夏秋",
           "recommendedDays": "2-3 日",
-          "budget": "¥500-1500",
+          "budget": {
+            "currency": "¥",
+            "min": 500,
+            "max": 1500
+          },
           "intensity": "轻松",
           "audience": "家庭/度假",
           "highlights": [
@@ -1025,7 +1348,11 @@
           "avgRating": 4.8,
           "bestSeason": "3-5月",
           "recommendedDays": "1 日",
-          "budget": "¥100-300",
+          "budget": {
+            "currency": "¥",
+            "min": 100,
+            "max": 300
+          },
           "intensity": "轻松",
           "audience": "摄影/家庭",
           "highlights": [
@@ -1044,6 +1371,353 @@
           ]
         }
       ]
+    }
+  ],
+  "craftWorkshops": [
+    {
+      "id": "fujian-craft-1",
+      "image": "https://picsum.photos/id/1342/600/400",
+      "category": "craft",
+      "name": "福州脱胎漆器制作",
+      "type": "漆器",
+      "location": "福州漆艺基地",
+      "duration": "3小时",
+      "difficulty": "中等",
+      "price": "260",
+      "rating": 4.8,
+      "reviewCount": 234,
+      "instructor": "漆艺传承人",
+      "heritageLevel": "national",
+      "highlights": [
+        "脱胎技法体验",
+        "髹漆工艺",
+        "了解200年漆艺史"
+      ],
+      "steps": [
+        "制模",
+        "脱胎",
+        "裱布",
+        "髹漆",
+        "打磨"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "手工艺爱好者"
+      ],
+      "tags": [
+        "非遗",
+        "漆器",
+        "福州三宝"
+      ],
+      "description": "福州脱胎漆器位列\"三宝\"之首，沈绍安创于清乾隆年间，脱胎技法巧夺天工。于漆艺基地亲手髹漆，层层打磨间光泽如镜，感受这二百年传承之\"东方珍品\"的非凡魅力。"
+    },
+    {
+      "id": "fujian-craft-2",
+      "image": "https://picsum.photos/id/1344/600/400",
+      "category": "craft",
+      "name": "建阳建盏拉坯",
+      "type": "陶瓷",
+      "location": "建阳区水吉镇",
+      "duration": "3小时",
+      "difficulty": "简单",
+      "price": "200",
+      "rating": 4.7,
+      "reviewCount": 312,
+      "instructor": "建盏传承人",
+      "heritageLevel": "national",
+      "highlights": [
+        "拉坯成型",
+        "入窑烧制",
+        "兔毫釉色鉴赏"
+      ],
+      "steps": [
+        "选瓷土",
+        "拉坯",
+        "上釉",
+        "入窑烧制"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "手工艺爱好者"
+      ],
+      "tags": [
+        "非遗",
+        "建盏",
+        "宋瓷"
+      ],
+      "description": "建盏乃宋代点茶之神器，兔毫油滴釉色天成，窑变之美不可方物。于水吉镇古窑址亲手拉坯入窑，烈火淬炼间釉色斑斓，感受这八百年前宋人雅趣与窑火天工之妙。"
+    }
+  ],
+  "performances": [
+    {
+      "id": "fujian-perf-1",
+      "image": "https://picsum.photos/id/1880/600/400",
+      "category": "performance",
+      "name": "印象大红袍·武夷山",
+      "type": "大型实景",
+      "location": "南平市武夷山印象大红袍剧场",
+      "duration": "1小时",
+      "difficulty": "简单",
+      "price": "238",
+      "rating": 4.8,
+      "reviewCount": 567,
+      "highlights": [
+        "张艺谋导演作品",
+        "360度旋转观众席",
+        "茶文化史诗"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "家庭游客"
+      ],
+      "tags": [
+        "印象",
+        "实景",
+        "大红袍"
+      ],
+      "description": "印象大红袍以武夷山水为台，360度旋转观众席带您穿越茶之千年。从大红袍母树的到岩骨花香，从朱熹讲学到茶马古道，光影与实景交融，于这世界双遗产地领略岩茶文化之磅礴史诗。"
+    },
+    {
+      "id": "fujian-perf-2",
+      "image": "https://picsum.photos/id/1881/600/400",
+      "category": "performance",
+      "name": "高甲戏丑角·泉州",
+      "type": "戏曲",
+      "location": "泉州市高甲戏剧团",
+      "duration": "2小时",
+      "difficulty": "简单",
+      "price": "50",
+      "rating": 4.5,
+      "reviewCount": 178,
+      "highlights": [
+        "丑角绝活逗趣",
+        "闽南语对白",
+        "公子丑婆丑行当"
+      ],
+      "suitableFor": [
+        "戏曲爱好者",
+        "文化体验者"
+      ],
+      "tags": [
+        "非遗",
+        "高甲戏",
+        "闽南"
+      ],
+      "description": "高甲戏丑角称绝，一颦一笑皆见功夫。公子丑的扇子功、婆丑的拐步、傻丑的呆头，滑稽中见精妙。于这闽南古地聆听乡音俚曲，在丑角的嬉笑怒骂中领略高甲戏\"无丑不成戏\"之独特魅力。",
+      "heritageLevel": "national"
+    },
+    {
+      "id": "fujian-perf-3",
+      "image": "https://picsum.photos/id/1882/600/400",
+      "category": "performance",
+      "name": "闽南歌仔戏·漳州",
+      "type": "戏曲",
+      "location": "漳州市歌仔戏剧团",
+      "duration": "2小时",
+      "difficulty": "简单",
+      "price": "40",
+      "rating": 4.4,
+      "reviewCount": 134,
+      "highlights": [
+        "闽南语说唱",
+        "歌仔调民谣",
+        "两岸同根戏曲"
+      ],
+      "suitableFor": [
+        "戏曲爱好者",
+        "文化体验者"
+      ],
+      "tags": [
+        "非遗",
+        "歌仔戏",
+        "闽南"
+      ],
+      "description": "歌仔戏以闽南语唱尽百姓悲欢，从《陈三五娘》的荔枝镜到《山伯英台》的化蝶情，歌仔调悠扬如诉。于这漳州古城聆听两岸同根的乡音，在哭调与杂念调间品味闽南人之柔情似水。",
+      "heritageLevel": "provincial"
+    }
+  ],
+  "outdoorAdventure": [
+    {
+      "id": "fujian-outdoor-1",
+      "image": "https://picsum.photos/id/1363/600/400",
+      "category": "outdoor",
+      "name": "武夷山岩茶古道徒步",
+      "type": "徒步穿越",
+      "location": "武夷山风景区",
+      "duration": "1天",
+      "difficulty": "中等",
+      "price": "140",
+      "rating": 4.8,
+      "reviewCount": 3456,
+      "totalAscent": 520,
+      "maxElevation": 408,
+      "routeType": "环线",
+      "surfaceType": "石阶",
+      "accessInfo": "高铁至最近站，转景区交通",
+      "gearList": [
+        "登山鞋",
+        "雨衣",
+        "茶水"
+      ],
+      "safetyTips": [
+        "山路湿滑",
+        "雷雨勿登山"
+      ],
+      "bestMonths": "4-5月·9-10月",
+      "highlights": [
+        "大红袍母树",
+        "岩茶古道",
+        "天游峰览胜"
+      ],
+      "tags": [
+        "徒步",
+        "茶道",
+        "世界遗产"
+      ],
+      "description": "武夷山位列世界文化与自然双遗产，岩茶古道蜿蜒于丹霞碧水间。沿大红袍景区穿行至天心岩，茶香弥漫古道，九曲溪畔丹霞耸立，\"岩骨花香\"之韵沁人心脾。"
+    },
+    {
+      "id": "fujian-outdoor-2",
+      "image": "https://picsum.photos/id/1366/600/400",
+      "category": "outdoor",
+      "name": "太姥山奇峰穿越",
+      "type": "徒步穿越",
+      "location": "福鼎市太姥山",
+      "duration": "半天",
+      "difficulty": "简单",
+      "price": "100",
+      "rating": 4.6,
+      "reviewCount": 1234,
+      "totalAscent": 430,
+      "maxElevation": 917,
+      "routeType": "往返",
+      "surfaceType": "石阶",
+      "accessInfo": "高铁至最近站，转景区交通",
+      "gearList": [
+        "登山鞋",
+        "手套",
+        "头灯"
+      ],
+      "safetyTips": [
+        "一线天狭窄注意体位",
+        "雨天路滑"
+      ],
+      "bestMonths": "4-5月·9-10月",
+      "highlights": [
+        "石峰林立",
+        "海上日出",
+        "一线天奇观"
+      ],
+      "tags": [
+        "徒步",
+        "奇峰",
+        "海上仙都"
+      ],
+      "description": "太姥山以花岗岩峰林闻名遐迩，海上仙都之名传誉千年。穿越夫妻峰九鲤朝天，石峰如林刺破苍穹，一线天内幽深莫测，东海日出映奇峰如画，此乃山海交响之绝境。"
+    }
+  ],
+  "wellnessRetreat": [
+    {
+      "id": "fujian-wellness-1",
+      "image": "https://picsum.photos/id/1900/600/400",
+      "category": "wellness",
+      "name": "武夷岩茶品鉴禅修",
+      "type": "茶禅养生",
+      "location": "南平市武夷山天心永乐禅寺",
+      "duration": "1天",
+      "difficulty": "简单",
+      "price": "200",
+      "rating": 4.8,
+      "reviewCount": 345,
+      "efficacyTags": [
+        "岩茶大红袍品鉴",
+        "禅寺坐禅静心",
+        "茶禅一味悟道"
+      ],
+      "bestSeason": "春秋",
+      "packageIncludes": [
+        "茶席",
+        "素斋",
+        "禅修"
+      ],
+      "suitableFor": [
+        "茶道爱好者",
+        "禅修爱好者"
+      ],
+      "tags": [
+        "茶禅",
+        "岩茶",
+        "武夷山"
+      ],
+      "description": "天心永乐禅寺深藏武夷三坑两涧间，大红袍母树就在寺外岩壁。于古刹中坐禅品茶，岩骨花香的肉桂水仙在舌尖绽放，茶禅一味之境如悟\"吃茶去\"之公案，于这双遗产地中修一颗平常心。"
+    },
+    {
+      "id": "fujian-wellness-2",
+      "image": "https://picsum.photos/id/1901/600/400",
+      "category": "wellness",
+      "name": "鼓浪屿海滨瑜伽慢生活",
+      "type": "瑜伽养生",
+      "location": "厦门市鼓浪屿环岛路",
+      "duration": "1天",
+      "difficulty": "简单",
+      "price": "免费",
+      "rating": 4.7,
+      "reviewCount": 432,
+      "efficacyTags": [
+        "琴岛海滨瑜伽",
+        "万国建筑慢行",
+        "日光岩日出冥想"
+      ],
+      "bestSeason": "春秋",
+      "packageIncludes": [
+        "瑜伽垫",
+        "步行",
+        "茶饮"
+      ],
+      "suitableFor": [
+        "瑜伽爱好者",
+        "文艺青年"
+      ],
+      "tags": [
+        "瑜伽",
+        "琴岛",
+        "鼓浪屿"
+      ],
+      "description": "鼓浪屿琴声悠悠，万国建筑掩映绿荫。于环岛海滨铺开瑜伽垫，涛声为乐海风为伴，登日光岩迎第一缕曙光冥想放空，于这\"海上花园\"中漫步慢行，让琴岛之韵洗涤都市之躁。"
+    },
+    {
+      "id": "fujian-wellness-3",
+      "image": "https://picsum.photos/id/1902/600/400",
+      "category": "wellness",
+      "name": "泰宁丹霞竹筏漂流",
+      "type": "漂流养生",
+      "location": "三明市泰宁县上清溪",
+      "duration": "半天",
+      "difficulty": "简单",
+      "price": "130",
+      "rating": 4.7,
+      "reviewCount": 234,
+      "efficacyTags": [
+        "丹霞赤壁漂流",
+        "竹筏穿峡谷",
+        "九十九曲弯"
+      ],
+      "bestSeason": "春秋",
+      "packageIncludes": [
+        "竹筏票",
+        "救生衣",
+        "导览"
+      ],
+      "suitableFor": [
+        "自然爱好者",
+        "休闲度假"
+      ],
+      "tags": [
+        "漂流",
+        "丹霞",
+        "泰宁"
+      ],
+      "description": "上清溪九十九曲弯，丹霞赤壁夹岸耸立。竹筏轻漂碧水之上，转峰回路如入画廊，丹霞地貌之奇绝与溪水之清幽交响，于这世界自然遗产中随波放空，尽享\"水上天然盆景\"之康养闲趣。"
     }
   ]
 }

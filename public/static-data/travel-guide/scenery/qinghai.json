@@ -14,7 +14,7 @@
       "rating": 4.8,
       "bestTime": "夏季",
       "location": "青海省海南藏族自治州",
-      "description": "中国最大的内陆湖,高原明珠",
+      "description": "青海湖，青海青海湖，造化钟神秀，碧波荡漾水光潋滟，中国最大的内陆湖，高原明珠，实乃游历青海不可错过之胜境。。碧波荡漾水光潋滟，足以令旅人魂牵梦萦，心驰神往。",
       "highlight": "中国最大咸水湖,高原蓝宝石",
       "level": "5A景区",
       "rankBadge": "必去",
@@ -27,7 +27,6 @@
       "landscapeType": "lake",
       "openTime": "全天开放",
       "visitDuration": "1-2天",
-      "popularity": "★★★★★",
       "audienceTags": [
         "摄影爱好者",
         "自然爱好者",
@@ -35,21 +34,57 @@
         "家庭游客"
       ],
       "ticketDetails": [
-        "成人票¥100",
-        "二郎剑景区¥100",
-        "学生票半价",
-        "儿童免票"
+        {
+          "type": "成人票",
+          "price": "¥100"
+        },
+        {
+          "type": "二郎剑景区",
+          "price": "¥100"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "儿童",
+          "price": "免票"
+        }
       ],
       "transportInfo": [
-        "西宁曹家堡机场距市区约30公里，再转车至青海湖",
-        "兰新高铁到西宁站，再转车至青海湖",
-        "西宁-青海湖，约150公里，环湖约360公里",
-        "西宁有旅游班车前往青海湖"
+        {
+          "mode": "其他",
+          "detail": "西宁曹家堡机场距市区约30公里，再转车至青海湖"
+        },
+        {
+          "mode": "其他",
+          "detail": "兰新高铁到西宁站，再转车至青海湖"
+        },
+        {
+          "mode": "其他",
+          "detail": "西宁-青海湖，约150公里，环湖约360公里"
+        },
+        {
+          "mode": "其他",
+          "detail": "西宁有旅游班车前往青海湖"
+        }
       ],
       "openTimeDetail": [
-        "全天开放",
-        "二郎剑景区 08:00-18:00",
-        "最佳观赏时间为白天"
+        {
+          "season": "全天开放",
+          "months": "",
+          "time": ""
+        },
+        {
+          "season": "二郎剑景区",
+          "months": "",
+          "time": "08:00-18:00"
+        },
+        {
+          "season": "最佳观赏时间为白天",
+          "months": "",
+          "time": ""
+        }
       ],
       "recommendedRoutes": [
         {
@@ -70,8 +105,15 @@
               "detail": "西宁→二郎剑景区→黑马河→鸟岛→环湖西路→返程西宁"
             }
           ],
-          "budget": "¥300-500",
-          "bestFor": "首次游览/摄影爱好者"
+          "budget": {
+            "currency": "¥",
+            "min": 300,
+            "max": 500
+          },
+          "bestFor": [
+            "首次游览",
+            "摄影爱好者"
+          ]
         },
         {
           "name": "环湖深度游",
@@ -96,8 +138,15 @@
               "detail": "黑马河日出→环湖东路→金银滩→返程西宁"
             }
           ],
-          "budget": "¥600-1000",
-          "bestFor": "深度游/自驾爱好者"
+          "budget": {
+            "currency": "¥",
+            "min": 600,
+            "max": 1000
+          },
+          "bestFor": [
+            "深度游",
+            "自驾爱好者"
+          ]
         }
       ],
       "facilities": [
@@ -146,7 +195,7 @@
       "rating": 4.7,
       "bestTime": "全年",
       "location": "青海省西宁市湟中区",
-      "description": "藏传佛教格鲁派六大寺院之一",
+      "description": "坐落于河湟大地的塔尔寺，青海塔尔寺，千年文脉传承之所，梵音袅袅香火鼎盛，藏传佛教格鲁派六大寺院之一，实乃游历青海不可错过之胜境。。梵音袅袅香火鼎盛，堪称天地造化与人文底蕴之交响。",
       "highlight": "藏传佛教格鲁派六大寺之一",
       "level": "5A景区",
       "rankBadge": "圣地",
@@ -155,7 +204,6 @@
       "ticketPrice": "¥70",
       "openTime": "08:00-17:00",
       "visitDuration": "2-3小时",
-      "popularity": "★★★★☆",
       "audienceTags": [
         "文化爱好者",
         "佛教信徒",
@@ -163,21 +211,57 @@
         "建筑爱好者"
       ],
       "ticketDetails": [
-        "成人票¥70",
-        "学生票半价",
-        "儿童免票",
-        "含讲解费"
+        {
+          "type": "成人票",
+          "price": "¥70"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "儿童",
+          "price": "免票"
+        },
+        {
+          "type": "含讲解费",
+          "price": ""
+        }
       ],
       "transportInfo": [
-        "西宁曹家堡机场距市区约30公里，再转车至湟中",
-        "兰新高铁到西宁站，再转公交至湟中",
-        "西宁-湟中，约30公里，路况较好",
-        "西宁有公交直达塔尔寺"
+        {
+          "mode": "其他",
+          "detail": "西宁曹家堡机场距市区约30公里，再转车至湟中"
+        },
+        {
+          "mode": "其他",
+          "detail": "兰新高铁到西宁站，再转公交至湟中"
+        },
+        {
+          "mode": "其他",
+          "detail": "西宁-湟中，约30公里，路况较好"
+        },
+        {
+          "mode": "其他",
+          "detail": "西宁有公交直达塔尔寺"
+        }
       ],
       "openTimeDetail": [
-        "旺季(4-10月) 08:00-17:00",
-        "淡季(11-3月) 08:30-16:30",
-        "佛事活动期间有变"
+        {
+          "season": "旺季",
+          "months": "4-10月",
+          "time": "08:00-17:00"
+        },
+        {
+          "season": "淡季",
+          "months": "11-3月",
+          "time": "08:30-16:30"
+        },
+        {
+          "season": "佛事活动期间有变",
+          "months": "",
+          "time": ""
+        }
       ],
       "recommendedRoutes": [
         {
@@ -198,8 +282,15 @@
               "detail": "入口→八宝如意塔→大金瓦殿→大经堂→酥油花馆→返程"
             }
           ],
-          "budget": "¥70-150",
-          "bestFor": "文化爱好者/佛教信徒"
+          "budget": {
+            "currency": "¥",
+            "min": 70,
+            "max": 150
+          },
+          "bestFor": [
+            "文化爱好者",
+            "佛教信徒"
+          ]
         },
         {
           "name": "湟中文化游",
@@ -219,8 +310,15 @@
               "detail": "塔尔寺→酥油花馆→藏族文化村→堆绣工坊→返程西宁"
             }
           ],
-          "budget": "¥200-400",
-          "bestFor": "文化深度游/家庭出游"
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
+          "bestFor": [
+            "文化深度游",
+            "家庭出游"
+          ]
         }
       ],
       "facilities": [
@@ -269,7 +367,7 @@
       "rating": 4.7,
       "bestTime": "夏季",
       "location": "青海省海西蒙古族藏族自治州乌兰县",
-      "description": "天空之镜,中国最美的盐湖之一",
+      "description": "河湟茶卡盐湖，青海茶卡盐湖，天地造化之奇，天空之镜，中国最美的盐湖之一，实乃游历青海不可错过之胜境。。每一处景致皆是造物主的匠心独运。",
       "highlight": "天空之镜,中国最美盐湖",
       "level": "4A景区",
       "rankBadge": "网红",
@@ -282,7 +380,6 @@
       "landscapeType": "lake",
       "openTime": "07:00-18:30",
       "visitDuration": "半天",
-      "popularity": "★★★★★",
       "audienceTags": [
         "摄影爱好者",
         "自然爱好者",
@@ -290,21 +387,57 @@
         "家庭游客"
       ],
       "ticketDetails": [
-        "成人票¥60",
-        "小火车¥50",
-        "学生票半价",
-        "儿童免票"
+        {
+          "type": "成人票",
+          "price": "¥60"
+        },
+        {
+          "type": "小火车",
+          "price": "¥50"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "儿童",
+          "price": "免票"
+        }
       ],
       "transportInfo": [
-        "西宁曹家堡机场下机后转车至茶卡，约300公里",
-        "兰新高铁到西宁站，再转车至茶卡",
-        "西宁-茶卡，约300公里，经京藏高速",
-        "西宁有旅游班车前往茶卡盐湖"
+        {
+          "mode": "其他",
+          "detail": "西宁曹家堡机场下机后转车至茶卡，约300公里"
+        },
+        {
+          "mode": "其他",
+          "detail": "兰新高铁到西宁站，再转车至茶卡"
+        },
+        {
+          "mode": "其他",
+          "detail": "西宁-茶卡，约300公里，经京藏高速"
+        },
+        {
+          "mode": "其他",
+          "detail": "西宁有旅游班车前往茶卡盐湖"
+        }
       ],
       "openTimeDetail": [
-        "旺季(5-10月) 07:00-18:30",
-        "淡季(11-4月) 08:00-17:00",
-        "最佳拍摄时间为上午"
+        {
+          "season": "旺季",
+          "months": "5-10月",
+          "time": "07:00-18:30"
+        },
+        {
+          "season": "淡季",
+          "months": "11-4月",
+          "time": "08:00-17:00"
+        },
+        {
+          "season": "最佳拍摄时间为上午",
+          "months": "",
+          "time": ""
+        }
       ],
       "recommendedRoutes": [
         {
@@ -325,8 +458,15 @@
               "detail": "景区入口→小火车→盐湖中心→天空之镜拍照→盐雕→返程"
             }
           ],
-          "budget": "¥150-300",
-          "bestFor": "摄影爱好者/网红打卡"
+          "budget": {
+            "currency": "¥",
+            "min": 150,
+            "max": 300
+          },
+          "bestFor": [
+            "摄影爱好者",
+            "网红打卡"
+          ]
         },
         {
           "name": "盐湖深度游",
@@ -346,8 +486,15 @@
               "detail": "茶卡盐湖→小火车→盐湖中心→茶卡镇午餐→周边盐田→返程"
             }
           ],
-          "budget": "¥300-500",
-          "bestFor": "深度游/家庭出游"
+          "budget": {
+            "currency": "¥",
+            "min": 300,
+            "max": 500
+          },
+          "bestFor": [
+            "深度游",
+            "家庭出游"
+          ]
         }
       ],
       "facilities": [
@@ -396,7 +543,7 @@
       "rating": 4.5,
       "bestTime": "夏季",
       "location": "青海省西宁市湟源县",
-      "description": "文成公主进藏经过的地方,文成公主的故乡",
+      "description": "日月山者，河湟之胜境也。青海日月山，人文底蕴深厚之地，层峦叠嶂巍峨耸立，文成公主进藏经过的地方，文成公主的故乡，实乃游历青海不可错过之胜境。。层峦叠嶂巍峨耸立，当属此地名胜之首推，不容错过。",
       "highlight": "文成公主进山,日月宝镜",
       "level": "4A景区",
       "reviewCount": "32,109条点评",
@@ -405,7 +552,6 @@
       "rankBadge": "名山",
       "openTime": "08:00-17:00",
       "visitDuration": "1-2小时",
-      "popularity": "★★★☆☆",
       "audienceTags": [
         "文化爱好者",
         "历史爱好者",
@@ -413,21 +559,57 @@
         "自驾爱好者"
       ],
       "ticketDetails": [
-        "成人票¥40",
-        "学生票半价",
-        "儿童免票",
-        "含文成公主纪念馆"
+        {
+          "type": "成人票",
+          "price": "¥40"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "儿童",
+          "price": "免票"
+        },
+        {
+          "type": "含文成公主纪念馆",
+          "price": ""
+        }
       ],
       "transportInfo": [
-        "西宁曹家堡机场下机后转车至湟源",
-        "兰新高铁到西宁站，再转车至湟源",
-        "西宁-日月山，约100公里，经青藏公路",
-        "西宁有班车至湟源"
+        {
+          "mode": "其他",
+          "detail": "西宁曹家堡机场下机后转车至湟源"
+        },
+        {
+          "mode": "其他",
+          "detail": "兰新高铁到西宁站，再转车至湟源"
+        },
+        {
+          "mode": "其他",
+          "detail": "西宁-日月山，约100公里，经青藏公路"
+        },
+        {
+          "mode": "其他",
+          "detail": "西宁有班车至湟源"
+        }
       ],
       "openTimeDetail": [
-        "旺季(5-10月) 08:00-17:00",
-        "淡季(11-4月) 09:00-16:00",
-        "最佳观赏时间为白天"
+        {
+          "season": "旺季",
+          "months": "5-10月",
+          "time": "08:00-17:00"
+        },
+        {
+          "season": "淡季",
+          "months": "11-4月",
+          "time": "09:00-16:00"
+        },
+        {
+          "season": "最佳观赏时间为白天",
+          "months": "",
+          "time": ""
+        }
       ],
       "recommendedRoutes": [
         {
@@ -448,8 +630,15 @@
               "detail": "入口→日亭→月亭→文成公主纪念馆→草原观景→返程"
             }
           ],
-          "budget": "¥50-150",
-          "bestFor": "文化爱好者/自驾游"
+          "budget": {
+            "currency": "¥",
+            "min": 50,
+            "max": 150
+          },
+          "bestFor": [
+            "文化爱好者",
+            "自驾游"
+          ]
         },
         {
           "name": "湟源文化游",
@@ -469,8 +658,15 @@
               "detail": "西宁→日月山→湟源古城→丹噶尔古城→返程西宁"
             }
           ],
-          "budget": "¥200-400",
-          "bestFor": "文化深度游/历史爱好者"
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
+          "bestFor": [
+            "文化深度游",
+            "历史爱好者"
+          ]
         }
       ],
       "facilities": [
@@ -519,7 +715,7 @@
       "rating": 4.8,
       "bestTime": "夏季",
       "location": "青海省海西蒙古族藏族自治州",
-      "description": "世界第三大无人区,藏羚羊的家园",
+      "description": "名为可可西里，青海可可西里，造化钟神秀，世界第三大无人区，藏羚羊的家园，实乃游历青海不可错过之胜境。。令人叹为观止，流连忘返。",
       "highlight": "世界自然遗产,野生动物天堂",
       "level": "4A景区",
       "rankBadge": "必去",
@@ -532,7 +728,6 @@
       "landscapeType": "plateau",
       "openTime": "全天开放",
       "visitDuration": "1-2天",
-      "popularity": "★★★★☆",
       "audienceTags": [
         "探险爱好者",
         "摄影爱好者",
@@ -540,21 +735,57 @@
         "野生动物爱好者"
       ],
       "ticketDetails": [
-        "免费开放",
-        "需办理通行证",
-        "越野车推荐",
-        "部分区域禁止进入"
+        {
+          "type": "通用",
+          "price": "免费开放"
+        },
+        {
+          "type": "需办理通行证",
+          "price": ""
+        },
+        {
+          "type": "越野车推荐",
+          "price": ""
+        },
+        {
+          "type": "部分区域禁止进入",
+          "price": ""
+        }
       ],
       "transportInfo": [
-        "格尔木机场下机后转车至可可西里",
-        "青藏铁路到格尔木站，再转车前往",
-        "格尔木-可可西里，需越野车，约200公里",
-        "无直达班车，需包车或自驾"
+        {
+          "mode": "其他",
+          "detail": "格尔木机场下机后转车至可可西里"
+        },
+        {
+          "mode": "其他",
+          "detail": "青藏铁路到格尔木站，再转车前往"
+        },
+        {
+          "mode": "其他",
+          "detail": "格尔木-可可西里，需越野车，约200公里"
+        },
+        {
+          "mode": "其他",
+          "detail": "无直达班车，需包车或自驾"
+        }
       ],
       "openTimeDetail": [
-        "全天开放",
-        "需办理通行证",
-        "部分区域禁止进入"
+        {
+          "season": "全天开放",
+          "months": "",
+          "time": ""
+        },
+        {
+          "season": "需办理通行证",
+          "months": "",
+          "time": ""
+        },
+        {
+          "season": "部分区域禁止进入",
+          "months": "",
+          "time": ""
+        }
       ],
       "recommendedRoutes": [
         {
@@ -575,8 +806,15 @@
               "detail": "格尔木→昆仑山口→不冻泉→索南达杰保护站→观藏羚羊→返程"
             }
           ],
-          "budget": "¥500-1000",
-          "bestFor": "探险爱好者/野生动物爱好者"
+          "budget": {
+            "currency": "¥",
+            "min": 500,
+            "max": 1000
+          },
+          "bestFor": [
+            "探险爱好者",
+            "野生动物爱好者"
+          ]
         },
         {
           "name": "深度探险",
@@ -606,8 +844,15 @@
               "detail": "营地→保护站→不冻泉→格尔木"
             }
           ],
-          "budget": "¥2000-4000",
-          "bestFor": "专业探险者/野生动物摄影"
+          "budget": {
+            "currency": "¥",
+            "min": 2000,
+            "max": 4000
+          },
+          "bestFor": [
+            "专业探险者",
+            "野生动物摄影"
+          ]
         }
       ],
       "facilities": [
@@ -699,42 +944,42 @@
       {
         "name": "青海湖",
         "image": "https://picsum.photos/id/1680/600/400",
-        "description": "中国最大的内陆湖,高原明珠"
+        "description": "坐落于河湟大地的青海湖，青海湖——中国最大的内陆湖，高原明珠，实乃游历此地不可错过之胜境。。每一处景致皆是造物主的匠心独运。"
       },
       {
         "name": "塔尔寺",
         "image": "https://picsum.photos/id/1681/600/400",
-        "description": "藏传佛教格鲁派六大寺院之一"
+        "description": "河湟塔尔寺，青海名胜塔尔寺，藏传佛教格鲁派六大寺院之一，令人心驰神往流连忘返。。当属此地名胜之首推，不容错过。"
       },
       {
         "name": "茶卡盐湖",
         "image": "https://picsum.photos/id/1682/600/400",
-        "description": "天空之镜,中国最美的盐湖之一"
+        "description": "茶卡盐湖者，河湟之胜境也。茶卡盐湖者，青海之天空之镜，中国最美的盐湖之一，堪称此地风光之冠冕。。令人叹为观止，流连忘返。"
       },
       {
         "name": "日月山",
         "image": "https://picsum.photos/id/1683/600/400",
-        "description": "文成公主进藏经过的地方,文成公主的故乡"
+        "description": "名为日月山，誉为青海明珠的日月山，文成公主进藏经过的地方，文成公主的故乡，每一处皆是造化与人文的交响。。实乃游历此地不可错过之胜境。"
       },
       {
         "name": "可可西里",
         "image": "https://picsum.photos/id/1684/600/400",
-        "description": "世界第三大无人区,藏羚羊的家园"
+        "description": "河湟名胜可可西里，可可西里，世界第三大无人区，藏羚羊的家园，足以令旅人魂牵梦萦。。足以令旅人魂牵梦萦，心驰神往。"
       },
       {
         "name": "孟达天池",
         "image": "https://picsum.photos/id/1685/600/400",
-        "description": "青藏高原的绿色明珠"
+        "description": "孟达天池，孟达天池——青藏高原的绿色明珠，当属此地名胜之首推。。堪称天地造化与人文底蕴之交响。"
       },
       {
         "name": "坎布拉",
         "image": "https://picsum.photos/id/1686/600/400",
-        "description": "丹霞地貌与黄河风光的结合"
+        "description": "坐落于河湟大地的坎布拉，青海名胜坎布拉，丹霞地貌与黄河风光的结合，实乃游历此地不可错过之胜境。。每一处景致皆是造物主的匠心独运。"
       },
       {
         "name": "贵德地质公园",
         "image": "https://picsum.photos/id/1687/600/400",
-        "description": "高原上的地质奇观"
+        "description": "河湟贵德地质公园，贵德地质公园者，青海之高原上的地质奇观，令人心驰神往流连忘返。。当属此地名胜之首推，不容错过。"
       }
     ]
   },
@@ -784,7 +1029,72 @@
       "description": "银装素裹,是体验青海风情的好时节"
     }
   ],
-  "festivals": [],
+  "festivals": [
+    {
+      "id": "1",
+      "name": "环青海湖国际公路自行车赛",
+      "month": "7月",
+      "day": "10日",
+      "location": "青海湖",
+      "isUnique": true,
+      "description": "亚洲顶级2.HC级公路自行车赛，途经青海湖、祁连山等高海拔赛道，国际自行车赛、赛段沿线观赛、高原风光骑行体验，于\"高原明珠\"之畔感受这\"车轮逐风高原竞速\"之激情与青海湖之壮阔。",
+      "type": "体育节庆",
+      "duration": "约14天",
+      "origin": "环青海湖国际公路自行车赛始于2002年，亚洲顶级2.HC级公路自行车赛，途经青海湖、祁连山等高海拔赛道。",
+      "highlights": [
+        "国际自行车赛",
+        "赛段沿线观赛",
+        "高原风光骑行体验",
+        "自行车文化展",
+        "闭幕式颁奖"
+      ],
+      "bestTime": "第一赛段及闭幕",
+      "ticket": "观赛免费",
+      "transport": "飞机至西宁曹家堡机场，转车至青海湖",
+      "tips": [
+        "海拔3000m以上，注意高反",
+        "紫外线极强，做好防晒",
+        "观赛需提前占位，赛道交通管制"
+      ],
+      "relatedSpots": [
+        "青海湖",
+        "茶卡盐湖",
+        "塔尔寺"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "青海湖诗歌节",
+      "month": "8月",
+      "day": "15日",
+      "location": "青海湖",
+      "isUnique": false,
+      "description": "依托青海湖自然景观举办国际诗歌文化交流，国际诗人朗诵会、诗歌论坛、青海湖畔采风、藏族民歌表演，于\"高原圣湖\"之畔感受这\"诗意高原\"之浪漫与藏族史诗《格萨尔》之古老。",
+      "type": "文化节庆",
+      "duration": "约3天",
+      "origin": "青海湖诗歌节始于2015年，依托青海湖自然景观举办国际诗歌文化交流。",
+      "highlights": [
+        "国际诗人朗诵会",
+        "诗歌论坛",
+        "青海湖畔采风",
+        "藏族民歌表演",
+        "诗歌征文颁奖"
+      ],
+      "bestTime": "开幕日朗诵会",
+      "ticket": "免费",
+      "transport": "飞机至西宁，转车至青海湖约3小时",
+      "tips": [
+        "海拔高，避免剧烈运动",
+        "青海湖畔昼夜温差大",
+        "藏族诗歌传统悠久，可了解史诗《格萨尔》"
+      ],
+      "relatedSpots": [
+        "青海湖",
+        "鸟岛",
+        "茶卡盐湖"
+      ]
+    }
+  ],
   "activities": [
     {
       "id": "1",
@@ -824,7 +1134,11 @@
           "avgRating": 4.5,
           "bestSeason": "春秋 / 全年",
           "recommendedDays": "2-3 日",
-          "budget": "¥500-1200",
+          "budget": {
+            "currency": "¥",
+            "min": 500,
+            "max": 1200
+          },
           "intensity": "适中",
           "audience": "全人群",
           "highlights": [
@@ -850,7 +1164,11 @@
           "avgRating": 4.4,
           "bestSeason": "秋冬",
           "recommendedDays": "2 日",
-          "budget": "¥400-900",
+          "budget": {
+            "currency": "¥",
+            "min": 400,
+            "max": 900
+          },
           "intensity": "适中",
           "audience": "摄影/户外",
           "highlights": [
@@ -874,7 +1192,11 @@
           "avgRating": 4.6,
           "bestSeason": "夏秋",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-500",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 500
+          },
           "intensity": "轻松",
           "audience": "家庭/休闲",
           "highlights": [
@@ -907,7 +1229,11 @@
           "avgRating": 4.7,
           "bestSeason": "全年",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-400",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
           "intensity": "轻松",
           "audience": "文化/家庭",
           "highlights": [
@@ -933,7 +1259,11 @@
           "avgRating": 4.7,
           "bestSeason": "全年",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-400",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
           "intensity": "轻松",
           "audience": "银发/养心",
           "highlights": [
@@ -965,7 +1295,11 @@
           "avgRating": 4.8,
           "bestSeason": "春秋",
           "recommendedDays": "2-3 日",
-          "budget": "¥300-800",
+          "budget": {
+            "currency": "¥",
+            "min": 300,
+            "max": 800
+          },
           "intensity": "挑战",
           "audience": "户外/探险",
           "highlights": [
@@ -991,7 +1325,11 @@
           "avgRating": 4.8,
           "bestSeason": "夏秋",
           "recommendedDays": "2-3 日",
-          "budget": "¥500-1500",
+          "budget": {
+            "currency": "¥",
+            "min": 500,
+            "max": 1500
+          },
           "intensity": "轻松",
           "audience": "家庭/度假",
           "highlights": [
@@ -1010,6 +1348,355 @@
           ]
         }
       ]
+    }
+  ],
+  "craftWorkshops": [
+    {
+      "id": "qinghai-craft-1",
+      "image": "https://picsum.photos/id/1342/600/400",
+      "category": "craft",
+      "name": "塔尔寺酥油花",
+      "type": "酥油花",
+      "location": "湟中县塔尔寺",
+      "duration": "3小时",
+      "difficulty": "中等",
+      "price": "80",
+      "rating": 4.8,
+      "reviewCount": 145,
+      "instructor": "酥油花艺僧",
+      "heritageLevel": "national",
+      "highlights": [
+        "酥油塑花",
+        "塔尔寺三绝",
+        "佛像花艺"
+      ],
+      "steps": [
+        "选酥油",
+        "调色",
+        "塑形",
+        "低温保存"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "手工艺爱好者"
+      ],
+      "tags": [
+        "非遗",
+        "酥油花",
+        "塔尔寺"
+      ],
+      "description": "塔尔寺酥油花为艺术三绝之一\"酥油塑花指尖生春\"以酥油塑佛花技艺超凡。于塔尔寺观酥油花展，酥油彩塑精美绝伦，感受这\"艺术三绝\"之巅峰与酥油花之虔诚匠心。"
+    },
+    {
+      "id": "qinghai-craft-2",
+      "image": "https://picsum.photos/id/1344/600/400",
+      "category": "craft",
+      "name": "热贡唐卡绘制",
+      "type": "唐卡",
+      "location": "黄南州同仁县",
+      "duration": "3小时",
+      "difficulty": "简单",
+      "price": "300",
+      "rating": 4.9,
+      "reviewCount": 234,
+      "instructor": "唐卡画师",
+      "heritageLevel": "national",
+      "highlights": [
+        "矿植物颜料",
+        "金线勾勒",
+        "佛像度量经"
+      ],
+      "steps": [
+        "选布",
+        "打底",
+        "起稿",
+        "上色",
+        "开眼"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "手工艺爱好者"
+      ],
+      "tags": [
+        "非遗",
+        "唐卡",
+        "热贡"
+      ],
+      "description": "热贡唐卡为藏传佛教绘画艺术金碧辉煌\"矿彩金线佛像庄严\"。于同仁工坊亲手起稿上色开眼，矿植物颜料金线勾勒，感受这\"热贡艺术\"之瑰丽与唐卡度量经之精严。"
+    }
+  ],
+  "performances": [
+    {
+      "id": "qinghai-perf-1",
+      "image": "https://picsum.photos/id/2400/600/400",
+      "category": "performance",
+      "name": "藏戏·黄南州",
+      "type": "戏曲",
+      "location": "黄南州同仁县藏戏团",
+      "duration": "2小时",
+      "difficulty": "简单",
+      "price": "80",
+      "rating": 4.7,
+      "reviewCount": 234,
+      "highlights": [
+        "世界非遗藏戏",
+        "面具舞生动",
+        "格萨尔王传"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "戏曲爱好者"
+      ],
+      "tags": [
+        "非遗",
+        "藏戏",
+        "黄南"
+      ],
+      "description": "黄南藏戏\"戴着面具跳舞\"，白色面具威严蓝色面具狡黠。从格萨尔王的英雄传奇到六世达赖的情歌，于这热贡艺术之乡聆听雪域高原的古老戏剧，感受藏戏\"说唱舞\"三位一体之独特魅力。",
+      "heritageLevel": "national"
+    },
+    {
+      "id": "qinghai-perf-2",
+      "image": "https://picsum.photos/id/2401/600/400",
+      "category": "performance",
+      "name": "青海湖祭海大典",
+      "type": "民俗盛典",
+      "location": "海南州青海湖二郎剑景区",
+      "duration": "2小时",
+      "difficulty": "简单",
+      "price": "免费",
+      "rating": 4.7,
+      "reviewCount": 345,
+      "highlights": [
+        "千年祭海仪式",
+        "煨桑祈福",
+        "转湖朝圣"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "摄影爱好者"
+      ],
+      "tags": [
+        "民俗",
+        "祭海",
+        "青海湖"
+      ],
+      "description": "青海湖祭海传承千年，藏族以圣湖为神煨桑祈福。经幡猎猎法号悠长，祭海台前投放宝瓶礼敬湖神，于这\"高原蓝宝石\"之畔参与祭海大典，感受藏族万物有灵之信仰与敬畏。"
+    },
+    {
+      "id": "qinghai-perf-3",
+      "image": "https://picsum.photos/id/2402/600/400",
+      "category": "performance",
+      "name": "花儿会·六盘山民歌盛会",
+      "type": "民歌",
+      "location": "海东市互助县花儿会",
+      "duration": "1天",
+      "difficulty": "简单",
+      "price": "免费",
+      "rating": 4.8,
+      "reviewCount": 432,
+      "highlights": [
+        "西北花儿对唱",
+        "青年男女以歌传情",
+        "通宵达旦狂欢"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "音乐爱好者"
+      ],
+      "tags": [
+        "非遗",
+        "花儿",
+        "民歌"
+      ],
+      "description": "花儿会\"少年的爱情花儿的歌\"，西北青年以花儿对歌传情。漫山遍野人如潮歌如海，从白昼到通宵达旦，阿哥的白牡丹阿妹的红牡丹，于这\"花儿之乡\"聆听大西北最炽热的民歌狂欢。",
+      "heritageLevel": "national"
+    }
+  ],
+  "outdoorAdventure": [
+    {
+      "id": "qinghai-outdoor-1",
+      "image": "https://picsum.photos/id/1363/600/400",
+      "category": "outdoor",
+      "name": "青海湖环湖骑行",
+      "type": "骑行",
+      "location": "青海湖环湖路",
+      "duration": "1天",
+      "difficulty": "中等",
+      "price": "200",
+      "rating": 4.8,
+      "reviewCount": 678,
+      "totalAscent": 300,
+      "maxElevation": 3200,
+      "routeType": "环线",
+      "surfaceType": "石阶",
+      "accessInfo": "高铁至最近站，转景区交通",
+      "gearList": [
+        "公路车",
+        "头盔",
+        "防晒",
+        "补水"
+      ],
+      "safetyTips": [
+        "海拔3200m注意高反",
+        "紫外线极强"
+      ],
+      "bestMonths": "4-5月·9-10月",
+      "highlights": [
+        "环湖360km",
+        "油菜花海",
+        "湛蓝湖水"
+      ],
+      "tags": [
+        "骑行",
+        "青海湖",
+        "高海拔"
+      ],
+      "description": "青海湖为中国最大咸水湖环湖360公里\"油菜花海湛蓝湖水\"。于环湖路上骑行，油菜花金黄湖水湛蓝雪山远映，感受这\"高原明珠\"之壮阔与环湖骑行之酣畅淋漓。"
+    },
+    {
+      "id": "qinghai-outdoor-2",
+      "image": "https://picsum.photos/id/1366/600/400",
+      "category": "outdoor",
+      "name": "祁连山卓尔山徒步",
+      "type": "徒步穿越",
+      "location": "海北州祁连县卓尔山",
+      "duration": "半天",
+      "difficulty": "简单",
+      "price": "60",
+      "rating": 4.7,
+      "reviewCount": 345,
+      "totalAscent": 300,
+      "maxElevation": 4328,
+      "routeType": "往返",
+      "surfaceType": "石阶",
+      "accessInfo": "高铁至最近站，转景区交通",
+      "gearList": [
+        "登山鞋",
+        "防晒",
+        "保暖衣",
+        "水"
+      ],
+      "safetyTips": [
+        "海拔高注意高反",
+        "紫外线极强"
+      ],
+      "bestMonths": "4-5月·9-10月",
+      "highlights": [
+        "东方小瑞士",
+        "丹霞草原",
+        "牛心雪山"
+      ],
+      "tags": [
+        "徒步",
+        "祁连",
+        "天境"
+      ],
+      "description": "卓尔山\"东方小瑞士\"丹霞与草原雪山同框\"天境祁连\"。于卓尔山穿行，丹霞赤壁草原翠绿牛心雪山皑皑，感受这\"天境祁连\"之如画与丹霞草原雪山同框之奇绝。"
+    }
+  ],
+  "wellnessRetreat": [
+    {
+      "id": "qinghai-wellness-1",
+      "image": "https://picsum.photos/id/2420/600/400",
+      "category": "wellness",
+      "name": "塔尔寺禅修朝拜",
+      "type": "禅修养生",
+      "location": "西宁市湟中区塔尔寺",
+      "duration": "1天",
+      "difficulty": "简单",
+      "price": "80",
+      "rating": 4.8,
+      "reviewCount": 432,
+      "efficacyTags": [
+        "宗喀巴大师诞生地",
+        "菩提塔十万",
+        "酥油花艺术"
+      ],
+      "bestSeason": "春秋",
+      "packageIncludes": [
+        "门票",
+        "禅修指导",
+        "素斋"
+      ],
+      "suitableFor": [
+        "禅修爱好者",
+        "佛教信众"
+      ],
+      "tags": [
+        "禅修",
+        "藏传佛教",
+        "塔尔寺"
+      ],
+      "description": "塔尔寺为宗喀巴大师诞生地，藏传佛教格鲁派祖庭。菩提塔十万金顶辉煌，于大金瓦殿前盘膝坐禅，酥油灯摇曳梵音低回，于这\"塔尔寺三绝\"之佛教圣地修心养性，感悟\"菩提道次第\"之精义。"
+    },
+    {
+      "id": "qinghai-wellness-2",
+      "image": "https://picsum.photos/id/2421/600/400",
+      "category": "wellness",
+      "name": "贵德黄河温泉",
+      "type": "温泉养生",
+      "location": "海南州贵德县黄河温泉度假村",
+      "duration": "3小时",
+      "difficulty": "简单",
+      "price": "128",
+      "rating": 4.7,
+      "reviewCount": 234,
+      "efficacyTags": [
+        "黄河畔地热温泉",
+        "高原氡泉",
+        "丹霞地貌伴泉"
+      ],
+      "bestSeason": "全年",
+      "packageIncludes": [
+        "温泉票",
+        "浴袍",
+        "茶点"
+      ],
+      "suitableFor": [
+        "养生爱好者",
+        "休闲度假"
+      ],
+      "tags": [
+        "温泉",
+        "黄河",
+        "贵德"
+      ],
+      "description": "贵德\"天下黄河贵德清\"，黄河畔地热温泉涌泉不息。富含氡与偏硅酸的高原矿泉温润如玉，于丹霞赤壁间氤氲汤池中涤尽尘疲，头顶蓝天脚踏暖泉，尽享高原温泉之独特康养。"
+    },
+    {
+      "id": "qinghai-wellness-3",
+      "image": "https://picsum.photos/id/2422/600/400",
+      "category": "wellness",
+      "name": "青海湖环湖骑行",
+      "type": "运动养生",
+      "location": "海南州青海湖环湖路",
+      "duration": "1天",
+      "difficulty": "中等",
+      "price": "200",
+      "rating": 4.8,
+      "reviewCount": 345,
+      "efficacyTags": [
+        "三百六十公里环湖",
+        "高原骑行挑战",
+        "油菜花海穿行"
+      ],
+      "bestSeason": "夏秋",
+      "packageIncludes": [
+        "自行车租赁",
+        "补给",
+        "住宿"
+      ],
+      "suitableFor": [
+        "运动爱好者",
+        "挑战爱好者"
+      ],
+      "tags": [
+        "骑行",
+        "高原",
+        "青海湖"
+      ],
+      "description": "青海湖环湖三百六十公里，油菜花海铺展天际。骑行于这高原蓝宝石之畔，蓝天碧水黄花白雪四色交织，高原骑行挑战体能极限，于这\"天高任鸟飞\"的辽阔中挥洒汗水畅快心胸。"
     }
   ]
 }

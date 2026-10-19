@@ -14,7 +14,7 @@
       "rating": 4.9,
       "bestTime": "春秋",
       "location": "江苏省苏州市",
-      "description": "中国古典园林的代表,世界文化遗产",
+      "description": "苏州园林，江苏苏州园林，人文荟萃之地，移步换景曲径通幽，中国古典园林的代表，世界文化遗产，实乃游历江苏不可错过之胜境。。移步换景曲径通幽，足以令旅人魂牵梦萦，心驰神往。",
       "highlight": "世界文化遗产,江南园林之冠",
       "level": "5A景区",
       "rankBadge": "必去",
@@ -23,7 +23,6 @@
       "ticketPrice": "¥70",
       "openTime": "07:30-17:30",
       "visitDuration": "半天",
-      "popularity": "★★★★★",
       "audienceTags": [
         "文化爱好者",
         "园林爱好者",
@@ -31,20 +30,52 @@
         "家庭游客"
       ],
       "ticketDetails": [
-        "拙政园成人票¥70",
-        "学生票半价",
-        "儿童1.4米以下免票",
-        "60岁以上老人免票"
+        {
+          "type": "拙政园成人票",
+          "price": "¥70"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "儿童1.4米以下",
+          "price": "免票"
+        },
+        {
+          "type": "60岁以上老人",
+          "price": "免票"
+        }
       ],
       "transportInfo": [
-        "苏州硕放机场距市区约40km，可乘机场大巴",
-        "苏州站/苏州北站高铁直达，地铁2号线可达",
-        "沪宁高速苏州出口下，市区方向行驶",
-        "苏州汽车北站有市内公交可达园林"
+        {
+          "mode": "其他",
+          "detail": "苏州硕放机场距市区约40km，可乘机场大巴"
+        },
+        {
+          "mode": "其他",
+          "detail": "苏州站/苏州北站高铁直达，地铁2号线可达"
+        },
+        {
+          "mode": "其他",
+          "detail": "沪宁高速苏州出口下，市区方向行驶"
+        },
+        {
+          "mode": "其他",
+          "detail": "苏州汽车北站有市内公交可达园林"
+        }
       ],
       "openTimeDetail": [
-        "旺季(3-11月) 07:30-17:30",
-        "淡季(12-2月) 08:00-17:00"
+        {
+          "season": "旺季",
+          "months": "3-11月",
+          "time": "07:30-17:30"
+        },
+        {
+          "season": "淡季",
+          "months": "12-2月",
+          "time": "08:00-17:00"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -64,8 +95,15 @@
               "detail": "东园→中园→西园，领略江南园林之首"
             }
           ],
-          "budget": "¥100-200",
-          "bestFor": "园林爱好者/首次游览"
+          "budget": {
+            "currency": "¥",
+            "min": 100,
+            "max": 200
+          },
+          "bestFor": [
+            "园林爱好者",
+            "首次游览"
+          ]
         },
         {
           "name": "四大名园联游",
@@ -85,8 +123,15 @@
               "detail": "拙政园→留园→狮子林→沧浪亭"
             }
           ],
-          "budget": "¥300-500",
-          "bestFor": "园林爱好者/文化深度"
+          "budget": {
+            "currency": "¥",
+            "min": 300,
+            "max": 500
+          },
+          "bestFor": [
+            "园林爱好者",
+            "文化深度"
+          ]
         }
       ],
       "facilities": [
@@ -139,7 +184,7 @@
       "rating": 4.7,
       "bestTime": "春秋",
       "location": "江苏省南京市玄武区",
-      "description": "孙中山先生的陵墓,中国近代史的重要遗迹",
+      "description": "坐落于江南大地的中山陵，江苏中山陵，千年文脉传承之所，孙中山先生的陵墓，中国近代史的重要遗迹，实乃游历江苏不可错过之胜境。。堪称天地造化与人文底蕴之交响。",
       "highlight": "孙中山陵寝,民国建筑",
       "level": "5A景区",
       "rankBadge": "必去",
@@ -148,7 +193,6 @@
       "ticketPrice": "免费",
       "openTime": "08:30-17:00",
       "visitDuration": "半天",
-      "popularity": "★★★★★",
       "audienceTags": [
         "历史爱好者",
         "文化爱好者",
@@ -156,21 +200,57 @@
         "学生团体"
       ],
       "ticketDetails": [
-        "陵寝免费预约参观",
-        "音乐台¥10",
-        "美龄宫¥30",
-        "灵谷寺¥35"
+        {
+          "type": "陵寝免费预约参观",
+          "price": ""
+        },
+        {
+          "type": "音乐台",
+          "price": "¥10"
+        },
+        {
+          "type": "美龄宫",
+          "price": "¥30"
+        },
+        {
+          "type": "灵谷寺",
+          "price": "¥35"
+        }
       ],
       "transportInfo": [
-        "南京禄口机场距景区约40km，可乘地铁S1线",
-        "南京站/南京南站高铁直达，地铁2号线可达",
-        "沪宁高速南京出口下，沿指示牌行驶",
-        "南京汽车站有公交可达中山陵"
+        {
+          "mode": "其他",
+          "detail": "南京禄口机场距景区约40km，可乘地铁S1线"
+        },
+        {
+          "mode": "其他",
+          "detail": "南京站/南京南站高铁直达，地铁2号线可达"
+        },
+        {
+          "mode": "其他",
+          "detail": "沪宁高速南京出口下，沿指示牌行驶"
+        },
+        {
+          "mode": "其他",
+          "detail": "南京汽车站有公交可达中山陵"
+        }
       ],
       "openTimeDetail": [
-        "全年 08:30-17:00",
-        "周一闭馆（陵寝）",
-        "节假日 08:30-17:30"
+        {
+          "season": "全年",
+          "months": "",
+          "time": "08:30-17:00"
+        },
+        {
+          "season": "周一闭馆（陵寝）",
+          "months": "",
+          "time": ""
+        },
+        {
+          "season": "节假日",
+          "months": "",
+          "time": "08:30-17:30"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -190,8 +270,15 @@
               "detail": "博爱坊→陵门→碑亭→祭堂"
             }
           ],
-          "budget": "¥50-100",
-          "bestFor": "历史爱好者/首次游览"
+          "budget": {
+            "currency": "¥",
+            "min": 50,
+            "max": 100
+          },
+          "bestFor": [
+            "历史爱好者",
+            "首次游览"
+          ]
         },
         {
           "name": "钟山风景区一日游",
@@ -211,8 +298,15 @@
               "detail": "中山陵→音乐台→美龄宫→灵谷寺"
             }
           ],
-          "budget": "¥200-400",
-          "bestFor": "历史爱好者/家庭出游"
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
+          "bestFor": [
+            "历史爱好者",
+            "家庭出游"
+          ]
         }
       ],
       "facilities": [
@@ -265,7 +359,7 @@
       "rating": 4.6,
       "bestTime": "春秋",
       "location": "江苏省无锡市",
-      "description": "中国第三大淡水湖,风景秀丽",
+      "description": "江南太湖，江苏太湖，天地造化之奇，碧波荡漾水光潋滟，中国第三大淡水湖，风景秀丽，实乃游历江苏不可错过之胜境。。碧波荡漾水光潋滟，每一处景致皆是造物主的匠心独运。",
       "highlight": "江南明珠,中国第三大淡水湖",
       "level": "5A景区",
       "reviewCount": "65,432条点评",
@@ -281,7 +375,6 @@
       "rankBadge": "湖泊",
       "openTime": "全天开放",
       "visitDuration": "1天",
-      "popularity": "★★★★☆",
       "audienceTags": [
         "度假游客",
         "家庭游客",
@@ -289,20 +382,52 @@
         "休闲游客"
       ],
       "ticketDetails": [
-        "太湖免费开放",
-        "鼋头渚景区¥90",
-        "蠡园¥45",
-        "游船另收费"
+        {
+          "type": "太湖",
+          "price": "免费开放"
+        },
+        {
+          "type": "鼋头渚景区",
+          "price": "¥90"
+        },
+        {
+          "type": "蠡园",
+          "price": "¥45"
+        },
+        {
+          "type": "游船另收费",
+          "price": ""
+        }
       ],
       "transportInfo": [
-        "无锡硕放机场距太湖约30km",
-        "无锡站高铁直达，公交可达",
-        "沪宁高速无锡出口下",
-        "无锡汽车站有公交可达太湖"
+        {
+          "mode": "其他",
+          "detail": "无锡硕放机场距太湖约30km"
+        },
+        {
+          "mode": "其他",
+          "detail": "无锡站高铁直达，公交可达"
+        },
+        {
+          "mode": "其他",
+          "detail": "沪宁高速无锡出口下"
+        },
+        {
+          "mode": "其他",
+          "detail": "无锡汽车站有公交可达太湖"
+        }
       ],
       "openTimeDetail": [
-        "鼋头渚 07:00-17:30",
-        "蠡园 07:00-18:00"
+        {
+          "season": "鼋头渚",
+          "months": "",
+          "time": "07:00-17:30"
+        },
+        {
+          "season": "蠡园",
+          "months": "",
+          "time": "07:00-18:00"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -322,8 +447,15 @@
               "detail": "鼋头渚→太湖佳绝处→长春桥"
             }
           ],
-          "budget": "¥150-300",
-          "bestFor": "摄影爱好者/春季出游"
+          "budget": {
+            "currency": "¥",
+            "min": 150,
+            "max": 300
+          },
+          "bestFor": [
+            "摄影爱好者",
+            "春季出游"
+          ]
         },
         {
           "name": "太湖一日游",
@@ -342,8 +474,15 @@
               "detail": "鼋头渚→蠡园→蠡湖大桥"
             }
           ],
-          "budget": "¥300-500",
-          "bestFor": "家庭出游/休闲游"
+          "budget": {
+            "currency": "¥",
+            "min": 300,
+            "max": 500
+          },
+          "bestFor": [
+            "家庭出游",
+            "休闲游"
+          ]
         }
       ],
       "facilities": [
@@ -393,7 +532,7 @@
       "rating": 4.5,
       "bestTime": "全年",
       "location": "江苏省南京市秦淮区",
-      "description": "中国四大文庙之一,南京的文化地标",
+      "description": "夫子庙者，江南之胜境也。江苏夫子庙，人文底蕴深厚之地，中国四大文庙之一，南京的文化地标，实乃游历江苏不可错过之胜境。。当属此地名胜之首推，不容错过。",
       "highlight": "秦淮风光,科举圣地",
       "level": "5A景区",
       "rankBadge": "网红",
@@ -402,7 +541,6 @@
       "ticketPrice": "免费",
       "openTime": "09:00-22:00",
       "visitDuration": "半天",
-      "popularity": "★★★★★",
       "audienceTags": [
         "美食爱好者",
         "家庭游客",
@@ -410,21 +548,57 @@
         "夜游游客"
       ],
       "ticketDetails": [
-        "步行街免费开放",
-        "江南贡院¥50",
-        "大成殿¥30",
-        "游船另收费"
+        {
+          "type": "步行街",
+          "price": "免费开放"
+        },
+        {
+          "type": "江南贡院",
+          "price": "¥50"
+        },
+        {
+          "type": "大成殿",
+          "price": "¥30"
+        },
+        {
+          "type": "游船另收费",
+          "price": ""
+        }
       ],
       "transportInfo": [
-        "南京禄口机场距夫子庙约40km",
-        "南京站高铁直达，地铁3号线夫子庙站",
-        "沪宁高速南京出口下",
-        "南京汽车站有公交可达夫子庙"
+        {
+          "mode": "其他",
+          "detail": "南京禄口机场距夫子庙约40km"
+        },
+        {
+          "mode": "其他",
+          "detail": "南京站高铁直达，地铁3号线夫子庙站"
+        },
+        {
+          "mode": "其他",
+          "detail": "沪宁高速南京出口下"
+        },
+        {
+          "mode": "其他",
+          "detail": "南京汽车站有公交可达夫子庙"
+        }
       ],
       "openTimeDetail": [
-        "商户 09:00-22:00",
-        "大成殿 09:00-21:00",
-        "夜游秦淮 19:00-22:00"
+        {
+          "season": "商户",
+          "months": "",
+          "time": "09:00-22:00"
+        },
+        {
+          "season": "大成殿",
+          "months": "",
+          "time": "09:00-21:00"
+        },
+        {
+          "season": "夜游秦淮",
+          "months": "",
+          "time": "19:00-22:00"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -444,8 +618,15 @@
               "detail": "夫子庙→江南贡院→秦淮河画舫"
             }
           ],
-          "budget": "¥100-300",
-          "bestFor": "夜游游客/情侣游客"
+          "budget": {
+            "currency": "¥",
+            "min": 100,
+            "max": 300
+          },
+          "bestFor": [
+            "夜游游客",
+            "情侣游客"
+          ]
         },
         {
           "name": "科举文化游",
@@ -464,8 +645,15 @@
               "detail": "江南贡院→中国科举博物馆→大成殿"
             }
           ],
-          "budget": "¥100-200",
-          "bestFor": "文化爱好者/学生团体"
+          "budget": {
+            "currency": "¥",
+            "min": 100,
+            "max": 200
+          },
+          "bestFor": [
+            "文化爱好者",
+            "学生团体"
+          ]
         }
       ],
       "facilities": [
@@ -518,7 +706,7 @@
       "rating": 4.6,
       "bestTime": "春秋",
       "location": "江苏省扬州市邗江区",
-      "description": "扬州著名的园林,被誉为园林之胜",
+      "description": "名为瘦西湖，江苏瘦西湖，人文荟萃之地，移步换景曲径通幽，扬州著名的园林，被誉为园林之胜，实乃游历江苏不可错过之胜境。。移步换景曲径通幽，令人叹为观止，流连忘返。",
       "highlight": "两堤花柳依水,一路楼台直到山",
       "level": "5A景区",
       "reviewCount": "54,321条点评",
@@ -527,7 +715,6 @@
       "rankBadge": "湖泊",
       "openTime": "06:00-17:30",
       "visitDuration": "半天",
-      "popularity": "★★★★☆",
       "audienceTags": [
         "园林爱好者",
         "文化爱好者",
@@ -535,20 +722,52 @@
         "家庭游客"
       ],
       "ticketDetails": [
-        "成人票¥100",
-        "学生票半价",
-        "儿童1.2米以下免票",
-        "60岁以上老人免票"
+        {
+          "type": "成人票",
+          "price": "¥100"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "儿童1.2米以下",
+          "price": "免票"
+        },
+        {
+          "type": "60岁以上老人",
+          "price": "免票"
+        }
       ],
       "transportInfo": [
-        "扬州泰州机场距景区约30km",
-        "扬州站高铁直达，公交可达",
-        "启扬高速扬州出口下",
-        "扬州汽车站有公交可达瘦西湖"
+        {
+          "mode": "其他",
+          "detail": "扬州泰州机场距景区约30km"
+        },
+        {
+          "mode": "其他",
+          "detail": "扬州站高铁直达，公交可达"
+        },
+        {
+          "mode": "其他",
+          "detail": "启扬高速扬州出口下"
+        },
+        {
+          "mode": "其他",
+          "detail": "扬州汽车站有公交可达瘦西湖"
+        }
       ],
       "openTimeDetail": [
-        "旺季(3-11月) 06:00-17:30",
-        "淡季(12-2月) 07:00-17:00"
+        {
+          "season": "旺季",
+          "months": "3-11月",
+          "time": "06:00-17:30"
+        },
+        {
+          "season": "淡季",
+          "months": "12-2月",
+          "time": "07:00-17:00"
+        }
       ],
       "recommendedRoutes": [
         {
@@ -568,8 +787,15 @@
               "detail": "长堤春柳→徐园→小金山→五亭桥→白塔"
             }
           ],
-          "budget": "¥150-300",
-          "bestFor": "园林爱好者/首次游览"
+          "budget": {
+            "currency": "¥",
+            "min": 150,
+            "max": 300
+          },
+          "bestFor": [
+            "园林爱好者",
+            "首次游览"
+          ]
         },
         {
           "name": "扬州园林一日游",
@@ -588,8 +814,15 @@
               "detail": "瘦西湖→个园→何园"
             }
           ],
-          "budget": "¥300-500",
-          "bestFor": "园林爱好者/文化深度"
+          "budget": {
+            "currency": "¥",
+            "min": 300,
+            "max": 500
+          },
+          "bestFor": [
+            "园林爱好者",
+            "文化深度"
+          ]
         }
       ],
       "facilities": [
@@ -685,42 +918,42 @@
       {
         "name": "苏州园林",
         "image": "https://picsum.photos/id/1300/600/400",
-        "description": "中国古典园林的代表,世界文化遗产"
+        "description": "坐落于江南大地的苏州园林，苏州园林——中国古典园林的代表，世界文化遗产，实乃游历此地不可错过之胜境。。每一处景致皆是造物主的匠心独运。"
       },
       {
         "name": "中山陵",
         "image": "https://picsum.photos/id/1301/600/400",
-        "description": "孙中山先生的陵墓,中国近代史的重要遗迹"
+        "description": "江南中山陵，江苏名胜中山陵，孙中山先生的陵墓，中国近代史的重要遗迹，令人心驰神往流连忘返。。当属此地名胜之首推，不容错过。"
       },
       {
         "name": "太湖",
         "image": "https://picsum.photos/id/1302/600/400",
-        "description": "中国第三大淡水湖,风景秀丽"
+        "description": "太湖者，江南之胜境也。太湖者，江苏之中国第三大淡水湖，风景秀丽，堪称此地风光之冠冕。。令人叹为观止，流连忘返。"
       },
       {
         "name": "夫子庙",
         "image": "https://picsum.photos/id/1303/600/400",
-        "description": "中国四大文庙之一,南京的文化地标"
+        "description": "名为夫子庙，誉为江苏明珠的夫子庙，中国四大文庙之一，南京的文化地标，每一处皆是造化与人文的交响。。实乃游历此地不可错过之胜境。"
       },
       {
         "name": "瘦西湖",
         "image": "https://picsum.photos/id/1304/600/400",
-        "description": "扬州著名的园林,被誉为园林之胜"
+        "description": "江南名胜瘦西湖，瘦西湖，扬州著名的园林，被誉为园林之胜，足以令旅人魂牵梦萦。。足以令旅人魂牵梦萦，心驰神往。"
       },
       {
         "name": "周庄古镇",
         "image": "https://picsum.photos/id/1305/600/400",
-        "description": "中国第一水乡,江南六大古镇之一"
+        "description": "周庄古镇，周庄古镇——中国第一水乡，江南六大古镇之一，当属此地名胜之首推。。堪称天地造化与人文底蕴之交响。"
       },
       {
         "name": "寒山寺",
         "image": "https://picsum.photos/id/1306/600/400",
-        "description": "苏州著名的佛教寺院,因张继的诗句而闻名"
+        "description": "坐落于江南大地的寒山寺，江苏名胜寒山寺，苏州著名的佛教寺院，因张继的诗句而闻名，实乃游历此地不可错过之胜境。。每一处景致皆是造物主的匠心独运。"
       },
       {
         "name": "拙政园",
         "image": "https://picsum.photos/id/1307/600/400",
-        "description": "中国四大名园之一,苏州园林的代表"
+        "description": "江南拙政园，拙政园者，江苏之中国四大名园之一，苏州园林的代表，令人心驰神往流连忘返。。当属此地名胜之首推，不容错过。"
       }
     ]
   },
@@ -778,7 +1011,64 @@
       "month": "10月",
       "isUnique": true,
       "location": "苏州",
-      "description": "苏州评弹艺术盛会"
+      "description": "以苏州评弹国家级非遗为核心，评弹名家专场、评弹艺术论坛、书场体验、昆曲展演，于\"中国最美声音\"之吴侬软语中感受这\"弦管叮咚吴韵悠然\"之评弹雅趣与江南文化之精致。",
+      "type": "文化节庆",
+      "heritageLevel": "国家级非遗",
+      "duration": "约7天",
+      "origin": "苏州评弹艺术节始于2000年，以苏州评弹（国家级非遗）为核心，展示吴语说唱艺术。",
+      "highlights": [
+        "评弹名家专场",
+        "评弹艺术论坛",
+        "书场体验",
+        "苏州园林联游",
+        "昆曲展演"
+      ],
+      "bestTime": "周末场次",
+      "ticket": "演出票¥50-200",
+      "transport": "高铁至苏州站，地铁4号线至观前街",
+      "tips": [
+        "评弹用吴语演唱，可领字幕",
+        "光裕书场为百年老书场，推荐体验",
+        "园林联游建议拙政园+留园"
+      ],
+      "relatedSpots": [
+        "拙政园",
+        "留园",
+        "平江路"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "南京秦淮灯会",
+      "month": "2月",
+      "day": "15日",
+      "location": "南京",
+      "isUnique": false,
+      "description": "始于六朝延续至今1700余年，\"天下第一灯会\"之誉，秦淮河花灯展、夫子庙灯市、白鹭洲水上灯会，于\"桨声灯影里的秦淮河\"感受这金陵灯会之千年华彩与六朝古都之风情。",
+      "type": "民俗节庆",
+      "heritageLevel": "国家级非遗",
+      "duration": "约10天",
+      "origin": "南京秦淮灯会始于六朝，延续至今1700余年，有\"天下第一灯会\"之誉，2006年入选国家级非遗。",
+      "highlights": [
+        "秦淮河花灯展",
+        "夫子庙灯市",
+        "白鹭洲水上灯会",
+        "猜灯谜",
+        "金陵美食节"
+      ],
+      "bestTime": "正月十五元宵夜",
+      "ticket": "免费（部分展区收费）",
+      "transport": "地铁3号线夫子庙站",
+      "tips": [
+        "元宵夜人流量极大，建议错峰",
+        "花灯可购买，传统扎灯技艺¥50起",
+        "秦淮小吃不容错过"
+      ],
+      "relatedSpots": [
+        "夫子庙",
+        "中华门",
+        "老门东"
+      ]
     }
   ],
   "activities": [
@@ -808,7 +1098,7 @@
   "intangibleHeritage": [
     {
       "id": "1",
-      "icon": "🎭",
+      "icon": "theater",
       "name": "昆曲",
       "image": "https://picsum.photos/id/1300/600/400",
       "level": "national",
@@ -849,7 +1139,11 @@
           "avgRating": 4.6,
           "bestSeason": "春秋 / 全年",
           "recommendedDays": "2-3 日",
-          "budget": "¥500-1200",
+          "budget": {
+            "currency": "¥",
+            "min": 500,
+            "max": 1200
+          },
           "intensity": "适中",
           "audience": "全人群",
           "highlights": [
@@ -875,7 +1169,11 @@
           "avgRating": 4.6,
           "bestSeason": "夏秋",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-500",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 500
+          },
           "intensity": "轻松",
           "audience": "家庭/休闲",
           "highlights": [
@@ -908,7 +1206,11 @@
           "avgRating": 4.5,
           "bestSeason": "春秋",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-500",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 500
+          },
           "intensity": "轻松",
           "audience": "家庭/文艺",
           "highlights": [
@@ -932,7 +1234,11 @@
           "avgRating": 4.9,
           "bestSeason": "全年",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-400",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
           "intensity": "轻松",
           "audience": "文化/家庭",
           "highlights": [
@@ -958,7 +1264,11 @@
           "avgRating": 4.5,
           "bestSeason": "全年",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-400",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
           "intensity": "轻松",
           "audience": "银发/养心",
           "highlights": [
@@ -984,7 +1294,11 @@
           "avgRating": 4.7,
           "bestSeason": "全年",
           "recommendedDays": "1-2 日",
-          "budget": "¥300-600",
+          "budget": {
+            "currency": "¥",
+            "min": 300,
+            "max": 600
+          },
           "intensity": "轻松",
           "audience": "文化/家庭",
           "highlights": [
@@ -1016,7 +1330,11 @@
           "avgRating": 4.6,
           "bestSeason": "3-5月",
           "recommendedDays": "1 日",
-          "budget": "¥100-300",
+          "budget": {
+            "currency": "¥",
+            "min": 100,
+            "max": 300
+          },
           "intensity": "轻松",
           "audience": "摄影/家庭",
           "highlights": [
@@ -1035,6 +1353,353 @@
           ]
         }
       ]
+    }
+  ],
+  "craftWorkshops": [
+    {
+      "id": "jiangsu-craft-1",
+      "image": "https://picsum.photos/id/1342/600/400",
+      "category": "craft",
+      "name": "苏绣双面绣体验",
+      "type": "刺绣",
+      "location": "苏州镇湖苏绣街",
+      "duration": "3小时",
+      "difficulty": "中等",
+      "price": "260",
+      "rating": 4.9,
+      "reviewCount": 567,
+      "instructor": "苏绣传承人",
+      "heritageLevel": "national",
+      "highlights": [
+        "双面绣技法",
+        "乱针绣",
+        "猫毛丝理"
+      ],
+      "steps": [
+        "选缎",
+        "上绷",
+        "刺绣",
+        "整烫"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "手工艺爱好者"
+      ],
+      "tags": [
+        "非遗",
+        "苏绣",
+        "双面绣"
+      ],
+      "description": "苏绣位列中国四大名绣之首，双面绣\"正反异色异形\"巧夺天工。于镇湖苏绣街亲手双面绣，乱针绣猫毛丝理分明，感受这江南绣艺之巅峰与双面绣\"以针代笔\"之神技。"
+    },
+    {
+      "id": "jiangsu-craft-2",
+      "image": "https://picsum.photos/id/1344/600/400",
+      "category": "craft",
+      "name": "宜兴紫砂壶制作",
+      "type": "紫砂",
+      "location": "无锡宜兴丁蜀镇",
+      "duration": "3小时",
+      "difficulty": "简单",
+      "price": "300",
+      "rating": 4.8,
+      "reviewCount": 456,
+      "instructor": "紫砂工艺师",
+      "heritageLevel": "national",
+      "highlights": [
+        "打泥片",
+        "围身筒",
+        "全手工制壶"
+      ],
+      "steps": [
+        "练泥",
+        "打片",
+        "围筒",
+        "修饰",
+        "烧制"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "手工艺爱好者"
+      ],
+      "tags": [
+        "非遗",
+        "紫砂",
+        "宜兴"
+      ],
+      "description": "宜兴紫砂始于明代，\"世间茶具称为首\"拍泥片围身筒全手工制壶。于丁蜀镇亲手打泥片制壶，紫砂泥在指间成形，感受这阳羡茶器之雅韵与紫砂全手工之匠艺精髓。"
+    }
+  ],
+  "performances": [
+    {
+      "id": "jiangsu-perf-1",
+      "image": "https://picsum.photos/id/1800/600/400",
+      "category": "performance",
+      "name": "昆曲《牡丹亭》·苏州昆剧院",
+      "type": "戏曲",
+      "location": "苏州市苏州昆剧院",
+      "duration": "2小时",
+      "difficulty": "简单",
+      "price": "180",
+      "rating": 4.9,
+      "reviewCount": 678,
+      "highlights": [
+        "水磨腔经典名剧",
+        "园林实景版演出",
+        "非遗昆曲传承"
+      ],
+      "suitableFor": [
+        "戏曲爱好者",
+        "文艺青年"
+      ],
+      "tags": [
+        "非遗",
+        "昆曲",
+        "水磨腔"
+      ],
+      "description": "苏州昆剧院里水磨腔婉转如丝，杜丽娘的\"原来姹紫嫣红开遍\"在笛韵中百转千回。这四百年的昆曲雅韵，一颦一笑皆入画境，于这世界非遗的极致雅致中，品味\"百戏之祖\"之绝代风华。",
+      "heritageLevel": "national"
+    },
+    {
+      "id": "jiangsu-perf-2",
+      "image": "https://picsum.photos/id/1801/600/400",
+      "category": "performance",
+      "name": "苏州评弹·光裕书场",
+      "type": "曲艺",
+      "location": "苏州市观前街光裕书场",
+      "duration": "1.5小时",
+      "difficulty": "简单",
+      "price": "50",
+      "rating": 4.7,
+      "reviewCount": 345,
+      "highlights": [
+        "吴侬软语说唱",
+        "蒋调俞调流派",
+        "琵琶三弦伴奏"
+      ],
+      "suitableFor": [
+        "曲艺爱好者",
+        "文化体验者"
+      ],
+      "tags": [
+        "非遗",
+        "评弹",
+        "苏州"
+      ],
+      "description": "光裕书场里一桌一椅，琵琶三弦叮咚作响。评弹先生吴侬软语娓娓道来，从《珍珠塔》到《白蛇传》，说噱弹唱间尽显江南雅韵，于这百年书场中偷得浮生半日闲，品味苏州之慢。",
+      "heritageLevel": "national"
+    },
+    {
+      "id": "jiangsu-perf-3",
+      "image": "https://picsum.photos/id/1802/600/400",
+      "category": "performance",
+      "name": "南京夫子庙灯会光影秀",
+      "type": "光影演出",
+      "location": "南京市秦淮区夫子庙",
+      "duration": "2小时",
+      "difficulty": "简单",
+      "price": "免费",
+      "rating": 4.8,
+      "reviewCount": 892,
+      "highlights": [
+        "秦淮灯会千年传承",
+        "大型光影灯光秀",
+        "桨声灯影秦淮夜"
+      ],
+      "suitableFor": [
+        "家庭游客",
+        "情侣约会"
+      ],
+      "tags": [
+        "灯会",
+        "光影",
+        "秦淮"
+      ],
+      "description": "秦淮河畔花灯如昼，夫子庙灯会传承千年。大型光影秀将天下文枢染成璀璨画卷，画舫穿行灯影之间，桨声灯影里的秦淮夜如梦似幻，于这金陵繁华地感受最浪漫的中国灯会之夜。"
+    }
+  ],
+  "outdoorAdventure": [
+    {
+      "id": "jiangsu-outdoor-1",
+      "image": "https://picsum.photos/id/1363/600/400",
+      "category": "outdoor",
+      "name": "茅山道文化徒步",
+      "type": "徒步穿越",
+      "location": "镇江句容茅山",
+      "duration": "1天",
+      "difficulty": "中等",
+      "price": "35",
+      "rating": 4.5,
+      "reviewCount": 678,
+      "totalAscent": 350,
+      "maxElevation": 372,
+      "routeType": "环线",
+      "surfaceType": "石阶",
+      "accessInfo": "高铁至最近站，转景区交通",
+      "gearList": [
+        "登山鞋",
+        "水",
+        "香"
+      ],
+      "safetyTips": [
+        "山路平缓适合各年龄段"
+      ],
+      "bestMonths": "4-5月·9-10月",
+      "highlights": [
+        "九霄万福宫",
+        "元符万宁宫",
+        "华阳洞"
+      ],
+      "tags": [
+        "徒步",
+        "茅山",
+        "道教"
+      ],
+      "description": "茅山为道教上清派发源地，\"第一福地第八洞天\"九峰叠翠。于九霄万福宫祈福元符万宁宫问道，华阳洞探幽，感受这道教名山之仙风道骨与茅山道文化之深邃。"
+    },
+    {
+      "id": "jiangsu-outdoor-2",
+      "image": "https://picsum.photos/id/1366/600/400",
+      "category": "outdoor",
+      "name": "太湖环湖骑行",
+      "type": "骑行",
+      "location": "无锡太湖",
+      "duration": "半天",
+      "difficulty": "简单",
+      "price": "50",
+      "rating": 4.7,
+      "reviewCount": 1234,
+      "totalAscent": 100,
+      "maxElevation": 50,
+      "routeType": "往返",
+      "surfaceType": "石阶",
+      "accessInfo": "高铁至最近站，转景区交通",
+      "gearList": [
+        "公路车",
+        "头盔",
+        "水",
+        "防晒"
+      ],
+      "safetyTips": [
+        "注意交通",
+        "防晒必备"
+      ],
+      "bestMonths": "4-5月·9-10月",
+      "highlights": [
+        "太湖风光",
+        "鼋头渚",
+        "环湖18公里"
+      ],
+      "tags": [
+        "骑行",
+        "太湖",
+        "环湖"
+      ],
+      "description": "环太湖为中国最美骑行路线之一，\"太湖佳绝处鼋头胜境\"樱花如雪。于环湖路上骑行，太湖碧波万顷鼋头渚樱花烂漫，感受这\"太湖三万六千顷\"之壮阔与江南水乡之诗意。"
+    }
+  ],
+  "wellnessRetreat": [
+    {
+      "id": "jiangsu-wellness-1",
+      "image": "https://picsum.photos/id/1820/600/400",
+      "category": "wellness",
+      "name": "南京汤山一号泉",
+      "type": "温泉养生",
+      "location": "南京市江宁区汤山温泉小镇",
+      "duration": "3小时",
+      "difficulty": "简单",
+      "price": "198",
+      "rating": 4.8,
+      "reviewCount": 567,
+      "efficacyTags": [
+        "千年温泉乡",
+        "一号泉御用",
+        "矿物微量元素"
+      ],
+      "bestSeason": "全年",
+      "packageIncludes": [
+        "温泉票",
+        "浴袍",
+        "茶点"
+      ],
+      "suitableFor": [
+        "养生爱好者",
+        "休闲度假"
+      ],
+      "tags": [
+        "温泉",
+        "千年",
+        "汤山"
+      ],
+      "description": "汤山温泉涌泉千年，南朝萧太后曾浴此泉。一号泉为御用源头，富含硫磺与氡等三十余种矿物，于这\"华东第一温泉\"的氤氲汤池中涤尽尘疲，品味千年温泉乡之康养底蕴。"
+    },
+    {
+      "id": "jiangsu-wellness-2",
+      "image": "https://picsum.photos/id/1821/600/400",
+      "category": "wellness",
+      "name": "扬州瘦西湖慢生活",
+      "type": "慢生活",
+      "location": "扬州市瘦西湖风景区",
+      "duration": "1天",
+      "difficulty": "简单",
+      "price": "120",
+      "rating": 4.8,
+      "reviewCount": 432,
+      "efficacyTags": [
+        "早茶搓背修脚",
+        "瘦西湖画舫",
+        "二十四桥漫步"
+      ],
+      "bestSeason": "春秋",
+      "packageIncludes": [
+        "早茶",
+        "搓背",
+        "画舫"
+      ],
+      "suitableFor": [
+        "休闲度假",
+        "文化体验者"
+      ],
+      "tags": [
+        "慢生活",
+        "早茶",
+        "扬州"
+      ],
+      "description": "扬州\"早上皮包水，晚上水包皮\"。冶春茶社蟹黄汤包烫干丝，午后搓背修脚享百年三把刀之技，傍晚瘦西湖画舫穿行二十四桥，于这\"腰缠十万贯，骑鹤下扬州\"的慢城中，品味淮扬生活之极致。"
+    },
+    {
+      "id": "jiangsu-wellness-3",
+      "image": "https://picsum.photos/id/1822/600/400",
+      "category": "wellness",
+      "name": "苏州园林太极晨练",
+      "type": "太极养生",
+      "location": "苏州市拙政园",
+      "duration": "1.5小时",
+      "difficulty": "简单",
+      "price": "80",
+      "rating": 4.6,
+      "reviewCount": 234,
+      "efficacyTags": [
+        "世界遗产园林太极",
+        "拙政园清晨独享",
+        "水木清华养心"
+      ],
+      "bestSeason": "春秋",
+      "packageIncludes": [
+        "门票",
+        "太极教学",
+        "茶饮"
+      ],
+      "suitableFor": [
+        "养生爱好者",
+        "文化体验者"
+      ],
+      "tags": [
+        "太极",
+        "园林",
+        "苏州"
+      ],
+      "description": "拙政园水木清华，亭台楼阁移步换景。清晨入园随太极名师舒展，白鹤亮翅于远香堂前，云手拂过荷花水面，于这世界遗产的雅致园林中修身养性，品味\"虽由人作，宛自天开\"之境。"
     }
   ]
 }

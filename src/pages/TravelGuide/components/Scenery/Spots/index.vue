@@ -106,7 +106,7 @@
     if (sortBy.value === 'rating') {
       sorted.sort((a, b) => (b.rating || 0) - (a.rating || 0));
     } else if (sortBy.value === 'hot') {
-      sorted.sort((a, b) => (b.popularity || b.tags?.length || 0) - (a.popularity || a.tags?.length || 0));
+      sorted.sort((a, b) => (b.rating || 0) - (a.rating || 0));
     }
     return sorted;
   });

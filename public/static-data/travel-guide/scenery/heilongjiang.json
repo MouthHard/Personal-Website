@@ -14,7 +14,7 @@
       "rating": 4.8,
       "bestTime": "冬季",
       "location": "黑龙江省哈尔滨市松北区",
-      "description": "世界最大的冰雪主题乐园",
+      "description": "哈尔滨冰雪大世界，黑龙江哈尔滨冰雪大世界，人文荟萃之地，世界最大的冰雪主题乐园，实乃游历黑龙江不可错过之胜境。。足以令旅人魂牵梦萦，心驰神往。",
       "highlight": "冰雪奇观,世界最大冰雪乐园",
       "level": "4A景区",
       "rankBadge": "必去",
@@ -26,7 +26,6 @@
       ],
       "openTime": "11:00-21:30",
       "visitDuration": "3-4小时",
-      "popularity": "★★★★★",
       "audienceTags": [
         "摄影爱好者",
         "家庭亲子",
@@ -34,21 +33,57 @@
         "情侣约会"
       ],
       "ticketDetails": [
-        "成人票¥298",
-        "学生票半价",
-        "1.2米以下儿童免票",
-        "65岁以上老人半价"
+        {
+          "type": "成人票",
+          "price": "¥298"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "1.2米以下儿童",
+          "price": "免票"
+        },
+        {
+          "type": "65岁以上老人",
+          "price": "半价"
+        }
       ],
       "transportInfo": [
-        "飞机:哈尔滨太平国际机场约40km",
-        "高铁:哈尔滨站或哈尔滨西站",
-        "自驾:松北区松北大道直达",
-        "长途客运:哈尔滨公路客运站转公交"
+        {
+          "mode": "飞机",
+          "detail": "哈尔滨太平国际机场约40km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "哈尔滨站或哈尔滨西站"
+        },
+        {
+          "mode": "自驾",
+          "detail": "松北区松北大道直达"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "哈尔滨公路客运站转公交"
+        }
       ],
       "openTimeDetail": [
-        "日场11:00-15:00",
-        "夜场15:00-21:30",
-        "每年12月下旬至次年2月底开放"
+        {
+          "season": "日场11:00-15:00",
+          "months": "",
+          "time": ""
+        },
+        {
+          "season": "夜场15:00-21:30",
+          "months": "",
+          "time": ""
+        },
+        {
+          "season": "每年12月下旬至次年2月底开放",
+          "months": "",
+          "time": ""
+        }
       ],
       "recommendedRoutes": [
         {
@@ -68,8 +103,15 @@
               "detail": "主冰雕区→冰滑梯体验→雪花摩天轮→冰雪城堡"
             }
           ],
-          "budget": "¥300-500",
-          "bestFor": "家庭亲子/首次游览"
+          "budget": {
+            "currency": "¥",
+            "min": 300,
+            "max": 500
+          },
+          "bestFor": [
+            "家庭亲子",
+            "首次游览"
+          ]
         },
         {
           "name": "夜景观赏游",
@@ -88,8 +130,15 @@
               "detail": "傍晚入园→主冰雕彩灯区→冰滑梯夜滑→摩天轮夜景"
             }
           ],
-          "budget": "¥300-500",
-          "bestFor": "摄影爱好者/情侣约会"
+          "budget": {
+            "currency": "¥",
+            "min": 300,
+            "max": 500
+          },
+          "bestFor": [
+            "摄影爱好者",
+            "情侣约会"
+          ]
         }
       ],
       "facilities": [
@@ -138,7 +187,7 @@
       "rating": 4.6,
       "bestTime": "夏季",
       "location": "黑龙江省哈尔滨市松北区",
-      "description": "哈尔滨著名的风景区,国家5A级景区",
+      "description": "坐落于关东大地的太阳岛，黑龙江太阳岛，鬼斧神工天作之美，哈尔滨著名的风景区，国家5A级景区，实乃游历黑龙江不可错过之胜境。。堪称天地造化与人文底蕴之交响。",
       "highlight": "哈尔滨明珠,雪博会主场",
       "level": "5A景区",
       "reviewCount": "54,321条点评",
@@ -154,7 +203,6 @@
       "rankBadge": "避暑",
       "openTime": "08:00-17:00",
       "visitDuration": "半天",
-      "popularity": "★★★★☆",
       "audienceTags": [
         "家庭亲子",
         "摄影爱好者",
@@ -162,21 +210,57 @@
         "自然爱好者"
       ],
       "ticketDetails": [
-        "成人票¥30",
-        "学生票半价",
-        "1.2米以下儿童免票",
-        "60岁以上老人免票"
+        {
+          "type": "成人票",
+          "price": "¥30"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "1.2米以下儿童",
+          "price": "免票"
+        },
+        {
+          "type": "60岁以上老人",
+          "price": "免票"
+        }
       ],
       "transportInfo": [
-        "飞机:哈尔滨太平国际机场约40km",
-        "高铁:哈尔滨站转公交或轮渡",
-        "自驾:松北区松北大道直达",
-        "长途客运:哈尔滨公路客运站转公交"
+        {
+          "mode": "飞机",
+          "detail": "哈尔滨太平国际机场约40km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "哈尔滨站转公交或轮渡"
+        },
+        {
+          "mode": "自驾",
+          "detail": "松北区松北大道直达"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "哈尔滨公路客运站转公交"
+        }
       ],
       "openTimeDetail": [
-        "旺季(6-9月) 08:00-17:00",
-        "淡季(10-5月) 08:30-16:30",
-        "雪博会期间另行公告"
+        {
+          "season": "旺季",
+          "months": "6-9月",
+          "time": "08:00-17:00"
+        },
+        {
+          "season": "淡季",
+          "months": "10-5月",
+          "time": "08:30-16:30"
+        },
+        {
+          "season": "雪博会期间另行公告",
+          "months": "",
+          "time": ""
+        }
       ],
       "recommendedRoutes": [
         {
@@ -196,8 +280,15 @@
               "detail": "太阳石碑→俄罗斯风情小镇→松花江畔→园区漫步"
             }
           ],
-          "budget": "¥50-100",
-          "bestFor": "家庭亲子/休闲度假"
+          "budget": {
+            "currency": "¥",
+            "min": 50,
+            "max": 100
+          },
+          "bestFor": [
+            "家庭亲子",
+            "休闲度假"
+          ]
         },
         {
           "name": "雪博会专线",
@@ -216,8 +307,15 @@
               "detail": "雪雕广场→大型雪雕群→雪博会主展区→园区观光"
             }
           ],
-          "budget": "¥100-200",
-          "bestFor": "摄影爱好者/冬季游览"
+          "budget": {
+            "currency": "¥",
+            "min": 100,
+            "max": 200
+          },
+          "bestFor": [
+            "摄影爱好者",
+            "冬季游览"
+          ]
         }
       ],
       "facilities": [
@@ -266,7 +364,7 @@
       "rating": 4.6,
       "bestTime": "全年",
       "location": "黑龙江省哈尔滨市道里区",
-      "description": "亚洲最长的步行街,充满异域风情",
+      "description": "关东中央大街，黑龙江中央大街，古迹斑驳岁月悠悠，亚洲最长的步行街，充满异域风情，实乃游历黑龙江不可错过之胜境。。每一处景致皆是造物主的匠心独运。",
       "highlight": "百年老街,欧式建筑博物馆",
       "level": "4A景区",
       "rankBadge": "网红",
@@ -278,7 +376,6 @@
       ],
       "openTime": "全天开放",
       "visitDuration": "2-3小时",
-      "popularity": "★★★★★",
       "audienceTags": [
         "购物爱好者",
         "美食爱好者",
@@ -286,21 +383,57 @@
         "情侣约会"
       ],
       "ticketDetails": [
-        "免费开放",
-        "无需门票",
-        "全天游览",
-        "部分店铺单独收费"
+        {
+          "type": "通用",
+          "price": "免费开放"
+        },
+        {
+          "type": "无需门票",
+          "price": ""
+        },
+        {
+          "type": "全天游览",
+          "price": ""
+        },
+        {
+          "type": "部分店铺单独收费",
+          "price": ""
+        }
       ],
       "transportInfo": [
-        "飞机:哈尔滨太平国际机场约40km",
-        "高铁:哈尔滨站或哈尔滨西站转公交",
-        "自驾:道里区中央大街周边停车场",
-        "长途客运:哈尔滨公路客运站转公交"
+        {
+          "mode": "飞机",
+          "detail": "哈尔滨太平国际机场约40km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "哈尔滨站或哈尔滨西站转公交"
+        },
+        {
+          "mode": "自驾",
+          "detail": "道里区中央大街周边停车场"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "哈尔滨公路客运站转公交"
+        }
       ],
       "openTimeDetail": [
-        "全天开放",
-        "商铺营业时间约10:00-22:00",
-        "夜间灯光景观最佳"
+        {
+          "season": "全天开放",
+          "months": "",
+          "time": ""
+        },
+        {
+          "season": "商铺营业时间约10:00-22:00",
+          "months": "",
+          "time": ""
+        },
+        {
+          "season": "夜间灯光景观最佳",
+          "months": "",
+          "time": ""
+        }
       ],
       "recommendedRoutes": [
         {
@@ -321,7 +454,10 @@
             }
           ],
           "budget": "免费",
-          "bestFor": "摄影爱好者/首次游览"
+          "bestFor": [
+            "摄影爱好者",
+            "首次游览"
+          ]
         },
         {
           "name": "美食购物游",
@@ -340,8 +476,15 @@
               "detail": "中央大街→马迭尔宾馆→品尝特色美食→购物休闲"
             }
           ],
-          "budget": "¥100-300",
-          "bestFor": "美食爱好者/情侣约会"
+          "budget": {
+            "currency": "¥",
+            "min": 100,
+            "max": 300
+          },
+          "bestFor": [
+            "美食爱好者",
+            "情侣约会"
+          ]
         }
       ],
       "facilities": [
@@ -390,7 +533,7 @@
       "rating": 4.7,
       "bestTime": "夏季",
       "location": "黑龙江省黑河市五大连池市",
-      "description": "世界地质公园,拥有独特的火山地貌",
+      "description": "五大连池者，关东之胜境也。黑龙江五大连池，大自然之鬼斧神工，汤泉氤氲温润如玉，世界地质公园，拥有独特的火山地貌，实乃游历黑龙江不可错过之胜境。。汤泉氬氳温润如玉，当属此地名胜之首推，不容错过。",
       "highlight": "火山地质博物馆,矿泉疗养地",
       "level": "5A景区",
       "reviewCount": "43,210条点评",
@@ -406,7 +549,6 @@
       "rankBadge": "温泉",
       "openTime": "08:00-17:00",
       "visitDuration": "1-2天",
-      "popularity": "★★★★☆",
       "audienceTags": [
         "地质爱好者",
         "摄影爱好者",
@@ -414,21 +556,57 @@
         "自然爱好者"
       ],
       "ticketDetails": [
-        "成人票¥80",
-        "学生票半价",
-        "1.2米以下儿童免票",
-        "60岁以上老人半价"
+        {
+          "type": "成人票",
+          "price": "¥80"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "1.2米以下儿童",
+          "price": "免票"
+        },
+        {
+          "type": "60岁以上老人",
+          "price": "半价"
+        }
       ],
       "transportInfo": [
-        "飞机:黑河瑷珲机场转车约230km",
-        "高铁:北安站转车约70km",
-        "自驾:绥北高速五大连池出口",
-        "长途客运:北安客运站转车"
+        {
+          "mode": "飞机",
+          "detail": "黑河瑷珲机场转车约230km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "北安站转车约70km"
+        },
+        {
+          "mode": "自驾",
+          "detail": "绥北高速五大连池出口"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "北安客运站转车"
+        }
       ],
       "openTimeDetail": [
-        "旺季(5-10月) 08:00-17:00",
-        "淡季(11-4月) 08:30-16:30",
-        "景区分多个景点分别售票"
+        {
+          "season": "旺季",
+          "months": "5-10月",
+          "time": "08:00-17:00"
+        },
+        {
+          "season": "淡季",
+          "months": "11-4月",
+          "time": "08:30-16:30"
+        },
+        {
+          "season": "景区分多个景点分别售票",
+          "months": "",
+          "time": ""
+        }
       ],
       "recommendedRoutes": [
         {
@@ -448,8 +626,15 @@
               "detail": "老黑山火山口→火烧山→堰塞湖→火山地质博物馆"
             }
           ],
-          "budget": "¥200-400",
-          "bestFor": "地质爱好者/自然探索"
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
+          "bestFor": [
+            "地质爱好者",
+            "自然探索"
+          ]
         },
         {
           "name": "矿泉疗养游",
@@ -473,8 +658,15 @@
               "detail": "药泉山→二龙眼泉→矿泉博物馆→返程"
             }
           ],
-          "budget": "¥500-1000",
-          "bestFor": "温泉养生/休闲度假"
+          "budget": {
+            "currency": "¥",
+            "min": 500,
+            "max": 1000
+          },
+          "bestFor": [
+            "温泉养生",
+            "休闲度假"
+          ]
         }
       ],
       "facilities": [
@@ -523,7 +715,7 @@
       "rating": 4.6,
       "bestTime": "夏季",
       "location": "黑龙江省牡丹江市宁安市",
-      "description": "中国最大的火山堰塞湖",
+      "description": "名为镜泊湖，黑龙江镜泊湖，造化钟神秀，碧波荡漾水光潋滟，中国最大的火山堰塞湖，实乃游历黑龙江不可错过之胜境。。碧波荡漾水光潋滟，令人叹为观止，流连忘返。",
       "highlight": "高山堰塞湖,北方西湖",
       "level": "5A景区",
       "reviewCount": "32,109条点评",
@@ -539,7 +731,6 @@
       "rankBadge": "瀑布",
       "openTime": "08:00-17:00",
       "visitDuration": "1天",
-      "popularity": "★★★★☆",
       "audienceTags": [
         "摄影爱好者",
         "自然爱好者",
@@ -547,21 +738,57 @@
         "休闲度假"
       ],
       "ticketDetails": [
-        "成人票¥80",
-        "学生票半价",
-        "1.2米以下儿童免票",
-        "游船另收费"
+        {
+          "type": "成人票",
+          "price": "¥80"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "1.2米以下儿童",
+          "price": "免票"
+        },
+        {
+          "type": "游船另收费",
+          "price": ""
+        }
       ],
       "transportInfo": [
-        "飞机:牡丹江海浪机场转车约100km",
-        "高铁:牡丹江站转车约100km",
-        "自驾:绥满高速宁安出口",
-        "长途客运:牡丹江客运站转车"
+        {
+          "mode": "飞机",
+          "detail": "牡丹江海浪机场转车约100km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "牡丹江站转车约100km"
+        },
+        {
+          "mode": "自驾",
+          "detail": "绥满高速宁安出口"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "牡丹江客运站转车"
+        }
       ],
       "openTimeDetail": [
-        "旺季(5-10月) 08:00-17:00",
-        "淡季(11-4月) 08:30-16:30",
-        "瀑布水量夏季最盛"
+        {
+          "season": "旺季",
+          "months": "5-10月",
+          "time": "08:00-17:00"
+        },
+        {
+          "season": "淡季",
+          "months": "11-4月",
+          "time": "08:30-16:30"
+        },
+        {
+          "season": "瀑布水量夏季最盛",
+          "months": "",
+          "time": ""
+        }
       ],
       "recommendedRoutes": [
         {
@@ -581,8 +808,15 @@
               "detail": "镜泊湖乘船→珍珠门→白石砬子→吊水楼瀑布"
             }
           ],
-          "budget": "¥200-400",
-          "bestFor": "家庭亲子/休闲度假"
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
+          "bestFor": [
+            "家庭亲子",
+            "休闲度假"
+          ]
         },
         {
           "name": "瀑布深度游",
@@ -601,8 +835,15 @@
               "detail": "吊水楼瀑布→观赏跳水表演→毛公崖→瀑布周边观光"
             }
           ],
-          "budget": "¥100-200",
-          "bestFor": "摄影爱好者/首次游览"
+          "budget": {
+            "currency": "¥",
+            "min": 100,
+            "max": 200
+          },
+          "bestFor": [
+            "摄影爱好者",
+            "首次游览"
+          ]
         }
       ],
       "facilities": [
@@ -669,19 +910,7 @@
     }
   ],
   "customs": {
-    "activities": [
-      {
-        "id": "1",
-        "name": "东北二人转",
-        "type": "文化体验",
-        "image": "https://picsum.photos/id/1262/600/400",
-        "category": "culture",
-        "duration": "2-3小时",
-        "location": "哈尔滨刘老根大舞台",
-        "difficulty": "简单",
-        "description": "观看东北特色的二人转表演"
-      }
-    ]
+    "activities": []
   },
   "overview": {
     "fiveACount": 5,
@@ -694,42 +923,42 @@
       {
         "name": "哈尔滨冰雪大世界",
         "image": "https://picsum.photos/id/1260/600/400",
-        "description": "世界最大的冰雪主题乐园"
+        "description": "坐落于关东大地的哈尔滨冰雪大世界，哈尔滨冰雪大世界——世界最大的冰雪主题乐园，实乃游历此地不可错过之胜境。。每一处景致皆是造物主的匠心独运。"
       },
       {
         "name": "太阳岛",
         "image": "https://picsum.photos/id/1261/600/400",
-        "description": "哈尔滨著名的风景区,国家5A级景区"
+        "description": "关东太阳岛，黑龙江名胜太阳岛，哈尔滨著名的风景区，国家5A级景区，令人心驰神往流连忘返。。当属此地名胜之首推，不容错过。"
       },
       {
         "name": "中央大街",
         "image": "https://picsum.photos/id/1262/600/400",
-        "description": "亚洲最长的步行街,充满异域风情"
+        "description": "中央大街者，关东之胜境也。中央大街者，黑龙江之亚洲最长的步行街，充满异域风情，堪称此地风光之冠冕。。令人叹为观止，流连忘返。"
       },
       {
         "name": "五大连池",
         "image": "https://picsum.photos/id/1263/600/400",
-        "description": "世界地质公园,拥有独特的火山地貌"
+        "description": "名为五大连池，誉为黑龙江明珠的五大连池，世界地质公园，拥有独特的火山地貌，每一处皆是造化与人文的交响。。实乃游历此地不可错过之胜境。"
       },
       {
         "name": "镜泊湖",
         "image": "https://picsum.photos/id/1264/600/400",
-        "description": "中国最大的火山堰塞湖"
+        "description": "关东名胜镜泊湖，镜泊湖，中国最大的火山堰塞湖，足以令旅人魂牵梦萦。。足以令旅人魂牵梦萦，心驰神往。"
       },
       {
         "name": "亚布力滑雪场",
         "image": "https://picsum.photos/id/1265/600/400",
-        "description": "中国最大的旅游滑雪场"
+        "description": "亚布力滑雪场，亚布力滑雪场——中国最大的旅游滑雪场，当属此地名胜之首推。。堪称天地造化与人文底蕴之交响。"
       },
       {
         "name": "圣索菲亚教堂",
         "image": "https://picsum.photos/id/1266/600/400",
-        "description": "远东地区最大的东正教教堂"
+        "description": "坐落于关东大地的圣索菲亚教堂，黑龙江名胜圣索菲亚教堂，远东地区最大的东正教教堂，实乃游历此地不可错过之胜境。。每一处景致皆是造物主的匠心独运。"
       },
       {
         "name": "北极村",
         "image": "https://picsum.photos/id/1267/600/400",
-        "description": "中国最北的村庄,可观赏北极光"
+        "description": "关东北极村，北极村者，黑龙江之中国最北的村庄，可观赏北极光，令人心驰神往流连忘返。。当属此地名胜之首推，不容错过。"
       }
     ]
   },
@@ -787,7 +1016,62 @@
       "month": "1月",
       "isUnique": true,
       "location": "哈尔滨",
-      "description": "世界著名的冰雪节庆活动"
+      "description": "与札幌、魁北克、奥斯陆并称世界四大冰雪节，冰雪大世界、兆麟公园冰灯游园会、太阳岛雪博会、冰雕比赛、冬泳表演，于冰城感受这\"千里冰封万里雪飘\"之北国冰雪奇观。",
+      "type": "冰雪节庆",
+      "duration": "约30天",
+      "origin": "哈尔滨国际冰雪节始于1985年，与札幌、魁北克、奥斯陆并称世界四大冰雪节。哈尔滨冰灯游园会历史可追溯至1963年。",
+      "highlights": [
+        "冰雪大世界",
+        "兆麟公园冰灯游园会",
+        "太阳岛雪博会",
+        "冰雕比赛",
+        "冬泳表演"
+      ],
+      "bestTime": "1月5日开幕至春节",
+      "ticket": "冰雪大世界¥300",
+      "transport": "飞机至哈尔滨太平机场，公交直达冰雪大世界",
+      "tips": [
+        "气温可达-30℃，需穿羽绒裤戴面罩",
+        "手机低温易关机，贴暖宝宝",
+        "冰雪大世界建议夜游，灯光效果最佳"
+      ],
+      "relatedSpots": [
+        "冰雪大世界",
+        "中央大街",
+        "圣索菲亚教堂"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "齐齐哈尔观鹤节",
+      "month": "5月",
+      "day": "1日",
+      "location": "扎龙自然保护区",
+      "isUnique": false,
+      "description": "依托扎龙国家级自然保护区，世界最大丹顶鹤繁殖栖息地，丹顶鹤野化放飞、湿地观鸟、鹤类科普展，于鹤乡感受这\"鹤鸣于九皋声闻于天\"之生态诗意与湿地之美。",
+      "type": "生态节庆",
+      "duration": "约5天",
+      "origin": "齐齐哈尔观鹤节依托扎龙国家级自然保护区，该保护区为世界最大丹顶鹤繁殖栖息地。",
+      "highlights": [
+        "丹顶鹤野化放飞",
+        "湿地观鸟",
+        "鹤类科普展",
+        "湿地摄影大赛",
+        "生态保护论坛"
+      ],
+      "bestTime": "5月鹤群北归繁殖期",
+      "ticket": "扎龙保护区门票¥65",
+      "transport": "火车至齐齐哈尔，转大巴至扎龙",
+      "tips": [
+        "观鹤需保持安静，避免惊扰",
+        "望远镜必备，800米外观察最佳",
+        "湿地蚊虫多，做好防护"
+      ],
+      "relatedSpots": [
+        "扎龙自然保护区",
+        "明月岛",
+        "龙沙公园"
+      ]
     }
   ],
   "activities": [
@@ -817,7 +1101,7 @@
   "intangibleHeritage": [
     {
       "id": "1",
-      "icon": "🎭",
+      "icon": "theater",
       "name": "东北二人转",
       "image": "https://picsum.photos/id/1262/600/400",
       "level": "national",
@@ -858,7 +1142,11 @@
           "avgRating": 4.7,
           "bestSeason": "春秋 / 全年",
           "recommendedDays": "2-3 日",
-          "budget": "¥500-1200",
+          "budget": {
+            "currency": "¥",
+            "min": 500,
+            "max": 1200
+          },
           "intensity": "适中",
           "audience": "全人群",
           "highlights": [
@@ -884,7 +1172,11 @@
           "avgRating": 4.6,
           "bestSeason": "夏秋",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-500",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 500
+          },
           "intensity": "轻松",
           "audience": "家庭/休闲",
           "highlights": [
@@ -916,7 +1208,11 @@
           "avgRating": 4.6,
           "bestSeason": "全年",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-400",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
           "intensity": "轻松",
           "audience": "文化/家庭",
           "highlights": [
@@ -942,7 +1238,11 @@
           "avgRating": 4.5,
           "bestSeason": "全年",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-400",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
           "intensity": "轻松",
           "audience": "银发/养心",
           "highlights": [
@@ -972,7 +1272,11 @@
           "avgRating": 4.6,
           "bestSeason": "春秋",
           "recommendedDays": "2-3 日",
-          "budget": "¥300-800",
+          "budget": {
+            "currency": "¥",
+            "min": 300,
+            "max": 800
+          },
           "intensity": "挑战",
           "audience": "户外/探险",
           "highlights": [
@@ -996,7 +1300,11 @@
           "avgRating": 4.6,
           "bestSeason": "夏秋",
           "recommendedDays": "2-3 日",
-          "budget": "¥500-1500",
+          "budget": {
+            "currency": "¥",
+            "min": 500,
+            "max": 1500
+          },
           "intensity": "轻松",
           "audience": "家庭/度假",
           "highlights": [
@@ -1028,7 +1336,11 @@
           "avgRating": 4.6,
           "bestSeason": "6-8月",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-500",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 500
+          },
           "intensity": "轻松",
           "audience": "家庭/亲子",
           "highlights": [
@@ -1054,7 +1366,11 @@
           "avgRating": 4.7,
           "bestSeason": "12-2月",
           "recommendedDays": "2 日",
-          "budget": "¥500-1200",
+          "budget": {
+            "currency": "¥",
+            "min": 500,
+            "max": 1200
+          },
           "intensity": "适中",
           "audience": "户外/摄影",
           "highlights": [
@@ -1074,6 +1390,354 @@
           ]
         }
       ]
+    }
+  ],
+  "craftWorkshops": [
+    {
+      "id": "heilongjiang-craft-1",
+      "image": "https://picsum.photos/id/1342/600/400",
+      "category": "craft",
+      "name": "渤海靺鞨绣",
+      "type": "刺绣",
+      "location": "牡丹江宁安市",
+      "duration": "3小时",
+      "difficulty": "中等",
+      "price": "180",
+      "rating": 4.6,
+      "reviewCount": 78,
+      "instructor": "靺鞨绣传承人",
+      "heritageLevel": "national",
+      "highlights": [
+        "满族刺绣",
+        "靺鞨古法",
+        "冰雪纹样"
+      ],
+      "steps": [
+        "选布",
+        "拓样",
+        "刺绣",
+        "装裱"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "手工艺爱好者"
+      ],
+      "tags": [
+        "非遗",
+        "靺鞨绣",
+        "满族"
+      ],
+      "description": "靺鞨绣源于唐代渤海国，满族刺绣之代表，冰雪纹样独树一帜。于宁安工坊亲手刺绣，满族古法针脚细密，感受这渤海古国之绣艺传承与白山黑水间之民族匠心。"
+    },
+    {
+      "id": "heilongjiang-craft-2",
+      "image": "https://picsum.photos/id/1344/600/400",
+      "category": "craft",
+      "name": "赫哲族鱼皮画",
+      "type": "鱼皮工艺",
+      "location": "同江市赫哲族乡",
+      "duration": "3小时",
+      "difficulty": "简单",
+      "price": "220",
+      "rating": 4.7,
+      "reviewCount": 56,
+      "instructor": "赫哲族艺人",
+      "heritageLevel": "national",
+      "highlights": [
+        "鱼皮处理",
+        "拼贴成画",
+        "赫哲族文化"
+      ],
+      "steps": [
+        "选鱼皮",
+        "鞣制",
+        "剪裁",
+        "拼贴"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "手工艺爱好者"
+      ],
+      "tags": [
+        "非遗",
+        "鱼皮",
+        "赫哲族"
+      ],
+      "description": "赫哲族鱼皮艺术乃世界唯一鱼皮服饰民族之绝技，鱼皮拼贴成画古朴天成。于同江赫哲族乡亲手处理鱼皮拼贴，鱼皮纹理天然成趣，感受这渔猎民族之独特艺术与黑龙江畔之古老文明。"
+    }
+  ],
+  "performances": [
+    {
+      "id": "heilongjiang-perf-1",
+      "image": "https://picsum.photos/id/1760/600/400",
+      "category": "performance",
+      "name": "哈尔滨冰秀·冰雪大世界",
+      "type": "冰上表演",
+      "location": "哈尔滨市冰雪大世界",
+      "duration": "1.5小时",
+      "difficulty": "简单",
+      "price": "300",
+      "rating": 4.8,
+      "reviewCount": 678,
+      "highlights": [
+        "冰上芭蕾杂技",
+        "冰雪灯光秀",
+        "万人冰面迪斯科"
+      ],
+      "suitableFor": [
+        "家庭游客",
+        "年轻群体"
+      ],
+      "tags": [
+        "冰秀",
+        "冰雪",
+        "哈尔滨"
+      ],
+      "description": "冰雪大世界琼楼玉宇，冰上芭蕾在晶莹剔透的舞台上旋转跳跃。灯光将冰雕染成梦幻宫殿，万人冰面迪斯科嗨翻全场，于这冰城最璀璨的夜晚，感受冰雪艺术之极致浪漫。"
+    },
+    {
+      "id": "heilongjiang-perf-2",
+      "image": "https://picsum.photos/id/1761/600/400",
+      "category": "performance",
+      "name": "《哈尔滨之夏》音乐会",
+      "type": "交响乐",
+      "location": "哈尔滨市哈尔滨音乐厅",
+      "duration": "2小时",
+      "difficulty": "简单",
+      "price": "180",
+      "rating": 4.7,
+      "reviewCount": 345,
+      "highlights": [
+        "百年音乐之都",
+        "中俄交响联奏",
+        "哈夏音乐节经典"
+      ],
+      "suitableFor": [
+        "音乐爱好者",
+        "文化体验者"
+      ],
+      "tags": [
+        "交响乐",
+        "音乐之都",
+        "哈尔滨"
+      ],
+      "description": "哈尔滨音乐厅穹顶之下，百年音乐之都的底蕴在琴弦间流淌。从柴可夫斯基到《我的太阳》，中俄乐手联袂演绎，在这\"东方莫斯科\"的夏夜，让音乐之声回荡于松花江畔。"
+    },
+    {
+      "id": "heilongjiang-perf-3",
+      "image": "https://picsum.photos/id/1762/600/400",
+      "category": "performance",
+      "name": "东北大鼓书·老茶馆",
+      "type": "曲艺",
+      "location": "哈尔滨市老道外茶馆",
+      "duration": "1.5小时",
+      "difficulty": "简单",
+      "price": "40",
+      "rating": 4.4,
+      "reviewCount": 156,
+      "highlights": [
+        "一人一鼓一板说唱",
+        "东北方言段子",
+        "百年茶馆听书"
+      ],
+      "suitableFor": [
+        "曲艺爱好者",
+        "文化体验者"
+      ],
+      "tags": [
+        "非遗",
+        "大鼓书",
+        "东北"
+      ],
+      "description": "老道外茶馆里，大鼓书艺人一人一鼓一板，将杨家将、岳飞传说得荡气回肠。东北方言的幽默与鼓板的激昂交织，一碗花茶一碟瓜子，于这百年茶馆中品味东北曲艺之粗犷与温情。",
+      "heritageLevel": "provincial"
+    }
+  ],
+  "outdoorAdventure": [
+    {
+      "id": "heilongjiang-outdoor-1",
+      "image": "https://picsum.photos/id/1363/600/400",
+      "category": "outdoor",
+      "name": "大兴安岭森林穿越",
+      "type": "森林穿越",
+      "location": "大兴安岭加格达奇",
+      "duration": "1天",
+      "difficulty": "中等",
+      "price": "200",
+      "rating": 4.8,
+      "reviewCount": 234,
+      "totalAscent": 300,
+      "maxElevation": 1400,
+      "routeType": "环线",
+      "surfaceType": "石阶",
+      "accessInfo": "高铁至最近站，转景区交通",
+      "gearList": [
+        "防蚊",
+        "冲锋衣",
+        "GPS",
+        "指南针"
+      ],
+      "safetyTips": [
+        "森林易迷路需向导",
+        "注意蚊虫熊"
+      ],
+      "bestMonths": "4-5月·9-10月",
+      "highlights": [
+        "原始森林",
+        "驯鹿部落",
+        "白桦林海"
+      ],
+      "tags": [
+        "森林",
+        "穿越",
+        "大兴安岭"
+      ],
+      "description": "大兴安岭为中国最大原始林区，落叶松白桦交织成海，偶遇驯鹿与鄂温克使鹿部落。穿越原始森林，白桦林海如入童话，感受这\"绿色宝库\"之浩瀚与使鹿部落之古老文明。"
+    },
+    {
+      "id": "heilongjiang-outdoor-2",
+      "image": "https://picsum.photos/id/1366/600/400",
+      "category": "outdoor",
+      "name": "镜泊湖冰瀑冬攀",
+      "type": "冰攀",
+      "location": "牡丹江宁安市镜泊湖",
+      "duration": "半天",
+      "difficulty": "简单",
+      "price": "300",
+      "rating": 4.7,
+      "reviewCount": 89,
+      "totalAscent": 30,
+      "maxElevation": 350,
+      "routeType": "往返",
+      "surfaceType": "石阶",
+      "accessInfo": "高铁至最近站，转景区交通",
+      "gearList": [
+        "冰镐",
+        "冰爪",
+        "安全带",
+        "头盔"
+      ],
+      "safetyTips": [
+        "需专业教练指导",
+        "冰质检查",
+        "安全绳必备"
+      ],
+      "bestMonths": "4-5月·9-10月",
+      "highlights": [
+        "冰瀑攀冰",
+        "吊水楼瀑布",
+        "冬捕体验"
+      ],
+      "tags": [
+        "冰攀",
+        "冰瀑",
+        "镜泊湖"
+      ],
+      "description": "镜泊湖吊水楼瀑布冬季凝为冰瀑，30米冰壁攀冰而上，东北唯一自然冰瀑。冰镐冰爪攀登冰壁，冰晶剔透如水晶宫殿，感受这北国冰封之壮美与攀冰之刺激豪迈。"
+    }
+  ],
+  "wellnessRetreat": [
+    {
+      "id": "heilongjiang-wellness-1",
+      "image": "https://picsum.photos/id/1780/600/400",
+      "category": "wellness",
+      "name": "五大连池冷矿泉疗养",
+      "type": "矿泉养生",
+      "location": "黑河市五大连池风景名胜区",
+      "duration": "1天",
+      "difficulty": "简单",
+      "price": "180",
+      "rating": 4.8,
+      "reviewCount": 432,
+      "efficacyTags": [
+        "火山冷矿泉饮浴",
+        "矿泥敷身理疗",
+        "磁疗康养"
+      ],
+      "bestSeason": "全年",
+      "packageIncludes": [
+        "矿泉票",
+        "矿泥理疗",
+        "矿泉水"
+      ],
+      "suitableFor": [
+        "养生爱好者",
+        "康复疗养"
+      ],
+      "tags": [
+        "矿泉",
+        "火山",
+        "五大连池"
+      ],
+      "description": "五大连池火山冷矿泉世界罕见，富含二氧化碳与铁硅钾等四十余种矿物。饮泉浴泉双管齐下，火山矿泥敷身如黑金裹体，于这\"中国矿泉之乡\"体验冷矿泉之独特疗愈，身心焕然如新生。"
+    },
+    {
+      "id": "heilongjiang-wellness-2",
+      "image": "https://picsum.photos/id/1781/600/400",
+      "category": "wellness",
+      "name": "亚布力森林滑雪",
+      "type": "滑雪养生",
+      "location": "哈尔滨市尚志市亚布力滑雪场",
+      "duration": "1天",
+      "difficulty": "中等",
+      "price": "300",
+      "rating": 4.7,
+      "reviewCount": 567,
+      "efficacyTags": [
+        "高山雪道飞驰",
+        "森林雪原穿越",
+        "运动后温泉解乏"
+      ],
+      "bestSeason": "冬季",
+      "packageIncludes": [
+        "雪票",
+        "雪具租赁",
+        "温泉"
+      ],
+      "suitableFor": [
+        "运动爱好者",
+        "滑雪爱好者"
+      ],
+      "tags": [
+        "滑雪",
+        "森林",
+        "亚布力"
+      ],
+      "description": "亚力雪场雪道飞驰而下，风从耳畔呼啸肾上腺飙升。穿行林海雪原，银装素裹间松涛阵阵，滑后温泉一解浑身酸乏，于这中国滑雪之乡中挥洒激情畅快筋骨，尽享冰雪运动之养生快意。"
+    },
+    {
+      "id": "heilongjiang-wellness-3",
+      "image": "https://picsum.photos/id/1782/600/400",
+      "category": "wellness",
+      "name": "大兴安岭原始森林氧吧",
+      "type": "森林康养",
+      "location": "大兴安岭地区加格达奇",
+      "duration": "2天",
+      "difficulty": "简单",
+      "price": "200",
+      "rating": 4.7,
+      "reviewCount": 234,
+      "efficacyTags": [
+        "原始森林徒步",
+        "负氧离子极高",
+        "鄂伦春狩猎文化"
+      ],
+      "bestSeason": "夏秋",
+      "packageIncludes": [
+        "向导",
+        "徒步装备",
+        "林间住宿"
+      ],
+      "suitableFor": [
+        "自然爱好者",
+        "探险爱好者"
+      ],
+      "tags": [
+        "森林",
+        "氧吧",
+        "大兴安岭"
+      ],
+      "description": "大兴安岭莽莽林海，原始红松遮天蔽日，负氧离子含量超都市数百倍。穿行于这\"绿色宝库\"深处，松脂清香沁人心脾，偶遇鄂伦春猎民遗踪，于这北疆秘境中深呼吸，让每一寸肺腑都饱饮森林之馈赠。"
     }
   ]
 }

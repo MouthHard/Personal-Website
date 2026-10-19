@@ -1,209 +1,39 @@
 <template>
   <div class="discover-theme">
     <section class="theme-album" v-if="currentGroup">
-      <!-- 黄铜护角 -->
       <span class="brass-corner brass-corner--tl"></span>
       <span class="brass-corner brass-corner--tr"></span>
       <span class="brass-corner brass-corner--bl"></span>
       <span class="brass-corner brass-corner--br"></span>
 
       <div class="album-layout">
-        <!-- 左：皮革书签索引 -->
-        <aside class="bookmark-index">
-          <div class="bookmark-caption">
-            <span class="bc-glyph"><LayersIcon :size="28" /></span>
-            <span class="bc-text">分类</span>
-          </div>
-          <button
-            v-for="g in themeGroups"
-            :key="g.key"
-            class="bookmark-tab"
-            :class="{ active: activeGroup === g.key, 'bm-play': g.key === 'play' }"
-            @click="activeGroup = g.key"
-          >
-            <span class="bm-fold"></span>
-            <span class="bm-stamp"></span>
-            <span class="bm-icon"><component :is="groupIcon(g.key)" :size="20" /></span>
-            <span class="bm-info">
-              <span class="bm-text">{{ g.title }}</span>
-              <span class="bm-count">{{ g.items.length }}</span>
-            </span>
-          </button>
-        </aside>
+        <ThemeBookmark
+          :theme-groups="themeGroups"
+          :active-group="activeGroup"
+          :group-icon="groupIcon"
+          @select-group="activeGroup = $event"
+        />
 
-        <!-- 中：明信片收藏格 -->
-        <div class="postcard-grid">
-          <div class="grid-caption">
-            <span class="gc-bar"></span>
-            <span class="gc-text">{{ currentGroup.title }}</span>
-            <span class="gc-count">{{ currentGroup.items.length }}张</span>
-          </div>
-          <div class="grid-slots">
-            <button
-              v-for="(theme, ti) in currentGroup.items"
-              :key="theme.key"
-              class="postcard-slot"
-              :class="{ active: currentThemeKey === theme.key, tilt: ti % 2 === 1 }"
-              @click="selectTheme(theme.key)"
-            >
-              <span class="ps-corner ps-corner--tl"></span>
+        <ThemeGrid
+          :current-group="currentGroup"
+          :current-theme-key="currentThemeKey"
+          @select-theme="selectTheme"
+        />
 
-              <span class="ps-corner ps-corner--bl"></span>
-              <span class="ps-corner ps-corner--br"></span>
-              <span class="ps-active-ring"></span>
-              <span class="ps-postmark">
-                <span class="pm-ring"></span>
-                <span class="pm-num">{{ theme.avgRating.toFixed(1) }}</span>
-              </span>
-              <span class="ps-stamp"><component :is="theme.icon" :size="24" /></span>
-              <span class="ps-caption">{{ theme.name }}</span>
-              <span class="ps-tags">
-                <span class="ps-tag ps-tag--spots">{{ theme.spots.length }}处</span>
-                <span class="ps-tag ps-tag--season">{{ theme.bestSeason }}</span>
-              </span>
-            </button>
-          </div>
-        </div>
-
-        <!-- 右：放大展示页 -->
-        <div class="display-page" v-if="currentTheme">
-          <div class="postcard-hero">
-          <!-- 大明信片 -->
-          <div class="page-postcard">
-            <img
-              v-if="currentTheme.coverImage"
-              :src="currentTheme.coverImage"
-              :alt="currentTheme.name"
-              class="pc-img"
-            />
-            <div class="pc-vignette"></div>
-            <span class="pc-corner pc-corner--tl"></span>
-            <span class="pc-corner pc-corner--tr"></span>
-            <span class="pc-corner pc-corner--bl"></span>
-            <span class="pc-corner pc-corner--br"></span>
-            <div class="pc-postmark">
-              <span class="ppm-ring"></span>
-              <div class="ppm-date">
-                <template v-if="currentTheme.bestSeason.includes(' / ')">
-                  <span class="ppm-season" v-for="s in currentTheme.bestSeason.split(' / ')" :key="s">{{ s }}</span>
-                </template>
-                <span v-else class="ppm-season">{{ currentTheme.bestSeason }}</span>
-              </div>
-            </div>
-            <div class="pc-stamp">
-              <component :is="currentTheme.icon" :size="30" />
-            </div>
-            <div class="pc-titlebox">
-              <span class="pc-name">{{ currentTheme.name }}</span>
-              <span class="pc-rating"><StarIcon :size="17" /> {{ currentTheme.avgRating.toFixed(1) }}</span>
-            </div>
-          </div>
-
-          <!-- 邮戳信息章 -->
-          <div class="info-stamps">
-            <div class="info-stamp is-days">
-              <span class="is-grommet"></span>
-              <span class="is-ico"><CalendarIcon :size="18" /></span>
-              <span class="is-label">推荐</span>
-              <span class="is-val">{{ currentTheme.recommendedDays }}</span>
-            </div>
-            <div class="info-stamp is-budget">
-              <span class="is-grommet"></span>
-              <span class="is-ico"><ShoppingBagIcon :size="18" /></span>
-              <span class="is-label">预算</span>
-              <span class="is-val">{{ currentTheme.budget }}</span>
-            </div>
-            <div class="info-stamp is-intensity">
-              <span class="is-grommet"></span>
-              <span class="is-ico"><EnergyIcon :size="18" /></span>
-              <span class="is-label">体力</span>
-              <span class="is-val">{{ currentTheme.intensity }}</span>
-            </div>
-            <div class="info-stamp is-audience">
-              <span class="is-grommet"></span>
-              <span class="is-ico"><UsersIcon :size="18" /></span>
-              <span class="is-label">适合</span>
-              <span class="is-val">{{ currentTheme.audience }}</span>
-            </div>
-          </div>
-          </div>
-
-          <!-- 亮点行李牌 -->
-          <div class="highlight-tags" v-if="currentTheme.highlights.length">
-            <span class="ht-label"><SparklesIcon :size="20" /> 亮点体验</span>
-            <div class="ht-list">
-              <span
-                v-for="h in currentTheme.highlights"
-                :key="h"
-                class="ht-tag"
-              >{{ h }}</span>
-            </div>
-          </div>
-
-          <!-- 景点明信片集 -->
-          <div class="spot-postcards">
-            <span class="sp-label"><MapIcon :size="20" /> 关联景点<span class="sp-count">{{ currentTheme.spots.length }}处</span></span>
-            <div class="sp-list">
-              <div
-                v-for="spot in currentTheme.spots"
-                :key="spot.id"
-                class="spot-card"
-              >
-                <span class="sc-pin"></span>
-
-                <div class="sc-photo">
-                  <img
-                    v-if="spot.image"
-                    :src="spot.image"
-                    :alt="spot.name"
-                    class="sc-img"
-                    loading="lazy"
-                  />
-                </div>
-                <div class="sc-body">
-                  <div class="sc-head">
-                    <span class="sc-name" @click="$emit('navigate-to-spot', spot.name)">{{ spot.name }}</span>
-                    <span class="sc-rate" v-if="spot.rating"><StarIcon :size="16" /> {{ spot.rating }}</span>
-                  </div>
-                  <div class="sc-info">
-                    <span class="sc-loc"><LocationIcon :size="14" /> {{ spot.location }}</span>
-                    <span class="sc-dur" v-if="spot.visitDuration"><ClockIcon :size="14" /> {{ spot.visitDuration }}</span>
-                  </div>
-                  <p class="sc-desc">{{ spot.highlight || spot.description }}</p>
-                  <div class="sc-foot">
-                    <span class="sc-price" v-if="spot.ticketPrice">{{ spot.ticketPrice }}</span>
-                    <span class="sc-trans" v-if="spot.transport"><BusIcon :size="14" /> {{ spot.transport }}</span>
-                  </div>
-                </div>
-                <div class="sc-actions">
-                  <button class="sc-btn sc-like" :class="{ active: isSpotLike(spot.id) }" aria-label="点赞景点" @click="handleToggleLike(spot.id)">
-                    <ThumbUpIcon :filled="isSpotLike(spot.id)" :size="16" />
-                  </button>
-                  <button class="sc-btn sc-want" :class="{ active: isSpotWant(spot.id) }" aria-label="想去景点" @click="handleToggleWant(spot.id)">
-                    <HeartIcon :filled="isSpotWant(spot.id)" :size="16" />
-                  </button>
-                  <button class="sc-btn sc-share" aria-label="分享景点" @click="handleShare(spot)">
-                    <ShareIcon :size="16" />
-                  </button>
-                  <button class="sc-btn sc-been" :class="{ active: isSpotBeen(spot.id) }" aria-label="去过景点" @click="handleToggleBeen(spot.id)">
-                    <FlagIcon :filled="isSpotBeen(spot.id)" :size="16" />
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- 手写贴士 -->
-          <div class="tips-journal" v-if="currentTheme.tips.length">
-            <span class="tj-label"><LightbulbIcon :size="20" /> 出行贴士</span>
-            <ul class="tj-list">
-              <li v-for="t in currentTheme.tips" :key="t">{{ t }}</li>
-            </ul>
-          </div>
-          
-        </div>
+        <ThemeDisplay
+          :current-theme="currentTheme"
+          :is-spot-like="isSpotLike"
+          :is-spot-want="isSpotWant"
+          :is-spot-been="isSpotBeen"
+          @navigate-to-spot="emit('navigate-to-spot', $event)"
+          @toggle-like="handleToggleLike"
+          @toggle-want="handleToggleWant"
+          @toggle-been="handleToggleBeen"
+          @share="handleShare"
+        />
       </div>
     </section>
+
     <TravelShareModal
       :visible="shareVisible"
       :title="shareTitle"
@@ -219,20 +49,9 @@
   import { computed, ref, watch, markRaw, type Component } from 'vue';
 
   import GalaxyIcon from '@/pages/TravelGuide/icons/pages/scenery/GalaxyIcon.vue';
-  import LayersIcon from '@/pages/TravelGuide/icons/pages/scenery/LayersIcon.vue';
-  import StarIcon from '@/pages/TravelGuide/icons/common/StarIcon.vue';
   import CalendarIcon from '@/pages/TravelGuide/icons/common/CalendarIcon.vue';
-  import ShoppingBagIcon from '@/pages/TravelGuide/icons/common/ShoppingBagIcon.vue';
   import EnergyIcon from '@/pages/TravelGuide/icons/pages/scenery/EnergyIcon.vue';
-  import UsersIcon from '@/pages/TravelGuide/icons/pages/scenery/UsersIcon.vue';
-  import SparklesIcon from '@/pages/TravelGuide/icons/common/SparklesIcon.vue';
-  import LocationIcon from '@/pages/TravelGuide/icons/common/LocationIcon.vue';
-  import ClockIcon from '@/pages/TravelGuide/icons/common/ClockIcon.vue';
-  import BusIcon from '@/pages/TravelGuide/icons/pages/scenery/BusIcon.vue';
-  import MapIcon from '@/pages/TravelGuide/icons/common/MapIcon.vue';
-  import LightbulbIcon from '@/pages/TravelGuide/icons/common/LightbulbIcon.vue';
   import MountainIcon from '@/pages/TravelGuide/icons/pages/scenery/MountainIcon.vue';
-  import DiamondIcon from '@/pages/TravelGuide/icons/pages/scenery/DiamondIcon.vue';
   import HomeIcon from '@/pages/TravelGuide/icons/common/HomeIcon.vue';
   import ZenIcon from '@/pages/TravelGuide/icons/pages/scenery/ZenIcon.vue';
   import MuseumIcon from '@/pages/TravelGuide/icons/pages/scenery/MuseumIcon.vue';
@@ -244,18 +63,21 @@
   import RouteIcon from '@/pages/TravelGuide/icons/common/RouteIcon.vue';
   import GourdIcon from '@/pages/TravelGuide/icons/pages/scenery/GourdIcon.vue';
   import FlowerIcon from '@/pages/TravelGuide/icons/pages/scenery/FlowerIcon.vue';
-  import { ThumbUpIcon, HeartIcon, ShareIcon, FlagIcon } from '@/pages/TravelGuide/icons/common';
+  import DiamondIcon from '@/pages/TravelGuide/icons/pages/scenery/DiamondIcon.vue';
   import { useTravelToast } from '@/composables/travelGuide/useTravelToast';
   import { useSceneryPrefs } from '@/composables/travelGuide/useSceneryPrefs';
   import TravelShareModal from '@/pages/TravelGuide/components/TravelShareModal/index.vue';
   import { useTravelShare } from '@/pages/TravelGuide/components/TravelShareModal/useTravelShare';
+  import ThemeBookmark from './ThemeBookmark/index.vue';
+  import ThemeGrid from './ThemeGrid/index.vue';
+  import ThemeDisplay from './ThemeDisplay/index.vue';
 
   const props = defineProps<{
     sceneryData: SceneryData | null;
     loading: boolean;
   }>();
 
-  defineEmits<{
+  const emit = defineEmits<{
     (e: 'navigate-to-spot', spotName: string): void;
   }>();
 
@@ -285,7 +107,7 @@
     avgRating: number;
     bestSeason: string;
     recommendedDays: string;
-    budget: string;
+    budget: { currency: string; min: number; max: number };
     intensity: string;
     audience: string;
     highlights: string[];
@@ -338,7 +160,7 @@
           rating: s.rating ?? 4.5,
           ticketPrice: s.ticketPrice || '',
           visitDuration: s.visitDuration || '',
-          transport: (s.transportInfo && s.transportInfo[0]) || '',
+          transport: (s.transportInfo && s.transportInfo[0]) ? `${s.transportInfo[0].mode}：${s.transportInfo[0].detail}` : '',
           description: s.description || '',
           highlight: s.highlight || s.description || '',
           image: s.image || '',

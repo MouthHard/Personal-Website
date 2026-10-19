@@ -14,7 +14,7 @@
       "rating": 4.7,
       "bestTime": "春秋",
       "location": "辽宁省沈阳市沈河区",
-      "description": "中国仅存的两大宫殿建筑群之一",
+      "description": "沈阳故宫，辽宁沈阳故宫，人文荟萃之地，中国仅存的两大宫殿建筑群之一，实乃游历辽宁不可错过之胜境。。足以令旅人魂牵梦萦，心驰神往。",
       "highlight": "世界文化遗产,清代盛京皇宫",
       "level": "5A景区",
       "rankBadge": "必去",
@@ -26,7 +26,6 @@
       ],
       "openTime": "08:30-17:00",
       "visitDuration": "2-3小时",
-      "popularity": "★★★★★",
       "audienceTags": [
         "历史爱好者",
         "文化爱好者",
@@ -34,21 +33,57 @@
         "教育研学"
       ],
       "ticketDetails": [
-        "成人票¥50",
-        "学生票半价",
-        "1.2米以下儿童免票",
-        "60岁以上老人免票"
+        {
+          "type": "成人票",
+          "price": "¥50"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "1.2米以下儿童",
+          "price": "免票"
+        },
+        {
+          "type": "60岁以上老人",
+          "price": "免票"
+        }
       ],
       "transportInfo": [
-        "飞机:沈阳桃仙国际机场约25km",
-        "高铁:沈阳站或沈阳北站转公交",
-        "自驾:沈河区沈阳路",
-        "长途客运:沈阳客运站转公交"
+        {
+          "mode": "飞机",
+          "detail": "沈阳桃仙国际机场约25km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "沈阳站或沈阳北站转公交"
+        },
+        {
+          "mode": "自驾",
+          "detail": "沈河区沈阳路"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "沈阳客运站转公交"
+        }
       ],
       "openTimeDetail": [
-        "旺季(4-10月) 08:30-17:00",
-        "淡季(11-3月) 09:00-16:30",
-        "16:00停止入馆"
+        {
+          "season": "旺季",
+          "months": "4-10月",
+          "time": "08:30-17:00"
+        },
+        {
+          "season": "淡季",
+          "months": "11-3月",
+          "time": "09:00-16:30"
+        },
+        {
+          "season": "16:00停止入馆",
+          "months": "",
+          "time": ""
+        }
       ],
       "recommendedRoutes": [
         {
@@ -69,8 +104,15 @@
               "detail": "大清门→大政殿→崇政殿→凤凰楼→皇宫全景"
             }
           ],
-          "budget": "¥50-100",
-          "bestFor": "历史爱好者/首次游览"
+          "budget": {
+            "currency": "¥",
+            "min": 50,
+            "max": 100
+          },
+          "bestFor": [
+            "历史爱好者",
+            "首次游览"
+          ]
         },
         {
           "name": "历史文化游",
@@ -89,8 +131,15 @@
               "detail": "故宫博物院→清初历史展→皇家文物→文化陈列"
             }
           ],
-          "budget": "¥50-100",
-          "bestFor": "文化爱好者/教育研学"
+          "budget": {
+            "currency": "¥",
+            "min": 50,
+            "max": 100
+          },
+          "bestFor": [
+            "文化爱好者",
+            "教育研学"
+          ]
         }
       ],
       "facilities": [
@@ -139,7 +188,7 @@
       "rating": 4.6,
       "bestTime": "夏季",
       "location": "辽宁省大连市金州区",
-      "description": "国家级风景名胜区,拥有美丽的海滨风光",
+      "description": "坐落于辽海大地的大连金石滩，辽宁大连金石滩，鬼斧神工天作之美，国家级风景名胜区，拥有美丽的海滨风光，实乃游历辽宁不可错过之胜境。。碧海银沙椰风海韵，堪称天地造化与人文底蕴之交响。",
       "highlight": "东方夏威夷,地质奇观",
       "level": "5A景区",
       "reviewCount": "54,321条点评",
@@ -155,7 +204,6 @@
       "rankBadge": "自然",
       "openTime": "08:00-17:00",
       "visitDuration": "1天",
-      "popularity": "★★★★☆",
       "audienceTags": [
         "地质爱好者",
         "摄影爱好者",
@@ -163,21 +211,57 @@
         "海滨度假"
       ],
       "ticketDetails": [
-        "成人票¥66",
-        "学生票半价",
-        "1.2米以下儿童免票",
-        "60岁以上老人免票"
+        {
+          "type": "成人票",
+          "price": "¥66"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "1.2米以下儿童",
+          "price": "免票"
+        },
+        {
+          "type": "60岁以上老人",
+          "price": "免票"
+        }
       ],
       "transportInfo": [
-        "飞机:大连周水子国际机场约50km",
-        "高铁:大连站转轻轨至金石滩",
-        "自驾:金州区金石路",
-        "长途客运:大连客运站转车"
+        {
+          "mode": "飞机",
+          "detail": "大连周水子国际机场约50km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "大连站转轻轨至金石滩"
+        },
+        {
+          "mode": "自驾",
+          "detail": "金州区金石路"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "大连客运站转车"
+        }
       ],
       "openTimeDetail": [
-        "旺季(5-10月) 08:00-17:00",
-        "淡季(11-4月) 08:30-16:30",
-        "地质公园全天可游览"
+        {
+          "season": "旺季",
+          "months": "5-10月",
+          "time": "08:00-17:00"
+        },
+        {
+          "season": "淡季",
+          "months": "11-4月",
+          "time": "08:30-16:30"
+        },
+        {
+          "season": "地质公园全天可游览",
+          "months": "",
+          "time": ""
+        }
       ],
       "recommendedRoutes": [
         {
@@ -198,8 +282,15 @@
               "detail": "玫瑰园→恐龙园→龟裂石→地质博物馆"
             }
           ],
-          "budget": "¥100-200",
-          "bestFor": "地质爱好者/家庭亲子"
+          "budget": {
+            "currency": "¥",
+            "min": 100,
+            "max": 200
+          },
+          "bestFor": [
+            "地质爱好者",
+            "家庭亲子"
+          ]
         },
         {
           "name": "海滨度假游",
@@ -218,8 +309,15 @@
               "detail": "海滨浴场→金色沙滩→海岸观光→休闲度假"
             }
           ],
-          "budget": "¥200-400",
-          "bestFor": "家庭亲子/海滨度假"
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
+          "bestFor": [
+            "家庭亲子",
+            "海滨度假"
+          ]
         }
       ],
       "facilities": [
@@ -268,7 +366,7 @@
       "rating": 4.5,
       "bestTime": "夏季",
       "location": "辽宁省大连市中山区",
-      "description": "中国最大的现代化海滨游乐场",
+      "description": "辽海老虎滩海洋公园，辽宁老虎滩海洋公园，天地造化之奇，中国最大的现代化海滨游乐场，实乃游历辽宁不可错过之胜境。。碧海银沙椰风海韵，每一处景致皆是造物主的匠心独运。",
       "highlight": "滨城明珠,海洋乐园",
       "level": "5A景区",
       "reviewCount": "43,210条点评",
@@ -280,7 +378,6 @@
       "rankBadge": "自然",
       "openTime": "08:00-17:00",
       "visitDuration": "半天",
-      "popularity": "★★★★☆",
       "audienceTags": [
         "家庭亲子",
         "海洋爱好者",
@@ -288,21 +385,57 @@
         "情侣约会"
       ],
       "ticketDetails": [
-        "成人票¥210",
-        "学生票半价",
-        "1.2米以下儿童免票",
-        "60岁以上老人半价"
+        {
+          "type": "成人票",
+          "price": "¥210"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "1.2米以下儿童",
+          "price": "免票"
+        },
+        {
+          "type": "60岁以上老人",
+          "price": "半价"
+        }
       ],
       "transportInfo": [
-        "飞机:大连周水子国际机场约15km",
-        "高铁:大连站转公交",
-        "自驾:中山区滨海中路",
-        "长途客运:大连客运站转公交"
+        {
+          "mode": "飞机",
+          "detail": "大连周水子国际机场约15km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "大连站转公交"
+        },
+        {
+          "mode": "自驾",
+          "detail": "中山区滨海中路"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "大连客运站转公交"
+        }
       ],
       "openTimeDetail": [
-        "旺季(5-10月) 08:00-17:00",
-        "淡季(11-4月) 08:30-16:30",
-        "表演场次请咨询景区"
+        {
+          "season": "旺季",
+          "months": "5-10月",
+          "time": "08:00-17:00"
+        },
+        {
+          "season": "淡季",
+          "months": "11-4月",
+          "time": "08:30-16:30"
+        },
+        {
+          "season": "表演场次请咨询景区",
+          "months": "",
+          "time": ""
+        }
       ],
       "recommendedRoutes": [
         {
@@ -322,8 +455,15 @@
               "detail": "极地馆→珊瑚馆→海豚表演→海洋动物观赏"
             }
           ],
-          "budget": "¥210-300",
-          "bestFor": "家庭亲子/儿童游乐"
+          "budget": {
+            "currency": "¥",
+            "min": 210,
+            "max": 300
+          },
+          "bestFor": [
+            "家庭亲子",
+            "儿童游乐"
+          ]
         },
         {
           "name": "极地动物游",
@@ -342,8 +482,15 @@
               "detail": "极地馆→北极熊观赏→企鹅馆→极地动物互动"
             }
           ],
-          "budget": "¥210-300",
-          "bestFor": "家庭亲子/儿童游乐"
+          "budget": {
+            "currency": "¥",
+            "min": 210,
+            "max": 300
+          },
+          "bestFor": [
+            "家庭亲子",
+            "儿童游乐"
+          ]
         }
       ],
       "facilities": [
@@ -392,7 +539,7 @@
       "rating": 4.6,
       "bestTime": "春秋",
       "location": "辽宁省鞍山市千山区",
-      "description": "东北第一名山,道教圣地",
+      "description": "千山者，辽海之胜境也。辽宁千山，大自然之鬼斧神工，层峦叠嶂巍峨耸立，东北第一名山，道教圣地，实乃游历辽宁不可错过之胜境。。层峦叠嶂巍峨耸立，当属此地名胜之首推，不容错过。",
       "highlight": "东北明珠,佛教道教名山",
       "level": "5A景区",
       "reviewCount": "32,109条点评",
@@ -408,7 +555,6 @@
       "rankBadge": "名山",
       "openTime": "08:00-17:00",
       "visitDuration": "1天",
-      "popularity": "★★★★☆",
       "audienceTags": [
         "登山爱好者",
         "宗教文化爱好者",
@@ -416,21 +562,57 @@
         "自然爱好者"
       ],
       "ticketDetails": [
-        "成人票¥80",
-        "学生票半价",
-        "1.2米以下儿童免票",
-        "索道另收费"
+        {
+          "type": "成人票",
+          "price": "¥80"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "1.2米以下儿童",
+          "price": "免票"
+        },
+        {
+          "type": "索道另收费",
+          "price": ""
+        }
       ],
       "transportInfo": [
-        "飞机:鞍山腾鳌机场约20km",
-        "高铁:鞍山西站转车",
-        "自驾:千山区千山东路",
-        "长途客运:鞍山客运站转车"
+        {
+          "mode": "飞机",
+          "detail": "鞍山腾鳌机场约20km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "鞍山西站转车"
+        },
+        {
+          "mode": "自驾",
+          "detail": "千山区千山东路"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "鞍山客运站转车"
+        }
       ],
       "openTimeDetail": [
-        "旺季(4-10月) 08:00-17:00",
-        "淡季(11-3月) 08:30-16:30",
-        "索道运营时间同景区"
+        {
+          "season": "旺季",
+          "months": "4-10月",
+          "time": "08:00-17:00"
+        },
+        {
+          "season": "淡季",
+          "months": "11-3月",
+          "time": "08:30-16:30"
+        },
+        {
+          "season": "索道运营时间同景区",
+          "months": "",
+          "time": ""
+        }
       ],
       "recommendedRoutes": [
         {
@@ -450,8 +632,15 @@
               "detail": "无量观→索道登山→五佛顶→仙人台→弥勒峰"
             }
           ],
-          "budget": "¥200-400",
-          "bestFor": "登山爱好者/首次游览"
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
+          "bestFor": [
+            "登山爱好者",
+            "首次游览"
+          ]
         },
         {
           "name": "宗教文化游",
@@ -470,8 +659,15 @@
               "detail": "千山寺庙群→佛教寺院→道教宫观→宗教建筑"
             }
           ],
-          "budget": "¥100-200",
-          "bestFor": "宗教文化爱好者/文化游览"
+          "budget": {
+            "currency": "¥",
+            "min": 100,
+            "max": 200
+          },
+          "bestFor": [
+            "宗教文化爱好者",
+            "文化游览"
+          ]
         }
       ],
       "facilities": [
@@ -520,7 +716,7 @@
       "rating": 4.5,
       "bestTime": "全年",
       "location": "辽宁省本溪市本溪满族自治县",
-      "description": "世界上最长的地下充水溶洞",
+      "description": "名为本溪水洞，辽宁本溪水洞，造化钟神秀，世界上最长的地下充水溶洞，实乃游历辽宁不可错过之胜境。。令人叹为观止，流连忘返。",
       "highlight": "世界第一地下暗河,钟乳奇观",
       "level": "5A景区",
       "reviewCount": "21,098条点评",
@@ -536,7 +732,6 @@
       "rankBadge": "自然",
       "openTime": "08:00-17:00",
       "visitDuration": "3-4小时",
-      "popularity": "★★★★☆",
       "audienceTags": [
         "地质爱好者",
         "探险爱好者",
@@ -544,21 +739,57 @@
         "自然爱好者"
       ],
       "ticketDetails": [
-        "成人票¥120",
-        "学生票半价",
-        "1.2米以下儿童免票",
-        "游船含在门票内"
+        {
+          "type": "成人票",
+          "price": "¥120"
+        },
+        {
+          "type": "学生票",
+          "price": "半价"
+        },
+        {
+          "type": "1.2米以下儿童",
+          "price": "免票"
+        },
+        {
+          "type": "游船含在门票内",
+          "price": ""
+        }
       ],
       "transportInfo": [
-        "飞机:沈阳桃仙国际机场约120km",
-        "高铁:本溪站转车约30km",
-        "自驾:本桓公路水洞出口",
-        "长途客运:本溪客运站转车"
+        {
+          "mode": "飞机",
+          "detail": "沈阳桃仙国际机场约120km"
+        },
+        {
+          "mode": "高铁",
+          "detail": "本溪站转车约30km"
+        },
+        {
+          "mode": "自驾",
+          "detail": "本桓公路水洞出口"
+        },
+        {
+          "mode": "长途客运",
+          "detail": "本溪客运站转车"
+        }
       ],
       "openTimeDetail": [
-        "全年 08:00-17:00",
-        "16:00停止入洞",
-        "游船全程约30分钟"
+        {
+          "season": "全年",
+          "months": "",
+          "time": "08:00-17:00"
+        },
+        {
+          "season": "16:00停止入洞",
+          "months": "",
+          "time": ""
+        },
+        {
+          "season": "游船全程约30分钟",
+          "months": "",
+          "time": ""
+        }
       ],
       "recommendedRoutes": [
         {
@@ -578,8 +809,15 @@
               "detail": "水洞入口→乘船游暗河→钟乳石观赏→九曲银河"
             }
           ],
-          "budget": "¥120-200",
-          "bestFor": "家庭亲子/首次游览"
+          "budget": {
+            "currency": "¥",
+            "min": 120,
+            "max": 200
+          },
+          "bestFor": [
+            "家庭亲子",
+            "首次游览"
+          ]
         },
         {
           "name": "地质博物馆游",
@@ -598,8 +836,15 @@
               "detail": "地质博物馆→溶洞地质展→硅化木王国→古生物化石"
             }
           ],
-          "budget": "¥120-200",
-          "bestFor": "地质爱好者/教育研学"
+          "budget": {
+            "currency": "¥",
+            "min": 120,
+            "max": 200
+          },
+          "bestFor": [
+            "地质爱好者",
+            "教育研学"
+          ]
         }
       ],
       "facilities": [
@@ -666,19 +911,7 @@
     }
   ],
   "customs": {
-    "activities": [
-      {
-        "id": "1",
-        "name": "东北二人转",
-        "type": "文化体验",
-        "image": "https://picsum.photos/id/1220/600/400",
-        "category": "culture",
-        "duration": "2-3小时",
-        "location": "沈阳刘老根大舞台",
-        "difficulty": "简单",
-        "description": "观看东北特色的二人转表演"
-      }
-    ]
+    "activities": []
   },
   "overview": {
     "fiveACount": 6,
@@ -691,42 +924,42 @@
       {
         "name": "沈阳故宫",
         "image": "https://picsum.photos/id/1220/600/400",
-        "description": "中国仅存的两大宫殿建筑群之一"
+        "description": "坐落于辽海大地的沈阳故宫，沈阳故宫——中国仅存的两大宫殿建筑群之一，实乃游历此地不可错过之胜境。。每一处景致皆是造物主的匠心独运。"
       },
       {
         "name": "大连金石滩",
         "image": "https://picsum.photos/id/1221/600/400",
-        "description": "国家级风景名胜区,拥有美丽的海滨风光"
+        "description": "辽海大连金石滩，辽宁名胜大连金石滩，国家级风景名胜区，拥有美丽的海滨风光，令人心驰神往流连忘返。。当属此地名胜之首推，不容错过。"
       },
       {
         "name": "老虎滩海洋公园",
         "image": "https://picsum.photos/id/1222/600/400",
-        "description": "中国最大的现代化海滨游乐场"
+        "description": "老虎滩海洋公园者，辽海之胜境也。老虎滩海洋公园者，辽宁之中国最大的现代化海滨游乐场，堪称此地风光之冠冕。。令人叹为观止，流连忘返。"
       },
       {
         "name": "千山",
         "image": "https://picsum.photos/id/1223/600/400",
-        "description": "东北第一名山,道教圣地"
+        "description": "名为千山，誉为辽宁明珠的千山，东北第一名山，道教圣地，每一处皆是造化与人文的交响。。实乃游历此地不可错过之胜境。"
       },
       {
         "name": "本溪水洞",
         "image": "https://picsum.photos/id/1224/600/400",
-        "description": "世界上最长的地下充水溶洞"
+        "description": "辽海名胜本溪水洞，本溪水洞，世界上最长的地下充水溶洞，足以令旅人魂牵梦萦。。足以令旅人魂牵梦萦，心驰神往。"
       },
       {
         "name": "大连星海广场",
         "image": "https://picsum.photos/id/1225/600/400",
-        "description": "亚洲最大的城市广场"
+        "description": "大连星海广场，大连星海广场——亚洲最大的城市广场，当属此地名胜之首推。。堪称天地造化与人文底蕴之交响。"
       },
       {
         "name": "北陵公园",
         "image": "https://picsum.photos/id/1226/600/400",
-        "description": "清朝皇太极的陵墓"
+        "description": "坐落于辽海大地的北陵公园，辽宁名胜北陵公园，清朝皇太极的陵墓，实乃游历此地不可错过之胜境。。每一处景致皆是造物主的匠心独运。"
       },
       {
         "name": "兴城古城",
         "image": "https://picsum.photos/id/1227/600/400",
-        "description": "保存完好的明代古城"
+        "description": "辽海兴城古城，兴城古城者，辽宁之保存完好的明代古城，令人心驰神往流连忘返。。当属此地名胜之首推，不容错过。"
       }
     ]
   },
@@ -784,7 +1017,62 @@
       "month": "6月",
       "isUnique": true,
       "location": "大连",
-      "description": "大连特色水果节庆活动"
+      "description": "依托大连金普新区大樱桃产业，中国最大樱桃产区，樱桃采摘体验、樱桃品鉴大赛、田园摄影、农家乐体验，于渤海之滨感受这\"红玛瑙缀满枝头\"之田园之乐与辽南果乡之丰饶。",
+      "type": "农业节庆",
+      "duration": "约10天",
+      "origin": "大连国际樱桃节始于2007年，依托大连金普新区大樱桃产业，是中国最大樱桃产区。",
+      "highlights": [
+        "樱桃采摘体验",
+        "樱桃品鉴大赛",
+        "樱桃深加工产品展",
+        "田园摄影",
+        "农家乐体验"
+      ],
+      "bestTime": "6月中旬盛果期",
+      "ticket": "采摘园入园¥50起（含带走）",
+      "transport": "高铁至大连北站，转开发区方向",
+      "tips": [
+        "采摘前确认价格，按斤计费",
+        "樱桃不宜久放，当天食用最佳",
+        "6月大连气候宜人，适合出行"
+      ],
+      "relatedSpots": [
+        "金石滩",
+        "发现王国",
+        "大黑山"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "沈阳国际旅游节",
+      "month": "9月",
+      "day": "1日",
+      "location": "沈阳",
+      "isUnique": false,
+      "description": "展示沈阳清文化底蕴与东北旅游形象，清文化主题展、沈阳故宫免费日、东北民俗表演、关东影视展映，于盛京故宫感受这\"一朝发祥地两代帝王都\"之清文化厚重与关东风情之豪迈。",
+      "type": "旅游节庆",
+      "duration": "约5天",
+      "origin": "沈阳国际旅游节始于2005年，展示沈阳清文化底蕴与东北旅游形象。",
+      "highlights": [
+        "清文化主题展",
+        "沈阳故宫免费日",
+        "东北民俗表演",
+        "旅游推介会",
+        "关东影视展映"
+      ],
+      "bestTime": "开幕日",
+      "ticket": "免费（部分景点优惠）",
+      "transport": "高铁至沈阳站或沈阳北站",
+      "tips": [
+        "沈阳故宫为清代入关前皇宫",
+        "9月沈阳秋高气爽，最佳季节",
+        "东北菜量大，点菜注意适量"
+      ],
+      "relatedSpots": [
+        "沈阳故宫",
+        "北陵公园",
+        "九一八历史博物馆"
+      ]
     }
   ],
   "activities": [
@@ -814,7 +1102,7 @@
   "intangibleHeritage": [
     {
       "id": "1",
-      "icon": "🎭",
+      "icon": "theater",
       "name": "东北二人转",
       "image": "https://picsum.photos/id/1220/600/400",
       "level": "national",
@@ -855,7 +1143,11 @@
           "avgRating": 4.6,
           "bestSeason": "春秋 / 全年",
           "recommendedDays": "2-3 日",
-          "budget": "¥500-1200",
+          "budget": {
+            "currency": "¥",
+            "min": 500,
+            "max": 1200
+          },
           "intensity": "适中",
           "audience": "全人群",
           "highlights": [
@@ -881,7 +1173,11 @@
           "avgRating": 4.5,
           "bestSeason": "夏秋",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-500",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 500
+          },
           "intensity": "轻松",
           "audience": "家庭/休闲",
           "highlights": [
@@ -913,7 +1209,11 @@
           "avgRating": 4.7,
           "bestSeason": "全年",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-400",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
           "intensity": "轻松",
           "audience": "文化/家庭",
           "highlights": [
@@ -939,7 +1239,11 @@
           "avgRating": 4.6,
           "bestSeason": "全年",
           "recommendedDays": "1-2 日",
-          "budget": "¥200-400",
+          "budget": {
+            "currency": "¥",
+            "min": 200,
+            "max": 400
+          },
           "intensity": "轻松",
           "audience": "银发/养心",
           "highlights": [
@@ -971,7 +1275,11 @@
           "avgRating": 4.5,
           "bestSeason": "春秋",
           "recommendedDays": "2-3 日",
-          "budget": "¥300-800",
+          "budget": {
+            "currency": "¥",
+            "min": 300,
+            "max": 800
+          },
           "intensity": "挑战",
           "audience": "户外/探险",
           "highlights": [
@@ -997,7 +1305,11 @@
           "avgRating": 4.6,
           "bestSeason": "夏秋",
           "recommendedDays": "2-3 日",
-          "budget": "¥500-1500",
+          "budget": {
+            "currency": "¥",
+            "min": 500,
+            "max": 1500
+          },
           "intensity": "轻松",
           "audience": "家庭/度假",
           "highlights": [
@@ -1017,6 +1329,351 @@
           ]
         }
       ]
+    }
+  ],
+  "craftWorkshops": [
+    {
+      "id": "liaoning-craft-1",
+      "image": "https://picsum.photos/id/1342/600/400",
+      "category": "craft",
+      "name": "辽砚制作体验",
+      "type": "砚台",
+      "location": "本溪桥头镇",
+      "duration": "3小时",
+      "difficulty": "中等",
+      "price": "220",
+      "rating": 4.5,
+      "reviewCount": 45,
+      "instructor": "辽砚传承人",
+      "heritageLevel": "provincial",
+      "highlights": [
+        "松花石选料",
+        "辽砚雕刻",
+        "宫廷砚式"
+      ],
+      "steps": [
+        "选石",
+        "设计",
+        "雕刻",
+        "打磨"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "手工艺爱好者"
+      ],
+      "tags": [
+        "辽砚",
+        "本溪",
+        "非遗"
+      ],
+      "description": "辽砚以本溪松花石为材，清代宫廷御砚之一\"松花紫绿双彩斑斓\"。于桥头镇选石雕砚，砚池雕刻精微细腻，感受这辽东砚台之雅韵与松花石之天然双色之美。"
+    },
+    {
+      "id": "liaoning-craft-2",
+      "image": "https://picsum.photos/id/1344/600/400",
+      "category": "craft",
+      "name": "抚顺琥珀雕刻",
+      "type": "雕刻",
+      "location": "抚顺琥珀市场",
+      "duration": "3小时",
+      "difficulty": "简单",
+      "price": "180",
+      "rating": 4.6,
+      "reviewCount": 67,
+      "instructor": "琥珀雕刻师",
+      "heritageLevel": "national",
+      "highlights": [
+        "琥珀选料",
+        "随形雕刻",
+        "抛光打孔"
+      ],
+      "steps": [
+        "选料",
+        "设计",
+        "雕刻",
+        "抛光"
+      ],
+      "suitableFor": [
+        "文化体验者",
+        "手工艺爱好者"
+      ],
+      "tags": [
+        "非遗",
+        "琥珀",
+        "抚顺"
+      ],
+      "description": "抚顺为世界琥珀重要产地，琥珀雕刻随形而作\"琥珀凝光雕刻成珍\"。于抚顺市场选琥珀随形雕刻，琥珀温润如脂金珀流光，感受这\"煤都琥珀\"之珍与琥珀雕刻之巧。"
+    }
+  ],
+  "performances": [
+    {
+      "id": "liaoning-perf-1",
+      "image": "https://picsum.photos/id/1680/600/400",
+      "category": "performance",
+      "name": "刘老根大舞台·二人转",
+      "type": "曲艺",
+      "location": "沈阳市刘老根大舞台",
+      "duration": "2小时",
+      "difficulty": "简单",
+      "price": "100",
+      "rating": 4.7,
+      "reviewCount": 892,
+      "highlights": [
+        "东北二人转正戏",
+        "说唱扮舞四功",
+        "砸挂现挂笑翻全场"
+      ],
+      "suitableFor": [
+        "家庭游客",
+        "年轻群体"
+      ],
+      "tags": [
+        "二人转",
+        "曲艺",
+        "东北"
+      ],
+      "description": "刘老根大舞台上，二人转演员说唱扮舞样样精通。正戏唱得催人泪下，搞笑段子笑得前仰后合，这黑土地上的民间艺术粗犷中见细腻，俗趣中藏真功，于这东北最接地气的舞台上笑出眼泪。"
+    },
+    {
+      "id": "liaoning-perf-2",
+      "image": "https://picsum.photos/id/1681/600/400",
+      "category": "performance",
+      "name": "大连圣亚海豚表演",
+      "type": "海洋表演",
+      "location": "大连市沙河口区圣亚海洋世界",
+      "duration": "1小时",
+      "difficulty": "简单",
+      "price": "150",
+      "rating": 4.6,
+      "reviewCount": 567,
+      "highlights": [
+        "海豚海狮同台",
+        "人豚共游互动",
+        "海底隧道漫游"
+      ],
+      "suitableFor": [
+        "亲子家庭",
+        "儿童"
+      ],
+      "tags": [
+        "海洋",
+        "表演",
+        "海豚"
+      ],
+      "description": "圣亚海洋世界蔚蓝穹顶下，海豚跃出水面划出优美弧线，与训练员默契配合引满堂喝彩。穿行海底隧道，鲨鱼从头顶游过，在这极地海洋的蔚蓝梦境中，感受人与海洋生灵的和谐之美。"
+    },
+    {
+      "id": "liaoning-perf-3",
+      "image": "https://picsum.photos/id/1682/600/400",
+      "category": "performance",
+      "name": "辽剧·沈阳",
+      "type": "戏曲",
+      "location": "沈阳市辽剧院",
+      "duration": "2小时",
+      "difficulty": "简单",
+      "price": "50",
+      "rating": 4.4,
+      "reviewCount": 134,
+      "highlights": [
+        "辽海地方戏曲",
+        "东北风韵唱腔",
+        "关东文化故事"
+      ],
+      "suitableFor": [
+        "戏曲爱好者",
+        "文化体验者"
+      ],
+      "tags": [
+        "非遗",
+        "辽剧",
+        "关东"
+      ],
+      "description": "辽剧扎根黑土地，唱腔间尽是关东风韵。从辽东渔家故事到东北抗联传奇，这辽宁地方剧种以质朴见长，于这关东大地上领略不同于江南婉约的北方戏曲之粗犷豪迈。",
+      "heritageLevel": "provincial"
+    }
+  ],
+  "outdoorAdventure": [
+    {
+      "id": "liaoning-outdoor-1",
+      "image": "https://picsum.photos/id/1363/600/400",
+      "category": "outdoor",
+      "name": "千山仙人台徒步",
+      "type": "徒步穿越",
+      "location": "鞍山千山",
+      "duration": "1天",
+      "difficulty": "中等",
+      "price": "80",
+      "rating": 4.6,
+      "reviewCount": 1234,
+      "totalAscent": 500,
+      "maxElevation": 708,
+      "routeType": "环线",
+      "surfaceType": "石阶",
+      "accessInfo": "高铁至最近站，转景区交通",
+      "gearList": [
+        "登山鞋",
+        "水",
+        "相机"
+      ],
+      "safetyTips": [
+        "山路注意防滑",
+        "寺庙区勿喧哗"
+      ],
+      "bestMonths": "4-5月·9-10月",
+      "highlights": [
+        "仙人台",
+        "无量观",
+        "千山弥勒大佛"
+      ],
+      "tags": [
+        "徒步",
+        "千山",
+        "东北明珠"
+      ],
+      "description": "千山为东北佛教道教名山\"东北明珠\"，仙人台为最高峰\"千山弥勒大佛天然成佛\"。登仙人台览千山群峰，无量观古刹钟声悠远，感受这\"东北明珠\"之灵秀与千山佛道之底蕴。"
+    },
+    {
+      "id": "liaoning-outdoor-2",
+      "image": "https://picsum.photos/id/1366/600/400",
+      "category": "outdoor",
+      "name": "本溪水洞暗河探险",
+      "type": "溶洞探险",
+      "location": "本溪水洞景区",
+      "duration": "半天",
+      "difficulty": "简单",
+      "price": "120",
+      "rating": 4.7,
+      "reviewCount": 3456,
+      "totalAscent": 0,
+      "maxElevation": 200,
+      "routeType": "往返",
+      "surfaceType": "石阶",
+      "accessInfo": "高铁至最近站，转景区交通",
+      "gearList": [
+        "防滑鞋",
+        "保暖衣",
+        "相机"
+      ],
+      "safetyTips": [
+        "洞内低温带外套",
+        "注意防滑"
+      ],
+      "bestMonths": "4-5月·9-10月",
+      "highlights": [
+        "暗河泛舟",
+        "钟乳石奇观",
+        "九曲银河"
+      ],
+      "tags": [
+        "溶洞",
+        "暗河",
+        "本溪"
+      ],
+      "description": "本溪水洞为世界最长地下充水溶洞，暗河泛舟5800米\"九曲银河钟乳奇观\"。于暗河上乘船穿行，钟乳石如琼林玉树光怪陆离，感受这\"地下银河\"之奇与溶洞暗河之幽深莫测。"
+    }
+  ],
+  "wellnessRetreat": [
+    {
+      "id": "liaoning-wellness-1",
+      "image": "https://picsum.photos/id/1700/600/400",
+      "category": "wellness",
+      "name": "鞍山汤岗子温泉",
+      "type": "温泉养生",
+      "location": "鞍山市千山区汤岗子温泉",
+      "duration": "3小时",
+      "difficulty": "简单",
+      "price": "158",
+      "rating": 4.7,
+      "reviewCount": 423,
+      "efficacyTags": [
+        "百年皇家温泉",
+        "泥疗火山矿泥",
+        "理疗推拿康复"
+      ],
+      "bestSeason": "全年",
+      "packageIncludes": [
+        "温泉票",
+        "泥疗",
+        "理疗"
+      ],
+      "suitableFor": [
+        "养生爱好者",
+        "康复疗养"
+      ],
+      "tags": [
+        "温泉",
+        "百年",
+        "汤岗子"
+      ],
+      "description": "汤岗子温泉涌泉千年，溥仪曾在此建龙宫温泉。泉水富含氡硅酸，火山矿泥敷身如覆黑金，温润泉水浸润间百年疗养文化扑面而来，于这东北最负盛名的温泉中尽享皇家康养之福。"
+    },
+    {
+      "id": "liaoning-wellness-2",
+      "image": "https://picsum.photos/id/1701/600/400",
+      "category": "wellness",
+      "name": "医巫闾山森林慢生活",
+      "type": "森林康养",
+      "location": "锦州市北镇市医巫闾山",
+      "duration": "1天",
+      "difficulty": "简单",
+      "price": "60",
+      "rating": 4.6,
+      "reviewCount": 234,
+      "efficacyTags": [
+        "东北名山森林浴",
+        "古寺禅意漫步",
+        "满族风情体验"
+      ],
+      "bestSeason": "夏秋",
+      "packageIncludes": [
+        "门票",
+        "导览",
+        "素斋"
+      ],
+      "suitableFor": [
+        "自然爱好者",
+        "文化体验者"
+      ],
+      "tags": [
+        "森林",
+        "名山",
+        "闾山"
+      ],
+      "description": "医巫闾山为东北三大名山之首，松涛万顷遮天蔽日。沿石阶探访古刹，晨钟暮鼓间负氧离子萦绕周身，满族风情点缀山间，于这辽西名山中避暑纳凉，尽享森林慢生活之清幽。"
+    },
+    {
+      "id": "liaoning-wellness-3",
+      "image": "https://picsum.photos/id/1702/600/400",
+      "category": "wellness",
+      "name": "大连海滨瑜伽冥想",
+      "type": "瑜伽养生",
+      "location": "大连市金州区金石滩海滨",
+      "duration": "1.5小时",
+      "difficulty": "简单",
+      "price": "120",
+      "rating": 4.7,
+      "reviewCount": 345,
+      "efficacyTags": [
+        "渤海湾日出瑜伽",
+        "礁石海岸冥想",
+        "海风负氧离子"
+      ],
+      "bestSeason": "春秋",
+      "packageIncludes": [
+        "瑜伽垫",
+        "教学",
+        "茶饮"
+      ],
+      "suitableFor": [
+        "瑜伽爱好者",
+        "白领群体"
+      ],
+      "tags": [
+        "瑜伽",
+        "海滨",
+        "大连"
+      ],
+      "description": "金石滩礁石嶙峋，渤海日出染金天际。于这北方明珠的海岸线上铺开瑜伽垫，海风拂面涛声入耳，一呼一吸间与大海同频，在礁石上静坐冥想，任都市烦忧随潮水退去，尽享海滨瑜伽之畅然。"
     }
   ]
 }
