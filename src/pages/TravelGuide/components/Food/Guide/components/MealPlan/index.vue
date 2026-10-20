@@ -3,6 +3,7 @@ import { computed } from 'vue';
 import type { Food, FoodGuide } from '@/typesOfPages/travelGuide';
 import ClockIcon from '../../../../../icons/common/ClockIcon.vue';
 import { useFoodDetail } from '../../../../FoodDetailModal/useFoodDetail';
+import FoodEmptyState from '../../../components/FoodEmptyState/index.vue';
 
 const props = defineProps<{
   mealPlan: FoodGuide['mealPlan'] | null;
@@ -89,6 +90,8 @@ const openFoodById = (foodId: string) => {
       </div>
     </div>
   </section>
+
+  <FoodEmptyState v-else type="meal-plan" />
 </template>
 
 <style scoped lang="scss" src="./index.scss" />

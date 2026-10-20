@@ -5,7 +5,8 @@
     <Header @open-upload="showUploadModal = true" />
 
     <main class="main-content">
-      <router-view v-slot="{ Component }">
+      <LandscapeLoading v-if="isLoading" />
+      <router-view v-else v-slot="{ Component }">
         <keep-alive :include="cachedViewsArray" :max="5">
           <component
             :is="Component"
@@ -37,6 +38,7 @@
   import { cachedViews } from '@/constants/landscape';
   import { convertToLandscapeItem } from '@/utils/landscape';
   import { debounce } from '@/utils/landscape/debounce';
+  import LandscapeLoading from './components/common/LandscapeLoading/index.vue';
 
   const cachedViewsArray = [...cachedViews];
 
@@ -55,6 +57,7 @@
   const searchQuery = ref('');
   const debouncedQuery = ref('');
   const showUploadModal = ref(false);
+  const isLoading = ref(true);
 
   const dataStore = useLandscapeDataStore();
   const interactionStore = useInteractionStore();
@@ -88,6 +91,8 @@
         },
       })),
     );
+
+    isLoading.value = false;
   });
 
   const filteredItems = computed(() => {

@@ -111,6 +111,8 @@
       </article>
     </div>
   </section>
+
+  <FoodEmptyState v-else type="souvenir" />
 </template>
 
 <script setup lang="ts">
@@ -123,6 +125,7 @@
   import type { FoodSouvenir } from '@/typesOfPages/travelGuide';
   import { useFoodSouvenirPrefs } from '@/composables/travelGuide/useFoodSouvenirPrefs';
   import { useTravelToast } from '@/composables/travelGuide/useTravelToast';
+  import FoodEmptyState from '../components/FoodEmptyState/index.vue';
 
   const { isWant, isBought, toggleWant, toggleBought } = useFoodSouvenirPrefs();
   const { show: showToast } = useTravelToast();

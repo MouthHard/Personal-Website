@@ -8,6 +8,7 @@
   import MealPlan from './components/MealPlan/index.vue';
   import FoodRoutes from './components/FoodRoutes/index.vue';
   import Tips from './components/Tips/index.vue';
+  import FoodEmptyState from '../components/FoodEmptyState/index.vue';
 
   interface Props {
     guide: FoodGuide | null;
@@ -96,6 +97,8 @@
       @close="closeShare"
     />
   </section>
+
+  <FoodEmptyState v-else type="guide" />
 </template>
 
 <style scoped lang="scss" src="./index.scss" />

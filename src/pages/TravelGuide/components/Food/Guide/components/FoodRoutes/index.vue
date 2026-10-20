@@ -8,6 +8,7 @@ import FlagIcon from '../../../../../icons/common/FlagIcon.vue';
 import ChevronRightIcon from '../../../../../icons/common/ChevronRightIcon.vue';
 import { useFoodRoutePrefs } from '@/composables/travelGuide/useFoodRoutePrefs';
 import { useTravelToast } from '@/composables/travelGuide/useTravelToast';
+import FoodEmptyState from '../../../components/FoodEmptyState/index.vue';
 
 const props = defineProps<{
   routes: FoodGuideRoute[];
@@ -148,6 +149,8 @@ const getRouteFoodTags = (route: { steps: { foodId: string }[] }): string[] => {
       </article>
     </div>
   </section>
+
+  <FoodEmptyState v-else type="food-routes" />
 </template>
 
 <style scoped lang="scss" src="./index.scss" />

@@ -8,6 +8,16 @@
     </h2>
     <div id="chinaMap" ref="mapRef" class="map-element"></div>
 
+    <div v-if="mapLoading" class="map-status map-loading">
+      <div class="map-spinner"></div>
+      <p>地图加载中...</p>
+    </div>
+
+    <div v-if="mapError" class="map-status map-error">
+      <p>地图加载失败</p>
+      <button class="map-retry-btn" @click="retryLoadMap">重新加载</button>
+    </div>
+
     <div v-if="selectedProvince" class="selected-province">
       <span class="province-label">当前选择:</span>
       <span class="province-name">{{ selectedProvince }}</span>
@@ -59,6 +69,8 @@ const emit = defineEmits<{
 }>();
 
 const mapRef = ref<HTMLElement | null>(null);
+const mapLoading = ref(true);
+const mapError = ref(false);
 let chart: echarts.ECharts | null = null;
 
 const getMuseumCount = (province: string) => {
@@ -73,6 +85,8 @@ onMounted(() => {
 let mapDataPromise: Promise<unknown> | null = null;
 
 const loadChinaMap = () => {
+  mapLoading.value = true;
+  mapError.value = false;
   if (!mapDataPromise) {
     mapDataPromise = fetch("https://geo.datav.aliyun.com/areas_v3/bound/100000_full.json")
       .then((response) => {
@@ -90,7 +104,16 @@ const loadChinaMap = () => {
   mapDataPromise.then((chinaJson) => {
     echarts.registerMap("china", chinaJson as any);
     initMap();
+    mapLoading.value = false;
+  }).catch(() => {
+    mapError.value = true;
+    mapLoading.value = false;
   });
+};
+
+const retryLoadMap = () => {
+  mapDataPromise = null;
+  loadChinaMap();
 };
 
 const initMap = () => {

@@ -7,26 +7,29 @@
     />
 
     <main class="museum-content">
-      <MuseumInfo v-if="activeTab === 'home' && museum" :museum="museum" @update:active-tab="switchTab" />
-      <ArtifactList
-        v-if="activeTab === 'artifacts' && museum"
-        :museum="museum"
-      />
-      <ExhibitionList
-        v-if="activeTab === 'exhibitions' && museum"
-        :museum="museum"
-      />
-      <SpecialExhibition
-        v-if="activeTab === 'special' && museum"
-        :museum="museum"
-      />
-      <CreativeGrid v-if="activeTab === 'creative' && museum" :museum="museum" />
-      <AboutSection
-        v-if="activeTab === 'about' && museum"
-        :museum-id="museum.id"
-        @update:active-tab="switchTab"
-      />
-      <MyFootprint v-if="activeTab === 'footprint' && museum" :museum-id="museum.id" />
+      <MuseumSkeleton v-if="!museum" type="detail" />
+      <template v-else>
+        <MuseumInfo v-if="activeTab === 'home'" :museum="museum" @update:active-tab="switchTab" />
+        <ArtifactList
+          v-if="activeTab === 'artifacts'"
+          :museum="museum"
+        />
+        <ExhibitionList
+          v-if="activeTab === 'exhibitions'"
+          :museum="museum"
+        />
+        <SpecialExhibition
+          v-if="activeTab === 'special'"
+          :museum="museum"
+        />
+        <CreativeGrid v-if="activeTab === 'creative'" :museum="museum" />
+        <AboutSection
+          v-if="activeTab === 'about'"
+          :museum-id="museum.id"
+          @update:active-tab="switchTab"
+        />
+        <MyFootprint v-if="activeTab === 'footprint'" :museum-id="museum.id" />
+      </template>
     </main>
   </div>
 </template>
@@ -37,6 +40,7 @@
   import { useMuseumDataStore } from '@/stores/museum';
   import type { Museum } from '@/typesOfPages/museum/index';
   import MuseumHeader from './components/MuseumHeader/index.vue';
+  import MuseumSkeleton from '../MuseumSkeleton/index.vue';
   const MuseumInfo = defineAsyncComponent(() => import('./components/MuseumInfo/index.vue'));
   const ArtifactList = defineAsyncComponent(() => import('./components/ArtifactList/index.vue'));
   const ExhibitionList = defineAsyncComponent(() => import('./components/ExhibitionList/index.vue'));

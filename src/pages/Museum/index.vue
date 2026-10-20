@@ -5,6 +5,7 @@
       <p class="error-message">{{ store.error }}</p>
       <button class="retry-button" @click="retryLoad">重新加载</button>
     </div>
+    <MuseumSkeleton v-else-if="store.loading && !$route.params.id" type="list" />
     <template v-else>
       <HeroSection v-if="!$route.params.id" />
 
@@ -32,6 +33,7 @@
   import HeroSection from './components/HeroSection/index.vue';
   import MapSection from './components/MapSection/index.vue';
   import MuseumList from './components/MuseumList/index.vue';
+  import MuseumSkeleton from './components/MuseumSkeleton/index.vue';
   import { useMuseumDataStore } from '@/stores/museum';
 
   const store = useMuseumDataStore();

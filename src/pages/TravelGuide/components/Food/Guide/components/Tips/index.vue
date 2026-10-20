@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import SparklesIcon from '../../../../../icons/common/SparklesIcon.vue';
+import FoodEmptyState from '../../../components/FoodEmptyState/index.vue';
 
 defineProps<{
   tips: { question: string; answer: string }[];
