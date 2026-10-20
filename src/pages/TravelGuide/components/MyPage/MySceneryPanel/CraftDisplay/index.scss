@@ -408,6 +408,141 @@ $icon-star: #f8df9a;
           color: $ink-bright;
         }
       }
+
+      // ---- 匠作操作钮：绢纸装裱签条三色（鎏金收藏 / 朱砂体验 / 绢青分享）----
+      .header-actions {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        margin-left: auto;
+        margin-right: 50px;
+        flex-shrink: 0;
+        z-index: 3;
+
+        .craft-act {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 5px;
+          padding: 5px 11px;
+          font-size: 0.88rem;
+          font-weight: 700;
+          letter-spacing: 1px;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+          white-space: nowrap;
+
+          svg {
+            flex-shrink: 0;
+          }
+
+          &:hover {
+            transform: translateY(-1px);
+          }
+
+          &:active {
+            transform: translateY(0);
+          }
+        }
+
+        // 收藏 — 鎏金系
+        .act-fav {
+          color: $gold-hi;
+          border: 1px solid rgba(248, 223, 154, 0.55);
+          background:
+            radial-gradient(circle at 35% 30%, rgba(255, 245, 220, 0.18), transparent 60%),
+            linear-gradient(180deg, rgba(58, 90, 122, 0.9), rgba(30, 58, 82, 0.95));
+          box-shadow:
+            inset 0 1px 0 rgba(248, 223, 154, 0.3),
+            inset 0 -1px 2px rgba(0, 0, 0, 0.45),
+            0 2px 4px rgba(0, 0, 0, 0.4);
+          filter: drop-shadow(0 0 5px rgba(248, 223, 154, 0.3));
+          text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5), 0 0 8px rgba(248, 223, 154, 0.3);
+
+          &:hover {
+            box-shadow:
+              inset 0 1px 0 rgba(248, 223, 154, 0.45),
+              inset 0 -1px 2px rgba(0, 0, 0, 0.45),
+              0 0 12px rgba(248, 223, 154, 0.4),
+              0 3px 6px rgba(0, 0, 0, 0.4);
+          }
+
+          &.is-active {
+            color: #241704;
+            background:
+              radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.4), transparent 55%),
+              linear-gradient(180deg, $gold-hi, $gold-mid 60%, $gold-deep);
+            border-color: rgba(122, 84, 26, 0.85);
+            box-shadow:
+              inset 0 1px 0 rgba(255, 255, 255, 0.55),
+              inset 0 -2px 3px rgba(122, 84, 26, 0.4),
+              0 0 14px rgba(248, 223, 154, 0.55),
+              0 3px 6px rgba(0, 0, 0, 0.4);
+            filter: drop-shadow(0 0 6px rgba(248, 223, 154, 0.5));
+          }
+        }
+
+        // 体验 — 朱砂系
+        .act-been {
+          color: #f0c0b8;
+          border: 1px solid rgba(194, 58, 43, 0.55);
+          background:
+            radial-gradient(circle at 35% 30%, rgba(255, 200, 180, 0.15), transparent 60%),
+            linear-gradient(180deg, rgba(58, 90, 122, 0.9), rgba(30, 58, 82, 0.95));
+          box-shadow:
+            inset 0 1px 0 rgba(221, 74, 54, 0.3),
+            inset 0 -1px 2px rgba(0, 0, 0, 0.45),
+            0 2px 4px rgba(0, 0, 0, 0.4);
+          filter: drop-shadow(0 0 5px rgba(194, 58, 43, 0.3));
+          text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5), 0 0 8px rgba(194, 58, 43, 0.3);
+
+          &:hover {
+            box-shadow:
+              inset 0 1px 0 rgba(221, 74, 54, 0.45),
+              inset 0 -1px 2px rgba(0, 0, 0, 0.45),
+              0 0 12px rgba(194, 58, 43, 0.45),
+              0 3px 6px rgba(0, 0, 0, 0.4);
+          }
+
+          &.is-active {
+            color: #fff;
+            background:
+              radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.3), transparent 55%),
+              linear-gradient(180deg, #dd4a36, $cinnebar 55%, $cinn-deep);
+            border-color: $cinn-deep;
+            box-shadow:
+              inset 0 1px 0 rgba(255, 255, 255, 0.35),
+              inset 0 -2px 3px rgba(80, 10, 4, 0.5),
+              0 0 14px rgba(194, 58, 43, 0.6),
+              0 3px 6px rgba(0, 0, 0, 0.4);
+            filter: drop-shadow(0 0 6px rgba(194, 58, 43, 0.5));
+          }
+        }
+
+        // 分享 — 绢青系
+        .act-share {
+          color: $ink-bright;
+          border: 1px solid rgba(120, 160, 200, 0.5);
+          background:
+            radial-gradient(circle at 35% 30%, rgba(170, 200, 255, 0.15), transparent 60%),
+            linear-gradient(180deg, rgba(58, 90, 122, 0.9), rgba(30, 58, 82, 0.95));
+          box-shadow:
+            inset 0 1px 0 rgba(170, 200, 255, 0.3),
+            inset 0 -1px 2px rgba(0, 0, 0, 0.45),
+            0 2px 4px rgba(0, 0, 0, 0.4);
+          filter: drop-shadow(0 0 5px rgba(120, 160, 200, 0.3));
+          text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5), 0 0 8px rgba(120, 160, 200, 0.3);
+
+          &:hover {
+            box-shadow:
+              inset 0 1px 0 rgba(170, 200, 255, 0.45),
+              inset 0 -1px 2px rgba(0, 0, 0, 0.45),
+              0 0 12px rgba(120, 160, 200, 0.45),
+              0 3px 6px rgba(0, 0, 0, 0.4);
+          }
+        }
+      }
     }
 
     // ============================================
@@ -418,7 +553,7 @@ $icon-star: #f8df9a;
       flex: 1;
       min-width: 0;
       display: grid;
-      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.3fr) auto;
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr) minmax(0, 0.5fr);
       gap: 20px;
       align-items: stretch;
       max-height: 460px;
@@ -861,8 +996,8 @@ $icon-star: #f8df9a;
 
         .painting-frame {
           position: relative;
-          width: 168px;
-          height: 168px;
+          width: 100%;
+          aspect-ratio: 1;
           border-radius: 4px;
           overflow: hidden;
           background: #05070b;
@@ -1005,6 +1140,7 @@ $icon-star: #f8df9a;
           }
         }
       }
+
     }
 
     // ---- 移除钮：红漆旋座 ----

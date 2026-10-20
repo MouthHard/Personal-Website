@@ -69,14 +69,14 @@
     <div class="spot-postcards">
       <span class="sp-label"><MapIcon :size="20" /> 关联景点<span class="sp-count">{{ currentTheme.spots.length }}处</span></span>
       <div class="sp-list">
-        <div v-for="spot in currentTheme.spots" :key="spot.id" class="spot-card">
+        <div v-for="spot in currentTheme.spots" :key="spot.id" class="spot-card" @click="emit('navigate-to-spot', spot.name)">
           <span class="sc-pin"></span>
           <div class="sc-photo">
             <img v-if="spot.image" :src="spot.image" :alt="spot.name" class="sc-img" loading="lazy" />
           </div>
           <div class="sc-body">
             <div class="sc-head">
-              <span class="sc-name" @click="emit('navigate-to-spot', spot.name)">{{ spot.name }}</span>
+              <span class="sc-name">{{ spot.name }}</span>
               <span class="sc-rate" v-if="spot.rating"><StarIcon :size="16" /> {{ spot.rating }}</span>
             </div>
             <div class="sc-info">
@@ -90,16 +90,16 @@
             </div>
           </div>
           <div class="sc-actions">
-            <button class="sc-btn sc-like" :class="{ active: isSpotLike(spot.id) }" aria-label="点赞景点" @click="emit('toggle-like', spot.id)">
+            <button class="sc-btn sc-like" :class="{ active: isSpotLike(spot.id) }" aria-label="点赞景点" @click.stop="emit('toggle-like', spot.id)">
               <ThumbUpIcon :filled="isSpotLike(spot.id)" :size="16" />
             </button>
-            <button class="sc-btn sc-want" :class="{ active: isSpotWant(spot.id) }" aria-label="想去景点" @click="emit('toggle-want', spot.id)">
+            <button class="sc-btn sc-want" :class="{ active: isSpotWant(spot.id) }" aria-label="想去景点" @click.stop="emit('toggle-want', spot.id)">
               <HeartIcon :filled="isSpotWant(spot.id)" :size="16" />
             </button>
-            <button class="sc-btn sc-share" aria-label="分享景点" @click="emit('share', spot)">
+            <button class="sc-btn sc-share" aria-label="分享景点" @click.stop="emit('share', spot)">
               <ShareIcon :size="16" />
             </button>
-            <button class="sc-btn sc-been" :class="{ active: isSpotBeen(spot.id) }" aria-label="去过景点" @click="emit('toggle-been', spot.id)">
+            <button class="sc-btn sc-been" :class="{ active: isSpotBeen(spot.id) }" aria-label="去过景点" @click.stop="emit('toggle-been', spot.id)">
               <FlagIcon :filled="isSpotBeen(spot.id)" :size="16" />
             </button>
           </div>

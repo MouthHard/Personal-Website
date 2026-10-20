@@ -68,46 +68,51 @@
                           ]"
                             @click="emit('select-festival', festival)"
                         >
-                          <div class="item-date-stamp">
-                            <span class="item-day">{{ festival.day }}</span>
+                          <div class="item-preview">
+                            <img v-if="festival.image" :src="festival.image" :alt="festival.name" loading="lazy" />
+                            <div class="item-date-stamp">
+                              <span class="item-day">{{ festival.day }}</span>
+                            </div>
                           </div>
-                          <div class="item-content">
-                            <div class="item-title-row">
-                              <h6 class="item-name">{{ festival.name }}</h6>
+                          <div class="item-info">
+                            <h6 class="item-name">{{ festival.name }}</h6>
+                            <div class="item-tags">
                               <span class="item-badge">
                                 {{ festival.isUnique ? '特色' : '传统' }}
                               </span>
+                              <span v-if="festival.type" class="item-type-tag">{{ festival.type }}</span>
+                              <span v-if="festival.duration" class="item-duration-tag">{{ festival.duration }}</span>
                             </div>
-                            <p class="item-desc">{{ festival.description }}</p>
                             <div class="item-loc">
                               <LocationIcon /><span>{{ festival.location }}</span>
                             </div>
                           </div>
                           <div class="item-actions" @click.stop>
-                            <button
-                              class="action-btn btn-fav"
-                              :class="{ 'is-active': isExperienceFavorite(festival.id, provinceId, 'festival') }"
-                              @click="emit('toggle-favorite', festival)"
-                            >
-                              <BookmarkIcon :size="13" :filled="isExperienceFavorite(festival.id, provinceId, 'festival')" />
-                              <span>{{ isExperienceFavorite(festival.id, provinceId, 'festival') ? '已收藏' : '收藏' }}</span>
-                            </button>
-                            <button
-                              class="action-btn btn-been"
-                              :class="{ 'is-active': isExperienceBeen(festival.id, provinceId, 'festival') }"
-                              @click="emit('toggle-been', festival)"
-                            >
-                              <FlagIcon :size="13" :filled="isExperienceBeen(festival.id, provinceId, 'festival')" />
-                              <span>{{ isExperienceBeen(festival.id, provinceId, 'festival') ? '已体验' : '体验' }}</span>
-                            </button>
-                            <button
-                              class="action-btn btn-share"
-                              @click="emit('share', festival)"
-                            >
-                              <ShareIcon :size="13" />
-                              <span>分享</span>
-                            </button>
-                          </div>
+                              <button
+                                class="action-btn btn-fav"
+                                :class="{ 'is-active': isExperienceFavorite(festival.id, provinceId, 'festival') }"
+                                @click="emit('toggle-favorite', festival)"
+                              >
+                                <BookmarkIcon :size="13" :filled="isExperienceFavorite(festival.id, provinceId, 'festival')" />
+                                <span>{{ isExperienceFavorite(festival.id, provinceId, 'festival') ? '已收藏' : '收藏' }}</span>
+                              </button>
+                              <button
+                                class="action-btn btn-been"
+                                :class="{ 'is-active': isExperienceBeen(festival.id, provinceId, 'festival') }"
+                                @click="emit('toggle-been', festival)"
+                              >
+                                <FlagIcon :size="13" :filled="isExperienceBeen(festival.id, provinceId, 'festival')" />
+                                <span>{{ isExperienceBeen(festival.id, provinceId, 'festival') ? '已体验' : '体验' }}</span>
+                              </button>
+                              <button
+                                class="action-btn btn-share"
+                                @click="emit('share', festival)"
+                              >
+                                <ShareIcon :size="13" />
+                                <span>分享</span>
+                              </button>
+                            </div>
+
                         </div>
                       </div>
 
@@ -186,6 +191,11 @@
                         <CloseIcon />
                       </button>
                       <div class="detail-scroll">
+                        <!-- 节庆头部图 -->
+                        <div v-if="selectedFestival.image" class="detail-banner">
+                          <img :src="selectedFestival.image" :alt="selectedFestival.name" loading="lazy" />
+                        </div>
+
                         <!-- 详情头部 -->
                         <div class="detail-header">
                           <div class="detail-date-loc">
@@ -202,6 +212,7 @@
                             <span v-if="selectedFestival.duration" class="detail-tag tag-duration">{{ selectedFestival.duration }}</span>
                           </div>
                         </div>
+
 
                         <!-- 节日简介 + 历史起源 -->
                         <div class="detail-section">

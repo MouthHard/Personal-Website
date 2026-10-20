@@ -20,13 +20,13 @@
 
       <div class="carousel-wrapper" :style="{ transform: `translateX(-${currentSlide * 100}%)` }">
         <div v-for="(image, index) in sceneryGallery" :key="index" class="carousel-item">
-          <div class="carousel-content">
+          <div class="carousel-content" @click="$emit('navigate-to-spot', image.title)">
             <div class="carousel-image-container">
               <img loading="lazy" :src="image.url" class="carousel-image" />
             </div>
             <div class="carousel-description-container">
               <div class="carousel-title-row">
-                <h4 class="carousel-title" @click="$emit('navigate-to-spot', image.title)">{{ image.title }}</h4>
+                <h4 class="carousel-title">{{ image.title }}</h4>
                 <span class="carousel-rating">
                   <span class="rating-icon">
                     <StarIcon />

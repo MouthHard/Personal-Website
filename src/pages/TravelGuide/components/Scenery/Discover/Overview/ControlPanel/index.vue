@@ -14,6 +14,7 @@
     name: string;
     description: string;
     activities: string[];
+    image: string;
   }
 
   const props = defineProps<{
@@ -78,21 +79,22 @@
           name: season.name,
           description: season.description,
           activities: season.activities,
+          image: season.image || '',
         }));
       } else {
         detailedSeasons.value = [
-          { name: '春季', description: '万物复苏，春暖花开', activities: ['赏花', '踏青', '春游'] },
-          { name: '夏季', description: '阳光明媚，绿树成林', activities: ['避暑', '游泳', '露营'] },
-          { name: '秋季', description: '秋高气爽，层林尽叶', activities: ['赏秋', '登山', '采摘'] },
-          { name: '冬季', description: '银装素裹，冰天雪地', activities: ['滑雪', '温泉', '赏雪'] },
+          { name: '春季', description: '万物复苏，春暖花开', activities: ['赏花', '踏青', '春游'], image: '' },
+          { name: '夏季', description: '阳光明媚，绿树成林', activities: ['避暑', '游泳', '露营'], image: '' },
+          { name: '秋季', description: '秋高气爽，层林尽叶', activities: ['赏秋', '登山', '采摘'], image: '' },
+          { name: '冬季', description: '银装素裹，冰天雪地', activities: ['滑雪', '温泉', '赏雪'], image: '' },
         ];
       }
     } else {
       detailedSeasons.value = [
-        { name: '春季', description: '万物复苏，春暖花开', activities: ['赏花', '踏青', '春游'] },
-        { name: '夏季', description: '阳光明媚，绿树成林', activities: ['避暑', '游泳', '露营'] },
-        { name: '秋季', description: '秋高气爽，层林尽叶', activities: ['赏秋', '登山', '采摘'] },
-        { name: '冬季', description: '银装素裹，冰天雪地', activities: ['滑雪', '温泉', '赏雪'] },
+        { name: '春季', description: '万物复苏，春暖花开', activities: ['赏花', '踏青', '春游'], image: '' },
+        { name: '夏季', description: '阳光明媚，绿树成林', activities: ['避暑', '游泳', '露营'], image: '' },
+        { name: '秋季', description: '秋高气爽，层林尽叶', activities: ['赏秋', '登山', '采摘'], image: '' },
+        { name: '冬季', description: '银装素裹，冰天雪地', activities: ['滑雪', '温泉', '赏雪'], image: '' },
       ];
     }
   };

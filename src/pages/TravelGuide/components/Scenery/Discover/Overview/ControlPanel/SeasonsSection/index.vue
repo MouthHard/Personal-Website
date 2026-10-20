@@ -8,15 +8,13 @@
     name: string;
     description: string;
     activities: string[];
+    image: string;
   }
 
   defineProps<{
     seasons: Season[];
   }>();
 
-  const emit = defineEmits<{
-    (e: 'spot-click', spotName: string): void;
-  }>();
 </script>
 
 <template>
@@ -29,13 +27,16 @@
     </h3>
     <div class="seasons-detail">
       <template v-if="seasons.length > 0">
-        <div
-          v-for="(season, index) in seasons"
-          :key="index"
-          class="season-detail-item"
-          :data-season="season.name"
-          :style="`--index: ${index}`"
-        >
+          <div
+            v-for="(season, index) in seasons"
+            :key="index"
+            class="season-detail-item"
+            :data-season="season.name"
+            :style="`--index: ${index}`"
+          >
+          <div class="season-image-wrap" v-if="season.image">
+            <img :src="season.image" :alt="season.name" class="season-image" loading="lazy" />
+          </div>
           <h4 class="season-name">{{ season.name }}</h4>
           <p class="season-description">{{ season.description }}</p>
           <div class="season-activities">
@@ -44,7 +45,7 @@
               :key="actIndex"
               class="activity-tag"
               :class="`tag-${(actIndex % 4) + 1}`"
-              @click="emit('spot-click', activity)"
+
             >
               {{ activity }}
             </span>

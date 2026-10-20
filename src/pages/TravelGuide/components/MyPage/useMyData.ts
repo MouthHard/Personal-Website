@@ -103,7 +103,7 @@ export function useMyData() {
   const spotWantIds = computed(() => sceneryPrefs.value.spotWant);
   const spotBeenIds = computed(() => sceneryPrefs.value.spotBeen);
   const spotLikeIds = computed(() => sceneryPrefs.value.spotLikes);
-  const routeDoneIds = computed(() => sceneryPrefs.value.routeDone);
+ 
   const experienceFavoriteIds = computed(() => sceneryPrefs.value.experienceFavorites);
   const experienceWantIds = computed(() => sceneryPrefs.value.experienceWant);
   const experienceBeenIds = computed(() => sceneryPrefs.value.experienceBeen);
