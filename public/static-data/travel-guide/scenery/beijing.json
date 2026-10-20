@@ -10,7 +10,7 @@
         "皇家"
       ],
       "type": "culture",
-      "image": "https://picsum.photos/id/1076/600/400",
+      "image": "https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/travel/scenery/spot/8.webp",
       "rating": 4.9,
       "bestTime": "春季",
       "location": "北京市东城区景山前街4号",
@@ -157,10 +157,22 @@
         "建议请讲解员或租讲解器"
       ],
       "photoSpots": [
-        "太和殿",
-        "午门",
-        "角楼",
-        "乾清宫"
+        {
+          "name": "太和殿",
+          "image": "https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/travel/scenery/spot/2.webp"
+        },
+        {
+          "name": "午门",
+          "image": "https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/travel/scenery/spot/9.webp"
+        },
+        {
+          "name": "角楼",
+          "image": "https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/travel/scenery/spot/3.webp"
+        },
+        {
+          "name": "乾清宫",
+          "image": "https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/travel/scenery/spot/5.webp"
+        }
       ],
       "nearbySpots": [
         "天安门 0km",
@@ -185,7 +197,7 @@
         "世界遗产"
       ],
       "type": "nature",
-      "image": "https://picsum.photos/id/1077/600/400",
+      "image": "https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/travel/scenery/spot/3.webp",
       "rating": 4.8,
       "bestTime": "秋季",
       "location": "北京市延庆区八达岭长城",
@@ -331,10 +343,22 @@
         "可乘索道,节省体力"
       ],
       "photoSpots": [
-        "北八楼最高点",
-        "好汉坡",
-        "长城蜿蜒",
-        "烽火台"
+        {
+          "name": "北八楼最高点",
+          "image": "https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/travel/scenery/spot/5.webp"
+        },
+        {
+          "name": "好汉坡",
+          "image": "https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/travel/scenery/spot/6.webp"
+        },
+        {
+          "name": "长城蜿蜒",
+          "image": "https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/travel/scenery/spot/4.webp"
+        },
+        {
+          "name": "烽火台",
+          "image": "https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/travel/scenery/spot/2.webp"
+        }
       ],
       "nearbySpots": [
         "明十三陵 30km",
@@ -359,7 +383,7 @@
         "建筑"
       ],
       "type": "culture",
-      "image": "https://picsum.photos/id/1080/600/400",
+      "image": "https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/travel/scenery/spot/4.webp",
       "rating": 4.7,
       "bestTime": "春季",
       "location": "北京市海淀区新建宫门路19号",
@@ -501,10 +525,22 @@
         "避开节假日,人流较大"
       ],
       "photoSpots": [
-        "佛香阁",
-        "十七孔桥",
-        "长廊",
-        "西堤"
+        {
+          "name": "佛香阁",
+          "image": "https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/travel/scenery/spot/9.webp"
+        },
+        {
+          "name": "十七孔桥",
+          "image": "https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/travel/scenery/spot/1.webp"
+        },
+        {
+          "name": "长廊",
+          "image": "https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/travel/scenery/spot/10.webp"
+        },
+        {
+          "name": "西堤",
+          "image": "https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/travel/scenery/spot/5.webp"
+        }
       ],
       "nearbySpots": [
         "圆明园 3km",
@@ -612,17 +648,17 @@
     "topAttractions": [
       {
         "name": "故宫",
-        "image": "https://picsum.photos/id/1076/600/400",
+        "image": "https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/travel/scenery/spot/8.webp",
         "description": "坐落于京华大地的故宫，故宫——中国明清两代的皇家宫殿，是世界上现存规模最大、保存最为完整的木质结构古建筑之一，实乃游历此地不可错过之胜境。。每一处景致皆是造物主的匠心独运。"
       },
       {
         "name": "长城",
-        "image": "https://picsum.photos/id/1077/600/400",
+        "image": "https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/travel/scenery/spot/3.webp",
         "description": "京华长城，北京名胜长城，中国古代伟大的防御工程，是中华民族的象征，令人心驰神往流连忘返。。当属此地名胜之首推，不容错过。"
       },
       {
         "name": "颐和园",
-        "image": "https://picsum.photos/id/1080/600/400",
+        "image": "https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/travel/scenery/spot/4.webp",
         "description": "颐和园者，京华之胜境也。颐和园者，北京之中国现存规模最大、保存最完整的皇家园林，堪称此地风光之冠冕。。令人叹为观止，流连忘返。"
       }
     ]
@@ -630,7 +666,7 @@
   "seasonal": [
     {
       "name": "春季",
-      "image": "https://picsum.photos/id/1090/600/400",
+      "image": "https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/travel/scenery/season/2.webp",
       "activities": [
         "赏花",
         "踏青",
@@ -641,7 +677,7 @@
     },
     {
       "name": "夏季",
-      "image": "https://picsum.photos/id/1091/600/400",
+      "image": "https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/travel/scenery/season/8.webp",
       "activities": [
         "长城徒步",
         "香山避暑",
@@ -652,7 +688,7 @@
     },
     {
       "name": "秋季",
-      "image": "https://picsum.photos/id/1092/600/400",
+      "image": "https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/travel/scenery/season/6.webp",
       "activities": [
         "香山赏红叶",
         "长城赏秋",
@@ -663,7 +699,7 @@
     },
     {
       "name": "冬季",
-      "image": "https://picsum.photos/id/1093/600/400",
+      "image": "https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/travel/scenery/season/3.webp",
       "activities": [
         "故宫赏雪",
         "什刹海滑冰",
@@ -705,7 +741,8 @@
         "地坛公园",
         "雍和宫",
         "孔庙"
-      ]
+      ],
+      "image": "https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/travel/scenery/festival/3.webp"
     },
     {
       "id": "2",
@@ -737,7 +774,8 @@
         "故宫",
         "天安门",
         "景山公园"
-      ]
+      ],
+      "image": "https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/travel/scenery/festival/5.webp"
     },
     {
       "id": "3",
@@ -768,7 +806,8 @@
         "颐和园",
         "圆明园",
         "香山"
-      ]
+      ],
+      "image": "https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/travel/scenery/festival/4.webp"
     }
   ],
   "activities": [
@@ -931,7 +970,7 @@
   "craftWorkshops": [
     {
       "id": "beijing-craft-1",
-      "image": "https://picsum.photos/id/1342/600/400",
+      "image": "https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/travel/scenery/craft/1.webp",
       "category": "craft",
       "name": "景泰蓝制作体验",
       "type": "金属工艺",
@@ -968,7 +1007,7 @@
     },
     {
       "id": "beijing-craft-2",
-      "image": "https://picsum.photos/id/1344/600/400",
+      "image": "https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/travel/scenery/craft/4.webp",
       "category": "craft",
       "name": "京绣手工体验",
       "type": "刺绣",
@@ -1006,7 +1045,7 @@
   "performances": [
     {
       "id": "beijing-perf-1",
-      "image": "https://picsum.photos/id/1400/600/400",
+      "image": "https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/travel/scenery/performance/6.webp",
       "category": "performance",
       "name": "京剧《贵妃醉酒》·湖广会馆",
       "type": "戏曲",
@@ -1035,7 +1074,7 @@
     },
     {
       "id": "beijing-perf-2",
-      "image": "https://picsum.photos/id/1401/600/400",
+      "image": "https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/travel/scenery/performance/1.webp",
       "category": "performance",
       "name": "德云社相声专场",
       "type": "曲艺",
@@ -1063,7 +1102,7 @@
     },
     {
       "id": "beijing-perf-3",
-      "image": "https://picsum.photos/id/1402/600/400",
+      "image": "https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/travel/scenery/performance/2.webp",
       "category": "performance",
       "name": "国家大剧院交响乐之夜",
       "type": "交响乐",
@@ -1093,7 +1132,7 @@
   "outdoorAdventure": [
     {
       "id": "beijing-outdoor-1",
-      "image": "https://picsum.photos/id/1363/600/400",
+      "image": "https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/travel/scenery/outdoor/2.webp",
       "category": "outdoor",
       "name": "箭扣长城野徒步",
       "type": "徒步穿越",
@@ -1134,7 +1173,7 @@
     },
     {
       "id": "beijing-outdoor-2",
-      "image": "https://picsum.photos/id/1366/600/400",
+      "image": "https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/travel/scenery/outdoor/3.webp",
       "category": "outdoor",
       "name": "香山红叶徒步",
       "type": "徒步赏景",
@@ -1175,7 +1214,7 @@
   "wellnessRetreat": [
     {
       "id": "beijing-wellness-1",
-      "image": "https://picsum.photos/id/1420/600/400",
+      "image": "https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/travel/scenery/wellness/5.webp",
       "category": "wellness",
       "name": "颐和园太极晨练",
       "type": "太极养生",
@@ -1209,7 +1248,7 @@
     },
     {
       "id": "beijing-wellness-2",
-      "image": "https://picsum.photos/id/1421/600/400",
+      "image": "https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/travel/scenery/wellness/4.webp",
       "category": "wellness",
       "name": "故宫御医文化体验",
       "type": "中医养生",
@@ -1243,7 +1282,7 @@
     },
     {
       "id": "beijing-wellness-3",
-      "image": "https://picsum.photos/id/1422/600/400",
+      "image": "https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/travel/scenery/wellness/6.webp",
       "category": "wellness",
       "name": "奥林匹克森林公园氧吧",
       "type": "森林康养",

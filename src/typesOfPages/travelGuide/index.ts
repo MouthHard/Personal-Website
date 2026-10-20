@@ -288,7 +288,7 @@ export interface ScenerySpot {
   }>;
   facilities?: string[];
   tips?: string[];
-  photoSpots?: string[];
+  photoSpots?: Array<{ name: string; image?: string }>;
   nearbySpots?: string[];
   seasonalGuide?: string[];
 }

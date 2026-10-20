@@ -3,7 +3,7 @@
     <div class="sub-tab-nav">
       <div class="nav-rail"></div>
       <button
-        v-for="(tab, index) in subTabs"
+        v-for="(tab) in subTabs"
         :key="tab.id"
         class="sub-tab-btn"
         :class="{ active: activeSubTab === tab.id }"

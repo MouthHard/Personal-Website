@@ -23,7 +23,7 @@ const EMPTY_TEXT_MAP: Record<SubTab, { title: string; hint: string }> = {
 </script>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed, } from 'vue';
 import { ElMessage } from 'element-plus';
 import type { Food, FoodSouvenir, FoodGuideRoute } from '@/typesOfPages/travelGuide';
 import MyEmpty from '../MyEmpty/index.vue';

@@ -37,6 +37,7 @@
             'rank-bronze': index === 2,
             checked: isSpotBeen(spot.id),
           }"
+          @click="$emit('navigate-to-spot', spot.name)"
         >
           <CheckedHoloIcon v-if="isSpotBeen(spot.id)" />
 
@@ -58,7 +59,7 @@
 
           <div class="rank-info">
             <div class="info-head">
-              <span class="rank-name" @click="$emit('navigate-to-spot', spot.name)">{{ spot.name }}</span>
+              <span class="rank-name">{{ spot.name }}</span>
               <span v-if="spot.rankBadge" class="rank-tag">{{ spot.rankBadge }}</span>
               <span v-if="isSpotBeen(spot.id)" class="checked-stamp">已打卡</span>
             </div>
@@ -95,7 +96,7 @@
               class="rank-btn rank-like"
               :class="{ active: isSpotLike(spot.id) }"
               aria-label="点赞景点"
-              @click="handleToggleLike(spot.id)"
+              @click.stop="handleToggleLike(spot.id)"
             >
               <ThumbUpIcon class="btn-icon" :filled="isSpotLike(spot.id)" :size="16" />
             </button>
@@ -103,14 +104,14 @@
               class="rank-btn rank-want"
               :class="{ active: isSpotWant(spot.id) }"
               aria-label="想去景点"
-              @click="handleToggleWant(spot.id)"
+              @click.stop="handleToggleWant(spot.id)"
             >
               <HeartIcon class="btn-icon" :filled="isSpotWant(spot.id)" :size="16" />
             </button>
             <button
               class="rank-btn rank-share"
               aria-label="分享景点"
-              @click="handleShare(spot)"
+              @click.stop="handleShare(spot)"
             >
               <ShareIcon class="btn-icon" :size="16" />
             </button>
@@ -118,7 +119,7 @@
               class="rank-btn rank-been"
               :class="{ active: isSpotBeen(spot.id) }"
               aria-label="去过景点"
-              @click="handleToggleBeen(spot.id)"
+              @click.stop="handleToggleBeen(spot.id)"
             >
               <FlagIcon class="btn-icon" :filled="isSpotBeen(spot.id)" :size="16" />
             </button>

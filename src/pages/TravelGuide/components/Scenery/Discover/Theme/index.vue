@@ -172,33 +172,37 @@
 
   const themeGroups = computed(() => {
     const rawThemes = props.sceneryData?.themes || [];
-    return rawThemes.map((g) => ({
-      key: g.key,
-      title: g.title,
-      items: g.items.map((t) => {
-        const coverSpot = spotMap.value[t.coverSpotId];
-        const coverImage = coverSpot?.image || '';
-        const spots: ThemeSpot[] = t.spotIds
-          .map((id) => spotMap.value[id])
-          .filter((s): s is ThemeSpot => !!s);
-        return {
-          key: t.key,
-          name: t.name,
-          icon: iconMap[t.icon] || markRaw(GalaxyIcon),
-          coverSpotName: coverSpot?.name || '',
-          coverImage,
-          avgRating: t.avgRating,
-          bestSeason: t.bestSeason,
-          recommendedDays: t.recommendedDays,
-          budget: t.budget,
-          intensity: t.intensity,
-          audience: t.audience,
-          highlights: t.highlights,
-          tips: t.tips,
-          spots,
-        } as Theme;
-      }),
-    }));
+    return rawThemes
+      .map((g) => ({
+        key: g.key,
+        title: g.title,
+        items: g.items
+          .map((t) => {
+            const coverSpot = spotMap.value[t.coverSpotId];
+            const coverImage = coverSpot?.image || '';
+            const spots: ThemeSpot[] = t.spotIds
+              .map((id) => spotMap.value[id])
+              .filter((s): s is ThemeSpot => !!s);
+            return {
+              key: t.key,
+              name: t.name,
+              icon: iconMap[t.icon] || markRaw(GalaxyIcon),
+              coverSpotName: coverSpot?.name || '',
+              coverImage,
+              avgRating: t.avgRating,
+              bestSeason: t.bestSeason,
+              recommendedDays: t.recommendedDays,
+              budget: t.budget,
+              intensity: t.intensity,
+              audience: t.audience,
+              highlights: t.highlights,
+              tips: t.tips,
+              spots,
+            } as Theme;
+          })
+          .filter((t) => t.spots.length > 0),
+      }))
+      .filter((g) => g.items.length > 0);
   });
 
   watch(themeGroups, (groups) => {

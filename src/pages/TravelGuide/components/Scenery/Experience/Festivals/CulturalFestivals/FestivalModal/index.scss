@@ -16,7 +16,7 @@
 
 .postcard-modal-wrap {
   width: 100%;
-  max-width: 70vw;
+  max-width: 78vw;
   perspective: 1600px;
 }
 
@@ -75,7 +75,7 @@
   }
 
   .card-left {
-    flex: 0 0 440px;
+    flex: 0 0 540px;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -330,8 +330,8 @@
         .festival-item {
           display: flex;
           flex-wrap: wrap;
-          gap: 14px;
-          padding: 14px 16px;
+          gap: 10px;
+          padding: 12px 14px;
           border-radius: 8px;
           background:
             linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.4) 50%, transparent 100%),
@@ -390,55 +390,80 @@
             .item-name { color: $c-stamp-deep; }
           }
 
-          .item-date-stamp {
+          .item-preview {
+            position: relative;
             flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 58px;
-            height: 58px;
-            border-radius: 8px;
+            width: 160px;
+            aspect-ratio: 3 / 2;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid rgba(58, 46, 31, 0.2);
             box-shadow:
-              0 3px 7px rgba(0, 0, 0, 0.22),
-              0 1px 3px rgba(0, 0, 0, 0.12),
-              inset 0 2px 4px rgba(255, 255, 255, 0.4),
-              inset 0 -2px 4px rgba(0, 0, 0, 0.18);
+              inset 0 1px 0 rgba(255, 255, 255, 0.3),
+              0 2px 6px rgba(58, 46, 31, 0.15);
+            background: linear-gradient(135deg, #f5ede0, #e8dcc8);
 
-            .item-day {
-              font-family: Georgia, serif;
-              font-size: 18px;
-              font-weight: 800;
-              letter-spacing: 1px;
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              display: block;
             }
           }
 
-          .item-content {
+          .item-date-stamp {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 8px;
+            box-shadow:
+              0 2px 6px rgba(0, 0, 0, 0.35),
+              inset 0 1px 2px rgba(255, 255, 255, 0.4);
+
+            .item-day {
+              font-family: Georgia, serif;
+              font-size: 17px;
+              font-weight: 800;
+              letter-spacing: 0.5px;
+            }
+          }
+
+          .item-info {
             flex: 1;
             min-width: 0;
             display: flex;
             flex-direction: column;
-            gap: 5px;
+            justify-content: center;
+            gap: 6px;
 
-            .item-title-row {
+            .item-name {
+              font-size: 18px;
+              font-weight: 800;
+              color: $c-ink;
+              margin: 0;
+              line-height: 1.3;
+              text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+
+            .item-tags {
               display: flex;
               align-items: center;
-              gap: 8px;
+              gap: 5px;
               flex-wrap: wrap;
-
-              .item-name {
-                font-size: 17px;
-                font-weight: 800;
-                color: $c-ink;
-                margin: 0;
-                line-height: 1.3;
-                text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
-              }
 
               .item-badge {
                 flex-shrink: 0;
-                font-size: 12px;
+                font-size: 13px;
                 font-weight: 800;
-                padding: 2px 8px;
+                padding: 2px 7px;
                 border-radius: 4px;
                 letter-spacing: 1px;
                 color: #fff;
@@ -447,36 +472,37 @@
                   inset 0 1px 1px rgba(255, 255, 255, 0.3);
                 text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
               }
-            }
 
-            .item-desc {
-              font-size: 14px;
-              font-weight: 500;
-              color: #4a3d2a;
-              margin: 0;
-              line-height: 1.65;
-              display: -webkit-box;
-              -webkit-line-clamp: 2;
-              -webkit-box-orient: vertical;
-              overflow: hidden;
+              .item-type-tag,
+              .item-duration-tag {
+                flex-shrink: 0;
+                font-size: 13px;
+                font-weight: 700;
+                padding: 2px 7px;
+                border-radius: 4px;
+                letter-spacing: 0.5px;
+                color: #4a3d2a;
+                background: rgba(178, 59, 46, 0.08);
+                border: 1px solid rgba(178, 59, 46, 0.2);
+              }
             }
 
             .item-loc {
               display: inline-flex;
               align-items: center;
               gap: 4px;
-              font-size: 13px;
+              font-size: 14px;
               font-weight: 700;
               color: #1e4a63;
               align-self: flex-start;
-              margin-top: auto;
               padding: 2px 8px 2px 5px;
               border-radius: 4px;
               background: rgba(44, 95, 124, 0.08);
               border: 1px solid rgba(44, 95, 124, 0.15);
-              svg { width: 15px; height: 15px; }
+              svg { width: 14px; height: 14px; }
             }
           }
+
         }
       }
 
@@ -915,6 +941,35 @@
           }
 
 
+        }
+      }
+
+      .detail-banner {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        flex-shrink: 0;
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid rgba(178, 59, 46, 0.2);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.3),
+          0 3px 10px rgba(58, 46, 31, 0.15),
+          0 1px 3px rgba(58, 46, 31, 0.1);
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+
+        &::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(180deg, transparent 60%, rgba(58, 46, 31, 0.15));
+          pointer-events: none;
         }
       }
 
@@ -1459,9 +1514,8 @@
 .item-actions {
   display: flex;
   flex-basis: 100%;
-  gap: 8px;
-  margin-top: 4px;
-  flex-wrap: wrap;
+  gap: 20px;
+  flex-wrap: nowrap;
 }
 
 .action-btn {

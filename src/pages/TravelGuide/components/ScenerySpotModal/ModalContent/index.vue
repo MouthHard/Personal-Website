@@ -319,14 +319,10 @@
           <span class="slot-screw sr"></span>
           <div class="polaroid">
             <div class="polaroid-photo">
-              <svg class="scene-svg" viewBox="0 0 200 100" preserveAspectRatio="xMidYMid slice">
-                <circle class="scene-sun" cx="150" cy="28" r="13" />
-                <path class="scene-mountain-far" d="M0,100 L0,72 L38,52 L72,66 L104,42 L138,62 L172,48 L200,58 L200,100 Z" />
-                <path class="scene-mountain-near" d="M0,100 L0,82 L28,66 L58,78 L92,56 L124,72 L156,62 L184,74 L200,70 L200,100 Z" />
-              </svg>
+              <img v-if="p.image" :src="p.image" :alt="p.name" class="polaroid-img" loading="lazy" />
               <span class="photo-id">F{{ String(i + 1).padStart(2, '0') }}</span>
             </div>
-            <div class="polaroid-label">{{ p }}</div>
+            <div class="polaroid-label">{{ p.name }}</div>
           </div>
         </div>
       </div>

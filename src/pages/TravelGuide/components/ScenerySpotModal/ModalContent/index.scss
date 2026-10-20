@@ -1277,20 +1277,18 @@ $base: #020204;
 
       .polaroid-photo {
         position: relative;
-        height: 96px;
+        width: 100%;
+        aspect-ratio: 6 / 5;
+        min-height: 120px;
         overflow: hidden;
         background: linear-gradient(180deg, var(--sky-top, #2d7da8) 0%, var(--sky-bot, #b8e0ec) 100%);
         border-bottom: 2px solid rgba(0, 0, 0, 0.15);
 
-        .scene-svg {
-          position: absolute;
-          inset: 0;
+        .polaroid-img {
           width: 100%;
           height: 100%;
-
-          .scene-sun { fill: var(--sun-color, #fff); opacity: 0.85; }
-          .scene-mountain-far { fill: rgba(0, 0, 0, 0.28); }
-          .scene-mountain-near { fill: rgba(0, 0, 0, 0.5); }
+          object-fit: cover;
+          display: block;
         }
 
         .photo-id {

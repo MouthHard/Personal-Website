@@ -6,6 +6,13 @@
     ClockIcon,
     StarIcon,
   } from '@/pages/TravelGuide/icons/common';
+  import BookmarkIcon from '@/pages/TravelGuide/icons/common/BookmarkIcon.vue';
+  import FlagIcon from '@/pages/TravelGuide/icons/common/FlagIcon.vue';
+  import ShareIcon from '@/pages/TravelGuide/icons/common/ShareIcon.vue';
+  import { useSceneryPrefs } from '@/composables/travelGuide/useSceneryPrefs';
+  import { useTravelToast } from '@/composables/travelGuide/useTravelToast';
+  import { useTravelShare } from '@/pages/TravelGuide/components/TravelShareModal/useTravelShare';
+  import TravelShareModal from '@/pages/TravelGuide/components/TravelShareModal/index.vue';
 
   defineProps<{
     experiences: ExperienceItem[];
@@ -19,6 +26,28 @@
     national: '国家级非遗',
     provincial: '省级非遗',
     municipal: '市级非遗',
+  };
+
+  const { isExperienceFavorite, isExperienceBeen, toggleExperienceFavorite, toggleExperienceBeen } = useSceneryPrefs();
+  const { show: showToast } = useTravelToast();
+  const { shareVisible, shareTitle, shareText, shareUrl, openShare, closeShare } = useTravelShare();
+
+  const pidOf = (exp: any) => exp.provinceId || '';
+  const isFav = (exp: any) => isExperienceFavorite(exp.id, pidOf(exp), 'craft');
+  const isBeen = (exp: any) => isExperienceBeen(exp.id, pidOf(exp), 'craft');
+  const onToggleFavorite = (exp: any) => {
+    const was = isFav(exp);
+    toggleExperienceFavorite(exp.id, pidOf(exp), 'craft');
+    showToast({ type: 'info', message: was ? `已取消收藏 ${exp.name}` : `已收藏 ${exp.name}` });
+  };
+  const onToggleBeen = (exp: any) => {
+    const was = isBeen(exp);
+    toggleExperienceBeen(exp.id, pidOf(exp), 'craft');
+    showToast({ type: 'success', message: was ? `已取消体验 ${exp.name}` : `已体验 ${exp.name}` });
+  };
+  const onShare = (exp: any) => {
+    openShare(exp.name, `${exp.name}｜${exp.location || ''}｜非遗匠作`);
+    showToast({ type: 'share', message: `正在分享 ${exp.name}` });
   };
 </script>
 
@@ -36,6 +65,28 @@
             <b>{{ exp.rating.toFixed(1) }}</b>
             <i v-if="exp.reviewCount">{{ exp.reviewCount }}条</i>
           </span>
+          <div class="header-actions">
+            <button
+              class="craft-act act-fav"
+              :class="{ 'is-active': isFav(exp) }"
+              @click.stop="onToggleFavorite(exp)"
+            >
+              <BookmarkIcon :size="15" :filled="isFav(exp)" />
+              <span>{{ isFav(exp) ? '已收藏' : '收藏' }}</span>
+            </button>
+            <button
+              class="craft-act act-been"
+              :class="{ 'is-active': isBeen(exp) }"
+              @click.stop="onToggleBeen(exp)"
+            >
+              <FlagIcon :size="15" :filled="isBeen(exp)" />
+              <span>{{ isBeen(exp) ? '已体验' : '体验' }}</span>
+            </button>
+            <button class="craft-act act-share" @click.stop="onShare(exp)">
+              <ShareIcon :size="15" />
+              <span>分享</span>
+            </button>
+          </div>
         </header>
 
         <div class="roll-main">
@@ -110,6 +161,7 @@
               <span v-if="exp.price" class="quote-price">¥{{ exp.price }}</span>
               <span v-if="exp.instructor" class="quote-master">匠人 · {{ exp.instructor }}</span>
             </div>
+
           </aside>
         </div>
       </div>
@@ -121,6 +173,14 @@
       </button>
     </li>
   </ul>
+
+  <TravelShareModal
+    :visible="shareVisible"
+    :title="shareTitle"
+    :share-text="shareText"
+    :share-url="shareUrl"
+    @close="closeShare"
+  />
 </template>
 
 <style scoped src="./index.scss" lang="scss"></style>
