@@ -83,28 +83,27 @@ pages/ExamplePage/
 
 ## 三、标准操作流程
 
-### 日常更新与推送
+### 日常更新与推送（含 GitHub Pages 部署）
+
+> 每次推送到 `feat/update-site` 后，必须紧接着构建并部署到 `gh-pages` 分支，确保线上站点同步更新。
 
 ```bash
+# ── 源码提交与推送 ──
 git status                              # 1. 查看改动
 git add --dry-run .                     # 2. 预览待提交文件（检查无临时文件）
 git add -A && git commit -m "feat: 说明" # 3. 暂存并提交
 git fetch origin                        # 4. 拉取远程引用
 git merge origin/feat/update-site       # 5. 整合远程提交（Windows 禁用 rebase）
-git push origin feat/update-site        # 6. 推送
-```
+git push origin feat/update-site        # 6. 推送源码
 
-### 部署到 GitHub Pages
-
-```bash
-# 构建（PowerShell 下必须用 npx，不要走 npm run build -- --mode gh-pages）
-npx vite build --mode gh-pages
-
-# 部署 dist 到 gh-pages 分支
-npx gh-pages -d dist -r https://github.com/MouthHard/Personal-Website.git -b gh-pages
+# ── 构建并部署到 GitHub Pages ──
+npx vite build --mode gh-pages          # 7. 构建产物到 dist/
+npx gh-pages -d dist -r https://github.com/MouthHard/Personal-Website.git -b gh-pages  # 8. 部署 dist 到 gh-pages 分支
 ```
 
 部署成功后访问：https://mouthhard.github.io/Personal-Website/
+
+> **注意**：PowerShell 下构建必须用 `npx vite build --mode gh-pages`，不要走 `npm run build -- --mode gh-pages`（参数解析会失败）。
 
 ---
 
@@ -161,10 +160,11 @@ git remote set-url origin git@github.com:MouthHard/Personal-Website.git
 
 1. **提交前必查**：`git add --dry-run .`，确认只有上述必须上传的文件
 2. **推送前必拉**：先 `git fetch` 再 `git merge`（Windows 禁用 rebase）
-3. **禁止强推**：不使用 `--force`，保留完整历史
-4. **构建命令**：统一用 `npx vite build --mode gh-pages`
-5. **产物分离**：`dist/` 只推 `gh-pages` 分支，不提交源码分支
-6. **网络波动**：确认无代理后重试，不调整全局代理配置
+3. **推送后必部署**：源码推送到 `feat/update-site` 后，必须执行 `npx vite build --mode gh-pages` 构建 + `npx gh-pages` 部署到 `gh-pages` 分支，确保线上站点同步
+4. **禁止强推**：不使用 `--force`，保留完整历史
+5. **构建命令**：统一用 `npx vite build --mode gh-pages`
+6. **产物分离**：`dist/` 只推 `gh-pages` 分支，不提交源码分支
+7. **网络波动**：确认无代理后重试，不调整全局代理配置
 
 ---
 
@@ -181,5 +181,5 @@ git fetch origin                        # 拉取远程引用
 git merge origin/feat/update-site       # 整合远程提交
 git push origin feat/update-site        # 推送源码
 npx vite build --mode gh-pages          # 构建部署产物
-npx gh-pages -d dist -r https://github.com/MouthHard/Personal-Website.git -b gh-pages  # 部署
+npx gh-pages -d dist -r https://github.com/MouthHard/Personal-Website.git -b gh-pages  # 部署到 gh-pages
 ```
