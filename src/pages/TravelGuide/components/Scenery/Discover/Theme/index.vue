@@ -1,6 +1,6 @@
 <template>
   <div class="discover-theme">
-    <section class="theme-album" v-if="currentGroup">
+    <section v-if="currentGroup" class="theme-album">
       <span class="brass-corner brass-corner--tl"></span>
       <span class="brass-corner brass-corner--tr"></span>
       <span class="brass-corner brass-corner--bl"></span>

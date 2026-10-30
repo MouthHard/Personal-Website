@@ -31,6 +31,7 @@ import { fileURLToPath, URL } from "node:url";
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
+import { visualizer } from "rollup-plugin-visualizer";
 
 
 export default defineConfig(({ mode }) => {
@@ -54,7 +55,12 @@ export default defineConfig(({ mode }) => {
         resolvers: [ElementPlusResolver()],
         dts: "types/components.d.ts",
       }),
-
+      /** 包体积可视化分析（仅生产构建时生成） */
+      isProduction && visualizer({
+        filename: "dist/stats.html",
+        gzipSize: true,
+        brotliSize: true,
+      }),
     ],
 
     resolve: {
@@ -69,6 +75,14 @@ export default defineConfig(({ mode }) => {
       open: true,
       host: "0.0.0.0",
 
+    },
+
+    test: {
+      environment: "jsdom",
+      globals: true,
+      coverage: {
+        provider: "v8",
+      },
     },
 
     build: {

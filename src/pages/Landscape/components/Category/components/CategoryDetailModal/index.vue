@@ -1,119 +1,182 @@
 <template>
   <Teleport to="body">
     <transition name="modal">
-      <div v-if="item" class="modal-overlay" :class="item.type" @click="$emit('close')">
-        <div class="modal-container" :class="item.type" @click.stop>
-          <button class="modal-close" :class="item.type" @click="$emit('close')">
-            <CloseIcon :stroke-width="2" />
-          </button>
+      <div v-if="item" class="album-overlay" :class="item.type" @click="$emit('close')">
+        <div class="album-book" :class="item.type" @click.stop>
+          <span class="album-corner tl"></span>
 
-          <div class="modal-content">
-            <div class="modal-media">
-              <img v-if="item.type === 'image'" loading="lazy" :src="item.fullImage" :alt="item.title" />
-              <video v-else :src="item.videoUrl" controls autoplay></video>
-              <div class="media-type-badge" :class="item.type">
-                <ImageIcon v-if="item.type === 'image'" :stroke-width="2" />
-                <PlayIcon v-else :stroke-width="2" fill="none" />
-                <span>{{ item.type === 'image' ? '图片' : '视频' }}</span>
+          <span class="album-corner bl"></span>
+          <span class="album-corner br"></span>
+
+
+          <div class="album-page page-left" :class="item.type">
+            <div class="page-texture"></div>
+            <div class="photo-slot" :class="item.type">
+              <div class="photo-stack" :class="item.type">
+                <div class="stack-photo p1"></div>
+                <div class="stack-photo p2"></div>
+                <div class="stack-photo p3"></div>
+                <div class="stack-photo p4"></div>
+                <div class="stack-photo p5"></div>
+                <div class="stack-photo p6"></div>
+                <div class="stack-photo p7"></div>
               </div>
-            </div>
 
-            <div class="modal-info" :class="item.type">
-              <div class="info-scroll">
-                <div class="info-header">
-                  <h2 class="modal-title" :class="item.type">{{ item.title }}</h2>
-                  <p class="modal-description">{{ item.description }}</p>
-                </div>
-
-                <div class="modal-meta">
-                  <div class="meta-item" :class="item.type">
-                    <div class="meta-icon author" :class="item.type">
-                      <UserIcon :stroke-width="2" />
-                    </div>
-                    <div class="meta-text">
-                      <span class="meta-label">作者</span>
-                      <span class="meta-value">{{ item.author }}</span>
-                    </div>
+              <div class="photo-print" :class="item.type">
+                <div class="photo-white-frame">
+                  <img v-if="item.type === 'image'" loading="lazy" :src="item.fullImage" :alt="item.title" />
+                  <video v-else :src="item.videoUrl" controls autoplay></video>
+                  <div class="photo-foot">
+                    <span class="photo-watermark">{{ item.type === 'image' ? 'IMAGE' : 'VIDEO' }} · LANDSCAPE</span>
+                    <span class="photo-location">{{ item.location }}</span>
                   </div>
-                  <div class="meta-item" :class="item.type">
-                    <div class="meta-icon location" :class="item.type">
-                      <LocationIcon :stroke-width="2" />
-                    </div>
-                    <div class="meta-text">
-                      <span class="meta-label">拍摄地点</span>
-                      <span class="meta-value">{{ item.location }}</span>
-                    </div>
-                  </div>
-                  <div class="meta-item" :class="item.type">
-                    <div class="meta-icon date" :class="item.type">
-                      <CalendarIcon :stroke-width="2" />
-                    </div>
-                    <div class="meta-text">
-                      <span class="meta-label">发布日期</span>
-                      <span class="meta-value">{{ item.date }}</span>
-                    </div>
-                  </div>
-                  <div class="meta-item" :class="item.type">
-                    <div class="meta-icon camera" :class="item.type">
-                      <CameraIcon :stroke-width="2" />
-                    </div>
-                    <div class="meta-text">
-                      <span class="meta-label">拍摄设备</span>
-                      <span class="meta-value">{{ item.camera }}</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="modal-tags-section">
-                  <div class="section-label">
-                    <TagIcon :stroke-width="2" />
-                    <span>标签</span>
-                  </div>
-                  <div class="modal-tags">
-                    <span v-for="tag in item.tags" :key="tag" class="tag" :class="item.type">{{ tag }}</span>
-                  </div>
-                </div>
-
-                <div class="action-chips" :class="item.type">
-                  <span class="act-chip act-views">
-                    <EyeIcon :stroke-width="2" />
-                    {{ formatNumber(getCount().views) }}
-                  </span>
-                  <button 
-                    class="act-chip act-like" 
-                    :class="{ active: isLiked }"
-                    @click="handleToggleLike"
-                  >
-                    <ThumbUpIcon :stroke-width="2" />
-                    {{ formatNumber(getCount().likes) }}
-                  </button>
-                  <button 
-                    class="act-chip act-love" 
-                    :class="{ active: isLoved }"
-                    @click="handleToggleLove"
-                  >
-                    <HeartIcon :stroke-width="2" />
-                    {{ formatNumber(getCount().loves) }}
-                  </button>
-                  <button 
-                    class="act-chip act-bookmark" 
-                    :class="{ active: isFavorited }"
-                    @click="handleToggleFavorite"
-                  >
-                    <BookmarkIcon :stroke-width="2" />
-                    {{ formatNumber(getCount().favorites) }}
-                  </button>
-                  <button class="act-chip act-share" @click="$emit('share', item)">
-                    <ShareIcon :stroke-width="2" />
-                    {{ formatNumber(getCount().shares) }}
-                  </button>
-                  <button class="act-chip act-download" @click="$emit('download', item)">
-                    <DownloadIcon :stroke-width="2" />
-                  </button>
                 </div>
               </div>
+
+              <div class="photo-stamp" :class="item.type">
+                <span class="stamp-mark">{{ item.type === 'image' ? 'PHOTO' : 'CLIP' }}</span>
+                <span class="stamp-sep">·</span>
+                <span class="stamp-no">{{ String(getCount().views).padStart(4, '0') }}</span>
+              </div>
+
+              <span class="photo-folio">— {{ item.id }} —</span>
             </div>
           </div>
+
+          <div class="album-binding" :class="item.type">
+            <span class="bind-cap cap-top"></span>
+            <span class="bind-rod"></span>
+            <span class="bind-rivet r1"></span>
+            <span class="bind-rivet r2"></span>
+            <span class="bind-rivet r3"></span>
+            <span class="bind-cap cap-bottom"></span>
+            <span class="bind-ribbon" :class="item.type"></span>
+          </div>
+
+          <div class="album-page page-right" :class="item.type">
+            <div class="page-texture"></div>
+
+            <div class="journal-head" :class="item.type">
+              <span class="head-rule"></span>
+              <h2 class="journal-title">{{ item.title }}</h2>
+
+            </div>
+
+            <div class="journal-meta">
+              <div class="meta-row" :class="item.type">
+                <div class="meta-seal seal-author" :class="item.type"><UserIcon :stroke-width="2" /></div>
+                <div class="meta-cell">
+                  <span class="cell-label">摄影 / AUTHOR</span>
+                  <span class="cell-value">{{ item.author }}</span>
+                </div>
+              </div>
+              <div class="meta-row" :class="item.type">
+                <div class="meta-seal seal-location" :class="item.type"><LocationIcon :stroke-width="2" /></div>
+                <div class="meta-cell">
+                  <span class="cell-label">地点 / LOCATION</span>
+                  <span class="cell-value">{{ item.location }}</span>
+                </div>
+              </div>
+              <div class="meta-row" :class="item.type">
+                <div class="meta-seal seal-date" :class="item.type"><CalendarIcon :stroke-width="2" /></div>
+                <div class="meta-cell">
+                  <span class="cell-label">日期 / DATE</span>
+                  <span class="cell-value">{{ item.date }}</span>
+                </div>
+              </div>
+              <div class="meta-row" :class="item.type">
+                <div class="meta-seal seal-camera" :class="item.type"><CameraIcon :stroke-width="2" /></div>
+                <div class="meta-cell">
+                  <span class="cell-label">器材 / GEAR</span>
+                  <span class="cell-value">{{ item.camera }}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="journal-tags" :class="item.type">
+              <div class="tags-label">
+                <TagIcon :stroke-width="2" />
+                <span>标签 · TAGS</span>
+              </div>
+              <div class="tags-list">
+                <span
+                  v-for="(tag, i) in item.tags"
+                  :key="tag"
+                  class="tag-sticker"
+                  :class="item.type"
+                  :style="{ '--rot': (i % 2 === 0 ? -1 : 1) * (2 + (i % 3)) + 'deg' }"
+                >{{ tag }}</span>
+              </div>
+            </div>
+
+            <div class="journal-postmarks" :class="item.type">
+              <button
+                class="postmark pm-like"
+                :class="[{ active: isLiked }, item.type]"
+                :style="{ '--pm-rot': '-3deg' }"
+                @click="handleToggleLike"
+              >
+                <span class="pm-inner">
+                  <span class="pm-icon"><ThumbUpIcon :stroke-width="2.2" :filled="isLiked" /></span>
+                  <span class="pm-count">{{ formatNumber(getCount().likes) }}</span>
+                  <span class="pm-text">LIKE</span>
+                </span>
+              </button>
+              <button
+                class="postmark pm-love"
+                :class="[{ active: isLoved }, item.type]"
+                :style="{ '--pm-rot': '2.5deg' }"
+                @click="handleToggleLove"
+              >
+                <span class="pm-inner">
+                  <span class="pm-icon"><HeartIcon :stroke-width="2.2" :filled="isLoved" /></span>
+                  <span class="pm-count">{{ formatNumber(getCount().loves) }}</span>
+                  <span class="pm-text">LOVE</span>
+                </span>
+              </button>
+              <button
+                class="postmark pm-keep"
+                :class="[{ active: isFavorited }, item.type]"
+                :style="{ '--pm-rot': '-1.5deg' }"
+                @click="handleToggleFavorite"
+              >
+                <span class="pm-inner">
+                  <span class="pm-icon"><BookmarkIcon :stroke-width="2.2" :filled="isFavorited" /></span>
+                  <span class="pm-count">{{ formatNumber(getCount().favorites) }}</span>
+                  <span class="pm-text">KEEP</span>
+                </span>
+              </button>
+              <button
+                class="postmark pm-share"
+                :class="item.type"
+                :style="{ '--pm-rot': '3deg' }"
+                @click="$emit('share', item)"
+              >
+                <span class="pm-inner">
+                  <span class="pm-icon"><ShareIcon :stroke-width="2.2" /></span>
+                  <span class="pm-count">{{ formatNumber(getCount().shares) }}</span>
+                  <span class="pm-text">SHARE</span>
+                </span>
+              </button>
+              <button
+                class="postmark pm-save"
+                :class="item.type"
+                :style="{ '--pm-rot': '-2.5deg' }"
+                @click="$emit('download', item)"
+              >
+                <span class="pm-inner">
+                  <span class="pm-icon"><DownloadIcon :stroke-width="2.2" /></span>
+                  <span class="pm-text">SAVE</span>
+                </span>
+              </button>
+            </div>
+
+          </div>
+
+          <button class="album-close" :class="item.type" aria-label="合上相册" @click="$emit('close')">
+            <CloseIcon :stroke-width="2.8" />
+            <span class="close-string"></span>
+          </button>
         </div>
       </div>
     </transition>
@@ -132,13 +195,11 @@ import CameraIcon from '@/pages/Landscape/icons/common/CameraIcon.vue';
 import ThumbUpIcon from '@/pages/Landscape/icons/common/ThumbUpIcon.vue';
 import HeartIcon from '@/pages/Landscape/icons/common/HeartIcon.vue';
 import BookmarkIcon from '@/pages/Landscape/icons/common/BookmarkIcon.vue';
-import ImageIcon from '@/pages/Landscape/icons/common/ImageIcon.vue';
-import PlayIcon from '@/pages/Landscape/icons/common/PlayIcon.vue';
 import UserIcon from '@/pages/Landscape/icons/common/UserIcon.vue';
 import TagIcon from '@/pages/Landscape/icons/common/TagIcon.vue';
-import EyeIcon from '@/pages/Landscape/icons/common/EyeIcon.vue';
 import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue';
 import DownloadIcon from '@/pages/Landscape/icons/common/DownloadIcon.vue';
+
 
 const props = defineProps<{
   item: LandscapeItem | null;

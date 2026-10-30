@@ -100,7 +100,7 @@
 </template>
 
 <script setup lang="ts">
-  import { shallowRef, onMounted, onUnmounted } from 'vue';
+  import { shallowRef, onMounted } from 'vue';
 
   interface Star {
     id: number;
@@ -178,6 +178,5 @@
     generateNebulae();
   });
 
-  onUnmounted(() => {
-  });
+
 </script>

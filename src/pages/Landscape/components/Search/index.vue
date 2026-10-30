@@ -1,51 +1,85 @@
 <template>
   <div class="search-page">
-    <div class="search-box-wrapper">
-      <SearchBox />
-    </div>
-
-    <div class="filter-bar">
-      <div class="filter-group">
-        <label>类型：</label>
-        <div class="filter-options">
-          <button v-for="type in typeFilters" :key="type.value" class="filter-option"
-            :class="{ active: selectedType === type.value }" @click="handleTypeChange(type.value)">
-            <span class="option-icon">{{ type.icon }}</span>
-            <span class="option-label">{{ type.label }}</span>
-            <span v-if="type.value !== 'all'" class="option-count">{{ getTypeCount(type.value) }}</span>
-          </button>
+    <div class="chart-table">
+      <div class="chart-surface">
+        <i class="grid-line v-1"></i>
+        <i class="grid-line v-2"></i>
+        <i class="grid-line h-1"></i>
+        <i class="grid-line h-2"></i>
+        <span class="chart-star s-1"></span>
+        <span class="chart-star s-2"></span>
+        <span class="chart-star s-3"></span>
+        <span class="chart-star s-4"></span>
+        <span class="chart-star s-5"></span>
+        <div class="compass-rose" aria-hidden="true">
+          <i class="rose-n"></i>
+          <i class="rose-e"></i>
+          <i class="rose-s"></i>
+          <i class="rose-w"></i>
         </div>
       </div>
 
-      <div class="filter-group">
-        <label>排序：</label>
-        <div class="filter-options">
-          <button v-for="sort in currentSortOptions" :key="sort.value" class="filter-option"
-            :class="{ active: selectedSort === sort.value }" @click="handleSortChange(sort.value)">
-            {{ sort.label }}
-          </button>
+      <div class="search-box-wrapper">
+        <SearchBox />
+      </div>
+
+      <div class="filter-bar">
+        <div class="filter-group type-group">
+          <div class="group-label">
+            <span class="label-en">MARKS</span>
+            <span class="label-cn">类型</span>
+          </div>
+          <div class="pin-field">
+            <button v-for="type in typeFilters" :key="type.value" class="flag-pin"
+              :class="[{ active: selectedType === type.value }, `t-${type.value}`]" @click="handleTypeChange(type.value)">
+
+              <span class="pin-flag">
+                <span class="flag-icon">
+                  <TypeImageIcon v-if="type.value === 'image'" />
+                  <TypeVideoIcon v-else-if="type.value === 'video'" />
+                  <TypeGuideIcon v-else-if="type.value === 'guide'" />
+                  <TypePhotographerIcon v-else />
+                </span>
+                <span class="flag-label">{{ type.label }}</span>
+                <span v-if="type.value !== 'all'" class="flag-count">{{ getTypeCount(type.value) }}</span>
+              </span>
+            </button>
+          </div>
+        </div>
+
+
+        <div class="filter-group sort-group">
+          <div class="group-label">
+            <span class="label-en">SCALE</span>
+            <span class="label-cn">排序</span>
+          </div>
+          <div class="scale-bar">
+            <span class="orb-shuttle" :style="orbStyle"></span>
+            <button v-for="sort in currentSortOptions" :key="sort.value" class="scale-mark"
+              :class="{ active: selectedSort === sort.value }" @click="handleSortChange(sort.value)">
+              <span class="mark-label">{{ sort.label }}</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
 
-    <div v-if="searchKeyword" class="result-stats">
-      <p>
-        找到 <span class="count">{{ filteredResults.length }}</span> 个与 "<span class="keyword">{{ searchKeyword }}</span>"
-        相关的结果
-      </p>
-    </div>
 
     <div v-if="filteredResults.length > 0" class="result-grid" :class="`cols-${gridColumns}`">
       <SearchResultCard v-for="item in filteredResults" :key="item.id" :item="item" :sort-mode="selectedSort"
         @like="handleLike" @bookmark="handleBookmark" @share="handleShare" @love="handleLove" @follow="handleFollow" />
     </div>
 
-    <div v-else class="empty-state">
-      <div class="empty-icon">🔍</div>
-      <h3>未找到相关结果</h3>
-      <p>试试其他关键词或筛选条件</p>
-    </div>
+    <SearchEmpty
+      v-else
+      :has-keyword="hasKeyword"
+      :has-active-filters="hasActiveFilters"
+      @clear-keyword="clearKeyword"
+      @reset-filters="resetFilters"
+    />
   </div>
+
+  <ShareMenu v-model:visible="showShareMenu" :work="shareWork" />
 </template>
 
 <script setup lang="ts">
@@ -54,6 +88,11 @@ import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import SearchResultCard from './components/SearchResultCard/index.vue'
 import SearchBox from './components/SearchBox/index.vue'
+import SearchEmpty from './components/SearchEmpty/index.vue'
+import TypeImageIcon from '@/pages/Landscape/icons/components/search/Search/TypeImageIcon.vue'
+import TypeVideoIcon from '@/pages/Landscape/icons/components/search/Search/TypeVideoIcon.vue'
+import TypeGuideIcon from '@/pages/Landscape/icons/components/search/Search/TypeGuideIcon.vue'
+import TypePhotographerIcon from '@/pages/Landscape/icons/components/search/Search/TypePhotographerIcon.vue'
 import { useSearchViewData } from '@/composables/landscape'
 import { useInteractionStore } from '@/stores/landscape'
 import { useSearchHistory } from '@/composables/landscape/useSearchHistory'
@@ -71,6 +110,7 @@ import {
   createSimpleInteractionItem,
 } from '@/utils/landscape'
 import type { SearchResultItem } from '@/utils/landscape'
+import ShareMenu from '../common/ShareMenu/index.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -102,6 +142,17 @@ const contentSortOptions = SearchContentSortOptions
 
 const currentSortOptions = computed(() => {
   return selectedType.value === 'photographer' ? photographerSortOptions : contentSortOptions
+})
+
+const orbStyle = computed(() => {
+  const total: number = currentSortOptions.value.length
+  if (total === 0) return { display: 'none' }
+  const idx: number = currentSortOptions.value.findIndex(o => o.value === selectedSort.value)
+  const index = idx >= 0 ? idx : 0
+  return {
+    width: `calc((100% - 12px) / ${total})`,
+    transform: `translateX(${index * 100}%)`,
+  }
 })
 
 const { searchImages, searchVideos, searchGuides, searchPhotographers } = useSearchViewData()
@@ -143,7 +194,14 @@ const handleLike = (id: string) => {
   const item = getItemById(id)
   if (!item) return
 
-  const isLiked = interactionStore.toggleLike(id)
+  const interactionItem = createSimpleInteractionItem(id, item.type, item.title, {
+    image: item.thumbnail,
+    location: item.location,
+    author: item.author || item.name,
+    authorId: (item as any).authorId,
+    authorAvatar: item.authorAvatar || (item as any).avatar,
+  })
+  const isLiked = interactionStore.toggleLike(interactionItem)
   if (isLiked) {
     showMessage.like.success(item.title)
   } else {
@@ -171,12 +229,26 @@ const handleBookmark = (id: string) => {
   }
 }
 
+const showShareMenu = ref(false)
+const currentShareItem = ref<SearchResultItem | null>(null)
+const shareWork = computed(() => {
+  const item = currentShareItem.value
+  if (!item) return {}
+  const type = item.type === 'video' ? ('video' as const) : item.type === 'guide' ? ('guide' as const) : ('image' as const)
+  return {
+    type,
+    title: item.title,
+    cover: item.thumbnail,
+    location: item.location,
+    author: item.author || item.name,
+  }
+})
+
 const handleShare = (id: string) => {
   const item = getItemById(id)
   if (!item) return
-
-
-  showMessage.share.success(item.title)
+  currentShareItem.value = item
+  showShareMenu.value = true
 }
 
 const handleLove = (id: string) => {
@@ -248,6 +320,24 @@ const handleSortChange = (sort: string) => {
     addHistory(searchKeyword.value)
   }
   router.replace({ path: '/landscape/search', query: buildQuery({ sort }) })
+}
+
+const hasKeyword = computed(() => !!searchKeyword.value)
+const hasActiveFilters = computed(() => {
+  return selectedType.value !== 'image' || selectedSort.value !== 'relevance'
+})
+
+const clearKeyword = () => {
+  const query: Record<string, string> = {}
+  if (selectedType.value !== 'all') query.type = selectedType.value
+  if (selectedSort.value !== 'relevance') query.sort = selectedSort.value
+  router.replace({ path: '/landscape/search', query })
+}
+
+const resetFilters = () => {
+  const query: Record<string, string> = {}
+  if (searchKeyword.value) query.q = searchKeyword.value
+  router.replace({ path: '/landscape/search', query })
 }
 
 let registerTimer: ReturnType<typeof setTimeout> | null = null;

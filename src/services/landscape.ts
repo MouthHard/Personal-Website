@@ -6,7 +6,7 @@ import type {
   GlobalGuide,
 } from '@/typesOfPages/landscape/data';
 
-export interface LandscapeListResponse<T> {
+interface LandscapeListResponse<T> {
   items: T[];
   total: number;
   page: number;
@@ -14,7 +14,7 @@ export interface LandscapeListResponse<T> {
   totalPages: number;
 }
 
-export interface LandscapeQueryParams {
+interface LandscapeQueryParams {
   keyword?: string;
   category?: string;
   location?: string;

@@ -1,172 +1,243 @@
 # 项目健康检查与日常维护手册
 
-> **⚠️ 每次执行之前都要参考网上热门、大厂、或 GitHub 上高星项目的规范和实践，结合本项目实际情况迭代本文档。**
->
-> 本文档覆盖项目日常维护、性能优化、代码质量检查等方面。
-> 参考：Vue 3 官方指南、Vite 最佳实践、web.dev 性能指标、Google Lighthouse。
+> PersonalWebsite 项目质量保障命令速查
+> 按场景组织，日常开发只需看「每日开发」一节
 
 ---
 
-## 一、技术栈
+## 一、每日开发（高频）
 
-| 层面 | 技术 | 版本要求 |
-|------|------|---------|
-| 框架 | Vue 3（`<script setup>` + Composition API） | 3.4+ |
-| 构建 | Vite | 5+ |
-| 语言 | TypeScript（strict） | 5+ |
-| 状态 | Pinia | 2+ |
-| 样式 | SCSS + scoped | — |
-| UI 库 | Element Plus | 按需引入 |
-| 图表 | ECharts | 按需引入 |
-| 部署 | GitHub Pages（gh-pages 分支） | — |
+### 1.1 提交前检查
+
+```bash
+git add --dry-run .                     # 预览待提交文件，确认无临时/敏感文件
+```
+
+提交时 pre-commit 钩子会自动执行：
+- ESLint 修复（`.vue` / `.ts` / `.js`）
+- Prettier 格式化（所有代码文件）
+- Stylelint 修复（`.css` / `.scss`）
+
+commit-msg 钩子会自动校验提交信息格式（conventional commits）：
+- `feat: 新功能` / `fix: 修复` / `docs: 文档` / `style: 格式` / `refactor: 重构` / `test: 测试` / `chore: 杂务`
+
+### 1.2 本地开发服务器
+
+```bash
+npm run dev                              # 启动开发服务器（端口 5173）
+```
+
+### 1.3 构建验证
+
+```bash
+npm run build                            # 类型检查 + 生产构建（含包体积报告）
+```
+
+构建产物 `dist/stats.html` 为包体积可视化分析报告，浏览器打开查看。
 
 ---
 
-## 二、代码质量检查
+## 二、类型安全（消除类型错误）
 
-### 提交前（husky 自动执行）
-
-```bash
-# pre-commit: lint-staged（ESLint + Stylelint）
-# commit-msg: commitlint（提交信息格式）
-git commit -m "feat: 说明"    # 自动触发检查
-```
-
-### 手动全量检查
+### 2.1 全项目类型检查
 
 ```bash
-npx eslint src/ --ext .ts,.vue     # ESLint 全量
-npx stylelint "src/**/*.scss"      # Stylelint 全量
-npx vue-tsc --noEmit               # TypeScript 类型检查
+npm run typecheck                        # vue-tsc --noEmit，零输出=零错误
 ```
 
-### 常见问题修复
+**何时运行**：
+- 修改了 `.ts` / `.vue` 文件的类型、接口、props
+- 安装/升级了新依赖
+- 构建失败时排查原因
 
-| 问题 | 原因 | 修复 |
-|------|------|------|
-| `no-empty` | 空 catch 块 | 加注释 `/* 忽略 */` |
-| `vue/no-v-html` | v-html XSS 风险 | 确信安全则忽略，否则改用文本插值 |
-| CRLF 警告 | Windows 换行 | `.gitattributes` 已配置 LF，无需处理 |
+### 2.2 构建时自动触发
+
+`npm run build` 已内置 `npm run typecheck && vite build`，构建失败会报具体类型错误位置。
 
 ---
 
-## 三、性能优化清单
+## 三、代码规范（消除格式/风格问题）
 
-### 图片优化（参考 web.dev/image-optimization）
-
-| 场景 | 推荐格式 | 参数 | 理由 |
-|------|---------|------|------|
-| 风景大图 | AVIF | q75, 1920px | 核心内容，高质量 |
-| 缩略图 | AVIF | q55, 600px | 小尺寸，中质量 |
-| 过渡背景 | AVIF | q60, 1920×1080 | 1-2秒闪现 |
-| 图标/头像 | AVIF | q60, 原尺寸 | 小文件 |
-| 动画图 | AVIF | q50 | 非关键 |
-
-**格式优先级**：AVIF > WebP > JPEG（2026 年全浏览器支持 AVIF）
-
-**转换工具**：`sharp`（Node.js，项目已安装）
+### 3.1 ESLint（JS/TS/Vue 代码规范）
 
 ```bash
-# 批量转换示例
-node -e "
-  const sharp = require('sharp');
-  sharp(input).resize(1920, 1080, {fit:'cover'}).avif({quality:60}).toFile(output);
-"
+npm run lint                             # 自动修复所有可修复的问题
 ```
 
-### 包体积优化（参考 Vite 最佳实践）
+### 3.2 Stylelint（CSS/SCSS 样式规范）
 
 ```bash
-# 检查包体积
-npm run build  # 查看各 chunk 大小
+npm run lint:css                         # 自动修复 SCSS 样式问题
 ```
 
-**当前大 chunk**：
-- `element-plus`：871KB → 考虑按需引入
-- `echarts`：493KB → 考虑按需引入或懒加载
-- `vue-vendor`：127KB → 正常
+### 3.3 Prettier（格式化）
 
-**优化手段**：
-1. `manualChunks` 拆分第三方库（已配置）
-2. 路由懒加载 `() => import('./page')` （已配置）
-3. Tree shaking：确保 `import { specific }` 而非 `import *`
+```bash
+npm run format                           # 格式化所有源代码文件
+```
 
-### 加载性能（参考 web.dev/vitals）
-
-| 指标 | 目标 | 检查方式 |
-|------|------|---------|
-| LCP | < 2.5s | Lighthouse / PageSpeed Insights |
-| FID | < 100ms | Lighthouse |
-| CLS | < 0.1 | Lighthouse |
-| TTFB | < 800ms | Network 面板 |
-
-**关键路径优化**：
-1. 首屏图片用 `<link rel="preload">` 预加载
-2. 非首屏路由懒加载
-3. OSS 图片开启 CDN 缓存
-4. 本地静态资源随应用同源分发
+**何时运行**：
+- 代码风格不一致、CI lint 报错时
+- 大批量修改后统一格式
 
 ---
 
-## 四、日常维护任务
+## 四、测试（消除 Bug）
 
-### 每次开发前
-
-```bash
-git pull origin feat/update-site    # 同步最新代码
-npm install                         # 同步依赖
-```
-
-### 每次开发后
+### 4.1 日常测试
 
 ```bash
-npm run build                       # 构建验证
-# 按上传指南执行提交和部署
+npm test                                 # watch 模式，文件变动自动重跑
+npm run test:run                         # 单次跑完所有测试（CI 同款）
 ```
 
-### 定期检查（每月）
+### 4.2 覆盖率报告
 
-- [ ] 依赖安全更新：`npm audit`
-- [ ] 依赖版本更新：检查 `package.json` 过时依赖
-- [ ] 死代码清理：删除未使用的组件、工具函数、类型定义
-- [ ] 图片格式审计：新图片是否用了 AVIF
-- [ ] 包体积审计：检查是否有新的大 chunk
-- [ ] Lighthouse 跑分：https://mouthhard.github.io/Personal-Website/
+```bash
+npm run test:coverage                    # 生成覆盖率报告
+```
+
+报告输出在 `coverage/` 目录，`coverage/index.html` 浏览器打开查看。
+
+**何时运行**：
+- 新增/修改了工具函数、composable、store 逻辑
+- 修复 Bug 后补充回归测试
+- CI 测试失败时本地复现
 
 ---
 
-## 五、项目结构健康指标
+## 五、死代码检测（消除未使用代码）
 
-### 应保持的规范
+### 5.1 Knip 全项目扫描
 
-| 规范 | 说明 |
-|------|------|
-| 组件命名 | PascalCase，目录名 = 组件名 |
-| 文件结构 | `index.vue` + `index.scss`，不拆太碎 |
-| composables | `use*` 命名，含响应式逻辑 |
-| utils | 纯函数，无 Vue/IO 依赖 |
-| types | 按页面维度组织在 `typesOfPages/` |
-| 图标 | SVG 组件，放 `icons/` 目录 |
+```bash
+npm run knip                             # 检测未使用的导出、文件、依赖
+```
 
-### 应避免的反模式
+Knip 会报告：
+- 未使用的导出符号（export 了但没人 import）
+- 未使用的文件（整个文件没人引用）
+- 未使用的依赖（package.json 里装了但代码没用到）
+- 未使用的类型
 
-| 反模式 | 为什么不好 | 正确做法 |
-|--------|-----------|---------|
-| 组件超过 300 行 | 难维护、难复用 | 拆子组件 |
-| SCSS 嵌套超过 4 层 | 选择器性能差、难覆盖 | 用 BEM 或扁平化 |
-| 在 utils 中 import Vue | 破坏纯函数原则 | 移到 composables |
-| 在 template 中写复杂逻辑 | 难测试、难调试 | 移到 computed |
-| 硬编码 OSS URL | 环境切换困难 | 用常量或环境变量 |
+**何时运行**：
+- 大规模重构/删除功能后清理残留
+- 定期（每月一次）检查项目健康度
+- CI 中自动运行
+
+**处理方式**：
+- 确认无用 → 删除
+- 确认有用但 Knip 检测不到 → 在 `knip.json` 中配置忽略
 
 ---
 
-## 六、排障速查
+## 六、空状态/错误态/加载态检查（消除空 UI）
 
-| 症状 | 可能原因 | 排查步骤 |
-|------|---------|---------|
-| 页面空白 | JS 加载失败 | Console 看报错，Network 看 JS 状态码 |
-| 图片不显示 | 路径/格式/CORS | Network 看 img 请求状态码 |
-| 样式丢失 | scoped 选择器不匹配 | 检查 DOM 结构是否与选择器嵌套一致 |
-| 过渡不出现 | 导航 < 400ms | 正常行为，或用 Slow 3G 测试 |
-| 构建失败 | 类型错误/lint 错误 | 看 build 输出的 error 行 |
-| 部署后不更新 | gh-pages 缓存 | 等几分钟，或 Ctrl+Shift+R |
+> 此项无自动化命令，需人工核查。以下为核查清单。
+
+### 6.1 核查范围
+
+对每个页面及其子组件/子模块/列表，检查三类状态：
+
+| 状态 | 检查点 |
+|---|---|
+| **空状态** | 数据为空时是否有友好提示（非空白） |
+| **加载中** | 数据加载时是否有加载反馈（非闪烁/空白） |
+| **错误态** | 数据加载失败时是否有错误提示+重试入口 |
+
+### 6.2 核查方法
+
+1. **空状态**：在 DevTools 中将数据源置空（如 store 数据清空），观察 UI
+2. **加载态**：DevTools → Network → Slow 3G，刷新页面观察加载反馈
+3. **错误态**：DevTools → Network → 将 JSON 请求改为 404，观察错误提示
+
+### 6.3 原则
+
+- **最小必要**：已完备的不补，不为处理而处理
+- **复用既有风格**：空态/错误态 UI 须与所在页面视觉语言一致
+- **三件套语言**：icon + text + hint + 主题色渐变底
+
+---
+
+## 七、CI 流水线（GitHub Actions 自动执行）
+
+> push/PR 到 `main` / `master` 时自动触发，无需手动操作。
+
+`.github/workflows/ci.yml` 依次执行：
+
+| 步骤 | 命令 | 检查内容 |
+|---|---|---|
+| 1 | `npm run typecheck` | 类型安全 |
+| 2 | `npm run lint` | 代码规范 |
+| 3 | `npm run lint:css` | 样式规范 |
+| 4 | `npm run test:run` | 单元测试 |
+| 5 | `npm run knip` | 死代码检测 |
+| 6 | `npm run build` | 构建验证 |
+
+**CI 失败时**：本地跑对应命令复现，修复后重新 push。
+
+---
+
+## 八、完整健康检查（定期执行）
+
+> 建议每周或大版本发布前执行一次全量检查。
+
+```bash
+# 一键全量检查（按顺序执行，任一步失败则停下修复）
+npm run typecheck                        # 1. 类型安全
+npm run lint                             # 2. 代码规范
+npm run lint:css                         # 3. 样式规范
+npm run test:run                         # 4. 单元测试
+npm run knip                             # 5. 死代码检测
+npm run build                            # 6. 构建验证
+```
+
+或直接 push 到 GitHub，让 CI 自动跑全部步骤。
+
+---
+
+## 九、命令速查表
+
+| 命令 | 用途 | 自动触发场景 |
+|---|---|---|
+| `npm run dev` | 开发服务器 | — |
+| `npm run build` | 类型检查 + 构建 | deploy 时 |
+| `npm run typecheck` | 仅类型检查 | build 内含 |
+| `npm run lint` | ESLint 修复 | git commit（lint-staged） |
+| `npm run lint:css` | Stylelint 修复 | git commit（lint-staged） |
+| `npm run format` | Prettier 格式化 | git commit（lint-staged） |
+| `npm test` | 测试（watch） | — |
+| `npm run test:run` | 测试（单次） | CI |
+| `npm run test:coverage` | 测试 + 覆盖率 | — |
+| `npm run knip` | 死代码检测 | CI |
+
+---
+
+## 十、常见问题排查
+
+### 构建失败
+
+```bash
+npm run typecheck                        # 先看类型错误
+npm run lint                             # 再看 lint 错误
+```
+
+### CI 测试失败
+
+```bash
+npm run test:run                         # 本地复现
+```
+
+### 提交被 pre-commit 拦截
+
+钩子已自动修复能修复的（eslint --fix / prettier --write）。若仍有错误：
+- 看终端输出的错误信息
+- 手动修复后重新 `git add` + `git commit`
+
+### commit message 被拒
+
+格式须为 `type: description`，如：
+- `feat: 添加用户登录页面`
+- `fix: 修复购物车数量计算错误`
+- `refactor: 重构数据获取层`
+- `docs: 更新上传指南`

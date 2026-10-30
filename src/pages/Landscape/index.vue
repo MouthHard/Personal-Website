@@ -5,8 +5,10 @@
     <Header @open-upload="showUploadModal = true" />
 
     <main class="main-content">
-      <LandscapeLoading v-if="isLoading" />
-      <router-view v-else v-slot="{ Component }">
+      <!-- 数据加载中/加载失败：星系状态组件（自身绝对定位铺满本容器并双向居中） -->
+      <StarSystemState v-if="dataLoading || dataError" :error="dataError" @retry="retryLoad" />
+
+      <router-view v-else  v-slot="{ Component }">
         <keep-alive :include="cachedViewsArray" :max="5">
           <component
             :is="Component"
@@ -30,6 +32,7 @@
 
 <script setup lang="ts">
   import { ref, shallowRef, computed, onMounted, watch, defineAsyncComponent } from 'vue';
+  import StarSystemState from './components/common/StarSystemState/index.vue';
   import {
     useLandscapeDataStore,
     useInteractionStore,
@@ -38,7 +41,6 @@
   import { cachedViews } from '@/constants/landscape';
   import { convertToLandscapeItem } from '@/utils/landscape';
   import { debounce } from '@/utils/landscape/debounce';
-  import LandscapeLoading from './components/common/LandscapeLoading/index.vue';
 
   const cachedViewsArray = [...cachedViews];
 
@@ -57,20 +59,16 @@
   const searchQuery = ref('');
   const debouncedQuery = ref('');
   const showUploadModal = ref(false);
-  const isLoading = ref(true);
 
   const dataStore = useLandscapeDataStore();
   const interactionStore = useInteractionStore();
 
   const landscapeItems = shallowRef<LandscapeItem[]>([]);
 
-  watch(searchQuery, debounce((val: string) => {
-    debouncedQuery.value = val;
-  }, 200));
+  const dataLoading = computed(() => dataStore.loading);
+  const dataError = computed(() => dataStore.error);
 
-  onMounted(async () => {
-    await dataStore.ensureLoaded();
-
+  const assembleItems = () => {
     const images = dataStore.getAllImages();
     const videos = dataStore.getAllVideos();
 
@@ -91,9 +89,25 @@
         },
       })),
     );
+  };
 
-    isLoading.value = false;
+  watch(searchQuery, debounce((val: string) => {
+    debouncedQuery.value = val;
+  }, 200));
+
+  onMounted(async () => {
+    await dataStore.ensureLoaded();
+    if (!dataStore.error) {
+      assembleItems();
+    }
   });
+
+  const retryLoad = async () => {
+    await dataStore.loadAll();
+    if (!dataStore.error) {
+      assembleItems();
+    }
+  };
 
   const filteredItems = computed(() => {
     let items = landscapeItems.value;
@@ -113,9 +127,11 @@
     return items;
   });
 
-  const openDetail = (_item: LandscapeItem) => {};
+  const openDetail = (_item: LandscapeItem) => {
+    void _item;
+  };
 
-  const handleUpload = (file: File) => {
+  const handleUpload = (_file: File) => {
 
     showUploadModal.value = false;
   };

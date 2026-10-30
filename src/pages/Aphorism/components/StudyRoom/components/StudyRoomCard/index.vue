@@ -3,7 +3,10 @@
     <div
       class="scroll-container"
     >
-      <img :src="backgroundImage" alt="" class="bg-img" loading="lazy" />
+      <img v-if="!imgFailed" :src="backgroundImage" alt="" class="bg-img" loading="lazy"
+        @load="imgLoaded = true" @error="imgFailed = true" />
+      <img v-else :src="errorImage" alt="" class="bg-img" />
+      <img v-if="!imgLoaded && !imgFailed" :src="loadingImage" alt="" class="bg-img" />
       <!-- 移除按钮 -->
       <button class="remove-btn" :class="typeClass" :title="removeTitle" @click.stop="handleRemove">
         <CloseIcon />
@@ -47,10 +50,12 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import type { Poem } from '@/typesOfPages/aphorism/poem';
 import CloseIcon from '../../../../icons/common/CloseIcon.vue';
 import { usePoemBackground } from '@/composables/aphorism/usePoemBackground';
+import loadingImage from '@/assets/image/aphorism/loading.webp';
+import errorImage from '@/assets/image/aphorism/error.webp';
 import './index.scss';
 
 const props = defineProps<{
@@ -66,6 +71,9 @@ const emit = defineEmits<{
 const previewLines = computed(() => props.poem.content.slice(0, 6));
 
 const { backgroundImage } = usePoemBackground(props.poem);
+
+const imgLoaded = ref(false);
+const imgFailed = ref(false);
 
 
 // 类型相关

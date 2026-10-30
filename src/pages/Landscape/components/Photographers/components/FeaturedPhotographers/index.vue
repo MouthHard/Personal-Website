@@ -50,17 +50,17 @@
             </div>
             <div class="stat">
               <EyeIcon :stroke-width="2.2" />
-              <span class="value">{{ photographer.views }}</span>
+              <span class="value">{{ formatCount(interactionStore.getCount(getPhotographerId(photographer)).views) }}</span>
               <span class="label">浏览</span>
             </div>
             <div class="stat">
               <ThumbUpIcon :stroke-width="2.2" />
-              <span class="value">{{ photographer.likes }}</span>
+              <span class="value">{{ formatCount(interactionStore.getCount(getPhotographerId(photographer)).likes) }}</span>
               <span class="label">点赞</span>
             </div>
             <div class="stat">
               <UsersIcon :stroke-width="2.2" />
-              <span class="value">{{ photographer.followers }}</span>
+              <span class="value">{{ formatCount(interactionStore.getCount(getPhotographerId(photographer)).followers) }}</span>
               <span class="label">粉丝</span>
             </div>
           </div>
@@ -114,7 +114,7 @@
 
 <script setup lang="ts">
 import { computed, watch } from 'vue';
-import { showMessage } from '@/utils/landscape';
+import { showMessage, createSimpleInteractionItem, parseCount } from '@/utils/landscape';
 import { useInteractionStore } from '@/stores/landscape';
 
 import { usePhotographersViewData } from '@/composables/landscape';
@@ -140,12 +140,19 @@ const photographers = computed(() => featuredPhotographers());
 const interactionStore = useInteractionStore();
 
 
+
 const getFollowingState = (photographer: Photographer): boolean => {
   return interactionStore.isFollowing(String(photographer.id));
 };
 
 const getPhotographerId = (photographer: Photographer): string => {
   return String(photographer.id);
+};
+
+const formatCount = (count: number) => {
+  if (count >= 10000) return (count / 10000).toFixed(1) + 'w';
+  if (count >= 1000) return (count / 1000).toFixed(1) + 'k';
+  return String(count);
 };
 
 watch(
@@ -159,13 +166,14 @@ watch(
         views: parseInt(photographer.views?.replace(/[KM]/g, '') || '0') * (photographer.views?.includes('K') ? 1000 : photographer.views?.includes('M') ? 1000000 : 1),
         loves: 0,
         favorites: 0,
-        shares: 0
+        shares: 0,
+        followers: parseCount(String(photographer.followers || '0')),
       });
 
       if (photographer.worksPreview && Array.isArray(photographer.worksPreview)) {
         interactionStore.registerBatch(
-          photographer.worksPreview.map(work => ({
-            id: work.id || `work-${photographer.id}-${Math.random()}`,
+          photographer.worksPreview.map((work, idx) => ({
+            id: work.globalWorkId || work.id || `work-${photographer.id}-${idx}`,
             counts: {
               likes: work.likes || 0,
               loves: work.loves || 0,
@@ -183,7 +191,12 @@ watch(
 
 const toggleLike = (photographer: Photographer) => {
   const id = getPhotographerId(photographer);
-  const isAdded = interactionStore.toggleLike(id);
+  const item = createSimpleInteractionItem(id, 'photographer', photographer.name, {
+    image: photographer.avatar,
+    location: photographer.location,
+    category: photographer.category,
+  });
+  const isAdded = interactionStore.toggleLike(item);
   if (isAdded) {
     showMessage.like.success(photographer.name);
   } else {

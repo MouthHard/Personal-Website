@@ -9,7 +9,7 @@
     align-items: flex-end;
     margin-bottom: 3rem;
     padding-bottom: 2rem;
-    border-bottom: 1px solid rgb(139 92 246 / 15%);
+    border-bottom: 1px solid rgba(139, 92, 246, 0.15);
 
     .header-left {
       .title-label {
@@ -26,7 +26,7 @@
         font-size: 2.5rem;
         font-weight: 800;
         background: linear-gradient(135deg, #f8fafc 0%, #8467fb 100%);
-        background-clip: text;
+        -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
         margin: 0;
@@ -52,12 +52,12 @@
       cursor: pointer;
       font-family: inherit;
       background:
-        linear-gradient(135deg, rgb(34 22 68 / 96%) 0%, rgb(16 10 42 / 98%) 100%);
+        linear-gradient(135deg, rgba(34, 22, 68, 0.96) 0%, rgba(16, 10, 42, 0.98) 100%);
       box-shadow:
-        0 2px 10px rgb(0 0 0 / 55%),
-        0 0 0 1px rgb(139 92 246 / 38%),
-        inset 0 1px 0 rgb(255 255 255 / 9%),
-        inset 0 -1px 0 rgb(0 0 0 / 45%);
+        0 2px 10px rgba(0, 0, 0, 0.55),
+        0 0 0 1px rgba(139, 92, 246, 0.38),
+        inset 0 1px 0 rgba(255, 255, 255, 0.09),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.45);
       transition: box-shadow 0.45s cubic-bezier(0.4, 0, 0.2, 1),
                   transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
       overflow: hidden;
@@ -67,7 +67,7 @@
         position: absolute;
         inset: 0;
         border-radius: 999px;
-        background: linear-gradient(115deg, transparent 30%, rgb(177 144 255 / 14%) 50%, transparent 70%);
+        background: linear-gradient(115deg, transparent 30%, rgba(177, 144, 255, 0.14) 50%, transparent 70%);
         opacity: 0;
         transition: opacity 0.45s ease;
         pointer-events: none;
@@ -97,8 +97,8 @@
             #f7d794 360deg
           );
           box-shadow:
-            0 0 0 1px rgb(0 0 0 / 65%),
-            inset 0 0 0 2px rgb(0 0 0 / 35%);
+            0 0 0 1px rgba(0, 0, 0, 0.65),
+            inset 0 0 0 2px rgba(0, 0, 0, 0.35);
           transition: filter 0.45s ease;
         }
 
@@ -108,10 +108,10 @@
           border-radius: 50%;
           background: repeating-conic-gradient(
             from 0deg,
-            rgb(247 215 148 / 55%) 0deg 2deg,
+            rgba(247, 215, 148, 0.55) 0deg 2deg,
             transparent 2deg 30deg
           );
-          mask: radial-gradient(circle, transparent 58%, #000 60%);
+          -webkit-mask: radial-gradient(circle, transparent 58%, #000 60%);
           mask: radial-gradient(circle, transparent 58%, #000 60%);
           opacity: 0.7;
           pointer-events: none;
@@ -123,13 +123,13 @@
           border-radius: 50%;
           background: radial-gradient(
             circle at 35% 30%,
-            rgb(190 150 255 / 62%) 0%,
-            rgb(86 45 168 / 88%) 50%,
-            rgb(28 10 66 / 96%) 100%
+            rgba(190, 150, 255, 0.62) 0%,
+            rgba(86, 45, 168, 0.88) 50%,
+            rgba(28, 10, 66, 0.96) 100%
           );
           box-shadow:
-            inset 0 1px 2px rgb(255 255 255 / 28%),
-            inset 0 -2px 5px rgb(0 0 0 / 65%);
+            inset 0 1px 2px rgba(255, 255, 255, 0.28),
+            inset 0 -2px 5px rgba(0, 0, 0, 0.65);
         }
 
         .compass-needle {
@@ -148,7 +148,7 @@
             #4a2c14 100%
           );
           border-radius: 1px;
-          box-shadow: 0 0 5px rgb(247 215 148 / 65%);
+          box-shadow: 0 0 5px rgba(247, 215, 148, 0.65);
           transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
           z-index: 1;
         }
@@ -159,7 +159,7 @@
           height: 5px;
           border-radius: 50%;
           background: radial-gradient(circle, #fff 0%, #f7d794 55%, #6b4220 100%);
-          box-shadow: 0 0 4px rgb(247 215 148 / 85%);
+          box-shadow: 0 0 4px rgba(247, 215, 148, 0.85);
           z-index: 2;
         }
       }
@@ -175,7 +175,7 @@
           font-weight: 700;
           color: #f8fafc;
           letter-spacing: 0.06em;
-          text-shadow: 0 1px 2px rgb(0 0 0 / 50%);
+          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
         }
 
         .more-sub {
@@ -211,11 +211,11 @@
 
       &:hover {
         box-shadow:
-          0 6px 22px rgb(139 92 246 / 42%),
-          0 0 0 1px rgb(247 215 148 / 60%),
-          0 0 26px rgb(139 92 246 / 32%),
-          inset 0 1px 0 rgb(255 255 255 / 13%),
-          inset 0 -1px 0 rgb(0 0 0 / 40%);
+          0 6px 22px rgba(139, 92, 246, 0.42),
+          0 0 0 1px rgba(247, 215, 148, 0.6),
+          0 0 26px rgba(139, 92, 246, 0.32),
+          inset 0 1px 0 rgba(255, 255, 255, 0.13),
+          inset 0 -1px 0 rgba(0, 0, 0, 0.4);
 
         &::before { opacity: 1; }
 
@@ -238,10 +238,10 @@
       &:active {
         transform: scale(0.96);
         box-shadow:
-          0 2px 8px rgb(139 92 246 / 60%),
-          0 0 0 1px rgb(247 215 148 / 85%),
-          0 0 34px rgb(139 92 246 / 50%),
-          inset 0 2px 5px rgb(0 0 0 / 45%);
+          0 2px 8px rgba(139, 92, 246, 0.6),
+          0 0 0 1px rgba(247, 215, 148, 0.85),
+          0 0 34px rgba(139, 92, 246, 0.5),
+          inset 0 2px 5px rgba(0, 0, 0, 0.45);
       }
     }
   }
@@ -256,6 +256,7 @@
     margin-bottom: 4rem;
 
     .featured-main {
+
       .featured-card {
         position: relative;
         height: 100%;
@@ -264,18 +265,18 @@
         overflow: hidden;
         cursor: default;
         transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        border: 1px solid rgb(139 92 246 / 8%);
+        border: 1px solid rgba(139, 92, 246, 0.08);
         box-shadow:
-          0 4px 20px rgb(0 0 0 / 30%),
-          inset 0 1px 0 rgb(255 255 255 / 5%);
+          0 4px 20px rgba(0, 0, 0, 0.3),
+          inset 0 1px 0 rgba(255, 255, 255, 0.05);
 
         &:hover {
           transform: translateY(-6px);
           box-shadow:
-            0 30px 60px rgb(0 0 0 / 50%),
-            0 0 30px rgb(139 92 246 / 15%),
-            inset 0 1px 0 rgb(255 255 255 / 5%);
-          border-color: rgb(139 92 246 / 20%);
+            0 30px 60px rgba(0, 0, 0, 0.5),
+            0 0 30px rgba(139, 92, 246, 0.15),
+            inset 0 1px 0 rgba(255, 255, 255, 0.05);
+          border-color: rgba(139, 92, 246, 0.2);
 
           .card-image img {
             transform: scale(1.05);
@@ -303,10 +304,10 @@
             inset: 0;
             background: linear-gradient(
               to top,
-              rgb(15 23 42 / 95%) 0%,
-              rgb(15 23 42 / 70%) 35%,
-              rgb(15 23 42 / 30%) 65%,
-              rgb(15 23 42 / 10%) 100%
+              rgba(15, 23, 42, 0.95) 0%,
+              rgba(15, 23, 42, 0.7) 35%,
+              rgba(15, 23, 42, 0.3) 65%,
+              rgba(15, 23, 42, 0.1) 100%
             );
           }
         }
@@ -334,8 +335,8 @@
               font-weight: 700;
               letter-spacing: 0.08em;
               box-shadow:
-                inset 0 1px 1px rgb(249 249 249),
-                0 1px 4px rgb(0 0 0 / 100%);
+                inset 0 1px 1px rgb(249, 249, 249),
+                0 1px 4px rgba(0, 0, 0, 1);
 
               &[data-type='deep-tour'] {
                 background: linear-gradient(135deg, #8b5cf6, #16013a);
@@ -357,7 +358,7 @@
 
           .card-date {
             padding: 0.2rem 0.6rem;
-            background: rgb(0 0 0 / 75%);
+            background: rgba(0, 0, 0, 0.75);
             backdrop-filter: blur(8px);
             border-radius: 6px;
             font-size: 1rem;
@@ -372,11 +373,11 @@
             font-weight: 800;
             line-height: 1.3;
             margin: 0 0 0.75rem;
-            text-shadow: 0 2px 20px rgb(0 0 0 / 50%);
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
           }
 
           .card-excerpt {
-            color: rgb(255 255 255 / 80%);
+            color: rgba(255, 255, 255, 0.8);
             font-size: 1rem;
             font-weight: bold;
             line-height: 1.6;
@@ -395,11 +396,11 @@
               border-radius: 12px;
               background: linear-gradient(
                 135deg,
-                rgb(139 92 246 / 40%),
-                rgb(4 33 121 / 20%)
+                rgba(139, 92, 246, 0.4),
+                rgba(4, 33, 121, 0.2)
               );
-              box-shadow: 0 2px 2px rgb(0 0 0 / 100%);
-              border: 1px solid rgb(139 92 246 / 20%);
+              box-shadow: 0 2px 2px rgba(0, 0, 0, 1);
+              border: 1px solid rgba(139, 92, 246, 0.2);
               color: #e2dcf9;
               font-size: 1rem;
               font-weight: 600;
@@ -413,7 +414,7 @@
             align-items: center;
             justify-content: space-between;
             padding-top: 1rem;
-            border-top: 1px solid rgb(255 255 255 / 10%);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
 
             .author {
               display: flex;
@@ -424,8 +425,8 @@
                 width: 36px;
                 height: 36px;
                 border-radius: 50%;
-                border: 2px solid rgb(139 92 246 / 50%);
-                box-shadow: 0 0 8px rgb(139 92 246 / 20%);
+                border: 2px solid rgba(139, 92, 246, 0.5);
+                box-shadow: 0 0 8px rgba(139, 92, 246, 0.2);
               }
 
               .author-info {
@@ -440,7 +441,7 @@
                 }
 
                 .author-title {
-                  color: rgb(255 255 255 / 70%);
+                  color: rgba(255, 255, 255, 0.7);
                   font-size: 0.95rem;
                   font-weight: bold;
                 }
@@ -473,14 +474,13 @@
                 &.chip-views {
                   background: linear-gradient(
                     135deg,
-                    rgb(139 92 246 / 12%),
-                    rgb(109 40 217 / 8%)
+                    rgba(139, 92, 246, 0.12),
+                    rgba(109, 40, 217, 0.08)
                   );
-                  border-color: rgb(139 92 246 / 20%);
+                  border-color: rgba(139, 92, 246, 0.2);
                   color: #c4b5fd;
                   cursor: default;
-                  box-shadow: 0 2px 8px rgb(139 92 246 / 10%);
-
+                  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.1);
                   svg {
                     color: #a78bfa;
                   }
@@ -489,47 +489,42 @@
                 &.chip-like {
                   background: linear-gradient(
                     135deg,
-                    rgb(244 114 182 / 10%),
-                    rgb(219 39 119 / 6%)
+                    rgba(244, 114, 182, 0.1),
+                    rgba(219, 39, 119, 0.06)
                   );
-                  border-color: rgb(244 114 182 / 20%);
+                  border-color: rgba(244, 114, 182, 0.2);
                   color: #f9a8d4;
                   cursor: pointer;
-                  box-shadow: 0 2px 8px rgb(244 114 182 / 8%);
-
+                  box-shadow: 0 2px 8px rgba(244, 114, 182, 0.08);
                   svg {
                     color: #f472b6;
                   }
-
                   &:hover {
                     background: linear-gradient(
                       135deg,
-                      rgb(244 114 182 / 25%),
-                      rgb(219 39 119 / 15%)
+                      rgba(244, 114, 182, 0.25),
+                      rgba(219, 39, 119, 0.15)
                     );
-                    border-color: rgb(244 114 182 / 45%);
+                    border-color: rgba(244, 114, 182, 0.45);
                     color: #fff;
                     transform: translateY(-2px);
-                    box-shadow: 0 6px 16px rgb(244 114 182 / 25%);
+                    box-shadow: 0 6px 16px rgba(244, 114, 182, 0.25);
                   }
-
                   &.liked {
                     background: linear-gradient(135deg, #ec4899, #be185d);
-                    border-color: rgb(236 72 153 / 60%);
+                    border-color: rgba(236, 72, 153, 0.6);
                     color: #fff;
                     box-shadow:
-                      0 4px 12px rgb(236 72 153 / 40%),
-                      inset 0 1px 0 rgb(255 255 255 / 20%);
-
+                      0 4px 12px rgba(236, 72, 153, 0.4),
+                      inset 0 1px 0 rgba(255, 255, 255, 0.2);
                     svg {
                       color: #fff;
                     }
-
                     &:hover {
                       background: linear-gradient(135deg, #f472b6, #ec4899);
                       box-shadow:
-                        0 6px 16px rgb(236 72 153 / 50%),
-                        inset 0 1px 0 rgb(255 255 255 / 30%);
+                        0 6px 16px rgba(236, 72, 153, 0.5),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.3);
                     }
                   }
                 }
@@ -537,47 +532,42 @@
                 &.chip-love {
                   background: linear-gradient(
                     135deg,
-                    rgb(239 68 68 / 10%),
-                    rgb(220 38 38 / 6%)
+                    rgba(239, 68, 68, 0.1),
+                    rgba(220, 38, 38, 0.06)
                   );
-                  border-color: rgb(239 68 68 / 20%);
+                  border-color: rgba(239, 68, 68, 0.2);
                   color: #fca5a5;
                   cursor: pointer;
-                  box-shadow: 0 2px 8px rgb(239 68 68 / 8%);
-
+                  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.08);
                   svg {
                     color: #ef4444;
                   }
-
                   &:hover {
                     background: linear-gradient(
                       135deg,
-                      rgb(239 68 68 / 25%),
-                      rgb(220 38 38 / 15%)
+                      rgba(239, 68, 68, 0.25),
+                      rgba(220, 38, 38, 0.15)
                     );
-                    border-color: rgb(239 68 68 / 45%);
+                    border-color: rgba(239, 68, 68, 0.45);
                     color: #fff;
                     transform: translateY(-2px);
-                    box-shadow: 0 6px 16px rgb(239 68 68 / 25%);
+                    box-shadow: 0 6px 16px rgba(239, 68, 68, 0.25);
                   }
-
                   &.loved {
                     background: linear-gradient(135deg, #ef4444, #dc2626);
-                    border-color: rgb(239 68 68 / 60%);
+                    border-color: rgba(239, 68, 68, 0.6);
                     color: #fff;
                     box-shadow:
-                      0 4px 12px rgb(239 68 68 / 40%),
-                      inset 0 1px 0 rgb(255 255 255 / 20%);
-
+                      0 4px 12px rgba(239, 68, 68, 0.4),
+                      inset 0 1px 0 rgba(255, 255, 255, 0.2);
                     svg {
                       color: #fff;
                     }
-
                     &:hover {
                       background: linear-gradient(135deg, #f87171, #ef4444);
                       box-shadow:
-                        0 6px 16px rgb(239 68 68 / 50%),
-                        inset 0 1px 0 rgb(255 255 255 / 30%);
+                        0 6px 16px rgba(239, 68, 68, 0.5),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.3);
                     }
                   }
                 }
@@ -585,47 +575,42 @@
                 &.chip-bookmark {
                   background: linear-gradient(
                     135deg,
-                    rgb(251 191 36 / 10%),
-                    rgb(245 158 11 / 6%)
+                    rgba(251, 191, 36, 0.1),
+                    rgba(245, 158, 11, 0.06)
                   );
-                  border-color: rgb(251 191 36 / 20%);
+                  border-color: rgba(251, 191, 36, 0.2);
                   color: #fde68a;
                   cursor: pointer;
-                  box-shadow: 0 2px 8px rgb(251 191 36 / 8%);
-
+                  box-shadow: 0 2px 8px rgba(251, 191, 36, 0.08);
                   svg {
                     color: #fbbf24;
                   }
-
                   &:hover {
                     background: linear-gradient(
                       135deg,
-                      rgb(251 191 36 / 25%),
-                      rgb(245 158 11 / 15%)
+                      rgba(251, 191, 36, 0.25),
+                      rgba(245, 158, 11, 0.15)
                     );
-                    border-color: rgb(251 191 36 / 45%);
+                    border-color: rgba(251, 191, 36, 0.45);
                     color: #fff;
                     transform: translateY(-2px);
-                    box-shadow: 0 6px 16px rgb(251 191 36 / 20%);
+                    box-shadow: 0 6px 16px rgba(251, 191, 36, 0.2);
                   }
-
                   &.collected {
                     background: linear-gradient(135deg, #10b981, #059669);
-                    border-color: rgb(16 185 129 / 60%);
+                    border-color: rgba(16, 185, 129, 0.6);
                     color: #fff;
                     box-shadow:
-                      0 4px 12px rgb(16 185 129 / 40%),
-                      inset 0 1px 0 rgb(255 255 255 / 20%);
-
+                      0 4px 12px rgba(16, 185, 129, 0.4),
+                      inset 0 1px 0 rgba(255, 255, 255, 0.2);
                     svg {
                       color: #fff;
                     }
-
                     &:hover {
                       background: linear-gradient(135deg, #34d399, #10b981);
                       box-shadow:
-                        0 6px 16px rgb(16 185 129 / 50%),
-                        inset 0 1px 0 rgb(255 255 255 / 30%);
+                        0 6px 16px rgba(16, 185, 129, 0.5),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.3);
                     }
                   }
                 }
@@ -633,42 +618,39 @@
                 &.chip-share {
                   background: linear-gradient(
                     135deg,
-                    rgb(96 165 250 / 10%),
-                    rgb(59 130 246 / 6%)
+                    rgba(96, 165, 250, 0.1),
+                    rgba(59, 130, 246, 0.06)
                   );
-                  border-color: rgb(96 165 250 / 20%);
+                  border-color: rgba(96, 165, 250, 0.2);
                   color: #93c5fd;
                   cursor: pointer;
-                  box-shadow: 0 2px 8px rgb(96 165 250 / 8%);
-
+                  box-shadow: 0 2px 8px rgba(96, 165, 250, 0.08);
                   svg {
                     color: #60a5fa;
                   }
-
                   &:hover {
                     background: linear-gradient(
                       135deg,
-                      rgb(96 165 250 / 25%),
-                      rgb(59 130 246 / 15%)
+                      rgba(96, 165, 250, 0.25),
+                      rgba(59, 130, 246, 0.15)
                     );
-                    border-color: rgb(96 165 250 / 45%);
+                    border-color: rgba(96, 165, 250, 0.45);
                     color: #fff;
                     transform: translateY(-2px);
-                    box-shadow: 0 6px 16px rgb(96 165 250 / 20%);
+                    box-shadow: 0 6px 16px rgba(96, 165, 250, 0.2);
                   }
                 }
 
                 &.chip-view {
                   background: linear-gradient(135deg, #3b82f6, #1e40af);
-                  border-color: rgb(59 130 246 / 40%);
+                  border-color: rgba(59, 130, 246, 0.4);
                   color: #fff;
                   cursor: pointer;
                   box-shadow:
-                    0 2px 8px rgb(59 130 246 / 30%),
-                    inset 0 1px 0 rgb(255 255 255 / 20%);
+                    0 2px 8px rgba(59, 130, 246, 0.3),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.2);
                   position: relative;
                   overflow: hidden;
-
                   svg {
                     color: #fff;
                   }
@@ -683,7 +665,7 @@
                     background: linear-gradient(
                       90deg,
                       transparent,
-                      rgb(255 255 255 / 30%),
+                      rgba(255, 255, 255, 0.3),
                       transparent
                     );
                     transition: left 0.5s ease;
@@ -691,12 +673,12 @@
 
                   &:hover {
                     background: linear-gradient(135deg, #60a5fa, #3b82f6);
-                    border-color: rgb(96 165 250 / 60%);
+                    border-color: rgba(96, 165, 250, 0.6);
                     transform: translateY(-3px) scale(1.05);
                     box-shadow:
-                      0 8px 20px rgb(59 130 246 / 50%),
-                      0 0 20px rgb(59 130 246 / 40%),
-                      inset 0 1px 0 rgb(255 255 255 / 30%);
+                      0 8px 20px rgba(59, 130, 246, 0.5),
+                      0 0 20px rgba(59, 130, 246, 0.4),
+                      inset 0 1px 0 rgba(255, 255, 255, 0.3);
 
                     &::before {
                       left: 100%;
@@ -706,8 +688,8 @@
                   &:active {
                     transform: translateY(-1px) scale(0.98);
                     box-shadow:
-                      0 4px 12px rgb(59 130 246 / 40%),
-                      inset 0 1px 0 rgb(255 255 255 / 20%);
+                      0 4px 12px rgba(59, 130, 246, 0.4),
+                      inset 0 1px 0 rgba(255, 255, 255, 0.2);
                   }
                 }
               }
@@ -728,19 +710,19 @@
           .indicator-ring {
             width: 60px;
             height: 60px;
-            border: 2px solid rgb(255 255 255 / 70%);
-            box-shadow: 0 0 10px rgb(255 255 255 / 100%);
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 1);
             border-radius: 50%;
             position: relative;
             backdrop-filter: blur(4px);
-            background: rgb(255 255 255 / 5%);
+            background: rgba(255, 255, 255, 0.05);
 
             &::before {
               content: '';
               position: absolute;
               inset: 8px;
-              border: 1px solid rgb(225 153 245 / 100%);
-              box-shadow: 0 0 10px rgb(225 153 245 / 100%);
+              border: 1px solid rgba(225, 153, 245, 1);
+              box-shadow: 0 0 10px rgba(225, 153, 245, 1);
               border-radius: 50%;
             }
 
@@ -749,6 +731,7 @@
               position: absolute;
               top: 50%;
               left: 50%;
+ 
               transform: translate(-50%, -50%);
               color: white;
               font-size: 0.9rem;
@@ -776,17 +759,17 @@
         min-height: 0;
         background: linear-gradient(
           135deg,
-          rgb(0 0 0 / 50%),
-          rgb(61 2 100 / 80%)
+          rgba(0, 0, 0, 0.5),
+          rgba(61, 2, 100, 0.8)
         );
         backdrop-filter: blur(8px);
-        border: 1px solid rgb(139 92 246 / 50%);
+        border: 1px solid rgba(139, 92, 246, 0.5);
         border-radius: 14px;
         cursor: default;
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         animation: list-fade-in 0.6s ease-out backwards;
         animation-delay: var(--delay);
-        box-shadow: 0 2px 12px rgb(0 0 0 / 20%);
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
 
         &:hover {
           transform: translateX(4px);
@@ -796,7 +779,7 @@
           }
 
           .list-number {
-            color: rgb(185 159 246 / 100%);
+            color: rgba(185, 159, 246, 1);
           }
         }
 
@@ -819,7 +802,7 @@
             inset: 0;
             background: linear-gradient(
               to top,
-              rgb(15 23 42 / 40%) 0%,
+              rgba(15, 23, 42, 0.4) 0%,
               transparent 100%
             );
           }
@@ -829,7 +812,7 @@
             bottom: 0.5rem;
             right: 0.5rem;
             padding: 0.2rem 0.5rem;
-            background: rgb(0 0 0 / 75%);
+            background: rgba(0, 0, 0, 0.75);
             backdrop-filter: blur(8px);
             border-radius: 0.25rem;
             font-size: 0.95rem;
@@ -854,8 +837,7 @@
             font-size: 1rem;
             font-weight: 700;
             letter-spacing: 0.1em;
-            box-shadow: 0 2px 6px rgb(0 0 0 / 100%);
-
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 1);
             &[data-type='deep-tour'] {
               background: linear-gradient(135deg, #8b5cf6, #4b0eb4);
             }
@@ -896,12 +878,12 @@
               border-radius: 6px;
               background: linear-gradient(
                 135deg,
-                rgb(139 92 246 / 40%),
-                rgb(60 59 64 / 20%)
+                rgba(139, 92, 246, 0.4),
+                rgba(60, 59, 64, 0.2)
               );
-              border: 1px solid rgb(139 92 246 / 15%);
-              color: #fff;
-              box-shadow: 0 2px 6px rgb(0 0 0 / 100%);
+              border: 1px solid rgba(139, 92, 246, 0.15);
+              color: #ffffff;
+              box-shadow: 0 2px 6px rgba(0, 0, 0, 1);
               font-size: 1rem;
               font-weight: 600;
             }
@@ -934,14 +916,13 @@
               &.chip-views {
                 background: linear-gradient(
                   135deg,
-                  rgb(139 92 246 / 12%),
-                  rgb(109 40 217 / 6%)
+                  rgba(139, 92, 246, 0.12),
+                  rgba(109, 40, 217, 0.06)
                 );
-                border-color: rgb(139 92 246 / 20%);
+                border-color: rgba(139, 92, 246, 0.2);
                 color: #c4b5fd;
                 cursor: default;
-                box-shadow: 0 1px 4px rgb(139 92 246 / 10%);
-
+                box-shadow: 0 1px 4px rgba(139, 92, 246, 0.1);
                 svg {
                   color: #a78bfa;
                 }
@@ -950,47 +931,42 @@
               &.chip-like {
                 background: linear-gradient(
                   135deg,
-                  rgb(244 114 182 / 10%),
-                  rgb(219 39 119 / 5%)
+                  rgba(244, 114, 182, 0.1),
+                  rgba(219, 39, 119, 0.05)
                 );
-                border-color: rgb(244 114 182 / 18%);
+                border-color: rgba(244, 114, 182, 0.18);
                 color: #f9a8d4;
                 cursor: pointer;
-                box-shadow: 0 1px 4px rgb(244 114 182 / 6%);
-
+                box-shadow: 0 1px 4px rgba(244, 114, 182, 0.06);
                 svg {
                   color: #f472b6;
                 }
-
                 &:hover {
                   background: linear-gradient(
                     135deg,
-                    rgb(244 114 182 / 22%),
-                    rgb(219 39 119 / 12%)
+                    rgba(244, 114, 182, 0.22),
+                    rgba(219, 39, 119, 0.12)
                   );
-                  border-color: rgb(244 114 182 / 40%);
+                  border-color: rgba(244, 114, 182, 0.4);
                   color: #fff;
                   transform: translateY(-1px);
-                  box-shadow: 0 4px 10px rgb(244 114 182 / 20%);
+                  box-shadow: 0 4px 10px rgba(244, 114, 182, 0.2);
                 }
-
                 &.liked {
                   background: linear-gradient(135deg, #ec4899, #be185d);
-                  border-color: rgb(236 72 153 / 60%);
+                  border-color: rgba(236, 72, 153, 0.6);
                   color: #fff;
                   box-shadow:
-                    0 3px 10px rgb(236 72 153 / 40%),
-                    inset 0 1px 0 rgb(255 255 255 / 20%);
-
+                    0 3px 10px rgba(236, 72, 153, 0.4),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.2);
                   svg {
                     color: #fff;
                   }
-
                   &:hover {
                     background: linear-gradient(135deg, #f472b6, #ec4899);
                     box-shadow:
-                      0 5px 14px rgb(236 72 153 / 50%),
-                      inset 0 1px 0 rgb(255 255 255 / 30%);
+                      0 5px 14px rgba(236, 72, 153, 0.5),
+                      inset 0 1px 0 rgba(255, 255, 255, 0.3);
                   }
                 }
               }
@@ -998,47 +974,42 @@
               &.chip-love {
                 background: linear-gradient(
                   135deg,
-                  rgb(239 68 68 / 10%),
-                  rgb(220 38 38 / 5%)
+                  rgba(239, 68, 68, 0.1),
+                  rgba(220, 38, 38, 0.05)
                 );
-                border-color: rgb(239 68 68 / 18%);
+                border-color: rgba(239, 68, 68, 0.18);
                 color: #fca5a5;
                 cursor: pointer;
-                box-shadow: 0 1px 4px rgb(239 68 68 / 6%);
-
+                box-shadow: 0 1px 4px rgba(239, 68, 68, 0.06);
                 svg {
                   color: #ef4444;
                 }
-
                 &:hover {
                   background: linear-gradient(
                     135deg,
-                    rgb(239 68 68 / 22%),
-                    rgb(220 38 38 / 12%)
+                    rgba(239, 68, 68, 0.22),
+                    rgba(220, 38, 38, 0.12)
                   );
-                  border-color: rgb(239 68 68 / 40%);
+                  border-color: rgba(239, 68, 68, 0.4);
                   color: #fff;
                   transform: translateY(-1px);
-                  box-shadow: 0 4px 10px rgb(239 68 68 / 20%);
+                  box-shadow: 0 4px 10px rgba(239, 68, 68, 0.2);
                 }
-
                 &.loved {
                   background: linear-gradient(135deg, #ef4444, #dc2626);
-                  border-color: rgb(239 68 68 / 60%);
+                  border-color: rgba(239, 68, 68, 0.6);
                   color: #fff;
                   box-shadow:
-                    0 3px 10px rgb(239 68 68 / 40%),
-                    inset 0 1px 0 rgb(255 255 255 / 20%);
-
+                    0 3px 10px rgba(239, 68, 68, 0.4),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.2);
                   svg {
                     color: #fff;
                   }
-
                   &:hover {
                     background: linear-gradient(135deg, #f87171, #ef4444);
                     box-shadow:
-                      0 5px 14px rgb(239 68 68 / 50%),
-                      inset 0 1px 0 rgb(255 255 255 / 30%);
+                      0 5px 14px rgba(239, 68, 68, 0.5),
+                      inset 0 1px 0 rgba(255, 255, 255, 0.3);
                   }
                 }
               }
@@ -1046,47 +1017,42 @@
               &.chip-bookmark {
                 background: linear-gradient(
                   135deg,
-                  rgb(251 191 36 / 10%),
-                  rgb(245 158 11 / 5%)
+                  rgba(251, 191, 36, 0.1),
+                  rgba(245, 158, 11, 0.05)
                 );
-                border-color: rgb(251 191 36 / 18%);
+                border-color: rgba(251, 191, 36, 0.18);
                 color: #fde68a;
                 cursor: pointer;
-                box-shadow: 0 1px 4px rgb(251 191 36 / 6%);
-
+                box-shadow: 0 1px 4px rgba(251, 191, 36, 0.06);
                 svg {
                   color: #fbbf24;
                 }
-
                 &:hover {
                   background: linear-gradient(
                     135deg,
-                    rgb(251 191 36 / 22%),
-                    rgb(245 158 11 / 12%)
+                    rgba(251, 191, 36, 0.22),
+                    rgba(245, 158, 11, 0.12)
                   );
-                  border-color: rgb(251 191 36 / 40%);
+                  border-color: rgba(251, 191, 36, 0.4);
                   color: #fff;
                   transform: translateY(-1px);
-                  box-shadow: 0 4px 10px rgb(251 191 36 / 15%);
+                  box-shadow: 0 4px 10px rgba(251, 191, 36, 0.15);
                 }
-
                 &.collected {
                   background: linear-gradient(135deg, #10b981, #059669);
-                  border-color: rgb(16 185 129 / 60%);
+                  border-color: rgba(16, 185, 129, 0.6);
                   color: #fff;
                   box-shadow:
-                    0 3px 10px rgb(16 185 129 / 40%),
-                    inset 0 1px 0 rgb(255 255 255 / 20%);
-
+                    0 3px 10px rgba(16, 185, 129, 0.4),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.2);
                   svg {
                     color: #fff;
                   }
-
                   &:hover {
                     background: linear-gradient(135deg, #34d399, #10b981);
                     box-shadow:
-                      0 5px 14px rgb(16 185 129 / 50%),
-                      inset 0 1px 0 rgb(255 255 255 / 30%);
+                      0 5px 14px rgba(16, 185, 129, 0.5),
+                      inset 0 1px 0 rgba(255, 255, 255, 0.3);
                   }
                 }
               }
@@ -1094,42 +1060,39 @@
               &.chip-share {
                 background: linear-gradient(
                   135deg,
-                  rgb(96 165 250 / 10%),
-                  rgb(59 130 246 / 5%)
+                  rgba(96, 165, 250, 0.1),
+                  rgba(59, 130, 246, 0.05)
                 );
-                border-color: rgb(96 165 250 / 18%);
+                border-color: rgba(96, 165, 250, 0.18);
                 color: #93c5fd;
                 cursor: pointer;
-                box-shadow: 0 1px 4px rgb(96 165 250 / 6%);
-
+                box-shadow: 0 1px 4px rgba(96, 165, 250, 0.06);
                 svg {
                   color: #60a5fa;
                 }
-
                 &:hover {
                   background: linear-gradient(
                     135deg,
-                    rgb(96 165 250 / 22%),
-                    rgb(59 130 246 / 12%)
+                    rgba(96, 165, 250, 0.22),
+                    rgba(59, 130, 246, 0.12)
                   );
-                  border-color: rgb(96 165 250 / 40%);
+                  border-color: rgba(96, 165, 250, 0.4);
                   color: #fff;
                   transform: translateY(-1px);
-                  box-shadow: 0 4px 10px rgb(96 165 250 / 15%);
+                  box-shadow: 0 4px 10px rgba(96, 165, 250, 0.15);
                 }
               }
 
               &.chip-view {
                 background: linear-gradient(135deg, #3b82f6, #1e40af);
-                border-color: rgb(59 130 246 / 40%);
+                border-color: rgba(59, 130, 246, 0.4);
                 color: #fff;
                 cursor: pointer;
                 box-shadow:
-                  0 1px 4px rgb(59 130 246 / 30%),
-                  inset 0 1px 0 rgb(255 255 255 / 20%);
+                  0 1px 4px rgba(59, 130, 246, 0.3),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.2);
                 position: relative;
                 overflow: hidden;
-
                 svg {
                   color: #fff;
                 }
@@ -1144,7 +1107,7 @@
                   background: linear-gradient(
                     90deg,
                     transparent,
-                    rgb(255 255 255 / 30%),
+                    rgba(255, 255, 255, 0.3),
                     transparent
                   );
                   transition: left 0.5s ease;
@@ -1152,12 +1115,12 @@
 
                 &:hover {
                   background: linear-gradient(135deg, #60a5fa, #3b82f6);
-                  border-color: rgb(96 165 250 / 60%);
+                  border-color: rgba(96, 165, 250, 0.6);
                   transform: translateY(-2px) scale(1.08);
                   box-shadow:
-                    0 6px 16px rgb(59 130 246 / 50%),
-                    0 0 15px rgb(59 130 246 / 40%),
-                    inset 0 1px 0 rgb(255 255 255 / 30%);
+                    0 6px 16px rgba(59, 130, 246, 0.5),
+                    0 0 15px rgba(59, 130, 246, 0.4),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.3);
 
                   &::before {
                     left: 100%;
@@ -1167,8 +1130,8 @@
                 &:active {
                   transform: translateY(-0.5px) scale(0.98);
                   box-shadow:
-                    0 3px 10px rgb(59 130 246 / 40%),
-                    inset 0 1px 0 rgb(255 255 255 / 20%);
+                    0 3px 10px rgba(59, 130, 246, 0.4),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.2);
                 }
               }
             }
@@ -1181,7 +1144,7 @@
           right: 0.8rem;
           font-size: 1.6rem;
           font-weight: 800;
-          color: rgb(139 92 246 / 10%);
+          color: rgba(139, 92, 246, 0.1);
           line-height: 1;
           transition: color 0.3s ease;
         }
@@ -1214,9 +1177,9 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          background: radial-gradient(circle at 34% 30%, rgb(139 92 246 / 45%) 0%, rgb(30 15 70 / 92%) 60%, rgb(12 6 36 / 98%) 100%);
+          background: radial-gradient(circle at 34% 30%, rgba(139, 92, 246, 0.45) 0%, rgba(30, 15, 70, 0.92) 60%, rgba(12, 6, 36, 0.98) 100%);
           backdrop-filter: blur(6px);
-          border: 1.5px solid rgb(139 92 246 / 45%);
+          border: 1.5px solid rgba(139, 92, 246, 0.45);
           border-radius: 50%;
           color: #c4b5fd;
           cursor: pointer;
@@ -1226,15 +1189,15 @@
                       border-color 0.35s ease,
                       color 0.35s ease;
           box-shadow:
-            0 3px 10px rgb(0 0 0 / 50%),
-            0 0 0 1px rgb(0 0 0 / 30%),
-            inset 0 1px 1px rgb(255 255 255 / 18%),
-            inset 0 -2px 3px rgb(0 0 0 / 50%);
+            0 3px 10px rgba(0, 0, 0, 0.5),
+            0 0 0 1px rgba(0, 0, 0, 0.3),
+            inset 0 1px 1px rgba(255, 255, 255, 0.18),
+            inset 0 -2px 3px rgba(0, 0, 0, 0.5);
 
           svg {
             width: 22px;
             height: 22px;
-            filter: drop-shadow(0 0 3px rgb(196 181 253 / 50%));
+            filter: drop-shadow(0 0 3px rgba(196, 181, 253, 0.5));
             transition: transform 0.35s ease;
           }
 
@@ -1242,27 +1205,27 @@
           &.next:hover:not(:disabled) svg { transform: translateX(2px); }
 
           &:hover:not(:disabled) {
-            border-color: rgb(196 181 253 / 85%);
+            border-color: rgba(196, 181, 253, 0.85);
             color: #f5f3ff;
             transform: translateY(-2px);
             box-shadow:
-              0 8px 20px rgb(139 92 246 / 45%),
-              0 0 18px rgb(139 92 246 / 50%),
-              0 0 0 1px rgb(196 181 253 / 40%),
-              inset 0 1px 1px rgb(255 255 255 / 28%),
-              inset 0 -2px 3px rgb(0 0 0 / 40%);
+              0 8px 20px rgba(139, 92, 246, 0.45),
+              0 0 18px rgba(139, 92, 246, 0.5),
+              0 0 0 1px rgba(196, 181, 253, 0.4),
+              inset 0 1px 1px rgba(255, 255, 255, 0.28),
+              inset 0 -2px 3px rgba(0, 0, 0, 0.4);
 
             svg {
-              filter: drop-shadow(0 0 5px rgb(245 243 255 / 85%));
+              filter: drop-shadow(0 0 5px rgba(245, 243, 255, 0.85));
             }
           }
 
           &:active:not(:disabled) {
             transform: translateY(0) scale(0.94);
             box-shadow:
-              0 2px 6px rgb(139 92 246 / 60%),
-              0 0 22px rgb(139 92 246 / 55%),
-              inset 0 2px 4px rgb(0 0 0 / 50%);
+              0 2px 6px rgba(139, 92, 246, 0.6),
+              0 0 22px rgba(139, 92, 246, 0.55),
+              inset 0 2px 4px rgba(0, 0, 0, 0.5);
           }
 
           &:disabled {
@@ -1275,7 +1238,8 @@
     }
 
     .scroll-container {
-      overflow: auto hidden;
+      overflow-x: auto;
+      overflow-y: hidden;
       scrollbar-width: none;
       -ms-overflow-style: none;
 
@@ -1290,18 +1254,18 @@
 
         .scroll-card {
           flex: 0 0 340px;
-          background: rgb(15 23 42 / 45%);
+          background: rgba(15, 23, 42, 0.45);
           backdrop-filter: blur(8px);
-          border: 1px solid rgb(139 92 246 / 8%);
+          border: 1px solid rgba(139, 92, 246, 0.08);
           border-radius: 14px;
           overflow: hidden;
           cursor: default;
           transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-          box-shadow: 0 2px 12px rgb(0 0 0 / 20%);
+          box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
 
           &:hover {
             transform: translateX(-4px);
-            border-color: rgb(139 92 246 / 40%);
+            border-color: rgba(139, 92, 246, 0.4);
           }
 
           .scroll-image {
@@ -1321,8 +1285,8 @@
               inset: 0;
               background: linear-gradient(
                 to top,
-                rgb(15 23 42 / 85%) 0%,
-                rgb(15 23 42 / 20%) 50%,
+                rgba(15, 23, 42, 0.85) 0%,
+                rgba(15, 23, 42, 0.2) 50%,
                 transparent 100%
               );
             }
@@ -1360,7 +1324,7 @@
               bottom: 0.65rem;
               right: 0.65rem;
               padding: 0.2rem 0.5rem;
-              background: rgb(0 0 0 / 75%);
+              background: rgba(0, 0, 0, 0.75);
               backdrop-filter: blur(8px);
               border-radius: 0.25rem;
               font-size: 0.95rem;
@@ -1397,10 +1361,10 @@
                 border-radius: 6px;
                 background: linear-gradient(
                   135deg,
-                  rgb(92 187 246 / 40%),
-                  rgb(167 139 250 / 20%)
+                  rgba(92, 187, 246, 0.4),
+                  rgba(167, 139, 250, 0.2)
                 );
-                border: 1px solid rgb(92 187 246 / 15%);
+                border: 1px solid rgba(92, 187, 246, 0.15);
                 color: #c4e1fe;
                 font-size: 0.95rem;
                 font-weight: 600;
@@ -1434,14 +1398,13 @@
                 &.chip-views {
                   background: linear-gradient(
                     135deg,
-                    rgb(139 92 246 / 12%),
-                    rgb(109 40 217 / 6%)
+                    rgba(139, 92, 246, 0.12),
+                    rgba(109, 40, 217, 0.06)
                   );
-                  border-color: rgb(139 92 246 / 20%);
+                  border-color: rgba(139, 92, 246, 0.2);
                   color: #c4b5fd;
                   cursor: default;
-                  box-shadow: 0 1px 4px rgb(139 92 246 / 10%);
-
+                  box-shadow: 0 1px 4px rgba(139, 92, 246, 0.1);
                   svg {
                     color: #a78bfa;
                   }
@@ -1450,47 +1413,42 @@
                 &.chip-like {
                   background: linear-gradient(
                     135deg,
-                    rgb(244 114 182 / 10%),
-                    rgb(219 39 119 / 5%)
+                    rgba(244, 114, 182, 0.1),
+                    rgba(219, 39, 119, 0.05)
                   );
-                  border-color: rgb(244 114 182 / 18%);
+                  border-color: rgba(244, 114, 182, 0.18);
                   color: #f9a8d4;
                   cursor: pointer;
-                  box-shadow: 0 1px 4px rgb(244 114 182 / 6%);
-
+                  box-shadow: 0 1px 4px rgba(244, 114, 182, 0.06);
                   svg {
                     color: #f472b6;
                   }
-
                   &:hover {
                     background: linear-gradient(
                       135deg,
-                      rgb(244 114 182 / 22%),
-                      rgb(219 39 119 / 12%)
+                      rgba(244, 114, 182, 0.22),
+                      rgba(219, 39, 119, 0.12)
                     );
-                    border-color: rgb(244 114 182 / 40%);
+                    border-color: rgba(244, 114, 182, 0.4);
                     color: #fff;
                     transform: translateY(-1px);
-                    box-shadow: 0 4px 10px rgb(244 114 182 / 20%);
+                    box-shadow: 0 4px 10px rgba(244, 114, 182, 0.2);
                   }
-
                   &.liked {
                     background: linear-gradient(135deg, #ec4899, #be185d);
-                    border-color: rgb(236 72 153 / 60%);
+                    border-color: rgba(236, 72, 153, 0.6);
                     color: #fff;
                     box-shadow:
-                      0 3px 10px rgb(236 72 153 / 40%),
-                      inset 0 1px 0 rgb(255 255 255 / 20%);
-
+                      0 3px 10px rgba(236, 72, 153, 0.4),
+                      inset 0 1px 0 rgba(255, 255, 255, 0.2);
                     svg {
                       color: #fff;
                     }
-
                     &:hover {
                       background: linear-gradient(135deg, #f472b6, #ec4899);
                       box-shadow:
-                        0 5px 14px rgb(236 72 153 / 50%),
-                        inset 0 1px 0 rgb(255 255 255 / 30%);
+                        0 5px 14px rgba(236, 72, 153, 0.5),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.3);
                     }
                   }
                 }
@@ -1498,47 +1456,42 @@
                 &.chip-love {
                   background: linear-gradient(
                     135deg,
-                    rgb(239 68 68 / 10%),
-                    rgb(220 38 38 / 5%)
+                    rgba(239, 68, 68, 0.1),
+                    rgba(220, 38, 38, 0.05)
                   );
-                  border-color: rgb(239 68 68 / 18%);
+                  border-color: rgba(239, 68, 68, 0.18);
                   color: #fca5a5;
                   cursor: pointer;
-                  box-shadow: 0 1px 4px rgb(239 68 68 / 6%);
-
+                  box-shadow: 0 1px 4px rgba(239, 68, 68, 0.06);
                   svg {
                     color: #ef4444;
                   }
-
                   &:hover {
                     background: linear-gradient(
                       135deg,
-                      rgb(239 68 68 / 22%),
-                      rgb(220 38 38 / 12%)
+                      rgba(239, 68, 68, 0.22),
+                      rgba(220, 38, 38, 0.12)
                     );
-                    border-color: rgb(239 68 68 / 40%);
+                    border-color: rgba(239, 68, 68, 0.4);
                     color: #fff;
                     transform: translateY(-1px);
-                    box-shadow: 0 4px 10px rgb(239 68 68 / 20%);
+                    box-shadow: 0 4px 10px rgba(239, 68, 68, 0.2);
                   }
-
                   &.loved {
                     background: linear-gradient(135deg, #ef4444, #dc2626);
-                    border-color: rgb(239 68 68 / 60%);
+                    border-color: rgba(239, 68, 68, 0.6);
                     color: #fff;
                     box-shadow:
-                      0 3px 10px rgb(239 68 68 / 40%),
-                      inset 0 1px 0 rgb(255 255 255 / 20%);
-
+                      0 3px 10px rgba(239, 68, 68, 0.4),
+                      inset 0 1px 0 rgba(255, 255, 255, 0.2);
                     svg {
                       color: #fff;
                     }
-
                     &:hover {
                       background: linear-gradient(135deg, #f87171, #ef4444);
                       box-shadow:
-                        0 5px 14px rgb(239 68 68 / 50%),
-                        inset 0 1px 0 rgb(255 255 255 / 30%);
+                        0 5px 14px rgba(239, 68, 68, 0.5),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.3);
                     }
                   }
                 }
@@ -1546,47 +1499,42 @@
                 &.chip-bookmark {
                   background: linear-gradient(
                     135deg,
-                    rgb(251 191 36 / 10%),
-                    rgb(245 158 11 / 5%)
+                    rgba(251, 191, 36, 0.1),
+                    rgba(245, 158, 11, 0.05)
                   );
-                  border-color: rgb(251 191 36 / 18%);
+                  border-color: rgba(251, 191, 36, 0.18);
                   color: #fde68a;
                   cursor: pointer;
-                  box-shadow: 0 1px 4px rgb(251 191 36 / 6%);
-
+                  box-shadow: 0 1px 4px rgba(251, 191, 36, 0.06);
                   svg {
                     color: #fbbf24;
                   }
-
                   &:hover {
                     background: linear-gradient(
                       135deg,
-                      rgb(251 191 36 / 22%),
-                      rgb(245 158 11 / 12%)
+                      rgba(251, 191, 36, 0.22),
+                      rgba(245, 158, 11, 0.12)
                     );
-                    border-color: rgb(251 191 36 / 40%);
+                    border-color: rgba(251, 191, 36, 0.4);
                     color: #fff;
                     transform: translateY(-1px);
-                    box-shadow: 0 4px 10px rgb(251 191 36 / 15%);
+                    box-shadow: 0 4px 10px rgba(251, 191, 36, 0.15);
                   }
-
                   &.collected {
                     background: linear-gradient(135deg, #10b981, #059669);
-                    border-color: rgb(16 185 129 / 60%);
+                    border-color: rgba(16, 185, 129, 0.6);
                     color: #fff;
                     box-shadow:
-                      0 3px 10px rgb(16 185 129 / 40%),
-                      inset 0 1px 0 rgb(255 255 255 / 20%);
-
+                      0 3px 10px rgba(16, 185, 129, 0.4),
+                      inset 0 1px 0 rgba(255, 255, 255, 0.2);
                     svg {
                       color: #fff;
                     }
-
                     &:hover {
                       background: linear-gradient(135deg, #34d399, #10b981);
                       box-shadow:
-                        0 5px 14px rgb(16 185 129 / 50%),
-                        inset 0 1px 0 rgb(255 255 255 / 30%);
+                        0 5px 14px rgba(16, 185, 129, 0.5),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.3);
                     }
                   }
                 }
@@ -1594,42 +1542,39 @@
                 &.chip-share {
                   background: linear-gradient(
                     135deg,
-                    rgb(96 165 250 / 10%),
-                    rgb(59 130 246 / 5%)
+                    rgba(96, 165, 250, 0.1),
+                    rgba(59, 130, 246, 0.05)
                   );
-                  border-color: rgb(96 165 250 / 18%);
+                  border-color: rgba(96, 165, 250, 0.18);
                   color: #93c5fd;
                   cursor: pointer;
-                  box-shadow: 0 1px 4px rgb(96 165 250 / 6%);
-
+                  box-shadow: 0 1px 4px rgba(96, 165, 250, 0.06);
                   svg {
                     color: #60a5fa;
                   }
-
                   &:hover {
                     background: linear-gradient(
                       135deg,
-                      rgb(96 165 250 / 22%),
-                      rgb(59 130 246 / 12%)
+                      rgba(96, 165, 250, 0.22),
+                      rgba(59, 130, 246, 0.12)
                     );
-                    border-color: rgb(96 165 250 / 40%);
+                    border-color: rgba(96, 165, 250, 0.4);
                     color: #fff;
                     transform: translateY(-1px);
-                    box-shadow: 0 4px 10px rgb(96 165 250 / 15%);
+                    box-shadow: 0 4px 10px rgba(96, 165, 250, 0.15);
                   }
                 }
 
                 &.chip-view {
                   background: linear-gradient(135deg, #3b82f6, #1e40af);
-                  border-color: rgb(59 130 246 / 40%);
+                  border-color: rgba(59, 130, 246, 0.4);
                   color: #fff;
                   cursor: pointer;
                   box-shadow:
-                    0 1px 4px rgb(59 130 246 / 30%),
-                    inset 0 1px 0 rgb(255 255 255 / 20%);
+                    0 1px 4px rgba(59, 130, 246, 0.3),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.2);
                   position: relative;
                   overflow: hidden;
-
                   svg {
                     color: #fff;
                   }
@@ -1644,7 +1589,7 @@
                     background: linear-gradient(
                       90deg,
                       transparent,
-                      rgb(255 255 255 / 30%),
+                      rgba(255, 255, 255, 0.3),
                       transparent
                     );
                     transition: left 0.5s ease;
@@ -1652,12 +1597,12 @@
 
                   &:hover {
                     background: linear-gradient(135deg, #60a5fa, #3b82f6);
-                    border-color: rgb(96 165 250 / 60%);
+                    border-color: rgba(96, 165, 250, 0.6);
                     transform: translateY(-2px) scale(1.08);
                     box-shadow:
-                      0 6px 16px rgb(59 130 246 / 50%),
-                      0 0 15px rgb(59 130 246 / 40%),
-                      inset 0 1px 0 rgb(255 255 255 / 30%);
+                      0 6px 16px rgba(59, 130, 246, 0.5),
+                      0 0 15px rgba(59, 130, 246, 0.4),
+                      inset 0 1px 0 rgba(255, 255, 255, 0.3);
 
                     &::before {
                       left: 100%;
@@ -1667,8 +1612,8 @@
                   &:active {
                     transform: translateY(-0.5px) scale(0.98);
                     box-shadow:
-                      0 3px 10px rgb(59 130 246 / 40%),
-                      inset 0 1px 0 rgb(255 255 255 / 20%);
+                      0 3px 10px rgba(59, 130, 246, 0.4),
+                      inset 0 1px 0 rgba(255, 255, 255, 0.2);
                   }
                 }
               }

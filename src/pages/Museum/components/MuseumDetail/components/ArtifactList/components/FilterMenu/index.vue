@@ -3,8 +3,8 @@
     <div class="sidebar-content">
       <!-- 搜索框 -->
       <ArtifactSearchBox
-        :artifacts="artifacts"
         v-model="searchKeyword"
+        :artifacts="artifacts"
         @search="handleSearch"
       />
 

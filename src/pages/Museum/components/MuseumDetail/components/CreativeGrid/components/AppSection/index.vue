@@ -49,7 +49,7 @@
     GlobeIcon,
     ImageIcon,
     HeadphoneIcon,
-    VideoIcon,
+
   } from '@/pages/Museum/icons/common';
   import { markRaw } from 'vue';
 

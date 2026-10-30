@@ -1,6 +1,12 @@
 <template>
   <div class="frame-outer">
     <div class="frame-bevel"></div>
+    <div class="frame-screws">
+      <div class="screw tl"></div>
+      <div class="screw tr"></div>
+      <div class="screw bl"></div>
+      <div class="screw br"></div>
+    </div>
     <div class="frame-inner">
       <div class="chamfer tl"></div>
       <div class="chamfer tr"></div>
@@ -21,6 +27,18 @@
           {{ String(activeIndex + 1).padStart(2, '0') }} /
           {{ String(totalCount).padStart(2, '0') }}
         </span>
+        <div
+          class="status-gauge"
+          :style="{ '--gauge-angle': `${(activeIndex / Math.max(totalCount - 1, 1)) * 180 - 90}deg` }"
+        >
+          <div class="gauge-needle"></div>
+        </div>
+        <div
+          class="status-knob"
+          :style="{ '--knob-angle': `${activeIndex * 45}deg` }"
+        >
+          <div class="knob-indicator"></div>
+        </div>
       </div>
 
       <div ref="trackRef" class="coverflow-track">
@@ -63,12 +81,18 @@
 
       <div class="dial-display">
         <div class="dial-ring">
+          <div class="ring-base"></div>
+          <div class="ring-inner-bevel"></div>
           <div
-            v-for="(_, index) in totalCount"
-            :key="'dial-' + index"
-            :class="['dial-segment', { active: activeIndex === index }]"
-            :style="{ '--seg-index': index }"
-          ></div>
+            v-for="i in 6"
+            :key="'dial-' + i"
+            :class="['dial-chamber', { active: activeIndex % 6 === i - 1 }]"
+            :style="{ '--chamber-index': i - 1 }"
+          >
+            <div class="chamber-hole"></div>
+            <div class="chamber-rim"></div>
+          </div>
+          <div class="ring-center-hub"></div>
         </div>
         <div class="dial-center">
           <span class="dial-current">

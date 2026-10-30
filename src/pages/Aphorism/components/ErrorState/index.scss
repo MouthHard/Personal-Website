@@ -1,0 +1,124 @@
+.error-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 520px;
+  padding: 40px 24px 90px;
+
+  .error-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 480px;
+    padding: 48px 40px 40px;
+    border-radius: 26px;
+    background: linear-gradient(140deg, #fffdf8, #f7ecec);
+    border: 2px solid rgba(205, 92, 92, 0.35);
+    box-shadow:
+      0 26px 60px rgba(139, 115, 85, 0.2),
+      inset 0 2px 0 rgba(255, 255, 255, 0.75),
+      inset 0 -24px 46px rgba(205, 92, 92, 0.08);
+    text-align: center;
+    animation: erCardFloat 6s ease-in-out infinite;
+  }
+
+  .er-seal {
+    position: absolute;
+    top: -16px;
+    right: 26px;
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 11px;
+    color: #fff;
+    font-size: 22px;
+    font-weight: bold;
+    font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', serif;
+    background: linear-gradient(135deg, #d96a6a, #a01f1f);
+    box-shadow:
+      0 9px 20px rgba(160, 31, 31, 0.4),
+      inset 0 0 0 3px rgba(255, 255, 255, 0.55);
+    transform: rotate(-8deg);
+  }
+
+  .er-icon {
+    width: 76px;
+    height: 76px;
+    color: #c0504a;
+    margin-bottom: 22px;
+    filter: drop-shadow(0 10px 18px rgba(160, 31, 31, 0.24));
+    animation: erFloat 4.5s ease-in-out infinite;
+  }
+
+  h3 {
+    font-size: 28px;
+    color: #1a1a1a;
+    margin: 0 0 12px;
+    font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', serif;
+    font-weight: bold;
+    letter-spacing: 3px;
+  }
+
+  p {
+    color: #5a4a3a;
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 0;
+    max-width: 360px;
+    font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', serif;
+    letter-spacing: 1px;
+  }
+
+  .er-retry {
+    margin-top: 28px;
+    padding: 12px 36px;
+    border-radius: 30px;
+    border: 2px solid #8f1f1f;
+    background: linear-gradient(135deg, #c05050, #8f1f1f);
+    color: #fff;
+    font-size: 15px;
+    font-weight: bolder;
+    letter-spacing: 2px;
+    cursor: pointer;
+    font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', serif;
+    box-shadow:
+      0 8px 20px rgba(143, 31, 31, 0.32),
+      inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: linear-gradient(135deg, #d76a6a, #a82a2a);
+      border-color: #cd5c5c;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 26px rgba(178, 34, 34, 0.44);
+    }
+  }
+}
+
+@keyframes erCardFloat {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes erFloat {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+}

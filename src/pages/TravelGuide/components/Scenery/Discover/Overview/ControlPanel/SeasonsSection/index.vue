@@ -34,7 +34,7 @@
             :data-season="season.name"
             :style="`--index: ${index}`"
           >
-          <div class="season-image-wrap" v-if="season.image">
+          <div v-if="season.image" class="season-image-wrap">
             <img :src="season.image" :alt="season.name" class="season-image" loading="lazy" />
           </div>
           <h4 class="season-name">{{ season.name }}</h4>

@@ -16,7 +16,7 @@
   .modal-container {
     background: linear-gradient(135deg, #fff, #f8f5f0);
     border-radius: 24px;
-    max-width: 800px;
+    max-width: 60%;
     width: 100%;
     max-height: 90vh;
     overflow-y: auto;
@@ -95,6 +95,7 @@
           }
 
           &.like-button {
+
             // 自然状态：白底绿色icon
             svg {
               color: #52c41a;
@@ -111,13 +112,13 @@
               }
 
               transform: scale(1.15) rotateY(5deg);
-              box-shadow:
-                0 10px 25px rgba(82, 196, 26, 0.4),
-                0 5px 15px rgba(82, 196, 26, 0.3);
+              box-shadow: 0 10px 25px rgba(82, 196, 26, 0.4),
+              0 5px 15px rgba(82, 196, 26, 0.3);
             }
           }
 
           &.love-button {
+
             // 自然状态：白底红色icon
             svg {
               color: #ff4d4f;
@@ -134,13 +135,13 @@
               }
 
               transform: scale(1.15) rotateY(5deg);
-              box-shadow:
-                0 10px 25px rgba(255, 77, 79, 0.4),
-                0 5px 15px rgba(255, 77, 79, 0.3);
+              box-shadow: 0 10px 25px rgba(255, 77, 79, 0.4),
+              0 5px 15px rgba(255, 77, 79, 0.3);
             }
           }
 
           &.favorite-button {
+
             // 自然状态：白底金色icon
             svg {
               color: #faad14;
@@ -157,13 +158,13 @@
               }
 
               transform: scale(1.15) rotateY(5deg);
-              box-shadow:
-                0 10px 25px rgba(250, 173, 20, 0.4),
-                0 5px 15px rgba(250, 173, 20, 0.3);
+              box-shadow: 0 10px 25px rgba(250, 173, 20, 0.4),
+              0 5px 15px rgba(250, 173, 20, 0.3);
             }
           }
 
           &.share-button {
+
             // 自然状态：白底蓝色icon
             svg {
               color: #1890ff;
@@ -179,9 +180,8 @@
               }
 
               transform: scale(1.15) rotateY(5deg);
-              box-shadow:
-                0 10px 25px rgba(24, 144, 255, 0.4),
-                0 5px 15px rgba(24, 144, 255, 0.3);
+              box-shadow: 0 10px 25px rgba(24, 144, 255, 0.4),
+              0 5px 15px rgba(24, 144, 255, 0.3);
             }
           }
         }
@@ -242,7 +242,7 @@
           transition: transform 0.6s ease;
         }
 
-        &:hover img {
+        &:hover img:not(.img-placeholder) {
           transform: scale(1.05);
         }
 
@@ -271,15 +271,15 @@
             background: linear-gradient(135deg, #690909, #b92121, #690909);
             color: white;
             border-radius: 24px;
-            font-size: 16px;
-            font-weight: 600;
+            font-size: 24px;
+            font-weight: bolder;
             box-shadow: 0 4px 12px rgba(205, 92, 92, 0.3);
             font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', serif;
           }
 
           .author-name {
-            font-size: 20px;
-            color: #363535;
+            font-size: 22px;
+            color: #211e1e;
             font-weight: bolder;
             font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', serif;
           }
@@ -291,7 +291,7 @@
                 rgba(184, 115, 51, 0.05));
             color: #622c06;
             border-radius: 24px;
-            font-size: 16px;
+            font-size: 18px;
             font-weight: bolder;
             border: 1px solid rgba(184, 115, 51, 0.2);
             font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', serif;
@@ -337,10 +337,10 @@
                 rgba(184, 115, 51, 0.05));
             color: #674c02;
             border-radius: 24px;
-            font-size: 14px;
+            font-size: 16px;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-weight: bold;
+            font-weight: bolder;
             border: 1px solid rgba(184, 115, 51, 0.2);
             position: relative;
             overflow: hidden;
@@ -393,21 +393,22 @@
             align-items: center;
             gap: 10px;
             margin-bottom: 16px;
-            font-size: 18px;
-            font-weight: 600;
+            font-size: 24px;
+            font-weight: bolder;
             color: #6f3207;
             font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', serif;
 
-             svg  {
-                width: 20px;
-                height: 20px;
-        
-             }
+            svg {
+              width: 24px;
+              height: 24px;
+
+            }
           }
 
           .annotation-text {
             font-size: 16px;
             line-height: 2;
+            font-weight: 500;
             color: #2c2c2c;
             margin: 0;
             font-family: 'LiSu';
@@ -430,19 +431,21 @@
             align-items: center;
             gap: 10px;
             margin-bottom: 16px;
-            font-size: 18px;
-            font-weight: 600;
+            font-size: 24px;
+            font-weight: bolder;
             color: #6f3207;
             font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', serif;
-             svg {
-                width: 20px;
-                height: 20px;
-       
-              }
+
+            svg {
+              width: 24px;
+              height: 24px;
+
+            }
           }
 
           .background-text {
             font-size: 16px;
+            font-weight: 500;
             line-height: 2;
             color: #2c2c2c;
             margin: 0;
@@ -466,21 +469,20 @@
             align-items: center;
             gap: 10px;
             margin-bottom: 16px;
-            font-size: 18px;
-            font-weight: 600;
+            font-size: 24px;
+            font-weight: bolder;
             color: #6f3207;
             font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', serif;
 
             svg {
-                width: 20px;
-                height: 20px;
-     
-              }
-          
+              width: 24px;
+              height: 24px;
+            }
           }
 
           .appreciation-text {
             font-size: 16px;
+            font-weight: 500;
             line-height: 2;
             color: #2c2c2c;
             margin: 0;
@@ -504,27 +506,201 @@
             align-items: center;
             gap: 10px;
             margin-bottom: 16px;
-            font-size: 18px;
-            font-weight: 600;
+            font-size: 24px;
+            font-weight: bolder;
             color: #6f3207;
             font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', serif;
-
-            
-             svg {
-                width: 20px;
-                height: 20px;
-          
-              }
-          
+            svg {
+              width: 24px;
+              height: 24px;
+            }
           }
 
           .poet-text {
             font-size: 16px;
-
+            font-weight: 500;
             line-height: 2;
             color: #2c2c2c;
             margin: 0;
             font-family: LiSu;
+          }
+        }
+
+        // ---- 鉴赏区块空占位（繁华版） ----
+        .section-empty {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 16px;
+          padding: 24px 22px;
+          border-radius: 14px;
+          border: 1px solid rgba(184, 115, 51, 0.5);
+          background:
+            radial-gradient(130% 140% at 50% -30%, rgba(255, 252, 242, 0.95), rgba(255, 252, 242, 0) 62%),
+            linear-gradient(135deg, #fdf8ec 0%, #f7edd7 52%, #f1e4c8 100%);
+          box-shadow:
+            inset 0 0 0 1px rgba(255, 255, 255, 0.85),
+            inset 0 0 0 3px rgba(253, 248, 236, 0.9),
+            inset 0 0 0 4px rgba(184, 115, 51, 0.25),
+            inset 0 -16px 30px rgba(184, 115, 51, 0.1),
+            0 6px 16px rgba(139, 115, 85, 0.14);
+
+          // 对角回纹角饰
+          &::before,
+          &::after {
+            content: '';
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            border: 1.5px solid rgba(184, 115, 51, 0.55);
+            pointer-events: none;
+          }
+
+          &::before {
+            top: 7px;
+            left: 7px;
+            border-right: none;
+            border-bottom: none;
+            border-radius: 9px 0 0 0;
+            box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.6);
+          }
+
+          &::after {
+            bottom: 7px;
+            right: 7px;
+            border-left: none;
+            border-top: none;
+            border-radius: 0 0 9px 0;
+            box-shadow: inset -1px -1px 0 rgba(255, 255, 255, 0.6);
+          }
+
+          .se-wing {
+            flex: 0 1 96px;
+            height: 1px;
+            position: relative;
+            background: linear-gradient(90deg, rgba(184, 115, 51, 0), rgba(184, 115, 51, 0.65));
+
+            &::after {
+              content: '';
+              position: absolute;
+              top: 50%;
+              right: -4px;
+              width: 7px;
+              height: 7px;
+              border-radius: 1px;
+              transform: translateY(-50%) rotate(45deg);
+              background: linear-gradient(135deg, #e0b062, #b87333);
+              box-shadow: 0 0 6px rgba(184, 115, 51, 0.55);
+            }
+
+            &.right {
+              background: linear-gradient(90deg, rgba(184, 115, 51, 0.65), rgba(184, 115, 51, 0));
+
+              &::after {
+                right: auto;
+                left: -4px;
+              }
+            }
+          }
+
+          .se-seal {
+            width: 38px;
+            height: 38px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9px;
+            font-size: 19px;
+            font-weight: 800;
+            color: #fff;
+            font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', serif;
+            background: linear-gradient(135deg, #c8523f, #8f1f1f);
+            box-shadow:
+              0 5px 12px rgba(143, 31, 31, 0.34),
+              inset 0 0 0 2px rgba(255, 255, 255, 0.55);
+            transform: rotate(-6deg);
+          }
+
+          .se-text {
+            font-size: 17px;
+            font-weight: 800;
+            letter-spacing: 4px;
+            color: #2e1b0c;
+            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
+            font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', serif;
+          }
+        }
+
+        .poem-annotation .section-empty .se-seal {
+          background: linear-gradient(135deg, #cf6154, #8f1f1f);
+        }
+
+        .poem-background .section-empty .se-seal {
+          background: linear-gradient(135deg, #d3a03f, #8a6114);
+          box-shadow:
+            0 5px 12px rgba(138, 97, 20, 0.34),
+            inset 0 0 0 2px rgba(255, 255, 255, 0.5);
+        }
+
+        .poem-appreciation .section-empty .se-seal {
+          background: linear-gradient(135deg, #d98a35, #a8541a);
+          box-shadow:
+            0 5px 12px rgba(168, 84, 26, 0.34),
+            inset 0 0 0 2px rgba(255, 255, 255, 0.5);
+        }
+
+        .poet-introduction .section-empty .se-seal {
+          background: linear-gradient(135deg, #9a6a3c, #5f3a1a);
+          box-shadow:
+            0 5px 12px rgba(95, 58, 26, 0.34),
+            inset 0 0 0 2px rgba(255, 255, 255, 0.5);
+        }
+
+        // ---- 标签空占位 ----
+        .poem-tags-empty {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 12px;
+          margin-bottom: 36px;
+
+          .te-wing {
+            flex: 0 1 70px;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(184, 115, 51, 0), rgba(184, 115, 51, 0.5));
+
+            &.right {
+              background: linear-gradient(90deg, rgba(184, 115, 51, 0.5), rgba(184, 115, 51, 0));
+            }
+          }
+
+          .te-seal {
+            width: 30px;
+            height: 30px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 800;
+            color: #fff;
+            font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', serif;
+            background: linear-gradient(135deg, #c8523f, #8f1f1f);
+            box-shadow:
+              0 4px 10px rgba(143, 31, 31, 0.3),
+              inset 0 0 0 2px rgba(255, 255, 255, 0.5);
+            transform: rotate(-6deg);
+          }
+
+          .te-text {
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: #2e1b0c;
+            font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', serif;
           }
         }
       }
@@ -553,6 +729,7 @@
     transform: translateY(0) scale(1) rotateX(0);
   }
 }
+
 
 .modal-enter-active,
 .modal-leave-active {

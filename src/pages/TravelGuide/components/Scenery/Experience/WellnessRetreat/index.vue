@@ -268,10 +268,8 @@
   const { show: showToast } = useTravelToast();
   const {
     isExperienceFavorite,
-    isExperienceWant,
     isExperienceBeen,
     toggleExperienceFavorite,
-    toggleExperienceWant,
     toggleExperienceBeen,
   } = useSceneryPrefs();
   const { shareVisible, shareTitle, shareText, shareUrl, openShare, closeShare } = useTravelShare();
@@ -288,12 +286,7 @@
     toggleExperienceFavorite(item.id, props.provinceId, 'wellness');
     showToast({ type: 'info', message: wasFav ? `已取消收藏 ${item.name}` : `已收藏 ${item.name}` });
   };
-  const onToggleWant = (item: any): void => {
-    if (!item?.id) return;
-    const wasWant = isExperienceWant(item.id, props.provinceId, 'wellness');
-    toggleExperienceWant(item.id, props.provinceId, 'wellness');
-    showToast({ type: 'want', message: wasWant ? `已移除想去 ${item.name}` : `已加入想去 ${item.name}` });
-  };
+
   const onToggleBeen = (item: any): void => {
     if (!item?.id) return;
     const wasBeen = isExperienceBeen(item.id, props.provinceId, 'wellness');

@@ -71,6 +71,8 @@
         @like="toggleLike" @love="toggleLove" @bookmark="toggleBookmark" @share="shareGuide" />
     </Teleport>
   </div>
+
+  <ShareMenu v-model:visible="showShareMenu" :work="shareWork" />
 </template>
 
 <script setup lang="ts">
@@ -93,6 +95,7 @@ import ThumbUpIcon from '@/pages/Landscape/icons/common/ThumbUpIcon.vue';
 import HeartIcon from '@/pages/Landscape/icons/common/HeartIcon.vue';
 import BookmarkIcon from '@/pages/Landscape/icons/common/BookmarkIcon.vue';
 import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue';
+import ShareMenu from '../common/ShareMenu/index.vue';
 import {
   travelModes,
   naturalScenery,
@@ -240,7 +243,11 @@ const closeGuideDetail = () => {
 const getGuideId = (id: string) => id;
 
 const toggleLike = (guide: Guide) => {
-  const isLiked = interactionStore.toggleLike(getGuideId(guide.id));
+  const item = createSimpleInteractionItem(getGuideId(guide.id), 'guide', guide.title, {
+    image: guide.cover,
+    location: guide.location,
+  });
+  const isLiked = interactionStore.toggleLike(item);
   if (isLiked) {
     showMessage.like.success(guide.title);
   } else {
@@ -274,17 +281,28 @@ const toggleBookmark = (guide: Guide) => {
   }
 };
 
+const showShareMenu = ref(false);
+const currentShareGuide = ref<Guide | null>(null);
+const shareWork = computed(() => {
+  const g = currentShareGuide.value;
+  if (!g) return {};
+  return {
+    type: 'guide' as const,
+    title: g.title,
+    description: g.excerpt,
+    cover: g.cover,
+    author: g.author,
+    date: g.date,
+    location: g.location,
+    category: g.typeName || g.category,
+    rating: g.rating,
+    readTime: g.readTime,
+  };
+});
+
 const shareGuide = (guide: Guide) => {
-  if (navigator.share) {
-    navigator.share({
-      title: guide.title,
-      text: guide.excerpt,
-      url: window.location.href,
-    });
-  } else {
-    navigator.clipboard.writeText(window.location.href);
-    showMessage.share.copied();
-  }
+  currentShareGuide.value = guide;
+  showShareMenu.value = true;
 };
 
 const loadMoreGuides = () => {

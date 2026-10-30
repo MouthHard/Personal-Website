@@ -53,7 +53,7 @@
         </div>
       </div>
 
-      <div ref="scrollSentinel" v-if="allItems.length > visibleCount" class="scroll-sentinel"></div>
+      <div v-if="allItems.length > visibleCount" ref="scrollSentinel" class="scroll-sentinel"></div>
     </section>
   </div>
 </template>

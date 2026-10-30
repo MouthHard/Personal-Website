@@ -9,7 +9,7 @@ export type { Category }
 // ============================================
 // 一级分类：主题分类
 // ============================================
-export const themeCategories: Category[] = [
+const themeCategories: Category[] = [
   {
     id: 'nature',
     name: '自然风光',
@@ -95,7 +95,7 @@ export const themeCategories: Category[] = [
 // ============================================
 // 一级分类：地点分类
 // ============================================
-export const locationCategories: Category[] = [
+const locationCategories: Category[] = [
   {
     id: 'china',
     name: '中国',
@@ -186,7 +186,7 @@ export const locationCategories: Category[] = [
 // 时间段划分：黎明→日出→上午→正午→下午→黄金时刻→黄昏→日落→蓝调时刻→深夜→午夜
 // 各时间段互斥，同一作品可能同时符合多个维度（如拍摄于黄金时刻的照片也可被"白天"筛选）
 // ============================================
-export const timeCategories: Category[] = [
+const timeCategories: Category[] = [
   {
     id: 'daytime',
     name: '白天',
@@ -219,7 +219,7 @@ export const timeCategories: Category[] = [
 // ============================================
 // 一级分类：天气分类
 // ============================================
-export const weatherCategories: Category[] = [
+const weatherCategories: Category[] = [
   {
     id: 'clear-sky',
     name: '晴空',
@@ -289,7 +289,7 @@ export const weatherCategories: Category[] = [
 // ============================================
 // 一级分类：技术分类
 // ============================================
-export const techniqueCategories: Category[] = [
+const techniqueCategories: Category[] = [
   {
     id: 'composition',
     name: '构图',
@@ -351,7 +351,7 @@ export const techniqueCategories: Category[] = [
 // ============================================
 // 一级分类：风格分类
 // ============================================
-export const styleCategories: Category[] = [
+const styleCategories: Category[] = [
   {
     id: 'color-style',
     name: '色彩风格',
@@ -400,7 +400,7 @@ export const styleCategories: Category[] = [
 // ============================================
 // 一级分类：元素分类
 // ============================================
-export const elementCategories: Category[] = [
+const elementCategories: Category[] = [
   {
     id: 'natural-element',
     name: '自然元素',
@@ -443,21 +443,8 @@ export const elementCategories: Category[] = [
   },
 ];
 
-// ============================================
-// 所有分类组合
-// ============================================
-export const allCategories = {
-  theme: themeCategories,
-  location: locationCategories,
-  time: timeCategories,
-  weather: weatherCategories,
-  technique: techniqueCategories,
-  style: styleCategories,
-  element: elementCategories,
-};
-
 // 分类类型定义
-export interface CategoryGroup {
+interface CategoryGroup {
   key: string;
   name: string;
   icon: string;

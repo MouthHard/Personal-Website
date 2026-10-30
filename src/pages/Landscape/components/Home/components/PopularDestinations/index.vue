@@ -1,19 +1,31 @@
 <template>
-  <section class="popular-destinations">
+  <section v-if="destinations.length > 0" class="popular-destinations">
     <div class="section-header">
       <div class="header-left">
         <span class="title-label">DESTINATIONS</span>
         <h2 class="section-title">梦境之地</h2>
         <p class="section-subtitle">探索世界最令人向往的旅行目的地</p>
       </div>
-      <button class="more-btn" @click="handleMore">
-        <RefreshIcon class="refresh-icon" :stroke-width="2" />
-        <span class="btn-label">刷新</span>
+      <button class="more-btn" aria-label="刷新目的地" @click="handleMore">
+        <span class="ticket-stub" aria-hidden="true">
+          <span class="stamp-teeth"></span>
+          <span class="stamp-face"></span>
+          <span class="stamp-glyph"></span>
+        </span>
+        <span class="ticket-tear" aria-hidden="true"></span>
+        <span class="more-text">
+          <span class="more-label">刷新</span>
+          <span class="more-sub">下一站</span>
+        </span>
+        <span class="ticket-route" aria-hidden="true">
+          <span class="route-line"></span>
+          <span class="route-plane"></span>
+        </span>
         <span class="btn-shine"></span>
       </button>
     </div>
 
-    <div v-if="destinations.length > 0" class="destinations-gallery">
+    <div class="destinations-gallery">
       <div class="gallery-track">
         <div v-for="(dest, index) in destinations" :key="dest.id" class="gallery-item"
           :class="{ 'item-large': index === 0, 'item-wide': index === 3 }" :style="{ '--delay': `${index * 0.15}s` }"
@@ -31,10 +43,7 @@
                 <ClockIcon :stroke-width="2" />
                 {{ dest.bestTime }}
               </span>
-              <span class="tag tag-views">
-                <EyeIcon :stroke-width="2" />
-                {{ dest.views }}
-              </span>
+
             </div>
 
             <div class="content-main">
@@ -62,13 +71,13 @@
               <p class="dest-tips">{{ dest.tips }}</p>
 
               <div class="dest-stats">
-                <span class="stat-item">
+                <span class="stat-item stat-views">
                   <EyeIcon :stroke-width="2" />
                   {{ fmt(getDestCount(dest.id).views) }}
                 </span>
                 <button class="stat-item stat-interactive stat-like"
-                  :class="{ active: localLikes.has(getDestId(dest.id)) }" @click.stop="handleToggleLike(dest)">
-                  <ThumbUpIcon :stroke-width="2" :filled="localLikes.has(getDestId(dest.id))" />
+                  :class="{ active: interactionStore.isLiked(getDestId(dest.id)) }" @click.stop="handleToggleLike(dest)">
+                  <ThumbUpIcon :stroke-width="2" :filled="interactionStore.isLiked(getDestId(dest.id))" />
                   {{ fmt(getDestCount(dest.id).likes) }}
                 </button>
                 <span class="stat-item stat-love">
@@ -79,10 +88,10 @@
                   <BookmarkIcon :stroke-width="2" />
                   {{ fmt(getDestCount(dest.id).favorites) }}
                 </span>
-                <button class="stat-item stat-interactive stat-share" @click.stop="handleShare(dest)">
+                <span class="stat-item stat-share">
                   <ShareIcon :stroke-width="2" />
                   {{ fmt(getDestCount(dest.id).shares) }}
-                </button>
+                </span>
               </div>
             </div>
 
@@ -92,20 +101,13 @@
       </div>
     </div>
 
-    <div v-else class="empty-state">
-      <div class="empty-icon">
-        <LocationIcon :stroke-width="1.5" />
-      </div>
-      <p class="empty-text">暂无热门目的地</p>
-      <span class="empty-hint">精彩目的地即将呈现</span>
-    </div>
   </section>
 </template>
 
 <script setup lang="ts">
 import { ref, computed, watch } from 'vue';
 import { useRouter } from 'vue-router';
-import RefreshIcon from '@/pages/Landscape/icons/components/home/PopularDestinations/RefreshIcon.vue';
+
 import ClockIcon from '@/pages/Landscape/icons/common/ClockIcon.vue';
 import EyeIcon from '@/pages/Landscape/icons/common/EyeIcon.vue';
 import LocationIcon from '@/pages/Landscape/icons/common/LocationIcon.vue';
@@ -116,14 +118,14 @@ import BookmarkIcon from '@/pages/Landscape/icons/common/BookmarkIcon.vue';
 import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue';
 import { useInteractionStore, useLandscapeDataStore } from '@/stores/landscape';
 import type { Destination } from '@/typesOfPages/landscape/home';
-import { showMessage } from '@/utils/landscape';
+import { showMessage, createSimpleInteractionItem } from '@/utils/landscape';
 import { formatNumber as fmt } from '@/utils/landscape/format';
 
 const router = useRouter();
 const interactionStore = useInteractionStore();
 const dataStore = useLandscapeDataStore();
 const activeDestination = ref<number | null>(null);
-const localLikes = ref<Set<string>>(new Set());
+
 
 const allDestinations = computed(() => dataStore.getAllPopularDestinations());
 const pageIndex = ref(0);
@@ -151,23 +153,18 @@ const getDestCount = (id: string | number) => interactionStore.getCount(getDestI
 
 const handleToggleLike = (dest: Destination) => {
   const dId = getDestId(dest.id);
-  const newSet = new Set(localLikes.value);
-  if (newSet.has(dId)) {
-    newSet.delete(dId);
-    interactionStore.decrementLikes(dId);
-    showMessage.like.cancel();
-  } else {
-    newSet.add(dId);
-    interactionStore.incrementLikes(dId);
+  const item = createSimpleInteractionItem(dId, 'image', dest.name, {
+    image: dest.images?.spring || '',
+    location: dest.country,
+  });
+  const isLiked = interactionStore.toggleLike(item);
+  if (isLiked) {
     showMessage.like.success(dest.name);
+  } else {
+    showMessage.like.cancel();
   }
-  localLikes.value = newSet;
 };
 
-const handleShare = (dest: Destination) => {
-
-  showMessage.share.success(dest.name);
-};
 
 const handleMore = () => {
   pickRandomDestinations();

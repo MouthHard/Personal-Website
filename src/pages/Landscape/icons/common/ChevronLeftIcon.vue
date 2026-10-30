@@ -2,12 +2,11 @@
   <svg
     viewBox="0 0 24 24"
     :fill="fill"
-    stroke="currentColor"
-    :stroke-width="strokeWidth"
     :class="props.class"
     :style="props.style"
   >
-    <path d="M15 18l-6-6 6-6"/>
+    <path d="M18 7.5 Q14.25 8 11.5 12 Q14.25 16 18 16.5 Z" />
+    <path d="M11 7.5 Q7.25 8 4.5 12 Q7.25 16 11 16.5 Z" />
   </svg>
 </template>
 
@@ -21,7 +20,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  fill: 'none',
+  fill: 'currentColor',
   strokeWidth: 2
 })
 </script>

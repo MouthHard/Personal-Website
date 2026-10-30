@@ -4,7 +4,7 @@
       <!-- ============================================
            日志本封面（皮质硬壳 + 螺旋装订）
            ============================================ -->
-      <div class="journal-cover" v-if="currentItem" :data-level="currentItem.difficulty">
+      <div v-if="currentItem" class="journal-cover" :data-level="currentItem.difficulty">
         <!-- 螺旋装订线圈 -->
         <div class="binding-rings">
           <span v-for="r in 8" :key="r" class="binding-ring"></span>
@@ -87,7 +87,7 @@
 
             <!-- 标签（便签贴纸） -->
             <div class="sticky-tags">
-              <span v-for="(tag, ti) in (currentItem.tags || []).slice(0, 3)" :key="ti" class="sticky-tag" :class="`sticky-tag--${ti + 1}`">{{ tag }}</span>
+              <span v-for="(tag, ti) in (currentItem.tags || []).slice(0, 3)" :key="ti" class="sticky-tag" :class="`sticky-tag--${Number(ti) + 1}`">{{ tag }}</span>
               <span v-if="currentItem.price" class="sticky-tag sticky-tag--price">
                 <span class="tag-currency">¥</span>{{ currentItem.price }}起
               </span>
@@ -181,7 +181,7 @@
       <!-- ============================================
            书签导航
            ============================================ -->
-      <div class="bookmark-tabs" v-if="items && items.length > 1">
+      <div v-if="items && items.length > 1" class="bookmark-tabs">
         <button
           v-for="(item, idx) in items"
           :key="item.id || idx"

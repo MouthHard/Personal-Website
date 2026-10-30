@@ -8,10 +8,10 @@ export { default as SortActiveIndicator } from './SortActiveIndicator.vue';
 export { default as GalleryPrevIcon } from './GalleryPrevIcon.vue';
 export { default as GalleryNextIcon } from './GalleryNextIcon.vue';
 export { default as FlowerIcon } from './FlowerIcon.vue';
-export { default as ChartIcon } from './ChartIcon.vue';
+
 export { default as PictureIcon } from './PictureIcon.vue';
 export { default as PaletteIcon } from './PaletteIcon.vue';
-export { default as TheaterMasksIcon } from './TheaterMasksIcon.vue';
+
 export { default as MuseumIcon } from './MuseumIcon.vue';
 export { default as GalaxyIcon } from './GalaxyIcon.vue';
 export { default as ConfettiIcon } from './ConfettiIcon.vue';

@@ -1,221 +1,203 @@
 <template>
   <div v-if="error" class="error-boundary">
-    <div class="error-boundary__stars">
-      <span
-        v-for="i in 80"
-        :key="i"
-        class="error-boundary__star"
-        :style="starStyle(i)"
-      />
-      <span
-        v-for="i in 20"
-        :key="'big-' + i"
-        class="error-boundary__star error-boundary__star--big"
-        :style="bigStarStyle(i)"
-      />
-    </div>
-
-    <div class="error-boundary__orbit">
-      <div class="error-boundary__orbit-ring"></div>
-      <div
-        class="error-boundary__orbit-ring error-boundary__orbit-ring--outer"
-      ></div>
-      <div class="error-boundary__orbit-particle"></div>
-      <div
-        class="error-boundary__orbit-particle error-boundary__orbit-particle--2"
-      ></div>
-      <div
-        class="error-boundary__orbit-particle error-boundary__orbit-particle--3"
-      ></div>
-    </div>
-
-    <div class="error-boundary__nebula"></div>
-
+    <div class="error-boundary__grid-bg"></div>
     <div class="error-boundary__scanline"></div>
+    <div class="error-boundary__vignette"></div>
 
-    <div class="error-boundary__debris">
-      <div
-        v-for="i in 6"
-        :key="i"
-        class="error-boundary__debris-item"
-        :style="debrisStyle(i)"
-      ></div>
-    </div>
+    <div class="error-boundary__dialog" :class="{ 'is-expanded': showDevInfo }">
+      <div class="error-boundary__main">
+        <span class="error-boundary__rivet error-boundary__rivet--tl" />
+        <span class="error-boundary__rivet error-boundary__rivet--tr" />
+        <span class="error-boundary__rivet error-boundary__rivet--bl" />
+        <span class="error-boundary__rivet error-boundary__rivet--br" />
 
-    <div class="error-boundary__card">
-      <div class="error-boundary__card-shimmer"></div>
-      <div class="error-boundary__card-border"></div>
-      <div
-        class="error-boundary__card-corner error-boundary__card-corner--tl"
-      ></div>
-      <div
-        class="error-boundary__card-corner error-boundary__card-corner--tr"
-      ></div>
-      <div
-        class="error-boundary__card-corner error-boundary__card-corner--bl"
-      ></div>
-      <div
-        class="error-boundary__card-corner error-boundary__card-corner--br"
-      ></div>
+        <div class="error-boundary__ticks">
+          <span v-for="i in 16" :key="i" class="error-boundary__tick" :class="{ 'is-major': i % 4 === 0 }" />
+        </div>
 
-      <div class="error-boundary__icon-wrap">
-        <svg class="error-boundary__icon" viewBox="0 0 100 100" fill="none">
-          <circle
-            cx="50"
-            cy="50"
-            r="45"
-            stroke="url(#outerGlow)"
-            stroke-width="2"
-            opacity="0.3"
-          >
-            <animate
-              attributeName="opacity"
-              values="0.3;0.6;0.3"
-              dur="3s"
-              repeatCount="indefinite"
-            />
-          </circle>
-          <circle
-            cx="50"
-            cy="50"
-            r="38"
-            stroke="url(#ringGrad)"
-            stroke-width="0.5"
-            opacity="0.4"
-          />
-          <circle
-            cx="50"
-            cy="50"
-            r="32"
-            stroke="url(#ringGrad)"
-            stroke-width="0.5"
-            opacity="0.2"
-            stroke-dasharray="4 6"
-          />
-          <path
-            d="M50 28v24"
-            stroke="url(#alertGrad)"
-            stroke-width="2"
-            stroke-linecap="round"
-          />
-          <circle cx="50" cy="56" r="2" fill="url(#alertGrad)">
-            <animate
-              attributeName="r"
-              values="2;2.5;2"
-              dur="2s"
-              repeatCount="indefinite"
-            />
-            <animate
-              attributeName="opacity"
-              values="1;0.7;1"
-              dur="2s"
-              repeatCount="indefinite"
-            />
-          </circle>
-          <circle
-            cx="50"
-            cy="40"
-            r="8"
-            stroke="url(#alertGrad)"
-            stroke-width="0.5"
-            opacity="0"
-          >
-            <animate
-              attributeName="r"
-              values="8;16;8"
-              dur="2s"
-              repeatCount="indefinite"
-            />
-            <animate
-              attributeName="opacity"
-              values="0.5;0;0.5"
-              dur="2s"
-              repeatCount="indefinite"
-            />
-          </circle>
-          <defs>
-            <linearGradient id="ringGrad" x1="4" y1="4" x2="96" y2="96">
-              <stop offset="0%" stop-color="#42e5f8" />
-              <stop offset="50%" stop-color="#818cf8" />
-              <stop offset="100%" stop-color="#a855f7" />
-            </linearGradient>
-            <linearGradient id="alertGrad" x1="48" y1="28" x2="52" y2="58">
-              <stop offset="0%" stop-color="#42e5f8" />
-              <stop offset="100%" stop-color="#818cf8" />
-            </linearGradient>
-            <radialGradient id="outerGlow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#42e5f8" />
-              <stop offset="100%" stop-color="#a855f7" />
-            </radialGradient>
-          </defs>
-        </svg>
-      </div>
+        <div class="error-boundary__header-bar">
+          <div class="error-boundary__hazard-strip" />
+          <span class="error-boundary__header-text">SYSTEM FAULT</span>
+          <div class="error-boundary__hazard-strip" />
+        </div>
 
-      <div class="error-boundary__text-group">
+        <div class="error-boundary__alarm-row">
+          <span class="error-boundary__alarm-led" />
+          <span class="error-boundary__alarm-label">ALARM</span>
+          <span class="error-boundary__alarm-code">{{ errorCode }}</span>
+        </div>
+
+        <div class="error-boundary__icon-wrap">
+          <WarningTriangleIcon class="error-boundary__icon" />
+        </div>
+
         <h2 class="error-boundary__title">{{ errorTitle }}</h2>
         <p class="error-boundary__desc">{{ errorDescription }}</p>
-        <div v-if="errorMessage" class="error-boundary__detail">
-          {{ truncatedErrorMessage }}
-          <span class="error-boundary__tooltip">{{ errorMessage }}</span>
-        </div>
-      </div>
 
-      <div class="error-boundary__divider">
-        <span class="error-boundary__divider-dot"></span>
-        <span class="error-boundary__divider-line"></span>
-        <span class="error-boundary__divider-dot"></span>
-      </div>
+        <div class="error-boundary__fields">
+          <button class="error-boundary__field" :class="{ 'is-copied': copiedField === 'code' }"
+            @click="copyToClipboard(errorCode, 'code', '错误代码')">
+            <span class="error-boundary__field-led" />
+            <span class="error-boundary__field-label">错误代码</span>
+            <span class="error-boundary__field-value">{{ errorCode }}</span>
+            <CopyIcon class="error-boundary__field-icon" />
+          </button>
 
-      <div class="error-boundary__info-panel">
-        <div class="error-boundary__info-item">
-          <span class="error-boundary__info-label">错误代码</span>
-          <span class="error-boundary__info-value">{{ errorCode }}</span>
-        </div>
-        <div class="error-boundary__info-item">
-          <span class="error-boundary__info-label">发生时间</span>
-          <span class="error-boundary__info-value">{{ errorTime }}</span>
-        </div>
-      </div>
+          <button class="error-boundary__field error-boundary__field--message"
+            :class="{ 'is-copied': copiedField === 'message' }"
+            @click="copyToClipboard(errorMessage, 'message', '错误信息')">
+            <span class="error-boundary__field-led" />
+            <span class="error-boundary__field-label">错误信息</span>
+            <span
+              class="error-boundary__field-value error-boundary__field-value--mono">{{ errorMessage || '（暂无错误描述）' }}</span>
+            <CopyIcon class="error-boundary__field-icon" />
+          </button>
 
-      <div class="error-boundary__actions">
-        <button class="error-boundary__retry" @click="handleRetry">
-          <svg viewBox="0 0 20 20" fill="currentColor">
-            <path
-              fill-rule="evenodd"
-              d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.006L15.707 6.293a1 1 0 01-1.414 1.414l-2-2a1 1 0 010-1.414l2-2a1 1 0 011.414 1.414l-.707.707A5.002 5.002 0 005 10a5 5 0 0010 0 1 1 0 112 0 7 7 0 01-11 6.325V17a1 1 0 01-2 0V3a1 1 0 011-1z"
-              clip-rule="evenodd"
-            />
-          </svg>
-          <span>重新加载</span>
+          <button class="error-boundary__field" :class="{ 'is-copied': copiedField === 'time' }"
+            @click="copyToClipboard(errorTime, 'time', '发生时间')">
+            <span class="error-boundary__field-led" />
+            <span class="error-boundary__field-label">发生时间</span>
+            <span
+              class="error-boundary__field-value error-boundary__field-value--mono">{{ errorTime || '（未记录）' }}</span>
+            <CopyIcon class="error-boundary__field-icon" />
+          </button>
+        </div>
+
+        <div class="error-boundary__actions">
+          <button class="error-boundary__btn error-boundary__btn--primary" @click="handleRetry">
+            <RefreshIcon />
+            <span>重新加载</span>
+          </button>
+          <button class="error-boundary__btn error-boundary__btn--secondary" @click="goHome">
+            <HomeIcon />
+            <span>返回首页</span>
+          </button>
+        </div>
+
+        <button class="error-boundary__dev-toggle" :class="{ 'is-active': showDevInfo }"
+          @click="showDevInfo = !showDevInfo">
+          <span class="error-boundary__toggle-track">
+            <span class="error-boundary__toggle-knob" />
+          </span>
+          <span>诊断信息</span>
+          <ChevronDownIcon class="error-boundary__dev-toggle-chevron" />
         </button>
-        <button class="error-boundary__home" @click="goHome">
-          <svg viewBox="0 0 20 20" fill="currentColor">
-            <path
-              d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"
-            />
-          </svg>
-          <span>返回首页</span>
-        </button>
+
+        <p class="error-boundary__hint">
+          问题持续存在？<a href="mailto:support@example.com" class="error-boundary__link">联系技术支持</a>
+        </p>
       </div>
 
-      <div class="error-boundary__footer">
-        <p class="error-boundary__code">{{ errorCode }}</p>
-        <p class="error-boundary__hint">如果问题持续存在，请联系技术支持</p>
+      <div class="error-boundary__dev-panel">
+        <span class="error-boundary__rivet error-boundary__rivet--tl" />
+        <span class="error-boundary__rivet error-boundary__rivet--tr" />
+        <span class="error-boundary__rivet error-boundary__rivet--bl" />
+        <span class="error-boundary__rivet error-boundary__rivet--br" />
+        <div class="error-boundary__dev-content">
+          <div class="error-boundary__dev-crt-overlay" />
+          <div class="error-boundary__dev-header">
+            <div class="error-boundary__dev-header-left">
+              <span class="error-boundary__dev-rec-led" />
+              <h3 class="error-boundary__dev-title">FLIGHT RECORDER</h3>
+            </div>
+            <button class="error-boundary__dev-close" @click="showDevInfo = false">
+              <CloseIcon />
+            </button>
+          </div>
+
+          <div class="error-boundary__dev-body">
+            <button class="error-boundary__dev-section" :class="{ 'is-copied': copiedField === 'dev-code' }"
+              @click="copyToClipboard(errorCode, 'dev-code', '错误代码')">
+              <span class="error-boundary__dev-label">&gt; 错误代码</span>
+              <code class="error-boundary__dev-code">{{ errorCode }}</code>
+            </button>
+            <button class="error-boundary__dev-section" :class="{ 'is-copied': copiedField === 'dev-message' }"
+              @click="copyToClipboard(errorMessage, 'dev-message', '错误信息')">
+              <span class="error-boundary__dev-label">&gt; 错误信息</span>
+              <pre class="error-boundary__dev-pre">{{ errorMessage || '（暂无错误描述）' }}</pre>
+            </button>
+            <button class="error-boundary__dev-section" :class="{ 'is-copied': copiedField === 'dev-time' }"
+              @click="copyToClipboard(errorTime, 'dev-time', '发生时间')">
+              <span class="error-boundary__dev-label">&gt; 发生时间</span>
+              <code class="error-boundary__dev-code">{{ errorTime || '（未记录）' }}</code>
+            </button>
+            <button class="error-boundary__dev-section" :class="{ 'is-copied': copiedField === 'dev-stack' }"
+              @click="copyToClipboard(errorStack, 'dev-stack', '调用堆栈')">
+              <span class="error-boundary__dev-label">&gt; 调用堆栈</span>
+              <pre class="error-boundary__dev-pre">{{ errorStack || '（无堆栈信息）' }}</pre>
+            </button>
+            <button class="error-boundary__dev-section" :class="{ 'is-copied': copiedField === 'dev-route' }"
+              @click="copyToClipboard(errorRoute, 'dev-route', '当前路由')">
+              <span class="error-boundary__dev-label">&gt; 当前路由</span>
+              <code class="error-boundary__dev-code">{{ errorRoute || '（未获取）' }}</code>
+            </button>
+            <button class="error-boundary__dev-section" :class="{ 'is-copied': copiedField === 'dev-component' }"
+              @click="copyToClipboard(errorComponentName, 'dev-component', '组件信息')">
+              <span class="error-boundary__dev-label">&gt; 组件信息</span>
+              <code class="error-boundary__dev-code">{{
+                errorComponentName || '（未捕获）'
+              }}</code>
+            </button>
+            <button class="error-boundary__dev-section" :class="{ 'is-copied': copiedField === 'dev-ua' }"
+              @click="copyToClipboard(errorUserAgent, 'dev-ua', '浏览器环境')">
+              <span class="error-boundary__dev-label">&gt; 浏览器环境</span>
+              <code class="error-boundary__dev-code">{{ errorUserAgent || '（未获取）' }}</code>
+            </button>
+            <button class="error-boundary__dev-copy" :class="{ 'is-copied': copiedField === 'all' }"
+              @click="copyErrorInfo">
+              <CopyIcon />
+              <span>{{ copiedField === 'all' ? '已复制 ✓' : '复制全部信息' }}</span>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
+
+    <Transition name="eb-toast">
+      <div v-if="copyMessage" class="error-boundary__toast">
+        <CopyIcon class="error-boundary__toast-icon" />
+        <span class="error-boundary__toast-text">{{ copyMessage }}</span>
+      </div>
+    </Transition>
   </div>
-  <slot v-else />
+  <slot v-else></slot>
 </template>
 
 <script setup lang="ts">
 import { ref, computed, onErrorCaptured } from 'vue';
 import { useRouter } from 'vue-router';
+import WarningTriangleIcon from '@/assets/icons/WarningTriangleIcon.vue';
+import CopyIcon from '@/assets/icons/CopyIcon.vue';
+import RefreshIcon from '@/assets/icons/RefreshIcon.vue';
+import HomeIcon from '@/assets/icons/HomeIcon.vue';
+import ChevronDownIcon from '@/assets/icons/ChevronDownIcon.vue';
+import CloseIcon from '@/assets/icons/CloseIcon.vue';
 
 const error = ref<Error | null>(null);
+const errorStack = ref<string>('');
+const errorRoute = ref<string>('');
+const errorUserAgent = ref<string>('');
+const errorComponentName = ref<string>('');
+const errorTime = ref<string>('');
+const showDevInfo = ref(false);
+const copiedField = ref<string>('');
+const copyMessage = ref<string>('');
 const router = useRouter();
 
-onErrorCaptured((err: Error) => {
+onErrorCaptured((err: Error, _instance, info) => {
   error.value = err;
+  errorStack.value = err.stack || '';
+  errorRoute.value = router.currentRoute.value.fullPath;
+  errorUserAgent.value = navigator.userAgent;
+  errorComponentName.value = info || '';
+  errorTime.value = new Date().toLocaleString('zh-CN', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+  });
   console.error('[ErrorBoundary]', err);
   return false;
 });
@@ -225,12 +207,12 @@ const errorTitle = computed(() => {
     error.value?.message?.includes('fetch') ||
     error.value?.message?.includes('network')
   ) {
-    return '网络连接异常';
+    return '信号丢失';
   }
   if (error.value?.message?.includes('timeout')) {
     return '请求超时';
   }
-  return '页面遇到了问题';
+  return '系统故障';
 });
 
 const errorDescription = computed(() => {
@@ -238,22 +220,16 @@ const errorDescription = computed(() => {
     error.value?.message?.includes('fetch') ||
     error.value?.message?.includes('network')
   ) {
-    return '无法连接到服务器，请检查网络连接';
+    return '无法建立上行链路，请检查网络连接';
   }
   if (error.value?.message?.includes('timeout')) {
     return '服务器响应超时，请稍后重试';
   }
-  return '信号丢失，正在尝试重新连接';
+  return '组件渲染失败，正在尝试恢复';
 });
 
 const errorMessage = computed(() => {
   return error.value?.message || '';
-});
-
-const truncatedErrorMessage = computed(() => {
-  const msg = error.value?.message;
-  if (!msg) return '';
-  return msg.substring(0, 60) + (msg.length > 60 ? '...' : '');
 });
 
 const errorCode = computed(() => {
@@ -269,17 +245,6 @@ const errorCode = computed(() => {
   return 'ERR_COMPONENT_RENDER';
 });
 
-const errorTime = computed(() => {
-  return new Date().toLocaleString('zh-CN', {
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit',
-  });
-});
-
 const handleRetry = (): void => {
   error.value = null;
 };
@@ -289,53 +254,54 @@ const goHome = (): void => {
   router.push('/');
 };
 
-const starStyle = (i: number) => {
-  const x = ((i * 7919) % 1000) / 10;
-  const y = ((i * 6271) % 1000) / 10;
-  const size = ((i * 3571) % 3) + 1;
-  const delay = ((i * 4157) % 40) / 10;
-  const duration = ((i * 2843) % 30) / 10 + 2;
-  return {
-    left: `${x}%`,
-    top: `${y}%`,
-    width: `${size}px`,
-    height: `${size}px`,
-    animationDelay: `${delay}s`,
-    animationDuration: `${duration}s`,
-  };
+const copyToClipboard = async (
+  text: string,
+  fieldId: string,
+  fieldLabel?: string,
+): Promise<void> => {
+  if (!text) {
+    copyMessage.value = fieldLabel
+      ? `该${fieldLabel}为空，无法复制`
+      : '内容为空，无法复制';
+    setTimeout(() => {
+      copyMessage.value = '';
+    }, 2000);
+    return;
+  }
+  try {
+    await navigator.clipboard.writeText(text);
+    copiedField.value = fieldId;
+    copyMessage.value = fieldLabel
+      ? `已复制${fieldLabel}信息`
+      : '已复制到剪贴板';
+    setTimeout(() => {
+      copiedField.value = '';
+      copyMessage.value = '';
+    }, 2000);
+  } catch {
+    copiedField.value = '';
+    copyMessage.value = '复制失败，请手动选择文本';
+    setTimeout(() => {
+      copyMessage.value = '';
+    }, 2000);
+  }
 };
 
-const bigStarStyle = (i: number) => {
-  const x = ((i * 8923) % 1000) / 10;
-  const y = ((i * 7193) % 1000) / 10;
-  const size = ((i * 4327) % 4) + 2;
-  const delay = ((i * 5659) % 60) / 10;
-  const duration = ((i * 3947) % 40) / 10 + 3;
-  return {
-    left: `${x}%`,
-    top: `${y}%`,
-    width: `${size}px`,
-    height: `${size}px`,
-    animationDelay: `${delay}s`,
-    animationDuration: `${duration}s`,
-  };
-};
+const copyErrorInfo = async (): Promise<void> => {
+  const info = [
+    `=== Error Boundary Report ===`,
+    `Time: ${errorTime.value}`,
+    `Code: ${errorCode.value}`,
+    `Message: ${errorMessage.value}`,
+    `Route: ${errorRoute.value}`,
+    `Component: ${errorComponentName.value}`,
+    `UserAgent: ${errorUserAgent.value}`,
+    ``,
+    `Stack:`,
+    errorStack.value || '(no stack)',
+  ].join('\n');
 
-const debrisStyle = (i: number) => {
-  const x = 30 + ((i * 137) % 40);
-  const y = 20 + ((i * 197) % 60);
-  const size = ((i * 101) % 4) + 1;
-  const delay = ((i * 71) % 30) / 10;
-  const duration = ((i * 47) % 20) / 10 + 4;
-  return {
-    left: `${x}%`,
-    top: `${y}%`,
-    width: `${size}px`,
-    height: `${size}px`,
-    animationDelay: `${delay}s`,
-    animationDuration: `${duration}s`,
-    '--rotation': `${(i * 37) % 360}deg`,
-  };
+  await copyToClipboard(info, 'all', '全部诊断');
 };
 </script>
 

@@ -142,21 +142,21 @@
             <div class="stat-item">
               <ThumbUpIcon :stroke-width="2.2" />
               <div class="stat-content">
-                <span class="stat-value">{{ photographer.likes }}</span>
+                <span class="stat-value">{{ formatCount(interactionStore.getCount(getPhotographerId(photographer)).likes) }}</span>
                 <span class="stat-label">点赞</span>
               </div>
             </div>
             <div class="stat-item">
               <EyeIcon :stroke-width="2.2" />
               <div class="stat-content">
-                <span class="stat-value">{{ photographer.views || '0' }}</span>
+                <span class="stat-value">{{ formatCount(interactionStore.getCount(getPhotographerId(photographer)).views) }}</span>
                 <span class="stat-label">浏览</span>
               </div>
             </div>
             <div class="stat-item">
               <UsersIcon :stroke-width="2.2" />
               <div class="stat-content">
-                <span class="stat-value">{{ photographer.followers || '0' }}</span>
+                <span class="stat-value">{{ formatCount(interactionStore.getCount(getPhotographerId(photographer)).followers) }}</span>
                 <span class="stat-label">粉丝</span>
               </div>
             </div>
@@ -212,7 +212,7 @@
 
 <script setup lang="ts">
 import { ref, computed, watch, onMounted, onUnmounted, type Component } from 'vue';
-import { showMessage } from '@/utils/landscape';
+import { showMessage, createSimpleInteractionItem, parseCount } from '@/utils/landscape';
 import { useInteractionStore } from '@/stores/landscape';
 
 import { workTypes, workTypeIcons, workTypeLabels, sortOptions as sortOptionsData } from '@/constants/landscape';
@@ -267,12 +267,19 @@ const emit = defineEmits<{
 const interactionStore = useInteractionStore();
 
 
+
 const getFollowingState = (photographer: Photographer): boolean => {
   return interactionStore.isFollowing(String(photographer.id));
 };
 
 const getPhotographerId = (photographer: Photographer): string => {
   return String(photographer.id);
+};
+
+const formatCount = (count: number) => {
+  if (count >= 10000) return (count / 10000).toFixed(1) + 'w';
+  if (count >= 1000) return (count / 1000).toFixed(1) + 'k';
+  return String(count);
 };
 
 const selectedTag = ref('all');
@@ -309,13 +316,14 @@ watch(
         views: parseInt(photographer.views?.replace(/[KM]/g, '') || '0') * (photographer.views?.includes('K') ? 1000 : photographer.views?.includes('M') ? 1000000 : 1),
         loves: 0,
         favorites: 0,
-        shares: 0
+        shares: 0,
+        followers: parseCount(String(photographer.followers || '0')),
       });
 
       if (photographer.worksPreview && Array.isArray(photographer.worksPreview)) {
         interactionStore.registerBatch(
-          photographer.worksPreview.map(work => ({
-            id: work.id || `work-${photographer.id}-${Math.random()}`,
+          photographer.worksPreview.map((work, idx) => ({
+            id: work.globalWorkId || work.id || `work-${photographer.id}-${idx}`,
             counts: {
               likes: work.likes || 0,
               loves: work.loves || 0,
@@ -400,12 +408,6 @@ const workTypesList = ref(workTypes.map(key => ({
 const sortOptions = sortOptionsData;
 
 
-const parseCount = (value: string): number => {
-  const num = parseFloat(value.replace(/[KMk]/gi, ''));
-  if (value.toUpperCase().includes('K')) return num * 1000;
-  if (value.toUpperCase().includes('M')) return num * 1000000;
-  return num;
-};
 
 const filteredPhotographers = computed(() => {
   let result = [...photographers.value];
@@ -501,7 +503,12 @@ const handleFollow = (photographer: Photographer) => {
 
 const toggleLike = (photographer: Photographer) => {
   const id = getPhotographerId(photographer);
-  const isAdded = interactionStore.toggleLike(id);
+  const item = createSimpleInteractionItem(id, 'photographer', photographer.name, {
+    image: photographer.avatar,
+    location: photographer.location,
+    category: photographer.category,
+  });
+  const isAdded = interactionStore.toggleLike(item);
   if (isAdded) {
     showMessage.like.success(photographer.name);
   } else {
@@ -520,7 +527,7 @@ const getWorkTypeColor = (typeId: string) => {
   return type?.color || '#F59E0B';
 };
 
-const handleShare = (photographer: Photographer) => {
+const handleShare = (_photographer: Photographer) => {
   // 实现分享功能
 
 };

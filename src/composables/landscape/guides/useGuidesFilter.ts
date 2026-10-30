@@ -184,4 +184,4 @@ export function useGuidesFilter(
 }
 
 export { modeMap, seasonMap, durationMap, themeMap };
-export type { SelectedFilters, UseGuidesFilterReturn };
+

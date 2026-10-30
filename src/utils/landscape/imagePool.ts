@@ -3,11 +3,11 @@ const POOL_SIZE = 36;
 
 import type { GlobalPhotographer, GlobalImage, GlobalGuide, GlobalPhotographerWork } from '@/typesOfPages/landscape/data';
 
-export function poolImage(index: number): string {
+function poolImage(index: number): string {
   return `${OSS_BASE}/${((index % POOL_SIZE) + POOL_SIZE) % POOL_SIZE + 1}.webp`;
 }
 
-export const imageAssigners = {
+const imageAssigners = {
   gallery: (i: number) => poolImage(i),
   hotTopic: (i: number) => poolImage(i + 28),
   destination: (i: number, season: number) => poolImage(i * 3 + 8 + season),

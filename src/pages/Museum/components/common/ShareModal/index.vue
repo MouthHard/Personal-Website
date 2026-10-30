@@ -26,7 +26,7 @@
               </span>
               分享到
             </h3>
-            <button class="close-btn" @click="close" aria-label="关闭">
+            <button class="close-btn" aria-label="关闭" @click="close">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
                 <line x1="18" y1="6" x2="6" y2="18" />
                 <line x1="6" y1="6" x2="18" y2="18" />

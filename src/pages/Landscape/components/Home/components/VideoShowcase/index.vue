@@ -1,5 +1,5 @@
 <template>
-  <section class="video-showcase">
+  <section v-if="videos.length > 0" class="video-showcase">
     <div class="section-header">
       <div class="header-left">
         <span class="title-label">CINEMA</span>
@@ -7,12 +7,25 @@
         <p class="section-subtitle">用镜头记录世界</p>
       </div>
       <button class="more-btn" @click="handleMore">
-        <span>更多</span>
-        <ArrowRightIcon :stroke-width="2" />
+        <span class="clapper">
+          <span class="clapper-top">
+            <span class="top-stripes"></span>
+          </span>
+          <span class="clapper-hinge clapper-hinge-l"></span>
+          <span class="clapper-hinge clapper-hinge-r"></span>
+          <span class="clapper-body">
+            <span class="body-glow"></span>
+            <span class="body-content">
+              <span class="more-text">更多</span>
+              <ArrowRightIcon :stroke-width="2.2" class="more-arrow" />
+            </span>
+            <span class="body-engrave"></span>
+          </span>
+        </span>
       </button>
     </div>
 
-    <div v-if="videos.length > 0" class="coverflow-stage">
+    <div class="coverflow-stage">
       <VideoFrame
         ref="videoFrameRef"
         :current-title="videos[activeIndex]?.title"
@@ -42,13 +55,6 @@
       </VideoFrame>
     </div>
 
-    <div v-else class="empty-state">
-      <div class="empty-icon">
-        <EmptyVideoIcon :stroke-width="1.5" />
-      </div>
-      <p class="empty-text">暂无视频内容</p>
-      <span class="empty-hint">精彩视频即将上线</span>
-    </div>
 
     <VideoModal
       ref="videoModalRef"
@@ -70,6 +76,8 @@
       @select="openVideoModal"
     />
   </section>
+
+  <ShareMenu v-model:visible="showShareMenu" :work="shareWork" />
 </template>
 
 <script setup lang="ts">
@@ -79,15 +87,34 @@ import { useInteractionStore } from '@/stores/landscape';
 import { useHomeViewData } from '@/composables/landscape';
 import type { GlobalVideo } from '@/typesOfPages/landscape/data';
 import ArrowRightIcon from '@/pages/Landscape/icons/common/ArrowRightIcon.vue';
-import EmptyVideoIcon from '@/pages/Landscape/icons/components/home/VideoShowcase/EmptyVideoIcon.vue';
+
 import VideoSlide from './components/VideoSlide/index.vue';
 import VideoFrame from './components/VideoFrame/index.vue';
 import VideoModal from './components/VideoModal/index.vue';
+import ShareMenu from '../../../common/ShareMenu/index.vue';
 
 const interactionStore = useInteractionStore();
 const showVideoModal = ref(false);
 const selectedVideo = ref<GlobalVideo | null>(null);
-const isFollowing = ref(false);
+const showShareMenu = ref(false);
+const currentShareVideo = ref<GlobalVideo | null>(null);
+const shareWork = computed(() => {
+  const v = currentShareVideo.value;
+  if (!v) return {};
+  return {
+    type: 'video' as const,
+    title: v.title,
+    cover: v.poster,
+    author: v.author,
+    location: v.location,
+    category: v.category,
+    duration: v.duration,
+  };
+});
+const isFollowing = computed(() => {
+  const authorId = selectedVideo.value?.authorId;
+  return authorId ? interactionStore.isFollowing(authorId) : false;
+});
 const activeIndex = ref(0);
 const videoModalRef = ref<{ videoPlayer: HTMLVideoElement | null } | null>(null);
 
@@ -194,8 +221,8 @@ const toggleVideoFavorite = (video: GlobalVideo | null) => {
 
 const toggleVideoShare = (video: GlobalVideo | null) => {
   if (!video) return;
-
-  showMessage.share.success(video.title);
+  currentShareVideo.value = video;
+  showShareMenu.value = true;
 };
 
 const slideStyles = computed(() => {
@@ -278,7 +305,14 @@ const handleVideoEnd = () => {
 };
 
 const toggleFollow = () => {
-  isFollowing.value = !isFollowing.value;
+  const authorId = selectedVideo.value?.authorId;
+  if (!authorId) return;
+  const isNowFollowing = interactionStore.toggleFollowPhotographer(authorId);
+  if (isNowFollowing) {
+    showMessage.follow.success(selectedVideo.value?.author || '');
+  } else {
+    showMessage.follow.cancel(selectedVideo.value?.author || '');
+  }
 };
 </script>
 

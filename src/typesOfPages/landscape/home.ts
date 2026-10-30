@@ -49,7 +49,7 @@ export interface Topic {
   trending?: boolean
 }
 
-export interface HomePhotographerWork {
+interface HomePhotographerWork {
   id: string
   type: 'photo' | 'video' | 'guide'
   title: string

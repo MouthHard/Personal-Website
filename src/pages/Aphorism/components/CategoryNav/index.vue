@@ -1,22 +1,41 @@
 <template>
   <div class="category-nav">
-    <!-- 主分类标签 -->
-    <div class="category-tabs">
-      <button v-for="category in categories" :key="category.id" class="category-tab"
-        :class="{ active: activeCategory === category.id }" @click="selectCategory(category)">
-        <component :is="getIconComponent(category.id)" class="tab-icon" />
-        <span class="tab-name">{{ category.name }}</span>
-      </button>
+    <!-- 加载中：分类骨架 -->
+    <div v-if="isCatLoading" class="category-skeleton">
+      <div class="sk-row">
+        <span v-for="n in 6" :key="n" class="sk-tab"></span>
+      </div>
+      <div class="sk-row sub">
+        <span v-for="m in 7" :key="m" class="sk-chip"></span>
+      </div>
     </div>
 
-    <!-- 子分类（不显示图标） -->
-
-    <div v-if="subCategories.length > 0" class="category-grid">
-      <button v-for="sub in subCategories" :key="sub.id" class="category-item sub-category"
-        :class="{ active: activeSubCategory === sub.id }" @click="selectSubCategory(sub)">
-        <span class="item-name">{{ sub.name }}</span>
-      </button>
+    <!-- 加载失败 / 无分类 -->
+    <div v-else-if="categories.length == 0" class="category-empty">
+      <span class="ce-seal">类</span>
+      <p class="ce-text">分类正在整卷中，请稍后再试</p>
+      <button class="ce-retry" @click="retryLoadCategories">重试</button>
     </div>
+
+    <template v-else>
+      <!-- 主分类标签 -->
+      <div class="category-tabs">
+        <button v-for="category in categories" :key="category.id" class="category-tab"
+          :class="{ active: activeCategory === category.id }" @click="selectCategory(category)">
+          <component :is="getIconComponent(category.id)" class="tab-icon" />
+          <span class="tab-name">{{ category.name }}</span>
+        </button>
+      </div>
+
+      <!-- 子分类（不显示图标） -->
+
+      <div v-if="subCategories.length > 0" class="category-grid">
+        <button v-for="sub in subCategories" :key="sub.id" class="category-item sub-category"
+          :class="{ active: activeSubCategory === sub.id }" @click="selectSubCategory(sub)">
+          <span class="item-name">{{ sub.name }}</span>
+        </button>
+      </div>
+    </template>
   </div>
 </template>
 
@@ -98,11 +117,40 @@ const reset = () => {
   hasAutoSelected.value = true;
 };
 
-defineExpose({ reset });
+/** 保持当前一级分类选中，二级回归到该一级下的「全部诗词」 */
+const selectAllOfCurrentCategory = () => {
+  const category = categories.value.find((c) => c.id === activeCategory.value);
+  const children = category?.children ?? [];
+  const allSub = children.find((c) => c.name === '全部诗词') ?? children[0];
+  if (allSub) {
+    selectSubCategory(allSub);
+  } else {
+    hasAutoSelected.value = true;
+    activeSubCategory.value = null;
+    handleCategorySelection(activeCategory.value || '');
+  }
+};
+
+defineExpose({ reset, selectAllOfCurrentCategory });
+
+const isCatLoading = ref(false);
+
+const loadCategories = async () => {
+  isCatLoading.value = true;
+  try {
+    await dataStore.loadCategories();
+  } finally {
+    isCatLoading.value = false;
+  }
+};
+
+const retryLoadCategories = () => {
+  loadCategories();
+};
 
 onMounted(async () => {
   if (categories.value.length === 0) {
-    await dataStore.loadCategories();
+    await loadCategories();
   }
 });
 

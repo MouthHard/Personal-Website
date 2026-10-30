@@ -77,7 +77,7 @@
 
       <!-- 顶部鎏金装订条 -->
       <div class="cal-binding">
-        <span class="binding-ring" v-for="r in 5" :key="r" />
+        <span v-for="r in 5" :key="r" class="binding-ring" />
       </div>
 
       <!-- 日历主体（多张纸页堆叠 + 正面内容页） -->
@@ -142,19 +142,19 @@
 
           <!-- 操作按钮（2×2 网格 · 融入同一张纸） -->
           <div class="cal-actions">
-            <button class="cal-act act-fav" :class="{ 'is-active': isFav(exp) }" @click.stop="onToggleFavorite(exp)" :title="isFav(exp) ? '已收藏' : '收藏'">
+            <button class="cal-act act-fav" :class="{ 'is-active': isFav(exp) }" :title="isFav(exp) ? '已收藏' : '收藏'" @click.stop="onToggleFavorite(exp)">
               <BookmarkIcon :size="15" :filled="isFav(exp)" />
               <span>{{ isFav(exp) ? '已收藏' : '收藏' }}</span>
             </button>
-            <button class="cal-act act-been" :class="{ 'is-active': isBeen(exp) }" @click.stop="onToggleBeen(exp)" :title="isBeen(exp) ? '已体验' : '标记体验'">
+            <button class="cal-act act-been" :class="{ 'is-active': isBeen(exp) }" :title="isBeen(exp) ? '已体验' : '标记体验'" @click.stop="onToggleBeen(exp)">
               <FlagIcon :size="15" :filled="isBeen(exp)" />
               <span>{{ isBeen(exp) ? '已体验' : '体验' }}</span>
             </button>
-            <button class="cal-act act-share" @click.stop="onShare(exp)" title="分享">
+            <button class="cal-act act-share" title="分享" @click.stop="onShare(exp)">
               <ShareIcon :size="15" />
               <span>分享</span>
             </button>
-            <button class="cal-act act-detail" @click.stop="openDetail(exp)" title="详情">
+            <button class="cal-act act-detail" title="详情" @click.stop="openDetail(exp)">
               <ScrollIcon :size="15" />
               <span>详情</span>
             </button>

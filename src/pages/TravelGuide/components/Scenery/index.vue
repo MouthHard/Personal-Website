@@ -50,7 +50,7 @@
       </ul>
 
       <div class="nav-hud-bottom">
-        <span class="hud-tick" v-for="t in 12" :key="t"></span>
+        <span v-for="t in 12" :key="t" class="hud-tick"></span>
       </div>
     </nav>
 

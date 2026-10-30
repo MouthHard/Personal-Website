@@ -43,8 +43,23 @@ const provinceMap: Record<string, string> = {
 export const formatNumber = (num: number): string => num.toLocaleString('en-US');
 
 // 获取博物馆的省份英文名称
-const getProvinceEn = (province: string): string => {
+export const getProvinceEn = (province: string): string => {
   return provinceMap[province] || province.toLowerCase();
+};
+
+// 博物馆类型到英文的映射
+const museumTypeMap: Record<string, string> = {
+  历史博物馆: 'history',
+  艺术博物馆: 'art',
+  科技博物馆: 'science',
+  自然博物馆: 'nature',
+  军事博物馆: 'military',
+  民俗博物馆: 'folk',
+};
+
+// 获取博物馆类型的英文名称
+export const getMuseumTypeEn = (type: string): string => {
+  return museumTypeMap[type] || type.toLowerCase();
 };
 
 

@@ -10,9 +10,11 @@
     stroke-linejoin="round"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
-    <polyline points="16 6 12 2 8 6" />
-    <line x1="12" y1="2" x2="12" y2="15" />
+    <circle cx="17.6" cy="5.4" r="2.75" :fill="fill" />
+    <circle cx="6.4" cy="12" r="2.75" :fill="fill" />
+    <circle cx="17.6" cy="18.6" r="2.75" :fill="fill" />
+    <line x1="8.7" y1="10.7" x2="15.2" y2="6.7" stroke="currentColor" stroke-width="2.3" />
+    <line x1="8.7" y1="13.3" x2="15.2" y2="17.3" stroke="currentColor" stroke-width="2.3" />
   </svg>
 </template>
 

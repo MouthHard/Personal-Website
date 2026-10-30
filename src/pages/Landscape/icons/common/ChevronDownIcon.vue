@@ -1,13 +1,12 @@
 <template>
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" :stroke-width="strokeWidth">
-    <path d="M19 12l-7 7-7-7" />
+  <svg t="1793239901721" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+    p-id="2616" fill="currentColor" width="200" height="200">
+    <path
+      d="M93.091237 317.744796v93.090515h93.091238V503.926549h93.090515v93.091237h93.091237v93.090515h93.090515v93.090515H558.54598V690.108301h93.090515V597.017786h93.090515V503.926549h93.091237v-93.091238h93.091238v-93.090515h93.090515v-93.090515H0.000722v93.090515z"
+      p-id="2617"></path>
   </svg>
 </template>
 
 <script setup lang="ts">
-withDefaults(defineProps<{
-  strokeWidth?: number;
-}>(), {
-  strokeWidth: 2,
-});
+
 </script>

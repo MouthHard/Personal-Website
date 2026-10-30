@@ -1,12 +1,25 @@
 <template>
-  <section class="travel-guides">
+  <section v-if="guides.length > 0" class="travel-guides">
     <div class="section-header">
       <div class="header-left">
         <span class="title-label">EXPLORE</span>
         <h2 class="section-title">行者手记</h2>
         <p class="section-subtitle">发现世界的每一个角落</p>
       </div>
-      <button class="more-btn" @click="handleMore">更多 ☞</button>
+      <button class="more-btn" aria-label="查看更多指南攻略" @click="handleMore">
+        <span class="compass-mark" aria-hidden="true">
+          <span class="compass-ring"></span>
+          <span class="compass-ticks"></span>
+          <span class="compass-face"></span>
+          <span class="compass-needle"></span>
+          <span class="compass-core"></span>
+        </span>
+        <span class="more-text">
+          <span class="more-label">更多</span>
+          <span class="more-sub">GUIDES</span>
+        </span>
+        <span class="more-arrow" aria-hidden="true"></span>
+      </button>
     </div>
 
     <div class="editorial-layout">
@@ -132,6 +145,7 @@
       </div>
     </div>
 
+
     <div class="scroll-section">
       <div class="scroll-header">
         <h3>更多精彩</h3>
@@ -141,14 +155,14 @@
             :disabled="scrollPosition === 0"
             @click="scrollPrev"
           >
-            <ChevronLeftIcon :stroke-width="2" />
+            <ChevronLeftIcon :stroke-width="3" />
           </button>
           <button
             class="nav-btn next"
             :disabled="scrollPosition >= maxScroll"
             @click="scrollNext"
           >
-            <ChevronRightIcon :stroke-width="2" />
+            <ChevronRightIcon :stroke-width="3" />
           </button>
         </div>
       </div>
@@ -206,6 +220,8 @@
       </div>
     </div>
   </section>
+
+  <ShareMenu v-model:visible="showShareMenu" :work="shareWork" />
 </template>
 
 <script setup lang="ts">
@@ -219,9 +235,11 @@
   import HeartIcon from '@/pages/Landscape/icons/common/HeartIcon.vue';
   import BookmarkIcon from '@/pages/Landscape/icons/common/BookmarkIcon.vue';
   import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue';
+  import ShareMenu from '../../../common/ShareMenu/index.vue';
   import ChevronLeftIcon from '@/pages/Landscape/icons/common/ChevronLeftIcon.vue';
   import ChevronRightIcon from '@/pages/Landscape/icons/common/ChevronRightIcon.vue';
   import MaximizeIcon from '@/pages/Landscape/icons/components/home/TravelGuides/MaximizeIcon.vue';
+
   import { useLandscapeDataStore } from '@/stores/landscape';
   import { useInteractionStore } from '@/stores/landscape';
   import type { InteractionItem } from '@/typesOfPages/landscape';
@@ -235,6 +253,25 @@
   const scrollContainer = ref<HTMLElement | null>(null);
   const scrollPosition = ref(0);
   const maxScroll = ref(0);
+
+  const showShareMenu = ref(false);
+  const currentShareGuide = ref<GlobalGuide | null>(null);
+  const shareWork = computed(() => {
+    const g = currentShareGuide.value;
+    if (!g) return {};
+    return {
+      type: 'guide' as const,
+      title: g.title,
+      description: g.excerpt,
+      cover: g.cover,
+      author: g.author,
+      date: g.date,
+      location: g.location,
+      category: g.typeName || g.category,
+      rating: g.rating,
+      readTime: g.readTime,
+    };
+  });
 
   const guides = computed(() => dataStore.getAllGuides());
   const moreGuides = computed(() => guides.value.slice(4));
@@ -342,8 +379,8 @@
   };
 
   const handleShare = (guide: GlobalGuide) => {
-
-    showMessage.share.success(guide.title);
+    currentShareGuide.value = guide;
+    showShareMenu.value = true;
   };
 
   const handleCardClick = (guide: GlobalGuide) => {
@@ -356,7 +393,7 @@
   };
 
   const handleMore = () => {
-    // 查看更多处理
+    router.push('/landscape/guides');
   };
 
   const scrollPrev = () => {

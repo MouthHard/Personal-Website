@@ -13,7 +13,7 @@
             <img loading="lazy" :src="item.image" :alt="item.name" />
           </div>
           <div class="stub-perf perf-left">
-            <span class="perf-hole" v-for="h in 4" :key="h"></span>
+            <span v-for="h in 4" :key="h" class="perf-hole"></span>
           </div>
 
           <div class="stub-main">
@@ -38,17 +38,17 @@
           <div class="stub-actions">
             <button class="stub-act act-fav"
               :class="{ 'is-active': isExperienceFavorite(item.id, provinceId, 'performance') }"
-              @click.stop="onToggleFavorite(item)"
-              :title="isExperienceFavorite(item.id, provinceId, 'performance') ? '已收藏' : '收藏'">
+              :title="isExperienceFavorite(item.id, provinceId, 'performance') ? '已收藏' : '收藏'"
+              @click.stop="onToggleFavorite(item)">
               <BookmarkIcon :size="17" :filled="isExperienceFavorite(item.id, provinceId, 'performance')" />
             </button>
             <button class="stub-act act-been"
               :class="{ 'is-active': isExperienceBeen(item.id, provinceId, 'performance') }"
-              @click.stop="onToggleBeen(item)"
-              :title="isExperienceBeen(item.id, provinceId, 'performance') ? '已体验' : '标记体验'">
+              :title="isExperienceBeen(item.id, provinceId, 'performance') ? '已体验' : '标记体验'"
+              @click.stop="onToggleBeen(item)">
               <FlagIcon :size="17" :filled="isExperienceBeen(item.id, provinceId, 'performance')" />
             </button>
-            <button class="stub-act act-share" @click.stop="sharePerformance(item)" title="分享">
+            <button class="stub-act act-share" title="分享" @click.stop="sharePerformance(item)">
               <ShareIcon :size="17" />
             </button>
           </div>
@@ -59,7 +59,7 @@
           </div>
 
           <div class="stub-perf perf-right">
-            <span class="perf-hole" v-for="h in 4" :key="h"></span>
+            <span v-for="h in 4" :key="h" class="perf-hole"></span>
           </div>
 
           <div class="stub-toggle">
@@ -164,7 +164,7 @@
 
             <!-- 中间垂直齿孔撕边 -->
             <div class="perf-divider">
-              <span class="divider-hole" v-for="h in 16" :key="h"></span>
+              <span v-for="h in 16" :key="h" class="divider-hole"></span>
             </div>
 
             <!-- 右副券（票务/场次存根） -->
@@ -228,7 +228,7 @@
       <div class="empty-stage">
         <div class="empty-stub">
           <div class="stub-perf perf-left">
-            <span class="perf-hole" v-for="h in 4" :key="h"></span>
+            <span v-for="h in 4" :key="h" class="perf-hole"></span>
           </div>
           <div class="empty-stub-main">
             <div class="empty-icon-housing">
@@ -244,7 +244,7 @@
             </div>
           </div>
           <div class="stub-perf perf-right">
-            <span class="perf-hole" v-for="h in 4" :key="h"></span>
+            <span v-for="h in 4" :key="h" class="perf-hole"></span>
           </div>
         </div>
         <div class="empty-marquee">

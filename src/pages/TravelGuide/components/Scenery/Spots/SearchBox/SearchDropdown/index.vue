@@ -145,7 +145,7 @@
       @keydown.up.prevent="moveSuggestion(-1)"
       @keydown.esc.prevent="handleSearchEsc"
     />
-    <button v-if="searchQuery" class="search-clear-btn" @click="handleClear" title="清空">
+    <button v-if="searchQuery" class="search-clear-btn" title="清空" @click="handleClear">
       <CloseIcon :size="16" :stroke-width="2.5" />
     </button>
 

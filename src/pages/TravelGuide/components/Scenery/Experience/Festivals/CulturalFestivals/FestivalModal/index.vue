@@ -7,9 +7,9 @@
               @click.self="emit('close-panel')"
             >
               <div class="postcard-modal-wrap">
-                <div class="greeting-card" :key="selectedMonth ?? 0">
+                <div :key="selectedMonth ?? 0" class="greeting-card">
 
-                  <button class="modal-close-btn" @click="emit('close-panel')" aria-label="关闭">
+                  <button class="modal-close-btn" aria-label="关闭" @click="emit('close-panel')">
                     <CloseIcon />
                   </button>
 
@@ -122,8 +122,8 @@
                             class="pg-btn"
                             :class="{ disabled: currentPage <= 1 }"
                             :disabled="currentPage <= 1"
-                            @click="emit('change-page', currentPage - 1)"
                             aria-label="上一页"
+                            @click="emit('change-page', currentPage - 1)"
                           >
                             <ChevronRightIcon class="flip" />
                           </button>
@@ -142,8 +142,8 @@
                             class="pg-btn"
                             :class="{ disabled: currentPage >= totalPages }"
                             :disabled="currentPage >= totalPages"
-                            @click="emit('change-page', currentPage + 1)"
                             aria-label="下一页"
+                            @click="emit('change-page', currentPage + 1)"
                           >
                             <ChevronRightIcon />
                           </button>
@@ -187,7 +187,7 @@
 
                     <!-- 详情内容 -->
                     <template v-else>
-                      <button class="detail-close" @click="emit('close-detail')" aria-label="关闭详情">
+                      <button class="detail-close" aria-label="关闭详情" @click="emit('close-detail')">
                         <CloseIcon />
                       </button>
                       <div class="detail-scroll">

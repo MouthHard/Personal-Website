@@ -42,6 +42,10 @@
           {{ highlight }}
         </span>
       </div>
+
+      <div v-if="item.tags && item.tags.length > 0" class="guide-tags">
+        <span v-for="tag in item.tags.slice(0, 3)" :key="tag" class="guide-tag">{{ tag }}</span>
+      </div>
       
       <div class="card-footer">
         <div class="action-buttons">

@@ -136,3 +136,27 @@ export const highlightSearchMatch = (text: string, keyword: string): string => {
   const regex = new RegExp(`(${escapedKeyword})`, 'gi');
   return escapedText.replace(regex, '<mark>$1</mark>');
 };
+/**
+ * 防抖函数：延迟执行，在等待时间内重复调用会重置计时器
+ */
+export const debounce = <T extends (...args: any[]) => any>(fn: T, delay: number) => {
+  let timer: ReturnType<typeof setTimeout> | null = null;
+  return (...args: Parameters<T>) => {
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(() => fn(...args), delay);
+  };
+};
+
+/**
+ * 节流函数：在时间限制内只执行一次
+ */
+export const throttle = <T extends (...args: any[]) => any>(fn: T, limit: number) => {
+  let inThrottle = false;
+  return (...args: Parameters<T>) => {
+    if (!inThrottle) {
+      fn(...args);
+      inThrottle = true;
+      setTimeout(() => (inThrottle = false), limit);
+    }
+  };
+};
