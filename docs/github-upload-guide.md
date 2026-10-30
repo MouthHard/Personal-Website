@@ -99,23 +99,51 @@ pages/ExamplePage/
 > 每次推送到 `feat/update-site` 后，必须紧接着构建并部署到 `gh-pages` 分支，确保线上站点同步更新。
 
 ```bash
-# ── 源码提交与推送 ──
-rm -f nul .tmp-sass-check.css.map      # 0. 清理 Windows 临时文件
-git status                              # 1. 查看改动
-git add --dry-run .                     # 2. 预览待提交文件（检查无临时文件/临时目录）
-git add -A && git commit -m "feat: 说明" # 3. 暂存并提交（husky 会自动 lint）
-git fetch origin                        # 4. 拉取远程引用
-git merge origin/feat/update-site       # 5. 整合远程提交（Windows 禁用 rebase）
-git push origin feat/update-site        # 6. 推送源码
+# ── 提交前准备 ──
+rm -f nul .tmp-sass-check.css.map        # 0. 清理 Windows 临时文件
+git status                                # 1. 查看改动，确认所有改动都是预期的
+git add --dry-run .                       # 2. 预览待提交文件（检查无临时文件/临时目录）
+
+# ── 源码提交 ──
+git add -A                                # 3. 暂存全部改动（必须先 add，再 commit）
+git commit -m "feat: 说明"                # 4. 提交（husky 会自动 lint）
+
+# ── 提交后验证（防止 lint-staged stash 丢失改动） ──
+git stash list                            # 5. 检查是否有残留 stash（关键！）
+git diff HEAD                             # 6. 确认工作区与 HEAD 一致（无输出=一致）
+# 如果 stash list 有残留，立即执行：git stash pop 并解决冲突
+
+# ── 推送源码 ──
+git fetch origin                          # 7. 拉取远程引用
+git merge origin/feat/update-site         # 8. 整合远程提交（Windows 禁用 rebase）
+git push origin feat/update-site          # 9. 推送源码
 
 # ── 构建并部署到 GitHub Pages ──
-npx vite build --mode gh-pages          # 7. 构建产物到 dist/
-npx gh-pages -d dist -r https://github.com/MouthHard/Personal-Website.git -b gh-pages  # 8. 部署 dist 到 gh-pages 分支
+npx vite build --mode gh-pages            # 10. 构建产物到 dist/
+npx gh-pages -d dist -r https://github.com/MouthHard/Personal-Website.git -b gh-pages  # 11. 部署 dist 到 gh-pages 分支
 ```
 
 部署成功后访问：https://mouthhard.github.io/Personal-Website/
 
 > **注意**：PowerShell 下构建必须用 `npx vite build --mode gh-pages`，不要走 `npm run build -- --mode gh-pages`（参数解析会失败）。
+
+### ⚠️ lint-staged stash 陷阱（曾导致 235 个文件改动丢失）
+
+**根因**：`git commit` 时如果工作区有未暂存改动，lint-staged 会自动 `git stash` 这些改动，运行 lint 工具后再 `git stash pop` 恢复。如果 lint 工具（`eslint --fix` / `stylelint --fix`）修改了文件，`stash pop` 会冲突失败，改动留在 stash 中不被恢复。
+
+**预防措施**：
+1. **提交前必须 `git add -A`**：确保所有改动都已暂存，lint-staged 不会 stash 任何东西
+2. **提交后必须 `git stash list`**：确认无残留 stash
+3. **提交后必须 `git diff HEAD`**：确认工作区与 HEAD 一致
+4. **如果有残留 stash**：立即 `git stash pop` 解决冲突，不要继续后续操作
+
+**恢复丢失的改动**：
+```bash
+git stash list                            # 查看残留 stash
+git stash pop                             # 尝试恢复
+# 如有冲突，逐文件解决后：
+git add -A && git commit -m "fix: 恢复stash中丢失的改动"
+```
 
 ---
 
@@ -182,6 +210,31 @@ git remote set-url origin git@github.com:MouthHard:Personal-Website.git
 git add -A && git commit -m "feat: 说明"
 ```
 
+### lint-staged stash 丢失改动（最严重！）
+
+**症状**：commit 成功但大量改动丢失，`git stash list` 有残留。
+
+```bash
+# 1. 确认是否有残留 stash
+git stash list
+# 输出 "stash@{0}: lint-staged automatic backup" 说明改动被 stash 了
+
+# 2. 恢复改动
+git stash pop
+# 如有冲突，取 stash 版本（通常是最新的）：
+git checkout --theirs -- $(git diff --name-only --diff-filter=U)
+git add -A
+
+# 3. 重新提交
+git commit -m "fix: 恢复lint-staged stash中丢失的改动"
+
+# 4. 验证已完全恢复
+git stash list                            # 应该为空
+git diff HEAD                             # 应该为空
+```
+
+**预防**：每次 commit 前先 `git add -A`，commit 后立即 `git stash list` 检查。
+
 ### 误提交临时文件
 
 ```bash
@@ -200,27 +253,34 @@ git commit -m "chore: 移除临时目录的git跟踪"
 ## 五、规范要求
 
 1. **提交前必查**：`git add --dry-run .`，确认只有上述必须上传的文件
-2. **推送前必拉**：先 `git fetch` 再 `git merge`（Windows 禁用 rebase）
-3. **推送后必部署**：源码推送到 `feat/update-site` 后，必须执行 `npx vite build --mode gh-pages` 构建 + `npx gh-pages` 部署到 `gh-pages` 分支，确保线上站点同步
-4. **禁止强推**：不使用 `--force`，保留完整历史
-5. **构建命令**：统一用 `npx vite build --mode gh-pages`
-6. **产物分离**：`dist/` 只推 `gh-pages` 分支，不提交源码分支
-7. **网络波动**：确认无代理后重试，不调整全局代理配置
+2. **提交前必暂存**：`git add -A` 暂存全部改动后再 `git commit`，避免 lint-staged stash 陷阱
+3. **提交后必验证**：`git stash list`（无残留）+ `git diff HEAD`（无输出），确保改动未丢失
+4. **推送前必拉**：先 `git fetch` 再 `git merge`（Windows 禁用 rebase）
+5. **推送后必部署**：源码推送到 `feat/update-site` 后，必须执行 `npx vite build --mode gh-pages` 构建 + `npx gh-pages` 部署到 `gh-pages` 分支，确保线上站点同步
+6. **禁止强推**：不使用 `--force`，保留完整历史
+7. **构建命令**：统一用 `npx vite build --mode gh-pages`
+8. **产物分离**：`dist/` 只推 `gh-pages` 分支，不提交源码分支
+9. **网络波动**：确认无代理后重试，不调整全局代理配置
+10. **禁止跳过钩子**：不用 `--no-verify`，除非确认是 stash 中代码本身的历史 lint 问题
 
 ---
 
 ## 六、速查命令
 
 ```bash
-git status                              # 当前状态
-git add --dry-run .                     # 预览待提交文件
-git log --oneline -5                    # 最近 5 条提交
-git diff                                # 未暂存改动
-git restore <文件>                       # 丢弃改动
-git restore --staged .                  # 取消暂存
-git fetch origin                        # 拉取远程引用
-git merge origin/feat/update-site       # 整合远程提交
-git push origin feat/update-site        # 推送源码
-npx vite build --mode gh-pages          # 构建部署产物
+git status                                # 当前状态
+git add --dry-run .                       # 预览待提交文件
+git add -A                                # 暂存全部改动（提交前必须执行）
+git commit -m "feat: 说明"                # 提交
+git stash list                            # 检查残留 stash（提交后必须执行）
+git diff HEAD                             # 确认工作区与HEAD一致（无输出=一致）
+git log --oneline -5                      # 最近 5 条提交
+git diff                                  # 未暂存改动
+git restore <文件>                         # 丢弃改动
+git restore --staged .                    # 取消暂存
+git fetch origin                          # 拉取远程引用
+git merge origin/feat/update-site         # 整合远程提交
+git push origin feat/update-site          # 推送源码
+npx vite build --mode gh-pages            # 构建部署产物
 npx gh-pages -d dist -r https://github.com/MouthHard/Personal-Website.git -b gh-pages  # 部署到 gh-pages
 ```
