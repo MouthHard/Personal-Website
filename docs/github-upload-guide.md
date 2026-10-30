@@ -265,7 +265,49 @@ git commit -m "chore: 移除临时目录的git跟踪"
 
 ---
 
-## 六、速查命令
+## 六、工具链冲突清单
+
+> 完整报告见 `docs/bugs/2026-10-31-工具链冲突全面检查报告.md`
+
+### 🔴 高风险冲突
+
+| # | 冲突 | 工具 | 预防 |
+|---|------|------|------|
+| 1 | lint-staged stash 丢失改动 | lint-staged + husky | 提交前 `git add -A`，提交后 `git stash list` 验证 |
+| 2 | stylelint 96 个规则错误 | stylelint + 项目代码 | 放宽 keyframes-name-pattern 等规则（见下方） |
+| 3 | lint-staged SIGKILL | lint-staged + Node.js | `.husky/pre-commit` 加 `NODE_OPTIONS="--max-old-space-size=4096"` |
+
+### 🟡 中风险冲突
+
+| # | 冲突 | 工具 | 预防 |
+|---|------|------|------|
+| 4 | @typescript-eslint v5 与 TS 5.9 | eslint + typescript | 升级到 @typescript-eslint v6+ |
+| 5 | public/test/ 反复提交 | git + .gitignore | `git rm -r --cached` 解除跟踪 |
+| 6 | stylelint 不认识 :deep | stylelint + Vue 3 | 配置 ignorePseudoClasses: ['deep'] |
+
+### 推荐配置修改
+
+**stylelint.config.cjs**（放宽与项目代码冲突的规则）：
+```js
+rules: {
+  // 现有规则...
+  'keyframes-name-pattern': null,                    // 允许 camelCase keyframe
+  'declaration-block-single-line-max-declarations': null,  // 允许单行多声明
+  'selector-pseudo-class-no-unknown': [true, {
+    ignorePseudoClasses: ['deep', 'global']          // Vue scoped CSS
+  }],
+}
+```
+
+**.husky/pre-commit**（增加内存限制）：
+```bash
+export NODE_OPTIONS="--max-old-space-size=4096"
+npx lint-staged
+```
+
+---
+
+## 七、速查命令
 
 ```bash
 git status                                # 当前状态
