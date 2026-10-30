@@ -104,6 +104,7 @@
   const route = useRoute();
   const interactionStore = useInteractionStore();
 
+
   const emit = defineEmits<{
     'update:searchQuery': [value: string];
     'open-detail': [item: LandscapeItem];

@@ -2,125 +2,558 @@
   position: fixed; inset: 0; z-index: 10001;
   display: flex; align-items: center; justify-content: center;
   padding: 2rem;
-  background: rgba(0, 0, 0, 0.95);
-  backdrop-filter: blur(10px);
+  background: rgb(0 0 0 / 85%);
+  backdrop-filter: blur(12px);
 
   .modal-wrapper {
-    position: relative; width: 100%; max-width: 1100px; max-height: 75vh;
-    background: linear-gradient(180deg, #0f0a0a, #1a0e0e);
-    border: 1px solid rgba(239, 68, 68, 0.15); border-radius: 20px;
+    position: relative; width: 100%; max-width: 1400px; max-height: 90vh;
+    background:
+      repeating-linear-gradient(90deg, transparent, transparent 2px, rgb(0 0 0 / 1.5%) 2px, rgb(0 0 0 / 1.5%) 4px),
+      linear-gradient(165deg, #c4b89a 0%, #b0a488 25%, #9a8e72 50%, #a4967a 75%, #b8ac8e 100%);
+    border: 4px solid #5a4a30;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 100px rgba(239, 68, 68, 0.05);
+    box-shadow:
+      0 50px 100px rgb(0 0 0 / 70%),
+      0 20px 40px rgb(0 0 0 / 40%),
+      0 0 0 2px rgb(0 0 0 / 40%),
+      0 0 0 4px rgb(180 160 120 / 15%),
+      inset 0 4px 0 rgb(255 245 220 / 35%),
+      inset 0 -4px 0 rgb(60 40 20 / 50%),
+      inset 4px 0 8px rgb(255 240 200 / 12%),
+      inset -4px 0 8px rgb(60 40 20 / 35%);
+
+    .speaker-grille {
+      position: absolute;
+      top: 0; right: 0; bottom: 0;
+      width: 3px;
+      z-index: 1;
+      background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgb(40 30 15 / 30%) 3px, rgb(40 30 15 / 30%) 5px);
+    }
 
     .modal-close {
-      position: absolute; top: 1.5rem; right: 1.5rem;
-      width: 40px; height: 40px;
+      position: absolute; top: 0.4rem; right: 0.5rem;
+      width: 44px; height: 44px;
       display: flex; align-items: center; justify-content: center;
-      background: rgba(20, 8, 8, 0.8); border: 1px solid rgba(239, 68, 68, 0.15);
-      border-radius: 10px; color: #fca5a5; cursor: pointer; z-index: 10;
+      background: radial-gradient(circle at 35% 30%, #9a8a6a, #6a5a3a 40%, #4a3a20 70%, #2a1a10 100%);
+      border: 2px solid #2a1a10;
+      border-radius: 50%; color: #f0e8d0; cursor: pointer; z-index: 12;
       transition: all 0.35s ease;
-      svg { width: 20px; height: 20px; }
-      &:hover { background: rgba(239, 68, 68, 0.2); color: white; transform: rotate(90deg); }
+      box-shadow: 0 4px 8px rgb(0 0 0 / 50%), 0 2px 4px rgb(0 0 0 / 30%), inset 0 2px 4px rgb(255 240 200 / 25%), inset 0 -2px 4px rgb(0 0 0 / 40%), inset 2px 0 3px rgb(255 240 200 / 10%), inset -2px 0 3px rgb(0 0 0 / 30%);
+      svg { width: 22px; height: 22px; }
+
+      &:hover {
+        background: radial-gradient(circle at 35% 30%, #ba4a4a, #8a2a2a 40%, #5a1a1a 70%, #3a0a0a 100%);
+        color: white;
+        box-shadow: 0 0 20px rgb(220 60 60 / 60%), 0 4px 8px rgb(0 0 0 / 50%), inset 0 2px 4px rgb(255 200 200 / 25%), inset 0 -2px 4px rgb(0 0 0 / 40%);
+      }
+      &:active { transform: scale(0.92); }
     }
 
     .modal-content {
-      display: grid; grid-template-columns: 1fr 380px; max-height: 90vh;
+      display: grid; grid-template-columns: 1fr 480px; max-height: 90vh;
 
       .player-section {
-        background: #000; display: flex; align-items: center; justify-content: center;
-        .player-container {
+        background: linear-gradient(165deg, #2e2418 0%, #1a140e 40%, #120c06 70%, #221a10 100%);
+        display: flex; align-items: center; justify-content: center;
+        position: relative;
+        padding: 2.5rem 2rem;
+        box-shadow: inset 0 0 40px rgb(0 0 0 / 35%);
+
+        .crt-bezel {
           position: relative; width: 100%; height: 100%;
-          .video-player { width: 100%; height: 100%; object-fit: contain; }
-          .player-frame { position: absolute; inset: 0; border: 2px solid rgba(239, 68, 68, 0.08); pointer-events: none; }
+          padding: 22px 22px 38px;
+          background: linear-gradient(165deg, #42382a 0%, #2e2412 30%, #1e160c 60%, #241c10 85%, #2e2418 100%);
+          border: 4px solid #1a140a;
+          border-radius: 26px 26px 22px 22px;
+          box-shadow: inset 0 5px 10px rgb(0 0 0 / 70%), inset 0 -5px 10px rgb(0 0 0 / 60%), inset 5px 0 10px rgb(0 0 0 / 50%), inset -5px 0 10px rgb(0 0 0 / 50%), 0 0 28px rgb(0 0 0 / 50%), 0 6px 16px rgb(0 0 0 / 35%), 0 2px 4px rgb(0 0 0 / 20%);
+
+          .bezel-screw {
+            position: absolute; width: 16px; height: 16px; border-radius: 50%; z-index: 5;
+            background: radial-gradient(circle at 35% 30%, #b8a87e, #8a7a52 30%, #5a4a2e 60%, #2a1a10 100%);
+            box-shadow: 0 3px 5px rgb(0 0 0 / 60%), 0 1px 2px rgb(0 0 0 / 40%), inset 0 2px 3px rgb(255 240 200 / 25%), inset 0 -2px 3px rgb(0 0 0 / 50%), inset 1px 0 2px rgb(255 240 200 / 10%), inset -1px 0 2px rgb(0 0 0 / 30%);
+            &::before { content: ''; position: absolute; top: 50%; left: 50%; width: 10px; height: 2.5px; transform: translate(-50%, -50%); background: linear-gradient(90deg, #1a1008, #3a2a18, #1a1008); border-radius: 1px; box-shadow: 0 0 0 0.5px rgb(20 14 8 / 60%); }
+            &::after { content: ''; position: absolute; top: 50%; left: 50%; width: 2.5px; height: 10px; transform: translate(-50%, -50%); background: linear-gradient(180deg, #1a1008, #3a2a18, #1a1008); border-radius: 1px; }
+            &.screw-tl { top: 7px; left: 7px; }
+            &.screw-tr { top: 7px; right: 7px; }
+            &.screw-bl { bottom: 7px; left: 7px; }
+            &.screw-br { bottom: 7px; right: 7px; }
+          }
+
+          .bezel-vents {
+            position: absolute; top: 5px; left: 50%; transform: translateX(-50%); width: 55%; height: 5px; z-index: 4;
+            background: repeating-linear-gradient(90deg, transparent, transparent 2px, rgb(0 0 0 / 50%) 2px, rgb(0 0 0 / 50%) 4px);
+            border-radius: 2px;
+            box-shadow: inset 0 1px 2px rgb(0 0 0 / 60%), inset 0 -1px 1px rgb(255 240 200 / 8%), 0 1px 0 rgb(255 240 200 / 5%);
+          }
+
+          .player-container {
+            position: relative; width: 100%; height: 100%;
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: inset 0 0 0 3px rgb(30 22 12 / 80%), inset 0 0 0 5px rgb(60 50 30 / 40%), inset 0 4px 10px rgb(0 0 0 / 70%), inset 0 -3px 8px rgb(0 0 0 / 50%), inset 3px 0 6px rgb(0 0 0 / 40%), inset -3px 0 6px rgb(0 0 0 / 40%);
+
+            .video-player { width: 100%; height: 100%; object-fit: contain; }
+
+            .video-preview {
+              position: absolute; inset: 0; z-index: 1;
+              display: flex; align-items: center; justify-content: center;
+              background: #000;
+
+              .preview-poster {
+                width: 100%; height: 100%; object-fit: cover;
+                filter: brightness(0.7) contrast(1.05);
+              }
+
+              .preview-play-btn {
+                position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+                width: 88px; height: 88px; border-radius: 50%;
+                display: flex; align-items: center; justify-content: center;
+                background: radial-gradient(circle at 35% 28%, rgb(248 240 216 / 100%), rgb(200 188 140 / 90%) 40%, rgb(120 104 68 / 85%) 70%, rgb(70 56 32 / 80%) 100%);
+                border: 3px solid rgb(48 34 18 / 85%);
+                color: #2a1a10; cursor: pointer; z-index: 2;
+                box-shadow: 0 10px 28px rgb(0 0 0 / 55%), 0 4px 8px rgb(0 0 0 / 30%), 0 0 0 7px rgb(240 232 208 / 6%), 0 0 0 1px rgb(0 0 0 / 30%), inset 0 4px 8px rgb(255 245 220 / 35%), inset 0 -4px 8px rgb(0 0 0 / 35%), inset 2px 0 4px rgb(255 245 220 / 12%), inset -2px 0 4px rgb(0 0 0 / 20%);
+                transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+                svg { width: 40px; height: 40px; margin-left: 5px; }
+
+                &:hover {
+                  background: radial-gradient(circle at 35% 28%, rgb(255 250 230 / 100%), rgb(220 208 160 / 100%) 40%, rgb(140 124 88 / 95%) 70%, rgb(90 76 52 / 90%) 100%);
+                  box-shadow: 0 14px 36px rgb(0 0 0 / 55%), 0 6px 12px rgb(0 0 0 / 30%), 0 0 0 9px rgb(240 232 208 / 10%), 0 0 28px rgb(240 232 208 / 25%), inset 0 4px 8px rgb(255 245 220 / 45%), inset 0 -4px 8px rgb(0 0 0 / 35%);
+                  color: #1a0a00;
+                }
+                &:active { transform: translate(-50%, -50%) scale(0.92); }
+              }
+            }
+
+            .crt-scanlines {
+              position: absolute; inset: 0; pointer-events: none; z-index: 2;
+              background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgb(0 0 0 / 12%) 2px, rgb(0 0 0 / 12%) 3px);
+            }
+
+            .crt-glare {
+              position: absolute; inset: 0; pointer-events: none; z-index: 3;
+              background: radial-gradient(ellipse at 25% 15%, rgb(255 255 240 / 8%), transparent 50%), linear-gradient(135deg, rgb(255 255 240 / 4%), transparent 40%);
+            }
+
+            .crt-vignette {
+              position: absolute; inset: 0; pointer-events: none; z-index: 4;
+              box-shadow: inset 0 0 50px rgb(0 0 0 / 60%);
+              border-radius: 8px;
+            }
+          }
+
+          .crt-bottom-bar {
+            position: absolute; bottom: 7px; left: 18px; right: 18px; height: 26px;
+            display: flex; align-items: center; justify-content: space-between; z-index: 5;
+
+            .crt-brand {
+              display: flex; align-items: center; gap: 0.45rem;
+              .brand-dot { width: 7px; height: 7px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #e42, #c32 50%, #810 100%); box-shadow: 0 0 8px rgb(204 51 34 / 70%), 0 0 3px rgb(255 80 60 / 50%), inset 0 1px 1px rgb(255 200 180 / 30%); animation: power-led 2s ease-in-out infinite; }
+              .brand-text { color: rgb(210 190 150 / 65%); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; font-family: 'Courier New', monospace; text-shadow: 0 1px 1px rgb(0 0 0 / 50%); }
+            }
+
+            .crt-buttons { display: flex; align-items: center; gap: 0.35rem;
+
+              .crt-btn {
+                position: relative; width: 13px; height: 13px; border-radius: 3px; display: inline-block;
+                background: linear-gradient(165deg, #6a5a3a, #4a3a20 40%, #2a1a10 80%, #1a140a 100%);
+                border: 1px solid #0e0804;
+                box-shadow: 0 2px 3px rgb(0 0 0 / 50%), 0 1px 1px rgb(0 0 0 / 30%), inset 0 1px 0 rgb(255 240 200 / 15%), inset 0 -1px 1px rgb(0 0 0 / 40%);
+                transition: all 0.2s ease;
+
+                &.btn-power {
+                  width: 15px; height: 15px; border-radius: 50%;
+                  background: radial-gradient(circle at 35% 28%, #aa8a4a, #6a5a28 40%, #3a2a12 70%, #1a1008 100%);
+                  box-shadow: 0 2px 4px rgb(0 0 0 / 55%), 0 1px 1px rgb(0 0 0 / 30%), inset 0 1px 1px rgb(255 220 160 / 25%), inset 0 -1px 1px rgb(0 0 0 / 40%);
+                  &::after { content: ''; position: absolute; top: 50%; left: 50%; width: 6px; height: 6px; transform: translate(-50%, -50%); border-radius: 50%; border: 1px solid rgb(220 180 120 / 55%); box-shadow: inset 0 0 2px rgb(180 140 80 / 30%); }
+                }
+              }
+            }
+          }
         }
       }
 
       .info-panel {
-        padding: 1.75rem; overflow-y: auto; border-left: 1px solid rgba(239, 68, 68, 0.1);
-        display: flex; flex-direction: column; gap: 1.25rem;
+        padding: 3.5rem 1.5rem 1.5rem;
+        overflow-y: auto;
+        border-left: 4px solid #5a4a30;
+        display: flex; flex-direction: column; gap: 1.1rem;
+        background: repeating-linear-gradient(90deg, transparent, transparent 2px, rgb(0 0 0 / 1.2%) 2px, rgb(0 0 0 / 1.2%) 4px), linear-gradient(180deg, #a49678 0%, #928466 40%, #867858 80%, #7a6c4e 100%);
+        box-shadow: inset 6px 0 12px rgb(40 30 15 / 35%), inset 0 1px 0 rgb(255 240 200 / 15%);
         &::-webkit-scrollbar { width: 6px; }
-        &::-webkit-scrollbar-track { background: rgba(30, 15, 15, 0.5); }
-        &::-webkit-scrollbar-thumb { background: rgba(239, 68, 68, 0.25); border-radius: 3px; }
+        &::-webkit-scrollbar-track { background: rgb(60 50 30 / 30%); }
+        &::-webkit-scrollbar-thumb { background: rgb(90 74 48 / 50%); border-radius: 3px; }
 
-        .panel-header {
-          .panel-category {
-            display: inline-block; padding: 0.5rem 1rem; border-radius: 6px; color: white;
-            font-size: 0.8rem; font-weight: 700; margin-bottom: 1rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            &[data-category="自然风光"] { background: linear-gradient(135deg, #10b981, #059669); }
-            &[data-category="城市风光"] { background: linear-gradient(135deg, #3b82f6, #2563eb); }
-            &[data-category="延时摄影"] { background: linear-gradient(135deg, #f59e0b, #d97706); }
-            &[data-category="旅行记录"] { background: linear-gradient(135deg, #ec4899, #db2777); }
-          }
-          .panel-title { color: #f8fafc; font-size: 1.5rem; font-weight: 800; margin: 0 0 0.5rem; }
-          .panel-location { color: #fca5a5; font-size: 0.9rem; margin: 0; font-weight: 600; }
-        }
+        .control-deck {
+          position: relative;
+          display: flex; align-items: flex-end; justify-content: space-between;
+          gap: 0.8rem;
+          padding: 1rem 1.2rem 0.85rem;
+          background:
+            repeating-linear-gradient(90deg, transparent, transparent 1px, rgb(255 240 200 / 2.5%) 1px, rgb(255 240 200 / 2.5%) 2px),
+            linear-gradient(165deg, #6a5a3e 0%, #4a3a24 30%, #3a2e1a 55%, #2e2412 80%, #3a2e1c 100%);
+          border: 2px solid #1a140a;
+          border-radius: 14px;
+          box-shadow: inset 0 4px 8px rgb(0 0 0 / 60%), inset 0 -3px 6px rgb(255 240 200 / 10%), inset 3px 0 6px rgb(0 0 0 / 35%), inset -3px 0 6px rgb(0 0 0 / 35%), 0 2px 4px rgb(255 240 200 / 6%);
 
-        .panel-author {
-          display: flex; align-items: center; gap: 1rem; padding: 1rem;
-          background: rgba(20, 8, 8, 0.5); border: 1px solid rgba(239, 68, 68, 0.1); border-radius: 12px;
-          .author-avatar { width: 48px; height: 48px; border-radius: 50%; border: 2px solid rgba(239, 68, 68, 0.5); }
-          .author-info { flex: 1; display: flex; flex-direction: column; gap: 0.25rem;
-            .author-name { color: #f8fafc; font-size: 1rem; font-weight: 700; }
-            .author-title { color: #f87171; font-size: 0.8rem; }
+          .deck-screw {
+            position: absolute; width: 11px; height: 11px; border-radius: 50%; z-index: 4;
+            background: radial-gradient(circle at 35% 30%, #b8a87e, #8a7a52 30%, #5a4a2e 60%, #2a1a10 100%);
+            box-shadow: 0 2px 3px rgb(0 0 0 / 60%), inset 0 1px 2px rgb(255 240 200 / 25%), inset 0 -1px 2px rgb(0 0 0 / 50%);
+            &::before { content: ''; position: absolute; top: 50%; left: 50%; width: 7px; height: 2px; transform: translate(-50%, -50%); background: linear-gradient(90deg, #1a1008, #3a2a18, #1a1008); border-radius: 1px; }
+            &.screw-tl { top: 6px; left: 6px; }
+            &.screw-tr { top: 6px; right: 6px; }
+            &.screw-bl { bottom: 6px; left: 6px; }
+            &.screw-br { bottom: 6px; right: 6px; }
           }
-          .follow-btn {
-            padding: 0.5rem 1rem; background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.3);
-            border-radius: 8px; color: #fca5a5; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;
-            &:hover { background: rgba(239, 68, 68, 0.25); border-color: rgba(239, 68, 68, 0.5); color: #fff; }
-          }
-        }
 
-        .panel-stats {
-          display: flex; justify-content: space-around; padding: 1rem 0;
-          border-top: 1px solid rgba(239, 68, 68, 0.1); border-bottom: 1px solid rgba(239, 68, 68, 0.1);
-          gap: 0.25rem;
-          .stat-item {
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            gap: 0.3rem; color: #94a3b8; font-size: 0.8rem; font-weight: 600; flex: 1;
-            min-height: 44px; padding: 0.25rem 0.25rem;
-            transition: all 0.3s ease;
-            svg { width: 18px; height: 18px; flex-shrink: 0; }
-            &.stat-interactive {
-              cursor: pointer; border: none; background: none;
-              &:hover { color: #c4b5fd; }
-              &:active { transform: scale(0.95); }
-              &.like:hover { color: #ef4444; }
-              &.like.active { color: #ef4444; }
-              &.like.active svg { fill: #ef4444; }
-              &.love:hover { color: #f59e0b; }
-              &.love.active { color: #f59e0b; }
-              &.love.active svg { fill: #f59e0b; }
-              &.bookmark:hover { color: #22c55e; }
-              &.bookmark.active { color: #22c55e; }
-              &.bookmark.active svg { fill: #22c55e; }
-              &.share:hover { color: #3b82f6; }
-              &.share.active { color: #3b82f6; }
-              &.share.active svg { fill: #3b82f6; }
-              &.download:hover { color: #64748b; }
-              &.download.active { color: #64748b; }
-              &.download.active svg { fill: #64748b; }
-              &.download:active { transform: scale(0.95); }
+          .knob {
+            display: flex; flex-direction: column; align-items: center; gap: 0.4rem; flex-shrink: 0;
+
+            .knob-base {
+              position: relative; width: 58px; height: 58px; border-radius: 50%;
+              display: flex; align-items: center; justify-content: center;
+              background: radial-gradient(circle at 50% 50%, #2a1e10 0%, #2a1e10 56%, transparent 57%);
+              box-shadow: 0 3px 6px rgb(0 0 0 / 50%), inset 0 2px 3px rgb(0 0 0 / 60%), inset 0 -1px 2px rgb(255 240 200 / 8%);
+
+              .knob-ring {
+                position: absolute; inset: 2px; border-radius: 50%; z-index: 1;
+
+                .knob-tick {
+                  position: absolute; top: 50%; left: 50%; width: 2px; height: 4px;
+                  background: rgb(200 180 130 / 45%); border-radius: 1px;
+                }
+                .knob-tick:nth-child(1) { transform: translate(-50%, -50%) rotate(0deg) translateY(-23px); }
+                .knob-tick:nth-child(2) { transform: translate(-50%, -50%) rotate(30deg) translateY(-23px); }
+                .knob-tick:nth-child(3) { transform: translate(-50%, -50%) rotate(60deg) translateY(-23px); }
+                .knob-tick:nth-child(4) { transform: translate(-50%, -50%) rotate(90deg) translateY(-23px); }
+                .knob-tick:nth-child(5) { transform: translate(-50%, -50%) rotate(120deg) translateY(-23px); }
+                .knob-tick:nth-child(6) { transform: translate(-50%, -50%) rotate(150deg) translateY(-23px); }
+                .knob-tick:nth-child(7) { transform: translate(-50%, -50%) rotate(180deg) translateY(-23px); }
+                .knob-tick:nth-child(8) { transform: translate(-50%, -50%) rotate(210deg) translateY(-23px); }
+                .knob-tick:nth-child(9) { transform: translate(-50%, -50%) rotate(240deg) translateY(-23px); }
+                .knob-tick:nth-child(10) { transform: translate(-50%, -50%) rotate(270deg) translateY(-23px); }
+                .knob-tick:nth-child(11) { transform: translate(-50%, -50%) rotate(300deg) translateY(-23px); }
+                .knob-tick:nth-child(12) { transform: translate(-50%, -50%) rotate(330deg) translateY(-23px); }
+              }
+
+              .knob-body {
+                position: relative; width: 42px; height: 42px; border-radius: 50%; z-index: 2;
+                background: radial-gradient(circle at 35% 28%, #f0e4c4, #c4b48a 30%, #8a7a52 55%, #5a4a2e 80%, #3a2a18 100%);
+                border: 2px solid #1a140a;
+                box-shadow: 0 4px 8px rgb(0 0 0 / 55%), 0 2px 3px rgb(0 0 0 / 35%), inset 0 3px 5px rgb(255 245 215 / 40%), inset 0 -3px 5px rgb(0 0 0 / 45%), inset 2px 0 3px rgb(255 240 200 / 15%), inset -2px 0 3px rgb(0 0 0 / 35%);
+
+                .knob-indicator {
+                  position: absolute; top: 3px; left: 50%; width: 3px; height: 11px; transform: translateX(-50%);
+                  background: linear-gradient(180deg, #f42, #c21 50%, #810 100%);
+                  border-radius: 1.5px; box-shadow: 0 0 4px rgb(255 68 34 / 50%);
+                }
+
+                .knob-grip {
+                  position: absolute; inset: 6px; border-radius: 50%; pointer-events: none;
+                  background: repeating-conic-gradient(from 0deg, rgb(0 0 0 / 20%) 0deg 2deg, transparent 2deg 8deg);
+                }
+              }
+            }
+
+            .knob-label {
+              color: rgb(240 230 200 / 80%); font-size: 0.78rem; font-weight: 700;
+              font-family: 'Courier New', monospace; letter-spacing: 0.15em;
+              text-shadow: 0 1px 1px rgb(0 0 0 / 50%);
+            }
+            &.channel-knob .knob-body { transform: rotate(35deg); }
+            &.volume-knob .knob-body { transform: rotate(-25deg); }
+          }
+
+          .deck-title {
+            flex: 1; min-width: 0; padding: 0 0.3rem; display: flex; flex-direction: column;
+
+            .title-screen {
+              position: relative; padding: 0.65rem 0.8rem 0.7rem; overflow: hidden;
+              background: linear-gradient(180deg, #0a1a0e 0%, #061208 50%, #040a04 100%);
+              border: 2px solid #1a140a; border-radius: 8px;
+              box-shadow: inset 0 3px 6px rgb(0 0 0 / 80%), inset 0 -2px 4px rgb(0 0 0 / 60%), inset 2px 0 4px rgb(0 0 0 / 50%), inset -2px 0 4px rgb(0 0 0 / 50%), 0 1px 2px rgb(255 240 200 / 8%);
+
+              .screen-scanline {
+                position: absolute; inset: 0; pointer-events: none; z-index: 3;
+                background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgb(0 255 120 / 5%) 2px, rgb(0 255 120 / 5%) 3px);
+              }
+
+              .screen-frame {
+                position: relative; z-index: 2;
+                display: flex; flex-direction: column; align-items: center; gap: 0.3rem;
+              }
+
+              .sticker-category {
+                display: inline-block; padding: 0.24rem 0.75rem; border-radius: 3px;
+                font-size: 0.82rem; font-weight: 700;
+                font-family: 'Courier New', monospace; letter-spacing: 0.12em;
+                background: rgb(0 40 20 / 60%); border: 1px solid rgb(77 255 136 / 30%);
+                box-shadow: 0 0 8px rgb(0 255 120 / 15%), inset 0 1px 0 rgb(77 255 136 / 15%);
+                color: #4dff88; text-shadow: 0 0 6px rgb(77 255 136 / 70%), 0 0 2px rgb(77 255 136 / 50%);
+                &[data-category="城市风光"] { color: #4da8ff; border-color: rgb(77 168 255 / 30%); background: rgb(0 20 40 / 60%); box-shadow: 0 0 8px rgb(0 120 255 / 15%), inset 0 1px 0 rgb(77 168 255 / 15%); text-shadow: 0 0 6px rgb(77 168 255 / 70%), 0 0 2px rgb(77 168 255 / 50%); }
+                &[data-category="延时摄影"] { color: #fc4; border-color: rgb(255 204 68 / 30%); background: rgb(40 30 0 / 60%); box-shadow: 0 0 8px rgb(255 180 0 / 15%), inset 0 1px 0 rgb(255 204 68 / 15%); text-shadow: 0 0 6px rgb(255 204 68 / 70%), 0 0 2px rgb(255 204 68 / 50%); }
+                &[data-category="旅行记录"] { color: #f7a; border-color: rgb(255 119 170 / 30%); background: rgb(40 10 25 / 60%); box-shadow: 0 0 8px rgb(255 80 150 / 15%), inset 0 1px 0 rgb(255 119 170 / 15%); text-shadow: 0 0 6px rgb(255 119 170 / 70%), 0 0 2px rgb(255 119 170 / 50%); }
+              }
+
+              .sticker-title {
+                color: #7dff9a; font-size: 1.2rem; font-weight: 800; margin: 0; line-height: 1.2; text-align: center;
+                font-family: 'Courier New', monospace; letter-spacing: 0.02em;
+                text-shadow: 0 0 8px rgb(77 255 136 / 60%), 0 0 3px rgb(77 255 136 / 40%), 0 1px 1px rgb(0 0 0 / 50%);
+              }
+
+              .sticker-location {
+                color: #4dd97a; font-size: 0.9rem; font-weight: 600; margin: 0;
+                display: flex; align-items: center; gap: 0.35rem;
+                font-family: 'Courier New', monospace;
+                text-shadow: 0 0 5px rgb(77 217 122 / 50%);
+                .loc-pin { width: 15px; height: 15px; flex-shrink: 0; color: #4dff88; filter: drop-shadow(0 0 4px rgb(77 255 136 / 70%)); }
+              }
             }
           }
         }
 
-        .playlist {
-          h4 { color: #f8fafc; font-size: 1rem; font-weight: 700; margin: 0 0 1rem; }
-          .playlist-items {
-            display: flex; flex-direction: column; gap: 0.75rem; max-height: 160px; overflow-y: auto;
-            &::-webkit-scrollbar { width: 4px; }
-            &::-webkit-scrollbar-track { background: rgba(30, 15, 15, 0.5); }
-            &::-webkit-scrollbar-thumb { background: rgba(239, 68, 68, 0.25); border-radius: 2px; }
-            .playlist-item {
-              display: flex; gap: 0.75rem; padding: 0.5rem; background: rgba(20, 8, 8, 0.4);
-              border: 1px solid transparent; border-radius: 8px; cursor: pointer; transition: all 0.3s ease;
-              &:hover { background: rgba(20, 8, 8, 0.6); border-color: rgba(239, 68, 68, 0.12); }
-              &.active { background: rgba(239, 68, 68, 0.08); border-color: rgba(239, 68, 68, 0.15); }
-              .playlist-thumb { width: 60px; height: 34px; border-radius: 4px; object-fit: cover; }
-              .playlist-info { flex: 1; display: flex; flex-direction: column; gap: 0.25rem;
-                .playlist-title { color: #e2e8f0; font-size: 0.8rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-                .playlist-duration { color: #64748b; font-size: 0.7rem; }
+        .program-sticker {
+          position: relative;
+          display: flex; align-items: center; gap: 0.9rem;
+          padding: 0.9rem 1.15rem;
+          background:
+            repeating-linear-gradient(90deg, transparent, transparent 1px, rgb(0 0 0 / 2.2%) 1px, rgb(0 0 0 / 2.2%) 2px),
+            linear-gradient(180deg, #ece2c6 0%, #e0d4b4 40%, #d4c8a4 80%, #c8bc98 100%);
+          border: 2px solid #3a2a18;
+          border-radius: 8px;
+          box-shadow: 0 5px 12px rgb(40 30 15 / 40%), 0 2px 4px rgb(40 30 15 / 25%), inset 0 0 0 1px rgb(255 250 230 / 22%), inset 0 2px 0 rgb(255 250 230 / 50%), inset 0 -2px 0 rgb(80 60 30 / 20%), inset 2px 0 3px rgb(80 60 30 / 10%), inset -2px 0 3px rgb(80 60 30 / 10%);
+
+          .sticker-rivet {
+            position: absolute; width: 9px; height: 9px; border-radius: 50%; z-index: 3;
+            background: radial-gradient(circle at 35% 30%, #c4b48a, #8a7a52 40%, #5a4a2e 70%, #2a1a10 100%);
+            box-shadow: 0 1px 2px rgb(0 0 0 / 55%), inset 0 1px 1px rgb(255 240 200 / 35%), inset 0 -1px 1px rgb(0 0 0 / 45%);
+            &::before { content: ''; position: absolute; top: 50%; left: 50%; width: 5px; height: 1.5px; transform: translate(-50%, -50%); background: linear-gradient(90deg, #1a1008, #3a2a18, #1a1008); border-radius: 1px; }
+            &::after { content: ''; position: absolute; top: 50%; left: 50%; width: 1.5px; height: 5px; transform: translate(-50%, -50%); background: linear-gradient(180deg, #1a1008, #3a2a18, #1a1008); border-radius: 1px; }
+            &.rivet-tl { top: 5px; left: 5px; }
+            &.rivet-tr { top: 5px; right: 5px; }
+            &.rivet-bl { bottom: 5px; left: 5px; }
+            &.rivet-br { bottom: 5px; right: 5px; }
+          }
+
+          .badge-frame {
+            position: relative; width: 52px; height: 52px; flex-shrink: 0; padding: 3px;
+            background: linear-gradient(165deg, #d4c8a8, #8a7a5a 40%, #4a3a24 70%, #2a1a10 100%);
+            border-radius: 50%;
+            box-shadow: 0 5px 10px rgb(0 0 0 / 50%), 0 2px 3px rgb(0 0 0 / 30%), inset 0 0 0 1px rgb(255 240 200 / 20%), inset 0 2px 3px rgb(255 240 200 / 28%), inset 0 -2px 3px rgb(0 0 0 / 40%), inset 2px 0 2px rgb(255 240 200 / 15%), inset -2px 0 2px rgb(0 0 0 / 30%);
+            .author-avatar { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 2px solid #2a1a10; }
+
+            .badge-glass {
+              position: absolute; inset: 3px; border-radius: 50%; pointer-events: none; z-index: 2;
+              background: radial-gradient(ellipse at 30% 20%, rgb(255 255 255 / 32%), transparent 45%), linear-gradient(135deg, rgb(255 255 255 / 8%), transparent 50%);
+              box-shadow: inset 0 0 5px rgb(0 0 0 / 35%);
+            }
+          }
+
+          .author-info { flex: 1; display: flex; flex-direction: column; gap: 0.2rem; min-width: 0;
+            .author-name { color: #2a2010; font-size: 1rem; font-weight: 800; text-shadow: 0 1px 0 rgb(255 250 230 / 50%), 0 -1px 0 rgb(80 60 30 / 15%); }
+            .author-title { color: #6a5a30; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.03em; }
+          }
+
+          .follow-btn {
+            display: flex; align-items: center; gap: 0.45rem;
+            padding: 0.5rem 0.9rem;
+            background: linear-gradient(165deg, #a48a4a, #7a6a30 45%, #5a4a18 80%, #4a3a14 100%);
+            border: 1.5px solid #2a1a10; border-radius: 7px; color: #f0e8d0; font-size: 0.85rem; font-weight: 700;
+            cursor: pointer; transition: all 0.3s ease; flex-shrink: 0;
+            box-shadow: 0 3px 6px rgb(0 0 0 / 45%), 0 1px 2px rgb(0 0 0 / 30%), inset 0 0 0 1px rgb(255 240 200 / 15%), inset 0 2px 3px rgb(255 240 200 / 28%), inset 0 -2px 3px rgb(0 0 0 / 40%), inset 1px 0 1px rgb(255 240 200 / 15%), inset -1px 0 1px rgb(0 0 0 / 25%);
+
+            .follow-led {
+              width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0;
+              background: radial-gradient(circle at 35% 30%, #554420, #320 60%, #1a1000 100%);
+              box-shadow: inset 0 1px 1px rgb(0 0 0 / 50%), inset 0 -1px 1px rgb(255 200 100 / 10%);
+              transition: all 0.3s ease;
+            }
+            .follow-text { letter-spacing: 0.05em; }
+            &:hover { background: linear-gradient(165deg, #ba9a54, #8a7a38 45%, #6a5a20 80%, #5a4a18 100%); color: #fff8e0; box-shadow: 0 0 16px rgb(200 168 104 / 45%), 0 4px 8px rgb(0 0 0 / 45%), inset 0 0 0 1px rgb(255 240 200 / 20%), inset 0 2px 3px rgb(255 240 200 / 35%), inset 0 -2px 3px rgb(0 0 0 / 35%); }
+            &:active { background: linear-gradient(165deg, #6a5a20, #5a4a18 45%, #4a3a14 100%); box-shadow: 0 1px 2px rgb(0 0 0 / 40%), inset 0 3px 5px rgb(0 0 0 / 45%), inset 0 -1px 2px rgb(255 240 200 / 15%); }
+
+            &.following .follow-led {
+              background: radial-gradient(circle at 35% 30%, #8f6, #4c2 50%, #281 100%);
+              box-shadow: 0 0 10px rgb(68 204 34 / 80%), 0 0 4px rgb(136 255 102 / 60%), inset 0 1px 1px rgb(255 255 200 / 50%);
+            }
+          }
+        }
+
+        .led-display {
+          display: flex; justify-content: space-between; align-items: stretch; gap: 0.45rem;
+          padding: 0.75rem 0.7rem 0.65rem;
+          background:
+            repeating-linear-gradient(90deg, transparent, transparent 1px, rgb(255 240 200 / 2%) 1px, rgb(255 240 200 / 2%) 2px),
+            linear-gradient(180deg, #2a2218 0%, #1a140e 30%, #120c06 70%, #0e0a04 100%);
+          border: 2px solid #0a0604; border-radius: 10px;
+          box-shadow: inset 0 0 0 1px rgb(200 168 104 / 10%), inset 0 6px 12px rgb(0 0 0 / 75%), inset 0 -2px 4px rgb(200 168 104 / 6%), inset 3px 0 5px rgb(0 0 0 / 40%), inset -3px 0 5px rgb(0 0 0 / 40%), 0 3px 6px rgb(0 0 0 / 30%);
+
+          .led-item {
+            position: relative;
+            display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.3rem;
+            flex: 1; min-height: 74px; padding: 0.55rem 0.2rem 0.4rem;
+            color: #8a7a5a; font-size: 0.82rem; font-weight: 700; transition: all 0.3s ease;
+            border-radius: 5px 5px 4px 4px;
+            background:
+              repeating-linear-gradient(90deg, transparent, transparent 2px, rgb(0 0 0 / 14%) 2px, rgb(0 0 0 / 14%) 3px),
+              radial-gradient(ellipse at 50% 0%, rgb(255 240 200 / 13%), transparent 65%),
+              linear-gradient(180deg, #3e3220 0%, #2a1e12 50%, #1a120a 100%);
+            border: 1px solid #0a0604;
+            box-shadow: 0 6px 10px rgb(0 0 0 / 70%), 0 3px 4px rgb(0 0 0 / 50%), inset 0 3px 0 rgb(255 240 200 / 18%), inset 0 -5px 6px rgb(0 0 0 / 55%), inset 1px 0 2px rgb(0 0 0 / 40%), inset -1px 0 2px rgb(0 0 0 / 40%);
+
+            &::before {
+              content: ''; position: absolute; top: 4px; left: 50%; transform: translateX(-50%);
+              width: 6px; height: 6px; border-radius: 50%; z-index: 2;
+              background: radial-gradient(circle at 35% 30%, #5a4e2e, #2a2210 55%, #1a140a 100%);
+              box-shadow: inset 0 0 0 1px rgb(0 0 0 / 60%), inset 0 1px 1px rgb(0 0 0 / 50%), inset 0 -1px 1px rgb(255 200 100 / 10%);
+              transition: all 0.3s ease;
+            }
+
+            svg { width: 22px; height: 22px; flex-shrink: 0; transition: all 0.3s ease; color: #8a7a5a; filter: drop-shadow(0 1px 1px rgb(0 0 0 / 60%)); }
+
+            .led-num {
+              font-family: 'Courier New', Consolas, monospace; font-size: 0.78rem; font-weight: 700;
+              color: #bb3318; font-variant-numeric: tabular-nums; letter-spacing: 0.05em;
+              text-shadow: 0 0 4px rgb(187 51 24 / 50%), 0 0 1px rgb(220 80 50 / 30%);
+              padding: 0.1rem 0.35rem; border-radius: 3px; min-width: 32px; text-align: center;
+              background: linear-gradient(180deg, #0a0604, #050301);
+              box-shadow: inset 0 2px 3px rgb(0 0 0 / 85%), inset 0 0 4px rgb(204 68 34 / 5%), inset 1px 0 1px rgb(0 0 0 / 60%), inset -1px 0 1px rgb(0 0 0 / 60%);
+            }
+
+            &.led-interactive {
+              cursor: pointer;
+
+              &:hover {
+                background:
+                  repeating-linear-gradient(90deg, transparent, transparent 2px, rgb(0 0 0 / 10%) 2px, rgb(0 0 0 / 10%) 3px),
+                  radial-gradient(ellipse at 50% 100%, rgb(255 180 80 / 20%), transparent 70%),
+                  radial-gradient(ellipse at 50% 0%, rgb(255 240 200 / 22%), transparent 65%),
+                  linear-gradient(180deg, #5a4a2e 0%, #4a3a22 50%, #3a2a18 100%);
+                box-shadow: 0 6px 10px rgb(0 0 0 / 60%), 0 0 28px rgb(255 180 80 / 42%), 0 0 12px rgb(255 200 120 / 30%), inset 0 3px 0 rgb(255 240 200 / 30%), inset 0 -5px 6px rgb(0 0 0 / 40%), inset 0 0 14px rgb(255 180 80 / 18%);
+                &::before { background: radial-gradient(circle at 35% 30%, #ffe0a0, #e8b860 45%, #a07820 100%); box-shadow: 0 0 10px rgb(255 200 100 / 75%), 0 0 4px rgb(255 220 140 / 50%), inset 0 1px 1px rgb(255 240 200 / 50%); }
+                svg { color: #f4e4b8; filter: drop-shadow(0 0 4px rgb(255 200 120 / 60%)) drop-shadow(0 1px 1px rgb(0 0 0 / 40%)); }
+                .led-num { color: #f84; text-shadow: 0 0 8px rgb(255 136 68 / 85%), 0 0 3px rgb(255 160 90 / 60%); }
+              }
+
+              &.active {
+                background:
+                  repeating-linear-gradient(90deg, transparent, transparent 2px, rgb(0 0 0 / 12%) 2px, rgb(0 0 0 / 12%) 3px),
+                  radial-gradient(ellipse at 50% 100%, rgb(255 240 200 / 5%), transparent 60%),
+                  linear-gradient(180deg, #120c06 0%, #1e160a 45%, #2a1e12 100%);
+                box-shadow: inset 0 5px 8px rgb(0 0 0 / 75%), inset 0 -2px 0 rgb(255 240 200 / 8%), inset 2px 0 3px rgb(0 0 0 / 50%), inset -2px 0 3px rgb(0 0 0 / 50%), 0 0 12px rgb(200 168 104 / 12%);
+              }
+              &.like:hover { svg { color: #f472b6; } &::before { background: radial-gradient(circle at 35% 30%, #f9a8d8, #ec4899 50%, #be185d 100%); box-shadow: 0 0 8px rgb(236 72 153 / 60%), inset 0 1px 1px rgb(255 200 220 / 40%); } }
+
+              &.like.active {
+                background:
+                  repeating-linear-gradient(90deg, transparent, transparent 2px, rgb(0 0 0 / 12%) 2px, rgb(0 0 0 / 12%) 3px),
+                  radial-gradient(ellipse at 50% 100%, rgb(236 72 153 / 20%), transparent 60%),
+                  linear-gradient(180deg, #1a0810 0%, #200a14 45%, #2a0c18 100%);
+                box-shadow: inset 0 5px 8px rgb(0 0 0 / 70%), inset 0 -2px 0 rgb(236 72 153 / 15%), inset 2px 0 3px rgb(0 0 0 / 50%), inset -2px 0 3px rgb(0 0 0 / 50%), 0 0 18px rgb(236 72 153 / 35%);
+                svg { color: #ec4899; fill: #ec4899; filter: drop-shadow(0 0 6px rgb(236 72 153 / 90%)); }
+                .led-num { color: #f7a; text-shadow: 0 0 10px rgb(244 114 182 / 90%), 0 0 4px rgb(244 114 182 / 70%); }
+                &::before { background: radial-gradient(circle at 35% 30%, #f9a8d8, #ec4899 50%, #be185d 100%); box-shadow: 0 0 12px rgb(236 72 153 / 90%), 0 0 5px rgb(244 114 182 / 70%), inset 0 1px 1px rgb(255 200 220 / 50%); animation: ledPulse 2.4s ease-in-out infinite; }
+              }
+              &.love:hover { svg { color: #f87171; } &::before { background: radial-gradient(circle at 35% 30%, #fca5a5, #ef4444 50%, #b91c1c 100%); box-shadow: 0 0 8px rgb(239 68 68 / 60%), inset 0 1px 1px rgb(255 200 200 / 40%); } }
+
+              &.love.active {
+                background:
+                  repeating-linear-gradient(90deg, transparent, transparent 2px, rgb(0 0 0 / 12%) 2px, rgb(0 0 0 / 12%) 3px),
+                  radial-gradient(ellipse at 50% 100%, rgb(239 68 68 / 20%), transparent 60%),
+                  linear-gradient(180deg, #1a0808 0%, #200a0a 45%, #2a0c0c 100%);
+                box-shadow: inset 0 5px 8px rgb(0 0 0 / 70%), inset 0 -2px 0 rgb(239 68 68 / 15%), inset 2px 0 3px rgb(0 0 0 / 50%), inset -2px 0 3px rgb(0 0 0 / 50%), 0 0 18px rgb(239 68 68 / 35%);
+                svg { color: #ef4444; fill: #ef4444; filter: drop-shadow(0 0 6px rgb(239 68 68 / 90%)); }
+                .led-num { color: #f65; text-shadow: 0 0 10px rgb(248 113 113 / 90%), 0 0 4px rgb(248 113 113 / 70%); }
+                &::before { background: radial-gradient(circle at 35% 30%, #fca5a5, #ef4444 50%, #b91c1c 100%); box-shadow: 0 0 12px rgb(239 68 68 / 90%), 0 0 5px rgb(248 113 113 / 70%), inset 0 1px 1px rgb(255 200 200 / 50%); animation: ledPulse 2.4s ease-in-out infinite; }
+              }
+              &.bookmark:hover { svg { color: #34d399; } &::before { background: radial-gradient(circle at 35% 30%, #6ee7b7, #10b981 50%, #047857 100%); box-shadow: 0 0 8px rgb(16 185 129 / 60%), inset 0 1px 1px rgb(200 255 220 / 40%); } }
+
+              &.bookmark.active {
+                background:
+                  repeating-linear-gradient(90deg, transparent, transparent 2px, rgb(0 0 0 / 12%) 2px, rgb(0 0 0 / 12%) 3px),
+                  radial-gradient(ellipse at 50% 100%, rgb(16 185 129 / 20%), transparent 60%),
+                  linear-gradient(180deg, #08180e 0%, #0a200e 45%, #0c2a12 100%);
+                box-shadow: inset 0 5px 8px rgb(0 0 0 / 70%), inset 0 -2px 0 rgb(16 185 129 / 15%), inset 2px 0 3px rgb(0 0 0 / 50%), inset -2px 0 3px rgb(0 0 0 / 50%), 0 0 18px rgb(16 185 129 / 35%);
+                svg { color: #10b981; fill: #10b981; filter: drop-shadow(0 0 6px rgb(16 185 129 / 90%)); }
+                .led-num { color: #4d8; text-shadow: 0 0 10px rgb(52 211 153 / 90%), 0 0 4px rgb(52 211 153 / 70%); }
+                &::before { background: radial-gradient(circle at 35% 30%, #6ee7b7, #10b981 50%, #047857 100%); box-shadow: 0 0 12px rgb(16 185 129 / 90%), 0 0 5px rgb(52 211 153 / 70%), inset 0 1px 1px rgb(200 255 220 / 50%); animation: ledPulse 2.4s ease-in-out infinite; }
+              }
+              &.share:hover { svg { color: #60a5fa; } &::before { background: radial-gradient(circle at 35% 30%, #93c5fd, #3b82f6 50%, #1d4ed8 100%); box-shadow: 0 0 8px rgb(59 130 246 / 60%), inset 0 1px 1px rgb(200 220 255 / 40%); } }
+              &.download:hover { svg { color: #a78bfa; } &::before { background: radial-gradient(circle at 35% 30%, #c4b5fd, #8b5cf6 50%, #6d28d9 100%); box-shadow: 0 0 8px rgb(139 92 246 / 60%), inset 0 1px 1px rgb(220 200 255 / 40%); } }
+            }
+          }
+        }
+
+        .vhs-rack {
+          .rack-title {
+            color: #f0e8d0; font-size: 1.05rem; font-weight: 800; margin: 0 0 0.7rem;
+            letter-spacing: 0.14em; text-transform: uppercase; display: flex; align-items: center; gap: 0.6rem;
+            text-shadow: 0 1px 2px rgb(0 0 0 / 50%);
+
+            .rack-icon { width: 24px; height: 15px; background: linear-gradient(180deg, #4a3a20, #2a1e10); border: 2px solid #8a7a50; border-radius: 3px; flex-shrink: 0; position: relative;
+              box-shadow: inset 0 1px 0 rgb(220 200 140 / 20%), inset 0 -1px 1px rgb(0 0 0 / 40%), 0 1px 2px rgb(0 0 0 / 30%);
+              &::before { content: ''; position: absolute; top: 50%; left: 3px; right: 3px; height: 3px; transform: translateY(-50%); background: rgb(200 180 120 / 40%); border-radius: 1px; }
+            }
+          }
+
+          .rack-items {
+            display: flex; flex-direction: column; gap: 0.7rem; max-height: 300px; overflow-y: auto; padding: 1rem;
+            background:
+              repeating-linear-gradient(90deg, transparent, transparent 3px, rgb(0 0 0 / 4%) 3px, rgb(0 0 0 / 4%) 4px),
+              linear-gradient(165deg, #5e4a2e 0%, #3a2a18 50%, #241810 100%);
+            border: 3px solid #1a140a; border-radius: 12px;
+            box-shadow: inset 0 5px 10px rgb(0 0 0 / 60%), inset 0 -2px 3px rgb(200 168 104 / 8%), inset 3px 0 5px rgb(0 0 0 / 35%), inset -3px 0 5px rgb(0 0 0 / 35%), 0 2px 4px rgb(0 0 0 / 20%);
+            &::-webkit-scrollbar { width: 6px; }
+            &::-webkit-scrollbar-track { background: rgb(30 20 10 / 60%); border-radius: 3px; }
+            &::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #8a7a50, #5a4a30); border-radius: 3px; box-shadow: inset 0 1px 0 rgb(220 200 140 / 20%); }
+
+            .vhs-tape {
+              cursor: pointer; transition: all 0.3s ease;
+
+              .tape-body {
+                display: flex; align-items: center; gap: 0.9rem; padding: 0.85rem 1rem;
+                background: linear-gradient(165deg, #3a2e1c 0%, #241c10 50%, #18120a 100%);
+                border: 2px solid #5a4a30; border-radius: 7px;
+                box-shadow: inset 0 2px 0 rgb(220 200 140 / 14%), inset 0 -3px 4px rgb(0 0 0 / 40%), inset 2px 0 3px rgb(0 0 0 / 25%), inset -2px 0 3px rgb(0 0 0 / 25%), 0 3px 5px rgb(0 0 0 / 35%), 0 1px 2px rgb(0 0 0 / 30%);
+                position: relative;
+                &::after { content: ''; position: absolute; inset: 0; border-radius: 7px; padding: 2px; background: conic-gradient(from var(--gold-angle, 0deg), rgb(200 168 104 / 20%), rgb(245 215 150 / 95%) 25%, rgb(200 168 104 / 20%) 50%, rgb(245 215 150 / 95%) 75%, rgb(200 168 104 / 20%)); mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask-composite: xor; mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask-composite: exclude; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; z-index: 3; }
+
+                .tape-reels { display: flex; gap: 0.55rem; flex-shrink: 0; padding: 0.3rem 0.4rem; background: linear-gradient(180deg, #1a140a, #0e0a04); border: 1px solid #3a2a18; border-radius: 4px; box-shadow: inset 0 2px 3px rgb(0 0 0 / 60%), inset 0 -1px 1px rgb(200 168 104 / 6%);
+
+                  .tape-reel { width: 24px; height: 24px; border-radius: 50%; border: 3px solid #6a5a38; background: radial-gradient(circle at 35% 30%, #2a2210, #120c06 70%); position: relative;
+                    box-shadow: inset 0 1px 2px rgb(0 0 0 / 60%), 0 0 0 1px rgb(0 0 0 / 40%);
+                    &::before { content: ''; position: absolute; top: 50%; left: 50%; width: 7px; height: 7px; transform: translate(-50%, -50%); border-radius: 50%; background: radial-gradient(circle, #8a7a50, #5a4a30); box-shadow: inset 0 1px 1px rgb(220 200 140 / 30%); }
+                  }
+                }
+                .tape-thumb { width: 84px; height: 50px; border-radius: 4px; object-fit: cover; border: 2px solid #5a4a30; flex-shrink: 0; box-shadow: inset 0 0 0 1px rgb(0 0 0 / 50%), 0 1px 3px rgb(0 0 0 / 30%); }
+
+                .tape-label { flex: 1; display: flex; flex-direction: column; gap: 0.3rem; min-width: 0;
+                  .tape-title { color: #e0d4b4; font-size: 1.08rem; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-shadow: 0 1px 2px rgb(0 0 0 / 50%); }
+                  .tape-duration { color: #c4a868; font-size: 0.95rem; font-family: 'Courier New', Consolas, monospace; font-variant-numeric: tabular-nums; font-weight: 700; letter-spacing: 0.05em; padding: 0.15rem 0.5rem; border-radius: 3px; background: linear-gradient(180deg, #0a0604, #050301); box-shadow: inset 0 1px 2px rgb(0 0 0 / 80%), inset 0 0 3px rgb(200 168 104 / 8%); display: inline-block; width: fit-content; }
+                }
+              }
+
+              &:hover .tape-body { background: linear-gradient(165deg, #4a3a24 0%, #2e2418 50%, #1e180e 100%); border-color: #8a7a50; box-shadow: 0 0 18px rgb(200 168 104 / 20%), 0 4px 6px rgb(0 0 0 / 30%), inset 0 2px 0 rgb(220 200 140 / 20%), inset 0 -3px 4px rgb(0 0 0 / 35%);
+                &::after { opacity: 1; animation: auroraSpin 2.6s linear infinite; }
+                .tape-reels .tape-reel { animation: tape-spin 8s linear infinite; }
+              }
+
+              &.active .tape-body {
+                background: linear-gradient(100deg, #3a2e16 0%, #5a4424 12%, #8a6a34 22%, #5a4424 32%, #3a2e16 50%, #5a4424 62%, #8a6a34 72%, #5a4424 82%, #3a2e16 100%); background-size: 200% 100%; animation: tapeSilkFlow 4.8s linear infinite; border-color: #c4a868;
+                box-shadow: 0 0 22px rgb(200 168 104 / 30%), 0 4px 6px rgb(0 0 0 / 30%), inset 0 2px 0 rgb(240 220 160 / 22%), inset 0 -3px 4px rgb(0 0 0 / 30%), inset 0 0 12px rgb(200 168 104 / 10%);
+                &::after { opacity: 1; animation: auroraSpin 1.4s linear infinite; }
+
+                .tape-reels { background: linear-gradient(180deg, #241810, #120c06); border-color: #8a7a50;
+
+                  .tape-reel { border-color: #c4a868; animation: tape-spin 3s linear infinite;
+                    &::before { background: radial-gradient(circle, #f0e0a0, #c4a868); }
+                  }
+                }
+                .tape-thumb { border-color: #8a7a50; box-shadow: inset 0 0 0 1px rgb(0 0 0 / 50%), 0 0 8px rgb(200 168 104 / 20%); }
+                .tape-title { color: #f4e8c8; }
+                .tape-duration { color: #f0d898; }
               }
             }
           }
@@ -134,28 +567,62 @@
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   .modal-wrapper { transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1); }
 }
+
 .modal-enter-from, .modal-leave-to {
   opacity: 0;
   .modal-wrapper { transform: scale(0.92) translateY(30px); }
 }
 
-@media (max-width: 1024px) {
+@keyframes tape-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@property --gold-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes auroraSpin {
+  to { --gold-angle: 360deg; }
+}
+
+@keyframes tapeSilkFlow {
+  from { background-position: 0% 0; }
+  to { background-position: 200% 0; }
+}
+
+@keyframes power-led {
+  0%, 100% { opacity: 1; box-shadow: 0 0 6px rgb(204 51 34 / 60%); }
+  50% { opacity: 0.7; box-shadow: 0 0 4px rgb(204 51 34 / 30%); }
+}
+
+@keyframes ledPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(0.82); }
+}
+
+@media (width <= 1024px) {
   .video-modal .modal-wrapper .modal-content {
     grid-template-columns: 1fr;
-    .player-section { max-height: 350px; }
-    .info-panel { border-left: none; border-top: 1px solid rgba(239, 68, 68, 0.1); }
+    .player-section { min-height: 280px; }
+    .info-panel { border-left: none; border-top: 3px solid #5a4a30; box-shadow: inset 0 4px 8px rgb(40 30 15 / 30%); }
   }
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .video-modal {
     padding: 1rem;
+
     .modal-wrapper .modal-content {
-      .player-section { max-height: 300px; }
-        .info-panel {
-          padding: 1.5rem;
-          .panel-header .panel-title { font-size: 1.25rem; }
-        }
+      .player-section { min-height: 220px; }
+
+      .info-panel {
+        padding: 1.25rem 1rem; gap: 0.85rem;
+        .program-sticker .sticker-title { font-size: 1.15rem; }
+        .led-display .led-item { min-height: 52px; svg { width: 18px; height: 18px; } }
+      }
     }
   }
 }

@@ -1,591 +1,1493 @@
-$red: #ef4444;
-$red-light: #f87171;
-$red-dark: #991b1b;
-$blue: #3b82f6;
-$blue-light: #60a5fa;
-$blue-dark: #1e3a5f;
-$cyan: #06b6d4;
-$amber: #f59e0b;
-$amber-light: #fbbf24;
-$amber-dark: #b45309;
-$green: #10b981;
-$green-light: #34d399;
-$sky: #0ea5e9;
-$sky-light: #38bdf8;
-$teal: #14b8a6;
-$teal-light: #2dd4bf;
-$rose: #f43f5e;
-$rose-light: #fb7185;
-$text-primary: #ffffff;
-$text-secondary: #a0aec0;
-$text-muted: #6b7280;
-$bg-primary: #0f0f0f;
-$bg-secondary: #1a1a1a;
-$transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+// 方案一·精装旅行相册（皮革相册本翻开）—— 增强真实细节版
+// image = 深红棕皮革 + 米色卡纸 + 烫金
+// video = 深蓝皮革   + 米色卡纸 + 烫银
+$ease: cubic-bezier(0.4, 0, 0.2, 1);
+$gold: #c9a96a;
+$gold-light: #e6c98a;
+$gold-dark: #8a6f3e;
+$silver: #b8c6d6;
+$silver-light: #d8e2ee;
+$silver-dark: #6f7f95;
+$paper: #f1e7d3;
+$paper-2: #e8dcc2;
+$paper-3: #ddcfb0;
+$paper-ink: #43352a;
+$paper-ink-soft: #756552;
+$paper-ink-faint: #6a5a42;
+$ink-red: #b8362a;
+$ink-red-deep: #8a2418;
+$ink-blue: #2a5a8a;
+$ink-blue-deep: #1a3a5a;
 
-.modal-overlay {
+@mixin leather-texture {
+  background:
+    radial-gradient(ellipse at 28% 18%, var(--le-hi) 0%, transparent 50%),
+    radial-gradient(ellipse at 78% 82%, var(--le-hi2) 0%, transparent 48%),
+    radial-gradient(circle at 50% 50%, var(--le2) 0%, var(--le3) 68%, var(--le4) 100%),
+    repeating-radial-gradient(circle at 22% 28%, var(--le-pore) 0 0.5px, transparent 0.5px 3px),
+    repeating-radial-gradient(circle at 68% 72%, var(--le-pore) 0 0.5px, transparent 0.5px 3.5px),
+    repeating-linear-gradient(47deg, var(--le-grain) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(133deg, var(--le-grain2) 0 1px, transparent 1px 4px);
+}
+
+@mixin paper-texture {
+  background:
+    radial-gradient(ellipse at 18% 8%, rgb(255 250 235 / 75%) 0%, transparent 52%),
+    radial-gradient(ellipse at 88% 92%, rgb(170 145 100 / 20%) 0%, transparent 48%),
+    radial-gradient(ellipse at 60% 40%, rgb(200 175 130 / 8%) 0%, transparent 40%),
+    repeating-linear-gradient(0deg, rgb(120 100 70 / 3%) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, rgb(120 100 70 / 2.2%) 0 1px, transparent 1px 4px),
+    repeating-linear-gradient(45deg, rgb(120 100 70 / 1.5%) 0 1px, transparent 1px 5px),
+    linear-gradient(160deg, $paper 0%, $paper-2 55%, $paper-3 100%);
+}
+
+@mixin brass-corner {
+  background: radial-gradient(circle at 35% 30%, var(--corner-hi), var(--corner-mid) 55%, var(--corner-low));
+  box-shadow:
+    inset 0 1px 1px var(--corner-hi),
+    inset 0 -1px 2px var(--corner-low),
+    0 2px 5px rgb(0 0 0 / 55%);
+}
+
+.album-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
+  background:
+    radial-gradient(ellipse at 50% 40%, rgb(60 45 30 / 45%) 0%, rgb(20 12 8 / 75%) 50%, rgb(0 0 0 / 92%) 100%),
+    linear-gradient(160deg, rgb(30 20 12 / 70%) 0%, rgb(10 6 4 / 85%) 50%, rgb(0 0 0 / 92%) 100%),
+    rgb(0 0 0 / 70%);
   backdrop-filter: blur(12px);
   z-index: 10001;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 1.2rem;
 
-  .modal-container {
-    background: linear-gradient(135deg, $bg-primary, $bg-secondary);
-    border-radius: 20px;
-    max-width: 900px;
-    width: 100%;
-    max-height: 75vh;
-    overflow: hidden;
+  .album-book {
     position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    max-width: 1680px;
+    max-height: 98vh;
+    border-radius: 6px;
+    display: grid;
+    grid-template-columns: 1fr 48px 1fr;
+    column-gap: 12px;
+    overflow: hidden;
+
+    --le-hi: rgb(140 180 230 / 32%);
+    --le-hi2: rgb(100 140 190 / 26%);
+    --le2: #2a4262;
+    --le3: #122035;
+    --le4: #040810;
+    --le-grain: rgb(160 200 240 / 4%);
+    --le-grain2: rgb(20 40 70 / 22%);
+    --le-pore: rgb(180 220 250 / 5%);
+    --corner-hi: #d4dde8;
+    --corner-mid: #8a98ad;
+    --corner-low: #3a4658;
+    --foil: #{$silver};
+    --foil-hi: #{$silver-light};
+    --foil-dark: #{$silver-dark};
+    --foil-glow: rgb(184 198 214 / 50%);
+    --seal-tint: #2a4a6a;
+    --seal-glow: rgb(120 180 240 / 45%);
+    --ink: #{$ink-blue};
+    --ink-deep: #{$ink-blue-deep};
+    --ink-soft: rgb(42 90 138 / 55%);
+    --spine-paper: #e8dcc2;
+    --ribbon: #2a4a6a;
+    --ribbon-hi: #6a8aba;
 
     &.image {
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba($red, 0.06), 0 0 80px rgba($red-dark, 0.03);
-
-      &::before {
-        background: linear-gradient(135deg, rgba($red, 0.04), rgba($red-dark, 0.02));
-      }
+      --le-hi: rgb(240 170 150 / 32%);
+      --le-hi2: rgb(200 110 90 / 26%);
+      --le2: #5a2e26;
+      --le3: #26100c;
+      --le4: #080202;
+      --le-grain: rgb(240 180 160 / 4%);
+      --le-grain2: rgb(60 20 14 / 24%);
+      --le-pore: rgb(250 190 170 / 5%);
+      --corner-hi: #e6c98a;
+      --corner-mid: #a8844a;
+      --corner-low: #4a3216;
+      --foil: #{$gold};
+      --foil-hi: #{$gold-light};
+      --foil-dark: #{$gold-dark};
+      --foil-glow: rgb(201 169 106 / 50%);
+      --seal-tint: #6a2a1a;
+      --seal-glow: rgb(220 140 100 / 45%);
+      --ink: #{$ink-red};
+      --ink-deep: #{$ink-red-deep};
+      --ink-soft: rgb(184 54 42 / 55%);
+      --ribbon: #6a2a1a;
+      --ribbon-hi: #b06a4a;
     }
 
-    &.video {
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba($blue, 0.06), 0 0 80px rgba($blue-dark, 0.03);
-
-      &::before {
-        background: linear-gradient(135deg, rgba($blue, 0.04), rgba($blue-dark, 0.02));
-      }
-    }
+    @include leather-texture;
 
     &::before {
       content: '';
       position: absolute;
       inset: 0;
+      border-radius: 6px;
       pointer-events: none;
-      z-index: 0;
+      z-index: 30;
+      background:
+        linear-gradient(125deg,
+          rgb(255 245 215 / 34%) 0%,
+          rgb(255 235 195 / 18%) 18%,
+          transparent 45%,
+          transparent 70%,
+          rgb(0 0 0 / 25%) 100%
+        ),
+        radial-gradient(ellipse at 22% 78%, rgb(0 0 0 / 18%) 0%, transparent 12%),
+        radial-gradient(ellipse at 78% 22%, rgb(0 0 0 / 14%) 0%, transparent 10%),
+        radial-gradient(ellipse at 60% 65%, rgb(0 0 0 / 10%) 0%, transparent 8%),
+        radial-gradient(ellipse at 35% 40%, var(--le-hi) 0%, transparent 9%),
+        repeating-linear-gradient(48deg, rgb(0 0 0 / 4%) 0 2px, transparent 2px 7px);
+      box-shadow:
+        inset 0 2px 3px var(--le-hi),
+        inset 0 -4px 10px rgb(0 0 0 / 55%),
+        inset 3px 0 6px rgb(0 0 0 / 35%),
+        inset -3px 0 6px rgb(0 0 0 / 35%);
     }
 
-    .modal-close {
+    &::after {
+      content: '';
       position: absolute;
-      top: 1rem;
-      right: 1rem;
-      width: 40px;
-      height: 40px;
-      border: none;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 50%;
-      cursor: pointer;
+      inset: 0;
+      border-radius: 6px;
+      pointer-events: none;
+      z-index: 31;
+      border: 1px solid rgb(0 0 0 / 55%);
+    }
+
+    &.image {
+      box-shadow:
+        0 4px 10px rgb(0 0 0 / 100%),
+        0 10px 22px rgb(0 0 0 / 98%),
+        0 20px 40px rgb(0 0 0 / 96%),
+        0 32px 64px rgb(0 0 0 / 94%),
+        0 0 60px rgb(0 0 0 / 85%),
+        0 0 30px rgb(40 12 4 / 60%);
+    }
+
+    &.video {
+      box-shadow:
+        0 4px 10px rgb(0 0 0 / 100%),
+        0 10px 22px rgb(0 0 0 / 98%),
+        0 20px 40px rgb(0 0 0 / 96%),
+        0 32px 64px rgb(0 0 0 / 94%),
+        0 0 60px rgb(0 0 0 / 85%),
+        0 0 30px rgb(4 12 40 / 60%);
+    }
+
+    // 皮质包角补丁（老旧皮革补丁缝在四角）
+    .album-corner {
+      position: absolute;
+      z-index: 32;
+      width: 44px;
+      height: 44px;
+      pointer-events: none;
+      border-radius: 5px;
+      background:
+        radial-gradient(ellipse at 30% 25%, var(--le-hi) 0%, transparent 55%),
+        radial-gradient(ellipse at 70% 80%, var(--le-hi2) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, var(--le2) 0%, var(--le3) 60%, var(--le4) 100%),
+        repeating-linear-gradient(48deg, var(--le-grain) 0 1px, transparent 1px 3px),
+        repeating-linear-gradient(132deg, var(--le-grain2) 0 1px, transparent 1px 4px);
+      box-shadow:
+        inset 0 1px 2px var(--le-hi),
+        inset 0 -2px 4px rgb(0 0 0 / 60%),
+        inset 1px 0 2px var(--le-hi),
+        inset -1px 0 2px rgb(0 0 0 / 50%),
+        inset 0 0 0 1px var(--foil-dark),
+        0 3px 8px rgb(0 0 0 / 90%),
+        0 6px 16px rgb(0 0 0 / 75%),
+        0 10px 24px rgb(0 0 0 / 60%);
+
+      // 双层缝线（外金内暗）
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 3px;
+        border: 1px dashed var(--foil);
+        border-radius: 3px;
+        opacity: 0.75;
+        box-shadow: inset 0 0 0 2px transparent, inset 3px 3px 0 -2px var(--foil-dark);
+      }
+
+      // 磨损高光 + 中心铆钉
+      &::after {
+        content: '';
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background:
+          radial-gradient(circle at 35% 35%, var(--le-hi) 0%, var(--foil-dark) 60%, var(--le4) 100%);
+        opacity: 0.85;
+        box-shadow:
+          inset 0 1px 1px var(--le-hi),
+          inset 0 -1px 2px rgb(0 0 0 / 60%),
+          0 1px 2px rgb(0 0 0 / 50%);
+      }
+
+      &.tl { top: 3px; left: 3px; }
+      &.tr { top: 3px; right: 3px; &::after { left: auto; right: 3px; } }
+      &.bl { bottom: 3px; left: 3px; &::after { top: auto; bottom: 3px; } }
+      &.br { bottom: 3px; right: 3px; &::after { inset: auto 3px 3px auto; } }
+    }
+
+
+    .page-left {
+      position: relative;
+      padding: 4.4rem 2rem 4.4rem 2.8rem;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      z-index: 10;
-      transition: $transition;
-      backdrop-filter: blur(10px);
+      gap: 1.1rem;
+      overflow: hidden;
+      border: 1px solid var(--foil-dark);
+      border-radius: 3px;
+      box-shadow:
+        0 6px 14px rgb(0 0 0 / 75%),
+        0 14px 30px rgb(0 0 0 / 60%),
+        inset 0 1px 0 rgb(255 255 255 / 15%);
 
-      &.image:hover {
-        background: linear-gradient(135deg, rgba($red, 0.25), rgba($red, 0.1));
-        border-color: rgba($red, 0.5);
-        transform: rotate(90deg) scale(1.1);
-        box-shadow: 0 0 20px rgba($red, 0.3);
+      .page-texture {
+        position: absolute;
+        inset: 0;
+
+        @include paper-texture;
+
+        z-index: 0;
+        box-shadow:
+          inset 2px 2px 6px rgb(255 245 220 / 40%),
+          inset -3px -3px 8px rgb(80 60 30 / 18%);
+
+        &::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background:
+            linear-gradient(180deg, rgb(255 248 225 / 30%) 0%, transparent 30%, transparent 70%, rgb(100 75 40 / 12%) 100%),
+            linear-gradient(125deg, rgb(255 248 220 / 42%) 0%, rgb(255 240 200 / 22%) 20%, transparent 50%, transparent 75%, rgb(80 60 30 / 18%) 100%),
+            radial-gradient(ellipse at 50% 0%, rgb(0 0 0 / 14%) 0%, transparent 38%),
+            radial-gradient(ellipse at 0% 50%, rgb(0 0 0 / 10%) 0%, transparent 28%),
+            linear-gradient(80deg, transparent 60%, rgb(150 120 80 / 6%) 100%),
+            repeating-linear-gradient(0deg, rgb(120 100 70 / 2%) 0 1px, transparent 1px 7px);
+        }
       }
 
-      &.video:hover {
-        background: linear-gradient(135deg, rgba($blue, 0.25), rgba($blue, 0.1));
-        border-color: rgba($blue, 0.5);
-        transform: rotate(90deg) scale(1.1);
-        box-shadow: 0 0 20px rgba($blue, 0.3);
-      }
-
-      svg {
-        width: 20px;
-        height: 20px;
-        color: #fff;
-      }
-    }
-
-    .modal-content {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 0;
-      max-height: 80vh;
-      position: relative;
-      z-index: 1;
-
-      @media (max-width: 900px) {
-        grid-template-columns: 1fr;
-      }
-
-      .modal-media {
-        background: #000;
+      .photo-slot {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        max-width: 520px;
+        aspect-ratio: 4 / 3;
+        background: transparent;
+        box-shadow: none;
+        border-radius: 2px;
         display: flex;
         align-items: center;
         justify-content: center;
-        position: relative;
-        overflow: hidden;
+        padding: 24px;
 
-        img,
-        video {
-          width: 100%;
-          height: 100%;
-          object-fit: contain;
-          position: relative;
+        // 照片堆（背景凌乱叠放的多层照片）
+        .photo-stack {
+          position: absolute;
+          inset: 14px;
           z-index: 1;
+          pointer-events: none;
+          perspective: 1200px;
+
+          .stack-photo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            background:
+              linear-gradient(180deg, #faf4e8 0%, #f0e4c8 35%, #d8c8a0 70%, #a8906a 100%),
+              radial-gradient(ellipse at 50% 0%, #fff8e0 0%, transparent 55%);
+            padding: 9px 9px 32px;
+            overflow: hidden;
+            border-radius: 2px;
+            border: 1px solid rgb(180 150 100 / 40%);
+
+            // 白边纸纹 + 边缘光影
+            &::before {
+              content: '';
+              position: absolute;
+              inset: 0;
+              background:
+                linear-gradient(180deg, rgb(255 255 255 / 35%) 0%, transparent 25%, transparent 75%, rgb(120 90 50 / 12%) 100%),
+                linear-gradient(125deg, rgb(255 250 230 / 25%) 0%, transparent 40%),
+                repeating-linear-gradient(0deg, rgb(120 100 70 / 4%) 0 1px, transparent 1px 3px),
+                repeating-linear-gradient(90deg, rgb(120 100 70 / 2.5%) 0 1px, transparent 1px 4px);
+              pointer-events: none;
+              z-index: 2;
+              box-shadow:
+                inset 0 1px 0 rgb(255 255 255 / 40%),
+                inset 0 -1px 0 rgb(120 90 50 / 15%);
+            }
+
+            // 底部冲印纹 + 编号
+            &::after {
+              content: '';
+              position: absolute;
+              left: 9px;
+              right: 9px;
+              bottom: 7px;
+              height: 20px;
+              background:
+                linear-gradient(180deg, transparent, rgb(80 60 30 / 8%)),
+                repeating-linear-gradient(90deg, rgb(80 60 30 / 8%) 0 1px, transparent 1px 4px);
+              pointer-events: none;
+              z-index: 2;
+            }
+
+            // 7 层纯背景装饰照片，围绕主图四周凌乱叠放，阳光从上方照下投影往下方。
+            &.p1 {
+              width: 88%; height: 82%;
+              transform: translate(-50%, -50%) rotate(-14deg) translate(-26px, -20px) rotateX(5deg) rotateY(-4deg);
+              z-index: 1;
+              filter: brightness(0.6) saturate(0.78) contrast(0.94);
+              box-shadow:
+                2px 6px 12px rgb(0 0 0 / 26%),
+                4px 12px 22px rgb(0 0 0 / 20%),
+                inset 0 1px 0 rgb(255 255 255 / 50%),
+                inset 0 -1px 2px rgb(120 90 50 / 20%);
+            }
+
+            &.p2 {
+              width: 90%; height: 84%;
+              transform: translate(-50%, -50%) rotate(12deg) translate(24px, -18px) rotateX(-4deg) rotateY(3deg);
+              z-index: 2;
+              filter: brightness(0.7) saturate(0.82) contrast(0.95);
+              box-shadow:
+                2px 7px 14px rgb(0 0 0 / 24%),
+                4px 14px 26px rgb(0 0 0 / 18%),
+                inset 0 1px 0 rgb(255 255 255 / 55%),
+                inset 0 -1px 2px rgb(120 90 50 / 18%);
+            }
+
+            &.p3 {
+              width: 87%; height: 81%;
+              transform: translate(-50%, -50%) rotate(-10deg) translate(-22px, 20px) rotateX(4deg) rotateY(-3deg);
+              z-index: 3;
+              filter: brightness(0.78) saturate(0.86) contrast(0.96);
+              box-shadow:
+                2px 8px 16px rgb(0 0 0 / 22%),
+                4px 16px 30px rgb(0 0 0 / 16%),
+                inset 0 1px 0 rgb(255 255 255 / 60%),
+                inset 0 -1px 2px rgb(120 90 50 / 16%);
+            }
+
+            &.p4 {
+              width: 89%; height: 83%;
+              transform: translate(-50%, -50%) rotate(15deg) translate(26px, 18px) rotateX(-3deg) rotateY(4deg);
+              z-index: 4;
+              filter: brightness(0.84) saturate(0.9) contrast(0.98);
+              box-shadow:
+                2px 9px 18px rgb(0 0 0 / 20%),
+                4px 18px 32px rgb(0 0 0 / 14%),
+                inset 0 1px 0 rgb(255 255 255 / 65%),
+                inset 0 -1px 2px rgb(120 90 50 / 14%);
+            }
+
+            &.p5 {
+              width: 85%; height: 79%;
+              transform: translate(-50%, -50%) rotate(-6deg) translate(-12px, -8px) rotateX(2deg) rotateY(-2deg);
+              z-index: 5;
+              filter: brightness(0.9) saturate(0.93) contrast(0.99);
+              box-shadow:
+                2px 10px 20px rgb(0 0 0 / 18%),
+                4px 20px 36px rgb(0 0 0 / 12%),
+                inset 0 1px 0 rgb(255 255 255 / 70%),
+                inset 0 -1px 2px rgb(120 90 50 / 12%);
+            }
+
+            &.p6 {
+              width: 86%; height: 80%;
+              transform: translate(-50%, -50%) rotate(8deg) translate(14px, 10px) rotateX(-2deg) rotateY(2deg);
+              z-index: 6;
+              filter: brightness(0.94) saturate(0.96) contrast(1);
+              box-shadow:
+                2px 10px 22px rgb(0 0 0 / 16%),
+                4px 22px 38px rgb(0 0 0 / 10%),
+                inset 0 1px 0 rgb(255 255 255 / 72%),
+                inset 0 -1px 2px rgb(120 90 50 / 10%);
+            }
+
+            &.p7 {
+              width: 84%; height: 78%;
+              transform: translate(-50%, -50%) rotate(-3deg) translate(-6px, 14px) rotateX(1deg) rotateY(-1deg);
+              z-index: 7;
+              filter: brightness(0.97) saturate(0.98) contrast(1);
+              box-shadow:
+                2px 11px 24px rgb(0 0 0 / 14%),
+                4px 24px 42px rgb(0 0 0 / 8%),
+                inset 0 1px 0 rgb(255 255 255 / 75%),
+                inset 0 -1px 2px rgb(120 90 50 / 8%);
+            }
+          }
         }
 
-        .media-type-badge {
+        .photo-print {
+          position: relative;
+          z-index: 10;
+          width: 100%;
+          height: 100%;
+          transform: rotate(-1.2deg) translateY(-2px);
+          transition: transform 0.4s $ease;
+
+          &:hover { transform: rotate(0deg) translateY(-4px); }
+
+          .photo-white-frame {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background:
+              linear-gradient(180deg, #fff8e8 0%, #f5ecd6 30%, #e8dcc0 65%, #d4c4a0 100%),
+              radial-gradient(ellipse at 50% 0%, #fff8e0 0%, transparent 60%);
+            padding: 10px 10px 40px;
+            box-shadow:
+              0 2px 6px rgb(0 0 0 / 40%),
+              0 6px 14px rgb(0 0 0 / 35%),
+              0 12px 24px rgb(0 0 0 / 25%),
+              inset 0 1px 0 rgb(255 255 255 / 90%),
+              inset 0 -1px 0 rgb(0 0 0 / 6%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            img, video {
+              width: 100%;
+              height: 100%;
+              object-fit: contain;
+              filter: drop-shadow(0 2px 6px rgb(0 0 0 / 30%));
+            }
+
+            .photo-foot {
+              position: absolute;
+              left: 12px;
+              right: 12px;
+              bottom: 10px;
+              height: 22px;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              gap: 10px;
+              padding: 0 4px;
+              pointer-events: none;
+              background:
+                linear-gradient(180deg, transparent, rgb(0 0 0 / 3%)),
+                repeating-linear-gradient(90deg, rgb(0 0 0 / 4%) 0 1px, transparent 1px 4px);
+
+              .photo-watermark {
+                font-size: 0.72rem;
+                font-weight: 800;
+                letter-spacing: 0.18em;
+                color: rgb(50 32 16 / 92%);
+                text-shadow: 0 1px 0 rgb(255 255 255 / 60%);
+              }
+
+              .photo-location {
+                font-size: 0.78rem;
+                font-weight: 700;
+                letter-spacing: 0.04em;
+                color: rgb(40 26 12 / 95%);
+                font-style: italic;
+                text-shadow: 0 1px 0 rgb(255 255 255 / 50%);
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+              }
+            }
+          }
+
+          .photo-tape { display: none; }
+        }
+
+        .photo-stamp {
           position: absolute;
-          top: 1rem;
-          left: 1rem;
-          z-index: 5;
+          bottom: 14px;
+          left: 18px;
+          z-index: 7;
           display: flex;
           align-items: center;
           gap: 6px;
-          padding: 6px 12px;
-          border-radius: 8px;
-          font-size: 0.78rem;
+          padding: 4px 10px;
+          border-radius: 2px;
+          background: rgb(0 0 0 / 60%);
+          border: 1px solid var(--foil-dark);
+          box-shadow: 0 1px 4px rgb(0 0 0 / 50%);
+          font-size: 0.66rem;
           font-weight: 700;
-          letter-spacing: 0.03em;
-          backdrop-filter: blur(12px);
+          letter-spacing: 0.14em;
+          font-variant-numeric: tabular-nums;
 
-          &.image {
-            background: linear-gradient(135deg, rgba($red, 0.8), rgba($red-dark, 0.7));
-            border: 1px solid rgba($red, 0.5);
-            color: #fff;
-            box-shadow: 0 2px 12px rgba($red, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-          }
+          .stamp-mark { color: var(--foil); text-shadow: 0 0 4px var(--foil-glow); }
+          .stamp-sep { color: rgb(255 255 255 / 30%); }
+          .stamp-no { color: var(--foil-hi); }
+        }
 
-          &.video {
-            background: linear-gradient(135deg, rgba($blue, 0.8), rgba($blue-dark, 0.7));
-            border: 1px solid rgba($blue, 0.5);
-            color: #fff;
-            box-shadow: 0 2px 12px rgba($blue, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-          }
+        .photo-folio {
+          position: absolute;
+          bottom: 14px;
+          right: 18px;
+          z-index: 7;
+          padding: 4px 10px;
+          border-radius: 2px;
+          background: rgb(0 0 0 / 60%);
+          border: 1px solid var(--foil-dark);
+          box-shadow: 0 1px 4px rgb(0 0 0 / 50%);
+          font-size: 0.7rem;
+          font-weight: 700;
+          letter-spacing: 0.16em;
+          color: var(--foil-hi);
+          text-shadow: 0 0 4px var(--foil-glow);
+          font-style: italic;
+        }
+      }
+
+
+      .page-folio {
+        position: absolute;
+        bottom: 14px;
+        z-index: 3;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        color: $paper-ink-faint;
+        font-style: italic;
+        &.left { left: 30px; }
+      }
+    }
+
+    // 皮质书脊（老旧皮革装订脊）
+    .album-binding {
+      position: relative;
+      background:
+        linear-gradient(90deg,
+          rgb(0 0 0 / 65%) 0%,
+          rgb(0 0 0 / 25%) 30%,
+          rgb(0 0 0 / 20%) 50%,
+          rgb(0 0 0 / 25%) 70%,
+          rgb(0 0 0 / 65%) 100%
+        ),
+        var(--le4);
+      box-shadow:
+        inset 6px 0 10px rgb(0 0 0 / 70%),
+        inset -6px 0 10px rgb(0 0 0 / 70%);
+      z-index: 5;
+
+      // 皮革纹理底
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+          repeating-linear-gradient(0deg, var(--le-grain) 0 1px, transparent 1px 3px),
+          repeating-linear-gradient(90deg, var(--le-grain2) 0 1px, transparent 1px 4px);
+        pointer-events: none;
+      }
+
+      // 皮质书脊主体
+      .bind-rod {
+        position: absolute;
+        top: 14px;
+        bottom: 14px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 26px;
+        border-radius: 4px;
+        background:
+          radial-gradient(ellipse at 50% 20%, var(--le-hi) 0%, transparent 60%),
+          radial-gradient(ellipse at 50% 80%, var(--le-hi2) 0%, transparent 55%),
+          linear-gradient(90deg,
+            var(--le4) 0%,
+            var(--le3) 25%,
+            var(--le2) 50%,
+            var(--le3) 75%,
+            var(--le4) 100%
+          ),
+          repeating-linear-gradient(0deg, var(--le-grain) 0 1px, transparent 1px 3px),
+          repeating-linear-gradient(90deg, var(--le-grain2) 0 1px, transparent 1px 4px);
+        box-shadow:
+          0 0 8px rgb(0 0 0 / 85%),
+          0 6px 16px rgb(0 0 0 / 80%),
+          inset 0 0 0 1px rgb(0 0 0 / 50%),
+          inset 1px 0 1px var(--le-hi),
+          inset -1px 0 1px rgb(0 0 0 / 60%);
+        z-index: 2;
+
+        // 烫金装饰横线
+        &::before {
+          content: '';
+          position: absolute;
+          top: 22%;
+          left: 4px;
+          right: 4px;
+          height: 1px;
+          background: linear-gradient(90deg, transparent, var(--foil) 30%, var(--foil-hi) 50%, var(--foil) 70%, transparent);
+          box-shadow: 0 28px 0 -0.5px var(--foil-dark), 0 30px 0 -0.5px var(--foil), 0 56px 0 -0.5px var(--foil-dark);
+          opacity: 0.7;
+        }
+
+        // 烫金标题
+        &::after {
+          content: 'LANDSCAPE';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%) rotate(-90deg);
+          white-space: nowrap;
+          font-size: 0.62rem;
+          font-weight: 700;
+          letter-spacing: 0.32em;
+          color: var(--foil);
+          text-shadow: 0 0 4px var(--foil-glow), 0 1px 1px rgb(0 0 0 / 60%);
+          opacity: 0.85;
+        }
+      }
+
+      // 皮质书脊端缝线
+      .bind-cap {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 30px;
+        height: 14px;
+        z-index: 4;
+        background: linear-gradient(180deg, var(--le3), var(--le4));
+        border-radius: 3px;
+        box-shadow:
+          inset 0 1px 1px var(--le-hi),
+          inset 0 -1px 2px rgb(0 0 0 / 60%),
+          0 4px 10px rgb(0 0 0 / 80%),
+          0 8px 18px rgb(0 0 0 / 60%);
+
+        // 缝线
+        &::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 4px;
+          right: 4px;
+          height: 1px;
+          transform: translateY(-50%);
+          background: repeating-linear-gradient(90deg, var(--foil-dark) 0 3px, transparent 3px 6px);
+          opacity: 0.6;
+        }
+
+        &::after {
+          content: '';
+          position: absolute;
+          inset: 2px;
+          border: 1px solid rgb(0 0 0 / 40%);
+          border-radius: 2px;
+        }
+
+        &.cap-top { top: 4px; }
+        &.cap-bottom { bottom: 4px; }
+      }
+
+      // 缝线结
+      .bind-rivet {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 10px;
+        height: 4px;
+        z-index: 3;
+        background: var(--foil-dark);
+        border-radius: 50%;
+        box-shadow:
+          inset 0 1px 1px var(--foil-hi),
+          0 2px 5px rgb(0 0 0 / 85%),
+          0 4px 10px rgb(0 0 0 / 70%);
+        opacity: 0.7;
+
+        &::after { display: none; }
+
+        &.r1 { top: 26%; }
+        &.r2 { top: 50%; }
+        &.r3 { top: 74%; }
+      }
+
+      // 书签丝带
+      .bind-ribbon {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 12px;
+        height: 80%;
+        background:
+          linear-gradient(90deg,
+            var(--ribbon) 0%,
+            var(--ribbon-hi) 35%,
+            #fff 50%,
+            var(--ribbon-hi) 65%,
+            var(--ribbon) 100%
+          );
+        background-size: 200% 100%;
+        box-shadow: 0 4px 10px rgb(0 0 0 / 80%), 0 8px 18px rgb(0 0 0 / 60%);
+        z-index: 1;
+        animation: ribbonShimmer 6s ease-in-out infinite;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -10px;
+          left: 0;
+          right: 0;
+          height: 14px;
+          background: linear-gradient(90deg, var(--ribbon), var(--ribbon-hi), var(--ribbon));
+          clip-path: polygon(0 0, 100% 0, 50% 100%);
+        }
+      }
+    }
+
+    .page-right {
+      position: relative;
+      padding: 4.4rem 2.8rem 4.4rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.95rem;
+      overflow: hidden;
+      border: 1px solid var(--foil-dark);
+      border-radius: 3px;
+      box-shadow:
+        0 6px 14px rgb(0 0 0 / 75%),
+        0 14px 30px rgb(0 0 0 / 60%),
+        inset 0 1px 0 rgb(255 255 255 / 15%);
+
+      .page-texture {
+        position: absolute;
+        inset: 0;
+
+        @include paper-texture;
+
+        z-index: 0;
+        box-shadow:
+          inset 2px 2px 6px rgb(255 245 220 / 40%),
+          inset -3px -3px 8px rgb(80 60 30 / 18%);
+
+        &::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background:
+            linear-gradient(180deg, rgb(255 248 225 / 30%) 0%, transparent 30%, transparent 70%, rgb(100 75 40 / 12%) 100%),
+            linear-gradient(125deg, rgb(255 248 220 / 42%) 0%, rgb(255 240 200 / 22%) 20%, transparent 50%, transparent 75%, rgb(80 60 30 / 18%) 100%),
+            radial-gradient(ellipse at 50% 0%, rgb(0 0 0 / 14%) 0%, transparent 38%),
+            radial-gradient(ellipse at 100% 50%, rgb(0 0 0 / 10%) 0%, transparent 28%),
+            radial-gradient(ellipse at 70% 85%, rgb(140 100 60 / 7%) 0%, transparent 18%),
+            linear-gradient(80deg, transparent 60%, rgb(150 120 80 / 6%) 100%),
+            repeating-linear-gradient(0deg, rgb(120 100 70 / 2%) 0 1px, transparent 1px 7px);
+        }
+      }
+
+      .page-stamp-deco {
+        position: absolute;
+        top: 64px;
+        right: 20px;
+        z-index: 4;
+        width: 54px;
+        height: 68px;
+        transform: rotate(4deg);
+        filter:
+          drop-shadow(0 4px 8px rgb(0 0 0 / 30%))
+          drop-shadow(0 2px 3px rgb(0 0 0 / 20%));
+
+        .deco-perf {
+          position: absolute;
+          inset: -3px;
+          background:
+            radial-gradient(circle 2.5px at 5px 5px, transparent 98%, var(--paper) 99%) 0 0 / 10px 10px;
+        }
+
+        .deco-face {
+          position: absolute;
+          inset: 4px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 2px;
+          border: 1px solid rgb(120 100 70 / 40%);
+          box-shadow:
+            inset 0 0 0 2px rgb(255 255 255 / 50%),
+            inset 0 1px 2px rgb(255 255 255 / 40%),
+            inset 0 -1px 2px rgb(120 100 70 / 15%);
+          background:
+            radial-gradient(ellipse at 40% 25%, rgb(255 250 235 / 70%) 0%, transparent 60%),
+            linear-gradient(160deg, #f6ecd8, #e6dabc);
 
           svg {
-            width: 14px;
-            height: 14px;
-            filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3));
+            width: 24px;
+            height: 24px;
+            color: var(--ink);
+            filter: drop-shadow(0 1px 0 rgb(255 255 255 / 50%)) drop-shadow(0 0 3px var(--ink-soft));
+          }
+
+          .deco-text {
+            font-size: 0.62rem;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            color: var(--ink);
+            text-shadow: 0 1px 0 rgb(255 255 255 / 40%);
+          }
+
+          .deco-loc {
+            font-size: 0.56rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: $paper-ink-soft;
+          }
+        }
+
+        &.image .deco-face { border-color: rgb(184 54 42 / 45%); }
+        &.video .deco-face { border-color: rgb(42 90 138 / 45%); }
+      }
+
+      .journal-head {
+        position: relative;
+        z-index: 2;
+        padding-bottom: 0.5rem;
+        padding-right: 0;
+
+        .head-rule {
+          display: block;
+          height: 4px;
+          margin-bottom: 0.7rem;
+          background:
+            linear-gradient(90deg, var(--ink) 0%, var(--ink) 55%, transparent 100%),
+            linear-gradient(90deg, transparent 0%, var(--foil-dark) 60%, transparent 100%);
+          border-radius: 2px;
+          box-shadow:
+            0 1px 2px rgb(0 0 0 / 20%),
+            inset 0 1px 0 rgb(255 255 255 / 25%),
+            inset 0 -1px 1px rgb(0 0 0 / 20%);
+        }
+
+        .journal-title {
+          font-size: 1.68rem;
+          font-weight: 800;
+          line-height: 1.2;
+          margin: 0;
+          color: $paper-ink;
+          font-style: italic;
+          letter-spacing: 0.01em;
+          text-shadow:
+            0 1px 0 rgb(255 255 255 / 60%),
+            0 -1px 0 rgb(0 0 0 / 6%),
+            0 2px 3px rgb(80 60 30 / 12%);
+        }
+      }
+
+      .journal-meta {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.6rem 0.7rem;
+
+        .meta-row {
+          display: flex;
+          align-items: center;
+          gap: 0.7rem;
+          padding: 0.7rem 0.75rem;
+          border-radius: 5px;
+          background:
+            linear-gradient(180deg, rgb(255 253 238 / 95%) 0%, rgb(255 246 215 / 50%) 25%, transparent 50%, rgb(80 55 22 / 38%) 100%),
+            linear-gradient(125deg, rgb(255 251 225 / 85%) 0%, rgb(255 238 190 / 45%) 20%, transparent 45%, rgb(90 60 28 / 30%) 100%),
+            radial-gradient(ellipse at 50% 0%, rgb(255 253 245 / 98%) 0%, transparent 50%),
+            radial-gradient(ellipse at 50% 100%, rgb(70 45 18 / 30%) 0%, transparent 40%),
+            linear-gradient(160deg, rgb(255 250 235 / 75%) 0%, rgb(160 125 75 / 35%) 100%);
+          border: 1px solid rgb(120 100 70 / 35%);
+          box-shadow:
+            0 3px 6px rgb(80 60 30 / 25%),
+            0 7px 16px rgb(80 60 30 / 18%),
+            0 14px 28px rgb(80 60 30 / 10%),
+            inset 0 1px 0 rgb(255 255 255 / 75%),
+            inset 0 -2px 4px rgb(120 100 70 / 20%),
+            inset 1px 0 1px rgb(255 255 255 / 35%),
+            inset -1px 0 1px rgb(120 100 70 / 12%);
+          transition: all 0.25s $ease;
+
+          &:hover {
+            border-color: var(--ink);
+            transform: translateY(-3px);
+            box-shadow:
+              0 5px 10px rgb(80 60 30 / 30%),
+              0 12px 26px rgb(80 60 30 / 22%),
+              0 22px 44px rgb(80 60 30 / 14%),
+              0 0 18px var(--ink-soft),
+              inset 0 1px 0 rgb(255 255 255 / 85%),
+              inset 0 -2px 4px rgb(120 100 70 / 18%),
+              inset 1px 0 1px rgb(255 255 255 / 45%),
+              inset -1px 0 1px rgb(120 100 70 / 10%);
+          }
+
+          .meta-seal {
+            flex-shrink: 0;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background:
+              radial-gradient(circle at 35% 28%, var(--seal-hi) 0%, transparent 45%),
+              radial-gradient(circle at 50% 50%, var(--seal-mid) 0%, var(--seal-deep) 75%, var(--seal-darkest) 100%);
+            border: 1.5px solid var(--seal-edge);
+            box-shadow:
+              inset 0 2px 3px rgb(255 255 255 / 35%),
+              inset 0 -3px 5px rgb(0 0 0 / 55%),
+              inset 0 0 10px var(--seal-glow),
+              0 4px 8px rgb(0 0 0 / 45%),
+              0 2px 4px rgb(0 0 0 / 30%);
+
+            svg {
+              width: 21px;
+              height: 21px;
+              color: var(--seal-icon);
+              filter: drop-shadow(0 0 6px var(--seal-glow)) drop-shadow(0 1px 1px rgb(0 0 0 / 50%));
+            }
+
+            // 作者：暖橙金（阳光感）
+            &.seal-author {
+              --seal-hi: rgb(255 220 150 / 50%); --seal-mid: #c87a1a; --seal-deep: #8a4a08; --seal-darkest: #4a2204;
+              --seal-edge: #6a3808; --seal-glow: rgb(251 146 60 / 50%); --seal-icon: #ffd9a0;
+            }
+
+            // 地点：红(image)/蓝(video)
+            &.seal-location {
+              &.image {
+                --seal-hi: rgb(255 180 170 / 50%); --seal-mid: #c83a2a; --seal-deep: #8a1a0c; --seal-darkest: #4a0a04;
+                --seal-edge: #6a1408; --seal-glow: rgb(239 68 68 / 50%); --seal-icon: #ffb0a0;
+              }
+
+              &.video {
+                --seal-hi: rgb(170 200 255 / 50%); --seal-mid: #2a6ac8; --seal-deep: #1a3a8a; --seal-darkest: #0a1a4a;
+                --seal-edge: #0a2a6a; --seal-glow: rgb(59 130 246 / 50%); --seal-icon: #a8c8ff;
+              }
+            }
+
+            // 日期：翡翠绿
+            &.seal-date {
+              --seal-hi: rgb(170 255 200 / 50%); --seal-mid: #2a9a5a; --seal-deep: #1a6a2a; --seal-darkest: #0a3a14;
+              --seal-edge: #0a4a1a; --seal-glow: rgb(34 197 94 / 50%); --seal-icon: #a0f0b8;
+            }
+
+            // 器材：青蓝
+            &.seal-camera {
+              --seal-hi: rgb(170 230 255 / 50%); --seal-mid: #2a8ac8; --seal-deep: #1a5a8a; --seal-darkest: #0a2a4a;
+              --seal-edge: #0a3a5a; --seal-glow: rgb(56 189 248 / 50%); --seal-icon: #a0e0ff;
+            }
+          }
+
+          .meta-cell {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            min-width: 0;
+            flex: 1;
+            overflow: hidden;
+
+            .cell-label {
+              font-size: 0.74rem;
+              font-weight: 800;
+              letter-spacing: 0.14em;
+              color: #6a5a42;
+              text-transform: uppercase;
+              text-shadow: 0 1px 0 rgb(255 255 255 / 50%);
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+
+            .cell-value {
+              font-size: 1.04rem;
+              font-weight: 700;
+              color: $paper-ink;
+              font-style: italic;
+              line-height: 1.3;
+              text-shadow: 0 1px 0 rgb(255 255 255 / 55%), 0 -1px 0 rgb(0 0 0 / 6%);
+              word-break: break-word;
+              overflow-wrap: break-word;
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              overflow: hidden;
+            }
           }
         }
       }
 
-      .modal-info {
-        overflow: hidden;
-        background: linear-gradient(180deg, rgba($bg-secondary, 0.5), rgba($bg-primary, 0.8));
-        border-left: 1px solid rgba(255, 255, 255, 0.06);
+      .journal-tags {
+        position: relative;
+        z-index: 2;
 
-        .info-scroll {
-          height: 100%;
-          max-height: 80vh;
-          overflow-y: auto;
-          padding: 1.5rem 1.25rem;
+        .tags-label {
           display: flex;
-          flex-direction: column;
-          gap: 1rem;
-
-          &::-webkit-scrollbar {
-            width: 5px;
-          }
-
-          &::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 3px;
-          }
-
-          &::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, rgba($red, 0.2), rgba($blue, 0.2));
-            border-radius: 3px;
-          }
+          align-items: center;
+          gap: 0.45rem;
+          margin-bottom: 0.55rem;
+          font-size: 0.76rem;
+          font-weight: 800;
+          letter-spacing: 0.14em;
+          color: #5a4a32;
+          text-transform: uppercase;
+          svg { width: 16px; height: 16px; color: var(--ink); filter: drop-shadow(0 1px 0 rgb(255 255 255 / 40%)); }
         }
 
-        .info-header {
-          .modal-title {
-            font-size: 1.5rem;
+        .tags-list {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.45rem;
+
+          .tag-sticker {
+            padding: 0.4rem 0.8rem;
+            font-size: 0.92rem;
             font-weight: 700;
-            color: $text-primary;
-            line-height: 1.3;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            letter-spacing: 0.02em;
+            color: #fff;
+            transform: rotate(var(--rot, 0deg));
+            transition: transform 0.25s $ease, filter 0.25s $ease;
             position: relative;
-            padding-bottom: 0.65rem;
-            margin: 0;
+            border-radius: 2px;
 
-            &.image::after {
-              background: linear-gradient(90deg, $red, $red-light);
-              box-shadow: 0 0 10px rgba($red, 0.4);
-            }
-
-            &.video::after {
-              background: linear-gradient(90deg, $blue, $blue-light);
-              box-shadow: 0 0 10px rgba($blue, 0.4);
+            &::before {
+              content: '';
+              position: absolute;
+              top: -5px;
+              left: 50%;
+              transform: translateX(-50%) rotate(-3deg);
+              width: 26px;
+              height: 11px;
+              background:
+                linear-gradient(180deg, rgb(240 222 175 / 72%) 0%, rgb(200 178 128 / 55%) 100%),
+                repeating-linear-gradient(90deg, rgb(120 100 60 / 8%) 0 2px, transparent 2px 4px);
+              box-shadow:
+                0 1px 2px rgb(0 0 0 / 30%),
+                0 2px 4px rgb(0 0 0 / 15%),
+                inset 0 1px 0 rgb(255 255 255 / 30%);
+              clip-path: polygon(4% 8%, 12% 0, 88% 14%, 96% 6%, 100% 88%, 92% 100%, 8% 86%, 0 92%);
             }
 
             &::after {
               content: '';
               position: absolute;
-              bottom: 0;
-              left: 0;
-              width: 45px;
-              height: 3px;
-              border-radius: 2px;
+              top: -2px;
+              left: 50%;
+              transform: translateX(-50%);
+              width: 22px;
+              height: 1px;
+              background: rgb(120 100 60 / 25%);
+              pointer-events: none;
+            }
+
+            &.image {
+              background:
+                linear-gradient(180deg, rgb(255 200 180 / 35%) 0%, transparent 40%),
+                linear-gradient(160deg, #d04a3a 0%, #8a2818 100%);
+              border: 1px solid #5a1408;
+              box-shadow:
+                0 5px 12px rgb(138 40 24 / 45%),
+                0 2px 4px rgb(138 40 24 / 30%),
+                inset 0 1px 0 rgb(255 255 255 / 30%),
+                inset 1px 0 1px rgb(255 200 180 / 20%),
+                inset -1px -1px 2px rgb(0 0 0 / 40%);
+              text-shadow: 0 1px 1px rgb(0 0 0 / 40%);
+              &:hover { transform: rotate(0deg) scale(1.08) translateY(-2px); filter: brightness(1.14); }
+            }
+
+            &.video {
+              background:
+                linear-gradient(180deg, rgb(180 200 255 / 35%) 0%, transparent 40%),
+                linear-gradient(160deg, #4070d8 0%, #1a3878 100%);
+              border: 1px solid #0a1a4a;
+              box-shadow:
+                0 5px 12px rgb(26 56 120 / 45%),
+                0 2px 4px rgb(26 56 120 / 30%),
+                inset 0 1px 0 rgb(255 255 255 / 30%),
+                inset 1px 0 1px rgb(180 200 255 / 20%),
+                inset -1px -1px 2px rgb(0 0 0 / 40%);
+              text-shadow: 0 1px 1px rgb(0 0 0 / 40%);
+              &:hover { transform: rotate(0deg) scale(1.08) translateY(-2px); filter: brightness(1.14); }
             }
           }
 
-          .modal-description {
-            font-size: 0.88rem;
-            color: $text-secondary;
-            line-height: 1.7;
-            margin-top: 0.65rem;
-          }
         }
+      }
 
-        .modal-meta {
-          display: flex;
-          flex-direction: column;
-          gap: 0.5rem;
+      .journal-postmarks {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: 0.55rem 0.5rem;
+        padding-top: 0.55rem;
+        margin-top: auto;
+        border-top: 1px dashed rgb(120 100 70 / 30%);
 
-          .meta-item {
+        .postmark {
+          position: relative;
+          width: 68px;
+          height: 74px;
+          cursor: pointer;
+          border: none;
+          transform: rotate(var(--pm-rot, 0deg));
+          transform-origin: top center;
+          transition: transform 0.25s $ease, box-shadow 0.25s $ease;
+          padding: 0;
+          border-radius: 6px;
+          background:
+            linear-gradient(180deg, var(--pm-light) 0%, var(--pm-mid) 35%, var(--pm-deep) 75%, var(--pm-darkest) 100%),
+            radial-gradient(ellipse at 38% 22%, var(--pm-light) 0%, var(--pm-mid) 55%, var(--pm-deep) 100%),
+            radial-gradient(circle at 50% 50%, var(--pm-mid) 0%, var(--pm-deep) 70%, var(--pm-darkest) 100%);
+          box-shadow:
+            0 5px 12px rgb(0 0 0 / 85%),
+            0 12px 24px rgb(0 0 0 / 70%),
+            0 20px 40px rgb(0 0 0 / 55%),
+            inset 0 1px 1px var(--pm-hi),
+            inset 0 -2px 3px rgb(0 0 0 / 55%),
+            inset 1px 0 1px var(--pm-hi),
+            inset -1px 0 1px rgb(0 0 0 / 40%);
+
+          // 烫金缝线边框
+          &::before {
+            content: '';
+            position: absolute;
+            inset: 4px;
+            border: 2px dashed var(--foil);
+            border-radius: 3px;
+            opacity: 0.85;
+            pointer-events: none;
+          }
+
+          // 顶部穿线孔（皮质吊牌感）
+          &::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--pm-darkest);
+            box-shadow: inset 0 1px 1px rgb(0 0 0 / 80%), 0 1px 0 var(--pm-hi);
+          }
+
+          .pm-inner {
+            position: absolute;
+            inset: 0;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 0.65rem;
-            padding: 0.5rem 0.75rem;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            transition: $transition;
+            justify-content: center;
+            gap: 2px;
+            padding-top: 4px;
+            color: var(--foil);
+            font-variant-numeric: tabular-nums;
 
-            &:hover {
-              background: rgba(255, 255, 255, 0.05);
-              border-color: rgba(255, 255, 255, 0.08);
-              transform: translateX(4px);
-            }
-
-            .meta-icon {
-              width: 32px;
-              height: 32px;
-              border-radius: 8px;
+            .pm-icon {
               display: flex;
               align-items: center;
               justify-content: center;
-              flex-shrink: 0;
 
               svg {
-                width: 15px;
-                height: 15px;
-              }
-
-              &.author {
-                &.image {
-                  background: linear-gradient(135deg, rgba($amber, 0.15), rgba($amber, 0.08));
-                  border: 1px solid rgba($amber, 0.2);
-                  box-shadow: 0 2px 6px rgba($amber, 0.08);
-                  svg { color: #fbbf24; }
-                }
-                &.video {
-                  background: linear-gradient(135deg, rgba($cyan, 0.15), rgba($cyan, 0.08));
-                  border: 1px solid rgba($cyan, 0.2);
-                  box-shadow: 0 2px 6px rgba($cyan, 0.08);
-                  svg { color: #22d3ee; }
-                }
-              }
-
-              &.location {
-                &.image {
-                  background: linear-gradient(135deg, rgba($red, 0.15), rgba($red, 0.08));
-                  border: 1px solid rgba($red, 0.2);
-                  box-shadow: 0 2px 6px rgba($red, 0.08);
-                  svg { color: $red-light; }
-                }
-                &.video {
-                  background: linear-gradient(135deg, rgba($blue, 0.15), rgba($blue, 0.08));
-                  border: 1px solid rgba($blue, 0.2);
-                  box-shadow: 0 2px 6px rgba($blue, 0.08);
-                  svg { color: $blue-light; }
-                }
-              }
-
-              &.date {
-                &.image {
-                  background: linear-gradient(135deg, rgba($green, 0.18), rgba($green, 0.1));
-                  border: 1px solid rgba($green, 0.25);
-                  box-shadow: 0 2px 6px rgba($green, 0.1);
-                  svg { color: $green-light; }
-                }
-                &.video {
-                  background: linear-gradient(135deg, rgba($rose, 0.18), rgba($rose, 0.1));
-                  border: 1px solid rgba($rose, 0.25);
-                  box-shadow: 0 2px 6px rgba($rose, 0.1);
-                  svg { color: $rose-light; }
-                }
-              }
-
-              &.camera {
-                &.image {
-                  background: linear-gradient(135deg, rgba($sky, 0.18), rgba($sky, 0.1));
-                  border: 1px solid rgba($sky, 0.25);
-                  box-shadow: 0 2px 6px rgba($sky, 0.1);
-                  svg { color: $sky-light; }
-                }
-                &.video {
-                  background: linear-gradient(135deg, rgba($teal, 0.18), rgba($teal, 0.1));
-                  border: 1px solid rgba($teal, 0.25);
-                  box-shadow: 0 2px 6px rgba($teal, 0.1);
-                  svg { color: $teal-light; }
-                }
+                width: 20px;
+                height: 20px;
+                color: var(--foil-hi);
+                filter: drop-shadow(0 0 4px var(--foil-glow)) drop-shadow(0 1px 1px rgb(0 0 0 / 50%));
               }
             }
 
-            .meta-text {
-              display: flex;
-              flex-direction: column;
-              gap: 2px;
-
-              .meta-label {
-                font-size: 0.68rem;
-                color: $text-muted;
-                font-weight: 500;
-              }
-
-              .meta-value {
-                font-size: 0.85rem;
-                color: $text-primary;
-                font-weight: 600;
-              }
+            .pm-count {
+              font-size: 0.86rem;
+              font-weight: 800;
+              line-height: 1;
+              letter-spacing: 0.02em;
+              color: var(--foil-hi);
+              text-shadow: 0 0 4px var(--foil-glow);
             }
+
+            .pm-text {
+              font-size: 0.6rem;
+              font-weight: 800;
+              letter-spacing: 0.14em;
+              color: var(--foil);
+              opacity: 0.9;
+            }
+
+            // 烫金流光扫过层
+            &::after {
+              content: '';
+              position: absolute;
+              inset: 0;
+              border-radius: inherit;
+              background: linear-gradient(110deg, transparent 30%, rgb(255 240 200 / 35%) 50%, transparent 70%);
+              background-size: 250% 100%;
+              background-position: -120% 0;
+              pointer-events: none;
+              opacity: 0;
+              transition: opacity 0.2s;
+              mix-blend-mode: screen;
+            }
+          }
+
+          &:hover {
+            animation: tagSwing 0.65s ease forwards;
+            box-shadow:
+              0 10px 18px rgb(0 0 0 / 85%),
+              0 20px 36px rgb(0 0 0 / 70%),
+              0 0 20px var(--pm-glow),
+              inset 0 1px 1px var(--pm-hi),
+              inset 0 -2px 3px rgb(0 0 0 / 55%);
+            &::before { border-color: var(--foil); opacity: 0.9; }
+
+            .pm-inner {
+              .pm-icon svg {
+                transform: scale(1.18);
+                filter: drop-shadow(0 0 7px var(--foil-glow)) drop-shadow(0 1px 1px rgb(0 0 0 / 50%));
+              }
+              .pm-count { color: #fff; text-shadow: 0 0 6px var(--foil-glow); }
+              &::after { opacity: 1; animation: goldSweep 0.7s ease; }
+            }
+          }
+
+          &:active {
+            transform: rotate(var(--pm-rot, 0deg)) translateY(1px);
+            box-shadow:
+              0 2px 4px rgb(0 0 0 / 50%),
+              inset 0 2px 4px rgb(0 0 0 / 50%),
+              inset 0 -1px 2px rgb(0 0 0 / 40%);
+          }
+
+          &.active {
+            animation: btnPulse 2.2s ease-in-out infinite;
+            background:
+              linear-gradient(180deg, var(--pm-a-light) 0%, var(--pm-a-mid) 35%, var(--pm-a-deep) 75%, var(--pm-a-darkest) 100%),
+              radial-gradient(ellipse at 38% 22%, var(--pm-a-light) 0%, var(--pm-a-mid) 55%, var(--pm-a-deep) 100%),
+              radial-gradient(circle at 50% 50%, var(--pm-a-mid) 0%, var(--pm-a-deep) 70%, var(--pm-a-darkest) 100%);
+            box-shadow:
+              0 4px 10px rgb(0 0 0 / 85%),
+              0 10px 22px rgb(0 0 0 / 70%),
+              0 0 18px var(--pm-glow),
+              0 0 32px var(--pm-glow),
+              inset 0 2px 5px rgb(0 0 0 / 55%),
+              inset 0 -1px 2px var(--pm-a-light),
+              inset 0 0 0 2px var(--foil),
+              inset 0 0 0 4px var(--foil-dark);
+
+            &::before {
+              border-color: var(--foil-hi);
+              border-style: solid;
+              opacity: 0.95;
+              animation: goldFlow 2.5s linear infinite;
+            }
+
+            .pm-inner {
+              .pm-icon svg {
+                color: var(--foil-hi);
+                transform: scale(1.1);
+                filter: drop-shadow(0 0 8px var(--foil-glow)) drop-shadow(0 0 3px var(--pm-glow));
+                animation: iconPop 0.5s ease;
+              }
+
+              .pm-count {
+                color: #fff;
+                text-shadow: 0 0 6px var(--foil-glow), 0 0 12px var(--pm-glow);
+              }
+              .pm-text { color: var(--foil-hi); opacity: 1; }
+            }
+          }
+
+          // 各按钮皮质底色 + active 稍亮暗色（全不透明实色）
+          &.pm-like {
+            --pm-hi: #3a5e3e; --pm-light: #3a5e3e; --pm-mid: #2a4a2e; --pm-deep: #1a3a1e; --pm-darkest: #0a1a0e; --pm-glow: rgb(34 197 94 / 50%);
+            --pm-a-light: #4a7050; --pm-a-mid: #3a5e3e; --pm-a-deep: #2a4e2e; --pm-a-darkest: #1a3e1e;
+          }
+
+          &.pm-love {
+            --pm-hi: #6e2e2a; --pm-light: #6e2e2a; --pm-mid: #4a1e1a; --pm-deep: #2a0e0c; --pm-darkest: #140606; --pm-glow: rgb(239 68 68 / 50%);
+            --pm-a-light: #7e3e3a; --pm-a-mid: #5e2e2a; --pm-a-deep: #3e1e1a; --pm-a-darkest: #2e0e0c;
+          }
+
+          &.pm-keep {
+            --pm-hi: #6e5030; --pm-light: #6e5030; --pm-mid: #4a3416; --pm-deep: #2a1c08; --pm-darkest: #140a04; --pm-glow: rgb(202 138 4 / 50%);
+            --pm-a-light: #7e6040; --pm-a-mid: #5e442a; --pm-a-deep: #3e2c18; --pm-a-darkest: #2e1c0c;
+          }
+
+          &.pm-share {
+            --pm-hi: #4e3a5e; --pm-light: #4e3a5e; --pm-mid: #3a2a4a; --pm-deep: #1a0e2a; --pm-darkest: #0a0414; --pm-glow: rgb(139 92 246 / 50%);
+            --pm-a-light: #5e4a6e; --pm-a-mid: #4e3a5e; --pm-a-deep: #2e1e3e; --pm-a-darkest: #1e0e2e;
+          }
+
+          &.pm-save {
+            --pm-hi: #2e4e5e; --pm-light: #2e4e5e; --pm-mid: #1a3a4a; --pm-deep: #0a1e2e; --pm-darkest: #040a14; --pm-glow: rgb(59 130 246 / 50%);
+            --pm-a-light: #3e5e6e; --pm-a-mid: #2e4e5e; --pm-a-deep: #1e2e3e; --pm-a-darkest: #0e1e2e;
           }
         }
+      }
 
-        .modal-tags-section {
-          .section-label {
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            margin-bottom: 0.5rem;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: $text-muted;
+      .page-folio {
+        position: absolute;
+        bottom: 14px;
+        z-index: 3;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        color: $paper-ink-faint;
+        font-style: italic;
+        &.right { right: 30px; }
+      }
+    }
 
-            svg {
-              width: 14px;
-              height: 14px;
-            }
-          }
+    // 皮质标签按钮（合上相册）
+    .album-close {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      z-index: 40;
+      width: 46px;
+      height: 46px;
+      border-radius: 7px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--foil-dark);
+      background:
+        radial-gradient(ellipse at 30% 22%, var(--le-hi) 0%, transparent 55%),
+        radial-gradient(ellipse at 70% 80%, var(--le-hi2) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, var(--le2) 0%, var(--le3) 60%, var(--le4) 100%),
+        repeating-linear-gradient(48deg, var(--le-grain) 0 1px, transparent 1px 3px),
+        repeating-linear-gradient(132deg, var(--le-grain2) 0 1px, transparent 1px 4px);
+      box-shadow:
+        inset 0 1px 2px var(--le-hi),
+        inset 0 -2px 4px rgb(0 0 0 / 60%),
+        inset 1px 0 2px var(--le-hi),
+        inset -1px 0 2px rgb(0 0 0 / 50%),
+        inset 0 0 0 1px var(--foil-dark),
+        0 3px 8px rgb(0 0 0 / 90%),
+        0 6px 16px rgb(0 0 0 / 75%),
+        0 10px 24px rgb(0 0 0 / 60%);
+      transition: all 0.25s $ease;
 
-          .modal-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.45rem;
+      // 双层缝线
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 4px;
+        border: 1px dashed var(--foil);
+        border-radius: 4px;
+        opacity: 0.75;
+      }
 
-            .tag {
-              padding: 0.35rem 0.75rem;
-              color: #fff;
-              border-radius: 16px;
-              font-size: 0.75rem;
-              font-weight: 600;
-              transition: $transition;
+      svg {
+        width: 20px;
+        height: 20px;
+        color: var(--foil-hi);
+        filter: drop-shadow(0 0 4px var(--foil-glow)) drop-shadow(0 1px 1px rgb(0 0 0 / 60%));
+        z-index: 1;
+        transition: transform 0.3s $ease;
+      }
 
-              &.image {
-                background: linear-gradient(135deg, rgba($red, 0.2), rgba($red-dark, 0.15));
-                border: 1px solid rgba($red, 0.25);
-                box-shadow: 0 2px 6px rgba($red, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      .close-string { display: none; }
 
-                &:hover {
-                  box-shadow: 0 3px 10px rgba($red, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-                  background: linear-gradient(135deg, rgba($red, 0.3), rgba($red-dark, 0.2));
-                }
-              }
+      &:hover {
+        box-shadow:
+          inset 0 1px 2px var(--le-hi),
+          inset 0 -2px 4px rgb(0 0 0 / 60%),
+          inset 1px 0 2px var(--le-hi),
+          inset -1px 0 2px rgb(0 0 0 / 50%),
+          inset 0 0 0 1px var(--foil),
+          0 0 20px var(--foil-glow),
+          0 0 40px var(--foil-glow),
+          0 6px 16px rgb(0 0 0 / 95%),
+          0 12px 28px rgb(0 0 0 / 80%);
+        &::before { border-color: var(--foil-hi); opacity: 0.95; animation: goldFlow 1.5s ease-in-out infinite; }
 
-              &.video {
-                background: linear-gradient(135deg, rgba($blue, 0.2), rgba($blue-dark, 0.15));
-                border: 1px solid rgba($blue, 0.25);
-                box-shadow: 0 2px 6px rgba($blue, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-
-                &:hover {
-                  box-shadow: 0 3px 10px rgba($blue, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-                  background: linear-gradient(135deg, rgba($blue, 0.3), rgba($blue-dark, 0.2));
-                }
-              }
-
-              &:hover {
-                transform: translateY(-2px);
-              }
-            }
-          }
-        }
-
-        .action-chips {
-          display: flex;
-          gap: 0.4rem;
-          flex-wrap: wrap;
-
-          .act-chip {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.3rem;
-            padding: 0.4rem 0.75rem;
-            border-radius: 1.5rem;
-            font-size: 0.8rem;
-            font-weight: 700;
-            font-variant-numeric: tabular-nums;
-            transition: all 0.25s ease;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            cursor: pointer;
-            font-family: inherit;
-
-            svg { width: 14px; height: 14px; flex-shrink: 0; }
-
-            &.act-views { cursor: default; }
-
-            &:hover {
-              transform: translateY(-2px) scale(1.06);
-              filter: brightness(1.15);
-            }
-
-            &:active {
-              transform: translateY(0) scale(0.97);
-              filter: brightness(0.95);
-              transition-duration: 0.1s;
-            }
-          }
-
-          &.image .act-chip {
-            &.act-views {
-              background: linear-gradient(to bottom right, rgba($amber-dark, 0.18), rgba($amber-dark, 0.12));
-              color: #fcd34d;
-              box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.5), inset -1px -1px 3px rgba($amber, 0.08);
-              border-color: rgba($amber-dark, 0.3);
-              svg { color: $amber-light; }
-            }
-
-            &.act-like {
-              background: linear-gradient(to bottom right, rgba(6, 182, 212, 0.12), rgba(6, 182, 212, 0.06));
-              color: #67e8f9;
-              box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.5), inset -1px -1px 3px rgba(6, 182, 212, 0.06);
-              border-color: rgba(6, 182, 212, 0.25);
-              svg { color: #06b6d4; }
-              &:hover { background: linear-gradient(to bottom right, rgba(6, 182, 212, 0.28), rgba(6, 182, 212, 0.15)); box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.4), 0 0 12px rgba(6, 182, 212, 0.4); border-color: rgba(6, 182, 212, 0.6); color: #fff; svg { color: #fff; transform: scale(1.15); } }
-              &.active { background: linear-gradient(to bottom right, rgba(6, 182, 212, 0.45), rgba(6, 182, 212, 0.3)); box-shadow: inset 0 2px 8px rgba(6, 182, 212, 0.3), 0 0 16px rgba(6, 182, 212, 0.5); border-color: rgba(6, 182, 212, 0.8); color: #fff; svg { color: #fff; transform: scale(1.2); } }
-            }
-
-            &.act-love {
-              background: linear-gradient(to bottom right, rgba(239, 68, 68, 0.12), rgba(239, 68, 68, 0.06));
-              color: #fca5a5;
-              box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.5), inset -1px -1px 3px rgba(239, 68, 68, 0.06);
-              border-color: rgba(239, 68, 68, 0.25);
-              svg { color: #ef4444; }
-              &:hover { background: linear-gradient(to bottom right, rgba(239, 68, 68, 0.28), rgba(239, 68, 68, 0.15)); box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.4), 0 0 12px rgba(239, 68, 68, 0.4); border-color: rgba(239, 68, 68, 0.6); color: #fff; svg { color: #fff; transform: scale(1.15); } }
-              &.active { background: linear-gradient(to bottom right, rgba(239, 68, 68, 0.45), rgba(239, 68, 68, 0.3)); box-shadow: inset 0 2px 8px rgba(239, 68, 68, 0.3), 0 0 16px rgba(239, 68, 68, 0.5); border-color: rgba(239, 68, 68, 0.8); color: #fff; svg { color: #fff; transform: scale(1.2); } }
-            }
-
-            &.act-bookmark {
-              background: linear-gradient(to bottom right, rgba(16, 185, 129, 0.12), rgba(16, 185, 129, 0.06));
-              color: #6ee7b7;
-              box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.5), inset -1px -1px 3px rgba(16, 185, 129, 0.06);
-              border-color: rgba(16, 185, 129, 0.25);
-              svg { color: #10b981; }
-              &:hover { background: linear-gradient(to bottom right, rgba(16, 185, 129, 0.28), rgba(16, 185, 129, 0.15)); box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.4), 0 0 12px rgba(16, 185, 129, 0.4); border-color: rgba(16, 185, 129, 0.6); color: #fff; svg { color: #fff; transform: scale(1.15); } }
-              &.active { background: linear-gradient(to bottom right, rgba(16, 185, 129, 0.45), rgba(16, 185, 129, 0.3)); box-shadow: inset 0 2px 8px rgba(16, 185, 129, 0.3), 0 0 16px rgba(16, 185, 129, 0.5); border-color: rgba(16, 185, 129, 0.8); color: #fff; svg { color: #fff; transform: scale(1.2); } }
-            }
-
-            &.act-share {
-              background: linear-gradient(to bottom right, rgba(139, 92, 246, 0.12), rgba(139, 92, 246, 0.06));
-              color: #c4b5fd;
-              box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.5), inset -1px -1px 3px rgba(139, 92, 246, 0.06);
-              border-color: rgba(139, 92, 246, 0.25);
-              svg { color: #8b5cf6; }
-              &:hover { background: linear-gradient(to bottom right, rgba(139, 92, 246, 0.28), rgba(139, 92, 246, 0.15)); box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.4), 0 0 12px rgba(139, 92, 246, 0.4); border-color: rgba(139, 92, 246, 0.6); color: #fff; svg { color: #fff; transform: scale(1.15); } }
-            }
-
-            &.act-download {
-              background: linear-gradient(to bottom right, rgba(59, 130, 246, 0.12), rgba(59, 130, 246, 0.06));
-              color: #93c5fd;
-              box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.5), inset -1px -1px 3px rgba(59, 130, 246, 0.06);
-              border-color: rgba(59, 130, 246, 0.25);
-              svg { color: #3b82f6; }
-              &:hover { background: linear-gradient(to bottom right, rgba(59, 130, 246, 0.28), rgba(59, 130, 246, 0.15)); box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.4), 0 0 12px rgba(59, 130, 246, 0.4); border-color: rgba(59, 130, 246, 0.6); color: #fff; svg { color: #fff; transform: scale(1.15); } }
-            }
-          }
-
-          &.video .act-chip {
-            &.act-views {
-              background: linear-gradient(to bottom right, rgba($amber-dark, 0.18), rgba($amber-dark, 0.12));
-              color: #fcd34d;
-              box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.5), inset -1px -1px 3px rgba($amber, 0.08);
-              border-color: rgba($amber-dark, 0.3);
-              svg { color: $amber-light; }
-            }
-
-            &.act-like {
-              background: linear-gradient(to bottom right, rgba(6, 182, 212, 0.12), rgba(6, 182, 212, 0.06));
-              color: #67e8f9;
-              box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.5), inset -1px -1px 3px rgba(6, 182, 212, 0.06);
-              border-color: rgba(6, 182, 212, 0.25);
-              svg { color: #06b6d4; }
-              &:hover { background: linear-gradient(to bottom right, rgba(6, 182, 212, 0.28), rgba(6, 182, 212, 0.15)); box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.4), 0 0 12px rgba(6, 182, 212, 0.4); border-color: rgba(6, 182, 212, 0.6); color: #fff; svg { color: #fff; transform: scale(1.15); } }
-              &.active { background: linear-gradient(to bottom right, rgba(6, 182, 212, 0.45), rgba(6, 182, 212, 0.3)); box-shadow: inset 0 2px 8px rgba(6, 182, 212, 0.3), 0 0 16px rgba(6, 182, 212, 0.5); border-color: rgba(6, 182, 212, 0.8); color: #fff; svg { color: #fff; transform: scale(1.2); } }
-            }
-
-            &.act-love {
-              background: linear-gradient(to bottom right, rgba(239, 68, 68, 0.12), rgba(239, 68, 68, 0.06));
-              color: #fca5a5;
-              box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.5), inset -1px -1px 3px rgba(239, 68, 68, 0.06);
-              border-color: rgba(239, 68, 68, 0.25);
-              svg { color: #ef4444; }
-              &:hover { background: linear-gradient(to bottom right, rgba(239, 68, 68, 0.28), rgba(239, 68, 68, 0.15)); box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.4), 0 0 12px rgba(239, 68, 68, 0.4); border-color: rgba(239, 68, 68, 0.6); color: #fff; svg { color: #fff; transform: scale(1.15); } }
-              &.active { background: linear-gradient(to bottom right, rgba(239, 68, 68, 0.45), rgba(239, 68, 68, 0.3)); box-shadow: inset 0 2px 8px rgba(239, 68, 68, 0.3), 0 0 16px rgba(239, 68, 68, 0.5); border-color: rgba(239, 68, 68, 0.8); color: #fff; svg { color: #fff; transform: scale(1.2); } }
-            }
-
-            &.act-bookmark {
-              background: linear-gradient(to bottom right, rgba(16, 185, 129, 0.12), rgba(16, 185, 129, 0.06));
-              color: #6ee7b7;
-              box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.5), inset -1px -1px 3px rgba(16, 185, 129, 0.06);
-              border-color: rgba(16, 185, 129, 0.25);
-              svg { color: #10b981; }
-              &:hover { background: linear-gradient(to bottom right, rgba(16, 185, 129, 0.28), rgba(16, 185, 129, 0.15)); box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.4), 0 0 12px rgba(16, 185, 129, 0.4); border-color: rgba(16, 185, 129, 0.6); color: #fff; svg { color: #fff; transform: scale(1.15); } }
-              &.active { background: linear-gradient(to bottom right, rgba(16, 185, 129, 0.45), rgba(16, 185, 129, 0.3)); box-shadow: inset 0 2px 8px rgba(16, 185, 129, 0.3), 0 0 16px rgba(16, 185, 129, 0.5); border-color: rgba(16, 185, 129, 0.8); color: #fff; svg { color: #fff; transform: scale(1.2); } }
-            }
-
-            &.act-share {
-              background: linear-gradient(to bottom right, rgba(139, 92, 246, 0.12), rgba(139, 92, 246, 0.06));
-              color: #c4b5fd;
-              box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.5), inset -1px -1px 3px rgba(139, 92, 246, 0.06);
-              border-color: rgba(139, 92, 246, 0.25);
-              svg { color: #8b5cf6; }
-              &:hover { background: linear-gradient(to bottom right, rgba(139, 92, 246, 0.28), rgba(139, 92, 246, 0.15)); box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.4), 0 0 12px rgba(139, 92, 246, 0.4); border-color: rgba(139, 92, 246, 0.6); color: #fff; svg { color: #fff; transform: scale(1.15); } }
-            }
-
-            &.act-download {
-              background: linear-gradient(to bottom right, rgba(59, 130, 246, 0.12), rgba(59, 130, 246, 0.06));
-              color: #93c5fd;
-              box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.5), inset -1px -1px 3px rgba(59, 130, 246, 0.06);
-              border-color: rgba(59, 130, 246, 0.25);
-              svg { color: #3b82f6; }
-              &:hover { background: linear-gradient(to bottom right, rgba(59, 130, 246, 0.28), rgba(59, 130, 246, 0.15)); box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.4), 0 0 12px rgba(59, 130, 246, 0.4); border-color: rgba(59, 130, 246, 0.6); color: #fff; svg { color: #fff; transform: scale(1.15); } }
-            }
-          }
+        svg {
+          color: var(--foil-hi);
+          transform: rotate(90deg) scale(1.18);
+          filter: drop-shadow(0 0 8px var(--foil-glow)) drop-shadow(0 0 16px var(--foil-glow));
         }
       }
     }
   }
 }
 
+@keyframes ribbonShimmer {
+  0%, 100% { background-position: 0% 0%; }
+  50% { background-position: 100% 0%; }
+}
+
+@keyframes tagSwing {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(-5deg); }
+  55% { transform: rotate(4deg); }
+  80% { transform: rotate(-2deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes goldSweep {
+  0% { background-position: -120% 0; }
+  100% { background-position: 220% 0; }
+}
+
+@keyframes btnPulse {
+  0%, 100% { box-shadow:
+    0 4px 10px rgb(0 0 0 / 85%),
+    0 10px 22px rgb(0 0 0 / 70%),
+    0 0 18px var(--pm-glow),
+    0 0 32px var(--pm-glow),
+    inset 0 2px 5px rgb(0 0 0 / 55%),
+    inset 0 -1px 2px var(--pm-hi),
+    inset 0 0 0 2px var(--foil),
+    inset 0 0 0 4px var(--foil-dark); }
+
+  50% { box-shadow:
+    0 4px 10px rgb(0 0 0 / 85%),
+    0 10px 22px rgb(0 0 0 / 70%),
+    0 0 26px var(--pm-glow),
+    0 0 48px var(--pm-glow),
+    inset 0 2px 5px rgb(0 0 0 / 55%),
+    inset 0 -1px 2px var(--pm-hi),
+    inset 0 0 0 2px var(--foil-hi),
+    inset 0 0 0 4px var(--foil); }
+}
+
+@keyframes goldFlow {
+  0% { filter: brightness(1); }
+  50% { filter: brightness(1.4) drop-shadow(0 0 3px var(--foil-glow)); }
+  100% { filter: brightness(1); }
+}
+
+@keyframes iconPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1.1); }
+}
+
 .modal-enter-active,
 .modal-leave-active {
   transition: opacity 0.4s ease;
-
-  .modal-container {
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  }
+  .album-book { transition: transform 0.5s cubic-bezier(0.34, 1.4, 0.64, 1); }
 }
 
 .modal-enter-from,
 .modal-leave-to {
   opacity: 0;
-
-  .modal-container {
-    transform: scale(0.85) translateY(30px);
-  }
+  .album-book { transform: scale(0.92) translateY(20px) rotateX(8deg); }
 }

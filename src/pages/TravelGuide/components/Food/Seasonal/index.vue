@@ -44,6 +44,8 @@
       </Transition>
     </div>
   </section>
+
+  <FoodEmptyState v-else type="seasonal" />
 </template>
 
 <script lang="ts">
@@ -65,6 +67,7 @@ const SEASON_ICONS: Record<string, Component> = {
   import { ref, computed } from 'vue';
   import CalendarIcon from '../../../icons/common/CalendarIcon.vue';
 
+  import FoodEmptyState from '../components/FoodEmptyState/index.vue';
   import SeasonAside from './components/SeasonAside/index.vue';
   import SeasonFoods from './components/SeasonFoods/index.vue';
 

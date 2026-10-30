@@ -75,6 +75,7 @@ import type { SearchResultItem } from '@/utils/landscape'
 const route = useRoute()
 const router = useRouter()
 const interactionStore = useInteractionStore()
+()
 const { addHistory } = useSearchHistory()
 
 

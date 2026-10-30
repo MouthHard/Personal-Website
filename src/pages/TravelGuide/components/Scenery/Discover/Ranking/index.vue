@@ -25,7 +25,7 @@
         </div>
       </div>
 
-      <ol class="ranking-list">
+      <ol v-if="rankingSpots.length > 0" class="ranking-list">
         <li
           v-for="(spot, index) in rankingSpots"
           :key="spot.id"
@@ -126,6 +126,10 @@
           </div>
         </li>
       </ol>
+      <div v-else class="ranking-empty">
+        <StarIcon class="empty-icon" />
+        <p class="empty-text">暂无榜单数据</p>
+      </div>
     </section>
 
     <TravelShareModal

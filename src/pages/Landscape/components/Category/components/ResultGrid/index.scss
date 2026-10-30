@@ -9,17 +9,17 @@ $amber-light: #fbbf24;
 $amber-dark: #b45309;
 
 .result-grid {
-  padding: 2rem 2rem 10rem  2rem ;
+  padding: 2rem 1.5rem 10rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
 
-  @media (max-width: 1400px) {
+  @media (width <= 1400px) {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.25rem;
   }
 
-  @media (max-width: 900px) {
+  @media (width <= 900px) {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
@@ -31,9 +31,15 @@ $amber-dark: #b45309;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     animation: item-appear 0.6s ease-out backwards;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    background: linear-gradient(
+      135deg,
+      rgb(255 255 255 / 3%),
+      rgb(255 255 255 / 1%)
+    );
+    border: 1px solid rgb(255 255 255 / 8%);
+    box-shadow:
+      0 4px 15px rgb(0 0 0 / 12%),
+      inset 0 1px 0 rgb(255 255 255 / 3%);
 
     // === IMAGE type ===
     &.image {
@@ -41,7 +47,11 @@ $amber-dark: #b45309;
         content: '';
         position: absolute;
         inset: 0;
-        background: linear-gradient(135deg, rgba($red, 0.06), rgba($red-dark, 0.03));
+        background: linear-gradient(
+          135deg,
+          rgba($red, 0.06),
+          rgba($red-dark, 0.03)
+        );
         opacity: 0;
         transition: opacity 0.4s ease;
         z-index: 1;
@@ -52,7 +62,11 @@ $amber-dark: #b45309;
         content: '';
         position: absolute;
         inset: -2px;
-        background: linear-gradient(135deg, rgba($red, 0.35), rgba($red-light, 0.15));
+        background: linear-gradient(
+          135deg,
+          rgba($red, 0.35),
+          rgba($red-light, 0.15)
+        );
         border-radius: 18px;
         opacity: 0;
         transition: opacity 0.4s ease;
@@ -60,12 +74,22 @@ $amber-dark: #b45309;
       }
 
       &:hover {
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45), 0 0 35px rgba($red, 0.12), 0 0 60px rgba($red-dark, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        box-shadow:
+          0 20px 50px rgb(0 0 0 / 45%),
+          0 0 35px rgba($red, 0.12),
+          0 0 60px rgba($red-dark, 0.06),
+          inset 0 1px 0 rgb(255 255 255 / 5%);
         border-color: rgba($red, 0.4);
       }
 
       .image-overlay {
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.5) 28%, rgba($red-dark, 0.08) 55%, transparent 78%);
+        background: linear-gradient(
+          to top,
+          rgb(0 0 0 / 95%) 0%,
+          rgb(0 0 0 / 50%) 28%,
+          rgba($red-dark, 0.08) 55%,
+          transparent 78%
+        );
       }
     }
 
@@ -77,7 +101,11 @@ $amber-dark: #b45309;
         content: '';
         position: absolute;
         inset: 0;
-        background: linear-gradient(135deg, rgba($blue, 0.06), rgba($blue-dark, 0.04));
+        background: linear-gradient(
+          135deg,
+          rgba($blue, 0.06),
+          rgba($blue-dark, 0.04)
+        );
         opacity: 0;
         transition: opacity 0.4s ease;
         z-index: 1;
@@ -88,7 +116,11 @@ $amber-dark: #b45309;
         content: '';
         position: absolute;
         inset: -2px;
-        background: linear-gradient(135deg, rgba($blue, 0.35), rgba($blue-light, 0.15));
+        background: linear-gradient(
+          135deg,
+          rgba($blue, 0.35),
+          rgba($blue-light, 0.15)
+        );
         border-radius: 18px;
         opacity: 0;
         transition: opacity 0.4s ease;
@@ -96,17 +128,27 @@ $amber-dark: #b45309;
       }
 
       &:hover {
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45), 0 0 35px rgba($blue, 0.12), 0 0 60px rgba($blue-dark, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        box-shadow:
+          0 20px 50px rgb(0 0 0 / 45%),
+          0 0 35px rgba($blue, 0.12),
+          0 0 60px rgba($blue-dark, 0.06),
+          inset 0 1px 0 rgb(255 255 255 / 5%);
         border-color: rgba($blue, 0.45);
       }
 
       .image-overlay {
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.5) 28%, rgba($blue-dark, 0.1) 55%, transparent 78%);
+        background: linear-gradient(
+          to top,
+          rgb(0 0 0 / 95%) 0%,
+          rgb(0 0 0 / 50%) 28%,
+          rgba($blue-dark, 0.1) 55%,
+          transparent 78%
+        );
       }
     }
 
     &:hover {
-      transform: translateY(-12px) scale(1.02);
+      transform: translateY(-5px) scale(1.01);
 
       &::before {
         opacity: 1;
@@ -130,7 +172,9 @@ $amber-dark: #b45309;
         display: block;
         object-fit: cover;
         object-position: center;
-        transition: transform 0.5s ease, opacity 0.3s ease;
+        transition:
+          transform 0.5s ease,
+          opacity 0.3s ease;
         opacity: 0;
 
         &.loaded {
@@ -148,30 +192,42 @@ $amber-dark: #b45309;
         gap: 5px;
         padding: 5px 10px;
         border-radius: 8px;
-        font-size: 0.72rem;
-        font-weight: 700;
+        font-size: 0.92rem;
+        font-weight: 800;
         letter-spacing: 0.03em;
         backdrop-filter: blur(12px);
         transition: all 0.3s ease;
 
         &.image {
-          background: linear-gradient(135deg, rgba($red, 0.8), rgba($red-dark, 0.7));
+          background: linear-gradient(
+            135deg,
+            rgba($red, 0.8),
+            rgba($red-dark, 0.7)
+          );
           border: 1px solid rgba($red, 0.4);
           color: #fff;
-          box-shadow: 0 2px 10px rgba($red, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+          box-shadow:
+            0 2px 10px rgba($red, 0.3),
+            inset 0 1px 0 rgb(255 255 255 / 10%);
         }
 
         &.video {
-          background: linear-gradient(135deg, rgba($blue, 0.8), rgba($blue-dark, 0.7));
+          background: linear-gradient(
+            135deg,
+            rgba($blue, 0.8),
+            rgba($blue-dark, 0.7)
+          );
           border: 1px solid rgba($blue, 0.4);
           color: #fff;
-          box-shadow: 0 2px 10px rgba($blue, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+          box-shadow:
+            0 2px 10px rgba($blue, 0.3),
+            inset 0 1px 0 rgb(255 255 255 / 10%);
         }
 
         svg {
-          width: 13px;
-          height: 13px;
-          filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3));
+          width: 18px;
+          height: 18px;
+          filter: drop-shadow(0 0 2px rgb(255 255 255 / 30%));
         }
       }
 
@@ -184,19 +240,25 @@ $amber-dark: #b45309;
         align-items: center;
         gap: 5px;
         padding: 5px 10px;
-        background: linear-gradient(135deg, rgba(15, 23, 42, 0.85), rgba(30, 41, 59, 0.75));
+        background: linear-gradient(
+          135deg,
+          rgb(15 23 42 / 85%),
+          rgb(30 41 59 / 75%)
+        );
         border: 1px solid rgba($blue, 0.4);
         border-radius: 8px;
-        font-size: 0.75rem;
-        font-weight: 700;
+        font-size: 0.92rem;
+        font-weight: 800;
         color: $blue-light;
         backdrop-filter: blur(12px);
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        box-shadow:
+          0 2px 10px rgb(0 0 0 / 30%),
+          inset 0 1px 0 rgb(255 255 255 / 10%);
         transition: all 0.3s ease;
 
         svg {
-          width: 13px;
-          height: 13px;
+          width: 18px;
+          height: 18px;
           color: $blue-light;
         }
       }
@@ -233,29 +295,40 @@ $amber-dark: #b45309;
         animation: content-slide-up 0.4s ease-out;
 
         h3 {
-          font-size: 1.1rem;
-          font-weight: 700;
+          font-size: 1.4rem;
+          font-weight: 800;
           color: #fff;
           margin: 0 0 0.3rem;
-          text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+          text-shadow: 0 2px 10px rgb(0 0 0 / 60%);
           letter-spacing: 0.02em;
           display: flex;
           align-items: baseline;
           gap: 0.5rem;
 
           .item-date {
-            font-size: 0.7rem;
-            font-weight: 500;
-            color: rgba(255, 255, 255, 0.55);
+            font-size: 1rem;
+            font-weight: 700;
+            color: rgb(255 255 255 / 85%);
             letter-spacing: 0;
           }
         }
 
         p {
-          font-size: 0.88rem;
+          font-size: 1.1rem;
+          font-weight: 600;
           color: #ddd;
           margin: 0 0 0.55rem;
-          text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+          text-shadow: 0 1px 6px rgb(0 0 0 / 50%);
+          display: flex;
+          align-items: center;
+          gap: 0.35rem;
+
+          svg {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+            color: rgb(255 255 255 / 60%);
+          }
         }
 
         .item-tags {
@@ -268,28 +341,44 @@ $amber-dark: #b45309;
             padding: 0.28rem 0.6rem;
             border-radius: 6px;
             color: #fff;
-            font-size: 0.72rem;
-            font-weight: 600;
+            font-size: 0.92rem;
+            font-weight: 700;
             backdrop-filter: blur(8px);
             transition: all 0.3s ease;
 
             &.image {
-              background: linear-gradient(135deg, rgba($red, 0.4), rgba($red-dark, 0.3));
+              background: linear-gradient(
+                135deg,
+                rgba($red, 0.4),
+                rgba($red-dark, 0.3)
+              );
               border: 1px solid rgba($red, 0.35);
-              box-shadow: 0 2px 6px rgba($red, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+              box-shadow:
+                0 2px 6px rgba($red, 0.15),
+                inset 0 1px 0 rgb(255 255 255 / 8%);
 
               &:hover {
-                box-shadow: 0 3px 10px rgba($red, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+                box-shadow:
+                  0 3px 10px rgba($red, 0.25),
+                  inset 0 1px 0 rgb(255 255 255 / 12%);
               }
             }
 
             &.video {
-              background: linear-gradient(135deg, rgba($blue, 0.4), rgba($blue-dark, 0.3));
+              background: linear-gradient(
+                135deg,
+                rgba($blue, 0.4),
+                rgba($blue-dark, 0.3)
+              );
               border: 1px solid rgba($blue, 0.35);
-              box-shadow: 0 2px 6px rgba($blue, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+              box-shadow:
+                0 2px 6px rgba($blue, 0.15),
+                inset 0 1px 0 rgb(255 255 255 / 8%);
 
               &:hover {
-                box-shadow: 0 3px 10px rgba($blue, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+                box-shadow:
+                  0 3px 10px rgba($blue, 0.25),
+                  inset 0 1px 0 rgb(255 255 255 / 12%);
               }
             }
 
@@ -310,22 +399,32 @@ $amber-dark: #b45309;
             gap: 0.25rem;
             padding: 0.22rem 0.55rem;
             border-radius: 1.5rem;
-            font-size: 0.68rem;
-            font-weight: 700;
+            font-size: 0.88rem;
+            font-weight: 800;
             font-variant-numeric: tabular-nums;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            border: 1px solid rgb(255 255 255 / 6%);
             position: relative;
             overflow: hidden;
 
-            svg { width: 11px; height: 11px; flex-shrink: 0; transition: all 0.3s ease; }
+            svg {
+              width: 17px;
+              height: 17px;
+              flex-shrink: 0;
+              transition: all 0.3s ease;
+            }
 
-            &.act-views { cursor: default; }
+            &.act-views {
+              cursor: default;
+            }
+
             &.act-like,
             &.act-love,
             &.act-bookmark,
             &.act-share,
-            &.act-download { cursor: pointer; }
+            &.act-download {
+              cursor: pointer;
+            }
 
             &:hover {
               transform: translateY(-2px) scale(1.08);
@@ -338,228 +437,496 @@ $amber-dark: #b45309;
 
           &.image .act-chip {
             &.act-views {
-              background: linear-gradient(to bottom right, rgba($amber-dark, 0.18), rgba($amber-dark, 0.12));
+              background: linear-gradient(
+                to bottom right,
+                rgba($amber-dark, 0.18),
+                rgba($amber-dark, 0.12)
+              );
               color: #fcd34d;
-              box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.5), inset -1px -1px 3px rgba($amber, 0.08);
+              box-shadow:
+                inset 1px 1px 3px rgb(0 0 0 / 50%),
+                inset -1px -1px 3px rgba($amber, 0.08);
               border-color: rgba($amber-dark, 0.3);
-              svg { color: $amber-light; }
+
+              svg {
+                color: $amber-light;
+              }
             }
 
             &.act-like {
-              background: linear-gradient(to bottom right, rgba(6, 182, 212, 0.12), rgba(6, 182, 212, 0.06));
+              background: linear-gradient(
+                to bottom right,
+                rgb(6 182 212 / 12%),
+                rgb(6 182 212 / 6%)
+              );
               color: #67e8f9;
-              box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.5), inset -1px -1px 3px rgba(6, 182, 212, 0.06);
-              border-color: rgba(6, 182, 212, 0.25);
-              svg { color: #06b6d4; }
-              
-              &:hover {
-                background: linear-gradient(to bottom right, rgba(6, 182, 212, 0.28), rgba(6, 182, 212, 0.15));
-                box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.4), 0 0 12px rgba(6, 182, 212, 0.4);
-                border-color: rgba(6, 182, 212, 0.6);
-                color: #fff;
-                svg { color: #fff; transform: scale(1.15); }
+              box-shadow:
+                inset 1px 1px 3px rgb(0 0 0 / 50%),
+                inset -1px -1px 3px rgb(6 182 212 / 6%);
+              border-color: rgb(6 182 212 / 25%);
+
+              svg {
+                color: #06b6d4;
               }
-              
-              &.active {
-                background: linear-gradient(to bottom right, rgba(6, 182, 212, 0.65), rgba(6, 182, 212, 0.45));
-                box-shadow: inset 0 2px 8px rgba(6, 182, 212, 0.35), 0 0 20px rgba(6, 182, 212, 0.6);
-                border-color: rgba(6, 182, 212, 0.85);
+
+              &:hover {
+                background: linear-gradient(
+                  to bottom right,
+                  rgb(6 182 212 / 28%),
+                  rgb(6 182 212 / 15%)
+                );
+                box-shadow:
+                  inset 1px 1px 2px rgb(0 0 0 / 40%),
+                  0 0 12px rgb(6 182 212 / 40%);
+                border-color: rgb(6 182 212 / 60%);
                 color: #fff;
-                svg { color: #fff; transform: scale(1.2); }
+
+                svg {
+                  color: #fff;
+                  transform: scale(1.15);
+                }
+              }
+
+              &.active {
+                background: linear-gradient(
+                  to bottom right,
+                  rgb(6 182 212 / 65%),
+                  rgb(6 182 212 / 45%)
+                );
+                box-shadow:
+                  inset 0 2px 8px rgb(6 182 212 / 35%),
+                  0 0 20px rgb(6 182 212 / 60%);
+                border-color: rgb(6 182 212 / 85%);
+                color: #fff;
+
+                svg {
+                  color: #fff;
+                  transform: scale(1.2);
+                }
               }
             }
 
             &.act-love {
-              background: linear-gradient(to bottom right, rgba(239, 68, 68, 0.12), rgba(239, 68, 68, 0.06));
+              background: linear-gradient(
+                to bottom right,
+                rgb(239 68 68 / 12%),
+                rgb(239 68 68 / 6%)
+              );
               color: #fca5a5;
-              box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.5), inset -1px -1px 3px rgba(239, 68, 68, 0.06);
-              border-color: rgba(239, 68, 68, 0.25);
-              svg { color: #ef4444; }
-              
-              &:hover {
-                background: linear-gradient(to bottom right, rgba(239, 68, 68, 0.28), rgba(239, 68, 68, 0.15));
-                box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.4), 0 0 12px rgba(239, 68, 68, 0.4);
-                border-color: rgba(239, 68, 68, 0.6);
-                color: #fff;
-                svg { color: #fff; transform: scale(1.15); }
+              box-shadow:
+                inset 1px 1px 3px rgb(0 0 0 / 50%),
+                inset -1px -1px 3px rgb(239 68 68 / 6%);
+              border-color: rgb(239 68 68 / 25%);
+
+              svg {
+                color: #ef4444;
               }
-              
-              &.active {
-                background: linear-gradient(to bottom right, rgba(239, 68, 68, 0.65), rgba(239, 68, 68, 0.45));
-                box-shadow: inset 0 2px 8px rgba(239, 68, 68, 0.35), 0 0 20px rgba(239, 68, 68, 0.6);
-                border-color: rgba(239, 68, 68, 0.85);
+
+              &:hover {
+                background: linear-gradient(
+                  to bottom right,
+                  rgb(239 68 68 / 28%),
+                  rgb(239 68 68 / 15%)
+                );
+                box-shadow:
+                  inset 1px 1px 2px rgb(0 0 0 / 40%),
+                  0 0 12px rgb(239 68 68 / 40%);
+                border-color: rgb(239 68 68 / 60%);
                 color: #fff;
-                svg { color: #fff; transform: scale(1.2); }
+
+                svg {
+                  color: #fff;
+                  transform: scale(1.15);
+                }
+              }
+
+              &.active {
+                background: linear-gradient(
+                  to bottom right,
+                  rgb(239 68 68 / 65%),
+                  rgb(239 68 68 / 45%)
+                );
+                box-shadow:
+                  inset 0 2px 8px rgb(239 68 68 / 35%),
+                  0 0 20px rgb(239 68 68 / 60%);
+                border-color: rgb(239 68 68 / 85%);
+                color: #fff;
+
+                svg {
+                  color: #fff;
+                  transform: scale(1.2);
+                }
               }
             }
 
             &.act-bookmark {
-              background: linear-gradient(to bottom right, rgba(16, 185, 129, 0.12), rgba(16, 185, 129, 0.06));
+              background: linear-gradient(
+                to bottom right,
+                rgb(16 185 129 / 12%),
+                rgb(16 185 129 / 6%)
+              );
               color: #6ee7b7;
-              box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.5), inset -1px -1px 3px rgba(16, 185, 129, 0.06);
-              border-color: rgba(16, 185, 129, 0.25);
-              svg { color: #10b981; }
-              
-              &:hover {
-                background: linear-gradient(to bottom right, rgba(16, 185, 129, 0.28), rgba(16, 185, 129, 0.15));
-                box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.4), 0 0 12px rgba(16, 185, 129, 0.4);
-                border-color: rgba(16, 185, 129, 0.6);
-                color: #fff;
-                svg { color: #fff; transform: scale(1.15); }
+              box-shadow:
+                inset 1px 1px 3px rgb(0 0 0 / 50%),
+                inset -1px -1px 3px rgb(16 185 129 / 6%);
+              border-color: rgb(16 185 129 / 25%);
+
+              svg {
+                color: #10b981;
               }
-              
-              &.active {
-                background: linear-gradient(to bottom right, rgba(16, 185, 129, 0.65), rgba(16, 185, 129, 0.45));
-                box-shadow: inset 0 2px 8px rgba(16, 185, 129, 0.35), 0 0 20px rgba(16, 185, 129, 0.6);
-                border-color: rgba(16, 185, 129, 0.85);
+
+              &:hover {
+                background: linear-gradient(
+                  to bottom right,
+                  rgb(16 185 129 / 28%),
+                  rgb(16 185 129 / 15%)
+                );
+                box-shadow:
+                  inset 1px 1px 2px rgb(0 0 0 / 40%),
+                  0 0 12px rgb(16 185 129 / 40%);
+                border-color: rgb(16 185 129 / 60%);
                 color: #fff;
-                svg { color: #fff; transform: scale(1.2); }
+
+                svg {
+                  color: #fff;
+                  transform: scale(1.15);
+                }
+              }
+
+              &.active {
+                background: linear-gradient(
+                  to bottom right,
+                  rgb(16 185 129 / 65%),
+                  rgb(16 185 129 / 45%)
+                );
+                box-shadow:
+                  inset 0 2px 8px rgb(16 185 129 / 35%),
+                  0 0 20px rgb(16 185 129 / 60%);
+                border-color: rgb(16 185 129 / 85%);
+                color: #fff;
+
+                svg {
+                  color: #fff;
+                  transform: scale(1.2);
+                }
               }
             }
 
             &.act-share {
-              background: linear-gradient(to bottom right, rgba(139, 92, 246, 0.12), rgba(139, 92, 246, 0.06));
+              background: linear-gradient(
+                to bottom right,
+                rgb(139 92 246 / 12%),
+                rgb(139 92 246 / 6%)
+              );
               color: #c4b5fd;
-              box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.5), inset -1px -1px 3px rgba(139, 92, 246, 0.06);
-              border-color: rgba(139, 92, 246, 0.25);
-              svg { color: #8b5cf6; }
-              
+              box-shadow:
+                inset 1px 1px 3px rgb(0 0 0 / 50%),
+                inset -1px -1px 3px rgb(139 92 246 / 6%);
+              border-color: rgb(139 92 246 / 25%);
+
+              svg {
+                color: #8b5cf6;
+              }
+
               &:hover {
-                background: linear-gradient(to bottom right, rgba(139, 92, 246, 0.28), rgba(139, 92, 246, 0.15));
-                box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.4), 0 0 12px rgba(139, 92, 246, 0.4);
-                border-color: rgba(139, 92, 246, 0.6);
+                background: linear-gradient(
+                  to bottom right,
+                  rgb(139 92 246 / 28%),
+                  rgb(139 92 246 / 15%)
+                );
+                box-shadow:
+                  inset 1px 1px 2px rgb(0 0 0 / 40%),
+                  0 0 12px rgb(139 92 246 / 40%);
+                border-color: rgb(139 92 246 / 60%);
                 color: #fff;
-                svg { color: #fff; transform: scale(1.15); }
+
+                svg {
+                  color: #fff;
+                  transform: scale(1.15);
+                }
               }
             }
 
             &.act-download {
-              background: linear-gradient(to bottom right, rgba(59, 130, 246, 0.12), rgba(59, 130, 246, 0.06));
+              background: linear-gradient(
+                to bottom right,
+                rgb(59 130 246 / 12%),
+                rgb(59 130 246 / 6%)
+              );
               color: #93c5fd;
-              box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.5), inset -1px -1px 3px rgba(59, 130, 246, 0.06);
-              border-color: rgba(59, 130, 246, 0.25);
-              svg { color: #3b82f6; }
-              
+              box-shadow:
+                inset 1px 1px 3px rgb(0 0 0 / 50%),
+                inset -1px -1px 3px rgb(59 130 246 / 6%);
+              border-color: rgb(59 130 246 / 25%);
+
+              svg {
+                color: #3b82f6;
+              }
+
               &:hover {
-                background: linear-gradient(to bottom right, rgba(59, 130, 246, 0.28), rgba(59, 130, 246, 0.15));
-                box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.4), 0 0 12px rgba(59, 130, 246, 0.4);
-                border-color: rgba(59, 130, 246, 0.6);
+                background: linear-gradient(
+                  to bottom right,
+                  rgb(59 130 246 / 28%),
+                  rgb(59 130 246 / 15%)
+                );
+                box-shadow:
+                  inset 1px 1px 2px rgb(0 0 0 / 40%),
+                  0 0 12px rgb(59 130 246 / 40%);
+                border-color: rgb(59 130 246 / 60%);
                 color: #fff;
-                svg { color: #fff; transform: scale(1.15); }
+
+                svg {
+                  color: #fff;
+                  transform: scale(1.15);
+                }
               }
             }
           }
 
           &.video .act-chip {
             &.act-views {
-              background: linear-gradient(to bottom right, rgba($amber-dark, 0.18), rgba($amber-dark, 0.12));
+              background: linear-gradient(
+                to bottom right,
+                rgba($amber-dark, 0.18),
+                rgba($amber-dark, 0.12)
+              );
               color: #fcd34d;
-              box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.5), inset -1px -1px 3px rgba($amber, 0.08);
+              box-shadow:
+                inset 1px 1px 3px rgb(0 0 0 / 50%),
+                inset -1px -1px 3px rgba($amber, 0.08);
               border-color: rgba($amber-dark, 0.3);
-              svg { color: $amber-light; }
+
+              svg {
+                color: $amber-light;
+              }
             }
 
             &.act-like {
-              background: linear-gradient(to bottom right, rgba(6, 182, 212, 0.12), rgba(6, 182, 212, 0.06));
+              background: linear-gradient(
+                to bottom right,
+                rgb(6 182 212 / 12%),
+                rgb(6 182 212 / 6%)
+              );
               color: #67e8f9;
-              box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.5), inset -1px -1px 3px rgba(6, 182, 212, 0.06);
-              border-color: rgba(6, 182, 212, 0.25);
-              svg { color: #06b6d4; }
-              
-              &:hover {
-                background: linear-gradient(to bottom right, rgba(6, 182, 212, 0.28), rgba(6, 182, 212, 0.15));
-                box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.4), 0 0 12px rgba(6, 182, 212, 0.4);
-                border-color: rgba(6, 182, 212, 0.6);
-                color: #fff;
-                svg { color: #fff; transform: scale(1.15); }
+              box-shadow:
+                inset 1px 1px 3px rgb(0 0 0 / 50%),
+                inset -1px -1px 3px rgb(6 182 212 / 6%);
+              border-color: rgb(6 182 212 / 25%);
+
+              svg {
+                color: #06b6d4;
               }
-              
-              &.active {
-                background: linear-gradient(to bottom right, rgba(6, 182, 212, 0.65), rgba(6, 182, 212, 0.45));
-                box-shadow: inset 0 2px 8px rgba(6, 182, 212, 0.35), 0 0 20px rgba(6, 182, 212, 0.6);
-                border-color: rgba(6, 182, 212, 0.85);
+
+              &:hover {
+                background: linear-gradient(
+                  to bottom right,
+                  rgb(6 182 212 / 28%),
+                  rgb(6 182 212 / 15%)
+                );
+                box-shadow:
+                  inset 1px 1px 2px rgb(0 0 0 / 40%),
+                  0 0 12px rgb(6 182 212 / 40%);
+                border-color: rgb(6 182 212 / 60%);
                 color: #fff;
-                svg { color: #fff; transform: scale(1.2); }
+
+                svg {
+                  color: #fff;
+                  transform: scale(1.15);
+                }
+              }
+
+              &.active {
+                background: linear-gradient(
+                  to bottom right,
+                  rgb(6 182 212 / 65%),
+                  rgb(6 182 212 / 45%)
+                );
+                box-shadow:
+                  inset 0 2px 8px rgb(6 182 212 / 35%),
+                  0 0 20px rgb(6 182 212 / 60%);
+                border-color: rgb(6 182 212 / 85%);
+                color: #fff;
+
+                svg {
+                  color: #fff;
+                  transform: scale(1.2);
+                }
               }
             }
 
             &.act-love {
-              background: linear-gradient(to bottom right, rgba(239, 68, 68, 0.12), rgba(239, 68, 68, 0.06));
+              background: linear-gradient(
+                to bottom right,
+                rgb(239 68 68 / 12%),
+                rgb(239 68 68 / 6%)
+              );
               color: #fca5a5;
-              box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.5), inset -1px -1px 3px rgba(239, 68, 68, 0.06);
-              border-color: rgba(239, 68, 68, 0.25);
-              svg { color: #ef4444; }
-              
-              &:hover {
-                background: linear-gradient(to bottom right, rgba(239, 68, 68, 0.28), rgba(239, 68, 68, 0.15));
-                box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.4), 0 0 12px rgba(239, 68, 68, 0.4);
-                border-color: rgba(239, 68, 68, 0.6);
-                color: #fff;
-                svg { color: #fff; transform: scale(1.15); }
+              box-shadow:
+                inset 1px 1px 3px rgb(0 0 0 / 50%),
+                inset -1px -1px 3px rgb(239 68 68 / 6%);
+              border-color: rgb(239 68 68 / 25%);
+
+              svg {
+                color: #ef4444;
               }
-              
-              &.active {
-                background: linear-gradient(to bottom right, rgba(239, 68, 68, 0.65), rgba(239, 68, 68, 0.45));
-                box-shadow: inset 0 2px 8px rgba(239, 68, 68, 0.35), 0 0 20px rgba(239, 68, 68, 0.6);
-                border-color: rgba(239, 68, 68, 0.85);
+
+              &:hover {
+                background: linear-gradient(
+                  to bottom right,
+                  rgb(239 68 68 / 28%),
+                  rgb(239 68 68 / 15%)
+                );
+                box-shadow:
+                  inset 1px 1px 2px rgb(0 0 0 / 40%),
+                  0 0 12px rgb(239 68 68 / 40%);
+                border-color: rgb(239 68 68 / 60%);
                 color: #fff;
-                svg { color: #fff; transform: scale(1.2); }
+
+                svg {
+                  color: #fff;
+                  transform: scale(1.15);
+                }
+              }
+
+              &.active {
+                background: linear-gradient(
+                  to bottom right,
+                  rgb(239 68 68 / 65%),
+                  rgb(239 68 68 / 45%)
+                );
+                box-shadow:
+                  inset 0 2px 8px rgb(239 68 68 / 35%),
+                  0 0 20px rgb(239 68 68 / 60%);
+                border-color: rgb(239 68 68 / 85%);
+                color: #fff;
+
+                svg {
+                  color: #fff;
+                  transform: scale(1.2);
+                }
               }
             }
 
             &.act-bookmark {
-              background: linear-gradient(to bottom right, rgba(16, 185, 129, 0.12), rgba(16, 185, 129, 0.06));
+              background: linear-gradient(
+                to bottom right,
+                rgb(16 185 129 / 12%),
+                rgb(16 185 129 / 6%)
+              );
               color: #6ee7b7;
-              box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.5), inset -1px -1px 3px rgba(16, 185, 129, 0.06);
-              border-color: rgba(16, 185, 129, 0.25);
-              svg { color: #10b981; }
-              
-              &:hover {
-                background: linear-gradient(to bottom right, rgba(16, 185, 129, 0.28), rgba(16, 185, 129, 0.15));
-                box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.4), 0 0 12px rgba(16, 185, 129, 0.4);
-                border-color: rgba(16, 185, 129, 0.6);
-                color: #fff;
-                svg { color: #fff; transform: scale(1.15); }
+              box-shadow:
+                inset 1px 1px 3px rgb(0 0 0 / 50%),
+                inset -1px -1px 3px rgb(16 185 129 / 6%);
+              border-color: rgb(16 185 129 / 25%);
+
+              svg {
+                color: #10b981;
               }
-              
-              &.active {
-                background: linear-gradient(to bottom right, rgba(16, 185, 129, 0.65), rgba(16, 185, 129, 0.45));
-                box-shadow: inset 0 2px 8px rgba(16, 185, 129, 0.35), 0 0 20px rgba(16, 185, 129, 0.6);
-                border-color: rgba(16, 185, 129, 0.85);
+
+              &:hover {
+                background: linear-gradient(
+                  to bottom right,
+                  rgb(16 185 129 / 28%),
+                  rgb(16 185 129 / 15%)
+                );
+                box-shadow:
+                  inset 1px 1px 2px rgb(0 0 0 / 40%),
+                  0 0 12px rgb(16 185 129 / 40%);
+                border-color: rgb(16 185 129 / 60%);
                 color: #fff;
-                svg { color: #fff; transform: scale(1.2); }
+
+                svg {
+                  color: #fff;
+                  transform: scale(1.15);
+                }
+              }
+
+              &.active {
+                background: linear-gradient(
+                  to bottom right,
+                  rgb(16 185 129 / 65%),
+                  rgb(16 185 129 / 45%)
+                );
+                box-shadow:
+                  inset 0 2px 8px rgb(16 185 129 / 35%),
+                  0 0 20px rgb(16 185 129 / 60%);
+                border-color: rgb(16 185 129 / 85%);
+                color: #fff;
+
+                svg {
+                  color: #fff;
+                  transform: scale(1.2);
+                }
               }
             }
 
             &.act-share {
-              background: linear-gradient(to bottom right, rgba(139, 92, 246, 0.12), rgba(139, 92, 246, 0.06));
+              background: linear-gradient(
+                to bottom right,
+                rgb(139 92 246 / 12%),
+                rgb(139 92 246 / 6%)
+              );
               color: #c4b5fd;
-              box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.5), inset -1px -1px 3px rgba(139, 92, 246, 0.06);
-              border-color: rgba(139, 92, 246, 0.25);
-              svg { color: #8b5cf6; }
-              
+              box-shadow:
+                inset 1px 1px 3px rgb(0 0 0 / 50%),
+                inset -1px -1px 3px rgb(139 92 246 / 6%);
+              border-color: rgb(139 92 246 / 25%);
+
+              svg {
+                color: #8b5cf6;
+              }
+
               &:hover {
-                background: linear-gradient(to bottom right, rgba(139, 92, 246, 0.28), rgba(139, 92, 246, 0.15));
-                box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.4), 0 0 12px rgba(139, 92, 246, 0.4);
-                border-color: rgba(139, 92, 246, 0.6);
+                background: linear-gradient(
+                  to bottom right,
+                  rgb(139 92 246 / 28%),
+                  rgb(139 92 246 / 15%)
+                );
+                box-shadow:
+                  inset 1px 1px 2px rgb(0 0 0 / 40%),
+                  0 0 12px rgb(139 92 246 / 40%);
+                border-color: rgb(139 92 246 / 60%);
                 color: #fff;
-                svg { color: #fff; transform: scale(1.15); }
+
+                svg {
+                  color: #fff;
+                  transform: scale(1.15);
+                }
               }
             }
 
             &.act-download {
-              background: linear-gradient(to bottom right, rgba(59, 130, 246, 0.12), rgba(59, 130, 246, 0.06));
+              background: linear-gradient(
+                to bottom right,
+                rgb(59 130 246 / 12%),
+                rgb(59 130 246 / 6%)
+              );
               color: #93c5fd;
-              box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.5), inset -1px -1px 3px rgba(59, 130, 246, 0.06);
-              border-color: rgba(59, 130, 246, 0.25);
-              svg { color: #3b82f6; }
-              
+              box-shadow:
+                inset 1px 1px 3px rgb(0 0 0 / 50%),
+                inset -1px -1px 3px rgb(59 130 246 / 6%);
+              border-color: rgb(59 130 246 / 25%);
+
+              svg {
+                color: #3b82f6;
+              }
+
               &:hover {
-                background: linear-gradient(to bottom right, rgba(59, 130, 246, 0.28), rgba(59, 130, 246, 0.15));
-                box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.4), 0 0 12px rgba(59, 130, 246, 0.4);
-                border-color: rgba(59, 130, 246, 0.6);
+                background: linear-gradient(
+                  to bottom right,
+                  rgb(59 130 246 / 28%),
+                  rgb(59 130 246 / 15%)
+                );
+                box-shadow:
+                  inset 1px 1px 2px rgb(0 0 0 / 40%),
+                  0 0 12px rgb(59 130 246 / 40%);
+                border-color: rgb(59 130 246 / 60%);
                 color: #fff;
-                svg { color: #fff; transform: scale(1.15); }
+
+                svg {
+                  color: #fff;
+                  transform: scale(1.15);
+                }
               }
             }
           }

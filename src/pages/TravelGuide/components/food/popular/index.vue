@@ -155,6 +155,8 @@
       @close="closeShare"
     />
   </section>
+
+  <FoodEmptyState v-else type="popular" />
 </template>
 
 <script setup lang="ts">
@@ -173,6 +175,7 @@
   import { useFoodPrefs } from '@/composables/travelGuide/useFoodPrefs';
   import { useTravelShare } from '../../TravelShareModal/useTravelShare';
   import { useTravelToast } from '@/composables/travelGuide/useTravelToast';
+  import FoodEmptyState from '../components/FoodEmptyState/index.vue';
   import type { Food } from '@/typesOfPages/travelGuide';
 
   interface Props {
