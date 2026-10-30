@@ -110,7 +110,7 @@
 
     <div v-else class="gallery-empty">
       <SparklesIcon class="empty-icon" />
-      <p class="empty-text">NO DATA</p>
+      <p class="empty-text">暂无美食图鉴</p>
     </div>
 
     <FoodDetailModal

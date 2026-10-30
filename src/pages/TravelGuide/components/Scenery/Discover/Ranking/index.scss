@@ -970,3 +970,25 @@ $holo-bg-mid: #0f1626;
   60% { transform: rotate(-6deg) scale(0.92); opacity: 1; }
   100% { transform: rotate(-6deg) scale(1); opacity: 1; }
 }
+.ranking-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  gap: 12px;
+
+  .empty-icon {
+    width: 48px;
+    height: 48px;
+    color: rgba(178, 59, 46, 0.3);
+  }
+
+  .empty-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(58, 46, 31, 0.5);
+    margin: 0;
+    letter-spacing: 2px;
+  }
+}

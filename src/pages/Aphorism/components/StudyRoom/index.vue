@@ -60,6 +60,19 @@
 
     <!-- 内容区域 -->
     <main class="page-main">
+      <!-- 加载状态 -->
+      <div v-if="isLoading" class="studyroom-loading">
+        <div class="loading-scroll">
+          <div class="loading-card shimmer"></div>
+          <div class="loading-card shimmer"></div>
+          <div class="loading-card shimmer"></div>
+          <div class="loading-card shimmer"></div>
+          <div class="loading-card shimmer"></div>
+          <div class="loading-card shimmer"></div>
+        </div>
+      </div>
+
+      <template v-else>
       <!-- ===== 喜爱 / 收藏：诗词卡片列表 ===== -->
       <template v-if="activeTab === 'loved' || activeTab === 'favorites'">
         <section class="poems-section">
@@ -103,6 +116,15 @@
             </div>
             <div class="pick-hint">点击查看全文</div>
           </div>
+          <div v-else class="module-card daily-pick daily-pick-empty">
+            <div class="module-header">
+              <span class="module-tag">今日推荐</span>
+            </div>
+            <div class="module-body module-empty">
+              <EmptyPoemIcon class="empty-icon-sm" />
+              <p>诗词库加载后将为你推荐今日佳作</p>
+            </div>
+          </div>
 
           <!-- 我的诗人 -->
           <div class="module-card my-poets">
@@ -119,6 +141,7 @@
               </div>
             </div>
             <div v-else class="module-body module-empty">
+              <EmptyPoemIcon class="empty-icon-sm" />
               <p>喜爱或收藏诗词后，此处将显示你常读的诗人</p>
             </div>
           </div>
@@ -139,6 +162,7 @@
               </div>
             </div>
             <div v-else class="module-body module-empty">
+              <EmptyPoemIcon class="empty-icon-sm" />
               <p>查看过的诗词将记录于此</p>
             </div>
           </div>
@@ -160,10 +184,12 @@
               </div>
             </div>
             <div v-else class="module-body module-empty">
+              <EmptyPoemIcon class="empty-icon-sm" />
               <p>你的诗词朝代偏好分布图</p>
             </div>
           </div>
         </section>
+      </template>
       </template>
     </main>
 
@@ -199,6 +225,7 @@ const selectedPoem = ref<Poem | null>(null);
 const selectedPoemBackground = ref('');
 const showModal = ref(false);
 const activeTab = ref<'loved' | 'favorites' | 'explore'>('loved');
+const isLoading = ref(true);
 
 // ---- 背景图工具（使用共享 composable） ----
 
@@ -363,10 +390,11 @@ const recentViewPoems = computed(() =>
 );
 
 // ---- 方法 ----
-onMounted(() => {
+onMounted(async () => {
   if (allPoems.value.length === 0) {
-    dataStore.loadPoems();
+    await dataStore.loadPoems();
   }
+  isLoading.value = false;
 });
 
 const goBack = () => router.push('/aphorism');

@@ -58,6 +58,8 @@
       />
     </div>
   </section>
+
+  <FoodEmptyState v-else type="map" />
 </template>
 
 <script setup lang="ts">
@@ -69,6 +71,7 @@
 
   import LocationList from './components/LocationList/index.vue';
   import LocationDetail from './components/LocationDetail/index.vue';
+  import FoodEmptyState from '../components/FoodEmptyState/index.vue';
 
   import type { Food, FoodLocation } from '@/typesOfPages/travelGuide';
 

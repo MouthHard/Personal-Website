@@ -33,6 +33,10 @@
         />
       </div>
     </section>
+    <div v-else class="theme-empty">
+      <GalaxyIcon class="empty-icon" />
+      <p class="empty-text">暂无主题推荐</p>
+    </div>
 
     <TravelShareModal
       :visible="shareVisible"

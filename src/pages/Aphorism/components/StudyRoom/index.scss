@@ -384,3 +384,52 @@
     transition-duration: 0.01ms !important;
   }
 }
+.studyroom-loading {
+  width: 100%;
+  padding: 20px 0;
+
+  .loading-scroll {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .loading-card {
+    height: 200px;
+    border-radius: 12px;
+    border: 1px solid rgba(180, 160, 120, 0.15);
+  }
+
+  .shimmer {
+    background: linear-gradient(90deg, #f0ebe0 25%, #f8f4ea 50%, #f0ebe0 75%);
+    background-size: 200% 100%;
+    animation: studyroom-shimmer 1.5s ease-in-out infinite;
+  }
+}
+
+@keyframes studyroom-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.module-empty {
+  .empty-icon-sm {
+    width: 32px;
+    height: 32px;
+    color: rgba(180, 160, 120, 0.4);
+    margin-bottom: 8px;
+  }
+}
+
+.daily-pick-empty {
+  .module-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 24px;
+  }
+}
