@@ -35,13 +35,26 @@
           </span>
         </div>
       </div>
+      <div v-else class="search-empty-history">
+        <span class="seh-seal">史</span>
+        <span class="seh-text">暂无搜索历史，先看看下方热门</span>
+      </div>
 
       <!-- 热门推荐区（始终底部，不被挤出） -->
       <div class="hot-searches-section">
         <span class="hot-label">热门搜索：</span>
-        <span v-for="(tag, index) in hotTags" :key="index" class="hot-tag" @mousedown.prevent="selectTag(tag)">
-          {{ tag }}
-        </span>
+        <template v-if="hotTags.length > 0">
+          <span v-for="(tag, index) in hotTags" :key="index" class="hot-tag" @mousedown.prevent="selectTag(tag)">
+            {{ tag }}
+          </span>
+        </template>
+        <div v-else-if="isHotLoading" class="hot-tags-loading">
+          <span v-for="n in 4" :key="n" class="htl-chip"></span>
+        </div>
+        <div v-else class="hot-tags-empty">
+          <span class="hte-seal">热</span>
+          <span class="hte-text">热门词条暂时缺席，稍后再试</span>
+        </div>
       </div>
     </div>
 
@@ -54,6 +67,12 @@
         </span>
         <span class="suggestion-text">{{ item.text }}</span>
         <span class="suggestion-count">{{ item.count }}首</span>
+      </div>
+    </div>
+    <div v-else-if="isFocused && searchQuery" class="search-suggestions is-empty">
+      <div class="suggestion-empty">
+        <span class="ses-seal">空</span>
+        <span class="suggestion-empty-text">未匹配到诗词，按回车直接搜索「{{ searchQuery }}」</span>
       </div>
     </div>
   </div>
@@ -97,6 +116,7 @@ const inputRef = ref<HTMLInputElement>();
 const hotTags = computed<string[]>(() => dataStore.hotTags);
 const allPoems = computed(() => dataStore.poems);
 const searchHistory = computed<string[]>(() => interactionStore.searchHistory);
+const isHotLoading = ref(false);
 
 // 预构建搜索索引：把每首诗的可搜索字段拼成一个小写字符串，避免每次按键重复 toLowerCase
 const searchIndex = computed(() => {
@@ -111,6 +131,8 @@ let blurTimer: number | null = null;
 
 const emitSearch = () => {
   if (searchQuery.value.trim()) {
+    // 防抖自动搜索也实时写入搜索历史（回车路径 handleSearchFromUser 会去重置顶，重复无害）
+    interactionStore.addSearchHistory(searchQuery.value);
     emit('search', searchQuery.value);
   }
 };
@@ -139,6 +161,8 @@ const handleSearchFromUser = () => {
 };
 
 watch(searchQuery, (newQuery) => {
+  // 始终双向同步 v-model，避免手动删空时父组件残留旧关键词
+  emit('update:modelValue', newQuery);
   if (newQuery.trim()) {
     debouncedSearch();
   } else {
@@ -237,6 +261,8 @@ const clearSearch = () => {
   cancelDebouncedSearch();
   searchQuery.value = '';
   emit('update:modelValue', '');
+  // 保持聚焦：点 × 后立即可见搜索历史下拉（含刚记录的关键词）
+  inputRef.value?.focus();
 };
 
 const toggleHistoryExpand = () => {
@@ -252,9 +278,14 @@ const handleClearHistory = () => {
   isHistoryExpanded.value = false;
 };
 
-onMounted(() => {
+onMounted(async () => {
   if (dataStore.hotTags.length === 0) {
-    dataStore.loadHotTags();
+    isHotLoading.value = true;
+    try {
+      await dataStore.loadHotTags();
+    } finally {
+      isHotLoading.value = false;
+    }
   }
 });
 
@@ -265,4 +296,10 @@ onBeforeUnmount(() => {
     blurTimer = null;
   }
 });
+
+const focusInput = () => {
+  inputRef.value?.focus();
+};
+
+defineExpose({ focusInput });
 </script>

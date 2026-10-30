@@ -1,4 +1,4 @@
-import { ref, computed, type ComputedRef, type Ref } from 'vue';
+import { ref, computed, type Ref } from 'vue';
 import { useLandscapeDataStore } from '@/stores/landscape/data';
 
 export function useSearchSuggestions() {

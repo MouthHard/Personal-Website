@@ -80,21 +80,24 @@
           <BookmarkIcon />
           <span>{{ formatNumber(getCount().favorites) }}</span>
         </button>
-        <div class="stat-item">
+        <button class="stat-item" @click.stop="handleShare">
           <ShareIcon />
           <span>{{ formatNumber(getCount().shares) }}</span>
-        </div>
+        </button>
       </div>
     </div>
   </article>
+
+  <ShareMenu v-model:visible="showShareMenu" :work="shareWork" />
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+import { ref, computed } from 'vue';
 import { seasonMap } from '@/constants/landscape';
 import { useInteractionStore } from '@/stores/landscape';
 import { formatNumber } from '@/utils/landscape/format';
 import { showMessage, createSimpleInteractionItem } from '@/utils/landscape';
+import ShareMenu from '../../../common/ShareMenu/index.vue';
 import StarIcon from '@/pages/Landscape/icons/common/StarIcon.vue';
 import CircleIcon from '@/pages/Landscape/icons/components/guides/GuideCard/CircleIcon.vue';
 import ClockIcon from '@/pages/Landscape/icons/common/ClockIcon.vue';
@@ -150,6 +153,24 @@ const emit = defineEmits<{
   (e: 'click', guide: Guide): void;
 }>();
 
+const showShareMenu = ref(false);
+const shareWork = computed(() => ({
+  type: 'guide' as const,
+  title: props.guide.title,
+  description: props.guide.excerpt,
+  cover: props.guide.cover,
+  author: props.guide.author,
+  date: props.guide.date || props.guide.publishDate,
+  location: props.guide.location,
+  category: props.guide.typeName || props.guide.category,
+  rating: props.guide.rating,
+  readTime: props.guide.readTime,
+}));
+
+const handleShare = () => {
+  showShareMenu.value = true;
+};
+
 const interactionStore = useInteractionStore();
 
 const seasonLabel = computed(() => {
@@ -164,7 +185,16 @@ const isFavorited = computed(() => interactionStore.isFavorited(props.guide.id))
 
 const toggleLike = (event: MouseEvent) => {
   event.stopPropagation();
-  const isLiked = interactionStore.toggleLike(props.guide.id);
+  const item = createSimpleInteractionItem(
+    props.guide.id,
+    'guide',
+    props.guide.title,
+    {
+      image: props.guide.cover,
+      location: props.guide.location,
+    }
+  );
+  const isLiked = interactionStore.toggleLike(item);
   if (isLiked) {
     showMessage.like.success(props.guide.title);
   } else {

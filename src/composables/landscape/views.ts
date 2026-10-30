@@ -8,7 +8,7 @@ export function useHomeViewData() {
   const dataStore = useLandscapeDataStore()
 
   const photographerRecommendations = (): HomePhotographerRecommendation[] => {
-    const photographers = dataStore.getFeaturedPhotographers().slice(0, 8)
+    const photographers = dataStore.getFeaturedPhotographers().slice(0, 9)
     
     return photographers.map((p) => {
       const works: Array<{

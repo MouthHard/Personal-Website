@@ -23,7 +23,7 @@
       >
         <CloseIcon />
       </button>
-      <button class="search-btn" @click="handleSearch" aria-label="搜索">
+      <button class="search-btn" aria-label="搜索" @click="handleSearch">
         <SearchIcon />
       </button>
       <kbd v-if="!searchQuery && !isFocused" class="shortcut-hint">/</kbd>

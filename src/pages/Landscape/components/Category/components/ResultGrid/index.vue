@@ -1,24 +1,48 @@
 <template>
   <div class="result-grid">
-    <div v-for="(item, index) in visibleItems" :key="item.id" class="result-item" :class="item.type"
-      :style="{ '--item-index': index }">
+    <div
+      v-for="(item, index) in visibleItems"
+      :key="item.id"
+      class="result-item"
+      :class="item.type"
+      :style="{ '--item-index': index }"
+    >
       <div class="item-image" @click="$emit('open-detail', item)">
-        <img :src="item.thumbnail" :alt="item.title" loading="lazy" @load="onImageLoad" />
+        <img
+          :src="item.thumbnail"
+          :alt="item.title"
+          loading="lazy"
+          @load="onImageLoad"
+        />
         <div class="type-badge" :class="item.type">
           <ImageIcon v-if="item.type === 'image'" :stroke-width="2" />
           <PlayIcon v-else :stroke-width="2" fill="none" />
           <span>{{ item.type === 'image' ? '图片' : '视频' }}</span>
         </div>
-        <div v-if="item.type === 'video' && item.duration" class="duration-badge">
+        <div
+          v-if="item.type === 'video' && item.duration"
+          class="duration-badge"
+        >
           <ClockIcon :stroke-width="2" />
           <span>{{ item.duration }}</span>
         </div>
         <div class="image-overlay" :class="item.type">
           <div class="overlay-content">
-            <h3>{{ item.title }}<span class="item-date">{{ item.date }}</span></h3>
-            <p>{{ item.location }}</p>
+            <h3>
+              {{ item.title }}
+              <span class="item-date">{{ item.date }}</span>
+            </h3>
+            <p>
+              <LocationIcon :stroke-width="2" />
+              {{ item.location }}
+            </p>
             <div class="item-tags">
-              <span v-for="tag in item.tags?.slice(0, 3)" :key="tag" class="tag" :class="item.type">
+              <span
+                v-for="tag in item.tags?.slice(0, 3)"
+                :key="tag"
+                class="tag"
+                :class="item.type"
+              >
                 {{ tag }}
               </span>
             </div>
@@ -27,22 +51,34 @@
                 <EyeIcon :stroke-width="2" />
                 {{ formatNumber(getCount(item.id).views) }}
               </span>
-              <button class="act-chip act-like" type="button" :class="{ active: isLiked(item.id) }"
-                @click.stop="handleToggleLike($event, item)">
-                <ThumbUpIcon :stroke-width="2" />
+              <button
+                class="act-chip act-like"
+                type="button"
+                :class="{ active: isLiked(item.id) }"
+                @click.stop="handleToggleLike($event, item)"
+              >
+                <ThumbUpIcon :stroke-width="2" :filled="isLiked(item.id)" />
                 {{ formatNumber(getCount(item.id).likes) }}
               </button>
-              <button class="act-chip act-love" type="button" :class="{ active: isLoved(item.id) }"
-                @click.stop="handleToggleLove($event, item)">
-                <HeartIcon :stroke-width="2" />
+              <button
+                class="act-chip act-love"
+                type="button"
+                :class="{ active: isLoved(item.id) }"
+                @click.stop="handleToggleLove($event, item)"
+              >
+                <HeartIcon :stroke-width="2" :filled="isLoved(item.id)" />
                 {{ formatNumber(getCount(item.id).loves) }}
               </button>
-              <button class="act-chip act-bookmark" type="button" :class="{ active: isFavorited(item.id) }"
-                @click.stop="handleToggleFavorite($event, item)">
-                <BookmarkIcon :stroke-width="2" />
+              <button
+                class="act-chip act-bookmark"
+                type="button"
+                :class="{ active: isFavorited(item.id) }"
+                @click.stop="handleToggleFavorite($event, item)"
+              >
+                <BookmarkIcon :stroke-width="2" :filled="isFavorited(item.id)" />
                 {{ formatNumber(getCount(item.id).favorites) }}
               </button>
-              <button class="act-chip act-share" type="button" @click.stop>
+              <button class="act-chip act-share" type="button" @click.stop="handleShare(item)">
                 <ShareIcon :stroke-width="2" />
                 {{ formatNumber(getCount(item.id).shares) }}
               </button>
@@ -54,93 +90,134 @@
         </div>
       </div>
     </div>
-    <div v-if="visibleItems.length < items.length" ref="loadMoreRef" class="load-more-sentinel"></div>
+    <div
+      v-if="visibleItems.length < items.length"
+      ref="loadMoreRef"
+      class="load-more-sentinel"
+    ></div>
   </div>
+
+  <ShareMenu v-model:visible="showShareMenu" :work="shareWork" />
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted, watch } from 'vue';
-import { useInteractionStore } from '@/stores/landscape';
-import { formatNumber } from '@/utils/landscape/format';
-import ThumbUpIcon from '@/pages/Landscape/icons/common/ThumbUpIcon.vue';
-import HeartIcon from '@/pages/Landscape/icons/common/HeartIcon.vue';
-import BookmarkIcon from '@/pages/Landscape/icons/common/BookmarkIcon.vue';
-import ImageIcon from '@/pages/Landscape/icons/common/ImageIcon.vue';
-import PlayIcon from '@/pages/Landscape/icons/common/PlayIcon.vue';
-import ClockIcon from '@/pages/Landscape/icons/common/ClockIcon.vue';
-import EyeIcon from '@/pages/Landscape/icons/common/EyeIcon.vue';
-import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue';
-import DownloadIcon from '@/pages/Landscape/icons/common/DownloadIcon.vue';
-import type { LandscapeItem } from '@/typesOfPages/landscape';
+  import { ref, computed, onMounted, onUnmounted, watch } from 'vue';
+  import { useInteractionStore } from '@/stores/landscape';
+  import { formatNumber } from '@/utils/landscape/format';
+  import ThumbUpIcon from '@/pages/Landscape/icons/common/ThumbUpIcon.vue';
+  import HeartIcon from '@/pages/Landscape/icons/common/HeartIcon.vue';
+  import BookmarkIcon from '@/pages/Landscape/icons/common/BookmarkIcon.vue';
+  import ImageIcon from '@/pages/Landscape/icons/common/ImageIcon.vue';
+  import PlayIcon from '@/pages/Landscape/icons/common/PlayIcon.vue';
+  import ClockIcon from '@/pages/Landscape/icons/common/ClockIcon.vue';
+  import EyeIcon from '@/pages/Landscape/icons/common/EyeIcon.vue';
+  import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue';
+  import ShareMenu from '../../../common/ShareMenu/index.vue';
+  import DownloadIcon from '@/pages/Landscape/icons/common/DownloadIcon.vue';
+  import LocationIcon from '@/pages/Landscape/icons/common/LocationIcon.vue';
+  import type { LandscapeItem } from '@/typesOfPages/landscape';
 
-interface Props {
-  items: LandscapeItem[];
-}
+  interface Props {
+    items: LandscapeItem[];
+  }
 
-const props = defineProps<Props>();
+  const props = defineProps<Props>();
 
-const emit = defineEmits<{
-  'open-detail': [item: LandscapeItem];
-  'toggle-like': [item: LandscapeItem];
-  'toggle-love': [item: LandscapeItem];
-  'toggle-favorite': [item: LandscapeItem];
-}>();
+  const emit = defineEmits<{
+    'open-detail': [item: LandscapeItem];
+    'toggle-like': [item: LandscapeItem];
+    'toggle-love': [item: LandscapeItem];
+    'toggle-favorite': [item: LandscapeItem];
+  }>();
 
-const interactionStore = useInteractionStore();
+  const interactionStore = useInteractionStore();
 
-const getCount = (id: number | string) => interactionStore.getCount(String(id));
-const isLiked = (id: number | string) => interactionStore.isLiked(String(id));
-const isLoved = (id: number | string) => interactionStore.isLoved(String(id));
-const isFavorited = (id: number | string) => interactionStore.isFavorited(String(id));
+  const showShareMenu = ref(false);
+  const currentShareItem = ref<LandscapeItem | null>(null);
+  const shareWork = computed(() => {
+    const item = currentShareItem.value;
+    if (!item) return {};
+    return {
+      type: item.type === 'video' ? ('video' as const) : ('image' as const),
+      title: item.title,
+      cover: item.thumbnail,
+      date: item.date,
+      location: item.location,
+      duration: item.duration,
+    };
+  });
+  const handleShare = (item: LandscapeItem) => {
+    currentShareItem.value = item;
+    showShareMenu.value = true;
+  };
 
-const handleToggleLike = (event: MouseEvent, item: LandscapeItem) => {
-  event.stopPropagation();
-  emit('toggle-like', item);
-};
+  const getCount = (id: number | string) =>
+    interactionStore.getCount(String(id));
+  const isLiked = (id: number | string) => interactionStore.isLiked(String(id));
+  const isLoved = (id: number | string) => interactionStore.isLoved(String(id));
+  const isFavorited = (id: number | string) =>
+    interactionStore.isFavorited(String(id));
 
-const handleToggleLove = (event: MouseEvent, item: LandscapeItem) => {
-  event.stopPropagation();
-  emit('toggle-love', item);
-};
+  const handleToggleLike = (event: MouseEvent, item: LandscapeItem) => {
+    event.stopPropagation();
+    emit('toggle-like', item);
+  };
 
-const handleToggleFavorite = (event: MouseEvent, item: LandscapeItem) => {
-  event.stopPropagation();
-  emit('toggle-favorite', item);
-};
+  const handleToggleLove = (event: MouseEvent, item: LandscapeItem) => {
+    event.stopPropagation();
+    emit('toggle-love', item);
+  };
 
-const onImageLoad = (event: Event) => {
-  const img = event.target as HTMLImageElement;
-  img.classList.add('loaded');
-};
+  const handleToggleFavorite = (event: MouseEvent, item: LandscapeItem) => {
+    event.stopPropagation();
+    emit('toggle-favorite', item);
+  };
 
-const BATCH_SIZE = 24;
-const visibleCount = ref(BATCH_SIZE);
-const loadMoreRef = ref<HTMLElement | null>(null);
-let loadMoreObserver: IntersectionObserver | null = null;
+  const onImageLoad = (event: Event) => {
+    const img = event.target as HTMLImageElement;
+    img.classList.add('loaded');
+  };
 
-const visibleItems = computed(() => props.items.slice(0, visibleCount.value));
+  const BATCH_SIZE = 24;
+  const visibleCount = ref(BATCH_SIZE);
+  const loadMoreRef = ref<HTMLElement | null>(null);
+  let loadMoreObserver: IntersectionObserver | null = null;
 
-onMounted(() => {
-  loadMoreObserver = new IntersectionObserver((entries) => {
-    if (entries[0]?.isIntersecting && visibleCount.value < props.items.length) {
-      visibleCount.value = Math.min(visibleCount.value + BATCH_SIZE, props.items.length);
-    }
-  }, { rootMargin: '200px' });
-});
+  const visibleItems = computed(() => props.items.slice(0, visibleCount.value));
 
-watch(loadMoreRef, (el) => {
-  if (!loadMoreObserver) return;
-  loadMoreObserver.disconnect();
-  if (el) loadMoreObserver.observe(el);
-});
+  onMounted(() => {
+    loadMoreObserver = new IntersectionObserver(
+      (entries) => {
+        if (
+          entries[0]?.isIntersecting &&
+          visibleCount.value < props.items.length
+        ) {
+          visibleCount.value = Math.min(
+            visibleCount.value + BATCH_SIZE,
+            props.items.length,
+          );
+        }
+      },
+      { rootMargin: '200px' },
+    );
+  });
 
-watch(() => props.items, () => {
-  visibleCount.value = BATCH_SIZE;
-});
+  watch(loadMoreRef, (el) => {
+    if (!loadMoreObserver) return;
+    loadMoreObserver.disconnect();
+    if (el) loadMoreObserver.observe(el);
+  });
 
-onUnmounted(() => {
-  loadMoreObserver?.disconnect();
-});
+  watch(
+    () => props.items,
+    () => {
+      visibleCount.value = BATCH_SIZE;
+    },
+  );
+
+  onUnmounted(() => {
+    loadMoreObserver?.disconnect();
+  });
 </script>
 
 <style scoped lang="scss" src="./index.scss" />

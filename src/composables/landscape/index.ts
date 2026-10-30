@@ -1,7 +1,6 @@
 export * from './useFormatNumber'
 export * from './usePagination'
-export * from './useLazyLoad'
-export * from './useVirtualScroll'
+
 export * from './views'
 export * from './profile'
 export * from './guides'

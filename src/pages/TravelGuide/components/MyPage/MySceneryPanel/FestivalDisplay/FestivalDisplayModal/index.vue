@@ -75,7 +75,7 @@
         <div class="festival-modal" role="dialog" aria-modal="true">
           <!-- 顶部鎏金装订条 + 金属环 -->
           <div class="cal-binding">
-            <span class="binding-ring" v-for="r in 7" :key="r" />
+            <span v-for="r in 7" :key="r" class="binding-ring" />
           </div>
 
           <!-- 日历主体（多张纸页堆叠 + 正面内容页） -->

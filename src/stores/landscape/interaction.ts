@@ -6,12 +6,13 @@ import { debounce } from '@/utils/landscape/debounce'
 
 export type { InteractionItem }
 
-export interface ItemCounts {
+interface ItemCounts {
   likes: number
   views: number
   loves: number
   favorites: number
   shares: number
+  followers: number
 }
 
 export const useInteractionStore = defineStore('interaction', () => {
@@ -216,26 +217,19 @@ export const useInteractionStore = defineStore('interaction', () => {
   }
 
   const registerCount = (id: string, initial: Partial<ItemCounts>) => {
-    const existing = counts.get(id)
-    if (existing) {
-      existing.likes = initial.likes ?? existing.likes
-      existing.views = initial.views ?? existing.views
-      existing.loves = initial.loves ?? existing.loves
-      existing.favorites = initial.favorites ?? existing.favorites
-      existing.shares = initial.shares ?? existing.shares
-    } else {
-      counts.set(id, {
-        likes: initial.likes ?? 0,
-        views: initial.views ?? 0,
-        loves: initial.loves ?? 0,
-        favorites: initial.favorites ?? 0,
-        shares: initial.shares ?? 0,
-      })
-    }
+    if (counts.has(id)) return
+    counts.set(id, {
+      likes: initial.likes ?? 0,
+      views: initial.views ?? 0,
+      loves: initial.loves ?? 0,
+      favorites: initial.favorites ?? 0,
+      shares: initial.shares ?? 0,
+      followers: initial.followers ?? 0,
+    })
   }
 
   const getCount = (id: string): ItemCounts => {
-    return counts.get(id) || { likes: 0, views: 0, loves: 0, favorites: 0, shares: 0 }
+    return counts.get(id) || { likes: 0, views: 0, loves: 0, favorites: 0, shares: 0, followers: 0 }
   }
 
   const registerBatch = (items: Array<{ id: string; counts: Partial<ItemCounts> }>) => {
@@ -418,6 +412,8 @@ export const useInteractionStore = defineStore('interaction', () => {
     if (following.has(photographerId)) {
       following.delete(photographerId)
       followingVersion.value++
+      const c = counts.get(photographerId)
+      if (c) c.followers = Math.max((c.followers ?? 0) - 1, 0)
       return false
     } else {
       if (photographer) {
@@ -439,6 +435,8 @@ export const useInteractionStore = defineStore('interaction', () => {
         following.set(photographerId, item)
         followingVersion.value++
       }
+      const c = counts.get(photographerId)
+      if (c) c.followers = (c.followers ?? 0) + 1
       return true
     }
   }

@@ -24,8 +24,8 @@
         <button
           class="nav-btn nav-prev"
           :disabled="displayExhibitions.length <= 1"
-          @click="prev"
           title="上一个"
+          @click="prev"
         >
           <span class="chevron chevron-left"></span>
         </button>
@@ -33,7 +33,7 @@
         <!-- 沉浸式大图 Hero 舞台 -->
         <div class="hero-stage">
           <transition name="hero-slide" mode="out-in">
-            <div class="hero-slide" :key="currentIdx">
+            <div :key="currentIdx" class="hero-slide">
               <div class="hero-image-wrap">
                 <img loading="lazy" :src="current.image" :alt="current.title" />
                 <div class="hero-overlay"></div>
@@ -105,8 +105,8 @@
         <button
           class="nav-btn nav-next"
           :disabled="displayExhibitions.length <= 1"
-          @click="next"
           title="下一个"
+          @click="next"
         >
           <span class="chevron chevron-right"></span>
         </button>

@@ -39,6 +39,7 @@ import type { SocialLink, ContactInfo, CategoryTag } from './common'
  */
 export interface GlobalPhotographerWork {
   id?: string
+  globalWorkId?: string
   image?: string
   cover?: string
   title?: string

@@ -25,8 +25,12 @@
           </div>
 
           <div class="modal-content">
-            <div v-if="backgroundImage" class="poem-image">
-              <img loading="lazy" :src="backgroundImage" :alt="poem.title" />
+            <div class="poem-image">
+              <img v-if="backgroundImage && !imgFailed" loading="lazy" :src="backgroundImage" :alt="poem.title"
+                @load="imgLoaded = true" @error="imgFailed = true" />
+              <img v-else :src="errorImage" :alt="poem.title" />
+              <img v-if="backgroundImage && !imgLoaded && !imgFailed" class="img-placeholder" :src="loadingImage"
+                :alt="poem.title" />
               <div class="image-decoration"></div>
             </div>
 
@@ -50,37 +54,67 @@
                   #{{ tag }}
                 </span>
               </div>
+              <div v-else class="poem-tags-empty">
+                <span class="te-wing"></span>
+                <span class="te-seal">签</span>
+                <span class="te-text">暂无分类标签</span>
+                <span class="te-wing right"></span>
+              </div>
 
-              <div v-if="poem.annotation" class="poem-annotation">
+              <div class="poem-annotation" :class="{ 'is-empty': !poem.annotation }">
                 <div class="annotation-title">
                   <AnnotationIcon class="title-icon" />
                   <span>注释</span>
                 </div>
-                <p class="annotation-text">{{ poem.annotation }}</p>
+                <p v-if="poem.annotation" class="annotation-text">{{ poem.annotation }}</p>
+                <div v-else class="section-empty">
+                  <span class="se-wing"></span>
+                  <span class="se-seal">注</span>
+                  <span class="se-text">暂无注释</span>
+                  <span class="se-wing right"></span>
+                </div>
               </div>
 
-              <div v-if="poem.background" class="poem-background">
+              <div class="poem-background" :class="{ 'is-empty': !poem.background }">
                 <div class="background-title">
                   <BackgroundIcon class="title-icon" />
                   <span>创作背景</span>
                 </div>
-                <p class="background-text">{{ poem.background }}</p>
+                <p v-if="poem.background" class="background-text">{{ poem.background }}</p>
+                <div v-else class="section-empty">
+                  <span class="se-wing"></span>
+                  <span class="se-seal">景</span>
+                  <span class="se-text">暂无创作背景</span>
+                  <span class="se-wing right"></span>
+                </div>
               </div>
 
-              <div v-if="poem.appreciation" class="poem-appreciation">
+              <div class="poem-appreciation" :class="{ 'is-empty': !poem.appreciation }">
                 <div class="appreciation-title">
                   <AppreciationIcon class="title-icon" />
                   <span>赏析</span>
                 </div>
-                <p class="appreciation-text">{{ poem.appreciation }}</p>
+                <p v-if="poem.appreciation" class="appreciation-text">{{ poem.appreciation }}</p>
+                <div v-else class="section-empty">
+                  <span class="se-wing"></span>
+                  <span class="se-seal">赏</span>
+                  <span class="se-text">暂无赏析</span>
+                  <span class="se-wing right"></span>
+                </div>
               </div>
 
-              <div v-if="poem.poetIntroduction" class="poet-introduction">
+              <div class="poet-introduction" :class="{ 'is-empty': !poem.poetIntroduction }">
                 <div class="poet-title">
                   <PoetIcon class="title-icon" />
                   <span>诗人介绍</span>
                 </div>
-                <p class="poet-text">{{ poem.poetIntroduction }}</p>
+                <p v-if="poem.poetIntroduction" class="poet-text">{{ poem.poetIntroduction }}</p>
+                <div v-else class="section-empty">
+                  <span class="se-wing"></span>
+                  <span class="se-seal">传</span>
+                  <span class="se-text">暂无诗人介绍</span>
+                  <span class="se-wing right"></span>
+                </div>
               </div>
             </div>
           </div>
@@ -91,7 +125,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, watch, onBeforeUnmount } from 'vue';
+import { computed, watch, onBeforeUnmount, ref } from 'vue';
 import type { Poem } from '@/typesOfPages/aphorism/poem';
 import { useAphorismInteractionStore } from '@/stores/aphorism/interaction';
 import { showMessage } from '@/components/common/InteractionMessage';
@@ -103,6 +137,8 @@ import AnnotationIcon from '../../icons/common/AnnotationIcon.vue';
 import BackgroundIcon from '../../icons/common/BackgroundIcon.vue';
 import AppreciationIcon from '../../icons/common/AppreciationIcon.vue';
 import PoetIcon from '../../icons/common/PoetIcon.vue';
+import loadingImage from '@/assets/image/aphorism/loading.webp';
+import errorImage from '@/assets/image/aphorism/error.webp';
 import './index.scss';
 
 const props = defineProps<{
@@ -122,11 +158,16 @@ const isLiked = computed(() => interactionStore.isLiked(props.poem.id));
 const isLoved = computed(() => interactionStore.isLoved(props.poem.id));
 const isFavorite = computed(() => interactionStore.isFavorite(props.poem.id));
 
+const imgLoaded = ref(false);
+const imgFailed = ref(false);
+
 let savedOverflow = '';
 watch(
   () => props.visible,
   (visible) => {
     if (visible) {
+      imgLoaded.value = false;
+      imgFailed.value = false;
       savedOverflow = document.body.style.overflow;
       document.body.style.overflow = 'hidden';
     } else {

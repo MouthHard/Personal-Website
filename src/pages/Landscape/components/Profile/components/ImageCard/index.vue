@@ -65,7 +65,7 @@
 
           <div class="views-badge">
             <EyeIcon />
-            {{ formatCount(item.views || 0) }}
+            {{ formatCount(getCounts().views) }}
           </div>
         </div>
 
@@ -112,11 +112,13 @@
       </div>
     </div>
   </div>
+
+  <ShareMenu v-model:visible="showShareMenu" :work="shareWork" />
 </template>
 
 <script setup lang="ts">
 import { ref, computed } from 'vue';
-import { showMessage } from '@/utils/landscape';
+import { showMessage, createSimpleInteractionItem } from '@/utils/landscape';
 import type { ImageItem } from '@/typesOfPages/landscape';
 import { useFormatNumber } from '@/composables/landscape';
 import { useInteractionStore } from '@/stores/landscape';
@@ -124,6 +126,7 @@ import HeartIcon from '@/pages/Landscape/icons/common/HeartIcon.vue';
 import ThumbUpIcon from '@/pages/Landscape/icons/common/ThumbUpIcon.vue';
 import BookmarkIcon from '@/pages/Landscape/icons/common/BookmarkIcon.vue';
 import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue';
+import ShareMenu from '../../../common/ShareMenu/index.vue';
 import EyeIcon from '@/pages/Landscape/icons/common/EyeIcon.vue';
 import StarIcon from '@/pages/Landscape/icons/common/StarIcon.vue';
 import LocationIcon from '@/pages/Landscape/icons/common/LocationIcon.vue';
@@ -141,13 +144,29 @@ const interactionStore = useInteractionStore();
 
 const isLiked = computed(() => interactionStore.isLiked(props.item.id));
 const isShared = ref(false);
+const showShareMenu = ref(false);
+const shareWork = computed(() => ({
+  type: 'image' as const,
+  title: props.item.title,
+  cover: props.item.thumbnail || props.item.image,
+  author: props.item.author,
+  date: props.item.date,
+  location: props.item.location,
+  category: props.item.category,
+  camera: props.item.camera,
+}));
 const isCollected = computed(() => interactionStore.isFavorited(props.item.id));
 const isLoved = computed(() => interactionStore.isLoved(props.item.id));
 
 const getCounts = () => interactionStore.getCount(props.item.id);
 
 const toggleLike = () => {
-  const isAdded = interactionStore.toggleLike(props.item.id);
+  const item = createSimpleInteractionItem(props.item.id, 'image', props.item.title, {
+    image: props.item.thumbnail || props.item.image || '',
+    location: props.item.location,
+    category: props.item.category,
+  });
+  const isAdded = interactionStore.toggleLike(item);
   if (isAdded) {
     showMessage.like.success(props.item.title);
   } else {
@@ -181,8 +200,8 @@ const toggleLove = () => {
 };
 
 const toggleShare = () => {
-  isShared.value = !isShared.value;
-  showMessage.share.success(props.item.title);
+  isShared.value = true;
+  showShareMenu.value = true;
 };
 
 const toggleCollect = () => {

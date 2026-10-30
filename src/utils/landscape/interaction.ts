@@ -1,112 +1,12 @@
 import type { InteractionItem } from '@/typesOfPages/landscape/common'
-import type { GlobalImage, GlobalVideo, GlobalGuide, GlobalPhotographer, GlobalPhotographerWork } from '@/typesOfPages/landscape/data'
+import type { GlobalPhotographer, GlobalPhotographerWork } from '@/typesOfPages/landscape/data'
 import {
   IMAGE_DEFAULTS,
   VIDEO_DEFAULTS,
   GUIDE_DEFAULTS,
   DATE_DEFAULTS,
-  AUTHOR_DEFAULTS,
+
 } from '@/constants/landscape/defaults'
-
-export function convertImageToInteractionItem(
-  image: GlobalImage,
-  getCounts: (id: string) => { likes: number; views: number; loves: number; favorites: number; shares: number },
-  idPrefix = '',
-): InteractionItem {
-  const itemId = idPrefix ? `${idPrefix}${image.id}` : String(image.id)
-  const c = getCounts(itemId)
-  return {
-    id: itemId,
-    type: 'image',
-    title: image.title,
-    image: image.url,
-    location: image.location,
-    category: image.category,
-    timestamp: Date.now(),
-    likes: c.likes,
-    views: c.views,
-    favorites: c.favorites,
-    shares: c.shares,
-    author: image.author || AUTHOR_DEFAULTS.name,
-    authorId: image.authorId,
-  }
-}
-
-export function convertVideoToInteractionItem(
-  video: GlobalVideo,
-  getCounts: (id: string) => { likes: number; views: number; loves: number; favorites: number; shares: number },
-  idPrefix = '',
-): InteractionItem {
-  const itemId = idPrefix ? `${idPrefix}${video.id}` : String(video.id)
-  const c = getCounts(itemId)
-  return {
-    id: itemId,
-    type: 'video',
-    title: video.title,
-    image: video.poster,
-    location: video.location,
-    category: video.category,
-    timestamp: Date.now(),
-    likes: c.likes,
-    views: c.views,
-    favorites: c.favorites,
-    shares: c.shares,
-    duration: null,
-    author: video.author || AUTHOR_DEFAULTS.name,
-    authorId: video.authorId,
-    authorAvatar: video.authorAvatar,
-  }
-}
-
-export function convertGuideToInteractionItem(
-  guide: GlobalGuide,
-  getCounts: (id: string) => { likes: number; views: number; loves: number; favorites: number; shares: number },
-  idPrefix = '',
-): InteractionItem {
-  const itemId = idPrefix ? `${idPrefix}${guide.id}` : String(guide.id)
-  const c = getCounts(itemId)
-  return {
-    id: itemId,
-    type: 'guide',
-    title: guide.title,
-    image: guide.cover,
-    location: guide.location,
-    category: guide.category,
-    timestamp: Date.now(),
-    likes: c.likes,
-    views: c.views,
-    favorites: c.favorites,
-    shares: c.shares,
-    summary: guide.excerpt || GUIDE_DEFAULTS.summary,
-    author: guide.author || AUTHOR_DEFAULTS.name,
-    authorId: guide.authorId,
-    authorAvatar: guide.authorAvatar,
-    authorVerified: guide.authorVerified ?? true,
-    difficulty: guide.difficulty || GUIDE_DEFAULTS.difficulty,
-    rating: guide.rating || GUIDE_DEFAULTS.rating,
-    ratingCount: GUIDE_DEFAULTS.ratingCount,
-    readTime: guide.readTime || GUIDE_DEFAULTS.readTime,
-    saves: c.favorites,
-    comments: GUIDE_DEFAULTS.comments,
-    date: guide.date || guide.publishDate || DATE_DEFAULTS.fallback,
-    isEditorPick: false,
-    season: guide.season || GUIDE_DEFAULTS.season,
-    transport: GUIDE_DEFAULTS.transport,
-    budget: guide.budget || GUIDE_DEFAULTS.budget,
-    audience: GUIDE_DEFAULTS.audience,
-    highlights: guide.highlights || GUIDE_DEFAULTS.highlights,
-    accommodation: GUIDE_DEFAULTS.accommodation,
-    language: GUIDE_DEFAULTS.language,
-    warnings: GUIDE_DEFAULTS.warnings,
-    shootTime: GUIDE_DEFAULTS.shootTime,
-    shootParams: GUIDE_DEFAULTS.shootParams,
-    gears: GUIDE_DEFAULTS.gears,
-    safety: GUIDE_DEFAULTS.safety,
-    altitude: GUIDE_DEFAULTS.altitude,
-    temperature: GUIDE_DEFAULTS.temperature,
-    tips: GUIDE_DEFAULTS.tips,
-  }
-}
 
 export function convertWorkToInteractionItem(
   work: GlobalPhotographerWork & { type?: string; excerpt?: string; duration?: string },

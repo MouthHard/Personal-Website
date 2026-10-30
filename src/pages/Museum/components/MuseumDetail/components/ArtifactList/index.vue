@@ -3,10 +3,10 @@
     <div class="artifact-layout">
 
       <FilterMenu
-        :artifacts="museumArtifacts"
         v-model:modelSelectedTypes="selectedTypes"
         v-model:modelSelectedPeriods="selectedPeriods"
         v-model:modelSearchKeyword="searchKeyword"
+        :artifacts="museumArtifacts"
         :resultCount="filteredArtifacts.length"
       />
 

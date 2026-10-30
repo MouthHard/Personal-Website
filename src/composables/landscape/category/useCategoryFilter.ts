@@ -23,7 +23,7 @@ export function useCategoryFilter(
   const activeDimension = ref('theme');
   const selectedCategory = ref<Category | null>(null);
   const selectedSubCategory = ref<Category | null>(null);
-  const activeFilter = ref('all');
+  const activeFilter = ref('latest');
   const mediaType = ref<'all' | 'image' | 'video'>('all');
   const expandedDimensions = ref<string[]>(['theme']);
   const expandedCategories = ref<string[]>([]);
@@ -136,4 +136,3 @@ export function useCategoryFilter(
   };
 }
 
-export type { UseCategoryFilterReturn };

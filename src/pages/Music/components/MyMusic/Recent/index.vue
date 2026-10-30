@@ -139,7 +139,7 @@ const playAll = () => {
   }
 };
 
-const handlePlaylistClick = (playlist: MyPlaylist) => {
+const handlePlaylistClick = (_playlist: MyPlaylist) => {
   // 播放列表点击处理
 };
 </script>

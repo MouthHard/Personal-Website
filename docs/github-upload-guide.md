@@ -56,6 +56,12 @@ pages/ExamplePage/
 | `.editorconfig` | 编辑器缩进/编码规范 |
 | `.eslintrc.cjs` | ESLint 代码规范 |
 | `.prettierrc` | Prettier 格式化规则 |
+| `stylelint.config.cjs` | Stylelint SCSS 样式规范 |
+| `commitlint.config.cjs` | Commitlint 提交信息规范 |
+| `.lintstagedrc.json` | lint-staged 暂存文件 lint 配置 |
+| `.husky/pre-commit` | Git pre-commit 钩子（触发 lint-staged） |
+| `.husky/commit-msg` | Git commit-msg 钩子（触发 commitlint） |
+| `.github/workflows/ci.yml` | GitHub Actions CI 流水线 |
 | `README.md` | 仓库说明 |
 
 ### 源代码与数据目录
@@ -65,6 +71,7 @@ pages/ExamplePage/
 | `src/` | 全部源代码（页面、组件、路由、样式、图标） |
 | `public/` | 静态资源（`static-data/` JSON 数据 + 图片素材） |
 | `docs/` | 项目文档 |
+| `docs/skill/` | 项目健康检查与日常维护手册 |
 | `tests/` | 单元测试 |
 | `scripts/` | 数据生成/转换脚本 |
 | `types/vite-env.d.ts` | Vite 环境类型声明（手写，非自动生成） |
@@ -78,6 +85,8 @@ pages/ExamplePage/
 .cursor/  .claude/  .cline/  .windsurf/  .codeium/  .copilot/
 .continue/  .aider/  .specstory/  .amp/  .augment/
 ```
+
+> `.husky/_/` 为 husky 内部自动生成目录，已被其内置 `.gitignore` 排除，无需上传。
 
 若误提交，用 `git rm -r --cached <目录>` 解除跟踪后重新推送。
 

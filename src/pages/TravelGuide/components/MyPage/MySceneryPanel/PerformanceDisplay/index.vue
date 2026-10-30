@@ -125,15 +125,15 @@
         <div class="base-top"></div>
         <div class="base-body">
           <div class="base-actions">
-            <button class="base-act act-fav" :class="{ 'is-active': isFav(exp) }" @click.stop="onToggleFavorite(exp)" :title="isFav(exp) ? '已收藏' : '收藏'">
+            <button class="base-act act-fav" :class="{ 'is-active': isFav(exp) }" :title="isFav(exp) ? '已收藏' : '收藏'" @click.stop="onToggleFavorite(exp)">
               <BookmarkIcon width="15" height="15" :filled="isFav(exp)" />
               <span>{{ isFav(exp) ? '已收藏' : '收藏' }}</span>
             </button>
-            <button class="base-act act-been" :class="{ 'is-active': isBeen(exp) }" @click.stop="onToggleBeen(exp)" :title="isBeen(exp) ? '已体验' : '标记体验'">
+            <button class="base-act act-been" :class="{ 'is-active': isBeen(exp) }" :title="isBeen(exp) ? '已体验' : '标记体验'" @click.stop="onToggleBeen(exp)">
               <FlagIcon width="15" height="15" :filled="isBeen(exp)" />
               <span>{{ isBeen(exp) ? '已体验' : '体验' }}</span>
             </button>
-            <button class="base-act act-share" @click.stop="onShare(exp)" title="分享">
+            <button class="base-act act-share" title="分享" @click.stop="onShare(exp)">
               <ShareIcon width="15" height="15" />
               <span>分享</span>
             </button>
@@ -144,7 +144,7 @@
           </div>
         </div>
         <div class="base-tassels">
-          <span class="tassel" v-for="n in 7" :key="n"></span>
+          <span v-for="n in 7" :key="n" class="tassel"></span>
         </div>
       </div>
 

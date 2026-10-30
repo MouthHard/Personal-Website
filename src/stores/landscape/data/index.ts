@@ -190,6 +190,7 @@ export const useLandscapeDataStore = defineStore('landscapeData', () => {
     return worksByAuthorMap.value.get(authorId) || { images: [], videos: [], guides: [] }
   }
 
+
   return {
     photographers,
     images,
@@ -219,5 +220,6 @@ export const useLandscapeDataStore = defineStore('landscapeData', () => {
     getNewPhotographers,
     getPhotographersByCategory,
     getWorksByAuthor,
+
   }
 })

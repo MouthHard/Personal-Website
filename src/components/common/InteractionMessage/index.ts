@@ -26,7 +26,7 @@ const showMessageWithHoverClose = (options: {
     duration: MESSAGE_DURATION,
     showClose: true,
     zIndex: MESSAGE_Z_INDEX,
-    onClose: () => { },
+    onClose: () => undefined,
   });
 
   const messageEl = document.querySelector('.el-message:last-child') as HTMLElement;
@@ -40,6 +40,18 @@ const showMessageWithHoverClose = (options: {
 };
 
 export const showMessage = {
+  success: (message: string) => {
+    showMessageWithHoverClose({
+      type: 'success',
+      message,
+    });
+  },
+  info: (message: string) => {
+    showMessageWithHoverClose({
+      type: 'info',
+      message,
+    });
+  },
   like: {
     success: (title: string) => {
       showMessageWithHoverClose({

@@ -58,7 +58,7 @@
           <!-- 搜索模式 -->
           <template v-if="isSearchMode">
             <section class="search-section">
-              <SearchBar v-model="searchQuery" @search="handleSearch" />
+              <SearchBar ref="searchBarRef" v-model="searchQuery" @search="handleSearch" />
             </section>
             <!-- 搜索结果统计 -->
             <section v-if="searchQuery" class="search-results-header">
@@ -86,14 +86,43 @@
     <!-- 可滚动内容区域 -->
     <main ref="mainRef" class="page-main">
       <div v-if="loading" class="loading-state">
-        <div class="loading-spinner"></div>
-        <p>正在加载诗词...</p>
+        <div class="scroll-loader">
+          <span class="rod left"></span>
+          <div class="paper">
+            <span class="paper-ink"></span>
+            <span class="ink-line l1"></span>
+            <span class="ink-line l2"></span>
+            <span class="ink-line l3"></span>
+          </div>
+          <span class="rod right"></span>
+        </div>
+        <p class="loading-text">正在铺展诗卷…</p>
       </div>
 
-      <div v-else-if="filteredPoems.length === 0" class="empty-state">
-        <EmptyIcon class="empty-icon" />
-        <h3>暂无相关诗词</h3>
-        <p>换个关键词试试吧</p>
+      <ErrorState v-else-if="loadError" :message="loadError" @retry="retryLoad" />
+
+      <div v-else-if="filteredPoems.length === 0 && isSearchMode" class="empty-state search-empty">
+        <div class="empty-card">
+          <span class="card-seal">诗</span>
+          <EmptySearchIcon class="empty-icon" />
+          <h3>查无此诗</h3>
+          <p v-if="searchQuery">未找到与「{{ searchQuery }}」相关的诗词</p>
+          <p v-else>换个关键词，或到分类中慢慢寻觅</p>
+          <div class="empty-actions">
+            <button class="empty-action primary" @click="resetSearch">换个词再寻</button>
+            <button class="empty-action" @click="switchMode(false)">去分类浏览</button>
+          </div>
+        </div>
+      </div>
+
+      <div v-else-if="filteredPoems.length === 0" class="empty-state category-empty">
+        <div class="empty-card">
+          <span class="card-seal">卷</span>
+          <EmptyCategoryIcon class="empty-icon" />
+          <h3>此格尚无诗卷</h3>
+          <p>该分类下的诗词仍在收集中，先去别处看看</p>
+          <button class="empty-action" @click="showAllPoems">查看全部诗词</button>
+        </div>
       </div>
 
       <div v-else class="poems-grid">
@@ -113,18 +142,25 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, defineAsyncComponent, onMounted } from 'vue';
+import { ref, computed, defineAsyncComponent, onMounted, nextTick, watch } from 'vue';
 import { useRouter } from 'vue-router';
 import SearchBar from './components/SearchBar/index.vue';
 import CategoryNav from './components/CategoryNav/index.vue';
 import PoemCard from './components/PoemCard/index.vue';
-const PoemModal = defineAsyncComponent(() => import('./components/PoemModal/index.vue'));
+import PoemModalLoading from './components/PoemModal/PoemModalLoading.vue';
+const PoemModal = defineAsyncComponent({
+  loader: () => import('./components/PoemModal/index.vue'),
+  loadingComponent: PoemModalLoading,
+  delay: 0,
+});
 import Pagination from './components/Pagination/index.vue';
+import ErrorState from './components/ErrorState/index.vue';
 import BrowseIcon from './icons/common/BrowseIcon.vue';
 import SearchModeIcon from './icons/common/SearchModeIcon.vue';
 import StudyRoomIcon from './icons/common/StudyRoomIcon.vue';
 import BackIcon from './icons/common/BackIcon.vue';
-import EmptyIcon from './icons/common/EmptyIcon.vue';
+import EmptySearchIcon from './icons/common/EmptySearchIcon.vue';
+import EmptyCategoryIcon from './icons/common/EmptyCategoryIcon.vue';
 
 import { useAphorismDataStore } from '@/stores/aphorism';
 import { useAphorismInteractionStore } from '@/stores/aphorism/interaction';
@@ -143,10 +179,12 @@ const selectedPoemBackground = ref<string>('');
 const showModal = ref(false);
 const isSearchMode = ref(false);
 const mainRef = ref<HTMLElement>();
+const searchBarRef = ref<InstanceType<typeof SearchBar> | null>(null);
 const categoryNavRef = ref<InstanceType<typeof CategoryNav> | null>(null);
 const pageSize = 12;
 
 const loading = computed(() => dataStore.loading);
+const loadError = computed(() => dataStore.error);
 const filteredPoems = computed(() => dataStore.filteredPoems);
 
 const switchMode = (searchMode: boolean) => {
@@ -176,9 +214,37 @@ const handleSearch = (query: string) => {
   dataStore.searchByKeyword(query);
 };
 
+// 关键词被清空时（点 × / 手动删空）实时恢复全部诗词列表
+watch(searchQuery, (val) => {
+  if (!val) {
+    currentPage.value = 1;
+    dataStore.resetFilter();
+  }
+});
+
 const handleCategoryChange = (categoryId: string, subCategoryId?: number) => {
   currentPage.value = 1;
   dataStore.filterByCategory(subCategoryId, categoryId);
+};
+
+const showAllPoems = () => {
+  currentPage.value = 1;
+  if (categoryNavRef.value) {
+    categoryNavRef.value.selectAllOfCurrentCategory();
+  } else {
+    dataStore.resetFilter();
+  }
+};
+
+const resetSearch = () => {
+  searchQuery.value = '';
+  currentPage.value = 1;
+  dataStore.resetFilter();
+  nextTick(() => searchBarRef.value?.focusInput());
+};
+
+const retryLoad = () => {
+  dataStore.loadPoems();
 };
 
 const handlePageChange = (page: number) => {

@@ -10,13 +10,13 @@ export const otherRoutes: RouteRecordRaw[] = [
         path: "food",
         name: "food",
         component: () =>
-          import("@/pages/TravelGuide/components/food/index.vue"),
+          import("@/pages/TravelGuide/components/Food/index.vue"),
       },
       {
         path: "scenery",
         name: "scenery",
         component: () =>
-          import("@/pages/TravelGuide/components/scenery/index.vue"),
+          import("@/pages/TravelGuide/components/Scenery/index.vue"),
       },
     ],
   },

@@ -252,7 +252,7 @@ const handlePlaySong = (song: Song) => {
   playSong?.(song);
 };
 
-const handleFolderClick = (folder: LocalFolder) => {
+const handleFolderClick = (_folder: LocalFolder) => {
   // 文件夹点击处理
 };
 

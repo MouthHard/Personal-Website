@@ -3,7 +3,7 @@
     <div class="handbook" :class="{ expanded: isExpanded }">
       <div class="book-spine"></div>
 
-      <div class="cover">
+      <div class="cover" @click="handleClick">
         <div class="cover-bg">
           <div class="cover-image">
             <img v-if="item.thumbnail" :src="item.thumbnail" alt="" class="cover-img" loading="lazy" />
@@ -380,11 +380,13 @@
       <div class="page-shadow"></div>
     </div>
   </div>
+
+  <ShareMenu v-model:visible="showShareMenu" :work="shareWork" />
 </template>
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { showMessage } from '@/utils/landscape'
+import { showMessage, createSimpleInteractionItem } from '@/utils/landscape'
 import type { GuideItem } from '@/typesOfPages/landscape'
 import { formatNumber, getDifficultyLabel } from '@/utils/landscape'
 import { useInteractionStore } from '@/stores/landscape'
@@ -394,6 +396,7 @@ import ThumbUpIcon from '@/pages/Landscape/icons/common/ThumbUpIcon.vue'
 import HeartIcon from '@/pages/Landscape/icons/common/HeartIcon.vue'
 import BookmarkIcon from '@/pages/Landscape/icons/common/BookmarkIcon.vue'
 import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue'
+import ShareMenu from '../../../common/ShareMenu/index.vue'
 import ChevronLeftIcon from '@/pages/Landscape/icons/common/ChevronLeftIcon.vue'
 import UsersIcon from '@/pages/Landscape/icons/common/UsersIcon.vue'
 import ClockIcon from '@/pages/Landscape/icons/common/ClockIcon.vue'
@@ -476,7 +479,12 @@ const toggleCollect = () => {
 }
 
 const toggleLike = () => {
-  const isAdded = interactionStore.toggleLike(props.item.id)
+  const item = createSimpleInteractionItem(props.item.id, 'guide', props.item.title, {
+    image: props.item.thumbnail || '',
+    location: props.item.location,
+    category: props.item.category,
+  })
+  const isAdded = interactionStore.toggleLike(item)
   if (isAdded) {
     showMessage.like.success(props.item.title)
   } else {
@@ -510,8 +518,21 @@ const toggleLove = () => {
   }
 }
 
+const showShareMenu = ref(false)
+const shareWork = computed(() => ({
+  type: 'guide' as const,
+  title: props.item.title,
+  description: props.item.summary,
+  cover: props.item.thumbnail,
+  author: props.item.author,
+  date: props.item.date,
+  location: props.item.location,
+  category: props.item.category,
+  rating: props.item.rating,
+}))
+
 const handleShare = () => {
-  showMessage.share.success(props.item.title)
+  showShareMenu.value = true
   emit('share', props.item)
 }
 

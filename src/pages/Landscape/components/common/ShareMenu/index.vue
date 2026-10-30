@@ -2,36 +2,124 @@
   <Teleport to="body">
     <Transition name="share-menu">
       <div v-if="visible" class="share-menu-overlay" @click="handleClose">
-        <div class="share-menu-container" @click.stop>
-          <div class="share-menu-header">
-            <h3 class="share-title">分享到</h3>
-            <button class="close-btn" @click="handleClose">
-              <CloseIcon :stroke-width="2" />
-            </button>
-          </div>
+        <div class="postcard" @click.stop>
+          <button class="postcard-close" aria-label="关闭" @click="handleClose">
+            <CloseIcon :stroke-width="2" />
+          </button>
 
-          <div class="share-platforms">
-            <div class="platform-grid">
-              <button v-for="platform in platforms" :key="platform.id" class="platform-btn" @click="handleShare(platform)">
-                <div class="platform-icon" :style="{ background: platform.gradient }">
-                  <component :is="platform.icon" />
+          <div class="postcard-front">
+            <div class="postcard-photo">
+              <img
+                v-if="resolvedCover"
+                :src="resolvedCover"
+                :alt="workTitle"
+                @error="onImgError"
+              />
+              <div v-else class="postcard-photo-placeholder">
+                <PanoramaIcon class="placeholder-icon" />
+                <span class="placeholder-text">风景作品</span>
+              </div>
+              <div class="postcard-type-badge" :class="`type-${workType}`">
+                <component :is="typeIcon" class="type-icon" />
+                <span class="type-label">{{ typeLabel }}</span>
+              </div>
+            </div>
+
+            <div class="postcard-stamp">
+              <div class="stamp-frame">
+                <div class="stamp-image">
+                  <img
+                    v-if="resolvedCover"
+                    :src="resolvedCover"
+                    :alt="workTitle"
+                    @error="onStampImgError"
+                  />
+                  <div v-else class="stamp-placeholder">
+                    <PanoramaIcon class="stamp-placeholder-icon" />
+                  </div>
                 </div>
-                <span class="platform-name">{{ platform.name }}</span>
-              </button>
+                <div class="stamp-divider"></div>
+                <div class="stamp-value">
+                  <span class="stamp-value-num">80</span>
+                  <span class="stamp-value-unit">分</span>
+                </div>
+                <div class="stamp-country">中国风景</div>
+              </div>
+            </div>
+
+            <div class="postcard-postmark">
+              <div class="postmark-ring">
+                <div class="postmark-inner">
+                  <span class="postmark-top">LANDSCAPE</span>
+                  <span class="postmark-date">{{ postmarkDate }}</span>
+                  <span class="postmark-bottom">CHINA</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="postcard-caption">
+              <span class="caption-text">{{ workTitle }}</span>
+            </div>
+
+            <p v-if="workDescription" class="postcard-description">{{ workDescription }}</p>
+          </div>
+
+          <div class="postcard-divider">
+            <div class="divider-perforations">
+              <span v-for="n in 12" :key="n" class="perforation-dot"></span>
             </div>
           </div>
 
-          <div class="share-link-section">
-            <div class="link-header">
-              <LinkIcon :stroke-width="2" />
-              <span>复制链接</span>
+          <div class="postcard-back">
+            <div class="postcard-header">
+              <h3 class="postcard-title">{{ workTitle }}</h3>
+              <div class="postcard-title-rule"></div>
             </div>
-            <div class="link-input-group">
-              <input type="text" :value="shareUrl" readonly class="link-input" />
-              <button class="copy-btn" @click="handleCopyLink">
-                <CopyIcon :stroke-width="2" />
-                <span>{{ copied ? '已复制' : '复制' }}</span>
-              </button>
+
+            <div class="postcard-meta">
+              <div v-if="displayMeta.author" class="meta-item">
+                <UserIcon class="meta-icon" />
+                <span class="meta-text">{{ displayMeta.author }}</span>
+              </div>
+              <div v-if="displayMeta.location" class="meta-item">
+                <LocationIcon class="meta-icon" />
+                <span class="meta-text">{{ displayMeta.location }}</span>
+              </div>
+            </div>
+
+            <div class="postcard-platforms">
+              <div class="platforms-label">
+                <ShareIcon class="label-icon" />
+                <span class="label-text">分享到</span>
+                <div class="label-rule"></div>
+              </div>
+              <div class="platform-grid">
+                <button
+                  v-for="platform in platforms"
+                  :key="platform.id"
+                  class="platform-btn"
+                  @click="handleShare(platform)"
+                >
+                  <div class="platform-icon" :style="{ background: platform.gradient }">
+                    <component :is="platform.icon" />
+                  </div>
+                  <span class="platform-name">{{ platform.name }}</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="postcard-link">
+              <div class="link-header">
+                <LinkIcon :stroke-width="2" class="link-header-icon" />
+                <span class="link-header-text">复制链接</span>
+              </div>
+              <div class="link-input-group">
+                <input type="text" :value="shareUrl" readonly class="link-input" />
+                <button class="copy-btn" @click="handleCopyLink">
+                  <CopyIcon :stroke-width="2" />
+                  <span>{{ copied ? '已复制' : '复制' }}</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -41,11 +129,23 @@
 </template>
 
 <script setup lang="ts">
-import { ref, h, onUnmounted, type Component } from 'vue'
+import { ref, h, computed, onUnmounted, type Component } from 'vue'
 import { showMessage } from '@/utils/landscape'
 import CloseIcon from '@/pages/Landscape/icons/common/CloseIcon.vue'
 import LinkIcon from '@/pages/Landscape/icons/components/common/ShareMenu/LinkIcon.vue'
 import CopyIcon from '@/pages/Landscape/icons/components/common/ShareMenu/CopyIcon.vue'
+import UserIcon from '@/pages/Landscape/icons/common/UserIcon.vue'
+
+import LocationIcon from '@/pages/Landscape/icons/common/LocationIcon.vue'
+
+import ClockIcon from '@/pages/Landscape/icons/common/ClockIcon.vue'
+import CameraIcon from '@/pages/Landscape/icons/common/CameraIcon.vue'
+import StarIcon from '@/pages/Landscape/icons/common/StarIcon.vue'
+import BookIcon from '@/pages/Landscape/icons/common/BookIcon.vue'
+import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue'
+import ImageIcon from '@/pages/Landscape/icons/common/ImageIcon.vue'
+import VideoIcon from '@/pages/Landscape/icons/common/VideoIcon.vue'
+import PanoramaIcon from '@/pages/Landscape/icons/common/PanoramaIcon.vue'
 
 interface Platform {
   id: string
@@ -54,10 +154,28 @@ interface Platform {
   icon: Component
 }
 
+interface ShareWork {
+  type?: 'image' | 'video' | 'guide'
+  title?: string
+  description?: string
+  cover?: string
+  author?: string
+  date?: string
+  location?: string
+  category?: string
+  tags?: string[]
+  duration?: string
+  resolution?: string
+  camera?: string
+  rating?: number
+  readTime?: string
+}
+
 interface Props {
   visible: boolean
   shareUrl?: string
   title?: string
+  work?: ShareWork
 }
 
 interface Emits {
@@ -69,11 +187,105 @@ interface Emits {
 const props = withDefaults(defineProps<Props>(), {
   shareUrl: window.location.href,
   title: '',
+  work: () => ({}) as ShareWork,
 })
 
 const emit = defineEmits<Emits>()
 
 const copied = ref(false)
+const imgFailed = ref(false)
+const stampImgFailed = ref(false)
+
+const workType = computed<'image' | 'video' | 'guide'>(() => props.work?.type || 'image')
+
+const workTitle = computed(() => props.work?.title || props.title || '分享作品')
+
+const workDescription = computed(() => props.work?.description || '')
+
+const resolvedCover = computed(() => {
+  if (imgFailed.value) return ''
+  return props.work?.cover || ''
+})
+
+const typeIcon = computed<Component>(() => {
+  switch (workType.value) {
+    case 'video':
+      return VideoIcon
+    case 'guide':
+      return BookIcon
+    default:
+      return ImageIcon
+  }
+})
+
+const typeLabel = computed(() => {
+  switch (workType.value) {
+    case 'video':
+      return '视频'
+    case 'guide':
+      return '攻略'
+    default:
+      return '图片'
+  }
+})
+
+const formatDate = (date?: string) => {
+  if (!date) return ''
+  const d = new Date(date)
+  if (isNaN(d.getTime())) return date
+  return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`
+}
+
+const displayMeta = computed(() => {
+  const w = props.work
+  const meta: {
+    author: string
+    date: string
+    location: string
+    category: string
+    extra1: string
+    extra1Icon: Component
+    extra2: string
+    extra2Icon: Component
+  } = {
+    author: w?.author || '',
+    date: formatDate(w?.date),
+    location: w?.location || '',
+    category: w?.category || '',
+    extra1: '',
+    extra1Icon: ClockIcon,
+    extra2: '',
+    extra2Icon: CameraIcon,
+  }
+  if (workType.value === 'video') {
+    meta.extra1 = w?.duration || ''
+    meta.extra1Icon = ClockIcon
+    meta.extra2 = w?.resolution || ''
+    meta.extra2Icon = VideoIcon
+  } else if (workType.value === 'guide') {
+    meta.extra1 = w?.rating ? `${w.rating}分` : ''
+    meta.extra1Icon = StarIcon
+    meta.extra2 = w?.readTime ? `${w.readTime}分钟` : ''
+    meta.extra2Icon = BookIcon
+  } else {
+    meta.extra1 = w?.camera || ''
+    meta.extra1Icon = CameraIcon
+    meta.extra2 = ''
+  }
+  return meta
+})
+
+const postmarkDate = computed(() => {
+  const d = new Date()
+  return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`
+})
+
+const onImgError = () => {
+  imgFailed.value = true
+}
+const onStampImgError = () => {
+  stampImgFailed.value = true
+}
 
 const WechatIcon = () =>
   h('svg', { viewBox: '0 0 24 24', fill: 'currentColor' }, [
@@ -181,84 +393,19 @@ const ZhihuIcon = () =>
   ])
 
 const platforms: Platform[] = [
-  {
-    id: 'wechat',
-    name: '微信',
-    gradient: 'linear-gradient(135deg, #07c160 0%, #09bb07 100%)',
-    icon: WechatIcon,
-  },
-  {
-    id: 'weibo',
-    name: '微博',
-    gradient: 'linear-gradient(135deg, #e6162d 0%, #ff5722 100%)',
-    icon: WeiboIcon,
-  },
-  {
-    id: 'qq',
-    name: 'QQ',
-    gradient: 'linear-gradient(135deg, #12b7f5 0%, #2196f3 100%)',
-    icon: QQIcon,
-  },
-  {
-    id: 'twitter',
-    name: 'Twitter',
-    gradient: 'linear-gradient(135deg, #1da1f2 0%, #0d95e8 100%)',
-    icon: TwitterIcon,
-  },
-  {
-    id: 'facebook',
-    name: 'Facebook',
-    gradient: 'linear-gradient(135deg, #4267b2 0%, #3b5998 100%)',
-    icon: FacebookIcon,
-  },
-  {
-    id: 'telegram',
-    name: 'Telegram',
-    gradient: 'linear-gradient(135deg, #0088cc 0%, #0088cc 100%)',
-    icon: TelegramIcon,
-  },
-  {
-    id: 'whatsapp',
-    name: 'WhatsApp',
-    gradient: 'linear-gradient(135deg, #25d366 0%, #128c7e 100%)',
-    icon: WhatsAppIcon,
-  },
-  {
-    id: 'linkedin',
-    name: 'LinkedIn',
-    gradient: 'linear-gradient(135deg, #0077b5 0%, #0077b5 100%)',
-    icon: LinkedinIcon,
-  },
-  {
-    id: 'pinterest',
-    name: 'Pinterest',
-    gradient: 'linear-gradient(135deg, #e60023 0%, #bd081c 100%)',
-    icon: PinterestIcon,
-  },
-  {
-    id: 'reddit',
-    name: 'Reddit',
-    gradient: 'linear-gradient(135deg, #ff4500 0%, #ff4500 100%)',
-    icon: RedditIcon,
-  },
-  {
-    id: 'douban',
-    name: '豆瓣',
-    gradient: 'linear-gradient(135deg, #00b51d 0%, #00a01e 100%)',
-    icon: DoubanIcon,
-  },
-  {
-    id: 'zhihu',
-    name: '知乎',
-    gradient: 'linear-gradient(135deg, #0066ff 0%, #0066ff 100%)',
-    icon: ZhihuIcon,
-  },
-  {
-    id: 'email',
-    name: '邮件',
-    gradient: 'linear-gradient(135deg, #ff7043 0%, #ff5722 100%)',
-    icon: EmailIcon,
-  },
+  { id: 'wechat', name: '微信', gradient: 'linear-gradient(135deg, #07c160 0%, #09bb07 100%)', icon: WechatIcon },
+  { id: 'weibo', name: '微博', gradient: 'linear-gradient(135deg, #e6162d 0%, #ff5722 100%)', icon: WeiboIcon },
+  { id: 'qq', name: 'QQ', gradient: 'linear-gradient(135deg, #12b7f5 0%, #2196f3 100%)', icon: QQIcon },
+  { id: 'twitter', name: 'Twitter', gradient: 'linear-gradient(135deg, #1da1f2 0%, #0d95e8 100%)', icon: TwitterIcon },
+  { id: 'facebook', name: 'Facebook', gradient: 'linear-gradient(135deg, #4267b2 0%, #3b5998 100%)', icon: FacebookIcon },
+  { id: 'telegram', name: 'Telegram', gradient: 'linear-gradient(135deg, #0088cc 0%, #0088cc 100%)', icon: TelegramIcon },
+  { id: 'whatsapp', name: 'WhatsApp', gradient: 'linear-gradient(135deg, #25d366 0%, #128c7e 100%)', icon: WhatsAppIcon },
+  { id: 'linkedin', name: 'LinkedIn', gradient: 'linear-gradient(135deg, #0077b5 0%, #0077b5 100%)', icon: LinkedinIcon },
+  { id: 'pinterest', name: 'Pinterest', gradient: 'linear-gradient(135deg, #e60023 0%, #bd081c 100%)', icon: PinterestIcon },
+  { id: 'reddit', name: 'Reddit', gradient: 'linear-gradient(135deg, #ff4500 0%, #ff4500 100%)', icon: RedditIcon },
+  { id: 'douban', name: '豆瓣', gradient: 'linear-gradient(135deg, #00b51d 0%, #00a01e 100%)', icon: DoubanIcon },
+  { id: 'zhihu', name: '知乎', gradient: 'linear-gradient(135deg, #0066ff 0%, #0066ff 100%)', icon: ZhihuIcon },
+  { id: 'email', name: '邮件', gradient: 'linear-gradient(135deg, #ff7043 0%, #ff5722 100%)', icon: EmailIcon },
 ]
 
 const handleClose = () => {
@@ -272,7 +419,7 @@ const handleShare = (platform: Platform) => {
   handleClose()
 }
 
-let copyTimer: ReturnType<typeof setTimeout> | null = null;
+let copyTimer: ReturnType<typeof setTimeout> | null = null
 
 const handleCopyLink = async () => {
   try {

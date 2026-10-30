@@ -91,17 +91,17 @@
         </div>
         <div class="stat-cell">
           <UsersIcon :stroke-width="1.5" />
-          <span class="stat-val">{{ item.followers }}</span>
+          <span class="stat-val">{{ getCounts().followers }}</span>
           <span class="stat-label">粉丝</span>
         </div>
         <div class="stat-cell">
           <EyeIcon :stroke-width="1.5" />
-          <span class="stat-val">{{ item.views || '0' }}</span>
+          <span class="stat-val">{{ getCounts().views }}</span>
           <span class="stat-label">浏览</span>
         </div>
         <div class="stat-cell">
           <HeartIcon :stroke-width="1.5" />
-          <span class="stat-val">{{ item.likes || '0' }}</span>
+          <span class="stat-val">{{ getCounts().likes }}</span>
           <span class="stat-label">获赞</span>
         </div>
       </div>
@@ -193,8 +193,9 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, watch } from 'vue'
 import { showMessage } from '@/utils/landscape'
+import { parseCount } from '@/utils/landscape/format'
 import type { PhotographerItem } from '@/typesOfPages/landscape'
 import { useInteractionStore } from '@/stores/landscape'
 import CheckIcon from '@/pages/Landscape/icons/common/CheckIcon.vue'
@@ -229,6 +230,17 @@ const emit = defineEmits<{
 const interactionStore = useInteractionStore()
 const isFollowing = computed(() => interactionStore.isFollowing(props.item.id))
 const isLiked = computed(() => interactionStore.isLiked(props.item.id))
+const getCounts = () => interactionStore.getCount(props.item.id)
+
+watch(
+  () => props.item.id,
+  () => {
+    interactionStore.registerCount(props.item.id, {
+      followers: parseCount(String(props.item.followers || '0')),
+    })
+  },
+  { immediate: true },
+)
 
 
 const toggleFollow = () => {

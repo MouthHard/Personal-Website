@@ -7,10 +7,10 @@ import { useProfileTransform } from './useProfileTransform';
 export function useProfileItems(
   activeTab: Ref<string>,
   selectedCategory: Ref<string>,
-  images: Ref<any[]>,
-  videos: Ref<any[]>,
-  photographers: Ref<any[]>,
-  guides: Ref<any[]>
+  _images: Ref<any[]>,
+  _videos: Ref<any[]>,
+  _photographers: Ref<any[]>,
+  _guides: Ref<any[]>
 ) {
   const interactionStore = useInteractionStore();
   const {

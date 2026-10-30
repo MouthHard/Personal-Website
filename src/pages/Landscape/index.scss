@@ -19,6 +19,7 @@ body {
   display: none;
 }
 
+// 数据加载中/加载失败样式已提取至 components/common/StarSystemState 组件
 #landscape-app {
   height: 100vh;
   font-family:
@@ -40,4 +41,3 @@ body {
     min-height: 0;
   }
 }
-

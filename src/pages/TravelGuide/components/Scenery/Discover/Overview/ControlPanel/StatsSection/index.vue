@@ -1,8 +1,6 @@
 <script setup lang="ts">
-  import {
-    StatsIcon,
-    ChartIcon,
-  } from '@/pages/TravelGuide/icons/pages/scenery';
+  import { StatsIcon } from '@/pages/TravelGuide/icons/pages/scenery';
+  import { ChartIcon } from '@/pages/TravelGuide/icons/common';
 
   interface Stat {
     value: string | number;

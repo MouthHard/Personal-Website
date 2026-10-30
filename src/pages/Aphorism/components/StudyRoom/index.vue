@@ -60,21 +60,23 @@
 
     <!-- 内容区域 -->
     <main class="page-main">
-      <!-- 加载状态 -->
-      <div v-if="isLoading" class="studyroom-loading">
-        <div class="loading-scroll">
-          <div class="loading-card shimmer"></div>
-          <div class="loading-card shimmer"></div>
-          <div class="loading-card shimmer"></div>
-          <div class="loading-card shimmer"></div>
-          <div class="loading-card shimmer"></div>
-          <div class="loading-card shimmer"></div>
+      <!-- 加载中：书架整理 -->
+      <div v-if="loading" class="shelf-loading">
+        <div class="loading-shelf">
+          <div class="shelf-frame">
+            <div v-for="n in 6" :key="n" class="shelf-slot">
+              <span class="book-spine" :class="'b' + ((n % 3) + 1)"></span>
+            </div>
+            <span class="shelf-board"></span>
+          </div>
+          <p class="shelf-loading-text">正在整理书架…</p>
         </div>
       </div>
 
-      <template v-else>
+      <ErrorState v-else-if="loadError" :message="loadError" @retry="retryLoad" />
+
       <!-- ===== 喜爱 / 收藏：诗词卡片列表 ===== -->
-      <template v-if="activeTab === 'loved' || activeTab === 'favorites'">
+      <template v-if="!loading && !loadError && (activeTab === 'loved' || activeTab === 'favorites')">
         <section class="poems-section">
           <h2 v-if="currentPoems.length > 0" class="section-title">
             {{ currentSectionTitle }}
@@ -82,7 +84,12 @@
           <div v-if="currentPoems.length > 0" class="poems-grid">
             <StudyRoomCard v-for="poem in visiblePoems" :key="poem.id" :poem="poem" :type="activeTab"
               @click="handlePoemClick" @remove="handleRemove" />
-            <div v-if="visiblePoems.length < currentPoems.length" ref="loadMoreRef" class="load-more-sentinel"></div>
+            <div v-if="visiblePoems.length < currentPoems.length" ref="loadMoreRef" class="load-more-sentinel">
+              <span class="lm-ink"></span>
+              <span class="lm-dot"></span>
+              <span class="lm-ink"></span>
+              <span class="lm-text">继续展卷…</span>
+            </div>
           </div>
           <div v-else class="empty-state">
             <EmptyPoemIcon class="empty-icon" />
@@ -94,7 +101,7 @@
       </template>
 
       <!-- ===== 探索：功能模块区 ===== -->
-      <template v-if="activeTab === 'explore'">
+      <template v-if="!loading && !loadError && activeTab === 'explore'">
         <section class="modules-section">
           <!-- 今日推荐 -->
           <div v-if="dailyPick" class="module-card daily-pick"
@@ -116,13 +123,13 @@
             </div>
             <div class="pick-hint">点击查看全文</div>
           </div>
-          <div v-else class="module-card daily-pick daily-pick-empty">
+          <div v-else class="module-card daily-pick is-empty">
             <div class="module-header">
               <span class="module-tag">今日推荐</span>
             </div>
-            <div class="module-body module-empty">
-              <EmptyPoemIcon class="empty-icon-sm" />
-              <p>诗词库加载后将为你推荐今日佳作</p>
+            <div class="module-body pick-empty">
+              <span class="pe-seal">诗</span>
+              <p>今日诗卷备货中，稍后再来</p>
             </div>
           </div>
 
@@ -141,7 +148,7 @@
               </div>
             </div>
             <div v-else class="module-body module-empty">
-              <EmptyPoemIcon class="empty-icon-sm" />
+              <PoetIcon class="me-icon" />
               <p>喜爱或收藏诗词后，此处将显示你常读的诗人</p>
             </div>
           </div>
@@ -162,7 +169,7 @@
               </div>
             </div>
             <div v-else class="module-body module-empty">
-              <EmptyPoemIcon class="empty-icon-sm" />
+              <FootprintIcon class="me-icon" />
               <p>查看过的诗词将记录于此</p>
             </div>
           </div>
@@ -184,12 +191,11 @@
               </div>
             </div>
             <div v-else class="module-body module-empty">
-              <EmptyPoemIcon class="empty-icon-sm" />
-              <p>你的诗词朝代偏好分布图</p>
+              <ChartIcon class="me-icon" />
+              <p>你的朝代偏好分布，读几首后自动生成</p>
             </div>
           </div>
         </section>
-      </template>
       </template>
     </main>
 
@@ -202,15 +208,24 @@
 <script setup lang="ts">
 import { ref, computed, defineAsyncComponent, onMounted, onUnmounted, watch } from 'vue';
 import { useRouter } from 'vue-router';
-const PoemModal = defineAsyncComponent(() => import('../PoemModal/index.vue'));
+import PoemModalLoading from '../PoemModal/PoemModalLoading.vue';
+const PoemModal = defineAsyncComponent({
+  loader: () => import('../PoemModal/index.vue'),
+  loadingComponent: PoemModalLoading,
+  delay: 0,
+});
 import { useAphorismDataStore } from '@/stores/aphorism';
 import { useAphorismInteractionStore } from '@/stores/aphorism/interaction';
 import type { Poem } from '@/typesOfPages/aphorism/poem';
 import StudyRoomCard from './components/StudyRoomCard/index.vue';
+import ErrorState from '../ErrorState/index.vue';
 import BadgeIcon from '../../icons/StudyRoom/BadgeIcon.vue';
 import RefreshIcon from '../../icons/StudyRoom/RefreshIcon.vue';
 import BackIcon from '../../icons/common/BackIcon.vue';
 import EmptyPoemIcon from '../../icons/common/EmptyPoemIcon.vue';
+import FootprintIcon from '../../icons/StudyRoom/FootprintIcon.vue';
+import ChartIcon from '../../icons/StudyRoom/ChartIcon.vue';
+import PoetIcon from '../../icons/common/PoetIcon.vue';
 import { getBackgroundUrl } from '@/composables/aphorism/usePoemBackground';
 import './index.scss';
 
@@ -221,11 +236,12 @@ const dataStore = useAphorismDataStore();
 const interactionStore = useAphorismInteractionStore();
 
 const allPoems = computed(() => dataStore.getAllPoems());
+const loading = computed(() => dataStore.loading);
+const loadError = computed(() => dataStore.error);
 const selectedPoem = ref<Poem | null>(null);
 const selectedPoemBackground = ref('');
 const showModal = ref(false);
 const activeTab = ref<'loved' | 'favorites' | 'explore'>('loved');
-const isLoading = ref(true);
 
 // ---- 背景图工具（使用共享 composable） ----
 
@@ -390,12 +406,15 @@ const recentViewPoems = computed(() =>
 );
 
 // ---- 方法 ----
-onMounted(async () => {
+onMounted(() => {
   if (allPoems.value.length === 0) {
-    await dataStore.loadPoems();
+    dataStore.loadPoems();
   }
-  isLoading.value = false;
 });
+
+const retryLoad = () => {
+  dataStore.loadPoems();
+};
 
 const goBack = () => router.push('/aphorism');
 const goBrowse = () => router.push('/aphorism');

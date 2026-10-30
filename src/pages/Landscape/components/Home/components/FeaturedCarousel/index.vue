@@ -1,5 +1,5 @@
 <template>
-  <section class="featured-section">
+  <section v-if="slides.length > 0" class="featured-section">
     <div class="section-header">
       <div class="title-decoration"></div>
       <h2 class="section-title">
@@ -15,7 +15,7 @@
       @mouseenter="pauseAutoPlay"
       @mouseleave="resumeAutoPlay"
     >
-      <div v-if="slides.length > 0" class="carousel-content">
+      <div class="carousel-content">
         <div class="carousel-perspective">
           <div
             class="carousel-track"
@@ -63,77 +63,79 @@
                       <span class="badge-text">{{ slide.category }}</span>
                     </div>
                     <h3 class="slide-title">{{ slide.title }}</h3>
-                    <p class="slide-location">
-                      <LocationIcon class="location-icon" :stroke-width="2" />
-                      {{ slide.location }}
-                    </p>
-                    <div class="slide-stats">
-                      <div class="stat">
-                        <ThumbUpIcon
-                          :filled="
-                            interactionStore.isLiked(getSlideId(slide.id))
-                          "
-                        />
-                        <span>
-                          {{
-                            fmt(
-                              interactionStore.getCount(getSlideId(slide.id))
-                                .likes,
-                            )
-                          }}
-                        </span>
-                      </div>
-                      <div class="stat">
-                        <HeartIcon
-                          :filled="
-                            interactionStore.isLoved(getSlideId(slide.id))
-                          "
-                        />
-                        <span>
-                          {{
-                            fmt(
-                              interactionStore.getCount(getSlideId(slide.id))
-                                .loves,
-                            )
-                          }}
-                        </span>
-                      </div>
-                      <div class="stat">
-                        <BookmarkIcon
-                          :filled="
-                            interactionStore.isFavorited(getSlideId(slide.id))
-                          "
-                        />
-                        <span>
-                          {{
-                            fmt(
-                              interactionStore.getCount(getSlideId(slide.id))
-                                .favorites,
-                            )
-                          }}
-                        </span>
-                      </div>
-                      <div class="stat">
-                        <EyeIcon />
-                        <span>
-                          {{
-                            fmt(
-                              interactionStore.getCount(getSlideId(slide.id))
-                                .views,
-                            )
-                          }}
-                        </span>
-                      </div>
-                      <div class="stat">
-                        <ShareIcon />
-                        <span>
-                          {{
-                            fmt(
-                              interactionStore.getCount(getSlideId(slide.id))
-                                .shares,
-                            )
-                          }}
-                        </span>
+                    <div class="slide-info-glass">
+                      <p class="slide-location">
+                        <LocationIcon class="location-icon" :stroke-width="2" />
+                        {{ slide.location }}
+                      </p>
+                      <div class="slide-stats">
+                        <div class="stat">
+                          <ThumbUpIcon
+                            :filled="
+                              interactionStore.isLiked(getSlideId(slide.id))
+                            "
+                          />
+                          <span>
+                            {{
+                              fmt(
+                                interactionStore.getCount(getSlideId(slide.id))
+                                  .likes,
+                              )
+                            }}
+                          </span>
+                        </div>
+                        <div class="stat">
+                          <HeartIcon
+                            :filled="
+                              interactionStore.isLoved(getSlideId(slide.id))
+                            "
+                          />
+                          <span>
+                            {{
+                              fmt(
+                                interactionStore.getCount(getSlideId(slide.id))
+                                  .loves,
+                              )
+                            }}
+                          </span>
+                        </div>
+                        <div class="stat">
+                          <BookmarkIcon
+                            :filled="
+                              interactionStore.isFavorited(getSlideId(slide.id))
+                            "
+                          />
+                          <span>
+                            {{
+                              fmt(
+                                interactionStore.getCount(getSlideId(slide.id))
+                                  .favorites,
+                              )
+                            }}
+                          </span>
+                        </div>
+                        <div class="stat">
+                          <EyeIcon />
+                          <span>
+                            {{
+                              fmt(
+                                interactionStore.getCount(getSlideId(slide.id))
+                                  .views,
+                              )
+                            }}
+                          </span>
+                        </div>
+                        <div class="stat">
+                          <ShareIcon />
+                          <span>
+                            {{
+                              fmt(
+                                interactionStore.getCount(getSlideId(slide.id))
+                                  .shares,
+                              )
+                            }}
+                          </span>
+                        </div>
                       </div>
                     </div>
                     <div class="action-buttons">
@@ -228,14 +230,9 @@
           <button class="control-btn next" @click="nextSlide">➢</button>
         </div>
       </div>
-      <div v-else class="empty-state">
-        <div class="empty-icon">🎬</div>
-        <h3>暂无精选影像</h3>
-        <p>敬请期待精彩内容</p>
-      </div>
     </div>
 
-    <div v-if="slides.length > 0" class="carousel-dots">
+    <div class="carousel-dots">
       <button
         v-for="i in totalSlides"
         :key="i"
@@ -249,7 +246,7 @@
 
     <ShareMenu
       v-model:visible="showShareMenu"
-      :title="currentShareSlide?.title"
+      :work="shareWork"
       @share="handleSharePlatform"
     />
   </section>
@@ -292,6 +289,19 @@
   const showShareMenu = ref(false);
   const currentShareSlide = ref<Slide | null>(null);
 
+  const shareWork = computed(() => {
+    const slide = currentShareSlide.value;
+    if (!slide) return {};
+    return {
+      type: slide.mediaType === 'video' ? ('video' as const) : ('image' as const),
+      title: slide.title,
+      cover: slide.image,
+      author: slide.author,
+      location: slide.location,
+      category: slide.category,
+    };
+  });
+
   const prevSlide = () => {
     currentSlide.value =
       currentSlide.value > 0 ? currentSlide.value - 1 : totalSlides.value - 1;
@@ -325,7 +335,7 @@
     startAutoPlay();
   };
 
-  const onImageLoad = (index: number) => {
+  const onImageLoad = (_index: number) => {
     // 图片加载完成处理
   };
 
@@ -386,7 +396,7 @@
   }
 
   const handleSharePlatform = (_platform: Platform) => {
-
+    void _platform;
   };
 
   const handleDownload = async (slide: Slide) => {

@@ -63,8 +63,9 @@
       transition: all 0.3s ease;
 
       svg {
-        width: 16px;
-        height: 16px;
+        width: 24px;
+        height: 24px;
+        stroke-width: 2;
       }
 
       &.loved {
@@ -87,7 +88,7 @@
       left: 12px;
       padding: 3px 10px;
       border-radius: 10px;
-      font-size: 11px;
+      font-size: 14px;
       font-weight: bolder;
       z-index: 10;
       letter-spacing: 1px;

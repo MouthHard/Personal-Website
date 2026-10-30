@@ -105,7 +105,11 @@ const isLoved = computed(() => interactionStore.isLoved(props.guide.id));
 const isFavorited = computed(() => interactionStore.isFavorited(props.guide.id));
 
 const handleToggleLike = () => {
-  const liked = interactionStore.toggleLike(props.guide.id);
+  const item = createSimpleInteractionItem(props.guide.id, 'guide', props.guide.title, {
+    image: props.guide.cover,
+    location: props.guide.location,
+  });
+  const liked = interactionStore.toggleLike(item);
   if (liked) {
     showMessage.like.success(props.guide.title);
   } else {

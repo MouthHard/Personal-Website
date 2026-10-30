@@ -75,7 +75,7 @@
               <div class="artifact-info">
                 <h3 class="artifact-name">{{ artifact.name }}</h3>
                 <p class="artifact-period">{{ artifact.period }}</p>
-                <div class="artifact-tags" v-if="artifact.tags && artifact.tags.length">
+                <div v-if="artifact.tags && artifact.tags.length" class="artifact-tags">
                   <span
                     v-for="tag in artifact.tags"
                     :key="tag"

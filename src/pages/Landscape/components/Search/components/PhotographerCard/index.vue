@@ -13,7 +13,7 @@
       <div class="stats-column">
         <div class="stat-item" :class="{ 'sort-highlighted': !isFollowersDimmed && sortMode !== 'relevance', 'sort-dimmed': isFollowersDimmed }">
           <UsersIcon :stroke-width="2" />
-          <span class="stat-value">{{ formatCount(Number(item.followers) || 0) }}</span>
+          <span class="stat-value">{{ formatCount(getCounts().followers) }}</span>
         </div>
         <div class="stat-item" :class="{ 'sort-highlighted': !isWorksDimmed && sortMode !== 'relevance', 'sort-dimmed': isWorksDimmed }">
           <ImageIcon :stroke-width="2" />
@@ -21,11 +21,11 @@
         </div>
         <div class="stat-item" :class="{ 'sort-highlighted': !isLikeDimmed && sortMode !== 'relevance', 'sort-dimmed': isLikeDimmed }">
           <ThumbUpIcon :stroke-width="2" />
-          <span class="stat-value">{{ formatCount(item.likes || 0) }}</span>
+          <span class="stat-value">{{ formatCount(getCounts().likes) }}</span>
         </div>
         <div class="stat-item" :class="{ 'sort-highlighted': !isViewsDimmed && sortMode !== 'relevance', 'sort-dimmed': isViewsDimmed }">
           <EyeIcon :stroke-width="2" />
-          <span class="stat-value">{{ formatCount(item.views || 0) }}</span>
+          <span class="stat-value">{{ formatCount(getCounts().views) }}</span>
         </div>
       </div>
     </div>
@@ -80,7 +80,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, watch } from 'vue'
 import UserIcon from '../../../../icons/common/UserIcon.vue'
 import CheckIcon from '../../../../icons/common/CheckIcon.vue'
 import CalendarIcon from '../../../../icons/common/CalendarIcon.vue'
@@ -111,6 +111,17 @@ const emit = defineEmits<{
 
 const interactionStore = useInteractionStore()
 const isFollowing = computed(() => interactionStore.isFollowing(String(props.item.id)))
+const getCounts = () => interactionStore.getCount(String(props.item.id))
+
+watch(
+  () => props.item.id,
+  () => {
+    interactionStore.registerCount(String(props.item.id), {
+      followers: Number(props.item.followers) || 0,
+    })
+  },
+  { immediate: true },
+)
 
 const isDateDimmed = computed(() => {
   const mode = props.sortMode

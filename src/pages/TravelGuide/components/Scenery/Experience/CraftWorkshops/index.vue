@@ -25,7 +25,7 @@
             <div class="door-label">
               <div class="label-name">{{ item.name }}</div>
               <div class="label-bottom">
-                <span class="info-heritage" v-if="item.heritageLevel">
+                <span v-if="item.heritageLevel" class="info-heritage">
                   {{ heritageShort[item.heritageLevel] || '非遗' }}
                 </span>
                 <span class="toggle-switch">
@@ -41,7 +41,7 @@
         </div>
       </aside>
 
-      <div class="detail-panel" v-if="currentItem">
+      <div v-if="currentItem" class="detail-panel">
 
         <div class="detail-upper">
           <div class="detail-image-frame">
@@ -63,13 +63,13 @@
                 <h4 class="content-title">{{ currentItem.name }}</h4>
                 <span class="content-index">No.{{ String(activeIndex + 1).padStart(2, '0') }}</span>
               </div>
-              <div class="content-meta" v-if="currentItem.rating || currentItem.price">
-                <div class="meta-rating" v-if="currentItem.rating">
+              <div v-if="currentItem.rating || currentItem.price" class="content-meta">
+                <div v-if="currentItem.rating" class="meta-rating">
                   <span class="rating-star">★</span>
                   <span class="rating-val">{{ currentItem.rating.toFixed(1) }}</span>
-                  <span class="rating-count" v-if="currentItem.reviewCount">· {{ currentItem.reviewCount }}条</span>
+                  <span v-if="currentItem.reviewCount" class="rating-count">· {{ currentItem.reviewCount }}条</span>
                 </div>
-                <div class="meta-price" v-if="currentItem.price">
+                <div v-if="currentItem.price" class="meta-price">
                   <span class="price-val">¥{{ currentItem.price }}</span>
                 </div>
               </div>
@@ -97,7 +97,7 @@
         <div class="detail-content">
           <div class="content-grid">
             <div class="grid-col">
-              <div class="content-section" v-if="currentItem.highlights?.length">
+              <div v-if="currentItem.highlights?.length" class="content-section">
                 <span class="section-label">亮点特色</span>
                 <ul class="highlights-list">
                   <li v-for="(h, hi) in currentItem.highlights" :key="hi" class="highlight-item">
@@ -107,7 +107,7 @@
                 </ul>
               </div>
 
-              <div class="content-section" v-if="currentItem.instructor">
+              <div v-if="currentItem.instructor" class="content-section">
                 <span class="section-label">传承人</span>
                 <div class="instructor-box">
                   <span class="instructor-icon">⚙</span>
@@ -115,7 +115,7 @@
                 </div>
               </div>
 
-              <div class="content-section" v-if="currentItem.suitableFor?.length">
+              <div v-if="currentItem.suitableFor?.length" class="content-section">
                 <span class="section-label">适合人群</span>
                 <div class="audience-tags">
                   <span v-for="(a, ai) in currentItem.suitableFor" :key="ai" class="audience-tag">{{ a }}</span>
@@ -124,13 +124,13 @@
             </div>
 
             <div class="grid-col">
-              <div class="content-section" v-if="currentItem.steps?.length">
+              <div v-if="currentItem.steps?.length" class="content-section">
                 <span class="section-label">体验工序</span>
                 <div class="steps-rack">
                   <div v-for="(s, si) in currentItem.steps" :key="si" class="step-plate"
                     :class="{ 'plate-active': si === currentItem.steps.length - 1 }">
                     <span class="plate-rivet">
-                      <span class="rivet-core">{{ si + 1 }}</span>
+                      <span class="rivet-core">{{ Number(si) + 1 }}</span>
                     </span>
 
                     <span class="plate-text">{{ s }}</span>
@@ -186,7 +186,7 @@
         </div>
       </div>
 
-      <div class="detail-panel empty-detail" v-else>
+      <div v-else class="detail-panel empty-detail">
         <span class="empty-screw screw-tl"></span>
         <span class="empty-screw screw-tr"></span>
         <span class="empty-screw screw-bl"></span>

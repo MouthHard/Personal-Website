@@ -267,8 +267,8 @@
         >
           <div class="ff-badge">
             <component
-              v-if="facilityIconMap[f.split(':')[0]]"
               :is="facilityIconMap[f.split(':')[0]]"
+              v-if="facilityIconMap[f.split(':')[0]]"
               :size="22"
             />
             <span v-else class="ff-badge-text">{{ f.split(':')[0].charAt(0) }}</span>

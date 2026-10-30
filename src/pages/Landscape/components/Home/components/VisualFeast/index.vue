@@ -1,5 +1,5 @@
 <template>
-  <section class="visual-feast-section">
+  <section v-if="images.length > 0" class="visual-feast-section">
     <div class="section-header">
       <div class="header-left">
         <span class="title-label">GALLERY</span>
@@ -12,7 +12,7 @@
       </button>
     </div>
     
-    <div v-if="images.length > 0" class="masonry-grid">
+    <div class="masonry-grid">
       <div
         v-for="(item, index) in visibleImages"
         :key="item.id"
@@ -73,116 +73,29 @@
       </div>
     </div>
 
-    <div v-else class="empty-state">
-      <div class="empty-icon">
-        <ImageIcon :stroke-width="1.5" />
-      </div>
-      <p class="empty-text">暂无图片内容</p>
-      <span class="empty-hint">精选图片即将呈现</span>
-    </div>
 
-    <!-- 图片预览模态框 -->
-    <div v-if="showImageModal" class="image-modal" @click="closeImageModal">
-      <div class="modal-content" @click.stop>
-        <button class="close-btn" @click="closeImageModal">×</button>
-        <div class="modal-left">
-          <div class="image-preview">
-            <img loading="lazy" :src="selectedImage?.url" class="preview-image" />
-          </div>
-          <div class="image-navigation">
-            <button class="nav-btn prev" :disabled="currentImageIndex <= 0" @click="navigateImage(-1)">
-              <ChevronLeftIcon :stroke-width="2.5" />
-            </button>
-            <div class="nav-center">
-              <span class="nav-current">{{ currentImageIndex + 1 }}</span>
-              <span class="nav-separator">/</span>
-              <span class="nav-total">{{ images.length }}</span>
-            </div>
-            <button class="nav-btn next" :disabled="currentImageIndex >= images.length - 1" @click="navigateImage(1)">
-              <ChevronRightIcon :stroke-width="2.5" />
-            </button>
-            <div class="nav-progress">
-              <div class="nav-progress-bar" :style="{ width: `${((currentImageIndex + 1) / images.length) * 100}%` }"></div>
-            </div>
-          </div>
-        </div>
-        <div class="modal-right">
-          <div class="modal-header">
-            <span class="modal-category">{{ selectedImage?.category }}</span>
-            <h3>{{ selectedImage?.title }}</h3>
-            <span class="modal-location"><LocationIcon :stroke-width="1.5" :style="{ width: '14px', height: '14px' }" /> {{ selectedImage?.location }}</span>
-          </div>
-            <div v-if="selectedImage?.camera || selectedImage?.date" class="image-meta">
-              <div v-if="selectedImage?.camera" class="meta-item">
-                <CameraIcon :stroke-width="2" />
-                <span>{{ selectedImage?.camera }}</span>
-              </div>
-              <div v-if="selectedImage?.date" class="meta-item">
-                <CalendarIcon :stroke-width="2" />
-                <span>{{ selectedImage?.date }}</span>
-              </div>
-            </div>
-          <div class="action-cards">
-            <button class="action-card views-card">
-              <div class="card-icon">
-                <EyeIcon :stroke-width="2" />
-              </div>
-              <div class="card-body">
-                <span class="card-value">{{ selectedImage ? formatNumber(getImageCount(selectedImage.id).views) : '' }}</span>
-                <span class="card-label">浏览</span>
-              </div>
-            </button>
-            <button class="action-card like-card" :class="{ active: selectedImage && isImageLiked(selectedImage.id) }" @click="toggleImageLike(selectedImage)">
-              <div class="card-icon">
-                <ThumbUpIcon :filled="selectedImage ? isImageLiked(selectedImage.id) : false" />
-              </div>
-              <div class="card-body">
-                <span class="card-value">{{ selectedImage ? formatNumber(getImageCount(selectedImage.id).likes) : '' }}</span>
-                <span class="card-label">点赞</span>
-              </div>
-            </button>
-            <button class="action-card love-card" :class="{ active: selectedImage && isImageLoved(selectedImage.id) }" @click="toggleImageLove(selectedImage)">
-              <div class="card-icon">
-                <HeartIcon :filled="selectedImage ? isImageLoved(selectedImage.id) : false" />
-              </div>
-              <div class="card-body">
-                <span class="card-value">{{ selectedImage ? formatNumber(getImageCount(selectedImage.id).loves) : '' }}</span>
-                <span class="card-label">喜爱</span>
-              </div>
-            </button>
-            <button class="action-card bookmark-card" :class="{ active: selectedImage && isImageFavorited(selectedImage.id) }" @click="toggleImageFavorite(selectedImage)">
-              <div class="card-icon">
-                <BookmarkIcon :filled="selectedImage ? isImageFavorited(selectedImage.id) : false" />
-              </div>
-              <div class="card-body">
-                <span class="card-value">{{ selectedImage ? formatNumber(getImageCount(selectedImage.id).favorites) : '' }}</span>
-                <span class="card-label">收藏</span>
-              </div>
-            </button>
-            <button class="action-card share-card" @click="toggleImageShare(selectedImage)">
-              <div class="card-icon">
-                <ShareIcon />
-              </div>
-              <div class="card-body">
-                <span class="card-value">{{ selectedImage ? formatNumber(getImageCount(selectedImage.id).shares) : '' }}</span>
-                <span class="card-label">分享</span>
-              </div>
-            </button>
-            <button class="action-card download-card" @click="handleDownload(selectedImage)">
-              <div class="card-icon">
-                <DownloadIcon />
-              </div>
-              <div class="card-body">
-                <span class="card-value">下载</span>
-                <span class="card-label">原图</span>
-              </div>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+    <!-- 图片详情弹窗 · 单反相机取景器（光学取景 HUD） -->
+    <ViewfinderModal
+      :visible="showImageModal"
+      :image="selectedImage"
+      :current-index="currentImageIndex"
+      :total="images.length"
+      :counts="modalCounts"
+      :liked="selectedImage ? isImageLiked(selectedImage.id) : false"
+      :loved="selectedImage ? isImageLoved(selectedImage.id) : false"
+      :favorited="selectedImage ? isImageFavorited(selectedImage.id) : false"
+      @close="closeImageModal"
+      @navigate="navigateImage"
+      @like="toggleImageLike(selectedImage)"
+      @love="toggleImageLove(selectedImage)"
+      @favorite="toggleImageFavorite(selectedImage)"
+      @share="toggleImageShare(selectedImage)"
+      @download="handleDownload(selectedImage)"
+    />
     <div v-if="visibleImages.length < images.length" ref="loadMoreRef" class="load-more-sentinel"></div>
   </section>
+
+  <ShareMenu v-model:visible="showShareMenu" :work="shareWork" />
 </template>
 
 <script setup lang="ts">
@@ -197,21 +110,44 @@ import ThumbUpIcon from '@/pages/Landscape/icons/common/ThumbUpIcon.vue';
 import HeartIcon from '@/pages/Landscape/icons/common/HeartIcon.vue';
 import BookmarkIcon from '@/pages/Landscape/icons/common/BookmarkIcon.vue';
 import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue';
+import ShareMenu from '../../../common/ShareMenu/index.vue';
+import ViewfinderModal from './ViewfinderModal/index.vue';
 import DownloadIcon from '@/pages/Landscape/icons/common/DownloadIcon.vue';
 import EyeIcon from '@/pages/Landscape/icons/common/EyeIcon.vue';
-import CameraIcon from '@/pages/Landscape/icons/common/CameraIcon.vue';
-import CalendarIcon from '@/pages/Landscape/icons/common/CalendarIcon.vue';
+
 import LocationIcon from '@/pages/Landscape/icons/common/LocationIcon.vue';
-import ImageIcon from '@/pages/Landscape/icons/common/ImageIcon.vue';
+
 import ArrowRightIcon from '@/pages/Landscape/icons/common/ArrowRightIcon.vue';
-import ChevronLeftIcon from '@/pages/Landscape/icons/common/ChevronLeftIcon.vue';
-import ChevronRightIcon from '@/pages/Landscape/icons/common/ChevronRightIcon.vue';
+
 
 const interactionStore = useInteractionStore();
 const dataStore = useLandscapeDataStore();
 const showImageModal = ref(false);
 const selectedImage = ref<GlobalImage | null>(null);
 const currentImageIndex = ref(0);
+
+const modalCounts = computed(() => {
+  const img = selectedImage.value;
+  if (!img) return { views: 0, likes: 0, loves: 0, favorites: 0, shares: 0 };
+  return getImageCount(img.id);
+});
+
+const showShareMenu = ref(false);
+const currentShareImage = ref<GlobalImage | null>(null);
+const shareWork = computed(() => {
+  const img = currentShareImage.value;
+  if (!img) return {};
+  return {
+    type: 'image' as const,
+    title: img.title,
+    cover: img.thumbnail || img.url,
+    author: img.author,
+    date: img.date,
+    location: img.location,
+    category: img.category,
+    camera: img.camera,
+  };
+});
 
 const handleMore = () => {
   // 查看更多处理
@@ -325,8 +261,8 @@ const toggleImageFavorite = (image: GlobalImage | null) => {
 
 const toggleImageShare = (image: GlobalImage | null) => {
   if (!image) return;
-
-  showMessage.share.success(image.title);
+  currentShareImage.value = image;
+  showShareMenu.value = true;
 };
 
 const handleDownload = (image: GlobalImage | null) => {

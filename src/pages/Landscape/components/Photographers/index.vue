@@ -55,12 +55,16 @@ import RankingSection from './components/RankingSection/index.vue';
 import WorkPreviewModal from './components/WorkPreviewModal/index.vue';
 
 interface PreviewWork {
+  id?: string;
+  globalWorkId?: string;
   image?: string;
   cover?: string;
   type?: string;
   duration?: string;
   title?: string;
   author?: string;
+  authorId?: string;
+  authorAvatar?: string;
 }
 
 const previewWork = ref<PreviewWork | null>(null);

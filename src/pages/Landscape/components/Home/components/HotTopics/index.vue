@@ -1,5 +1,5 @@
 <template>
-  <section class="hot-topics">
+  <section v-if="displayedTopics.length > 0" class="hot-topics">
     <div class="section-header">
       <div class="title-wrapper">
         <h2 class="section-title">
@@ -13,7 +13,7 @@
       </div>
     </div>
 
-    <div v-if="displayedTopics.length > 0" class="topics-container">
+    <div class="topics-container">
       <div
         v-for="(topic, index) in displayedTopics"
         :key="topic.id"
@@ -62,15 +62,15 @@
             <div class="card-stats">
               <span class="stat stat-views">
                 <EyeIcon />
-                <span class="stat-value">{{ topic.views }}</span>
+                <span class="stat-value">{{ formatNumber(getTopicCount(topic).views) }}</span>
               </span>
               <span class="stat stat-likes">
                 <ThumbUpIcon />
-                <span class="stat-value">{{ topic.likes }}</span>
+                <span class="stat-value">{{ formatNumber(getTopicCount(topic).likes) }}</span>
               </span>
               <span class="stat stat-favorites">
                 <BookmarkIcon />
-                <span class="stat-value">{{ topic.favorites || 0 }}</span>
+                <span class="stat-value">{{ formatNumber(getTopicCount(topic).favorites) }}</span>
               </span>
               <span class="stat stat-comments">
                 <CommentIcon />
@@ -118,21 +118,15 @@
       </div>
     </div>
 
-    <div v-else class="empty-state">
-      <div class="empty-icon">
-        <TrendIcon :stroke-width="1.5" :dot-radius="1.5" />
-      </div>
-      <p class="empty-text">暂无热门主题</p>
-      <span class="empty-hint">精彩主题即将呈现</span>
-    </div>
   </section>
 </template>
 
 <script setup lang="ts">
-  import { ref, computed } from 'vue';
+  import { ref, computed, watch } from 'vue';
   import { useRouter } from 'vue-router';
   import type { Topic } from '@/typesOfPages/landscape/home';
-  import { useLandscapeDataStore } from '@/stores/landscape';
+  import { useLandscapeDataStore, useInteractionStore } from '@/stores/landscape';
+  import { parseCount, formatNumber } from '@/utils/landscape/format';
   import TrendIcon from '@/pages/Landscape/icons/components/home/HotTopics/TrendIcon.vue';
   import PlayCircleIcon from '@/pages/Landscape/icons/components/home/HotTopics/PlayCircleIcon.vue';
   import SpinnerIcon from '@/pages/Landscape/icons/components/home/HotTopics/SpinnerIcon.vue';
@@ -146,6 +140,7 @@
 
   const router = useRouter();
   const dataStore = useLandscapeDataStore();
+  const interactionStore = useInteractionStore();
 
   const hotTopics = computed(() => dataStore.getAllHotTopics());
   const displayCount = ref(2);
@@ -154,6 +149,24 @@
   const displayedTopics = computed(() => {
     return hotTopics.value.slice(0, displayCount.value);
   });
+
+  const getTopicId = (topic: Topic) => `topic-${topic.id}`;
+
+  const getTopicCount = (topic: Topic) => interactionStore.getCount(getTopicId(topic));
+
+  watch(
+    () => displayedTopics.value,
+    (topics) => {
+      topics.forEach(topic => {
+        interactionStore.registerCount(getTopicId(topic), {
+          views: parseCount(topic.views),
+          likes: parseCount(topic.likes),
+          favorites: parseCount(topic.favorites || '0'),
+        });
+      });
+    },
+    { immediate: true },
+  );
 
   const hasMoreTopics = computed(() => {
     return displayCount.value < hotTopics.value.length;

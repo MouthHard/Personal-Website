@@ -1,4 +1,3 @@
-import { computed, type Ref } from 'vue'
 import { formatNumber, formatDuration, formatFileSize } from '@/utils/landscape/format'
 
 export function useFormatNumber() {
@@ -21,15 +20,4 @@ export function useFormatNumber() {
     formatFileSize,
     formatPercentage
   }
-}
-
-export function useFormattedNumber(value: Ref<number> | number) {
-  const { formatCount } = useFormatNumber()
-  
-  const formatted = computed(() => {
-    const num = typeof value === 'number' ? value : value.value
-    return formatCount(num)
-  })
-  
-  return { formatted }
 }

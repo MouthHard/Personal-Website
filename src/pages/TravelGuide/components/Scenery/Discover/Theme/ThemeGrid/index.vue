@@ -10,7 +10,7 @@
         v-for="(theme, ti) in currentGroup.items"
         :key="theme.key"
         class="postcard-slot"
-        :class="{ active: currentThemeKey === theme.key, tilt: ti % 2 === 1 }"
+        :class="{ active: currentThemeKey === theme.key, tilt: Number(ti) % 2 === 1 }"
         @click="emit('select-theme', theme.key)"
       >
         <span class="ps-corner ps-corner--tl"></span>

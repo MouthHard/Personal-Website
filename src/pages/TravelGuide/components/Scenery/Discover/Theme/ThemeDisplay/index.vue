@@ -1,5 +1,5 @@
 <template>
-  <div class="display-page" v-if="currentTheme">
+  <div v-if="currentTheme" class="display-page">
     <div class="postcard-hero">
       <div class="page-postcard">
         <img
@@ -17,7 +17,7 @@
           <span class="ppm-ring"></span>
           <div class="ppm-date">
             <template v-if="currentTheme.bestSeason.includes(' / ')">
-              <span class="ppm-season" v-for="s in currentTheme.bestSeason.split(' / ')" :key="s">{{ s }}</span>
+              <span v-for="s in currentTheme.bestSeason.split(' / ')" :key="s" class="ppm-season">{{ s }}</span>
             </template>
             <span v-else class="ppm-season">{{ currentTheme.bestSeason }}</span>
           </div>
@@ -59,7 +59,7 @@
       </div>
     </div>
 
-    <div class="highlight-tags" v-if="currentTheme.highlights.length">
+    <div v-if="currentTheme.highlights.length" class="highlight-tags">
       <span class="ht-label"><SparklesIcon :size="20" /> 亮点体验</span>
       <div class="ht-list">
         <span v-for="h in currentTheme.highlights" :key="h" class="ht-tag">{{ h }}</span>
@@ -77,16 +77,16 @@
           <div class="sc-body">
             <div class="sc-head">
               <span class="sc-name">{{ spot.name }}</span>
-              <span class="sc-rate" v-if="spot.rating"><StarIcon :size="16" /> {{ spot.rating }}</span>
+              <span v-if="spot.rating" class="sc-rate"><StarIcon :size="16" /> {{ spot.rating }}</span>
             </div>
             <div class="sc-info">
               <span class="sc-loc"><LocationIcon :size="14" /> {{ spot.location }}</span>
-              <span class="sc-dur" v-if="spot.visitDuration"><ClockIcon :size="14" /> {{ spot.visitDuration }}</span>
+              <span v-if="spot.visitDuration" class="sc-dur"><ClockIcon :size="14" /> {{ spot.visitDuration }}</span>
             </div>
             <p class="sc-desc">{{ spot.highlight || spot.description }}</p>
             <div class="sc-foot">
-              <span class="sc-price" v-if="spot.ticketPrice">{{ spot.ticketPrice }}</span>
-              <span class="sc-trans" v-if="spot.transport"><BusIcon :size="14" /> {{ spot.transport }}</span>
+              <span v-if="spot.ticketPrice" class="sc-price">{{ spot.ticketPrice }}</span>
+              <span v-if="spot.transport" class="sc-trans"><BusIcon :size="14" /> {{ spot.transport }}</span>
             </div>
           </div>
           <div class="sc-actions">
@@ -107,7 +107,7 @@
       </div>
     </div>
 
-    <div class="tips-journal" v-if="currentTheme.tips.length">
+    <div v-if="currentTheme.tips.length" class="tips-journal">
       <span class="tj-label"><LightbulbIcon :size="20" /> 出行贴士</span>
       <ul class="tj-list">
         <li v-for="t in currentTheme.tips" :key="t">{{ t }}</li>

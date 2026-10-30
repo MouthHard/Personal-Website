@@ -100,12 +100,14 @@
       </div>
     </div>
   </div>
+
+  <ShareMenu v-model:visible="showShareMenu" :work="shareWork" />
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import { workTypeConfigs } from '@/constants/landscape';
-import { showMessage } from '@/utils/landscape';
+import { showMessage, createSimpleInteractionItem } from '@/utils/landscape';
 import { useInteractionStore, type InteractionItem } from '@/stores/landscape';
 import { formatNumber } from '@/utils/landscape/format';
 import CloseIcon from '@/pages/Landscape/icons/common/CloseIcon.vue';
@@ -117,10 +119,12 @@ import ThumbUpIcon from '@/pages/Landscape/icons/common/ThumbUpIcon.vue';
 import HeartIcon from '@/pages/Landscape/icons/common/HeartIcon.vue';
 import BookmarkIcon from '@/pages/Landscape/icons/common/BookmarkIcon.vue';
 import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue';
+import ShareMenu from '../../../common/ShareMenu/index.vue';
 import DownloadIcon from '@/pages/Landscape/icons/common/DownloadIcon.vue';
 
 interface PreviewWork {
   id?: string;
+  globalWorkId?: string;
   image?: string;
   cover?: string;
   type?: string;
@@ -143,13 +147,18 @@ defineEmits<{
 
 const interactionStore = useInteractionStore();
 
+
 const workType = computed(() => props.previewWork?.type || 'photo');
 const workTypeConfig = computed(() => {
   return workTypeConfigs[workType.value] || workTypeConfigs.photo;
 });
 const isImageType = computed(() => ['photo', 'panorama', 'hdr', 'startrail', 'longexp'].includes(workType.value));
 
-const workId = computed(() => props.previewWork?.id || `work-${Date.now()}`);
+const workId = computed(() => {
+  const pw = props.previewWork;
+  if (!pw) return 'work-unknown';
+  return pw.globalWorkId || pw.id || `work-${pw.authorId || 'unknown'}`;
+});
 const workTitle = computed(() => props.previewWork?.title || '精选作品');
 
 const getCount = () => interactionStore.getCount(workId.value);
@@ -158,7 +167,15 @@ const isLoved = computed(() => interactionStore.isLoved(workId.value));
 const isFavorited = computed(() => interactionStore.isFavorited(workId.value));
 
 const handleToggleLike = () => {
-  const liked = interactionStore.toggleLike(workId.value);
+  const item = createSimpleInteractionItem(workId.value, 'image', workTitle.value, {
+    image: props.previewWork?.cover || props.previewWork?.image || '',
+    location: props.previewWork?.location || '',
+    category: props.previewWork?.category || '',
+    author: props.previewWork?.author,
+    authorId: props.previewWork?.authorId,
+    authorAvatar: props.previewWork?.authorAvatar,
+  });
+  const liked = interactionStore.toggleLike(item);
   if (liked) {
     showMessage.like.success(workTitle.value);
   } else {
@@ -208,9 +225,24 @@ const handleToggleFavorite = () => {
   }
 };
 
-const handleShare = () => {
+const showShareMenu = ref(false);
+const shareWork = computed(() => {
+  const w = props.previewWork;
+  if (!w) return {};
+  const type = w.type === 'video' || w.type === 'timelapse' ? ('video' as const) : ('image' as const);
+  return {
+    type,
+    title: w.title,
+    cover: w.cover || w.image,
+    author: w.author,
+    location: w.location,
+    category: w.category,
+    duration: w.duration,
+  };
+});
 
-  showMessage.share.success(workTitle.value);
+const handleShare = () => {
+  showShareMenu.value = true;
 };
 
 const handleDownload = () => {

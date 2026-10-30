@@ -55,15 +55,6 @@ export const GUIDE_DEFAULTS = {
   tips: ['建议提前规划行程', '尊重当地文化'] as string[],
 } as const
 
-export const INTERACTION_DEFAULTS = {
-  likes: 0,
-  views: 0,
-  loves: 0,
-  favorites: 0,
-  shares: 0,
-  bookmarks: 0,
-  comments: 0,
-} as const
 
 export const DATE_DEFAULTS = {
   fallback: '2024-03-15',

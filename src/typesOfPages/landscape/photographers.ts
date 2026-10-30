@@ -1,8 +1,8 @@
 import type { SocialLink, ContactInfo } from './common'
 
-export type WorkType = 'photo' | 'video' | 'guide' | 'panorama' | 'timelapse' | 'aerial' | 'longexp' | 'startrail' | 'hdr' | 'macro';
+type WorkType = 'photo' | 'video' | 'guide' | 'panorama' | 'timelapse' | 'aerial' | 'longexp' | 'startrail' | 'hdr' | 'macro';
 
-export interface WorkPreview {
+interface WorkPreview {
   id?: string;
   image?: string;
   cover?: string;

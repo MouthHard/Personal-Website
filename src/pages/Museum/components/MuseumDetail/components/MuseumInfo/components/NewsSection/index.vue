@@ -38,7 +38,7 @@
   import {
     EmptyBoxIcon,
     CalendarIcon,
-    LeafIcon,
+
     SparkleIcon,
   } from '@/pages/Museum/icons/common';
 import TowerIcon from '@/pages/Museum/icons/common/TowerIcon.vue';

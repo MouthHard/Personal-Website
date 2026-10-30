@@ -1,0 +1,164 @@
+.poem-modal-loading {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(12px);
+  animation: pmlFadeIn 0.3s ease-out;
+
+  .loading-paper {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    padding: 26px 28px 22px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, #fffdf7, #f6ecd6);
+    border: 2px solid rgba(184, 115, 51, 0.3);
+    box-shadow:
+      0 40px 120px rgba(139, 115, 51, 0.4),
+      0 20px 60px rgba(139, 115, 51, 0.3),
+      inset 0 0 60px rgba(184, 115, 51, 0.06);
+    animation: pmlRise 0.4s ease-out;
+
+    .paper-corner {
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      border: 2px solid rgba(184, 115, 51, 0.35);
+
+      &.tl { top: 8px; left: 8px; border-right: none; border-bottom: none; border-radius: 12px 0 0 0; }
+      &.tr { top: 8px; right: 8px; border-left: none; border-bottom: none; border-radius: 0 12px 0 0; }
+      &.bl { bottom: 8px; left: 8px; border-right: none; border-top: none; border-radius: 0 0 0 12px; }
+      &.br { bottom: 8px; right: 8px; border-left: none; border-top: none; border-radius: 0 0 12px 0; }
+    }
+
+    .skeleton-image {
+      position: relative;
+      height: 240px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #efe4cd, #e2d3b4);
+
+      .image-ink {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(60% 55% at 30% 40%, rgba(90, 70, 45, 0.32), transparent 70%),
+          radial-gradient(50% 50% at 72% 62%, rgba(205, 92, 92, 0.22), transparent 72%),
+          linear-gradient(100deg, rgba(255, 255, 255, 0) 35%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 65%);
+        background-size: 100% 100%, 100% 100%, 220% 100%;
+        animation: pmlShimmer 1.6s ease-in-out infinite;
+      }
+    }
+
+    .skeleton-body {
+      padding: 24px 8px 8px;
+
+      .skeleton-meta {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        margin-bottom: 20px;
+
+        .sk-pill { width: 92px; height: 30px; border-radius: 24px; }
+        .sk-author { width: 64px; height: 22px; border-radius: 10px; }
+      }
+
+      .sk-title {
+        display: block;
+        width: 46%;
+        height: 32px;
+        margin: 0 auto 26px;
+        border-radius: 12px;
+      }
+
+      .skeleton-lines {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 28px;
+
+        .sk-line {
+          height: 18px;
+          border-radius: 9px;
+
+          &:nth-child(1) { width: 62%; }
+          &:nth-child(2) { width: 70%; }
+          &:nth-child(3) { width: 54%; }
+        }
+      }
+
+      .sk-block {
+        display: block;
+        width: 100%;
+        height: 88px;
+        border-radius: 16px;
+      }
+    }
+
+    .loading-hint {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding-top: 6px;
+
+      .ink-drop {
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 35% 30%, #e07a6a, #8b1f1f);
+        box-shadow: 0 3px 8px rgba(139, 31, 31, 0.35);
+        animation: pmlInk 1.2s ease-in-out infinite;
+        animation-delay: calc(var(--i, 0) * 0.16s);
+
+        &:nth-child(1) { --i: 0; }
+        &:nth-child(2) { --i: 1; }
+        &:nth-child(3) { --i: 2; }
+      }
+
+      p {
+        margin: 0 0 0 6px;
+        font-size: 16px;
+        letter-spacing: 3px;
+        color: #6f3207;
+        font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', serif;
+      }
+    }
+  }
+
+  .sk {
+    background: linear-gradient(100deg,
+        rgba(184, 115, 51, 0.1) 30%,
+        rgba(205, 92, 92, 0.24) 50%,
+        rgba(184, 115, 51, 0.1) 70%);
+    background-size: 220% 100%;
+    animation: pmlShimmer 1.5s ease-in-out infinite;
+  }
+}
+
+@keyframes pmlFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pmlRise {
+  from { opacity: 0; transform: translateY(30px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes pmlShimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes pmlInk {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.65; }
+  50% { transform: translateY(-9px) scale(1.15); opacity: 1; }
+}

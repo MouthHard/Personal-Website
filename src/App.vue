@@ -1,5 +1,6 @@
 <template>
   <div>
+    <PageChange />
     <div class="clock-container">
       <div ref="timeEl" class="time"></div>
       <div ref="dateEl" class="date"></div>
@@ -7,7 +8,7 @@
     <div id="curPageName">
       {{ curPageName }}
     </div>
-
+ 
     <div id="mainPage">
       <!-- 太阳 -->
       <div id="sun"></div>
@@ -42,6 +43,7 @@
         </Transition>
       </router-view>
     </div>
+
   </div>
 </template>
 <script setup lang="ts">
@@ -50,6 +52,9 @@ import { useRouter } from 'vue-router';
 import { scale, formatTime, formatDate } from '@/utils/common';
 import type { RouteItem } from '@/typesOfPages/common';
 import { ErrorBoundary } from '@/components/common/ErrorBoundary';
+import PageChange from '@/components/common/PageChange/index.vue';
+import { preloadPageChangeImages } from '@/components/common/PageChange/preload';
+
 
 const router = useRouter();
 const curPageName = ref<string>('');
@@ -213,6 +218,9 @@ onMounted(() => {
 
   setTime();
   timer.value = window.requestAnimationFrame(tick) as unknown as number;
+
+  // 首屏渲染后空闲时预加载页面切换过渡图，缓存命中后切换瞬间展示
+  preloadPageChangeImages();
 });
 
 onUnmounted(() => {

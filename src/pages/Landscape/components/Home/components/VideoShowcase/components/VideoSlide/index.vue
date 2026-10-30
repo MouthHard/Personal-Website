@@ -10,6 +10,11 @@
         <div class="poster-glow"></div>
         <div class="film-grain"></div>
 
+        <div class="film-perforations">
+          <div class="perf-strip perf-left"></div>
+          <div class="perf-strip perf-right"></div>
+        </div>
+
         <div v-if="isActive" class="slide-play">
           <div class="play-ring-outer"></div>
           <div class="play-ring-inner"></div>
@@ -33,6 +38,9 @@
             <span>{{ video.authorName }}</span>
           </div>
         </div>
+      </div>
+
+      <div v-if="isActive" class="slide-actions">
         <div class="info-actions">
           <span class="act-item act-views">
             <EyeIcon :stroke-width="2" />
