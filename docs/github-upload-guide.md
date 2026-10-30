@@ -41,42 +41,74 @@ pages/ExamplePage/
 > 以下为项目正常运行所需的全量文件，除此之外的文件均不应上传。
 > `.gitignore` 负责排除其余文件，提交前用 `git add --dry-run .` 检查。
 
-### 根目录配置文件
+### ✅ 必须上传的文件
 
-| 文件 | 作用 |
-|---|---|
-| `index.html` | Vite 入口模板 |
-| `package.json` | 依赖与脚本（`deploy` 一键构建+发布） |
-| `package-lock.json` | 依赖版本锁定 |
-| `vite.config.ts` | 构建配置（含 `base: "/Personal-Website/"`） |
-| `tsconfig.json` | TypeScript 配置 |
-| `tsconfig.node.json` | Node 环境 TS 配置 |
-| `.gitignore` | Git 忽略规则 |
-| `.gitattributes` | 换行/编码规则（UTF-8 + LF） |
-| `.editorconfig` | 编辑器缩进/编码规范 |
-| `.eslintrc.cjs` | ESLint 代码规范 |
-| `.prettierrc` | Prettier 格式化规则 |
-| `stylelint.config.cjs` | Stylelint SCSS 样式规范 |
-| `commitlint.config.cjs` | Commitlint 提交信息规范 |
-| `.lintstagedrc.json` | lint-staged 暂存文件 lint 配置 |
-| `.husky/pre-commit` | Git pre-commit 钩子（触发 lint-staged） |
-| `.husky/commit-msg` | Git commit-msg 钩子（触发 commitlint） |
-| `.github/workflows/ci.yml` | GitHub Actions CI 流水线 |
-| `README.md` | 仓库说明 |
+#### 根目录配置文件
 
-### 源代码与数据目录
+| 文件 | 作用 | 是否必须 |
+|---|---|---|
+| `index.html` | Vite 入口模板 | ✅ |
+| `package.json` | 依赖与脚本 | ✅ |
+| `package-lock.json` | 依赖版本锁定 | ✅ |
+| `vite.config.ts` | 构建配置（含 `base: "/Personal-Website/"`） | ✅ |
+| `tsconfig.json` | TypeScript 配置 | ✅ |
+| `tsconfig.node.json` | Node 环境 TS 配置 | ✅ |
+| `.gitignore` | Git 忽略规则 | ✅ |
+| `.gitattributes` | 换行/编码规则（UTF-8 + LF） | ✅ |
+| `.editorconfig` | 编辑器缩进/编码规范 | ✅ |
+| `.eslintrc.cjs` | ESLint 代码规范 | ✅ |
+| `.prettierrc` | Prettier 格式化规则 | ✅ |
+| `stylelint.config.cjs` | Stylelint SCSS 样式规范 | ✅ |
+| `commitlint.config.cjs` | Commitlint 提交信息规范 | ✅ |
+| `.lintstagedrc.json` | lint-staged 暂存文件 lint 配置 | ✅ |
+| `.husky/pre-commit` | Git pre-commit 钩子 | ✅ |
+| `.husky/commit-msg` | Git commit-msg 钩子 | ✅ |
+| `.github/workflows/ci.yml` | GitHub Actions CI 流水线 | ✅ |
+| `README.md` | 仓库说明 | ✅ |
 
-| 目录 | 作用 |
-|---|---|
-| `src/` | 全部源代码（页面、组件、路由、样式、图标） |
-| `public/` | 静态资源（`static-data/` JSON 数据 + 图片素材） |
-| `docs/` | 项目文档 |
-| `docs/skill/` | 项目健康检查与日常维护手册 |
-| `tests/` | 单元测试 |
-| `scripts/` | 数据生成/转换脚本 |
-| `types/vite-env.d.ts` | Vite 环境类型声明（手写，非自动生成） |
+#### 源代码与数据目录
 
-### AI 工具目录（禁止上传）
+| 目录 | 作用 | 是否必须 |
+|---|---|---|
+| `src/` | 全部源代码（页面、组件、路由、样式、图标） | ✅ |
+| `public/static-data/` | JSON 数据文件 | ✅ |
+| `public/change/` | 过渡动画图片（20 个 WebP） | ✅ |
+| `public/favicon.svg` | 站点图标 | ✅ |
+| `public/logo.png` | 站点 Logo | ✅ |
+| `docs/` | 项目文档（含上传规范、bug 记录） | ✅ |
+| `tests/` | 单元测试 | ✅ |
+| `types/vite-env.d.ts` | Vite 环境类型声明（手写，非自动生成） | ✅ |
+
+### ❌ 禁止上传的文件
+
+#### 构建产物与依赖
+
+| 文件/目录 | 说明 | 忽略方式 |
+|---|---|---|
+| `dist/` | 构建输出（只推 gh-pages 分支） | `.gitignore` |
+| `node_modules/` | npm 依赖 | `.gitignore` |
+| `types/auto-imports.d.ts` | Vite 自动生成 | `.gitignore` |
+| `types/components.d.ts` | Vite 自动生成 | `.gitignore` |
+
+#### 临时文件与目录
+
+| 文件/目录 | 说明 | 忽略方式 |
+|---|---|---|
+| `public/test/` | 临时测试目录（AVIF 转换用，已上传 OSS） | `.gitignore` + 已删除本地 |
+| `.tmp-sass-check.css.map` | SCSS 编译临时文件 | `.gitignore` |
+| `nul` | Windows 保留文件名 | `.gitignore` |
+| `*.log` | 日志文件 | `.gitignore` |
+| `temp/` `tmp-*/` | 临时目录 | `.gitignore` |
+
+#### 环境与密钥
+
+| 文件 | 说明 | 忽略方式 |
+|---|---|---|
+| `.env` `.env.*.local` | 环境变量 | `.gitignore` |
+| `.env.production` `.env.gh-pages` | 部署环境变量 | `.gitignore` |
+| `*.pem` `*.key` `id_rsa*` `*.ppk` | SSH 密钥 | `.gitignore` |
+
+#### AI 工具目录（禁止上传）
 
 以下目录由 AI IDE/Agent 自动生成，均已写入 `.gitignore`：
 
@@ -86,9 +118,69 @@ pages/ExamplePage/
 .continue/  .aider/  .specstory/  .amp/  .augment/
 ```
 
-> `.husky/_/` 为 husky 内部自动生成目录，已被其内置 `.gitignore` 排除，无需上传。
+#### 编辑器与系统文件
 
-若误提交，用 `git rm -r --cached <目录>` 解除跟踪后重新推送。
+| 文件 | 说明 | 忽略方式 |
+|---|---|---|
+| `.DS_Store` | macOS 系统文件 | `.gitignore` |
+| `.idea/` `.vscode/` | IDE 配置 | `.gitignore` |
+| `*.suo` `*.ntvs*` `*.sln` | Visual Studio | `.gitignore` |
+
+> 若误提交，用 `git rm -r --cached <目录>` 解除跟踪后重新推送。
+
+---
+
+## 二·一、提交前必检清单（每次提交都要执行）
+
+> **⚠️ 自迭代提醒：每次提交前都要重新检查本清单，确保只上传必须的文件。**
+>
+> **执行顺序：从上到下逐条检查，全部通过后才能 `git commit`。**
+
+```bash
+# ── 第1步：清理临时文件 ──
+rm -f nul .tmp-sass-check.css.map
+
+# ── 第2步：确认 public/test/ 不存在 ──
+# 如果存在，Vite 构建会把它复制到 dist/，导致 gh-pages 分支有 test/ 目录
+ls public/test/ 2>/dev/null && echo "⚠️ public/test/ 存在！请删除: rm -rf public/test/" || echo "✓ public/test/ 不存在"
+
+# ── 第3步：预览待提交文件 ──
+git add --dry-run .
+
+# ── 第4步：检查是否有不该提交的文件 ──
+# 确认 dry-run 输出中不包含以下文件/目录：
+#   dist/  node_modules/  public/test/  .arts/  .codeartsdoer/  *.log  .env*
+# 如果有，说明 .gitignore 配置有遗漏，需要先修复
+
+# ── 第5步：确认所有改动已暂存 ──
+git add -A
+git diff --cached --stat   # 查看暂存的改动
+
+# ── 第6步：提交 ──
+git commit -m "feat: 说明"
+
+# ── 第7步：提交后验证（防止 lint-staged stash 丢失） ──
+git stash list             # 应该为空
+git diff HEAD              # 应该为空
+# 如果 stash list 有残留，立即执行 git stash pop 解决冲突
+```
+
+### 快速检查脚本（一键执行）
+
+```bash
+# 复制以下命令一次性执行，全部显示 ✓ 才能提交
+rm -f nul .tmp-sass-check.css.map
+echo "--- 检查1: public/test/ ---"
+ls public/test/ 2>/dev/null && echo "✗ 删除 public/test/" || echo "✓"
+echo "--- 检查2: AI工具目录未被跟踪 ---"
+git ls-files .arts .codeartsdoer .codegraph 2>/dev/null | head -1 && echo "✗ 有AI目录被跟踪" || echo "✓"
+echo "--- 检查3: dist/ 未被跟踪 ---"
+git ls-files dist/ 2>/dev/null | head -1 && echo "✗ dist被跟踪" || echo "✓"
+echo "--- 检查4: node_modules/ 未被跟踪 ---"
+git ls-files node_modules/ 2>/dev/null | head -1 && echo "✗ node_modules被跟踪" || echo "✓"
+echo "--- 检查5: 无临时文件 ---"
+git ls-files | grep -E "nul$|\.tmp-sass|\.log$" | head -1 && echo "✗ 有临时文件" || echo "✓"
+```
 
 ---
 
