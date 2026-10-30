@@ -3,6 +3,8 @@
 > PersonalWebsite（Vue 3 + Vite + TypeScript，GitHub Pages 托管）
 > 仓库：https://github.com/MouthHard/Personal-Website.git
 > 源码分支：`feat/update-site` ｜ 部署分支：`gh-pages`（构建产物，不要手动改动）
+>
+> **⚠️ 每次执行之前都要检查大厂、热门、github上的项目的上传规范和项目规范，并依次来迭代我的上传文档md**
 
 ---
 
@@ -89,9 +91,10 @@ pages/ExamplePage/
 
 ```bash
 # ── 源码提交与推送 ──
+rm -f nul .tmp-sass-check.css.map      # 0. 清理 Windows 临时文件
 git status                              # 1. 查看改动
-git add --dry-run .                     # 2. 预览待提交文件（检查无临时文件）
-git add -A && git commit -m "feat: 说明" # 3. 暂存并提交
+git add --dry-run .                     # 2. 预览待提交文件（检查无临时文件/临时目录）
+git add -A && git commit -m "feat: 说明" # 3. 暂存并提交（husky 会自动 lint）
 git fetch origin                        # 4. 拉取远程引用
 git merge origin/feat/update-site       # 5. 整合远程提交（Windows 禁用 rebase）
 git push origin feat/update-site        # 6. 推送源码
@@ -151,7 +154,36 @@ git config --get http.proxy             # 确认无代理（无输出=正常）
 # HTTPS + Token
 git remote set-url origin https://<Token>@github.com/MouthHard/Personal-Website.git
 # SSH
-git remote set-url origin git@github.com:MouthHard/Personal-Website.git
+git remote set-url origin git@github.com:MouthHard:Personal-Website.git
+```
+
+### pre-commit 钩子失败（husky + lint-staged）
+
+提交时 husky 会自动运行 ESLint + Stylelint 检查暂存文件，失败则阻止提交：
+
+```bash
+# 常见错误1：ESLint no-empty（空 catch 块）
+# 修复：在 catch 块中加注释或语句
+} catch { /* 忽略错误，使用默认值 */ }
+
+# 常见错误2：Stylelint 找不到临时文件
+# 原因：文件系统竞态，重试提交即可
+
+# 提交被拒绝后，修复问题再重新提交（不要用 --no-verify 跳过）
+git add -A && git commit -m "feat: 说明"
+```
+
+### 误提交临时文件
+
+```bash
+# Windows 可能产生 nul、.tmp-sass-check.css.map 等临时文件
+# 提交前先清理
+rm -f nul .tmp-sass-check.css.map
+
+# 临时目录（如 public/test/）加入 .gitignore
+# 若已误提交，解除跟踪：
+git rm -r --cached <目录>
+git commit -m "chore: 移除临时目录的git跟踪"
 ```
 
 ---
