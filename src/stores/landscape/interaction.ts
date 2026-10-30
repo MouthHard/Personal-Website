@@ -51,7 +51,7 @@ export const useInteractionStore = defineStore('interaction', () => {
         following: mapToJSON(following),
         counts: mapToJSON(counts),
       }))
-    } catch { }
+    } catch { /* localStorage 读取失败时忽略，使用空状态 */ }
   }
 
   const getDataStore = () => useLandscapeDataStore()

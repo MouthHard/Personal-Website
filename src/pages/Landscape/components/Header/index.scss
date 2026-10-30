@@ -2,8 +2,8 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background: linear-gradient(180deg, rgb(0, 0, 0), rgba(255, 255, 255, 0.1));
-  box-shadow: 0 10px 20px rgb(0, 0, 0);
+  background: linear-gradient(180deg, rgb(0 0 0), rgb(255 255 255 / 10%));
+  box-shadow: 0 10px 20px rgb(0 0 0);
   padding: 0.85rem 1.75rem;
   display: flex;
   align-items: center;
@@ -22,8 +22,8 @@
       .logo-icon {
         transform: scale(1.1) rotate(8deg);
         box-shadow:
-          0 8px 28px rgba(59, 130, 246, 0.6),
-          0 0 50px rgba(59, 130, 246, 0.4);
+          0 8px 28px rgb(59 130 246 / 60%),
+          0 0 50px rgb(59 130 246 / 40%);
       }
     }
 
@@ -37,9 +37,9 @@
       justify-content: center;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       box-shadow:
-        0 4px 18px rgba(59, 130, 246, 0.5),
-        inset 0 1px 0 rgba(255, 255, 255, 0.25),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+        0 4px 18px rgb(59 130 246 / 50%),
+        inset 0 1px 0 rgb(255 255 255 / 25%),
+        inset 0 -1px 0 rgb(0 0 0 / 10%);
       position: relative;
 
       &::before {
@@ -49,7 +49,7 @@
         border-radius: 10px;
         background: linear-gradient(
           135deg,
-          rgba(255, 255, 255, 0.3),
+          rgb(255 255 255 / 30%),
           transparent 60%
         );
         pointer-events: none;
@@ -59,15 +59,15 @@
         width: 20px;
         height: 20px;
         color: white;
-        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+        filter: drop-shadow(0 2px 4px rgb(0 0 0 / 30%));
       }
     }
 
     .logo-text {
-      font-size: 1.5rem;
-      font-weight: 700;
+      font-size: 1.6rem;
+      font-weight: bolder;
       background: linear-gradient(135deg, #e2e8f0, #cbd5e1, #94a3b8);
-      -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       letter-spacing: -0.02em;
@@ -81,6 +81,7 @@
     flex: 1;
     justify-content: center;
     background: transparent;
+
     .nav-item {
       display: flex;
       align-items: center;
@@ -91,7 +92,7 @@
       border-radius: 8px;
       color: #94c0fe;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: bolder;
       transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
       white-space: nowrap;
       position: relative;
@@ -116,7 +117,7 @@
         border-radius: 8px;
         background: radial-gradient(
           circle at center,
-          rgba(59, 130, 246, 0.2),
+          rgb(59 130 246 / 20%),
           transparent
         );
         opacity: 0;
@@ -127,10 +128,10 @@
         color: #cbd5e1;
         background: linear-gradient(
           135deg,
-          rgba(1, 39, 100, 0.3),
-          rgba(70, 136, 244, 0.2)
+          rgb(1 39 100 / 30%),
+          rgb(70 136 244 / 20%)
         );
-        border-color: rgba(59, 130, 246, 0.5);
+        border-color: rgb(59 130 246 / 50%);
         transform: translateY(-1px);
 
         .nav-icon {
@@ -150,13 +151,13 @@
         color: #fbbf24;
         background: linear-gradient(
           135deg,
-          rgba(251, 191, 36, 0.15),
-          rgba(245, 158, 11, 0.1)
+          rgb(251 191 36 / 15%),
+          rgb(245 158 11 / 10%)
         );
-        border-color: rgba(251, 191, 36, 0.4);
+        border-color: rgb(251 191 36 / 40%);
         box-shadow:
-          0 2px 12px rgba(251, 191, 36, 0.25),
-          inset 0 1px 0 rgba(255, 255, 255, 0.15);
+          0 2px 12px rgb(251 191 36 / 25%),
+          inset 0 1px 0 rgb(255 255 255 / 15%);
 
         .nav-text {
           font-weight: 600;
@@ -185,7 +186,7 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 2px 6px rgb(0 0 0 / 30%);
           animation: indicator-pulse 2s ease-in-out infinite;
           flex-shrink: 0;
 
@@ -209,7 +210,7 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 2px 6px rgb(0 0 0 / 30%);
           animation: indicator-pulse 2s ease-in-out infinite;
           animation-delay: 0.5s;
           flex-shrink: 0;
@@ -235,7 +236,7 @@
       }
 
       .nav-text {
-        font-size: 0.95rem;
+        font-size: 1.2rem;
       }
 
       @keyframes pulse {
@@ -243,6 +244,7 @@
         100% {
           transform: scale(1);
         }
+
         50% {
           transform: scale(1.1);
         }
@@ -253,6 +255,7 @@
         100% {
           transform: translateY(-50%) scale(1);
         }
+
         50% {
           transform: translateY(-50%) scale(1.08);
         }
@@ -271,25 +274,24 @@
       align-items: center;
       gap: 0.4rem;
       padding: 0.45rem 0.75rem;
-      border: 1px solid rgba(59, 130, 246, 0.25);
+      border: 1px solid rgb(59 130 246 / 25%);
       background: linear-gradient(
         135deg,
-        rgba(59, 130, 246, 0.15),
-        rgba(37, 99, 235, 0.1)
+        rgb(59 130 246 / 15%),
+        rgb(37 99 235 / 10%)
       );
       border-radius: 10px;
       cursor: pointer;
       color: #a5c3ec;
-
       font-weight: 600;
       transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
       overflow: hidden;
       box-shadow:
-        0 2px 8px rgba(0, 0, 0, 0.2),
-        0 4px 16px rgba(59, 130, 246, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+        0 2px 8px rgb(0 0 0 / 20%),
+        0 4px 16px rgb(59 130 246 / 15%),
+        inset 0 1px 0 rgb(255 255 255 / 15%),
+        inset 0 -1px 0 rgb(0 0 0 / 10%);
 
       &::before {
         content: '';
@@ -297,7 +299,7 @@
         inset: 0;
         background: linear-gradient(
           135deg,
-          rgba(255, 255, 255, 0.2),
+          rgb(255 255 255 / 20%),
           transparent 60%
         );
         opacity: 0;
@@ -314,7 +316,7 @@
         background: linear-gradient(
           90deg,
           transparent,
-          rgba(255, 255, 255, 0.15),
+          rgb(255 255 255 / 15%),
           transparent
         );
         transition: left 0.5s ease;
@@ -323,16 +325,16 @@
       &:hover {
         background: linear-gradient(
           135deg,
-          rgba(59, 130, 246, 0.3),
-          rgba(37, 99, 235, 0.25)
+          rgb(59 130 246 / 30%),
+          rgb(37 99 235 / 25%)
         );
-        border-color: rgba(59, 130, 246, 0.6);
+        border-color: rgb(59 130 246 / 60%);
         color: #e2e8f0;
         transform: translateY(-3px);
         box-shadow:
-          0 8px 24px rgba(59, 130, 246, 0.35),
-          0 4px 16px rgba(0, 0, 0, 0.25),
-          inset 0 1px 0 rgba(255, 255, 255, 0.2);
+          0 8px 24px rgb(59 130 246 / 35%),
+          0 4px 16px rgb(0 0 0 / 25%),
+          inset 0 1px 0 rgb(255 255 255 / 20%);
 
         &::before {
           opacity: 1;
@@ -350,9 +352,9 @@
       &:active {
         transform: translateY(-1px);
         box-shadow:
-          0 4px 12px rgba(59, 130, 246, 0.25),
-          0 2px 8px rgba(0, 0, 0, 0.2),
-          inset 0 1px 0 rgba(255, 255, 255, 0.15);
+          0 4px 12px rgb(59 130 246 / 25%),
+          0 2px 8px rgb(0 0 0 / 20%),
+          inset 0 1px 0 rgb(255 255 255 / 15%);
       }
 
       svg {
@@ -361,11 +363,11 @@
         transition: transform 0.25s ease;
         position: relative;
         z-index: 1;
-        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+        filter: drop-shadow(0 1px 2px rgb(0 0 0 / 20%));
       }
 
       .btn-text {
-        font-size: 0.875rem;
+        font-size: 1rem;
         position: relative;
         z-index: 1;
       }
@@ -374,81 +376,81 @@
     .upload-btn {
       background: linear-gradient(
         135deg,
-        rgba(16, 185, 129, 0.2),
-        rgba(5, 150, 105, 0.15)
+        rgb(16 185 129 / 20%),
+        rgb(5 150 105 / 15%)
       );
-      border-color: rgba(16, 185, 129, 0.4);
+      border-color: rgb(16 185 129 / 40%);
       box-shadow:
-        0 2px 8px rgba(0, 0, 0, 0.2),
-        0 4px 16px rgba(16, 185, 129, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+        0 2px 8px rgb(0 0 0 / 20%),
+        0 4px 16px rgb(16 185 129 / 20%),
+        inset 0 1px 0 rgb(255 255 255 / 15%),
+        inset 0 -1px 0 rgb(0 0 0 / 10%);
 
       &:hover {
         background: linear-gradient(
           135deg,
-          rgba(16, 185, 129, 0.35),
-          rgba(5, 150, 105, 0.3)
+          rgb(16 185 129 / 35%),
+          rgb(5 150 105 / 30%)
         );
-        border-color: rgba(16, 185, 129, 0.7);
+        border-color: rgb(16 185 129 / 70%);
         box-shadow:
-          0 8px 24px rgba(16, 185, 129, 0.4),
-          0 4px 16px rgba(0, 0, 0, 0.25),
-          inset 0 1px 0 rgba(255, 255, 255, 0.2);
+          0 8px 24px rgb(16 185 129 / 40%),
+          0 4px 16px rgb(0 0 0 / 25%),
+          inset 0 1px 0 rgb(255 255 255 / 20%);
       }
     }
 
     .settings-btn {
       background: linear-gradient(
         135deg,
-        rgba(251, 191, 36, 0.2),
-        rgba(245, 158, 11, 0.15)
+        rgb(251 191 36 / 20%),
+        rgb(245 158 11 / 15%)
       );
-      border-color: rgba(251, 191, 36, 0.4);
+      border-color: rgb(251 191 36 / 40%);
       box-shadow:
-        0 2px 8px rgba(0, 0, 0, 0.2),
-        0 4px 16px rgba(251, 191, 36, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+        0 2px 8px rgb(0 0 0 / 20%),
+        0 4px 16px rgb(251 191 36 / 20%),
+        inset 0 1px 0 rgb(255 255 255 / 15%),
+        inset 0 -1px 0 rgb(0 0 0 / 10%);
 
       &:hover {
         background: linear-gradient(
           135deg,
-          rgba(251, 191, 36, 0.35),
-          rgba(245, 158, 11, 0.3)
+          rgb(251 191 36 / 35%),
+          rgb(245 158 11 / 30%)
         );
-        border-color: rgba(251, 191, 36, 0.7);
+        border-color: rgb(251 191 36 / 70%);
         box-shadow:
-          0 8px 24px rgba(251, 191, 36, 0.4),
-          0 4px 16px rgba(0, 0, 0, 0.25),
-          inset 0 1px 0 rgba(255, 255, 255, 0.2);
+          0 8px 24px rgb(251 191 36 / 40%),
+          0 4px 16px rgb(0 0 0 / 25%),
+          inset 0 1px 0 rgb(255 255 255 / 20%);
       }
     }
 
     .home-btn {
       background: linear-gradient(
         135deg,
-        rgba(139, 92, 246, 0.2),
-        rgba(124, 58, 237, 0.15)
+        rgb(139 92 246 / 20%),
+        rgb(124 58 237 / 15%)
       );
-      border-color: rgba(139, 92, 246, 0.4);
+      border-color: rgb(139 92 246 / 40%);
       box-shadow:
-        0 2px 8px rgba(0, 0, 0, 0.2),
-        0 4px 16px rgba(139, 92, 246, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+        0 2px 8px rgb(0 0 0 / 20%),
+        0 4px 16px rgb(139 92 246 / 20%),
+        inset 0 1px 0 rgb(255 255 255 / 15%),
+        inset 0 -1px 0 rgb(0 0 0 / 10%);
 
       &:hover {
         background: linear-gradient(
           135deg,
-          rgba(139, 92, 246, 0.35),
-          rgba(124, 58, 237, 0.3)
+          rgb(139 92 246 / 35%),
+          rgb(124 58 237 / 30%)
         );
-        border-color: rgba(139, 92, 246, 0.7);
+        border-color: rgb(139 92 246 / 70%);
         box-shadow:
-          0 8px 24px rgba(139, 92, 246, 0.4),
-          0 4px 16px rgba(0, 0, 0, 0.25),
-          inset 0 1px 0 rgba(255, 255, 255, 0.2);
+          0 8px 24px rgb(139 92 246 / 40%),
+          0 4px 16px rgb(0 0 0 / 25%),
+          inset 0 1px 0 rgb(255 255 255 / 20%);
       }
     }
   }
