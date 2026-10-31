@@ -83,22 +83,37 @@ pages/ExamplePage/
 
 #### 构建产物与依赖
 
-| 文件/目录 | 说明 | 忽略方式 |
-|---|---|---|
-| `dist/` | 构建输出（只推 gh-pages 分支） | `.gitignore` |
-| `node_modules/` | npm 依赖 | `.gitignore` |
-| `types/auto-imports.d.ts` | Vite 自动生成 | `.gitignore` |
-| `types/components.d.ts` | Vite 自动生成 | `.gitignore` |
+| 文件/目录 | 说明 | 忽略方式 | 远程是否残留 |
+|---|---|---|---|
+| `dist/` | 构建输出（只推 gh-pages 分支） | `.gitignore` | 需确认 |
+| `node_modules/` | npm 依赖 | `.gitignore` | 需确认 |
+| `types/auto-imports.d.ts` | Vite 自动生成 | `.gitignore` | 否 |
+| `types/components.d.ts` | Vite 自动生成 | `.gitignore` | 否 |
+
+#### AI 工具目录（误提交到远程，需清理）
+
+| 文件/目录 | 说明 | 忽略方式 | 远程是否残留 |
+|---|---|---|---|
+| `.arts/` | CodeArts AI 运行时目录 | `.gitignore` | **是，需清理** |
+| `.codeartsdoer/` | CodeArts Doer 记忆目录 | `.gitignore` | **是，需清理** |
+
+> **清理方法**（网络恢复后执行）：
+> ```bash
+> git rm -r --cached .arts .codeartsdoer dist node_modules 2>/dev/null
+> git commit -m "chore: 清理误提交的AI工具目录和构建产物"
+> git push origin feat/update-site
+> ```
 
 #### 临时文件与目录
 
-| 文件/目录 | 说明 | 忽略方式 |
-|---|---|---|
-| `public/test/` | 临时测试目录（AVIF 转换用，已上传 OSS） | `.gitignore` + 已删除本地 |
-| `.tmp-sass-check.css.map` | SCSS 编译临时文件 | `.gitignore` |
-| `nul` | Windows 保留文件名 | `.gitignore` |
-| `*.log` | 日志文件 | `.gitignore` |
-| `temp/` `tmp-*/` | 临时目录 | `.gitignore` |
+| 文件/目录 | 说明 | 忽略方式 | 远程是否残留 |
+|---|---|---|---|
+| `public/test/` | 临时测试目录（AVIF 转换用，已上传 OSS） | `.gitignore` + 已删除本地 | 否（已清理） |
+| `gh-pages:test/` | gh-pages 分支的 test/ 目录（构建产物） | 删除 `public/test/` 后下次部署自动消失 | **是，下次部署后消失** |
+| `.tmp-sass-check.css.map` | SCSS 编译临时文件 | `.gitignore` | 否 |
+| `nul` | Windows 保留文件名 | `.gitignore` | 否 |
+| `*.log` | 日志文件 | `.gitignore` | 否 |
+| `temp/` `tmp-*/` | 临时目录 | `.gitignore` | 否 |
 
 #### 环境与密钥
 
