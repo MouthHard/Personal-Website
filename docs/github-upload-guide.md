@@ -310,15 +310,18 @@ git commit -m "chore: 移除大小写重复的冗余目录"
 ```
 > 已在本轮清理：`src/pages/TravelGuide/components/food/**`（8 个文件，import 统一用 `Food/`）、`src/utils/Aphorism/categoryFilter.ts`（import 统一用 `aphorism/`）。
 
-### CI 没有在当前分支跑
+### CI 与本地预检
 
-`.github/workflows/ci.yml` 的触发分支只有 `main` / `master`，推送到 `feat/update-site` **不会触发 CI**，PR 合并到 `master` 时才校验。因此本地提交前必须自己跑一遍：
+`.github/workflows/ci.yml` 的触发分支为 `main` / `master` / `feat/**`，推送功能分支即会校验。
+其中 typecheck、ESLint、stylelint、vitest、knip、build 均为**硬性门禁**（不再有 `continue-on-error`）。
+本地提交前建议跑同一套：
 
 ```bash
-npm run typecheck && npx stylelint "src/**/*.scss" && npx eslint . --ext .vue,.js,.ts && npm run test:run
+npm run typecheck && npm run lint:check && npm run lint:css:check && npm run test:run && npm run knip && npm run build
 ```
 
-> 若希望分支推送也受 CI 保护，把 `ci.yml` 的 `branches` 加上 `feat/**`（尚未修改，按需决定）。
+> knip 只保留「未用文件 / 未用依赖 / 未解析导入」三类高置信度检查；导出级与类型级检查因 Vue barrel
+> 重导出与 unplugin 自动导入导致假阳性过高而关闭，详见 `knip.config.ts` 的注释。
 
 ### PowerShell 构建参数解析失败
 
