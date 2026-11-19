@@ -25,7 +25,6 @@
   import LightbulbIcon from '../../../../icons/common/LightbulbIcon.vue';
   import UtensilsIcon from '../../../../icons/common/UtensilsIcon.vue';
   import LocationIcon from '../../../../icons/common/LocationIcon.vue';
-  import ClockIcon from '../../../../icons/common/ClockIcon.vue';
 
   interface EmptyConfig {
     icon: Component;
@@ -35,25 +34,25 @@
   }
 
   const CONFIGS: Record<string, EmptyConfig> = {
-    'popular': {
+    popular: {
       icon: BowlRiceIcon,
       label: 'POPULAR.EMPTY',
       title: '必吃清单待录入',
       desc: '该省份的必吃美食正在整理中，敬请期待',
     },
-    'souvenir': {
+    souvenir: {
       icon: ShoppingBagIcon,
       label: 'SOUVENIR.EMPTY',
       title: '伴手礼暂缺',
       desc: '特产推荐正在选品中，稍后回来看看',
     },
-    'seasonal': {
+    seasonal: {
       icon: CalendarIcon,
       label: 'SEASONAL.EMPTY',
       title: '当季时令待更新',
       desc: '四季美食推荐正在筹备中',
     },
-    'guide': {
+    guide: {
       icon: LightbulbIcon,
       label: 'GUIDE.EMPTY',
       title: '攻略筹备中',
@@ -71,19 +70,19 @@
       title: '暂无美食路线',
       desc: '寻味路线规划中，敬请期待',
     },
-    'tips': {
+    tips: {
       icon: LightbulbIcon,
       label: 'TIPS.EMPTY',
       title: '暂无避坑贴士',
       desc: '当地美食小贴士正在收集中',
     },
-    'map': {
+    map: {
       icon: LocationIcon,
       label: 'MAP.EMPTY',
       title: '暂无名店数据',
       desc: '当地名店信息正在收录中',
     },
-    'categories': {
+    categories: {
       icon: UtensilsIcon,
       label: 'GALLERY.EMPTY',
       title: '暂无美食图鉴',
@@ -95,7 +94,9 @@
     type: 'popular',
   });
 
-  const currentConfig = computed(() => CONFIGS[props.type] || CONFIGS['popular']);
+  const currentConfig = computed(
+    () => CONFIGS[props.type] || CONFIGS['popular'],
+  );
   const currentIcon = computed(() => currentConfig.value.icon);
 </script>
 

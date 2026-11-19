@@ -1,0 +1,166 @@
+@use 'variables' as *;
+
+// ===== 遮罩层 =====
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgb(6 4 2 / 95%);
+  backdrop-filter: blur(30px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 0;
+  animation: overlayFadeIn 0.5s ease-out;
+  overflow: hidden;
+  perspective: 2000px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      // 阳光从左上方照射
+
+      radial-gradient(
+        ellipse 80% 60% at 15% 10%,
+        rgb(240 208 160 / 8%),
+        transparent 70%
+      ),
+      radial-gradient(
+        ellipse 60% 40% at 85% 90%,
+        rgb(80 60 30 / 6%),
+        transparent 70%
+      );
+    pointer-events: none;
+  }
+}
+
+// ===== 溢出装饰：墨香飘散 =====
+.overflow-ink-drift {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+
+  .ink-drop {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(2px);
+    opacity: 0;
+    animation: inkDrift 7s ease-out infinite;
+
+    &.drop-1 {
+      width: 5px;
+      height: 5px;
+      top: 8%;
+      left: 18%;
+      background: rgba($ink-mid, 0.3);
+      animation-delay: 0s;
+    }
+
+    &.drop-2 {
+      width: 4px;
+      height: 4px;
+      top: 5%;
+      left: 48%;
+      background: rgba($ink-light, 0.25);
+      animation-delay: 1.5s;
+    }
+
+    &.drop-3 {
+      width: 6px;
+      height: 6px;
+      bottom: 10%;
+      left: 28%;
+      background: rgba($ink-mid, 0.2);
+      animation-delay: 3s;
+    }
+
+    &.drop-4 {
+      width: 3px;
+      height: 3px;
+      top: 18%;
+      right: 22%;
+      background: rgba($ink-light, 0.25);
+      animation-delay: 4.5s;
+    }
+
+    &.drop-5 {
+      width: 4px;
+      height: 4px;
+      bottom: 6%;
+      right: 32%;
+      background: rgba($ink-mid, 0.2);
+      animation-delay: 2s;
+    }
+  }
+}
+
+// ===== 溢出装饰：金光散射 =====
+.overflow-gold-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+
+  .gold-ray {
+    position: absolute;
+    opacity: 0;
+    animation: goldPulse 5s ease-in-out infinite;
+
+    &.gr-1 {
+      width: 60px;
+      height: 60px;
+      top: 10%;
+      left: 35%;
+      background: radial-gradient(
+        circle,
+        rgba($gold-mid, 0.12),
+        transparent 70%
+      );
+      animation-delay: 0s;
+    }
+
+    &.gr-2 {
+      width: 80px;
+      height: 80px;
+      bottom: 15%;
+      left: 25%;
+      background: radial-gradient(
+        circle,
+        rgba($gold-bright, 0.08),
+        transparent 70%
+      );
+      animation-delay: 1.5s;
+    }
+
+    &.gr-3 {
+      width: 50px;
+      height: 50px;
+      top: 20%;
+      right: 20%;
+      background: radial-gradient(
+        circle,
+        rgba($gold-shine, 0.06),
+        transparent 70%
+      );
+      animation-delay: 3s;
+    }
+
+    &.gr-4 {
+      width: 70px;
+      height: 70px;
+      bottom: 10%;
+      right: 30%;
+      background: radial-gradient(
+        circle,
+        rgba($paper-bright, 0.05),
+        transparent 70%
+      );
+      animation-delay: 4s;
+    }
+  }
+}
+
+// ===== 双书轴并排容器 =====

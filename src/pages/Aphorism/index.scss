@@ -1,33 +1,44 @@
 .poetry-page {
   height: 100vh;
-  background: linear-gradient(135deg,
-      #f5e6c1 0%,
-      #f8f0d9 30%,
-      #f0e6c1 70%,
-      #e8d9b0 100%);
+
+  // 动态视口高度：移动端地址栏收缩/展开时避免内容与底栏跳动；不支持 dvh 的浏览器保留 100vh
+  height: 100dvh;
+  background: linear-gradient(
+    135deg,
+    #f5e6c1 0%,
+    #f8f0d9 30%,
+    #f0e6c1 70%,
+    #e8d9b0 100%
+  );
   position: relative;
   overflow: hidden;
-  font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', 'SimSun', serif;
+  font-family: STKaiti, KaiTi, 'Noto Serif SC', SimSun, serif;
   display: flex;
   flex-direction: column;
 
   .sticky-header {
     flex-shrink: 0;
-    background: linear-gradient(to bottom,
-        rgba(248, 245, 240, 0.98),
-        rgba(240, 235, 225, 0.96));
+    background: linear-gradient(
+      to bottom,
+      rgb(248 245 240 / 98%),
+      rgb(240 235 225 / 96%)
+    );
     backdrop-filter: blur(15px);
     z-index: 100;
-    box-shadow: 0 4px 20px rgba(139, 115, 85, 0.5);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 20px rgb(139 115 85 / 50%);
+    transition-property:
+      transform, opacity, box-shadow, color, background, background-color,
+      border-color, filter, text-shadow;
+    transition-duration: 0.4s;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
     .page-header {
       position: relative;
       z-index: 10;
       background: transparent;
-      padding: 15px 10px 5px 10px;
+      padding: 15px 10px 5px;
       text-align: center;
-      border-bottom: 1px solid rgba(184, 115, 51, 0.2);
+      border-bottom: 1px solid rgb(184 115 51 / 20%);
       margin-bottom: 16px;
 
       .header-content {
@@ -51,11 +62,13 @@
           .decoration-line {
             width: 80px;
             height: 2px;
-            background: linear-gradient(to right,
-                transparent,
-                #b87333,
-                transparent);
-            box-shadow: 0 0 15px rgba(184, 115, 51, 0.3);
+            background: linear-gradient(
+              to right,
+              transparent,
+              #b87333,
+              transparent
+            );
+            box-shadow: 0 0 15px rgb(184 115 51 / 30%);
             position: relative;
 
             &::after {
@@ -68,7 +81,7 @@
               height: 100%;
               background: inherit;
               filter: blur(2px);
-              opacity: 0.6;
+              opacity: 60%;
             }
           }
 
@@ -78,19 +91,16 @@
             background: linear-gradient(135deg, #cd5c5c, #b87333);
             border-radius: 50%;
             box-shadow:
-              0 0 15px rgba(205, 92, 92, 0.4),
-              0 0 30px rgba(184, 115, 51, 0.3);
+              0 0 15px rgb(205 92 92 / 40%),
+              0 0 30px rgb(184 115 51 / 30%);
             animation: pulse 2.5s ease-in-out infinite;
             position: relative;
 
             &::before {
               content: '';
               position: absolute;
-              top: -2px;
-              left: -2px;
-              right: -2px;
-              bottom: -2px;
-              border: 2px solid rgba(184, 115, 51, 0.3);
+              inset: -2px;
+              border: 2px solid rgb(184 115 51 / 30%);
               border-radius: 50%;
               animation: rotate 4s linear infinite;
             }
@@ -105,17 +115,16 @@
             align-items: center;
             justify-content: center;
             gap: 16px;
-            margin: 0 0 12px 0;
+            margin: 0 0 12px;
             font-size: 36px;
             font-weight: bold;
             color: #1a1a1a;
-            font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', serif;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            font-family: STKaiti, KaiTi, 'Noto Serif SC', serif;
+            text-shadow: 2px 2px 4px rgb(0 0 0 / 10%);
 
             .title-char {
               display: inline-block;
               background: linear-gradient(135deg, #cd5c5c, #b87333);
-              -webkit-background-clip: text;
               -webkit-text-fill-color: transparent;
               background-clip: text;
               animation: titleFloat 4s ease-in-out infinite;
@@ -127,7 +136,6 @@
                 top: 0;
                 left: 0;
                 background: linear-gradient(135deg, #b87333, #cd5c5c);
-                -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
                 opacity: 0;
@@ -143,9 +151,9 @@
 
             .title-divider {
               color: #b87333;
-              opacity: 0.7;
+              opacity: 70%;
               font-size: 24px;
-              text-shadow: 0 0 10px rgba(184, 115, 51, 0.5);
+              text-shadow: 0 0 10px rgb(184 115 51 / 50%);
             }
           }
 
@@ -155,7 +163,7 @@
             color: #4a4a4a;
             font-weight: 600;
             letter-spacing: 4px;
-            font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', serif;
+            font-family: STKaiti, KaiTi, 'Noto Serif SC', serif;
             position: relative;
             padding: 8px 20px;
 
@@ -166,10 +174,12 @@
               top: 50%;
               width: 30px;
               height: 1px;
-              background: linear-gradient(to right,
-                  transparent,
-                  #b87333,
-                  transparent);
+              background: linear-gradient(
+                to right,
+                transparent,
+                #b87333,
+                transparent
+              );
             }
 
             &::before {
@@ -183,35 +193,141 @@
         }
       }
 
+      // 「返回首页」—— 深胡桃木牌匾，铜钉挂环，雕刻描金文字
       .back-button {
         position: absolute;
-        left: 20px;
-        top: 20px;
+        left: 24px;
+        top: 22px;
         display: flex;
         align-items: center;
-        gap: 6px;
-        padding: 10px 18px;
-        border: 2px solid #8b7355;
-        background: linear-gradient(135deg, #fff, #f8f5f0);
-        border-radius: 32px;
-        color: #1c1b1b;
-        font-size: 18px;
+        justify-content: center;
+        gap: 9px;
+        padding: 13px 24px;
+        min-width: 132px;
+        border: 2px solid #4a2c14;
+        border-radius: 8px;
         cursor: pointer;
-        box-shadow: 0 4px 12px rgba(139, 115, 85, 0.4);
-        font-weight: bolder;
         z-index: 20;
-        transition: all 0.3s ease;
+        font-family: STKaiti, KaiTi, 'Noto Serif SC', serif;
+        font-size: 18px;
+        font-weight: bold;
+        letter-spacing: 3px;
+
+        // 上漆胡桃木：斜射阳光 + 镜面釉光 + 木纹
+        background:
+          // 阳光自左上斜射，右下渐暗（表面光暗渐变）
+          linear-gradient(
+            118deg,
+            rgba(255, 236, 196, 0.38) 0%,
+            rgba(255, 222, 176, 0.12) 30%,
+            transparent 52%,
+            rgba(28, 12, 4, 0.2) 100%
+          ),
+          // 顶部一道镜面釉光，营造光滑上漆质感
+          linear-gradient(
+              180deg,
+              rgba(255, 232, 190, 0.32) 0%,
+              rgba(255, 226, 178, 0.08) 16%,
+              transparent 34%
+            ),
+          // 细腻木纹
+          repeating-linear-gradient(
+              92deg,
+              rgba(60, 30, 12, 0.16) 0%,
+              rgba(60, 30, 12, 0.16) 1px,
+              transparent 1px,
+              transparent 6px,
+              rgba(255, 220, 170, 0.05) 6px,
+              rgba(255, 220, 170, 0.05) 7px
+            ),
+          linear-gradient(160deg, #92582c 0%, #71411f 42%, #5a3014 100%);
+        color: #f8e6bb;
+        text-shadow:
+          0 -1px 0 rgb(46 22 8 / 90%),
+          0 1px 1px rgb(255 226 178 / 45%);
+
+        // 多层阴影：光滑釉面高光 + 内凹木槽 + 底部厚度 + 投影
+        box-shadow:
+          inset 0 2px 1px rgb(255 236 198 / 60%),
+          inset 2px 0 3px rgb(255 226 180 / 28%),
+          inset -2px 0 3px rgb(30 14 4 / 28%),
+          inset 0 -3px 6px rgb(30 14 4 / 55%),
+          0 5px 0 #3a2010,
+          0 7px 0 #2e190b,
+          0 14px 24px rgb(62 34 14 / 48%);
+        transition-property:
+          transform, opacity, box-shadow, color, background, background-color,
+          border-color, filter, text-shadow;
+        transition-duration: 0.3s;
+        transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+        // 顶部铜质挂环
+        &::before {
+          content: '';
+          position: absolute;
+          top: -10px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 30px;
+          height: 14px;
+          border: 3px solid #c99a3e;
+          border-bottom: none;
+          border-radius: 15px 15px 0 0;
+          box-shadow:
+            inset 0 1px 1px rgb(255 230 160 / 70%),
+            0 1px 2px rgb(0 0 0 / 35%);
+        }
 
         :deep(svg) {
-          width: 16px;
-          height: 16px;
+          width: 18px;
+          height: 18px;
+          color: #e9c976;
+          filter: drop-shadow(0 -1px 0 rgb(46 22 8 / 80%));
+        }
+
+        // 左右两颗黄铜铆钉
+        .plaque-stud {
+          position: absolute;
+          top: 50%;
+          width: 9px;
+          height: 9px;
+          margin-top: -4.5px;
+          border-radius: 50%;
+          background: radial-gradient(
+            circle at 35% 30%,
+            #ffe9a8 0%,
+            #d9a83c 45%,
+            #8a5e14 100%
+          );
+          box-shadow:
+            0 1px 2px rgb(0 0 0 / 50%),
+            inset 0 -1px 1px rgb(90 55 10 / 60%);
+
+          &.stud-left {
+            left: 10px;
+          }
+          &.stud-right {
+            right: 10px;
+          }
         }
 
         &:hover {
-          background: linear-gradient(135deg, #f8f5f0, #f0e6d1);
-          border-color: #b87333;
-          box-shadow: 0 6px 16px rgba(184, 115, 51, 0.5);
-          transform: translateY(-2px);
+          transform: translateY(-3px);
+          filter: brightness(1.08);
+          box-shadow:
+            inset 0 2px 1px rgb(255 220 170 / 50%),
+            inset 0 -3px 6px rgb(30 14 4 / 55%),
+            0 7px 0 #3a2010,
+            0 9px 0 #2e190b,
+            0 16px 26px rgb(62 34 14 / 50%);
+        }
+
+        &:active {
+          transform: translateY(4px);
+          box-shadow:
+            inset 0 2px 4px rgb(30 14 4 / 60%),
+            0 2px 0 #3a2010,
+            0 4px 8px rgb(62 34 14 / 40%);
         }
       }
 
@@ -223,40 +339,160 @@
         align-items: center;
         z-index: 20;
 
+        // 「书房」—— 一卷展开的书卷，两端木质轴头 + 黄铜轴箍，中间米黄纸面
         .study-room-button {
           display: flex;
-          align-items: center;
-          gap: 8px;
-          padding: 10px 18px;
-          border: 2px solid #8b7355;
-          background: linear-gradient(135deg, #fff, #f8f5f0);
-          border-radius: 32px;
-          color: #1c1b1b;
-          font-size: 18px;
-     
+          align-items: stretch;
+          padding: 0;
+          border: none;
+          background: transparent;
           cursor: pointer;
-          box-shadow: 0 4px 12px rgba(139, 115, 85, 0.4);
-          font-weight: bolder;
-          transition: all 0.3s ease;
+          height: 46px;
+          filter: drop-shadow(0 6px 8px rgb(90 50 20 / 35%));
+          transition-property:
+            transform, opacity, box-shadow, color, background, background-color,
+            border-color, filter, text-shadow;
+          transition-duration: 0.3s;
+          transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
 
-          :deep(svg) {
-            width: 16px;
-            height: 16px;
+          // 中间的纸面，微微内卷的上下边缘
+          .scroll-face {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 0 18px;
+            color: #5b3a18;
+            font-family: STKaiti, KaiTi, 'Noto Serif SC', serif;
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            background:
+              // 阳光自左上斜射，纸面右侧与下缘渐入阴影
+              linear-gradient(
+                116deg,
+                rgba(255, 255, 246, 0.55) 0%,
+                rgba(255, 252, 234, 0.18) 32%,
+                transparent 56%,
+                rgba(120, 85, 40, 0.16) 100%
+              ),
+              // 纸纤维纹理
+              repeating-linear-gradient(
+                  0deg,
+                  rgba(160, 120, 60, 0.05) 0%,
+                  rgba(160, 120, 60, 0.05) 1px,
+                  transparent 1px,
+                  transparent 5px
+                ),
+              // 上下卷曲的明暗过渡（受光鼓起，边缘背光）
+              linear-gradient(
+                  180deg,
+                  #d8bd8c 0%,
+                  #f3e5c1 12%,
+                  #fbf1d6 46%,
+                  #f4e7c6 74%,
+                  #d4bb8c 100%
+                );
+            box-shadow:
+              inset 0 3px 5px rgb(120 85 40 / 32%),
+              inset 0 -3px 5px rgb(120 85 40 / 32%),
+              inset 2px 0 3px rgb(255 252 232 / 35%),
+              inset -2px 0 3px rgb(120 85 40 / 15%);
+            text-shadow: 0 1px 0 rgb(255 252 234 / 90%);
+
+            :deep(svg) {
+              width: 18px;
+              height: 18px;
+              color: #8a5a24;
+              filter: drop-shadow(0 1px 0 rgb(255 250 230 / 70%));
+            }
           }
 
-          .button-text {
-            font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', serif;
+          // 左右两端的木质卷轴
+          .scroll-roller {
+            position: relative;
+            width: 14px;
+            flex-shrink: 0;
+            border-radius: 7px;
+
+            // 圆柱体受光：左侧高光带 + 中部亮面 + 右侧背光
+            background: linear-gradient(
+              90deg,
+              #3f2310 0%,
+              #8a5228 22%,
+              #c08a55 40%,
+              #a56d3c 58%,
+              #6d3d1c 78%,
+              #331b0c 100%
+            );
+            box-shadow:
+              inset 0 1px 1px rgb(255 230 186 / 50%),
+              inset 0 -2px 3px rgb(20 10 4 / 55%),
+              inset 1px 0 1px rgb(255 224 176 / 30%);
+
+            // 轴头上下两端的黄铜箍
+            &::before,
+            &::after {
+              content: '';
+              position: absolute;
+              left: -1px;
+              right: -1px;
+              height: 5px;
+              background: linear-gradient(
+                180deg,
+                #f0d488,
+                #c99a3e 50%,
+                #8a5e14
+              );
+              box-shadow: 0 1px 1px rgb(0 0 0 / 40%);
+            }
+
+            &::before {
+              top: 2px;
+            }
+            &::after {
+              bottom: 2px;
+            }
           }
 
           &:hover {
-            background: linear-gradient(135deg, #f8f5f0, #f0e6d1);
-            border-color: #b87333;
-            box-shadow: 0 6px 16px rgba(184, 115, 51, 0.5);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            filter: drop-shadow(0 10px 12px rgb(90 50 20 / 45%))
+              brightness(1.04);
+
+            .scroll-face {
+              background:
+                linear-gradient(
+                  116deg,
+                  rgb(255 255 250 / 62%) 0%,
+                  rgb(255 252 238 / 20%) 32%,
+                  transparent 56%,
+                  rgb(120 85 40 / 14%) 100%
+                ),
+                repeating-linear-gradient(
+                  0deg,
+                  rgb(160 120 60 / 5%) 0%,
+                  rgb(160 120 60 / 5%) 1px,
+                  transparent 1px,
+                  transparent 5px
+                ),
+                linear-gradient(
+                  180deg,
+                  #e0c79a 0%,
+                  #f9eed2 12%,
+                  #fff8e2 46%,
+                  #f8ecd0 74%,
+                  #dec59a 100%
+                );
+            }
+          }
+
+          &:active {
+            transform: translateY(3px);
           }
         }
       }
-
     }
   }
 }
@@ -267,63 +503,371 @@
   margin: 0 20px 16px;
   align-items: flex-start;
 
+  // 左侧「分类浏览 / 搜索模式」—— 用麻绳装订的竹简册，两片竹牍即两个 Tab
   .mode-tabs-vertical {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 16px;
     flex-shrink: 0;
-    background: linear-gradient(135deg, #fff, #f8f5f0);
-    padding: 12px;
-    border-radius: 20px;
-    box-shadow: 0 6px 20px rgba(139, 115, 85, 0.15);
-    border: 4px double rgba(184, 115, 51, 0.4);
+
+    // 加大上下留白，让麻绳装饰与两片竹牍保持舒适间距
+    padding: 36px 14px 32px;
     position: relative;
+    border: 2px solid #6b4423;
+    border-radius: 10px;
+
+    // 竹简册背板：斜照阳光 + 光滑釉面 + 竹席纹理
+    background:
+      // 阳光从左上斜射，右下渐暗
+      linear-gradient(
+        122deg,
+        rgba(255, 248, 220, 0.4) 0%,
+        rgba(255, 240, 205, 0.14) 30%,
+        transparent 54%,
+        rgba(70, 44, 18, 0.14) 100%
+      ),
+      // 顶部一道柔和高光，营造平整光滑的竹面
+      linear-gradient(180deg, rgba(255, 246, 216, 0.3) 0%, transparent 18%),
+      repeating-linear-gradient(
+        90deg,
+        rgba(90, 58, 24, 0.16) 0%,
+        rgba(90, 58, 24, 0.16) 1px,
+        transparent 1px,
+        transparent 7px
+      ),
+      linear-gradient(160deg, #d0b072 0%, #b89455 45%, #9a7841 100%);
+    box-shadow:
+      inset 0 2px 1px rgb(255 248 218 / 55%),
+      inset 2px 0 2px rgb(255 246 214 / 25%),
+      inset 0 -3px 7px rgb(70 44 18 / 42%),
+      0 5px 0 #6b4423,
+      0 8px 0 #4f3219,
+      0 14px 22px rgb(90 58 24 / 42%);
+
+    // 上下两道横向麻绳编线（贴近边缘，与按钮拉开间距）
+    .bamboo-binding {
+      position: absolute;
+      left: 8px;
+      right: 8px;
+      height: 8px;
+      border-radius: 4px;
+
+      // 麻绳圆柱受光：顶部高光、底部背光
+      background: linear-gradient(
+        180deg,
+        #f0d69a 0%,
+        #d9b26a 22%,
+        #a97f3d 55%,
+        #6f4d1c 100%
+      );
+      box-shadow:
+        inset 0 1px 0 rgb(255 245 210 / 80%),
+        inset 0 -1px 1px rgb(50 30 12 / 40%),
+        0 2px 4px rgb(50 30 12 / 45%);
+      z-index: 3;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 6px;
+        right: 6px;
+        top: 2px;
+        height: 1px;
+        background: repeating-linear-gradient(
+          90deg,
+          rgb(70 45 15 / 50%) 0%,
+          rgb(70 45 15 / 50%) 2px,
+          transparent 2px,
+          transparent 5px
+        );
+      }
+      &.binding-top {
+        top: 5px;
+      }
+      &.binding-bottom {
+        bottom: 5px;
+      }
+    }
 
     .mode-tab-vertical {
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: center;
-      gap: 6px;
-      padding: 4px 14px;
-      border-radius: 12px;
+      gap: 7px;
+      padding: 10px 16px;
+      min-width: 104px;
+      border-radius: 5px;
       cursor: pointer;
-      font-size: 16px;
-      color: #3b3a3a;
-      font-weight: bolder;
+      font-size: 18px;
+      font-weight: bold;
       text-align: center;
       white-space: nowrap;
       position: relative;
-      overflow: hidden;
-      border: 2px solid transparent;
+      overflow: visible;
+      font-family: STKaiti, KaiTi, 'Noto Serif SC', serif;
+      color: #2e1c0a;
+      letter-spacing: 1px;
+      border: 1px solid #8a6a34;
 
+      // 单片竹牍：斜照阳光 + 光滑反光 + 竖向竹纹
+      background:
+        // 阳光斜射的亮面到暗面渐变
+        linear-gradient(
+          120deg,
+          rgba(255, 250, 226, 0.5) 0%,
+          rgba(255, 244, 208, 0.16) 34%,
+          transparent 56%,
+          rgba(90, 58, 24, 0.16) 100%
+        ),
+        // 光滑竹面的横向高光带
+        linear-gradient(
+            180deg,
+            rgba(255, 252, 238, 0.55) 0%,
+            rgba(255, 248, 220, 0.12) 20%,
+            transparent 42%,
+            transparent 78%,
+            rgba(110, 74, 30, 0.14) 100%
+          ),
+        repeating-linear-gradient(
+          90deg,
+          rgba(120, 84, 36, 0.12) 0%,
+          rgba(120, 84, 36, 0.12) 1px,
+          transparent 1px,
+          transparent 6px
+        ),
+        linear-gradient(180deg, #f2dda1 0%, #e6c984 50%, #d2ad68 100%);
+      box-shadow:
+        inset 0 2px 1px rgb(255 252 232 / 85%),
+        inset 2px 0 3px rgb(255 248 218 / 35%),
+        inset 0 -3px 5px rgb(110 74 30 / 32%),
+        0 3px 0 #a3813f,
+        0 5px 8px rgb(70 44 18 / 35%);
+      text-shadow: 0 1px 0 rgb(255 250 228 / 75%);
+      transition-property:
+        transform, opacity, box-shadow, color, background, background-color,
+        border-color, filter, text-shadow;
+      transition-duration: 0.3s;
+      transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
 
-      &.active {
-        background: linear-gradient(135deg, #fa6767, #650303);
-        color: white;
-        box-shadow: 0 4px 16px rgba(205, 92, 92, 0.6);
-        transform: translateY(-2px) scale(1.02);
-        border-color: #b87333;
-
-        &::before {
-          background: linear-gradient(90deg,
-              transparent,
-              rgba(255, 255, 255, 0.2),
-              transparent);
+      // 竹节裂纹细节
+      .bamboo-node {
+        position: absolute;
+        top: 4px;
+        bottom: 4px;
+        width: 2px;
+        border-radius: 2px;
+        background: linear-gradient(
+          180deg,
+          transparent,
+          rgb(120 84 36 / 50%) 20%,
+          rgb(120 84 36 / 50%) 80%,
+          transparent
+        );
+        &.node-left {
+          left: 5px;
         }
       }
 
-      .tab-icon {
-        :deep(svg) {
-          width: 20px;
-          height: 20px;
-        }
-        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+      // 图标组件未透传 class，实际渲染为 tab 的直接子 svg，直接选中它
+      > svg {
+        position: relative;
+        z-index: 1;
+        width: 21px;
+        height: 21px;
+        flex-shrink: 0;
+        color: #3d2810;
+        filter: drop-shadow(0 1px 0 rgb(255 248 220 / 70%));
+        transition-property: transform, color, filter;
+        transition-duration: 0.3s;
+        transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
       }
 
       .tab-text {
-        font-weight: bolder;
-        letter-spacing: 1px;
+        position: relative;
+        z-index: 1;
+      }
+
+      // hover 核心创意：描边 + 外发光呼吸（自然态镶金、active 朱红），竹黄/朱红两种底色上都能醒目浮现
+      &::before {
+        content: '';
+        position: absolute;
+        inset: -2px;
+        border-radius: 7px;
+        pointer-events: none;
+        z-index: 2;
+        border: 2px solid rgb(255 226 130 / 90%);
+        box-shadow:
+          0 0 10px rgb(255 214 110 / 85%),
+          inset 0 0 10px rgb(255 226 130 / 65%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      // hover 暖晕：一层柔和暖光自中心淡入，衬托竹牍受光（inset 限制在 tab 内，不影响外凸的朱印）
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        pointer-events: none;
+        z-index: 0;
+        background: radial-gradient(
+          ellipse at 50% 38%,
+          rgb(255 247 205 / 62%) 0%,
+          rgb(255 228 152 / 30%) 46%,
+          transparent 76%
+        );
+        opacity: 0;
+        transition: opacity 0.35s ease;
+      }
+
+      // 朱砂小印，仅选中时盖下
+      .tab-seal {
+        position: absolute;
+        top: -9px;
+        right: -8px;
+        width: 22px;
+        height: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: bold;
+        color: #fff3e2;
+        background: linear-gradient(135deg, #d05252, #9e1f1f);
+        border: 1px solid #7d1414;
+        border-radius: 4px;
+        box-shadow:
+          0 3px 6px rgb(120 24 24 / 50%),
+          inset 0 0 0 1.5px rgb(255 235 220 / 55%);
+        transform: rotate(10deg) scale(0);
+        opacity: 0;
+        transition-property:
+          transform, opacity, box-shadow, color, background, background-color,
+          border-color, filter, text-shadow;
+        transition-duration: 0.3s;
+        transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+        z-index: 5;
+      }
+
+      &.active {
+        color: #fffaf0;
+        border-color: #7a1a12;
+
+        // 抽出的朱漆竹牍：漆面阳光反光 + 竖向竹纹
+        background:
+          // 斜射阳光在光滑漆面上的高光
+          linear-gradient(
+            122deg,
+            rgba(255, 224, 184, 0.42) 0%,
+            rgba(255, 196, 152, 0.14) 32%,
+            transparent 54%,
+            rgba(60, 12, 8, 0.24) 100%
+          ),
+          // 漆面上缘的镜面反光带
+          linear-gradient(
+              180deg,
+              rgba(255, 210, 176, 0.4) 0%,
+              rgba(255, 190, 150, 0.1) 18%,
+              transparent 40%,
+              rgba(60, 12, 8, 0.16) 100%
+            ),
+          repeating-linear-gradient(
+            90deg,
+            rgba(90, 20, 12, 0.16) 0%,
+            rgba(90, 20, 12, 0.16) 1px,
+            transparent 1px,
+            transparent 6px
+          ),
+          linear-gradient(180deg, #d1674a 0%, #ad3d2b 50%, #85231a 100%);
+        box-shadow:
+          inset 0 2px 1px rgb(255 205 168 / 60%),
+          inset 2px 0 3px rgb(255 196 156 / 28%),
+          inset 0 -3px 6px rgb(60 12 8 / 50%),
+          0 4px 0 #6e1c13,
+          0 7px 0 #52130c,
+          0 12px 18px rgb(110 28 19 / 50%);
+        text-shadow: 0 -1px 0 rgb(70 14 8 / 80%);
+
+        > svg {
+          color: #fff6e8;
+          filter: drop-shadow(0 1px 2px rgb(70 14 8 / 85%));
+        }
+
+        .bamboo-node {
+          background: linear-gradient(
+            180deg,
+            transparent,
+            rgb(90 20 12 / 55%) 20%,
+            rgb(90 20 12 / 55%) 80%,
+            transparent
+          );
+        }
+
+        .tab-seal {
+          transform: rotate(10deg) scale(1);
+          opacity: 100%;
+        }
+      }
+
+      // 通用 hover：描边淡入并柔和呼吸 + 图标弹跳；3D 厚度由各态自身阴影保留并加强
+      &:hover {
+        // 描边淡入并柔和呼吸脉动
+        &::before {
+          opacity: 100%;
+          animation: tabRingPulse 1.5s ease-in-out infinite;
+        }
+
+        > svg {
+          transform: scale(1.2) rotate(-8deg);
+          filter: drop-shadow(0 2px 3px rgb(70 44 18 / 50%));
+        }
+
+        &:not(.active) {
+          color: #1a0e04;
+          filter: brightness(1.06);
+          box-shadow:
+            inset 0 2px 1px rgb(255 252 232 / 85%),
+            inset 2px 0 3px rgb(255 248 218 / 35%),
+            inset 0 -3px 5px rgb(110 74 30 / 32%),
+            0 4px 0 #a3813f,
+            0 9px 16px rgb(70 44 18 / 45%),
+            0 0 16px rgb(255 224 140 / 42%);
+
+          &::after {
+            opacity: 1;
+          }
+
+          > svg {
+            color: #241407;
+          }
+        }
+
+        // active 态叠加朱红辉光，保留朱漆竹牍原本的多层厚度与下缘台阶
+        &.active {
+          &::before {
+            border-color: rgb(224 92 68 / 95%);
+            box-shadow:
+              0 0 10px rgb(192 57 43 / 80%),
+              inset 0 0 10px rgb(208 74 55 / 65%);
+            animation: tabRingPulseRed 1.5s ease-in-out infinite;
+          }
+
+          box-shadow:
+            inset 0 2px 1px rgb(255 205 168 / 68%),
+            inset 2px 0 3px rgb(255 196 156 / 30%),
+            inset 0 -3px 6px rgb(60 12 8 / 50%),
+            0 5px 0 #6e1c13,
+            0 8px 0 #52130c,
+            0 14px 20px rgb(110 28 19 / 55%),
+            0 0 18px rgb(208 57 43 / 60%);
+
+          > svg {
+            color: #fffdf6;
+            filter: drop-shadow(0 0 5px rgb(255 170 145 / 85%));
+          }
+        }
       }
     }
   }
@@ -333,52 +877,106 @@
     min-width: 0;
 
     .search-section {
-      margin-bottom: 20px;
+      margin-bottom: 8px;
     }
 
     .category-section {
       margin-bottom: 0;
     }
 
+    // 当前检索提示：朱印宣纸签条，与搜索框扇面、左侧竹简形成平行两行
     .search-results-header {
-      margin:   0;
+      margin: 0;
 
       .search-results-bar {
         display: flex;
-        justify-content: space-between;
         align-items: center;
-        padding: 12px 16px;
-        background: linear-gradient(135deg, #fff, #f8f5f0);
-        border-radius: 20px;
-        box-shadow: 0 6px 20px rgba(139, 115, 85, 0.15);
-        border: 2px solid rgba(184, 115, 51, 0.2);
+        gap: 12px;
+        box-sizing: border-box;
+        height: 54px;
+        padding: 0 20px;
+        border-radius: 5px;
         position: relative;
         overflow: hidden;
+        font-family: STKaiti, KaiTi, 'Noto Serif SC', serif;
+        background:
+          linear-gradient(180deg, rgb(255 252 238 / 65%) 0%, transparent 42%),
+          repeating-linear-gradient(
+            90deg,
+            rgb(120 84 36 / 5%) 0%,
+            rgb(120 84 36 / 5%) 1px,
+            transparent 1px,
+            transparent 8px
+          ),
+          linear-gradient(180deg, #f5ecd7 0%, #e6d5ae 100%);
+        border: 1px solid #8a6a34;
+        box-shadow:
+          inset 0 2px 1px rgb(255 252 232 / 85%),
+          inset 0 -3px 5px rgb(110 74 30 / 30%),
+          0 3px 0 #a3813f,
+          0 6px 12px rgb(70 44 18 / 32%);
 
-        .search-results-info {
+        // 朱砂小印「检」
+        .results-mark {
+          flex-shrink: 0;
           display: flex;
           align-items: center;
-          gap: 20px;
-          flex-wrap: wrap;
-          position: relative;
-          z-index: 1;
+          justify-content: center;
+          width: 30px;
+          height: 30px;
+          font-size: 16px;
+          font-weight: bold;
+          color: #fff3e2;
+          background: linear-gradient(135deg, #d05252, #9e1f1f);
+          border: 1px solid #7d1414;
+          border-radius: 4px;
+          box-shadow:
+            inset 0 0 0 1.5px rgb(255 235 220 / 55%),
+            0 2px 5px rgb(120 24 24 / 45%);
+          text-shadow: 0 1px 1px rgb(70 14 8 / 70%);
+        }
 
-          .search-keyword {
+        .results-label {
+          flex-shrink: 0;
+          font-size: 16px;
+          font-weight: bold;
+          letter-spacing: 1px;
+          color: #3a2410;
+        }
+
+        .results-keyword {
+          font-size: 18px;
+          font-weight: bold;
+          color: #9e1f1f;
+          text-shadow: 0 1px 0 rgb(255 250 228 / 80%);
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+        .results-divider {
+          flex-shrink: 0;
+          width: 1px;
+          height: 22px;
+          background: linear-gradient(
+            180deg,
+            transparent,
+            rgb(122 84 36 / 40%),
+            transparent
+          );
+        }
+
+        .results-count {
+          flex-shrink: 0;
+          margin-left: auto;
+          font-size: 16px;
+          font-weight: bold;
+          color: #3a2410;
+
+          b {
             font-size: 18px;
-            color: #1a1a1a;
-            font-weight: 600;
-            font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', serif;
-            padding: 8px 20px;
-            background: rgba(184, 115, 51, 0.15);
-            border-radius: 24px;
-            border: 1px solid rgba(184, 115, 51, 0.3);
-          }
-
-          .search-count {
-            font-size: 16px;
-            font-weight: bolder;
-            color: #1f1f1f;
-            font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', serif;
+            font-weight: bold;
+            color: #9e1f1f;
           }
         }
       }
@@ -386,20 +984,17 @@
   }
 }
 
-
 .page-main {
   flex: 1;
-  position: relative;
   z-index: 5;
   width: 94%;
   margin: 0 auto;
   padding: 32px;
-  overflow-y: auto;
-  overflow-x: hidden;
-  background: rgba(255, 255, 255, 0.5);
+  overflow: hidden auto;
+  background: rgb(255 255 255 / 50%);
   backdrop-filter: blur(15px);
-  box-shadow: 0 8px 32px rgba(139, 115, 85, 0.15);
-  border: 2px solid rgba(184, 115, 51, 0.2);
+  box-shadow: 0 8px 32px rgb(139 115 85 / 15%);
+  border: 2px solid rgb(184 115 51 / 20%);
   position: relative;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -421,7 +1016,7 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 34px;
-      filter: drop-shadow(0 18px 26px rgba(139, 115, 85, 0.22));
+      filter: drop-shadow(0 18px 26px rgb(139 115 85 / 22%));
 
       .rod {
         width: 20px;
@@ -429,13 +1024,17 @@
         border-radius: 10px;
         background: linear-gradient(90deg, #a8865f, #6f5a3e 45%, #8b7355);
         box-shadow:
-          0 8px 20px rgba(111, 90, 62, 0.45),
-          inset 0 0 6px rgba(255, 255, 255, 0.28);
+          0 8px 20px rgb(111 90 62 / 45%),
+          inset 0 0 6px rgb(255 255 255 / 28%);
         z-index: 3;
         flex-shrink: 0;
 
-        &.left { margin-right: -2px; }
-        &.right { margin-left: -2px; }
+        &.left {
+          margin-right: -2px;
+        }
+        &.right {
+          margin-left: -2px;
+        }
       }
 
       .paper {
@@ -446,7 +1045,7 @@
         background: linear-gradient(180deg, #fffdf7, #f6ecd6);
         border-top: 3px solid #c9a97a;
         border-bottom: 3px solid #c9a97a;
-        box-shadow: inset 0 0 30px rgba(184, 115, 51, 0.12);
+        box-shadow: inset 0 0 30px rgb(184 115 51 / 12%);
         animation: unroll 2.6s cubic-bezier(0.5, 0.05, 0.4, 0.95) infinite;
 
         .paper-ink {
@@ -456,7 +1055,11 @@
           width: 220px;
           height: 74px;
           transform: translate(-50%, -50%);
-          background: radial-gradient(50% 60% at 50% 50%, rgba(70, 52, 34, 0.16), transparent 72%);
+          background: radial-gradient(
+            50% 60% at 50% 50%,
+            rgb(70 52 34 / 16%),
+            transparent 72%
+          );
           animation: inkPulse 2.6s ease-in-out infinite;
         }
 
@@ -466,11 +1069,24 @@
           transform: translateX(-50%);
           height: 6px;
           border-radius: 3px;
-          background: linear-gradient(90deg, rgba(70, 52, 34, 0.5), rgba(70, 52, 34, 0.22));
+          background: linear-gradient(
+            90deg,
+            rgb(70 52 34 / 50%),
+            rgb(70 52 34 / 22%)
+          );
 
-          &.l1 { top: 20px; width: 120px; }
-          &.l2 { top: 44px; width: 170px; }
-          &.l3 { top: 68px; width: 140px; }
+          &.l1 {
+            top: 20px;
+            width: 120px;
+          }
+          &.l2 {
+            top: 44px;
+            width: 170px;
+          }
+          &.l3 {
+            top: 68px;
+            width: 140px;
+          }
         }
       }
     }
@@ -478,7 +1094,7 @@
     .loading-text {
       color: #4a4a4a;
       font-size: 20px;
-      font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', serif;
+      font-family: STKaiti, KaiTi, 'Noto Serif SC', serif;
       letter-spacing: 4px;
     }
   }
@@ -503,12 +1119,12 @@
       padding: 52px 40px 42px;
       border-radius: 26px;
       background: linear-gradient(140deg, #fffdf8, #f6ecd6);
-      border: 2px solid rgba(184, 115, 51, 0.28);
+      border: 2px solid rgb(184 115 51 / 28%);
       box-shadow:
-        0 26px 60px rgba(139, 115, 85, 0.22),
-        0 10px 24px rgba(139, 115, 85, 0.14),
-        inset 0 2px 0 rgba(255, 255, 255, 0.75),
-        inset 0 -24px 46px rgba(184, 115, 51, 0.08);
+        0 26px 60px rgb(139 115 85 / 22%),
+        0 10px 24px rgb(139 115 85 / 14%),
+        inset 0 2px 0 rgb(255 255 255 / 75%),
+        inset 0 -24px 46px rgb(184 115 51 / 8%);
       animation: cardFloat 6s ease-in-out infinite;
       color: #b87333;
 
@@ -518,8 +1134,8 @@
         position: absolute;
         width: 26px;
         height: 26px;
-        border: 2px solid currentColor;
-        opacity: 0.34;
+        border: 2px solid currentcolor;
+        opacity: 34%;
       }
 
       &::before {
@@ -527,7 +1143,7 @@
         left: 12px;
         border-right: none;
         border-bottom: none;
-        border-radius: 12px 0 0 0;
+        border-radius: 12px 0 0;
       }
 
       &::after {
@@ -535,7 +1151,7 @@
         right: 12px;
         border-left: none;
         border-top: none;
-        border-radius: 0 0 12px 0;
+        border-radius: 0 0 12px;
       }
     }
 
@@ -552,11 +1168,11 @@
       color: #fff;
       font-size: 22px;
       font-weight: bold;
-      font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', serif;
+      font-family: STKaiti, KaiTi, 'Noto Serif SC', serif;
       background: linear-gradient(135deg, #d96a6a, #a01f1f);
       box-shadow:
-        0 9px 20px rgba(160, 31, 31, 0.4),
-        inset 0 0 0 3px rgba(255, 255, 255, 0.55);
+        0 9px 20px rgb(160 31 31 / 40%),
+        inset 0 0 0 3px rgb(255 255 255 / 55%);
       transform: rotate(-8deg);
     }
 
@@ -565,14 +1181,14 @@
       height: 150px;
       margin-bottom: 26px;
       animation: float 4.5s ease-in-out infinite;
-      filter: drop-shadow(0 12px 20px rgba(139, 115, 85, 0.28));
+      filter: drop-shadow(0 12px 20px rgb(139 115 85 / 28%));
     }
 
     h3 {
       font-size: 30px;
       color: #1a1a1a;
       margin: 0 0 14px;
-      font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', serif;
+      font-family: STKaiti, KaiTi, 'Noto Serif SC', serif;
       font-weight: bold;
       letter-spacing: 3px;
     }
@@ -583,7 +1199,7 @@
       line-height: 1.7;
       margin: 0;
       max-width: 380px;
-      font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', serif;
+      font-family: STKaiti, KaiTi, 'Noto Serif SC', serif;
       letter-spacing: 1px;
     }
 
@@ -603,25 +1219,29 @@
       margin-top: 28px;
       padding: 12px 34px;
       border-radius: 30px;
-      border: 2px solid rgba(184, 115, 51, 0.45);
+      border: 2px solid rgb(184 115 51 / 45%);
       background: linear-gradient(135deg, #fff, #f8f5f0);
       color: #6f3207;
       font-size: 15px;
       font-weight: bolder;
       letter-spacing: 2px;
       cursor: pointer;
-      font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', serif;
+      font-family: STKaiti, KaiTi, 'Noto Serif SC', serif;
       box-shadow:
-        0 6px 16px rgba(139, 115, 85, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.8);
-      transition: all 0.3s ease;
+        0 6px 16px rgb(139 115 85 / 20%),
+        inset 0 1px 0 rgb(255 255 255 / 80%);
+      transition-property:
+        transform, opacity, box-shadow, color, background, background-color,
+        border-color, filter, text-shadow;
+      transition-duration: 0.3s;
+      transition-timing-function: ease;
 
       &:hover {
         transform: translateY(-3px);
         color: #fff;
         background: linear-gradient(135deg, #cd5c5c, #b22222);
         border-color: #cd5c5c;
-        box-shadow: 0 12px 26px rgba(205, 92, 92, 0.4);
+        box-shadow: 0 12px 26px rgb(205 92 92 / 40%);
       }
 
       &.primary {
@@ -629,14 +1249,14 @@
         border-color: #8f1f1f;
         color: #fff;
         box-shadow:
-          0 8px 20px rgba(143, 31, 31, 0.32),
-          inset 0 1px 0 rgba(255, 255, 255, 0.25);
+          0 8px 20px rgb(143 31 31 / 32%),
+          inset 0 1px 0 rgb(255 255 255 / 25%);
 
         &:hover {
           background: linear-gradient(135deg, #d76a6a, #a82a2a);
           border-color: #cd5c5c;
           color: #fff;
-          box-shadow: 0 12px 26px rgba(178, 34, 34, 0.44);
+          box-shadow: 0 12px 26px rgb(178 34 34 / 44%);
         }
       }
     }
@@ -647,14 +1267,14 @@
       .card-seal {
         background: linear-gradient(135deg, #d8a24c, #8b6914);
         box-shadow:
-          0 9px 20px rgba(139, 105, 20, 0.4),
-          inset 0 0 0 3px rgba(255, 255, 255, 0.5);
+          0 9px 20px rgb(139 105 20 / 40%),
+          inset 0 0 0 3px rgb(255 255 255 / 50%);
       }
 
       .empty-action:hover {
         background: linear-gradient(135deg, #b87333, #8b6914);
         border-color: #b87333;
-        box-shadow: 0 12px 26px rgba(184, 115, 51, 0.42);
+        box-shadow: 0 12px 26px rgb(184 115 51 / 42%);
       }
     }
   }
@@ -670,20 +1290,16 @@
   }
 }
 
-
-
-
 @keyframes pulse {
-
   0%,
   100% {
     transform: scale(1);
-    opacity: 1;
+    opacity: 100%;
   }
 
   50% {
     transform: scale(1.15);
-    opacity: 0.85;
+    opacity: 85%;
   }
 }
 
@@ -698,7 +1314,6 @@
 }
 
 @keyframes titleFloat {
-
   0%,
   100% {
     transform: translateY(0);
@@ -710,7 +1325,6 @@
 }
 
 @keyframes titleGlow {
-
   0%,
   100% {
     opacity: 0;
@@ -718,7 +1332,7 @@
   }
 
   50% {
-    opacity: 0.3;
+    opacity: 30%;
     transform: scale(1.05);
   }
 }
@@ -730,7 +1344,6 @@
 }
 
 @keyframes float {
-
   0%,
   100% {
     transform: translateY(0) rotate(0deg);
@@ -760,19 +1373,17 @@
 }
 
 @keyframes inkPulse {
-
   0%,
   100% {
-    opacity: 0.45;
+    opacity: 45%;
   }
 
   50% {
-    opacity: 1;
+    opacity: 100%;
   }
 }
 
 @keyframes cardFloat {
-
   0%,
   100% {
     transform: translateY(0);
@@ -780,6 +1391,44 @@
 
   50% {
     transform: translateY(-10px);
+  }
+}
+
+// 模式 Tab hover 镶金描边的呼吸脉动
+@keyframes tabRingPulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 8px rgb(255 214 110 / 70%),
+      inset 0 0 8px rgb(255 226 130 / 55%);
+    border-color: rgb(255 226 130 / 85%);
+  }
+
+  50% {
+    box-shadow:
+      0 0 18px rgb(255 220 130 / 100%),
+      0 0 28px rgb(255 200 90 / 60%),
+      inset 0 0 14px rgb(255 230 150 / 80%);
+    border-color: rgb(255 248 210 / 100%);
+  }
+}
+
+// active 朱漆竹牍 hover 的朱红呼吸脉动
+@keyframes tabRingPulseRed {
+  0%,
+  100% {
+    box-shadow:
+      0 0 8px rgb(192 57 43 / 70%),
+      inset 0 0 8px rgb(208 74 55 / 55%);
+    border-color: rgb(224 92 68 / 85%);
+  }
+
+  50% {
+    box-shadow:
+      0 0 18px rgb(192 57 43 / 100%),
+      0 0 28px rgb(158 31 31 / 60%),
+      inset 0 0 14px rgb(230 100 76 / 80%);
+    border-color: rgb(255 160 130 / 100%);
   }
 }
 

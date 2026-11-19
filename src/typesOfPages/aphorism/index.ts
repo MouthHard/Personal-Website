@@ -4,4 +4,3 @@
  */
 
 export * from './poem';
-export * from './category';

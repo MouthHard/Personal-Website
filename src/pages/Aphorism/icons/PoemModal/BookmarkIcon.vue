@@ -22,8 +22,10 @@
     style?: CSSProperties;
   }
 
-withDefaults(defineProps<Props>(), {
-  fill: 'currentColor',
-  strokeWidth: 0,
-});
+  withDefaults(defineProps<Props>(), {
+    fill: 'currentColor',
+    strokeWidth: 0,
+    class: '',
+    style: () => ({}),
+  });
 </script>

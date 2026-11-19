@@ -1,4 +1,4 @@
-  <template>
+<template>
   <Teleport to="body">
     <Transition name="modal">
       <div v-if="visible" class="video-modal" @click="$emit('close')">
@@ -10,6 +10,103 @@
           </button>
 
           <div class="modal-content">
+            <aside class="side-panel-left">
+              <div class="vhs-rack">
+                <h4 class="rack-title">
+                  <span class="rack-icon"></span>
+                  录像带架
+                </h4>
+                <div class="rack-items">
+                  <div
+                    v-for="item in sortedPlaylist"
+                    :key="item.id"
+                    :class="['vhs-tape', { active: video?.id === item.id }]"
+                    @click="$emit('select', item)"
+                  >
+                    <div class="tape-body">
+                      <div class="tape-reels">
+                        <div class="tape-reel left"></div>
+                        <div class="tape-reel right"></div>
+                      </div>
+                      <img
+                        loading="lazy"
+                        :src="item.poster"
+                        class="tape-thumb"
+                      />
+                      <div class="tape-label">
+                        <span class="tape-title">{{ item.title }}</span>
+                        <span class="tape-duration">{{ item.duration }}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 跨频道推荐（CRT 节目表风格） -->
+              <div v-if="crossItems.length > 0" class="cross-channel">
+                <div class="cc-header">
+                  <span class="cc-icon"></span>
+                  <span class="cc-title">跨频道节目单</span>
+                  <span class="cc-count">{{ crossItems.length }}</span>
+                </div>
+                <div class="cc-grid">
+                  <div
+                    v-for="(item, idx) in crossItems"
+                    :key="`cc-${item.type}-${item.id}`"
+                    class="cc-card"
+                    :class="`cc-${item.type}`"
+                    @click="handleRecommendSelect(item)"
+                  >
+                    <div class="cc-perfs">
+                      <span
+                        v-for="n in 8"
+                        :key="'pt' + n"
+                        class="cc-perf"
+                      ></span>
+                    </div>
+                    <div class="cc-frame">
+                      <img
+                        :src="item.cover"
+                        class="cc-thumb"
+                        loading="lazy"
+                        :alt="item.title"
+                      />
+                      <div class="cc-scanlines"></div>
+                      <div class="cc-vignette"></div>
+                      <span class="cc-badge">
+                        {{ item.type === 'image' ? '图片' : '攻略' }}
+                      </span>
+                      <span class="cc-timecode">
+                        REC{{ String(idx + 1).padStart(2, '0') }}:{{
+                          String(((idx + 1) * 7) % 60).padStart(2, '0')
+                        }}
+                      </span>
+                    </div>
+                    <div class="cc-perfs">
+                      <span
+                        v-for="n in 8"
+                        :key="'pb' + n"
+                        class="cc-perf"
+                      ></span>
+                    </div>
+                    <div class="cc-label">
+                      <div class="cc-label-info">
+                        <span class="cc-name">{{ item.title }}</span>
+                        <span class="cc-meta">
+                          {{ item.location || item.author }}
+                        </span>
+                      </div>
+                      <div class="cc-stamp">
+                        <span class="cc-stamp-text">
+                          CH{{ String(idx + 1).padStart(2, '0') }}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </aside>
+
             <div class="player-section">
               <div class="crt-bezel">
                 <div class="bezel-screw screw-tl"></div>
@@ -19,8 +116,16 @@
                 <div class="bezel-vents"></div>
                 <div class="player-container">
                   <div v-if="!hasStarted" class="video-preview">
-                    <img :src="video?.poster" class="preview-poster" :alt="video?.title" />
-                    <button class="preview-play-btn" @click="startVideo" aria-label="播放视频">
+                    <img
+                      :src="video?.poster"
+                      class="preview-poster"
+                      :alt="video?.title"
+                    />
+                    <button
+                      class="preview-play-btn"
+                      aria-label="播放视频"
+                      @click="startVideo"
+                    >
                       <PlayIcon :stroke-width="2.5" />
                     </button>
                   </div>
@@ -61,24 +166,16 @@
                 <div class="deck-screw screw-bl"></div>
                 <div class="deck-screw screw-br"></div>
 
-                <div class="knob channel-knob">
-                  <div class="knob-base">
-                    <div class="knob-ring">
-                      <span v-for="n in 12" :key="'ck'+n" class="knob-tick"></span>
-                    </div>
-                    <div class="knob-body">
-                      <div class="knob-indicator"></div>
-                      <div class="knob-grip"></div>
-                    </div>
-                  </div>
-                  <span class="knob-label">CH</span>
-                </div>
-
                 <div class="deck-title">
                   <div class="title-screen">
                     <div class="screen-scanline"></div>
                     <div class="screen-frame">
-                      <span class="sticker-category" :data-category="video?.category">{{ video?.category }}</span>
+                      <span
+                        class="sticker-category"
+                        :data-category="video?.category"
+                      >
+                        {{ video?.category }}
+                      </span>
                       <h2 class="sticker-title">{{ video?.title }}</h2>
                       <p class="sticker-location">
                         <LocationIcon :stroke-width="2.2" class="loc-pin" />
@@ -88,10 +185,31 @@
                   </div>
                 </div>
 
+                <div class="knob channel-knob">
+                  <div class="knob-base">
+                    <div class="knob-ring">
+                      <span
+                        v-for="n in 12"
+                        :key="'ck' + n"
+                        class="knob-tick"
+                      ></span>
+                    </div>
+                    <div class="knob-body">
+                      <div class="knob-indicator"></div>
+                      <div class="knob-grip"></div>
+                    </div>
+                  </div>
+                  <span class="knob-label">CH</span>
+                </div>
+
                 <div class="knob volume-knob">
                   <div class="knob-base">
                     <div class="knob-ring">
-                      <span v-for="n in 12" :key="'vk'+n" class="knob-tick"></span>
+                      <span
+                        v-for="n in 12"
+                        :key="'vk' + n"
+                        class="knob-tick"
+                      ></span>
                     </div>
                     <div class="knob-body">
                       <div class="knob-indicator"></div>
@@ -118,53 +236,35 @@
                 </div>
                 <div class="author-info">
                   <span class="author-name">{{ video?.author }}</span>
-                  <span class="author-title">频道主播 · {{ video?.category }}</span>
                 </div>
-                <button class="follow-btn" :class="{ following: isFollowing }" @click="$emit('follow')">
+                <button
+                  class="follow-btn"
+                  :class="{ following: isFollowing }"
+                  @click="$emit('follow')"
+                >
                   <span class="follow-led"></span>
-                  <span class="follow-text">{{ isFollowing ? '已订阅' : '订阅' }}</span>
+                  <span class="follow-text">
+                    {{ isFollowing ? '已订阅' : '订阅' }}
+                  </span>
                 </button>
               </div>
 
               <div class="led-display">
                 <div class="led-item">
                   <EyeIcon :stroke-width="2" />
-                  <span class="led-num">{{ video ? formatNumber(counts.views) : '' }}</span>
+                  <span class="led-num">
+                    {{ video ? formatNumber(counts.views) : '' }}
+                  </span>
                 </div>
-                <button
-                  type="button"
-                  class="led-item led-interactive like"
-                  :class="{ active: isLiked }"
-                  @click="$emit('like')"
-                >
-                  <ThumbUpIcon :filled="isLiked" />
-                  <span class="led-num">{{ video ? formatNumber(counts.likes) : '' }}</span>
-                </button>
-                <button
-                  type="button"
-                  class="led-item led-interactive love"
-                  :class="{ active: isLoved }"
-                  @click="$emit('love')"
-                >
-                  <HeartIcon :filled="isLoved" />
-                  <span class="led-num">{{ video ? formatNumber(counts.loves) : '' }}</span>
-                </button>
-                <button
-                  type="button"
-                  class="led-item led-interactive bookmark"
-                  :class="{ active: isFavorited }"
-                  @click="$emit('favorite')"
-                >
-                  <BookmarkIcon :filled="isFavorited" :stroke-width="2" />
-                  <span class="led-num">{{ video ? formatNumber(counts.favorites) : '' }}</span>
-                </button>
                 <button
                   type="button"
                   class="led-item led-interactive share"
                   @click="$emit('share')"
                 >
                   <ShareIcon :stroke-width="2" />
-                  <span class="led-num">{{ video ? formatNumber(counts.shares) : '' }}</span>
+                  <span class="led-num">
+                    {{ video ? formatNumber(counts.shares) : '' }}
+                  </span>
                 </button>
                 <button
                   type="button"
@@ -173,37 +273,39 @@
                 >
                   <DownloadIcon :stroke-width="2" />
                 </button>
-              </div>
-
-              <div class="vhs-rack">
-                <h4 class="rack-title">
-                  <span class="rack-icon"></span>
-                  录像带架
-                </h4>
-                <div class="rack-items">
-                  <div
-                    v-for="item in sortedPlaylist"
-                    :key="item.id"
-                    :class="['vhs-tape', { active: video?.id === item.id }]"
-                    @click="$emit('select', item)"
-                  >
-                    <div class="tape-body">
-                      <div class="tape-reels">
-                        <div class="tape-reel left"></div>
-                        <div class="tape-reel right"></div>
-                      </div>
-                      <img
-                        loading="lazy"
-                        :src="item.poster"
-                        class="tape-thumb"
-                      />
-                      <div class="tape-label">
-                        <span class="tape-title">{{ item.title }}</span>
-                        <span class="tape-duration">{{ item.duration }}</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <button
+                  type="button"
+                  class="led-item led-interactive like"
+                  :class="{ active: isLiked }"
+                  @click="$emit('like')"
+                >
+                  <ThumbUpIcon :filled="isLiked" />
+                  <span class="led-num">
+                    {{ video ? formatNumber(counts.likes) : '' }}
+                  </span>
+                </button>
+                <button
+                  type="button"
+                  class="led-item led-interactive bookmark"
+                  :class="{ active: isFavorited }"
+                  @click="$emit('favorite')"
+                >
+                  <BookmarkIcon :filled="isFavorited" :stroke-width="2" />
+                  <span class="led-num">
+                    {{ video ? formatNumber(counts.favorites) : '' }}
+                  </span>
+                </button>
+                <button
+                  type="button"
+                  class="led-item led-interactive love"
+                  :class="{ active: isLoved }"
+                  @click="$emit('love')"
+                >
+                  <HeartIcon :filled="isLoved" />
+                  <span class="led-num">
+                    {{ video ? formatNumber(counts.loves) : '' }}
+                  </span>
+                </button>
               </div>
             </div>
           </div>
@@ -211,83 +313,136 @@
       </div>
     </Transition>
   </Teleport>
+
+  <ConfirmDialog
+    v-model:visible="confirmVisible"
+    title="跨频道跳转"
+    :message="confirmMessage"
+    confirm-text="前往"
+    cancel-text="留在这里"
+    @confirm="handleConfirmJump"
+  />
 </template>
 
 <script setup lang="ts">
-import { ref, watch, nextTick, computed } from 'vue';
-import { formatNumber } from '@/utils/landscape/format';
-import type { GlobalVideo } from '@/typesOfPages/landscape/data';
-import CloseIcon from '@/pages/Landscape/icons/common/CloseIcon.vue';
-import PlayIcon from '@/pages/Landscape/icons/common/PlayIcon.vue';
-import LocationIcon from '@/pages/Landscape/icons/common/LocationIcon.vue';
-import EyeIcon from '@/pages/Landscape/icons/common/EyeIcon.vue';
-import ThumbUpIcon from '@/pages/Landscape/icons/common/ThumbUpIcon.vue';
-import HeartIcon from '@/pages/Landscape/icons/common/HeartIcon.vue';
-import BookmarkIcon from '@/pages/Landscape/icons/common/BookmarkIcon.vue';
-import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue';
-import DownloadIcon from '@/pages/Landscape/icons/common/DownloadIcon.vue';
+  import { ref, watch, nextTick, computed } from 'vue';
+  import { useRouter } from 'vue-router';
+  import { formatNumber } from '@/utils/landscape/format';
+  import { useRelatedRecommend } from '@/composables/landscape/useRelatedRecommend';
+  import ConfirmDialog from '@/pages/Landscape/components/common/ConfirmDialog/index.vue';
+  import type { GlobalVideo } from '@/typesOfPages/landscape/data';
+  import CloseIcon from '@/pages/Landscape/icons/common/CloseIcon.vue';
+  import PlayIcon from '@/pages/Landscape/icons/common/PlayIcon.vue';
+  import LocationIcon from '@/pages/Landscape/icons/common/LocationIcon.vue';
+  import EyeIcon from '@/pages/Landscape/icons/common/EyeIcon.vue';
+  import ThumbUpIcon from '@/pages/Landscape/icons/common/ThumbUpIcon.vue';
+  import HeartIcon from '@/pages/Landscape/icons/common/HeartIcon.vue';
+  import BookmarkIcon from '@/pages/Landscape/icons/common/BookmarkIcon.vue';
+  import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue';
+  import DownloadIcon from '@/pages/Landscape/icons/common/DownloadIcon.vue';
 
-interface Counts {
-  views: number;
-  likes: number;
-  loves: number;
-  favorites: number;
-  shares: number;
-}
-
-const props = defineProps<{
-  visible: boolean;
-  video: GlobalVideo | null;
-  playlist: GlobalVideo[];
-  counts: Counts;
-  isLiked: boolean;
-  isLoved: boolean;
-  isFavorited: boolean;
-  isFollowing: boolean;
-}>();
-
-
-const emit = defineEmits<{
-  close: [];
-  ended: [];
-  follow: [];
-  like: [];
-  love: [];
-  favorite: [];
-  share: [];
-  download: [];
-  select: [video: GlobalVideo];
-}>();
-
-const videoPlayer = ref<HTMLVideoElement | null>(null);
-const hasStarted = ref(false);
-
-const sortedPlaylist = computed(() => {
-  const currentId = props.video?.id;
-  if (!currentId) return props.playlist;
-  const current = props.playlist.find((item) => item.id === currentId);
-  if (!current) return props.playlist;
-  return [current, ...props.playlist.filter((item) => item.id !== currentId)];
-});
-
-const startVideo = () => {
-  hasStarted.value = true;
-  nextTick(() => {
-    if (videoPlayer.value && props.video) {
-      videoPlayer.value.src = props.video.url || '';
-      videoPlayer.value.play();
-    }
-  });
-};
-
-watch(
-  () => props.video,
-  () => {
-    hasStarted.value = false;
+  interface Counts {
+    views: number;
+    likes: number;
+    loves: number;
+    favorites: number;
+    shares: number;
   }
-);
 
-defineExpose({ videoPlayer });
+  const props = defineProps<{
+    visible: boolean;
+    video: GlobalVideo | null;
+    playlist: GlobalVideo[];
+    counts: Counts;
+    isLiked: boolean;
+    isLoved: boolean;
+    isFavorited: boolean;
+    isFollowing: boolean;
+  }>();
+
+  const emit = defineEmits<{
+    close: [];
+    ended: [];
+    follow: [];
+    like: [];
+    love: [];
+    favorite: [];
+    share: [];
+    download: [];
+    select: [video: GlobalVideo];
+  }>();
+
+  const videoPlayer = ref<HTMLVideoElement | null>(null);
+  const hasStarted = ref(false);
+
+  const sortedPlaylist = computed(() => {
+    const currentId = props.video?.id;
+    if (!currentId) return props.playlist;
+    const current = props.playlist.find((item) => item.id === currentId);
+    if (!current) return props.playlist;
+    return [current, ...props.playlist.filter((item) => item.id !== currentId)];
+  });
+
+  const startVideo = () => {
+    hasStarted.value = true;
+    nextTick(() => {
+      if (videoPlayer.value && props.video) {
+        videoPlayer.value.src = props.video.url || '';
+        videoPlayer.value.play();
+      }
+    });
+  };
+
+  watch(
+    () => props.video,
+    () => {
+      hasStarted.value = false;
+    },
+  );
+
+  defineExpose({ videoPlayer });
+
+  const { items: crossItems } = useRelatedRecommend(() => ({
+    currentId: props.video?.id,
+    currentType: 'video' as const,
+    authorId: props.video?.authorId,
+    location: props.video?.location,
+    tags: props.video?.tags,
+  }));
+
+  const router = useRouter();
+
+  const typeLabelMap: Record<string, string> = {
+    image: '图片',
+    video: '视频',
+    guide: '攻略',
+  };
+
+  const confirmVisible = ref(false);
+  const confirmMessage = ref('');
+  const pendingItem = ref<{ id: string; type: string } | null>(null);
+
+  const handleRecommendSelect = (item: { id: string; type: string }) => {
+    const label = typeLabelMap[item.type] || '内容';
+    confirmMessage.value = `即将跳转至「${label}」详情页，是否继续？`;
+    pendingItem.value = item;
+    confirmVisible.value = true;
+  };
+
+  const handleConfirmJump = () => {
+    const item = pendingItem.value;
+    if (!item) return;
+    emit('close');
+    if (item.type === 'guide') {
+      router.push({ path: '/landscape/guides', query: { id: item.id } });
+    } else {
+      router.push({
+        path: '/landscape/category',
+        query: { id: item.id, type: item.type },
+      });
+    }
+    pendingItem.value = null;
+  };
 </script>
 
 <style scoped lang="scss" src="./index.scss" />

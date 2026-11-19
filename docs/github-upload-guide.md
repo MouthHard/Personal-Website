@@ -20,6 +20,7 @@ src/
 ├── router/            # 路由配置
 ├── services/          # 数据获取层（fetch/API/IO，不含 UI 依赖）
 ├── stores/            # Pinia 状态管理（Composition API 风格）
+├── styles/            # 全局样式（global.scss，仅在 main.ts 引入）
 ├── typesOfPages/      # TypeScript 类型定义（按页面维度组织）
 └── utils/             # 纯工具函数（无 Vue/IO/UI 依赖）
 ```
@@ -61,6 +62,7 @@ pages/ExamplePage/
 | `stylelint.config.cjs` | Stylelint SCSS 样式规范 | ✅ |
 | `commitlint.config.cjs` | Commitlint 提交信息规范 | ✅ |
 | `.lintstagedrc.json` | lint-staged 暂存文件 lint 配置 | ✅ |
+| `knip.config.ts` | Knip 未使用代码/依赖检测配置 | ✅ |
 | `.husky/pre-commit` | Git pre-commit 钩子 | ✅ |
 | `.husky/commit-msg` | Git commit-msg 钩子 | ✅ |
 | `.github/workflows/ci.yml` | GitHub Actions CI 流水线 | ✅ |
@@ -85,23 +87,26 @@ pages/ExamplePage/
 
 | 文件/目录 | 说明 | 忽略方式 | 远程是否残留 |
 |---|---|---|---|
-| `dist/` | 构建输出（只推 gh-pages 分支） | `.gitignore` | 需确认 |
-| `node_modules/` | npm 依赖 | `.gitignore` | 需确认 |
+| `dist/` | 构建输出（只推 gh-pages 分支） | `.gitignore` | 否（已核实） |
+| `dist/stats.html` | 包体积可视化报告（仅 production 构建生成，约 2MB），不是站点资源 | 构建产物，随 dist 清理 | 否（不入库，但别发布到 gh-pages） |
+| `node_modules/` | npm 依赖 | `.gitignore` | 否（已核实） |
 | `types/auto-imports.d.ts` | Vite 自动生成 | `.gitignore` | 否 |
 | `types/components.d.ts` | Vite 自动生成 | `.gitignore` | 否 |
 
-#### AI 工具目录（误提交到远程，需清理）
+> 构建若用 `--mode gh-pages`（非 production），不会生成 `stats.html`；用 `npm run build` 会生成，部署前需删除，避免把 2MB 报告推到 gh-pages。
+
+#### AI 工具目录（曾误提交，现已清理）
 
 | 文件/目录 | 说明 | 忽略方式 | 远程是否残留 |
 |---|---|---|---|
-| `.arts/` | CodeArts AI 运行时目录 | `.gitignore` | **是，需清理** |
-| `.codeartsdoer/` | CodeArts Doer 记忆目录 | `.gitignore` | **是，需清理** |
+| `.arts/` | CodeArts AI 运行时目录 | `.gitignore` | 否（已清理） |
+| `.codeartsdoer/` | CodeArts Doer 记忆目录 | `.gitignore` | 否（已清理） |
+| `.playwright-cli/` | Playwright CLI 运行缓存 | `.gitignore` | 否（本轮补入忽略） |
 
-> **清理方法**（网络恢复后执行）：
+> 清理方法（如再次误入库）：
 > ```bash
-> git rm -r --cached .arts .codeartsdoer dist node_modules 2>/dev/null
-> git commit -m "chore: 清理误提交的AI工具目录和构建产物"
-> git push origin feat/update-site
+> git rm -r --cached .arts .codeartsdoer .playwright-cli 2>/dev/null
+> git commit -m "chore: 清理误提交的AI工具目录"
 > ```
 
 #### 临时文件与目录
@@ -109,7 +114,7 @@ pages/ExamplePage/
 | 文件/目录 | 说明 | 忽略方式 | 远程是否残留 |
 |---|---|---|---|
 | `public/test/` | 临时测试目录（AVIF 转换用，已上传 OSS） | `.gitignore` + 已删除本地 | 否（已清理） |
-| `gh-pages:test/` | gh-pages 分支的 test/ 目录（构建产物） | 删除 `public/test/` 后下次部署自动消失 | **是，下次部署后消失** |
+| `gh-pages:test/` | gh-pages 分支残留的 test/ 目录 | 不用 `-a/--add` 部署（默认 `-v .` 会清掉 dist 不存在的旧文件） | 部署一次即清除 |
 | `.tmp-sass-check.css.map` | SCSS 编译临时文件 | `.gitignore` | 否 |
 | `nul` | Windows 保留文件名 | `.gitignore` | 否 |
 | `*.log` | 日志文件 | `.gitignore` | 否 |
@@ -129,6 +134,7 @@ pages/ExamplePage/
 
 ```
 .arts/  .codeartsdoer/  .codegraph/  .workbuddy/  .scratchpad/
+.playwright-cli/
 .cursor/  .claude/  .cline/  .windsurf/  .codeium/  .copilot/
 .continue/  .aider/  .specstory/  .amp/  .augment/
 ```
@@ -195,6 +201,10 @@ echo "--- 检查4: node_modules/ 未被跟踪 ---"
 git ls-files node_modules/ 2>/dev/null | head -1 && echo "✗ node_modules被跟踪" || echo "✓"
 echo "--- 检查5: 无临时文件 ---"
 git ls-files | grep -E "nul$|\.tmp-sass|\.log$" | head -1 && echo "✗ 有临时文件" || echo "✓"
+echo "--- 检查6: 索引里无大小写重复路径 ---"
+git ls-files | awk '{print tolower($0)"\t"$0}' | sort | awk -F'\t' '{if($1==p1 && $2!=p2) print "✗ 重复: "p2" <-> "$2; p1=$1; p2=$2}'
+echo "--- 检查7: 类型检查通过 ---"
+npx vue-tsc --noEmit && echo "✓ 类型检查 0 错误"
 ```
 
 ---
@@ -226,13 +236,19 @@ git merge origin/feat/update-site         # 8. 整合远程提交（Windows 禁�
 git push origin feat/update-site          # 9. 推送源码
 
 # ── 构建并部署到 GitHub Pages ──
-npx vite build --mode gh-pages            # 10. 构建产物到 dist/
-npx gh-pages -d dist -r https://github.com/MouthHard/Personal-Website.git -b gh-pages  # 11. 部署 dist 到 gh-pages 分支
+npx vue-tsc --noEmit                      # 10. 类型检查（应为 0 错误）
+npx vite build --mode gh-pages            # 11. 构建产物到 dist/（不生成 stats.html）
+rm -f dist/stats.html                     # 12. 防御性清理：stats.html 不是站点资源
+npx gh-pages -d dist --nojekyll -b gh-pages -m "deploy: 更新站点" \
+  -r https://github.com/MouthHard/Personal-Website.git   # 13. 部署到 gh-pages
 ```
 
 部署成功后访问：https://mouthhard.github.io/Personal-Website/
 
-> **注意**：PowerShell 下构建必须用 `npx vite build --mode gh-pages`，不要走 `npm run build -- --mode gh-pages`（参数解析会失败）。
+> **注意**：
+> - PowerShell 下构建必须用 `npx vite build --mode gh-pages`，不要走 `npm run build -- --mode gh-pages`（参数解析会失败）。`npm run build`（production）会生成 2MB 的 `dist/stats.html`，故部署走 gh-pages 模式。
+> - **绝对不要加 `-a/--add`**：加上后只增不删，gh-pages 分支会永久残留旧文件（历史上的 `test/` 目录就是这样留下的）。默认 `-v .`（remove pattern）会删除 dist 里不存在的旧文件，正是需要的。
+> - `--nojekyll` 会写入 `.nojekyll`，避免 GitHub Pages 走 Jekyll 处理 `_` 开头的文件。
 
 ### ⚠️ lint-staged stash 陷阱（曾导致 235 个文件改动丢失）
 
@@ -276,6 +292,33 @@ git fetch origin feat/update-site
 git merge origin/feat/update-site
 git push origin feat/update-site
 ```
+
+### 仓库里出现大小写重复的目录（同一份代码两份）
+
+**成因**：Windows 文件系统大小写不敏感，`Food/` 与 `food/`、`Aphorism/` 与 `aphorism/` 在本地是同一个目录，但在 Linux/CI 上是两个目录，于是仓库里出现「同一份代码两份」。
+
+**排查**（应输出为空）：
+```bash
+git ls-files | awk '{print tolower($0)"\t"$0}' | sort | awk -F'\t' '{if($1==p1 && $2!=p2) print p2" <-> "$2; p1=$1; p2=$2}'
+```
+
+**修复**：保留与 import 一致的那个大小写，把另一个从索引移除（只动索引，不删本地文件）：
+```bash
+# 例：import 用 @/utils/aphorism/...，则大写那份是残留
+git rm -r --cached src/utils/Aphorism
+git commit -m "chore: 移除大小写重复的冗余目录"
+```
+> 已在本轮清理：`src/pages/TravelGuide/components/food/**`（8 个文件，import 统一用 `Food/`）、`src/utils/Aphorism/categoryFilter.ts`（import 统一用 `aphorism/`）。
+
+### CI 没有在当前分支跑
+
+`.github/workflows/ci.yml` 的触发分支只有 `main` / `master`，推送到 `feat/update-site` **不会触发 CI**，PR 合并到 `master` 时才校验。因此本地提交前必须自己跑一遍：
+
+```bash
+npm run typecheck && npx stylelint "src/**/*.scss" && npx eslint . --ext .vue,.js,.ts && npm run test:run
+```
+
+> 若希望分支推送也受 CI 保护，把 `ci.yml` 的 `branches` 加上 `feat/**`（尚未修改，按需决定）。
 
 ### PowerShell 构建参数解析失败
 
@@ -363,12 +406,14 @@ git commit -m "chore: 移除临时目录的git跟踪"
 2. **提交前必暂存**：`git add -A` 暂存全部改动后再 `git commit`，避免 lint-staged stash 陷阱
 3. **提交后必验证**：`git stash list`（无残留）+ `git diff HEAD`（无输出），确保改动未丢失
 4. **推送前必拉**：先 `git fetch` 再 `git merge`（Windows 禁用 rebase）
-5. **推送后必部署**：源码推送到 `feat/update-site` 后，必须执行 `npx vite build --mode gh-pages` 构建 + `npx gh-pages` 部署到 `gh-pages` 分支，确保线上站点同步
+5. **推送后必部署**：源码推送到 `feat/update-site` 后，必须执行 `npx vite build --mode gh-pages` 构建 + `npx gh-pages -d dist --nojekyll` 部署到 `gh-pages` 分支，确保线上站点同步
 6. **禁止强推**：不使用 `--force`，保留完整历史
-7. **构建命令**：统一用 `npx vite build --mode gh-pages`
-8. **产物分离**：`dist/` 只推 `gh-pages` 分支，不提交源码分支
-9. **网络波动**：确认无代理后重试，不调整全局代理配置
-10. **禁止跳过钩子**：不用 `--no-verify`，除非确认是 stash 中代码本身的历史 lint 问题
+7. **构建命令**：统一用 `npx vite build --mode gh-pages`；构建前类型检查须 0 错误（当前已达成）
+8. **产物分离**：`dist/` 只推 `gh-pages` 分支，不提交源码分支；`dist/stats.html` 不发布
+9. **禁止 `--add`**：部署一律不加 `-a`，否则旧文件永久残留
+10. **网络波动**：确认无代理后重试，不调整全局代理配置
+11. **禁止跳过钩子**：不用 `--no-verify`，除非确认是 stash 中代码本身的历史 lint 问题
+12. **路径大小写唯一**：新增目录/文件前确认仓库内没有仅大小写不同的同名路径（见四、排障指南）
 
 ---
 
@@ -381,14 +426,14 @@ git commit -m "chore: 移除临时目录的git跟踪"
 | # | 冲突 | 工具 | 预防 |
 |---|------|------|------|
 | 1 | lint-staged stash 丢失改动 | lint-staged + husky | 提交前 `git add -A`，提交后 `git stash list` 验证 |
-| 2 | stylelint 96 个规则错误 | stylelint + 项目代码 | 放宽 keyframes-name-pattern 等规则（见下方） |
-| 3 | lint-staged SIGKILL | lint-staged + Node.js | `.husky/pre-commit` 加 `NODE_OPTIONS="--max-old-space-size=4096"` |
+| 2 | stylelint 96 个规则错误 | stylelint + 项目代码 | 已在 `stylelint.config.cjs` 放宽（见下方），当前 0 错误 |
+| 3 | lint-staged SIGKILL | lint-staged + Node.js | `.husky/pre-commit` 需加 `NODE_OPTIONS="--max-old-space-size=4096"`（**尚未落地，大提交时注意**） |
 
 ### 🟡 中风险冲突
 
 | # | 冲突 | 工具 | 预防 |
 |---|------|------|------|
-| 4 | @typescript-eslint v5 与 TS 5.9 | eslint + typescript | 升级到 @typescript-eslint v6+ |
+| 4 | @typescript-eslint v5 与 TS 5.9 | eslint + typescript | 已升级到 v8.73（匹配 TS 5.9） |
 | 5 | public/test/ 反复提交 | git + .gitignore | `git rm -r --cached` 解除跟踪 |
 | 6 | stylelint 不认识 :deep | stylelint + Vue 3 | 配置 ignorePseudoClasses: ['deep'] |
 
@@ -431,5 +476,7 @@ git fetch origin                          # 拉取远程引用
 git merge origin/feat/update-site         # 整合远程提交
 git push origin feat/update-site          # 推送源码
 npx vite build --mode gh-pages            # 构建部署产物
-npx gh-pages -d dist -r https://github.com/MouthHard/Personal-Website.git -b gh-pages  # 部署到 gh-pages
+rm -f dist/stats.html                     # 清掉包体积报告，别发布
+npx gh-pages -d dist --nojekyll -b gh-pages -m "deploy: 更新站点" \
+  -r https://github.com/MouthHard/Personal-Website.git   # 部署（禁用 -a）
 ```

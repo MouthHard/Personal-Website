@@ -1,0 +1,333 @@
+@use 'variables' as *;
+
+.scroll-annotation {
+  .scroll-paper {
+    .annotation-content {
+      // ===== 背景模块：古籍函套风格 双卡片容器 =====
+      .tab-panel.background-panel {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+
+        .background-section {
+          position: relative;
+          padding: 18px 22px 20px 26px;
+          border-radius: 6px;
+          overflow: hidden;
+          transition:
+            box-shadow 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+            filter 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+          // 函套织锦底纹——三层纹理叠加模拟织锦质感
+          background:
+            repeating-linear-gradient(
+              45deg,
+              rgb(74 40 16 / 5%) 0%,
+              rgb(74 40 16 / 5%) 1px,
+              transparent 1px,
+              transparent 5px
+            ),
+            repeating-linear-gradient(
+              -45deg,
+              rgb(74 40 16 / 4%) 0%,
+              rgb(74 40 16 / 4%) 1px,
+              transparent 1px,
+              transparent 5px
+            ),
+            repeating-linear-gradient(
+              0deg,
+              rgb(138 96 48 / 2%) 0%,
+              rgb(138 96 48 / 2%) 1px,
+              transparent 1px,
+              transparent 8px
+            ),
+            linear-gradient(135deg, #f6ead4 0%, #ead8bc 40%, #e0d0b0 100%);
+
+          // 函套边框——三层金线+强内凹+外投影，模拟硬质函套厚度
+          box-shadow:
+            inset 0 0 0 1px #8a6030,
+            inset 0 0 0 2px #f5e8c8,
+            inset 0 0 0 3px #8a6030,
+            inset 0 0 0 4px #f0e0c0,
+            inset 0 4px 8px #fff8e0,
+            inset 0 -4px 8px #c8a878,
+            inset 4px 0 6px rgb(255 248 224 / 30%),
+            inset -4px 0 6px rgb(200 168 120 / 30%),
+            0 6px 16px rgb(0 0 0 / 16%),
+            0 3px 6px rgb(0 0 0 / 10%),
+            0 1px 2px rgb(0 0 0 / 6%);
+
+          // hover——无位移，用光泽和阴影变化
+          &:hover {
+            filter: brightness(1.04);
+            box-shadow:
+              inset 0 0 0 1px #a07040,
+              inset 0 0 0 2px #f8eccc,
+              inset 0 0 0 3px #a07040,
+              inset 0 0 0 4px #f2e4c4,
+              inset 0 4px 8px #fff8e0,
+              inset 0 -4px 8px #c8a878,
+              inset 4px 0 6px rgb(255 248 224 / 40%),
+              inset -4px 0 6px rgb(200 168 120 / 40%),
+              0 8px 24px rgb(0 0 0 / 20%),
+              0 4px 8px rgb(0 0 0 / 12%),
+              0 1px 3px rgb(0 0 0 / 8%);
+          }
+
+          // 函套左侧色带——加宽，有立体凸起感
+          &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 7px;
+            border-radius: 6px 0 0 6px;
+            box-shadow:
+              inset 0 0 0 1px rgb(255 255 255 / 25%),
+              inset -1px 0 2px rgb(0 0 0 / 20%),
+              2px 0 4px rgb(0 0 0 / 10%);
+          }
+
+          // 函套右侧铜扣装饰——加大，更精致
+          &::after {
+            content: '';
+            position: absolute;
+            right: 12px;
+            top: 16px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            opacity: 60%;
+          }
+        }
+
+        // ===== 四角铜包角装饰 =====
+        .background-section-corner {
+          position: absolute;
+          width: 14px;
+          height: 14px;
+          pointer-events: none;
+          z-index: 2;
+
+          &.corner-tl {
+            top: 3px;
+            left: 3px;
+            border-top: 2px solid;
+            border-left: 2px solid;
+            border-radius: 4px 0 0;
+          }
+
+          &.corner-tr {
+            top: 3px;
+            right: 3px;
+            border-top: 2px solid;
+            border-right: 2px solid;
+            border-radius: 0 4px 0 0;
+          }
+
+          &.corner-bl {
+            bottom: 3px;
+            left: 3px;
+            border-bottom: 2px solid;
+            border-left: 2px solid;
+            border-radius: 0 0 0 4px;
+          }
+
+          &.corner-br {
+            bottom: 4px;
+            right: 3px;
+            border-bottom: 2px solid;
+            border-right: 2px solid;
+            border-radius: 0 0 4px;
+          }
+        }
+
+        .background-section-header {
+          display: flex;
+          align-items: center;
+          gap: 14px;
+          margin-bottom: 14px;
+          padding: 6px 12px 10px 10px;
+          border-radius: 4px;
+          position: relative;
+
+          // 签条底色——模拟古籍函套上的题名签条
+          background:
+            repeating-linear-gradient(
+              90deg,
+              rgb(138 96 48 / 6%) 0%,
+              rgb(138 96 48 / 6%) 1px,
+              transparent 1px,
+              transparent 3px
+            ),
+            linear-gradient(180deg, #f0e4cc 0%, #e4d4b0 100%);
+          box-shadow:
+            inset 0 0 0 1px rgb(138 96 48 / 30%),
+            inset 0 2px 3px #fff8e0,
+            inset 0 -2px 3px #d0c0a0,
+            0 2px 4px rgb(0 0 0 / 8%);
+        }
+
+        // 铜扣印章——模拟函套上的铜质锁扣印章
+        .background-section-seal {
+          width: 42px;
+          height: 42px;
+          flex-shrink: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 6px;
+          font-size: 21px;
+          font-weight: 900;
+          color: #fff0dc;
+          font-family: STKaiti, KaiTi, serif;
+          transform: rotate(-6deg);
+          transition:
+            filter 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+            box-shadow 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+          text-shadow: 0 1px 3px rgb(0 0 0 / 50%);
+          position: relative;
+
+          // 印章上的铜钉装饰
+          &::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            right: 3px;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #f0d0a0 0%, #8a6030 100%);
+            box-shadow: inset 0 0 0 1px rgb(255 240 220 / 40%);
+          }
+        }
+
+        .background-section:hover .background-section-seal {
+          filter: brightness(1.15);
+        }
+
+        // 签条题名——模拟古籍函套上的签条标签
+        .background-section-title {
+          font-size: 22px;
+          font-weight: 900;
+          letter-spacing: 5px;
+          color: #1a1004;
+          font-family: STKaiti, KaiTi, serif;
+          text-shadow:
+            0 1px 0 #fff8e0,
+            0 2px 3px rgb(0 0 0 / 8%);
+        }
+
+        // 函套内文——墨书正文
+        .background-section-text {
+          margin: 0;
+          font-size: 18px;
+          line-height: 2.1;
+          font-weight: 700;
+          color: $ink-mid;
+          font-family: STKaiti, KaiTi, 'Noto Serif SC', serif;
+          text-shadow:
+            0 1px 0 rgb(255 255 255 / 35%),
+            0 2px 2px rgb(0 0 0 / 6%);
+
+          // 正文区域加微妙的底纹分隔
+          padding-left: 4px;
+          border-left: 2px solid rgb(138 96 48 / 15%);
+        }
+
+        // ===== 时代背景：靛蓝函套 =====
+        .background-era {
+          &::before {
+            background: linear-gradient(
+              180deg,
+              #5a7a9a 0%,
+              #3a5a7a 40%,
+              #2a4a6a 70%,
+              #1a3a5a 100%
+            );
+          }
+
+          &::after {
+            background: radial-gradient(
+              circle,
+              #c0a070 0%,
+              #8a6030 60%,
+              #5a4020 100%
+            );
+            box-shadow:
+              0 0 4px rgb(192 160 112 / 50%),
+              inset 0 0 0 1px rgb(255 240 220 / 40%),
+              inset 0 1px 2px rgb(255 240 220 / 30%);
+          }
+
+          .background-section-seal {
+            background: linear-gradient(
+              135deg,
+              #5a7a9a 0%,
+              #3a5a7a 50%,
+              #2a4a6a 100%
+            );
+            box-shadow:
+              0 5px 12px rgb(42 74 106 / 55%),
+              inset 0 0 0 1px #fff0dc,
+              inset 0 0 0 2px #2a4a6a,
+              inset 0 0 0 3px #fff0dc,
+              inset 0 2px 5px #7a9aba,
+              inset 0 -2px 5px #1a3a5a;
+          }
+
+          .background-section-corner {
+            border-color: #4a6a8a;
+          }
+        }
+
+        // ===== 创作背景：朱砂函套 =====
+        .background-creation {
+          &::before {
+            background: linear-gradient(
+              180deg,
+              #d85a4a 0%,
+              #a8302f 40%,
+              #8f1f1f 70%,
+              #6a0f0f 100%
+            );
+          }
+
+          &::after {
+            background: radial-gradient(
+              circle,
+              #e0c090 0%,
+              #a07040 60%,
+              #6a4820 100%
+            );
+            box-shadow:
+              0 0 4px rgb(224 192 144 / 50%),
+              inset 0 0 0 1px rgb(255 240 220 / 40%),
+              inset 0 1px 2px rgb(255 240 220 / 30%);
+          }
+
+          .background-section-seal {
+            background: linear-gradient(
+              135deg,
+              #d85a4a 0%,
+              #a8302f 50%,
+              #8f1f1f 100%
+            );
+            box-shadow:
+              0 5px 12px rgb(143 31 31 / 55%),
+              inset 0 0 0 1px #fff0dc,
+              inset 0 0 0 2px #8f1f1f,
+              inset 0 0 0 3px #fff0dc,
+              inset 0 2px 5px #e06050,
+              inset 0 -2px 5px #640a05;
+          }
+
+          .background-section-corner {
+            border-color: #c8523f;
+          }
+        }
+      }
+    }
+  }
+}

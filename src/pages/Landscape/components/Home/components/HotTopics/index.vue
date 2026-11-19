@@ -26,7 +26,7 @@
           <span class="card-number">0{{ index + 1 }}</span>
         </div>
         <div class="card-content">
-          <div class="publish-time-top" @click.stop>
+          <div class="publish-time-top">
             <CalendarIcon class="time-svg" />
             <span class="time-text">{{ topic.date }}</span>
           </div>
@@ -62,15 +62,21 @@
             <div class="card-stats">
               <span class="stat stat-views">
                 <EyeIcon />
-                <span class="stat-value">{{ formatNumber(getTopicCount(topic).views) }}</span>
+                <span class="stat-value">
+                  {{ formatNumber(getTopicCount(topic).views) }}
+                </span>
               </span>
               <span class="stat stat-likes">
                 <ThumbUpIcon />
-                <span class="stat-value">{{ formatNumber(getTopicCount(topic).likes) }}</span>
+                <span class="stat-value">
+                  {{ formatNumber(getTopicCount(topic).likes) }}
+                </span>
               </span>
               <span class="stat stat-favorites">
                 <BookmarkIcon />
-                <span class="stat-value">{{ formatNumber(getTopicCount(topic).favorites) }}</span>
+                <span class="stat-value">
+                  {{ formatNumber(getTopicCount(topic).favorites) }}
+                </span>
               </span>
               <span class="stat stat-comments">
                 <CommentIcon />
@@ -89,35 +95,17 @@
       <div class="load-more-container">
         <button
           class="load-more-btn"
-          :class="{ loading: isLoading }"
-          :disabled="isLoading || !hasMoreTopics"
+          :disabled="!hasMoreTopics"
           @click="loadMoreTopics"
         >
-          <SpinnerIcon
-            v-if="isLoading"
-            class="loading-icon"
-          />
-          <ChevronDownIcon
-            v-else
-            class="arrow-icon"
-          />
+          <ChevronDownIcon class="arrow-icon" />
           <span>
-            {{
-              isLoading
-                ? '加载中...'
-                : hasMoreTopics
-                  ? '加载更多主题'
-                  : '已加载全部'
-            }}
+            {{ hasMoreTopics ? '加载更多主题' : '已加载全部' }}
           </span>
-          <ChevronDownIcon
-            v-if="!isLoading && hasMoreTopics"
-            class="arrow-icon"
-          />
+          <ChevronDownIcon v-if="hasMoreTopics" class="arrow-icon" />
         </button>
       </div>
     </div>
-
   </section>
 </template>
 
@@ -125,11 +113,14 @@
   import { ref, computed, watch } from 'vue';
   import { useRouter } from 'vue-router';
   import type { Topic } from '@/typesOfPages/landscape/home';
-  import { useLandscapeDataStore, useInteractionStore } from '@/stores/landscape';
+  import {
+    useLandscapeDataStore,
+    useInteractionStore,
+  } from '@/stores/landscape';
   import { parseCount, formatNumber } from '@/utils/landscape/format';
   import TrendIcon from '@/pages/Landscape/icons/components/home/HotTopics/TrendIcon.vue';
   import PlayCircleIcon from '@/pages/Landscape/icons/components/home/HotTopics/PlayCircleIcon.vue';
-  import SpinnerIcon from '@/pages/Landscape/icons/components/home/HotTopics/SpinnerIcon.vue';
+
   import CalendarIcon from '@/pages/Landscape/icons/common/CalendarIcon.vue';
   import LocationIcon from '@/pages/Landscape/icons/common/LocationIcon.vue';
   import EyeIcon from '@/pages/Landscape/icons/common/EyeIcon.vue';
@@ -144,20 +135,20 @@
 
   const hotTopics = computed(() => dataStore.getAllHotTopics());
   const displayCount = ref(2);
-  const isLoading = ref(false);
 
-  const displayedTopics = computed(() => {
-    return hotTopics.value.slice(0, displayCount.value);
-  });
+  const displayedTopics = computed(() =>
+    hotTopics.value.slice(0, displayCount.value),
+  );
 
   const getTopicId = (topic: Topic) => `topic-${topic.id}`;
 
-  const getTopicCount = (topic: Topic) => interactionStore.getCount(getTopicId(topic));
+  const getTopicCount = (topic: Topic) =>
+    interactionStore.getCount(getTopicId(topic));
 
   watch(
     () => displayedTopics.value,
     (topics) => {
-      topics.forEach(topic => {
+      topics.forEach((topic) => {
         interactionStore.registerCount(getTopicId(topic), {
           views: parseCount(topic.views),
           likes: parseCount(topic.likes),
@@ -168,12 +159,12 @@
     { immediate: true },
   );
 
-  const hasMoreTopics = computed(() => {
-    return displayCount.value < hotTopics.value.length;
-  });
+  const hasMoreTopics = computed(
+    () => displayCount.value < hotTopics.value.length,
+  );
 
   const loadMoreTopics = () => {
-    if (isLoading.value || !hasMoreTopics.value) return;
+    if (!hasMoreTopics.value) return;
     displayCount.value += 2;
   };
 

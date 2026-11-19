@@ -7,14 +7,14 @@
 
 const DATA_BASE = `${import.meta.env.BASE_URL}static-data`;
 
-const cache = new Map<string, Promise<any>>();
+const cache = new Map<string, Promise<unknown>>();
 
-export function loadJSON<T = any>(filename: string): Promise<T> {
+export function loadJSON<T = unknown>(filename: string): Promise<T> {
   const cacheKey = filename;
   if (cache.has(cacheKey)) {
-    return cache.get(cacheKey)!;
+    return cache.get(cacheKey)! as Promise<T>;
   }
-  const promise = fetch(`${DATA_BASE}/${filename}`)
+  const promise: Promise<unknown> = fetch(`${DATA_BASE}/${filename}`)
     .then((resp) => {
       if (!resp.ok) {
         throw new Error(`Failed to load ${filename}: ${resp.status}`);
@@ -27,7 +27,7 @@ export function loadJSON<T = any>(filename: string): Promise<T> {
       throw err;
     });
   cache.set(cacheKey, promise);
-  return promise;
+  return promise as Promise<T>;
 }
 
 export interface PaginatedResponse<T> {
@@ -56,10 +56,10 @@ export function paginate<T>(
   return { items: pageItems, total, page, limit, totalPages };
 }
 
-export function filterByKeyword<T extends Record<string, any>>(
+export function filterByKeyword<T extends object>(
   items: T[],
   keyword?: string,
-  fields: (keyof T)[] = ['name', 'title'],
+  fields: (keyof T)[] = ['name', 'title'] as (keyof T)[],
 ): T[] {
   if (!keyword) return items;
   const lower = keyword.toLowerCase();
@@ -71,10 +71,10 @@ export function filterByKeyword<T extends Record<string, any>>(
   );
 }
 
-export function filterByField<T extends Record<string, any>>(
+export function filterByField<T extends object>(
   items: T[],
   field: keyof T,
-  value?: any,
+  value?: unknown,
 ): T[] {
   if (value === undefined || value === null || value === '') return items;
   return items.filter((item) => item[field] === value);
@@ -87,5 +87,6 @@ export async function findItemById<T extends { id: number | string }>(
   const data = await loadJSON<PaginatedResponse<T>>(filename);
   if (!data) return null;
   const items = data.items || data;
+  // 有意使用 ==：本地 JSON 的 id 可能是 number 或 string，需宽松匹配（如 42 == '42'）。
   return items.find((item) => item.id == id) || null;
 }

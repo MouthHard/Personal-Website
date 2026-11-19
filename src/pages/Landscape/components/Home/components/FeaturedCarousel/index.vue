@@ -13,7 +13,7 @@
     <div
       class="carousel-container"
       @mouseenter="pauseAutoPlay"
-      @mouseleave="resumeAutoPlay"
+      @mouseleave="startAutoPlay"
     >
       <div class="carousel-content">
         <div class="carousel-perspective">
@@ -28,7 +28,7 @@
               :class="{ active: currentSlide === i }"
             >
               <div class="slide-image">
-                <img :src="slide.image" loading="lazy" @load="onImageLoad(i)" />
+                <img :src="slide.image" loading="lazy" />
 
                 <!-- 媒体类型标识 -->
                 <div class="media-type-badge">
@@ -244,16 +244,12 @@
       </button>
     </div>
 
-    <ShareMenu
-      v-model:visible="showShareMenu"
-      :work="shareWork"
-      @share="handleSharePlatform"
-    />
+    <ShareMenu v-model:visible="showShareMenu" :work="shareWork" />
   </section>
 </template>
 
 <script setup lang="ts">
-  import { ref, computed, onMounted, onUnmounted, watch, type Component } from 'vue';
+  import { ref, computed, onMounted, onUnmounted, watch } from 'vue';
   import { useHomeViewData } from '@/composables/landscape';
   import { useInteractionStore } from '@/stores/landscape';
   import {
@@ -293,7 +289,8 @@
     const slide = currentShareSlide.value;
     if (!slide) return {};
     return {
-      type: slide.mediaType === 'video' ? ('video' as const) : ('image' as const),
+      type:
+        slide.mediaType === 'video' ? ('video' as const) : ('image' as const),
       title: slide.title,
       cover: slide.image,
       author: slide.author,
@@ -331,19 +328,9 @@
     }
   };
 
-  const resumeAutoPlay = () => {
-    startAutoPlay();
-  };
-
-  const onImageLoad = (_index: number) => {
-    // 图片加载完成处理
-  };
-
   const getSlideId = (id: string) => id;
 
-  const convertToInteractionItem = (
-    slide: Slide,
-  ): InteractionItem => {
+  const convertToInteractionItem = (slide: Slide): InteractionItem => {
     return convertSlideToInteractionItem(
       slide,
       (id) => interactionStore.getCount(id),
@@ -386,17 +373,6 @@
   const handleShare = (slide: Slide) => {
     currentShareSlide.value = slide;
     showShareMenu.value = true;
-  };
-
-  interface Platform {
-    id: string;
-    name: string;
-    gradient: string;
-    icon: Component;
-  }
-
-  const handleSharePlatform = (_platform: Platform) => {
-    void _platform;
   };
 
   const handleDownload = async (slide: Slide) => {

@@ -1,1 +1,4 @@
-npx lint-staged
+# 大提交（上百个文件）时 lint-staged 并行分块会因内存不足被 SIGKILL，
+# 这里限制堆内存并改为串行执行，避免 pre-commit 直接失败。
+export NODE_OPTIONS="--max-old-space-size=4096"
+npx lint-staged --concurrent false

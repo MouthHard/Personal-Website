@@ -18,9 +18,9 @@
 | 文件夹 | 职责 | 迭代参考来源 |
 |--------|------|-------------|
 | `github-upload-guide.md` | GitHub 上传规范 | GitHub 官方文档、流行开源项目的 CONTRIBUTING.md |
-| `skill/` | 项目健康检查与维护手册 | Vue/Vite 官方指南、web.dev、Google Lighthouse |
+| `skill/` | 项目健康检查、调试技巧、代码精简与维护手册 | Vue/Vite 官方指南、web.dev、Google Lighthouse |
 | `records/` | 代码修改记录（按 src/pages 结构） | ADR（架构决策记录）最佳实践 |
-| `bugs/` | Bug 记录与解决方案 | GitHub Issues、 Sentry/Bugsnag 的 bug tracking 规范 |
+| `bugs/` | Bug 记录、常见模式总结与解决方案 | GitHub Issues、 Sentry/Bugsnag 的 bug tracking 规范 |
 
 ## 文档质量标准
 

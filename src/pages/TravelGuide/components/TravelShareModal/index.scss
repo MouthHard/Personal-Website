@@ -11,9 +11,6 @@ $yellow: #fde047;
 $yellow-glow: rgba(253, 224, 71, 0.45);
 $ice: #f0faff;
 $ink-1: #060a12;
-$ink_2: #0a0e16;
-$ink_3: #0f141d;
-$ink_4: #151b27;
 $text: #e8edf2;
 $text-mute: #b0c0d8;
 $text-dim: #7a8aa2;
@@ -24,7 +21,7 @@ $text-dim: #7a8aa2;
 .share-mask {
   position: fixed;
   inset: 0;
-  z-index: 10000;
+  z-index: 2200;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -42,7 +39,11 @@ $text-dim: #7a8aa2;
   display: flex;
   flex-direction: column;
   background:
-    radial-gradient(ellipse at 50% 0%, rgba(0, 240, 255, 0.08), transparent 60%),
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(0, 240, 255, 0.08),
+      transparent 60%
+    ),
     linear-gradient(180deg, #0d1420 0%, #080d16 100%);
   border: 1px solid rgba(0, 240, 255, 0.25);
   border-radius: 16px;
@@ -135,10 +136,12 @@ $text-dim: #7a8aa2;
   }
 
   @keyframes portal-pulse {
-    0%, 100% {
+    0%,
+    100% {
       opacity: 0.3;
       transform: translate(-50%, -50%) scale(1);
     }
+
     50% {
       opacity: 0.8;
       transform: translate(-50%, -50%) scale(1.05);
@@ -221,8 +224,13 @@ $text-dim: #7a8aa2;
   }
 
   @keyframes glyph-flicker {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 1; }
+    0%,
+    100% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 1;
+    }
   }
 
   .share-subtitle {
@@ -249,7 +257,12 @@ $text-dim: #7a8aa2;
     z-index: 2;
     height: 1px;
     margin: 1.2rem 2rem;
-    background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.5), transparent);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(0, 240, 255, 0.5),
+      transparent
+    );
     box-shadow: 0 0 6px rgba(0, 240, 255, 0.2);
 
     &::before,
@@ -265,8 +278,12 @@ $text-dim: #7a8aa2;
       box-shadow: 0 0 8px $cyan-glow;
     }
 
-    &::before { left: 0; }
-    &::after { right: 0; }
+    &::before {
+      left: 0;
+    }
+    &::after {
+      right: 0;
+    }
   }
 
   // ============================================================================
@@ -298,15 +315,33 @@ $text-dim: #7a8aa2;
         position: relative;
         width: 56px;
         height: 56px;
-        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-        background: linear-gradient(135deg, rgba(0, 240, 255, 0.35), rgba(0, 150, 255, 0.15));
+        clip-path: polygon(
+          50% 0%,
+          100% 25%,
+          100% 75%,
+          50% 100%,
+          0% 75%,
+          0% 25%
+        );
+        background: linear-gradient(
+          135deg,
+          rgba(0, 240, 255, 0.35),
+          rgba(0, 150, 255, 0.15)
+        );
         transition: all 0.3s ease;
 
         &::before {
           content: '';
           position: absolute;
           inset: 1.5px;
-          clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+          clip-path: polygon(
+            50% 0%,
+            100% 25%,
+            100% 75%,
+            50% 100%,
+            0% 75%,
+            0% 25%
+          );
           background: linear-gradient(160deg, #0f1828, #0a0e16);
           transition: all 0.3s ease;
         }
@@ -370,7 +405,11 @@ $text-dim: #7a8aa2;
         transform: translateY(-4px);
 
         .platform-hex {
-          background: linear-gradient(135deg, rgba(0, 240, 255, 0.6), rgba(0, 150, 255, 0.3));
+          background: linear-gradient(
+            135deg,
+            rgba(0, 240, 255, 0.6),
+            rgba(0, 150, 255, 0.3)
+          );
           box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
 
           &::before {
@@ -394,25 +433,42 @@ $text-dim: #7a8aa2;
       }
 
       @keyframes orbit-spin {
-        from { transform: translateX(-50%) rotate(0deg); }
-        to { transform: translateX(-50%) rotate(360deg); }
+        from {
+          transform: translateX(-50%) rotate(0deg);
+        }
+        to {
+          transform: translateX(-50%) rotate(360deg);
+        }
       }
 
       // --- 各平台独立色系（16 种明显不同色相，无紫）---
       &.platform-wechat {
         .platform-hex {
-          background: linear-gradient(135deg, rgba(16, 185, 129, 0.35), rgba(5, 150, 105, 0.15));
+          background: linear-gradient(
+            135deg,
+            rgba(16, 185, 129, 0.35),
+            rgba(5, 150, 105, 0.15)
+          );
         }
-        .platform-icon { color: #10b981; }
+        .platform-icon {
+          color: #10b981;
+        }
+
         &:hover {
           .platform-hex {
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.6), rgba(5, 150, 105, 0.3));
+            background: linear-gradient(
+              135deg,
+              rgba(16, 185, 129, 0.6),
+              rgba(5, 150, 105, 0.3)
+            );
             box-shadow: 0 0 20px rgba(16, 185, 129, 0.25);
           }
+
           .platform-icon {
             color: #34d399;
             filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.5));
           }
+
           .platform-orbit::before {
             background: #10b981;
             box-shadow: 0 0 6px rgba(16, 185, 129, 0.5);
@@ -422,18 +478,31 @@ $text-dim: #7a8aa2;
 
       &.platform-moments {
         .platform-hex {
-          background: linear-gradient(135deg, rgba(110, 231, 183, 0.35), rgba(52, 211, 153, 0.15));
+          background: linear-gradient(
+            135deg,
+            rgba(110, 231, 183, 0.35),
+            rgba(52, 211, 153, 0.15)
+          );
         }
-        .platform-icon { color: #6ee7b7; }
+        .platform-icon {
+          color: #6ee7b7;
+        }
+
         &:hover {
           .platform-hex {
-            background: linear-gradient(135deg, rgba(110, 231, 183, 0.6), rgba(52, 211, 153, 0.3));
+            background: linear-gradient(
+              135deg,
+              rgba(110, 231, 183, 0.6),
+              rgba(52, 211, 153, 0.3)
+            );
             box-shadow: 0 0 20px rgba(110, 231, 183, 0.25);
           }
+
           .platform-icon {
             color: #a7f3d0;
             filter: drop-shadow(0 0 6px rgba(110, 231, 183, 0.5));
           }
+
           .platform-orbit::before {
             background: #6ee7b7;
             box-shadow: 0 0 6px rgba(110, 231, 183, 0.5);
@@ -443,18 +512,31 @@ $text-dim: #7a8aa2;
 
       &.platform-weibo {
         .platform-hex {
-          background: linear-gradient(135deg, rgba(249, 115, 22, 0.35), rgba(234, 88, 12, 0.15));
+          background: linear-gradient(
+            135deg,
+            rgba(249, 115, 22, 0.35),
+            rgba(234, 88, 12, 0.15)
+          );
         }
-        .platform-icon { color: #f97316; }
+        .platform-icon {
+          color: #f97316;
+        }
+
         &:hover {
           .platform-hex {
-            background: linear-gradient(135deg, rgba(249, 115, 22, 0.6), rgba(234, 88, 12, 0.3));
+            background: linear-gradient(
+              135deg,
+              rgba(249, 115, 22, 0.6),
+              rgba(234, 88, 12, 0.3)
+            );
             box-shadow: 0 0 20px rgba(249, 115, 22, 0.25);
           }
+
           .platform-icon {
             color: #fb923c;
             filter: drop-shadow(0 0 6px rgba(249, 115, 22, 0.5));
           }
+
           .platform-orbit::before {
             background: #f97316;
             box-shadow: 0 0 6px rgba(249, 115, 22, 0.5);
@@ -464,18 +546,31 @@ $text-dim: #7a8aa2;
 
       &.platform-qq {
         .platform-hex {
-          background: linear-gradient(135deg, rgba(59, 130, 246, 0.35), rgba(37, 99, 235, 0.15));
+          background: linear-gradient(
+            135deg,
+            rgba(59, 130, 246, 0.35),
+            rgba(37, 99, 235, 0.15)
+          );
         }
-        .platform-icon { color: #3b82f6; }
+        .platform-icon {
+          color: #3b82f6;
+        }
+
         &:hover {
           .platform-hex {
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.6), rgba(37, 99, 235, 0.3));
+            background: linear-gradient(
+              135deg,
+              rgba(59, 130, 246, 0.6),
+              rgba(37, 99, 235, 0.3)
+            );
             box-shadow: 0 0 20px rgba(59, 130, 246, 0.25);
           }
+
           .platform-icon {
             color: #60a5fa;
             filter: drop-shadow(0 0 6px rgba(59, 130, 246, 0.5));
           }
+
           .platform-orbit::before {
             background: #3b82f6;
             box-shadow: 0 0 6px rgba(59, 130, 246, 0.5);
@@ -485,18 +580,31 @@ $text-dim: #7a8aa2;
 
       &.platform-qzone {
         .platform-hex {
-          background: linear-gradient(135deg, rgba(245, 158, 11, 0.35), rgba(217, 119, 6, 0.15));
+          background: linear-gradient(
+            135deg,
+            rgba(245, 158, 11, 0.35),
+            rgba(217, 119, 6, 0.15)
+          );
         }
-        .platform-icon { color: #f59e0b; }
+        .platform-icon {
+          color: #f59e0b;
+        }
+
         &:hover {
           .platform-hex {
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.6), rgba(217, 119, 6, 0.3));
+            background: linear-gradient(
+              135deg,
+              rgba(245, 158, 11, 0.6),
+              rgba(217, 119, 6, 0.3)
+            );
             box-shadow: 0 0 20px rgba(245, 158, 11, 0.25);
           }
+
           .platform-icon {
             color: #fbbf24;
             filter: drop-shadow(0 0 6px rgba(245, 158, 11, 0.5));
           }
+
           .platform-orbit::before {
             background: #f59e0b;
             box-shadow: 0 0 6px rgba(245, 158, 11, 0.5);
@@ -506,18 +614,31 @@ $text-dim: #7a8aa2;
 
       &.platform-zhihu {
         .platform-hex {
-          background: linear-gradient(135deg, rgba(30, 64, 175, 0.45), rgba(30, 58, 138, 0.2));
+          background: linear-gradient(
+            135deg,
+            rgba(30, 64, 175, 0.45),
+            rgba(30, 58, 138, 0.2)
+          );
         }
-        .platform-icon { color: #1e40af; }
+        .platform-icon {
+          color: #1e40af;
+        }
+
         &:hover {
           .platform-hex {
-            background: linear-gradient(135deg, rgba(30, 64, 175, 0.7), rgba(30, 58, 138, 0.4));
+            background: linear-gradient(
+              135deg,
+              rgba(30, 64, 175, 0.7),
+              rgba(30, 58, 138, 0.4)
+            );
             box-shadow: 0 0 20px rgba(30, 64, 175, 0.3);
           }
+
           .platform-icon {
             color: #3b82f6;
             filter: drop-shadow(0 0 6px rgba(59, 130, 246, 0.5));
           }
+
           .platform-orbit::before {
             background: #1e40af;
             box-shadow: 0 0 6px rgba(59, 130, 246, 0.5);
@@ -527,18 +648,31 @@ $text-dim: #7a8aa2;
 
       &.platform-douban {
         .platform-hex {
-          background: linear-gradient(135deg, rgba(132, 204, 22, 0.35), rgba(101, 163, 13, 0.15));
+          background: linear-gradient(
+            135deg,
+            rgba(132, 204, 22, 0.35),
+            rgba(101, 163, 13, 0.15)
+          );
         }
-        .platform-icon { color: #84cc16; }
+        .platform-icon {
+          color: #84cc16;
+        }
+
         &:hover {
           .platform-hex {
-            background: linear-gradient(135deg, rgba(132, 204, 22, 0.6), rgba(101, 163, 13, 0.3));
+            background: linear-gradient(
+              135deg,
+              rgba(132, 204, 22, 0.6),
+              rgba(101, 163, 13, 0.3)
+            );
             box-shadow: 0 0 20px rgba(132, 204, 22, 0.25);
           }
+
           .platform-icon {
             color: #a3e635;
             filter: drop-shadow(0 0 6px rgba(132, 204, 22, 0.5));
           }
+
           .platform-orbit::before {
             background: #84cc16;
             box-shadow: 0 0 6px rgba(132, 204, 22, 0.5);
@@ -548,18 +682,31 @@ $text-dim: #7a8aa2;
 
       &.platform-tieba {
         .platform-hex {
-          background: linear-gradient(135deg, rgba(14, 165, 233, 0.35), rgba(2, 132, 199, 0.15));
+          background: linear-gradient(
+            135deg,
+            rgba(14, 165, 233, 0.35),
+            rgba(2, 132, 199, 0.15)
+          );
         }
-        .platform-icon { color: #0ea5e9; }
+        .platform-icon {
+          color: #0ea5e9;
+        }
+
         &:hover {
           .platform-hex {
-            background: linear-gradient(135deg, rgba(14, 165, 233, 0.6), rgba(2, 132, 199, 0.3));
+            background: linear-gradient(
+              135deg,
+              rgba(14, 165, 233, 0.6),
+              rgba(2, 132, 199, 0.3)
+            );
             box-shadow: 0 0 20px rgba(14, 165, 233, 0.25);
           }
+
           .platform-icon {
             color: #38bdf8;
             filter: drop-shadow(0 0 6px rgba(14, 165, 233, 0.5));
           }
+
           .platform-orbit::before {
             background: #0ea5e9;
             box-shadow: 0 0 6px rgba(14, 165, 233, 0.5);
@@ -569,18 +716,31 @@ $text-dim: #7a8aa2;
 
       &.platform-redbook {
         .platform-hex {
-          background: linear-gradient(135deg, rgba(239, 68, 68, 0.35), rgba(220, 38, 38, 0.15));
+          background: linear-gradient(
+            135deg,
+            rgba(239, 68, 68, 0.35),
+            rgba(220, 38, 38, 0.15)
+          );
         }
-        .platform-icon { color: #ef4444; }
+        .platform-icon {
+          color: #ef4444;
+        }
+
         &:hover {
           .platform-hex {
-            background: linear-gradient(135deg, rgba(239, 68, 68, 0.6), rgba(220, 38, 38, 0.3));
+            background: linear-gradient(
+              135deg,
+              rgba(239, 68, 68, 0.6),
+              rgba(220, 38, 38, 0.3)
+            );
             box-shadow: 0 0 20px rgba(239, 68, 68, 0.25);
           }
+
           .platform-icon {
             color: #f87171;
             filter: drop-shadow(0 0 6px rgba(239, 68, 68, 0.5));
           }
+
           .platform-orbit::before {
             background: #ef4444;
             box-shadow: 0 0 6px rgba(239, 68, 68, 0.5);
@@ -590,18 +750,31 @@ $text-dim: #7a8aa2;
 
       &.platform-bilibili {
         .platform-hex {
-          background: linear-gradient(135deg, rgba(236, 72, 153, 0.35), rgba(219, 39, 119, 0.15));
+          background: linear-gradient(
+            135deg,
+            rgba(236, 72, 153, 0.35),
+            rgba(219, 39, 119, 0.15)
+          );
         }
-        .platform-icon { color: #ec4899; }
+        .platform-icon {
+          color: #ec4899;
+        }
+
         &:hover {
           .platform-hex {
-            background: linear-gradient(135deg, rgba(236, 72, 153, 0.6), rgba(219, 39, 119, 0.3));
+            background: linear-gradient(
+              135deg,
+              rgba(236, 72, 153, 0.6),
+              rgba(219, 39, 119, 0.3)
+            );
             box-shadow: 0 0 20px rgba(236, 72, 153, 0.25);
           }
+
           .platform-icon {
             color: #f472b6;
             filter: drop-shadow(0 0 6px rgba(236, 72, 153, 0.5));
           }
+
           .platform-orbit::before {
             background: #ec4899;
             box-shadow: 0 0 6px rgba(236, 72, 153, 0.5);
@@ -611,18 +784,31 @@ $text-dim: #7a8aa2;
 
       &.platform-douyin {
         .platform-hex {
-          background: linear-gradient(135deg, rgba(244, 63, 94, 0.35), rgba(225, 29, 72, 0.15));
+          background: linear-gradient(
+            135deg,
+            rgba(244, 63, 94, 0.35),
+            rgba(225, 29, 72, 0.15)
+          );
         }
-        .platform-icon { color: #f43f5e; }
+        .platform-icon {
+          color: #f43f5e;
+        }
+
         &:hover {
           .platform-hex {
-            background: linear-gradient(135deg, rgba(244, 63, 94, 0.6), rgba(225, 29, 72, 0.3));
+            background: linear-gradient(
+              135deg,
+              rgba(244, 63, 94, 0.6),
+              rgba(225, 29, 72, 0.3)
+            );
             box-shadow: 0 0 20px rgba(244, 63, 94, 0.25);
           }
+
           .platform-icon {
             color: #fb7185;
             filter: drop-shadow(0 0 6px rgba(244, 63, 94, 0.5));
           }
+
           .platform-orbit::before {
             background: #f43f5e;
             box-shadow: 0 0 6px rgba(244, 63, 94, 0.5);
@@ -632,18 +818,31 @@ $text-dim: #7a8aa2;
 
       &.platform-kuaishou {
         .platform-hex {
-          background: linear-gradient(135deg, rgba(251, 146, 60, 0.35), rgba(249, 115, 22, 0.15));
+          background: linear-gradient(
+            135deg,
+            rgba(251, 146, 60, 0.35),
+            rgba(249, 115, 22, 0.15)
+          );
         }
-        .platform-icon { color: #fb923c; }
+        .platform-icon {
+          color: #fb923c;
+        }
+
         &:hover {
           .platform-hex {
-            background: linear-gradient(135deg, rgba(251, 146, 60, 0.6), rgba(249, 115, 22, 0.3));
+            background: linear-gradient(
+              135deg,
+              rgba(251, 146, 60, 0.6),
+              rgba(249, 115, 22, 0.3)
+            );
             box-shadow: 0 0 20px rgba(251, 146, 60, 0.25);
           }
+
           .platform-icon {
             color: #fdba74;
             filter: drop-shadow(0 0 6px rgba(251, 146, 60, 0.5));
           }
+
           .platform-orbit::before {
             background: #fb923c;
             box-shadow: 0 0 6px rgba(251, 146, 60, 0.5);
@@ -653,18 +852,31 @@ $text-dim: #7a8aa2;
 
       &.platform-dingtalk {
         .platform-hex {
-          background: linear-gradient(135deg, rgba(6, 182, 212, 0.35), rgba(8, 145, 178, 0.15));
+          background: linear-gradient(
+            135deg,
+            rgba(6, 182, 212, 0.35),
+            rgba(8, 145, 178, 0.15)
+          );
         }
-        .platform-icon { color: #06b6d4; }
+        .platform-icon {
+          color: #06b6d4;
+        }
+
         &:hover {
           .platform-hex {
-            background: linear-gradient(135deg, rgba(6, 182, 212, 0.6), rgba(8, 145, 178, 0.3));
+            background: linear-gradient(
+              135deg,
+              rgba(6, 182, 212, 0.6),
+              rgba(8, 145, 178, 0.3)
+            );
             box-shadow: 0 0 20px rgba(6, 182, 212, 0.25);
           }
+
           .platform-icon {
             color: #22d3ee;
             filter: drop-shadow(0 0 6px rgba(6, 182, 212, 0.5));
           }
+
           .platform-orbit::before {
             background: #06b6d4;
             box-shadow: 0 0 6px rgba(6, 182, 212, 0.5);
@@ -674,18 +886,31 @@ $text-dim: #7a8aa2;
 
       &.platform-feishu {
         .platform-hex {
-          background: linear-gradient(135deg, rgba(20, 184, 166, 0.35), rgba(13, 148, 136, 0.15));
+          background: linear-gradient(
+            135deg,
+            rgba(20, 184, 166, 0.35),
+            rgba(13, 148, 136, 0.15)
+          );
         }
-        .platform-icon { color: #14b8a6; }
+        .platform-icon {
+          color: #14b8a6;
+        }
+
         &:hover {
           .platform-hex {
-            background: linear-gradient(135deg, rgba(20, 184, 166, 0.6), rgba(13, 148, 136, 0.3));
+            background: linear-gradient(
+              135deg,
+              rgba(20, 184, 166, 0.6),
+              rgba(13, 148, 136, 0.3)
+            );
             box-shadow: 0 0 20px rgba(20, 184, 166, 0.25);
           }
+
           .platform-icon {
             color: #2dd4bf;
             filter: drop-shadow(0 0 6px rgba(20, 184, 166, 0.5));
           }
+
           .platform-orbit::before {
             background: #14b8a6;
             box-shadow: 0 0 6px rgba(20, 184, 166, 0.5);
@@ -695,18 +920,31 @@ $text-dim: #7a8aa2;
 
       &.platform-twitter {
         .platform-hex {
-          background: linear-gradient(135deg, rgba(125, 211, 252, 0.35), rgba(56, 189, 248, 0.15));
+          background: linear-gradient(
+            135deg,
+            rgba(125, 211, 252, 0.35),
+            rgba(56, 189, 248, 0.15)
+          );
         }
-        .platform-icon { color: #7dd3fc; }
+        .platform-icon {
+          color: #7dd3fc;
+        }
+
         &:hover {
           .platform-hex {
-            background: linear-gradient(135deg, rgba(125, 211, 252, 0.6), rgba(56, 189, 248, 0.3));
+            background: linear-gradient(
+              135deg,
+              rgba(125, 211, 252, 0.6),
+              rgba(56, 189, 248, 0.3)
+            );
             box-shadow: 0 0 20px rgba(125, 211, 252, 0.25);
           }
+
           .platform-icon {
             color: #bae6fd;
             filter: drop-shadow(0 0 6px rgba(125, 211, 252, 0.5));
           }
+
           .platform-orbit::before {
             background: #7dd3fc;
             box-shadow: 0 0 6px rgba(125, 211, 252, 0.5);
@@ -716,18 +954,31 @@ $text-dim: #7a8aa2;
 
       &.platform-email {
         .platform-hex {
-          background: linear-gradient(135deg, rgba(234, 179, 8, 0.35), rgba(202, 138, 4, 0.15));
+          background: linear-gradient(
+            135deg,
+            rgba(234, 179, 8, 0.35),
+            rgba(202, 138, 4, 0.15)
+          );
         }
-        .platform-icon { color: #eab308; }
+        .platform-icon {
+          color: #eab308;
+        }
+
         &:hover {
           .platform-hex {
-            background: linear-gradient(135deg, rgba(234, 179, 8, 0.6), rgba(202, 138, 4, 0.3));
+            background: linear-gradient(
+              135deg,
+              rgba(234, 179, 8, 0.6),
+              rgba(202, 138, 4, 0.3)
+            );
             box-shadow: 0 0 20px rgba(234, 179, 8, 0.25);
           }
+
           .platform-icon {
             color: #facc15;
             filter: drop-shadow(0 0 6px rgba(234, 179, 8, 0.5));
           }
+
           .platform-orbit::before {
             background: #eab308;
             box-shadow: 0 0 6px rgba(234, 179, 8, 0.5);
@@ -769,7 +1020,7 @@ $text-dim: #7a8aa2;
       .share-text-content {
         flex: 1;
         font-size: 0.78rem;
-        font-family: 'Consolas', 'Monaco', monospace;
+        font-family: Consolas, Monaco, monospace;
         color: rgba(253, 224, 71, 0.75);
         white-space: nowrap;
         overflow: hidden;
@@ -860,7 +1111,7 @@ $text-dim: #7a8aa2;
       .copy-url-text {
         flex: 1;
         font-size: 0.76rem;
-        font-family: 'Consolas', 'Monaco', monospace;
+        font-family: Consolas, Monaco, monospace;
         color: rgba(0, 240, 255, 0.7);
         white-space: nowrap;
         overflow: hidden;
@@ -878,8 +1129,14 @@ $text-dim: #7a8aa2;
     }
 
     @keyframes cursor-blink {
-      0%, 50% { opacity: 1; }
-      51%, 100% { opacity: 0; }
+      0%,
+      50% {
+        opacity: 1;
+      }
+      51%,
+      100% {
+        opacity: 0;
+      }
     }
 
     .copy-btn {
@@ -973,7 +1230,9 @@ $text-dim: #7a8aa2;
   transition: opacity 0.3s ease;
 
   .share-modal {
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease;
   }
 }
 

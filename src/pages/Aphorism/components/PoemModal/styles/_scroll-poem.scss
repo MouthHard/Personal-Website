@@ -1,0 +1,573 @@
+@use 'variables' as *;
+
+// ===== 左轴：诗词轴（较窄） =====
+.scroll-poem {
+  flex: 2;
+  max-width: 640px;
+
+  // 交互按钮——左轴顶部中间
+  .scroll-actions {
+    position: absolute;
+    top: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 20;
+
+    // 上下首翻页：青玉色箭头，与点赞/收藏等暖色按钮区分
+    .nav-button svg {
+      color: #1f8a80;
+    }
+
+    .actions-divider {
+      align-self: center;
+      width: 1px;
+      height: 26px;
+      margin: 0 2px;
+      background: linear-gradient(
+        180deg,
+        transparent,
+        #8a7050 45%,
+        #8a7050 55%,
+        transparent
+      );
+      box-shadow: 1px 0 0 rgb(255 248 224 / 40%);
+    }
+
+    .action-button:disabled {
+      cursor: not-allowed;
+      opacity: 42%;
+      filter: grayscale(60%);
+    }
+
+    .action-button {
+      width: 44px;
+      height: 44px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition-property:
+        transform, opacity, box-shadow, color, background, background-color,
+        border-color, filter, text-shadow;
+      transition-duration: 0.4s;
+      transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+
+      // 琉璃玉扣——温润玉色球面光照（顶部亮，底部暗）
+      background: radial-gradient(
+        ellipse 80% 60% at 35% 25%,
+        #fff5e0 0%,
+        #f0e0c8 15%,
+        #d8c8a0 40%,
+        #b8a070 70%,
+        #8a7050 100%
+      );
+
+      // 金边扣边 + 球面立体光影
+      box-shadow:
+        0 3px 6px #3a2010,
+        0 1px 2px #1a0a04,
+        inset 0 0 0 1px #d8b080,
+        inset 0 0 0 2px #5a3010,
+        inset 0 0 0 3px #d8b080,
+        inset 0 2px 4px #fff8e0,
+        inset 0 -3px 5px #5a3010;
+
+      // 穿绳孔——顶部小椭圆孔
+      &::before {
+        content: '';
+        position: absolute;
+        top: 2px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 10px;
+        height: 3px;
+        border-radius: 50%;
+        background: #3a2010;
+        box-shadow: inset 0 1px 1px #1a0a04;
+        z-index: 3;
+      }
+
+      // 光泽扫过层——hover时触发
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 60%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgb(255 248 220 / 40%),
+          transparent
+        );
+        transition: left 0.6s ease;
+        pointer-events: none;
+      }
+
+      svg {
+        width: 20px;
+        height: 20px;
+        transition-property:
+          transform, opacity, box-shadow, color, background, background-color,
+          border-color, filter, text-shadow;
+        transition-duration: 0.4s;
+        transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+        filter: drop-shadow(0 1px 2px #3a2010);
+        position: relative;
+        z-index: 2;
+        margin-top: 3px;
+      }
+
+      &.like-button svg {
+        color: #0eb83a;
+      }
+      &.love-button svg {
+        color: #e34234;
+      }
+      &.favorite-button svg {
+        color: #ffb61e;
+      }
+      &.share-button svg {
+        color: #1685a0;
+      }
+
+      &:hover {
+        transform: translateY(-5px) rotate(-3deg);
+
+        &::after {
+          left: 120%;
+        }
+
+        svg {
+          transform: scale(1.15) rotate(-5deg);
+        }
+
+        &.like-button {
+          box-shadow:
+            0 5px 10px #3a2010,
+            0 0 12px #0eb83a,
+            inset 0 0 0 1px #0eb83a,
+            inset 0 0 0 2px #5a3010,
+            inset 0 0 0 3px #0eb83a,
+            inset 0 2px 4px #fff8e0,
+            inset 0 -3px 5px #5a3010;
+        }
+
+        &.love-button {
+          box-shadow:
+            0 5px 10px #3a2010,
+            0 0 12px #e34234,
+            inset 0 0 0 1px #e34234,
+            inset 0 0 0 2px #5a3010,
+            inset 0 0 0 3px #e34234,
+            inset 0 2px 4px #fff8e0,
+            inset 0 -3px 5px #5a3010;
+        }
+
+        &.favorite-button {
+          box-shadow:
+            0 5px 10px #3a2010,
+            0 0 12px #ffb61e,
+            inset 0 0 0 1px #ffb61e,
+            inset 0 0 0 2px #5a3010,
+            inset 0 0 0 3px #ffb61e,
+            inset 0 2px 4px #fff8e0,
+            inset 0 -3px 5px #5a3010;
+        }
+
+        &.share-button {
+          box-shadow:
+            0 5px 10px #3a2010,
+            0 0 12px #1685a0,
+            inset 0 0 0 1px #1685a0,
+            inset 0 0 0 2px #5a3010,
+            inset 0 0 0 3px #1685a0,
+            inset 0 2px 4px #fff8e0,
+            inset 0 -3px 5px #5a3010;
+        }
+      }
+
+      &.active {
+        transform: translateY(-2px);
+        transition-property:
+          transform, opacity, box-shadow, color, background, background-color,
+          border-color, filter, text-shadow, fill;
+        transition-duration: 0.2s;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+        &.like-button {
+          background: radial-gradient(
+            ellipse 80% 60% at 35% 25%,
+            #40c080 0%,
+            #0eb83a 20%,
+            #0a9030 50%,
+            #0a8c2e 80%,
+            #064020 100%
+          );
+          box-shadow:
+            0 3px 6px #064020,
+            0 1px 2px #042010,
+            0 0 16px #0eb83a,
+            inset 0 0 0 1px #e8f5e9,
+            inset 0 0 0 2px #064020,
+            inset 0 0 0 3px #e8f5e9,
+            inset 0 2px 4px #40c080,
+            inset 0 -3px 5px #042010;
+
+          svg {
+            color: #fff8e1;
+            fill: currentcolor;
+            filter: drop-shadow(0 1px 3px #042010);
+            transform: scale(1.1);
+          }
+        }
+
+        &.love-button {
+          background: radial-gradient(
+            ellipse 80% 60% at 35% 25%,
+            #ff6050 0%,
+            #e34234 20%,
+            #c03020 50%,
+            #8f1f1f 80%,
+            #640a05 100%
+          );
+          box-shadow:
+            0 3px 6px #640a05,
+            0 1px 2px #4a0805,
+            0 0 16px #e34234,
+            inset 0 0 0 1px #fff0dc,
+            inset 0 0 0 2px #640a05,
+            inset 0 0 0 3px #fff0dc,
+            inset 0 2px 4px #ff8060,
+            inset 0 -3px 5px #4a0805;
+
+          svg {
+            color: #fff8e1;
+            fill: currentcolor;
+            filter: drop-shadow(0 1px 3px #4a0805);
+            transform: scale(1.1);
+          }
+        }
+
+        &.favorite-button {
+          background: radial-gradient(
+            ellipse 80% 60% at 35% 25%,
+            #ffd060 0%,
+            #ffb61e 20%,
+            #e0a010 50%,
+            #d4a017 80%,
+            #8a6010 100%
+          );
+          box-shadow:
+            0 3px 6px #8a6010,
+            0 1px 2px #5a4010,
+            0 0 16px #ffb61e,
+            inset 0 0 0 1px #fff8e0,
+            inset 0 0 0 2px #8a6010,
+            inset 0 0 0 3px #fff8e0,
+            inset 0 2px 4px #ffd060,
+            inset 0 -3px 5px #5a4010;
+
+          svg {
+            color: #fff8e1;
+            fill: currentcolor;
+            filter: drop-shadow(0 1px 3px #5a4010);
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+  }
+
+  .scroll-paper {
+    .poem-content {
+      position: relative;
+      height: 100%;
+      padding: 28px 32px;
+      display: flex;
+      flex-direction: column;
+      z-index: 5;
+
+      // 标题一行——墨书效果
+      .poem-title-row {
+        text-align: center;
+        margin-bottom: 14px;
+
+        .poem-title-text {
+          font-size: 34px;
+          font-weight: 800;
+          color: $ink-deep;
+          font-family: STKaiti, KaiTi, 'Noto Serif SC', serif;
+          letter-spacing: 5px;
+
+          // 墨书笔锋浓淡
+          text-shadow:
+            0 1px 0 rgb(255 255 255 / 35%),
+            0 2px 4px rgb(0 0 0 / 10%),
+            0 0 8px rgb(0 0 0 / 5%);
+        }
+      }
+
+      // 朝代+作者+体裁一行——印章/书签效果
+      .poem-meta-row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 14px;
+        margin: 18px 0 16px;
+
+        .poem-dynasty-text {
+          font-size: 20px;
+          font-weight: 700;
+          color: #fff0dc;
+          font-family: STKaiti, KaiTi, 'Noto Serif SC', serif;
+          padding: 4px 16px;
+          border: none;
+          border-radius: 4px;
+          transform: rotate(-3deg);
+          transition-property:
+            transform, opacity, box-shadow, color, background, background-color,
+            border-color, filter, text-shadow;
+          transition-duration: 0.4s;
+          transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+          // 朱砂印章——均匀深红底色
+          background: linear-gradient(135deg, #c8523f 0%, #8f1f1f 100%);
+
+          // 印章雕刻边框——浅色双线刻痕
+          box-shadow:
+            inset 0 0 0 1px #fff0dc,
+            inset 0 0 0 2px #8f1f1f,
+            inset 0 0 0 3px #fff0dc,
+            inset 0 2px 3px #e06050,
+            inset 0 -2px 3px #640a05,
+            0 4px 8px #8f1f1f,
+            0 1px 2px #640a05;
+          text-shadow: 0 1px 2px #640a05;
+
+          &:hover {
+            transform: rotate(-3deg) translateY(-3px) scale(1.05);
+            box-shadow:
+              inset 0 0 0 1px #fff0dc,
+              inset 0 0 0 2px #8f1f1f,
+              inset 0 0 0 3px #fff0dc,
+              inset 0 2px 3px #e06050,
+              inset 0 -2px 3px #640a05,
+              0 2px 4px #640a05,
+              0 3px 6px #4a0805;
+          }
+        }
+
+        .poem-author-text {
+          font-size: 20px;
+          font-weight: 700;
+          color: #f0d0a0;
+          font-family: STKaiti, KaiTi, 'Noto Serif SC', serif;
+          padding: 4px 16px;
+          border: none;
+          border-radius: 3px 3px 1px 1px;
+          transition-property:
+            transform, opacity, box-shadow, color, background, background-color,
+            border-color, filter, text-shadow;
+          transition-duration: 0.4s;
+          transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+          // 深木牌底色——均匀深红木色
+          background:
+            repeating-linear-gradient(
+              90deg,
+              rgb(240 208 160 / 4%) 0%,
+              rgb(240 208 160 / 4%) 1px,
+              transparent 1px,
+              transparent 5px
+            ),
+            linear-gradient(135deg, #5a3010 0%, #4a2810 100%);
+
+          // 木牌边框——浅色双线刻痕
+          box-shadow:
+            inset 0 0 0 1px #f0d0a0,
+            inset 0 0 0 2px #4a2810,
+            inset 0 0 0 3px #f0d0a0,
+            inset 0 2px 3px #7a3818,
+            inset 0 -2px 3px #2a1808,
+            0 4px 8px #4a2810,
+            0 1px 2px #2a1808;
+          text-shadow: 0 1px 2px #2a1808;
+
+          &:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow:
+              inset 0 0 0 1px #f0d0a0,
+              inset 0 0 0 2px #4a2810,
+              inset 0 0 0 3px #f0d0a0,
+              inset 0 2px 3px #7a3818,
+              inset 0 -2px 3px #2a1808,
+              0 2px 4px #2a1808,
+              0 3px 6px #1a0a04;
+          }
+        }
+
+        .poem-form-text {
+          font-size: 18px;
+          font-weight: 700;
+          color: #e8f5e9;
+          font-family: STKaiti, KaiTi, 'Noto Serif SC', serif;
+          padding: 4px 14px;
+          border: none;
+          border-radius: 4px;
+          transition-property:
+            transform, opacity, box-shadow, color, background, background-color,
+            border-color, filter, text-shadow;
+          transition-duration: 0.4s;
+          transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+          // 翠玉底色——均匀深绿
+          background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
+
+          // 玉佩边框——浅色双线刻痕
+          box-shadow:
+            inset 0 0 0 1px #e8f5e9,
+            inset 0 0 0 2px #1b5e20,
+            inset 0 0 0 3px #e8f5e9,
+            inset 0 2px 3px #4a7c59,
+            inset 0 -2px 3px #0d3a10,
+            0 4px 8px #2e7d32,
+            0 1px 2px #1b5e20;
+          text-shadow: 0 1px 2px #0d3a10;
+
+          &:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow:
+              inset 0 0 0 1px #e8f5e9,
+              inset 0 0 0 2px #1b5e20,
+              inset 0 0 0 3px #e8f5e9,
+              inset 0 2px 3px #4a7c59,
+              inset 0 -2px 3px #0d3a10,
+              0 2px 4px #0d3a10,
+              0 3px 6px #082008;
+          }
+        }
+      }
+
+      // 标签一行——竹简木牌效果
+      .poem-tags-row {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 16px 0 20px;
+
+        .poem-tag {
+          position: relative;
+          padding: 6px 18px 5px;
+
+          // 浅竹简底色——均匀浅色，微妙竹纹
+          background:
+            repeating-linear-gradient(
+              90deg,
+              rgb(74 40 16 / 6%) 0%,
+              rgb(74 40 16 / 6%) 1px,
+              transparent 1px,
+              transparent 6px
+            ),
+            linear-gradient(135deg, #f5e8c8 0%, #e8d8b0 100%);
+          color: #3a2010;
+          border-radius: 3px;
+          font-size: 17px;
+          font-weight: 700;
+          border: none;
+          cursor: pointer;
+          user-select: none;
+          outline-offset: 3px;
+          font-family: STKaiti, KaiTi, 'Noto Serif SC', serif;
+          transition-property:
+            transform, opacity, box-shadow, color, background, background-color,
+            border-color, filter, text-shadow;
+          transition-duration: 0.4s;
+          transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+          // 竹简边框——深色线条勾勒
+          box-shadow:
+            inset 0 0 0 1px #8a6030,
+            inset 0 0 0 2px #f5e8c8,
+            inset 0 0 0 3px #8a6030,
+            inset 0 2px 3px #fff8e0,
+            inset 0 -2px 3px #c8a878,
+            0 4px 8px rgb(0 0 0 / 20%),
+            0 1px 2px rgb(0 0 0 / 10%);
+          text-shadow: 0 1px 0 #fff8e0;
+
+          // 穿绳孔——竹简顶部小圆孔
+          &::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #2a1808 30%, #4a2810 100%);
+            box-shadow:
+              inset 0 1px 1px #1a0a04,
+              0 1px 0 #fff8e0;
+          }
+
+          &:hover {
+            transform: translateY(-4px) rotate(-2deg);
+            box-shadow:
+              inset 0 0 0 1px #8a6030,
+              inset 0 0 0 2px #fff8e0,
+              inset 0 0 0 3px #8a6030,
+              inset 0 2px 3px #fff8e0,
+              inset 0 -2px 3px #c8a878,
+              0 2px 4px #2a1808,
+              0 3px 6px #1a0a04;
+          }
+        }
+      }
+
+      // 诗句横排——每句一行，墨书效果
+      .poem-lines {
+        flex: 1;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        overflow-y: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+
+        .poem-line {
+          font-size: 24px;
+          font-weight: 600;
+          color: $ink-mid;
+          font-family: STKaiti, KaiTi, 'Noto Serif SC', serif;
+          line-height: 1.7;
+          letter-spacing: 4px;
+          text-align: center;
+          margin: 0;
+
+          // 墨书笔锋浓淡——阳光照射感
+          text-shadow:
+            0 1px 0 rgb(255 255 255 / 30%),
+            0 2px 3px rgb(0 0 0 / 8%),
+            0 0 6px rgb(0 0 0 / 4%);
+        }
+      }
+    }
+  }
+}

@@ -6,7 +6,11 @@
         <h2 class="section-title">行者手记</h2>
         <p class="section-subtitle">发现世界的每一个角落</p>
       </div>
-      <button class="more-btn" aria-label="查看更多指南攻略" @click="handleMore">
+      <button
+        class="more-btn"
+        aria-label="查看更多指南攻略"
+        @click="handleMore"
+      >
         <span class="compass-mark" aria-hidden="true">
           <span class="compass-ring"></span>
           <span class="compass-ticks"></span>
@@ -45,7 +49,11 @@
             </div>
             <div class="card-footer">
               <div class="author">
-                <img loading="lazy" :src="guides[0].authorAvatar" :alt="guides[0].author" />
+                <img
+                  loading="lazy"
+                  :src="guides[0].authorAvatar"
+                  :alt="guides[0].author"
+                />
                 <div class="author-info">
                   <span class="author-name">{{ guides[0].author }}</span>
                   <span class="author-title">{{ guides[0].category }}</span>
@@ -56,23 +64,50 @@
                   <EyeIcon :stroke-width="2" />
                   {{ fmt(getGuideCount(guides[0].id).views) }}
                 </span>
-                <button class="chip chip-like" :class="{ liked: isLiked(guides[0].id) }" @click.stop="handleToggleLike(guides[0])">
-                  <ThumbUpIcon :stroke-width="2" :filled="isLiked(guides[0].id)" />
+                <button
+                  class="chip chip-like"
+                  :class="{ liked: isLiked(guides[0].id) }"
+                  @click.stop="handleToggleLike(guides[0])"
+                >
+                  <ThumbUpIcon
+                    :stroke-width="2"
+                    :filled="isLiked(guides[0].id)"
+                  />
                   {{ getDisplayLikes(guides[0]) }}
                 </button>
-                <button class="chip chip-love" :class="{ loved: isLoved(guides[0].id) }" @click.stop="handleToggleLove(guides[0])">
-                  <HeartIcon :stroke-width="2" :filled="isLoved(guides[0].id)" />
+                <button
+                  class="chip chip-love"
+                  :class="{ loved: isLoved(guides[0].id) }"
+                  @click.stop="handleToggleLove(guides[0])"
+                >
+                  <HeartIcon
+                    :stroke-width="2"
+                    :filled="isLoved(guides[0].id)"
+                  />
                   {{ getDisplayLoves(guides[0]) }}
                 </button>
-                <button class="chip chip-bookmark" :class="{ collected: isFavorited(guides[0].id) }" @click.stop="handleToggleFavorite(guides[0])">
-                  <BookmarkIcon :stroke-width="2" :filled="isFavorited(guides[0].id)" />
+                <button
+                  class="chip chip-bookmark"
+                  :class="{ collected: isFavorited(guides[0].id) }"
+                  @click.stop="handleToggleFavorite(guides[0])"
+                >
+                  <BookmarkIcon
+                    :stroke-width="2"
+                    :filled="isFavorited(guides[0].id)"
+                  />
                   {{ getDisplayCollections(guides[0]) }}
                 </button>
-                <button class="chip chip-share" @click.stop="handleShare(guides[0])">
+                <button
+                  class="chip chip-share"
+                  @click.stop="handleShare(guides[0])"
+                >
                   <ShareIcon :stroke-width="2" />
                   {{ getDisplayShares(guides[0]) }}
                 </button>
-                <button class="chip chip-view" @click="handleCardClick(guides[0])">
+                <button
+                  class="chip chip-view"
+                  @click="handleCardClick(guides[0])"
+                >
                   <MaximizeIcon :stroke-width="2" />
                   查看
                 </button>
@@ -113,38 +148,73 @@
             </div>
             <div class="action-chips">
               <span class="chip chip-views">
-                <EyeIcon :stroke-width="2" :style="{ width: '12px', height: '12px' }" />
+                <EyeIcon
+                  :stroke-width="2"
+                  :style="{ width: '12px', height: '12px' }"
+                />
                 {{ fmt(getGuideCount(guide.id).views) }}
               </span>
-              <button class="chip chip-like" :class="{ liked: isLiked(guide.id) }" @click.stop="handleToggleLike(guide)">
-                <ThumbUpIcon :stroke-width="2" :style="{ width: '12px', height: '12px' }" :filled="isLiked(guide.id)" />
+              <button
+                class="chip chip-like"
+                :class="{ liked: isLiked(guide.id) }"
+                @click.stop="handleToggleLike(guide)"
+              >
+                <ThumbUpIcon
+                  :stroke-width="2"
+                  :style="{ width: '12px', height: '12px' }"
+                  :filled="isLiked(guide.id)"
+                />
                 {{ getDisplayLikes(guide) }}
               </button>
-              <button class="chip chip-love" :class="{ loved: isLoved(guide.id) }" @click.stop="handleToggleLove(guide)">
-                <HeartIcon :stroke-width="2" :style="{ width: '12px', height: '12px' }" :filled="isLoved(guide.id)" />
+              <button
+                class="chip chip-love"
+                :class="{ loved: isLoved(guide.id) }"
+                @click.stop="handleToggleLove(guide)"
+              >
+                <HeartIcon
+                  :stroke-width="2"
+                  :style="{ width: '12px', height: '12px' }"
+                  :filled="isLoved(guide.id)"
+                />
                 {{ getDisplayLoves(guide) }}
               </button>
-              <button class="chip chip-bookmark" :class="{ collected: isFavorited(guide.id) }" @click.stop="handleToggleFavorite(guide)">
-                <BookmarkIcon :stroke-width="2" :style="{ width: '12px', height: '12px' }" :filled="isFavorited(guide.id)" />
+              <button
+                class="chip chip-bookmark"
+                :class="{ collected: isFavorited(guide.id) }"
+                @click.stop="handleToggleFavorite(guide)"
+              >
+                <BookmarkIcon
+                  :stroke-width="2"
+                  :style="{ width: '12px', height: '12px' }"
+                  :filled="isFavorited(guide.id)"
+                />
                 {{ getDisplayCollections(guide) }}
               </button>
               <button class="chip chip-share" @click.stop="handleShare(guide)">
-                <ShareIcon :stroke-width="2" :style="{ width: '12px', height: '12px' }" />
+                <ShareIcon
+                  :stroke-width="2"
+                  :style="{ width: '12px', height: '12px' }"
+                />
                 {{ getDisplayShares(guide) }}
               </button>
-              <button class="chip chip-view" @click.stop="handleCardClick(guide)">
-                  <MaximizeIcon :stroke-width="2" :style="{ width: '12px', height: '12px' }" />
-                  查看
-                </button>
-              </div>
+              <button
+                class="chip chip-view"
+                @click.stop="handleCardClick(guide)"
+              >
+                <MaximizeIcon
+                  :stroke-width="2"
+                  :style="{ width: '12px', height: '12px' }"
+                />
+                查看
+              </button>
             </div>
-            <div class="list-number">
+          </div>
+          <div class="list-number">
             {{ String(index + 2).padStart(2, '0') }}
           </div>
         </div>
       </div>
     </div>
-
 
     <div class="scroll-section">
       <div class="scroll-header">
@@ -190,27 +260,66 @@
               </div>
               <div class="action-chips">
                 <span class="chip chip-views">
-                  <EyeIcon :stroke-width="2" :style="{ width: '12px', height: '12px' }" />
+                  <EyeIcon
+                    :stroke-width="2"
+                    :style="{ width: '12px', height: '12px' }"
+                  />
                   {{ fmt(getGuideCount(guide.id).views) }}
                 </span>
-                <button class="chip chip-like" :class="{ liked: isLiked(guide.id) }" @click.stop="handleToggleLike(guide)">
-                  <ThumbUpIcon :stroke-width="2" :style="{ width: '12px', height: '12px' }" :filled="isLiked(guide.id)" />
+                <button
+                  class="chip chip-like"
+                  :class="{ liked: isLiked(guide.id) }"
+                  @click.stop="handleToggleLike(guide)"
+                >
+                  <ThumbUpIcon
+                    :stroke-width="2"
+                    :style="{ width: '12px', height: '12px' }"
+                    :filled="isLiked(guide.id)"
+                  />
                   {{ getDisplayLikes(guide) }}
                 </button>
-                <button class="chip chip-love" :class="{ loved: isLoved(guide.id) }" @click.stop="handleToggleLove(guide)">
-                  <HeartIcon :stroke-width="2" :style="{ width: '12px', height: '12px' }" :filled="isLoved(guide.id)" />
+                <button
+                  class="chip chip-love"
+                  :class="{ loved: isLoved(guide.id) }"
+                  @click.stop="handleToggleLove(guide)"
+                >
+                  <HeartIcon
+                    :stroke-width="2"
+                    :style="{ width: '12px', height: '12px' }"
+                    :filled="isLoved(guide.id)"
+                  />
                   {{ getDisplayLoves(guide) }}
                 </button>
-                <button class="chip chip-bookmark" :class="{ collected: isFavorited(guide.id) }" @click.stop="handleToggleFavorite(guide)">
-                  <BookmarkIcon :stroke-width="2" :style="{ width: '12px', height: '12px' }" :filled="isFavorited(guide.id)" />
+                <button
+                  class="chip chip-bookmark"
+                  :class="{ collected: isFavorited(guide.id) }"
+                  @click.stop="handleToggleFavorite(guide)"
+                >
+                  <BookmarkIcon
+                    :stroke-width="2"
+                    :style="{ width: '12px', height: '12px' }"
+                    :filled="isFavorited(guide.id)"
+                  />
                   {{ getDisplayCollections(guide) }}
                 </button>
-                <button class="chip chip-share" @click.stop="handleShare(guide)">
-                  <ShareIcon :stroke-width="2" :style="{ width: '12px', height: '12px' }" />
+                <button
+                  class="chip chip-share"
+                  @click.stop="handleShare(guide)"
+                >
+                  <ShareIcon
+                    :stroke-width="2"
+                    :style="{ width: '12px', height: '12px' }"
+                  />
                   {{ getDisplayShares(guide) }}
                 </button>
-                <button class="chip chip-view" @click.stop="handleCardClick(guide)">
-                  <MaximizeIcon :stroke-width="2" :style="{ width: '12px', height: '12px' }" />
+                <button
+                  class="chip chip-view"
+                  @click.stop="handleCardClick(guide)"
+                >
+                  <MaximizeIcon
+                    :stroke-width="2"
+                    :style="{ width: '12px', height: '12px' }"
+                  />
                   查看
                 </button>
               </div>
@@ -240,10 +349,16 @@
   import ChevronRightIcon from '@/pages/Landscape/icons/common/ChevronRightIcon.vue';
   import MaximizeIcon from '@/pages/Landscape/icons/components/home/TravelGuides/MaximizeIcon.vue';
 
-  import { useLandscapeDataStore } from '@/stores/landscape';
-  import { useInteractionStore } from '@/stores/landscape';
+  import {
+    useLandscapeDataStore,
+    useInteractionStore,
+  } from '@/stores/landscape';
   import type { InteractionItem } from '@/typesOfPages/landscape';
-  import { GUIDE_DEFAULTS, DATE_DEFAULTS, AUTHOR_DEFAULTS } from '@/constants/landscape/defaults';
+  import {
+    GUIDE_DEFAULTS,
+    DATE_DEFAULTS,
+    AUTHOR_DEFAULTS,
+  } from '@/constants/landscape/defaults';
 
   import type { GlobalGuide } from '@/typesOfPages/landscape/data';
 
@@ -277,7 +392,8 @@
   const moreGuides = computed(() => guides.value.slice(4));
 
   const getGuideId = (id: string | number) => String(id);
-  const getGuideCount = (id: string | number) => interactionStore.getCount(getGuideId(id));
+  const getGuideCount = (id: string | number) =>
+    interactionStore.getCount(getGuideId(id));
 
   const convertToInteractionItem = (guide: GlobalGuide): InteractionItem => {
     const gId = getGuideId(guide.id);
@@ -312,10 +428,19 @@
       transport: guide.transport || GUIDE_DEFAULTS.transport,
       budget: guide.budget || GUIDE_DEFAULTS.budget,
       audience: guide.audience || '摄影爱好者、户外探险者',
-      highlights: guide.highlights || ['极致自然风光', '独特地质景观', '丰富摄影机会', '深度文化体验'],
+      highlights: guide.highlights || [
+        '极致自然风光',
+        '独特地质景观',
+        '丰富摄影机会',
+        '深度文化体验',
+      ],
       accommodation: guide.accommodation || GUIDE_DEFAULTS.accommodation,
       language: guide.language || GUIDE_DEFAULTS.language,
-      warnings: guide.warnings || ['注意天气变化', '准备防寒装备', '提前预约住宿'],
+      warnings: guide.warnings || [
+        '注意天气变化',
+        '准备防寒装备',
+        '提前预约住宿',
+      ],
       shootTime: guide.shootTime || GUIDE_DEFAULTS.shootTime,
       shootParams: guide.shootParams || [
         { label: '相机', value: '全画幅单反' },
@@ -330,8 +455,16 @@
         { name: '备用电池', required: true },
       ],
       safety: guide.safety || [
-        { type: 'warning' as const, title: '天气预警', content: '关注当地天气预报，避免恶劣天气出行' },
-        { type: 'info' as const, title: '装备建议', content: '携带保暖衣物、防滑鞋、急救包' },
+        {
+          type: 'warning' as const,
+          title: '天气预警',
+          content: '关注当地天气预报，避免恶劣天气出行',
+        },
+        {
+          type: 'info' as const,
+          title: '装备建议',
+          content: '携带保暖衣物、防滑鞋、急救包',
+        },
       ],
       altitude: guide.altitude || GUIDE_DEFAULTS.altitude,
       temperature: guide.temperature || GUIDE_DEFAULTS.temperature,
@@ -345,7 +478,8 @@
   };
 
   const isLiked = (id: string) => interactionStore.isLiked(getGuideId(id));
-  const isFavorited = (id: string) => interactionStore.isFavorited(getGuideId(id));
+  const isFavorited = (id: string) =>
+    interactionStore.isFavorited(getGuideId(id));
   const isLoved = (id: string) => interactionStore.isLoved(getGuideId(id));
 
   const handleToggleLike = (guide: GlobalGuide) => {
@@ -424,8 +558,14 @@
     interactionStore.registerBatch(
       guides.value.map((g: GlobalGuide) => ({
         id: getGuideId(g.id),
-        counts: { likes: g.likes || 0, views: g.views || 0, loves: g.loves || 0, favorites: g.bookmarks || 0, shares: g.shares || 0 },
-      }))
+        counts: {
+          likes: g.likes || 0,
+          views: g.views || 0,
+          loves: g.loves || 0,
+          favorites: g.bookmarks || 0,
+          shares: g.shares || 0,
+        },
+      })),
     );
   });
 
@@ -435,13 +575,17 @@
     }
   });
 
-  const getDisplayLikes = (guide: GlobalGuide) => fmt(getGuideCount(guide.id).likes);
+  const getDisplayLikes = (guide: GlobalGuide) =>
+    fmt(getGuideCount(guide.id).likes);
 
-  const getDisplayLoves = (guide: GlobalGuide) => fmt(getGuideCount(guide.id).loves);
+  const getDisplayLoves = (guide: GlobalGuide) =>
+    fmt(getGuideCount(guide.id).loves);
 
-  const getDisplayCollections = (guide: GlobalGuide) => fmt(getGuideCount(guide.id).favorites);
+  const getDisplayCollections = (guide: GlobalGuide) =>
+    fmt(getGuideCount(guide.id).favorites);
 
-  const getDisplayShares = (guide: GlobalGuide) => fmt(getGuideCount(guide.id).shares);
+  const getDisplayShares = (guide: GlobalGuide) =>
+    fmt(getGuideCount(guide.id).shares);
 </script>
 
 <style scoped lang="scss" src="./index.scss" />

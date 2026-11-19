@@ -1,0 +1,588 @@
+// ============================================================
+// ConfirmDialog —— CRT 控制台风格跨频道跳转确认弹窗
+// 散热槽 + 旋转刻度徽章 + 迷你扫描线屏幕 + 3D 实体按键
+// z-index: 2150 (高于普通弹窗 2100，低于分享弹窗 2200)
+// ============================================================
+
+.confirm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(16, 10, 4, 0.72);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2150;
+  padding: 1.5rem;
+
+  .confirm-dialog {
+    position: relative;
+    width: 460px;
+    max-width: 100%;
+    background: linear-gradient(
+      165deg,
+      #3e3020 0%,
+      #2a1e12 30%,
+      #1e1408 65%,
+      #100a04 100%
+    );
+    border: 2px solid #6a5a3a;
+    border-radius: 16px;
+    box-shadow:
+      0 24px 60px rgba(0, 0, 0, 0.75),
+      0 10px 20px rgba(0, 0, 0, 0.45),
+      0 3px 6px rgba(0, 0, 0, 0.3),
+      0 0 40px rgba(200, 168, 104, 0.08),
+      inset 0 1px 0 rgba(240, 220, 160, 0.25),
+      inset 0 -4px 8px rgba(0, 0, 0, 0.55),
+      inset 2px 0 5px rgba(0, 0, 0, 0.35),
+      inset -2px 0 5px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+
+    // 散热槽
+    .cd-vents {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 5px;
+      background: repeating-linear-gradient(
+        90deg,
+        transparent 0,
+        transparent 3px,
+        rgba(0, 0, 0, 0.6) 3px,
+        rgba(0, 0, 0, 0.6) 5px
+      );
+      border-radius: 0 0 4px 4px;
+      z-index: 5;
+    }
+
+    // 螺丝
+    .cd-screw {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle at 35% 35%,
+        #9a8a6a,
+        #4a3a20 55%,
+        #2a1e10 100%
+      );
+      box-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.7),
+        inset 0 1px 1px rgba(240, 220, 160, 0.35),
+        inset 0 -1px 1px rgba(0, 0, 0, 0.4);
+      z-index: 10;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 2px;
+        right: 2px;
+        height: 2px;
+        background: rgba(0, 0, 0, 0.55);
+        transform: translateY(-50%) rotate(45deg);
+        border-radius: 1px;
+      }
+      &.screw-tl {
+        top: 11px;
+        left: 11px;
+      }
+      &.screw-tr {
+        top: 11px;
+        right: 11px;
+      }
+      &.screw-bl {
+        bottom: 11px;
+        left: 11px;
+      }
+      &.screw-br {
+        bottom: 11px;
+        right: 11px;
+      }
+    }
+
+    // 关闭按钮 —— 金属旋钮
+    .cd-close {
+      position: absolute;
+      top: 14px;
+      right: 32px;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(
+        circle at 35% 35%,
+        #4a3828,
+        #2a1e10 55%,
+        #1a1008 100%
+      );
+      border: 2px solid #6a5a3a;
+      border-radius: 50%;
+      color: #d4a868;
+      cursor: pointer;
+      z-index: 11;
+      box-shadow:
+        0 3px 6px rgba(0, 0, 0, 0.6),
+        inset 0 1px 0 rgba(240, 220, 160, 0.25),
+        inset 0 -2px 3px rgba(0, 0, 0, 0.4);
+      transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+      svg {
+        width: 16px;
+        height: 16px;
+        transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        inset: -3px;
+        border-radius: 50%;
+        border: 2px solid rgba(255, 100, 60, 0);
+        transition: all 0.45s ease;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      &:hover {
+        background: radial-gradient(
+          circle at 35% 35%,
+          #6a3828,
+          #4a2010 55%,
+          #2a1008 100%
+        );
+        color: #ff9a6a;
+        border-color: #8a4a2a;
+        box-shadow:
+          0 3px 8px rgba(0, 0, 0, 0.6),
+          0 0 16px rgba(255, 100, 60, 0.45),
+          inset 0 1px 0 rgba(255, 200, 160, 0.3),
+          inset 0 -2px 3px rgba(0, 0, 0, 0.4);
+        svg {
+          transform: rotate(90deg);
+        }
+
+        &::before {
+          opacity: 1;
+          inset: -9px;
+          border-color: rgba(255, 100, 60, 0.55);
+        }
+      }
+
+      &:active {
+        box-shadow:
+          0 1px 2px rgba(0, 0, 0, 0.6),
+          inset 0 2px 4px rgba(0, 0, 0, 0.5);
+      }
+    }
+
+    // 内容区
+    .cd-body {
+      padding: 2.6rem 2rem 1.4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+
+      // 警告徽章
+      .cd-badge {
+        position: relative;
+        width: 76px;
+        height: 76px;
+        margin-bottom: 1.2rem;
+
+        .cd-badge-rotor {
+          position: absolute;
+          inset: -6px;
+          border-radius: 50%;
+          border: 2px dashed rgba(200, 168, 104, 0.35);
+          animation: cd-rotate 8s linear infinite;
+        }
+
+        .cd-badge-pulse {
+          position: absolute;
+          inset: -4px;
+          border-radius: 50%;
+          background: radial-gradient(
+            circle,
+            rgba(232, 168, 56, 0.25) 0%,
+            transparent 70%
+          );
+          animation: cd-pulse 2s ease-in-out infinite;
+        }
+
+        .cd-badge-svg {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.6))
+            drop-shadow(0 0 10px rgba(232, 168, 56, 0.35));
+          z-index: 2;
+        }
+      }
+
+      .cd-title {
+        margin: 0 0 1rem;
+        color: #f5e4b8;
+        font-size: 1.5rem;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-shadow:
+          0 2px 4px rgba(0, 0, 0, 0.7),
+          0 0 14px rgba(232, 168, 56, 0.3),
+          0 0 28px rgba(232, 168, 56, 0.15);
+      }
+
+      // 迷你 CRT 屏幕
+      .cd-screen {
+        position: relative;
+        width: 100%;
+        max-width: 340px;
+        padding: 0.9rem 1.2rem;
+        background: linear-gradient(180deg, #0a0804 0%, #1a1208 100%);
+        border: 2px solid #3a2a18;
+        border-radius: 8px;
+        box-shadow:
+          inset 0 0 0 1px rgba(0, 0, 0, 0.6),
+          inset 0 3px 8px rgba(0, 0, 0, 0.8),
+          inset 0 -2px 4px rgba(0, 0, 0, 0.5),
+          0 1px 0 rgba(240, 220, 160, 0.12);
+        overflow: hidden;
+
+        .cd-scanlines {
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          z-index: 2;
+          background: repeating-linear-gradient(
+            0deg,
+            transparent 0,
+            transparent 2px,
+            rgba(0, 0, 0, 0.25) 2px,
+            rgba(0, 0, 0, 0.25) 3px
+          );
+        }
+
+        .cd-screen-glow {
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          z-index: 3;
+          background: radial-gradient(
+            ellipse at center,
+            rgba(232, 168, 56, 0.08) 0%,
+            transparent 70%
+          );
+        }
+
+        .cd-message {
+          position: relative;
+          margin: 0;
+          color: #f0d488;
+          font-size: 1.05rem;
+          font-weight: 700;
+          line-height: 1.6;
+          font-family: 'Courier New', monospace;
+          text-shadow:
+            0 0 8px rgba(232, 168, 56, 0.4),
+            0 1px 2px rgba(0, 0, 0, 0.6);
+          z-index: 4;
+        }
+      }
+    }
+
+    // 按钮区
+    .cd-actions {
+      display: flex;
+      gap: 1.2rem;
+      padding: 0.6rem 2rem 2rem;
+      justify-content: center;
+
+      .cd-btn {
+        position: relative;
+        padding: 0;
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+        border-radius: 10px;
+        outline: none;
+
+        .cd-btn-face {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0.75rem 2rem;
+          font-size: 1.05rem;
+          font-weight: 800;
+          letter-spacing: 0.1em;
+          border-radius: 10px;
+          position: relative;
+          z-index: 2;
+        }
+
+        .cd-btn-side {
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: -4px;
+          height: 6px;
+          border-radius: 0 0 10px 10px;
+          z-index: 1;
+        }
+
+        // 取消按钮 —— 深色金属按键
+        &.cd-cancel {
+          .cd-btn-face {
+            overflow: hidden;
+            background: linear-gradient(
+              180deg,
+              #3a2a1c 0%,
+              #2a1e12 50%,
+              #1a1208 100%
+            );
+            border: 2px solid #5a4a30;
+            color: #c4a868;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+            box-shadow:
+              inset 0 1px 0 rgba(240, 220, 160, 0.18),
+              inset 0 -2px 4px rgba(0, 0, 0, 0.4);
+
+            &::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: -130%;
+              width: 60%;
+              height: 100%;
+              background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(240, 220, 160, 0.3),
+                transparent
+              );
+              transform: skewX(-22deg);
+              transition: left 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+              pointer-events: none;
+              z-index: 3;
+            }
+          }
+
+          .cd-btn-side {
+            background: linear-gradient(180deg, #1a1208 0%, #0a0604 100%);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+          }
+
+          &:hover .cd-btn-face {
+            background: linear-gradient(
+              180deg,
+              #4a3a2c 0%,
+              #3a2e1c 50%,
+              #2a1e12 100%
+            );
+            border-color: #7a6a4a;
+            color: #f0d488;
+            box-shadow:
+              inset 0 1px 0 rgba(240, 220, 160, 0.25),
+              inset 0 -2px 4px rgba(0, 0, 0, 0.4),
+              0 0 14px rgba(200, 168, 104, 0.25);
+            &::before {
+              left: 170%;
+            }
+          }
+
+          &:active {
+            transform: translateY(3px);
+            .cd-btn-side {
+              height: 2px;
+              bottom: -1px;
+            }
+          }
+        }
+
+        // 确认按钮 —— 琥珀色实体按键
+        &.cd-confirm {
+          .cd-btn-face {
+            overflow: hidden;
+            background: linear-gradient(
+              180deg,
+              #f5c860 0%,
+              #d4a040 40%,
+              #a06820 80%,
+              #804810 100%
+            );
+            border: 2px solid #f5d77a;
+            color: #2a1408;
+            text-shadow: 0 1px 1px rgba(255, 240, 200, 0.5);
+            box-shadow:
+              inset 0 1px 0 rgba(255, 240, 200, 0.5),
+              inset 0 -2px 4px rgba(0, 0, 0, 0.25);
+
+            &::before {
+              content: '';
+              position: absolute;
+              inset: 0;
+              border-radius: 10px;
+              background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.3) 0%,
+                transparent 45%
+              );
+              pointer-events: none;
+            }
+
+            &::after {
+              content: '';
+              position: absolute;
+              bottom: -100%;
+              left: 0;
+              right: 0;
+              height: 100%;
+              background: linear-gradient(
+                0deg,
+                rgba(255, 240, 180, 0.5),
+                rgba(255, 240, 180, 0.12) 50%,
+                transparent
+              );
+              transition: bottom 0.55s cubic-bezier(0.23, 1, 0.32, 1);
+              pointer-events: none;
+              z-index: 3;
+            }
+          }
+
+          .cd-btn-side {
+            background: linear-gradient(180deg, #804810 0%, #5a3008 100%);
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+          }
+
+          &::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 14px;
+            border: 2px solid rgba(232, 168, 56, 0);
+            transition: all 0.4s ease;
+            opacity: 0;
+            pointer-events: none;
+          }
+
+          &:hover .cd-btn-face {
+            background: linear-gradient(
+              180deg,
+              #ffe080 0%,
+              #f5b850 40%,
+              #c07828 80%,
+              #a05818 100%
+            );
+            border-color: #ffe8a0;
+            box-shadow:
+              inset 0 1px 0 rgba(255, 240, 200, 0.6),
+              inset 0 -2px 4px rgba(0, 0, 0, 0.25),
+              0 0 22px rgba(232, 168, 56, 0.55);
+            &::after {
+              bottom: 0;
+            }
+          }
+
+          &:hover .cd-btn-side {
+            background: linear-gradient(180deg, #a05818 0%, #6a3810 100%);
+          }
+
+          &:hover::before {
+            opacity: 1;
+            inset: -8px;
+            border-color: rgba(232, 168, 56, 0.5);
+          }
+
+          &:active {
+            transform: translateY(3px);
+            .cd-btn-side {
+              height: 2px;
+              bottom: -1px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// ============================================================
+// 动画
+// ============================================================
+@keyframes cd-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes cd-pulse {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+}
+
+// ============================================================
+// Transition
+// ============================================================
+.confirm-dialog-enter-active,
+.confirm-dialog-leave-active {
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+
+  .confirm-dialog {
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+}
+
+.confirm-dialog-enter-from,
+.confirm-dialog-leave-to {
+  opacity: 0;
+
+  .confirm-dialog {
+    transform: scale(0.85) translateY(-24px);
+  }
+}
+
+@media (width <= 480px) {
+  .confirm-overlay {
+    padding: 1rem;
+
+    .confirm-dialog {
+      .cd-body {
+        padding: 2.2rem 1.4rem 1.2rem;
+        .cd-badge {
+          width: 64px;
+          height: 64px;
+        }
+        .cd-title {
+          font-size: 1.3rem;
+        }
+
+        .cd-screen {
+          padding: 0.7rem 0.9rem;
+          .cd-message {
+            font-size: 0.92rem;
+          }
+        }
+      }
+
+      .cd-actions {
+        gap: 0.8rem;
+        padding: 0.4rem 1.4rem 1.6rem;
+        .cd-btn .cd-btn-face {
+          padding: 0.6rem 1.5rem;
+          font-size: 0.92rem;
+        }
+      }
+    }
+  }
+}

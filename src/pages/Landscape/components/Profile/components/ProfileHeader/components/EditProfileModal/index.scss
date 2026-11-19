@@ -3,13 +3,12 @@
   inset: 0;
   background: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(8px);
-  z-index: 1000;
+  z-index: 2100;
   display: flex;
   align-items: flex-start;
   justify-content: center;
   padding: 40px 20px 20px;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden auto;
   animation: fadeIn 0.3s ease;
 }
 
@@ -55,9 +54,8 @@
         #fff 0%,
         rgba(94, 234, 212, 0.95) 100%
       );
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
       background-clip: text;
+      -webkit-text-fill-color: transparent;
       margin: 0;
     }
 
@@ -100,8 +98,7 @@
 
   .modal-body {
     flex: 1;
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow: hidden auto;
     padding: 28px 32px;
     display: flex;
     flex-direction: column;
@@ -885,13 +882,27 @@
           height: 22px;
         }
 
-        &.weibo svg { color: #e6162d; }
-        &.wechat svg { color: #07c160; }
-        &.bilibili svg { color: #00a1d6; }
-        &.xiaohongshu svg { color: #ff2442; }
-        &.mafengwo svg { color: #ff9d00; }
-        &.tuchong svg { color: #2dbeb3; }
-        &.instagram svg { color: #e4405f; }
+        &.weibo svg {
+          color: #e6162d;
+        }
+        &.wechat svg {
+          color: #07c160;
+        }
+        &.bilibili svg {
+          color: #00a1d6;
+        }
+        &.xiaohongshu svg {
+          color: #ff2442;
+        }
+        &.mafengwo svg {
+          color: #ff9d00;
+        }
+        &.tuchong svg {
+          color: #2dbeb3;
+        }
+        &.instagram svg {
+          color: #e4405f;
+        }
       }
 
       .social-input {
@@ -1161,7 +1172,7 @@
         }
       }
 
-      &:hover:not(.disabled):not(:disabled) {
+      &:hover:not(.disabled, :disabled) {
         transform: translateY(-3px);
         box-shadow:
           0 14px 36px rgba(13, 148, 136, 0.6),
@@ -1170,7 +1181,7 @@
           inset 0 -1px 0 rgba(0, 0, 0, 0.15);
       }
 
-      &:active:not(.disabled):not(:disabled) {
+      &:active:not(.disabled, :disabled) {
         transform: translateY(-1px);
         box-shadow:
           0 6px 18px rgba(13, 148, 136, 0.4),
@@ -1184,6 +1195,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -1194,6 +1206,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -1216,6 +1229,7 @@
       inset 0 1px 0 rgba(82, 160, 255, 0.1) !important;
     padding: 4px 16px !important;
     transition: all 0.2s ease !important;
+
     --el-input-bg-color: transparent !important;
     --el-input-border-color: rgba(82, 160, 255, 0.5) !important;
     --el-input-text-color: #fff !important;
@@ -1285,6 +1299,7 @@
       inset 0 1px 0 rgba(82, 160, 255, 0.1);
     padding: 4px 16px;
     transition: all 0.2s ease;
+
     --el-input-bg-color: transparent !important;
 
     &:hover {
@@ -1613,6 +1628,7 @@
     0 2px 8px rgba(0, 0, 0, 0.2),
     inset 0 1px 0 rgba(82, 160, 255, 0.1) !important;
   padding: 4px 16px !important;
+
   --el-input-bg-color: transparent !important;
 
   &::after {
@@ -1722,7 +1738,11 @@
 }
 
 :global(.dark-select-popper) {
-  background: linear-gradient(180deg, rgba(26, 31, 46, 0.98) 0%, rgba(15, 20, 32, 0.99) 100%) !important;
+  background: linear-gradient(
+    180deg,
+    rgba(26, 31, 46, 0.98) 0%,
+    rgba(15, 20, 32, 0.99) 100%
+  ) !important;
   border: 1px solid rgba(82, 160, 255, 0.3) !important;
   border-radius: 10px !important;
   box-shadow:

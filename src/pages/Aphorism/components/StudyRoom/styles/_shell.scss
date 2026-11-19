@@ -1,0 +1,15 @@
+.studyroom-page {
+  height: 100vh;
+  background: linear-gradient(
+    135deg,
+    #f5e6c1 0%,
+    #f8f0d9 30%,
+    #f0e6c1 70%,
+    #e8d9b0 100%
+  );
+  position: relative;
+  overflow: hidden;
+  font-family: STKaiti, KaiTi, 'Noto Serif SC', SimSun, serif;
+  display: flex;
+  flex-direction: column;
+}

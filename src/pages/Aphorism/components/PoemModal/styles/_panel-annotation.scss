@@ -1,0 +1,285 @@
+@use 'variables' as *;
+
+.scroll-annotation {
+  .scroll-paper {
+    .annotation-content {
+      // ===== 注释模块：古籍笺注贴片风格 =====
+      .tab-panel.annotation-panel {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        overflow: hidden auto;
+        padding-right: 6px;
+
+        &::-webkit-scrollbar {
+          width: 6px;
+        }
+
+        &::-webkit-scrollbar-track {
+          background: rgb(138 96 48 / 8%);
+          border-radius: 3px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background: linear-gradient(
+            180deg,
+            #c09050 0%,
+            #9a7040 50%,
+            #7a5830 100%
+          );
+          border-radius: 3px;
+          box-shadow: inset 0 1px 2px rgb(255 240 220 / 20%);
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+          background: linear-gradient(
+            180deg,
+            #d0a060 0%,
+            #aa8050 50%,
+            #8a6840 100%
+          );
+        }
+
+        .annotation-card {
+          display: flex;
+          align-items: flex-start;
+          gap: 14px;
+          padding: 16px 20px 16px 18px;
+          border-radius: 10px;
+          position: relative;
+          overflow: visible;
+          background:
+            // 云纹水印——若隐若现
+            radial-gradient(
+              ellipse 40px 20px at 85% 15%,
+              rgba(138, 96, 48, 0.06) 0%,
+              transparent 70%
+            ),
+            radial-gradient(
+              ellipse 30px 15px at 15% 85%,
+              rgba(138, 96, 48, 0.05) 0%,
+              transparent 70%
+            ),
+            // 竖纹纸理
+            repeating-linear-gradient(
+                90deg,
+                rgba(74, 40, 16, 0.02) 0%,
+                rgba(74, 40, 16, 0.02) 1px,
+                transparent 1px,
+                transparent 7px
+              ),
+            // 基底渐变——宣纸色
+            linear-gradient(
+                160deg,
+                #f8ecd4 0%,
+                #f0dcb8 40%,
+                #e8cc9c 80%,
+                #e0c090 100%
+              );
+          box-shadow:
+            // 内框——双层描边
+            inset 0 0 0 1px rgba(138, 96, 48, 0.4),
+            inset 0 0 0 2px rgba(248, 236, 212, 0.6),
+            // 内光影——纸面凹凸
+            inset 0 2px 4px rgba(255, 248, 224, 0.5),
+            inset 0 -2px 3px rgba(138, 96, 48, 0.12),
+            inset 2px 0 3px rgba(255, 248, 224, 0.2),
+            inset -2px 0 3px rgba(138, 96, 48, 0.08),
+            // 外阴影——纸片悬浮立体感
+            0 4px 10px rgba(0, 0, 0, 0.12),
+            0 2px 4px rgba(0, 0, 0, 0.06),
+            0 1px 2px rgba(138, 96, 48, 0.15);
+
+          // 左侧朱砂竖线——批注标记
+          &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            bottom: 10px;
+            width: 4px;
+            border-radius: 0 3px 3px 0;
+            background: linear-gradient(
+              180deg,
+              #d05a48 0%,
+              #b03828 25%,
+              #8a2818 55%,
+              #6a1810 100%
+            );
+            box-shadow:
+              0 0 6px rgb(160 40 20 / 40%),
+              inset 0 1px 0 rgb(240 120 100 / 50%),
+              inset 0 -1px 0 rgb(80 10 5 / 40%);
+          }
+
+          // 右上角云纹光晕
+          &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 32px;
+            height: 32px;
+            border-radius: 0 10px 0 0;
+            background: radial-gradient(
+              circle at top right,
+              rgb(200 82 63 / 15%) 0%,
+              rgb(200 82 63 / 5%) 40%,
+              transparent 70%
+            );
+            pointer-events: none;
+          }
+
+          // 四角装饰——古籍页角纹样
+          .annotation-corner {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            pointer-events: none;
+            z-index: 1;
+
+            &.corner-tl {
+              top: 3px;
+              left: 8px;
+              border-top: 1.5px solid rgb(138 96 48 / 35%);
+              border-left: 1.5px solid rgb(138 96 48 / 35%);
+              border-radius: 2px 0 0;
+            }
+
+            &.corner-tr {
+              top: 3px;
+              right: 3px;
+              border-top: 1.5px solid rgb(138 96 48 / 35%);
+              border-right: 1.5px solid rgb(138 96 48 / 35%);
+              border-radius: 0 2px 0 0;
+            }
+
+            &.corner-bl {
+              bottom: 3px;
+              left: 8px;
+              border-bottom: 1.5px solid rgb(138 96 48 / 35%);
+              border-left: 1.5px solid rgb(138 96 48 / 35%);
+              border-radius: 0 0 0 2px;
+            }
+
+            &.corner-br {
+              bottom: 3px;
+              right: 3px;
+              border-bottom: 1.5px solid rgb(138 96 48 / 35%);
+              border-right: 1.5px solid rgb(138 96 48 / 35%);
+              border-radius: 0 0 2px;
+            }
+          }
+
+          .annotation-term {
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: 800;
+            color: #fff0dc;
+            font-family: STKaiti, KaiTi, serif;
+            text-shadow: 0 1px 2px rgb(80 8 4 / 60%);
+            white-space: nowrap;
+            position: relative;
+            z-index: 2;
+
+            // 朱砂印泥底色——多层渐变模拟印泥浓淡
+            background:
+              // 印泥颗粒纹理
+              radial-gradient(
+                circle 1px at 20% 30%,
+                rgba(255, 200, 180, 0.15) 0%,
+                transparent 100%
+              ),
+              radial-gradient(
+                circle 1px at 70% 60%,
+                rgba(255, 200, 180, 0.12) 0%,
+                transparent 100%
+              ),
+              radial-gradient(
+                circle 1px at 40% 80%,
+                rgba(80, 10, 5, 0.2) 0%,
+                transparent 100%
+              ),
+              // 印泥浓淡渐变
+              linear-gradient(
+                  135deg,
+                  #d05a48 0%,
+                  #b83828 30%,
+                  #9a2818 60%,
+                  #7a1810 100%
+                );
+            box-shadow:
+              // 内描边——双层金边
+              inset 0 0 0 1px rgba(255, 240, 220, 0.5),
+              inset 0 0 0 2px rgba(140, 30, 15, 0.3),
+              // 内凹凸——立体浮雕感
+              inset 0 2px 3px rgba(240, 120, 100, 0.35),
+              inset 0 -2px 3px rgba(80, 10, 5, 0.5),
+              inset 2px 0 2px rgba(220, 80, 60, 0.15),
+              inset -2px 0 2px rgba(80, 10, 5, 0.2),
+              // 外投影——印章凸起悬浮
+              0 3px 6px rgba(120, 30, 15, 0.4),
+              0 1px 3px rgba(80, 10, 5, 0.3);
+
+            // 顶部光泽——印泥反光
+            &::before {
+              content: '';
+              position: absolute;
+              inset: 0;
+              border-radius: 6px;
+              background: linear-gradient(
+                180deg,
+                rgb(255 255 255 / 35%) 0%,
+                rgb(255 255 255 / 8%) 25%,
+                transparent 50%,
+                rgb(0 0 0 / 5%) 80%,
+                rgb(0 0 0 / 10%) 100%
+              );
+              pointer-events: none;
+            }
+
+            // 底部金线——印章底饰
+            &::after {
+              content: '';
+              position: absolute;
+              left: 6px;
+              right: 6px;
+              bottom: 2px;
+              height: 1px;
+              border-radius: 1px;
+              background: linear-gradient(
+                90deg,
+                transparent 0%,
+                rgb(255 220 150 / 60%) 25%,
+                rgb(255 220 150 / 60%) 75%,
+                transparent 100%
+              );
+              pointer-events: none;
+            }
+          }
+
+          .annotation-explanation {
+            flex: 1;
+            font-size: 18px;
+            line-height: 1.9;
+            font-weight: 600;
+            color: #3a2010;
+            font-family: STKaiti, KaiTi, 'Noto Serif SC', serif;
+            text-shadow:
+              0 1px 0 rgb(255 248 224 / 40%),
+              0 1px 2px rgb(0 0 0 / 4%);
+            padding-top: 4px;
+            word-break: break-all;
+            position: relative;
+            z-index: 2;
+          }
+        }
+      }
+    }
+  }
+}
