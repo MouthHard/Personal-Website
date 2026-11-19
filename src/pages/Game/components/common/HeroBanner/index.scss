@@ -1,7 +1,9 @@
+@use 'sass:color';
+
 $steam-blue: #66c0f4;
 $steam-dark: #1b2838;
 $text-primary: #c7d5e0;
-$text-bright: #ffffff;
+$text-bright: #fff;
 $text-dim: #556772;
 
 .hero-banner {
@@ -36,7 +38,12 @@ $text-dim: #556772;
     position: absolute;
     inset: 0;
     background:
-      linear-gradient(to right, rgba(23, 26, 33, 0.92) 0%, rgba(23, 26, 33, 0.5) 30%, transparent 60%),
+      linear-gradient(
+        to right,
+        rgba(23, 26, 33, 0.92) 0%,
+        rgba(23, 26, 33, 0.5) 30%,
+        transparent 60%
+      ),
       linear-gradient(to top, rgba(23, 26, 33, 0.8) 0%, transparent 40%);
   }
 
@@ -55,6 +62,7 @@ $text-dim: #556772;
         opacity: 0;
         transform: translateY(20px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -76,8 +84,13 @@ $text-dim: #556772;
     animation: tagPulse 2s ease-in-out infinite;
 
     @keyframes tagPulse {
-      0%, 100% { box-shadow: 0 0 12px rgba($steam-blue, 0.4); }
-      50% { box-shadow: 0 0 20px rgba($steam-blue, 0.6); }
+      0%,
+      100% {
+        box-shadow: 0 0 12px rgba($steam-blue, 0.4);
+      }
+      50% {
+        box-shadow: 0 0 20px rgba($steam-blue, 0.6);
+      }
     }
   }
 
@@ -91,7 +104,9 @@ $text-dim: #556772;
     transition: text-shadow 0.3s;
 
     .hero-banner:hover & {
-      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9), 0 0 30px rgba($steam-blue, 0.2);
+      text-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.9),
+        0 0 30px rgba($steam-blue, 0.2);
     }
   }
 
@@ -103,7 +118,7 @@ $text-dim: #556772;
     transition: color 0.3s;
 
     .hero-banner:hover & {
-      color: lighten($text-primary, 5%);
+      color: color.adjust($text-primary, $lightness: 5%);
     }
   }
 
@@ -129,13 +144,21 @@ $text-dim: #556772;
   &__progress-fill {
     height: 100%;
     width: 0;
-    background: linear-gradient(90deg, $steam-blue, lighten($steam-blue, 10%));
+    background: linear-gradient(
+      90deg,
+      $steam-blue,
+      color.adjust($steam-blue, $lightness: 10%)
+    );
     animation: progressGrow linear forwards;
     box-shadow: 0 0 8px rgba($steam-blue, 0.5);
 
     @keyframes progressGrow {
-      from { width: 0; }
-      to { width: 100%; }
+      from {
+        width: 0;
+      }
+      to {
+        width: 100%;
+      }
     }
 
     &--done {
@@ -168,11 +191,15 @@ $text-dim: #556772;
 
     &--active {
       opacity: 1;
-      box-shadow: 0 0 0 1px $steam-blue, 0 4px 16px rgba(102, 192, 244, 0.3);
+      box-shadow:
+        0 0 0 1px $steam-blue,
+        0 4px 16px rgba(102, 192, 244, 0.3);
 
       &:hover {
         transform: translateY(0);
-        box-shadow: 0 0 0 2px $steam-blue, 0 6px 20px rgba(102, 192, 244, 0.4);
+        box-shadow:
+          0 0 0 2px $steam-blue,
+          0 6px 20px rgba(102, 192, 244, 0.4);
       }
     }
   }
@@ -214,7 +241,11 @@ $text-dim: #556772;
     width: 48px;
     height: 90px;
     border: none;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
+    background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.2)
+    );
     color: rgba(255, 255, 255, 0.6);
     font-size: 26px;
     cursor: pointer;
@@ -226,10 +257,16 @@ $text-dim: #556772;
     z-index: 2;
     backdrop-filter: blur(4px);
 
-    .hero-banner:hover & { opacity: 1; }
+    .hero-banner:hover & {
+      opacity: 1;
+    }
 
     &:hover {
-      background: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.5));
+      background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.85),
+        rgba(0, 0, 0, 0.5)
+      );
       color: $text-bright;
       transform: translateY(-50%) scale(1.05);
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
@@ -242,11 +279,20 @@ $text-dim: #556772;
 
     &--prev {
       left: 0;
-      background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
+      background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.2)
+      );
     }
+
     &--next {
       right: 0;
-      background: linear-gradient(to left, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
+      background: linear-gradient(
+        to left,
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.2)
+      );
     }
   }
 }

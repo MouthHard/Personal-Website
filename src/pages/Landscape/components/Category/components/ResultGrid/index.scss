@@ -9,7 +9,7 @@ $amber-light: #fbbf24;
 $amber-dark: #b45309;
 
 .result-grid {
-  padding: 2rem 1.5rem 10rem 1.5rem;
+  padding: 2rem 1.5rem 10rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
@@ -417,6 +417,7 @@ $amber-dark: #b45309;
             &.act-views {
               cursor: default;
             }
+
             &.act-like,
             &.act-love,
             &.act-bookmark,
@@ -446,6 +447,7 @@ $amber-dark: #b45309;
                 inset 1px 1px 3px rgba(0, 0, 0, 0.5),
                 inset -1px -1px 3px rgba($amber, 0.08);
               border-color: rgba($amber-dark, 0.3);
+
               svg {
                 color: $amber-light;
               }
@@ -462,6 +464,7 @@ $amber-dark: #b45309;
                 inset 1px 1px 3px rgba(0, 0, 0, 0.5),
                 inset -1px -1px 3px rgba(6, 182, 212, 0.06);
               border-color: rgba(6, 182, 212, 0.25);
+
               svg {
                 color: #06b6d4;
               }
@@ -477,6 +480,7 @@ $amber-dark: #b45309;
                   0 0 12px rgba(6, 182, 212, 0.4);
                 border-color: rgba(6, 182, 212, 0.6);
                 color: #fff;
+
                 svg {
                   color: #fff;
                   transform: scale(1.15);
@@ -494,6 +498,7 @@ $amber-dark: #b45309;
                   0 0 20px rgba(6, 182, 212, 0.6);
                 border-color: rgba(6, 182, 212, 0.85);
                 color: #fff;
+
                 svg {
                   color: #fff;
                   transform: scale(1.2);
@@ -512,6 +517,7 @@ $amber-dark: #b45309;
                 inset 1px 1px 3px rgba(0, 0, 0, 0.5),
                 inset -1px -1px 3px rgba(239, 68, 68, 0.06);
               border-color: rgba(239, 68, 68, 0.25);
+
               svg {
                 color: #ef4444;
               }
@@ -527,6 +533,7 @@ $amber-dark: #b45309;
                   0 0 12px rgba(239, 68, 68, 0.4);
                 border-color: rgba(239, 68, 68, 0.6);
                 color: #fff;
+
                 svg {
                   color: #fff;
                   transform: scale(1.15);
@@ -544,6 +551,7 @@ $amber-dark: #b45309;
                   0 0 20px rgba(239, 68, 68, 0.6);
                 border-color: rgba(239, 68, 68, 0.85);
                 color: #fff;
+
                 svg {
                   color: #fff;
                   transform: scale(1.2);
@@ -562,6 +570,7 @@ $amber-dark: #b45309;
                 inset 1px 1px 3px rgba(0, 0, 0, 0.5),
                 inset -1px -1px 3px rgba(16, 185, 129, 0.06);
               border-color: rgba(16, 185, 129, 0.25);
+
               svg {
                 color: #10b981;
               }
@@ -577,6 +586,7 @@ $amber-dark: #b45309;
                   0 0 12px rgba(16, 185, 129, 0.4);
                 border-color: rgba(16, 185, 129, 0.6);
                 color: #fff;
+
                 svg {
                   color: #fff;
                   transform: scale(1.15);
@@ -594,6 +604,7 @@ $amber-dark: #b45309;
                   0 0 20px rgba(16, 185, 129, 0.6);
                 border-color: rgba(16, 185, 129, 0.85);
                 color: #fff;
+
                 svg {
                   color: #fff;
                   transform: scale(1.2);
@@ -612,6 +623,7 @@ $amber-dark: #b45309;
                 inset 1px 1px 3px rgba(0, 0, 0, 0.5),
                 inset -1px -1px 3px rgba(139, 92, 246, 0.06);
               border-color: rgba(139, 92, 246, 0.25);
+
               svg {
                 color: #8b5cf6;
               }
@@ -627,6 +639,7 @@ $amber-dark: #b45309;
                   0 0 12px rgba(139, 92, 246, 0.4);
                 border-color: rgba(139, 92, 246, 0.6);
                 color: #fff;
+
                 svg {
                   color: #fff;
                   transform: scale(1.15);
@@ -645,6 +658,7 @@ $amber-dark: #b45309;
                 inset 1px 1px 3px rgba(0, 0, 0, 0.5),
                 inset -1px -1px 3px rgba(59, 130, 246, 0.06);
               border-color: rgba(59, 130, 246, 0.25);
+
               svg {
                 color: #3b82f6;
               }
@@ -660,6 +674,7 @@ $amber-dark: #b45309;
                   0 0 12px rgba(59, 130, 246, 0.4);
                 border-color: rgba(59, 130, 246, 0.6);
                 color: #fff;
+
                 svg {
                   color: #fff;
                   transform: scale(1.15);
@@ -680,6 +695,7 @@ $amber-dark: #b45309;
                 inset 1px 1px 3px rgba(0, 0, 0, 0.5),
                 inset -1px -1px 3px rgba($amber, 0.08);
               border-color: rgba($amber-dark, 0.3);
+
               svg {
                 color: $amber-light;
               }
@@ -696,6 +712,7 @@ $amber-dark: #b45309;
                 inset 1px 1px 3px rgba(0, 0, 0, 0.5),
                 inset -1px -1px 3px rgba(6, 182, 212, 0.06);
               border-color: rgba(6, 182, 212, 0.25);
+
               svg {
                 color: #06b6d4;
               }
@@ -711,6 +728,7 @@ $amber-dark: #b45309;
                   0 0 12px rgba(6, 182, 212, 0.4);
                 border-color: rgba(6, 182, 212, 0.6);
                 color: #fff;
+
                 svg {
                   color: #fff;
                   transform: scale(1.15);
@@ -728,6 +746,7 @@ $amber-dark: #b45309;
                   0 0 20px rgba(6, 182, 212, 0.6);
                 border-color: rgba(6, 182, 212, 0.85);
                 color: #fff;
+
                 svg {
                   color: #fff;
                   transform: scale(1.2);
@@ -746,6 +765,7 @@ $amber-dark: #b45309;
                 inset 1px 1px 3px rgba(0, 0, 0, 0.5),
                 inset -1px -1px 3px rgba(239, 68, 68, 0.06);
               border-color: rgba(239, 68, 68, 0.25);
+
               svg {
                 color: #ef4444;
               }
@@ -761,6 +781,7 @@ $amber-dark: #b45309;
                   0 0 12px rgba(239, 68, 68, 0.4);
                 border-color: rgba(239, 68, 68, 0.6);
                 color: #fff;
+
                 svg {
                   color: #fff;
                   transform: scale(1.15);
@@ -778,6 +799,7 @@ $amber-dark: #b45309;
                   0 0 20px rgba(239, 68, 68, 0.6);
                 border-color: rgba(239, 68, 68, 0.85);
                 color: #fff;
+
                 svg {
                   color: #fff;
                   transform: scale(1.2);
@@ -796,6 +818,7 @@ $amber-dark: #b45309;
                 inset 1px 1px 3px rgba(0, 0, 0, 0.5),
                 inset -1px -1px 3px rgba(16, 185, 129, 0.06);
               border-color: rgba(16, 185, 129, 0.25);
+
               svg {
                 color: #10b981;
               }
@@ -811,6 +834,7 @@ $amber-dark: #b45309;
                   0 0 12px rgba(16, 185, 129, 0.4);
                 border-color: rgba(16, 185, 129, 0.6);
                 color: #fff;
+
                 svg {
                   color: #fff;
                   transform: scale(1.15);
@@ -828,6 +852,7 @@ $amber-dark: #b45309;
                   0 0 20px rgba(16, 185, 129, 0.6);
                 border-color: rgba(16, 185, 129, 0.85);
                 color: #fff;
+
                 svg {
                   color: #fff;
                   transform: scale(1.2);
@@ -846,6 +871,7 @@ $amber-dark: #b45309;
                 inset 1px 1px 3px rgba(0, 0, 0, 0.5),
                 inset -1px -1px 3px rgba(139, 92, 246, 0.06);
               border-color: rgba(139, 92, 246, 0.25);
+
               svg {
                 color: #8b5cf6;
               }
@@ -861,6 +887,7 @@ $amber-dark: #b45309;
                   0 0 12px rgba(139, 92, 246, 0.4);
                 border-color: rgba(139, 92, 246, 0.6);
                 color: #fff;
+
                 svg {
                   color: #fff;
                   transform: scale(1.15);
@@ -879,6 +906,7 @@ $amber-dark: #b45309;
                 inset 1px 1px 3px rgba(0, 0, 0, 0.5),
                 inset -1px -1px 3px rgba(59, 130, 246, 0.06);
               border-color: rgba(59, 130, 246, 0.25);
+
               svg {
                 color: #3b82f6;
               }
@@ -894,6 +922,7 @@ $amber-dark: #b45309;
                   0 0 12px rgba(59, 130, 246, 0.4);
                 border-color: rgba(59, 130, 246, 0.6);
                 color: #fff;
+
                 svg {
                   color: #fff;
                   transform: scale(1.15);

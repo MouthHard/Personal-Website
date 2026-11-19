@@ -1,9 +1,8 @@
 .category-filter-header {
-  margin: 0 0 20px 0;
+  margin: 0 0 20px;
   padding: 0 40px;
   transform-style: preserve-3d;
   perspective: 1000px;
-
   position: relative;
   overflow: hidden;
   transform: perspective(1000px) translateZ(10px);
@@ -22,8 +21,8 @@
       .section-title {
         font-size: 36px;
         font-weight: 700;
-        color: #ffffff;
-        margin: 0 0 4px 0;
+        color: #fff;
+        margin: 0 0 4px;
         letter-spacing: 2px;
         position: relative;
         transform: perspective(800px) translateZ(20px);
@@ -109,7 +108,7 @@
         background: transparent;
         border: none;
         outline: none;
-        color: #000000;
+        color: #000;
         font-size: 14px;
         font-weight: 600;
         padding: 0 16px;
@@ -121,12 +120,11 @@
 
         &::placeholder {
           color: rgb(162, 80, 21);
-
           transition: all 0.3s ease;
         }
 
         &:focus {
-          color: #000000;
+          color: #000;
         }
 
         &:focus::placeholder {
@@ -143,7 +141,7 @@
         height: 32px;
         margin-right: 10px;
         font-size: 14px;
-        color: #000000;
+        color: #000;
         cursor: pointer;
         border-radius: 50%;
         background: linear-gradient(135deg, #d4a76a, #b88646, #9d6c30);
@@ -159,7 +157,7 @@
 
         &:hover {
           background: linear-gradient(135deg, #e6b868, #d4a050, #b88646);
-          color: #000000;
+          color: #000;
           transform: scale(1.1) translateZ(5px);
           box-shadow:
             0 4px 8px rgba(0, 0, 0, 1),
@@ -184,7 +182,7 @@
         text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
 
         &:hover {
-          color: #000000;
+          color: #000;
           text-shadow: 0 0 15px rgba(139, 69, 19, 0.8);
           transform: scale(1.05);
         }
@@ -203,7 +201,7 @@
       background: linear-gradient(135deg, #f9e090, #e6b868, #7a4b05);
       border: 2px solid rgba(218, 165, 32, 0.6);
       border-radius: 16px;
-      color: #000000;
+      color: #000;
       font-size: 14px;
       font-weight: 600;
       cursor: pointer;
@@ -247,7 +245,7 @@
       &:hover {
         background: linear-gradient(135deg, #fde8a8, #f0c070, #e6a848);
         border-color: rgba(218, 165, 32, 0.8);
-        color: #000000;
+        color: #000;
         transform: perspective(1000px) rotateX(2deg) translateY(-6px)
           scale(1.05) translateZ(10px);
         box-shadow:
@@ -288,6 +286,7 @@
   100% {
     transform: translateY(0) translateZ(5px);
   }
+
   50% {
     transform: translateY(-5px) translateZ(8px);
   }

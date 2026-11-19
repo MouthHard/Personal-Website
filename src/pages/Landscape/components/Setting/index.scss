@@ -4,11 +4,11 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  background: #000000;
+  background: #000;
   padding: 20px 0 0;
   color: #fefce8;
   font-family:
-    'Inter',
+    Inter,
     -apple-system,
     BlinkMacSystemFont,
     sans-serif;
@@ -87,8 +87,7 @@
 
       .setting-main {
         height: calc(100vh - 220px);
-        overflow-x: hidden;
-        overflow-y: auto;
+        overflow: hidden auto;
         padding-right: 24px;
         padding-bottom: 24px;
         margin-right: 16px;
@@ -212,80 +211,88 @@
   overflow-y: auto !important;
   position: relative;
 
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(254, 249, 195, 0.4) 20%,
+      rgba(254, 249, 195, 0.65) 50%,
+      rgba(56, 189, 248, 0.5) 70%,
+      transparent 100%
+    );
+    border-radius: 16px 16px 0 0;
+  }
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(5, 10, 15, 0.9);
+    border-radius: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #fef9c3, #7dd3fc);
+    border-radius: 3px;
+    box-shadow: 0 0 10px rgba(254, 249, 195, 0.6);
+  }
+
+  .el-select-dropdown__item {
+    color: #fefce8 !important;
+    padding: 14px 24px !important;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease !important;
+    position: relative;
+    border-bottom: 1px solid rgba(254, 249, 195, 0.08);
+
     &::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
-      height: 2px;
+      height: 50%;
       background: linear-gradient(
-        90deg,
-        transparent 0%,
-        rgba(254, 249, 195, 0.4) 20%,
-        rgba(254, 249, 195, 0.65) 50%,
-        rgba(56, 189, 248, 0.5) 70%,
-        transparent 100%
+        180deg,
+        rgba(254, 249, 195, 0.06),
+        transparent
       );
-      border-radius: 16px 16px 0 0;
+      pointer-events: none;
     }
 
-    &::-webkit-scrollbar {
-      width: 6px;
+    &:hover {
+      background: rgba(254, 249, 195, 0.12) !important;
+      color: #fef9c3 !important;
+      padding-left: 28px !important;
     }
 
-    &::-webkit-scrollbar-track {
-      background: rgba(5, 10, 15, 0.9);
-      border-radius: 3px;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background: linear-gradient(180deg, #fef9c3, #7dd3fc);
-      border-radius: 3px;
-      box-shadow: 0 0 10px rgba(254, 249, 195, 0.6);
-    }
-
-    .el-select-dropdown__item {
-      color: #fefce8 !important;
-      padding: 14px 24px !important;
-      font-size: 14px;
-      font-weight: 500;
-      transition: all 0.3s ease !important;
-      position: relative;
-      border-bottom: 1px solid rgba(254, 249, 195, 0.08);
+    &.selected {
+      background: linear-gradient(
+        135deg,
+        rgba(56, 189, 248, 0.25),
+        rgba(254, 249, 195, 0.15)
+      ) !important;
+      color: #7dd3fc !important;
+      font-weight: 600;
 
       &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 50%;
-        background: linear-gradient(180deg, rgba(254, 249, 195, 0.06), transparent);
-        pointer-events: none;
-      }
-
-      &:hover {
-        background: rgba(254, 249, 195, 0.12) !important;
-        color: #fef9c3 !important;
-        padding-left: 28px !important;
-      }
-
-      &.selected {
         background: linear-gradient(
-          135deg,
-          rgba(56, 189, 248, 0.25),
-          rgba(254, 249, 195, 0.15)
-        ) !important;
-        color: #7dd3fc !important;
-        font-weight: 600;
-
-        &::before {
-          background: linear-gradient(180deg, rgba(254, 249, 195, 0.12), transparent);
-        }
+          180deg,
+          rgba(254, 249, 195, 0.12),
+          transparent
+        );
       }
     }
   }
+}
 
 .el-switch {
   --el-switch-on-color: transparent !important;
@@ -401,7 +408,11 @@
       left: 18%;
       width: 64%;
       height: 64%;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.35), transparent);
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.35),
+        transparent
+      );
       border-radius: 50%;
     }
   }
@@ -425,7 +436,11 @@
         inset 0 -1px 0 rgba(251, 191, 36, 0.3) !important;
 
       &::after {
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.45), transparent);
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.45),
+          transparent
+        );
       }
     }
   }
@@ -550,8 +565,7 @@
 
     .setting-sidebar {
       .sidebar-nav {
-        flex-direction: row;
-        flex-wrap: wrap;
+        flex-flow: row wrap;
         position: static;
         padding: 12px;
       }

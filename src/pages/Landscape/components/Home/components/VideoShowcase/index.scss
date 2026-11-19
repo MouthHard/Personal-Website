@@ -42,7 +42,7 @@
       .section-title {
         font-size: 2.5rem;
         font-weight: 900;
-        background: linear-gradient(135deg, #ffffff 0%, #fca5a5 35%, #ef4444 100%);
+        background: linear-gradient(135deg, #fff 0%, #fca5a5 35%, #ef4444 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -74,8 +74,12 @@
         display: flex;
         flex-direction: column;
         position: relative;
-        background:
-          linear-gradient(180deg, #321212 0%, #200c0c 45%, #140808 100%);
+        background: linear-gradient(
+          180deg,
+          #321212 0%,
+          #200c0c 45%,
+          #140808 100%
+        );
         border: 1.5px solid rgba(239, 68, 68, 0.58);
         border-radius: 5px;
         box-shadow:
@@ -122,8 +126,13 @@
           border-radius: 50%;
           top: 12px;
           z-index: 3;
-          background:
-            radial-gradient(circle at 35% 30%, #fed7d7, #fca5a5 30%, #b91c1c 75%, #7f1d1d 100%);
+          background: radial-gradient(
+            circle at 35% 30%,
+            #fed7d7,
+            #fca5a5 30%,
+            #b91c1c 75%,
+            #7f1d1d 100%
+          );
           border: 1px solid rgba(255, 200, 200, 0.75);
           box-shadow:
             0 1px 3px rgba(0, 0, 0, 0.42),
@@ -132,8 +141,12 @@
             inset 0 -1.5px 1.5px rgba(0, 0, 0, 0.4);
           transition: all 0.4s ease;
 
-          &.clapper-hinge-l { left: 5px; }
-          &.clapper-hinge-r { right: 5px; }
+          &.clapper-hinge-l {
+            left: 5px;
+          }
+          &.clapper-hinge-r {
+            right: 5px;
+          }
         }
 
         .clapper-body {
@@ -144,8 +157,17 @@
           position: relative;
           padding: 0.7rem 1.6rem;
           background:
-            linear-gradient(180deg, rgba(239, 68, 68, 0.4) 0%, rgba(200, 50, 50, 0.25) 50%, rgba(140, 30, 30, 0.32) 100%),
-            linear-gradient(135deg, rgba(255, 200, 200, 0.22) 0%, transparent 60%);
+            linear-gradient(
+              180deg,
+              rgba(239, 68, 68, 0.4) 0%,
+              rgba(200, 50, 50, 0.25) 50%,
+              rgba(140, 30, 30, 0.32) 100%
+            ),
+            linear-gradient(
+              135deg,
+              rgba(255, 200, 200, 0.22) 0%,
+              transparent 60%
+            );
           border-top: 1px solid rgba(239, 68, 68, 0.38);
           box-shadow:
             inset 0 1.5px 2px rgba(255, 205, 205, 0.22),
@@ -156,7 +178,12 @@
           .body-glow {
             position: absolute;
             inset: 0;
-            background: linear-gradient(110deg, transparent 30%, rgba(255, 225, 225, 0.38) 50%, transparent 70%);
+            background: linear-gradient(
+              110deg,
+              transparent 30%,
+              rgba(255, 225, 225, 0.38) 50%,
+              transparent 70%
+            );
             transform: translateX(-100%);
             transition: transform 0.6s ease;
             pointer-events: none;
@@ -174,7 +201,9 @@
               font-weight: 900;
               letter-spacing: 0.08em;
               color: #ffe0e0;
-              text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5), 0 0 12px rgba(239, 68, 68, 0.6);
+              text-shadow:
+                0 1px 2px rgba(0, 0, 0, 0.5),
+                0 0 12px rgba(239, 68, 68, 0.6);
               transition: all 0.35s ease;
             }
 
@@ -193,7 +222,12 @@
             left: 1.6rem;
             right: 1.6rem;
             height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(239, 68, 68, 0.45), transparent);
+            background: linear-gradient(
+              90deg,
+              transparent,
+              rgba(239, 68, 68, 0.45),
+              transparent
+            );
             box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
           }
         }
@@ -222,24 +256,39 @@
 
         .clapper-body {
           background:
-            linear-gradient(180deg, rgba(239, 68, 68, 0.62) 0%, rgba(220, 60, 60, 0.45) 50%, rgba(160, 40, 40, 0.52) 100%),
-            linear-gradient(135deg, rgba(255, 200, 200, 0.38) 0%, transparent 60%);
+            linear-gradient(
+              180deg,
+              rgba(239, 68, 68, 0.62) 0%,
+              rgba(220, 60, 60, 0.45) 50%,
+              rgba(160, 40, 40, 0.52) 100%
+            ),
+            linear-gradient(
+              135deg,
+              rgba(255, 200, 200, 0.38) 0%,
+              transparent 60%
+            );
           box-shadow:
             inset 0 1.5px 2px rgba(255, 220, 220, 0.3),
             inset 0 -2px 4px rgba(0, 0, 0, 0.3),
             inset 0 0 28px rgba(239, 68, 68, 0.3);
 
-          .body-glow { transform: translateX(100%); }
+          .body-glow {
+            transform: translateX(100%);
+          }
 
           .body-content {
             .more-text {
               color: #fff;
-              text-shadow: 0 1px 2px rgba(0, 0, 0, 0.42), 0 0 18px rgba(239, 68, 68, 0.9);
+              text-shadow:
+                0 1px 2px rgba(0, 0, 0, 0.42),
+                0 0 18px rgba(239, 68, 68, 0.9);
             }
+
             .more-arrow {
               color: #fff;
               transform: translateX(3px);
-              filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35)) drop-shadow(0 0 12px rgba(239, 68, 68, 0.75));
+              filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35))
+                drop-shadow(0 0 12px rgba(239, 68, 68, 0.75));
             }
           }
         }
@@ -260,8 +309,17 @@
 
         .clapper-body {
           background:
-            linear-gradient(180deg, rgba(239, 68, 68, 0.75) 0%, rgba(230, 70, 70, 0.6) 50%, rgba(170, 50, 50, 0.65) 100%),
-            linear-gradient(135deg, rgba(255, 200, 200, 0.48) 0%, transparent 60%);
+            linear-gradient(
+              180deg,
+              rgba(239, 68, 68, 0.75) 0%,
+              rgba(230, 70, 70, 0.6) 50%,
+              rgba(170, 50, 50, 0.65) 100%
+            ),
+            linear-gradient(
+              135deg,
+              rgba(255, 200, 200, 0.48) 0%,
+              transparent 60%
+            );
           box-shadow:
             inset 0 1.5px 2px rgba(255, 220, 220, 0.35),
             inset 0 -2px 4px rgba(0, 0, 0, 0.25),
@@ -271,13 +329,11 @@
     }
   }
 
-
   .coverflow-stage {
     position: relative;
     perspective: 1200px;
   }
 }
-
 
 @media (max-width: 768px) {
   .video-showcase {

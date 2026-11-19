@@ -1,4 +1,4 @@
-@use '../../_variables' as *;
+@use '../../variables' as *;
 
 // 右侧美食矩阵（保持琥珀橙系，不随季节变）
 .season-foods {
@@ -10,11 +10,24 @@
     position: relative;
     cursor: pointer;
     overflow: hidden;
-    border-radius: 22px 6px 22px 6px;
+    border-radius: 22px 6px;
     background:
-      radial-gradient(circle at 16% 10%, var(--season-glow, #{$amber-glow}) 0%, transparent 42%),
-      radial-gradient(circle at 94% 98%, var(--season-glow, rgba(251, 191, 36, 0.12)) 0%, transparent 40%),
-      linear-gradient(160deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.02) 34%, transparent 56%),
+      radial-gradient(
+        circle at 16% 10%,
+        var(--season-glow, #{$amber-glow}) 0%,
+        transparent 42%
+      ),
+      radial-gradient(
+        circle at 94% 98%,
+        var(--season-glow, rgba(251, 191, 36, 0.12)) 0%,
+        transparent 40%
+      ),
+      linear-gradient(
+        160deg,
+        rgba(255, 255, 255, 0.09) 0%,
+        rgba(255, 255, 255, 0.02) 34%,
+        transparent 56%
+      ),
       linear-gradient(180deg, $ink-4 0%, $ink 115%);
     border: 1px solid var(--season-color, rgba(249, 115, 22, 0.5));
     box-shadow:
@@ -28,17 +41,23 @@
       inset 1px 0 0 rgba(255, 255, 255, 0.05),
       inset -1px 0 0 rgba(0, 0, 0, 0.3),
       inset 0 0 30px var(--season-glow, #{$amber-glow});
-    transition: border-color 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+    transition:
+      border-color 0.4s ease,
+      box-shadow 0.4s ease,
+      background 0.4s ease;
 
     &::before {
       content: '';
       position: absolute;
       inset: 5px;
-      border-radius: 16px 4px 16px 4px;
+      border-radius: 16px 4px;
       border: 1px solid var(--season-glow, rgba(249, 115, 22, 0.35));
       pointer-events: none;
       z-index: 1;
-      transition: inset 0.4s ease, border-color 0.4s ease, opacity 0.4s ease;
+      transition:
+        inset 0.4s ease,
+        border-color 0.4s ease,
+        opacity 0.4s ease;
     }
 
     &::after {
@@ -48,7 +67,8 @@
       left: 0;
       right: 0;
       height: 3px;
-      background: linear-gradient(90deg,
+      background: linear-gradient(
+        90deg,
         transparent 0%,
         var(--season-deep, #{$amber-deep}) 10%,
         var(--season-color, #{$amber}) 30%,
@@ -73,7 +93,12 @@
       left: -14%;
       width: 135%;
       height: 2px;
-      background: linear-gradient(90deg, transparent, var(--season-bright, #{$amber-bright}) 50%, transparent);
+      background: linear-gradient(
+        90deg,
+        transparent,
+        var(--season-bright, #{$amber-bright}) 50%,
+        transparent
+      );
       transform: rotate(-8deg);
       opacity: 0.45;
       box-shadow:
@@ -81,7 +106,10 @@
         0 0 4px var(--season-glow, #{$amber-glow});
       pointer-events: none;
       z-index: 3;
-      transition: opacity 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+      transition:
+        opacity 0.4s ease,
+        box-shadow 0.4s ease,
+        background 0.4s ease;
     }
 
     .food-image-wrap {
@@ -100,13 +128,18 @@
         position: absolute;
         inset: 0;
         background:
-          repeating-linear-gradient(0deg,
-            transparent 0px,
+          repeating-linear-gradient(
+            0deg,
+            transparent 0,
             transparent 3px,
             rgba(255, 255, 255, 0.04) 3px,
             rgba(255, 255, 255, 0.04) 4px
           ),
-          linear-gradient(180deg, transparent 0%, var(--season-glow, #{$amber-glow}) 100%);
+          linear-gradient(
+            180deg,
+            transparent 0%,
+            var(--season-glow, #{$amber-glow}) 100%
+          );
         opacity: 0;
         z-index: 3;
         pointer-events: none;
@@ -117,7 +150,9 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: transform 0.5s ease, filter 0.4s ease;
+        transition:
+          transform 0.5s ease,
+          filter 0.4s ease;
         filter: brightness(0.88) saturate(1.02) contrast(1.06);
       }
 
@@ -126,7 +161,11 @@
         inset: 0;
         background:
           linear-gradient(180deg, transparent 38%, rgba(10, 6, 4, 0.75) 100%),
-          linear-gradient(115deg, transparent 62%, var(--season-glow, rgba(249, 115, 22, 0.18)) 100%);
+          linear-gradient(
+            115deg,
+            transparent 62%,
+            var(--season-glow, rgba(249, 115, 22, 0.18)) 100%
+          );
       }
 
       .spectrum-bar {
@@ -137,7 +176,12 @@
         width: 72px;
         height: 3px;
         border-radius: 3px;
-        background: linear-gradient(90deg, transparent, var(--season-bright, #{$amber-bright}) 50%, transparent);
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--season-bright, #{$amber-bright}) 50%,
+          transparent
+        );
         box-shadow:
           0 0 14px var(--season-glow, #{$amber-glow}),
           0 0 4px var(--season-glow, #{$amber-glow});
@@ -167,8 +211,16 @@
         transform: rotate(45deg);
         border-radius: 6px;
         background:
-          radial-gradient(circle at 35% 28%, rgba(255, 255, 255, 0.35), transparent 55%),
-          linear-gradient(135deg, var(--season-color, #{$amber}) 0%, var(--season-deep, #{$amber-deep}) 100%);
+          radial-gradient(
+            circle at 35% 28%,
+            rgba(255, 255, 255, 0.35),
+            transparent 55%
+          ),
+          linear-gradient(
+            135deg,
+            var(--season-color, #{$amber}) 0%,
+            var(--season-deep, #{$amber-deep}) 100%
+          );
         border: 1px solid rgba(255, 255, 255, 0.4);
         box-shadow:
           0 2px 4px rgba(0, 0, 0, 0.4),
@@ -216,8 +268,16 @@
           .food-category {
             padding: 0.3rem 0.75rem;
             background:
-              linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-              radial-gradient(circle at 35% 28%, rgba(255, 255, 255, 0.15), transparent 55%),
+              linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0.1) 0%,
+                transparent 50%
+              ),
+              radial-gradient(
+                circle at 35% 28%,
+                rgba(255, 255, 255, 0.15),
+                transparent 55%
+              ),
               linear-gradient(180deg, $ink-3 0%, $ink 100%);
             border: 1px solid var(--season-color, rgba(249, 115, 22, 0.5));
             border-radius: 7px;
@@ -289,23 +349,38 @@
               0 2px 6px rgba(0, 0, 0, 0.4),
               0 0 8px rgba(34, 211, 238, 0.28),
               inset 0 1px 0 rgba(255, 255, 255, 0.16);
-            .s-action-icon { color: #22d3ee; filter: drop-shadow(0 0 4px rgba(34, 211, 238, 0.65)); }
+            .s-action-icon {
+              color: #22d3ee;
+              filter: drop-shadow(0 0 4px rgba(34, 211, 238, 0.65));
+            }
+
             &:hover {
               border-color: rgba(34, 211, 238, 0.88);
               box-shadow:
                 0 4px 12px rgba(0, 0, 0, 0.45),
                 0 0 16px rgba(34, 211, 238, 0.42),
                 inset 0 1px 0 rgba(255, 255, 255, 0.3);
-              .s-action-icon { color: #67e8f9; filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.88)); }
+              .s-action-icon {
+                color: #67e8f9;
+                filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.88));
+              }
             }
+
             &.active {
-              background: linear-gradient(135deg, rgba(34, 211, 238, 0.55), rgba(6, 182, 212, 0.3));
+              background: linear-gradient(
+                135deg,
+                rgba(34, 211, 238, 0.55),
+                rgba(6, 182, 212, 0.3)
+              );
               border-color: rgba(34, 211, 238, 0.92);
               box-shadow:
                 0 0 10px rgba(34, 211, 238, 0.68),
                 0 0 20px rgba(34, 211, 238, 0.38),
                 inset 0 1px 0 rgba(255, 255, 255, 0.5);
-              .s-action-icon { color: #fff; filter: drop-shadow(0 0 6px rgba(103, 232, 249, 1)); }
+              .s-action-icon {
+                color: #fff;
+                filter: drop-shadow(0 0 6px rgba(103, 232, 249, 1));
+              }
             }
           }
 
@@ -315,23 +390,38 @@
               0 2px 6px rgba(0, 0, 0, 0.4),
               0 0 8px rgba(74, 222, 128, 0.28),
               inset 0 1px 0 rgba(255, 255, 255, 0.16);
-            .s-action-icon { color: #4ade80; filter: drop-shadow(0 0 4px rgba(74, 222, 128, 0.65)); }
+            .s-action-icon {
+              color: #4ade80;
+              filter: drop-shadow(0 0 4px rgba(74, 222, 128, 0.65));
+            }
+
             &:hover {
               border-color: rgba(74, 222, 128, 0.88);
               box-shadow:
                 0 4px 12px rgba(0, 0, 0, 0.45),
                 0 0 16px rgba(74, 222, 128, 0.42),
                 inset 0 1px 0 rgba(255, 255, 255, 0.3);
-              .s-action-icon { color: #86efac; filter: drop-shadow(0 0 8px rgba(74, 222, 128, 0.88)); }
+              .s-action-icon {
+                color: #86efac;
+                filter: drop-shadow(0 0 8px rgba(74, 222, 128, 0.88));
+              }
             }
+
             &.active {
-              background: linear-gradient(135deg, rgba(74, 222, 128, 0.55), rgba(34, 197, 94, 0.3));
+              background: linear-gradient(
+                135deg,
+                rgba(74, 222, 128, 0.55),
+                rgba(34, 197, 94, 0.3)
+              );
               border-color: rgba(74, 222, 128, 0.92);
               box-shadow:
                 0 0 10px rgba(74, 222, 128, 0.68),
                 0 0 20px rgba(74, 222, 128, 0.38),
                 inset 0 1px 0 rgba(255, 255, 255, 0.5);
-              .s-action-icon { color: #fff; filter: drop-shadow(0 0 6px rgba(134, 239, 172, 1)); }
+              .s-action-icon {
+                color: #fff;
+                filter: drop-shadow(0 0 6px rgba(134, 239, 172, 1));
+              }
             }
           }
 
@@ -341,14 +431,21 @@
               0 2px 6px rgba(0, 0, 0, 0.4),
               0 0 8px rgba(251, 146, 60, 0.28),
               inset 0 1px 0 rgba(255, 255, 255, 0.16);
-            .s-action-icon { color: #fb923c; filter: drop-shadow(0 0 4px rgba(251, 146, 60, 0.65)); }
+            .s-action-icon {
+              color: #fb923c;
+              filter: drop-shadow(0 0 4px rgba(251, 146, 60, 0.65));
+            }
+
             &:hover {
               border-color: rgba(251, 146, 60, 0.88);
               box-shadow:
                 0 4px 12px rgba(0, 0, 0, 0.45),
                 0 0 16px rgba(251, 146, 60, 0.42),
                 inset 0 1px 0 rgba(255, 255, 255, 0.3);
-              .s-action-icon { color: #fdba74; filter: drop-shadow(0 0 8px rgba(251, 146, 60, 0.88)); }
+              .s-action-icon {
+                color: #fdba74;
+                filter: drop-shadow(0 0 8px rgba(251, 146, 60, 0.88));
+              }
             }
           }
 
@@ -358,23 +455,38 @@
               0 2px 6px rgba(0, 0, 0, 0.4),
               0 0 8px rgba(251, 113, 133, 0.28),
               inset 0 1px 0 rgba(255, 255, 255, 0.16);
-            .s-action-icon { color: #fb7185; filter: drop-shadow(0 0 4px rgba(251, 113, 133, 0.65)); }
+            .s-action-icon {
+              color: #fb7185;
+              filter: drop-shadow(0 0 4px rgba(251, 113, 133, 0.65));
+            }
+
             &:hover {
               border-color: rgba(251, 113, 133, 0.88);
               box-shadow:
                 0 4px 12px rgba(0, 0, 0, 0.45),
                 0 0 16px rgba(251, 113, 133, 0.42),
                 inset 0 1px 0 rgba(255, 255, 255, 0.3);
-              .s-action-icon { color: #fda4af; filter: drop-shadow(0 0 8px rgba(251, 113, 133, 0.88)); }
+              .s-action-icon {
+                color: #fda4af;
+                filter: drop-shadow(0 0 8px rgba(251, 113, 133, 0.88));
+              }
             }
+
             &.active {
-              background: linear-gradient(135deg, rgba(251, 113, 133, 0.55), rgba(225, 29, 72, 0.3));
+              background: linear-gradient(
+                135deg,
+                rgba(251, 113, 133, 0.55),
+                rgba(225, 29, 72, 0.3)
+              );
               border-color: rgba(251, 113, 133, 0.92);
               box-shadow:
                 0 0 10px rgba(251, 113, 133, 0.68),
                 0 0 20px rgba(251, 113, 133, 0.38),
                 inset 0 1px 0 rgba(255, 255, 255, 0.5);
-              .s-action-icon { color: #fff; filter: drop-shadow(0 0 6px rgba(253, 164, 175, 1)); }
+              .s-action-icon {
+                color: #fff;
+                filter: drop-shadow(0 0 6px rgba(253, 164, 175, 1));
+              }
             }
           }
         }
@@ -384,9 +496,22 @@
     &:hover {
       border-color: var(--season-color, rgba(249, 115, 22, 0.7));
       background:
-        radial-gradient(circle at 16% 10%, var(--season-glow, #{$amber-glow}) 0%, transparent 42%),
-        radial-gradient(circle at 94% 98%, var(--season-glow, rgba(251, 191, 36, 0.16)) 0%, transparent 40%),
-        linear-gradient(160deg, rgba(255, 255, 255, 0.11) 0%, rgba(255, 255, 255, 0.025) 34%, transparent 56%),
+        radial-gradient(
+          circle at 16% 10%,
+          var(--season-glow, #{$amber-glow}) 0%,
+          transparent 42%
+        ),
+        radial-gradient(
+          circle at 94% 98%,
+          var(--season-glow, rgba(251, 191, 36, 0.16)) 0%,
+          transparent 40%
+        ),
+        linear-gradient(
+          160deg,
+          rgba(255, 255, 255, 0.11) 0%,
+          rgba(255, 255, 255, 0.025) 34%,
+          transparent 56%
+        ),
         linear-gradient(180deg, $ink-4 0%, $ink 115%);
       box-shadow:
         0 1px 2px rgba(0, 0, 0, 0.5),
@@ -413,7 +538,12 @@
 
       .food-beam {
         opacity: 0.75;
-        background: linear-gradient(90deg, transparent, var(--season-bright, #{$amber-bright}) 50%, transparent);
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--season-bright, #{$amber-bright}) 50%,
+          transparent
+        );
         box-shadow:
           0 0 8px var(--season-glow, #{$amber-glow}),
           0 0 2px rgba(255, 255, 255, 0.3);
@@ -464,10 +594,12 @@
 }
 
 @keyframes specPulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.55;
     transform: translateX(-50%) scaleX(0.82);
   }
+
   50% {
     opacity: 1;
     transform: translateX(-50%) scaleX(1);
@@ -479,9 +611,11 @@
     top: 0;
     opacity: 0.9;
   }
+
   50% {
     opacity: 1;
   }
+
   100% {
     top: calc(100% - 3px);
     opacity: 0.9;

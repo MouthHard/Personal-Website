@@ -59,6 +59,7 @@
               border-left-width: 2px;
               border-radius: 2px 0 0;
             }
+
             &.tr {
               top: 7px;
               right: 7px;
@@ -66,6 +67,7 @@
               border-right-width: 2px;
               border-radius: 0 2px 0 0;
             }
+
             &.bl {
               bottom: 7px;
               left: 7px;
@@ -73,6 +75,7 @@
               border-left-width: 2px;
               border-radius: 0 0 0 2px;
             }
+
             &.br {
               bottom: 7px;
               right: 7px;
@@ -395,6 +398,7 @@
                     0 0 6px rgb(255 220 150 / 55%),
                     0 1px 2px rgb(20 6 1 / 80%);
                 }
+
                 .lt-string {
                   background: linear-gradient(90deg, #f6daa0, #fff0c4, #dcb069);
                   box-shadow:
@@ -434,6 +438,7 @@
                     0 0 10px rgb(255 220 150 / 75%),
                     0 1px 3px rgb(20 6 1 / 85%);
                 }
+
                 .lt-string {
                   background: linear-gradient(90deg, #f6daa0, #fff0c4, #dcb069);
                   box-shadow:
@@ -461,9 +466,11 @@
                 background: linear-gradient(90deg, #d9b26f, #f0d79c, #b8894a);
                 box-shadow: 0 1px 1px rgb(30 12 3 / 60%);
               }
+
               .lt-top {
                 top: 3px;
               }
+
               .lt-bottom {
                 bottom: 3px;
               }
@@ -581,6 +588,7 @@
             &:nth-child(2n) {
               transform: rotate(-1.2deg);
             }
+
             &:nth-child(3n) {
               transform: rotate(1deg);
             }
@@ -789,6 +797,7 @@
               margin-top: auto;
               margin-bottom: 0;
             }
+
             .tag-bar {
               margin-bottom: auto;
             }
@@ -818,9 +827,11 @@
                 flex-wrap: wrap;
                 gap: 8px 10px;
               }
+
               .module-tag {
                 white-space: nowrap;
               }
+
               .clear-btn {
                 padding: 7px 16px;
                 font-size: 17px;
@@ -840,14 +851,17 @@
               width: calc(92px + var(--tag-cols, 1) * 26px);
               padding: 14px 9px 8px;
             }
+
             .ledger-row.tag .tag-text {
               font-size: 22px;
               letter-spacing: 4px;
               max-height: 132px;
             }
+
             .ledger-row.tag .tag-foot {
               font-size: 11px;
             }
+
             .ledger-tabs .ledger-tab {
               min-width: 72px;
               padding: 8px 10px 12px;

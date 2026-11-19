@@ -1,10 +1,10 @@
-$green: #27AE60;
-$green-light: #6BFFB8;
-$green-dark: #1E944F;
-$amber: #F59E0B;
-$amber-light: #FBBF24;
-$purple: #8B5CF6;
-$purple-light: #A78BFA;
+$green: #27ae60;
+$green-light: #6bffb8;
+$green-dark: #1e944f;
+$amber: #f59e0b;
+$amber-light: #fbbf24;
+$purple: #8b5cf6;
+$purple-light: #a78bfa;
 
 .guide-card {
   display: flex;
@@ -28,7 +28,14 @@ $purple-light: #A78BFA;
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, $green, $green-light, #A8FFD0, $green-light, $green);
+    background: linear-gradient(
+      90deg,
+      $green,
+      $green-light,
+      #a8ffd0,
+      $green-light,
+      $green
+    );
     background-size: 200% 100%;
     animation: gradientFlow 3s ease infinite;
     z-index: 3;
@@ -112,7 +119,8 @@ $purple-light: #A78BFA;
           inset 0 -1px 0 rgba(0, 0, 0, 0.2),
           inset 0 1px 2px rgba(255, 255, 255, 0.6);
 
-        &.beginner, &.easy {
+        &.beginner,
+        &.easy {
           background: linear-gradient(135deg, $green 0%, $green-dark 100%);
           color: #fff;
           border: 1px solid rgba(255, 255, 255, 0.3);
@@ -127,8 +135,9 @@ $purple-light: #A78BFA;
           }
         }
 
-        &.intermediate, &.medium {
-          background: linear-gradient(135deg, #E67E22 0%, #D35400 100%);
+        &.intermediate,
+        &.medium {
+          background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
           color: #fff;
           border: 1px solid rgba(255, 255, 255, 0.3);
 
@@ -142,8 +151,9 @@ $purple-light: #A78BFA;
           }
         }
 
-        &.advanced, &.hard {
-          background: linear-gradient(135deg, #E74C3C 0%, #C0392B 100%);
+        &.advanced,
+        &.hard {
+          background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
           color: #fff;
           border: 1px solid rgba(255, 255, 255, 0.3);
 
@@ -214,7 +224,6 @@ $purple-light: #A78BFA;
         color: rgba(255, 255, 255, 0.6);
         line-height: 1.6;
         display: -webkit-box;
- 
         -webkit-box-orient: vertical;
         overflow: hidden;
       }
@@ -243,12 +252,21 @@ $purple-light: #A78BFA;
           border-radius: 12px;
           opacity: 0;
           transition: opacity 0.3s ease;
-          background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+          background: linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.08) 0%,
+            transparent 50%
+          );
         }
 
-        &:first-child, &:last-child {
+        &:first-child,
+        &:last-child {
           flex: 1;
-          background: linear-gradient(135deg, rgba($purple, 0.18) 0%, rgba($purple, 0.08) 100%);
+          background: linear-gradient(
+            135deg,
+            rgba($purple, 0.18) 0%,
+            rgba($purple, 0.08) 100%
+          );
           border: 1px solid rgba($purple, 0.3);
           box-shadow:
             0 3px 10px rgba($purple, 0.25),
@@ -265,7 +283,11 @@ $purple-light: #A78BFA;
           }
 
           &:hover {
-            background: linear-gradient(135deg, rgba($purple, 0.3) 0%, rgba($purple, 0.15) 100%);
+            background: linear-gradient(
+              135deg,
+              rgba($purple, 0.3) 0%,
+              rgba($purple, 0.15) 100%
+            );
             border-color: rgba($purple, 0.5);
             box-shadow:
               0 6px 18px rgba($purple, 0.35),
@@ -276,7 +298,11 @@ $purple-light: #A78BFA;
 
         &:nth-child(2) {
           flex: 2;
-          background: linear-gradient(135deg, rgba($green, 0.22) 0%, rgba($green, 0.1) 100%);
+          background: linear-gradient(
+            135deg,
+            rgba($green, 0.22) 0%,
+            rgba($green, 0.1) 100%
+          );
           border: 1px solid rgba($green, 0.4);
           box-shadow:
             0 4px 12px rgba($green, 0.3),
@@ -293,7 +319,11 @@ $purple-light: #A78BFA;
           }
 
           &:hover {
-            background: linear-gradient(135deg, rgba($green, 0.35) 0%, rgba($green, 0.18) 100%);
+            background: linear-gradient(
+              135deg,
+              rgba($green, 0.35) 0%,
+              rgba($green, 0.18) 100%
+            );
             border-color: rgba($green, 0.6);
             box-shadow:
               0 8px 24px rgba($green, 0.4),
@@ -373,15 +403,24 @@ $purple-light: #A78BFA;
           left: -100%;
           width: 100%;
           height: 100%;
-          background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.4),
+            transparent
+          );
           transition: left 0.5s ease;
           z-index: 1;
         }
 
         &:nth-child(1) {
-          background: linear-gradient(135deg, rgba(59, 130, 246, 0.28) 0%, rgba(37, 99, 235, 0.15) 100%);
+          background: linear-gradient(
+            135deg,
+            rgba(59, 130, 246, 0.28) 0%,
+            rgba(37, 99, 235, 0.15) 100%
+          );
           border: 1px solid rgba(59, 130, 246, 0.5);
-          color: #60A5FA;
+          color: #60a5fa;
           box-shadow:
             0 2px 8px rgba(0, 0, 0, 0.3),
             0 3px 10px rgba(59, 130, 246, 0.2),
@@ -390,7 +429,11 @@ $purple-light: #A78BFA;
             inset 0 1px 2px rgba(255, 255, 255, 0.5);
 
           &:hover {
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.4) 0%, rgba(37, 99, 235, 0.22) 100%);
+            background: linear-gradient(
+              135deg,
+              rgba(59, 130, 246, 0.4) 0%,
+              rgba(37, 99, 235, 0.22) 100%
+            );
             border-color: rgba(59, 130, 246, 0.7);
             box-shadow:
               0 4px 12px rgba(0, 0, 0, 0.4),
@@ -402,9 +445,13 @@ $purple-light: #A78BFA;
         }
 
         &:nth-child(2) {
-          background: linear-gradient(135deg, rgba(249, 115, 22, 0.28) 0%, rgba(234, 88, 12, 0.15) 100%);
+          background: linear-gradient(
+            135deg,
+            rgba(249, 115, 22, 0.28) 0%,
+            rgba(234, 88, 12, 0.15) 100%
+          );
           border: 1px solid rgba(249, 115, 22, 0.5);
-          color: #FDBA74;
+          color: #fdba74;
           box-shadow:
             0 2px 8px rgba(0, 0, 0, 0.3),
             0 3px 10px rgba(249, 115, 22, 0.2),
@@ -413,7 +460,11 @@ $purple-light: #A78BFA;
             inset 0 1px 2px rgba(255, 255, 255, 0.5);
 
           &:hover {
-            background: linear-gradient(135deg, rgba(249, 115, 22, 0.4) 0%, rgba(234, 88, 12, 0.22) 100%);
+            background: linear-gradient(
+              135deg,
+              rgba(249, 115, 22, 0.4) 0%,
+              rgba(234, 88, 12, 0.22) 100%
+            );
             border-color: rgba(249, 115, 22, 0.7);
             box-shadow:
               0 4px 12px rgba(0, 0, 0, 0.4),
@@ -425,9 +476,13 @@ $purple-light: #A78BFA;
         }
 
         &:nth-child(3) {
-          background: linear-gradient(135deg, rgba(139, 92, 246, 0.28) 0%, rgba(124, 58, 237, 0.15) 100%);
+          background: linear-gradient(
+            135deg,
+            rgba(139, 92, 246, 0.28) 0%,
+            rgba(124, 58, 237, 0.15) 100%
+          );
           border: 1px solid rgba(139, 92, 246, 0.5);
-          color: #A78BFA;
+          color: #a78bfa;
           box-shadow:
             0 2px 8px rgba(0, 0, 0, 0.3),
             0 3px 10px rgba(139, 92, 246, 0.2),
@@ -436,7 +491,11 @@ $purple-light: #A78BFA;
             inset 0 1px 2px rgba(255, 255, 255, 0.5);
 
           &:hover {
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.4) 0%, rgba(124, 58, 237, 0.22) 100%);
+            background: linear-gradient(
+              135deg,
+              rgba(139, 92, 246, 0.4) 0%,
+              rgba(124, 58, 237, 0.22) 100%
+            );
             border-color: rgba(139, 92, 246, 0.7);
             box-shadow:
               0 4px 12px rgba(0, 0, 0, 0.4),
@@ -448,9 +507,13 @@ $purple-light: #A78BFA;
         }
 
         &:nth-child(4) {
-          background: linear-gradient(135deg, rgba(16, 185, 129, 0.28) 0%, rgba(5, 150, 105, 0.15) 100%);
+          background: linear-gradient(
+            135deg,
+            rgba(16, 185, 129, 0.28) 0%,
+            rgba(5, 150, 105, 0.15) 100%
+          );
           border: 1px solid rgba(16, 185, 129, 0.5);
-          color: #34D399;
+          color: #34d399;
           box-shadow:
             0 2px 8px rgba(0, 0, 0, 0.3),
             0 3px 10px rgba(16, 185, 129, 0.2),
@@ -459,7 +522,11 @@ $purple-light: #A78BFA;
             inset 0 1px 2px rgba(255, 255, 255, 0.5);
 
           &:hover {
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.4) 0%, rgba(5, 150, 105, 0.22) 100%);
+            background: linear-gradient(
+              135deg,
+              rgba(16, 185, 129, 0.4) 0%,
+              rgba(5, 150, 105, 0.22) 100%
+            );
             border-color: rgba(16, 185, 129, 0.7);
             box-shadow:
               0 4px 12px rgba(0, 0, 0, 0.4),
@@ -495,7 +562,11 @@ $purple-light: #A78BFA;
         font-size: 11px;
         font-weight: 600;
         color: rgba(167, 139, 250, 0.9);
-        background: linear-gradient(135deg, rgba(167, 139, 250, 0.18), rgba(139, 92, 246, 0.1));
+        background: linear-gradient(
+          135deg,
+          rgba(167, 139, 250, 0.18),
+          rgba(139, 92, 246, 0.1)
+        );
         border: 1px solid rgba(167, 139, 250, 0.35);
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
         flex-shrink: 0;
@@ -521,7 +592,11 @@ $purple-light: #A78BFA;
           justify-content: center;
           gap: 4px;
           padding: 6px 10px;
-          background: linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.04) 100%);
+          background: linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.12) 0%,
+            rgba(255, 255, 255, 0.04) 100%
+          );
           border: 1px solid rgba(255, 255, 255, 0.25);
           border-radius: 8px;
           font-size: 11px;
@@ -549,73 +624,144 @@ $purple-light: #A78BFA;
           }
 
           &.like {
-            svg { color: #4A90E2; }
-            &:hover, &.active {
-              background: linear-gradient(180deg, rgba(74, 144, 226, 0.45) 0%, rgba(74, 144, 226, 0.25) 100%);
+            svg {
+              color: #4a90e2;
+            }
+
+            &:hover,
+            &.active {
+              background: linear-gradient(
+                180deg,
+                rgba(74, 144, 226, 0.45) 0%,
+                rgba(74, 144, 226, 0.25) 100%
+              );
               border-color: rgba(74, 144, 226, 0.65);
               color: #fff;
-              svg { color: #7EB4F9; }
+              svg {
+                color: #7eb4f9;
+              }
+
               text-shadow: 0 0 8px rgba(74, 144, 226, 0.5);
             }
+
             &.sort-highlighted {
-              box-shadow: 0 0 16px rgba(74, 144, 226, 0.6), 0 0 32px rgba(74, 144, 226, 0.3), 0 4px 16px rgba(0, 0, 0, 0.4);
+              box-shadow:
+                0 0 16px rgba(74, 144, 226, 0.6),
+                0 0 32px rgba(74, 144, 226, 0.3),
+                0 4px 16px rgba(0, 0, 0, 0.4);
               border-color: rgba(74, 144, 226, 0.7);
             }
           }
 
           &.love {
-            svg { color: #FF6B6B; }
-            &:hover, &.active {
-              background: linear-gradient(180deg, rgba(255, 107, 107, 0.45) 0%, rgba(255, 107, 107, 0.25) 100%);
+            svg {
+              color: #ff6b6b;
+            }
+
+            &:hover,
+            &.active {
+              background: linear-gradient(
+                180deg,
+                rgba(255, 107, 107, 0.45) 0%,
+                rgba(255, 107, 107, 0.25) 100%
+              );
               border-color: rgba(255, 107, 107, 0.65);
               color: #fff;
-              svg { color: #FF8A8A; }
+              svg {
+                color: #ff8a8a;
+              }
+
               text-shadow: 0 0 8px rgba(255, 107, 107, 0.5);
             }
+
             &.sort-highlighted {
-              box-shadow: 0 0 16px rgba(255, 107, 107, 0.6), 0 0 32px rgba(255, 107, 107, 0.3), 0 4px 16px rgba(0, 0, 0, 0.4);
+              box-shadow:
+                0 0 16px rgba(255, 107, 107, 0.6),
+                0 0 32px rgba(255, 107, 107, 0.3),
+                0 4px 16px rgba(0, 0, 0, 0.4);
               border-color: rgba(255, 107, 107, 0.7);
             }
           }
 
           &.bookmark {
-            svg { color: #FFD93D; }
-            &:hover, &.active {
-              background: linear-gradient(180deg, rgba(255, 217, 61, 0.45) 0%, rgba(255, 217, 61, 0.25) 100%);
+            svg {
+              color: #ffd93d;
+            }
+
+            &:hover,
+            &.active {
+              background: linear-gradient(
+                180deg,
+                rgba(255, 217, 61, 0.45) 0%,
+                rgba(255, 217, 61, 0.25) 100%
+              );
               border-color: rgba(255, 217, 61, 0.65);
               color: #fff;
-              svg { color: #FFE44D; }
+              svg {
+                color: #ffe44d;
+              }
+
               text-shadow: 0 0 8px rgba(255, 217, 61, 0.5);
             }
+
             &.sort-highlighted {
-              box-shadow: 0 0 16px rgba(255, 217, 61, 0.6), 0 0 32px rgba(255, 217, 61, 0.3), 0 4px 16px rgba(0, 0, 0, 0.4);
+              box-shadow:
+                0 0 16px rgba(255, 217, 61, 0.6),
+                0 0 32px rgba(255, 217, 61, 0.3),
+                0 4px 16px rgba(0, 0, 0, 0.4);
               border-color: rgba(255, 217, 61, 0.7);
             }
           }
 
           &.share {
-            svg { color: $green-light; }
+            svg {
+              color: $green-light;
+            }
+
             &:hover {
-              background: linear-gradient(180deg, rgba(107, 255, 184, 0.45) 0%, rgba(107, 255, 184, 0.25) 100%);
+              background: linear-gradient(
+                180deg,
+                rgba(107, 255, 184, 0.45) 0%,
+                rgba(107, 255, 184, 0.25) 100%
+              );
               border-color: rgba(107, 255, 184, 0.65);
               color: #fff;
-              svg { color: #8DFFCA; }
+              svg {
+                color: #8dffca;
+              }
+
               text-shadow: 0 0 8px rgba(107, 255, 184, 0.5);
             }
+
             &.sort-highlighted {
-              box-shadow: 0 0 16px rgba(107, 255, 184, 0.6), 0 0 32px rgba(107, 255, 184, 0.3), 0 4px 16px rgba(0, 0, 0, 0.4);
+              box-shadow:
+                0 0 16px rgba(107, 255, 184, 0.6),
+                0 0 32px rgba(107, 255, 184, 0.3),
+                0 4px 16px rgba(0, 0, 0, 0.4);
               border-color: rgba(107, 255, 184, 0.7);
             }
           }
 
           &.views {
             cursor: default;
-            background: linear-gradient(180deg, rgba($green, 0.1) 0%, rgba($green, 0.05) 100%);
+            background: linear-gradient(
+              180deg,
+              rgba($green, 0.1) 0%,
+              rgba($green, 0.05) 100%
+            );
             border-color: rgba($green, 0.2);
-            svg { color: $green-light; }
-            &:hover { transform: none; }
+            svg {
+              color: $green-light;
+            }
+            &:hover {
+              transform: none;
+            }
+
             &.sort-highlighted {
-              box-shadow: 0 0 16px rgba($green-light, 0.6), 0 0 32px rgba($green-light, 0.3), 0 4px 16px rgba(0, 0, 0, 0.4);
+              box-shadow:
+                0 0 16px rgba($green-light, 0.6),
+                0 0 32px rgba($green-light, 0.3),
+                0 4px 16px rgba(0, 0, 0, 0.4);
               border-color: rgba($green-light, 0.7);
             }
           }
@@ -660,14 +806,19 @@ $purple-light: #A78BFA;
     .image-gradient {
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, rgba(0, 0, 0, 0.4) 0%, transparent 100%);
+      background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.4) 0%,
+        transparent 100%
+      );
       pointer-events: none;
     }
   }
 }
 
 @keyframes gradientFlow {
-  0%, 100% {
+  0%,
+  100% {
     background-position: 0% 50%;
   }
 

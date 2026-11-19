@@ -46,7 +46,9 @@
     display: flex;
     align-items: center;
     gap: 16px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 
     &:hover {
@@ -271,10 +273,7 @@
 
     .follow-button {
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      inset: 0;
       background: rgba(255, 255, 255, 0.95);
       display: flex;
       align-items: center;

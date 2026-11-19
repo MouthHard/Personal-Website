@@ -134,7 +134,7 @@
         }
 
         .tab-count {
-          background: linear-gradient(45deg, #ff0000, #690101);
+          background: linear-gradient(45deg, #f00, #690101);
           color: white;
           font-weight: 700;
         }
@@ -176,7 +176,6 @@
         color: rgba(248, 249, 250, 0.7);
         padding: 4px 10px;
         border-radius: 6px;
-        border: none;
         min-width: 28px;
         text-align: center;
         transition: all 0.3s ease;
@@ -184,6 +183,7 @@
       }
     }
   }
+
   svg {
     position: absolute;
     bottom: 0;

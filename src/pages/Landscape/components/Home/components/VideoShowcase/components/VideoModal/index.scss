@@ -88,6 +88,7 @@
         inset 0 -2px 4px rgba(0, 0, 0, 0.4),
         inset 2px 0 3px rgba(255, 240, 200, 0.1),
         inset -2px 0 3px rgba(0, 0, 0, 0.3);
+
       svg {
         width: 22px;
         height: 22px;
@@ -108,6 +109,7 @@
           inset 0 2px 4px rgba(255, 200, 200, 0.25),
           inset 0 -2px 4px rgba(0, 0, 0, 0.4);
       }
+
       &:active {
         transform: scale(0.92);
       }
@@ -205,6 +207,7 @@
               inset 0 -2px 3px rgba(0, 0, 0, 0.5),
               inset 1px 0 2px rgba(255, 240, 200, 0.1),
               inset -1px 0 2px rgba(0, 0, 0, 0.3);
+
             &::before {
               content: '';
               position: absolute;
@@ -217,6 +220,7 @@
               border-radius: 1px;
               box-shadow: 0 0 0 0.5px rgba(20, 14, 8, 0.6);
             }
+
             &::after {
               content: '';
               position: absolute;
@@ -228,18 +232,22 @@
               background: linear-gradient(180deg, #1a1008, #3a2a18, #1a1008);
               border-radius: 1px;
             }
+
             &.screw-tl {
               top: 7px;
               left: 7px;
             }
+
             &.screw-tr {
               top: 7px;
               right: 7px;
             }
+
             &.screw-bl {
               bottom: 7px;
               left: 7px;
             }
+
             &.screw-br {
               bottom: 7px;
               right: 7px;
@@ -337,6 +345,7 @@
                   inset 2px 0 4px rgba(255, 245, 220, 0.12),
                   inset -2px 0 4px rgba(0, 0, 0, 0.2);
                 transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+
                 svg {
                   width: 40px;
                   height: 40px;
@@ -360,6 +369,7 @@
                     inset 0 -4px 8px rgba(0, 0, 0, 0.35);
                   color: #1a0a00;
                 }
+
                 &:active {
                   transform: translate(-50%, -50%) scale(0.92);
                 }
@@ -423,6 +433,7 @@
               display: flex;
               align-items: center;
               gap: 0.45rem;
+
               .brand-dot {
                 width: 7px;
                 height: 7px;
@@ -439,6 +450,7 @@
                   inset 0 1px 1px rgba(255, 200, 180, 0.3);
                 animation: power-led 2s ease-in-out infinite;
               }
+
               .brand-text {
                 color: rgba(210, 190, 150, 0.65);
                 font-size: 0.72rem;
@@ -491,6 +503,7 @@
                     0 1px 1px rgba(0, 0, 0, 0.3),
                     inset 0 1px 1px rgba(255, 220, 160, 0.25),
                     inset 0 -1px 1px rgba(0, 0, 0, 0.4);
+
                   &::after {
                     content: '';
                     position: absolute;
@@ -536,12 +549,15 @@
         box-shadow:
           inset 6px 0 12px rgba(40, 30, 15, 0.35),
           inset 0 1px 0 rgba(255, 240, 200, 0.15);
+
         &::-webkit-scrollbar {
           width: 6px;
         }
+
         &::-webkit-scrollbar-track {
           background: rgba(60, 50, 30, 0.3);
         }
+
         &::-webkit-scrollbar-thumb {
           background: rgba(90, 74, 48, 0.5);
           border-radius: 3px;
@@ -597,6 +613,7 @@
               0 2px 3px rgba(0, 0, 0, 0.6),
               inset 0 1px 2px rgba(255, 240, 200, 0.25),
               inset 0 -1px 2px rgba(0, 0, 0, 0.5);
+
             &::before {
               content: '';
               position: absolute;
@@ -608,18 +625,22 @@
               background: linear-gradient(90deg, #1a1008, #3a2a18, #1a1008);
               border-radius: 1px;
             }
+
             &.screw-tl {
               top: 6px;
               left: 6px;
             }
+
             &.screw-tr {
               top: 6px;
               right: 6px;
             }
+
             &.screw-bl {
               bottom: 6px;
               left: 6px;
             }
+
             &.screw-br {
               bottom: 6px;
               right: 6px;
@@ -668,50 +689,62 @@
                   background: rgba(200, 180, 130, 0.45);
                   border-radius: 1px;
                 }
+
                 .knob-tick:nth-child(1) {
                   transform: translate(-50%, -50%) rotate(0deg)
                     translateY(-23px);
                 }
+
                 .knob-tick:nth-child(2) {
                   transform: translate(-50%, -50%) rotate(30deg)
                     translateY(-23px);
                 }
+
                 .knob-tick:nth-child(3) {
                   transform: translate(-50%, -50%) rotate(60deg)
                     translateY(-23px);
                 }
+
                 .knob-tick:nth-child(4) {
                   transform: translate(-50%, -50%) rotate(90deg)
                     translateY(-23px);
                 }
+
                 .knob-tick:nth-child(5) {
                   transform: translate(-50%, -50%) rotate(120deg)
                     translateY(-23px);
                 }
+
                 .knob-tick:nth-child(6) {
                   transform: translate(-50%, -50%) rotate(150deg)
                     translateY(-23px);
                 }
+
                 .knob-tick:nth-child(7) {
                   transform: translate(-50%, -50%) rotate(180deg)
                     translateY(-23px);
                 }
+
                 .knob-tick:nth-child(8) {
                   transform: translate(-50%, -50%) rotate(210deg)
                     translateY(-23px);
                 }
+
                 .knob-tick:nth-child(9) {
                   transform: translate(-50%, -50%) rotate(240deg)
                     translateY(-23px);
                 }
+
                 .knob-tick:nth-child(10) {
                   transform: translate(-50%, -50%) rotate(270deg)
                     translateY(-23px);
                 }
+
                 .knob-tick:nth-child(11) {
                   transform: translate(-50%, -50%) rotate(300deg)
                     translateY(-23px);
                 }
+
                 .knob-tick:nth-child(12) {
                   transform: translate(-50%, -50%) rotate(330deg)
                     translateY(-23px);
@@ -780,9 +813,11 @@
               letter-spacing: 0.15em;
               text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
             }
+
             &.channel-knob .knob-body {
               transform: rotate(35deg);
             }
+
             &.volume-knob .knob-body {
               transform: rotate(-25deg);
             }
@@ -854,6 +889,7 @@
                 text-shadow:
                   0 0 6px rgba(77, 255, 136, 0.7),
                   0 0 2px rgba(77, 255, 136, 0.5);
+
                 &[data-category='城市风光'] {
                   color: #4da8ff;
                   border-color: rgba(77, 168, 255, 0.3);
@@ -865,6 +901,7 @@
                     0 0 6px rgba(77, 168, 255, 0.7),
                     0 0 2px rgba(77, 168, 255, 0.5);
                 }
+
                 &[data-category='延时摄影'] {
                   color: #fc4;
                   border-color: rgba(255, 204, 68, 0.3);
@@ -876,6 +913,7 @@
                     0 0 6px rgba(255, 204, 68, 0.7),
                     0 0 2px rgba(255, 204, 68, 0.5);
                 }
+
                 &[data-category='旅行记录'] {
                   color: #f7a;
                   border-color: rgba(255, 119, 170, 0.3);
@@ -914,6 +952,7 @@
                 gap: 0.35rem;
                 font-family: 'Courier New', monospace;
                 text-shadow: 0 0 5px rgba(77, 217, 122, 0.5);
+
                 .loc-pin {
                   width: 15px;
                   height: 15px;
@@ -975,6 +1014,7 @@
               0 1px 2px rgba(0, 0, 0, 0.55),
               inset 0 1px 1px rgba(255, 240, 200, 0.35),
               inset 0 -1px 1px rgba(0, 0, 0, 0.45);
+
             &::before {
               content: '';
               position: absolute;
@@ -986,6 +1026,7 @@
               background: linear-gradient(90deg, #1a1008, #3a2a18, #1a1008);
               border-radius: 1px;
             }
+
             &::after {
               content: '';
               position: absolute;
@@ -997,18 +1038,22 @@
               background: linear-gradient(180deg, #1a1008, #3a2a18, #1a1008);
               border-radius: 1px;
             }
+
             &.rivet-tl {
               top: 5px;
               left: 5px;
             }
+
             &.rivet-tr {
               top: 5px;
               right: 5px;
             }
+
             &.rivet-bl {
               bottom: 5px;
               left: 5px;
             }
+
             &.rivet-br {
               bottom: 5px;
               right: 5px;
@@ -1037,6 +1082,7 @@
               inset 0 -2px 3px rgba(0, 0, 0, 0.4),
               inset 2px 0 2px rgba(255, 240, 200, 0.15),
               inset -2px 0 2px rgba(0, 0, 0, 0.3);
+
             .author-avatar {
               width: 100%;
               height: 100%;
@@ -1071,6 +1117,7 @@
             display: flex;
             align-items: center;
             min-width: 0;
+
             .author-name {
               color: #1a1208;
               font-size: 1.45rem;
@@ -1141,6 +1188,7 @@
                 inset 0 -1px 1px rgba(255, 100, 50, 0.06);
               transition: all 0.4s ease;
             }
+
             .follow-text {
               letter-spacing: 0.1em;
               position: relative;
@@ -1212,6 +1260,7 @@
                 inset 0 0 0 1px rgba(255, 240, 200, 0.18),
                 inset 0 3px 4px rgba(255, 240, 200, 0.3),
                 inset 0 -4px 5px rgba(0, 0, 0, 0.4);
+
               &::before {
                 background: linear-gradient(180deg, #1a0a04, #0a0402);
                 box-shadow:
@@ -1219,6 +1268,7 @@
                   inset 0 0 8px rgba(255, 100, 30, 0.45),
                   0 1px 0 rgba(255, 240, 200, 0.12);
               }
+
               &::after {
                 opacity: 1;
                 background-position: 150% 0;
@@ -1244,6 +1294,7 @@
                 0 1px 2px rgba(0, 0, 0, 0.4),
                 inset 0 5px 7px rgba(0, 0, 0, 0.55),
                 inset 0 -1px 2px rgba(255, 240, 200, 0.1);
+
               &::before {
                 bottom: 3px;
               }
@@ -1273,6 +1324,7 @@
                 inset 0 0 0 1px rgba(160, 255, 100, 0.15),
                 inset 0 2px 3px rgba(160, 255, 100, 0.18),
                 inset 0 -4px 5px rgba(0, 0, 0, 0.45);
+
               &::before {
                 background: linear-gradient(180deg, #0a1a04, #050a02);
                 box-shadow:
@@ -1280,6 +1332,7 @@
                   inset 0 0 10px rgba(60, 200, 40, 0.5),
                   0 1px 0 rgba(160, 255, 100, 0.1);
               }
+
               &::after {
                 opacity: 1;
                 background: linear-gradient(
@@ -1315,6 +1368,7 @@
                   inset 0 3px 4px rgba(160, 255, 100, 0.28),
                   inset 0 -4px 5px rgba(0, 0, 0, 0.35);
               }
+
               &:active {
                 box-shadow:
                   0 1px 2px rgba(0, 0, 0, 0.4),
@@ -1365,9 +1419,11 @@
             flex: 1;
             min-height: 90px;
             padding: 0.7rem 0.2rem 0.55rem;
+
             &:nth-child(-n + 3) {
               min-height: 74px;
             }
+
             &:nth-child(n + 4) {
               min-height: 102px;
             }
@@ -1488,6 +1544,7 @@
                   inset 0 3px 0 rgba(255, 240, 200, 0.3),
                   inset 0 -5px 6px rgba(0, 0, 0, 0.4),
                   inset 0 0 16px rgba(255, 180, 80, 0.22);
+
                 &::before {
                   background: radial-gradient(
                     circle at 35% 30%,
@@ -1500,10 +1557,12 @@
                     0 0 5px rgba(255, 220, 140, 0.6),
                     inset 0 1px 1px rgba(255, 240, 200, 0.5);
                 }
+
                 svg {
                   color: #4a3a20;
                   filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.6));
                 }
+
                 .led-num {
                   color: #a52;
                   text-shadow:
@@ -1534,10 +1593,12 @@
                   inset -2px 0 3px rgba(0, 0, 0, 0.5),
                   0 0 12px rgba(200, 168, 104, 0.12);
               }
+
               &.like:hover {
                 svg {
                   color: #f472b6;
                 }
+
                 &::before {
                   background: radial-gradient(
                     circle at 35% 30%,
@@ -1572,17 +1633,20 @@
                   inset 2px 0 3px rgba(0, 0, 0, 0.5),
                   inset -2px 0 3px rgba(0, 0, 0, 0.5),
                   0 0 18px rgba(236, 72, 153, 0.35);
+
                 svg {
                   color: #ec4899;
                   fill: #ec4899;
                   filter: drop-shadow(0 0 6px rgba(236, 72, 153, 0.9));
                 }
+
                 .led-num {
                   color: #f7a;
                   text-shadow:
                     0 0 10px rgba(244, 114, 182, 0.9),
                     0 0 4px rgba(244, 114, 182, 0.7);
                 }
+
                 &::before {
                   background: radial-gradient(
                     circle at 35% 30%,
@@ -1637,10 +1701,12 @@
                   }
                 }
               }
+
               &.love:hover {
                 svg {
                   color: #f87171;
                 }
+
                 &::before {
                   background: radial-gradient(
                     circle at 35% 30%,
@@ -1675,17 +1741,20 @@
                   inset 2px 0 3px rgba(0, 0, 0, 0.5),
                   inset -2px 0 3px rgba(0, 0, 0, 0.5),
                   0 0 18px rgba(239, 68, 68, 0.35);
+
                 svg {
                   color: #ef4444;
                   fill: #ef4444;
                   filter: drop-shadow(0 0 6px rgba(239, 68, 68, 0.9));
                 }
+
                 .led-num {
                   color: #f65;
                   text-shadow:
                     0 0 10px rgba(248, 113, 113, 0.9),
                     0 0 4px rgba(248, 113, 113, 0.7);
                 }
+
                 &::before {
                   background: radial-gradient(
                     circle at 35% 30%,
@@ -1740,10 +1809,12 @@
                   }
                 }
               }
+
               &.bookmark:hover {
                 svg {
                   color: #34d399;
                 }
+
                 &::before {
                   background: radial-gradient(
                     circle at 35% 30%,
@@ -1778,17 +1849,20 @@
                   inset 2px 0 3px rgba(0, 0, 0, 0.5),
                   inset -2px 0 3px rgba(0, 0, 0, 0.5),
                   0 0 18px rgba(16, 185, 129, 0.35);
+
                 svg {
                   color: #10b981;
                   fill: #10b981;
                   filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.9));
                 }
+
                 .led-num {
                   color: #4d8;
                   text-shadow:
                     0 0 10px rgba(52, 211, 153, 0.9),
                     0 0 4px rgba(52, 211, 153, 0.7);
                 }
+
                 &::before {
                   background: radial-gradient(
                     circle at 35% 30%,
@@ -1843,10 +1917,12 @@
                   }
                 }
               }
+
               &.share:hover {
                 svg {
                   color: #60a5fa;
                 }
+
                 &::before {
                   background: radial-gradient(
                     circle at 35% 30%,
@@ -1859,10 +1935,12 @@
                     inset 0 1px 1px rgba(200, 220, 255, 0.4);
                 }
               }
+
               &.download:hover {
                 svg {
                   color: #a78bfa;
                 }
+
                 &::before {
                   background: radial-gradient(
                     circle at 35% 30%,
@@ -1911,6 +1989,7 @@
               inset 0 1px 0 rgba(220, 200, 140, 0.2),
               inset 0 -1px 1px rgba(0, 0, 0, 0.4),
               0 1px 2px rgba(0, 0, 0, 0.3);
+
             &::before {
               content: '';
               position: absolute;
@@ -1950,13 +2029,16 @@
             inset 3px 0 5px rgba(0, 0, 0, 0.35),
             inset -3px 0 5px rgba(0, 0, 0, 0.35),
             0 2px 4px rgba(0, 0, 0, 0.2);
+
           &::-webkit-scrollbar {
             width: 6px;
           }
+
           &::-webkit-scrollbar-track {
             background: rgba(30, 20, 10, 0.6);
             border-radius: 3px;
           }
+
           &::-webkit-scrollbar-thumb {
             background: linear-gradient(180deg, #8a7a50, #5a4a30);
             border-radius: 3px;
@@ -1990,6 +2072,7 @@
                 0 3px 5px rgba(0, 0, 0, 0.35),
                 0 1px 2px rgba(0, 0, 0, 0.3);
               position: relative;
+
               &::after {
                 content: '';
                 position: absolute;
@@ -2041,6 +2124,7 @@
                   box-shadow:
                     inset 0 1px 2px rgba(0, 0, 0, 0.6),
                     0 0 0 1px rgba(0, 0, 0, 0.4);
+
                   &::before {
                     content: '';
                     position: absolute;
@@ -2055,6 +2139,7 @@
                   }
                 }
               }
+
               .tape-thumb {
                 order: 1;
                 width: 100%;
@@ -2074,6 +2159,7 @@
                 flex-direction: column;
                 gap: 0.3rem;
                 min-width: 0;
+
                 .tape-title {
                   color: #e0d4b4;
                   font-size: 1.08rem;
@@ -2083,6 +2169,7 @@
                   text-overflow: ellipsis;
                   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
                 }
+
                 .tape-duration {
                   color: #c4a868;
                   font-size: 0.95rem;
@@ -2115,10 +2202,12 @@
                 0 4px 6px rgba(0, 0, 0, 0.3),
                 inset 0 2px 0 rgba(220, 200, 140, 0.2),
                 inset 0 -3px 4px rgba(0, 0, 0, 0.35);
+
               &::after {
                 opacity: 1;
                 animation: auroraSpin 2.6s linear infinite;
               }
+
               .tape-reels .tape-reel {
                 animation: tape-spin 8s linear infinite;
               }
@@ -2146,6 +2235,7 @@
                 inset 0 2px 0 rgba(240, 220, 160, 0.22),
                 inset 0 -3px 4px rgba(0, 0, 0, 0.3),
                 inset 0 0 12px rgba(200, 168, 104, 0.1);
+
               &::after {
                 opacity: 1;
                 animation: auroraSpin 1.4s linear infinite;
@@ -2158,20 +2248,24 @@
                 .tape-reel {
                   border-color: #c4a868;
                   animation: tape-spin 3s linear infinite;
+
                   &::before {
                     background: radial-gradient(circle, #f0e0a0, #c4a868);
                   }
                 }
               }
+
               .tape-thumb {
                 border-color: #8a7a50;
                 box-shadow:
                   inset 0 0 0 1px rgba(0, 0, 0, 0.5),
                   0 0 8px rgba(200, 168, 104, 0.2);
               }
+
               .tape-title {
                 color: #f4e8c8;
               }
+
               .tape-duration {
                 color: #f0d898;
               }
@@ -2213,6 +2307,7 @@
               inset 0 1px 0 rgba(220, 200, 140, 0.2),
               inset 0 -1px 1px rgba(0, 0, 0, 0.4),
               0 1px 2px rgba(0, 0, 0, 0.3);
+
             &::before {
               content: '';
               position: absolute;
@@ -2225,6 +2320,7 @@
               border-radius: 1px;
             }
           }
+
           .cc-count {
             color: #c4a868;
             font-size: 0.9rem;
@@ -2263,13 +2359,16 @@
             inset 3px 0 5px rgba(0, 0, 0, 0.35),
             inset -3px 0 5px rgba(0, 0, 0, 0.35),
             0 2px 4px rgba(0, 0, 0, 0.2);
+
           &::-webkit-scrollbar {
             width: 6px;
           }
+
           &::-webkit-scrollbar-track {
             background: rgba(30, 20, 10, 0.6);
             border-radius: 3px;
           }
+
           &::-webkit-scrollbar-thumb {
             background: linear-gradient(180deg, #8a7a50, #5a4a30);
             border-radius: 3px;
@@ -2324,6 +2423,7 @@
               inset 0 0 0 1px rgba(200, 168, 104, 0.12),
               inset 0 3px 8px rgba(0, 0, 0, 0.7),
               inset 0 -2px 4px rgba(0, 0, 0, 0.5);
+
             &::before {
               content: '';
               position: absolute;
@@ -2345,6 +2445,7 @@
               display: block;
               transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
             }
+
             .cc-scanlines {
               position: absolute;
               inset: 0;
@@ -2359,6 +2460,7 @@
               );
               transition: background-position 0.3s ease;
             }
+
             .cc-vignette {
               position: absolute;
               inset: 0;
@@ -2366,6 +2468,7 @@
               z-index: 3;
               box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.6);
             }
+
             .cc-badge {
               position: absolute;
               top: 5px;
@@ -2380,6 +2483,7 @@
                 0 2px 4px rgba(0, 0, 0, 0.5),
                 inset 0 1px 0 rgba(255, 255, 255, 0.2);
             }
+
             .cc-timecode {
               position: absolute;
               bottom: 5px;
@@ -2418,6 +2522,7 @@
             .cc-label-info {
               flex: 1;
               min-width: 0;
+
               .cc-name {
                 display: block;
                 color: #2a1a08;
@@ -2428,6 +2533,7 @@
                 text-overflow: ellipsis;
                 text-shadow: 0 1px 0 rgba(255, 240, 200, 0.3);
               }
+
               .cc-meta {
                 display: block;
                 color: #4a3414;
@@ -2461,6 +2567,7 @@
                 inset 0 1px 2px rgba(255, 200, 180, 0.2),
                 inset 0 -1px 2px rgba(0, 0, 0, 0.4);
               transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+
               .cc-stamp-text {
                 color: #f0e0b8;
                 font-size: 0.58rem;
@@ -2477,6 +2584,7 @@
             color: #fff;
             text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
           }
+
           &.cc-guide .cc-badge {
             background: linear-gradient(180deg, #4aba6a, #1a6a2a);
             color: #fff;
@@ -2492,6 +2600,7 @@
               0 0 0 1px rgba(0, 0, 0, 0.4),
               inset 0 1px 0 rgba(240, 220, 160, 0.2),
               inset 0 -2px 4px rgba(0, 0, 0, 0.5);
+
             .cc-frame {
               border-color: #3a2a18;
               box-shadow:
@@ -2500,15 +2609,19 @@
                 inset 0 -2px 4px rgba(0, 0, 0, 0.4),
                 0 0 14px rgba(200, 168, 104, 0.2);
             }
+
             .cc-thumb {
               transform: scale(1.12);
             }
+
             .cc-scanlines {
               animation: cc-scan-flow 1.5s linear infinite;
             }
+
             .cc-perfs {
               animation: cc-perf-shine 2s linear infinite;
             }
+
             .cc-label {
               background: linear-gradient(
                 180deg,
@@ -2517,9 +2630,11 @@
                 #b09050 100%
               );
             }
+
             .cc-name {
               color: #1a0e04;
             }
+
             .cc-stamp {
               background: radial-gradient(
                 circle at 35% 30%,
@@ -2545,6 +2660,7 @@
 .modal-enter-active,
 .modal-leave-active {
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+
   .modal-wrapper {
     transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   }
@@ -2553,6 +2669,7 @@
 .modal-enter-from,
 .modal-leave-to {
   opacity: 0;
+
   .modal-wrapper {
     transform: scale(0.92) translateY(30px);
   }
@@ -2562,6 +2679,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -2589,6 +2707,7 @@
   from {
     background-position: 0% 0;
   }
+
   to {
     background-position: 200% 0;
   }
@@ -2600,6 +2719,7 @@
     opacity: 1;
     box-shadow: 0 0 6px rgba(204, 51, 34, 0.6);
   }
+
   50% {
     opacity: 0.7;
     box-shadow: 0 0 4px rgba(204, 51, 34, 0.3);
@@ -2612,6 +2732,7 @@
     opacity: 1;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.55;
     transform: scale(0.82);
@@ -2627,6 +2748,7 @@
       0 0 3px rgba(255, 150, 80, 0.4),
       inset 0 1px 1px rgba(255, 200, 100, 0.4);
   }
+
   50% {
     opacity: 0.65;
     box-shadow:
@@ -2644,6 +2766,7 @@
       0 0 5px rgba(136, 255, 102, 0.6),
       inset 0 1px 1px rgba(255, 255, 200, 0.5);
   }
+
   50% {
     box-shadow:
       0 0 18px rgba(68, 204, 34, 1),
@@ -2656,6 +2779,7 @@
   from {
     background-position: -50% 0;
   }
+
   to {
     background-position: 150% 0;
   }
@@ -2671,6 +2795,7 @@
   from {
     background-position: 0 0;
   }
+
   to {
     background-position: 0 3px;
   }
@@ -2681,6 +2806,7 @@
   100% {
     filter: brightness(1);
   }
+
   50% {
     filter: brightness(1.4) drop-shadow(0 0 3px rgba(200, 168, 104, 0.4));
   }
@@ -2690,15 +2816,18 @@
   .video-modal .modal-wrapper .modal-content {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
+
     .side-panel-left {
       border-right: none;
       border-bottom: 3px solid #5a4a30;
       max-height: 35vh;
       box-shadow: inset 0 -4px 8px rgba(40, 30, 15, 0.3);
     }
+
     .player-section {
       min-height: 280px;
     }
+
     .info-panel {
       border-left: none;
       border-top: 3px solid #5a4a30;
@@ -2720,6 +2849,7 @@
       .side-panel-left {
         padding: 1.25rem 1rem;
         gap: 0.85rem;
+
         .cross-channel .cc-grid {
           grid-template-columns: 1fr;
           max-height: 240px;
@@ -2729,11 +2859,14 @@
       .info-panel {
         padding: 1.25rem 1rem;
         gap: 0.85rem;
+
         .program-sticker .sticker-title {
           font-size: 1.15rem;
         }
+
         .led-display .led-item {
           min-height: 52px;
+
           svg {
             width: 18px;
             height: 18px;

@@ -7,18 +7,15 @@ $ti-bright: #e2e8f0;
 $ti-mid: #cbd5e1;
 $ti-dark: #94a3b8;
 $ti-deep: #64748b;
-
 $space-0: #04060a;
 $space-1: #0a0810;
 $space-2: #1a0e1a;
 $space-3: #2a1428;
-
 $magenta-bright: #fda4d8;
 $magenta: #f472b6;
 $magenta-deep: #ec4899;
 $magenta-void: #db2777;
 $rose: #f43f5e;
-
 $snow: #fdf2f8;
 
 .scenery-experience {
@@ -39,7 +36,7 @@ $snow: #fdf2f8;
     flex-shrink: 0;
     position: relative;
     height: 8%;
-     box-sizing: border-box;
+    box-sizing: border-box;
     background:
       linear-gradient(180deg, rgba(26, 14, 26, 0.92), rgba(10, 8, 16, 0.96)),
       repeating-linear-gradient(
@@ -59,27 +56,25 @@ $snow: #fdf2f8;
     .nav-spectrum {
       width: 6px;
       align-self: stretch;
-      background:
-        repeating-linear-gradient(
+      background: repeating-linear-gradient(
+        0deg,
+        rgba(244, 114, 182, 0.4) 0,
+        rgba(244, 114, 182, 0.4) 2px,
+        transparent 2px,
+        transparent 5px
+      );
+      box-shadow:
+        inset 0 0 2px rgba(253, 164, 216, 0.4),
+        0 0 4px rgba(244, 114, 182, 0.2);
+
+      &--end {
+        background: repeating-linear-gradient(
           0deg,
           rgba(244, 114, 182, 0.4) 0,
           rgba(244, 114, 182, 0.4) 2px,
           transparent 2px,
           transparent 5px
         );
-      box-shadow:
-        inset 0 0 2px rgba(253, 164, 216, 0.4),
-        0 0 4px rgba(244, 114, 182, 0.2);
-
-      &--end {
-        background:
-          repeating-linear-gradient(
-            0deg,
-            rgba(244, 114, 182, 0.4) 0,
-            rgba(244, 114, 182, 0.4) 2px,
-            transparent 2px,
-            transparent 5px
-          );
       }
     }
 
@@ -91,12 +86,10 @@ $snow: #fdf2f8;
       align-items: center;
       gap: 11px;
       padding: 3px 22px;
- 
       cursor: pointer;
       transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
       isolation: isolate;
-
       color: $ti-mid;
       letter-spacing: 0.5px;
 
@@ -112,11 +105,32 @@ $snow: #fdf2f8;
 
       // 3D 立体背景：5层径向高光 + 线性纵深 + 边缘反光
       background:
-        radial-gradient(ellipse at 50% 0%, rgba(253, 164, 216, 0.1), transparent 55%),
-        radial-gradient(ellipse at 50% 100%, rgba(0, 0, 0, 0.35), transparent 50%),
-        radial-gradient(ellipse at 0% 50%, rgba(253, 164, 216, 0.04), transparent 40%),
-        radial-gradient(ellipse at 100% 50%, rgba(0, 0, 0, 0.2), transparent 40%),
-        linear-gradient(160deg, rgba(52, 26, 50, 0.78) 0%, rgba(20, 10, 22, 0.92) 50%, rgba(6, 3, 10, 0.97) 100%);
+        radial-gradient(
+          ellipse at 50% 0%,
+          rgba(253, 164, 216, 0.1),
+          transparent 55%
+        ),
+        radial-gradient(
+          ellipse at 50% 100%,
+          rgba(0, 0, 0, 0.35),
+          transparent 50%
+        ),
+        radial-gradient(
+          ellipse at 0% 50%,
+          rgba(253, 164, 216, 0.04),
+          transparent 40%
+        ),
+        radial-gradient(
+          ellipse at 100% 50%,
+          rgba(0, 0, 0, 0.2),
+          transparent 40%
+        ),
+        linear-gradient(
+          160deg,
+          rgba(52, 26, 50, 0.78) 0%,
+          rgba(20, 10, 22, 0.92) 50%,
+          rgba(6, 3, 10, 0.97) 100%
+        );
 
       // 10层阴影构筑全息3D立体落差
       box-shadow:
@@ -147,7 +161,9 @@ $snow: #fdf2f8;
           rgba(253, 164, 216, 0.15) 55%,
           transparent 75%
         );
-        transition: opacity 0.3s ease, transform 0.5s ease;
+        transition:
+          opacity 0.3s ease,
+          transform 0.5s ease;
         transform: translateX(-30%);
       }
 
@@ -183,15 +199,14 @@ $snow: #fdf2f8;
         pointer-events: none;
         z-index: 1;
         opacity: 0;
-        background:
-          linear-gradient(
-            0deg,
-            transparent 0%,
-            rgba(244, 114, 182, 0.18) 47%,
-            rgba(253, 164, 216, 0.35) 50%,
-            rgba(244, 114, 182, 0.18) 53%,
-            transparent 100%
-          );
+        background: linear-gradient(
+          0deg,
+          transparent 0%,
+          rgba(244, 114, 182, 0.18) 47%,
+          rgba(253, 164, 216, 0.35) 50%,
+          rgba(244, 114, 182, 0.18) 53%,
+          transparent 100%
+        );
         mix-blend-mode: screen;
         transition: opacity 0.3s ease;
       }
@@ -208,11 +223,22 @@ $snow: #fdf2f8;
 
         // 3D 球体：4层径向渐变（高光点+中间过渡+底部暗面+边缘反光）
         background:
-          radial-gradient(circle at 30% 25%, rgba(253, 164, 216, 0.22) 0%, transparent 35%),
-          radial-gradient(circle at 70% 80%, rgba(244, 114, 182, 0.06) 0%, transparent 30%),
-          radial-gradient(circle at 50% 50%, rgba(64, 32, 60, 0.7) 0%, rgba(8, 4, 12, 0.96) 75%),
+          radial-gradient(
+            circle at 30% 25%,
+            rgba(253, 164, 216, 0.22) 0%,
+            transparent 35%
+          ),
+          radial-gradient(
+            circle at 70% 80%,
+            rgba(244, 114, 182, 0.06) 0%,
+            transparent 30%
+          ),
+          radial-gradient(
+            circle at 50% 50%,
+            rgba(64, 32, 60, 0.7) 0%,
+            rgba(8, 4, 12, 0.96) 75%
+          ),
           linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
-
         border: 2px solid rgba(244, 114, 182, 0.3);
         border-radius: 50%;
 
@@ -226,13 +252,11 @@ $snow: #fdf2f8;
           0 4px 8px rgba(0, 0, 0, 0.65),
           0 2px 4px rgba(0, 0, 0, 0.8),
           0 0 1px rgba(244, 114, 182, 0.2);
-
         transition: all 0.35s ease;
 
         .sub-tab-icon {
           color: $ti-bright;
-          filter:
-            drop-shadow(0 0 4px rgba(244, 114, 182, 0.5))
+          filter: drop-shadow(0 0 4px rgba(244, 114, 182, 0.5))
             drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
           transition: all 0.35s ease;
         }
@@ -258,16 +282,15 @@ $snow: #fdf2f8;
         left: 10px;
         right: 10px;
         height: 2px;
-        background:
-          repeating-linear-gradient(
-            90deg,
-            transparent 0,
-            transparent 2px,
-            $magenta 2px,
-            $magenta 3px,
-            transparent 3px,
-            transparent 5px
-          );
+        background: repeating-linear-gradient(
+          90deg,
+          transparent 0,
+          transparent 2px,
+          $magenta 2px,
+          $magenta 3px,
+          transparent 3px,
+          transparent 5px
+        );
         background-size: 200% 100%;
         box-shadow:
           0 0 6px $magenta,
@@ -287,12 +310,37 @@ $snow: #fdf2f8;
 
         // 3D 爆发：6层径向高光增强
         background:
-          radial-gradient(ellipse at 50% 0%, rgba(253, 164, 216, 0.2), transparent 55%),
-          radial-gradient(ellipse at 50% 100%, rgba(0, 0, 0, 0.4), transparent 50%),
-          radial-gradient(ellipse at 0% 50%, rgba(253, 164, 216, 0.08), transparent 40%),
-          radial-gradient(ellipse at 100% 50%, rgba(0, 0, 0, 0.25), transparent 40%),
-          radial-gradient(ellipse at 50% 50%, rgba(244, 114, 182, 0.04), transparent 70%),
-          linear-gradient(160deg, rgba(72, 36, 68, 0.85) 0%, rgba(28, 14, 28, 0.95) 50%, rgba(10, 5, 14, 0.97) 100%);
+          radial-gradient(
+            ellipse at 50% 0%,
+            rgba(253, 164, 216, 0.2),
+            transparent 55%
+          ),
+          radial-gradient(
+            ellipse at 50% 100%,
+            rgba(0, 0, 0, 0.4),
+            transparent 50%
+          ),
+          radial-gradient(
+            ellipse at 0% 50%,
+            rgba(253, 164, 216, 0.08),
+            transparent 40%
+          ),
+          radial-gradient(
+            ellipse at 100% 50%,
+            rgba(0, 0, 0, 0.25),
+            transparent 40%
+          ),
+          radial-gradient(
+            ellipse at 50% 50%,
+            rgba(244, 114, 182, 0.04),
+            transparent 70%
+          ),
+          linear-gradient(
+            160deg,
+            rgba(72, 36, 68, 0.85) 0%,
+            rgba(28, 14, 28, 0.95) 50%,
+            rgba(10, 5, 14, 0.97) 100%
+          );
 
         // 3D 爆发12层阴影：深落差 + 全息外发光 + 能量边缘
         box-shadow:
@@ -341,8 +389,7 @@ $snow: #fdf2f8;
 
           .sub-tab-icon {
             color: $magenta-bright;
-            filter:
-              drop-shadow(0 0 5px rgba(244, 114, 182, 0.95))
+            filter: drop-shadow(0 0 5px rgba(244, 114, 182, 0.95))
               drop-shadow(0 0 12px rgba(244, 114, 182, 0.55))
               drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4));
           }
@@ -365,12 +412,37 @@ $snow: #fdf2f8;
 
         // 全息锁定：7层径向光 + 品红渗透 + 玻璃底光
         background:
-          radial-gradient(ellipse at 50% 0%, rgba(253, 164, 216, 0.28), transparent 50%),
-          radial-gradient(ellipse at 50% 100%, rgba(244, 114, 182, 0.14), transparent 45%),
-          radial-gradient(ellipse at 0% 50%, rgba(253, 164, 216, 0.08), transparent 35%),
-          radial-gradient(ellipse at 100% 50%, rgba(244, 114, 182, 0.06), transparent 35%),
-          radial-gradient(ellipse at 50% 50%, rgba(244, 114, 182, 0.06), transparent 65%),
-          linear-gradient(160deg, rgba(244, 114, 182, 0.2) 0%, rgba(30, 15, 28, 0.95) 45%, rgba(10, 5, 14, 0.97) 100%);
+          radial-gradient(
+            ellipse at 50% 0%,
+            rgba(253, 164, 216, 0.28),
+            transparent 50%
+          ),
+          radial-gradient(
+            ellipse at 50% 100%,
+            rgba(244, 114, 182, 0.14),
+            transparent 45%
+          ),
+          radial-gradient(
+            ellipse at 0% 50%,
+            rgba(253, 164, 216, 0.08),
+            transparent 35%
+          ),
+          radial-gradient(
+            ellipse at 100% 50%,
+            rgba(244, 114, 182, 0.06),
+            transparent 35%
+          ),
+          radial-gradient(
+            ellipse at 50% 50%,
+            rgba(244, 114, 182, 0.06),
+            transparent 65%
+          ),
+          linear-gradient(
+            160deg,
+            rgba(244, 114, 182, 0.2) 0%,
+            rgba(30, 15, 28, 0.95) 45%,
+            rgba(10, 5, 14, 0.97) 100%
+          );
 
         // 全息锁定14层阴影：内凹锁定 + 量子外发光 + 能量边缘
         box-shadow:
@@ -419,10 +491,26 @@ $snow: #fdf2f8;
         // 图标舱 · 全息3D球体量子发光
         .sub-tab-icon-housing {
           background:
-            radial-gradient(circle at 30% 25%, rgba(253, 164, 216, 0.4) 0%, transparent 40%),
-            radial-gradient(circle at 70% 80%, rgba(244, 114, 182, 0.12) 0%, transparent 30%),
-            radial-gradient(circle at 50% 50%, rgba(244, 114, 182, 0.3) 0%, rgba(16, 7, 16, 0.92) 75%),
-            linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+            radial-gradient(
+              circle at 30% 25%,
+              rgba(253, 164, 216, 0.4) 0%,
+              transparent 40%
+            ),
+            radial-gradient(
+              circle at 70% 80%,
+              rgba(244, 114, 182, 0.12) 0%,
+              transparent 30%
+            ),
+            radial-gradient(
+              circle at 50% 50%,
+              rgba(244, 114, 182, 0.3) 0%,
+              rgba(16, 7, 16, 0.92) 75%
+            ),
+            linear-gradient(
+              180deg,
+              rgba(255, 255, 255, 0.05) 0%,
+              transparent 50%
+            );
           border: 2px solid $magenta;
           box-shadow:
             inset 0 2px 4px rgba(253, 164, 216, 0.45),
@@ -438,8 +526,7 @@ $snow: #fdf2f8;
 
           .sub-tab-icon {
             color: #fff;
-            filter:
-              drop-shadow(0 0 5px rgba(253, 164, 216, 1))
+            filter: drop-shadow(0 0 5px rgba(253, 164, 216, 1))
               drop-shadow(0 0 14px rgba(244, 114, 182, 0.75))
               drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
           }
@@ -461,18 +548,19 @@ $snow: #fdf2f8;
         }
       }
     }
-
   }
 
   .sub-tab-content {
     flex: 1;
- 
     overflow: hidden;
     display: flex;
     flex-direction: column;
     height: 75vh;
     border-radius: 0 0 4px 4px;
-    &::-webkit-scrollbar { display: none; }
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
     -ms-overflow-style: none;
     scrollbar-width: none;
 
@@ -481,9 +569,13 @@ $snow: #fdf2f8;
       min-height: 0;
       overflow-y: auto;
       box-sizing: border-box;
-      &::-webkit-scrollbar { display: none; }
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
       -ms-overflow-style: none;
       scrollbar-width: none;
+
       &.active {
         animation: subPanelFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
       }
@@ -497,6 +589,7 @@ $snow: #fdf2f8;
     transform: translateY(10px);
     filter: blur(6px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -505,15 +598,33 @@ $snow: #fdf2f8;
 }
 
 @keyframes glitchSweep {
-  0% { transform: translateY(-100%); opacity: 1; }
-  100% { transform: translateY(100%); opacity: 1; }
+  0% {
+    transform: translateY(-100%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 1;
+  }
 }
 
 @keyframes waveFlow {
-  0% { background-position: 0 0; }
-  100% { background-position: 40px 0; }
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 40px 0;
+  }
 }
+
 @keyframes glassSweep {
-  0%, 100% { transform: translateX(-25%); opacity: 0.3; }
-  50% { transform: translateX(25%); opacity: 0.6; }
+  0%,
+  100% {
+    transform: translateX(-25%);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateX(25%);
+    opacity: 0.6;
+  }
 }

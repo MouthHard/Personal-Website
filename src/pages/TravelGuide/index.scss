@@ -5,11 +5,11 @@
   grid-template-rows: auto 1fr;
   position: relative;
   background-color: #0a0e17;
-  color: #ffffff;
+  color: #fff;
   transition: grid-template-columns 0.42s cubic-bezier(0.4, 0, 0.2, 1);
 
   &.mypage-active {
-    grid-template-columns: 0px 1fr;
+    grid-template-columns: 0 1fr;
 
     :deep(.province-sidebar) {
       opacity: 0;
@@ -46,13 +46,14 @@
     grid-column: 2;
     grid-row: 2;
     height: calc(100vh - 120px);
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow: hidden auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
+
     &::-webkit-scrollbar {
       display: none;
     }
+
     background: linear-gradient(
       135deg,
       rgba(10, 14, 23, 0.95) 0%,
@@ -68,6 +69,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

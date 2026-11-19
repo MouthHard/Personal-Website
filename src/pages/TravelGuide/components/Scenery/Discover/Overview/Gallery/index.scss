@@ -1,14 +1,22 @@
- .scenery-gallery {
+.scenery-gallery {
   box-sizing: border-box;
   margin-bottom: 2rem;
- 
+
   .carousel-container {
     position: relative;
     overflow: hidden;
     border-radius: 12px;
     background:
-      radial-gradient(ellipse at 30% 20%, rgba(30, 64, 175, 0.35) 0%, transparent 55%),
-      radial-gradient(ellipse at 75% 80%, rgba(14, 165, 233, 0.22) 0%, transparent 50%),
+      radial-gradient(
+        ellipse at 30% 20%,
+        rgba(30, 64, 175, 0.35) 0%,
+        transparent 55%
+      ),
+      radial-gradient(
+        ellipse at 75% 80%,
+        rgba(14, 165, 233, 0.22) 0%,
+        transparent 50%
+      ),
       linear-gradient(
         135deg,
         #050818 0%,
@@ -28,12 +36,10 @@
       inset 0 0 60px rgba(10, 18, 40, 0.6);
     perspective: 1500px;
     height: 100%;
+
     .bg-effect {
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      inset: 0;
       z-index: 0;
       pointer-events: none;
     }
@@ -49,7 +55,6 @@
         gap: 1rem;
 
         .icon-container {
-          position: relative;
           background: radial-gradient(
             circle,
             #1e3a8a 0%,
@@ -74,10 +79,7 @@
           &::before {
             content: '';
             position: absolute;
-            top: 10%;
-            left: 10%;
-            right: 10%;
-            bottom: 50%;
+            inset: 10% 10% 50%;
             background: radial-gradient(
               ellipse at top,
               rgba(186, 230, 253, 0.45) 0%,
@@ -128,7 +130,7 @@
           .section-title {
             font-size: 1.3rem;
             font-weight: 800;
-            color: #ffffff;
+            color: #fff;
             text-shadow:
               0 0 10px rgba(255, 255, 255, 0.3),
               0 0 20px rgba(255, 255, 255, 0.15),
@@ -162,10 +164,11 @@
       .carousel-item {
         flex: 0 0 100%;
         cursor: pointer;
-        padding: 0 5rem 1.3rem 5rem;
+        padding: 0 5rem 1.3rem;
         transform-style: preserve-3d;
         min-width: 0;
         box-sizing: border-box;
+
         .carousel-content {
           display: flex;
           padding: 1rem 1.25rem;
@@ -204,13 +207,11 @@
           &:hover {
             transform: translateZ(30px) rotateX(1.5deg) rotateY(-1.5deg);
             box-shadow: 0 5px 15px -1px rgb(0, 0, 0);
+
             &::after {
               content: '';
               position: absolute;
-              top: 0;
-              left: 0;
-              right: 0;
-              bottom: 0;
+              inset: 0;
               background: linear-gradient(
                 90deg,
                 transparent 0%,
@@ -261,16 +262,44 @@
               gap: 1rem;
               padding: 1.1rem 1.6rem;
               background:
-                radial-gradient(circle at 12px 12px, #fde68a 0 1px, #fbbf24 1px 2.5px, #92400e 2.5px 3.5px, transparent 3.5px),
-                radial-gradient(circle at calc(100% - 12px) 12px, #fde68a 0 1px, #fbbf24 1px 2.5px, #92400e 2.5px 3.5px, transparent 3.5px),
-                radial-gradient(circle at 12px calc(100% - 12px), #fde68a 0 1px, #fbbf24 1px 2.5px, #92400e 2.5px 3.5px, transparent 3.5px),
-                radial-gradient(circle at calc(100% - 12px) calc(100% - 12px), #fde68a 0 1px, #fbbf24 1px 2.5px, #92400e 2.5px 3.5px, transparent 3.5px),
+                radial-gradient(
+                  circle at 12px 12px,
+                  #fde68a 0 1px,
+                  #fbbf24 1px 2.5px,
+                  #92400e 2.5px 3.5px,
+                  transparent 3.5px
+                ),
+                radial-gradient(
+                  circle at calc(100% - 12px) 12px,
+                  #fde68a 0 1px,
+                  #fbbf24 1px 2.5px,
+                  #92400e 2.5px 3.5px,
+                  transparent 3.5px
+                ),
+                radial-gradient(
+                  circle at 12px calc(100% - 12px),
+                  #fde68a 0 1px,
+                  #fbbf24 1px 2.5px,
+                  #92400e 2.5px 3.5px,
+                  transparent 3.5px
+                ),
+                radial-gradient(
+                  circle at calc(100% - 12px) calc(100% - 12px),
+                  #fde68a 0 1px,
+                  #fbbf24 1px 2.5px,
+                  #92400e 2.5px 3.5px,
+                  transparent 3.5px
+                ),
                 repeating-linear-gradient(
                   90deg,
                   rgba(255, 255, 255, 0.025) 0 1px,
                   transparent 1px 3px
                 ),
-                linear-gradient(145deg, rgba(42, 44, 52, 0.96) 0%, rgba(18, 20, 26, 0.98) 100%);
+                linear-gradient(
+                  145deg,
+                  rgba(42, 44, 52, 0.96) 0%,
+                  rgba(18, 20, 26, 0.98) 100%
+                );
               border: 1px solid rgba(251, 191, 36, 0.5);
               border-radius: 10px;
               box-shadow:
@@ -300,6 +329,7 @@
                 );
                 pointer-events: none;
               }
+
               &::after {
                 content: '';
                 position: absolute;
@@ -394,16 +424,44 @@
               font-size: 0.95rem;
               font-weight: 600;
               background:
-                radial-gradient(circle at 12px 12px, #fde68a 0 1px, #fbbf24 1px 2.5px, #92400e 2.5px 3.5px, transparent 3.5px),
-                radial-gradient(circle at calc(100% - 12px) 12px, #fde68a 0 1px, #fbbf24 1px 2.5px, #92400e 2.5px 3.5px, transparent 3.5px),
-                radial-gradient(circle at 12px calc(100% - 12px), #fde68a 0 1px, #fbbf24 1px 2.5px, #92400e 2.5px 3.5px, transparent 3.5px),
-                radial-gradient(circle at calc(100% - 12px) calc(100% - 12px), #fde68a 0 1px, #fbbf24 1px 2.5px, #92400e 2.5px 3.5px, transparent 3.5px),
+                radial-gradient(
+                  circle at 12px 12px,
+                  #fde68a 0 1px,
+                  #fbbf24 1px 2.5px,
+                  #92400e 2.5px 3.5px,
+                  transparent 3.5px
+                ),
+                radial-gradient(
+                  circle at calc(100% - 12px) 12px,
+                  #fde68a 0 1px,
+                  #fbbf24 1px 2.5px,
+                  #92400e 2.5px 3.5px,
+                  transparent 3.5px
+                ),
+                radial-gradient(
+                  circle at 12px calc(100% - 12px),
+                  #fde68a 0 1px,
+                  #fbbf24 1px 2.5px,
+                  #92400e 2.5px 3.5px,
+                  transparent 3.5px
+                ),
+                radial-gradient(
+                  circle at calc(100% - 12px) calc(100% - 12px),
+                  #fde68a 0 1px,
+                  #fbbf24 1px 2.5px,
+                  #92400e 2.5px 3.5px,
+                  transparent 3.5px
+                ),
                 repeating-linear-gradient(
                   0deg,
                   rgba(251, 191, 36, 0.03) 0 1px,
                   transparent 1px 4px
                 ),
-                linear-gradient(145deg, rgba(28, 30, 36, 0.94) 0%, rgba(10, 12, 16, 0.98) 100%);
+                linear-gradient(
+                  145deg,
+                  rgba(28, 30, 36, 0.94) 0%,
+                  rgba(10, 12, 16, 0.98) 100%
+                );
               border: 1px solid rgba(251, 191, 36, 0.4);
               border-radius: 10px;
               box-shadow:
@@ -433,6 +491,7 @@
                 );
                 pointer-events: none;
               }
+
               &::after {
                 content: '';
                 position: absolute;
@@ -468,10 +527,34 @@
                 font-weight: 700;
                 color: #fef3c7;
                 background:
-                  radial-gradient(circle at 10px 10px, #fde68a 0 0.8px, #fbbf24 0.8px 2px, #92400e 2px 3px, transparent 3px),
-                  radial-gradient(circle at calc(100% - 10px) 10px, #fde68a 0 0.8px, #fbbf24 0.8px 2px, #92400e 2px 3px, transparent 3px),
-                  radial-gradient(circle at 10px calc(100% - 10px), #fde68a 0 0.8px, #fbbf24 0.8px 2px, #92400e 2px 3px, transparent 3px),
-                  radial-gradient(circle at calc(100% - 10px) calc(100% - 10px), #fde68a 0 0.8px, #fbbf24 0.8px 2px, #92400e 2px 3px, transparent 3px),
+                  radial-gradient(
+                    circle at 10px 10px,
+                    #fde68a 0 0.8px,
+                    #fbbf24 0.8px 2px,
+                    #92400e 2px 3px,
+                    transparent 3px
+                  ),
+                  radial-gradient(
+                    circle at calc(100% - 10px) 10px,
+                    #fde68a 0 0.8px,
+                    #fbbf24 0.8px 2px,
+                    #92400e 2px 3px,
+                    transparent 3px
+                  ),
+                  radial-gradient(
+                    circle at 10px calc(100% - 10px),
+                    #fde68a 0 0.8px,
+                    #fbbf24 0.8px 2px,
+                    #92400e 2px 3px,
+                    transparent 3px
+                  ),
+                  radial-gradient(
+                    circle at calc(100% - 10px) calc(100% - 10px),
+                    #fde68a 0 0.8px,
+                    #fbbf24 0.8px 2px,
+                    #92400e 2px 3px,
+                    transparent 3px
+                  ),
                   radial-gradient(
                     ellipse at top,
                     rgba(251, 191, 36, 0.22) 0%,
@@ -482,7 +565,11 @@
                     rgba(255, 255, 255, 0.02) 0 1px,
                     transparent 1px 3px
                   ),
-                  linear-gradient(145deg, rgba(36, 38, 46, 0.96) 0%, rgba(12, 14, 18, 0.98) 100%);
+                  linear-gradient(
+                    145deg,
+                    rgba(36, 38, 46, 0.96) 0%,
+                    rgba(12, 14, 18, 0.98) 100%
+                  );
                 border: 1px solid rgba(251, 191, 36, 0.45);
                 box-shadow:
                   0 8px 20px rgba(0, 0, 0, 0.72),
@@ -510,6 +597,7 @@
                   );
                   pointer-events: none;
                 }
+
                 &::after {
                   content: '';
                   position: absolute;
@@ -562,8 +650,11 @@
                 cursor: pointer;
                 transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
                 border: 1px solid rgba(251, 191, 36, 0.25);
-                background:
-                  linear-gradient(145deg, rgba(30, 38, 54, 0.9) 0%, rgba(12, 16, 24, 0.95) 100%);
+                background: linear-gradient(
+                  145deg,
+                  rgba(30, 38, 54, 0.9) 0%,
+                  rgba(12, 16, 24, 0.95) 100%
+                );
                 backdrop-filter: blur(8px);
 
                 .action-icon {
@@ -613,8 +704,16 @@
                 &.action-like.active {
                   border-color: #10b981;
                   background:
-                    radial-gradient(circle at 30% 30%, rgba(16, 185, 129, 0.35), transparent 70%),
-                    linear-gradient(145deg, rgba(30, 38, 54, 0.9) 0%, rgba(12, 16, 24, 0.95) 100%);
+                    radial-gradient(
+                      circle at 30% 30%,
+                      rgba(16, 185, 129, 0.35),
+                      transparent 70%
+                    ),
+                    linear-gradient(
+                      145deg,
+                      rgba(30, 38, 54, 0.9) 0%,
+                      rgba(12, 16, 24, 0.95) 100%
+                    );
                   box-shadow:
                     0 5px 0 rgba(0, 0, 0, 0.5),
                     0 6px 14px rgba(0, 0, 0, 0.6),
@@ -635,8 +734,16 @@
                 &.action-want.active {
                   border-color: #f43f5e;
                   background:
-                    radial-gradient(circle at 30% 30%, rgba(244, 63, 94, 0.35), transparent 70%),
-                    linear-gradient(145deg, rgba(30, 38, 54, 0.9) 0%, rgba(12, 16, 24, 0.95) 100%);
+                    radial-gradient(
+                      circle at 30% 30%,
+                      rgba(244, 63, 94, 0.35),
+                      transparent 70%
+                    ),
+                    linear-gradient(
+                      145deg,
+                      rgba(30, 38, 54, 0.9) 0%,
+                      rgba(12, 16, 24, 0.95) 100%
+                    );
                   box-shadow:
                     0 5px 0 rgba(0, 0, 0, 0.5),
                     0 6px 14px rgba(0, 0, 0, 0.6),
@@ -675,8 +782,16 @@
                 &.action-been.active {
                   border-color: #fbbf24;
                   background:
-                    radial-gradient(circle at 30% 30%, rgba(251, 191, 36, 0.35), transparent 70%),
-                    linear-gradient(145deg, rgba(30, 38, 54, 0.9) 0%, rgba(12, 16, 24, 0.95) 100%);
+                    radial-gradient(
+                      circle at 30% 30%,
+                      rgba(251, 191, 36, 0.35),
+                      transparent 70%
+                    ),
+                    linear-gradient(
+                      145deg,
+                      rgba(30, 38, 54, 0.9) 0%,
+                      rgba(12, 16, 24, 0.95) 100%
+                    );
                   box-shadow:
                     0 5px 0 rgba(0, 0, 0, 0.5),
                     0 6px 14px rgba(0, 0, 0, 0.6),
@@ -744,10 +859,7 @@
         &::before {
           content: '';
           position: absolute;
-          top: 4px;
-          left: 4px;
-          right: 4px;
-          bottom: 4px;
+          inset: 4px;
           background: linear-gradient(
             145deg,
             rgba(186, 230, 253, 0.2) 0%,
@@ -778,7 +890,7 @@
         .control-icon {
           width: 34px;
           height: 34px;
-          color: #ffffff;
+          color: #fff;
           filter: drop-shadow(0 0 8px rgba(186, 230, 253, 0.85))
             drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
           z-index: 2;
@@ -870,23 +982,28 @@
     }
   }
 }
+
 @keyframes cardSweep {
   0% {
     transform: translateX(-100%) skewX(-20deg);
     opacity: 0;
   }
+
   50% {
     opacity: 0.4;
   }
+
   100% {
     transform: translateX(100%) skewX(-20deg);
     opacity: 0;
   }
 }
+
 @keyframes rotate {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }

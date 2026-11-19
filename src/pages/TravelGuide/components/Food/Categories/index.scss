@@ -14,18 +14,28 @@ $ink: #050f08;
 $ink-2: #0a1410;
 $ink-3: #0e1a14;
 $line: rgba(74, 222, 128, 0.16);
-
 $text-mute: #d1d5db;
 $text-dim: #94a3b8;
-
 $clip-angle: polygon(
-  0 12px, 12px 0,
-  calc(100% - 12px) 0, 100% 12px,
-  100% calc(100% - 12px), calc(100% - 12px) 100%,
-  12px 100%, 0 calc(100% - 12px)
+  0 12px,
+  12px 0,
+  calc(100% - 12px) 0,
+  100% 12px,
+  100% calc(100% - 12px),
+  calc(100% - 12px) 100%,
+  12px 100%,
+  0 calc(100% - 12px)
 );
 $clip-hex: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-$clip-chip: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+$clip-chip: polygon(
+  8px 0,
+  100% 0,
+  100% calc(100% - 8px),
+  calc(100% - 8px) 100%,
+  0 100%,
+  0 8px
+);
+
 // 棱面切角 tab —— 左上斜切大角 + 右下斜切小角（晶体切片）
 $clip-cryo: polygon(
   14px 0,
@@ -43,9 +53,17 @@ $clip-cryo: polygon(
   background:
     radial-gradient(circle, rgba(74, 222, 128, 0.05) 1px, transparent 1px),
     radial-gradient(ellipse at 15% 0%, rgba(22, 163, 74, 0.1), transparent 50%),
-    radial-gradient(ellipse at 85% 100%, rgba(110, 231, 183, 0.08), transparent 50%),
+    radial-gradient(
+      ellipse at 85% 100%,
+      rgba(110, 231, 183, 0.08),
+      transparent 50%
+    ),
     linear-gradient(180deg, $ink-2 0%, $ink 100%);
-  background-size: 26px 26px, 100% 100%, 100% 100%, 100% 100%;
+  background-size:
+    26px 26px,
+    100% 100%,
+    100% 100%,
+    100% 100%;
   border: 1px solid $line;
   border-radius: 18px;
   overflow: hidden;
@@ -60,7 +78,8 @@ $clip-cryo: polygon(
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg,
+    background: linear-gradient(
+      90deg,
       transparent 0%,
       $jade-deep 15%,
       $jade 35%,
@@ -80,7 +99,11 @@ $clip-cryo: polygon(
     transform: translateX(-50%);
     width: 60%;
     height: 40%;
-    background: radial-gradient(circle, rgba(22, 163, 74, 0.1), transparent 70%);
+    background: radial-gradient(
+      circle,
+      rgba(22, 163, 74, 0.1),
+      transparent 70%
+    );
     pointer-events: none;
     z-index: 0;
   }
@@ -114,7 +137,11 @@ $clip-cryo: polygon(
       width: 52px;
       height: 52px;
       clip-path: $clip-hex;
-      background: linear-gradient(135deg, rgba(74, 222, 128, 0.28), rgba(22, 163, 74, 0.22));
+      background: linear-gradient(
+        135deg,
+        rgba(74, 222, 128, 0.28),
+        rgba(22, 163, 74, 0.22)
+      );
       filter: drop-shadow(0 0 10px $jade-glow);
 
       &::before {
@@ -153,7 +180,6 @@ $clip-cryo: polygon(
           0 0 28px rgba(110, 231, 183, 0.15);
       }
     }
-
   }
 
   // ============================================================================
@@ -172,9 +198,15 @@ $clip-cryo: polygon(
       gap: 0.55rem;
       padding: 0.7rem 1.25rem 0.75rem 1.7rem;
       clip-path: $clip-cryo;
+
       // 自然态：更暗更弱，与 hover/active 拉大差距
       background:
-        linear-gradient(135deg, rgba(74, 222, 128, 0.05) 0%, rgba(22, 163, 74, 0.02) 50%, rgba(110, 231, 183, 0.04) 100%),
+        linear-gradient(
+          135deg,
+          rgba(74, 222, 128, 0.05) 0%,
+          rgba(22, 163, 74, 0.02) 50%,
+          rgba(110, 231, 183, 0.04) 100%
+        ),
         linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, transparent 38%),
         linear-gradient(180deg, $ink-3 0%, $ink 100%);
       color: #e2e8f0;
@@ -192,7 +224,8 @@ $clip-cryo: polygon(
         position: absolute;
         inset: 0;
         clip-path: $clip-cryo;
-        background: linear-gradient(115deg,
+        background: linear-gradient(
+          115deg,
           transparent 30%,
           rgba(187, 247, 208, 0.55) 48%,
           rgba(240, 253, 244, 0.75) 50%,
@@ -235,7 +268,12 @@ $clip-cryo: polygon(
         left: 16px;
         right: 16px;
         height: 2px;
-        background: linear-gradient(90deg, transparent, rgba(74, 222, 128, 0.18), transparent);
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(74, 222, 128, 0.18),
+          transparent
+        );
         border-radius: 1px;
         transition: all 0.42s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 2;
@@ -247,7 +285,7 @@ $clip-cryo: polygon(
         padding: 0.14rem 0.55rem;
         background: rgba(74, 222, 128, 0.06);
         border: 1px solid rgba(74, 222, 128, 0.12);
-        border-radius: 2px 6px 2px 6px;
+        border-radius: 2px 6px;
         font-size: 0.88rem;
         color: $text-mute;
         font-family: 'Courier New', monospace;
@@ -259,9 +297,23 @@ $clip-cryo: polygon(
       // hover 态：明显增强（背景+边框+发光+位移+涟漪+光带）
       &:hover {
         background:
-          linear-gradient(135deg, rgba(74, 222, 128, 0.28) 0%, rgba(22, 163, 74, 0.16) 50%, rgba(110, 231, 183, 0.22) 100%),
-          linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, transparent 38%),
-          linear-gradient(135deg, transparent 46%, rgba(74, 222, 128, 0.16) 50%, transparent 54%),
+          linear-gradient(
+            135deg,
+            rgba(74, 222, 128, 0.28) 0%,
+            rgba(22, 163, 74, 0.16) 50%,
+            rgba(110, 231, 183, 0.22) 100%
+          ),
+          linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.12) 0%,
+            transparent 38%
+          ),
+          linear-gradient(
+            135deg,
+            transparent 46%,
+            rgba(74, 222, 128, 0.16) 50%,
+            transparent 54%
+          ),
           linear-gradient(180deg, $ink-3 0%, $ink-2 100%);
         color: $jade-soft;
         transform: translateY(-4px);
@@ -284,7 +336,12 @@ $clip-cryo: polygon(
         }
 
         &::after {
-          background: linear-gradient(90deg, transparent, rgba(74, 222, 128, 0.75), transparent);
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(74, 222, 128, 0.75),
+            transparent
+          );
           box-shadow: 0 0 6px $jade-glow;
         }
 
@@ -301,10 +358,28 @@ $clip-cryo: polygon(
       // active 态：最强（径向高光+彩色边框环+强发光+内辉光+3D凸起）
       &.active {
         background:
-          radial-gradient(circle at 30% 30%, rgba(187, 247, 208, 0.22), transparent 60%),
-          linear-gradient(135deg, rgba(74, 222, 128, 0.42) 0%, rgba(22, 163, 74, 0.26) 50%, rgba(110, 231, 183, 0.34) 100%),
-          linear-gradient(180deg, rgba(187, 247, 208, 0.18) 0%, transparent 38%),
-          linear-gradient(135deg, transparent 46%, rgba(74, 222, 128, 0.22) 50%, transparent 54%),
+          radial-gradient(
+            circle at 30% 30%,
+            rgba(187, 247, 208, 0.22),
+            transparent 60%
+          ),
+          linear-gradient(
+            135deg,
+            rgba(74, 222, 128, 0.42) 0%,
+            rgba(22, 163, 74, 0.26) 50%,
+            rgba(110, 231, 183, 0.34) 100%
+          ),
+          linear-gradient(
+            180deg,
+            rgba(187, 247, 208, 0.18) 0%,
+            transparent 38%
+          ),
+          linear-gradient(
+            135deg,
+            transparent 46%,
+            rgba(74, 222, 128, 0.22) 50%,
+            transparent 54%
+          ),
           linear-gradient(180deg, $ink-3 0%, $ink-2 100%);
         color: $cream;
         font-weight: 700;
@@ -331,8 +406,17 @@ $clip-cryo: polygon(
         }
 
         &::after {
-          background: linear-gradient(90deg, transparent, $jade, $cream, $jade, transparent);
-          box-shadow: 0 0 10px $jade-glow, 0 0 18px $mint-glow;
+          background: linear-gradient(
+            90deg,
+            transparent,
+            $jade,
+            $cream,
+            $jade,
+            transparent
+          );
+          box-shadow:
+            0 0 10px $jade-glow,
+            0 0 18px $mint-glow;
         }
 
         .tab-count {
@@ -382,11 +466,16 @@ $clip-cryo: polygon(
     position: relative;
     clip-path: $clip-angle;
     overflow: hidden;
+
     // 兜底背景：图片加载失败时仍撑开卡片
     min-height: 260px;
     aspect-ratio: 4 / 3;
     background:
-      radial-gradient(ellipse at 50% 40%, rgba(74, 222, 128, 0.08), transparent 60%),
+      radial-gradient(
+        ellipse at 50% 40%,
+        rgba(74, 222, 128, 0.08),
+        transparent 60%
+      ),
       linear-gradient(135deg, $ink-3 0%, $ink-2 50%, $ink 100%);
     cursor: pointer;
     transition:
@@ -402,7 +491,12 @@ $clip-cryo: polygon(
       inset: 0;
       clip-path: $clip-angle;
       background:
-        linear-gradient(135deg, rgba(74, 222, 128, 0.14), transparent 50%, rgba(22, 163, 74, 0.1)),
+        linear-gradient(
+          135deg,
+          rgba(74, 222, 128, 0.14),
+          transparent 50%,
+          rgba(22, 163, 74, 0.1)
+        ),
         linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, transparent 30%);
       pointer-events: none;
       z-index: 3;
@@ -416,8 +510,17 @@ $clip-cryo: polygon(
       left: 0;
       right: 0;
       height: 2px;
-      background: linear-gradient(90deg, transparent, $jade, $cream, $jade, transparent);
-      box-shadow: 0 0 12px $jade-glow, 0 0 24px $jade-glow;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        $jade,
+        $cream,
+        $jade,
+        transparent
+      );
+      box-shadow:
+        0 0 12px $jade-glow,
+        0 0 24px $jade-glow;
       opacity: 0;
       z-index: 4;
       pointer-events: none;
@@ -428,7 +531,9 @@ $clip-cryo: polygon(
       height: 100%;
       object-fit: cover;
       display: block;
-      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), filter 0.4s ease;
+      transition:
+        transform 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+        filter 0.4s ease;
       filter: brightness(0.88) saturate(0.95);
     }
 
@@ -439,7 +544,8 @@ $clip-cryo: polygon(
       flex-direction: column;
       justify-content: space-between;
       padding: 0.9rem;
-      background: linear-gradient(180deg,
+      background: linear-gradient(
+        180deg,
         rgba(0, 0, 0, 0.55) 0%,
         transparent 22%,
         rgba(5, 15, 8, 0.72) 58%,
@@ -655,87 +761,138 @@ $clip-cryo: polygon(
         // 想吃 — 鲜亮青
         &.action-want {
           border-color: rgba(34, 211, 238, 0.72);
-          .card-action-icon { color: #22d3ee; filter: drop-shadow(0 0 4px rgba(34, 211, 238, 0.65)); }
+          .card-action-icon {
+            color: #22d3ee;
+            filter: drop-shadow(0 0 4px rgba(34, 211, 238, 0.65));
+          }
+
           &:hover {
             border-color: rgba(34, 211, 238, 0.88);
             box-shadow:
               0 4px 12px rgba(0, 0, 0, 0.5),
               0 0 14px rgba(34, 211, 238, 0.42),
               inset 0 1px 0 rgba(255, 255, 255, 0.2);
-            .card-action-icon { color: #67e8f9; filter: drop-shadow(0 0 6px rgba(34, 211, 238, 0.85)); }
+            .card-action-icon {
+              color: #67e8f9;
+              filter: drop-shadow(0 0 6px rgba(34, 211, 238, 0.85));
+            }
           }
+
           &.active {
             border-color: rgba(34, 211, 238, 0.92);
-            background: linear-gradient(135deg, rgba(34, 211, 238, 0.55), rgba(6, 182, 212, 0.3));
+            background: linear-gradient(
+              135deg,
+              rgba(34, 211, 238, 0.55),
+              rgba(6, 182, 212, 0.3)
+            );
             box-shadow:
               0 0 10px rgba(34, 211, 238, 0.68),
               0 0 20px rgba(34, 211, 238, 0.38),
               0 3px 8px rgba(0, 0, 0, 0.45),
               inset 0 1px 0 rgba(255, 255, 255, 0.5);
-            .card-action-icon { color: #fff; filter: drop-shadow(0 0 6px rgba(103, 232, 249, 1)); }
+            .card-action-icon {
+              color: #fff;
+              filter: drop-shadow(0 0 6px rgba(103, 232, 249, 1));
+            }
           }
         }
 
         // 点赞 — 鲜亮绿
         &.action-like {
           border-color: rgba(74, 222, 128, 0.72);
-          .card-action-icon { color: #4ade80; filter: drop-shadow(0 0 4px rgba(74, 222, 128, 0.65)); }
+          .card-action-icon {
+            color: #4ade80;
+            filter: drop-shadow(0 0 4px rgba(74, 222, 128, 0.65));
+          }
+
           &:hover {
             border-color: rgba(74, 222, 128, 0.88);
             box-shadow:
               0 4px 12px rgba(0, 0, 0, 0.5),
               0 0 14px rgba(74, 222, 128, 0.42),
               inset 0 1px 0 rgba(255, 255, 255, 0.2);
-            .card-action-icon { color: #86efac; filter: drop-shadow(0 0 6px rgba(74, 222, 128, 0.85)); }
+            .card-action-icon {
+              color: #86efac;
+              filter: drop-shadow(0 0 6px rgba(74, 222, 128, 0.85));
+            }
           }
+
           &.active {
             border-color: rgba(74, 222, 128, 0.92);
-            background: linear-gradient(135deg, rgba(74, 222, 128, 0.55), rgba(34, 197, 94, 0.3));
+            background: linear-gradient(
+              135deg,
+              rgba(74, 222, 128, 0.55),
+              rgba(34, 197, 94, 0.3)
+            );
             box-shadow:
               0 0 10px rgba(74, 222, 128, 0.68),
               0 0 20px rgba(74, 222, 128, 0.38),
               0 3px 8px rgba(0, 0, 0, 0.45),
               inset 0 1px 0 rgba(255, 255, 255, 0.5);
-            .card-action-icon { color: #fff; filter: drop-shadow(0 0 6px rgba(134, 239, 172, 1)); }
+            .card-action-icon {
+              color: #fff;
+              filter: drop-shadow(0 0 6px rgba(134, 239, 172, 1));
+            }
           }
         }
-
 
         // 分享 — 鲜亮橙
         &.action-share {
           border-color: rgba(251, 146, 60, 0.72);
-          .card-action-icon { color: #fb923c; filter: drop-shadow(0 0 4px rgba(251, 146, 60, 0.65)); }
+          .card-action-icon {
+            color: #fb923c;
+            filter: drop-shadow(0 0 4px rgba(251, 146, 60, 0.65));
+          }
+
           &:hover {
             border-color: rgba(251, 146, 60, 0.88);
             box-shadow:
               0 4px 12px rgba(0, 0, 0, 0.5),
               0 0 14px rgba(251, 146, 60, 0.42),
               inset 0 1px 0 rgba(255, 255, 255, 0.2);
-            .card-action-icon { color: #fdba74; filter: drop-shadow(0 0 6px rgba(251, 146, 60, 0.85)); }
+            .card-action-icon {
+              color: #fdba74;
+              filter: drop-shadow(0 0 6px rgba(251, 146, 60, 0.85));
+            }
           }
         }
 
         // 已吃 — 鲜亮红
         &.action-eaten {
           border-color: rgba(251, 113, 133, 0.72);
-          .card-action-icon { color: #fb7185; filter: drop-shadow(0 0 4px rgba(251, 113, 133, 0.65)); }
+          .card-action-icon {
+            color: #fb7185;
+            filter: drop-shadow(0 0 4px rgba(251, 113, 133, 0.65));
+          }
+
           &:hover {
             border-color: rgba(251, 113, 133, 0.88);
             box-shadow:
               0 4px 12px rgba(0, 0, 0, 0.5),
               0 0 14px rgba(251, 113, 133, 0.42),
               inset 0 1px 0 rgba(255, 255, 255, 0.2);
-            .card-action-icon { color: #fda4af; filter: drop-shadow(0 0 6px rgba(251, 113, 133, 0.85)); }
+            .card-action-icon {
+              color: #fda4af;
+              filter: drop-shadow(0 0 6px rgba(251, 113, 133, 0.85));
+            }
           }
+
           &.active {
             border-color: rgba(251, 113, 133, 0.92);
-            background: linear-gradient(135deg, rgba(251, 113, 133, 0.55), rgba(225, 29, 72, 0.3));
+            background: linear-gradient(
+              135deg,
+              rgba(251, 113, 133, 0.55),
+              rgba(225, 29, 72, 0.3)
+            );
             box-shadow:
               0 0 10px rgba(251, 113, 133, 0.68),
               0 0 20px rgba(251, 113, 133, 0.38),
               0 3px 8px rgba(0, 0, 0, 0.45),
               inset 0 1px 0 rgba(255, 255, 255, 0.5);
-            .card-action-icon { color: #fff; filter: drop-shadow(0 0 6px rgba(253, 164, 175, 1)); }
+            .card-action-icon {
+              color: #fff;
+              filter: drop-shadow(0 0 6px rgba(253, 164, 175, 1));
+            }
           }
         }
       }
@@ -751,7 +908,12 @@ $clip-cryo: polygon(
 
       &::before {
         background:
-          linear-gradient(135deg, rgba(74, 222, 128, 0.2), transparent 50%, rgba(22, 163, 74, 0.14)),
+          linear-gradient(
+            135deg,
+            rgba(74, 222, 128, 0.2),
+            transparent 50%,
+            rgba(22, 163, 74, 0.14)
+          ),
           linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, transparent 30%);
       }
 
@@ -764,8 +926,7 @@ $clip-cryo: polygon(
         filter: brightness(1.12) saturate(1.18);
       }
 
-
-    .image-zoom-hint {
+      .image-zoom-hint {
         opacity: 1;
         transform: translate(-50%, -50%) scale(1);
       }
@@ -816,6 +977,7 @@ $clip-cryo: polygon(
     opacity: 0;
     transform: translateY(20px) scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -823,15 +985,31 @@ $clip-cryo: polygon(
 }
 
 @keyframes scanSweep {
-  0% { opacity: 0; top: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { opacity: 0; top: 100%; }
+  0% {
+    opacity: 0;
+    top: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    top: 100%;
+  }
 }
 
 @keyframes pulseRing {
-  0% { transform: scale(1); opacity: 1; }
-  100% { transform: scale(2.2); opacity: 0; }
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
 }
 
 // 量子涟漪扩散（同心圆波纹外扩）
@@ -843,6 +1021,7 @@ $clip-cryo: polygon(
       0 0 14px $jade-glow,
       inset 0 0 2px rgba(255, 255, 255, 0.6);
   }
+
   100% {
     box-shadow:
       0 0 0 5px rgba(74, 222, 128, 0.1),
@@ -854,17 +1033,33 @@ $clip-cryo: polygon(
 
 // 扫光划过（斜向亮条从左到右扫过整个 tab）
 @keyframes tabSweep {
-  0% { opacity: 0; transform: translateX(-100%); }
-  25% { opacity: 1; }
-  75% { opacity: 1; }
-  100% { opacity: 0; transform: translateX(100%); }
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
 }
 
 @keyframes popularBlink {
-  0%, 100% { opacity: 1; box-shadow: 0 0 6px rgba(240, 253, 244, 0.3); }
-  50% { opacity: 0.7; box-shadow: 0 0 12px rgba(240, 253, 244, 0.5); }
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 6px rgba(240, 253, 244, 0.3);
+  }
+  50% {
+    opacity: 0.7;
+    box-shadow: 0 0 12px rgba(240, 253, 244, 0.5);
+  }
 }
-
 
 // ----------------------------------------------------------------------------
 // 响应式

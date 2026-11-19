@@ -325,8 +325,16 @@
         .action-btn {
           padding: 14px 28px;
           background:
-            linear-gradient(165deg, rgba(35, 28, 22, 0.92), rgba(18, 14, 10, 0.98)),
-            linear-gradient(135deg, rgba(254, 249, 195, 0.06) 0%, transparent 45%);
+            linear-gradient(
+              165deg,
+              rgba(35, 28, 22, 0.92),
+              rgba(18, 14, 10, 0.98)
+            ),
+            linear-gradient(
+              135deg,
+              rgba(254, 249, 195, 0.06) 0%,
+              transparent 45%
+            );
           border: 1.5px solid rgba(254, 249, 195, 0.32);
           border-radius: 16px;
           color: rgba(254, 249, 195, 0.88);
@@ -378,8 +386,16 @@
 
           &:hover {
             background:
-              linear-gradient(165deg, rgba(42, 34, 26, 0.95), rgba(22, 18, 13, 0.98)),
-              linear-gradient(135deg, rgba(254, 249, 195, 0.1) 0%, transparent 50%);
+              linear-gradient(
+                165deg,
+                rgba(42, 34, 26, 0.95),
+                rgba(22, 18, 13, 0.98)
+              ),
+              linear-gradient(
+                135deg,
+                rgba(254, 249, 195, 0.1) 0%,
+                transparent 50%
+              );
             border-color: rgba(254, 249, 195, 0.55);
             color: #fef9c3;
             box-shadow:
@@ -397,9 +413,6 @@
             }
           }
 
-          &:active {
-          }
-
           &.primary {
             background:
               linear-gradient(
@@ -408,7 +421,11 @@
                 rgba(184, 134, 11, 0.82),
                 rgba(160, 110, 8, 0.78)
               ),
-              linear-gradient(135deg, rgba(255, 245, 200, 0.15) 0%, transparent 50%);
+              linear-gradient(
+                135deg,
+                rgba(255, 245, 200, 0.15) 0%,
+                transparent 50%
+              );
             border-color: rgba(254, 249, 195, 0.7);
             color: rgba(10, 8, 5, 0.95);
             box-shadow:
@@ -440,8 +457,16 @@
 
           &.danger {
             background:
-              linear-gradient(165deg, rgba(55, 28, 22, 0.92), rgba(38, 18, 14, 0.98)),
-              linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, transparent 45%);
+              linear-gradient(
+                165deg,
+                rgba(55, 28, 22, 0.92),
+                rgba(38, 18, 14, 0.98)
+              ),
+              linear-gradient(
+                135deg,
+                rgba(239, 68, 68, 0.1) 0%,
+                transparent 45%
+              );
             border-color: rgba(239, 68, 68, 0.5);
             color: rgba(248, 113, 113, 0.9);
 
@@ -455,8 +480,16 @@
 
             &:hover {
               background:
-                linear-gradient(165deg, rgba(65, 34, 26, 0.95), rgba(45, 22, 18, 0.98)),
-                linear-gradient(135deg, rgba(239, 68, 68, 0.16) 0%, transparent 50%);
+                linear-gradient(
+                  165deg,
+                  rgba(65, 34, 26, 0.95),
+                  rgba(45, 22, 18, 0.98)
+                ),
+                linear-gradient(
+                  135deg,
+                  rgba(239, 68, 68, 0.16) 0%,
+                  transparent 50%
+                );
               border-color: rgba(248, 113, 113, 0.7);
               box-shadow:
                 0 6px 16px rgba(0, 0, 0, 0.4),
@@ -484,11 +517,14 @@
 
         &:last-child {
           border-bottom: none;
-
         }
 
         &:hover {
-          background: linear-gradient(to right, rgba(56, 189, 248, 0.15), transparent 55%);
+          background: linear-gradient(
+            to right,
+            rgba(56, 189, 248, 0.15),
+            transparent 55%
+          );
           border-radius: 8px;
           border-color: rgba(252, 211, 77, 0.25);
         }

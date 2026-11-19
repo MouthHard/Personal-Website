@@ -1,4 +1,4 @@
-@use '../../_variables' as *;
+@use '../../variables' as *;
 
 // ============================================================================
 // 餐厅列表 — 等离子弧光反应舱 (Plasma Arc Reactor)
@@ -42,13 +42,26 @@
       rgba(245, 158, 11, 0.04) 0deg 2deg,
       transparent 2deg 18deg
     ),
-    radial-gradient(ellipse at 30% 20%, rgba(245, 158, 11, 0.08), transparent 60%),
-    radial-gradient(ellipse at 70% 80%, rgba(180, 83, 9, 0.06), transparent 55%),
+    radial-gradient(
+      ellipse at 30% 20%,
+      rgba(245, 158, 11, 0.08),
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse at 70% 80%,
+      rgba(180, 83, 9, 0.06),
+      transparent 55%
+    ),
     linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 40%),
     linear-gradient(180deg, #0c0c14 0%, #08080f 100%);
-  background-size: 120px 120px, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+  background-size:
+    120px 120px,
+    100% 100%,
+    100% 100%,
+    100% 100%,
+    100% 100%;
   border: 1px solid rgba(245, 158, 11, 0.22);
-  border-radius: 18px 32px 18px 32px;
+  border-radius: 18px 32px;
   cursor: pointer;
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow:
@@ -65,7 +78,14 @@
     left: 0;
     right: 0;
     height: 6px;
-    background: linear-gradient(90deg, transparent, rgba(180, 83, 9, 0.15), rgba(245, 158, 11, 0.25), rgba(180, 83, 9, 0.15), transparent);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(180, 83, 9, 0.15),
+      rgba(245, 158, 11, 0.25),
+      rgba(180, 83, 9, 0.15),
+      transparent
+    );
     overflow: hidden;
     opacity: 0;
     transition: opacity 0.35s ease;
@@ -79,7 +99,12 @@
       width: 60%;
       height: 12px;
       border-radius: 0 0 50% 50% / 0 0 100% 100%;
-      background: radial-gradient(ellipse at 50% 0%, $amber-soft, $amber 40%, transparent 70%);
+      background: radial-gradient(
+        ellipse at 50% 0%,
+        $amber-soft,
+        $amber 40%,
+        transparent 70%
+      );
       box-shadow:
         0 0 14px $amber-glow,
         0 0 6px $amber;
@@ -115,10 +140,14 @@
     width: 104px;
     height: 104px;
     flex-shrink: 0;
-    border-radius: 14px 24px 14px 24px;
+    border-radius: 14px 24px;
     overflow: hidden;
     background:
-      radial-gradient(circle at 50% 30%, rgba(245, 158, 11, 0.12), transparent 70%),
+      radial-gradient(
+        circle at 50% 30%,
+        rgba(245, 158, 11, 0.12),
+        transparent 70%
+      ),
       $ink-3;
     box-shadow:
       0 6px 16px rgba(0, 0, 0, 0.55),
@@ -129,7 +158,9 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.5s ease, filter 0.3s ease;
+      transition:
+        transform 0.5s ease,
+        filter 0.3s ease;
       filter: brightness(0.82) saturate(0.88) contrast(1.05);
     }
 
@@ -185,7 +216,7 @@
       background:
         linear-gradient(180deg, rgba(255, 255, 255, 0.32), transparent 50%),
         linear-gradient(135deg, $amber, $amber-deep);
-      border-radius: 10px 18px 10px 18px;
+      border-radius: 10px 18px;
       font-size: 0.78rem;
       font-weight: 800;
       color: #fff;
@@ -212,7 +243,7 @@
         rgba(8, 8, 15, 0.92);
       backdrop-filter: blur(10px);
       border: 1px solid rgba(253, 224, 71, 0.65);
-      border-radius: 10px 16px 10px 16px;
+      border-radius: 10px 16px;
       font-size: 0.82rem;
       font-weight: 800;
       color: $gold-soft;
@@ -262,7 +293,7 @@
       align-items: center;
       gap: 0.4rem;
       margin: 0;
-      font-size: 1.0rem;
+      font-size: 1rem;
       color: $amber-soft;
       font-weight: 600;
 
@@ -286,7 +317,11 @@
         width: fit-content;
         background:
           linear-gradient(180deg, rgba(255, 255, 255, 0.12), transparent 50%),
-          linear-gradient(135deg, rgba(245, 158, 11, 0.25), rgba(180, 83, 9, 0.14));
+          linear-gradient(
+            135deg,
+            rgba(245, 158, 11, 0.25),
+            rgba(180, 83, 9, 0.14)
+          );
         border: 1px solid rgba(245, 158, 11, 0.5);
         border-radius: 999px;
         font-size: 0.96rem;
@@ -324,7 +359,12 @@
     left: 0;
     right: 0;
     height: 5px;
-    background: linear-gradient(90deg, rgba(148, 163, 184, 0.1), rgba(245, 158, 11, 0.2), rgba(148, 163, 184, 0.1));
+    background: linear-gradient(
+      90deg,
+      rgba(148, 163, 184, 0.1),
+      rgba(245, 158, 11, 0.2),
+      rgba(148, 163, 184, 0.1)
+    );
     overflow: hidden;
     opacity: 0;
     transition: opacity 0.35s ease;
@@ -338,7 +378,12 @@
       width: 50%;
       height: 8px;
       border-radius: 50% 50% 0 0 / 100% 100% 0 0;
-      background: radial-gradient(ellipse at 50% 100%, $amber-soft, $amber 50%, transparent 80%);
+      background: radial-gradient(
+        ellipse at 50% 100%,
+        $amber-soft,
+        $amber 50%,
+        transparent 80%
+      );
       opacity: 0.6;
       box-shadow:
         0 0 10px $amber-glow,
@@ -353,15 +398,24 @@
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: radial-gradient(circle at 30% 30%, #cbd5e1, #64748b 60%, #334155);
+      background: radial-gradient(
+        circle at 30% 30%,
+        #cbd5e1,
+        #64748b 60%,
+        #334155
+      );
       border: 1px solid rgba(148, 163, 184, 0.5);
       box-shadow:
         0 0 4px rgba(148, 163, 184, 0.4),
         inset 0 1px 0 rgba(255, 255, 255, 0.4),
         inset 0 -1px 1px rgba(0, 0, 0, 0.4);
 
-      &-left { left: 10px; }
-      &-right { right: 10px; }
+      &-left {
+        left: 10px;
+      }
+      &-right {
+        right: 10px;
+      }
     }
   }
 
@@ -380,10 +434,23 @@
 
     .plasma-injector {
       opacity: 1;
-      background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.3), rgba(252, 211, 77, 0.4), rgba(245, 158, 11, 0.3), transparent);
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(245, 158, 11, 0.3),
+        rgba(252, 211, 77, 0.4),
+        rgba(245, 158, 11, 0.3),
+        transparent
+      );
 
       .injector-arc {
-        background: radial-gradient(ellipse at 50% 0%, $gold, $amber-soft 40%, $amber 70%, transparent 90%);
+        background: radial-gradient(
+          ellipse at 50% 0%,
+          $gold,
+          $amber-soft 40%,
+          $amber 70%,
+          transparent 90%
+        );
         box-shadow:
           0 0 22px $amber-glow,
           0 0 12px $amber,
@@ -420,18 +487,34 @@
 
     .reactor-base {
       opacity: 1;
-      background: linear-gradient(90deg, rgba(148, 163, 184, 0.15), rgba(252, 211, 77, 0.35), rgba(148, 163, 184, 0.15));
+      background: linear-gradient(
+        90deg,
+        rgba(148, 163, 184, 0.15),
+        rgba(252, 211, 77, 0.35),
+        rgba(148, 163, 184, 0.15)
+      );
 
       .base-arc {
         opacity: 1;
-        background: radial-gradient(ellipse at 50% 100%, $gold, $amber-soft 50%, $amber 80%, transparent 95%);
+        background: radial-gradient(
+          ellipse at 50% 100%,
+          $gold,
+          $amber-soft 50%,
+          $amber 80%,
+          transparent 95%
+        );
         box-shadow:
           0 0 16px $amber-glow,
           0 0 8px $gold;
       }
 
       .base-bolt {
-        background: radial-gradient(circle at 30% 30%, #f1f5f9, #94a3b8 60%, #475569);
+        background: radial-gradient(
+          circle at 30% 30%,
+          #f1f5f9,
+          #94a3b8 60%,
+          #475569
+        );
         box-shadow:
           0 0 6px rgba(203, 213, 225, 0.5),
           inset 0 1px 0 rgba(255, 255, 255, 0.5),
@@ -450,7 +533,11 @@
   &.active {
     border-color: $sky;
     background:
-      radial-gradient(ellipse at 50% 50%, rgba(56, 189, 248, 0.08), transparent 70%),
+      radial-gradient(
+        ellipse at 50% 50%,
+        rgba(56, 189, 248, 0.08),
+        transparent 70%
+      ),
       linear-gradient(180deg, #0c1420 0%, #08101a 100%);
     box-shadow:
       0 16px 40px rgba(0, 0, 0, 0.65),
@@ -469,7 +556,14 @@
       left: 0;
       right: 0;
       height: 2px;
-      background: linear-gradient(90deg, transparent, $sky-soft, $sky-bright, $sky-soft, transparent);
+      background: linear-gradient(
+        90deg,
+        transparent,
+        $sky-soft,
+        $sky-bright,
+        $sky-soft,
+        transparent
+      );
       box-shadow:
         0 0 12px $sky-glow,
         0 0 6px $sky-bright;
@@ -479,10 +573,23 @@
 
     .plasma-injector {
       opacity: 1;
-      background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.4), rgba(125, 211, 252, 0.5), rgba(56, 189, 248, 0.4), transparent);
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(56, 189, 248, 0.4),
+        rgba(125, 211, 252, 0.5),
+        rgba(56, 189, 248, 0.4),
+        transparent
+      );
 
       .injector-arc {
-        background: radial-gradient(ellipse at 50% 0%, $sky-soft, $sky-bright 40%, $sky 70%, transparent 95%);
+        background: radial-gradient(
+          ellipse at 50% 0%,
+          $sky-soft,
+          $sky-bright 40%,
+          $sky 70%,
+          transparent 95%
+        );
         box-shadow:
           0 0 28px $sky-glow,
           0 0 16px $sky-bright,
@@ -527,11 +634,22 @@
 
     .reactor-base {
       opacity: 1;
-      background: linear-gradient(90deg, rgba(148, 163, 184, 0.2), rgba(125, 211, 252, 0.45), rgba(148, 163, 184, 0.2));
+      background: linear-gradient(
+        90deg,
+        rgba(148, 163, 184, 0.2),
+        rgba(125, 211, 252, 0.45),
+        rgba(148, 163, 184, 0.2)
+      );
 
       .base-arc {
         opacity: 1;
-        background: radial-gradient(ellipse at 50% 100%, $sky-soft, $sky-bright 50%, $sky 80%, transparent 95%);
+        background: radial-gradient(
+          ellipse at 50% 100%,
+          $sky-soft,
+          $sky-bright 50%,
+          $sky 80%,
+          transparent 95%
+        );
         box-shadow:
           0 0 22px $sky-glow,
           0 0 12px $sky-bright,
@@ -540,7 +658,12 @@
       }
 
       .base-bolt {
-        background: radial-gradient(circle at 30% 30%, #f8fafc, #e2e8f0 60%, #94a3b8);
+        background: radial-gradient(
+          circle at 30% 30%,
+          #f8fafc,
+          #e2e8f0 60%,
+          #94a3b8
+        );
         border-color: rgba(125, 211, 252, 0.6);
         box-shadow:
           0 0 8px rgba(125, 211, 252, 0.5),
@@ -587,10 +710,12 @@
 
 // 等离子弧光反应舱专属动画
 @keyframes plasmaInject {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.7;
     transform: translateX(-50%) scaleX(1);
   }
+
   50% {
     opacity: 1;
     transform: translateX(-50%) scaleX(1.15);
@@ -598,14 +723,17 @@
 }
 
 @keyframes coreFlicker {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
     filter: brightness(1);
   }
+
   45% {
     opacity: 0.85;
     filter: brightness(1.3);
   }
+
   55% {
     opacity: 1;
     filter: brightness(0.9);
@@ -613,15 +741,21 @@
 }
 
 @keyframes ringSpin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes baseGlow {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.5;
     transform: translateX(-50%) scaleX(1);
   }
+
   50% {
     opacity: 1;
     transform: translateX(-50%) scaleX(1.2);

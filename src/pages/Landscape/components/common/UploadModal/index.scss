@@ -327,6 +327,7 @@ $transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   100% {
     transform: translate(0, 0);
   }
+
   50% {
     transform: translate(-20px, 15px);
   }
@@ -337,6 +338,7 @@ $transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   100% {
     transform: translate(0, 0);
   }
+
   50% {
     transform: translate(15px, -20px);
   }
@@ -347,9 +349,11 @@ $transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   100% {
     transform: translate(0, 0);
   }
+
   33% {
     transform: translate(-15px, 10px);
   }
+
   66% {
     transform: translate(10px, -15px);
   }

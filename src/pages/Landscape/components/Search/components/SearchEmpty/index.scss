@@ -15,8 +15,16 @@
       position: absolute;
       inset: -30px -80px -20px;
       background:
-        radial-gradient(ellipse 42% 55% at 55% 45%, rgba(251, 191, 36, 0.1), transparent 70%),
-        radial-gradient(ellipse 30% 40% at 72% 28%, rgba(56, 189, 248, 0.08), transparent 70%);
+        radial-gradient(
+          ellipse 42% 55% at 55% 45%,
+          rgba(251, 191, 36, 0.1),
+          transparent 70%
+        ),
+        radial-gradient(
+          ellipse 30% 40% at 72% 28%,
+          rgba(56, 189, 248, 0.08),
+          transparent 70%
+        );
       pointer-events: none;
     }
 
@@ -212,16 +220,24 @@
         letter-spacing: 0.42em;
         text-indent: 0.42em;
         color: rgba(253, 230, 138, 0.85);
-        font-family: 'Consolas', 'Monaco', monospace;
+        font-family: Consolas, Monaco, monospace;
       }
 
       .tag-line {
         width: 56px;
         height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(253, 230, 138, 0.45));
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(253, 230, 138, 0.45)
+        );
 
         &.right {
-          background: linear-gradient(90deg, rgba(253, 230, 138, 0.45), transparent);
+          background: linear-gradient(
+            90deg,
+            rgba(253, 230, 138, 0.45),
+            transparent
+          );
         }
       }
     }
@@ -231,7 +247,12 @@
       font-weight: 800;
       margin: 0 0 12px;
       letter-spacing: 0.04em;
-      background: linear-gradient(120deg, #fffbeb 15%, #fde68a 55%, #fbbf24 90%);
+      background: linear-gradient(
+        120deg,
+        #fffbeb 15%,
+        #fde68a 55%,
+        #fbbf24 90%
+      );
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -354,6 +375,7 @@
     opacity: 0;
     transform: translateY(26px) scale(0.96);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -365,6 +387,7 @@
   100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-6px);
   }
@@ -375,6 +398,7 @@
   100% {
     opacity: 0.55;
   }
+
   50% {
     opacity: 1;
   }
@@ -386,6 +410,7 @@
     opacity: 0.25;
     transform: scale(0.8);
   }
+
   50% {
     opacity: 0.95;
     transform: scale(1.15);
@@ -398,6 +423,7 @@
     opacity: 0.3;
     transform: scale(0.82) rotate(0deg);
   }
+
   50% {
     opacity: 0.85;
     transform: scale(1.08) rotate(12deg);

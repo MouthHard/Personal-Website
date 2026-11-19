@@ -4,8 +4,7 @@
   min-height: 100vh;
   background: #1b2838;
   color: #c7d5e0;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden auto;
 
   &::-webkit-scrollbar {
     width: 6px;

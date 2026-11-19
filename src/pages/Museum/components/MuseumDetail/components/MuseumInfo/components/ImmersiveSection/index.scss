@@ -1,9 +1,9 @@
 .immersive-section {
-  background: url('https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/museum/home/Immersive.webp') no-repeat center
-    center;
+  background: url('https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/museum/home/Immersive.webp')
+    no-repeat center center;
   background-size: 100% auto;
   background-position: center;
-  padding: 1rem 2rem 2rem 2rem;
+  padding: 1rem 2rem 2rem;
   position: relative;
   overflow: hidden;
   box-shadow:
@@ -27,14 +27,17 @@
       margin-bottom: 1.5rem;
       filter: drop-shadow(0 4px 12px rgba(120, 119, 198, 0.3));
       animation: floatIcon 3s ease-in-out infinite;
-      svg { width: 64px; height: 64px; }
+      svg {
+        width: 64px;
+        height: 64px;
+      }
     }
 
     .empty-title {
       font-size: 1.6rem;
       color: #e0e0ff;
-      margin: 0 0 0.75rem 0;
-      font-family: 'FangSong', 'STFangsong', serif;
+      margin: 0 0 0.75rem;
+      font-family: fangsong, STFangsong, serif;
       letter-spacing: 0.1em;
       text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
     }
@@ -49,8 +52,13 @@
   }
 
   @keyframes floatIcon {
-    0%, 100% { transform: translateY(0); }
-    50%      { transform: translateY(-10px); }
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
   }
 
   .section-header {
@@ -62,8 +70,8 @@
 
     .section-title {
       font-size: 2.2rem;
-      font-family: 'FangSong', 'STFangsong', serif;
-      color: #ffffff;
+      font-family: fangsong, STFangsong, serif;
+      color: #fff;
       margin-bottom: 2.5rem;
       text-shadow:
         0 2px 4px rgba(0, 0, 0, 0.5),
@@ -85,7 +93,7 @@
       &::before,
       &::after {
         content: '‹';
-        color: #ffffff;
+        color: #fff;
         margin: 0 1rem;
         font-size: 1.5rem;
         text-shadow: 0 0 10px rgba(212, 165, 116, 0.5);
@@ -103,7 +111,7 @@
         #faea93 50%,
         #b45b08 100%
       );
-      color: #000000;
+      color: #000;
       padding: 0.75rem 1.5rem;
       border: none;
       border-radius: 12px;
@@ -214,13 +222,12 @@
 
         .immersive-title {
           font-size: 1.5rem;
-          font-family: 'KaiTi', 'STKaiti', serif;
+          font-family: KaiTi, STKaiti, serif;
           color: #5d3a1a;
           margin: 0.75rem 0;
           text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
           position: relative;
           display: flex;
-          
           background: linear-gradient(
             145deg,
             rgba(212, 165, 116, 0.1) 0%,
@@ -232,7 +239,8 @@
             0 2px 4px rgba(0, 0, 0, 0.4),
             inset 0 1px 0 rgba(255, 255, 255, 0.8);
           border: 1px solid rgba(212, 165, 116, 0.2);
-          svg{
+
+          svg {
             margin-right: 1rem;
             width: 2rem;
             height: 2rem;
@@ -242,7 +250,7 @@
         .immersive-description {
           color: #5b350c;
           line-height: 1.7;
-          margin: 0.5rem 0 1rem 0;
+          margin: 0.5rem 0 1rem;
           font-size: 0.95rem;
           background: rgba(255, 255, 255, 0.5);
           padding: 1rem;
@@ -277,7 +285,7 @@
               0 4px 12px rgba(0, 0, 0, 0.3),
               0 2px 6px rgba(0, 0, 0, 0.2),
               inset 0 1px 0 rgba(255, 255, 255, 0.2);
-            font-family: 'KaiTi', 'STKaiti', serif;
+            font-family: KaiTi, STKaiti, serif;
             border-radius: 8px;
             position: relative;
             overflow: hidden;
@@ -337,10 +345,10 @@
               position: relative;
               overflow: hidden;
               border: 1px solid rgba(212, 165, 116, 0.4);
-              font-family: 'KaiTi', 'STKaiti', serif;
+              font-family: KaiTi, STKaiti, serif;
 
               .button-icon {
-                svg{
+                svg {
                   width: 1.5rem;
                   height: 1.5rem;
                 }
@@ -386,7 +394,7 @@
                   #f39c12 50%,
                   #e67e22 100%
                 );
-                color: #000000;
+                color: #000;
                 border-color: rgba(241, 196, 15, 0.6);
                 box-shadow:
                   0 4px 12px rgba(230, 126, 34, 0.3),
@@ -419,7 +427,7 @@
                   #e6c28a 50%,
                   #d4a574 100%
                 );
-                color: #000000;
+                color: #000;
                 border-color: rgba(212, 165, 116, 0.6);
                 box-shadow:
                   0 4px 12px rgba(212, 165, 116, 0.3),

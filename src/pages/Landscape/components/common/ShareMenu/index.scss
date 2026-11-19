@@ -252,9 +252,11 @@ $silver-grad: linear-gradient(135deg, #b8b8b8 0%, #e8e8e8 50%, #9a9a9a 100%);
           &.type-image .type-icon {
             color: #2e7d32;
           }
+
           &.type-video .type-icon {
             color: #1565c0;
           }
+
           &.type-guide .type-icon {
             color: #e65100;
           }
@@ -451,6 +453,7 @@ $silver-grad: linear-gradient(135deg, #b8b8b8 0%, #e8e8e8 50%, #9a9a9a 100%);
           &::before {
             left: 0;
           }
+
           &::after {
             right: 0;
           }

@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 $steam-blue: #66c0f4;
 $steam-dark: #1b2838;
 $green: #4c6b22;
@@ -5,7 +7,7 @@ $green-text: #a4d007;
 $red: #c04a4a;
 $text-primary: #c7d5e0;
 $text-secondary: #8f98a0;
-$text-bright: #ffffff;
+$text-bright: #fff;
 $text-dim: #556772;
 $bg-card: #16202d;
 
@@ -15,12 +17,23 @@ $bg-card: #16202d;
   animation: pageEnter 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 
   @keyframes pageEnter {
-    from { opacity: 0; transform: translateY(12px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   &__hero {
-    background: linear-gradient(135deg, $steam-dark 0%, #1e3a4f 50%, $steam-dark 100%);
+    background: linear-gradient(
+      135deg,
+      $steam-dark 0%,
+      #1e3a4f 50%,
+      $steam-dark 100%
+    );
     padding: 36px 24px;
   }
 
@@ -67,8 +80,13 @@ $bg-card: #16202d;
     animation: labelPulse 2s ease-in-out infinite;
 
     @keyframes labelPulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.7; }
+      0%,
+      100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.7;
+      }
     }
   }
 
@@ -96,8 +114,12 @@ $bg-card: #16202d;
     transition: transform 0.15s;
 
     @keyframes numGlow {
-      from { text-shadow: 0 0 8px rgba($green-text, 0.3); }
-      to { text-shadow: 0 0 16px rgba($green-text, 0.6); }
+      from {
+        text-shadow: 0 0 8px rgba($green-text, 0.3);
+      }
+      to {
+        text-shadow: 0 0 16px rgba($green-text, 0.6);
+      }
     }
 
     &:hover {
@@ -151,7 +173,9 @@ $bg-card: #16202d;
     cursor: pointer;
     transition: all 0.15s;
 
-    &:hover { color: $text-bright; }
+    &:hover {
+      color: $text-bright;
+    }
 
     &--active {
       color: $text-bright;
@@ -186,7 +210,7 @@ $bg-card: #16202d;
   }
 
   &:hover {
-    background: lighten($bg-card, 6%);
+    background: color.adjust($bg-card, $lightness: 6%);
     transform: translateY(-3px);
     box-shadow:
       0 8px 24px rgba(0, 0, 0, 0.5),
@@ -214,7 +238,9 @@ $bg-card: #16202d;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s;
+    transition:
+      transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+      filter 0.3s;
 
     .sale-card:hover & {
       transform: scale(1.08);
@@ -248,7 +274,9 @@ $bg-card: #16202d;
     text-overflow: ellipsis;
     transition: color 0.15s;
 
-    .sale-card:hover & { color: $text-bright; }
+    .sale-card:hover & {
+      color: $text-bright;
+    }
   }
 
   &__tags {
@@ -314,7 +342,9 @@ $bg-card: #16202d;
     z-index: 2;
     backdrop-filter: blur(4px);
 
-    .sale-card:hover & { opacity: 1; }
+    .sale-card:hover & {
+      opacity: 1;
+    }
 
     &:hover {
       background: rgba(0, 0, 0, 0.7);
@@ -334,8 +364,13 @@ $bg-card: #16202d;
       animation: heartBeat 1.5s ease-in-out infinite;
 
       @keyframes heartBeat {
-        0%, 100% { transform: scale(1); }
-        50% { transform: scale(1.15); }
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.15);
+        }
       }
     }
   }

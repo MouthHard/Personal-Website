@@ -1,11 +1,12 @@
 .tabs-container {
   width: 100%;
-  padding: 20px 0 24px 0;
+  padding: 20px 0 24px;
   margin-bottom: 8px;
-
-  background: linear-gradient(180deg,
-      rgba(255, 255, 255, 0.04) 0%,
-      rgba(255, 255, 255, 0.02) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.04) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
   backdrop-filter: blur(10px);
   box-shadow:
     0 2px 8px rgba(0, 0, 0, 0.05),
@@ -25,9 +26,11 @@
     align-items: center;
     gap: 10px;
     padding: 11px 22px;
-    background: linear-gradient(145deg,
-        rgba(255, 255, 255, 0.08) 0%,
-        rgba(255, 255, 255, 0.03) 100%);
+    background: linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(255, 255, 255, 0.03) 100%
+    );
     border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 14px;
     color: rgba(255, 255, 255, 0.75);
@@ -46,17 +49,21 @@
       position: absolute;
       inset: 0;
       border-radius: 14px;
-      background: linear-gradient(135deg,
-          rgba(255, 255, 255, 0.15) 0%,
-          rgba(255, 255, 255, 0.05) 100%);
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.15) 0%,
+        rgba(255, 255, 255, 0.05) 100%
+      );
       opacity: 0;
       transition: opacity 0.3s ease;
     }
 
     &:hover {
-      background: linear-gradient(145deg,
-          rgba(255, 255, 255, 0.15) 0%,
-          rgba(255, 255, 255, 0.08) 100%);
+      background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.15) 0%,
+        rgba(255, 255, 255, 0.08) 100%
+      );
       border-color: rgba(255, 255, 255, 0.25);
       color: rgba(255, 255, 255, 0.95);
       transform: translateY(-3px);
@@ -89,10 +96,12 @@
     }
 
     &.active {
-      background: linear-gradient(145deg,
-          rgba(0, 206, 209, 0.35) 0%,
-          rgba(32, 178, 170, 0.25) 50%,
-          rgba(0, 139, 139, 0.2) 100%);
+      background: linear-gradient(
+        145deg,
+        rgba(0, 206, 209, 0.35) 0%,
+        rgba(32, 178, 170, 0.25) 50%,
+        rgba(0, 139, 139, 0.2) 100%
+      );
       border-color: rgba(0, 206, 209, 0.5);
       color: rgba(179, 255, 255, 1);
       font-weight: 700;
@@ -105,9 +114,11 @@
 
       &::before {
         opacity: 1;
-        background: linear-gradient(135deg,
-            rgba(255, 255, 255, 0.2) 0%,
-            rgba(0, 206, 209, 0.1) 100%);
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.2) 0%,
+          rgba(0, 206, 209, 0.1) 100%
+        );
       }
 
       &::after {
@@ -117,12 +128,14 @@
         left: 20%;
         right: 20%;
         height: 2px;
-        background: linear-gradient(90deg,
-            transparent 0%,
-            rgba(0, 206, 209, 0.8) 20%,
-            rgba(32, 178, 170, 1) 50%,
-            rgba(0, 206, 209, 0.8) 80%,
-            transparent 100%);
+        background: linear-gradient(
+          90deg,
+          transparent 0%,
+          rgba(0, 206, 209, 0.8) 20%,
+          rgba(32, 178, 170, 1) 50%,
+          rgba(0, 206, 209, 0.8) 80%,
+          transparent 100%
+        );
         border-radius: 2px;
         box-shadow: 0 0 12px rgba(0, 206, 209, 0.6);
       }
@@ -134,9 +147,11 @@
       }
 
       .tab-badge {
-        background: linear-gradient(145deg,
-            rgba(0, 206, 209, 0.5) 0%,
-            rgba(32, 178, 170, 0.4) 100%);
+        background: linear-gradient(
+          145deg,
+          rgba(0, 206, 209, 0.5) 0%,
+          rgba(32, 178, 170, 0.4) 100%
+        );
         border-color: rgba(0, 206, 209, 0.6);
         color: rgba(255, 255, 255, 1);
         font-weight: 700;
@@ -146,10 +161,12 @@
       }
 
       &:hover {
-        background: linear-gradient(145deg,
-            rgba(0, 206, 209, 0.45) 0%,
-            rgba(32, 178, 170, 0.35) 50%,
-            rgba(0, 139, 139, 0.3) 100%);
+        background: linear-gradient(
+          145deg,
+          rgba(0, 206, 209, 0.45) 0%,
+          rgba(32, 178, 170, 0.35) 50%,
+          rgba(0, 139, 139, 0.3) 100%
+        );
         border-color: rgba(0, 206, 209, 0.65);
         box-shadow:
           0 12px 32px rgba(0, 206, 209, 0.4),
@@ -182,9 +199,11 @@
 
     .tab-badge {
       padding: 4px 11px;
-      background: linear-gradient(145deg,
-          rgba(255, 255, 255, 0.12) 0%,
-          rgba(255, 255, 255, 0.06) 100%);
+      background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.12) 0%,
+        rgba(255, 255, 255, 0.06) 100%
+      );
       border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: 20px;
       font-size: 12px;

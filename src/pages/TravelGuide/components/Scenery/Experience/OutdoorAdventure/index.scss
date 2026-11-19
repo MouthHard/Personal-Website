@@ -4,6 +4,8 @@
 // 布局骨架：左照片区 + 右手写信息区 + 书签导航
 // ============================================================
 
+@use 'sass:color';
+
 // --- 皮革封面 ---
 $leather-dark: #2d1f14;
 $leather-mid: #3d2817;
@@ -55,25 +57,54 @@ $vermilion-deep: #8e2418;
 $vermilion-bright: #e85540;
 
 // --- 字体栈（统一使用无衬线粗体，避免系统中不存在的字体） ---
-$font-hand: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
-$font-body: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
-$font-clear: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
-$font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
+$font-hand: 'Microsoft YaHei', 'PingFang SC', arial, sans-serif;
+$font-body: 'Microsoft YaHei', 'PingFang SC', arial, sans-serif;
+$font-clear: 'Microsoft YaHei', 'PingFang SC', arial, sans-serif;
+$font-mono: 'Microsoft YaHei', 'PingFang SC', arial, sans-serif;
 
 // --- 纸张纤维纹理 mixin ---
 @mixin paper-texture {
   background:
-    repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(80, 60, 30, 0.012) 3px, rgba(80, 60, 30, 0.012) 4px),
-    repeating-linear-gradient(90deg, transparent, transparent 5px, rgba(80, 60, 30, 0.008) 5px, rgba(80, 60, 30, 0.008) 6px),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      rgba(80, 60, 30, 0.012) 3px,
+      rgba(80, 60, 30, 0.012) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 5px,
+      rgba(80, 60, 30, 0.008) 5px,
+      rgba(80, 60, 30, 0.008) 6px
+    ),
     linear-gradient(135deg, $paper-light 0%, $paper 50%, $paper-dark 100%);
 }
 
 // --- 皮革纹理 mixin ---
 @mixin leather-texture {
   background:
-    repeating-linear-gradient(48deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.04) 1px, transparent 1px, transparent 4px),
-    repeating-linear-gradient(137deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.02) 1px, transparent 1px, transparent 5px),
-    linear-gradient(135deg, $leather-light 0%, $leather-mid 40%, $leather-dark 100%);
+    repeating-linear-gradient(
+      48deg,
+      rgba(0, 0, 0, 0.04),
+      rgba(0, 0, 0, 0.04) 1px,
+      transparent 1px,
+      transparent 4px
+    ),
+    repeating-linear-gradient(
+      137deg,
+      rgba(255, 255, 255, 0.02),
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 1px,
+      transparent 5px
+    ),
+    linear-gradient(
+      135deg,
+      $leather-light 0%,
+      $leather-mid 40%,
+      $leather-dark 100%
+    );
 }
 
 .outdoor-adventure {
@@ -100,7 +131,9 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
     box-sizing: border-box;
     border-radius: 10px;
     overflow: hidden;
+
     @include leather-texture;
+
     border: 4px solid $leather-edge;
     box-shadow:
       0 8px 24px rgba(0, 0, 0, 0.5),
@@ -112,7 +145,6 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
     min-height: 0;
     display: flex;
     flex-direction: column;
-
 
     // --- 螺旋装订线圈（金属环 + 穿孔暗影） ---
     .binding-rings {
@@ -127,20 +159,40 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
       justify-content: space-evenly;
       align-items: center;
       padding: 14px 0;
+
       // 装订带底色（深皮革色 + 渐变）
-      background:
-        linear-gradient(90deg, #2a1a0a 0%, #3a2510 40%, rgba(58, 37, 16, 0.3) 80%, transparent 100%);
+      background: linear-gradient(
+        90deg,
+        #2a1a0a 0%,
+        #3a2510 40%,
+        rgba(58, 37, 16, 0.3) 80%,
+        transparent 100%
+      );
 
       .binding-ring {
         width: 13px;
         height: 13px;
         border-radius: 50%;
+
         // 双层渐变：孔洞暗 + 金属环高光（正圆形）
         background:
           // 中心孔洞（深黑）
-          radial-gradient(circle at 50% 55%, #0a0500 0%, #1a0e04 35%, transparent 55%),
+          radial-gradient(
+            circle at 50% 55%,
+            #0a0500 0%,
+            #1a0e04 35%,
+            transparent 55%
+          ),
           // 金属环（顶部高光 → 银 → 暗部）
-          radial-gradient(circle at 50% 12%, #f5edd8 0%, #d4c8a0 20%, #9a8a5a 50%, #5a4a28 80%, #2a1e08 100%);
+          radial-gradient(
+              circle at 50% 12%,
+              #f5edd8 0%,
+              #d4c8a0 20%,
+              #9a8a5a 50%,
+              #5a4a28 80%,
+              #2a1e08 100%
+            );
+
         // 多层阴影：孔洞深度 + 金属高光 + 穿孔投影
         box-shadow:
           // 孔洞内阴影（上深下亮，模拟孔洞深度）
@@ -164,7 +216,9 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
       min-height: 0;
       overflow: hidden;
       margin-left: 18px;
+
       @include paper-texture;
+
       border-radius: 0 6px 6px 0;
       box-shadow:
         inset 0 0 20px rgba(120, 90, 50, 0.12),
@@ -173,11 +227,30 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
         inset -8px 8px 12px -8px rgba(120, 90, 50, 0.15),
         // 右下角磨损
         inset -6px -6px 10px -6px rgba(100, 70, 40, 0.1);
+
       // 横线辅助线（手账格线）+ 纸张纤维 + 牛皮纸渐变
       background-image:
-        repeating-linear-gradient(0deg, transparent, transparent 27px, rgba(70, 90, 60, 0.06) 27px, rgba(70, 90, 60, 0.06) 28px),
-        repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(80, 60, 30, 0.012) 3px, rgba(80, 60, 30, 0.012) 4px),
-        repeating-linear-gradient(90deg, transparent, transparent 5px, rgba(80, 60, 30, 0.008) 5px, rgba(80, 60, 30, 0.008) 6px),
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 27px,
+          rgba(70, 90, 60, 0.06) 27px,
+          rgba(70, 90, 60, 0.06) 28px
+        ),
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 3px,
+          rgba(80, 60, 30, 0.012) 3px,
+          rgba(80, 60, 30, 0.012) 4px
+        ),
+        repeating-linear-gradient(
+          90deg,
+          transparent,
+          transparent 5px,
+          rgba(80, 60, 30, 0.008) 5px,
+          rgba(80, 60, 30, 0.008) 6px
+        ),
         linear-gradient(135deg, $paper-light 0%, $paper 50%, $paper-dark 100%);
 
       // ============================================
@@ -200,8 +273,7 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
           position: relative;
           width: 94%;
           min-height: 300px;
-          background:
-            linear-gradient(180deg, #fcfaf6 0%, #f8f5ee 100%);
+          background: linear-gradient(180deg, #fcfaf6 0%, #f8f5ee 100%);
           padding: 7px 7px 30px;
           border-radius: 2px;
           box-shadow:
@@ -210,16 +282,16 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
             0 8px 16px rgba(60, 40, 20, 0.12),
             0 12px 24px rgba(60, 40, 20, 0.08),
             inset 0 0 0 1px rgba(0, 0, 0, 0.04),
-             inset 0 -2px 4px rgba(0, 0, 0, 0.03);
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
+            inset 0 -2px 4px rgba(0, 0, 0, 0.03);
+          transition:
+            transform 0.3s ease,
+            box-shadow 0.3s ease;
 
           &:hover {
-        
             box-shadow:
               0 1px 1px rgba(60, 40, 20, 0.4),
               0 4px 10px rgba(60, 40, 20, 0.7),
               0 12px 24px rgba(60, 40, 20, 0.4),
- 
               inset 0 0 0 1px rgba(0, 0, 0, 0.04),
               inset 0 -2px 4px rgba(0, 0, 0, 0.03);
           }
@@ -232,8 +304,13 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
             right: 0;
             width: 18px;
             height: 18px;
-            background: linear-gradient(135deg, transparent 50%, rgba(0, 0, 0, 0.06) 52%, rgba(0, 0, 0, 0.1) 100%);
-            border-radius: 0 0 2px 0;
+            background: linear-gradient(
+              135deg,
+              transparent 50%,
+              rgba(0, 0, 0, 0.06) 52%,
+              rgba(0, 0, 0, 0.1) 100%
+            );
+            border-radius: 0 0 2px;
             pointer-events: none;
           }
 
@@ -244,8 +321,13 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
             object-fit: cover;
             border-radius: 1px;
             filter: contrast(1.05) saturate(0.92) sepia(0.1);
-            background:
-              linear-gradient(135deg, #e8e0d0 0%, #d8cdb8 50%, #c8bca5 100%);
+            background: linear-gradient(
+              135deg,
+              #e8e0d0 0%,
+              #d8cdb8 50%,
+              #c8bca5 100%
+            );
+
             // 照片轻微泛黄暗角
             box-shadow:
               inset 0 0 12px rgba(80, 50, 20, 0.12),
@@ -263,6 +345,7 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
+
             // 手写墨水浓淡
             text-shadow: 0 0.5px 0 rgba(255, 255, 255, 0.5);
           }
@@ -274,25 +357,53 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
             height: 22px;
             background:
               // 纤维纹理（横向纤维）
-              repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(40, 60, 90, 0.12) 3px, rgba(40, 60, 90, 0.12) 4px),
+              repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 3px,
+                rgba(40, 60, 90, 0.12) 3px,
+                rgba(40, 60, 90, 0.12) 4px
+              ),
               // 纤维纹理（纵向纤维）
-              repeating-linear-gradient(90deg, transparent, transparent 5px, rgba(40, 60, 90, 0.08) 5px, rgba(40, 60, 90, 0.08) 6px),
+              repeating-linear-gradient(
+                  90deg,
+                  transparent,
+                  transparent 5px,
+                  rgba(40, 60, 90, 0.08) 5px,
+                  rgba(40, 60, 90, 0.08) 6px
+                ),
               // 哑光蓝色和纸胶带（不透明 + 边缘微渐隐）
-              linear-gradient(90deg, #7a9ab8 0%, #9ab4cc 30%, #a8c0d8 50%, #9ab4cc 70%, #7a9ab8 100%);
+              linear-gradient(
+                  90deg,
+                  #7a9ab8 0%,
+                  #9ab4cc 30%,
+                  #a8c0d8 50%,
+                  #9ab4cc 70%,
+                  #7a9ab8 100%
+                );
             box-shadow:
               0 1px 2px rgba(20, 40, 70, 0.3),
               0 2px 4px rgba(20, 40, 70, 0.15),
               inset 0 0 0 0.5px rgba(60, 90, 130, 0.4),
               inset 0 1px 0 rgba(255, 255, 255, 0.4),
               inset 0 -1px 0 rgba(40, 60, 90, 0.15);
+
             // 撕边效果（不规则边缘）
-            clip-path: polygon(2% 0%, 98% 2%, 100% 50%, 97% 98%, 3% 100%, 0% 50%);
+            clip-path: polygon(
+              2% 0%,
+              98% 2%,
+              100% 50%,
+              97% 98%,
+              3% 100%,
+              0% 50%
+            );
 
             &--tl {
               top: -8px;
               left: -12px;
               transform: rotate(-35deg);
             }
+
             &--br {
               bottom: 14px;
               right: -12px;
@@ -300,7 +411,6 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
             }
           }
         }
-
 
         // --- 难度印章（真实按压墨迹） ---
         .diff-stamp {
@@ -313,20 +423,27 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
           display: flex;
           align-items: center;
           justify-content: center;
-
           opacity: 0.82;
 
-          &[data-level="简单"] {
+          &[data-level='简单'] {
             border: 2.5px solid $moss-green;
-            .stamp-text { color: $moss-green; }
+            .stamp-text {
+              color: $moss-green;
+            }
           }
-          &[data-level="中等"] {
+
+          &[data-level='中等'] {
             border: 2.5px solid $trail-amber;
-            .stamp-text { color: $trail-amber; }
+            .stamp-text {
+              color: $trail-amber;
+            }
           }
-          &[data-level="较难"] {
+
+          &[data-level='较难'] {
             border: 2.5px solid $stamp-red;
-            .stamp-text { color: $stamp-red; }
+            .stamp-text {
+              color: $stamp-red;
+            }
           }
 
           // 印章内圈双环
@@ -334,14 +451,16 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
             content: '';
             position: absolute;
             inset: 4px;
-            border: 1.5px solid currentColor;
+            border: 1.5px solid currentcolor;
             border-radius: 50%;
             opacity: 0.45;
+
             // 内圈也加墨迹不均
             box-shadow:
               inset 2px 1px 0 rgba(255, 255, 255, 0.15),
               inset -2px -1px 3px rgba(0, 0, 0, 0.08);
           }
+
           // 印章墨迹不均匀（按压不均 + 缺墨斑 + 纸张渗透）
           &::after {
             content: '';
@@ -349,10 +468,26 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
             inset: -2px;
             border-radius: 50%;
             background:
-              radial-gradient(circle at 25% 15%, transparent 55%, rgba(0, 0, 0, 0.06) 85%),
-              radial-gradient(circle at 75% 85%, transparent 45%, rgba(0, 0, 0, 0.05) 80%),
-              radial-gradient(circle at 60% 30%, rgba(255, 255, 255, 0.12) 0%, transparent 8%),
-              radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.08) 0%, transparent 6%);
+              radial-gradient(
+                circle at 25% 15%,
+                transparent 55%,
+                rgba(0, 0, 0, 0.06) 85%
+              ),
+              radial-gradient(
+                circle at 75% 85%,
+                transparent 45%,
+                rgba(0, 0, 0, 0.05) 80%
+              ),
+              radial-gradient(
+                circle at 60% 30%,
+                rgba(255, 255, 255, 0.12) 0%,
+                transparent 8%
+              ),
+              radial-gradient(
+                circle at 30% 70%,
+                rgba(255, 255, 255, 0.08) 0%,
+                transparent 6%
+              );
           }
 
           .stamp-text {
@@ -361,12 +496,12 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
             font-weight: 800;
             letter-spacing: 1px;
             z-index: 1;
+
             // 印章文字微模糊（按压不均）
             filter: blur(0.3px);
-            text-shadow: 0 0 1px currentColor;
+            text-shadow: 0 0 1px currentcolor;
           }
         }
-
 
         // --- 底部填写表格 ---
         .photo-form {
@@ -384,7 +519,11 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
             border: 1.5px solid rgba(80, 60, 30, 0.25);
             border-radius: 4px;
             font-family: $font-clear;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.15) 100%);
+            background: linear-gradient(
+              180deg,
+              rgba(255, 255, 255, 0.45) 0%,
+              rgba(255, 255, 255, 0.15) 100%
+            );
             box-shadow:
               inset 0 1px 2px rgba(255, 255, 255, 0.5),
               inset 0 -1px 2px rgba(120, 90, 50, 0.08),
@@ -396,12 +535,14 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
               flex-shrink: 0;
               filter: drop-shadow(0 1px 1px rgba(60, 40, 20, 0.15));
             }
+
             .field-label {
               font-size: 16px;
               font-weight: 800;
               color: $ink-mid;
               letter-spacing: 0.5px;
             }
+
             .field-val {
               font-family: $font-clear;
               font-size: 18px;
@@ -417,10 +558,18 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
             }
 
             // 多彩差异化
-            &--cyan .field-icon { color: $trail-cyan; }
-            &--green .field-icon { color: $moss-green; }
-            &--amber .field-icon { color: $trail-amber; }
-            &--rose .field-icon { color: $trail-rose; }
+            &--cyan .field-icon {
+              color: $trail-cyan;
+            }
+            &--green .field-icon {
+              color: $moss-green;
+            }
+            &--amber .field-icon {
+              color: $trail-amber;
+            }
+            &--rose .field-icon {
+              color: $trail-rose;
+            }
           }
         }
       }
@@ -432,15 +581,20 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
         display: flex;
         flex-direction: column;
         gap: 11px;
-        padding: 18px 22px 18px;
+        padding: 18px 22px;
         flex: 1;
         min-width: 0;
         min-height: 0;
         overflow-y: auto;
         scrollbar-width: thin;
         scrollbar-color: rgba(120, 90, 50, 0.35) transparent;
-        &::-webkit-scrollbar { width: 6px; }
-        &::-webkit-scrollbar-track { background: transparent; }
+        &::-webkit-scrollbar {
+          width: 6px;
+        }
+        &::-webkit-scrollbar-track {
+          background: transparent;
+        }
+
         &::-webkit-scrollbar-thumb {
           background: rgba(120, 90, 50, 0.3);
           border-radius: 3px;
@@ -462,12 +616,24 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
             padding: 5px 14px 5px 12px;
             letter-spacing: 2px;
             position: relative;
+
             // 木质题签底（深木色 + 纵向木纹 + 鎏金双线边框）
             background:
               // 纵向木纹
-              repeating-linear-gradient(90deg, transparent, transparent 3px, rgba(0, 0, 0, 0.08) 3px, rgba(0, 0, 0, 0.08) 4px),
+              repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 3px,
+                rgba(0, 0, 0, 0.08) 3px,
+                rgba(0, 0, 0, 0.08) 4px
+              ),
               // 木纹深浅
-              linear-gradient(180deg, $wood-light 0%, $wood-mid 50%, $wood-dark 100%);
+              linear-gradient(
+                  180deg,
+                  $wood-light 0%,
+                  $wood-mid 50%,
+                  $wood-dark 100%
+                );
             border: 1.5px solid $gold-deep;
             border-radius: 2px;
             box-shadow:
@@ -479,6 +645,7 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
               // 外投影
               0 2px 4px rgba(0, 0, 0, 0.35),
               0 1px 2px rgba(0, 0, 0, 0.2);
+
             // 鎏金凹刻文字（下亮上暗模拟凹刻）
             text-shadow:
               0 -1px 0 rgba(0, 0, 0, 0.6),
@@ -492,8 +659,12 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
               top: 0;
               bottom: 0;
               width: 7px;
-              background:
-                linear-gradient(180deg, $wood-light 0%, $wood-mid 50%, $wood-dark 100%);
+              background: linear-gradient(
+                180deg,
+                $wood-light 0%,
+                $wood-mid 50%,
+                $wood-dark 100%
+              );
               clip-path: polygon(0 0, 100% 50%, 0 100%);
               box-shadow: inset -1px 0 2px rgba(0, 0, 0, 0.4);
             }
@@ -529,17 +700,32 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
             font-weight: 800;
             letter-spacing: 2px;
             color: #fff8f0;
+
             // 朱砂印泥质感（实体凸起）
             background:
               // 印泥不均（按压斑驳）
-              radial-gradient(circle at 30% 25%, rgba(255, 240, 230, 0.18) 0%, transparent 50%),
-              radial-gradient(circle at 70% 80%, rgba(0, 0, 0, 0.08) 0%, transparent 40%),
+              radial-gradient(
+                circle at 30% 25%,
+                rgba(255, 240, 230, 0.18) 0%,
+                transparent 50%
+              ),
+              radial-gradient(
+                circle at 70% 80%,
+                rgba(0, 0, 0, 0.08) 0%,
+                transparent 40%
+              ),
               // 朱砂实体渐变
-              linear-gradient(160deg, $vermilion-bright 0%, $vermilion 45%, $vermilion-deep 100%);
+              linear-gradient(
+                  160deg,
+                  $vermilion-bright 0%,
+                  $vermilion 45%,
+                  $vermilion-deep 100%
+                );
             border: 2px solid $vermilion-deep;
             border-radius: 3px;
             cursor: pointer;
             transition: all 0.2s ease;
+
             // 立体凸起印章（顶部高光 + 底部暗影 + 外投影）
             box-shadow:
               inset 0 1.5px 2px rgba(255, 200, 180, 0.4),
@@ -548,6 +734,7 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
               inset -1px 0 1.5px rgba(90, 20, 10, 0.3),
               0 3px 6px rgba(120, 30, 20, 0.4),
               0 1px 2px rgba(0, 0, 0, 0.2);
+
             // 鎏金凹刻文字（印章上的刻字，亮色凹刻）
             text-shadow:
               0 -1px 0 rgba(90, 20, 10, 0.6),
@@ -562,17 +749,33 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
               // hover：印章按压（下沉 + 加深）
               transform: translateY(1px);
               background:
-                radial-gradient(circle at 30% 25%, rgba(255, 240, 230, 0.12) 0%, transparent 50%),
-                radial-gradient(circle at 70% 80%, rgba(0, 0, 0, 0.12) 0%, transparent 40%),
-                linear-gradient(160deg, $vermilion 0%, $vermilion-deep 45%, #6a1810 100%);
+                radial-gradient(
+                  circle at 30% 25%,
+                  rgba(255, 240, 230, 0.12) 0%,
+                  transparent 50%
+                ),
+                radial-gradient(
+                  circle at 70% 80%,
+                  rgba(0, 0, 0, 0.12) 0%,
+                  transparent 40%
+                ),
+                linear-gradient(
+                  160deg,
+                  $vermilion 0%,
+                  $vermilion-deep 45%,
+                  #6a1810 100%
+                );
               box-shadow:
                 inset 0 2px 3px rgba(90, 20, 10, 0.5),
                 inset 0 -1px 2px rgba(255, 200, 180, 0.2),
                 inset 1px 0 1.5px rgba(90, 20, 10, 0.3),
                 inset -1px 0 1.5px rgba(90, 20, 10, 0.4),
                 0 1px 3px rgba(120, 30, 20, 0.3);
-              .go-arrow { transform: translateX(2px); }
+              .go-arrow {
+                transform: translateX(2px);
+              }
             }
+
             &:active {
               transform: translateY(2px);
               box-shadow:
@@ -584,9 +787,22 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
             // 已体验态：钤印发光（朱砂印泥足 + 金边发光）
             &.is-done {
               background:
-                radial-gradient(circle at 30% 25%, rgba(255, 240, 230, 0.22) 0%, transparent 50%),
-                radial-gradient(circle at 70% 80%, rgba(0, 0, 0, 0.06) 0%, transparent 40%),
-                linear-gradient(160deg, $vermilion-bright 0%, $vermilion 50%, $vermilion-deep 100%);
+                radial-gradient(
+                  circle at 30% 25%,
+                  rgba(255, 240, 230, 0.22) 0%,
+                  transparent 50%
+                ),
+                radial-gradient(
+                  circle at 70% 80%,
+                  rgba(0, 0, 0, 0.06) 0%,
+                  transparent 40%
+                ),
+                linear-gradient(
+                  160deg,
+                  $vermilion-bright 0%,
+                  $vermilion 50%,
+                  $vermilion-deep 100%
+                );
               border-color: $gold;
               box-shadow:
                 inset 0 1.5px 2px rgba(255, 200, 180, 0.45),
@@ -615,10 +831,12 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
           line-height: 1.15;
           position: relative;
           padding: 0 22px 0 0;
+
           // 凹刻文字（下亮上暗模拟纸面凹陷刻字）
           text-shadow:
             0 -1px 0 rgba(80, 60, 30, 0.25),
             0 1px 0 rgba(255, 250, 235, 0.6);
+
           // 版心双线（粗细双线，古籍版心标志）
           &::after {
             content: '';
@@ -628,13 +846,27 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
             margin-top: 6px;
             border-top: 2px solid rgba(80, 60, 30, 0.35);
             border-bottom: 1px solid rgba(80, 60, 30, 0.2);
+
             // 鱼尾标记（左右两端，古籍版心鱼尾）
             background:
               // 左鱼尾
-              linear-gradient(90deg, rgba(80, 60, 30, 0.35) 0%, rgba(80, 60, 30, 0.35) 8px, transparent 9px) left center / 9px 5px no-repeat,
+              linear-gradient(
+                  90deg,
+                  rgba(80, 60, 30, 0.35) 0%,
+                  rgba(80, 60, 30, 0.35) 8px,
+                  transparent 9px
+                )
+                left center / 9px 5px no-repeat,
               // 右鱼尾
-              linear-gradient(270deg, rgba(80, 60, 30, 0.35) 0%, rgba(80, 60, 30, 0.35) 8px, transparent 9px) right center / 9px 5px no-repeat;
+              linear-gradient(
+                  270deg,
+                  rgba(80, 60, 30, 0.35) 0%,
+                  rgba(80, 60, 30, 0.35) 8px,
+                  transparent 9px
+                )
+                right center / 9px 5px no-repeat;
           }
+
           // 左侧鱼尾标记（版心左鱼尾，凹口向右）
           &::before {
             content: '';
@@ -644,7 +876,15 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
             width: 12px;
             height: 10px;
             background: rgba(80, 60, 30, 0.3);
-            clip-path: polygon(0 0, 100% 0, 100% 60%, 60% 60%, 50% 100%, 40% 60%, 0 60%);
+            clip-path: polygon(
+              0 0,
+              100% 0,
+              100% 60%,
+              60% 60%,
+              50% 100%,
+              40% 60%,
+              0 60%
+            );
           }
         }
 
@@ -662,12 +902,16 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
             color: $trail-amber;
             filter: drop-shadow(0 0 2px rgba(200, 148, 50, 0.4));
           }
+
           .sketch-val {
             font-weight: 800;
             font-size: 19px;
             color: $ink;
           }
-          .sketch-count { font-size: 14px; opacity: 0.65; }
+          .sketch-count {
+            font-size: 14px;
+            opacity: 0.65;
+          }
         }
 
         // --- 描述（手写体） ---
@@ -679,10 +923,8 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
           color: $ink;
           margin: 0;
           display: -webkit-box;
-  
           -webkit-box-orient: vertical;
           overflow: hidden;
-
         }
 
         // --- 古籍签条标签（竖向微倾纸条 + 顶部固定胶点 + 彩色渐变 + hover 抽出） ---
@@ -699,6 +941,7 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
             padding: 7px 14px 6px;
             border-radius: 2px;
             position: relative;
+
             // 签条立体投影（纸张厚度 + 落差）
             box-shadow:
               0 1px 1px rgba(60, 40, 20, 0.12),
@@ -706,7 +949,10 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
               0 5px 10px rgba(60, 40, 20, 0.08),
               inset 0 1px 0 rgba(255, 255, 255, 0.4),
               inset 0 -2px 3px rgba(0, 0, 0, 0.05);
-            transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+            transition:
+              transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.25s ease;
+
             // 顶部固定胶点（鎏金小铆钉，模拟签条钉装）
             &::before {
               content: '';
@@ -717,8 +963,14 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
               width: 7px;
               height: 7px;
               border-radius: 50%;
-              background:
-                radial-gradient(circle at 32% 28%, #fff 0%, #f0d890 15%, #c9a44c 45%, #9a7a2e 75%, #5a4218 100%);
+              background: radial-gradient(
+                circle at 32% 28%,
+                #fff 0%,
+                #f0d890 15%,
+                #c9a44c 45%,
+                #9a7a2e 75%,
+                #5a4218 100%
+              );
               box-shadow:
                 inset 0 0.5px 1px rgba(255, 255, 255, 0.6),
                 inset 0 -0.5px 1px rgba(0, 0, 0, 0.4),
@@ -740,7 +992,13 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
             // 多彩签条（纸质纹理 + 鲜艳渐变 + 深色文字 + 微倾）
             &--1 {
               background:
-                repeating-linear-gradient(0deg, transparent, transparent 4px, rgba(45, 122, 79, 0.04) 4px, rgba(45, 122, 79, 0.04) 5px),
+                repeating-linear-gradient(
+                  0deg,
+                  transparent,
+                  transparent 4px,
+                  rgba(45, 122, 79, 0.04) 4px,
+                  rgba(45, 122, 79, 0.04) 5px
+                ),
                 linear-gradient(135deg, #d4f5d0 0%, #a8e8a0 50%, #7dd070 100%);
               border: 1px solid rgba(45, 122, 79, 0.5);
               border-top-color: rgba(80, 180, 100, 0.6);
@@ -748,9 +1006,16 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
               text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
               transform: rotate(-1.5deg);
             }
+
             &--2 {
               background:
-                repeating-linear-gradient(0deg, transparent, transparent 4px, rgba(45, 138, 138, 0.04) 4px, rgba(45, 138, 138, 0.04) 5px),
+                repeating-linear-gradient(
+                  0deg,
+                  transparent,
+                  transparent 4px,
+                  rgba(45, 138, 138, 0.04) 4px,
+                  rgba(45, 138, 138, 0.04) 5px
+                ),
                 linear-gradient(135deg, #d0f0f0 0%, #a0e0e0 50%, #70c8c8 100%);
               border: 1px solid rgba(45, 138, 138, 0.5);
               border-top-color: rgba(80, 180, 180, 0.6);
@@ -758,9 +1023,16 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
               text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
               transform: rotate(1deg);
             }
+
             &--3 {
               background:
-                repeating-linear-gradient(0deg, transparent, transparent 4px, rgba(200, 148, 50, 0.04) 4px, rgba(200, 148, 50, 0.04) 5px),
+                repeating-linear-gradient(
+                  0deg,
+                  transparent,
+                  transparent 4px,
+                  rgba(200, 148, 50, 0.04) 4px,
+                  rgba(200, 148, 50, 0.04) 5px
+                ),
                 linear-gradient(135deg, #fde8c0 0%, #f5d090 50%, #e8b860 100%);
               border: 1px solid rgba(200, 148, 50, 0.5);
               border-top-color: rgba(230, 180, 80, 0.6);
@@ -768,11 +1040,23 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
               text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
               transform: rotate(-0.8deg);
             }
+
             &--price {
               // 鎏金箔片风格（价格签）
               background:
-                repeating-linear-gradient(0deg, transparent, transparent 4px, rgba(201, 164, 76, 0.05) 4px, rgba(201, 164, 76, 0.05) 5px),
-                linear-gradient(135deg, $gold-light 0%, $gold 50%, $gold-deep 100%);
+                repeating-linear-gradient(
+                  0deg,
+                  transparent,
+                  transparent 4px,
+                  rgba(201, 164, 76, 0.05) 4px,
+                  rgba(201, 164, 76, 0.05) 5px
+                ),
+                linear-gradient(
+                  135deg,
+                  $gold-light 0%,
+                  $gold 50%,
+                  $gold-deep 100%
+                );
               border: 1px solid $gold-deep;
               border-top-color: $gold;
               color: $wood-dark;
@@ -785,6 +1069,7 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
                 0 5px 10px rgba(90, 66, 24, 0.1),
                 inset 0 1px 0 rgba(255, 245, 210, 0.5),
                 inset 0 -2px 3px rgba(90, 66, 24, 0.15);
+
               &:hover {
                 transform: translateY(-4px) rotate(2deg);
                 box-shadow:
@@ -795,7 +1080,10 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
                   inset 0 -2px 3px rgba(90, 66, 24, 0.15);
               }
 
-              .tag-currency { font-size: 13px; margin-right: 1px; }
+              .tag-currency {
+                font-size: 13px;
+                margin-right: 1px;
+              }
             }
           }
         }
@@ -807,13 +1095,25 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
           gap: 0;
           padding: 12px 16px;
           position: relative;
+
           // 牛皮纸底 + 底部反射光
           background:
-            linear-gradient(0deg, rgba(255, 255, 255, 0.25) 0%, transparent 30%),
-            linear-gradient(135deg, $paper-light 0%, $paper 50%, $paper-dark 100%);
+            linear-gradient(
+              0deg,
+              rgba(255, 255, 255, 0.25) 0%,
+              transparent 30%
+            ),
+            linear-gradient(
+              135deg,
+              $paper-light 0%,
+              $paper 50%,
+              $paper-dark 100%
+            );
+
           // 双线版框（外粗内细，古籍版框）
           border: 2px solid rgba(80, 60, 30, 0.4);
           border-radius: 3px;
+
           // 立体落差（内高光 + 内暗部 + 外投影）
           box-shadow:
             inset 0 1px 2px rgba(255, 255, 255, 0.5),
@@ -833,23 +1133,44 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
             z-index: 2;
             background:
               // 鎏金渐变 + 高光
-              linear-gradient(135deg, $gold-light 0%, $gold 40%, $gold-deep 100%);
+              linear-gradient(
+              135deg,
+              $gold-light 0%,
+              $gold 40%,
+              $gold-deep 100%
+            );
             box-shadow:
               inset 0 0.5px 1px rgba(255, 245, 210, 0.6),
               inset 0 -0.5px 1px rgba(90, 66, 24, 0.5),
               0 1px 2px rgba(0, 0, 0, 0.2);
           }
+
           // 左上角包角（L 形）
           &::before {
             top: -2px;
             left: -2px;
-            clip-path: polygon(0 0, 100% 0, 100% 3px, 3px 3px, 3px 100%, 0 100%);
+            clip-path: polygon(
+              0 0,
+              100% 0,
+              100% 3px,
+              3px 3px,
+              3px 100%,
+              0 100%
+            );
           }
+
           // 右下角包角（L 形）
           &::after {
             bottom: -2px;
             right: -2px;
-            clip-path: polygon(0 100%, 0 0, 3px 0, 3px calc(100% - 3px), 100% calc(100% - 3px), 100% 100%);
+            clip-path: polygon(
+              0 100%,
+              0 0,
+              3px 0,
+              3px calc(100% - 3px),
+              100% calc(100% - 3px),
+              100% 100%
+            );
           }
 
           .data-row {
@@ -862,7 +1183,9 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
             flex: 1;
             justify-content: center;
 
-            &:last-child { border-right: none; }
+            &:last-child {
+              border-right: none;
+            }
 
             // 金属徽章图标（圆形金属底 + 凹刻图标 + 鎏金边）
             .data-icon-housing {
@@ -874,6 +1197,7 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
               flex-shrink: 0;
               border-radius: 50%;
               border: 2px solid;
+
               // 金属徽章立体（内高光 + 内暗部 + 外投影 + 鎏金质感）
               box-shadow:
                 inset 0 1.5px 2px rgba(255, 255, 255, 0.5),
@@ -896,6 +1220,7 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
               font-weight: 800;
               color: $ink;
               margin-left: auto;
+
               // 凹刻数值（下亮上暗）
               text-shadow:
                 0 -1px 0 rgba(80, 60, 30, 0.2),
@@ -919,28 +1244,56 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
                 border-color: $moss-green;
                 color: $moss-green;
                 background:
-                  radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
-                  linear-gradient(180deg, rgba(45, 122, 79, 0.12) 0%, rgba(45, 122, 79, 0.04) 100%);
+                  radial-gradient(
+                    circle at 30% 25%,
+                    rgba(255, 255, 255, 0.4) 0%,
+                    transparent 50%
+                  ),
+                  linear-gradient(
+                    180deg,
+                    rgba(45, 122, 79, 0.12) 0%,
+                    rgba(45, 122, 79, 0.04) 100%
+                  );
               }
             }
+
             &--cyan {
               .data-icon-housing {
                 border-color: $trail-cyan;
                 color: $trail-cyan;
                 background:
-                  radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
-                  linear-gradient(180deg, rgba(45, 138, 138, 0.12) 0%, rgba(45, 138, 138, 0.04) 100%);
+                  radial-gradient(
+                    circle at 30% 25%,
+                    rgba(255, 255, 255, 0.4) 0%,
+                    transparent 50%
+                  ),
+                  linear-gradient(
+                    180deg,
+                    rgba(45, 138, 138, 0.12) 0%,
+                    rgba(45, 138, 138, 0.04) 100%
+                  );
               }
             }
+
             &--amber {
               .data-icon-housing {
                 border-color: $trail-amber;
                 color: $trail-amber;
                 background:
-                  radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
-                  linear-gradient(180deg, rgba(200, 148, 50, 0.12) 0%, rgba(200, 148, 50, 0.04) 100%);
+                  radial-gradient(
+                    circle at 30% 25%,
+                    rgba(255, 255, 255, 0.4) 0%,
+                    transparent 50%
+                  ),
+                  linear-gradient(
+                    180deg,
+                    rgba(200, 148, 50, 0.12) 0%,
+                    rgba(200, 148, 50, 0.04) 100%
+                  );
               }
-              .data-val { color: $trail-amber; }
+              .data-val {
+                color: $trail-amber;
+              }
             }
           }
         }
@@ -959,6 +1312,7 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
             border-radius: 3px;
             min-width: 0;
             position: relative;
+
             // 双线版框 + 立体落差
             box-shadow:
               inset 0 1px 1px rgba(255, 255, 255, 0.45),
@@ -967,7 +1321,9 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
               0 1px 2px rgba(60, 40, 20, 0.18),
               0 3px 6px rgba(60, 40, 20, 0.14),
               0 6px 12px rgba(60, 40, 20, 0.07);
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            transition:
+              transform 0.25s ease,
+              box-shadow 0.25s ease;
 
             // 鎏金铆钉（左上角，替代原图钉——金属球 + 鎏金光泽 + 光晕）
             &::before {
@@ -978,15 +1334,18 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
               width: 13px;
               height: 13px;
               border-radius: 50%;
+
               // 鎏金金属球径向渐变（左上高光 → 鎏金 → 暗部）
-              background:
-                radial-gradient(circle at 32% 28%,
-                  #fff8e0 0%,
-                  $gold-light 12%,
-                  $gold 35%,
-                  $gold-deep 65%,
-                  $gold-shadow 90%,
-                  #2a1e08 100%);
+              background: radial-gradient(
+                circle at 32% 28%,
+                #fff8e0 0%,
+                $gold-light 12%,
+                $gold 35%,
+                $gold-deep 65%,
+                $gold-shadow 90%,
+                #2a1e08 100%
+              );
+
               // 多层阴影：内顶高光 + 内底暗部 + 外投影 + 鎏金光晕
               box-shadow:
                 inset 1px 1px 1.5px rgba(255, 248, 224, 0.8),
@@ -1050,8 +1409,16 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
                   border-color: $stamp-red;
                   color: $stamp-red;
                   background:
-                    radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
-                    linear-gradient(180deg, rgba(184, 54, 43, 0.12) 0%, rgba(184, 54, 43, 0.04) 100%);
+                    radial-gradient(
+                      circle at 30% 25%,
+                      rgba(255, 255, 255, 0.4) 0%,
+                      transparent 50%
+                    ),
+                    linear-gradient(
+                      180deg,
+                      rgba(184, 54, 43, 0.12) 0%,
+                      rgba(184, 54, 43, 0.04) 100%
+                    );
                 }
               }
 
@@ -1061,6 +1428,7 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
                 font-weight: 800;
                 color: $ink;
                 letter-spacing: 0.5px;
+
                 // 凹刻文字
                 text-shadow:
                   0 -1px 0 rgba(80, 60, 30, 0.15),
@@ -1078,7 +1446,6 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
               font-weight: 700;
               line-height: 1.5;
               color: $ink;
-
 
               &--accent {
                 font-family: $font-hand;
@@ -1102,13 +1469,17 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
                 padding: 4px 10px 4px 22px;
                 border-radius: 2px;
                 position: relative;
-                background:
-                  linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.2) 100%);
+                background: linear-gradient(
+                  180deg,
+                  rgba(255, 255, 255, 0.5) 0%,
+                  rgba(255, 255, 255, 0.2) 100%
+                );
                 border: 1px solid rgba(80, 60, 30, 0.25);
                 color: $ink;
                 box-shadow:
                   inset 0 1px 0 rgba(255, 255, 255, 0.4),
                   0 1px 2px rgba(60, 40, 20, 0.1);
+
                 // 朱砂圈点（批注句读标记）
                 &::before {
                   content: '';
@@ -1119,8 +1490,12 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
                   width: 7px;
                   height: 7px;
                   border-radius: 50%;
-                  background:
-                    radial-gradient(circle at 35% 30%, #d4453a 0%, #b8362a 60%, #8a2820 100%);
+                  background: radial-gradient(
+                    circle at 35% 30%,
+                    #d4453a 0%,
+                    #b8362a 60%,
+                    #8a2820 100%
+                  );
                   box-shadow:
                     inset 0 0.5px 1px rgba(255, 200, 180, 0.4),
                     inset 0 -0.5px 1px rgba(90, 20, 10, 0.4),
@@ -1128,16 +1503,24 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
                 }
 
                 &--warn {
-                  background:
-                    linear-gradient(180deg, rgba(184, 54, 43, 0.1) 0%, rgba(184, 54, 43, 0.03) 100%);
+                  background: linear-gradient(
+                    180deg,
+                    rgba(184, 54, 43, 0.1) 0%,
+                    rgba(184, 54, 43, 0.03) 100%
+                  );
                   border-color: rgba(184, 54, 43, 0.3);
                   color: $stamp-red-dark;
+
                   // warn 态：朱砂圈点更大更亮
                   &::before {
                     width: 8px;
                     height: 8px;
-                    background:
-                      radial-gradient(circle at 35% 30%, #e85540 0%, #c8362a 60%, #8e2418 100%);
+                    background: radial-gradient(
+                      circle at 35% 30%,
+                      #e85540 0%,
+                      #c8362a 60%,
+                      #8e2418 100%
+                    );
                     box-shadow:
                       inset 0 0.5px 1px rgba(255, 200, 180, 0.5),
                       inset 0 -0.5px 1px rgba(90, 20, 10, 0.5),
@@ -1149,48 +1532,95 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
 
             // 多彩笔记块（双线版框 + 主题色联动）
             &--access {
-              background:
-                linear-gradient(135deg, rgba(45, 138, 138, 0.08), rgba(255, 255, 255, 0.35));
+              background: linear-gradient(
+                135deg,
+                rgba(45, 138, 138, 0.08),
+                rgba(255, 255, 255, 0.35)
+              );
               border: 2px solid rgba(45, 138, 138, 0.35);
+
               .note-icon-housing {
                 border-color: $trail-cyan;
                 color: $trail-cyan;
                 background:
-                  radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
-                  linear-gradient(180deg, rgba(45, 138, 138, 0.12) 0%, rgba(45, 138, 138, 0.04) 100%);
+                  radial-gradient(
+                    circle at 30% 25%,
+                    rgba(255, 255, 255, 0.4) 0%,
+                    transparent 50%
+                  ),
+                  linear-gradient(
+                    180deg,
+                    rgba(45, 138, 138, 0.12) 0%,
+                    rgba(45, 138, 138, 0.04) 100%
+                  );
               }
             }
+
             &--season {
-              background:
-                linear-gradient(135deg, rgba(45, 122, 79, 0.08), rgba(255, 255, 255, 0.35));
+              background: linear-gradient(
+                135deg,
+                rgba(45, 122, 79, 0.08),
+                rgba(255, 255, 255, 0.35)
+              );
               border: 2px solid rgba(45, 122, 79, 0.35);
+
               .note-icon-housing {
                 border-color: $moss-green;
                 color: $moss-green;
                 background:
-                  radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
-                  linear-gradient(180deg, rgba(45, 122, 79, 0.12) 0%, rgba(45, 122, 79, 0.04) 100%);
+                  radial-gradient(
+                    circle at 30% 25%,
+                    rgba(255, 255, 255, 0.4) 0%,
+                    transparent 50%
+                  ),
+                  linear-gradient(
+                    180deg,
+                    rgba(45, 122, 79, 0.12) 0%,
+                    rgba(45, 122, 79, 0.04) 100%
+                  );
               }
             }
+
             &--gear {
-              background:
-                linear-gradient(135deg, rgba(200, 148, 50, 0.08), rgba(255, 255, 255, 0.35));
+              background: linear-gradient(
+                135deg,
+                rgba(200, 148, 50, 0.08),
+                rgba(255, 255, 255, 0.35)
+              );
               border: 2px solid rgba(200, 148, 50, 0.35);
+
               .note-icon-housing {
                 border-color: $trail-amber;
                 color: $trail-amber;
                 background:
-                  radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
-                  linear-gradient(180deg, rgba(200, 148, 50, 0.12) 0%, rgba(200, 148, 50, 0.04) 100%);
+                  radial-gradient(
+                    circle at 30% 25%,
+                    rgba(255, 255, 255, 0.4) 0%,
+                    transparent 50%
+                  ),
+                  linear-gradient(
+                    180deg,
+                    rgba(200, 148, 50, 0.12) 0%,
+                    rgba(200, 148, 50, 0.04) 100%
+                  );
               }
+
               .note-pill {
-                background:
-                  linear-gradient(180deg, rgba(200, 148, 50, 0.12) 0%, rgba(200, 148, 50, 0.04) 100%);
+                background: linear-gradient(
+                  180deg,
+                  rgba(200, 148, 50, 0.12) 0%,
+                  rgba(200, 148, 50, 0.04) 100%
+                );
                 border-color: rgba(200, 148, 50, 0.3);
+
                 // gear 态：琥珀色圈点
                 &::before {
-                  background:
-                    radial-gradient(circle at 35% 30%, $trail-amber-bright 0%, $trail-amber 60%, #8a6420 100%);
+                  background: radial-gradient(
+                    circle at 35% 30%,
+                    $trail-amber-bright 0%,
+                    $trail-amber 60%,
+                    #8a6420 100%
+                  );
                   box-shadow:
                     inset 0 0.5px 1px rgba(255, 230, 180, 0.4),
                     inset 0 -0.5px 1px rgba(90, 66, 24, 0.4),
@@ -1198,9 +1628,13 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
                 }
               }
             }
+
             &--safety {
-              background:
-                linear-gradient(135deg, rgba(184, 54, 43, 0.07), rgba(255, 255, 255, 0.35));
+              background: linear-gradient(
+                135deg,
+                rgba(184, 54, 43, 0.07),
+                rgba(255, 255, 255, 0.35)
+              );
               border: 2px solid rgba(184, 54, 43, 0.3);
             }
           }
@@ -1209,7 +1643,9 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
 
       // 响应式
       @media (max-width: 1100px) {
-        .page-photo { flex: 0 0 40%; }
+        .page-photo {
+          flex: 0 0 40%;
+        }
       }
 
       @media (max-width: 900px) {
@@ -1251,8 +1687,13 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
     scrollbar-width: thin;
     scrollbar-color: rgba(120, 90, 50, 0.3) transparent;
 
-    &::-webkit-scrollbar { height: 5px; }
-    &::-webkit-scrollbar-track { background: transparent; }
+    &::-webkit-scrollbar {
+      height: 5px;
+    }
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
     &::-webkit-scrollbar-thumb {
       background: rgba(120, 90, 50, 0.25);
       border-radius: 3px;
@@ -1275,13 +1716,26 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
         box-shadow 0.3s ease,
         filter 0.3s ease,
         border-color 0.3s ease;
+
       // 宣纸米白容器（浅色）+ 纸张纤维纹理
       border: 1.5px solid rgba(80, 60, 30, 0.3);
       background:
         // 纸张纤维（细横纹）
-        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(120, 90, 50, 0.018) 2px, rgba(120, 90, 50, 0.018) 3px),
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 2px,
+          rgba(120, 90, 50, 0.018) 2px,
+          rgba(120, 90, 50, 0.018) 3px
+        ),
         // 纸张纤维（细竖纹）
-        repeating-linear-gradient(90deg, transparent, transparent 4px, rgba(120, 90, 50, 0.012) 4px, rgba(120, 90, 50, 0.012) 5px),
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 4px,
+            rgba(120, 90, 50, 0.012) 4px,
+            rgba(120, 90, 50, 0.012) 5px
+          ),
         // 宣纸渐变（米白象牙白）
         linear-gradient(160deg, #faf5e8 0%, #f5edd6 45%, #ede4c8 100%);
       box-shadow:
@@ -1290,6 +1744,7 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
         inset 0 1px 0 rgba(255, 250, 235, 0.7),
         inset 0 0 0 3px rgba(250, 245, 230, 0.5),
         inset 0 0 0 4px rgba(80, 60, 30, 0.15);
+
       // 自然态：深褐旧黄 + 微倾斜（夹在古籍深处的发黄旧签）
       filter: sepia(0.5) brightness(0.82) saturate(0.45);
       transform: rotate(-3deg);
@@ -1304,8 +1759,17 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
         transform: translateX(-50%);
         width: 18px;
         height: 8px;
+
         // 鱼尾形（中间凹口）
-        clip-path: polygon(0 0, 100% 0, 100% 60%, 60% 60%, 50% 100%, 40% 60%, 0 60%);
+        clip-path: polygon(
+          0 0,
+          100% 0,
+          100% 60%,
+          60% 60%,
+          50% 100%,
+          40% 60%,
+          0 60%
+        );
         background: rgba(80, 60, 30, 0.35);
         z-index: 3;
         transition: background 0.3s ease;
@@ -1330,17 +1794,24 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
         justify-content: center;
         transform: rotate(12deg) scale(0);
         opacity: 0;
-        transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.35s ease;
+        transition:
+          transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+          opacity 0.35s ease;
+
         // 朱砂印泥不均
-        background:
-          radial-gradient(circle at 30% 25%, rgba(255, 240, 230, 0.95) 0%, rgba(248, 230, 215, 0.9) 60%, rgba(235, 215, 195, 0.85) 100%);
+        background: radial-gradient(
+          circle at 30% 25%,
+          rgba(255, 240, 230, 0.95) 0%,
+          rgba(248, 230, 215, 0.9) 60%,
+          rgba(235, 215, 195, 0.85) 100%
+        );
         box-shadow:
           0 1px 3px rgba(184, 54, 42, 0.4),
           inset 0 0 0 1px rgba(184, 54, 42, 0.25);
         z-index: 5;
         pointer-events: none;
         filter: blur(0.2px);
-        text-shadow: 0 0 1px currentColor;
+        text-shadow: 0 0 1px currentcolor;
       }
 
       // 顶部难度色丝带书签（露出书页外）
@@ -1352,25 +1823,53 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
         width: 22px;
         height: 18px;
         z-index: 2;
+
         // 丝带末端 V 形剪口
         clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 70%, 0 100%);
-        transition: opacity 0.3s ease, filter 0.3s ease;
+        transition:
+          opacity 0.3s ease,
+          filter 0.3s ease;
         opacity: 0.55;
         box-shadow: 0 1px 2px rgba(80, 60, 30, 0.25);
       }
-      &[data-level="简单"] .bookmark-ribbon {
+
+      &[data-level='简单'] .bookmark-ribbon {
         background:
-          repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255, 255, 255, 0.15) 2px, rgba(255, 255, 255, 0.15) 3px),
+          repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 255, 255, 0.15) 2px,
+            rgba(255, 255, 255, 0.15) 3px
+          ),
           linear-gradient(180deg, $moss-green 0%, rgba(45, 122, 79, 0.85) 100%);
       }
-      &[data-level="中等"] .bookmark-ribbon {
+
+      &[data-level='中等'] .bookmark-ribbon {
         background:
-          repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255, 255, 255, 0.15) 2px, rgba(255, 255, 255, 0.15) 3px),
-          linear-gradient(180deg, $trail-amber 0%, rgba(200, 148, 50, 0.85) 100%);
+          repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 255, 255, 0.15) 2px,
+            rgba(255, 255, 255, 0.15) 3px
+          ),
+          linear-gradient(
+            180deg,
+            $trail-amber 0%,
+            rgba(200, 148, 50, 0.85) 100%
+          );
       }
-      &[data-level="较难"] .bookmark-ribbon {
+
+      &[data-level='较难'] .bookmark-ribbon {
         background:
-          repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255, 255, 255, 0.15) 2px, rgba(255, 255, 255, 0.15) 3px),
+          repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 255, 255, 0.15) 2px,
+            rgba(255, 255, 255, 0.15) 3px
+          ),
           linear-gradient(180deg, $stamp-red 0%, rgba(184, 54, 43, 0.85) 100%);
       }
 
@@ -1382,8 +1881,14 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
         border-radius: 2px;
         padding: 4px;
         margin-top: 6px;
+
         // 深墨色蚀刻框
-        background: linear-gradient(135deg, #3a2e1a 0%, #2a1e0e 50%, #1a1208 100%);
+        background: linear-gradient(
+          135deg,
+          #3a2e1a 0%,
+          #2a1e0e 50%,
+          #1a1208 100%
+        );
         box-shadow:
           inset 0 0 0 1px rgba(20, 12, 4, 0.5),
           inset 0 2px 4px rgba(0, 0, 0, 0.4),
@@ -1402,17 +1907,29 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
           pointer-events: none;
           z-index: 2;
         }
+
         // 左上折角
         &::before {
           top: 0;
           left: 0;
-          background: linear-gradient(135deg, rgba(250, 245, 230, 0.7) 0%, rgba(250, 245, 230, 0.7) 48%, transparent 50%);
+          background: linear-gradient(
+            135deg,
+            rgba(250, 245, 230, 0.7) 0%,
+            rgba(250, 245, 230, 0.7) 48%,
+            transparent 50%
+          );
         }
+
         // 右下折角
         &::after {
           bottom: 0;
           right: 0;
-          background: linear-gradient(315deg, rgba(250, 245, 230, 0.6) 0%, rgba(250, 245, 230, 0.6) 48%, transparent 50%);
+          background: linear-gradient(
+            315deg,
+            rgba(250, 245, 230, 0.6) 0%,
+            rgba(250, 245, 230, 0.6) 48%,
+            transparent 50%
+          );
         }
 
         .bookmark-img {
@@ -1420,9 +1937,13 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
           height: 100%;
           object-fit: cover;
           border-radius: 1px;
+
           // 版画墨色蚀刻
-          filter: grayscale(0.5) sepia(0.25) contrast(1.05) saturate(0.6) brightness(0.92);
-          transition: filter 0.35s ease, transform 0.35s ease;
+          filter: grayscale(0.5) sepia(0.25) contrast(1.05) saturate(0.6)
+            brightness(0.92);
+          transition:
+            filter 0.35s ease,
+            transform 0.35s ease;
         }
       }
 
@@ -1435,17 +1956,20 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
         text-align: center;
         line-height: 1.2;
         display: -webkit-box;
-   
         -webkit-box-orient: vertical;
         overflow: hidden;
         max-width: 100%;
         margin-top: 2px;
         position: relative;
+
         // 雕版凹刻字（纸面凹陷感）
         text-shadow:
           0 1px 0 rgba(255, 250, 235, 0.6),
           0 -1px 0 rgba(40, 28, 10, 0.15);
-        transition: color 0.3s ease, text-shadow 0.3s ease, font-size 0.3s ease;
+        transition:
+          color 0.3s ease,
+          text-shadow 0.3s ease,
+          font-size 0.3s ease;
 
         // 朱砂批注线（active 时显示，模拟朱笔圈点批注下的波浪线）
         &::after {
@@ -1461,7 +1985,9 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
           text-align: center;
           letter-spacing: -1px;
           opacity: 0;
-          transition: opacity 0.35s ease, bottom 0.35s ease;
+          transition:
+            opacity 0.35s ease,
+            bottom 0.35s ease;
           pointer-events: none;
           text-shadow: 0 0 2px rgba(184, 54, 42, 0.3);
         }
@@ -1477,9 +2003,14 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
         padding: 2px 10px;
         border-radius: 2px;
         position: relative;
+
         // 朱砂印泥质感
-        background:
-          radial-gradient(circle at 30% 30%, rgba(255, 240, 230, 0.6) 0%, rgba(248, 225, 210, 0.4) 60%, rgba(235, 210, 190, 0.3) 100%);
+        background: radial-gradient(
+          circle at 30% 30%,
+          rgba(255, 240, 230, 0.6) 0%,
+          rgba(248, 225, 210, 0.4) 60%,
+          rgba(235, 210, 190, 0.3) 100%
+        );
         box-shadow:
           inset 0 0 0 1px rgba(184, 54, 42, 0.4),
           inset 0 1px 0 rgba(255, 250, 235, 0.5),
@@ -1496,10 +2027,17 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
           width: 6px;
           height: 6px;
           border-radius: 50%;
-          background: radial-gradient(circle at 35% 30%, #d4453a 0%, #b8362a 60%, #8a2820 100%);
+          background: radial-gradient(
+            circle at 35% 30%,
+            #d4453a 0%,
+            #b8362a 60%,
+            #8a2820 100%
+          );
           box-shadow: 0 0 4px rgba(184, 54, 42, 0.5);
           opacity: 0;
-          transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.35s ease;
+          transition:
+            transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+            opacity 0.35s ease;
           pointer-events: none;
         }
       }
@@ -1516,26 +2054,37 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
           inset 0 0 0 3px rgba(250, 245, 230, 0.6),
           inset 0 0 0 4px rgba(80, 60, 30, 0.22);
 
-        &::before { background: rgba(80, 60, 30, 0.55); }
+        &::before {
+          background: rgba(80, 60, 30, 0.55);
+        }
 
-        .bookmark-ribbon { opacity: 1; }
+        .bookmark-ribbon {
+          opacity: 1;
+        }
 
         // 折角痕显现（抽出平铺的拟物装饰）
         .bookmark-img-wrap {
-          &::before { opacity: 1; }
-          &::after { opacity: 1; }
+          &::before {
+            opacity: 1;
+          }
+          &::after {
+            opacity: 1;
+          }
         }
 
         .bookmark-img {
-          filter: grayscale(0.2) sepia(0.1) contrast(1.1) saturate(0.9) brightness(1);
+          filter: grayscale(0.2) sepia(0.1) contrast(1.1) saturate(0.9)
+            brightness(1);
           transform: scale(1.05);
         }
+
         .bookmark-name {
           color: rgba(30, 22, 10, 0.95);
           text-shadow:
             0 1px 0 rgba(255, 250, 235, 0.7),
             0 -1px 0 rgba(40, 28, 10, 0.2);
         }
+
         .bookmark-diff {
           color: rgba(150, 45, 35, 0.95);
           box-shadow:
@@ -1556,28 +2105,40 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
           opacity: 1;
         }
 
-        &::before { background: rgba(80, 60, 30, 0.6); }
+        &::before {
+          background: rgba(80, 60, 30, 0.6);
+        }
 
-        .bookmark-ribbon { opacity: 1; }
+        .bookmark-ribbon {
+          opacity: 1;
+        }
 
         // 隐藏折角痕（active 用朱批装饰替代）
         .bookmark-img-wrap {
-          &::before { opacity: 0; }
-          &::after { opacity: 0; }
+          &::before {
+            opacity: 0;
+          }
+          &::after {
+            opacity: 0;
+          }
         }
 
         .bookmark-img {
-          filter: grayscale(0.1) sepia(0.05) contrast(1.15) saturate(1.05) brightness(1.05);
+          filter: grayscale(0.1) sepia(0.05) contrast(1.15) saturate(1.05)
+            brightness(1.05);
           transform: scale(1.07);
         }
+
         .bookmark-name {
           font-size: 15.5px;
+
           // 显示朱砂批注线
           &::after {
             opacity: 1;
             bottom: -9px;
           }
         }
+
         // 显示朱砂圈点
         .bookmark-diff::before {
           transform: translateY(-50%) scale(1);
@@ -1585,7 +2146,7 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
         }
 
         // 难度色发光边框（朱砂/墨色为主，难度色作发光环）
-        &[data-level="简单"] {
+        &[data-level='简单'] {
           border-color: $moss-green;
           box-shadow:
             0 3px 6px rgba(45, 122, 79, 0.25),
@@ -1595,12 +2156,16 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
             inset 0 1px 0 rgba(255, 250, 235, 0.8),
             inset 0 0 0 3px rgba(250, 245, 230, 0.6),
             inset 0 0 0 4px rgba(45, 122, 79, 0.3);
+
           .bookmark-name {
-            color: darken($moss-green, 25%);
-            text-shadow: 0 0 6px rgba(45, 122, 79, 0.3), 0 1px 0 rgba(255, 250, 235, 0.6);
+            color: color.adjust($moss-green, $lightness: -25%);
+            text-shadow:
+              0 0 6px rgba(45, 122, 79, 0.3),
+              0 1px 0 rgba(255, 250, 235, 0.6);
           }
         }
-        &[data-level="中等"] {
+
+        &[data-level='中等'] {
           border-color: $trail-amber;
           box-shadow:
             0 3px 6px rgba(200, 148, 50, 0.25),
@@ -1610,12 +2175,16 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
             inset 0 1px 0 rgba(255, 250, 235, 0.8),
             inset 0 0 0 3px rgba(250, 245, 230, 0.6),
             inset 0 0 0 4px rgba(200, 148, 50, 0.3);
+
           .bookmark-name {
-            color: darken($trail-amber, 30%);
-            text-shadow: 0 0 6px rgba(200, 148, 50, 0.3), 0 1px 0 rgba(255, 250, 235, 0.6);
+            color: color.adjust($trail-amber, $lightness: -30%);
+            text-shadow:
+              0 0 6px rgba(200, 148, 50, 0.3),
+              0 1px 0 rgba(255, 250, 235, 0.6);
           }
         }
-        &[data-level="较难"] {
+
+        &[data-level='较难'] {
           border-color: $stamp-red;
           box-shadow:
             0 3px 6px rgba(184, 54, 43, 0.25),
@@ -1625,9 +2194,12 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
             inset 0 1px 0 rgba(255, 250, 235, 0.8),
             inset 0 0 0 3px rgba(250, 245, 230, 0.6),
             inset 0 0 0 4px rgba(184, 54, 43, 0.3);
+
           .bookmark-name {
-            color: darken($stamp-red, 20%);
-            text-shadow: 0 0 6px rgba(184, 54, 43, 0.3), 0 1px 0 rgba(255, 250, 235, 0.6);
+            color: color.adjust($stamp-red, $lightness: -20%);
+            text-shadow:
+              0 0 6px rgba(184, 54, 43, 0.3),
+              0 1px 0 rgba(255, 250, 235, 0.6);
           }
         }
       }
@@ -1657,7 +2229,9 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
       max-width: 460px;
       border-radius: 10px;
       overflow: hidden;
+
       @include leather-texture;
+
       border: 4px solid $leather-edge;
       box-shadow:
         inset 0 2px 4px rgba(255, 255, 255, 0.08),
@@ -1678,7 +2252,12 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
           width: 10px;
           height: 10px;
           border-radius: 50%;
-          background: radial-gradient(circle at 40% 40%, #000 0%, #1a0f08 60%, #2d1f14 100%);
+          background: radial-gradient(
+            circle at 40% 40%,
+            #000 0%,
+            #1a0f08 60%,
+            #2d1f14 100%
+          );
           box-shadow:
             inset 0 2px 3px rgba(0, 0, 0, 0.9),
             inset 0 -1px 1px rgba(255, 255, 255, 0.1),
@@ -1694,7 +2273,9 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
         justify-content: center;
         gap: 14px;
         padding: 40px 28px;
+
         @include paper-texture;
+
         text-align: center;
       }
 
@@ -1706,7 +2287,11 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
         height: 84px;
         border-radius: 50%;
         background:
-          radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.5), transparent 50%),
+          radial-gradient(
+            circle at 30% 25%,
+            rgba(255, 255, 255, 0.5),
+            transparent 50%
+          ),
           linear-gradient(180deg, $paper-light, $paper-dark);
         border: 3px solid rgba(45, 122, 79, 0.4);
         box-shadow:
@@ -1778,8 +2363,11 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
           font-weight: 700;
           padding: 6px 16px;
           border-radius: 3px;
-          background:
-            linear-gradient(180deg, rgba(45, 122, 79, 0.12), rgba(45, 122, 79, 0.04));
+          background: linear-gradient(
+            180deg,
+            rgba(45, 122, 79, 0.12),
+            rgba(45, 122, 79, 0.04)
+          );
           border: 1px solid rgba(45, 122, 79, 0.35);
           color: $moss-green;
           letter-spacing: 1px;
@@ -1797,11 +2385,13 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
     opacity: 0;
     transform: rotateX(-8deg);
   }
+
   to {
     opacity: 1;
     transform: rotateX(0deg);
   }
 }
+
 // ============================================================================
 // 操作按钮 — 收藏/体验/分享（古籍卷轴·三态展卷）
 // 自然态=卷轴收拢（轴头+卷面） / hover=蘸墨半展（墨韵渗透+发光） / active=朱墨全展（实体填充+鎏金装裱+呼吸光晕）
@@ -1831,19 +2421,47 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
     // 自然态：卷轴收拢（真实立体卷面 + 斜向光带 + 镜面高光 + 底部反射 + 双线装裱）
     background:
       // 斜向光带（diagonal light sweep，光从左上照射）
-      linear-gradient(135deg, rgba(255, 250, 235, 0.28) 0%, rgba(255, 250, 235, 0.08) 30%, transparent 55%),
+      linear-gradient(
+        135deg,
+        rgba(255, 250, 235, 0.28) 0%,
+        rgba(255, 250, 235, 0.08) 30%,
+        transparent 55%
+      ),
       // 镜面高光（顶部 specular highlight）
       linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0%, transparent 12%),
       // 底部反射（bottom reflection）
       linear-gradient(0deg, rgba(255, 250, 235, 0.12) 0%, transparent 15%),
       // 主题色装裱双线（上下，粗细双线）
-      linear-gradient(0deg, rgba($c, 0.35) 0%, rgba($c, 0.35) 1px, transparent 1px, transparent 3px, rgba($c, 0.15) 3px, rgba($c, 0.15) 4px, transparent 4px, transparent calc(100% - 4px), rgba($c, 0.15) calc(100% - 4px), rgba($c, 0.15) calc(100% - 3px), transparent calc(100% - 3px), transparent calc(100% - 1px), rgba($c, 0.35) calc(100% - 1px), rgba($c, 0.35) 100%),
+      linear-gradient(
+          0deg,
+          rgba($c, 0.35) 0%,
+          rgba($c, 0.35) 1px,
+          transparent 1px,
+          transparent 3px,
+          rgba($c, 0.15) 3px,
+          rgba($c, 0.15) 4px,
+          transparent 4px,
+          transparent calc(100% - 4px),
+          rgba($c, 0.15) calc(100% - 4px),
+          rgba($c, 0.15) calc(100% - 3px),
+          transparent calc(100% - 3px),
+          transparent calc(100% - 1px),
+          rgba($c, 0.35) calc(100% - 1px),
+          rgba($c, 0.35) 100%
+        ),
       // 纸张纤维纹理
-      repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(80, 60, 30, 0.02) 3px, rgba(80, 60, 30, 0.02) 4px),
+      repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 3px,
+          rgba(80, 60, 30, 0.02) 3px,
+          rgba(80, 60, 30, 0.02) 4px
+        ),
       // 卷面牛皮纸（中间微凹）
       radial-gradient(ellipse at 50% 55%, $paper 0%, $paper-dark 100%);
     border: 2px solid rgba(80, 60, 30, 0.4);
     color: $ink;
+
     // 卷轴立体（多层光影：内顶高光 + 内底暗部 + 左右暗部 + 外投影双层）
     box-shadow:
       inset 0 2px 3px rgba(255, 255, 255, 0.55),
@@ -1853,6 +2471,7 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
       0 2px 4px rgba(60, 40, 20, 0.25),
       0 5px 10px rgba(60, 40, 20, 0.12),
       0 1px 2px rgba(60, 40, 20, 0.15);
+
     // 凹刻文字
     text-shadow:
       0 -1px 0 rgba(80, 60, 30, 0.2),
@@ -1866,17 +2485,25 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
       top: 0;
       bottom: 0;
       width: 9px;
+
       // 金属圆柱端面（径向高光模拟球面凸起）
       background:
         // 中心高光（金属球面反光）
-        radial-gradient(ellipse at 50% 25%, rgba(255, 235, 200, 0.6) 0%, transparent 55%),
+        radial-gradient(
+          ellipse at 50% 25%,
+          rgba(255, 235, 200, 0.6) 0%,
+          transparent 55%
+        ),
         // 木质圆柱渐变（深→中→亮→中→深）
-        linear-gradient(90deg,
-          $wood-dark 0%,
-          $wood-mid 20%,
-          $wood-light 50%,
-          $wood-mid 80%,
-          $wood-dark 100%);
+        linear-gradient(
+            90deg,
+            $wood-dark 0%,
+            $wood-mid 20%,
+            $wood-light 50%,
+            $wood-mid 80%,
+            $wood-dark 100%
+          );
+
       // 轴头立体（多层凹凸：顶高光 + 底暗部 + 左右暗部 + 外投影）
       box-shadow:
         inset 0 1.5px 2px rgba(255, 235, 200, 0.5),
@@ -1899,13 +2526,19 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
       bottom: 0;
       width: 9px;
       background:
-        radial-gradient(ellipse at 50% 25%, rgba(255, 235, 200, 0.6) 0%, transparent 55%),
-        linear-gradient(270deg,
+        radial-gradient(
+          ellipse at 50% 25%,
+          rgba(255, 235, 200, 0.6) 0%,
+          transparent 55%
+        ),
+        linear-gradient(
+          270deg,
           $wood-dark 0%,
           $wood-mid 20%,
           $wood-light 50%,
           $wood-mid 80%,
-          $wood-dark 100%);
+          $wood-dark 100%
+        );
       box-shadow:
         inset 0 1.5px 2px rgba(255, 235, 200, 0.5),
         inset 0 -1.5px 2px rgba(0, 0, 0, 0.5),
@@ -1923,17 +2556,51 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
       transform: scale(1.04);
       background:
         // 斜向光带增强
-        linear-gradient(135deg, rgba(255, 250, 235, 0.35) 0%, rgba(255, 250, 235, 0.12) 30%, transparent 55%),
+        linear-gradient(
+          135deg,
+          rgba(255, 250, 235, 0.35) 0%,
+          rgba(255, 250, 235, 0.12) 30%,
+          transparent 55%
+        ),
         // 镜面高光增强
         linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, transparent 14%),
         // 底部反射增强
         linear-gradient(0deg, rgba(255, 250, 235, 0.15) 0%, transparent 16%),
         // 墨韵从两侧轴头向中间渗透
-        linear-gradient(90deg, rgba($c, 0.32) 0%, rgba($c, 0.12) 25%, transparent 50%, rgba($c, 0.12) 75%, rgba($c, 0.32) 100%),
+        linear-gradient(
+            90deg,
+            rgba($c, 0.32) 0%,
+            rgba($c, 0.12) 25%,
+            transparent 50%,
+            rgba($c, 0.12) 75%,
+            rgba($c, 0.32) 100%
+          ),
         // 主题色装裱双线加亮
-        linear-gradient(0deg, rgba($c, 0.55) 0%, rgba($c, 0.55) 1px, transparent 1px, transparent 3px, rgba($c, 0.25) 3px, rgba($c, 0.25) 4px, transparent 4px, transparent calc(100% - 4px), rgba($c, 0.25) calc(100% - 4px), rgba($c, 0.25) calc(100% - 3px), transparent calc(100% - 3px), transparent calc(100% - 1px), rgba($c, 0.55) calc(100% - 1px), rgba($c, 0.55) 100%),
+        linear-gradient(
+            0deg,
+            rgba($c, 0.55) 0%,
+            rgba($c, 0.55) 1px,
+            transparent 1px,
+            transparent 3px,
+            rgba($c, 0.25) 3px,
+            rgba($c, 0.25) 4px,
+            transparent 4px,
+            transparent calc(100% - 4px),
+            rgba($c, 0.25) calc(100% - 4px),
+            rgba($c, 0.25) calc(100% - 3px),
+            transparent calc(100% - 3px),
+            transparent calc(100% - 1px),
+            rgba($c, 0.55) calc(100% - 1px),
+            rgba($c, 0.55) 100%
+          ),
         // 纸张纤维纹理
-        repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(80, 60, 30, 0.02) 3px, rgba(80, 60, 30, 0.02) 4px),
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 3px,
+            rgba(80, 60, 30, 0.02) 3px,
+            rgba(80, 60, 30, 0.02) 4px
+          ),
         // 卷面牛皮纸
         radial-gradient(ellipse at 50% 55%, $paper 0%, $paper-dark 100%);
       border: 2px solid $c;
@@ -1955,13 +2622,19 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
       // 轴头金属高光增强（蘸墨时轴头变亮，球面反光更强）
       &::before {
         background:
-          radial-gradient(ellipse at 50% 25%, rgba(255, 245, 215, 0.8) 0%, transparent 55%),
-          linear-gradient(90deg,
+          radial-gradient(
+            ellipse at 50% 25%,
+            rgba(255, 245, 215, 0.8) 0%,
+            transparent 55%
+          ),
+          linear-gradient(
+            90deg,
             $wood-mid 0%,
             $wood-light 20%,
-            lighten($wood-light, 12%) 50%,
+            color.adjust($wood-light, $lightness: 12%) 50%,
             $wood-light 80%,
-            $wood-mid 100%);
+            $wood-mid 100%
+          );
         box-shadow:
           inset 0 1.5px 2px rgba(255, 245, 215, 0.7),
           inset 0 -1.5px 2px rgba(0, 0, 0, 0.35),
@@ -1971,15 +2644,22 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
           1px 0 4px rgba($c, 0.25),
           2px 0 6px rgba(0, 0, 0, 0.1);
       }
+
       &::after {
         background:
-          radial-gradient(ellipse at 50% 25%, rgba(255, 245, 215, 0.8) 0%, transparent 55%),
-          linear-gradient(270deg,
+          radial-gradient(
+            ellipse at 50% 25%,
+            rgba(255, 245, 215, 0.8) 0%,
+            transparent 55%
+          ),
+          linear-gradient(
+            270deg,
             $wood-mid 0%,
             $wood-light 20%,
-            lighten($wood-light, 12%) 50%,
+            color.adjust($wood-light, $lightness: 12%) 50%,
             $wood-light 80%,
-            $wood-mid 100%);
+            $wood-mid 100%
+          );
         box-shadow:
           inset 0 1.5px 2px rgba(255, 245, 215, 0.7),
           inset 0 -1.5px 2px rgba(0, 0, 0, 0.35),
@@ -1996,19 +2676,34 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
       transform: scale(1.06);
       background:
         // 斜向光带（实体上的反光）
-        linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.06) 30%, transparent 55%),
+        linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.22) 0%,
+          rgba(255, 255, 255, 0.06) 30%,
+          transparent 55%
+        ),
         // 镜面高光（顶部）
         linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, transparent 14%),
         // 底部反射
         linear-gradient(0deg, rgba(255, 255, 255, 0.1) 0%, transparent 16%),
         // 印泥不均（按压斑驳）
-        radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 70% 80%, rgba(0, 0, 0, 0.1) 0%, transparent 40%),
+        radial-gradient(
+            circle at 30% 25%,
+            rgba(255, 255, 255, 0.15) 0%,
+            transparent 50%
+          ),
+        radial-gradient(
+          circle at 70% 80%,
+          rgba(0, 0, 0, 0.1) 0%,
+          transparent 40%
+        ),
         // 主题色实体渐变（朱墨全展）
         linear-gradient(160deg, $c-bright 0%, $c 45%, $c-deep 100%);
+
       // 鎏金双线装裱边
       border: 2px solid $gold;
       color: #fff8f0;
+
       // 立体凸起 + 多层内光影 + 三层外发光 + 鎏金边发光
       box-shadow:
         inset 0 2px 3px rgba(255, 255, 255, 0.4),
@@ -2023,11 +2718,13 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
         0 0 16px rgba($c, 0.5),
         0 0 32px rgba($c, 0.22),
         0 0 0 1px rgba(201, 164, 76, 0.35);
+
       // 鎏金凹刻文字（印章刻字，亮色）
       text-shadow:
         0 -1px 0 rgba(0, 0, 0, 0.45),
         0 1px 0 rgba(255, 255, 255, 0.35),
         0 0 5px rgba(255, 255, 255, 0.3);
+
       // 呼吸光晕动画
       animation: scrollGlow 2.5s ease-in-out infinite;
 
@@ -2035,14 +2732,20 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
       &::before {
         background:
           // 鎏金球面高光
-          radial-gradient(ellipse at 50% 25%, rgba(255, 250, 220, 0.85) 0%, transparent 55%),
+          radial-gradient(
+            ellipse at 50% 25%,
+            rgba(255, 250, 220, 0.85) 0%,
+            transparent 55%
+          ),
           // 鎏金圆柱渐变
-          linear-gradient(90deg,
-            $gold-shadow 0%,
-            $gold-deep 20%,
-            $gold 50%,
-            $gold-deep 80%,
-            $gold-shadow 100%);
+          linear-gradient(
+              90deg,
+              $gold-shadow 0%,
+              $gold-deep 20%,
+              $gold 50%,
+              $gold-deep 80%,
+              $gold-shadow 100%
+            );
         box-shadow:
           inset 0 1.5px 2px rgba(255, 250, 220, 0.7),
           inset 0 -1.5px 2px rgba(90, 66, 24, 0.55),
@@ -2052,15 +2755,22 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
           1px 0 4px rgba(201, 164, 76, 0.5),
           2px 0 8px rgba(201, 164, 76, 0.2);
       }
+
       &::after {
         background:
-          radial-gradient(ellipse at 50% 25%, rgba(255, 250, 220, 0.85) 0%, transparent 55%),
-          linear-gradient(270deg,
+          radial-gradient(
+            ellipse at 50% 25%,
+            rgba(255, 250, 220, 0.85) 0%,
+            transparent 55%
+          ),
+          linear-gradient(
+            270deg,
             $gold-shadow 0%,
             $gold-deep 20%,
             $gold 50%,
             $gold-deep 80%,
-            $gold-shadow 100%);
+            $gold-shadow 100%
+          );
         box-shadow:
           inset 0 1.5px 2px rgba(255, 250, 220, 0.7),
           inset 0 -1.5px 2px rgba(90, 66, 24, 0.55),
@@ -2074,11 +2784,24 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
       &:hover {
         transform: scale(1.08);
         background:
-          linear-gradient(135deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.08) 30%, transparent 55%),
+          linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.28) 0%,
+            rgba(255, 255, 255, 0.08) 30%,
+            transparent 55%
+          ),
           linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, transparent 14%),
           linear-gradient(0deg, rgba(255, 255, 255, 0.12) 0%, transparent 16%),
-          radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.2) 0%, transparent 50%),
-          radial-gradient(circle at 70% 80%, rgba(0, 0, 0, 0.06) 0%, transparent 40%),
+          radial-gradient(
+            circle at 30% 25%,
+            rgba(255, 255, 255, 0.2) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 70% 80%,
+            rgba(0, 0, 0, 0.06) 0%,
+            transparent 40%
+          ),
           linear-gradient(160deg, $c-bright 0%, $c 50%, $c-deep 100%);
         box-shadow:
           inset 0 2px 3px rgba(255, 255, 255, 0.45),
@@ -2097,15 +2820,22 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
   }
 
   .action-btn {
-    &.btn-fav { @include btn-three-state(#00b8d4, #4dd0e1, #006c80, #80deea); }
+    &.btn-fav {
+      @include btn-three-state(#00b8d4, #4dd0e1, #006c80, #80deea);
+    }
 
-    &.btn-been { @include btn-three-state(#ff8f00, #ffb74d, #e65100, #ffcc80); }
-    &.btn-share { @include btn-three-state(#00c853, #5cd68a, #00853e, #b9f6ca); }
+    &.btn-been {
+      @include btn-three-state(#ff8f00, #ffb74d, #e65100, #ffcc80);
+    }
+    &.btn-share {
+      @include btn-three-state(#00c853, #5cd68a, #00853e, #b9f6ca);
+    }
   }
 }
 
 @keyframes scrollGlow {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow:
       inset 0 1.5px 2px rgba(255, 255, 255, 0.35),
       inset 0 -2px 3px rgba(0, 0, 0, 0.25),
@@ -2116,6 +2846,7 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
       0 0 14px rgba(201, 164, 76, 0.35),
       0 0 28px rgba(201, 164, 76, 0.15);
   }
+
   50% {
     box-shadow:
       inset 0 1.5px 2px rgba(255, 255, 255, 0.4),

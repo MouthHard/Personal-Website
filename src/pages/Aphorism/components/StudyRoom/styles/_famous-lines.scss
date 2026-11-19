@@ -100,9 +100,11 @@
                 transparent 6.5px
               );
           }
+
           &::before {
             left: 10px;
           }
+
           &::after {
             right: 10px;
             transform: scaleX(-1);

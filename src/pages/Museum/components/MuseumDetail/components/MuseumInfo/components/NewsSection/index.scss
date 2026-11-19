@@ -1,9 +1,10 @@
 .news-section {
   position: relative;
-  background: url('https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/museum/home/News.webp') no-repeat center center;
+  background: url('https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/museum/home/News.webp')
+    no-repeat center center;
   background-size: 100% auto;
   background-position: center;
-  padding: 1rem 2rem 2rem 2rem;
+  padding: 1rem 2rem 2rem;
   overflow: hidden;
   box-shadow:
     0 12px 32px rgba(0, 0, 0, 0.4),
@@ -57,7 +58,7 @@
 
     .section-title {
       font-size: 2.2rem;
-      font-family: 'FangSong', 'STFangsong', serif;
+      font-family: fangsong, STFangsong, serif;
       color: #022d02;
       margin-bottom: 2.5rem;
       text-shadow:
@@ -165,7 +166,7 @@
 
       .news-title {
         font-size: 1.35rem;
-        font-family: 'KaiTi', 'STKaiti', serif;
+        font-family: KaiTi, STKaiti, serif;
         color: #1f541f;
         margin-bottom: 0.75rem;
         text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -233,10 +234,7 @@
           &::before {
             content: '';
             position: absolute;
-            top: 1px;
-            left: 1px;
-            right: 1px;
-            bottom: 1px;
+            inset: 1px;
             background: linear-gradient(
               145deg,
               rgba(255, 255, 255, 0.3) 0%,
@@ -272,15 +270,15 @@
     border-radius: 12px;
     border: 2px dashed rgba(144, 238, 144, 0.5);
     text-align: center;
-    color: #336633;
-    font-family: 'FangSong', 'STFangsong', serif;
+    color: #363;
+    font-family: fangsong, STFangsong, serif;
 
     .placeholder-icon {
       display: flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 1rem;
-      color: #336633;
+      color: #363;
 
       svg {
         width: 48px;

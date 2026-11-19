@@ -18,10 +18,7 @@
   &::before {
     content: '';
     position: absolute;
-    top: 8px;
-    left: 8px;
-    right: 8px;
-    bottom: 8px;
+    inset: 8px;
     border: 2px solid rgba(212, 175, 55, 0.3);
     border-radius: 16px;
     pointer-events: none;
@@ -80,7 +77,7 @@
         display: flex;
         align-items: center;
         filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
-        color: #ffffff;
+        color: #fff;
 
         svg {
           width: 28px;
@@ -91,8 +88,8 @@
       .section-title {
         margin: 0;
         font-size: 1.75rem;
-        font-family: 'FangSong', 'STFangsong', serif;
-        color: #ffffff;
+        font-family: fangsong, STFangsong, serif;
+        color: #fff;
         font-weight: 700;
         letter-spacing: 0.1em;
         text-shadow:
@@ -127,8 +124,6 @@
         }
       }
     }
-
-
   }
 
   .museum-grid {
@@ -136,9 +131,8 @@
     grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
     gap: 1.5rem;
     flex: 1;
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding: 0 2rem 2rem 2rem;
+    overflow: hidden auto;
+    padding: 0 2rem 2rem;
     scrollbar-width: thin;
     scrollbar-color: rgba(139, 69, 19, 0.3) transparent;
 
@@ -182,10 +176,7 @@
       &::before {
         content: '';
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+        inset: 0;
         background: linear-gradient(
           135deg,
           rgba(255, 255, 255, 0.1) 0%,
@@ -274,7 +265,7 @@
             border-radius: 6px;
             font-size: 0.85rem;
             font-weight: 600;
-            font-family: 'KaiTi', 'STKaiti', serif;
+            font-family: KaiTi, STKaiti, serif;
             box-shadow:
               0 6px 16px rgba(139, 0, 0, 0.6),
               0 3px 8px rgba(0, 0, 0, 0.3),
@@ -425,10 +416,7 @@
 
           .image-placeholder {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            inset: 0;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -515,7 +503,7 @@
         .museum-name {
           font-size: 1.6rem;
           font-weight: 700;
-          font-family: 'FangSong', 'STFangsong', serif;
+          font-family: fangsong, STFangsong, serif;
           color: #8b4513;
           margin: 10px 0;
           line-height: 1.4;
@@ -611,7 +599,7 @@
           display: -webkit-box;
           -webkit-box-orient: vertical;
           overflow: hidden;
-          font-family: 'LiSu';
+          font-family: LiSu, serif;
           text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
         }
 
@@ -685,7 +673,6 @@
                 transform: translateY(0);
               }
             }
-
           }
         }
       }
@@ -700,7 +687,7 @@
     text-align: center;
     padding: 80px 40px;
     border-radius: 20px;
-    margin: 1rem 2rem 2rem 2rem;
+    margin: 1rem 2rem 2rem;
     border: 3px solid rgba(212, 197, 176, 0.6);
     box-shadow:
       0 8px 24px rgba(139, 69, 19, 0.16),
@@ -715,9 +702,21 @@
       inset: 0;
       pointer-events: none;
       background:
-        linear-gradient(135deg, rgba(255, 248, 235, 0.9) 0%, rgba(250, 242, 226, 0.7) 100%),
-        radial-gradient(ellipse at 20% 15%, rgba(255, 200, 100, 0.25) 0%, transparent 45%),
-        radial-gradient(ellipse at 85% 80%, rgba(139, 105, 20, 0.18) 0%, transparent 45%);
+        linear-gradient(
+          135deg,
+          rgba(255, 248, 235, 0.9) 0%,
+          rgba(250, 242, 226, 0.7) 100%
+        ),
+        radial-gradient(
+          ellipse at 20% 15%,
+          rgba(255, 200, 100, 0.25) 0%,
+          transparent 45%
+        ),
+        radial-gradient(
+          ellipse at 85% 80%,
+          rgba(139, 105, 20, 0.18) 0%,
+          transparent 45%
+        );
       z-index: 0;
 
       .bg-icon {
@@ -730,18 +729,102 @@
           height: 100%;
         }
 
-        &.bg-icon-1 { top: 8%; left: 12%; width: 52px; height: 52px; animation-delay: 0s; color: rgba(198, 111, 6, 0.38); }
-        &.bg-icon-2 { top: 12%; right: 14%; width: 44px; height: 44px; animation-delay: 0.8s; color: rgba(30, 111, 164, 0.36); }
-        &.bg-icon-3 { top: 22%; left: 32%; width: 34px; height: 34px; animation-delay: 1.6s; color: rgba(180, 120, 40, 0.4); }
-        &.bg-icon-4 { top: 5%; right: 38%; width: 30px; height: 30px; animation-delay: 2.2s; color: rgba(194, 170, 30, 0.4); }
-        &.bg-icon-5 { bottom: 10%; left: 8%; width: 58px; height: 58px; animation-delay: 1s; color: rgba(23, 137, 120, 0.34); }
-        &.bg-icon-6 { bottom: 18%; right: 10%; width: 46px; height: 46px; animation-delay: 2.8s; color: rgba(30, 111, 164, 0.36); }
-        &.bg-icon-7 { bottom: 30%; left: 22%; width: 38px; height: 38px; animation-delay: 0.4s; color: rgba(198, 111, 6, 0.38); }
-        &.bg-icon-8 { bottom: 8%; right: 26%; width: 32px; height: 32px; animation-delay: 3.4s; color: rgba(194, 170, 30, 0.4); }
-        &.bg-icon-9 { top: 40%; right: 6%; width: 56px; height: 56px; animation-delay: 1.2s; color: rgba(176, 66, 58, 0.32); }
-        &.bg-icon-10 { top: 45%; left: 6%; width: 42px; height: 42px; animation-delay: 2s; color: rgba(23, 137, 120, 0.34); }
-        &.bg-icon-11 { top: 30%; left: 85%; width: 36px; height: 36px; animation-delay: 4s; color: rgba(30, 111, 164, 0.36); }
-        &.bg-icon-12 { bottom: 42%; left: 40%; width: 28px; height: 28px; animation-delay: 3s; color: rgba(194, 170, 30, 0.4); }
+        &.bg-icon-1 {
+          top: 8%;
+          left: 12%;
+          width: 52px;
+          height: 52px;
+          animation-delay: 0s;
+          color: rgba(198, 111, 6, 0.38);
+        }
+        &.bg-icon-2 {
+          top: 12%;
+          right: 14%;
+          width: 44px;
+          height: 44px;
+          animation-delay: 0.8s;
+          color: rgba(30, 111, 164, 0.36);
+        }
+        &.bg-icon-3 {
+          top: 22%;
+          left: 32%;
+          width: 34px;
+          height: 34px;
+          animation-delay: 1.6s;
+          color: rgba(180, 120, 40, 0.4);
+        }
+        &.bg-icon-4 {
+          top: 5%;
+          right: 38%;
+          width: 30px;
+          height: 30px;
+          animation-delay: 2.2s;
+          color: rgba(194, 170, 30, 0.4);
+        }
+        &.bg-icon-5 {
+          bottom: 10%;
+          left: 8%;
+          width: 58px;
+          height: 58px;
+          animation-delay: 1s;
+          color: rgba(23, 137, 120, 0.34);
+        }
+        &.bg-icon-6 {
+          bottom: 18%;
+          right: 10%;
+          width: 46px;
+          height: 46px;
+          animation-delay: 2.8s;
+          color: rgba(30, 111, 164, 0.36);
+        }
+        &.bg-icon-7 {
+          bottom: 30%;
+          left: 22%;
+          width: 38px;
+          height: 38px;
+          animation-delay: 0.4s;
+          color: rgba(198, 111, 6, 0.38);
+        }
+        &.bg-icon-8 {
+          bottom: 8%;
+          right: 26%;
+          width: 32px;
+          height: 32px;
+          animation-delay: 3.4s;
+          color: rgba(194, 170, 30, 0.4);
+        }
+        &.bg-icon-9 {
+          top: 40%;
+          right: 6%;
+          width: 56px;
+          height: 56px;
+          animation-delay: 1.2s;
+          color: rgba(176, 66, 58, 0.32);
+        }
+        &.bg-icon-10 {
+          top: 45%;
+          left: 6%;
+          width: 42px;
+          height: 42px;
+          animation-delay: 2s;
+          color: rgba(23, 137, 120, 0.34);
+        }
+        &.bg-icon-11 {
+          top: 30%;
+          left: 85%;
+          width: 36px;
+          height: 36px;
+          animation-delay: 4s;
+          color: rgba(30, 111, 164, 0.36);
+        }
+        &.bg-icon-12 {
+          bottom: 42%;
+          left: 40%;
+          width: 28px;
+          height: 28px;
+          animation-delay: 3s;
+          color: rgba(194, 170, 30, 0.4);
+        }
       }
     }
 
@@ -783,7 +866,11 @@
         width: 120px;
         height: 120px;
         border-radius: 50%;
-        background: radial-gradient(circle, rgba(255, 200, 100, 0.35) 0%, transparent 70%);
+        background: radial-gradient(
+          circle,
+          rgba(255, 200, 100, 0.35) 0%,
+          transparent 70%
+        );
         filter: blur(8px);
         z-index: -1;
         animation: iconPulse 3s ease-in-out infinite;
@@ -793,7 +880,7 @@
     h3 {
       font-size: 1.8rem;
       font-weight: 700;
-      font-family: 'FangSong', 'STFangsong', serif;
+      font-family: fangsong, STFangsong, serif;
       color: #2a1a0a;
       margin-bottom: 14px;
       letter-spacing: 0.05em;
@@ -803,14 +890,14 @@
     .no-results-desc {
       font-size: 1.05rem;
       color: #6b4a2a;
-      margin: 0 0 6px 0;
+      margin: 0 0 6px;
       font-weight: 500;
     }
 
     .no-results-hint {
       font-size: 0.9rem;
       color: #9a8a6a;
-      margin: 0 0 28px 0;
+      margin: 0 0 28px;
     }
 
     .reset-btn {
@@ -823,7 +910,7 @@
       border: none;
       border-radius: 25px;
       font-size: 1rem;
-      font-family: 'FangSong', 'STFangsong', serif;
+      font-family: fangsong, STFangsong, serif;
       letter-spacing: 0.05em;
       cursor: pointer;
       box-shadow:
@@ -855,6 +942,7 @@
       opacity: 0;
       transform: translateY(20px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
@@ -862,10 +950,12 @@
   }
 
   @keyframes bgIconDrift {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateY(0) rotate(-6deg);
       opacity: 0.5;
     }
+
     50% {
       transform: translateY(-18px) rotate(10deg);
       opacity: 0.9;
@@ -873,10 +963,12 @@
   }
 
   @keyframes iconPulse {
-    0%, 100% {
+    0%,
+    100% {
       transform: scale(0.9);
       opacity: 0.5;
     }
+
     50% {
       transform: scale(1.15);
       opacity: 1;

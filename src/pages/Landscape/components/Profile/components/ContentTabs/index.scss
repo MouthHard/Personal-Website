@@ -1,25 +1,46 @@
 ﻿@keyframes drip-fall {
-  0% { transform: translateY(0) scaleY(1); opacity: 0.7; }
-  60% { transform: translateY(14px) scaleY(1.5); opacity: 0.4; }
-  100% { transform: translateY(22px) scaleY(0.5); opacity: 0; }
+  0% {
+    transform: translateY(0) scaleY(1);
+    opacity: 0.7;
+  }
+  60% {
+    transform: translateY(14px) scaleY(1.5);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(22px) scaleY(0.5);
+    opacity: 0;
+  }
 }
 
 @keyframes chemical-swirl {
-  0% { transform: rotate(0deg) scale(1); }
-  50% { transform: rotate(180deg) scale(1.15); }
-  100% { transform: rotate(360deg) scale(1); }
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.15);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
 }
 
 @keyframes safelight-pulse {
-  0%, 100% { opacity: 0.7; }
-  50% { opacity: 1; }
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 .darkroom-nav {
   position: relative;
   z-index: 1;
   padding: 0 40px;
-  background: linear-gradient(180deg,
+  background: linear-gradient(
+    180deg,
     rgba(28, 14, 8, 0.55) 0%,
     rgba(20, 10, 4, 0.65) 100%
   );
@@ -38,16 +59,21 @@
       left: 0;
       right: 0;
       height: 6px;
-      background: repeating-linear-gradient(90deg,
-        rgba(220, 120, 50, 0.06) 0px,
+      background: repeating-linear-gradient(
+        90deg,
+        rgba(220, 120, 50, 0.06) 0,
         rgba(220, 120, 50, 0.06) 6px,
         transparent 6px,
         transparent 20px
       );
     }
 
-    &::before { top: 0; }
-    &::after { bottom: 0; }
+    &::before {
+      top: 0;
+    }
+    &::after {
+      bottom: 0;
+    }
 
     .strip-perf {
       position: absolute;
@@ -59,24 +85,52 @@
 
       &.top {
         top: 0;
-        &:nth-child(1) { left: 3%; }
-        &:nth-child(2) { left: 16%; }
-        &:nth-child(3) { left: 29%; }
-        &:nth-child(4) { left: 42%; }
-        &:nth-child(5) { left: 55%; }
-        &:nth-child(6) { left: 68%; }
-        &:nth-child(7) { left: 81%; }
+        &:nth-child(1) {
+          left: 3%;
+        }
+        &:nth-child(2) {
+          left: 16%;
+        }
+        &:nth-child(3) {
+          left: 29%;
+        }
+        &:nth-child(4) {
+          left: 42%;
+        }
+        &:nth-child(5) {
+          left: 55%;
+        }
+        &:nth-child(6) {
+          left: 68%;
+        }
+        &:nth-child(7) {
+          left: 81%;
+        }
       }
 
       &.bottom {
         bottom: 0;
-        &:nth-child(8) { left: 9%; }
-        &:nth-child(9) { left: 22%; }
-        &:nth-child(10) { left: 35%; }
-        &:nth-child(11) { left: 48%; }
-        &:nth-child(12) { left: 61%; }
-        &:nth-child(13) { left: 74%; }
-        &:nth-child(14) { left: 87%; }
+        &:nth-child(8) {
+          left: 9%;
+        }
+        &:nth-child(9) {
+          left: 22%;
+        }
+        &:nth-child(10) {
+          left: 35%;
+        }
+        &:nth-child(11) {
+          left: 48%;
+        }
+        &:nth-child(12) {
+          left: 61%;
+        }
+        &:nth-child(13) {
+          left: 74%;
+        }
+        &:nth-child(14) {
+          left: 87%;
+        }
       }
     }
 
@@ -90,6 +144,7 @@
       &::-webkit-scrollbar {
         height: 2px;
       }
+
       &::-webkit-scrollbar-thumb {
         background: rgba(220, 120, 50, 0.25);
         border-radius: 1px;
@@ -98,6 +153,7 @@
       .nav-tab {
         --hx: 50%;
         --hy: 50%;
+
         position: relative;
         display: flex;
         align-items: center;
@@ -109,7 +165,7 @@
         color: rgba(240, 190, 140, 0.55);
         font-size: 15px;
         font-weight: 700;
-        font-family: 'Georgia', 'Times New Roman', serif;
+        font-family: Georgia, 'Times New Roman', serif;
         letter-spacing: 0.5px;
         cursor: pointer;
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -120,8 +176,9 @@
         .tab-safelight {
           position: absolute;
           inset: 0;
-          background: radial-gradient(ellipse at -10% 50%,
-            rgba(240, 80, 30, 0.0) 0%,
+          background: radial-gradient(
+            ellipse at -10% 50%,
+            rgba(240, 80, 30, 0) 0%,
             transparent 70%
           );
           opacity: 0;
@@ -132,7 +189,8 @@
         .tab-develop-trail {
           position: absolute;
           inset: 0;
-          background: radial-gradient(circle 60px at var(--hx) var(--hy),
+          background: radial-gradient(
+            circle 60px at var(--hx) var(--hy),
             rgba(240, 100, 30, 0.15) 0%,
             rgba(220, 80, 20, 0.05) 40%,
             transparent 70%
@@ -179,10 +237,26 @@
           position: absolute;
           inset: 0;
           background-image:
-            radial-gradient(1px 1px at 15% 25%, rgba(220, 120, 50, 0.05), transparent),
-            radial-gradient(1px 1px at 75% 55%, rgba(220, 120, 50, 0.04), transparent),
-            radial-gradient(1px 1px at 45% 85%, rgba(220, 120, 50, 0.05), transparent),
-            radial-gradient(1px 1px at 90% 15%, rgba(220, 120, 50, 0.03), transparent);
+            radial-gradient(
+              1px 1px at 15% 25%,
+              rgba(220, 120, 50, 0.05),
+              transparent
+            ),
+            radial-gradient(
+              1px 1px at 75% 55%,
+              rgba(220, 120, 50, 0.04),
+              transparent
+            ),
+            radial-gradient(
+              1px 1px at 45% 85%,
+              rgba(220, 120, 50, 0.05),
+              transparent
+            ),
+            radial-gradient(
+              1px 1px at 90% 15%,
+              rgba(220, 120, 50, 0.03),
+              transparent
+            );
           pointer-events: none;
           opacity: 0;
           transition: opacity 0.4s ease;
@@ -198,9 +272,15 @@
           opacity: 0;
           pointer-events: none;
 
-          &.drip-1 { left: 25%; }
-          &.drip-2 { left: 50%; }
-          &.drip-3 { left: 75%; }
+          &.drip-1 {
+            left: 25%;
+          }
+          &.drip-2 {
+            left: 50%;
+          }
+          &.drip-3 {
+            left: 75%;
+          }
         }
 
         &:hover {
@@ -212,9 +292,16 @@
             0 2px 10px rgba(0, 0, 0, 0.35),
             inset 0 1px 0 rgba(220, 120, 50, 0.08);
 
-          .tab-icon { opacity: 0.85; }
-          .tab-safelight { opacity: 0.35; }
-          .tab-develop-trail { opacity: 1; }
+          .tab-icon {
+            opacity: 0.85;
+          }
+          .tab-safelight {
+            opacity: 0.35;
+          }
+          .tab-develop-trail {
+            opacity: 1;
+          }
+
           .tab-count {
             background: rgba(220, 120, 50, 0.25);
             border-color: rgba(220, 120, 50, 0.18);
@@ -223,7 +310,8 @@
         }
 
         &.active {
-          background: linear-gradient(135deg,
+          background: linear-gradient(
+            135deg,
             rgba(160, 55, 20, 0.35) 0%,
             rgba(130, 45, 15, 0.28) 50%,
             rgba(100, 35, 10, 0.22) 100%
@@ -241,7 +329,8 @@
 
           .tab-safelight {
             opacity: 1;
-            background: radial-gradient(ellipse at -20% 50%,
+            background: radial-gradient(
+              ellipse at -20% 50%,
               rgba(240, 70, 20, 0.2) 0%,
               rgba(220, 60, 15, 0.12) 40%,
               transparent 75%
@@ -249,7 +338,9 @@
             animation: safelight-pulse 3s ease-in-out infinite;
           }
 
-          .tab-develop-trail { opacity: 0; }
+          .tab-develop-trail {
+            opacity: 0;
+          }
 
           .tab-icon {
             opacity: 1;
@@ -258,7 +349,8 @@
           }
 
           .tab-count {
-            background: linear-gradient(180deg,
+            background: linear-gradient(
+              180deg,
               rgba(240, 110, 40, 0.4) 0%,
               rgba(220, 90, 30, 0.3) 100%
             );
@@ -266,14 +358,27 @@
             color: rgba(255, 220, 170, 1);
           }
 
-          .tab-grain { opacity: 1; }
+          .tab-grain {
+            opacity: 1;
+          }
 
           .tab-drip {
             opacity: 1;
             animation: drip-fall 2s ease-in infinite;
-            &.drip-1 { animation-delay: 0s; height: 5px; }
-            &.drip-2 { animation-delay: 0.6s; height: 3px; left: 52%; }
-            &.drip-3 { animation-delay: 1.2s; height: 4px; left: 73%; }
+            &.drip-1 {
+              animation-delay: 0s;
+              height: 5px;
+            }
+            &.drip-2 {
+              animation-delay: 0.6s;
+              height: 3px;
+              left: 52%;
+            }
+            &.drip-3 {
+              animation-delay: 1.2s;
+              height: 4px;
+              left: 73%;
+            }
           }
 
           &::before {
@@ -283,7 +388,8 @@
             top: 15%;
             bottom: 15%;
             width: 3px;
-            background: linear-gradient(180deg,
+            background: linear-gradient(
+              180deg,
               transparent 0%,
               rgba(255, 100, 40, 0.5) 30%,
               rgba(255, 120, 50, 0.7) 50%,
@@ -301,7 +407,8 @@
             left: 15%;
             right: 15%;
             height: 2px;
-            background: linear-gradient(90deg,
+            background: linear-gradient(
+              90deg,
               transparent 0%,
               rgba(240, 100, 40, 0.7) 20%,
               rgba(255, 120, 50, 0.9) 50%,
@@ -312,7 +419,8 @@
           }
 
           &:hover {
-            background: linear-gradient(135deg,
+            background: linear-gradient(
+              135deg,
               rgba(180, 60, 22, 0.4) 0%,
               rgba(150, 50, 18, 0.32) 50%,
               rgba(120, 40, 12, 0.26) 100%
@@ -330,7 +438,10 @@
     padding: 0 16px;
 
     .film-strip {
-      &::before, &::after { height: 5px; }
+      &::before,
+      &::after {
+        height: 5px;
+      }
 
       .nav-track {
         padding: 3px 16px;

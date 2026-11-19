@@ -24,13 +24,20 @@ $amber-glow: rgba(251, 146, 60, 0.5);
 
   // 结果计数条
   .result-count-bar {
-    font-size: 13px; font-weight: 500; color: rgba(255, 220, 200, 0.6);
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255, 220, 200, 0.6);
     padding: 0 4px;
+
     .result-count-num {
-      color: #fed7aa; font-weight: 700; font-size: 15px;
+      color: #fed7aa;
+      font-weight: 700;
+      font-size: 15px;
     }
+
     .result-count-keyword {
-      color: rgba(255, 200, 150, 0.8); font-weight: 600;
+      color: rgba(255, 200, 150, 0.8);
+      font-weight: 600;
     }
   }
 }

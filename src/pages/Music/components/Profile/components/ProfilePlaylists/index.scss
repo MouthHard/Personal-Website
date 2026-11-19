@@ -13,7 +13,7 @@
   .category-title {
     font-size: 16px;
     color: #fff;
-    margin: 0 0 16px 0;
+    margin: 0 0 16px;
     padding-left: 12px;
     position: relative;
 
@@ -25,7 +25,7 @@
       transform: translateY(-50%);
       width: 3px;
       height: 16px;
-      background: linear-gradient(180deg, #4ECDC4, #44A08D);
+      background: linear-gradient(180deg, #4ecdc4, #44a08d);
       border-radius: 2px;
     }
   }
@@ -73,9 +73,11 @@
     overflow: hidden;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    background: linear-gradient(145deg,
-        rgba(255, 255, 255, 0.08) 0%,
-        rgba(255, 255, 255, 0.03) 100%);
+    background: linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(255, 255, 255, 0.03) 100%
+    );
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow:
       0 4px 16px rgba(0, 0, 0, 0.15),
@@ -86,13 +88,12 @@
     &::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(135deg,
-          rgba(255, 255, 255, 0.1) 0%,
-          transparent 50%);
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        transparent 50%
+      );
       opacity: 0;
       transition: opacity 0.3s ease;
       pointer-events: none;
@@ -107,9 +108,11 @@
         0 0 0 1px rgba(255, 255, 255, 0.15),
         inset 0 1px 0 rgba(255, 255, 255, 0.2);
       border-color: rgba(255, 255, 255, 0.2);
-      background: linear-gradient(145deg,
-          rgba(255, 255, 255, 0.12) 0%,
-          rgba(255, 255, 255, 0.05) 100%);
+      background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.12) 0%,
+        rgba(255, 255, 255, 0.05) 100%
+      );
 
       &::before {
         opacity: 1;
@@ -156,7 +159,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
+    background: linear-gradient(
+      135deg,
+      rgba(102, 126, 234, 0.2) 0%,
+      rgba(118, 75, 162, 0.2) 100%
+    );
 
     .placeholder-icon {
       font-size: 48px;
@@ -167,10 +174,12 @@
   .default-cover-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top,
-        rgba(0, 0, 0, 0.85) 0%,
-        rgba(0, 0, 0, 0.4) 40%,
-        transparent 70%);
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.85) 0%,
+      rgba(0, 0, 0, 0.4) 40%,
+      transparent 70%
+    );
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -213,9 +222,11 @@
     }
 
     &.like-btn {
-      background: linear-gradient(145deg,
-          rgba(236, 72, 153, 0.95) 0%,
-          rgba(219, 39, 119, 0.85) 100%);
+      background: linear-gradient(
+        145deg,
+        rgba(236, 72, 153, 0.95) 0%,
+        rgba(219, 39, 119, 0.85) 100%
+      );
       box-shadow:
         0 6px 20px rgba(236, 72, 153, 0.5),
         0 0 20px rgba(219, 39, 119, 0.3),
@@ -232,9 +243,11 @@
     &.play-btn {
       width: 52px;
       height: 52px;
-      background: linear-gradient(145deg,
-          rgba(59, 130, 246, 0.95) 0%,
-          rgba(37, 99, 235, 0.85) 100%);
+      background: linear-gradient(
+        145deg,
+        rgba(59, 130, 246, 0.95) 0%,
+        rgba(37, 99, 235, 0.85) 100%
+      );
       box-shadow:
         0 8px 24px rgba(59, 130, 246, 0.6),
         0 0 30px rgba(37, 99, 235, 0.4),
@@ -254,9 +267,11 @@
     }
 
     &.share-btn {
-      background: linear-gradient(145deg,
-          rgba(16, 185, 129, 0.95) 0%,
-          rgba(5, 150, 105, 0.85) 100%);
+      background: linear-gradient(
+        145deg,
+        rgba(16, 185, 129, 0.95) 0%,
+        rgba(5, 150, 105, 0.85) 100%
+      );
       box-shadow:
         0 6px 20px rgba(16, 185, 129, 0.5),
         0 0 20px rgba(5, 150, 105, 0.3),
@@ -277,9 +292,11 @@
 
   .default-card-info {
     padding: 14px 16px;
-    background: linear-gradient(180deg,
-        rgba(0, 0, 0, 0.2) 0%,
-        transparent 100%);
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.2) 0%,
+      transparent 100%
+    );
   }
 
   .default-card-name {
@@ -325,9 +342,11 @@
   .song-tag {
     font-size: 10px;
     padding: 5px 10px;
-    background: linear-gradient(135deg,
-        rgba(59, 130, 246, 0.25) 0%,
-        rgba(99, 102, 241, 0.15) 100%);
+    background: linear-gradient(
+      135deg,
+      rgba(59, 130, 246, 0.25) 0%,
+      rgba(99, 102, 241, 0.15) 100%
+    );
     border: 1px solid rgba(59, 130, 246, 0.3);
     border-radius: 10px;
     color: rgba(147, 197, 253, 1);
@@ -339,9 +358,11 @@
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
 
     &:hover {
-      background: linear-gradient(135deg,
-          rgba(59, 130, 246, 0.4) 0%,
-          rgba(99, 102, 241, 0.3) 100%);
+      background: linear-gradient(
+        135deg,
+        rgba(59, 130, 246, 0.4) 0%,
+        rgba(99, 102, 241, 0.3) 100%
+      );
       border-color: rgba(59, 130, 246, 0.5);
       transform: translateY(-2px);
       box-shadow:
@@ -372,15 +393,19 @@
 
   .created-card {
     .playlist-inner {
-      background: linear-gradient(145deg,
-          rgba(255, 255, 255, 0.06) 0%,
-          rgba(255, 255, 255, 0.02) 100%);
+      background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.06) 0%,
+        rgba(255, 255, 255, 0.02) 100%
+      );
       border: 1px solid rgba(255, 140, 0, 0.1);
 
       &:hover {
-        background: linear-gradient(145deg,
-            rgba(255, 140, 0, 0.12) 0%,
-            rgba(255, 165, 0, 0.06) 100%);
+        background: linear-gradient(
+          145deg,
+          rgba(255, 140, 0, 0.12) 0%,
+          rgba(255, 165, 0, 0.06) 100%
+        );
         border-color: rgba(255, 140, 0, 0.25);
         box-shadow:
           0 16px 40px rgba(255, 140, 0, 0.15),
@@ -392,15 +417,19 @@
 
   .collected-card {
     .playlist-inner {
-      background: linear-gradient(145deg,
-          rgba(16, 185, 129, 0.08) 0%,
-          rgba(5, 150, 105, 0.03) 100%);
+      background: linear-gradient(
+        145deg,
+        rgba(16, 185, 129, 0.08) 0%,
+        rgba(5, 150, 105, 0.03) 100%
+      );
       border: 1px solid rgba(16, 185, 129, 0.15);
 
       &:hover {
-        background: linear-gradient(145deg,
-            rgba(16, 185, 129, 0.15) 0%,
-            rgba(5, 150, 105, 0.08) 100%);
+        background: linear-gradient(
+          145deg,
+          rgba(16, 185, 129, 0.15) 0%,
+          rgba(5, 150, 105, 0.08) 100%
+        );
         border-color: rgba(16, 185, 129, 0.35);
         box-shadow:
           0 16px 40px rgba(16, 185, 129, 0.2),
@@ -411,9 +440,11 @@
   }
 
   .playlist-inner {
-    background: linear-gradient(145deg,
-        rgba(255, 255, 255, 0.08) 0%,
-        rgba(255, 255, 255, 0.03) 100%);
+    background: linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(255, 255, 255, 0.03) 100%
+    );
     border-radius: 18px;
     padding: 14px;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -423,9 +454,11 @@
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
 
     &:hover {
-      background: linear-gradient(145deg,
-          rgba(255, 255, 255, 0.12) 0%,
-          rgba(255, 255, 255, 0.05) 100%);
+      background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.12) 0%,
+        rgba(255, 255, 255, 0.05) 100%
+      );
       border-color: rgba(255, 255, 255, 0.15);
       box-shadow:
         0 12px 32px rgba(0, 0, 0, 0.25),
@@ -461,7 +494,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
+    background: linear-gradient(
+      135deg,
+      rgba(102, 126, 234, 0.15) 0%,
+      rgba(118, 75, 162, 0.15) 100%
+    );
 
     .placeholder-icon {
       font-size: 48px;
@@ -515,9 +552,11 @@
 
   .created-action-btn {
     &.favorite-btn {
-      background: linear-gradient(145deg,
-          rgba(255, 140, 0, 0.95) 0%,
-          rgba(255, 165, 0, 0.85) 100%);
+      background: linear-gradient(
+        145deg,
+        rgba(255, 140, 0, 0.95) 0%,
+        rgba(255, 165, 0, 0.85) 100%
+      );
       box-shadow:
         0 6px 16px rgba(255, 140, 0, 0.5),
         0 0 15px rgba(255, 165, 0, 0.3);
@@ -533,9 +572,11 @@
     &.play-btn {
       width: 48px;
       height: 48px;
-      background: linear-gradient(145deg,
-          rgba(255, 140, 0, 1) 0%,
-          rgba(255, 165, 0, 0.9) 100%);
+      background: linear-gradient(
+        145deg,
+        rgba(255, 140, 0, 1) 0%,
+        rgba(255, 165, 0, 0.9) 100%
+      );
       box-shadow:
         0 8px 20px rgba(255, 140, 0, 0.6),
         0 0 25px rgba(255, 165, 0, 0.4);
@@ -554,25 +595,27 @@
     }
 
     &.more-btn {
-      background: linear-gradient(145deg,
-          rgba(255, 140, 0, 0.85) 0%,
-          rgba(255, 165, 0, 0.75) 100%);
-      box-shadow:
-        0 4px 12px rgba(255, 140, 0, 0.4);
+      background: linear-gradient(
+        145deg,
+        rgba(255, 140, 0, 0.85) 0%,
+        rgba(255, 165, 0, 0.75) 100%
+      );
+      box-shadow: 0 4px 12px rgba(255, 140, 0, 0.4);
 
       &:hover {
         transform: scale(1.15) rotate(8deg);
-        box-shadow:
-          0 8px 20px rgba(255, 140, 0, 0.5);
+        box-shadow: 0 8px 20px rgba(255, 140, 0, 0.5);
       }
     }
   }
 
   .collected-action-btn {
     &.download-btn {
-      background: linear-gradient(145deg,
-          rgba(16, 185, 129, 0.95) 0%,
-          rgba(5, 150, 105, 0.85) 100%);
+      background: linear-gradient(
+        145deg,
+        rgba(16, 185, 129, 0.95) 0%,
+        rgba(5, 150, 105, 0.85) 100%
+      );
       box-shadow:
         0 6px 16px rgba(16, 185, 129, 0.5),
         0 0 15px rgba(5, 150, 105, 0.3);
@@ -588,9 +631,11 @@
     &.play-btn {
       width: 48px;
       height: 48px;
-      background: linear-gradient(145deg,
-          rgba(16, 185, 129, 1) 0%,
-          rgba(5, 150, 105, 0.9) 100%);
+      background: linear-gradient(
+        145deg,
+        rgba(16, 185, 129, 1) 0%,
+        rgba(5, 150, 105, 0.9) 100%
+      );
       box-shadow:
         0 8px 20px rgba(16, 185, 129, 0.6),
         0 0 25px rgba(5, 150, 105, 0.4);
@@ -609,16 +654,16 @@
     }
 
     &.add-btn {
-      background: linear-gradient(145deg,
-          rgba(16, 185, 129, 0.85) 0%,
-          rgba(5, 150, 105, 0.75) 100%);
-      box-shadow:
-        0 4px 12px rgba(16, 185, 129, 0.4);
+      background: linear-gradient(
+        145deg,
+        rgba(16, 185, 129, 0.85) 0%,
+        rgba(5, 150, 105, 0.75) 100%
+      );
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
 
       &:hover {
         transform: scale(1.15) rotate(90deg);
-        box-shadow:
-          0 8px 20px rgba(16, 185, 129, 0.5);
+        box-shadow: 0 8px 20px rgba(16, 185, 129, 0.5);
       }
     }
   }
@@ -630,9 +675,11 @@
     display: flex;
     align-items: center;
     gap: 4px;
-    background: linear-gradient(145deg,
-        rgba(255, 140, 0, 0.9) 0%,
-        rgba(255, 165, 0, 0.8) 100%);
+    background: linear-gradient(
+      145deg,
+      rgba(255, 140, 0, 0.9) 0%,
+      rgba(255, 165, 0, 0.8) 100%
+    );
     backdrop-filter: blur(8px);
     padding: 5px 10px;
     border-radius: 12px;
@@ -653,9 +700,11 @@
     position: absolute;
     top: 10px;
     right: 10px;
-    background: linear-gradient(145deg,
-        rgba(16, 185, 129, 0.9) 0%,
-        rgba(5, 150, 105, 0.8) 100%);
+    background: linear-gradient(
+      145deg,
+      rgba(16, 185, 129, 0.9) 0%,
+      rgba(5, 150, 105, 0.8) 100%
+    );
     backdrop-filter: blur(8px);
     padding: 5px 10px;
     border-radius: 12px;
@@ -736,11 +785,10 @@
     font-size: 14px;
     font-weight: 600;
     color: #fff;
-    margin: 0 0 6px 0;
+    margin: 0 0 6px;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-
     -webkit-box-orient: vertical;
     min-height: 20px;
   }
@@ -748,7 +796,7 @@
   .playlist-desc {
     font-size: 12px;
     color: rgba(255, 255, 255, 0.6);
-    margin: 0 0 6px 0;
+    margin: 0 0 6px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -758,9 +806,11 @@
     position: absolute;
     top: 8px;
     left: 8px;
-    background: linear-gradient(145deg,
-        rgba(59, 130, 246, 0.85) 0%,
-        rgba(37, 99, 235, 0.75) 100%);
+    background: linear-gradient(
+      145deg,
+      rgba(59, 130, 246, 0.85) 0%,
+      rgba(37, 99, 235, 0.75) 100%
+    );
     backdrop-filter: blur(8px);
     padding: 5px 12px;
     border-radius: 10px;
@@ -778,9 +828,11 @@
     position: absolute;
     top: 8px;
     left: 8px;
-    background: linear-gradient(145deg,
-        rgba(16, 185, 129, 0.85) 0%,
-        rgba(5, 150, 105, 0.75) 100%);
+    background: linear-gradient(
+      145deg,
+      rgba(16, 185, 129, 0.85) 0%,
+      rgba(5, 150, 105, 0.75) 100%
+    );
     backdrop-filter: blur(8px);
     padding: 5px 12px;
     border-radius: 10px;

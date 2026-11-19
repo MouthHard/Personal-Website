@@ -243,10 +243,12 @@
               border-radius: 50% 50% 0 0;
               transform: rotate(-8deg);
             }
+
             .bird-a {
               top: 34%;
               right: 28%;
             }
+
             .bird-b {
               top: 44%;
               right: 16%;
@@ -310,6 +312,7 @@
             transform: rotateY(22deg);
             transform-origin: right center;
             border-radius: 3px 0 0 3px;
+
             &::after {
               right: -5px;
             }
@@ -319,6 +322,7 @@
             transform: rotateY(-22deg);
             transform-origin: left center;
             border-radius: 0 3px 3px 0;
+
             &::after {
               left: -5px;
             }
@@ -491,9 +495,11 @@
                   0 6px 0 #264432,
                   0 10px 0 #1b3225,
                   0 14px 18px rgb(30 50 32 / 42%);
+
                 &::before {
                   transform: translateX(130%);
                 }
+
                 .hint-arrow {
                   transform: translateX(5px);
                 }
@@ -514,6 +520,7 @@
             .screen-wing {
               flex-basis: 96px;
             }
+
             .screen-panel {
               padding: 6px 16px 4px;
             }

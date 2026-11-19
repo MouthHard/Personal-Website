@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
 }
+
 .artifacts-section {
   background-image: url('https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/museum/home/Artifact.webp');
   background-size: cover;
@@ -31,14 +32,17 @@
       margin-bottom: 1.5rem;
       filter: drop-shadow(0 4px 12px rgba(120, 119, 198, 0.3));
       animation: floatIcon 3s ease-in-out infinite;
-      svg { width: 64px; height: 64px; }
+      svg {
+        width: 64px;
+        height: 64px;
+      }
     }
 
     .empty-title {
       font-size: 1.6rem;
       color: #e0e0ff;
-      margin: 0 0 0.75rem 0;
-      font-family: 'FangSong', 'STFangsong', serif;
+      margin: 0 0 0.75rem;
+      font-family: fangsong, STFangsong, serif;
       letter-spacing: 0.1em;
       text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
     }
@@ -53,9 +57,15 @@
   }
 
   @keyframes floatIcon {
-    0%, 100% { transform: translateY(0); }
-    50%      { transform: translateY(-10px); }
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
   }
+
   animation: fadeInUp 0.8s ease-out forwards;
   opacity: 0;
   min-height: 65vh;
@@ -76,11 +86,12 @@
     z-index: 1;
     height: 10%;
     box-sizing: border-box;
+
     .section-title {
       font-size: 2.4rem;
-      font-family: 'FangSong', 'STFangsong', serif;
+      font-family: fangsong, STFangsong, serif;
       color: #f5e6d3;
-      margin: 0 0 1rem 0;
+      margin: 0 0 1rem;
       text-shadow:
         0 2px 4px rgba(0, 0, 0, 0.5),
         0 0 30px rgba(189, 137, 68, 0.3);
@@ -95,7 +106,7 @@
         margin: 0 1.5rem;
         font-size: 1.8rem;
         text-shadow: 0 0 15px rgba(189, 137, 68, 0.6);
-        font-family: 'SimSun', serif;
+        font-family: SimSun, serif;
       }
 
       &::after {
@@ -104,7 +115,7 @@
         margin: 0 1.5rem;
         font-size: 1.8rem;
         text-shadow: 0 0 15px rgba(189, 137, 68, 0.6);
-        font-family: 'SimSun', serif;
+        font-family: SimSun, serif;
       }
     }
 
@@ -122,7 +133,7 @@
       border: 1px solid rgba(212, 165, 116, 0.3);
       border-radius: 8px;
       font-size: 1.4rem;
-      font-family: 'FangSong', 'STFangsong', serif;
+      font-family: fangsong, STFangsong, serif;
       cursor: pointer;
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       letter-spacing: 0.5em;
@@ -136,7 +147,6 @@
         0 4px 12px rgba(0, 0, 0, 1),
         inset 0 1px 3px rgba(212, 165, 116, 0.4),
         inset 0 -1px 3px rgba(0, 0, 0, 0.7);
-
       background-image:
         linear-gradient(
           90deg,
@@ -146,7 +156,7 @@
         ),
         repeating-linear-gradient(
           45deg,
-          rgba(212, 165, 116, 0.5) 0px,
+          rgba(212, 165, 116, 0.5) 0,
           rgba(212, 165, 116, 0.5) 2px,
           transparent 2px,
           transparent 4px
@@ -157,11 +167,11 @@
           rgb(138, 115, 51) 50%,
           transparent 100%
         );
-
       border-top: 1px solid rgba(255, 240, 200, 0.6);
       border-bottom: 1px solid rgba(139, 69, 19, 0.7);
       display: flex;
       justify-content: center;
+
       .button-decoration {
         font-size: 1rem;
         color: rgba(0, 0, 0, 0.9);
@@ -171,12 +181,12 @@
         text-shadow:
           0 1px 2px rgba(0, 0, 0, 0.5),
           0 0 10px rgba(212, 165, 116, 0.5);
-        
-        svg{
+
+        svg {
           margin-right: 1rem;
-            width: 2rem;
-            height: 2rem;
-          }
+          width: 2rem;
+          height: 2rem;
+        }
       }
 
       span {
@@ -189,7 +199,7 @@
       }
 
       &:hover {
-        color: #000000;
+        color: #000;
         box-shadow:
           0 0 25px rgba(0, 0, 0, 1),
           inset 0 1px 3px rgba(212, 165, 116, 0.3),
@@ -231,18 +241,19 @@
   .artifacts-container {
     position: relative;
     z-index: 1;
-    margin: 1rem 0 2rem 0;
+    margin: 1rem 0 2rem;
     padding: 2rem;
     box-sizing: border-box;
     overflow-y: visible;
     min-height: 450px;
     width: 100%;
+
     .artifacts-wrapper {
       position: relative;
       height: 100%;
       min-height: 400px;
+
       .artifact-card {
-        cursor: pointer;
         background: linear-gradient(
           180deg,
           rgba(60, 42, 30, 1) 0%,
@@ -268,6 +279,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
         &::before {
           content: '';
           position: absolute;
@@ -430,7 +442,7 @@
             font-size: 1.4rem;
             color: #f5e6d3;
             margin: 0.6rem 0;
-            font-family: 'FangSong', 'STFangsong', serif;
+            font-family: fangsong, STFangsong, serif;
             letter-spacing: 0.3em;
             text-shadow:
               0 2px 4px rgba(0, 0, 0, 0.5),
@@ -465,7 +477,7 @@
                 0 2px 4px rgba(0, 0, 0, 0.6),
                 inset 0 1px 0 rgba(255, 255, 255, 0.2),
                 inset 0 -1px 0 rgba(0, 0, 0, 0.4);
-              font-family: 'FangSong', 'STFangsong', serif;
+              font-family: fangsong, STFangsong, serif;
               letter-spacing: 0.05em;
               overflow: hidden;
               white-space: nowrap;
@@ -478,7 +490,7 @@
                 inset: 0;
                 background: repeating-linear-gradient(
                   90deg,
-                  transparent 0px,
+                  transparent 0,
                   rgba(0, 0, 0, 0.1) 1px,
                   transparent 2px
                 );
@@ -640,7 +652,7 @@
             color: #c9a66b;
             font-size: 1rem;
             font-weight: bold;
-            font-family: 'SimSun', serif;
+            font-family: SimSun, serif;
             letter-spacing: 0.1em;
             display: flex;
             align-items: center;

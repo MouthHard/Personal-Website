@@ -29,9 +29,21 @@ $bevel: 14px;
   padding: 2.5rem 2.5rem 2.75rem;
   margin: 1.25rem 0 0;
   background:
-    radial-gradient(ellipse at top left, rgba(16, 185, 129, 0.12), transparent 60%),
-    radial-gradient(ellipse at bottom right, rgba(5, 150, 105, 0.08), transparent 55%),
-    radial-gradient(ellipse at top right, rgba(16, 185, 129, 0.06), transparent 55%),
+    radial-gradient(
+      ellipse at top left,
+      rgba(16, 185, 129, 0.12),
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse at bottom right,
+      rgba(5, 150, 105, 0.08),
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse at top right,
+      rgba(16, 185, 129, 0.06),
+      transparent 55%
+    ),
     linear-gradient(180deg, $ink-2 0%, $ink 100%);
   border: 1px solid $line;
   border-radius: 24px;
@@ -50,7 +62,11 @@ $bevel: 14px;
     left: 10%;
     width: 80%;
     height: 80%;
-    background: radial-gradient(circle, rgba(16, 185, 129, 0.12), transparent 65%);
+    background: radial-gradient(
+      circle,
+      rgba(16, 185, 129, 0.12),
+      transparent 65%
+    );
     pointer-events: none;
     z-index: 0;
     animation: auraPulse 7s ease-in-out infinite;
@@ -82,7 +98,11 @@ $bevel: 14px;
     .emblem-frame {
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(16, 185, 129, 0.35), rgba(5, 150, 105, 0.2));
+      background: linear-gradient(
+        135deg,
+        rgba(16, 185, 129, 0.35),
+        rgba(5, 150, 105, 0.2)
+      );
       border: 1px solid $line-bright;
       border-radius: 14px;
       box-shadow:
@@ -110,7 +130,11 @@ $bevel: 14px;
         left: 2px;
         right: 2px;
         height: 40%;
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), transparent);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.12),
+          transparent
+        );
         border-radius: 10px 10px 0 0;
         pointer-events: none;
       }
@@ -168,7 +192,7 @@ $bevel: 14px;
 
     .header-subtitle {
       margin: 0;
-      font-size: 1.0rem;
+      font-size: 1rem;
       font-weight: 600;
       color: #d4e8db;
       letter-spacing: 1.5px;
@@ -192,8 +216,16 @@ $bevel: 14px;
       height: 52px;
       border-radius: 50%;
       background:
-        radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.15), transparent 55%),
-        linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(5, 150, 105, 0.15));
+        radial-gradient(
+          circle at 35% 30%,
+          rgba(255, 255, 255, 0.15),
+          transparent 55%
+        ),
+        linear-gradient(
+          135deg,
+          rgba(16, 185, 129, 0.25),
+          rgba(5, 150, 105, 0.15)
+        );
       border: 2px solid $line-bright;
       box-shadow:
         0 2px 6px rgba(0, 0, 0, 0.4),
@@ -251,15 +283,24 @@ $bevel: 14px;
   position: relative;
   display: flex;
   background:
-    radial-gradient(ellipse 90% 60% at 30% 0%, rgba(16, 185, 129, 0.08), transparent 60%),
+    radial-gradient(
+      ellipse 90% 60% at 30% 0%,
+      rgba(16, 185, 129, 0.08),
+      transparent 60%
+    ),
     linear-gradient(180deg, #0d2a1c 0%, #061a10 100%);
   border: 1px solid rgba(16, 185, 129, 0.22);
+
   // 切角八边形（科幻标志）
   border-radius: 4px;
   overflow: hidden;
-  transition: border-color 0.5s ease, box-shadow 0.5s ease, background 0.5s ease;
+  transition:
+    border-color 0.5s ease,
+    box-shadow 0.5s ease,
+    background 0.5s ease;
   animation: cardEnter 0.6s ease-out backwards;
   animation-delay: calc(var(--card-index, 0) * 0.08s);
+
   // 立体阴影（多层金属边缘质感 + 落差感 + 光影感）
   box-shadow:
     0 1px 2px rgba(0, 0, 0, 0.4),
@@ -282,15 +323,23 @@ $bevel: 14px;
     inset: 0;
     pointer-events: none;
     z-index: 9;
+
     // 切角边框用 conic-gradient 模拟八边形描边
     background:
-      linear-gradient(135deg, $emerald-bright 0%, transparent 50%) top left / 20px 20px no-repeat,
-      linear-gradient(225deg, $emerald-bright 0%, transparent 50%) top right / 20px 20px no-repeat,
-      linear-gradient(45deg, $emerald-bright 0%, transparent 50%) bottom left / 20px 20px no-repeat,
-      linear-gradient(315deg, $emerald-bright 0%, transparent 50%) bottom right / 20px 20px no-repeat;
+      linear-gradient(135deg, $emerald-bright 0%, transparent 50%) top left /
+        20px 20px no-repeat,
+      linear-gradient(225deg, $emerald-bright 0%, transparent 50%) top right /
+        20px 20px no-repeat,
+      linear-gradient(45deg, $emerald-bright 0%, transparent 50%) bottom left /
+        20px 20px no-repeat,
+      linear-gradient(315deg, $emerald-bright 0%, transparent 50%) bottom
+        right / 20px 20px no-repeat;
     opacity: 0.75;
-    filter: drop-shadow(0 0 6px $emerald-glow) drop-shadow(0 0 2px rgba(16, 185, 129, 0.8));
-    transition: opacity 0.4s ease, filter 0.4s ease;
+    filter: drop-shadow(0 0 6px $emerald-glow)
+      drop-shadow(0 0 2px rgba(16, 185, 129, 0.8));
+    transition:
+      opacity 0.4s ease,
+      filter 0.4s ease;
   }
 
   // 顶部数据流条（带刻度）
@@ -305,7 +354,8 @@ $bevel: 14px;
     justify-content: space-between;
     padding: 0 8px;
     z-index: 8;
-    background: linear-gradient(90deg,
+    background: linear-gradient(
+      90deg,
       rgba(16, 185, 129, 0.05),
       rgba(16, 185, 129, 0.25) 50%,
       rgba(16, 185, 129, 0.05)
@@ -322,7 +372,10 @@ $bevel: 14px;
       border-radius: 50%;
       box-shadow: 0 0 4px $emerald-glow;
       opacity: 0.65;
-      transition: opacity 0.3s ease, height 0.3s ease, box-shadow 0.3s ease;
+      transition:
+        opacity 0.3s ease,
+        height 0.3s ease,
+        box-shadow 0.3s ease;
     }
   }
 
@@ -333,7 +386,8 @@ $bevel: 14px;
     left: 0;
     right: 0;
     height: 50%;
-    background: linear-gradient(155deg,
+    background: linear-gradient(
+      155deg,
       rgba(16, 185, 129, 0.14) 0%,
       rgba(255, 255, 255, 0.06) 20%,
       rgba(16, 185, 129, 0.05) 40%,
@@ -351,7 +405,11 @@ $bevel: 14px;
     flex-shrink: 0;
     overflow: hidden;
     background:
-      radial-gradient(ellipse 80% 60% at 50% 50%, rgba(0, 0, 0, 0.3), transparent 70%),
+      radial-gradient(
+        ellipse 80% 60% at 50% 50%,
+        rgba(0, 0, 0, 0.3),
+        transparent 70%
+      ),
       $ink-3;
     border-right: 1px solid rgba(16, 185, 129, 0.25);
     box-shadow:
@@ -363,7 +421,9 @@ $bevel: 14px;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.65s ease, filter 0.45s ease;
+      transition:
+        transform 0.65s ease,
+        filter 0.45s ease;
       filter: brightness(0.88) saturate(0.95) contrast(1.05);
     }
 
@@ -374,7 +434,8 @@ $bevel: 14px;
       left: 0;
       right: 0;
       height: 60%;
-      background: linear-gradient(150deg,
+      background: linear-gradient(
+        150deg,
         rgba(255, 255, 255, 0.1) 0%,
         rgba(16, 185, 129, 0.08) 25%,
         transparent 60%
@@ -396,18 +457,31 @@ $bevel: 14px;
       opacity: 0;
       border: 1.5px solid #047857;
       border-radius: 2px;
+
       // 多色渐变背景：对角线深→亮→深 + 径向高光 + 水平扫描线
       background:
-        linear-gradient(135deg,
+        linear-gradient(
+          135deg,
           rgba(4, 120, 87, 0.35) 0%,
           rgba(16, 185, 129, 0.2) 35%,
           rgba(52, 211, 153, 0.12) 50%,
           rgba(16, 185, 129, 0.18) 65%,
           rgba(4, 120, 87, 0.08) 100%
         ),
-        radial-gradient(circle at 35% 30%, rgba(52, 211, 153, 0.25), transparent 65%),
-        linear-gradient(0deg, transparent 48%, rgba(52, 211, 153, 0.18) 50%, transparent 52%);
-      transition: opacity 0.4s ease, box-shadow 0.4s ease;
+        radial-gradient(
+          circle at 35% 30%,
+          rgba(52, 211, 153, 0.25),
+          transparent 65%
+        ),
+        linear-gradient(
+          0deg,
+          transparent 48%,
+          rgba(52, 211, 153, 0.18) 50%,
+          transparent 52%
+        );
+      transition:
+        opacity 0.4s ease,
+        box-shadow 0.4s ease;
       box-shadow:
         0 0 6px rgba(4, 120, 87, 0.45),
         0 0 2px rgba(4, 120, 87, 0.65),
@@ -426,8 +500,12 @@ $bevel: 14px;
         width: 5px;
         height: 5px;
         transform: translate(-50%, -50%) rotate(45deg);
-        background:
-          radial-gradient(circle at 35% 30%, #6ee7b7 0%, $emerald 45%, $emerald-deep 100%);
+        background: radial-gradient(
+          circle at 35% 30%,
+          #6ee7b7 0%,
+          $emerald 45%,
+          $emerald-deep 100%
+        );
         border-radius: 1px;
         box-shadow:
           0 0 5px rgba(16, 185, 129, 0.6),
@@ -443,7 +521,12 @@ $bevel: 14px;
         position: absolute;
         width: 2.5px;
         height: 2.5px;
-        background: radial-gradient(circle at 35% 30%, #6ee7b7 0%, $emerald 60%, $emerald-deep 100%);
+        background: radial-gradient(
+          circle at 35% 30%,
+          #6ee7b7 0%,
+          $emerald 60%,
+          $emerald-deep 100%
+        );
         border-radius: 50%;
         box-shadow:
           0 0 5px rgba(16, 185, 129, 0.7),
@@ -456,28 +539,40 @@ $bevel: 14px;
       top: 7px;
       left: 7px;
 
-      &::after { top: -1px; left: -1px; }
+      &::after {
+        top: -1px;
+        left: -1px;
+      }
     }
 
     .hud-tr {
       top: 7px;
       right: 7px;
 
-      &::after { top: -1px; right: -1px; }
+      &::after {
+        top: -1px;
+        right: -1px;
+      }
     }
 
     .hud-bl {
       bottom: 7px;
       left: 7px;
 
-      &::after { bottom: -1px; left: -1px; }
+      &::after {
+        bottom: -1px;
+        left: -1px;
+      }
     }
 
     .hud-br {
       bottom: 7px;
       right: 7px;
 
-      &::after { bottom: -1px; right: -1px; }
+      &::after {
+        bottom: -1px;
+        right: -1px;
+      }
     }
 
     // 价格芯片 — 立体按钮（左上角）
@@ -552,7 +647,12 @@ $bevel: 14px;
           transform: translateY(-50%);
           width: 4px;
           height: 18px;
-          background: linear-gradient(180deg, $emerald-bright 0%, $emerald 50%, $emerald-deep 100%);
+          background: linear-gradient(
+            180deg,
+            $emerald-bright 0%,
+            $emerald 50%,
+            $emerald-deep 100%
+          );
           border-radius: 2px;
           box-shadow:
             0 0 10px $emerald-glow,
@@ -567,7 +667,11 @@ $bevel: 14px;
         flex-shrink: 0;
         padding: 0.2rem 0.55rem;
         background:
-          linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, transparent 50%),
+          linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.06) 0%,
+            transparent 50%
+          ),
           rgba(16, 185, 129, 0.1);
         border: 1px solid $line;
         border-radius: 3px;
@@ -585,12 +689,11 @@ $bevel: 14px;
 
     .info-desc {
       margin: 0 0 0.95rem;
-      font-size: 1.0rem;
+      font-size: 1rem;
       line-height: 1.6;
-      color: #ffffff;
+      color: #fff;
       letter-spacing: 0.5px;
       display: -webkit-box;
- 
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
@@ -615,7 +718,7 @@ $bevel: 14px;
           gap: 0.32rem;
           font-size: 0.92rem;
           font-weight: 700;
-          color: #ffffff;
+          color: #fff;
           flex-shrink: 0;
           min-width: 50px;
           text-shadow: 0 0 6px $emerald-glow;
@@ -658,7 +761,11 @@ $bevel: 14px;
         box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.3);
 
         &.energy-active {
-          background: linear-gradient(180deg, $emerald-bright 0%, $emerald-deep 100%);
+          background: linear-gradient(
+            180deg,
+            $emerald-bright 0%,
+            $emerald-deep 100%
+          );
           box-shadow:
             0 0 8px $emerald-glow,
             inset 0 1px 0 rgba(255, 255, 255, 0.3),
@@ -672,7 +779,11 @@ $bevel: 14px;
   &:hover {
     border-color: rgba(16, 185, 129, 0.55);
     background:
-      radial-gradient(ellipse 90% 60% at 30% 0%, rgba(16, 185, 129, 0.14), transparent 60%),
+      radial-gradient(
+        ellipse 90% 60% at 30% 0%,
+        rgba(16, 185, 129, 0.14),
+        transparent 60%
+      ),
       linear-gradient(180deg, #0e2e20 0%, #071c12 100%);
     box-shadow:
       0 1px 2px rgba(0, 0, 0, 0.5),
@@ -688,12 +799,14 @@ $bevel: 14px;
     // 切角边框流光增强
     .card-bevel {
       opacity: 0.95;
-      filter: drop-shadow(0 0 6px $emerald) drop-shadow(0 0 2px rgba(255, 255, 255, 0.4));
+      filter: drop-shadow(0 0 6px $emerald)
+        drop-shadow(0 0 2px rgba(255, 255, 255, 0.4));
     }
 
     // 数据流条刻度变亮
     .card-datastream {
-      background: linear-gradient(90deg,
+      background: linear-gradient(
+        90deg,
         rgba(16, 185, 129, 0.1),
         rgba(16, 185, 129, 0.32) 50%,
         rgba(16, 185, 129, 0.1)
@@ -752,13 +865,17 @@ $bevel: 14px;
 
     .card-info {
       .info-name {
-
         text-shadow:
           0 1px 10px rgba(16, 185, 129, 0.4),
           0 0 4px rgba(255, 255, 255, 0.25);
 
         &::before {
-          background: linear-gradient(180deg, $ice 0%, $emerald-bright 50%, $emerald-deep 100%);
+          background: linear-gradient(
+            180deg,
+            $ice 0%,
+            $emerald-bright 50%,
+            $emerald-deep 100%
+          );
           box-shadow:
             0 0 8px $emerald,
             0 0 2px rgba(255, 255, 255, 0.5);
@@ -780,7 +897,12 @@ $bevel: 14px;
 
       // 能量条激活态发光增强
       .info-energy .energy-active {
-        background: linear-gradient(180deg, $ice 0%, $emerald-bright 30%, $emerald-deep 100%);
+        background: linear-gradient(
+          180deg,
+          $ice 0%,
+          $emerald-bright 30%,
+          $emerald-deep 100%
+        );
         box-shadow:
           0 0 6px $emerald,
           inset 0 1px 0 rgba(255, 255, 255, 0.5),
@@ -799,7 +921,8 @@ $bevel: 14px;
       inset 0 -1px 0 rgba(0, 0, 0, 0.5);
 
     .card-datastream {
-      background: linear-gradient(90deg,
+      background: linear-gradient(
+        90deg,
         rgba(251, 146, 60, 0.1),
         rgba(251, 146, 60, 0.32) 50%,
         rgba(251, 146, 60, 0.1)
@@ -816,6 +939,7 @@ $bevel: 14px;
     opacity: 0;
     transform: translateY(28px) scale(0.93);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -823,10 +947,12 @@ $bevel: 14px;
 }
 
 @keyframes auraPulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.8;
     transform: scale(1);
   }
+
   50% {
     opacity: 1;
     transform: scale(1.1);
@@ -834,24 +960,34 @@ $bevel: 14px;
 }
 
 @keyframes ringSpin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 // HUD 准星缓慢旋转
 @keyframes hudCrosshairSpin {
-  from { transform: translate(-50%, -50%) rotate(45deg); }
-  to { transform: translate(-50%, -50%) rotate(405deg); }
+  from {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(405deg);
+  }
 }
 
 // HUD 顶点发光点脉冲
 @keyframes hudVertexPulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
     box-shadow:
       0 0 5px rgba(16, 185, 129, 0.7),
       0 0 1px rgba(255, 255, 255, 0.6);
   }
+
   50% {
     opacity: 0.5;
     box-shadow:
@@ -897,6 +1033,7 @@ $bevel: 14px;
     }
   }
 }
+
 // 伴手礼操作按钮
 .info-actions {
   display: flex;
@@ -912,7 +1049,7 @@ $bevel: 14px;
       linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent 50%),
       rgba(15, 25, 20, 0.9);
     border: 1px solid rgba(255, 255, 255, 0.18);
-    border-radius: 4px 10px 4px 10px;
+    border-radius: 4px 10px;
     font-size: 0.8rem;
     font-weight: 600;
     cursor: pointer;
@@ -942,7 +1079,11 @@ $bevel: 14px;
       &.is-active {
         background:
           linear-gradient(180deg, rgba(251, 191, 36, 0.25), transparent 50%),
-          linear-gradient(135deg, rgba(251, 191, 36, 0.4), rgba(245, 158, 11, 0.2));
+          linear-gradient(
+            135deg,
+            rgba(251, 191, 36, 0.4),
+            rgba(245, 158, 11, 0.2)
+          );
         border-color: #fbbf24;
         color: #fef3c7;
         font-weight: 700;
@@ -971,7 +1112,11 @@ $bevel: 14px;
       &.is-active {
         background:
           linear-gradient(180deg, rgba(251, 113, 133, 0.25), transparent 50%),
-          linear-gradient(135deg, rgba(251, 113, 133, 0.4), rgba(225, 29, 72, 0.2));
+          linear-gradient(
+            135deg,
+            rgba(251, 113, 133, 0.4),
+            rgba(225, 29, 72, 0.2)
+          );
         border-color: #fb7185;
         color: #fecdd3;
         font-weight: 700;

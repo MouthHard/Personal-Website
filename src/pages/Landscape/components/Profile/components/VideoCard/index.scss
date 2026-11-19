@@ -1,88 +1,121 @@
 @keyframes card-in {
-  from { opacity: 0; transform: translateY(18px) scale(0.97); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 @keyframes reel-rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes progress-creep {
-  0% { width: 0%; }
-  100% { width: 100%; }
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
 }
 
 @keyframes like-pop {
-  0% { transform: scale(1); }
-  30% { transform: scale(1.4); }
-  60% { transform: scale(0.85); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.4);
+  }
+  60% {
+    transform: scale(0.85);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 @keyframes edge-pulse {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 0.9; }
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.9;
+  }
 }
 
 @keyframes led-blink {
-  0%, 100% { opacity: 0.3; box-shadow: 0 0 4px rgba(239, 68, 68, 0.3); }
-  50% { opacity: 1; box-shadow: 0 0 10px rgba(239, 68, 68, 0.8), 0 0 20px rgba(239, 68, 68, 0.3); }
+  0%,
+  100% {
+    opacity: 0.3;
+    box-shadow: 0 0 4px rgba(239, 68, 68, 0.3);
+  }
+  50% {
+    opacity: 1;
+    box-shadow:
+      0 0 10px rgba(239, 68, 68, 0.8),
+      0 0 20px rgba(239, 68, 68, 0.3);
+  }
 }
 
 @keyframes glare-slide {
-  0% { transform: translateX(-140%) skewX(-15deg); }
-  100% { transform: translateX(280%) skewX(-15deg); }
+  0% {
+    transform: translateX(-140%) skewX(-15deg);
+  }
+  100% {
+    transform: translateX(280%) skewX(-15deg);
+  }
 }
 
 $convex-btn:
-  0 3px 8px rgba(0,0,0,0.45),
-  0 1px 3px rgba(0,0,0,0.3),
-  inset 0 1px 0 rgba(255,255,255,0.12),
-  inset 0 -1px 0 rgba(0,0,0,0.25);
-
+  0 3px 8px rgba(0, 0, 0, 0.45),
+  0 1px 3px rgba(0, 0, 0, 0.3),
+  inset 0 1px 0 rgba(255, 255, 255, 0.12),
+  inset 0 -1px 0 rgba(0, 0, 0, 0.25);
 $convex-btn-hover:
-  0 5px 14px rgba(0,0,0,0.5),
-  0 2px 5px rgba(0,0,0,0.35),
-  inset 0 1px 0 rgba(255,255,255,0.18),
-  inset 0 -1px 0 rgba(0,0,0,0.2);
-
+  0 5px 14px rgba(0, 0, 0, 0.5),
+  0 2px 5px rgba(0, 0, 0, 0.35),
+  inset 0 1px 0 rgba(255, 255, 255, 0.18),
+  inset 0 -1px 0 rgba(0, 0, 0, 0.2);
 $concave-screen:
-  inset 0 2px 6px rgba(0,0,0,0.6),
-  inset 0 -1px 2px rgba(255,255,255,0.03),
-  inset 2px 0 4px rgba(0,0,0,0.3),
-  inset -2px 0 4px rgba(0,0,0,0.3);
-
+  inset 0 2px 6px rgba(0, 0, 0, 0.6),
+  inset 0 -1px 2px rgba(255, 255, 255, 0.03),
+  inset 2px 0 4px rgba(0, 0, 0, 0.3),
+  inset -2px 0 4px rgba(0, 0, 0, 0.3);
 $concave-panel:
-  inset 0 1px 4px rgba(0,0,0,0.4),
-  inset 0 -1px 1px rgba(255,255,255,0.03),
-  0 1px 0 rgba(255,255,255,0.02);
-
+  inset 0 1px 4px rgba(0, 0, 0, 0.4),
+  inset 0 -1px 1px rgba(255, 255, 255, 0.03),
+  0 1px 0 rgba(255, 255, 255, 0.02);
 $convex-knob:
-  0 3px 8px rgba(0,0,0,0.4),
-  0 1px 2px rgba(0,0,0,0.3),
-  inset 0 2px 0 rgba(255,255,255,0.1),
-  inset 0 -2px 0 rgba(0,0,0,0.2),
-  inset 2px 0 0 rgba(255,255,255,0.04),
-  inset -2px 0 0 rgba(0,0,0,0.1);
-
+  0 3px 8px rgba(0, 0, 0, 0.4),
+  0 1px 2px rgba(0, 0, 0, 0.3),
+  inset 0 2px 0 rgba(255, 255, 255, 0.1),
+  inset 0 -2px 0 rgba(0, 0, 0, 0.2),
+  inset 2px 0 0 rgba(255, 255, 255, 0.04),
+  inset -2px 0 0 rgba(0, 0, 0, 0.1);
 $convex-knob-hover:
-  0 5px 14px rgba(0,0,0,0.45),
-  0 2px 5px rgba(0,0,0,0.35),
-  inset 0 2px 0 rgba(255,255,255,0.15),
-  inset 0 -2px 0 rgba(0,0,0,0.2),
-  inset 2px 0 0 rgba(255,255,255,0.06),
-  inset -2px 0 0 rgba(0,0,0,0.12);
-
+  0 5px 14px rgba(0, 0, 0, 0.45),
+  0 2px 5px rgba(0, 0, 0, 0.35),
+  inset 0 2px 0 rgba(255, 255, 255, 0.15),
+  inset 0 -2px 0 rgba(0, 0, 0, 0.2),
+  inset 2px 0 0 rgba(255, 255, 255, 0.06),
+  inset -2px 0 0 rgba(0, 0, 0, 0.12);
 $raised-chassis:
-  0 4px 12px rgba(0,0,0,0.5),
-  0 1px 3px rgba(0,0,0,0.3),
-  inset 0 1px 0 rgba(255,255,255,0.06),
-  inset 0 -1px 0 rgba(0,0,0,0.15);
-
+  0 4px 12px rgba(0, 0, 0, 0.5),
+  0 1px 3px rgba(0, 0, 0, 0.3),
+  inset 0 1px 0 rgba(255, 255, 255, 0.06),
+  inset 0 -1px 0 rgba(0, 0, 0, 0.15);
 $recessed-groove:
-  inset 0 2px 3px rgba(0,0,0,0.4),
-  inset 0 -1px 1px rgba(255,255,255,0.04);
+  inset 0 2px 3px rgba(0, 0, 0, 0.4),
+  inset 0 -1px 1px rgba(255, 255, 255, 0.04);
 
 .video-card {
   position: relative;
@@ -90,7 +123,8 @@ $recessed-groove:
   flex-direction: column;
   border-radius: 10px;
   overflow: hidden;
-  background: linear-gradient(170deg,
+  background: linear-gradient(
+    170deg,
     rgba(28, 32, 36, 0.98) 0%,
     rgba(18, 22, 26, 0.99) 40%,
     rgba(12, 16, 20, 0.99) 100%
@@ -120,30 +154,62 @@ $recessed-groove:
       inset 0 1px 0 rgba(255, 255, 255, 0.05),
       inset 0 -1px 0 rgba(0, 0, 0, 0.15);
 
-    .card-ambient { opacity: 1; }
-    .card-edge-glow { opacity: 1; }
-    .reel-wheel .spoke { animation: reel-rotate 1.5s linear infinite; }
-    .status-led .led-dot { animation: led-blink 1.2s ease-in-out infinite; }
+    .card-ambient {
+      opacity: 1;
+    }
+    .card-edge-glow {
+      opacity: 1;
+    }
+    .reel-wheel .spoke {
+      animation: reel-rotate 1.5s linear infinite;
+    }
+    .status-led .led-dot {
+      animation: led-blink 1.2s ease-in-out infinite;
+    }
 
     .lcd-screen {
-      img { transform: scale(1.06); filter: contrast(1.1) saturate(1.15) brightness(1.05); }
-      .lcd-vignette { opacity: 0.12; }
-      .lcd-glare { animation: glare-slide 0.8s ease-out; }
-      .rule-thirds { opacity: 0.5; }
+      img {
+        transform: scale(1.06);
+        filter: contrast(1.1) saturate(1.15) brightness(1.05);
+      }
+      .lcd-vignette {
+        opacity: 0.12;
+      }
+      .lcd-glare {
+        animation: glare-slide 0.8s ease-out;
+      }
+      .rule-thirds {
+        opacity: 0.5;
+      }
+
       .play-indicator {
-        .tape-line { width: 24px; opacity: 0.55; }
+        .tape-line {
+          width: 24px;
+          opacity: 0.55;
+        }
+
         .tape-icon {
           transform: scale(1.08);
-          box-shadow: $convex-btn-hover,
+          box-shadow:
+            $convex-btn-hover,
             0 0 24px rgba(94, 234, 212, 0.3);
         }
       }
-      .film-progress .progress-head { animation: progress-creep 4s linear infinite; }
+      .film-progress .progress-head {
+        animation: progress-creep 4s linear infinite;
+      }
     }
 
-    .viewfinder-title .vf-text { text-shadow: 0 0 16px rgba(94, 234, 212, 0.25); }
-    .action-bar .play-cta { opacity: 1; transform: translateX(0); }
-    .film-barcode .barcode-id { color: rgba(94, 234, 212, 0.75); }
+    .viewfinder-title .vf-text {
+      text-shadow: 0 0 16px rgba(94, 234, 212, 0.25);
+    }
+    .action-bar .play-cta {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .film-barcode .barcode-id {
+      color: rgba(94, 234, 212, 0.75);
+    }
   }
 
   .card-ambient {
@@ -152,7 +218,8 @@ $recessed-groove:
     left: -10%;
     width: 60%;
     height: 50%;
-    background: radial-gradient(ellipse at center,
+    background: radial-gradient(
+      ellipse at center,
       rgba(20, 184, 166, 0.06) 0%,
       transparent 60%
     );
@@ -168,7 +235,8 @@ $recessed-groove:
     display: flex;
     align-items: center;
     padding: 6px 14px 5px;
-    background: linear-gradient(180deg,
+    background: linear-gradient(
+      180deg,
       rgba(40, 44, 48, 0.95) 0%,
       rgba(28, 32, 36, 0.92) 100%
     );
@@ -194,14 +262,15 @@ $recessed-groove:
         border: 1px solid rgba(80, 88, 96, 0.4);
         border-top-color: rgba(100, 108, 116, 0.3);
         border-radius: 1px;
-        background: linear-gradient(180deg,
+        background: linear-gradient(
+          180deg,
           rgba(56, 62, 68, 0.6) 0%,
           rgba(36, 40, 44, 0.8) 100%
         );
         box-shadow:
-          0 2px 4px rgba(0,0,0,0.35),
-          inset 0 1px 0 rgba(255,255,255,0.08),
-          inset 0 -1px 0 rgba(0,0,0,0.2);
+          0 2px 4px rgba(0, 0, 0, 0.35),
+          inset 0 1px 0 rgba(255, 255, 255, 0.08),
+          inset 0 -1px 0 rgba(0, 0, 0, 0.2);
       }
 
       .shoe-contact {
@@ -209,7 +278,9 @@ $recessed-groove:
         height: 3px;
         border-radius: 50%;
         background: rgba(94, 234, 212, 0.4);
-        box-shadow: 0 0 3px rgba(94, 234, 212, 0.2), 0 1px 2px rgba(0,0,0,0.3);
+        box-shadow:
+          0 0 3px rgba(94, 234, 212, 0.2),
+          0 1px 2px rgba(0, 0, 0, 0.3);
         z-index: 1;
       }
     }
@@ -227,7 +298,8 @@ $recessed-groove:
         border-radius: 50%;
         border: 2px solid rgba(80, 88, 96, 0.4);
         border-top-color: rgba(100, 108, 116, 0.25);
-        background: linear-gradient(145deg,
+        background: linear-gradient(
+          145deg,
           rgba(56, 62, 68, 0.5) 0%,
           rgba(30, 34, 38, 0.75) 100%
         );
@@ -255,7 +327,7 @@ $recessed-groove:
         border-left: 3px solid transparent;
         border-right: 3px solid transparent;
         border-top: 5px solid rgba(94, 234, 212, 0.7);
-        filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));
+        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
       }
 
       .dial-label {
@@ -267,7 +339,7 @@ $recessed-groove:
         font-weight: 800;
         color: rgba(94, 234, 212, 0.65);
         letter-spacing: 0.5px;
-        text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
       }
     }
 
@@ -276,7 +348,8 @@ $recessed-groove:
       width: 18px;
       height: 18px;
       border-radius: 50%;
-      background: linear-gradient(145deg,
+      background: linear-gradient(
+        145deg,
         rgba(64, 70, 76, 0.65) 0%,
         rgba(36, 40, 44, 0.85) 100%
       );
@@ -286,11 +359,13 @@ $recessed-groove:
       transition: all 0.2s ease;
 
       &:hover {
-        background: linear-gradient(145deg,
+        background: linear-gradient(
+          145deg,
           rgba(94, 234, 212, 0.18) 0%,
           rgba(20, 184, 166, 0.1) 100%
         );
-        box-shadow: $convex-btn-hover,
+        box-shadow:
+          $convex-btn-hover,
           0 0 8px rgba(94, 234, 212, 0.12);
       }
     }
@@ -305,15 +380,16 @@ $recessed-groove:
         width: 6px;
         height: 6px;
         border-radius: 50%;
-        background: radial-gradient(circle at 40% 35%,
+        background: radial-gradient(
+          circle at 40% 35%,
           rgba(255, 100, 100, 0.6) 0%,
           rgba(239, 68, 68, 0.5) 60%,
           rgba(180, 40, 40, 0.4) 100%
         );
         border: 1px solid rgba(100, 20, 20, 0.3);
         box-shadow:
-          0 1px 3px rgba(0,0,0,0.3),
-          inset 0 1px 1px rgba(255,255,255,0.15),
+          0 1px 3px rgba(0, 0, 0, 0.3),
+          inset 0 1px 1px rgba(255, 255, 255, 0.15),
           0 0 4px rgba(239, 68, 68, 0.2);
         transition: all 0.3s ease;
       }
@@ -377,14 +453,15 @@ $recessed-groove:
         border-radius: 50%;
         border: 1.5px solid rgba(94, 234, 212, 0.28);
         border-top-color: rgba(94, 234, 212, 0.4);
-        background: linear-gradient(145deg,
+        background: linear-gradient(
+          145deg,
           rgba(20, 24, 28, 0.9) 0%,
           rgba(8, 12, 16, 0.95) 100%
         );
         box-shadow:
-          0 2px 4px rgba(0,0,0,0.3),
+          0 2px 4px rgba(0, 0, 0, 0.3),
           inset 0 1px 0 rgba(94, 234, 212, 0.08),
-          inset 0 -1px 0 rgba(0,0,0,0.2);
+          inset 0 -1px 0 rgba(0, 0, 0, 0.2);
       }
 
       &::before {
@@ -393,7 +470,8 @@ $recessed-groove:
         inset: 0;
         border-radius: 50%;
         border: 1px solid rgba(70, 78, 86, 0.25);
-        background: linear-gradient(145deg,
+        background: linear-gradient(
+          145deg,
           rgba(36, 40, 44, 0.35) 0%,
           rgba(16, 20, 24, 0.5) 100%
         );
@@ -415,8 +493,12 @@ $recessed-groove:
         height: 9px;
         align-items: center;
 
-        &.top { margin-bottom: 3px; }
-        &.bottom { margin-top: 3px; }
+        &.top {
+          margin-bottom: 3px;
+        }
+        &.bottom {
+          margin-top: 3px;
+        }
 
         .sprocket {
           width: 7px;
@@ -425,9 +507,9 @@ $recessed-groove:
           background: rgba(4, 10, 16, 0.95);
           border: 1px solid rgba(40, 48, 56, 0.2);
           box-shadow:
-            inset 0 1px 2px rgba(0,0,0,0.5),
-            inset 0 -1px 1px rgba(255,255,255,0.02),
-            0 1px 0 rgba(255,255,255,0.02);
+            inset 0 1px 2px rgba(0, 0, 0, 0.5),
+            inset 0 -1px 1px rgba(255, 255, 255, 0.02),
+            0 1px 0 rgba(255, 255, 255, 0.02);
           flex-shrink: 0;
         }
       }
@@ -457,7 +539,8 @@ $recessed-groove:
           left: 0;
           width: 50%;
           height: 100%;
-          background: linear-gradient(90deg,
+          background: linear-gradient(
+            90deg,
             transparent 0%,
             rgba(255, 255, 255, 0.01) 30%,
             rgba(255, 255, 255, 0.06) 50%,
@@ -471,7 +554,8 @@ $recessed-groove:
         .lcd-vignette {
           position: absolute;
           inset: 0;
-          background: radial-gradient(ellipse at center,
+          background: radial-gradient(
+            ellipse at center,
             transparent 35%,
             rgba(0, 0, 0, 0.5) 100%
           );
@@ -497,8 +581,12 @@ $recessed-groove:
             height: 1px;
             background: rgba(94, 234, 212, 0.15);
             box-shadow: 0 0 2px rgba(94, 234, 212, 0.06);
-            &.h1 { top: 33.33%; }
-            &.h2 { top: 66.66%; }
+            &.h1 {
+              top: 33.33%;
+            }
+            &.h2 {
+              top: 66.66%;
+            }
           }
 
           .v-line {
@@ -508,8 +596,12 @@ $recessed-groove:
             width: 1px;
             background: rgba(94, 234, 212, 0.15);
             box-shadow: 0 0 2px rgba(94, 234, 212, 0.06);
-            &.v1 { left: 33.33%; }
-            &.v2 { left: 66.66%; }
+            &.v1 {
+              left: 33.33%;
+            }
+            &.v2 {
+              left: 66.66%;
+            }
           }
         }
 
@@ -528,7 +620,8 @@ $recessed-groove:
             width: 54px;
             height: 54px;
             border-radius: 50%;
-            background: linear-gradient(145deg,
+            background: linear-gradient(
+              145deg,
               rgba(24, 188, 172, 0.45) 0%,
               rgba(13, 148, 136, 0.32) 100%
             );
@@ -539,8 +632,11 @@ $recessed-groove:
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: $convex-btn,
+            transition:
+              transform 0.3s ease,
+              box-shadow 0.3s ease;
+            box-shadow:
+              $convex-btn,
               0 0 18px rgba(94, 234, 212, 0.2),
               0 6px 16px rgba(13, 148, 136, 0.4);
 
@@ -548,7 +644,7 @@ $recessed-groove:
               width: 22px;
               height: 22px;
               color: rgba(255, 255, 255, 0.95);
-              filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));
+              filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
               margin-left: 2px;
             }
           }
@@ -560,8 +656,14 @@ $recessed-groove:
             width: 0;
             opacity: 0;
             transition: all 0.4s ease;
-            &.left { right: 100%; margin-right: 6px; }
-            &.right { left: 100%; margin-left: 6px; }
+            &.left {
+              right: 100%;
+              margin-right: 6px;
+            }
+            &.right {
+              left: 100%;
+              margin-left: 6px;
+            }
           }
         }
 
@@ -571,7 +673,8 @@ $recessed-groove:
           top: 10px;
           left: 10px;
           padding: 3px 9px;
-          background: linear-gradient(145deg,
+          background: linear-gradient(
+            145deg,
             rgba(24, 188, 172, 0.35) 0%,
             rgba(13, 148, 136, 0.22) 100%
           );
@@ -586,9 +689,9 @@ $recessed-groove:
           z-index: 6;
           backdrop-filter: blur(8px);
           box-shadow:
-            0 2px 8px rgba(0,0,0,0.35),
+            0 2px 8px rgba(0, 0, 0, 0.35),
             inset 0 1px 0 rgba(94, 234, 212, 0.12),
-            inset 0 -1px 0 rgba(0,0,0,0.15);
+            inset 0 -1px 0 rgba(0, 0, 0, 0.15);
           text-shadow: 0 0 8px rgba(94, 234, 212, 0.2);
         }
 
@@ -598,7 +701,8 @@ $recessed-groove:
           top: 10px;
           right: 10px;
           padding: 4px 10px;
-          background: linear-gradient(145deg,
+          background: linear-gradient(
+            145deg,
             rgba(16, 20, 24, 0.92) 0%,
             rgba(6, 10, 14, 0.95) 100%
           );
@@ -612,9 +716,9 @@ $recessed-groove:
           z-index: 6;
           backdrop-filter: blur(10px);
           box-shadow:
-            0 2px 8px rgba(0,0,0,0.4),
-            inset 0 1px 0 rgba(255,255,255,0.05),
-            inset 0 -1px 0 rgba(0,0,0,0.15);
+            0 2px 8px rgba(0, 0, 0, 0.4),
+            inset 0 1px 0 rgba(255, 255, 255, 0.05),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.15);
         }
 
         /* 帧进度 — RECESSED groove */
@@ -630,7 +734,9 @@ $recessed-groove:
             position: absolute;
             inset: 0;
             background: rgba(10, 14, 18, 0.6);
-            box-shadow: inset 0 1px 2px rgba(0,0,0,0.4), inset 0 -1px 1px rgba(255,255,255,0.02);
+            box-shadow:
+              inset 0 1px 2px rgba(0, 0, 0, 0.4),
+              inset 0 -1px 1px rgba(255, 255, 255, 0.02);
           }
 
           .progress-head {
@@ -639,7 +745,8 @@ $recessed-groove:
             left: 0;
             height: calc(100% - 2px);
             width: 0%;
-            background: linear-gradient(90deg,
+            background: linear-gradient(
+              90deg,
               rgba(94, 234, 212, 0.55) 0%,
               rgba(20, 184, 166, 0.3) 100%
             );
@@ -660,12 +767,15 @@ $recessed-groove:
     padding: 14px 18px 12px;
     gap: 9px;
     z-index: 1;
-    background: linear-gradient(180deg,
+    background: linear-gradient(
+      180deg,
       rgba(16, 20, 24, 0.65) 0%,
       rgba(8, 12, 16, 0.5) 100%
     );
     border-left: 1px solid rgba(40, 48, 56, 0.25);
-    box-shadow: inset 2px 0 4px rgba(0,0,0,0.15), inset -1px 0 0 rgba(255,255,255,0.01);
+    box-shadow:
+      inset 2px 0 4px rgba(0, 0, 0, 0.15),
+      inset -1px 0 0 rgba(255, 255, 255, 0.01);
 
     /* OSD信息栏 — RECESSED display */
     .osd-bar {
@@ -686,8 +796,14 @@ $recessed-groove:
         letter-spacing: 0.5px;
         text-shadow: 0 0 4px rgba(94, 234, 212, 0.1);
 
-        &.iso { color: rgba(255, 200, 100, 0.8); text-shadow: 0 0 4px rgba(255, 200, 100, 0.1); }
-        &.wb { color: rgba(160, 200, 255, 0.75); text-shadow: 0 0 4px rgba(160, 200, 255, 0.1); }
+        &.iso {
+          color: rgba(255, 200, 100, 0.8);
+          text-shadow: 0 0 4px rgba(255, 200, 100, 0.1);
+        }
+        &.wb {
+          color: rgba(160, 200, 255, 0.75);
+          text-shadow: 0 0 4px rgba(160, 200, 255, 0.1);
+        }
       }
 
       .osd-sep {
@@ -705,7 +821,9 @@ $recessed-groove:
       margin: -2px -6px 0;
       background: rgba(4, 8, 12, 0.25);
       border-radius: 2px;
-      box-shadow: inset 0 1px 3px rgba(0,0,0,0.2), inset 0 -1px 1px rgba(255,255,255,0.01);
+      box-shadow:
+        inset 0 1px 3px rgba(0, 0, 0, 0.2),
+        inset 0 -1px 1px rgba(255, 255, 255, 0.01);
 
       .vf-corner {
         position: absolute;
@@ -713,10 +831,30 @@ $recessed-groove:
         height: 10px;
         border: 2px solid rgba(94, 234, 212, 0.4);
         box-shadow: 0 0 4px rgba(94, 234, 212, 0.08);
-        &.tl { top: 0; left: 0; border-right: none; border-bottom: none; }
-        &.tr { top: 0; right: 0; border-left: none; border-bottom: none; }
-        &.bl { bottom: 0; left: 0; border-right: none; border-top: none; }
-        &.br { bottom: 0; right: 0; border-left: none; border-top: none; }
+        &.tl {
+          top: 0;
+          left: 0;
+          border-right: none;
+          border-bottom: none;
+        }
+        &.tr {
+          top: 0;
+          right: 0;
+          border-left: none;
+          border-bottom: none;
+        }
+        &.bl {
+          bottom: 0;
+          left: 0;
+          border-right: none;
+          border-top: none;
+        }
+        &.br {
+          bottom: 0;
+          right: 0;
+          border-left: none;
+          border-top: none;
+        }
       }
 
       .vf-text {
@@ -729,7 +867,9 @@ $recessed-groove:
         text-overflow: ellipsis;
         white-space: nowrap;
         transition: text-shadow 0.3s ease;
-        text-shadow: 0 1px 3px rgba(0,0,0,0.5), 0 0 8px rgba(94, 234, 212, 0.06);
+        text-shadow:
+          0 1px 3px rgba(0, 0, 0, 0.5),
+          0 0 8px rgba(94, 234, 212, 0.06);
       }
     }
 
@@ -740,7 +880,7 @@ $recessed-groove:
       font-size: 14px;
       font-weight: 700;
       color: rgba(255, 255, 255, 0.88);
-      text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 
       svg {
         width: 15px;
@@ -777,7 +917,7 @@ $recessed-groove:
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     }
 
     /* 标签 — RAISED pill buttons */
@@ -788,7 +928,8 @@ $recessed-groove:
 
       .tag {
         padding: 4px 10px;
-        background: linear-gradient(145deg,
+        background: linear-gradient(
+          145deg,
           rgba(24, 188, 172, 0.18) 0%,
           rgba(13, 148, 136, 0.1) 100%
         );
@@ -802,13 +943,14 @@ $recessed-groove:
         letter-spacing: 0.3px;
         transition: all 0.25s ease;
         box-shadow:
-          0 2px 5px rgba(0,0,0,0.25),
+          0 2px 5px rgba(0, 0, 0, 0.25),
           inset 0 1px 0 rgba(94, 234, 212, 0.08),
-          inset 0 -1px 0 rgba(0,0,0,0.12);
+          inset 0 -1px 0 rgba(0, 0, 0, 0.12);
         text-shadow: 0 0 4px rgba(94, 234, 212, 0.08);
 
         &:hover {
-          background: linear-gradient(145deg,
+          background: linear-gradient(
+            145deg,
             rgba(24, 188, 172, 0.18) 0%,
             rgba(13, 148, 136, 0.1) 100%
           );
@@ -816,10 +958,10 @@ $recessed-groove:
           color: rgba(94, 234, 212, 0.9);
           transform: translateY(-1px);
           box-shadow:
-            0 4px 10px rgba(0,0,0,0.3),
+            0 4px 10px rgba(0, 0, 0, 0.3),
             0 0 6px rgba(94, 234, 212, 0.06),
             inset 0 1px 0 rgba(94, 234, 212, 0.1),
-            inset 0 -1px 0 rgba(0,0,0,0.12);
+            inset 0 -1px 0 rgba(0, 0, 0, 0.12);
         }
       }
     }
@@ -872,6 +1014,7 @@ $recessed-groove:
             color: #3b82f6;
             filter: drop-shadow(0 0 4px rgba(59, 130, 246, 0.5));
           }
+
           .gauge-val {
             color: #60a5fa;
             text-shadow: 0 0 8px rgba(59, 130, 246, 0.3);
@@ -883,6 +1026,7 @@ $recessed-groove:
             color: #ef4444;
             filter: drop-shadow(0 0 4px rgba(239, 68, 68, 0.5));
           }
+
           .gauge-val {
             color: #f87171;
             text-shadow: 0 0 8px rgba(239, 68, 68, 0.3);
@@ -894,6 +1038,7 @@ $recessed-groove:
             color: #fbbf24;
             filter: drop-shadow(0 0 4px rgba(245, 158, 11, 0.5));
           }
+
           .gauge-val {
             color: #fbbf24;
             text-shadow: 0 0 8px rgba(245, 158, 11, 0.3);
@@ -919,7 +1064,8 @@ $recessed-groove:
         width: 38px;
         height: 38px;
         border-radius: 10px;
-        background: linear-gradient(145deg,
+        background: linear-gradient(
+          145deg,
           rgba(35, 30, 25, 0.88) 0%,
           rgba(25, 20, 15, 0.92) 50%,
           rgba(15, 12, 8, 0.95) 100%
@@ -939,33 +1085,40 @@ $recessed-groove:
           height: 16px;
           color: rgba(96, 165, 250, 0.92);
           transition: all 0.3s ease;
-          filter: drop-shadow(0 1px 1px rgba(0,0,0,0.2));
+          filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.2));
         }
 
         &:hover {
-          background: linear-gradient(145deg,
+          background: linear-gradient(
+            145deg,
             rgba(50, 45, 40, 0.92) 0%,
             rgba(40, 35, 30, 0.95) 50%,
             rgba(30, 25, 20, 0.98) 100%
           );
           border-color: rgba(96, 165, 250, 0.3);
           transform: scale(1.06);
-          box-shadow: $convex-btn-hover,
+          box-shadow:
+            $convex-btn-hover,
             0 0 8px rgba(59, 130, 246, 0.15);
-          svg { color: rgba(147, 197, 253, 1); }
+          svg {
+            color: rgba(147, 197, 253, 1);
+          }
         }
       }
 
       .like-btn.liked {
-        background: linear-gradient(145deg,
+        background: linear-gradient(
+          145deg,
           rgba(59, 130, 246, 0.95) 0%,
           rgba(37, 99, 235, 0.98) 50%,
           rgba(29, 78, 216, 1) 100%
         );
         border-color: rgba(29, 78, 216, 0.7);
-        box-shadow: $convex-btn,
+        box-shadow:
+          $convex-btn,
           0 0 14px rgba(59, 130, 246, 0.45);
         animation: like-pop 0.5s ease;
+
         svg {
           color: rgba(255, 255, 255, 1);
           filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.55));
@@ -973,14 +1126,17 @@ $recessed-groove:
       }
 
       .share-btn.shared {
-        background: linear-gradient(145deg,
+        background: linear-gradient(
+          145deg,
           rgba(20, 184, 166, 0.9) 0%,
           rgba(16, 148, 136, 0.95) 50%,
           rgba(13, 118, 108, 0.98) 100%
         );
         border-color: rgba(13, 118, 108, 0.6);
-        box-shadow: $convex-btn,
+        box-shadow:
+          $convex-btn,
           0 0 12px rgba(20, 184, 166, 0.35);
+
         svg {
           color: rgba(255, 255, 255, 1);
           filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.45));
@@ -988,15 +1144,18 @@ $recessed-groove:
       }
 
       .collect-btn.collected {
-        background: linear-gradient(145deg,
+        background: linear-gradient(
+          145deg,
           rgba(251, 191, 36, 0.95) 0%,
           rgba(245, 158, 11, 0.98) 50%,
           rgba(217, 119, 6, 1) 100%
         );
         border-color: rgba(217, 119, 6, 0.7);
-        box-shadow: $convex-btn,
+        box-shadow:
+          $convex-btn,
           0 0 14px rgba(251, 191, 36, 0.45);
         animation: like-pop 0.5s ease;
+
         svg {
           color: rgba(255, 255, 255, 1);
           filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.55));
@@ -1004,15 +1163,18 @@ $recessed-groove:
       }
 
       .love-btn.loved {
-        background: linear-gradient(145deg,
+        background: linear-gradient(
+          145deg,
           rgba(239, 68, 68, 0.95) 0%,
           rgba(220, 38, 38, 0.98) 50%,
           rgba(185, 28, 28, 1) 100%
         );
         border-color: rgba(185, 28, 28, 0.7);
-        box-shadow: $convex-btn,
+        box-shadow:
+          $convex-btn,
           0 0 14px rgba(239, 68, 68, 0.45);
         animation: like-pop 0.5s ease;
+
         svg {
           color: rgba(255, 255, 255, 1);
           filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.55));
@@ -1025,7 +1187,8 @@ $recessed-groove:
         width: 32px;
         height: 32px;
         border-radius: 50%;
-        background: linear-gradient(145deg,
+        background: linear-gradient(
+          145deg,
           rgba(44, 48, 52, 0.75) 0%,
           rgba(22, 26, 30, 0.88) 100%
         );
@@ -1068,6 +1231,7 @@ $recessed-groove:
 
         &:hover {
           color: rgba(94, 234, 212, 1);
+
           svg {
             color: rgba(94, 234, 212, 1);
             transform: translateX(4px);
@@ -1089,13 +1253,17 @@ $recessed-groove:
         height: 12px;
         background: rgba(94, 234, 212, 0.14);
         border-radius: 0.5px;
-        box-shadow: 0 1px 1px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.02);
+        box-shadow:
+          0 1px 1px rgba(0, 0, 0, 0.15),
+          inset 0 1px 0 rgba(255, 255, 255, 0.02);
 
         &.thick {
           width: 3px;
           height: 15px;
           background: rgba(94, 234, 212, 0.2);
-          box-shadow: 0 1px 1px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.03);
+          box-shadow:
+            0 1px 1px rgba(0, 0, 0, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.03);
         }
       }
 
@@ -1107,7 +1275,7 @@ $recessed-groove:
         color: rgba(94, 234, 212, 0.3);
         letter-spacing: 1px;
         transition: color 0.3s ease;
-        text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
       }
     }
   }
@@ -1119,15 +1287,16 @@ $recessed-groove:
     align-items: center;
     justify-content: space-between;
     padding: 5px 14px 6px;
-    background: linear-gradient(180deg,
+    background: linear-gradient(
+      180deg,
       rgba(22, 26, 30, 0.92) 0%,
       rgba(32, 36, 40, 0.95) 100%
     );
     border-top: 1px solid rgba(40, 48, 56, 0.25);
     box-shadow:
-      inset 0 1px 0 rgba(0,0,0,0.15),
-      inset 0 -1px 0 rgba(255,255,255,0.03),
-      0 -1px 0 rgba(255,255,255,0.01);
+      inset 0 1px 0 rgba(0, 0, 0, 0.15),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.03),
+      0 -1px 0 rgba(255, 255, 255, 0.01);
     z-index: 2;
     min-height: 18px;
 
@@ -1136,15 +1305,16 @@ $recessed-groove:
       width: 14px;
       height: 10px;
       border-radius: 2px;
-      background: linear-gradient(180deg,
+      background: linear-gradient(
+        180deg,
         rgba(12, 16, 20, 0.8) 0%,
         rgba(20, 24, 28, 0.7) 100%
       );
       border: 1px solid rgba(40, 48, 56, 0.25);
       box-shadow:
-        inset 0 2px 3px rgba(0,0,0,0.5),
-        inset 0 -1px 1px rgba(255,255,255,0.03),
-        0 1px 0 rgba(255,255,255,0.02);
+        inset 0 2px 3px rgba(0, 0, 0, 0.5),
+        inset 0 -1px 1px rgba(255, 255, 255, 0.03),
+        0 1px 0 rgba(255, 255, 255, 0.02);
     }
 
     /* 电池仓 — RAISED door */
@@ -1152,16 +1322,17 @@ $recessed-groove:
       display: flex;
       align-items: center;
       padding: 2px 6px;
-      background: linear-gradient(145deg,
+      background: linear-gradient(
+        145deg,
         rgba(36, 40, 44, 0.5) 0%,
         rgba(24, 28, 32, 0.65) 100%
       );
       border: 1px solid rgba(60, 68, 76, 0.2);
       border-radius: 3px;
       box-shadow:
-        0 1px 3px rgba(0,0,0,0.25),
-        inset 0 1px 0 rgba(255,255,255,0.04),
-        inset 0 -1px 0 rgba(0,0,0,0.1);
+        0 1px 3px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
 
       .bat-icon {
         svg {
@@ -1180,7 +1351,8 @@ $recessed-groove:
     left: 15%;
     right: 15%;
     height: 1px;
-    background: linear-gradient(90deg,
+    background: linear-gradient(
+      90deg,
       transparent 0%,
       rgba(94, 234, 212, 0.2) 20%,
       rgba(94, 234, 212, 0.45) 50%,
@@ -1203,32 +1375,52 @@ $recessed-groove:
     .top-plate {
       padding: 3px 10px;
       gap: 6px;
-      .hot-shoe { width: 24px; }
-      .mode-dial { width: 22px; height: 22px; }
-      .shutter-btn { width: 14px; height: 14px; }
+      .hot-shoe {
+        width: 24px;
+      }
+      .mode-dial {
+        width: 22px;
+        height: 22px;
+      }
+      .shutter-btn {
+        width: 14px;
+        height: 14px;
+      }
     }
 
-    .camera-body { flex-direction: column; }
+    .camera-body {
+      flex-direction: column;
+    }
 
     .reel-section {
       width: 100%;
       padding: 5px 0;
-      .reel-wheel { width: 28px; height: 28px; }
+      .reel-wheel {
+        width: 28px;
+        height: 28px;
+      }
 
       .film-frame {
         .sprocket-track {
           height: 6px;
           padding: 0 8px;
           gap: 4px;
-          .sprocket { width: 5px; height: 4px; }
+          .sprocket {
+            width: 5px;
+            height: 4px;
+          }
         }
 
         .lcd-screen {
           height: 170px;
+
           .play-indicator .tape-icon {
             width: 44px;
             height: 44px;
-            svg { width: 18px; height: 18px; }
+            svg {
+              width: 18px;
+              height: 18px;
+            }
           }
         }
       }
@@ -1236,18 +1428,37 @@ $recessed-groove:
 
     .control-section {
       padding: 10px 12px 8px;
-      .osd-bar { padding: 3px 7px; }
-      .viewfinder-title .vf-text { font-size: 17px; }
-      .author-row { font-size: 12px; }
-      .desc { font-size: 11px; }
-      .tag-row .tag { padding: 3px 8px; font-size: 10px; }
+      .osd-bar {
+        padding: 3px 7px;
+      }
+      .viewfinder-title .vf-text {
+        font-size: 17px;
+      }
+      .author-row {
+        font-size: 12px;
+      }
+      .desc {
+        font-size: 11px;
+      }
+      .tag-row .tag {
+        padding: 3px 8px;
+        font-size: 10px;
+      }
+
       .dash-stats {
         padding: 6px 8px;
-        .gauge .gauge-val { font-size: 13px; }
+        .gauge .gauge-val {
+          font-size: 13px;
+        }
       }
-      .action-bar .rear-dial { width: 26px; height: 26px; }
+      .action-bar .rear-dial {
+        width: 26px;
+        height: 26px;
+      }
     }
 
-    .bottom-plate { padding: 3px 10px 4px; }
+    .bottom-plate {
+      padding: 3px 10px 4px;
+    }
   }
 }

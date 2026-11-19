@@ -306,6 +306,7 @@
           &.stud-left {
             left: 10px;
           }
+
           &.stud-right {
             right: 10px;
           }
@@ -451,6 +452,7 @@
             &::before {
               top: 2px;
             }
+
             &::after {
               bottom: 2px;
             }
@@ -581,9 +583,11 @@
           transparent 5px
         );
       }
+
       &.binding-top {
         top: 5px;
       }
+
       &.binding-bottom {
         bottom: 5px;
       }
@@ -664,6 +668,7 @@
           rgb(120 84 36 / 50%) 80%,
           transparent
         );
+
         &.node-left {
           left: 5px;
         }
@@ -1032,6 +1037,7 @@
         &.left {
           margin-right: -2px;
         }
+
         &.right {
           margin-left: -2px;
         }
@@ -1079,10 +1085,12 @@
             top: 20px;
             width: 120px;
           }
+
           &.l2 {
             top: 44px;
             width: 170px;
           }
+
           &.l3 {
             top: 68px;
             width: 140px;
