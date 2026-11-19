@@ -24,7 +24,11 @@
     padding: 0.7rem 1.4rem;
     min-width: 200px;
     max-width: 420px;
-    background: linear-gradient(135deg, rgba(8, 18, 28, 0.96), rgba(4, 10, 18, 0.98));
+    background: linear-gradient(
+      135deg,
+      rgba(8, 18, 28, 0.96),
+      rgba(4, 10, 18, 0.98)
+    );
     border: 1px solid var(--toast-color);
     border-radius: 14px;
     backdrop-filter: blur(16px) saturate(1.4);

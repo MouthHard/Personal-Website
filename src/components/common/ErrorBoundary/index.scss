@@ -35,6 +35,7 @@ $mono: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
     from {
       opacity: 0;
     }
+
     to {
       opacity: 1;
     }
@@ -178,14 +179,17 @@ $mono: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
       top: 10px;
       left: 10px;
     }
+
     &--tr {
       top: 10px;
       right: 10px;
     }
+
     &--bl {
       bottom: 10px;
       left: 10px;
     }
+
     &--br {
       bottom: 10px;
       right: 10px;
@@ -301,6 +305,7 @@ $mono: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
     100% {
       opacity: 1;
     }
+
     50% {
       opacity: 0.3;
     }
@@ -355,6 +360,7 @@ $mono: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
     100% {
       opacity: 1;
     }
+
     50% {
       opacity: 0.5;
     }

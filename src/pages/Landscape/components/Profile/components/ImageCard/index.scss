@@ -3,6 +3,7 @@
     opacity: 0;
     transform: translateY(18px) scale(0.97);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -13,6 +14,7 @@
   0% {
     transform: translateX(-160%) skewX(-18deg);
   }
+
   100% {
     transform: translateX(320%) skewX(-18deg);
   }
@@ -22,12 +24,15 @@
   0% {
     transform: scale(1);
   }
+
   30% {
     transform: scale(1.35);
   }
+
   60% {
     transform: scale(0.88);
   }
+
   100% {
     transform: scale(1);
   }
@@ -71,6 +76,7 @@ $mat-dark: rgba(218, 215, 208, 1);
       img {
         transform: scale(1.04);
       }
+
       .glass-glare {
         animation: glare-sweep 0.8s ease-out;
       }
@@ -79,6 +85,7 @@ $mat-dark: rgba(218, 215, 208, 1);
     .info-title {
       text-shadow: 0 0 10px rgba(94, 234, 212, 0.2);
     }
+
     .footer-action {
       opacity: 1;
       transform: translateX(0);
@@ -471,14 +478,17 @@ $mat-dark: rgba(218, 215, 208, 1);
       top: 8px;
       left: 8px;
     }
+
     .brad-tr {
       top: 8px;
       right: 8px;
     }
+
     .brad-bl {
       bottom: 8px;
       left: 8px;
     }
+
     .brad-br {
       bottom: 8px;
       right: 8px;
@@ -606,9 +616,11 @@ $mat-dark: rgba(218, 215, 208, 1);
               box-shadow:
                 0 3px 10px rgba(0, 0, 0, 0.45),
                 0 2px 5px rgba(0, 0, 0, 0.3);
+
               svg {
                 color: rgba(255, 255, 255, 1);
               }
+
               span {
                 color: rgba(255, 255, 255, 0.95);
               }
@@ -632,6 +644,7 @@ $mat-dark: rgba(218, 215, 208, 1);
               color: rgba(255, 255, 255, 1);
               filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
             }
+
             span {
               color: rgba(255, 255, 255, 1);
             }
@@ -653,6 +666,7 @@ $mat-dark: rgba(218, 215, 208, 1);
               color: rgba(255, 255, 255, 1);
               filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.45));
             }
+
             span {
               color: rgba(255, 255, 255, 1);
             }
@@ -675,6 +689,7 @@ $mat-dark: rgba(218, 215, 208, 1);
               color: rgba(255, 255, 255, 1);
               filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
             }
+
             span {
               color: rgba(255, 255, 255, 1);
             }
@@ -697,6 +712,7 @@ $mat-dark: rgba(218, 215, 208, 1);
               color: rgba(255, 255, 255, 1);
               filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
             }
+
             span {
               color: rgba(255, 255, 255, 1);
             }
@@ -914,14 +930,17 @@ $mat-dark: rgba(218, 215, 208, 1);
     .hanger {
       width: 26px;
       height: 20px;
+
       .hanger-nail {
         width: 5px;
         height: 6px;
       }
+
       .hanger-wire {
         width: 14px;
         height: 10px;
       }
+
       .hanger-d-ring {
         width: 8px;
         height: 5px;
@@ -935,6 +954,7 @@ $mat-dark: rgba(218, 215, 208, 1);
         width: 14px;
         height: 14px;
       }
+
       .brass-brad {
         width: 6px;
         height: 6px;
@@ -954,6 +974,7 @@ $mat-dark: rgba(218, 215, 208, 1);
           .info-top .info-title {
             font-size: 16px;
           }
+
           .info-meta {
             font-size: 11px;
           }

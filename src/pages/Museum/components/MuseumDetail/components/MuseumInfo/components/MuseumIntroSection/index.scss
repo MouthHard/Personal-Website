@@ -108,10 +108,12 @@
             top: 8px;
             left: 8px;
           }
+
           &.top-left::before {
             top: 0;
             left: 0;
           }
+
           &.top-left::after {
             top: 0;
             left: 0;
@@ -121,10 +123,12 @@
             top: 8px;
             right: 8px;
           }
+
           &.top-right::before {
             top: 0;
             right: 0;
           }
+
           &.top-right::after {
             top: 0;
             right: 0;
@@ -134,10 +138,12 @@
             bottom: 8px;
             left: 8px;
           }
+
           &.bottom-left::before {
             bottom: 0;
             left: 0;
           }
+
           &.bottom-left::after {
             bottom: 0;
             left: 0;
@@ -147,10 +153,12 @@
             bottom: 8px;
             right: 8px;
           }
+
           &.bottom-right::before {
             bottom: 0;
             right: 0;
           }
+
           &.bottom-right::after {
             bottom: 0;
             right: 0;
@@ -203,6 +211,7 @@
           &.top {
             top: 20px;
           }
+
           &.bottom {
             bottom: 20px;
           }
@@ -236,6 +245,7 @@
           &::before {
             top: -50px;
           }
+
           &::after {
             bottom: -50px;
           }
@@ -270,6 +280,7 @@
           &::before {
             left: -10px;
           }
+
           &::after {
             right: -10px;
           }

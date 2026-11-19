@@ -9,6 +9,7 @@
   &.active {
     cursor: default;
     filter: brightness(1.05);
+
     .film-perforations {
       opacity: 0.92;
     }
@@ -229,12 +230,15 @@
         &[data-category='自然风光'] {
           background: linear-gradient(135deg, #10b981, #059669);
         }
+
         &[data-category='城市风光'] {
           background: linear-gradient(135deg, #3b82f6, #2563eb);
         }
+
         &[data-category='延时摄影'] {
           background: linear-gradient(135deg, #f59e0b, #d97706);
         }
+
         &[data-category='旅行记录'] {
           background: linear-gradient(135deg, #ec4899, #db2777);
         }
@@ -268,6 +272,7 @@
         display: flex;
         align-items: center;
         gap: 0.6rem;
+
         img {
           width: 34px;
           height: 34px;
@@ -275,6 +280,7 @@
           border: 2px solid rgba(255, 107, 107, 0.65);
           box-shadow: 0 2px 8px rgba(239, 68, 68, 0.25);
         }
+
         span {
           color: rgba(255, 255, 255, 0.92);
           font-size: 1.1rem;
@@ -418,6 +424,7 @@
               0 0 18px rgba(236, 72, 153, 0.35),
               inset 0 1.5px 0 rgba(255, 200, 230, 0.25),
               inset 0 0 0 1px rgba(236, 72, 153, 0.35);
+
             svg {
               filter: drop-shadow(0 0 6px rgba(244, 114, 182, 0.8));
             }
@@ -433,6 +440,7 @@
               0 0 24px rgba(236, 72, 153, 0.5),
               0 0 40px rgba(236, 72, 153, 0.25),
               inset 0 0 0 1.5px rgba(236, 72, 153, 0.5);
+
             svg {
               color: #ec4899;
               filter: drop-shadow(0 0 8px rgba(236, 72, 153, 0.9))
@@ -477,6 +485,7 @@
               0 0 18px rgba(239, 68, 68, 0.38),
               inset 0 1.5px 0 rgba(255, 200, 200, 0.25),
               inset 0 0 0 1px rgba(239, 68, 68, 0.38);
+
             svg {
               filter: drop-shadow(0 0 6px rgba(248, 113, 113, 0.8));
             }
@@ -492,6 +501,7 @@
               0 0 24px rgba(239, 68, 68, 0.5),
               0 0 40px rgba(239, 68, 68, 0.25),
               inset 0 0 0 1.5px rgba(239, 68, 68, 0.5);
+
             svg {
               color: #ef4444;
               filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.9))
@@ -536,6 +546,7 @@
               0 0 18px rgba(16, 185, 129, 0.32),
               inset 0 1.5px 0 rgba(200, 255, 220, 0.25),
               inset 0 0 0 1px rgba(16, 185, 129, 0.35);
+
             svg {
               filter: drop-shadow(0 0 6px rgba(52, 211, 153, 0.8));
             }
@@ -551,6 +562,7 @@
               0 0 24px rgba(16, 185, 129, 0.5),
               0 0 40px rgba(16, 185, 129, 0.25),
               inset 0 0 0 1.5px rgba(16, 185, 129, 0.5);
+
             svg {
               color: #10b981;
               filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.9))
@@ -595,6 +607,7 @@
               0 0 18px rgba(59, 130, 246, 0.32),
               inset 0 1.5px 0 rgba(200, 220, 255, 0.25),
               inset 0 0 0 1px rgba(59, 130, 246, 0.35);
+
             svg {
               filter: drop-shadow(0 0 6px rgba(96, 165, 250, 0.8));
             }
@@ -623,6 +636,7 @@
               0 0 18px rgba(16, 185, 129, 0.32),
               inset 0 1.5px 0 rgba(200, 255, 220, 0.25),
               inset 0 0 0 1px rgba(16, 185, 129, 0.35);
+
             svg {
               filter: drop-shadow(0 0 6px rgba(52, 211, 153, 0.8));
             }
@@ -637,6 +651,7 @@
       transition:
         box-shadow 0.35s ease,
         transform 0.35s ease;
+
       &:hover {
         box-shadow:
           0 30px 75px rgba(0, 0, 0, 0.6),
@@ -653,6 +668,7 @@
     transform: scale(1);
     opacity: 0.6;
   }
+
   100% {
     transform: scale(1.6);
     opacity: 0;
@@ -664,6 +680,7 @@
   100% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.4);
   }
@@ -674,6 +691,7 @@
     opacity: 0;
     transform: translateY(12px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -692,15 +710,18 @@
 
     .slide-info {
       padding: 1.25rem;
+
       .info-title {
         font-size: 1.1rem;
       }
+
       .info-row-bottom {
         flex-direction: column;
         align-items: flex-start;
         gap: 0.75rem;
       }
     }
+
     .film-perforations .perf-strip {
       width: 8px;
     }

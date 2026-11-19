@@ -998,12 +998,15 @@ $cal-radius: 8px;
         &.act-fav {
           @include cal-act-btn(#d05050, #ff8080, #8a1818, #ffc0c0);
         }
+
         &.act-been {
           @include cal-act-btn(#4a9a5a, #80d890, #1a6a2a, #c0f6ca);
         }
+
         &.act-share {
           @include cal-act-btn(#3090c0, #70c8f0, #0a5080, #a0e8f5);
         }
+
         &.act-detail {
           @include cal-act-btn(#e09030, #ffb860, #a05000, #ffe0a0);
         }
@@ -1101,15 +1104,19 @@ $cal-radius: 8px;
   0% {
     transform: rotate(-1.8deg);
   }
+
   25% {
     transform: rotate(-0.6deg);
   }
+
   50% {
     transform: rotate(1.2deg);
   }
+
   75% {
     transform: rotate(-0.4deg);
   }
+
   100% {
     transform: rotate(-1.8deg);
   }
@@ -1120,15 +1127,19 @@ $cal-radius: 8px;
   0% {
     transform: rotate(-0.8deg);
   }
+
   25% {
     transform: rotate(-0.3deg);
   }
+
   50% {
     transform: rotate(0.5deg);
   }
+
   75% {
     transform: rotate(-0.2deg);
   }
+
   100% {
     transform: rotate(-0.8deg);
   }

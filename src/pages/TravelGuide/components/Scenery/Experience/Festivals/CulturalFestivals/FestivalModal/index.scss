@@ -71,6 +71,7 @@
       0 4px 8px rgba(0, 0, 0, 0.22),
       0 2px 4px rgba(0, 0, 0, 0.12),
       inset 0 1px 3px rgba(255, 255, 255, 0.5);
+
     svg {
       width: 22px;
       height: 22px;
@@ -169,6 +170,7 @@
           display: inline-flex;
           color: $c-ink;
           opacity: 0.85;
+
           svg {
             width: 22px;
             height: 22px;
@@ -286,6 +288,7 @@
             .stamp-icon {
               display: inline-flex;
               color: $c-leather-dark;
+
               svg {
                 width: 22px;
                 height: 22px;
@@ -400,6 +403,7 @@
         .inner-head-icon {
           display: inline-flex;
           color: $c-ink;
+
           svg {
             width: 22px;
             height: 22px;
@@ -450,14 +454,17 @@
         &::-webkit-scrollbar {
           width: 6px;
         }
+
         &::-webkit-scrollbar-track {
           background: rgba(58, 46, 31, 0.06);
           border-radius: 3px;
         }
+
         &::-webkit-scrollbar-thumb {
           background: rgba(58, 46, 31, 0.25);
           border-radius: 3px;
         }
+
         &::-webkit-scrollbar-thumb:hover {
           background: rgba(58, 46, 31, 0.4);
         }
@@ -494,11 +501,13 @@
                 $c-stamp
               );
               border: 2px solid $c-stamp-deep;
+
               .item-day {
                 color: #fff;
                 text-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
               }
             }
+
             .item-badge {
               background: linear-gradient(
                 135deg,
@@ -515,10 +524,12 @@
             .item-date-stamp {
               background: linear-gradient(135deg, #eaf2f8, #cfe2f3);
               border: 2px solid $c-note;
+
               .item-day {
                 color: $c-note;
               }
             }
+
             .item-badge {
               background: linear-gradient(
                 135deg,
@@ -680,6 +691,7 @@
               border-radius: 4px;
               background: rgba(44, 95, 124, 0.08);
               border: 1px solid rgba(44, 95, 124, 0.15);
+
               svg {
                 width: 14px;
                 height: 14px;
@@ -724,10 +736,12 @@
             box-shadow:
               0 2px 5px rgba(0, 0, 0, 0.18),
               inset 0 1px 1px rgba(255, 255, 255, 0.4);
+
             svg {
               width: 18px;
               height: 18px;
             }
+
             .flip {
               transform: rotate(180deg);
             }
@@ -901,6 +915,7 @@
           display: inline-flex;
           color: $c-ink;
           opacity: 0.7;
+
           svg {
             width: 28px;
             height: 28px;
@@ -931,6 +946,7 @@
         .empty-icon {
           display: inline-flex;
           color: rgba($c-stamp, 0.5);
+
           svg {
             width: 48px;
             height: 48px;
@@ -1047,6 +1063,7 @@
         0 3px 6px rgba(0, 0, 0, 0.2),
         0 1px 2px rgba(0, 0, 0, 0.1),
         inset 0 1px 2px rgba(255, 255, 255, 0.5);
+
       svg {
         width: 18px;
         height: 18px;
@@ -1071,14 +1088,17 @@
       &::-webkit-scrollbar {
         width: 6px;
       }
+
       &::-webkit-scrollbar-track {
         background: rgba(58, 46, 31, 0.06);
         border-radius: 3px;
       }
+
       &::-webkit-scrollbar-thumb {
         background: rgba(58, 46, 31, 0.25);
         border-radius: 3px;
       }
+
       &::-webkit-scrollbar-thumb:hover {
         background: rgba(58, 46, 31, 0.4);
       }
@@ -1140,6 +1160,7 @@
             border-radius: 4px;
             background: rgba(44, 95, 124, 0.08);
             border: 1px solid rgba(44, 95, 124, 0.15);
+
             svg {
               width: 16px;
               height: 16px;
@@ -1891,9 +1912,11 @@
   &.btn-fav {
     @include btn-fold-page(#00b8d4, #4dd0e1, #006c80);
   }
+
   &.btn-been {
     @include btn-fold-page(#ff8f00, #ffb74d, #e65100);
   }
+
   &.btn-share {
     @include btn-fold-page(#00c853, #5cd68a, #00853e);
   }

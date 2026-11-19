@@ -573,6 +573,7 @@ $ink-light: #5d6d7e;
             &.like-btn.active {
               background: rgba($teal-bright, 0.3);
               border-color: rgba($teal-bright, 0.5);
+
               svg,
               span {
                 color: $teal-bright;
@@ -582,6 +583,7 @@ $ink-light: #5d6d7e;
             &.love-btn.active {
               background: rgba($ruby, 0.3);
               border-color: rgba($ruby, 0.5);
+
               svg,
               span {
                 color: $ruby;
@@ -591,6 +593,7 @@ $ink-light: #5d6d7e;
             &.collect-btn.active {
               background: rgba($amber, 0.3);
               border-color: rgba($amber, 0.5);
+
               svg,
               span {
                 color: $amber;

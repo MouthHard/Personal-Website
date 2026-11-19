@@ -427,6 +427,7 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', arial, sans-serif;
 
           &[data-level='简单'] {
             border: 2.5px solid $moss-green;
+
             .stamp-text {
               color: $moss-green;
             }
@@ -434,6 +435,7 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', arial, sans-serif;
 
           &[data-level='中等'] {
             border: 2.5px solid $trail-amber;
+
             .stamp-text {
               color: $trail-amber;
             }
@@ -441,6 +443,7 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', arial, sans-serif;
 
           &[data-level='较难'] {
             border: 2.5px solid $stamp-red;
+
             .stamp-text {
               color: $stamp-red;
             }
@@ -561,12 +564,15 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', arial, sans-serif;
             &--cyan .field-icon {
               color: $trail-cyan;
             }
+
             &--green .field-icon {
               color: $moss-green;
             }
+
             &--amber .field-icon {
               color: $trail-amber;
             }
+
             &--rose .field-icon {
               color: $trail-rose;
             }
@@ -588,9 +594,11 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', arial, sans-serif;
         overflow-y: auto;
         scrollbar-width: thin;
         scrollbar-color: rgba(120, 90, 50, 0.35) transparent;
+
         &::-webkit-scrollbar {
           width: 6px;
         }
+
         &::-webkit-scrollbar-track {
           background: transparent;
         }
@@ -771,6 +779,7 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', arial, sans-serif;
                 inset 1px 0 1.5px rgba(90, 20, 10, 0.3),
                 inset -1px 0 1.5px rgba(90, 20, 10, 0.4),
                 0 1px 3px rgba(120, 30, 20, 0.3);
+
               .go-arrow {
                 transform: translateX(2px);
               }
@@ -908,6 +917,7 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', arial, sans-serif;
             font-size: 19px;
             color: $ink;
           }
+
           .sketch-count {
             font-size: 14px;
             opacity: 0.65;
@@ -1291,6 +1301,7 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', arial, sans-serif;
                     rgba(200, 148, 50, 0.04) 100%
                   );
               }
+
               .data-val {
                 color: $trail-amber;
               }
@@ -1690,6 +1701,7 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', arial, sans-serif;
     &::-webkit-scrollbar {
       height: 5px;
     }
+
     &::-webkit-scrollbar-track {
       background: transparent;
     }
@@ -2067,6 +2079,7 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', arial, sans-serif;
           &::before {
             opacity: 1;
           }
+
           &::after {
             opacity: 1;
           }
@@ -2118,6 +2131,7 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', arial, sans-serif;
           &::before {
             opacity: 0;
           }
+
           &::after {
             opacity: 0;
           }
@@ -2827,6 +2841,7 @@ $font-mono: 'Microsoft YaHei', 'PingFang SC', arial, sans-serif;
     &.btn-been {
       @include btn-three-state(#ff8f00, #ffb74d, #e65100, #ffcc80);
     }
+
     &.btn-share {
       @include btn-three-state(#00c853, #5cd68a, #00853e, #b9f6ca);
     }

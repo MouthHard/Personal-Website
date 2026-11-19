@@ -392,16 +392,19 @@
         0 3px 12px rgba(0, 0, 0, 0.25),
         0 0 0 1px rgba(34, 211, 238, 0.15),
         inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
       svg {
         stroke: #c7e6f9;
         filter: drop-shadow(0 0 4px rgba(34, 211, 238, 0.4));
       }
+
       .stat-value {
         color: #c7e6f9;
         text-shadow:
           0 0 12px rgba(34, 211, 238, 0.5),
           0 1px 2px rgba(0, 0, 0, 0.3);
       }
+
       .stat-label {
         color: #e6f2fa;
         text-shadow: 0 0 8px rgba(34, 211, 238, 0.3);
@@ -420,6 +423,7 @@
           0 0 0 1px rgba(34, 211, 238, 0.5),
           inset 0 1px 0 rgba(255, 255, 255, 0.15);
         transform: translateY(-4px) scale(1.03);
+
         &::before {
           content: '';
           position: absolute;
@@ -428,6 +432,7 @@
           border-radius: 0.5rem;
           pointer-events: none;
         }
+
         &::after {
           content: '';
           position: absolute;
@@ -439,17 +444,20 @@
           background: linear-gradient(90deg, transparent, #22d3ee, transparent);
           box-shadow: 0 0 8px rgba(34, 211, 238, 0.6);
         }
+
         svg {
           stroke: #d8f0fc;
           transform: scale(1.2);
           filter: drop-shadow(0 0 10px rgba(34, 211, 238, 0.7));
         }
+
         .stat-value {
           color: #d8f0fc;
           text-shadow:
             0 0 24px rgba(34, 211, 238, 0.7),
             0 1px 3px rgba(0, 0, 0, 0.4);
         }
+
         .stat-label {
           color: #e6f5fc;
           opacity: 1;
@@ -469,15 +477,18 @@
           inset 0 3px 6px rgba(0, 0, 0, 0.2);
         transform: translateY(0) scale(0.97);
         transition-duration: 0.05s;
+
         svg {
           stroke: #e6f5fc;
           transform: scale(0.9);
           filter: drop-shadow(0 0 3px rgba(34, 211, 238, 0.3));
         }
+
         .stat-value {
           color: #e6f5fc;
           text-shadow: 0 0 12px rgba(34, 211, 238, 0.4);
         }
+
         .stat-label {
           color: #e6f5fc;
         }
@@ -496,6 +507,7 @@
           0 2px 6px rgba(0, 0, 0, 0.3),
           inset 0 1px 0 rgba(255, 255, 255, 0.25),
           inset 0 -2px 4px rgba(0, 0, 0, 0.15);
+
         &::before {
           content: '';
           position: absolute;
@@ -516,6 +528,7 @@
           );
           pointer-events: none;
         }
+
         &::after {
           content: '';
           position: absolute;
@@ -529,15 +542,18 @@
           filter: blur(0.5px);
           pointer-events: none;
         }
+
         svg {
           stroke: #fff;
           transform: scale(1.1);
           filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
         }
+
         .stat-value {
           color: #fff;
           text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
         }
+
         .stat-label {
           color: rgba(255, 255, 255, 0.85);
           text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
@@ -556,16 +572,19 @@
         0 3px 12px rgba(0, 0, 0, 0.25),
         0 0 0 1px rgba(96, 165, 250, 0.15),
         inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
       svg {
         stroke: #a3cafe;
         filter: drop-shadow(0 0 4px rgba(96, 165, 250, 0.4));
       }
+
       .stat-value {
         color: #a3cafe;
         text-shadow:
           0 0 12px rgba(96, 165, 250, 0.5),
           0 1px 2px rgba(0, 0, 0, 0.3);
       }
+
       .stat-label {
         color: #c9dafc;
         text-shadow: 0 0 8px rgba(96, 165, 250, 0.3);
@@ -584,6 +603,7 @@
           0 0 0 1px rgba(96, 165, 250, 0.5),
           inset 0 1px 0 rgba(255, 255, 255, 0.15);
         transform: translateY(-4px) scale(1.03);
+
         &::before {
           content: '';
           position: absolute;
@@ -592,6 +612,7 @@
           border-radius: 0.5rem;
           pointer-events: none;
         }
+
         &::after {
           content: '';
           position: absolute;
@@ -603,17 +624,20 @@
           background: linear-gradient(90deg, transparent, #60a5fa, transparent);
           box-shadow: 0 0 8px rgba(96, 165, 250, 0.6);
         }
+
         svg {
           stroke: #b5d0fc;
           transform: scale(1.2);
           filter: drop-shadow(0 0 10px rgba(96, 165, 250, 0.7));
         }
+
         .stat-value {
           color: #b5d0fc;
           text-shadow:
             0 0 24px rgba(96, 165, 250, 0.7),
             0 1px 3px rgba(0, 0, 0, 0.4);
         }
+
         .stat-label {
           color: #cdd2fd;
           opacity: 1;
@@ -633,15 +657,18 @@
           inset 0 3px 6px rgba(0, 0, 0, 0.2);
         transform: translateY(0) scale(0.97);
         transition-duration: 0.05s;
+
         svg {
           stroke: #cdd2fd;
           transform: scale(0.9);
           filter: drop-shadow(0 0 3px rgba(96, 165, 250, 0.3));
         }
+
         .stat-value {
           color: #cdd2fd;
           text-shadow: 0 0 12px rgba(96, 165, 250, 0.4);
         }
+
         .stat-label {
           color: #cdd2fd;
         }
@@ -660,6 +687,7 @@
           0 2px 6px rgba(0, 0, 0, 0.3),
           inset 0 1px 0 rgba(255, 255, 255, 0.25),
           inset 0 -2px 4px rgba(0, 0, 0, 0.15);
+
         &::before {
           content: '';
           position: absolute;
@@ -680,6 +708,7 @@
           );
           pointer-events: none;
         }
+
         &::after {
           content: '';
           position: absolute;
@@ -693,15 +722,18 @@
           filter: blur(0.5px);
           pointer-events: none;
         }
+
         svg {
           stroke: #fff;
           transform: scale(1.1);
           filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
         }
+
         .stat-value {
           color: #fff;
           text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
         }
+
         .stat-label {
           color: rgba(255, 255, 255, 0.85);
           text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
@@ -720,16 +752,19 @@
         0 3px 12px rgba(0, 0, 0, 0.25),
         0 0 0 1px rgba(244, 114, 182, 0.15),
         inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
       svg {
         stroke: #f9b3d9;
         filter: drop-shadow(0 0 4px rgba(244, 114, 182, 0.4));
       }
+
       .stat-value {
         color: #f9b3d9;
         text-shadow:
           0 0 12px rgba(244, 114, 182, 0.5),
           0 1px 2px rgba(0, 0, 0, 0.3);
       }
+
       .stat-label {
         color: #fce3ef;
         text-shadow: 0 0 8px rgba(244, 114, 182, 0.3);
@@ -752,6 +787,7 @@
           0 0 0 1px rgba(244, 114, 182, 0.5),
           inset 0 1px 0 rgba(255, 255, 255, 0.15);
         transform: translateY(-4px) scale(1.03);
+
         &::before {
           content: '';
           position: absolute;
@@ -760,6 +796,7 @@
           border-radius: 0.5rem;
           pointer-events: none;
         }
+
         &::after {
           content: '';
           position: absolute;
@@ -771,17 +808,20 @@
           background: linear-gradient(90deg, transparent, #f472b6, transparent);
           box-shadow: 0 0 8px rgba(244, 114, 182, 0.6);
         }
+
         svg {
           stroke: #fcd0e6;
           transform: scale(1.2);
           filter: drop-shadow(0 0 10px rgba(244, 114, 182, 0.7));
         }
+
         .stat-value {
           color: #fcd0e6;
           text-shadow:
             0 0 24px rgba(244, 114, 182, 0.7),
             0 1px 3px rgba(0, 0, 0, 0.4);
         }
+
         .stat-label {
           color: #fdc5e0;
           opacity: 1;
@@ -805,15 +845,18 @@
           inset 0 3px 6px rgba(0, 0, 0, 0.2);
         transform: translateY(0) scale(0.97);
         transition-duration: 0.05s;
+
         svg {
           stroke: #fdc5e0;
           transform: scale(0.9);
           filter: drop-shadow(0 0 3px rgba(244, 114, 182, 0.3));
         }
+
         .stat-value {
           color: #fdc5e0;
           text-shadow: 0 0 12px rgba(244, 114, 182, 0.4);
         }
+
         .stat-label {
           color: #fdc5e0;
         }
@@ -832,6 +875,7 @@
           0 2px 6px rgba(0, 0, 0, 0.3),
           inset 0 1px 0 rgba(255, 255, 255, 0.25),
           inset 0 -2px 4px rgba(0, 0, 0, 0.15);
+
         &::before {
           content: '';
           position: absolute;
@@ -852,6 +896,7 @@
           );
           pointer-events: none;
         }
+
         &::after {
           content: '';
           position: absolute;
@@ -865,15 +910,18 @@
           filter: blur(0.5px);
           pointer-events: none;
         }
+
         svg {
           stroke: #fff;
           transform: scale(1.1);
           filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
         }
+
         .stat-value {
           color: #fff;
           text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
         }
+
         .stat-label {
           color: rgba(255, 255, 255, 0.85);
           text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
@@ -892,16 +940,19 @@
         0 3px 12px rgba(0, 0, 0, 0.25),
         0 0 0 1px rgba(167, 139, 250, 0.15),
         inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
       svg {
         stroke: #d1b9fd;
         filter: drop-shadow(0 0 4px rgba(167, 139, 250, 0.4));
       }
+
       .stat-value {
         color: #d1b9fd;
         text-shadow:
           0 0 12px rgba(167, 139, 250, 0.5),
           0 1px 2px rgba(0, 0, 0, 0.3);
       }
+
       .stat-label {
         color: #dcd1f7;
         text-shadow: 0 0 8px rgba(167, 139, 250, 0.3);
@@ -920,6 +971,7 @@
           0 0 0 1px rgba(167, 139, 250, 0.5),
           inset 0 1px 0 rgba(255, 255, 255, 0.15);
         transform: translateY(-4px) scale(1.03);
+
         &::before {
           content: '';
           position: absolute;
@@ -928,6 +980,7 @@
           border-radius: 0.5rem;
           pointer-events: none;
         }
+
         &::after {
           content: '';
           position: absolute;
@@ -939,17 +992,20 @@
           background: linear-gradient(90deg, transparent, #a78bfa, transparent);
           box-shadow: 0 0 8px rgba(167, 139, 250, 0.6);
         }
+
         svg {
           stroke: #e2d3fd;
           transform: scale(1.2);
           filter: drop-shadow(0 0 10px rgba(167, 139, 250, 0.7));
         }
+
         .stat-value {
           color: #e2d3fd;
           text-shadow:
             0 0 24px rgba(167, 139, 250, 0.7),
             0 1px 3px rgba(0, 0, 0, 0.4);
         }
+
         .stat-label {
           color: #e8d9fd;
           opacity: 1;
@@ -969,15 +1025,18 @@
           inset 0 3px 6px rgba(0, 0, 0, 0.2);
         transform: translateY(0) scale(0.97);
         transition-duration: 0.05s;
+
         svg {
           stroke: #e8d9fd;
           transform: scale(0.9);
           filter: drop-shadow(0 0 3px rgba(167, 139, 250, 0.3));
         }
+
         .stat-value {
           color: #e8d9fd;
           text-shadow: 0 0 12px rgba(167, 139, 250, 0.4);
         }
+
         .stat-label {
           color: #e8d9fd;
         }
@@ -996,6 +1055,7 @@
           0 2px 6px rgba(0, 0, 0, 0.3),
           inset 0 1px 0 rgba(255, 255, 255, 0.25),
           inset 0 -2px 4px rgba(0, 0, 0, 0.15);
+
         &::before {
           content: '';
           position: absolute;
@@ -1016,6 +1076,7 @@
           );
           pointer-events: none;
         }
+
         &::after {
           content: '';
           position: absolute;
@@ -1029,15 +1090,18 @@
           filter: blur(0.5px);
           pointer-events: none;
         }
+
         svg {
           stroke: #fff;
           transform: scale(1.1);
           filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
         }
+
         .stat-value {
           color: #fff;
           text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
         }
+
         .stat-label {
           color: rgba(255, 255, 255, 0.85);
           text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
@@ -1056,16 +1120,19 @@
         0 3px 12px rgba(0, 0, 0, 0.25),
         0 0 0 1px rgba(52, 211, 153, 0.15),
         inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
       svg {
         stroke: #9de7c5;
         filter: drop-shadow(0 0 4px rgba(52, 211, 153, 0.4));
       }
+
       .stat-value {
         color: #9de7c5;
         text-shadow:
           0 0 12px rgba(52, 211, 153, 0.5),
           0 1px 2px rgba(0, 0, 0, 0.3);
       }
+
       .stat-label {
         color: #c9eedb;
         text-shadow: 0 0 8px rgba(52, 211, 153, 0.3);
@@ -1084,6 +1151,7 @@
           0 0 0 1px rgba(52, 211, 153, 0.5),
           inset 0 1px 0 rgba(255, 255, 255, 0.15);
         transform: translateY(-4px) scale(1.03);
+
         &::before {
           content: '';
           position: absolute;
@@ -1092,6 +1160,7 @@
           border-radius: 0.5rem;
           pointer-events: none;
         }
+
         &::after {
           content: '';
           position: absolute;
@@ -1103,17 +1172,20 @@
           background: linear-gradient(90deg, transparent, #34d399, transparent);
           box-shadow: 0 0 8px rgba(52, 211, 153, 0.6);
         }
+
         svg {
           stroke: #b8efdd;
           transform: scale(1.2);
           filter: drop-shadow(0 0 10px rgba(52, 211, 153, 0.7));
         }
+
         .stat-value {
           color: #b8efdd;
           text-shadow:
             0 0 24px rgba(52, 211, 153, 0.7),
             0 1px 3px rgba(0, 0, 0, 0.4);
         }
+
         .stat-label {
           color: #c7e9cc;
           opacity: 1;
@@ -1137,15 +1209,18 @@
           inset 0 3px 6px rgba(0, 0, 0, 0.2);
         transform: translateY(0) scale(0.97);
         transition-duration: 0.05s;
+
         svg {
           stroke: #c7e9cc;
           transform: scale(0.9);
           filter: drop-shadow(0 0 3px rgba(52, 211, 153, 0.3));
         }
+
         .stat-value {
           color: #c7e9cc;
           text-shadow: 0 0 12px rgba(52, 211, 153, 0.4);
         }
+
         .stat-label {
           color: #c7e9cc;
         }
@@ -1164,6 +1239,7 @@
           0 2px 6px rgba(0, 0, 0, 0.3),
           inset 0 1px 0 rgba(255, 255, 255, 0.25),
           inset 0 -2px 4px rgba(0, 0, 0, 0.15);
+
         &::before {
           content: '';
           position: absolute;
@@ -1184,6 +1260,7 @@
           );
           pointer-events: none;
         }
+
         &::after {
           content: '';
           position: absolute;
@@ -1197,15 +1274,18 @@
           filter: blur(0.5px);
           pointer-events: none;
         }
+
         svg {
           stroke: #fff;
           transform: scale(1.1);
           filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
         }
+
         .stat-value {
           color: #fff;
           text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
         }
+
         .stat-label {
           color: rgba(255, 255, 255, 0.85);
           text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);

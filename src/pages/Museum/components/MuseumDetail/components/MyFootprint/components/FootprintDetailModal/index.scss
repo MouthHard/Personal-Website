@@ -114,6 +114,7 @@ $text-faint: #8095ad;
     &.left {
       width: 70px;
     }
+
     &.right {
       flex: 1;
       max-width: none;
@@ -251,6 +252,7 @@ $text-faint: #8095ad;
         0 8px 20px rgba(244, 67, 54, 0.45),
         inset 0 1px 0 rgba(255, 255, 255, 0.2);
       transform: translateY(-1px);
+
       :deep(svg) {
         color: #fff;
       }
@@ -304,6 +306,7 @@ $text-faint: #8095ad;
       border-bottom: none;
       border-radius: 4px 0 0;
     }
+
     &.tr {
       top: 10px;
       right: 10px;
@@ -311,6 +314,7 @@ $text-faint: #8095ad;
       border-bottom: none;
       border-radius: 0 4px 0 0;
     }
+
     &.bl {
       bottom: 10px;
       left: 10px;
@@ -318,6 +322,7 @@ $text-faint: #8095ad;
       border-top: none;
       border-radius: 0 0 0 4px;
     }
+
     &.br {
       bottom: 10px;
       right: 10px;
@@ -393,6 +398,7 @@ $text-faint: #8095ad;
         height: 60px;
         opacity: 0.5;
       }
+
       span {
         font-size: 16px;
       }
@@ -436,6 +442,7 @@ $text-faint: #8095ad;
   100% {
     left: -100%;
   }
+
   50% {
     left: 200%;
   }
@@ -503,6 +510,7 @@ $text-faint: #8095ad;
           rgba(255, 167, 38, 0.08)
         );
         border: 1px solid rgba(255, 213, 79, 0.45);
+
         .chip-dot {
           background: $yellow;
           box-shadow: 0 0 6px rgba(255, 213, 79, 0.9);
@@ -517,6 +525,7 @@ $text-faint: #8095ad;
           rgba(244, 67, 54, 0.08)
         );
         border: 1px solid rgba(255, 138, 128, 0.45);
+
         .chip-dot {
           background: $coral;
           box-shadow: 0 0 6px rgba(255, 138, 128, 0.9);
@@ -531,6 +540,7 @@ $text-faint: #8095ad;
           rgba(79, 195, 247, 0.08)
         );
         border: 1px solid rgba(129, 212, 250, 0.45);
+
         .chip-dot {
           background: $sky-light;
           box-shadow: 0 0 6px rgba(129, 212, 250, 0.9);
@@ -541,6 +551,7 @@ $text-faint: #8095ad;
         color: $text-dim;
         background: rgba(138, 155, 176, 0.15);
         border: 1px solid rgba(138, 155, 176, 0.3);
+
         .chip-dot {
           background: $text-dim;
         }
@@ -748,6 +759,7 @@ $text-faint: #8095ad;
     opacity: 1;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.5;
     transform: scale(0.8);
@@ -816,6 +828,7 @@ $text-faint: #8095ad;
         0 5px 14px rgba(0, 0, 0, 0.5),
         inset 0 1px 0 rgba(255, 255, 255, 0.08),
         inset 0 -2px 5px rgba(0, 0, 0, 0.3);
+
       :deep(svg) {
         color: #c0493f;
         filter: drop-shadow(0 0 3px rgba(192, 73, 63, 0.5));
@@ -829,6 +842,7 @@ $text-faint: #8095ad;
           0 0 18px rgba(255, 138, 128, 0.3),
           inset 0 1px 0 rgba(255, 255, 255, 0.2);
         transform: translateY(-3px);
+
         :deep(svg) {
           color: #ff8a80;
           filter: drop-shadow(0 0 6px rgba(255, 138, 128, 0.9));
@@ -842,6 +856,7 @@ $text-faint: #8095ad;
           0 10px 26px rgba(255, 138, 128, 0.55),
           0 0 22px rgba(255, 138, 128, 0.4),
           inset 0 1px 0 rgba(255, 255, 255, 0.25);
+
         :deep(svg) {
           color: #fff;
           filter: drop-shadow(0 0 8px rgba(255, 138, 128, 1));
@@ -857,6 +872,7 @@ $text-faint: #8095ad;
         0 5px 14px rgba(0, 0, 0, 0.5),
         inset 0 1px 0 rgba(255, 255, 255, 0.08),
         inset 0 -2px 5px rgba(0, 0, 0, 0.3);
+
       :deep(svg) {
         color: #f9a825;
         filter: drop-shadow(0 0 3px rgba(249, 168, 37, 0.5));
@@ -870,6 +886,7 @@ $text-faint: #8095ad;
           0 0 18px rgba(255, 213, 79, 0.3),
           inset 0 1px 0 rgba(255, 255, 255, 0.2);
         transform: translateY(-3px);
+
         :deep(svg) {
           color: #ffd54f;
           filter: drop-shadow(0 0 6px rgba(255, 213, 79, 0.9));
@@ -883,6 +900,7 @@ $text-faint: #8095ad;
           0 10px 26px rgba(255, 213, 79, 0.55),
           0 0 22px rgba(255, 213, 79, 0.4),
           inset 0 1px 0 rgba(255, 255, 255, 0.25);
+
         :deep(svg) {
           color: #fff;
           filter: drop-shadow(0 0 8px rgba(255, 213, 79, 1));
@@ -898,6 +916,7 @@ $text-faint: #8095ad;
         0 5px 14px rgba(0, 0, 0, 0.5),
         inset 0 1px 0 rgba(255, 255, 255, 0.08),
         inset 0 -2px 5px rgba(0, 0, 0, 0.3);
+
       :deep(svg) {
         color: #1976d2;
         filter: drop-shadow(0 0 3px rgba(25, 118, 210, 0.5));
@@ -911,6 +930,7 @@ $text-faint: #8095ad;
           0 0 18px rgba(79, 195, 247, 0.3),
           inset 0 1px 0 rgba(255, 255, 255, 0.2);
         transform: translateY(-3px);
+
         :deep(svg) {
           color: #4fc3f7;
           filter: drop-shadow(0 0 6px rgba(79, 195, 247, 0.9));
@@ -924,6 +944,7 @@ $text-faint: #8095ad;
           0 10px 26px rgba(79, 195, 247, 0.55),
           0 0 22px rgba(79, 195, 247, 0.4),
           inset 0 1px 0 rgba(255, 255, 255, 0.25);
+
         :deep(svg) {
           color: #fff;
           filter: drop-shadow(0 0 8px rgba(79, 195, 247, 1));
@@ -939,6 +960,7 @@ $text-faint: #8095ad;
         0 5px 14px rgba(0, 0, 0, 0.5),
         inset 0 1px 0 rgba(255, 255, 255, 0.08),
         inset 0 -2px 5px rgba(0, 0, 0, 0.3);
+
       :deep(svg) {
         color: #388e3c;
         filter: drop-shadow(0 0 3px rgba(56, 142, 60, 0.5));
@@ -952,6 +974,7 @@ $text-faint: #8095ad;
           0 0 18px rgba(129, 199, 132, 0.3),
           inset 0 1px 0 rgba(255, 255, 255, 0.2);
         transform: translateY(-3px);
+
         :deep(svg) {
           color: #81c784;
           filter: drop-shadow(0 0 6px rgba(129, 199, 132, 0.9));

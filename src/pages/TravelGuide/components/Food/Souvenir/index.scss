@@ -963,6 +963,7 @@ $bevel: 14px;
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -973,6 +974,7 @@ $bevel: 14px;
   from {
     transform: translate(-50%, -50%) rotate(45deg);
   }
+
   to {
     transform: translate(-50%, -50%) rotate(405deg);
   }

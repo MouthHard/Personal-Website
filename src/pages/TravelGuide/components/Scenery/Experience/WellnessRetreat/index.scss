@@ -803,14 +803,17 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
           &::-webkit-scrollbar {
             width: 6px;
           }
+
           &::-webkit-scrollbar-track {
             background: rgba(88, 66, 28, 0.08);
             border-radius: 3px;
           }
+
           &::-webkit-scrollbar-thumb {
             background: rgba(120, 90, 45, 0.45);
             border-radius: 3px;
           }
+
           &::-webkit-scrollbar-thumb:hover {
             background: rgba(120, 90, 45, 0.65);
           }
@@ -1224,6 +1227,7 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
         0% {
           background-position: -130% 0;
         }
+
         100% {
           background-position: 130% 0;
         }
@@ -1470,14 +1474,17 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
       &::-webkit-scrollbar {
         width: 6px;
       }
+
       &::-webkit-scrollbar-track {
         background: rgba(120, 90, 45, 0.06);
         border-radius: 3px;
       }
+
       &::-webkit-scrollbar-thumb {
         background: rgba(184, 56, 43, 0.35);
         border-radius: 3px;
       }
+
       &::-webkit-scrollbar-thumb:hover {
         background: rgba(184, 56, 43, 0.55);
       }
@@ -2183,9 +2190,11 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
                   &[data-level='轻松'] {
                     color: #2d5d2d;
                   }
+
                   &[data-level='适中'] {
                     color: #7c5e1e;
                   }
+
                   &[data-level='深度'] {
                     color: #b04936;
                   }
@@ -2665,6 +2674,7 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
   0% {
     left: -100%;
   }
+
   100% {
     left: 100%;
   }

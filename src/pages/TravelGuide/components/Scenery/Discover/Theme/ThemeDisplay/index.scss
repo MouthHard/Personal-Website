@@ -169,16 +169,19 @@
           left: 4px;
           clip-path: polygon(0 0, 100% 0, 0 100%);
         }
+
         &--tr {
           top: 4px;
           right: 4px;
           clip-path: polygon(0 0, 100% 0, 100% 100%);
         }
+
         &--bl {
           bottom: 4px;
           left: 4px;
           clip-path: polygon(0 0, 0 100%, 100% 100%);
         }
+
         &--br {
           bottom: 4px;
           right: 4px;
@@ -373,6 +376,7 @@
           font-weight: 800;
           color: $brass-bright;
           text-shadow: 0 1px 1px rgba(0, 0, 0, 0.6);
+
           svg {
             width: 15px;
             height: 15px;
@@ -452,6 +456,7 @@
           height: 40px;
           flex-shrink: 0;
           color: $ink-darkest;
+
           svg {
             width: 32px;
             height: 32px;
@@ -493,6 +498,7 @@
               $card-cream 60%,
               $card-edge 100%
             );
+
           .is-ico {
             color: $accent-forest;
           }
@@ -512,6 +518,7 @@
               $kraft-light 60%,
               $kraft 100%
             );
+
           .is-ico {
             color: $accent-gold;
           }
@@ -526,6 +533,7 @@
               transparent 60%
             ),
             linear-gradient(180deg, #f0d4b0 0%, #e6c096 60%, #d4a472 100%);
+
           .is-ico {
             color: $accent-rust;
           }
@@ -540,6 +548,7 @@
               transparent 60%
             ),
             linear-gradient(180deg, #f0dcd6 0%, #e6c8c4 60%, #d4aeaa 100%);
+
           .is-ico {
             color: $accent-berry;
           }
@@ -631,6 +640,7 @@
       letter-spacing: 2px;
       margin-bottom: 14px;
       text-shadow: 0 1px 0 rgba(255, 245, 200, 0.5);
+
       svg {
         width: 22px;
         height: 22px;
@@ -734,6 +744,7 @@
       border-bottom: 2px solid rgba(184, 134, 42, 0.4);
       box-shadow: 0 1px 0 rgba(154, 124, 72, 0.2);
       text-shadow: 0 1px 0 rgba(255, 245, 200, 0.5);
+
       svg {
         width: 22px;
         height: 22px;
@@ -894,6 +905,7 @@
               font-size: 16px;
               font-weight: 900;
               color: $accent-gold;
+
               svg {
                 width: 16px;
                 height: 16px;
@@ -915,6 +927,7 @@
               display: inline-flex;
               align-items: center;
               gap: 4px;
+
               svg {
                 width: 15px;
                 height: 15px;
@@ -959,6 +972,7 @@
               font-size: 14px;
               font-weight: 600;
               color: $ink-mid;
+
               svg {
                 width: 15px;
                 height: 15px;
@@ -1000,6 +1014,7 @@
               inset 0 -1px 1px rgba(184, 164, 120, 0.3),
               0 1px 2px rgba(0, 0, 0, 0.18);
             transition: all 0.3s ease;
+
             svg {
               width: 15px;
               height: 15px;
@@ -1013,18 +1028,22 @@
                 0 3px 6px rgba(0, 0, 0, 0.25);
             }
           }
+
           .sc-like:hover {
             color: $accent-amber;
             border-color: $accent-amber;
           }
+
           .sc-want:hover {
             color: $stamp-teal;
             border-color: $stamp-teal;
           }
+
           .sc-share:hover {
             color: $accent-forest;
             border-color: $accent-forest;
           }
+
           .sc-been:hover {
             color: $accent-berry;
             border-color: $accent-berry;
@@ -1219,6 +1238,7 @@
       letter-spacing: 2px;
       margin-bottom: 14px;
       text-shadow: 0 1px 0 rgba(255, 245, 200, 0.5);
+
       svg {
         width: 22px;
         height: 22px;
@@ -1252,6 +1272,7 @@
             0 1px 0 rgba(255, 250, 200, 0.5),
             0 0 1px rgba(74, 122, 74, 0.4);
         }
+
         &:last-child {
           margin-bottom: 0;
         }

@@ -356,16 +356,19 @@
               top: 1px;
               left: 1px;
             }
+
             &.cn-corner-tr {
               top: 1px;
               right: 1px;
               transform: scaleX(-1);
             }
+
             &.cn-corner-bl {
               bottom: 1px;
               left: 1px;
               transform: scaleY(-1);
             }
+
             &.cn-corner-br {
               bottom: 1px;
               right: 1px;

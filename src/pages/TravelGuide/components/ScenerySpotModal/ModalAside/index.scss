@@ -180,6 +180,7 @@ $base: #020204;
           inset 0 -1.5px 1px rgba(0, 0, 0, 0.45),
           inset 1px 0 0 rgba(255, 255, 255, 0.14),
           inset 0 0 0 1px rgba(0, 0, 0, 0.2);
+
         svg {
           color: #96eeff;
         }
@@ -241,6 +242,7 @@ $base: #020204;
           inset 0 -1.5px 1px rgba(0, 0, 0, 0.45),
           inset 1px 0 0 rgba(255, 255, 255, 0.14),
           inset 0 0 0 1px rgba(0, 0, 0, 0.2);
+
         svg {
           color: #b8ffd6;
         }
@@ -270,6 +272,7 @@ $base: #020204;
           inset 0 -1.5px 1px rgba(0, 0, 0, 0.45),
           inset 1px 0 0 rgba(255, 255, 255, 0.14),
           inset 0 0 0 1px rgba(0, 0, 0, 0.2);
+
         svg {
           color: #ffe27d;
         }
@@ -356,6 +359,7 @@ $base: #020204;
       letter-spacing: 1px;
       font-family: 'Courier New', monospace;
       margin-left: auto;
+
       &:hover {
         color: #ffb040;
       }
@@ -411,6 +415,7 @@ $base: #020204;
         height: 20px;
         stroke-width: 2.5;
       }
+
       .action-label {
         font-size: 13px;
         font-weight: 700;
@@ -494,11 +499,13 @@ $base: #020204;
           inset 0 -2px 3px rgba(0, 229, 255, 0.2),
           0 2px 4px rgba(0, 0, 0, 0.5);
         color: #e0faff;
+
         &::after {
           height: 3px;
           background: #00e5ff;
           box-shadow: 0 0 8px rgba(0, 229, 255, 0.6);
         }
+
         &:hover {
           background: #2078a0;
           box-shadow:
@@ -610,11 +617,13 @@ $base: #020204;
           inset 0 -2px 3px rgba(255, 100, 140, 0.2),
           0 2px 4px rgba(0, 0, 0, 0.5);
         color: #ffd0e0;
+
         &::after {
           height: 3px;
           background: #ff6480;
           box-shadow: 0 0 8px rgba(255, 100, 140, 0.6);
         }
+
         &:hover {
           background: #a02038;
           box-shadow:
@@ -680,11 +689,13 @@ $base: #020204;
           inset 0 -2px 3px rgba(52, 211, 153, 0.2),
           0 2px 4px rgba(0, 0, 0, 0.5);
         color: #d0ffe8;
+
         &::after {
           height: 3px;
           background: #34d399;
           box-shadow: 0 0 8px rgba(52, 211, 153, 0.6);
         }
+
         &:hover {
           background: #0c7848;
           box-shadow:
@@ -748,6 +759,7 @@ $base: #020204;
     justify-content: center;
     gap: 5px;
     padding: 2px 0;
+
     span {
       width: 4px;
       height: 4px;
@@ -811,6 +823,7 @@ $base: #020204;
         inset 1.5px 0 0 rgba(255, 180, 190, 0.3),
         inset -1.5px 0 0 rgba(0, 0, 0, 0.55);
     }
+
     &:active {
       box-shadow:
         0 0 20px rgba(255, 60, 80, 0.45),

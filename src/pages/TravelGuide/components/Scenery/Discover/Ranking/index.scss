@@ -1262,6 +1262,7 @@ $holo-bg-mid: #0f1626;
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -1272,12 +1273,15 @@ $holo-bg-mid: #0f1626;
     top: -10px;
     opacity: 0;
   }
+
   10% {
     opacity: 1;
   }
+
   90% {
     opacity: 1;
   }
+
   100% {
     top: 100%;
     opacity: 0;
@@ -1289,10 +1293,12 @@ $holo-bg-mid: #0f1626;
     transform: rotate(-6deg) scale(1.6);
     opacity: 0;
   }
+
   60% {
     transform: rotate(-6deg) scale(0.92);
     opacity: 1;
   }
+
   100% {
     transform: rotate(-6deg) scale(1);
     opacity: 1;

@@ -100,6 +100,7 @@
           0 5px 14px rgba(0, 0, 0, 0.35),
           0 0 8px rgba(212, 148, 58, 0.1),
           inset 0 1px 0 rgba(255, 200, 120, 0.12);
+
         svg {
           transform: translateX(3px);
         }
@@ -324,6 +325,7 @@
                   inset 0 1px 0 rgba(251, 191, 36, 0.2),
                   inset 0 -1px 0 rgba(0, 0, 0, 0.15);
                 color: rgba(251, 191, 36, 0.95);
+
                 &:hover {
                   background: linear-gradient(
                     180deg,
@@ -351,6 +353,7 @@
                   inset 0 1px 0 rgba(34, 211, 238, 0.2),
                   inset 0 -1px 0 rgba(0, 0, 0, 0.15);
                 color: rgba(34, 211, 238, 0.95);
+
                 &:hover {
                   background: linear-gradient(
                     180deg,
@@ -378,6 +381,7 @@
                   inset 0 1px 0 rgba(251, 113, 133, 0.2),
                   inset 0 -1px 0 rgba(0, 0, 0, 0.15);
                 color: rgba(251, 113, 133, 0.95);
+
                 &:hover {
                   background: linear-gradient(
                     180deg,
@@ -435,12 +439,15 @@
               &:nth-child(1) svg {
                 color: rgba(245, 158, 11, 0.85);
               }
+
               &:nth-child(2) svg {
                 color: rgba(6, 182, 212, 0.85);
               }
+
               &:nth-child(3) svg {
                 color: rgba(244, 63, 94, 0.85);
               }
+
               &:nth-child(4) svg {
                 color: rgba(16, 185, 129, 0.85);
               }
@@ -515,6 +522,7 @@
                   0 4px 8px rgba(0, 0, 0, 0.25),
                   inset 0 1px 0 rgba(255, 255, 255, 0.3),
                   inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+
                 &::before {
                   left: 100%;
                 }
@@ -946,6 +954,7 @@
               img {
                 transform: scale(1.1);
               }
+
               .work-overlay {
                 opacity: 1;
               }
@@ -962,6 +971,7 @@
     opacity: 0;
     transform: translateY(-30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -973,6 +983,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -983,6 +994,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -994,6 +1006,7 @@
     transform: scale(1);
     opacity: 1;
   }
+
   50% {
     transform: scale(1.2);
     opacity: 0.8;
@@ -1005,6 +1018,7 @@
   100% {
     box-shadow: 0 6px 15px rgba(16, 185, 129, 0.6);
   }
+
   50% {
     box-shadow: 0 10px 25px rgba(16, 185, 129, 0.8);
   }

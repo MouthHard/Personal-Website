@@ -111,27 +111,34 @@
       &.tl {
         top: 3px;
         left: 3px;
+
         &::before {
           transform: translate(-50%, -50%) rotate(35deg);
         }
       }
+
       &.tr {
         top: 3px;
         right: 3px;
+
         &::before {
           transform: translate(-50%, -50%) rotate(-55deg);
         }
       }
+
       &.bl {
         bottom: 3px;
         left: 3px;
+
         &::before {
           transform: translate(-50%, -50%) rotate(-20deg);
         }
       }
+
       &.br {
         bottom: 3px;
         right: 3px;
+
         &::before {
           transform: translate(-50%, -50%) rotate(65deg);
         }
@@ -167,6 +174,7 @@
         border-top: 2.5px solid rgba(255, 107, 107, 0.55);
         border-left: 2.5px solid rgba(255, 107, 107, 0.55);
         border-top-left-radius: 14px;
+
         &::after {
           content: '';
           position: absolute;
@@ -187,6 +195,7 @@
         border-top: 2.5px solid rgba(255, 107, 107, 0.55);
         border-right: 2.5px solid rgba(255, 107, 107, 0.55);
         border-top-right-radius: 14px;
+
         &::after {
           content: '';
           position: absolute;
@@ -207,6 +216,7 @@
         border-bottom: 2.5px solid rgba(255, 107, 107, 0.55);
         border-left: 2.5px solid rgba(255, 107, 107, 0.55);
         border-bottom-left-radius: 14px;
+
         &::after {
           content: '';
           position: absolute;
@@ -227,6 +237,7 @@
         border-bottom: 2.5px solid rgba(255, 107, 107, 0.55);
         border-right: 2.5px solid rgba(255, 107, 107, 0.55);
         border-bottom-right-radius: 14px;
+
         &::after {
           content: '';
           position: absolute;
@@ -347,6 +358,7 @@
             0 0 24px rgba(255, 87, 87, 0.35),
             inset 0 1px 1px rgba(255, 255, 255, 0.3);
         }
+
         &:nth-child(2) {
           background: radial-gradient(
             circle at 35% 30%,
@@ -358,6 +370,7 @@
             0 0 10px rgba(251, 191, 36, 0.75),
             inset 0 1px 1px rgba(255, 255, 255, 0.3);
         }
+
         &:nth-child(3) {
           background: radial-gradient(
             circle at 35% 30%,
@@ -606,6 +619,7 @@
               0 0 0 1px rgba(239, 68, 68, 0.4),
               0 0 8px rgba(239, 68, 68, 0.2);
           }
+
           .tick-label {
             color: rgba(255, 210, 210, 0.95);
           }
@@ -621,6 +635,7 @@
               inset 0 -1px 1px rgba(0, 0, 0, 0.3),
               0 0 0 1px rgba(252, 165, 165, 0.6);
           }
+
           .tick-label {
             color: #fca5a5;
             text-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
@@ -726,9 +741,11 @@
       &:active:not(:disabled) .dial-btn-face {
         transform: scale(0.95);
       }
+
       &:disabled .dial-btn-face {
         opacity: 0.28;
       }
+
       &:disabled {
         cursor: not-allowed;
       }
@@ -947,6 +964,7 @@
   .frame-outer {
     padding: 5px;
     border-radius: 18px;
+
     .frame-inner {
       padding: 0.75rem 1.5rem 1.25rem;
       border-radius: 13px;
@@ -962,21 +980,26 @@
     .frame-inner {
       padding: 0.5rem 0.75rem 1rem;
       border-radius: 11px;
+
       .chamfer {
         display: none;
       }
+
       .status-bar {
         padding: 0.4rem 0.75rem;
         margin-bottom: 0.75rem;
+
         .status-gauge,
         .status-knob {
           display: none;
         }
       }
+
       .scale-bar {
         padding: 0 1.5rem;
       }
     }
+
     .frame-screws {
       display: none;
     }
@@ -984,10 +1007,12 @@
     .nav-dial {
       gap: 1rem;
       margin-top: 1.5rem;
+
       .dial-btn {
         width: 42px;
         height: 42px;
       }
+
       .dial-display .dial-ring {
         width: 54px;
         height: 54px;

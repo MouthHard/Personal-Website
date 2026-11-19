@@ -112,6 +112,7 @@ $text-dim: #c8a878;
       &.rod-cap-l {
         border-radius: 60% 40% 50% 50%;
       }
+
       &.rod-cap-r {
         border-radius: 40% 60% 50% 50%;
       }
@@ -173,6 +174,7 @@ $text-dim: #c8a878;
       &.rod-finial-l {
         left: 6px;
       }
+
       &.rod-finial-r {
         right: 6px;
       }
@@ -999,9 +1001,11 @@ $text-dim: #c8a878;
           &.act-fav {
             @include base-act-btn(#0277a8, #00b8d4, #004d5c, #4dd0e1);
           }
+
           &.act-been {
             @include base-act-btn(#e67e00, #ff8f00, #b85c00, #ffb74d);
           }
+
           &.act-share {
             @include base-act-btn(#00a844, #00c853, #006630, #5cd68a);
           }

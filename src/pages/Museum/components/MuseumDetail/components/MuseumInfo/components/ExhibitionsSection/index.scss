@@ -22,6 +22,7 @@
       margin-bottom: 1.5rem;
       filter: drop-shadow(0 4px 12px rgba(120, 119, 198, 0.3));
       animation: floatIcon 3s ease-in-out infinite;
+
       svg {
         width: 64px;
         height: 64px;
@@ -51,6 +52,7 @@
     100% {
       transform: translateY(0);
     }
+
     50% {
       transform: translateY(-10px);
     }

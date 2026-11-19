@@ -67,13 +67,16 @@
       border: 1px solid rgba(0, 229, 255, 0.15);
       pointer-events: none;
     }
+
     .r1 {
       inset: 25%;
     }
+
     .r2 {
       inset: 12%;
       border-color: rgba(0, 229, 255, 0.12);
     }
+
     .r3 {
       inset: 2%;
       border-color: rgba(0, 229, 255, 0.1);
@@ -109,6 +112,7 @@
       border: 2px solid rgba(0, 229, 255, 0.5);
       pointer-events: none;
     }
+
     .br-tl {
       top: -2px;
       left: -2px;
@@ -116,6 +120,7 @@
       border-bottom: none;
       border-top-left-radius: 6px;
     }
+
     .br-tr {
       top: -2px;
       right: -2px;
@@ -123,6 +128,7 @@
       border-bottom: none;
       border-top-right-radius: 6px;
     }
+
     .br-bl {
       bottom: -2px;
       left: -2px;
@@ -130,6 +136,7 @@
       border-top: none;
       border-bottom-left-radius: 6px;
     }
+
     .br-br {
       bottom: -2px;
       right: -2px;
@@ -176,11 +183,13 @@
       animation: blipPulse 2s ease-in-out infinite;
       z-index: 5;
     }
+
     .blip-1 {
       top: 22%;
       left: 65%;
       animation-delay: 0s;
     }
+
     .blip-2 {
       top: 68%;
       left: 30%;
@@ -190,11 +199,13 @@
         0 0 6px #ffc400,
         0 0 12px rgba(255, 196, 0, 0.4);
     }
+
     .blip-3 {
       top: 40%;
       left: 78%;
       animation-delay: 0.8s;
     }
+
     .blip-4 {
       top: 75%;
       left: 60%;
@@ -204,6 +215,7 @@
         0 0 6px #ffc400,
         0 0 12px rgba(255, 196, 0, 0.4);
     }
+
     .blip-5 {
       top: 30%;
       left: 25%;
@@ -236,6 +248,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

@@ -3,6 +3,7 @@
     opacity: 0;
     transform: translateY(16px) rotateX(-3deg);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) rotateX(0deg);
@@ -13,9 +14,11 @@
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
@@ -26,6 +29,7 @@
   100% {
     opacity: 0.4;
   }
+
   50% {
     opacity: 0.85;
   }
@@ -35,12 +39,15 @@
   0% {
     transform: scale(1);
   }
+
   30% {
     transform: scale(1.25);
   }
+
   60% {
     transform: scale(0.9);
   }
+
   100% {
     transform: scale(1);
   }
@@ -51,6 +58,7 @@
   100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0.5;
   }
@@ -85,6 +93,7 @@ $gold: rgba(215, 180, 110, 1);
         0 22px 44px rgba(0, 0, 0, 0.45),
         0 8px 16px rgba(0, 0, 0, 0.3);
     }
+
     .holo-strip {
       animation: holo-shift 2s ease-in-out infinite;
     }
@@ -223,6 +232,7 @@ $gold: rgba(215, 180, 110, 1);
         display: flex;
         align-items: center;
         gap: 6px;
+
         .org-icon {
           width: 18px;
           height: 18px;
@@ -386,6 +396,7 @@ $gold: rgba(215, 180, 110, 1);
           box-shadow:
             0 2px 5px rgba(20, 184, 166, 0.4),
             inset 0 1px 0 rgba(255, 255, 255, 0.15);
+
           svg {
             width: 10px;
             height: 10px;
@@ -429,6 +440,7 @@ $gold: rgba(215, 180, 110, 1);
             color: $teal-deep;
             flex-shrink: 0;
             box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
             svg {
               width: 12px;
               height: 12px;
@@ -457,6 +469,7 @@ $gold: rgba(215, 180, 110, 1);
             font-size: 11px;
             font-weight: 700;
             color: $ink-mid;
+
             svg {
               width: 12px;
               height: 12px;
@@ -484,6 +497,7 @@ $gold: rgba(215, 180, 110, 1);
           font-size: 10.5px;
           font-weight: 700;
           color: $ink-mid;
+
           svg {
             width: 12px;
             height: 12px;
@@ -615,6 +629,7 @@ $gold: rgba(215, 180, 110, 1);
           border: 1px solid rgba(58, 66, 82, 0.35);
           transition: all 0.25s ease;
           cursor: pointer;
+
           svg {
             width: 12px;
             height: 12px;
@@ -624,6 +639,7 @@ $gold: rgba(215, 180, 110, 1);
           &:hover {
             background: rgba(20, 184, 166, 0.12);
             border-color: rgba(20, 184, 166, 0.35);
+
             svg {
               color: $teal-deep;
             }
@@ -646,6 +662,7 @@ $gold: rgba(215, 180, 110, 1);
           border: 1px solid rgba(58, 66, 82, 0.35);
           cursor: pointer;
           transition: all 0.25s ease;
+
           svg {
             width: 12px;
             height: 12px;
@@ -655,6 +672,7 @@ $gold: rgba(215, 180, 110, 1);
           &:hover {
             background: rgba(20, 184, 166, 0.12);
             border-color: rgba(20, 184, 166, 0.35);
+
             svg {
               color: $teal-deep;
             }
@@ -757,12 +775,14 @@ $gold: rgba(215, 180, 110, 1);
           &:hover {
             border-color: rgba(20, 184, 166, 0.4);
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+
             img {
               transform: scale(1.05);
             }
 
             .work-overlay {
               background: rgba(0, 0, 0, 0.2);
+
               svg {
                 opacity: 1;
                 transform: scale(1);
@@ -832,9 +852,11 @@ $gold: rgba(215, 180, 110, 1);
         font-size: 11px;
         font-weight: 800;
         color: $ink-mid;
+
         &:last-child {
           border-right: none;
         }
+
         svg {
           width: 14px;
           height: 14px;
@@ -844,6 +866,7 @@ $gold: rgba(215, 180, 110, 1);
         &:hover {
           background: rgba(20, 184, 166, 0.08);
           color: $teal-bright;
+
           svg {
             color: $teal-bright;
           }
@@ -864,6 +887,7 @@ $gold: rgba(215, 180, 110, 1);
             rgba(22, 150, 135, 1)
           );
           color: #fff;
+
           svg {
             color: #fff;
           }
@@ -874,9 +898,11 @@ $gold: rgba(215, 180, 110, 1);
           color: $teal-bright;
           text-shadow: none;
           box-shadow: none;
+
           svg {
             color: $teal-bright;
           }
+
           &:hover {
             background: rgba(20, 184, 166, 0.1);
           }
@@ -885,6 +911,7 @@ $gold: rgba(215, 180, 110, 1);
 
       .like-btn.liked {
         color: $teal-bright;
+
         svg {
           color: $teal-bright;
           filter: drop-shadow(0 0 3px rgba(30, 200, 180, 0.4));
@@ -899,6 +926,7 @@ $gold: rgba(215, 180, 110, 1);
 @media (max-width: 900px) {
   .photographer-card {
     padding-top: 14px;
+
     .lanyard {
       width: 32px;
       height: 22px;
@@ -907,6 +935,7 @@ $gold: rgba(215, 180, 110, 1);
     .badge-card {
       .profile-row {
         padding: 10px 12px;
+
         .id-photo-area .photo-border {
           width: 56px;
           height: 68px;
@@ -916,14 +945,17 @@ $gold: rgba(215, 180, 110, 1);
           .name-line .person-name {
             font-size: 17px;
           }
+
           .meta-line {
             gap: 5px;
           }
         }
       }
+
       .stats-row {
         margin: 0 12px;
       }
+
       .info-strip {
         padding: 6px 12px;
         flex-wrap: wrap;
@@ -931,6 +963,7 @@ $gold: rgba(215, 180, 110, 1);
 
       .works-row {
         padding: 0 12px 5px;
+
         .works-gallery .work-item img {
           aspect-ratio: 3/2;
         }
@@ -939,6 +972,7 @@ $gold: rgba(215, 180, 110, 1);
       .action-bar .action-btn {
         padding: 7px 2px;
         font-size: 10px;
+
         svg {
           width: 12px;
           height: 12px;

@@ -3,6 +3,7 @@
     opacity: 0;
     transform: translateY(18px) scale(0.97);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -13,6 +14,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -22,6 +24,7 @@
   0% {
     width: 0%;
   }
+
   100% {
     width: 100%;
   }
@@ -31,12 +34,15 @@
   0% {
     transform: scale(1);
   }
+
   30% {
     transform: scale(1.4);
   }
+
   60% {
     transform: scale(0.85);
   }
+
   100% {
     transform: scale(1);
   }
@@ -47,6 +53,7 @@
   100% {
     opacity: 0.3;
   }
+
   50% {
     opacity: 0.9;
   }
@@ -58,6 +65,7 @@
     opacity: 0.3;
     box-shadow: 0 0 4px rgba(239, 68, 68, 0.3);
   }
+
   50% {
     opacity: 1;
     box-shadow:
@@ -70,6 +78,7 @@
   0% {
     transform: translateX(-140%) skewX(-15deg);
   }
+
   100% {
     transform: translateX(280%) skewX(-15deg);
   }
@@ -157,12 +166,15 @@ $recessed-groove:
     .card-ambient {
       opacity: 1;
     }
+
     .card-edge-glow {
       opacity: 1;
     }
+
     .reel-wheel .spoke {
       animation: reel-rotate 1.5s linear infinite;
     }
+
     .status-led .led-dot {
       animation: led-blink 1.2s ease-in-out infinite;
     }
@@ -172,12 +184,15 @@ $recessed-groove:
         transform: scale(1.06);
         filter: contrast(1.1) saturate(1.15) brightness(1.05);
       }
+
       .lcd-vignette {
         opacity: 0.12;
       }
+
       .lcd-glare {
         animation: glare-slide 0.8s ease-out;
       }
+
       .rule-thirds {
         opacity: 0.5;
       }
@@ -195,6 +210,7 @@ $recessed-groove:
             0 0 24px rgba(94, 234, 212, 0.3);
         }
       }
+
       .film-progress .progress-head {
         animation: progress-creep 4s linear infinite;
       }
@@ -203,10 +219,12 @@ $recessed-groove:
     .viewfinder-title .vf-text {
       text-shadow: 0 0 16px rgba(94, 234, 212, 0.25);
     }
+
     .action-bar .play-cta {
       opacity: 1;
       transform: translateX(0);
     }
+
     .film-barcode .barcode-id {
       color: rgba(94, 234, 212, 0.75);
     }
@@ -496,6 +514,7 @@ $recessed-groove:
         &.top {
           margin-bottom: 3px;
         }
+
         &.bottom {
           margin-top: 3px;
         }
@@ -581,9 +600,11 @@ $recessed-groove:
             height: 1px;
             background: rgba(94, 234, 212, 0.15);
             box-shadow: 0 0 2px rgba(94, 234, 212, 0.06);
+
             &.h1 {
               top: 33.33%;
             }
+
             &.h2 {
               top: 66.66%;
             }
@@ -596,9 +617,11 @@ $recessed-groove:
             width: 1px;
             background: rgba(94, 234, 212, 0.15);
             box-shadow: 0 0 2px rgba(94, 234, 212, 0.06);
+
             &.v1 {
               left: 33.33%;
             }
+
             &.v2 {
               left: 66.66%;
             }
@@ -656,10 +679,12 @@ $recessed-groove:
             width: 0;
             opacity: 0;
             transition: all 0.4s ease;
+
             &.left {
               right: 100%;
               margin-right: 6px;
             }
+
             &.right {
               left: 100%;
               margin-left: 6px;
@@ -800,6 +825,7 @@ $recessed-groove:
           color: rgba(255, 200, 100, 0.8);
           text-shadow: 0 0 4px rgba(255, 200, 100, 0.1);
         }
+
         &.wb {
           color: rgba(160, 200, 255, 0.75);
           text-shadow: 0 0 4px rgba(160, 200, 255, 0.1);
@@ -831,24 +857,28 @@ $recessed-groove:
         height: 10px;
         border: 2px solid rgba(94, 234, 212, 0.4);
         box-shadow: 0 0 4px rgba(94, 234, 212, 0.08);
+
         &.tl {
           top: 0;
           left: 0;
           border-right: none;
           border-bottom: none;
         }
+
         &.tr {
           top: 0;
           right: 0;
           border-left: none;
           border-bottom: none;
         }
+
         &.bl {
           bottom: 0;
           left: 0;
           border-right: none;
           border-top: none;
         }
+
         &.br {
           bottom: 0;
           right: 0;
@@ -1100,6 +1130,7 @@ $recessed-groove:
           box-shadow:
             $convex-btn-hover,
             0 0 8px rgba(59, 130, 246, 0.15);
+
           svg {
             color: rgba(147, 197, 253, 1);
           }
@@ -1375,13 +1406,16 @@ $recessed-groove:
     .top-plate {
       padding: 3px 10px;
       gap: 6px;
+
       .hot-shoe {
         width: 24px;
       }
+
       .mode-dial {
         width: 22px;
         height: 22px;
       }
+
       .shutter-btn {
         width: 14px;
         height: 14px;
@@ -1395,6 +1429,7 @@ $recessed-groove:
     .reel-section {
       width: 100%;
       padding: 5px 0;
+
       .reel-wheel {
         width: 28px;
         height: 28px;
@@ -1405,6 +1440,7 @@ $recessed-groove:
           height: 6px;
           padding: 0 8px;
           gap: 4px;
+
           .sprocket {
             width: 5px;
             height: 4px;
@@ -1417,6 +1453,7 @@ $recessed-groove:
           .play-indicator .tape-icon {
             width: 44px;
             height: 44px;
+
             svg {
               width: 18px;
               height: 18px;
@@ -1428,18 +1465,23 @@ $recessed-groove:
 
     .control-section {
       padding: 10px 12px 8px;
+
       .osd-bar {
         padding: 3px 7px;
       }
+
       .viewfinder-title .vf-text {
         font-size: 17px;
       }
+
       .author-row {
         font-size: 12px;
       }
+
       .desc {
         font-size: 11px;
       }
+
       .tag-row .tag {
         padding: 3px 8px;
         font-size: 10px;
@@ -1447,10 +1489,12 @@ $recessed-groove:
 
       .dash-stats {
         padding: 6px 8px;
+
         .gauge .gauge-val {
           font-size: 13px;
         }
       }
+
       .action-bar .rear-dial {
         width: 26px;
         height: 26px;

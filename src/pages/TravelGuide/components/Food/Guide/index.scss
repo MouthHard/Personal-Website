@@ -83,6 +83,7 @@
   100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-2px);
   }
@@ -96,6 +97,7 @@
       0 0 8px $cyan,
       0 0 16px $cyan-glow;
   }
+
   50% {
     opacity: 0.4;
     box-shadow: 0 0 4px $cyan;
@@ -106,6 +108,7 @@
   0% {
     left: 66.66%;
   }
+
   100% {
     left: calc(100% - 2px);
   }
@@ -115,6 +118,7 @@
   0% {
     background-position: 0% 0;
   }
+
   100% {
     background-position: 200% 0;
   }
@@ -127,6 +131,7 @@
       0 0 6px rgba(251, 113, 133, 0.4),
       inset 0 0 4px rgba(251, 113, 133, 0.2);
   }
+
   50% {
     box-shadow:
       0 0 12px rgba(251, 113, 133, 0.7),
@@ -205,18 +210,21 @@
       border-right: none;
       border-bottom: none;
     }
+
     &.hud-tr {
       top: 8px;
       right: 8px;
       border-left: none;
       border-bottom: none;
     }
+
     &.hud-bl {
       bottom: 8px;
       left: 8px;
       border-right: none;
       border-top: none;
     }
+
     &.hud-br {
       bottom: 8px;
       right: 8px;

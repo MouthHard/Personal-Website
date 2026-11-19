@@ -1412,9 +1412,11 @@ $cal-radius: 8px;
         &.act-fav {
           @include fm-act-btn(#d05050, #ff8080, #8a1818);
         }
+
         &.act-been {
           @include fm-act-btn(#4a9a5a, #80d890, #1a6a2a);
         }
+
         &.act-share {
           @include fm-act-btn(#3090c0, #70c8f0, #0a5080);
         }

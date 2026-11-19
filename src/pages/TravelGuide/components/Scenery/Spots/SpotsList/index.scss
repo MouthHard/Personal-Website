@@ -85,6 +85,7 @@ $ember-bright: #f96;
         0 4px 10px rgba(0, 0, 0, 0.7),
         0 0 64px rgba(255, 150, 100, 0.35),
         0 0 120px rgba(255, 120, 60, 0.15);
+
       &::before {
         opacity: 1;
       }
@@ -130,18 +131,22 @@ $ember-bright: #f96;
           inset 0 1px 1px rgba(0, 0, 0, 0.9),
           inset 0 -1px 0 rgba(180, 160, 150, 0.3);
       }
+
       &-tl {
         top: 8px;
         left: 8px;
       }
+
       &-tr {
         top: 8px;
         right: 8px;
       }
+
       &-bl {
         bottom: 8px;
         left: 8px;
       }
+
       &-br {
         bottom: 8px;
         right: 8px;
@@ -168,6 +173,7 @@ $ember-bright: #f96;
         object-fit: cover;
         transition: transform 0.5s ease;
       }
+
       &:hover .spot-image {
         transform: scale(1.06);
       }
@@ -616,10 +622,12 @@ $ember-bright: #f96;
                 0 5px 12px rgba(0, 0, 0, 0.7),
                 0 12px 24px rgba(0, 0, 0, 0.5),
                 0 0 16px rgba(255, 100, 50, 0.4);
+
               &::after {
                 background: rgba(255, 120, 60, 0.6);
                 box-shadow: 0 0 8px rgba(255, 120, 60, 0.7);
               }
+
               svg {
                 filter: drop-shadow(0 0 5px rgba(255, 150, 90, 0.95))
                   drop-shadow(0 0 10px rgba(255, 100, 50, 0.5));
@@ -647,6 +655,7 @@ $ember-bright: #f96;
                   0 7px 18px rgba(0, 0, 0, 0.7),
                   0 16px 36px rgba(0, 0, 0, 0.55),
                   0 0 30px rgba(255, 110, 60, 0.8);
+
                 svg {
                   filter: drop-shadow(0 0 7px rgba(255, 180, 110, 1))
                     drop-shadow(0 0 14px rgba(255, 120, 60, 0.7));
@@ -673,6 +682,7 @@ $ember-bright: #f96;
                   inset 0 0 10px rgba(255, 80, 40, 0.3),
                   0 2px 5px rgba(0, 0, 0, 0.6),
                   0 0 10px rgba(255, 100, 50, 0.3);
+
                 svg {
                   filter: drop-shadow(0 0 3px rgba(255, 130, 80, 0.8));
                 }
@@ -702,10 +712,12 @@ $ember-bright: #f96;
                 0 5px 12px rgba(0, 0, 0, 0.7),
                 0 12px 24px rgba(0, 0, 0, 0.5),
                 0 0 16px rgba(255, 200, 30, 0.4);
+
               &::after {
                 background: rgba(255, 220, 50, 0.6);
                 box-shadow: 0 0 8px rgba(255, 220, 50, 0.7);
               }
+
               svg {
                 filter: drop-shadow(0 0 5px rgba(255, 230, 80, 0.95))
                   drop-shadow(0 0 10px rgba(255, 200, 30, 0.5));
@@ -733,6 +745,7 @@ $ember-bright: #f96;
                   0 7px 18px rgba(0, 0, 0, 0.7),
                   0 16px 36px rgba(0, 0, 0, 0.55),
                   0 0 30px rgba(255, 220, 50, 0.8);
+
                 svg {
                   filter: drop-shadow(0 0 7px rgba(255, 240, 100, 1))
                     drop-shadow(0 0 14px rgba(255, 220, 50, 0.7));
@@ -759,6 +772,7 @@ $ember-bright: #f96;
                   inset 0 0 10px rgba(255, 180, 20, 0.3),
                   0 2px 5px rgba(0, 0, 0, 0.6),
                   0 0 10px rgba(255, 200, 30, 0.3);
+
                 svg {
                   filter: drop-shadow(0 0 3px rgba(255, 220, 60, 0.8));
                 }
@@ -788,10 +802,12 @@ $ember-bright: #f96;
                 0 5px 12px rgba(0, 0, 0, 0.7),
                 0 12px 24px rgba(0, 0, 0, 0.5),
                 0 0 16px rgba(40, 200, 255, 0.4);
+
               &::after {
                 background: rgba(60, 220, 255, 0.6);
                 box-shadow: 0 0 8px rgba(60, 220, 255, 0.7);
               }
+
               svg {
                 filter: drop-shadow(0 0 5px rgba(80, 230, 255, 0.95))
                   drop-shadow(0 0 10px rgba(40, 200, 255, 0.5));
@@ -819,6 +835,7 @@ $ember-bright: #f96;
                   0 7px 18px rgba(0, 0, 0, 0.7),
                   0 16px 36px rgba(0, 0, 0, 0.55),
                   0 0 30px rgba(50, 210, 255, 0.8);
+
                 svg {
                   filter: drop-shadow(0 0 7px rgba(100, 240, 255, 1))
                     drop-shadow(0 0 14px rgba(60, 220, 255, 0.7));
@@ -845,6 +862,7 @@ $ember-bright: #f96;
                   inset 0 0 10px rgba(30, 180, 230, 0.3),
                   0 2px 5px rgba(0, 0, 0, 0.6),
                   0 0 10px rgba(40, 200, 255, 0.3);
+
                 svg {
                   filter: drop-shadow(0 0 3px rgba(60, 220, 255, 0.8));
                 }
@@ -1207,6 +1225,7 @@ $ember-bright: #f96;
                 0 0 14px rgba(255, 100, 50, 0.55),
                 0 0 28px rgba(255, 80, 30, 0.25),
                 inset 0 0 10px rgba(0, 0, 0, 0.4);
+
               &::before {
                 top: 0;
                 left: 0;
@@ -1233,9 +1252,11 @@ $ember-bright: #f96;
                 inset 0 -2px 3px rgba(255, 180, 140, 0.2),
                 0 2px 4px rgba(0, 0, 0, 0.5);
               text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+
               &::before {
                 opacity: 0;
               }
+
               &::after {
                 height: 3px;
                 background: #ff7a3a;
@@ -1282,6 +1303,7 @@ $ember-bright: #f96;
                 0 0 14px rgba(244, 63, 94, 0.55),
                 0 0 28px rgba(220, 50, 80, 0.25),
                 inset 0 0 10px rgba(0, 0, 0, 0.4);
+
               &::before {
                 top: 0;
                 left: 0;
@@ -1307,9 +1329,11 @@ $ember-bright: #f96;
                 inset 0 -2px 3px rgba(255, 180, 200, 0.2),
                 0 2px 4px rgba(0, 0, 0, 0.5);
               text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+
               &::before {
                 opacity: 0;
               }
+
               &::after {
                 height: 3px;
                 background: #f75572;
@@ -1356,6 +1380,7 @@ $ember-bright: #f96;
                 0 0 14px rgba(40, 200, 255, 0.55),
                 0 0 28px rgba(30, 180, 230, 0.25),
                 inset 0 0 10px rgba(0, 0, 0, 0.4);
+
               &::before {
                 top: 0;
                 left: 0;
@@ -1401,6 +1426,7 @@ $ember-bright: #f96;
                 0 0 14px rgba(16, 185, 129, 0.55),
                 0 0 28px rgba(10, 165, 115, 0.25),
                 inset 0 0 10px rgba(0, 0, 0, 0.4);
+
               &::before {
                 top: 0;
                 left: 0;
@@ -1426,9 +1452,11 @@ $ember-bright: #f96;
                 inset 0 -2px 3px rgba(180, 255, 220, 0.2),
                 0 2px 4px rgba(0, 0, 0, 0.5);
               text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+
               &::before {
                 opacity: 0;
               }
+
               &::after {
                 height: 3px;
                 background: #28c88a;
@@ -1475,6 +1503,7 @@ $ember-bright: #f96;
                 0 0 14px rgba(120, 200, 255, 0.5),
                 0 0 28px rgba(100, 180, 235, 0.22),
                 inset 0 0 10px rgba(0, 0, 0, 0.4);
+
               &::before {
                 top: 0;
                 left: 0;
@@ -1520,6 +1549,7 @@ $ember-bright: #f96;
                 0 0 14px rgba(190, 205, 225, 0.4),
                 0 0 28px rgba(170, 185, 210, 0.18),
                 inset 0 0 10px rgba(0, 0, 0, 0.4);
+
               &::before {
                 top: 0;
                 left: 0;
@@ -1595,14 +1625,17 @@ $ember-bright: #f96;
       top: 10px;
       left: 10px;
     }
+
     &-tr {
       top: 10px;
       right: 10px;
     }
+
     &-bl {
       bottom: 10px;
       left: 10px;
     }
+
     &-br {
       bottom: 10px;
       right: 10px;
@@ -1677,12 +1710,14 @@ $ember-bright: #f96;
     border-color: rgba(255, 100, 100, 0.22);
     box-shadow: 0 0 8px rgba(255, 80, 80, 0.1);
   }
+
   &-mid {
     width: 120px;
     height: 120px;
     border-color: rgba(255, 100, 100, 0.16);
     border-style: dashed;
   }
+
   &-inner {
     width: 60px;
     height: 60px;
@@ -1792,6 +1827,7 @@ $ember-bright: #f96;
     height: 8px;
     transform: translateX(-50%);
   }
+
   &-e {
     top: 50%;
     right: 4px;
@@ -1799,6 +1835,7 @@ $ember-bright: #f96;
     height: 2px;
     transform: translateY(-50%);
   }
+
   &-s {
     bottom: 4px;
     left: 50%;
@@ -1806,6 +1843,7 @@ $ember-bright: #f96;
     height: 8px;
     transform: translateX(-50%);
   }
+
   &-w {
     top: 50%;
     left: 4px;
@@ -1830,16 +1868,19 @@ $ember-bright: #f96;
     left: 50%;
     transform: translateX(-50%);
   }
+
   &-e {
     top: 50%;
     right: -18px;
     transform: translateY(-50%);
   }
+
   &-s {
     bottom: -20px;
     left: 50%;
     transform: translateX(-50%);
   }
+
   &-w {
     top: 50%;
     left: -18px;
@@ -2013,6 +2054,7 @@ $ember-bright: #f96;
     &-l {
       left: 8px;
     }
+
     &-r {
       right: 8px;
     }
@@ -2029,6 +2071,7 @@ $ember-bright: #f96;
     &-l {
       left: 7px;
     }
+
     &-r {
       right: 7px;
     }
@@ -2214,6 +2257,7 @@ $ember-bright: #f96;
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -2241,6 +2285,7 @@ $ember-bright: #f96;
   100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0.3;
   }
@@ -2269,6 +2314,7 @@ $ember-bright: #f96;
   100% {
     left: -60%;
   }
+
   50% {
     left: 100%;
   }
@@ -2280,14 +2326,17 @@ $ember-bright: #f96;
     transform: translate(0, 0);
     opacity: 0.6;
   }
+
   25% {
     transform: translate(12px, -10px);
     opacity: 1;
   }
+
   50% {
     transform: translate(-8px, -16px);
     opacity: 0.4;
   }
+
   75% {
     transform: translate(6px, 8px);
     opacity: 0.9;

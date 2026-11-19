@@ -864,6 +864,7 @@ $text-dim: #5e6c8a;
   0% {
     background-position: 0% 0;
   }
+
   100% {
     background-position: 200% 0;
   }
@@ -887,6 +888,7 @@ $text-dim: #5e6c8a;
     opacity: 0.4;
     transform: translateX(-4%);
   }
+
   50% {
     opacity: 1;
     transform: translateX(4%);
@@ -899,6 +901,7 @@ $text-dim: #5e6c8a;
     opacity: 0.6;
     transform: scaleX(0.7);
   }
+
   50% {
     opacity: 1;
     transform: scaleX(1);
@@ -911,6 +914,7 @@ $text-dim: #5e6c8a;
     opacity: 0.3;
     transform: translateX(-30%);
   }
+
   50% {
     opacity: 1;
     transform: translateX(30%);
@@ -924,6 +928,7 @@ $text-dim: #5e6c8a;
       0 0 10px var(--accent),
       0 0 0 3px var(--accent-bg);
   }
+
   50% {
     box-shadow:
       0 0 16px var(--accent),
@@ -936,6 +941,7 @@ $text-dim: #5e6c8a;
   100% {
     filter: drop-shadow(0 0 10px var(--accent));
   }
+
   50% {
     filter: drop-shadow(0 0 18px var(--accent))
       drop-shadow(0 0 28px var(--accent-glow));
@@ -954,6 +960,7 @@ $text-dim: #5e6c8a;
     opacity: 0.6;
     transform: scaleX(0.7);
   }
+
   50% {
     opacity: 1;
     transform: scaleX(1);
@@ -965,9 +972,11 @@ $text-dim: #5e6c8a;
     top: 0;
     opacity: 0;
   }
+
   30% {
     opacity: 1;
   }
+
   100% {
     top: 70%;
     opacity: 0;
@@ -980,6 +989,7 @@ $text-dim: #5e6c8a;
     transform: scale(1);
     opacity: 0.7;
   }
+
   50% {
     transform: scale(1.4);
     opacity: 0;

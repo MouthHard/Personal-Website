@@ -131,11 +131,13 @@ $steel-black: #0f172a;
     background: rgba(0, 0, 0, 0.5);
     border-radius: 1px;
   }
+
   &::before {
     width: 60%;
     height: 1.5px;
     transform: translate(-50%, -50%);
   }
+
   &::after {
     width: 1.5px;
     height: 60%;
@@ -367,9 +369,11 @@ $steel-black: #0f172a;
           &:nth-child(1) {
             animation: dotBlink 1.5s ease-in-out infinite 0s;
           }
+
           &:nth-child(2) {
             animation: dotBlink 1.5s ease-in-out infinite 0.5s;
           }
+
           &:nth-child(3) {
             animation: dotBlink 1.5s ease-in-out infinite 1s;
           }
@@ -686,14 +690,17 @@ $steel-black: #0f172a;
             top: 1.5px;
             left: 1.5px;
           }
+
           &.bolt-tr {
             top: 1.5px;
             right: 1.5px;
           }
+
           &.bolt-bl {
             bottom: 1.5px;
             left: 1.5px;
           }
+
           &.bolt-br {
             bottom: 1.5px;
             right: 1.5px;
@@ -1062,18 +1069,22 @@ $steel-black: #0f172a;
 
       .frame-screw {
         @include screw(9px);
+
         &.screw-tl {
           top: 7px;
           left: 7px;
         }
+
         &.screw-tr {
           top: 7px;
           right: 7px;
         }
+
         &.screw-bl {
           bottom: 7px;
           left: 7px;
         }
+
         &.screw-br {
           bottom: 7px;
           right: 7px;
@@ -1486,12 +1497,14 @@ $steel-black: #0f172a;
                 0 0 10px rgba(74, 222, 128, 0.6),
                 0 1px 2px rgba(0, 0, 0, 0.4);
             }
+
             &[data-level='中等'] {
               color: $electric-glow;
               text-shadow:
                 0 0 10px rgba($electric, 0.6),
                 0 1px 2px rgba(0, 0, 0, 0.4);
             }
+
             &[data-level='较难'] {
               color: #f87171;
               text-shadow:
@@ -1518,6 +1531,7 @@ $steel-black: #0f172a;
       &::-webkit-scrollbar {
         width: 5px;
       }
+
       &::-webkit-scrollbar-track {
         background: rgba(0, 0, 0, 0.3);
         border-radius: 3px;
@@ -2459,6 +2473,7 @@ $steel-black: #0f172a;
               top: 5px;
               left: 5px;
             }
+
             &.rivet-br {
               bottom: 8px;
               right: 5px;
@@ -2694,18 +2709,22 @@ $steel-black: #0f172a;
 
       .empty-screw {
         @include screw(12px);
+
         &.screw-tl {
           top: 14px;
           left: 14px;
         }
+
         &.screw-tr {
           top: 14px;
           right: 14px;
         }
+
         &.screw-bl {
           bottom: 14px;
           left: 14px;
         }
+
         &.screw-br {
           bottom: 14px;
           right: 14px;
@@ -2949,6 +2968,7 @@ $steel-black: #0f172a;
   100% {
     opacity: 0.45;
   }
+
   50% {
     opacity: 0.8;
   }
@@ -2960,6 +2980,7 @@ $steel-black: #0f172a;
   100% {
     opacity: 0.65;
   }
+
   50% {
     opacity: 1;
   }
@@ -2971,6 +2992,7 @@ $steel-black: #0f172a;
   100% {
     opacity: 0.85;
   }
+
   50% {
     opacity: 1;
   }
@@ -2981,6 +3003,7 @@ $steel-black: #0f172a;
   0% {
     left: -100%;
   }
+
   100% {
     left: 100%;
   }
@@ -2992,6 +3015,7 @@ $steel-black: #0f172a;
   100% {
     opacity: 0.7;
   }
+
   50% {
     opacity: 1;
   }
@@ -3001,6 +3025,7 @@ $steel-black: #0f172a;
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -3011,6 +3036,7 @@ $steel-black: #0f172a;
   100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0.4;
   }
@@ -3020,9 +3046,11 @@ $steel-black: #0f172a;
   0% {
     width: 15%;
   }
+
   50% {
     width: 55%;
   }
+
   100% {
     width: 15%;
   }

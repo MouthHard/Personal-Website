@@ -94,11 +94,13 @@ $border-bright: rgba(0, 229, 255, 0.5);
       box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
       border-radius: 1px;
     }
+
     &::before {
       width: 8px;
       height: 1.5px;
       transform: translate(-50%, -50%);
     }
+
     &::after {
       width: 1.5px;
       height: 8px;
@@ -109,10 +111,12 @@ $border-bright: rgba(0, 229, 255, 0.5);
       top: 8px;
       left: 8px;
     }
+
     &-bl {
       bottom: 8px;
       left: 8px;
     }
+
     &-br {
       bottom: 8px;
       right: 8px;
@@ -225,6 +229,7 @@ $border-bright: rgba(0, 229, 255, 0.5);
           inset 0 2px 3px rgba(0, 0, 0, 0.8),
           inset 0 -1.5px 0 rgba(255, 150, 180, 0.4);
       }
+
       &:active {
         box-shadow:
           0 1px 2px rgba(0, 0, 0, 0.7),
@@ -240,6 +245,7 @@ $border-bright: rgba(0, 229, 255, 0.5);
     100% {
       opacity: 1;
     }
+
     50% {
       opacity: 0.4;
     }
@@ -252,12 +258,15 @@ $border-bright: rgba(0, 229, 255, 0.5);
     display: flex;
     flex: 1;
     overflow: hidden auto;
+
     &::-webkit-scrollbar {
       width: 6px;
     }
+
     &::-webkit-scrollbar-track {
       background: $base;
     }
+
     &::-webkit-scrollbar-thumb {
       background: rgba(255, 176, 0, 0.3);
       border-radius: 3px;
@@ -271,6 +280,7 @@ $border-bright: rgba(0, 229, 255, 0.5);
 .spot-modal-enter-active,
 .spot-modal-leave-active {
   transition: opacity 0.3s ease;
+
   .spot-modal {
     transition:
       transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
@@ -281,6 +291,7 @@ $border-bright: rgba(0, 229, 255, 0.5);
 .spot-modal-enter-from,
 .spot-modal-leave-to {
   opacity: 0;
+
   .spot-modal {
     transform: scale(0.94) translateY(16px);
     opacity: 0;

@@ -1266,6 +1266,7 @@
           &.prev:hover:not(:disabled) svg {
             transform: translateX(-2px);
           }
+
           &.next:hover:not(:disabled) svg {
             transform: translateX(2px);
           }

@@ -132,6 +132,7 @@ $text-dim: #e0c4cc;
 
       .ticket-stub .stub-toggle .toggle-icon {
         transform: rotate(45deg);
+
         &::before,
         &::after {
           background: $rose-bright;
@@ -175,6 +176,7 @@ $text-dim: #e0c4cc;
         inset 0 0 0 1px rgba(0, 0, 0, 0.3),
         0 3px 6px rgba(0, 0, 0, 0.35),
         0 1px 2px rgba(0, 0, 0, 0.2);
+
       img {
         width: 100%;
         height: 100%;
@@ -201,6 +203,7 @@ $text-dim: #e0c4cc;
 
     &:hover {
       background-color: $bg-3;
+
       .stub-title {
         color: $rose-bright;
         text-shadow: 0 0 8px rgba($rose, 0.45);
@@ -228,10 +231,12 @@ $text-dim: #e0c4cc;
           0 0 0 1px rgba(0, 0, 0, 0.5),
           0 1px 1px rgba(0, 0, 0, 0.3);
       }
+
       &.perf-left {
         border-right: 1px solid rgba(0, 0, 0, 0.5);
         box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.06);
       }
+
       &.perf-right {
         border-left: 1px solid rgba(0, 0, 0, 0.5);
         box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.06);
@@ -252,12 +257,14 @@ $text-dim: #e0c4cc;
         align-items: baseline;
         gap: 2px;
         flex-shrink: 0;
+
         .no-label {
           font-size: 14px;
           color: $text-mid;
           letter-spacing: 1px;
           font-weight: 700;
         }
+
         .no-value {
           font-size: 24px;
           font-family: 'Courier New', monospace;
@@ -269,6 +276,7 @@ $text-dim: #e0c4cc;
           letter-spacing: 1px;
         }
       }
+
       .stub-title {
         font-size: 20px;
         font-weight: 900;
@@ -293,12 +301,14 @@ $text-dim: #e0c4cc;
         align-items: center;
         gap: 8px;
         flex-shrink: 0;
+
         .meta-chip {
           font-size: 15px;
           padding: 4px 11px;
           border-radius: 2px;
           letter-spacing: 0.5px;
           font-weight: 700;
+
           &.chip-type {
             background: linear-gradient(
               180deg,
@@ -318,12 +328,14 @@ $text-dim: #e0c4cc;
               0 1px 2px rgba($rose-deep, 0.2);
           }
         }
+
         .meta-dot {
           width: 4px;
           height: 4px;
           border-radius: 50%;
           background: $text-mid;
         }
+
         .meta-text {
           font-size: 16px;
           color: $text-bright;
@@ -358,6 +370,7 @@ $text-dim: #e0c4cc;
           inset 0 -2px 3px rgba(0, 0, 0, 0.4),
           inset 0 0 4px rgba($gold, 0.15);
         opacity: 0.92;
+
         .seal-ring {
           width: 7px;
           height: 7px;
@@ -367,6 +380,7 @@ $text-dim: #e0c4cc;
             0 0 5px $gold,
             inset 0 -1px 1px rgba(0, 0, 0, 0.45);
         }
+
         .seal-text {
           font-size: 13px;
           font-weight: 800;
@@ -541,9 +555,11 @@ $text-dim: #e0c4cc;
         &.act-fav {
           @include stub-stamp-btn(#00b8d4, #4dd0e1, #006c80, #80deea);
         }
+
         &.act-been {
           @include stub-stamp-btn(#ff8f00, #ffb74d, #e65100, #ffcc80);
         }
+
         &.act-share {
           @include stub-stamp-btn(#00c853, #5cd68a, #00853e, #b9f6ca);
         }
@@ -557,6 +573,7 @@ $text-dim: #e0c4cc;
       padding: 0 16px;
       flex-shrink: 0;
       position: relative;
+
       &::before {
         content: '';
         position: absolute;
@@ -568,6 +585,7 @@ $text-dim: #e0c4cc;
           inset 0 -1px 1px rgba(255, 255, 255, 0.04);
         pointer-events: none;
       }
+
       .price-currency {
         font-size: 17px;
         color: $rose-bright;
@@ -577,6 +595,7 @@ $text-dim: #e0c4cc;
         position: relative;
         font-weight: 800;
       }
+
       .price-amount {
         font-size: 23px;
         font-weight: 900;
@@ -614,6 +633,7 @@ $text-dim: #e0c4cc;
         width: 13px;
         height: 13px;
         transition: transform 0.3s ease;
+
         &::before,
         &::after {
           content: '';
@@ -622,6 +642,7 @@ $text-dim: #e0c4cc;
           border-radius: 1px;
           transition: background 0.3s ease;
         }
+
         &::before {
           top: 50%;
           left: 0;
@@ -629,6 +650,7 @@ $text-dim: #e0c4cc;
           height: 3px;
           transform: translateY(-50%);
         }
+
         &::after {
           left: 50%;
           top: 0;
@@ -678,6 +700,7 @@ $text-dim: #e0c4cc;
     height: 18px;
     pointer-events: none;
     z-index: 5;
+
     &.corner-tl {
       top: 4px;
       left: 4px;
@@ -685,6 +708,7 @@ $text-dim: #e0c4cc;
       border-left: 2px solid rgba($gold, 0.35);
       border-top-left-radius: 3px;
     }
+
     &.corner-tr {
       top: 4px;
       right: 4px;
@@ -692,6 +716,7 @@ $text-dim: #e0c4cc;
       border-right: 2px solid rgba($gold, 0.35);
       border-top-right-radius: 3px;
     }
+
     &.corner-bl {
       bottom: 4px;
       left: 4px;
@@ -699,6 +724,7 @@ $text-dim: #e0c4cc;
       border-left: 2px solid rgba($gold, 0.35);
       border-bottom-left-radius: 3px;
     }
+
     &.corner-br {
       bottom: 4px;
       right: 4px;
@@ -803,6 +829,7 @@ $text-dim: #e0c4cc;
         ),
         radial-gradient(ellipse at 50% 0%, rgba($rose, 0.18), transparent 60%);
     }
+
     .poster-frame {
       position: absolute;
       inset: 6px;
@@ -836,16 +863,19 @@ $text-dim: #e0c4cc;
         0 4px 8px rgba(0, 0, 0, 0.5),
         0 2px 4px rgba(0, 0, 0, 0.3),
         0 1px 2px rgba($gold-deep, 0.25);
+
       .rating-icon {
         color: $gold-bright;
         filter: drop-shadow(0 0 3px rgba($gold, 0.65));
       }
+
       .rating-num {
         font-size: 15px;
         font-weight: 700;
         color: $gold-bright;
         text-shadow: 0 0 5px rgba($gold, 0.55);
       }
+
       .rating-count {
         font-size: 12px;
         color: $text-mid;
@@ -907,10 +937,12 @@ $text-dim: #e0c4cc;
         align-items: center;
         gap: 5px;
         margin-bottom: 7px;
+
         .highlights-icon {
           color: $rose-bright;
           filter: drop-shadow(0 0 4px rgba($rose, 0.65));
         }
+
         .highlights-label {
           font-size: 16px;
           font-weight: 700;
@@ -932,6 +964,7 @@ $text-dim: #e0c4cc;
           display: flex;
           align-items: flex-start;
           gap: 7px;
+
           .highlight-mark {
             width: 6px;
             height: 6px;
@@ -941,6 +974,7 @@ $text-dim: #e0c4cc;
             margin-top: 7px;
             flex-shrink: 0;
           }
+
           .highlight-text {
             font-size: 16px;
             line-height: 1.55;
@@ -979,6 +1013,7 @@ $text-dim: #e0c4cc;
           0 3px 6px rgba(0, 0, 0, 0.3),
           0 2px 4px rgba($rose-deep, 0.45),
           0 1px 2px rgba($rose-deep, 0.3);
+
         &.tag-heritage {
           background:
             linear-gradient(180deg, rgba($gold, 0.4), rgba($gold-deep, 0.24)),
@@ -1006,6 +1041,7 @@ $text-dim: #e0c4cc;
       align-items: center;
       gap: 10px;
       flex-wrap: wrap;
+
       .suitable-label {
         font-size: 15px;
         font-weight: 700;
@@ -1019,6 +1055,7 @@ $text-dim: #e0c4cc;
         display: flex;
         flex-wrap: wrap;
         gap: 5px;
+
         .suitable-tag {
           font-size: 14px;
           padding: 5px 13px;
@@ -1194,9 +1231,11 @@ $text-dim: #e0c4cc;
               inset 0 1px 1px rgba(0, 0, 0, 0.3),
               0 1px 0 rgba(255, 255, 255, 0.04);
           }
+
           &::before {
             top: -2px;
           }
+
           &::after {
             bottom: -2px;
           }
@@ -1438,9 +1477,11 @@ $text-dim: #e0c4cc;
         &.btn-fav {
           @include ticket-stub-btn(#00b8d4, #4dd0e1, #006c80, #80deea);
         }
+
         &.btn-been {
           @include ticket-stub-btn(#ff8f00, #ffb74d, #e65100, #ffcc80);
         }
+
         &.btn-share {
           @include ticket-stub-btn(#00c853, #5cd68a, #00853e, #b9f6ca);
         }
@@ -1573,11 +1614,13 @@ $text-dim: #e0c4cc;
         0 5px 10px rgba(0, 0, 0, 0.35),
         0 3px 6px rgba(0, 0, 0, 0.2),
         0 1px 2px rgba($rose-deep, 0.3);
+
       .side-venue-icon {
         color: $rose-bright;
         filter: drop-shadow(0 0 3px rgba($rose, 0.6));
         flex-shrink: 0;
       }
+
       .side-venue-text {
         font-size: 16px;
         color: $text-bright;
@@ -1607,11 +1650,13 @@ $text-dim: #e0c4cc;
         0 5px 10px rgba(0, 0, 0, 0.35),
         0 3px 6px rgba(0, 0, 0, 0.2),
         0 1px 2px rgba($gold-deep, 0.3);
+
       .side-dur-icon {
         color: $gold-bright;
         filter: drop-shadow(0 0 3px rgba($gold, 0.6));
         flex-shrink: 0;
       }
+
       .side-dur-text {
         font-size: 16px;
         color: $text-bright;
@@ -1658,6 +1703,7 @@ $text-dim: #e0c4cc;
           0 0 6px rgba($rose, 0.5),
           0 1px 0 rgba(0, 0, 0, 0.55);
         letter-spacing: 0.5px;
+
         .side-currency {
           font-size: 16px;
           color: $rose-bright;
@@ -1688,6 +1734,7 @@ $text-dim: #e0c4cc;
           box-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
         }
       }
+
       .barcode-text {
         font-size: 12px;
         font-family: 'Courier New', monospace;
@@ -1729,6 +1776,7 @@ $text-dim: #e0c4cc;
         background: $gold;
         box-shadow: 0 0 4px $gold;
       }
+
       .side-seal-text {
         font-size: 11px;
         font-weight: 700;
@@ -1755,11 +1803,13 @@ $text-dim: #e0c4cc;
         inset 0 0 0 1px rgba(0, 0, 0, 0.2),
         0 3px 6px rgba(0, 0, 0, 0.25),
         0 1px 2px rgba(0, 0, 0, 0.15);
+
       .side-info-label {
         font-size: 15px;
         color: $text-mid;
         letter-spacing: 1px;
       }
+
       .side-info-value {
         font-size: 17px;
         font-weight: 700;
@@ -1905,9 +1955,11 @@ $text-dim: #e0c4cc;
             0 0 0 1px rgba(0, 0, 0, 0.5),
             0 1px 2px rgba(0, 0, 0, 0.4);
         }
+
         &.perf-left {
           border-right: 1px solid rgba(0, 0, 0, 0.5);
         }
+
         &.perf-right {
           border-left: 1px solid rgba(0, 0, 0, 0.5);
         }
@@ -2009,6 +2061,7 @@ $text-dim: #e0c4cc;
       border-top: 1px solid rgba($rose, 0.2);
       border-bottom: 1px solid rgba($rose, 0.2);
       background: linear-gradient(180deg, rgba($bg-1, 0.6), rgba($bg-0, 0.4));
+
       .marquee-text {
         display: inline-block;
         white-space: nowrap;
@@ -2027,6 +2080,7 @@ $text-dim: #e0c4cc;
   100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0.35;
   }
@@ -2036,6 +2090,7 @@ $text-dim: #e0c4cc;
   from {
     transform: translateX(0);
   }
+
   to {
     transform: translateX(-50%);
   }
@@ -2045,6 +2100,7 @@ $text-dim: #e0c4cc;
   0% {
     left: -100%;
   }
+
   100% {
     left: 100%;
   }
@@ -2056,6 +2112,7 @@ $text-dim: #e0c4cc;
   100% {
     opacity: 0.7;
   }
+
   50% {
     opacity: 1;
   }

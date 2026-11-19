@@ -21,6 +21,7 @@
       margin-bottom: 1.5rem;
       filter: drop-shadow(0 4px 12px rgba(120, 119, 198, 0.3));
       animation: floatIcon 3s ease-in-out infinite;
+
       svg {
         width: 64px;
         height: 64px;
@@ -50,6 +51,7 @@
     100% {
       transform: translateY(0);
     }
+
     50% {
       transform: translateY(-10px);
     }
@@ -523,6 +525,7 @@
               display: inline-flex;
               align-items: center;
               flex-shrink: 0;
+
               svg {
                 width: 13px;
                 height: 13px;
@@ -887,6 +890,7 @@
                   0 0 0 1px rgba(0, 255, 234, 0.3),
                   inset 0 1px 0 rgba(255, 255, 255, 0.2);
                 text-shadow: 0 0 15px rgba(0, 255, 234, 1);
+
                 &::before {
                   left: 100%;
                 }
@@ -957,6 +961,7 @@
                 text-shadow:
                   0 0 20px rgba(255, 0, 255, 1),
                   0 0 40px rgba(255, 0, 255, 0.8);
+
                 &::before {
                   left: 100%;
                 }
@@ -1034,6 +1039,7 @@
                 box-shadow:
                   0 2px 8px rgba(0, 0, 0, 0.4),
                   inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
                 &:hover {
                   transform: perspective(500px) rotateX(3deg);
                 }

@@ -126,6 +126,7 @@
         display: inline-flex;
         color: rgba(201, 164, 76, 0.75);
         filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.5));
+
         svg {
           width: 24px;
           height: 24px;
@@ -257,6 +258,7 @@
 
         .empty-icon {
           color: $c-stamp;
+
           svg {
             width: 44px;
             height: 44px;
@@ -345,14 +347,17 @@
             border-color: rgba($c-spring, 0.45);
             color: color.adjust($c-spring, $lightness: -25%);
           }
+
           &.season-summer {
             border-color: rgba($c-summer, 0.45);
             color: color.adjust($c-summer, $lightness: -25%);
           }
+
           &.season-autumn {
             border-color: rgba($c-autumn, 0.45);
             color: color.adjust($c-autumn, $lightness: -18%);
           }
+
           &.season-winter {
             border-color: rgba($c-winter, 0.45);
             color: color.adjust($c-winter, $lightness: -22%);
@@ -437,9 +442,11 @@
           0 1px 2px rgba(0, 0, 0, 0.6) inset,
           0 1px 0 rgba(255, 255, 255, 0.4);
         z-index: 3;
+
         &.hole-left {
           left: 10px;
         }
+
         &.hole-right {
           right: 10px;
         }
@@ -464,6 +471,7 @@
 
       &.season-spring::before {
         @extend %season-band;
+
         background: linear-gradient(
           90deg,
           color.adjust($c-spring, $lightness: 12%),
@@ -471,8 +479,10 @@
           color.adjust($c-spring, $lightness: -10%)
         );
       }
+
       &.season-summer::before {
         @extend %season-band;
+
         background: linear-gradient(
           90deg,
           color.adjust($c-summer, $lightness: 12%),
@@ -480,8 +490,10 @@
           color.adjust($c-summer, $lightness: -10%)
         );
       }
+
       &.season-autumn::before {
         @extend %season-band;
+
         background: linear-gradient(
           90deg,
           color.adjust($c-autumn, $lightness: 12%),
@@ -489,8 +501,10 @@
           color.adjust($c-autumn, $lightness: -10%)
         );
       }
+
       &.season-winter::before {
         @extend %season-band;
+
         background: linear-gradient(
           90deg,
           color.adjust($c-winter, $lightness: 12%),
@@ -555,6 +569,7 @@
           $c-spring
         );
       }
+
       &.season-summer .page-season-tag {
         background: linear-gradient(
           135deg,
@@ -562,6 +577,7 @@
           $c-summer
         );
       }
+
       &.season-autumn .page-season-tag {
         background: linear-gradient(
           135deg,
@@ -569,6 +585,7 @@
           $c-autumn
         );
       }
+
       &.season-winter .page-season-tag {
         background: linear-gradient(
           135deg,
@@ -605,9 +622,11 @@
             &.tilt-1 {
               transform: rotate(-1.8deg);
             }
+
             &.tilt-2 {
               transform: rotate(1.2deg);
             }
+
             &.tilt-3 {
               transform: rotate(-0.6deg);
             }
@@ -637,6 +656,7 @@
                 $c-stamp
               );
               border: 1px solid $c-stamp-deep;
+
               .sticker-name {
                 color: #fff;
                 text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
@@ -659,6 +679,7 @@
               background: linear-gradient(135deg, #eaf2f8, #d4e6f1);
               border: 1px solid $c-note;
               border-left: 3px solid $c-note;
+
               .sticker-name {
                 color: $c-note;
               }
@@ -747,6 +768,7 @@
 
             .cta-arrow {
               display: inline-flex;
+
               svg {
                 width: 13px;
                 height: 13px;
@@ -809,18 +831,21 @@
           0 0 0 2px rgba($c-spring, 0.65),
           0 16px 26px -6px rgba(0, 0, 0, 0.48);
       }
+
       &.season-summer:hover {
         box-shadow:
           0 1px 0 #fff inset,
           0 0 0 2px rgba($c-summer, 0.65),
           0 16px 26px -6px rgba(0, 0, 0, 0.48);
       }
+
       &.season-autumn:hover {
         box-shadow:
           0 1px 0 #fff inset,
           0 0 0 2px rgba($c-autumn, 0.65),
           0 16px 26px -6px rgba(0, 0, 0, 0.48);
       }
+
       &.season-winter:hover {
         box-shadow:
           0 1px 0 #fff inset,

@@ -84,6 +84,7 @@
     100% {
       opacity: 1;
     }
+
     50% {
       opacity: 0.5;
     }
@@ -114,6 +115,7 @@
         from {
           transform: rotateY(0deg);
         }
+
         to {
           transform: rotateY(360deg);
         }
@@ -391,6 +393,7 @@
           .btn-glow {
             opacity: 1;
           }
+
           .btn-sweep {
             left: 100%;
           }
@@ -672,9 +675,11 @@
             .btn-glow {
               opacity: 1;
             }
+
             .btn-sweep {
               left: 100%;
             }
+
             .btn-arrow {
               transform: translateX(3px);
             }

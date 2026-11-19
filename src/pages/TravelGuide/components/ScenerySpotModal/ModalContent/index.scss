@@ -19,9 +19,11 @@ $base: #020204;
   &::-webkit-scrollbar {
     width: 5px;
   }
+
   &::-webkit-scrollbar-track {
     background: $base;
   }
+
   &::-webkit-scrollbar-thumb {
     background: rgba(255, 176, 0, 0.3);
     border-radius: 3px;
@@ -246,9 +248,11 @@ $base: #020204;
           inset 0 1px 0 rgba(255, 255, 255, 0.2),
           inset 0 -1px 0 rgba(0, 0, 0, 0.4);
       }
+
       &::before {
         left: 10px;
       }
+
       &::after {
         right: 10px;
       }
@@ -389,6 +393,7 @@ $base: #020204;
           inset 0 1.5px 0 rgba(0, 229, 255, 0.1),
           inset 0 -2px 2px rgba(0, 0, 0, 0.5),
           inset 0 0 8px rgba(0, 229, 255, 0.04);
+
         svg {
           color: #00e5ff;
           filter: drop-shadow(0 0 3px rgba(0, 229, 255, 0.5));
@@ -558,6 +563,7 @@ $base: #020204;
           inset 1.5px 0 0 rgba(255, 150, 180, 0.3),
           inset -1.5px 0 0 rgba(0, 0, 0, 0.48),
           inset 0 0 0 1px rgba(0, 0, 0, 0.5);
+
         &:hover {
           border-top-color: rgba(255, 200, 215, 1);
           box-shadow:
@@ -832,9 +838,11 @@ $base: #020204;
           border-radius: 50%;
           background: #1a1d24;
         }
+
         &::before {
           top: -5px;
         }
+
         &::after {
           bottom: -5px;
         }
@@ -897,6 +905,7 @@ $base: #020204;
           #ddd4c2 100%
         );
       }
+
       &.tk-1 .ticket-body {
         background: linear-gradient(
           160deg,
@@ -905,6 +914,7 @@ $base: #020204;
           #d6ccb8 100%
         );
       }
+
       &.tk-2 .ticket-body {
         background: linear-gradient(
           160deg,
@@ -913,6 +923,7 @@ $base: #020204;
           #d2c8b4 100%
         );
       }
+
       &.tk-3 .ticket-body {
         background: linear-gradient(
           160deg,
@@ -999,6 +1010,7 @@ $base: #020204;
           #144872 50%,
           #0e3656 100%
         );
+
         .ts-badge {
           background: linear-gradient(160deg, #2a7ab0 0%, #1a5a8a 100%);
         }
@@ -1012,6 +1024,7 @@ $base: #020204;
           #1e2e3e 50%,
           #14202e 100%
         );
+
         .ts-badge {
           background: linear-gradient(160deg, #3a5a7a 0%, #2a4a6a 100%);
         }
@@ -1025,6 +1038,7 @@ $base: #020204;
           #14542e 50%,
           #0e4022 100%
         );
+
         .ts-badge {
           background: linear-gradient(160deg, #2a8a4a 0%, #1a6a3a 100%);
         }
@@ -1038,6 +1052,7 @@ $base: #020204;
           #544012 50%,
           #3e300e 100%
         );
+
         .ts-badge {
           background: linear-gradient(160deg, #8a7028 0%, #6a5018 100%);
         }
@@ -1158,6 +1173,7 @@ $base: #020204;
               rgba(10, 30, 55, 0.9) 100%
             );
             border-top-color: rgba(130, 200, 255, 0.6);
+
             svg {
               color: #8fd0ff;
             }
@@ -1171,6 +1187,7 @@ $base: #020204;
               rgba(60, 16, 28, 0.9) 100%
             );
             border-top-color: rgba(255, 150, 175, 0.6);
+
             svg {
               color: #ff8ca0;
             }
@@ -1184,6 +1201,7 @@ $base: #020204;
               rgba(50, 35, 5, 0.9) 100%
             );
             border-top-color: rgba(255, 220, 130, 0.6);
+
             svg {
               color: #ffd060;
             }
@@ -1311,6 +1329,7 @@ $base: #020204;
           box-shadow:
             0 2px 6px rgba(0, 0, 0, 0.3),
             inset 0 1px 0 rgba(0, 255, 157, 0.08);
+
           svg {
             color: #8effd9;
           }
@@ -1340,6 +1359,7 @@ $base: #020204;
             inset 0 1.5px 0 rgba(255, 230, 150, 0.45),
             inset 0 -3px 4px rgba(0, 0, 0, 0.75),
             inset -2px 0 4px rgba(0, 0, 0, 0.5);
+
           .route-desc {
             color: #fff;
           }
@@ -1419,9 +1439,11 @@ $base: #020204;
             inset -3px 0 4px rgba(0, 0, 0, 0.45),
             inset 0 -1.5px 2px rgba(255, 255, 255, 0.28);
         }
+
         .ff-type {
           color: #fff5e0;
         }
+
         .ff-desc {
           color: #fff;
         }
@@ -1586,21 +1608,25 @@ $base: #020204;
       border-top-color: rgba(255, 224, 195, 1);
       border-bottom-color: #7a2f08;
     }
+
     .frow-1:hover .ff-badge {
       border-color: #ffd15c;
       border-top-color: rgba(255, 246, 205, 1);
       border-bottom-color: #7a5800;
     }
+
     .frow-2:hover .ff-badge {
       border-color: #ff6db1;
       border-top-color: rgba(255, 218, 235, 1);
       border-bottom-color: #852a55;
     }
+
     .frow-3:hover .ff-badge {
       border-color: #34d9a5;
       border-top-color: rgba(205, 255, 240, 1);
       border-bottom-color: #056046;
     }
+
     .frow-4:hover .ff-badge {
       border-color: #a4e629;
       border-top-color: rgba(235, 255, 205, 1);
@@ -1646,6 +1672,7 @@ $base: #020204;
           0 3px 6px rgba(0, 0, 0, 0.5),
           inset 0 1px 0 rgba(195, 215, 245, 0.2),
           inset 0 -2.5px 3px rgba(0, 0, 0, 0.7);
+
         .ts-text {
           color: #fff;
         }
@@ -1896,10 +1923,12 @@ $base: #020204;
           0 1px 2px rgba(0, 0, 0, 0.8),
           inset 0 1px 0.5px rgba(255, 255, 255, 0.3);
         z-index: 3;
+
         &.sl {
           top: 5px;
           left: 5px;
         }
+
         &.sr {
           top: 5px;
           right: 5px;
@@ -1911,16 +1940,19 @@ $base: #020204;
         --sky-bot: #ffd8a8;
         --sun-color: #fff5d0;
       }
+
       &.ps-1 {
         --sky-top: #6a4c93;
         --sky-bot: #e4a0d8;
         --sun-color: #ffe0f0;
       }
+
       &.ps-2 {
         --sky-top: #2d7da8;
         --sky-bot: #b8e0ec;
         --sun-color: #fff;
       }
+
       &.ps-3 {
         --sky-top: #1a1a5e;
         --sky-bot: #4a5a9e;
@@ -1930,12 +1962,15 @@ $base: #020204;
       &:nth-child(4n + 1) .polaroid {
         transform: rotate(-2deg);
       }
+
       &:nth-child(4n + 2) .polaroid {
         transform: rotate(1.5deg);
       }
+
       &:nth-child(4n + 3) .polaroid {
         transform: rotate(-1deg);
       }
+
       &:nth-child(4n) .polaroid {
         transform: rotate(2deg);
       }
@@ -2066,18 +2101,22 @@ $base: #020204;
           background: rgba(0, 0, 0, 0.6);
           border-radius: 1px;
         }
+
         &.tl {
           top: 6px;
           left: 6px;
         }
+
         &.tr {
           top: 6px;
           right: 6px;
         }
+
         &.bl {
           bottom: 6px;
           left: 6px;
         }
+
         &.br {
           bottom: 6px;
           right: 6px;
@@ -2198,18 +2237,22 @@ $base: #020204;
           stroke: rgba(255, 170, 0, 0.15);
           stroke-width: 1;
         }
+
         .rg-ring-outer {
           stroke: rgba(255, 170, 0, 0.25);
           stroke-width: 1.5;
           stroke-dasharray: 2 4;
         }
+
         .rg-ring-mid {
           stroke: rgba(255, 170, 0, 0.2);
         }
+
         .rg-ring-inner {
           stroke: rgba(255, 170, 0, 0.16);
           stroke-dasharray: 3 3;
         }
+
         .rg-ring-core {
           stroke: rgba(255, 170, 0, 0.12);
         }
@@ -2407,6 +2450,7 @@ $base: #020204;
               0 0 24px rgba(255, 170, 0, 0.6),
               0 0 36px rgba(255, 170, 0, 0.3);
           }
+
           .blip-cross {
             opacity: 1;
           }
@@ -2471,6 +2515,7 @@ $base: #020204;
         from {
           transform: rotate(0deg);
         }
+
         to {
           transform: rotate(360deg);
         }
@@ -2483,6 +2528,7 @@ $base: #020204;
           opacity: 0.8;
           border-width: 1.5px;
         }
+
         100% {
           width: 44px;
           height: 44px;
@@ -2498,6 +2544,7 @@ $base: #020204;
           opacity: 0.7;
           border-width: 1.5px;
         }
+
         100% {
           width: 38px;
           height: 38px;
@@ -2511,6 +2558,7 @@ $base: #020204;
         100% {
           opacity: 1;
         }
+
         50% {
           opacity: 0.3;
         }
@@ -2693,15 +2741,19 @@ $base: #020204;
               0 0 6px rgba(255, 170, 0, 0.8),
               inset 0 1px 0 rgba(255, 255, 255, 0.2);
           }
+
           .pb-index {
             color: rgba(255, 170, 0, 0.7);
           }
+
           .pb-name {
             color: #fc4;
           }
+
           .pb-km {
             color: #fa0;
           }
+
           .pb-bracket {
             opacity: 1;
           }
@@ -2778,6 +2830,7 @@ $base: #020204;
           inset 1.5px 0 0 rgba(255, 255, 255, 0.35),
           inset -1.5px 0 0 rgba(120, 90, 40, 0.14);
         z-index: 2;
+
         .ticket-stub {
           filter: brightness(1.05) saturate(1.12);
         }
@@ -2938,12 +2991,15 @@ $base: #020204;
       .ticket-stub {
         background: linear-gradient(180deg, #fce4ec 0%, #f4c4d4 100%);
       }
+
       .stub-glyph {
         color: #a04060;
       }
+
       .ticket-season {
         color: #d04a6a;
       }
+
       .ticket-seal {
         color: #d04a6a;
       }
@@ -2954,12 +3010,15 @@ $base: #020204;
       .ticket-stub {
         background: linear-gradient(180deg, #d4ecf4 0%, #a8d4e8 100%);
       }
+
       .stub-glyph {
         color: #1a6a8a;
       }
+
       .ticket-season {
         color: #1a7a98;
       }
+
       .ticket-seal {
         color: #1a7a98;
       }
@@ -2970,12 +3029,15 @@ $base: #020204;
       .ticket-stub {
         background: linear-gradient(180deg, #f6e4c4 0%, #f0c888 100%);
       }
+
       .stub-glyph {
         color: #a04818;
       }
+
       .ticket-season {
         color: #b04a1e;
       }
+
       .ticket-seal {
         color: #b04a1e;
       }
@@ -2986,12 +3048,15 @@ $base: #020204;
       .ticket-stub {
         background: linear-gradient(180deg, #e4ecf2 0%, #c4d4e0 100%);
       }
+
       .stub-glyph {
         color: #3a5a72;
       }
+
       .ticket-season {
         color: #3a5a72;
       }
+
       .ticket-seal {
         color: #3a5a72;
       }

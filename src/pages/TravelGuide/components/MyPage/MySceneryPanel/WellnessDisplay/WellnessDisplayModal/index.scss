@@ -3,6 +3,7 @@
     opacity: 0;
     transform: rotateY(-12deg) scale(0.94);
   }
+
   to {
     opacity: 1;
     transform: rotateY(0) scale(1);
@@ -14,10 +15,12 @@
     transform: scale(1.4) rotate(-12deg);
     opacity: 0;
   }
+
   60% {
     transform: scale(0.92) rotate(-6deg);
     opacity: 1;
   }
+
   100% {
     transform: scale(1) rotate(-7deg);
     opacity: 1;
@@ -30,6 +33,7 @@
     transform: translateX(-3%);
     opacity: 0.5;
   }
+
   50% {
     transform: translateX(3%);
     opacity: 0.75;
@@ -166,10 +170,12 @@
       top: 12px;
       left: 12px;
     }
+
     &.cm-stitch-bl {
       bottom: 12px;
       left: 12px;
     }
+
     &.cm-stitch-br {
       bottom: 12px;
       right: 12px;
@@ -333,16 +339,19 @@
       top: 5px;
       left: 5px;
     }
+
     &.cm-corner-tr {
       top: 5px;
       right: 5px;
       transform: scaleX(-1);
     }
+
     &.cm-corner-bl {
       bottom: 5px;
       left: 5px;
       transform: scaleY(-1);
     }
+
     &.cm-corner-br {
       bottom: 5px;
       right: 5px;
@@ -559,6 +568,7 @@
             color: #ffd870;
             font-size: 1rem;
           }
+
           .chip-sub {
             color: #c89848;
             font-weight: 700;
@@ -777,6 +787,7 @@
               );
               border-color: #5c1006;
             }
+
             &:nth-child(2) {
               background: linear-gradient(
                 180deg,
@@ -789,6 +800,7 @@
               transform: rotate(2deg);
               animation-delay: 0.1s;
             }
+
             &:nth-child(3) {
               background: linear-gradient(
                 180deg,
@@ -801,6 +813,7 @@
               transform: rotate(-2.5deg);
               animation-delay: 0.2s;
             }
+
             &:nth-child(4) {
               background: linear-gradient(
                 180deg,
@@ -813,6 +826,7 @@
               transform: rotate(2.5deg);
               animation-delay: 0.3s;
             }
+
             &:nth-child(5) {
               background: linear-gradient(
                 180deg,
@@ -1024,6 +1038,7 @@
           );
           border-color: rgba(244, 216, 132, 0.5);
         }
+
         &:nth-child(2) {
           color: #fff5e6;
           background: linear-gradient(
@@ -1033,6 +1048,7 @@
           );
           border-color: rgba(232, 84, 60, 0.5);
         }
+
         &:nth-child(3) {
           color: #e8ffe8;
           background: linear-gradient(
@@ -1042,6 +1058,7 @@
           );
           border-color: rgba(60, 160, 80, 0.5);
         }
+
         &:nth-child(4) {
           color: #e8f0ff;
           background: linear-gradient(
@@ -1051,6 +1068,7 @@
           );
           border-color: rgba(60, 120, 200, 0.5);
         }
+
         &:nth-child(5) {
           color: #fff8e0;
           background: linear-gradient(
@@ -1101,6 +1119,7 @@
           inset -2px -2px 4px rgba(0, 0, 0, 0.5),
           0 0 0 1px rgba(244, 216, 132, 0.2),
           0 4px 8px rgba(0, 0, 0, 0.5);
+
         svg {
           color: #ff9070;
         }
@@ -1113,6 +1132,7 @@
             0 0 0 1px rgba(244, 216, 132, 0.4),
             0 5px 12px rgba(0, 0, 0, 0.55),
             0 0 18px rgba(232, 84, 60, 0.4);
+
           svg {
             color: #ffb090;
           }
@@ -1127,6 +1147,7 @@
             0 0 0 1px rgba(255, 200, 160, 0.3),
             0 4px 10px rgba(0, 0, 0, 0.5),
             0 0 20px rgba(232, 84, 60, 0.5);
+
           svg {
             color: #fff5e6;
           }
@@ -1141,6 +1162,7 @@
           inset -2px -2px 4px rgba(0, 0, 0, 0.5),
           0 0 0 1px rgba(244, 216, 132, 0.2),
           0 4px 8px rgba(0, 0, 0, 0.5);
+
         svg {
           color: #90d870;
         }
@@ -1153,6 +1175,7 @@
             0 0 0 1px rgba(244, 216, 132, 0.4),
             0 5px 12px rgba(0, 0, 0, 0.55),
             0 0 18px rgba(74, 139, 58, 0.4);
+
           svg {
             color: #b0f090;
           }
@@ -1167,6 +1190,7 @@
             0 0 0 1px rgba(180, 255, 160, 0.3),
             0 4px 10px rgba(0, 0, 0, 0.5),
             0 0 20px rgba(74, 139, 58, 0.5);
+
           svg {
             color: #f0ffe8;
           }
@@ -1181,6 +1205,7 @@
           inset -2px -2px 4px rgba(0, 0, 0, 0.5),
           0 0 0 1px rgba(244, 216, 132, 0.2),
           0 4px 8px rgba(0, 0, 0, 0.5);
+
         svg {
           color: #ffd870;
         }
@@ -1193,6 +1218,7 @@
             0 0 0 1px rgba(244, 216, 132, 0.4),
             0 5px 12px rgba(0, 0, 0, 0.55),
             0 0 18px rgba(244, 216, 132, 0.4);
+
           svg {
             color: #fff5cc;
           }

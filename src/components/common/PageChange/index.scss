@@ -24,7 +24,8 @@
       object-fit: cover;
       opacity: 1;
       filter: saturate(1.05) brightness(1.02);
-      animation: pc-img-zoom calc(var(--pc-move, 900ms) * 2 + 210ms + 500ms) ease-out both;
+      animation: pc-img-zoom calc(var(--pc-move, 900ms) * 2 + 210ms + 500ms)
+        ease-out both;
       will-change: transform;
     }
 
@@ -36,8 +37,16 @@
       z-index: 1;
       pointer-events: none;
       background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 16%),
-        linear-gradient(0deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0) 14%);
+        linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.1) 0%,
+          rgba(255, 255, 255, 0) 16%
+        ),
+        linear-gradient(
+          0deg,
+          rgba(255, 255, 255, 0.07) 0%,
+          rgba(255, 255, 255, 0) 14%
+        );
     }
 
     // 中央柔光
@@ -47,7 +56,11 @@
       inset: 0;
       z-index: 1;
       pointer-events: none;
-      background: radial-gradient(58% 42% at 50% 48%, rgba(124, 148, 255, 0.14), rgba(124, 148, 255, 0) 72%);
+      background: radial-gradient(
+        58% 42% at 50% 48%,
+        rgba(124, 148, 255, 0.14),
+        rgba(124, 148, 255, 0) 72%
+      );
     }
 
     // 四块深空蓝紫配色（明度/色相微差）+ 依次错开
@@ -74,12 +87,16 @@
     // 前缘亮线：从左进入的块亮线在右缘，从右进入的块亮线在左缘
     &.dir-left {
       border-right: 1px solid rgba(140, 165, 255, 0.4);
-      box-shadow: inset -1px 0 0 rgba(170, 190, 255, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      box-shadow:
+        inset -1px 0 0 rgba(170, 190, 255, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
     }
 
     &.dir-right {
       border-left: 1px solid rgba(140, 165, 255, 0.4);
-      box-shadow: inset 1px 0 0 rgba(170, 190, 255, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      box-shadow:
+        inset 1px 0 0 rgba(170, 190, 255, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
     }
   }
 

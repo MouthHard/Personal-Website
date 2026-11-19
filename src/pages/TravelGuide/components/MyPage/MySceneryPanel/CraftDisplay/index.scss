@@ -211,9 +211,11 @@ $icon-star: #f8df9a;
         z-index: 5;
       }
     }
+
     .stick-l {
       border-radius: 9px 3px 3px 9px;
     }
+
     .stick-r {
       border-radius: 3px 9px 9px 3px;
     }
@@ -885,6 +887,7 @@ $icon-star: #f8df9a;
           &.is-loc svg {
             color: $icon-loc;
           }
+
           &.is-time svg {
             color: $icon-time;
           }
@@ -1107,18 +1110,21 @@ $icon-star: #f8df9a;
             border-radius: 50%;
             box-shadow: 0 0 7px rgba(248, 223, 154, 0.9);
           }
+
           .sp-a {
             width: 7px;
             height: 7px;
             top: 0;
             left: 5px;
           }
+
           .sp-b {
             width: 4px;
             height: 4px;
             top: 8px;
             left: 20px;
           }
+
           .sp-c {
             width: 3px;
             height: 3px;
@@ -1260,9 +1266,11 @@ $icon-star: #f8df9a;
           );
           opacity: 0.55;
         }
+
         &::before {
           top: 0;
         }
+
         &::after {
           bottom: 0;
         }
@@ -1314,18 +1322,22 @@ $icon-star: #f8df9a;
 
             z-index: 3;
           }
+
           .k-tl {
             top: 6px;
             left: 6px;
           }
+
           .k-tr {
             top: 6px;
             right: 6px;
           }
+
           .k-bl {
             bottom: 6px;
             left: 6px;
           }
+
           .k-br {
             bottom: 6px;
             right: 6px;

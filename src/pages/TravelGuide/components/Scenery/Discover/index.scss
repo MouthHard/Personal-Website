@@ -103,6 +103,7 @@ $snow: #f8fafc;
       &::before {
         top: 4px;
       }
+
       &::after {
         bottom: 4px;
       }
@@ -193,6 +194,7 @@ $snow: #f8fafc;
         &--left {
           left: 4px;
         }
+
         &--right {
           right: 4px;
         }
@@ -464,6 +466,7 @@ $snow: #f8fafc;
   0% {
     background-position: -100% 0;
   }
+
   100% {
     background-position: 200% 0;
   }
