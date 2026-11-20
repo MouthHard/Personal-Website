@@ -459,18 +459,35 @@
       inset 0 4px 8px rgb(0 0 0 / 6%),
       0 6px 16px rgb(0 0 0 / 20%);
 
-    // 纸背透印层——卡片配图极淡叠底，仅透出轮廓不夺文字（mix-blend 融入古纸）
+    // 纸背透印层——卡片配图淡叠底：去饱和收敛成褐灰墨影，透出图形又不夺文字
     .paper-backdrop {
       position: absolute;
       inset: 0;
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      filter: grayscale(1) sepia(0.5);
-      opacity: 8%;
+
+      // 降饱和 + 收敛对比：彩照化为与古纸同调的褐灰墨影，浅色插画也能透出轮廓
+      filter: grayscale(0.85) sepia(0.4) contrast(0.85) brightness(0.95);
+      opacity: 26%;
       mix-blend-mode: multiply;
+
+      // 标题与诗句所在的中部再淡一档，图形只从四周透出，保证正文清晰
+      mask-image: radial-gradient(
+        ellipse 76% 68% at 50% 46%,
+        rgb(0 0 0 / 40%) 0%,
+        #000 100%
+      );
       pointer-events: none;
       z-index: 0;
+
+      // 占位态（加载中 / 加载失败）：同一套插画浓度略高、不套径向遮罩，
+      // 让「图还没好」这件事可辨；封面一就绪即切回原图的极淡透印
+      &.is-placeholder {
+        opacity: 28%;
+        filter: sepia(0.2) contrast(0.9);
+        mask-image: none;
+      }
     }
 
     // 纸面纹理层（纤维感）

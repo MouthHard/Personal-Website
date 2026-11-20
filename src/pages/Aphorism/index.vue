@@ -195,15 +195,17 @@
         </div>
       </div>
 
-      <div v-else class="poems-grid">
-        <PoemCard
-          v-for="poem in displayedPoems"
-          :key="poem.id"
-          :poem="poem"
-          @click="handlePoemClick"
-          @tag-click="handleTagClick"
-        />
-      </div>
+      <ErrorBoundary v-else mode="region" scope="aphorism-list">
+        <div class="poems-grid">
+          <PoemCard
+            v-for="poem in displayedPoems"
+            :key="poem.id"
+            :poem="poem"
+            @click="handlePoemClick"
+            @tag-click="handleTagClick"
+          />
+        </div>
+      </ErrorBoundary>
 
       <!-- 分页 -->
       <Pagination
@@ -241,6 +243,7 @@
   import PoemModal from './components/PoemModal/index.vue';
   import Pagination from './components/Pagination/index.vue';
   import ErrorState from './components/ErrorState/index.vue';
+  import { ErrorBoundary } from '@/components/common/ErrorBoundary';
   import BrowseIcon from './icons/common/BrowseIcon.vue';
   import SearchModeIcon from './icons/common/SearchModeIcon.vue';
   import StudyRoomIcon from './icons/common/StudyRoomIcon.vue';

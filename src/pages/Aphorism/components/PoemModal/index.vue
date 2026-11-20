@@ -104,11 +104,13 @@
 
             <!-- 展开的纸面 -->
             <div class="scroll-paper">
-              <!-- 纸背透印：卡片配图极淡叠底，仅作质感不夺文字（失效 prop 修复） -->
+              <!-- 纸背透印：卡片配图极淡叠底，仅作质感不夺文字；
+                   配图未就绪时改用与卡片一致的加载中/加载失败插画，两处状态保持同步 -->
               <div
-                v-if="backgroundImage"
+                v-if="backdropUrl"
                 class="paper-backdrop"
-                :style="{ backgroundImage: `url('${backgroundImage}')` }"
+                :class="{ 'is-placeholder': coverStatus !== 'loaded' }"
+                :style="{ backgroundImage: `url('${backdropUrl}')` }"
                 aria-hidden="true"
               ></div>
               <div class="paper-texture"></div>
@@ -510,6 +512,12 @@
   import DOMPurify from 'dompurify';
   import type { Poem } from '@/typesOfPages/aphorism/poem';
   import { usePoemInteractions } from '@/composables/aphorism/usePoemInteractions';
+  import {
+    ensureCoverLoaded,
+    errorCover,
+    loadingCover,
+    useCoverStatus,
+  } from '@/composables/aphorism/usePoemBackground';
   import LikeIcon from '../../icons/PoemModal/LikeIcon.vue';
   import LoveIcon from '../../icons/PoemModal/LoveIcon.vue';
   import FavoriteIcon from '../../icons/PoemModal/FavoriteIcon.vue';
@@ -541,6 +549,25 @@
     (e: 'tag-click', tag: string): void;
     (e: 'navigate', direction: 'prev' | 'next'): void;
   }>();
+
+  // ===== 纸背配图 =====
+  // 弹窗只有 CSS 背景、没有 <img>，因此状态与卡片共享：卡片已成功则直接用原图，
+  // 卡片仍在加载或失败时先显示同一套占位插画，等真正的封面就绪再切回去。
+  const backgroundImage = computed(() => props.backgroundImage ?? '');
+  const coverStatus = useCoverStatus(() => backgroundImage.value);
+  const backdropUrl = computed(() => {
+    if (!backgroundImage.value) return '';
+    if (coverStatus.value === 'loaded') return backgroundImage.value;
+    return coverStatus.value === 'failed' ? errorCover : loadingCover;
+  });
+
+  watch(
+    () => props.backgroundImage,
+    (url) => {
+      if (url) ensureCoverLoaded(url);
+    },
+    { immediate: true },
+  );
 
   const activeTab = ref<'annotation' | 'background' | 'appreciation' | 'poet'>(
     'annotation',

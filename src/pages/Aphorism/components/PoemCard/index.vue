@@ -5,21 +5,23 @@
     @click="handleClick"
   >
     <div class="scroll-container">
+      <!-- 配图常驻：即使加载失败也保留元素，重试成功后无需重建即可显示原图 -->
       <img
-        v-if="!imgFailed"
-        :src="backgroundImage"
+        :src="imgSrc"
         alt=""
         class="bg-img"
         loading="lazy"
-        @load="imgLoaded = true"
-        @error="imgFailed = true"
+        decoding="async"
+        @load="handleImageLoad"
+        @error="handleImageError"
       />
-      <img v-else :src="errorImage" alt="" class="bg-img" />
+      <!-- 加载中 / 加载失败占位：盖在原图之上，原图就绪后自动移除 -->
       <img
-        v-if="!imgLoaded && !imgFailed"
-        :src="loadingImage"
+        v-if="showPlaceholder"
+        :src="placeholderSrc"
         alt=""
-        class="bg-img"
+        class="bg-img bg-img-placeholder"
+        aria-hidden="true"
       />
 
       <button
@@ -107,7 +109,7 @@
 </template>
 
 <script setup lang="ts">
-  import { computed, ref } from 'vue';
+  import { computed, ref, watch } from 'vue';
   import type { Poem } from '@/typesOfPages/aphorism/poem';
   import { usePoemMessage } from '../PoemMessage/usePoemMessage';
   import { usePoemInteractions } from '@/composables/aphorism/usePoemInteractions';
@@ -118,9 +120,15 @@
   import FavoriteIcon from '../../icons/PoemModal/FavoriteIcon.vue';
   import ShareIcon from '../../icons/PoemModal/ShareIcon.vue';
   import CloseIcon from '../../icons/common/CloseIcon.vue';
-  import { getBackgroundUrl } from '@/composables/aphorism/usePoemBackground';
-  import loadingImage from '@/assets/image/aphorism/loading.webp';
-  import errorImage from '@/assets/image/aphorism/error.webp';
+  import {
+    coverRetrySrc,
+    errorCover,
+    getBackgroundUrl,
+    loadingCover,
+    reportCoverFailed,
+    reportCoverLoaded,
+    useCoverStatus,
+  } from '@/composables/aphorism/usePoemBackground';
   import './index.scss';
 
   const props = defineProps<{
@@ -147,8 +155,35 @@
 
   const backgroundImage = getBackgroundUrl(props.poem.id);
 
-  const imgLoaded = ref(false);
-  const imgFailed = ref(false);
+  // 封面状态与弹窗共享：卡片先失败、弹窗重试成功时，这里也会收到 loaded 并自动恢复原图
+  const coverStatus = useCoverStatus(() => backgroundImage);
+  const imgSrc = ref(backgroundImage);
+  /** 本卡片自己的 <img> 是否已成功渲染，只有它成功才撤掉占位层 */
+  const locallyLoaded = ref(false);
+  let srcBump = 0;
+
+  const showPlaceholder = computed(() => !locallyLoaded.value);
+  const placeholderSrc = computed(() =>
+    coverStatus.value === 'failed' ? errorCover : loadingCover,
+  );
+
+  const handleImageLoad = () => {
+    locallyLoaded.value = true;
+    reportCoverLoaded(backgroundImage);
+  };
+
+  const handleImageError = () => {
+    locallyLoaded.value = false;
+    reportCoverFailed(backgroundImage);
+  };
+
+  // 别处（弹窗）已确认这张图能加载，但本卡片的 <img> 还停在失败的地址上，
+  // 换一个带重试参数的地址重新取图，成功后占位层自然撤掉。
+  watch(coverStatus, (status) => {
+    if (status !== 'loaded' || locallyLoaded.value || srcBump >= 3) return;
+    srcBump += 1;
+    imgSrc.value = coverRetrySrc(backgroundImage, srcBump);
+  });
 
   const previewLines = computed(() => {
     if (props.poem.highlight && props.poem.highlight.length > 0) {

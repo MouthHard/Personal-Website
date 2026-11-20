@@ -26,7 +26,7 @@ $mono: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 9999;
+  z-index: 10001;
   overflow: hidden;
   background: $metal-darkest;
   animation: ebFadeIn 0.4s ease both;
@@ -542,6 +542,7 @@ $mono: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
 
   &__actions {
     display: flex;
+    flex-wrap: wrap;
     gap: 12px;
     width: 100%;
     z-index: 1;
@@ -553,6 +554,7 @@ $mono: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
     justify-content: center;
     gap: 8px;
     padding: 13px 18px;
+    min-width: 132px;
     border-radius: 4px;
     cursor: pointer;
     font-family: $mono;
@@ -1211,6 +1213,120 @@ $mono: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
     letter-spacing: 0.06em;
     white-space: nowrap;
     text-shadow: 0 0 6px rgba($green-crt, 0.4);
+  }
+
+  // 局部错误卡：只占住出错区域，不遮整站，也不给诊断面板等重型操作
+  &.is-region {
+    position: relative;
+    inset: auto;
+    z-index: auto;
+    min-height: 320px;
+    background: transparent;
+    animation: none;
+    overflow: visible;
+
+    .error-boundary__grid-bg,
+    .error-boundary__scanline,
+    .error-boundary__vignette,
+    .error-boundary__dev-toggle,
+    .error-boundary__dev-panel,
+    .error-boundary__hint,
+    .error-boundary__btn--soft,
+    .error-boundary__btn--secondary,
+    .error-boundary__toast {
+      display: none;
+    }
+
+    .error-boundary__dialog {
+      position: absolute;
+      inset: 0;
+      align-items: center;
+      justify-content: center;
+      animation: none;
+    }
+
+    .error-boundary__main {
+      width: min(100%, 420px);
+      padding: 24px 28px 22px;
+      gap: 14px;
+    }
+
+    .error-boundary__icon-wrap {
+      width: 48px;
+      height: 48px;
+
+      &::after {
+        inset: -5px;
+      }
+    }
+
+    .error-boundary__title {
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .error-boundary__desc {
+      margin-bottom: 16px;
+      font-size: 12px;
+    }
+
+    .error-boundary__btn {
+      min-width: 0;
+      padding: 10px 14px;
+      font-size: 13px;
+    }
+  }
+
+  // 软失败：加载超时 / 资源未就绪，不是程序故障，去掉红色警报语义
+  &.is-soft {
+    .error-boundary__alarm-row {
+      background:
+        linear-gradient(
+          135deg,
+          rgba(#7fa6ff, 0.16) 0%,
+          rgba(#2b4a9e, 0.05) 100%
+        ),
+        linear-gradient(
+          135deg,
+          $metal-light 0%,
+          $metal-mid 50%,
+          $metal-base 100%
+        );
+      border-color: rgba(#7fa6ff, 0.35);
+      border-top-color: rgba(#7fa6ff, 0.5);
+      border-left-color: rgba(#7fa6ff, 0.45);
+      box-shadow:
+        inset 1px 1px 0 rgba(255, 255, 255, 0.08),
+        inset -1px -1px 1px rgba(0, 0, 0, 0.4),
+        0 0 12px rgba(#7fa6ff, 0.12);
+    }
+
+    .error-boundary__alarm-led {
+      background: radial-gradient(circle, #9fbcff 0%, #2b4a9e 70%);
+      box-shadow: 0 0 8px rgba(#9fbcff, 0.6);
+      animation-duration: 2s;
+    }
+
+    .error-boundary__alarm-label {
+      color: #9fbcff;
+      text-shadow: 0 0 4px rgba(#7fa6ff, 0.4);
+    }
+
+    .error-boundary__header-text,
+    .error-boundary__alarm-code {
+      color: #9fbcff;
+      text-shadow: 0 0 6px rgba(#7fa6ff, 0.4);
+    }
+
+    .error-boundary__hazard-strip {
+      background: repeating-linear-gradient(
+        -45deg,
+        #7fa6ff 0,
+        #7fa6ff 6px,
+        $metal-darkest 6px,
+        $metal-darkest 12px
+      );
+    }
   }
 }
 
