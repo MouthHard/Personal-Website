@@ -667,8 +667,8 @@ $ink-blue-deep: #1a3a5a;
             align-items: center;
             justify-content: center;
 
-            img,
-            video {
+            :deep(img),
+            :deep(video) {
               width: 100%;
               height: 100%;
               object-fit: contain;

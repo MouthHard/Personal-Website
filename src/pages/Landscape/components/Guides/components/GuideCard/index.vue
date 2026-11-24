@@ -1,7 +1,7 @@
 <template>
   <article class="guide-card" @mousemove="handleCardMouseMove">
     <div class="card-image" @click="$emit('click', guide)">
-      <img :src="guide.cover" :alt="guide.title" loading="lazy" />
+      <LandscapeImage :src="guide.cover" :alt="guide.title" loading="lazy" />
       <div class="image-overlay"></div>
 
       <!-- 状态标签 -->
@@ -37,7 +37,9 @@
       <!-- 标题-->
       <div class="title-row">
         <h3 class="card-title">{{ guide.title }}</h3>
-        <span v-if="guide.publishDate" class="publish-date">{{ guide.publishDate }}</span>
+        <span v-if="guide.publishDate" class="publish-date">
+          {{ guide.publishDate }}
+        </span>
       </div>
 
       <!-- 简介 -->
@@ -45,18 +47,29 @@
 
       <!-- 标签 -->
       <div class="card-tags">
-        <span v-if="guide.travelMode" class="tag mode">{{ guide.travelMode }}</span>
-        <span v-if="guide.sceneryTheme" class="tag theme">{{ guide.sceneryTheme }}</span>
+        <span v-if="guide.travelMode" class="tag mode">
+          {{ guide.travelMode }}
+        </span>
+        <span v-if="guide.sceneryTheme" class="tag theme">
+          {{ guide.sceneryTheme }}
+        </span>
         <span class="tag season">{{ seasonLabel }}</span>
       </div>
 
       <!-- 底部信息 -->
       <div class="card-footer">
         <div class="author-info">
-          <img loading="lazy" :src="guide.authorAvatar" :alt="guide.author" />
+          <LandscapeImage
+            loading="lazy"
+            :src="guide.authorAvatar"
+            :alt="guide.author"
+            variant="avatar"
+          />
           <div class="author-details">
             <span class="author-name">{{ guide.author }}</span>
-            <span v-if="guide.category" class="author-badge">{{ guide.category }}</span>
+            <span v-if="guide.category" class="author-badge">
+              {{ guide.category }}
+            </span>
           </div>
         </div>
       </div>
@@ -67,16 +80,30 @@
           <EyeIcon />
           <span>{{ formatNumber(getCount().views) }}</span>
         </div>
-        <button class="stat-item interactive" type="button" :class="{ active: isLiked }" @click.stop="toggleLike">
+        <button
+          class="stat-item interactive"
+          type="button"
+          :class="{ active: isLiked }"
+          @click.stop="toggleLike"
+        >
           <ThumbUpIcon />
           <span>{{ formatNumber(getCount().likes) }}</span>
         </button>
-        <button class="stat-item interactive" type="button" :class="{ active: isLoved }" @click.stop="toggleLove">
+        <button
+          class="stat-item interactive"
+          type="button"
+          :class="{ active: isLoved }"
+          @click.stop="toggleLove"
+        >
           <HeartIcon />
           <span>{{ formatNumber(getCount().loves) }}</span>
         </button>
-        <button class="stat-item interactive" type="button" :class="{ active: isFavorited }"
-          @click.stop="toggleBookmark">
+        <button
+          class="stat-item interactive"
+          type="button"
+          :class="{ active: isFavorited }"
+          @click.stop="toggleBookmark"
+        >
           <BookmarkIcon />
           <span>{{ formatNumber(getCount().favorites) }}</span>
         </button>
@@ -92,168 +119,171 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
-import { seasonMap } from '@/constants/landscape';
-import { useInteractionStore } from '@/stores/landscape';
-import { formatNumber } from '@/utils/landscape/format';
-import { showMessage, createSimpleInteractionItem } from '@/utils/landscape';
-import ShareMenu from '../../../common/ShareMenu/index.vue';
-import StarIcon from '@/pages/Landscape/icons/common/StarIcon.vue';
-import CircleIcon from '@/pages/Landscape/icons/components/guides/GuideCard/CircleIcon.vue';
-import ClockIcon from '@/pages/Landscape/icons/common/ClockIcon.vue';
-import LocationIcon from '@/pages/Landscape/icons/common/LocationIcon.vue';
-import EyeIcon from '@/pages/Landscape/icons/common/EyeIcon.vue';
-import ThumbUpIcon from '@/pages/Landscape/icons/common/ThumbUpIcon.vue';
-import HeartIcon from '@/pages/Landscape/icons/common/HeartIcon.vue';
-import BookmarkIcon from '@/pages/Landscape/icons/common/BookmarkIcon.vue';
-import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue';
-interface Guide {
-  id: string;
-  title: string;
-  cover: string;
-  excerpt: string;
-  travelMode?: string;
-  sceneryTheme?: string;
-  location: string;
-  locationId?: string;
-  duration: string;
-  views: number;
-  likes: number;
-  loves: number;
-  bookmarks: number;
-  shares: number;
-  tags: string[];
-  authorId: string;
-  author: string;
-  authorAvatar?: string;
-  authorVerified?: boolean;
-  category: string;
-  difficulty: 'beginner' | 'intermediate' | 'advanced';
-  season?: string;
-  rating?: number;
-  publishDate?: string;
-  content?: string;
-  type?: string;
-  typeName?: string;
-  date?: string;
-  readTime?: string;
-  isFeatured?: boolean;
-  isNew?: boolean;
-  isHot?: boolean;
-}
-
-interface Props {
-  guide: Guide;
-  index?: number;
-}
-
-const props = defineProps<Props>();
-
-const emit = defineEmits<{
-  (e: 'click', guide: Guide): void;
-}>();
-
-const showShareMenu = ref(false);
-const shareWork = computed(() => ({
-  type: 'guide' as const,
-  title: props.guide.title,
-  description: props.guide.excerpt,
-  cover: props.guide.cover,
-  author: props.guide.author,
-  date: props.guide.date || props.guide.publishDate,
-  location: props.guide.location,
-  category: props.guide.typeName || props.guide.category,
-  rating: props.guide.rating,
-  readTime: props.guide.readTime,
-}));
-
-const handleShare = () => {
-  showShareMenu.value = true;
-};
-
-const interactionStore = useInteractionStore();
-
-const seasonLabel = computed(() => {
-  const season = props.guide.season || 'spring';
-  return seasonMap[season] || season;
-});
-
-const getCount = () => interactionStore.getCount(props.guide.id);
-const isLiked = computed(() => interactionStore.isLiked(props.guide.id));
-const isLoved = computed(() => interactionStore.isLoved(props.guide.id));
-const isFavorited = computed(() => interactionStore.isFavorited(props.guide.id));
-
-const toggleLike = (event: MouseEvent) => {
-  event.stopPropagation();
-  const item = createSimpleInteractionItem(
-    props.guide.id,
-    'guide',
-    props.guide.title,
-    {
-      image: props.guide.cover,
-      location: props.guide.location,
-    }
-  );
-  const isLiked = interactionStore.toggleLike(item);
-  if (isLiked) {
-    showMessage.like.success(props.guide.title);
-  } else {
-    showMessage.like.cancel();
+  import { ref, computed } from 'vue';
+  import { seasonMap } from '@/constants/landscape';
+  import { useInteractionStore } from '@/stores/landscape';
+  import { formatNumber } from '@/utils/landscape/format';
+  import { showMessage, createSimpleInteractionItem } from '@/utils/landscape';
+  import ShareMenu from '../../../common/ShareMenu/index.vue';
+  import LandscapeImage from '../../../common/LandscapeImage/index.vue';
+  import StarIcon from '@/pages/Landscape/icons/common/StarIcon.vue';
+  import CircleIcon from '@/pages/Landscape/icons/components/guides/GuideCard/CircleIcon.vue';
+  import ClockIcon from '@/pages/Landscape/icons/common/ClockIcon.vue';
+  import LocationIcon from '@/pages/Landscape/icons/common/LocationIcon.vue';
+  import EyeIcon from '@/pages/Landscape/icons/common/EyeIcon.vue';
+  import ThumbUpIcon from '@/pages/Landscape/icons/common/ThumbUpIcon.vue';
+  import HeartIcon from '@/pages/Landscape/icons/common/HeartIcon.vue';
+  import BookmarkIcon from '@/pages/Landscape/icons/common/BookmarkIcon.vue';
+  import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue';
+  interface Guide {
+    id: string;
+    title: string;
+    cover: string;
+    excerpt: string;
+    travelMode?: string;
+    sceneryTheme?: string;
+    location: string;
+    locationId?: string;
+    duration: string;
+    views: number;
+    likes: number;
+    loves: number;
+    bookmarks: number;
+    shares: number;
+    tags: string[];
+    authorId: string;
+    author: string;
+    authorAvatar?: string;
+    authorVerified?: boolean;
+    category: string;
+    difficulty: 'beginner' | 'intermediate' | 'advanced';
+    season?: string;
+    rating?: number;
+    publishDate?: string;
+    content?: string;
+    type?: string;
+    typeName?: string;
+    date?: string;
+    readTime?: string;
+    isFeatured?: boolean;
+    isNew?: boolean;
+    isHot?: boolean;
   }
-};
 
-const toggleLove = (event: MouseEvent) => {
-  event.stopPropagation();
-  const item = createSimpleInteractionItem(
-    props.guide.id,
-    'guide',
-    props.guide.title,
-    {
-      image: props.guide.cover,
-      location: props.guide.location,
-      author: props.guide.author,
-      authorId: props.guide.authorId,
-      authorAvatar: props.guide.authorAvatar,
-    }
-  );
-  const isLoved = interactionStore.toggleLove(item);
-  if (isLoved) {
-    showMessage.love.success(props.guide.title, 'guide');
-  } else {
-    showMessage.love.cancel(props.guide.title, 'guide');
+  interface Props {
+    guide: Guide;
+    index?: number;
   }
-};
 
-const toggleBookmark = (event: MouseEvent) => {
-  event.stopPropagation();
-  const item = createSimpleInteractionItem(
-    props.guide.id,
-    'guide',
-    props.guide.title,
-    {
-      image: props.guide.cover,
-      location: props.guide.location,
-      author: props.guide.author,
-      authorId: props.guide.authorId,
-      authorAvatar: props.guide.authorAvatar,
-    }
+  const props = defineProps<Props>();
+
+  const emit = defineEmits<{
+    (e: 'click', guide: Guide): void;
+  }>();
+
+  const showShareMenu = ref(false);
+  const shareWork = computed(() => ({
+    type: 'guide' as const,
+    title: props.guide.title,
+    description: props.guide.excerpt,
+    cover: props.guide.cover,
+    author: props.guide.author,
+    date: props.guide.date || props.guide.publishDate,
+    location: props.guide.location,
+    category: props.guide.typeName || props.guide.category,
+    rating: props.guide.rating,
+    readTime: props.guide.readTime,
+  }));
+
+  const handleShare = () => {
+    showShareMenu.value = true;
+  };
+
+  const interactionStore = useInteractionStore();
+
+  const seasonLabel = computed(() => {
+    const season = props.guide.season || 'spring';
+    return seasonMap[season] || season;
+  });
+
+  const getCount = () => interactionStore.getCount(props.guide.id);
+  const isLiked = computed(() => interactionStore.isLiked(props.guide.id));
+  const isLoved = computed(() => interactionStore.isLoved(props.guide.id));
+  const isFavorited = computed(() =>
+    interactionStore.isFavorited(props.guide.id),
   );
-  const isFavorited = interactionStore.toggleFavorite(item);
-  if (isFavorited) {
-    showMessage.favorite.success(props.guide.title, 'guide');
-  } else {
-    showMessage.favorite.cancel(props.guide.title, 'guide');
-  }
-};
 
-const handleCardMouseMove = (event: MouseEvent) => {
-  const card = event.currentTarget as HTMLElement;
-  const rect = card.getBoundingClientRect();
-  const x = ((event.clientX - rect.left) / rect.width) * 100;
-  const y = ((event.clientY - rect.top) / rect.height) * 100;
-  card.style.setProperty('--mouse-x', `${x}%`);
-  card.style.setProperty('--mouse-y', `${y}%`);
-};
+  const toggleLike = (event: MouseEvent) => {
+    event.stopPropagation();
+    const item = createSimpleInteractionItem(
+      props.guide.id,
+      'guide',
+      props.guide.title,
+      {
+        image: props.guide.cover,
+        location: props.guide.location,
+      },
+    );
+    const isLiked = interactionStore.toggleLike(item);
+    if (isLiked) {
+      showMessage.like.success(props.guide.title);
+    } else {
+      showMessage.like.cancel();
+    }
+  };
+
+  const toggleLove = (event: MouseEvent) => {
+    event.stopPropagation();
+    const item = createSimpleInteractionItem(
+      props.guide.id,
+      'guide',
+      props.guide.title,
+      {
+        image: props.guide.cover,
+        location: props.guide.location,
+        author: props.guide.author,
+        authorId: props.guide.authorId,
+        authorAvatar: props.guide.authorAvatar,
+      },
+    );
+    const isLoved = interactionStore.toggleLove(item);
+    if (isLoved) {
+      showMessage.love.success(props.guide.title, 'guide');
+    } else {
+      showMessage.love.cancel(props.guide.title, 'guide');
+    }
+  };
+
+  const toggleBookmark = (event: MouseEvent) => {
+    event.stopPropagation();
+    const item = createSimpleInteractionItem(
+      props.guide.id,
+      'guide',
+      props.guide.title,
+      {
+        image: props.guide.cover,
+        location: props.guide.location,
+        author: props.guide.author,
+        authorId: props.guide.authorId,
+        authorAvatar: props.guide.authorAvatar,
+      },
+    );
+    const isFavorited = interactionStore.toggleFavorite(item);
+    if (isFavorited) {
+      showMessage.favorite.success(props.guide.title, 'guide');
+    } else {
+      showMessage.favorite.cancel(props.guide.title, 'guide');
+    }
+  };
+
+  const handleCardMouseMove = (event: MouseEvent) => {
+    const card = event.currentTarget as HTMLElement;
+    const rect = card.getBoundingClientRect();
+    const x = ((event.clientX - rect.left) / rect.width) * 100;
+    const y = ((event.clientY - rect.top) / rect.height) * 100;
+    card.style.setProperty('--mouse-x', `${x}%`);
+    card.style.setProperty('--mouse-y', `${y}%`);
+  };
 </script>
 
 <style scoped lang="scss" src="./index.scss" />

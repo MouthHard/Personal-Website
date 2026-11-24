@@ -306,7 +306,7 @@
               justify-content: center;
               background: #000;
 
-              .preview-poster {
+              :deep(.preview-poster) {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
@@ -1083,7 +1083,8 @@
               inset 2px 0 2px rgba(255, 240, 200, 0.15),
               inset -2px 0 2px rgba(0, 0, 0, 0.3);
 
-            .author-avatar {
+            // LandscapeImage 内部 img 不带本组件 scopeId，class 经 $attrs 落在 img 上
+            :deep(.author-avatar) {
               width: 100%;
               height: 100%;
               border-radius: 50%;
@@ -2140,7 +2141,7 @@
                 }
               }
 
-              .tape-thumb {
+              :deep(.tape-thumb) {
                 order: 1;
                 width: 100%;
                 height: 90px;
@@ -2255,7 +2256,7 @@
                 }
               }
 
-              .tape-thumb {
+              :deep(.tape-thumb) {
                 border-color: #8a7a50;
                 box-shadow:
                   inset 0 0 0 1px rgba(0, 0, 0, 0.5),
@@ -2438,7 +2439,7 @@
               );
             }
 
-            .cc-thumb {
+            :deep(.cc-thumb) {
               width: 100%;
               height: 100%;
               object-fit: cover;
@@ -2610,7 +2611,7 @@
                 0 0 14px rgba(200, 168, 104, 0.2);
             }
 
-            .cc-thumb {
+            :deep(.cc-thumb) {
               transform: scale(1.12);
             }
 

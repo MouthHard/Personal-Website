@@ -8,7 +8,7 @@
       :style="{ '--item-index': index }"
     >
       <div class="item-image" @click="$emit('open-detail', item)">
-        <img
+        <LandscapeImage
           :src="item.thumbnail"
           :alt="item.title"
           loading="lazy"
@@ -75,10 +75,17 @@
                 :class="{ active: isFavorited(item.id) }"
                 @click.stop="handleToggleFavorite($event, item)"
               >
-                <BookmarkIcon :stroke-width="2" :filled="isFavorited(item.id)" />
+                <BookmarkIcon
+                  :stroke-width="2"
+                  :filled="isFavorited(item.id)"
+                />
                 {{ formatNumber(getCount(item.id).favorites) }}
               </button>
-              <button class="act-chip act-share" type="button" @click.stop="handleShare(item)">
+              <button
+                class="act-chip act-share"
+                type="button"
+                @click.stop="handleShare(item)"
+              >
                 <ShareIcon :stroke-width="2" />
                 {{ formatNumber(getCount(item.id).shares) }}
               </button>

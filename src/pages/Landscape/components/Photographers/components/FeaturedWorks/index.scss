@@ -446,7 +446,8 @@ $amber-soft: rgba(255, 183, 77, 1);
             inset -2px 0 4px rgba(0, 0, 0, 0.1);
         }
 
-        img {
+        // LandscapeImage 内部 img 不带本组件 scopeId，:deep 才能命中
+        :deep(img) {
           width: 100%;
           height: 100%;
           object-fit: cover;
@@ -508,7 +509,7 @@ $amber-soft: rgba(255, 183, 77, 1);
             0 0 30px rgba(212, 148, 58, 0.1),
             inset 0 0 0 1px rgba(255, 255, 255, 0.04);
 
-          img {
+          :deep(img) {
             transform: scale(1.06);
             filter: contrast(1.1) saturate(1.15);
           }

@@ -1,0 +1,32 @@
+// 分页 · 兼容与适配
+// 基础翻页牌样式保留在 index.scss；极窄屏下页码改为可换行小方牌。
+
+@media (width <= 430px) {
+  .pagination {
+    gap: 8px;
+    padding: 16px 0;
+
+    .pagination-button {
+      gap: 6px;
+      padding: 8px 12px;
+      font-size: 15px;
+
+      .button-text {
+        font-size: 15px;
+      }
+    }
+
+    .pagination-pages {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px;
+
+      .page-button {
+        min-width: 36px;
+        height: 36px;
+        border-radius: 9px;
+        font-size: 16px;
+      }
+    }
+  }
+}

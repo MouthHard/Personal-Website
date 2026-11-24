@@ -1,0 +1,34 @@
+// 轻提示 · 兼容与适配
+// 只放媒体查询与降级规则；大屏基础样式仍保留在 index.scss。
+
+@media (width <= 768px) {
+  .poem-message-container {
+    top: 14px;
+    width: calc(100% - 24px);
+  }
+
+  .poem-message-list {
+    gap: 8px;
+  }
+
+  .poem-message {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    gap: 10px;
+    padding: 10px 16px 10px 0;
+  }
+
+  .poem-message-bar {
+    margin-right: 10px;
+  }
+
+  .poem-message-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .poem-message-text {
+    font-size: 14px;
+  }
+}

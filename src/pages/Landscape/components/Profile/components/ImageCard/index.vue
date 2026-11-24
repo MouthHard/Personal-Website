@@ -40,20 +40,36 @@
       <div class="mat-board">
         <!-- 照片窗口 -->
         <div class="photo-window">
-          <img :src="item.thumbnail" :alt="item.title" loading="lazy" />
+          <LandscapeImage
+            :src="item.thumbnail"
+            :alt="item.title"
+            loading="lazy"
+          />
           <div class="glass-overlay"></div>
           <div class="glass-glare"></div>
 
           <div class="photo-actions">
-            <button class="action-btn like-btn" :class="{ liked: isLiked }" @click.stop="toggleLike">
+            <button
+              class="action-btn like-btn"
+              :class="{ liked: isLiked }"
+              @click.stop="toggleLike"
+            >
               <ThumbUpIcon :filled="isLiked" :stroke-width="2" />
               <span>{{ formatCount(getCounts().likes) }}</span>
             </button>
-            <button class="action-btn love-btn" :class="{ loved: isLoved }" @click.stop="toggleLove">
+            <button
+              class="action-btn love-btn"
+              :class="{ loved: isLoved }"
+              @click.stop="toggleLove"
+            >
               <HeartIcon :filled="isLoved" :stroke-width="2" />
               <span>{{ formatCount(getCounts().loves) }}</span>
             </button>
-            <button class="action-btn collect-btn" :class="{ collected: isCollected }" @click.stop="toggleCollect">
+            <button
+              class="action-btn collect-btn"
+              :class="{ collected: isCollected }"
+              @click.stop="toggleCollect"
+            >
               <BookmarkIcon :filled="isCollected" :stroke-width="2" />
               <span>{{ formatCount(getCounts().favorites) }}</span>
             </button>
@@ -117,117 +133,124 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
-import { showMessage, createSimpleInteractionItem } from '@/utils/landscape';
-import type { ImageItem } from '@/typesOfPages/landscape';
-import { useFormatNumber } from '@/composables/landscape';
-import { useInteractionStore } from '@/stores/landscape';
-import HeartIcon from '@/pages/Landscape/icons/common/HeartIcon.vue';
-import ThumbUpIcon from '@/pages/Landscape/icons/common/ThumbUpIcon.vue';
-import BookmarkIcon from '@/pages/Landscape/icons/common/BookmarkIcon.vue';
-import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue';
-import ShareMenu from '../../../common/ShareMenu/index.vue';
-import EyeIcon from '@/pages/Landscape/icons/common/EyeIcon.vue';
-import StarIcon from '@/pages/Landscape/icons/common/StarIcon.vue';
-import LocationIcon from '@/pages/Landscape/icons/common/LocationIcon.vue';
-import CameraIcon from '@/pages/Landscape/icons/common/CameraIcon.vue';
-import CalendarIcon from '@/pages/Landscape/icons/common/CalendarIcon.vue';
-import ArrowRightIcon from '@/pages/Landscape/icons/common/ArrowRightIcon.vue';
+  import { ref, computed } from 'vue';
+  import { showMessage, createSimpleInteractionItem } from '@/utils/landscape';
+  import type { ImageItem } from '@/typesOfPages/landscape';
+  import { useFormatNumber } from '@/composables/landscape';
+  import { useInteractionStore } from '@/stores/landscape';
+  import HeartIcon from '@/pages/Landscape/icons/common/HeartIcon.vue';
+  import ThumbUpIcon from '@/pages/Landscape/icons/common/ThumbUpIcon.vue';
+  import BookmarkIcon from '@/pages/Landscape/icons/common/BookmarkIcon.vue';
+  import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue';
+  import ShareMenu from '../../../common/ShareMenu/index.vue';
+  import EyeIcon from '@/pages/Landscape/icons/common/EyeIcon.vue';
+  import StarIcon from '@/pages/Landscape/icons/common/StarIcon.vue';
+  import LocationIcon from '@/pages/Landscape/icons/common/LocationIcon.vue';
+  import CameraIcon from '@/pages/Landscape/icons/common/CameraIcon.vue';
+  import CalendarIcon from '@/pages/Landscape/icons/common/CalendarIcon.vue';
+  import ArrowRightIcon from '@/pages/Landscape/icons/common/ArrowRightIcon.vue';
 
-const props = defineProps<{
-  item: ImageItem;
-  delay?: string;
-}>();
+  const props = defineProps<{
+    item: ImageItem;
+    delay?: string;
+  }>();
 
-const { formatCount } = useFormatNumber();
-const interactionStore = useInteractionStore();
+  const { formatCount } = useFormatNumber();
+  const interactionStore = useInteractionStore();
 
-const isLiked = computed(() => interactionStore.isLiked(props.item.id));
-const isShared = ref(false);
-const showShareMenu = ref(false);
-const shareWork = computed(() => ({
-  type: 'image' as const,
-  title: props.item.title,
-  cover: props.item.thumbnail || props.item.image,
-  author: props.item.author,
-  date: props.item.date,
-  location: props.item.location,
-  category: props.item.category,
-  camera: props.item.camera,
-}));
-const isCollected = computed(() => interactionStore.isFavorited(props.item.id));
-const isLoved = computed(() => interactionStore.isLoved(props.item.id));
-
-const getCounts = () => interactionStore.getCount(props.item.id);
-
-const toggleLike = () => {
-  const item = createSimpleInteractionItem(props.item.id, 'image', props.item.title, {
-    image: props.item.thumbnail || props.item.image || '',
-    location: props.item.location,
-    category: props.item.category,
-  });
-  const isAdded = interactionStore.toggleLike(item);
-  if (isAdded) {
-    showMessage.like.success(props.item.title);
-  } else {
-    showMessage.like.cancel();
-  }
-};
-
-const toggleLove = () => {
-  const item = {
-    id: props.item.id,
+  const isLiked = computed(() => interactionStore.isLiked(props.item.id));
+  const isShared = ref(false);
+  const showShareMenu = ref(false);
+  const shareWork = computed(() => ({
     type: 'image' as const,
     title: props.item.title,
-    image: props.item.thumbnail || props.item.image || '',
+    cover: props.item.thumbnail || props.item.image,
+    author: props.item.author,
+    date: props.item.date,
     location: props.item.location,
     category: props.item.category,
-    timestamp: Date.now(),
-    likes: props.item.likes,
-    views: props.item.views,
-    favorites: props.item.favorites,
-    shares: props.item.shares,
-    author: props.item.author,
-    authorId: props.item.authorId,
-    authorAvatar: props.item.authorAvatar,
-  };
-  const isAdded = interactionStore.toggleLove(item);
-  if (isAdded) {
-    showMessage.love.success(props.item.title, 'image');
-  } else {
-    showMessage.love.cancel(props.item.title, 'image');
-  }
-};
+    camera: props.item.camera,
+  }));
+  const isCollected = computed(() =>
+    interactionStore.isFavorited(props.item.id),
+  );
+  const isLoved = computed(() => interactionStore.isLoved(props.item.id));
 
-const toggleShare = () => {
-  isShared.value = true;
-  showShareMenu.value = true;
-};
+  const getCounts = () => interactionStore.getCount(props.item.id);
 
-const toggleCollect = () => {
-  const item = {
-    id: props.item.id,
-    type: 'image' as const,
-    title: props.item.title,
-    image: props.item.thumbnail || props.item.image || '',
-    location: props.item.location,
-    category: props.item.category,
-    timestamp: Date.now(),
-    likes: props.item.likes,
-    views: props.item.views,
-    favorites: props.item.favorites,
-    shares: props.item.shares,
-    author: props.item.author,
-    authorId: props.item.authorId,
-    authorAvatar: props.item.authorAvatar,
+  const toggleLike = () => {
+    const item = createSimpleInteractionItem(
+      props.item.id,
+      'image',
+      props.item.title,
+      {
+        image: props.item.thumbnail || props.item.image || '',
+        location: props.item.location,
+        category: props.item.category,
+      },
+    );
+    const isAdded = interactionStore.toggleLike(item);
+    if (isAdded) {
+      showMessage.like.success(props.item.title);
+    } else {
+      showMessage.like.cancel();
+    }
   };
-  const isAdded = interactionStore.toggleFavorite(item);
-  if (isAdded) {
-    showMessage.favorite.success(props.item.title, 'image');
-  } else {
-    showMessage.favorite.cancel(props.item.title, 'image');
-  }
-};
+
+  const toggleLove = () => {
+    const item = {
+      id: props.item.id,
+      type: 'image' as const,
+      title: props.item.title,
+      image: props.item.thumbnail || props.item.image || '',
+      location: props.item.location,
+      category: props.item.category,
+      timestamp: Date.now(),
+      likes: props.item.likes,
+      views: props.item.views,
+      favorites: props.item.favorites,
+      shares: props.item.shares,
+      author: props.item.author,
+      authorId: props.item.authorId,
+      authorAvatar: props.item.authorAvatar,
+    };
+    const isAdded = interactionStore.toggleLove(item);
+    if (isAdded) {
+      showMessage.love.success(props.item.title, 'image');
+    } else {
+      showMessage.love.cancel(props.item.title, 'image');
+    }
+  };
+
+  const toggleShare = () => {
+    isShared.value = true;
+    showShareMenu.value = true;
+  };
+
+  const toggleCollect = () => {
+    const item = {
+      id: props.item.id,
+      type: 'image' as const,
+      title: props.item.title,
+      image: props.item.thumbnail || props.item.image || '',
+      location: props.item.location,
+      category: props.item.category,
+      timestamp: Date.now(),
+      likes: props.item.likes,
+      views: props.item.views,
+      favorites: props.item.favorites,
+      shares: props.item.shares,
+      author: props.item.author,
+      authorId: props.item.authorId,
+      authorAvatar: props.item.authorAvatar,
+    };
+    const isAdded = interactionStore.toggleFavorite(item);
+    if (isAdded) {
+      showMessage.favorite.success(props.item.title, 'image');
+    } else {
+      showMessage.favorite.cancel(props.item.title, 'image');
+    }
+  };
 </script>
 
 <style scoped lang="scss" src="./index.scss" />

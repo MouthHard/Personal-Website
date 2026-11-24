@@ -25,78 +25,77 @@
  * ============================================================================
  */
 
-import { defineConfig, loadEnv } from "vite";
-import vue from "@vitejs/plugin-vue";
-import { fileURLToPath, URL } from "node:url";
-import AutoImport from "unplugin-auto-import/vite";
-import Components from "unplugin-vue-components/vite";
-import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
-import { visualizer } from "rollup-plugin-visualizer";
-
+import { defineConfig, loadEnv } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import { fileURLToPath, URL } from 'node:url';
+import AutoImport from 'unplugin-auto-import/vite';
+import Components from 'unplugin-vue-components/vite';
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
+import { visualizer } from 'rollup-plugin-visualizer';
 
 export default defineConfig(({ mode }) => {
   /** 加载 .env 环境变量（如 VITE_BASE） */
   const env = loadEnv(mode, process.cwd());
-  const isProduction = mode === "production";
+  const isProduction = mode === 'production';
 
   return {
-  /** 部署基础路径 */
-  base: "/Personal-Website/",
-
+    /** 部署基础路径 */
+    base: '/Personal-Website/',
 
     plugins: [
       vue(),
       /** Element Plus 自动导入：不用手动 import 组件，模板中直接用即可 */
       AutoImport({
         resolvers: [ElementPlusResolver()],
-        dts: "types/auto-imports.d.ts",
+        dts: 'types/auto-imports.d.ts',
       }),
       Components({
+        dirs: ['src/pages/Landscape/components/common'],
         resolvers: [ElementPlusResolver()],
-        dts: "types/components.d.ts",
+        dts: 'types/components.d.ts',
       }),
       /** 包体积可视化分析（仅生产构建时生成） */
-      isProduction && visualizer({
-        filename: "dist/stats.html",
-        gzipSize: true,
-        brotliSize: true,
-      }),
+      isProduction &&
+        visualizer({
+          filename: 'dist/stats.html',
+          gzipSize: true,
+          brotliSize: true,
+        }),
     ],
 
     resolve: {
       /** 路径别名：@ → src/ 目录，import 时可以写 @/stores/xxx 而不是 ../../stores/xxx */
       alias: {
-        "@": fileURLToPath(new URL("./src", import.meta.url)),
+        '@': fileURLToPath(new URL('./src', import.meta.url)),
       },
     },
 
     server: {
       port: 5173,
       open: true,
-      host: "0.0.0.0",
-
+      host: '0.0.0.0',
     },
 
     test: {
-      environment: "jsdom",
+      environment: 'jsdom',
       globals: true,
       coverage: {
-        provider: "v8",
+        provider: 'v8',
       },
     },
 
     build: {
-      outDir: "dist",
-      assetsDir: "assets",
+      outDir: 'dist',
+      assetsDir: 'assets',
       /** 开发环境生成 sourcemap 方便调试，生产环境不生成（减小体积） */
-      sourcemap: mode === "development",
-      minify: "terser",
+      sourcemap: mode === 'development',
+      minify: 'terser',
       terserOptions: {
         compress: {
           /** 生产环境移除 console.log/info，保留 console.warn/error */
           drop_console: isProduction,
           drop_debugger: isProduction,
-          pure_funcs: isProduction ? ["console.log", "console.info"] : [],
+          pure_funcs: isProduction ? ['console.log', 'console.info'] : [],
         },
       },
       rollupOptions: {
@@ -114,29 +113,29 @@ export default defineConfig(({ mode }) => {
            * - [name].[hash].js → 业务代码
            */
           manualChunks(id) {
-            if (id.includes("node_modules")) {
-              if (id.includes("element-plus")) {
-                return "element-plus";
+            if (id.includes('node_modules')) {
+              if (id.includes('element-plus')) {
+                return 'element-plus';
               }
-              if (id.includes("echarts")) {
-                return "echarts";
+              if (id.includes('echarts')) {
+                return 'echarts';
               }
               if (
-                id.includes("vue") ||
-                id.includes("vue-router") ||
-                id.includes("pinia")
+                id.includes('vue') ||
+                id.includes('vue-router') ||
+                id.includes('pinia')
               ) {
-                return "vue-vendor";
+                return 'vue-vendor';
               }
             }
           },
           /** 文件命名规则：带 hash 值，内容变化时 hash 变化，浏览器会重新下载 */
-          chunkFileNames: "assets/js/[name]-[hash].js",
-          entryFileNames: "assets/js/[name]-[hash].js",
+          chunkFileNames: 'assets/js/[name]-[hash].js',
+          entryFileNames: 'assets/js/[name]-[hash].js',
           assetFileNames: (assetInfo) => {
-            const fileName = assetInfo.name || "";
-            if (fileName.startsWith("App/")) {
-              return `assets/App/${fileName.replace("App/", "")}`;
+            const fileName = assetInfo.name || '';
+            if (fileName.startsWith('App/')) {
+              return `assets/App/${fileName.replace('App/', '')}`;
             }
             return `assets/[ext]/[name]-[hash].[ext]`;
           },

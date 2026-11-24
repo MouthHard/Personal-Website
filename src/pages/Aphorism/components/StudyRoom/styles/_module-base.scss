@@ -99,17 +99,6 @@
         grid-column: 1 / -1;
       }
 
-      // 窄屏折回一列
-      @media (width <= 900px) {
-        grid-template-columns: 1fr;
-
-        > .daily-pick,
-        > .famous-lines,
-        > .reading-ledger {
-          grid-column: auto;
-        }
-      }
-
       .module-card {
         // ---- 各模块主题变量（在 &.xxx 中覆盖，实现不同物品外观）----
         --tag-a: #b87333;

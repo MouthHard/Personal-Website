@@ -813,60 +813,6 @@
             position: relative;
             z-index: 2;
           }
-
-          @media (width <= 720px) {
-            // 窄屏：内容回到离书脊较近的位置，头部可换行
-            padding: 16px 14px 18px 34px;
-
-            .module-header {
-              flex-wrap: wrap;
-              gap: 10px 12px;
-              padding: 12px 10px 4px 8px;
-
-              .ledger-heading {
-                flex-wrap: wrap;
-                gap: 8px 10px;
-              }
-
-              .module-tag {
-                white-space: nowrap;
-              }
-
-              .clear-btn {
-                padding: 7px 16px;
-                font-size: 17px;
-              }
-            }
-
-            .ledger-tabs {
-              margin: 12px 0 0 10px;
-            }
-
-            .ledger-list {
-              gap: 16px 12px;
-            }
-
-            .ledger-row.tag {
-              height: 212px;
-              width: calc(92px + var(--tag-cols, 1) * 26px);
-              padding: 14px 9px 8px;
-            }
-
-            .ledger-row.tag .tag-text {
-              font-size: 22px;
-              letter-spacing: 4px;
-              max-height: 132px;
-            }
-
-            .ledger-row.tag .tag-foot {
-              font-size: 11px;
-            }
-
-            .ledger-tabs .ledger-tab {
-              min-width: 72px;
-              padding: 8px 10px 12px;
-            }
-          }
         }
       }
     }

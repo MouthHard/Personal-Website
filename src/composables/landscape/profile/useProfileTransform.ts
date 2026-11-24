@@ -1,5 +1,8 @@
 import type { DisplayCounts, BaseItemData } from './types';
-import type { GlobalPhotographer, GlobalPhotographerWork } from '@/typesOfPages/landscape/data';
+import type {
+  GlobalPhotographer,
+  GlobalPhotographerWork,
+} from '@/typesOfPages/landscape/data';
 import type { SocialLink } from '@/typesOfPages/landscape/common';
 import { useLandscapeDataStore } from '@/stores/landscape/data';
 import { useInteractionStore } from '@/stores/landscape';
@@ -10,12 +13,15 @@ import {
   DATE_DEFAULTS,
   AUTHOR_DEFAULTS,
 } from '@/constants/landscape/defaults';
+import { parseCount } from '@/utils/landscape/format';
 
 export function useProfileTransform() {
   const dataStore = useLandscapeDataStore();
   const interactionStore = useInteractionStore();
 
-  const resolveAuthor = (item: any): { author: string; authorId: string; authorAvatar: string } => {
+  const resolveAuthor = (
+    item: any,
+  ): { author: string; authorId: string; authorAvatar: string } => {
     if (item.authorId) {
       const photographer = dataStore.getPhotographer(item.authorId);
       if (photographer) {
@@ -26,11 +32,13 @@ export function useProfileTransform() {
         };
       }
     }
-    
+
     if (item.type === 'image' || !item.type) {
       const image = dataStore.getImage(item.id);
       if (image) {
-        const photographer = image.authorId ? dataStore.getPhotographer(image.authorId) : null;
+        const photographer = image.authorId
+          ? dataStore.getPhotographer(image.authorId)
+          : null;
         return {
           author: photographer?.name || image.author || AUTHOR_DEFAULTS.name,
           authorId: image.authorId || AUTHOR_DEFAULTS.id,
@@ -40,25 +48,35 @@ export function useProfileTransform() {
     } else if (item.type === 'video') {
       const video = dataStore.getVideo(item.id);
       if (video) {
-        const photographer = video.authorId ? dataStore.getPhotographer(video.authorId) : null;
+        const photographer = video.authorId
+          ? dataStore.getPhotographer(video.authorId)
+          : null;
         return {
           author: photographer?.name || video.author || AUTHOR_DEFAULTS.name,
           authorId: video.authorId || AUTHOR_DEFAULTS.id,
-          authorAvatar: photographer?.avatar || video.authorAvatar || AUTHOR_DEFAULTS.avatar,
+          authorAvatar:
+            photographer?.avatar ||
+            video.authorAvatar ||
+            AUTHOR_DEFAULTS.avatar,
         };
       }
     } else if (item.type === 'guide') {
       const guide = dataStore.getGuide(item.id);
       if (guide) {
-        const photographer = guide.authorId ? dataStore.getPhotographer(guide.authorId) : null;
+        const photographer = guide.authorId
+          ? dataStore.getPhotographer(guide.authorId)
+          : null;
         return {
           author: photographer?.name || guide.author || AUTHOR_DEFAULTS.name,
           authorId: guide.authorId || AUTHOR_DEFAULTS.id,
-          authorAvatar: photographer?.avatar || guide.authorAvatar || AUTHOR_DEFAULTS.avatar,
+          authorAvatar:
+            photographer?.avatar ||
+            guide.authorAvatar ||
+            AUTHOR_DEFAULTS.avatar,
         };
       }
     }
-    
+
     return {
       author: item.author || AUTHOR_DEFAULTS.name,
       authorId: item.authorId || AUTHOR_DEFAULTS.id,
@@ -75,7 +93,7 @@ export function useProfileTransform() {
       bio: photographer.bio,
       location: photographer.location,
       works: photographer.works,
-      worksCount: parseInt(photographer.worksCount) || 0,
+      worksCount: parseCount(String(photographer.worksCount || '0')),
       followers: photographer.followers,
       views: photographer.views,
       likes: photographer.likes,
@@ -84,29 +102,36 @@ export function useProfileTransform() {
       isFollowing: interactionStore.isFollowing(photographer.id),
       recentWorks: [...(photographer.worksPreview || [])]
         .sort((a: GlobalPhotographerWork, b: GlobalPhotographerWork) => {
-          const la = typeof a === 'string' ? 0 : (a.likes || 0);
-          const lb = typeof b === 'string' ? 0 : (b.likes || 0);
+          const la = typeof a === 'string' ? 0 : a.likes || 0;
+          const lb = typeof b === 'string' ? 0 : b.likes || 0;
           return lb - la;
         })
         .slice(0, 3)
-        .map((w: GlobalPhotographerWork) => (typeof w === 'string' ? w : (w.image || w.cover || ''))),
+        .map((w: GlobalPhotographerWork) =>
+          typeof w === 'string' ? w : w.image || w.cover || '',
+        ),
       rating: photographer.rating,
       equipment: photographer.equipment.join(' / '),
       experience: photographer.experience || '',
       joinDate: photographer.joinDate || '',
       awards: photographer.awards || [],
       onlineStatus: photographer.isOnline ? 'online' : 'offline',
-      socials: photographer.socials?.map((s: SocialLink) => ({
-        platform: s.platform,
-        iconPath: '',
-        url: s.url || '#',
-      })) || [],
+      socials:
+        photographer.socials?.map((s: SocialLink) => ({
+          platform: s.platform,
+          iconPath: '',
+          url: s.url || '#',
+        })) || [],
       contact: photographer.contact || {},
     };
   };
 
-  const createBaseData = (item: any, displayCounts: DisplayCounts): BaseItemData => {
-    const imageUrl = item.image || item.url || item.thumbnail || item.cover || ''
+  const createBaseData = (
+    item: any,
+    displayCounts: DisplayCounts,
+  ): BaseItemData => {
+    const imageUrl =
+      item.image || item.url || item.thumbnail || item.cover || '';
     return {
       id: item.id,
       title: item.title,
@@ -134,17 +159,25 @@ export function useProfileTransform() {
     // safety: GlobalGuide 是 string[]，GuideItem 是 SafetyInfo[]
     const rawSafety = g.safety;
     const safety = rawSafety
-      ? (fullGuide
-        ? rawSafety.map((s: string) => ({ type: 'info' as const, title: '注意事项', content: s }))
-        : rawSafety)
+      ? fullGuide
+        ? rawSafety.map((s: string) => ({
+            type: 'info' as const,
+            title: '注意事项',
+            content: s,
+          }))
+        : rawSafety
       : GUIDE_DEFAULTS.safety;
 
     // tips: GlobalGuide 是 GuideTip[]，GuideItem 是 string[]
     const rawTips = g.tips;
     const tips = rawTips
-      ? (fullGuide
-        ? rawTips.map((t: any) => (typeof t === 'string' ? t : t.title + (t.content ? `：${t.content}` : '')))
-        : rawTips)
+      ? fullGuide
+        ? rawTips.map((t: any) =>
+            typeof t === 'string'
+              ? t
+              : t.title + (t.content ? `：${t.content}` : ''),
+          )
+        : rawTips
       : GUIDE_DEFAULTS.tips;
 
     return {

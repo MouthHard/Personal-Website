@@ -2,14 +2,27 @@
   <section v-if="displayedTopics.length > 0" class="hot-topics">
     <div class="section-header">
       <div class="title-wrapper">
-        <h2 class="section-title">
-          <span class="title-icon">
+        <span class="plate-glow" aria-hidden="true"></span>
+        <span class="plate-sheen-clip" aria-hidden="true">
+          <span class="plate-sheen"></span>
+        </span>
+        <span class="plate-corner tl" aria-hidden="true"></span>
+        <span class="plate-corner tr" aria-hidden="true"></span>
+        <span class="plate-corner bl" aria-hidden="true"></span>
+        <span class="plate-corner br" aria-hidden="true"></span>
+
+        <div class="header-left">
+          <span class="title-badge" aria-hidden="true">
             <TrendIcon />
           </span>
-          <span class="title-text">万象景章</span>
-          <span class="title-subtitle">· 风光主题</span>
-        </h2>
-        <div class="title-decoration right"></div>
+          <div class="header-text">
+            <span class="title-label">LANDSCAPE THEMES</span>
+            <h2 class="section-title">万象景章</h2>
+            <p class="section-subtitle">· 风光主题</p>
+          </div>
+        </div>
+
+        <span class="plate-chapter" aria-hidden="true">CHAPTER · 02</span>
       </div>
     </div>
 
@@ -21,9 +34,16 @@
         :class="`card-${index + 1}`"
       >
         <div class="card-image">
-          <img :src="topic.image" :alt="topic.title" loading="lazy" />
+          <LandscapeImage
+            :src="topic.image"
+            :alt="topic.title"
+            loading="lazy"
+          />
           <span class="card-badge">{{ topic.category }}</span>
-          <span class="card-number">0{{ index + 1 }}</span>
+          <span class="card-number">
+            <CompassIcon class="compass-face" aria-hidden="true" />
+            <span class="compass-num">0{{ index + 1 }}</span>
+          </span>
         </div>
         <div class="card-content">
           <div class="publish-time-top">
@@ -92,17 +112,20 @@
         </div>
       </div>
 
-      <div class="load-more-container">
+      <div v-if="canToggle" class="load-more-container">
         <button
           class="load-more-btn"
-          :disabled="!hasMoreTopics"
-          @click="loadMoreTopics"
+          :class="{ expanded: isExpanded }"
+          :aria-expanded="isExpanded"
+          @click="toggleExpanded"
         >
           <ChevronDownIcon class="arrow-icon" />
           <span>
-            {{ hasMoreTopics ? '加载更多主题' : '已加载全部' }}
+            {{
+              isExpanded ? '收起主题' : `展开全部 ${hotTopics.length} 个主题`
+            }}
           </span>
-          <ChevronDownIcon v-if="hasMoreTopics" class="arrow-icon" />
+          <ChevronDownIcon class="arrow-icon" />
         </button>
       </div>
     </div>
@@ -122,6 +145,7 @@
   import PlayCircleIcon from '@/pages/Landscape/icons/components/home/HotTopics/PlayCircleIcon.vue';
 
   import CalendarIcon from '@/pages/Landscape/icons/common/CalendarIcon.vue';
+  import CompassIcon from '@/pages/Landscape/icons/common/CompassIcon.vue';
   import LocationIcon from '@/pages/Landscape/icons/common/LocationIcon.vue';
   import EyeIcon from '@/pages/Landscape/icons/common/EyeIcon.vue';
   import ThumbUpIcon from '@/pages/Landscape/icons/common/ThumbUpIcon.vue';
@@ -134,10 +158,15 @@
   const interactionStore = useInteractionStore();
 
   const hotTopics = computed(() => dataStore.getAllHotTopics());
-  const displayCount = ref(2);
+
+  // 折叠态固定展示 3 张风景主题卡片，展开态展示全部
+  const COLLAPSED_COUNT = 3;
+  const isExpanded = ref(false);
 
   const displayedTopics = computed(() =>
-    hotTopics.value.slice(0, displayCount.value),
+    isExpanded.value
+      ? hotTopics.value
+      : hotTopics.value.slice(0, COLLAPSED_COUNT),
   );
 
   const getTopicId = (topic: Topic) => `topic-${topic.id}`;
@@ -159,13 +188,12 @@
     { immediate: true },
   );
 
-  const hasMoreTopics = computed(
-    () => displayCount.value < hotTopics.value.length,
-  );
+  // 主题数量超过折叠阈值才提供展开/收起切换
+  const canToggle = computed(() => hotTopics.value.length > COLLAPSED_COUNT);
 
-  const loadMoreTopics = () => {
-    if (!hasMoreTopics.value) return;
-    displayCount.value += 2;
+  const toggleExpanded = () => {
+    if (!canToggle.value) return;
+    isExpanded.value = !isExpanded.value;
   };
 
   const openTopicDetail = (topic: Topic) => {

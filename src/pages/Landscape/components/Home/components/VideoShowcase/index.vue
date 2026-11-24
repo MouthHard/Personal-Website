@@ -1,28 +1,47 @@
 <template>
   <section v-if="videos.length > 0" class="video-showcase">
     <div class="section-header">
-      <div class="header-left">
-        <span class="title-label">CINEMA</span>
-        <h2 class="section-title">流光掠影</h2>
-        <p class="section-subtitle">用镜头记录世界</p>
-      </div>
-      <button class="more-btn">
-        <span class="clapper">
-          <span class="clapper-top">
-            <span class="top-stripes"></span>
-          </span>
-          <span class="clapper-hinge clapper-hinge-l"></span>
-          <span class="clapper-hinge clapper-hinge-r"></span>
-          <span class="clapper-body">
-            <span class="body-glow"></span>
-            <span class="body-content">
-              <span class="more-text">更多</span>
-              <ArrowRightIcon :stroke-width="2.2" class="more-arrow" />
-            </span>
-            <span class="body-engrave"></span>
-          </span>
+      <div class="header-plate">
+        <span class="plate-glow" aria-hidden="true"></span>
+        <span class="plate-sheen-clip" aria-hidden="true">
+          <span class="plate-sheen"></span>
         </span>
-      </button>
+        <span class="plate-corner tl" aria-hidden="true"></span>
+        <span class="plate-corner tr" aria-hidden="true"></span>
+        <span class="plate-corner bl" aria-hidden="true"></span>
+        <span class="plate-corner br" aria-hidden="true"></span>
+
+        <div class="header-left">
+          <span class="title-badge" aria-hidden="true">
+            <VideoIcon />
+          </span>
+          <div class="header-text">
+            <span class="title-label">CINEMA</span>
+            <h2 class="section-title">流光掠影</h2>
+            <p class="section-subtitle">用镜头记录世界</p>
+          </div>
+        </div>
+
+        <span class="plate-chapter" aria-hidden="true">CHAPTER · 06</span>
+
+        <button class="more-btn">
+          <span class="clapper">
+            <span class="clapper-top">
+              <span class="top-stripes"></span>
+            </span>
+            <span class="clapper-hinge clapper-hinge-l"></span>
+            <span class="clapper-hinge clapper-hinge-r"></span>
+            <span class="clapper-body">
+              <span class="body-glow"></span>
+              <span class="body-content">
+                <span class="more-text">更多</span>
+                <ArrowRightIcon :stroke-width="2.2" class="more-arrow" />
+              </span>
+              <span class="body-engrave"></span>
+            </span>
+          </span>
+        </button>
+      </div>
     </div>
 
     <div class="coverflow-stage">
@@ -86,6 +105,7 @@
   import { useHomeViewData } from '@/composables/landscape';
   import type { GlobalVideo } from '@/typesOfPages/landscape/data';
   import ArrowRightIcon from '@/pages/Landscape/icons/common/ArrowRightIcon.vue';
+  import VideoIcon from '@/pages/Landscape/icons/common/VideoIcon.vue';
 
   import VideoSlide from './components/VideoSlide/index.vue';
   import VideoFrame from './components/VideoFrame/index.vue';

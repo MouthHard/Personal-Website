@@ -205,7 +205,8 @@ $blue-dark: #1e3a5f;
           opacity: 1;
         }
 
-        .item-thumb img {
+        // LandscapeImage 内部 img 不带本组件 scopeId，:deep 才能命中
+        .item-thumb :deep(img) {
           transform: scale(1.1);
         }
 
@@ -226,7 +227,8 @@ $blue-dark: #1e3a5f;
         overflow: hidden;
         cursor: pointer;
 
-        img {
+        // LandscapeImage 内部 img 不带本组件 scopeId，:deep 才能命中
+        :deep(img) {
           width: 100%;
           height: 100%;
           object-fit: cover;

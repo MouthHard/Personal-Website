@@ -171,6 +171,7 @@
   import SearchModeIcon from '../../icons/common/SearchModeIcon.vue';
   import PoetIcon from '../../icons/common/PoetIcon.vue';
   import './index.scss';
+  import './responsive.scss';
 
   interface SuggestionItem {
     icon: 'poem' | 'author';

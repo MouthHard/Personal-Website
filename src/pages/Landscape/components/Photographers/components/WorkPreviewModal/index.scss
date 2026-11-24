@@ -117,7 +117,13 @@
         border-radius: 5px;
         line-height: 0;
 
-        img {
+        // LandscapeImage 内部 img 不带本组件 scopeId，必须 :deep 才能命中；
+        // 同时重置组件的「铺满容器」兜底，保持原来自适应尺寸的布局
+        :deep(img) {
+          position: static;
+          inset: auto;
+          width: auto;
+          height: auto;
           max-width: 62vw;
           max-height: 58vh;
           display: block;
@@ -133,18 +139,6 @@
         .video-viewport,
         .aerial-viewport {
           position: relative;
-
-          img {
-            max-width: 62vw;
-            max-height: 58vh;
-            display: block;
-            border-radius: 4px;
-            box-shadow:
-              0 30px 80px rgba(0, 0, 0, 0.7),
-              0 0 1px rgba(255, 255, 255, 0.05),
-              0 0 40px rgba(212, 148, 58, 0.08);
-            filter: contrast(1.02);
-          }
         }
 
         .video-viewport {
@@ -256,7 +250,7 @@
         }
 
         &:hover {
-          img {
+          :deep(img) {
             box-shadow:
               0 40px 100px rgba(0, 0, 0, 0.8),
               0 0 1px rgba(255, 255, 255, 0.05),
@@ -645,9 +639,7 @@
       top: -46px;
     }
 
-    .image-viewport img,
-    .image-viewport .video-viewport img,
-    .image-viewport .aerial-viewport img {
+    .image-viewport :deep(img) {
       max-width: 90vw;
       max-height: 50vh;
     }

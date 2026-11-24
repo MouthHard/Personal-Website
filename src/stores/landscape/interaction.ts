@@ -1,144 +1,227 @@
-import { defineStore } from 'pinia'
-import { reactive, shallowReactive, computed, ref, watch } from 'vue'
-import { useLandscapeDataStore, type GlobalPhotographer } from './data'
-import type { InteractionItem } from '@/typesOfPages/landscape'
-import { debounce } from '@/utils/landscape/debounce'
+import { defineStore } from 'pinia';
+import { reactive, shallowReactive, computed, ref, watch } from 'vue';
+import { useLandscapeDataStore, type GlobalPhotographer } from './data';
+import type { InteractionItem } from '@/typesOfPages/landscape';
+import { debounce } from '@/utils/landscape/debounce';
+import { parseCount } from '@/utils/landscape/format';
 
-export type { InteractionItem }
+export type { InteractionItem };
 
 interface ItemCounts {
-  likes: number
-  views: number
-  loves: number
-  favorites: number
-  shares: number
-  followers: number
+  likes: number;
+  views: number;
+  loves: number;
+  favorites: number;
+  shares: number;
+  followers: number;
 }
 
 export const useInteractionStore = defineStore('interaction', () => {
-  const STORAGE_KEY = 'landscape-interaction'
+  // v2：旧 key 中曾存入 parseFloat("45.6k")=45.6 之类的脏计数（registerCount 先到先得不会自愈），升版一次性清除
+  const STORAGE_KEY = 'landscape-interaction-v2';
 
   const mapFromJSON = <T>(json: string | null): Map<string, T> => {
-    if (!json) return new Map()
+    if (!json) return new Map();
     try {
-      const entries: Array<[string, T]> = JSON.parse(json)
-      return new Map(entries)
+      const entries: Array<[string, T]> = JSON.parse(json);
+      return new Map(entries);
     } catch {
-      return new Map()
+      return new Map();
     }
-  }
+  };
 
   const mapToJSON = <T>(map: Map<string, T>): string => {
-    return JSON.stringify(Array.from(map.entries()))
-  }
+    return JSON.stringify(Array.from(map.entries()));
+  };
 
-  const savedRaw = typeof localStorage !== 'undefined' ? localStorage.getItem(STORAGE_KEY) : null
-  const saved = savedRaw ? ((): Record<string, string> | null => { try { return JSON.parse(savedRaw) } catch { return null } })() : null
+  const savedRaw =
+    typeof localStorage !== 'undefined'
+      ? localStorage.getItem(STORAGE_KEY)
+      : null;
+  const saved = savedRaw
+    ? ((): Record<string, string> | null => {
+        try {
+          return JSON.parse(savedRaw);
+        } catch {
+          return null;
+        }
+      })()
+    : null;
 
-  const favorites = shallowReactive(saved ? mapFromJSON<InteractionItem>(saved.favorites || null) : new Map<string, InteractionItem>())
-  const loves = shallowReactive(saved ? mapFromJSON<InteractionItem>(saved.loves || null) : new Map<string, InteractionItem>())
-  const likes = shallowReactive(saved ? mapFromJSON<InteractionItem>(saved.likes || null) : new Map<string, InteractionItem>())
-  const shares = shallowReactive(saved ? mapFromJSON<number>(saved.shares || null) : new Map<string, number>())
-  const following = shallowReactive(saved ? mapFromJSON<InteractionItem>(saved.following || null) : new Map<string, InteractionItem>())
-  const counts = reactive(saved ? mapFromJSON<ItemCounts>(saved.counts || null) : new Map<string, ItemCounts>())
+  const favorites = shallowReactive(
+    saved
+      ? mapFromJSON<InteractionItem>(saved.favorites || null)
+      : new Map<string, InteractionItem>(),
+  );
+  const loves = shallowReactive(
+    saved
+      ? mapFromJSON<InteractionItem>(saved.loves || null)
+      : new Map<string, InteractionItem>(),
+  );
+  const likes = shallowReactive(
+    saved
+      ? mapFromJSON<InteractionItem>(saved.likes || null)
+      : new Map<string, InteractionItem>(),
+  );
+  const shares = shallowReactive(
+    saved
+      ? mapFromJSON<number>(saved.shares || null)
+      : new Map<string, number>(),
+  );
+  const following = shallowReactive(
+    saved
+      ? mapFromJSON<InteractionItem>(saved.following || null)
+      : new Map<string, InteractionItem>(),
+  );
+  const counts = reactive(
+    saved
+      ? mapFromJSON<ItemCounts>(saved.counts || null)
+      : new Map<string, ItemCounts>(),
+  );
 
   const persistToStorage = () => {
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify({
-        favorites: mapToJSON(favorites),
-        loves: mapToJSON(loves),
-        likes: mapToJSON(likes),
-        shares: mapToJSON(shares),
-        following: mapToJSON(following),
-        counts: mapToJSON(counts),
-      }))
-    } catch { /* localStorage 读取失败时忽略，使用空状态 */ }
-  }
+      localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify({
+          favorites: mapToJSON(favorites),
+          loves: mapToJSON(loves),
+          likes: mapToJSON(likes),
+          shares: mapToJSON(shares),
+          following: mapToJSON(following),
+          counts: mapToJSON(counts),
+        }),
+      );
+    } catch {
+      /* localStorage 读取失败时忽略，使用空状态 */
+    }
+  };
 
-  const getDataStore = () => useLandscapeDataStore()
+  const getDataStore = () => useLandscapeDataStore();
 
-  const migrateItemAuthor = (item: InteractionItem, dataStore: ReturnType<typeof useLandscapeDataStore>): InteractionItem => {
-    const resolveId = (id: string) => (id.startsWith('fc-') ? id.slice(3) : id)
+  const migrateItemAuthor = (
+    item: InteractionItem,
+    dataStore: ReturnType<typeof useLandscapeDataStore>,
+  ): InteractionItem => {
+    const resolveId = (id: string) => (id.startsWith('fc-') ? id.slice(3) : id);
 
-    const migrated = { ...item, id: resolveId(item.id) }
+    const migrated = { ...item, id: resolveId(item.id) };
 
     if (migrated.type === 'image') {
-      const image = dataStore.getImage(migrated.id)
+      const image = dataStore.getImage(migrated.id);
       if (image) {
-        const photographer = image.authorId ? dataStore.getPhotographer(image.authorId) : null
-        return { ...migrated, id: image.id, authorId: image.authorId, authorAvatar: photographer?.avatar, author: photographer?.name || item.author || image.author }
+        const photographer = image.authorId
+          ? dataStore.getPhotographer(image.authorId)
+          : null;
+        return {
+          ...migrated,
+          id: image.id,
+          authorId: image.authorId,
+          authorAvatar: photographer?.avatar,
+          author: photographer?.name || item.author || image.author,
+        };
       }
     } else if (migrated.type === 'video') {
-      const video = dataStore.getVideo(migrated.id)
+      const video = dataStore.getVideo(migrated.id);
       if (video) {
-        const photographer = video.authorId ? dataStore.getPhotographer(video.authorId) : null
-        return { ...migrated, id: video.id, authorId: video.authorId, authorAvatar: photographer?.avatar || video.authorAvatar, author: photographer?.name || item.author || video.author }
+        const photographer = video.authorId
+          ? dataStore.getPhotographer(video.authorId)
+          : null;
+        return {
+          ...migrated,
+          id: video.id,
+          authorId: video.authorId,
+          authorAvatar: photographer?.avatar || video.authorAvatar,
+          author: photographer?.name || item.author || video.author,
+        };
       }
     } else if (migrated.type === 'guide') {
-      const guide = dataStore.getGuide(migrated.id)
+      const guide = dataStore.getGuide(migrated.id);
       if (guide) {
-        const photographer = guide.authorId ? dataStore.getPhotographer(guide.authorId) : null
-        return { ...migrated, id: guide.id, authorId: guide.authorId, authorAvatar: photographer?.avatar || guide.authorAvatar, author: photographer?.name || item.author || guide.author }
+        const photographer = guide.authorId
+          ? dataStore.getPhotographer(guide.authorId)
+          : null;
+        return {
+          ...migrated,
+          id: guide.id,
+          authorId: guide.authorId,
+          authorAvatar: photographer?.avatar || guide.authorAvatar,
+          author: photographer?.name || item.author || guide.author,
+        };
       }
     }
 
-    if (migrated.authorId && migrated.authorAvatar && migrated.author) return migrated
-    return item
-  }
+    if (migrated.authorId && migrated.authorAvatar && migrated.author)
+      return migrated;
+    return item;
+  };
 
   const migrateStoredData = () => {
-    const dataStore = getDataStore()
+    const dataStore = getDataStore();
     if (!dataStore.loaded) {
-      setTimeout(() => migrateStoredData(), 200)
-      return
+      setTimeout(() => migrateStoredData(), 200);
+      return;
     }
-    let needPersist = false
+    let needPersist = false;
 
     favorites.forEach((item, id) => {
-      const migrated = migrateItemAuthor(item, dataStore)
-      if (migrated.authorId !== item.authorId || migrated.authorAvatar !== item.authorAvatar || migrated.id !== id) {
-        favorites.delete(id)
-        favorites.set(migrated.id, migrated)
-        needPersist = true
+      const migrated = migrateItemAuthor(item, dataStore);
+      if (
+        migrated.authorId !== item.authorId ||
+        migrated.authorAvatar !== item.authorAvatar ||
+        migrated.id !== id
+      ) {
+        favorites.delete(id);
+        favorites.set(migrated.id, migrated);
+        needPersist = true;
       }
-    })
+    });
 
     loves.forEach((item, id) => {
-      const migrated = migrateItemAuthor(item, dataStore)
-      if (migrated.authorId !== item.authorId || migrated.authorAvatar !== item.authorAvatar || migrated.id !== id) {
-        loves.delete(id)
-        loves.set(migrated.id, migrated)
-        needPersist = true
+      const migrated = migrateItemAuthor(item, dataStore);
+      if (
+        migrated.authorId !== item.authorId ||
+        migrated.authorAvatar !== item.authorAvatar ||
+        migrated.id !== id
+      ) {
+        loves.delete(id);
+        loves.set(migrated.id, migrated);
+        needPersist = true;
       }
-    })
+    });
 
     if (needPersist) {
-      persistToStorage()
+      persistToStorage();
     }
-  }
+  };
 
   if (typeof window !== 'undefined' && (favorites.size > 0 || loves.size > 0)) {
-    setTimeout(migrateStoredData, 100)
+    setTimeout(migrateStoredData, 100);
   }
 
-  const debouncedPersist = debounce(persistToStorage, 500)
+  const debouncedPersist = debounce(persistToStorage, 500);
 
-  watch(() => mapToJSON(favorites), debouncedPersist)
-  watch(() => mapToJSON(loves), debouncedPersist)
-  watch(() => mapToJSON(likes), debouncedPersist)
-  watch(() => mapToJSON(shares), debouncedPersist)
-  watch(() => mapToJSON(following), debouncedPersist)
-  watch(() => mapToJSON(counts), debouncedPersist)
-  
-  const favoritesVersion = ref(0)
-  const lovesVersion = ref(0)
-  
-  const getItemFromDataStore = (id: string, type: InteractionItem['type']): InteractionItem | null => {
-    const dataStore = getDataStore()
+  watch(() => mapToJSON(favorites), debouncedPersist);
+  watch(() => mapToJSON(loves), debouncedPersist);
+  watch(() => mapToJSON(likes), debouncedPersist);
+  watch(() => mapToJSON(shares), debouncedPersist);
+  watch(() => mapToJSON(following), debouncedPersist);
+  watch(() => mapToJSON(counts), debouncedPersist);
+
+  const favoritesVersion = ref(0);
+  const lovesVersion = ref(0);
+
+  const getItemFromDataStore = (
+    id: string,
+    type: InteractionItem['type'],
+  ): InteractionItem | null => {
+    const dataStore = getDataStore();
     if (type === 'image') {
-      const image = dataStore.getImage(id)
+      const image = dataStore.getImage(id);
       if (image) {
-        const photographer = image.authorId ? dataStore.getPhotographer(image.authorId) : null
+        const photographer = image.authorId
+          ? dataStore.getPhotographer(image.authorId)
+          : null;
         return {
           id: image.id,
           type: 'image',
@@ -156,12 +239,14 @@ export const useInteractionStore = defineStore('interaction', () => {
           authorId: image.authorId,
           authorAvatar: photographer?.avatar,
           date: image.date,
-        }
+        };
       }
     } else if (type === 'video') {
-      const video = dataStore.getVideo(id)
+      const video = dataStore.getVideo(id);
       if (video) {
-        const photographer = video.authorId ? dataStore.getPhotographer(video.authorId) : null
+        const photographer = video.authorId
+          ? dataStore.getPhotographer(video.authorId)
+          : null;
         return {
           id: video.id,
           type: 'video',
@@ -179,17 +264,25 @@ export const useInteractionStore = defineStore('interaction', () => {
           authorId: video.authorId,
           authorAvatar: photographer?.avatar || video.authorAvatar,
           duration: (() => {
-            const parts = video.duration.split(':')
-            if (parts.length === 2) return parseInt(parts[0]) * 60 + parseInt(parts[1])
-            if (parts.length === 3) return parseInt(parts[0]) * 3600 + parseInt(parts[1]) * 60 + parseInt(parts[2])
-            return null
+            const parts = video.duration.split(':');
+            if (parts.length === 2)
+              return parseInt(parts[0]) * 60 + parseInt(parts[1]);
+            if (parts.length === 3)
+              return (
+                parseInt(parts[0]) * 3600 +
+                parseInt(parts[1]) * 60 +
+                parseInt(parts[2])
+              );
+            return null;
           })(),
-        }
+        };
       }
     } else if (type === 'guide') {
-      const guide = dataStore.getGuide(id)
+      const guide = dataStore.getGuide(id);
       if (guide) {
-        const photographer = guide.authorId ? dataStore.getPhotographer(guide.authorId) : null
+        const photographer = guide.authorId
+          ? dataStore.getPhotographer(guide.authorId)
+          : null;
         return {
           id: guide.id,
           type: 'guide',
@@ -210,14 +303,14 @@ export const useInteractionStore = defineStore('interaction', () => {
           rating: guide.rating,
           readTime: guide.readTime,
           difficulty: guide.difficulty,
-        }
+        };
       }
     }
-    return null
-  }
+    return null;
+  };
 
   const registerCount = (id: string, initial: Partial<ItemCounts>) => {
-    if (counts.has(id)) return
+    if (counts.has(id)) return;
     counts.set(id, {
       likes: initial.likes ?? 0,
       views: initial.views ?? 0,
@@ -225,196 +318,210 @@ export const useInteractionStore = defineStore('interaction', () => {
       favorites: initial.favorites ?? 0,
       shares: initial.shares ?? 0,
       followers: initial.followers ?? 0,
-    })
-  }
+    });
+  };
 
   const getCount = (id: string): ItemCounts => {
-    return counts.get(id) || { likes: 0, views: 0, loves: 0, favorites: 0, shares: 0, followers: 0 }
-  }
+    return (
+      counts.get(id) || {
+        likes: 0,
+        views: 0,
+        loves: 0,
+        favorites: 0,
+        shares: 0,
+        followers: 0,
+      }
+    );
+  };
 
-  const registerBatch = (items: Array<{ id: string; counts: Partial<ItemCounts> }>) => {
-    items.forEach(item => registerCount(item.id, item.counts))
-  }
+  const registerBatch = (
+    items: Array<{ id: string; counts: Partial<ItemCounts> }>,
+  ) => {
+    items.forEach((item) => registerCount(item.id, item.counts));
+  };
 
   const addToFavorites = (item: InteractionItem) => {
-    favorites.set(item.id, item)
-  }
+    favorites.set(item.id, item);
+  };
 
   const removeFromFavorites = (id: string) => {
-    favorites.delete(id)
-  }
+    favorites.delete(id);
+  };
 
   const toggleFavorite = (item: InteractionItem) => {
     if (favorites.has(item.id)) {
-      favorites.delete(item.id)
-      favoritesVersion.value++
-      const c = counts.get(item.id)
-      if (c) c.favorites--
-      return false
+      favorites.delete(item.id);
+      favoritesVersion.value++;
+      const c = counts.get(item.id);
+      if (c) c.favorites--;
+      return false;
     } else {
-      const fullItem = getItemFromDataStore(item.id, item.type) || item
-      favorites.set(item.id, fullItem)
-      favoritesVersion.value++
-      const c = counts.get(item.id)
-      if (c) c.favorites++
-      return true
+      const fullItem = getItemFromDataStore(item.id, item.type) || item;
+      favorites.set(item.id, fullItem);
+      favoritesVersion.value++;
+      const c = counts.get(item.id);
+      if (c) c.favorites++;
+      return true;
     }
-  }
+  };
 
   const isFavorited = (id: string) => {
-    return favorites.has(id)
-  }
+    return favorites.has(id);
+  };
 
   const addToLoves = (item: InteractionItem) => {
-    loves.set(item.id, item)
-  }
+    loves.set(item.id, item);
+  };
 
   const removeFromLoves = (id: string) => {
-    loves.delete(id)
-  }
+    loves.delete(id);
+  };
 
   const toggleLove = (item: InteractionItem) => {
     if (loves.has(item.id)) {
-      loves.delete(item.id)
-      lovesVersion.value++
-      const c = counts.get(item.id)
-      if (c) c.loves--
-      return false
+      loves.delete(item.id);
+      lovesVersion.value++;
+      const c = counts.get(item.id);
+      if (c) c.loves--;
+      return false;
     } else {
-      const fullItem = getItemFromDataStore(item.id, item.type) || item
-      loves.set(item.id, fullItem)
-      lovesVersion.value++
-      const c = counts.get(item.id)
-      if (c) c.loves++
-      return true
+      const fullItem = getItemFromDataStore(item.id, item.type) || item;
+      loves.set(item.id, fullItem);
+      lovesVersion.value++;
+      const c = counts.get(item.id);
+      if (c) c.loves++;
+      return true;
     }
-  }
+  };
 
   const isLoved = (id: string) => {
-    return loves.has(id)
-  }
+    return loves.has(id);
+  };
 
   const toggleLike = (itemOrId: InteractionItem | string) => {
-    const item = typeof itemOrId === 'string' ? { id: itemOrId } as InteractionItem : itemOrId
+    const item =
+      typeof itemOrId === 'string'
+        ? ({ id: itemOrId } as InteractionItem)
+        : itemOrId;
     if (likes.has(item.id)) {
-      likes.delete(item.id)
-      const c = counts.get(item.id)
-      if (c) c.likes--
-      return false
+      likes.delete(item.id);
+      const c = counts.get(item.id);
+      if (c) c.likes--;
+      return false;
     } else {
-      likes.set(item.id, item)
-      const c = counts.get(item.id)
-      if (c) c.likes++
-      return true
+      likes.set(item.id, item);
+      const c = counts.get(item.id);
+      if (c) c.likes++;
+      return true;
     }
-  }
+  };
 
   const isLiked = (id: string) => {
-    return likes.has(id)
-  }
+    return likes.has(id);
+  };
 
   const getLikesByType = (type: InteractionItem['type']) => {
-    return Array.from(likes.values()).filter(item => item.type === type)
-  }
+    return Array.from(likes.values()).filter((item) => item.type === type);
+  };
 
   const incrementShares = (id: string) => {
-    const current = shares.get(id) || 0
-    shares.set(id, current + 1)
-    const c = counts.get(id)
-    if (c) c.shares++
-    return current + 1
-  }
+    const current = shares.get(id) || 0;
+    shares.set(id, current + 1);
+    const c = counts.get(id);
+    if (c) c.shares++;
+    return current + 1;
+  };
 
   const incrementLikes = (id: string) => {
-    const c = counts.get(id)
-    if (c) c.likes++
-  }
+    const c = counts.get(id);
+    if (c) c.likes++;
+  };
 
   const decrementLikes = (id: string) => {
-    const c = counts.get(id)
-    if (c && c.likes > 0) c.likes--
-  }
+    const c = counts.get(id);
+    if (c && c.likes > 0) c.likes--;
+  };
 
   const incrementLoves = (id: string) => {
-    const c = counts.get(id)
-    if (c) c.loves++
-  }
+    const c = counts.get(id);
+    if (c) c.loves++;
+  };
 
   const decrementLoves = (id: string) => {
-    const c = counts.get(id)
-    if (c && c.loves > 0) c.loves--
-  }
+    const c = counts.get(id);
+    if (c && c.loves > 0) c.loves--;
+  };
 
   const incrementFavorites = (id: string) => {
-    const c = counts.get(id)
-    if (c) c.favorites++
-  }
+    const c = counts.get(id);
+    if (c) c.favorites++;
+  };
 
   const decrementFavorites = (id: string) => {
-    const c = counts.get(id)
-    if (c && c.favorites > 0) c.favorites--
-  }
+    const c = counts.get(id);
+    if (c && c.favorites > 0) c.favorites--;
+  };
 
   const getShareCount = (id: string) => {
-    return shares.get(id) || 0
-  }
+    return shares.get(id) || 0;
+  };
 
   const getFavoritesByType = (type: InteractionItem['type']) => {
-    void favoritesVersion.value
-    return Array.from(favorites.values()).filter(item => item.type === type)
-  }
+    void favoritesVersion.value;
+    return Array.from(favorites.values()).filter((item) => item.type === type);
+  };
 
   const getLovesByType = (type: InteractionItem['type']) => {
-    void lovesVersion.value
-    return Array.from(loves.values()).filter(item => item.type === type)
-  }
+    void lovesVersion.value;
+    return Array.from(loves.values()).filter((item) => item.type === type);
+  };
 
-  const favoritesCount = computed(() => favorites.size)
-  const lovesCount = computed(() => loves.size)
-  const likesCount = computed(() => likes.size)
+  const favoritesCount = computed(() => favorites.size);
+  const lovesCount = computed(() => loves.size);
+  const likesCount = computed(() => likes.size);
 
   const favoritesByTypeCount = computed(() => {
-    const counts = { image: 0, video: 0, photographer: 0, guide: 0 }
-    favorites.forEach(item => {
-      counts[item.type]++
-    })
-    return counts
-  })
+    const counts = { image: 0, video: 0, photographer: 0, guide: 0 };
+    favorites.forEach((item) => {
+      counts[item.type]++;
+    });
+    return counts;
+  });
 
   const lovesByTypeCount = computed(() => {
-    const counts = { image: 0, video: 0, photographer: 0, guide: 0 }
-    loves.forEach(item => {
-      counts[item.type]++
-    })
-    return counts
-  })
+    const counts = { image: 0, video: 0, photographer: 0, guide: 0 };
+    loves.forEach((item) => {
+      counts[item.type]++;
+    });
+    return counts;
+  });
 
-  const followingVersion = ref(0)
+  const followingVersion = ref(0);
 
-  const followingCount = computed(() => following.size)
+  const followingCount = computed(() => following.size);
 
   const toggleFollow = (item: InteractionItem) => {
     if (following.has(item.id)) {
-      following.delete(item.id)
-      followingVersion.value++
-      return false
+      following.delete(item.id);
+      followingVersion.value++;
+      return false;
     } else {
-      following.set(item.id, item)
-      followingVersion.value++
-      return true
+      following.set(item.id, item);
+      followingVersion.value++;
+      return true;
     }
-  }
+  };
 
   const toggleFollowPhotographer = (photographerId: string): boolean => {
-    const dataStore = useLandscapeDataStore()
-    const photographer = dataStore.getPhotographer(photographerId)
-    
+    const dataStore = useLandscapeDataStore();
+    const photographer = dataStore.getPhotographer(photographerId);
+
     if (following.has(photographerId)) {
-      following.delete(photographerId)
-      followingVersion.value++
-      const c = counts.get(photographerId)
-      if (c) c.followers = Math.max((c.followers ?? 0) - 1, 0)
-      return false
+      following.delete(photographerId);
+      followingVersion.value++;
+      const c = counts.get(photographerId);
+      if (c) c.followers = Math.max((c.followers ?? 0) - 1, 0);
+      return false;
     } else {
       if (photographer) {
         const item: InteractionItem = {
@@ -425,44 +532,44 @@ export const useInteractionStore = defineStore('interaction', () => {
           location: photographer.location,
           category: photographer.title,
           timestamp: Date.now(),
-          likes: parseFloat(photographer.likes) || 0,
-          views: parseFloat(photographer.views) || 0,
-          favorites: parseFloat(photographer.bookmarks) || 0,
+          likes: parseCount(photographer.likes || '0'),
+          views: parseCount(photographer.views || '0'),
+          favorites: parseCount(photographer.bookmarks || '0'),
           summary: photographer.bio,
           authorVerified: photographer.verified,
           rating: photographer.rating,
-        }
-        following.set(photographerId, item)
-        followingVersion.value++
+        };
+        following.set(photographerId, item);
+        followingVersion.value++;
       }
-      const c = counts.get(photographerId)
-      if (c) c.followers = (c.followers ?? 0) + 1
-      return true
+      const c = counts.get(photographerId);
+      if (c) c.followers = (c.followers ?? 0) + 1;
+      return true;
     }
-  }
+  };
 
   const getFollowingPhotographerData = (): GlobalPhotographer[] => {
-    void followingVersion.value
-    const dataStore = useLandscapeDataStore()
-    const result: GlobalPhotographer[] = []
+    void followingVersion.value;
+    const dataStore = useLandscapeDataStore();
+    const result: GlobalPhotographer[] = [];
     for (const [id, item] of following) {
       if (item.type === 'photographer') {
-        const photographer = dataStore.getPhotographer(id)
+        const photographer = dataStore.getPhotographer(id);
         if (photographer) {
-          result.push(photographer)
+          result.push(photographer);
         }
       }
     }
-    return result
-  }
+    return result;
+  };
 
   const isFollowing = (id: string) => {
-    return following.has(id)
-  }
+    return following.has(id);
+  };
 
   const getFollowingList = () => {
-    return Array.from(following.values())
-  }
+    return Array.from(following.values());
+  };
 
   return {
     favorites,
@@ -507,5 +614,5 @@ export const useInteractionStore = defineStore('interaction', () => {
     getFollowingPhotographerData,
     isFollowing,
     getFollowingList,
-  }
-})
+  };
+});

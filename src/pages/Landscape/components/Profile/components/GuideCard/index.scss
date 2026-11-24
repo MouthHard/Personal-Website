@@ -328,7 +328,7 @@ $ink-light: #5d6d7e;
           transform 0.6s ease,
           filter 0.4s ease;
 
-        .cover-img {
+        :deep(.cover-img) {
           width: 100%;
           height: 100%;
           object-fit: cover;
@@ -495,7 +495,7 @@ $ink-light: #5d6d7e;
               color: rgba(255, 255, 255, 0.95);
             }
 
-            img {
+            :deep(img) {
               position: absolute;
               inset: 0;
               width: 100%;

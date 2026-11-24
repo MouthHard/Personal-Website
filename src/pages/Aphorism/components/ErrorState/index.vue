@@ -27,6 +27,7 @@
 
 <script setup lang="ts">
   import './index.scss';
+  import './responsive.scss';
 
   defineOptions({ name: 'ErrorState' });
 

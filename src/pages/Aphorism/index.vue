@@ -489,4 +489,5 @@
 
 <style scoped lang="scss">
   @use './index.scss';
+  @use './responsive';
 </style>

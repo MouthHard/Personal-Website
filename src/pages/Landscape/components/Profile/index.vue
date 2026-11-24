@@ -7,7 +7,11 @@
     </div>
 
     <!-- 个人资料展示区-->
-    <ProfileHeader :user="user" :stats="stats" @update:user="handleUserUpdate" />
+    <ProfileHeader
+      :user="user"
+      :stats="stats"
+      @update:user="handleUserUpdate"
+    />
 
     <!-- 内容导航 -->
     <ContentTabs v-model:activeTab="activeTab" :tabs="tabs" />
@@ -19,15 +23,37 @@
       </div>
 
       <!-- 分类筛选-->
-      <CategoryFilter v-model:selectedCategory="selectedCategory" :categories="currentCategories" />
+      <CategoryFilter
+        v-model:selectedCategory="selectedCategory"
+        :categories="currentCategories"
+      />
 
       <div v-if="allItems.length > 0" class="gallery-masonry">
         <div v-for="col in 2" :key="col" class="masonry-col">
-          <template v-for="item in getVisibleColumnItems(col - 1, 2)" :key="item.id">
-            <ImageCard v-if="item.type === 'image'" :item="item.data" :delay="`${item.globalIndex * 0.06}s`" />
-            <VideoCard v-else-if="item.type === 'video'" :item="item.data" :delay="`${item.globalIndex * 0.06}s`" />
-            <PhotographerCard v-else-if="item.type === 'photographer'" :item="item.data" :delay="`${item.globalIndex * 0.06}s`" />
-            <GuideCard v-else-if="item.type === 'guide'" :item="item.data" :delay="`${item.globalIndex * 0.06}s`" />
+          <template
+            v-for="item in getVisibleColumnItems(col - 1, 2)"
+            :key="item.id"
+          >
+            <ImageCard
+              v-if="item.type === 'image'"
+              :item="item.data"
+              :delay="`${item.globalIndex * 0.06}s`"
+            />
+            <VideoCard
+              v-else-if="item.type === 'video'"
+              :item="item.data"
+              :delay="`${item.globalIndex * 0.06}s`"
+            />
+            <PhotographerCard
+              v-else-if="item.type === 'photographer'"
+              :item="item.data"
+              :delay="`${item.globalIndex * 0.06}s`"
+            />
+            <GuideCard
+              v-else-if="item.type === 'guide'"
+              :item="item.data"
+              :delay="`${item.globalIndex * 0.06}s`"
+            />
           </template>
         </div>
       </div>
@@ -53,185 +79,258 @@
         </div>
       </div>
 
-      <div v-if="allItems.length > visibleCount" ref="scrollSentinel" class="scroll-sentinel"></div>
+      <div
+        v-if="allItems.length > visibleCount"
+        ref="scrollSentinel"
+        class="scroll-sentinel"
+      ></div>
     </section>
   </div>
 </template>
 
 <script setup lang="ts">
-defineOptions({ name: 'Profile' });
-import { ref, computed, watch, onMounted, onUnmounted, nextTick } from 'vue';
-import ProfileHeader from './components/ProfileHeader/index.vue';
-import ContentTabs from './components/ContentTabs/index.vue';
-import CategoryFilter from './components/CategoryFilter/index.vue';
-import ImageCard from './components/ImageCard/index.vue';
-import VideoCard from './components/VideoCard/index.vue';
-import PhotographerCard from './components/PhotographerCard/index.vue';
-import GuideCard from './components/GuideCard/index.vue';
-import CameraIcon from '@/pages/Landscape/icons/common/CameraIcon.vue';
-import SparkleIcon from '@/pages/Landscape/icons/common/SparkleIcon.vue';
-import { useInteractionStore } from '@/stores/landscape';
-import { userProfile, profileTabs, profileCategories } from '@/constants/landscape';
-import { useProfileViewData } from '@/composables/landscape';
-import { useProfileItems, useProfileStats } from '@/composables/landscape/profile';
-import type { User, GlobalImage, GlobalVideo, GlobalPhotographer, GlobalGuide } from '@/typesOfPages/landscape';
+  defineOptions({ name: 'Profile' });
+  import { ref, computed, watch, onMounted, onUnmounted, nextTick } from 'vue';
+  import ProfileHeader from './components/ProfileHeader/index.vue';
+  import ContentTabs from './components/ContentTabs/index.vue';
+  import CategoryFilter from './components/CategoryFilter/index.vue';
+  import ImageCard from './components/ImageCard/index.vue';
+  import VideoCard from './components/VideoCard/index.vue';
+  import PhotographerCard from './components/PhotographerCard/index.vue';
+  import GuideCard from './components/GuideCard/index.vue';
+  import CameraIcon from '@/pages/Landscape/icons/common/CameraIcon.vue';
+  import SparkleIcon from '@/pages/Landscape/icons/common/SparkleIcon.vue';
+  import { useInteractionStore } from '@/stores/landscape';
+  import {
+    userProfile,
+    profileTabs,
+    profileCategories,
+  } from '@/constants/landscape';
+  import { useProfileViewData } from '@/composables/landscape';
+  import { parseCount } from '@/utils/landscape';
+  import {
+    useProfileItems,
+    useProfileStats,
+  } from '@/composables/landscape/profile';
+  import type {
+    User,
+    GlobalImage,
+    GlobalVideo,
+    GlobalPhotographer,
+    GlobalGuide,
+  } from '@/typesOfPages/landscape';
 
-const interactionStore = useInteractionStore();
+  const interactionStore = useInteractionStore();
 
-const activeTab = ref('favorites');
-const selectedCategory = ref('image');
+  const activeTab = ref('favorites');
+  const selectedCategory = ref('image');
 
-const user = ref<User>(userProfile);
-const baseTabs = profileTabs;
-const categories = profileCategories;
+  const user = ref<User>(userProfile);
+  const baseTabs = profileTabs;
+  const categories = profileCategories;
 
-const handleUserUpdate = (updatedUser: User) => {
-  user.value = updatedUser;
-};
-
-const { myImages, myVideos, myPhotographers, myGuides } = useProfileViewData();
-const images = computed(() => myImages());
-const videos = computed(() => myVideos());
-const photographers = computed(() => myPhotographers());
-const guides = computed(() => myGuides());
-
-const { stats } = useProfileStats();
-
-watch([images, videos, photographers, guides], ([newImages, newVideos, newPhotographers, newGuides]) => {
-  const batch: Array<{ id: string; counts: { likes: number; loves: number; views: number; favorites: number; shares: number } }> = [];
-  
-  newImages.forEach((img: GlobalImage) => batch.push({
-    id: String(img.id),
-    counts: { likes: img.likes || 0, loves: img.loves || 0, views: img.views || 0, favorites: img.favorites || 0, shares: img.shares || 0 },
-  }));
-  newVideos.forEach((vid: GlobalVideo) => batch.push({
-    id: String(vid.id),
-    counts: { likes: vid.likes || 0, loves: vid.loves || 0, views: vid.views || 0, favorites: vid.bookmarks || 0, shares: vid.shares || 0 },
-  }));
-  newPhotographers.forEach((p: GlobalPhotographer) => batch.push({
-    id: String(p.id),
-    counts: { likes: parseFloat(p.likes) || 0, loves: 0, views: parseFloat(p.views) || 0, favorites: parseFloat(p.bookmarks) || 0, shares: 0 },
-  }));
-  newGuides.forEach((guide: GlobalGuide) => batch.push({
-    id: String(guide.id),
-    counts: { likes: guide.likes || 0, loves: guide.loves || 0, views: guide.views || 0, favorites: guide.bookmarks || 0, shares: guide.shares || 0 },
-  }));
-  
-  if (batch.length > 0) {
-    interactionStore.registerBatch(batch);
-  }
-}, { immediate: true });
-
-const tabs = computed(() => {
-  return [
-    { ...baseTabs[0], count: interactionStore.favoritesCount },
-    { ...baseTabs[1], count: interactionStore.lovesCount },
-    { ...baseTabs[2], count: 0 },
-    { ...baseTabs[3], count: interactionStore.followingCount },
-  ];
-});
-
-const dynamicCategories = computed(() => {
-  const counts = activeTab.value === 'favorites' 
-    ? interactionStore.favoritesByTypeCount 
-    : interactionStore.lovesByTypeCount;
-  
-  return categories.map(cat => ({
-    ...cat,
-    count: counts[cat.id as keyof typeof counts] || 0,
-  }));
-});
-
-const { allItems } = useProfileItems(
-  activeTab,
-  selectedCategory,
-  images,
-  videos,
-  photographers,
-  guides
-);
-
-const currentCategories = computed(() => {
-  if (activeTab.value === 'following') {
-    return [];
-  }
-  
-  if (activeTab.value === 'favorites' || activeTab.value === 'likes') {
-    return dynamicCategories.value;
-  }
-  
-  const baseCategories = categories.map(cat => ({ ...cat, count: 0 }));
-  if (activeTab.value === 'uploads') {
-    return baseCategories.filter(cat => ['image', 'video', 'guide'].includes(cat.id));
-  }
-
-  return baseCategories;
-});
-
-const currentTabTitle = computed(() => {
-  const tab = tabs.value.find(t => t.key === activeTab.value);
-  return tab?.name || '';
-});
-
-const getEmptyTitle = computed(() => {
-  const titles: Record<string, string> = {
-    following: '暂无关注的摄影师',
-    favorites: '暂无收藏内容',
-    likes: '暂无喜欢的内容',
-    uploads: '暂无上传作品',
-    collections: '暂无收藏集',
+  const handleUserUpdate = (updatedUser: User) => {
+    user.value = updatedUser;
   };
-  return titles[activeTab.value] || '暂无内容';
-});
 
-const getEmptyDescription = computed(() => {
-  const descriptions: Record<string, string> = {
-    following: '去发现页关注喜欢的摄影师吧',
-    favorites: '浏览内容时点击收藏按钮添加到这里',
-    likes: '浏览内容时点击喜欢按钮添加到这里',
-    uploads: '开始上传你的第一个作品吧',
-    collections: '创建你的第一个收藏集',
-  };
-  return descriptions[activeTab.value] || '这里还没有任何内容';
-});
+  const { myImages, myVideos, myPhotographers, myGuides } =
+    useProfileViewData();
+  const images = computed(() => myImages());
+  const videos = computed(() => myVideos());
+  const photographers = computed(() => myPhotographers());
+  const guides = computed(() => myGuides());
 
-const PAGE_SIZE = 12;
-const visibleCount = ref(PAGE_SIZE);
-const scrollSentinel = ref<HTMLElement | null>(null);
-let observer: IntersectionObserver | null = null;
+  const { stats } = useProfileStats();
 
-const getVisibleColumnItems = (colIndex: number, totalCols: number) => {
-  const visible = allItems.value.slice(0, visibleCount.value);
-  return visible.filter((_, i) => i % totalCols === colIndex);
-};
+  watch(
+    [images, videos, photographers, guides],
+    ([newImages, newVideos, newPhotographers, newGuides]) => {
+      const batch: Array<{
+        id: string;
+        counts: {
+          likes: number;
+          loves: number;
+          views: number;
+          favorites: number;
+          shares: number;
+        };
+      }> = [];
 
-const setupObserver = () => {
-  if (observer) observer.disconnect();
-  observer = new IntersectionObserver(
-    (entries) => {
-      if (entries[0].isIntersecting && visibleCount.value < allItems.value.length) {
-        visibleCount.value = Math.min(visibleCount.value + PAGE_SIZE, allItems.value.length);
+      newImages.forEach((img: GlobalImage) =>
+        batch.push({
+          id: String(img.id),
+          counts: {
+            likes: img.likes || 0,
+            loves: img.loves || 0,
+            views: img.views || 0,
+            favorites: img.favorites || 0,
+            shares: img.shares || 0,
+          },
+        }),
+      );
+      newVideos.forEach((vid: GlobalVideo) =>
+        batch.push({
+          id: String(vid.id),
+          counts: {
+            likes: vid.likes || 0,
+            loves: vid.loves || 0,
+            views: vid.views || 0,
+            favorites: vid.bookmarks || 0,
+            shares: vid.shares || 0,
+          },
+        }),
+      );
+      newPhotographers.forEach((p: GlobalPhotographer) =>
+        batch.push({
+          id: String(p.id),
+          counts: {
+            likes: parseCount(p.likes || '0'),
+            loves: 0,
+            views: parseCount(String(p.views || '0')),
+            favorites: parseCount(String(p.bookmarks || '0')),
+            shares: 0,
+          },
+        }),
+      );
+      newGuides.forEach((guide: GlobalGuide) =>
+        batch.push({
+          id: String(guide.id),
+          counts: {
+            likes: guide.likes || 0,
+            loves: guide.loves || 0,
+            views: guide.views || 0,
+            favorites: guide.bookmarks || 0,
+            shares: guide.shares || 0,
+          },
+        }),
+      );
+
+      if (batch.length > 0) {
+        interactionStore.registerBatch(batch);
       }
     },
-    { rootMargin: '200px' }
+    { immediate: true },
   );
-  if (scrollSentinel.value) observer.observe(scrollSentinel.value);
-};
 
-watch([activeTab, selectedCategory], () => {
-  visibleCount.value = PAGE_SIZE;
-  nextTick(() => setupObserver());
-});
+  const tabs = computed(() => {
+    return [
+      { ...baseTabs[0], count: interactionStore.favoritesCount },
+      { ...baseTabs[1], count: interactionStore.lovesCount },
+      { ...baseTabs[2], count: 0 },
+      { ...baseTabs[3], count: interactionStore.followingCount },
+    ];
+  });
 
-watch(scrollSentinel, () => setupObserver());
+  const dynamicCategories = computed(() => {
+    const counts =
+      activeTab.value === 'favorites'
+        ? interactionStore.favoritesByTypeCount
+        : interactionStore.lovesByTypeCount;
 
-onMounted(() => {
-  setupObserver();
-});
+    return categories.map((cat) => ({
+      ...cat,
+      count: counts[cat.id as keyof typeof counts] || 0,
+    }));
+  });
 
-onUnmounted(() => {
-  if (observer) observer.disconnect();
-});
+  const { allItems } = useProfileItems(
+    activeTab,
+    selectedCategory,
+    images,
+    videos,
+    photographers,
+    guides,
+  );
+
+  const currentCategories = computed(() => {
+    if (activeTab.value === 'following') {
+      return [];
+    }
+
+    if (activeTab.value === 'favorites' || activeTab.value === 'likes') {
+      return dynamicCategories.value;
+    }
+
+    const baseCategories = categories.map((cat) => ({ ...cat, count: 0 }));
+    if (activeTab.value === 'uploads') {
+      return baseCategories.filter((cat) =>
+        ['image', 'video', 'guide'].includes(cat.id),
+      );
+    }
+
+    return baseCategories;
+  });
+
+  const currentTabTitle = computed(() => {
+    const tab = tabs.value.find((t) => t.key === activeTab.value);
+    return tab?.name || '';
+  });
+
+  const getEmptyTitle = computed(() => {
+    const titles: Record<string, string> = {
+      following: '暂无关注的摄影师',
+      favorites: '暂无收藏内容',
+      likes: '暂无喜欢的内容',
+      uploads: '暂无上传作品',
+      collections: '暂无收藏集',
+    };
+    return titles[activeTab.value] || '暂无内容';
+  });
+
+  const getEmptyDescription = computed(() => {
+    const descriptions: Record<string, string> = {
+      following: '去发现页关注喜欢的摄影师吧',
+      favorites: '浏览内容时点击收藏按钮添加到这里',
+      likes: '浏览内容时点击喜欢按钮添加到这里',
+      uploads: '开始上传你的第一个作品吧',
+      collections: '创建你的第一个收藏集',
+    };
+    return descriptions[activeTab.value] || '这里还没有任何内容';
+  });
+
+  const PAGE_SIZE = 12;
+  const visibleCount = ref(PAGE_SIZE);
+  const scrollSentinel = ref<HTMLElement | null>(null);
+  let observer: IntersectionObserver | null = null;
+
+  const getVisibleColumnItems = (colIndex: number, totalCols: number) => {
+    const visible = allItems.value.slice(0, visibleCount.value);
+    return visible.filter((_, i) => i % totalCols === colIndex);
+  };
+
+  const setupObserver = () => {
+    if (observer) observer.disconnect();
+    observer = new IntersectionObserver(
+      (entries) => {
+        if (
+          entries[0].isIntersecting &&
+          visibleCount.value < allItems.value.length
+        ) {
+          visibleCount.value = Math.min(
+            visibleCount.value + PAGE_SIZE,
+            allItems.value.length,
+          );
+        }
+      },
+      { rootMargin: '200px' },
+    );
+    if (scrollSentinel.value) observer.observe(scrollSentinel.value);
+  };
+
+  watch([activeTab, selectedCategory], () => {
+    visibleCount.value = PAGE_SIZE;
+    nextTick(() => setupObserver());
+  });
+
+  watch(scrollSentinel, () => setupObserver());
+
+  onMounted(() => {
+    setupObserver();
+  });
+
+  onUnmounted(() => {
+    if (observer) observer.disconnect();
+  });
 </script>
 
 <style scoped lang="scss" src="./index.scss" />

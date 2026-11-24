@@ -74,6 +74,7 @@
   import NextArrowIcon from '../../icons/common/NextArrowIcon.vue';
   import { PAGE_SIZE_OPTIONS } from '@/utils/aphorism/constants';
   import './index.scss';
+  import './responsive.scss';
 
   const props = defineProps<{
     currentPage: number;

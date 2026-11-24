@@ -205,7 +205,9 @@
             box-shadow: 0 0 20px rgba(212, 148, 58, 0.2);
           }
 
-          .avatar {
+          // LandscapeImage 内部 img 不带本组件 scopeId，class 经 $attrs 落在 img 上，
+          // 必须用 :deep(.avatar) 形式（.avatar 自身已是 img，不能写 .avatar :deep(img)）
+          :deep(.avatar) {
             width: 100%;
             height: 100%;
             border-radius: 50%;
@@ -238,7 +240,7 @@
             }
           }
 
-          &:hover .avatar {
+          &:hover :deep(.avatar) {
             transform: scale(1.05);
             border-color: rgba(212, 148, 58, 1);
           }
@@ -771,7 +773,8 @@
               inset 0 1px 0 rgba(212, 148, 58, 0.08),
               inset 0 -1px 0 rgba(0, 0, 0, 0.1);
 
-            img {
+            // LandscapeImage 内部 img 不带本组件 scopeId，:deep 才能命中
+            :deep(img) {
               width: 100%;
               height: 100%;
               object-fit: cover;
@@ -951,7 +954,7 @@
                 inset 0 1px 0 rgba(212, 148, 58, 0.15),
                 inset 0 -1px 0 rgba(0, 0, 0, 0.15);
 
-              img {
+              :deep(img) {
                 transform: scale(1.1);
               }
 

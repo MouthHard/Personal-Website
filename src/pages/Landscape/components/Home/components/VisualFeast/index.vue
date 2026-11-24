@@ -1,15 +1,38 @@
 <template>
-  <section v-if="images.length > 0" class="visual-feast-section">
+  <section v-if="images.length > 0" ref="feedRef" class="visual-feast-section">
     <div class="section-header">
-      <div class="header-left">
-        <span class="title-label">GALLERY</span>
-        <h2 class="section-title">视觉盛宴</h2>
-        <p class="section-subtitle">精选全球最美风景，每一帧都是艺术品</p>
+      <div class="header-plate">
+        <span class="plate-glow" aria-hidden="true"></span>
+        <span class="plate-sheen-clip" aria-hidden="true">
+          <span class="plate-sheen"></span>
+        </span>
+        <span class="plate-corner tl" aria-hidden="true"></span>
+        <span class="plate-corner tr" aria-hidden="true"></span>
+        <span class="plate-corner bl" aria-hidden="true"></span>
+        <span class="plate-corner br" aria-hidden="true"></span>
+
+        <div class="header-left">
+          <span class="title-badge" aria-hidden="true">
+            <ImageIcon />
+          </span>
+          <div class="header-text">
+            <span class="title-label">GALLERY</span>
+            <h2 class="section-title">视觉盛宴</h2>
+            <p class="section-subtitle">精选全球最美风景，每一帧都是艺术品</p>
+          </div>
+        </div>
+
+        <span class="plate-chapter" aria-hidden="true">CHAPTER · 07</span>
+
+        <button class="more-btn" type="button">
+          <span class="film-holes top" aria-hidden="true"></span>
+          <span class="more-text">更多</span>
+          <span class="more-arrow" aria-hidden="true">
+            <ArrowRightIcon :stroke-width="2.4" />
+          </span>
+          <span class="film-holes bottom" aria-hidden="true"></span>
+        </button>
       </div>
-      <button class="more-btn">
-        <span>更多</span>
-        <ArrowRightIcon :stroke-width="2" />
-      </button>
     </div>
 
     <div class="masonry-grid">
@@ -24,8 +47,9 @@
         @click="openImageModal(item, index)"
       >
         <div class="image-card">
+          <span class="glass-sheen" aria-hidden="true"></span>
           <div class="image-container">
-            <img
+            <LandscapeImage
               :src="item.thumbnail || item.url"
               :alt="item.title"
               loading="lazy"
@@ -35,10 +59,7 @@
             <div class="overlay-content">
               <h3>{{ item.title }}</h3>
               <p class="location">
-                <LocationIcon
-                  :stroke-width="1.5"
-                  :style="{ width: '14px', height: '14px' }"
-                />
+                <LocationIcon :stroke-width="2" />
                 {{ item.location }}
               </p>
               <div class="action-rings">
@@ -114,6 +135,40 @@
       </div>
     </div>
 
+    <!-- 片尾引带：抽出余下的底片 / 卷回画册 -->
+    <div
+      v-if="canToggleFeed"
+      class="feast-toggle"
+      :class="{ 'is-open': feedExpanded }"
+    >
+      <span class="toggle-rail left" aria-hidden="true"></span>
+      <button
+        class="feast-tab"
+        type="button"
+        :aria-expanded="feedExpanded"
+        @click="toggleFeed"
+      >
+        <span class="tab-holes top" aria-hidden="true"></span>
+        <span class="tab-holes bottom" aria-hidden="true"></span>
+        <span class="tab-badge" aria-hidden="true">
+          <ChevronDownIcon :stroke-width="2.4" />
+        </span>
+        <span class="tab-copy">
+          <span class="tab-label">
+            {{ feedExpanded ? '收起作品' : '展开更多作品' }}
+          </span>
+          <span class="tab-meta">
+            {{
+              feedExpanded
+                ? `已展示 ${images.length} 张`
+                : `还有 ${hiddenImagesCount} 张未看`
+            }}
+          </span>
+        </span>
+      </button>
+      <span class="toggle-rail right" aria-hidden="true"></span>
+    </div>
+
     <!-- 图片详情弹窗 · 单反相机取景器（光学取景 HUD） -->
     <ViewfinderModal
       :visible="showImageModal"
@@ -132,18 +187,13 @@
       @share="toggleImageShare(selectedImage)"
       @download="handleDownload(selectedImage)"
     />
-    <div
-      v-if="visibleImages.length < images.length"
-      ref="loadMoreRef"
-      class="load-more-sentinel"
-    ></div>
   </section>
 
   <ShareMenu v-model:visible="showShareMenu" :work="shareWork" />
 </template>
 
 <script setup lang="ts">
-  import { ref, computed, onUnmounted, onMounted, watch } from 'vue';
+  import { ref, computed, onUnmounted, nextTick, watch } from 'vue';
   import { showMessage, createSimpleInteractionItem } from '@/utils/landscape';
   import {
     useInteractionStore,
@@ -164,6 +214,8 @@
   import LocationIcon from '@/pages/Landscape/icons/common/LocationIcon.vue';
 
   import ArrowRightIcon from '@/pages/Landscape/icons/common/ArrowRightIcon.vue';
+  import ChevronDownIcon from '@/pages/Landscape/icons/common/ChevronDownIcon.vue';
+  import ImageIcon from '@/pages/Landscape/icons/common/ImageIcon.vue';
 
   const interactionStore = useInteractionStore();
   const dataStore = useLandscapeDataStore();
@@ -196,40 +248,33 @@
 
   const images = computed(() => dataStore.getAllImages());
 
-  const BATCH_SIZE = 24;
-  const visibleCount = ref(BATCH_SIZE);
-  const loadMoreRef = ref<HTMLElement | null>(null);
-  let loadMoreObserver: IntersectionObserver | null = null;
+  // 折叠：首屏只放 6 张（三列两排），余下的等拉手抽出
+  const INITIAL_IMAGES = 6;
+  const feedExpanded = ref(false);
+  const feedRef = ref<HTMLElement | null>(null);
 
   const visibleImages = computed(() =>
-    images.value.slice(0, visibleCount.value),
+    feedExpanded.value ? images.value : images.value.slice(0, INITIAL_IMAGES),
   );
 
-  onMounted(() => {
-    loadMoreObserver = new IntersectionObserver(
-      (entries) => {
-        if (
-          entries[0]?.isIntersecting &&
-          visibleCount.value < images.value.length
-        ) {
-          visibleCount.value = Math.min(
-            visibleCount.value + BATCH_SIZE,
-            images.value.length,
-          );
-        }
-      },
-      { rootMargin: '200px' },
-    );
-  });
+  const hiddenImagesCount = computed(() =>
+    Math.max(0, images.value.length - INITIAL_IMAGES),
+  );
 
-  watch(loadMoreRef, (el) => {
-    if (!loadMoreObserver) return;
-    loadMoreObserver.disconnect();
-    if (el) loadMoreObserver.observe(el);
-  });
+  const canToggleFeed = computed(() => images.value.length > INITIAL_IMAGES);
+
+  const toggleFeed = () => {
+    feedExpanded.value = !feedExpanded.value;
+    if (feedExpanded.value) return;
+    nextTick(() => {
+      const el = feedRef.value;
+      if (el && el.getBoundingClientRect().top < 0) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  };
 
   onUnmounted(() => {
-    loadMoreObserver?.disconnect();
     document.body.style.overflow = '';
   });
 

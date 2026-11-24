@@ -12,7 +12,12 @@
       <!-- 模式拨盘 -->
       <div class="mode-dial">
         <span class="dial-ring"></span>
-        <span v-for="m in 8" :key="m" class="dial-mark" :style="{ '--m': m }"></span>
+        <span
+          v-for="m in 8"
+          :key="m"
+          class="dial-mark"
+          :style="{ '--m': m }"
+        ></span>
         <span class="dial-indicator"></span>
         <span class="dial-label">MOV</span>
       </div>
@@ -30,7 +35,12 @@
       <!-- 左侧：胶片卷轴 + LCD屏 -->
       <div class="reel-section">
         <div class="reel-wheel left">
-          <span v-for="s in 6" :key="s" class="spoke" :style="{ '--s': s }"></span>
+          <span
+            v-for="s in 6"
+            :key="s"
+            class="spoke"
+            :style="{ '--s': s }"
+          ></span>
           <span class="hub"></span>
         </div>
 
@@ -41,7 +51,11 @@
 
           <!-- LCD屏幕 -->
           <div class="lcd-screen">
-            <img :src="item.thumbnail" :alt="item.title" loading="lazy" />
+            <LandscapeImage
+              :src="item.thumbnail"
+              :alt="item.title"
+              loading="lazy"
+            />
             <div class="lcd-glare"></div>
             <div class="lcd-vignette"></div>
 
@@ -63,7 +77,9 @@
             </div>
 
             <!-- 分辨率 -->
-            <span v-if="item.resolution" class="res-stamp">{{ item.resolution }}</span>
+            <span v-if="item.resolution" class="res-stamp">
+              {{ item.resolution }}
+            </span>
             <!-- 时长 -->
             <span class="dur-stamp">{{ item.duration }}</span>
             <!-- 帧进度 -->
@@ -79,7 +95,12 @@
         </div>
 
         <div class="reel-wheel right">
-          <span v-for="s in 6" :key="s" class="spoke" :style="{ '--s': s }"></span>
+          <span
+            v-for="s in 6"
+            :key="s"
+            class="spoke"
+            :style="{ '--s': s }"
+          ></span>
           <span class="hub"></span>
         </div>
       </div>
@@ -146,7 +167,9 @@
           <div class="gauge-sep"></div>
           <div class="gauge" :class="{ 'is-collected': isCollected }">
             <BookmarkIcon :filled="isCollected" />
-            <span class="gauge-val">{{ formatCount(getCounts().favorites) }}</span>
+            <span class="gauge-val">
+              {{ formatCount(getCounts().favorites) }}
+            </span>
             <span class="gauge-label">收藏</span>
           </div>
           <div class="gauge-sep"></div>
@@ -165,21 +188,42 @@
 
         <!-- 物理按钮组 -->
         <div class="action-bar">
-          <button class="act-btn like-btn" :class="{ liked: isLiked }" @click.stop="toggleLike">
+          <button
+            class="act-btn like-btn"
+            :class="{ liked: isLiked }"
+            @click.stop="toggleLike"
+          >
             <ThumbUpIcon :filled="isLiked" :stroke-width="2" />
           </button>
-          <button class="act-btn love-btn" :class="{ loved: isLoved }" @click.stop="toggleLove">
+          <button
+            class="act-btn love-btn"
+            :class="{ loved: isLoved }"
+            @click.stop="toggleLove"
+          >
             <HeartIcon :filled="isLoved" :stroke-width="2" />
           </button>
-          <button class="act-btn collect-btn" :class="{ collected: isCollected }" @click.stop="toggleCollect">
+          <button
+            class="act-btn collect-btn"
+            :class="{ collected: isCollected }"
+            @click.stop="toggleCollect"
+          >
             <BookmarkIcon :filled="isCollected" :stroke-width="2" />
           </button>
-          <button class="act-btn share-btn" :class="{ shared: isShared }" @click.stop="toggleShare">
+          <button
+            class="act-btn share-btn"
+            :class="{ shared: isShared }"
+            @click.stop="toggleShare"
+          >
             <ShareIcon :stroke-width="2" />
           </button>
           <!-- 后拨轮 -->
           <div class="rear-dial">
-            <span v-for="t in 12" :key="t" class="rd-tick" :style="{ '--t': t }"></span>
+            <span
+              v-for="t in 12"
+              :key="t"
+              class="rd-tick"
+              :style="{ '--t': t }"
+            ></span>
           </div>
           <span class="play-cta">
             播放影片
@@ -189,8 +233,15 @@
 
         <!-- 胶片条码 -->
         <div class="film-barcode">
-          <span v-for="b in 16" :key="b" class="bar" :class="{ thick: b % 3 === 0 }"></span>
-          <span class="barcode-id">#{{ String(item.id).padStart(4, '0') }}</span>
+          <span
+            v-for="b in 16"
+            :key="b"
+            class="bar"
+            :class="{ thick: b % 3 === 0 }"
+          ></span>
+          <span class="barcode-id">
+            #{{ String(item.id).padStart(4, '0') }}
+          </span>
         </div>
       </div>
     </div>
@@ -212,119 +263,126 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
-import { showMessage, createSimpleInteractionItem } from '@/utils/landscape';
-import type { VideoItem } from '@/typesOfPages/landscape';
-import { useFormatNumber } from '@/composables/landscape';
-import { useInteractionStore } from '@/stores/landscape';
-import PlayIcon from '@/pages/Landscape/icons/common/PlayIcon.vue';
-import UserIcon from '@/pages/Landscape/icons/common/UserIcon.vue';
-import EyeIcon from '@/pages/Landscape/icons/common/EyeIcon.vue';
-import ThumbUpIcon from '@/pages/Landscape/icons/common/ThumbUpIcon.vue';
-import HeartIcon from '@/pages/Landscape/icons/common/HeartIcon.vue';
-import BookmarkIcon from '@/pages/Landscape/icons/common/BookmarkIcon.vue';
-import CommentIcon from '@/pages/Landscape/icons/components/profile/VideoCard/CommentIcon.vue';
-import BatteryIcon from '@/pages/Landscape/icons/components/profile/VideoCard/BatteryIcon.vue';
-import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue';
-import ShareMenu from '../../../common/ShareMenu/index.vue';
-import ArrowRightIcon from '@/pages/Landscape/icons/common/ArrowRightIcon.vue';
+  import { ref, computed } from 'vue';
+  import { showMessage, createSimpleInteractionItem } from '@/utils/landscape';
+  import type { VideoItem } from '@/typesOfPages/landscape';
+  import { useFormatNumber } from '@/composables/landscape';
+  import { useInteractionStore } from '@/stores/landscape';
+  import PlayIcon from '@/pages/Landscape/icons/common/PlayIcon.vue';
+  import UserIcon from '@/pages/Landscape/icons/common/UserIcon.vue';
+  import EyeIcon from '@/pages/Landscape/icons/common/EyeIcon.vue';
+  import ThumbUpIcon from '@/pages/Landscape/icons/common/ThumbUpIcon.vue';
+  import HeartIcon from '@/pages/Landscape/icons/common/HeartIcon.vue';
+  import BookmarkIcon from '@/pages/Landscape/icons/common/BookmarkIcon.vue';
+  import CommentIcon from '@/pages/Landscape/icons/components/profile/VideoCard/CommentIcon.vue';
+  import BatteryIcon from '@/pages/Landscape/icons/components/profile/VideoCard/BatteryIcon.vue';
+  import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue';
+  import ShareMenu from '../../../common/ShareMenu/index.vue';
+  import ArrowRightIcon from '@/pages/Landscape/icons/common/ArrowRightIcon.vue';
 
-const props = defineProps<{
-  item: VideoItem;
-  delay?: string;
-}>();
+  const props = defineProps<{
+    item: VideoItem;
+    delay?: string;
+  }>();
 
-const { formatCount } = useFormatNumber();
-const interactionStore = useInteractionStore();
+  const { formatCount } = useFormatNumber();
+  const interactionStore = useInteractionStore();
 
-const isLiked = computed(() => interactionStore.isLiked(props.item.id));
-const isShared = ref(false);
-const showShareMenu = ref(false);
-const shareWork = computed(() => ({
-  type: 'video' as const,
-  title: props.item.title,
-  description: props.item.description,
-  cover: props.item.thumbnail || props.item.image,
-  author: props.item.author,
-
-  location: props.item.location,
-  category: props.item.category,
-  duration: props.item.duration,
-  resolution: props.item.resolution,
-}));
-const isCollected = computed(() => interactionStore.isFavorited(props.item.id));
-const isLoved = computed(() => interactionStore.isLoved(props.item.id));
-
-const getCounts = () => interactionStore.getCount(props.item.id);
-
-const toggleLike = () => {
-  const item = createSimpleInteractionItem(props.item.id, 'video', props.item.title, {
-    image: props.item.thumbnail || props.item.image || '',
-    location: props.item.location,
-    category: props.item.category,
-  });
-  const isAdded = interactionStore.toggleLike(item);
-  if (isAdded) {
-    showMessage.like.success(props.item.title);
-  } else {
-    showMessage.like.cancel();
-  }
-};
-
-const toggleLove = () => {
-  const item = {
-    id: props.item.id,
+  const isLiked = computed(() => interactionStore.isLiked(props.item.id));
+  const isShared = ref(false);
+  const showShareMenu = ref(false);
+  const shareWork = computed(() => ({
     type: 'video' as const,
     title: props.item.title,
-    image: props.item.thumbnail || props.item.image || '',
+    description: props.item.description,
+    cover: props.item.thumbnail || props.item.image,
+    author: props.item.author,
+
     location: props.item.location,
     category: props.item.category,
-    timestamp: Date.now(),
-    likes: props.item.likes,
-    views: props.item.views,
-    favorites: props.item.favorites,
-    shares: props.item.shares,
-    author: props.item.author,
-    authorId: props.item.authorId,
-    authorAvatar: props.item.authorAvatar,
-  };
-  const isAdded = interactionStore.toggleLove(item);
-  if (isAdded) {
-    showMessage.love.success(props.item.title, 'video');
-  } else {
-    showMessage.love.cancel(props.item.title, 'video');
-  }
-};
+    duration: props.item.duration,
+    resolution: props.item.resolution,
+  }));
+  const isCollected = computed(() =>
+    interactionStore.isFavorited(props.item.id),
+  );
+  const isLoved = computed(() => interactionStore.isLoved(props.item.id));
 
-const toggleShare = () => {
-  isShared.value = true;
-  showShareMenu.value = true;
-};
+  const getCounts = () => interactionStore.getCount(props.item.id);
 
-const toggleCollect = () => {
-  const item = {
-    id: props.item.id,
-    type: 'video' as const,
-    title: props.item.title,
-    image: props.item.thumbnail || props.item.image || '',
-    location: props.item.location,
-    category: props.item.category,
-    timestamp: Date.now(),
-    likes: props.item.likes,
-    views: props.item.views,
-    favorites: props.item.favorites,
-    shares: props.item.shares,
-    author: props.item.author,
-    authorId: props.item.authorId,
-    authorAvatar: props.item.authorAvatar,
+  const toggleLike = () => {
+    const item = createSimpleInteractionItem(
+      props.item.id,
+      'video',
+      props.item.title,
+      {
+        image: props.item.thumbnail || props.item.image || '',
+        location: props.item.location,
+        category: props.item.category,
+      },
+    );
+    const isAdded = interactionStore.toggleLike(item);
+    if (isAdded) {
+      showMessage.like.success(props.item.title);
+    } else {
+      showMessage.like.cancel();
+    }
   };
-  const isAdded = interactionStore.toggleFavorite(item);
-  if (isAdded) {
-    showMessage.favorite.success(props.item.title, 'video');
-  } else {
-    showMessage.favorite.cancel(props.item.title, 'video');
-  }
-};
+
+  const toggleLove = () => {
+    const item = {
+      id: props.item.id,
+      type: 'video' as const,
+      title: props.item.title,
+      image: props.item.thumbnail || props.item.image || '',
+      location: props.item.location,
+      category: props.item.category,
+      timestamp: Date.now(),
+      likes: props.item.likes,
+      views: props.item.views,
+      favorites: props.item.favorites,
+      shares: props.item.shares,
+      author: props.item.author,
+      authorId: props.item.authorId,
+      authorAvatar: props.item.authorAvatar,
+    };
+    const isAdded = interactionStore.toggleLove(item);
+    if (isAdded) {
+      showMessage.love.success(props.item.title, 'video');
+    } else {
+      showMessage.love.cancel(props.item.title, 'video');
+    }
+  };
+
+  const toggleShare = () => {
+    isShared.value = true;
+    showShareMenu.value = true;
+  };
+
+  const toggleCollect = () => {
+    const item = {
+      id: props.item.id,
+      type: 'video' as const,
+      title: props.item.title,
+      image: props.item.thumbnail || props.item.image || '',
+      location: props.item.location,
+      category: props.item.category,
+      timestamp: Date.now(),
+      likes: props.item.likes,
+      views: props.item.views,
+      favorites: props.item.favorites,
+      shares: props.item.shares,
+      author: props.item.author,
+      authorId: props.item.authorId,
+      authorAvatar: props.item.authorAvatar,
+    };
+    const isAdded = interactionStore.toggleFavorite(item);
+    if (isAdded) {
+      showMessage.favorite.success(props.item.title, 'video');
+    } else {
+      showMessage.favorite.cancel(props.item.title, 'video');
+    }
+  };
 </script>
 
 <style scoped lang="scss" src="./index.scss" />

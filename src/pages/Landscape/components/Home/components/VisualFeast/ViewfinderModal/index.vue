@@ -169,7 +169,11 @@
             <!-- 签证贴照（风景照） -->
             <div class="visa-photo">
               <div class="vp-frame">
-                <img class="vp-img" loading="lazy" :src="image?.url" />
+                <LandscapeImage
+                  class="vp-img"
+                  loading="lazy"
+                  :src="image?.url"
+                />
                 <div class="vp-vignette"></div>
                 <!-- 左上角金属图钉（装订点） -->
                 <span class="vp-pin"></span>
@@ -387,11 +391,12 @@
               <span class="ac-label">ISSUED BY · 签 发 官</span>
               <div class="ac-body">
                 <div class="ac-avatar-wrap">
-                  <img
+                  <LandscapeImage
                     class="ac-avatar"
                     loading="lazy"
                     :src="photographer.avatar"
                     :alt="photographer.name"
+                    variant="avatar"
                   />
                   <span
                     v-if="photographer.verified"
@@ -525,7 +530,7 @@
                   @click="handleRecommendSelect(item)"
                 >
                   <div class="pr-photo">
-                    <img
+                    <LandscapeImage
                       :src="item.cover"
                       class="pr-img"
                       loading="lazy"

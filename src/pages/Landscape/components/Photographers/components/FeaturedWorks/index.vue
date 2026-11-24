@@ -37,10 +37,13 @@
                 <div class="frame-edge top-edge"></div>
                 <div class="frame-edge bottom-edge"></div>
                 <div class="film-gate"></div>
-                <img loading="lazy" :src="work.image" :alt="work.title" />
+                <LandscapeImage
+                  loading="lazy"
+                  :src="work.image"
+                  :alt="work.title"
+                />
 
                 <div class="work-overlay">
-
                   <div class="work-info">
                     <h3 class="work-title">{{ work.title }}</h3>
                     <p class="work-author">{{ work.author }}</p>
@@ -92,6 +95,7 @@
   import ChevronLeftIcon from '@/pages/Landscape/icons/common/ChevronLeftIcon.vue';
   import ChevronRightIcon from '@/pages/Landscape/icons/common/ChevronRightIcon.vue';
   import ImageEmptyIcon from '@/pages/Landscape/icons/common/ImageIcon.vue';
+  import LandscapeImage from '../../../common/LandscapeImage/index.vue';
 
   defineEmits<{
     preview: [work: any];
@@ -100,13 +104,12 @@
   const interactionStore = useInteractionStore();
   const dataStore = useLandscapeDataStore();
 
-
   const featuredWorks = computed(() =>
     dataStore
       .getAllImages()
       .slice(0, 20)
       .map((img) => {
-        const photographer = dataStore.getPhotographer(img.authorId)
+        const photographer = dataStore.getPhotographer(img.authorId);
         return {
           id: img.id,
           image: img.thumbnail || img.url,
@@ -122,8 +125,8 @@
           loves: img.loves,
           favorites: img.favorites || 0,
           shares: img.shares,
-        }
-      })
+        };
+      }),
   );
 
   const scrollContainerRef = ref<HTMLElement | null>(null);
@@ -167,7 +170,6 @@
         scrollRAF = requestAnimationFrame(() => {
           // 滚动处理
         });
-        
       };
       el.addEventListener('scroll', scrollHandler, { passive: true });
     }

@@ -8,7 +8,7 @@
           </button>
 
           <div class="image-viewport">
-            <img
+            <LandscapeImage
               v-if="isImageType"
               loading="lazy"
               :src="previewWork.cover || previewWork.image"
@@ -18,7 +18,7 @@
               v-else-if="workType === 'video' || workType === 'timelapse'"
               class="video-viewport"
             >
-              <img
+              <LandscapeImage
                 loading="lazy"
                 :src="previewWork.cover || previewWork.image"
                 alt="作品预览"
@@ -36,7 +36,7 @@
               </div>
             </div>
             <div v-else-if="workType === 'aerial'" class="aerial-viewport">
-              <img
+              <LandscapeImage
                 loading="lazy"
                 :src="previewWork.cover || previewWork.image"
                 alt="作品预览"
@@ -47,7 +47,7 @@
               </div>
             </div>
             <div v-else>
-              <img
+              <LandscapeImage
                 loading="lazy"
                 :src="previewWork.cover || previewWork.image"
                 alt="作品预览"
@@ -151,6 +151,7 @@
   import BookmarkIcon from '@/pages/Landscape/icons/common/BookmarkIcon.vue';
   import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue';
   import ShareMenu from '../../../common/ShareMenu/index.vue';
+  import LandscapeImage from '../../../common/LandscapeImage/index.vue';
   import DownloadIcon from '@/pages/Landscape/icons/common/DownloadIcon.vue';
 
   interface PreviewWork {

@@ -1,332 +1,376 @@
 <template>
   <section v-if="guides.length > 0" class="travel-guides">
     <div class="section-header">
-      <div class="header-left">
-        <span class="title-label">EXPLORE</span>
-        <h2 class="section-title">行者手记</h2>
-        <p class="section-subtitle">发现世界的每一个角落</p>
-      </div>
-      <button
-        class="more-btn"
-        aria-label="查看更多指南攻略"
-        @click="handleMore"
-      >
-        <span class="compass-mark" aria-hidden="true">
-          <span class="compass-ring"></span>
-          <span class="compass-ticks"></span>
-          <span class="compass-face"></span>
-          <span class="compass-needle"></span>
-          <span class="compass-core"></span>
+      <div class="header-plate">
+        <span class="plate-glow" aria-hidden="true"></span>
+        <span class="plate-sheen-clip" aria-hidden="true">
+          <span class="plate-sheen"></span>
         </span>
-        <span class="more-text">
-          <span class="more-label">更多</span>
-          <span class="more-sub">GUIDES</span>
-        </span>
-        <span class="more-arrow" aria-hidden="true"></span>
-      </button>
-    </div>
+        <span class="plate-corner tl" aria-hidden="true"></span>
+        <span class="plate-corner tr" aria-hidden="true"></span>
+        <span class="plate-corner bl" aria-hidden="true"></span>
+        <span class="plate-corner br" aria-hidden="true"></span>
 
-    <div class="editorial-layout">
-      <div v-if="guides[0]" class="featured-main">
-        <div class="featured-card large">
-          <div class="card-image">
-            <img :src="guides[0].cover" :alt="guides[0].title" loading="lazy" />
-            <div class="image-overlay"></div>
-          </div>
-          <div class="card-content">
-            <div class="content-top">
-              <span class="type-tag" :data-type="guides[0].type">
-                {{ guides[0].typeName }}
-              </span>
-              <span class="card-date">{{ guides[0].date }}</span>
-            </div>
-            <h3 class="card-title">{{ guides[0].title }}</h3>
-            <p class="card-excerpt">{{ guides[0].excerpt }}</p>
-            <div class="card-tags">
-              <span v-for="tag in guides[0].tags" :key="tag" class="tag-item">
-                {{ tag }}
-              </span>
-            </div>
-            <div class="card-footer">
-              <div class="author">
-                <img
-                  loading="lazy"
-                  :src="guides[0].authorAvatar"
-                  :alt="guides[0].author"
-                />
-                <div class="author-info">
-                  <span class="author-name">{{ guides[0].author }}</span>
-                  <span class="author-title">{{ guides[0].category }}</span>
-                </div>
-              </div>
-              <div class="action-chips">
-                <span class="chip chip-views">
-                  <EyeIcon :stroke-width="2" />
-                  {{ fmt(getGuideCount(guides[0].id).views) }}
-                </span>
-                <button
-                  class="chip chip-like"
-                  :class="{ liked: isLiked(guides[0].id) }"
-                  @click.stop="handleToggleLike(guides[0])"
-                >
-                  <ThumbUpIcon
-                    :stroke-width="2"
-                    :filled="isLiked(guides[0].id)"
-                  />
-                  {{ getDisplayLikes(guides[0]) }}
-                </button>
-                <button
-                  class="chip chip-love"
-                  :class="{ loved: isLoved(guides[0].id) }"
-                  @click.stop="handleToggleLove(guides[0])"
-                >
-                  <HeartIcon
-                    :stroke-width="2"
-                    :filled="isLoved(guides[0].id)"
-                  />
-                  {{ getDisplayLoves(guides[0]) }}
-                </button>
-                <button
-                  class="chip chip-bookmark"
-                  :class="{ collected: isFavorited(guides[0].id) }"
-                  @click.stop="handleToggleFavorite(guides[0])"
-                >
-                  <BookmarkIcon
-                    :stroke-width="2"
-                    :filled="isFavorited(guides[0].id)"
-                  />
-                  {{ getDisplayCollections(guides[0]) }}
-                </button>
-                <button
-                  class="chip chip-share"
-                  @click.stop="handleShare(guides[0])"
-                >
-                  <ShareIcon :stroke-width="2" />
-                  {{ getDisplayShares(guides[0]) }}
-                </button>
-                <button
-                  class="chip chip-view"
-                  @click="handleCardClick(guides[0])"
-                >
-                  <MaximizeIcon :stroke-width="2" />
-                  查看
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="hover-indicator">
-            <div class="indicator-ring"></div>
+        <div class="header-left">
+          <span class="title-badge" aria-hidden="true">
+            <BookIcon />
+          </span>
+          <div class="header-text">
+            <span class="title-label">旅途档案</span>
+            <h2 class="section-title">行者手记</h2>
+            <p class="section-subtitle">发现世界的每一个角落</p>
           </div>
         </div>
-      </div>
 
-      <div class="featured-list">
-        <div
-          v-for="(guide, index) in guides.slice(1, 4)"
-          :key="guide.id"
-          class="list-card"
-          :style="{ '--delay': `${index * 0.1}s` }"
+        <span class="plate-rule" aria-hidden="true"></span>
+
+        <button
+          class="more-btn"
+          aria-label="查看更多指南攻略"
+          @click="handleMore"
         >
-          <div class="list-image">
-            <img :src="guide.cover" :alt="guide.title" loading="lazy" />
-            <div class="image-overlay"></div>
-            <span class="image-date">{{ guide.date }}</span>
-          </div>
-          <div class="list-content">
-            <span class="type-tag" :data-type="guide.type">
-              {{ guide.typeName }}
-            </span>
-            <h4 class="list-title">{{ guide.title }}</h4>
-            <div class="list-tags">
-              <span
-                v-for="tag in guide.tags.slice(0, 2)"
-                :key="tag"
-                class="tag-item"
-              >
-                {{ tag }}
-              </span>
-            </div>
-            <div class="action-chips">
-              <span class="chip chip-views">
-                <EyeIcon
-                  :stroke-width="2"
-                  :style="{ width: '12px', height: '12px' }"
-                />
-                {{ fmt(getGuideCount(guide.id).views) }}
-              </span>
-              <button
-                class="chip chip-like"
-                :class="{ liked: isLiked(guide.id) }"
-                @click.stop="handleToggleLike(guide)"
-              >
-                <ThumbUpIcon
-                  :stroke-width="2"
-                  :style="{ width: '12px', height: '12px' }"
-                  :filled="isLiked(guide.id)"
-                />
-                {{ getDisplayLikes(guide) }}
-              </button>
-              <button
-                class="chip chip-love"
-                :class="{ loved: isLoved(guide.id) }"
-                @click.stop="handleToggleLove(guide)"
-              >
-                <HeartIcon
-                  :stroke-width="2"
-                  :style="{ width: '12px', height: '12px' }"
-                  :filled="isLoved(guide.id)"
-                />
-                {{ getDisplayLoves(guide) }}
-              </button>
-              <button
-                class="chip chip-bookmark"
-                :class="{ collected: isFavorited(guide.id) }"
-                @click.stop="handleToggleFavorite(guide)"
-              >
-                <BookmarkIcon
-                  :stroke-width="2"
-                  :style="{ width: '12px', height: '12px' }"
-                  :filled="isFavorited(guide.id)"
-                />
-                {{ getDisplayCollections(guide) }}
-              </button>
-              <button class="chip chip-share" @click.stop="handleShare(guide)">
-                <ShareIcon
-                  :stroke-width="2"
-                  :style="{ width: '12px', height: '12px' }"
-                />
-                {{ getDisplayShares(guide) }}
-              </button>
-              <button
-                class="chip chip-view"
-                @click.stop="handleCardClick(guide)"
-              >
-                <MaximizeIcon
-                  :stroke-width="2"
-                  :style="{ width: '12px', height: '12px' }"
-                />
-                查看
-              </button>
-            </div>
-          </div>
-          <div class="list-number">
-            {{ String(index + 2).padStart(2, '0') }}
-          </div>
-        </div>
+          <span class="compass-mark" aria-hidden="true">
+            <span class="compass-ring"></span>
+            <span class="compass-ticks"></span>
+            <span class="compass-face"></span>
+            <span class="compass-needle"></span>
+            <span class="compass-core"></span>
+          </span>
+          <span class="more-text">
+            <span class="more-label">更多</span>
+            <span class="more-sub">攻略</span>
+          </span>
+          <span class="more-arrow" aria-hidden="true"></span>
+        </button>
       </div>
     </div>
 
-    <div class="scroll-section">
-      <div class="scroll-header">
-        <h3>更多精彩</h3>
-        <div class="scroll-nav">
-          <button
-            class="nav-btn prev"
-            :disabled="scrollPosition === 0"
-            @click="scrollPrev"
-          >
-            <ChevronLeftIcon :stroke-width="3" />
-          </button>
-          <button
-            class="nav-btn next"
-            :disabled="scrollPosition >= maxScroll"
-            @click="scrollNext"
-          >
-            <ChevronRightIcon :stroke-width="3" />
-          </button>
-        </div>
-      </div>
-      <div ref="scrollContainer" class="scroll-container">
-        <div class="scroll-track">
-          <div v-for="guide in moreGuides" :key="guide.id" class="scroll-card">
-            <div class="scroll-image">
-              <img :src="guide.cover" :alt="guide.title" loading="lazy" />
-              <div class="image-overlay"></div>
-              <span class="type-badge" :data-type="guide.type">
-                {{ guide.typeName }}
+    <!-- 翻牌屏：机场出发信息板 -->
+    <div v-if="activeGuide" class="flap-board">
+      <!-- 玻璃罩：老式登机屏外面那层玻璃，反光、扫描线、四角固定铆钉 -->
+      <span class="board-glass" aria-hidden="true"></span>
+      <!-- 灯带：左边照片切成竖条逐条翻落，右边切出一块数据栏 -->
+      <div class="board-strip">
+        <div class="strip-view">
+          <div class="strip-track">
+            <div
+              v-for="i in STRIPS"
+              :key="i"
+              class="strip"
+              :style="{ '--i': i - 1, '--n': STRIPS }"
+            >
+              <span class="strip-photo">
+                <LandscapeImage
+                  :src="activeGuide.cover"
+                  :alt="activeGuide.title"
+                  loading="lazy"
+                />
               </span>
-              <span class="image-date">{{ guide.date }}</span>
+              <span
+                :key="`flap-${activeGuide.id}-${i}`"
+                class="strip-flap"
+                aria-hidden="true"
+              ></span>
             </div>
-            <div class="scroll-content">
-              <h5>{{ guide.title }}</h5>
-              <div class="scroll-tags">
+          </div>
+
+          <span class="strip-scrim" aria-hidden="true"></span>
+
+          <div class="strip-caption">
+            <span class="caption-kicker">出 发</span>
+            <span class="caption-place">飞往 {{ activeGuide.location }}</span>
+            <span class="strip-meta">
+              <i aria-hidden="true"></i>
+              {{ captionMeta }}
+            </span>
+          </div>
+
+          <!-- 取景器：四角框线 + 中心准星，照片像从取景窗里看出去 -->
+          <span class="frame-corners" aria-hidden="true">
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+          </span>
+          <span class="frame-cross" aria-hidden="true"></span>
+        </div>
+
+        <aside class="strip-stats">
+          <div class="stats-head">
+            <span class="stats-head-text">实时数据</span>
+          </div>
+
+          <div class="stats-list">
+            <div class="stat is-views">
+              <span class="stat-icon">
+                <EyeIcon :stroke-width="1.6" :filled="true" />
+              </span>
+              <span class="stat-body">
+                <span class="stat-label">浏览</span>
+                <span class="stat-bar" aria-hidden="true">
+                  <i :style="{ width: statRatio('views') }"></i>
+                </span>
+              </span>
+              <span class="stat-num">
+                {{ fmtCount(getGuideCount(activeGuide.id).views) }}
+              </span>
+            </div>
+
+            <button
+              class="stat is-like"
+              :class="{ on: isLiked(activeGuide.id) }"
+              type="button"
+              :aria-pressed="isLiked(activeGuide.id)"
+              :aria-label="`为《${activeGuide.title}》点赞`"
+              @click.stop="handleToggleLike(activeGuide)"
+            >
+              <span class="stat-icon">
+                <ThumbUpIcon
+                  :stroke-width="1.6"
+                  :filled="isLiked(activeGuide.id)"
+                />
+              </span>
+              <span class="stat-body">
+                <span class="stat-label">点赞</span>
+                <span class="stat-bar" aria-hidden="true">
+                  <i :style="{ width: statRatio('likes') }"></i>
+                </span>
+              </span>
+              <span class="stat-num">
+                {{ fmtCount(getGuideCount(activeGuide.id).likes) }}
+              </span>
+            </button>
+
+            <button
+              class="stat is-love"
+              :class="{ on: isLoved(activeGuide.id) }"
+              type="button"
+              :aria-pressed="isLoved(activeGuide.id)"
+              :aria-label="`喜欢《${activeGuide.title}》`"
+              @click.stop="handleToggleLove(activeGuide)"
+            >
+              <span class="stat-icon">
+                <HeartIcon
+                  :stroke-width="1.6"
+                  :filled="isLoved(activeGuide.id)"
+                />
+              </span>
+              <span class="stat-body">
+                <span class="stat-label">喜欢</span>
+                <span class="stat-bar" aria-hidden="true">
+                  <i :style="{ width: statRatio('loves') }"></i>
+                </span>
+              </span>
+              <span class="stat-num">{{ getDisplayLoves(activeGuide) }}</span>
+            </button>
+
+            <button
+              class="stat is-fav"
+              :class="{ on: isFavorited(activeGuide.id) }"
+              type="button"
+              :aria-pressed="isFavorited(activeGuide.id)"
+              :aria-label="`收藏《${activeGuide.title}》`"
+              @click.stop="handleToggleFavorite(activeGuide)"
+            >
+              <span class="stat-icon">
+                <BookmarkIcon
+                  :stroke-width="1.6"
+                  :filled="isFavorited(activeGuide.id)"
+                />
+              </span>
+              <span class="stat-body">
+                <span class="stat-label">收藏</span>
+                <span class="stat-bar" aria-hidden="true">
+                  <i :style="{ width: statRatio('favorites') }"></i>
+                </span>
+              </span>
+              <span class="stat-num">
+                {{ getDisplayCollections(activeGuide) }}
+              </span>
+            </button>
+
+            <button
+              class="stat is-share"
+              type="button"
+              :aria-label="`分享《${activeGuide.title}》`"
+              @click.stop="handleShare(activeGuide)"
+            >
+              <span class="stat-icon">
+                <ShareIcon :stroke-width="1.6" :filled="true" />
+              </span>
+              <span class="stat-body">
+                <span class="stat-label">分享</span>
+                <span class="stat-bar" aria-hidden="true">
+                  <i :style="{ width: statRatio('shares') }"></i>
+                </span>
+              </span>
+              <span class="stat-num">{{ getDisplayShares(activeGuide) }}</span>
+            </button>
+          </div>
+
+          <button
+            class="read-btn"
+            type="button"
+            :aria-label="`阅读《${activeGuide.title}》全文`"
+            @click="handleCardClick(activeGuide)"
+          >
+            读这篇
+            <span class="read-arrow" aria-hidden="true">
+              <ChevronRightIcon :stroke-width="2.4" />
+            </span>
+          </button>
+        </aside>
+      </div>
+
+      <!-- 灯带与板身之间的铰链带 -->
+      <span class="board-hinge" aria-hidden="true">
+        <i></i>
+        <i></i>
+      </span>
+
+      <div class="board-body">
+        <div class="board-main">
+          <div class="dest-row">
+            <div class="dest-head">
+              <span class="dest-label">目的地</span>
+              <span class="dest-gate">第 {{ pad(station + 1) }} 站</span>
+            </div>
+            <div class="dest-body">
+              <div
+                class="dest-flap"
+                role="group"
+                :aria-label="`目的地 ${activeGuide.location}`"
+              >
                 <span
-                  v-for="tag in guide.tags.slice(0, 2)"
-                  :key="tag"
-                  class="tag-item"
+                  v-for="(ch, index) in destChars"
+                  :key="`${activeGuide.id}-cell-${index}`"
+                  class="flap-cell"
+                  :style="{ '--i': index }"
+                  aria-hidden="true"
                 >
-                  {{ tag }}
+                  <span class="cell-face">{{ ch }}</span>
+                  <span class="cell-seam"></span>
                 </span>
-              </div>
-              <div class="action-chips">
-                <span class="chip chip-views">
-                  <EyeIcon
-                    :stroke-width="2"
-                    :style="{ width: '12px', height: '12px' }"
-                  />
-                  {{ fmt(getGuideCount(guide.id).views) }}
-                </span>
-                <button
-                  class="chip chip-like"
-                  :class="{ liked: isLiked(guide.id) }"
-                  @click.stop="handleToggleLike(guide)"
-                >
-                  <ThumbUpIcon
-                    :stroke-width="2"
-                    :style="{ width: '12px', height: '12px' }"
-                    :filled="isLiked(guide.id)"
-                  />
-                  {{ getDisplayLikes(guide) }}
-                </button>
-                <button
-                  class="chip chip-love"
-                  :class="{ loved: isLoved(guide.id) }"
-                  @click.stop="handleToggleLove(guide)"
-                >
-                  <HeartIcon
-                    :stroke-width="2"
-                    :style="{ width: '12px', height: '12px' }"
-                    :filled="isLoved(guide.id)"
-                  />
-                  {{ getDisplayLoves(guide) }}
-                </button>
-                <button
-                  class="chip chip-bookmark"
-                  :class="{ collected: isFavorited(guide.id) }"
-                  @click.stop="handleToggleFavorite(guide)"
-                >
-                  <BookmarkIcon
-                    :stroke-width="2"
-                    :style="{ width: '12px', height: '12px' }"
-                    :filled="isFavorited(guide.id)"
-                  />
-                  {{ getDisplayCollections(guide) }}
-                </button>
-                <button
-                  class="chip chip-share"
-                  @click.stop="handleShare(guide)"
-                >
-                  <ShareIcon
-                    :stroke-width="2"
-                    :style="{ width: '12px', height: '12px' }"
-                  />
-                  {{ getDisplayShares(guide) }}
-                </button>
-                <button
-                  class="chip chip-view"
-                  @click.stop="handleCardClick(guide)"
-                >
-                  <MaximizeIcon
-                    :stroke-width="2"
-                    :style="{ width: '12px', height: '12px' }"
-                  />
-                  查看
-                </button>
               </div>
             </div>
           </div>
+
+          <h3 :key="`${activeGuide.id}-title`" class="board-title">
+            {{ activeGuide.title }}
+          </h3>
+
+          <div
+            v-if="visibleRoute.length > 0"
+            ref="routeLineRef"
+            class="route-line"
+          >
+            <span class="route-tag">沿途</span>
+            <template v-for="(point, index) in visibleRoute" :key="point.raw">
+              <span v-if="index > 0" class="route-arrow" aria-hidden="true">
+                →
+              </span>
+              <span class="route-stop" :style="{ '--tone': toneAt(index) }">
+                {{ point.name }}
+              </span>
+            </template>
+            <span v-if="restRouteCount > 0" class="route-rest">
+              +{{ restRouteCount }}
+            </span>
+          </div>
         </div>
+
+        <aside class="board-side">
+          <span class="side-head">
+            <span class="side-head-mark" aria-hidden="true"></span>
+            行程信息
+          </span>
+
+          <dl class="info-rows">
+            <div
+              v-for="(field, index) in infoFields"
+              :key="field.label"
+              class="info-row"
+              :style="{ '--tone': field.tone }"
+            >
+              <span class="row-index" aria-hidden="true">
+                {{ pad(index + 1) }}
+              </span>
+              <dt class="row-label">{{ field.label }}</dt>
+              <dd :key="field.value" class="row-value">{{ field.value }}</dd>
+            </div>
+          </dl>
+        </aside>
       </div>
+
+      <!-- 登机口：站点即导航 -->
+      <nav class="board-gates" aria-label="选择目的地">
+        <div class="gates-head">
+          <span class="gates-hint">登机口</span>
+          <span class="gate-code">
+            第
+            <b>{{ pad(page + 1) }} / {{ pad(pageCount) }}</b>
+            组
+          </span>
+        </div>
+
+        <div class="gates-row">
+          <button
+            class="gate-arrow"
+            type="button"
+            :disabled="page === 0"
+            aria-label="上一组目的地"
+            @click="goPage(-1)"
+          >
+            ‹ 上一组
+          </button>
+
+          <ol class="gate-list">
+            <li v-for="(guide, index) in pageGuides" :key="guide.id">
+              <button
+                class="gate"
+                type="button"
+                :class="{ active: index === station }"
+                :style="{ '--tone': toneAt(index) }"
+                :aria-current="index === station"
+                :aria-label="`第 ${index + 1} 站：${guide.location}${guideSubtitles[guide.id] ? `，${guideSubtitles[guide.id]}` : ''}`"
+                @click="goStation(index)"
+                @mouseenter="hoverStation(index)"
+                @focus="goStation(index)"
+              >
+                <span class="gate-rail" aria-hidden="true"></span>
+                <span class="gate-flap" aria-hidden="true">
+                  <span class="gate-no">{{ pad(index + 1) }}</span>
+                  <span class="gate-seam"></span>
+                </span>
+                <span class="gate-copy">
+                  <span
+                    class="gate-name"
+                    :style="{
+                      '--name-fit': guide.location.length > 4 ? 0.8 : 1,
+                    }"
+                  >
+                    {{ guide.location }}
+                  </span>
+                  <span v-if="guideSubtitles[guide.id]" class="gate-sub">
+                    {{ guideSubtitles[guide.id] }}
+                  </span>
+                </span>
+                <span class="gate-barcode" aria-hidden="true"></span>
+              </button>
+            </li>
+          </ol>
+
+          <button
+            class="gate-arrow"
+            type="button"
+            :disabled="page >= pageCount - 1"
+            aria-label="下一组目的地"
+            @click="goPage(1)"
+          >
+            下一组 ›
+          </button>
+        </div>
+      </nav>
     </div>
   </section>
 
@@ -334,20 +378,17 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, onMounted, onUnmounted, computed } from 'vue';
+  import { ref, onMounted, onUnmounted, computed, watch, nextTick } from 'vue';
   import { useRouter } from 'vue-router';
   import { showMessage } from '@/utils/landscape';
-  import { formatNumber as fmt } from '@/utils/landscape/format';
-  import { throttle } from '@/utils/landscape/debounce';
   import EyeIcon from '@/pages/Landscape/icons/common/EyeIcon.vue';
   import ThumbUpIcon from '@/pages/Landscape/icons/common/ThumbUpIcon.vue';
   import HeartIcon from '@/pages/Landscape/icons/common/HeartIcon.vue';
   import BookmarkIcon from '@/pages/Landscape/icons/common/BookmarkIcon.vue';
   import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue';
   import ShareMenu from '../../../common/ShareMenu/index.vue';
-  import ChevronLeftIcon from '@/pages/Landscape/icons/common/ChevronLeftIcon.vue';
   import ChevronRightIcon from '@/pages/Landscape/icons/common/ChevronRightIcon.vue';
-  import MaximizeIcon from '@/pages/Landscape/icons/components/home/TravelGuides/MaximizeIcon.vue';
+  import BookIcon from '@/pages/Landscape/icons/common/BookIcon.vue';
 
   import {
     useLandscapeDataStore,
@@ -362,12 +403,19 @@
 
   import type { GlobalGuide } from '@/typesOfPages/landscape/data';
 
+  /** 一组四条，正好是屏幕上一排登机口 */
+  const PAGE_SIZE = 4;
+  /** 灯带切成几条竖片，逐条翻过去 */
+  const STRIPS = 8;
+
   const router = useRouter();
   const interactionStore = useInteractionStore();
   const dataStore = useLandscapeDataStore();
-  const scrollContainer = ref<HTMLElement | null>(null);
-  const scrollPosition = ref(0);
-  const maxScroll = ref(0);
+
+  const page = ref(0);
+  const station = ref(0);
+
+  let hoverTimer: ReturnType<typeof setTimeout> | null = null;
 
   const showShareMenu = ref(false);
   const currentShareGuide = ref<GlobalGuide | null>(null);
@@ -389,7 +437,293 @@
   });
 
   const guides = computed(() => dataStore.getAllGuides());
-  const moreGuides = computed(() => guides.value.slice(4));
+  const pageCount = computed(() =>
+    Math.max(1, Math.ceil(guides.value.length / PAGE_SIZE)),
+  );
+  const pageGuides = computed(() =>
+    guides.value.slice(
+      page.value * PAGE_SIZE,
+      page.value * PAGE_SIZE + PAGE_SIZE,
+    ),
+  );
+  const activeGuide = computed<GlobalGuide | null>(
+    () => pageGuides.value[station.value] ?? pageGuides.value[0] ?? null,
+  );
+
+  const pad = (value: number) => String(value).padStart(2, '0');
+
+  /**
+   * 底部信息区的点缀色：同一块暗紫底板上，按顺序轮换几种霓虹色，
+   * 只染小部件（胶囊、序号块、灯条、翻牌格），底色不动，才不会花。
+   */
+  const BOARD_TONES = [
+    '#6fe3dc',
+    '#ffc46e',
+    '#ff8fa6',
+    '#8fe3a6',
+    '#8cc8ff',
+  ] as const;
+  const toneAt = (index: number) => BOARD_TONES[index % BOARD_TONES.length];
+
+  /**
+   * 登机口副标题：每个登机口都显示一行主题数据，像登机牌上的航班信息。
+   * 取 tags 前两项；若同一地点内 tags 组合也相同（如两篇微距花市），
+   * 改用标题短版区分，避免两个相邻登机口看起来完全一样。
+   */
+  const guideSubtitles = computed<Record<string, string>>(() => {
+    const byLocation = new Map<string, GlobalGuide[]>();
+    for (const guide of guides.value) {
+      const bucket = byLocation.get(guide.location) ?? [];
+      bucket.push(guide);
+      byLocation.set(guide.location, bucket);
+    }
+
+    const shortTitle = (guide: GlobalGuide) =>
+      (guide.title ?? '')
+        .replace(/(技巧|指南|大全|进阶|摄影)/g, '')
+        .slice(0, 6);
+
+    const result: Record<string, string> = {};
+    for (const bucket of byLocation.values()) {
+      const pick = (guide: GlobalGuide) => {
+        const joined = (guide.tags ?? []).slice(0, 2).join('·');
+        if (!joined) return shortTitle(guide);
+        // 超过 6 字在窄登机口里会被截断，只留第一个标签保证完整可读
+        return joined.length > 6 ? (guide.tags ?? [])[0] : joined;
+      };
+      const counts = new Map<string, number>();
+      for (const guide of bucket) {
+        const key = pick(guide);
+        counts.set(key, (counts.get(key) ?? 0) + 1);
+      }
+      for (const guide of bucket) {
+        const key = pick(guide);
+        result[guide.id] =
+          (counts.get(key) ?? 0) > 1 ? shortTitle(guide) || key : key;
+      }
+    }
+    return result;
+  });
+
+  /** 数字按中文习惯写：一万以上用「万」，其余直接写阿拉伯数字，避免 2.8k 这种洋缩写 */
+  const fmtCount = (value: number) =>
+    value >= 10000
+      ? `${(value / 10000).toFixed(1).replace(/\.0$/, '')}万`
+      : String(Math.round(value));
+
+  /** 目的地拆成单字，一个字一格翻牌 */
+  const destChars = computed(() =>
+    Array.from((activeGuide.value?.location ?? '').trim()).map((ch) =>
+      ch === ' ' ? '\u00a0' : ch,
+    ),
+  );
+
+  /** 「30天以上」在小格子里会被省略号切掉，去掉尾巴上的虚词 */
+  const cleanDuration = computed(() =>
+    (activeGuide.value?.duration || '—').replace(/(以上|左右|不等|约)$/g, ''),
+  );
+
+  /** 照片左下角那行小字：季节 + 天数，都不用假数据 */
+  const captionMeta = computed(() => {
+    const g = activeGuide.value;
+    if (!g) return '';
+    const season = g.season || GUIDE_DEFAULTS.season;
+    const duration = cleanDuration.value;
+    return duration && duration !== '—' ? `${season} · ${duration}` : season;
+  });
+
+  const infoFields = computed(() => {
+    const g = activeGuide.value;
+    if (!g) return [];
+    return [
+      {
+        label: '类型',
+        value: g.typeName || g.category || '风光',
+        tone: '#6fe3dc',
+      },
+      { label: '天数', value: cleanDuration.value, tone: '#ffc46e' },
+      {
+        label: '季节',
+        value: g.season || GUIDE_DEFAULTS.season,
+        tone: '#8fe3a6',
+      },
+      {
+        label: '评分',
+        value: g.rating ? String(g.rating) : '—',
+        tone: '#ff8fa6',
+      },
+    ];
+  });
+
+  interface RoutePoint {
+    name: string;
+    alt: string;
+    note: string;
+    raw: string;
+  }
+
+  /**
+   * routePoints 的写法很杂：「拉萨(3650m) - 适应1天」「黄金圈(2天) - 极光拍摄」
+   * 「机位勘察：白天踩点」「踩点了解动物活动规律」。统一拆成
+   * 地名 / 括号里的海拔或天数 / 破折号或冒号后的备注。
+   */
+  const parseRoutePoint = (raw: string): RoutePoint => {
+    const parenMatch = /[(（]([^)）]+)[)）]/.exec(raw);
+    let rest = raw.replace(/[(（][^)）]*[)）]/g, '').trim();
+    let note = '';
+
+    const dashIndex = rest.search(/[-–—]/);
+    if (dashIndex > -1) {
+      note = rest.slice(dashIndex + 1).trim();
+      rest = rest.slice(0, dashIndex).trim();
+    }
+
+    const colonIndex = rest.search(/[:：]/);
+    if (colonIndex > -1) {
+      note = [rest.slice(colonIndex + 1).trim(), note]
+        .filter(Boolean)
+        .join(' · ');
+      rest = rest.slice(0, colonIndex).trim();
+    }
+
+    return {
+      name: rest || raw,
+      alt: parenMatch ? parenMatch[1].trim() : '',
+      note,
+      raw,
+    };
+  };
+
+  /** 只留像地名的点：有些数据里 routePoints 写的是「踩点了解动物活动规律」这类说明句，铺在牌子上很丑 */
+  const isPlacePoint = (point: RoutePoint) =>
+    point.name.length <= 6 && !/[，。、；：！？]/.test(point.name);
+
+  const placePoints = computed(() =>
+    (activeGuide.value?.routePoints ?? [])
+      .map(parseRoutePoint)
+      .filter(isPlacePoint),
+  );
+
+  /**
+   * 沿途默认全展开，只有真的放不下才折叠成 +N。
+   * 折叠数量按实际排版量出来，不同站点地名长短不一也能自适应宽度。
+   */
+  const routeLineRef = ref<HTMLElement | null>(null);
+  const routeLimit = ref(99);
+  const visibleRoute = computed<RoutePoint[]>(() =>
+    placePoints.value.slice(0, routeLimit.value),
+  );
+  const restRouteCount = computed(() =>
+    Math.max(0, placePoints.value.length - visibleRoute.value.length),
+  );
+
+  const fitRoute = async () => {
+    const points = placePoints.value;
+    const line = routeLineRef.value;
+    if (!line || points.length === 0) return;
+
+    // 先全部铺开，量每个站点与箭头的真实宽度
+    routeLimit.value = points.length;
+    await nextTick();
+
+    const el = routeLineRef.value;
+    if (!el || placePoints.value.length !== points.length) return;
+
+    const tag = el.querySelector<HTMLElement>('.route-tag');
+    const stops = Array.from(el.querySelectorAll<HTMLElement>('.route-stop'));
+    const arrow = el.querySelector<HTMLElement>('.route-arrow');
+    if (!tag || stops.length === 0) return;
+
+    const cs = getComputedStyle(el);
+    const gap = parseFloat(cs.columnGap) || 0;
+    const available =
+      el.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+    const tagW = tag.getBoundingClientRect().width;
+    const arrowW = arrow ? arrow.getBoundingClientRect().width : 0;
+    const widths = stops.map((stop) => stop.getBoundingClientRect().width);
+    /** k 个地名的行宽：标签 + k 组「箭头 + 地名」 + (2k − 1) 个间距 */
+    const rowWidth = (k: number) =>
+      widths
+        .slice(0, k)
+        .reduce((sum, w) => sum + arrowW + w, tagW + gap * (2 * k - 1));
+    // +N 胶囊的估算宽度（真实宽度随后再校一次）
+    const restChip = 46;
+
+    let fit = widths.length;
+    if (rowWidth(fit) > available) {
+      fit = widths.length - 1;
+      while (fit > 1 && rowWidth(fit) + gap + restChip > available) fit -= 1;
+    }
+    routeLimit.value = Math.max(1, fit);
+    await nextTick();
+
+    // 用真实的 +N 宽度回校，避免估算偏小撑破导轨
+    for (let guard = 0; guard < 4; guard += 1) {
+      const box = routeLineRef.value;
+      if (!box || box.scrollWidth - box.clientWidth <= 1) break;
+      if (routeLimit.value <= 1) break;
+      routeLimit.value -= 1;
+      await nextTick();
+    }
+  };
+
+  watch(
+    () => activeGuide.value?.id,
+    () => nextTick(fitRoute),
+    { flush: 'post', immediate: true },
+  );
+
+  let routeRaf = 0;
+  const handleRouteResize = () => {
+    if (routeRaf) return;
+    routeRaf = requestAnimationFrame(() => {
+      routeRaf = 0;
+      fitRoute();
+    });
+  };
+
+  const goStation = (index: number) => {
+    if (index < 0 || index >= pageGuides.value.length) return;
+    if (index === station.value) return;
+    station.value = index;
+  };
+
+  /** 鼠标扫过登机口时不该连切几站，停在一站上超过 90ms 才触发 */
+  const hoverStation = (index: number) => {
+    if (hoverTimer) clearTimeout(hoverTimer);
+    hoverTimer = setTimeout(() => {
+      goStation(index);
+      hoverTimer = null;
+    }, 90);
+  };
+
+  /**
+   * 悬停即换封面，若还没进缓存会闪一下「加载中」占位，
+   * 提前把本页与下一页的封面塞进浏览器缓存来避开。
+   */
+  const preloadedCovers = new Set<string>();
+  const preloadCover = (src?: string) => {
+    if (!src || preloadedCovers.has(src)) return;
+    preloadedCovers.add(src);
+    const img = new Image();
+    img.decoding = 'async';
+    img.src = src;
+  };
+  const preloadPages = (target: number) => {
+    guides.value
+      .slice(target * PAGE_SIZE, target * PAGE_SIZE + PAGE_SIZE * 2)
+      .forEach((guide) => preloadCover(guide.cover));
+  };
+
+  /** 换一组：整块牌子重新翻一遍，不保留上一组的位移 */
+  const goPage = (delta: number) => {
+    const next = page.value + delta;
+    if (next < 0 || next >= pageCount.value) return;
+    page.value = next;
+    station.value = 0;
+  };
+
+  watch(page, (value) => preloadPages(value));
 
   const getGuideId = (id: string | number) => String(id);
   const getGuideCount = (id: string | number) =>
@@ -477,10 +811,10 @@
     } as any;
   };
 
-  const isLiked = (id: string) => interactionStore.isLiked(getGuideId(id));
   const isFavorited = (id: string) =>
     interactionStore.isFavorited(getGuideId(id));
   const isLoved = (id: string) => interactionStore.isLoved(getGuideId(id));
+  const isLiked = (id: string) => interactionStore.isLiked(getGuideId(id));
 
   const handleToggleLike = (guide: GlobalGuide) => {
     const item = convertToInteractionItem(guide);
@@ -530,31 +864,7 @@
     router.push('/landscape/guides');
   };
 
-  const scrollPrev = () => {
-    if (scrollContainer.value) {
-      scrollContainer.value.scrollBy({ left: -340, behavior: 'smooth' });
-    }
-  };
-
-  const scrollNext = () => {
-    if (scrollContainer.value) {
-      scrollContainer.value.scrollBy({ left: 340, behavior: 'smooth' });
-    }
-  };
-
-  const updateScrollPosition = throttle(() => {
-    if (scrollContainer.value) {
-      scrollPosition.value = scrollContainer.value.scrollLeft;
-      maxScroll.value =
-        scrollContainer.value.scrollWidth - scrollContainer.value.clientWidth;
-    }
-  }, 16);
-
   onMounted(() => {
-    if (scrollContainer.value) {
-      scrollContainer.value.addEventListener('scroll', updateScrollPosition);
-      updateScrollPosition();
-    }
     interactionStore.registerBatch(
       guides.value.map((g: GlobalGuide) => ({
         id: getGuideId(g.id),
@@ -567,25 +877,48 @@
         },
       })),
     );
+    preloadPages(0);
+    window.addEventListener('resize', handleRouteResize);
+    nextTick(fitRoute);
   });
 
   onUnmounted(() => {
-    if (scrollContainer.value) {
-      scrollContainer.value.removeEventListener('scroll', updateScrollPosition);
-    }
+    if (hoverTimer) clearTimeout(hoverTimer);
+    if (routeRaf) cancelAnimationFrame(routeRaf);
+    window.removeEventListener('resize', handleRouteResize);
+    currentShareGuide.value = null;
   });
 
-  const getDisplayLikes = (guide: GlobalGuide) =>
-    fmt(getGuideCount(guide.id).likes);
-
   const getDisplayLoves = (guide: GlobalGuide) =>
-    fmt(getGuideCount(guide.id).loves);
+    fmtCount(getGuideCount(guide.id).loves);
 
   const getDisplayCollections = (guide: GlobalGuide) =>
-    fmt(getGuideCount(guide.id).favorites);
+    fmtCount(getGuideCount(guide.id).favorites);
 
   const getDisplayShares = (guide: GlobalGuide) =>
-    fmt(getGuideCount(guide.id).shares);
+    fmtCount(getGuideCount(guide.id).shares);
+
+  /**
+   * 数据条长度：浏览往往比收藏高一个数量级，直接按比例会让后三项压成一条线。
+   * 先开方压缩，再压进 18%~100% 区间，差距看得出来，也不会有一项瘦成短线。
+   */
+  const statRatio = (
+    key: 'views' | 'likes' | 'loves' | 'favorites' | 'shares',
+  ) => {
+    const guide = activeGuide.value;
+    if (!guide) return '0%';
+    const c = getGuideCount(guide.id);
+    const values = {
+      views: c.views,
+      likes: c.likes,
+      loves: c.loves,
+      favorites: c.favorites,
+      shares: c.shares,
+    };
+    const max = Math.max(...Object.values(values), 1);
+    const ratio = Math.sqrt(values[key] / max);
+    return `${Math.round((0.18 + 0.82 * ratio) * 100)}%`;
+  };
 </script>
 
 <style scoped lang="scss" src="./index.scss" />

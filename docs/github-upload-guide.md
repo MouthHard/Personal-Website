@@ -5,6 +5,14 @@
 > 源码分支：`feat/update-site` ｜ 部署分支：`gh-pages`（构建产物，不要手动改动）
 >
 > **⚠️ 每次执行之前都要检查大厂、热门、github上的项目的上传规范和项目规范，并依次来迭代我的上传文档md**
+>
+> **2026-11-24 自迭代（参考 Conventional Commits 1.0.0 / GitHub Flow 官方实践 / 主流大厂仓库规范）**：
+> - 提交信息统一 `type(scope): 描述`（scope 可选），type 用 `feat/fix/docs/style/refactor/test/chore/ci/build`，小写、祈使语气、结尾不加句号；本仓 `.husky/commit-msg` + `@commitlint/config-conventional` 已强制。
+> - 一个提交只做一件事（one logical change per commit），便于 revert / cherry-pick / 自动生成 changelog。
+> - 分支命名前缀与 type 对齐（`feat/**`、`fix/**`、`chore/**`），CI 触发分支 `feat/**` 已覆盖。
+> - CI 是合并门禁：typecheck / lint / stylelint / test / knip / build 任一失败都不推送，不靠 `--no-verify` 绕过。
+> - 密钥（Token / *.pem / .env*）永不入库，凭据走 git credential manager 或环境变量。
+> - **stash 基线校验**：本仓存在历史遗留 stash（`stash@{0}` 等，2026-10 前的备份），所以"提交后 stash 应为空"改为"提交后 stash 数量与提交前基线一致，且无新增 `lint-staged automatic backup`"。
 
 ---
 
@@ -181,9 +189,9 @@ git diff --cached --stat   # 查看暂存的改动
 git commit -m "feat: 说明"
 
 # ── 第7步：提交后验证（防止 lint-staged stash 丢失） ──
-git stash list             # 应该为空
+git stash list             # 对比提交前基线：数量不变、无新增 lint-staged backup
 git diff HEAD              # 应该为空
-# 如果 stash list 有残留，立即执行 git stash pop 解决冲突
+# 若 stash 数量增加，立即 git stash pop 解决冲突；历史遗留 stash 不要动
 ```
 
 ### 快速检查脚本（一键执行）
@@ -226,9 +234,9 @@ git add -A                                # 3. 暂存全部改动（必须先 ad
 git commit -m "feat: 说明"                # 4. 提交（husky 会自动 lint）
 
 # ── 提交后验证（防止 lint-staged stash 丢失改动） ──
-git stash list                            # 5. 检查是否有残留 stash（关键！）
+git stash list                            # 5. 对比提交前基线：数量不变、无新增 lint-staged backup（关键！）
 git diff HEAD                             # 6. 确认工作区与 HEAD 一致（无输出=一致）
-# 如果 stash list 有残留，立即执行：git stash pop 并解决冲突
+# 若 stash 数量增加，立即 git stash pop 解决冲突；历史遗留 stash（2026-10 备份）不要动
 
 # ── 推送源码 ──
 git fetch origin                          # 7. 拉取远程引用
@@ -256,7 +264,7 @@ npx gh-pages -d dist --nojekyll -b gh-pages -m "deploy: 更新站点" \
 
 **预防措施**：
 1. **提交前必须 `git add -A`**：确保所有改动都已暂存，lint-staged 不会 stash 任何东西
-2. **提交后必须 `git stash list`**：确认无残留 stash
+2. **提交后必须 `git stash list`**：确认数量与提交前基线一致、无新增 lint-staged backup
 3. **提交后必须 `git diff HEAD`**：确认工作区与 HEAD 一致
 4. **如果有残留 stash**：立即 `git stash pop` 解决冲突，不要继续后续操作
 
@@ -335,8 +343,18 @@ npx vite build --mode gh-pages
 
 ```bash
 git config --get http.proxy             # 确认无代理（无输出=正常）
+git ls-remote origin HEAD               # 快速探测连通性（成功会输出 commit hash）
 # 等待几十秒后重试，不要连续反复重试
 ```
+
+若 `git ls-remote` 卡住/超时：先查 `C:\Windows\System32\drivers\etc\hosts` 是否把 `github.com` 指向了失效 IP（历史上 `140.82.116.3` 曾失效）。此时不要改全局代理，用临时 CONNECT 代理绕开 hosts：
+
+```bash
+# 在项目外临时目录写 10 行 Node CONNECT 代理，指向可直连 IP（如 20.205.243.166:443）
+git -c http.proxy=http://127.0.0.1:18080 ls-remote origin HEAD   # 验证后再用它 push
+```
+
+网络恢复后可移除 hosts 里的失效条目；**不要**设置全局 `http.proxy`，避免影响其他仓库。
 
 ### 认证失败（403）
 
@@ -407,7 +425,7 @@ git commit -m "chore: 移除临时目录的git跟踪"
 
 1. **提交前必查**：`git add --dry-run .`，确认只有上述必须上传的文件
 2. **提交前必暂存**：`git add -A` 暂存全部改动后再 `git commit`，避免 lint-staged stash 陷阱
-3. **提交后必验证**：`git stash list`（无残留）+ `git diff HEAD`（无输出），确保改动未丢失
+3. **提交后必验证**：`git stash list`（数量=提交前基线、无新增 backup）+ `git diff HEAD`（无输出），确保改动未丢失
 4. **推送前必拉**：先 `git fetch` 再 `git merge`（Windows 禁用 rebase）
 5. **推送后必部署**：源码推送到 `feat/update-site` 后，必须执行 `npx vite build --mode gh-pages` 构建 + `npx gh-pages -d dist --nojekyll` 部署到 `gh-pages` 分支，确保线上站点同步
 6. **禁止强推**：不使用 `--force`，保留完整历史
@@ -469,7 +487,7 @@ git status                                # 当前状态
 git add --dry-run .                       # 预览待提交文件
 git add -A                                # 暂存全部改动（提交前必须执行）
 git commit -m "feat: 说明"                # 提交
-git stash list                            # 检查残留 stash（提交后必须执行）
+git stash list                            # 检查 stash 数量是否=提交前基线（提交后必须执行）
 git diff HEAD                             # 确认工作区与HEAD一致（无输出=一致）
 git log --oneline -5                      # 最近 5 条提交
 git diff                                  # 未暂存改动

@@ -117,6 +117,7 @@
   import SubjectIcon from '@/pages/Aphorism/icons/common/SubjectIcon.vue';
   import UsageIcon from '@/pages/Aphorism/icons/common/UsageIcon.vue';
   import './index.scss';
+  import './responsive.scss';
 
   const emit = defineEmits<{
     (e: 'category-change', categoryId: string, subCategoryId?: number): void;

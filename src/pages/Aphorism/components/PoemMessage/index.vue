@@ -72,6 +72,7 @@
 <script setup lang="ts">
   import { ref } from 'vue';
   import './index.scss';
+  import './responsive.scss';
 
   type MessageType = 'success' | 'info' | 'error' | 'warning';
 

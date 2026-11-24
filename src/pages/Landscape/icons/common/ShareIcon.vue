@@ -1,5 +1,12 @@
 <template>
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" :stroke-width="strokeWidth">
+  <svg
+    viewBox="0 0 24 24"
+    :fill="filled ? 'currentColor' : 'none'"
+    stroke="currentColor"
+    :stroke-width="strokeWidth"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
     <circle cx="18" cy="5" r="3" />
     <circle cx="6" cy="12" r="3" />
     <circle cx="18" cy="19" r="3" />
@@ -9,7 +16,8 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{
-  strokeWidth?: number;
-}>();
+  defineProps<{
+    strokeWidth?: number;
+    filled?: boolean;
+  }>();
 </script>

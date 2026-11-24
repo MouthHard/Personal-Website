@@ -2,4 +2,16 @@
   height: 100vh;
   overflow-y: auto;
   padding: 0;
+
+  // 子模块之间留出明显空白：上一个模块的工具栏/卡片很容易和下一个模块的牌匾连读成一体，
+  // 这里在各自 padding 之外再补一段，把模块边界拉开
+  [data-nav-anchor]:not(:last-child) {
+    margin-bottom: 7rem;
+  }
+
+  @media (max-width: 768px) {
+    [data-nav-anchor]:not(:last-child) {
+      margin-bottom: 4rem;
+    }
+  }
 }

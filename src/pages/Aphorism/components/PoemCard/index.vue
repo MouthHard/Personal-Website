@@ -130,6 +130,7 @@
     useCoverStatus,
   } from '@/composables/aphorism/usePoemBackground';
   import './index.scss';
+  import './responsive.scss';
 
   const props = defineProps<{
     poem: Poem;

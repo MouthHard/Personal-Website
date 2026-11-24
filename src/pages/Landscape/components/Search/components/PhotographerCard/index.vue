@@ -2,34 +2,68 @@
   <div class="photographer-card">
     <div class="card-left">
       <div class="avatar-container">
-        <img :src="item.thumbnail" :alt="item.title" loading="lazy" class="avatar" />
+        <LandscapeImage
+          :src="item.thumbnail"
+          :alt="item.title"
+          loading="lazy"
+          class="avatar"
+          variant="avatar"
+        />
         <div class="avatar-ring"></div>
         <div v-if="item.verified" class="verified-badge">
           <CheckIcon :stroke-width="2.5" />
         </div>
         <div v-if="item.online" class="online-dot"></div>
       </div>
-      
+
       <div class="stats-column">
-        <div class="stat-item" :class="{ 'sort-highlighted': !isFollowersDimmed && sortMode !== 'relevance', 'sort-dimmed': isFollowersDimmed }">
+        <div
+          class="stat-item"
+          :class="{
+            'sort-highlighted': !isFollowersDimmed && sortMode !== 'relevance',
+            'sort-dimmed': isFollowersDimmed,
+          }"
+        >
           <UsersIcon :stroke-width="2" />
-          <span class="stat-value">{{ formatCount(getCounts().followers) }}</span>
+          <span class="stat-value">
+            {{ formatCount(getCounts().followers) }}
+          </span>
         </div>
-        <div class="stat-item" :class="{ 'sort-highlighted': !isWorksDimmed && sortMode !== 'relevance', 'sort-dimmed': isWorksDimmed }">
+        <div
+          class="stat-item"
+          :class="{
+            'sort-highlighted': !isWorksDimmed && sortMode !== 'relevance',
+            'sort-dimmed': isWorksDimmed,
+          }"
+        >
           <ImageIcon :stroke-width="2" />
-          <span class="stat-value">{{ formatCount(Number(item.worksCount) || 0) }}</span>
+          <span class="stat-value">
+            {{ formatCount(Number(item.worksCount) || 0) }}
+          </span>
         </div>
-        <div class="stat-item" :class="{ 'sort-highlighted': !isLikeDimmed && sortMode !== 'relevance', 'sort-dimmed': isLikeDimmed }">
+        <div
+          class="stat-item"
+          :class="{
+            'sort-highlighted': !isLikeDimmed && sortMode !== 'relevance',
+            'sort-dimmed': isLikeDimmed,
+          }"
+        >
           <ThumbUpIcon :stroke-width="2" />
           <span class="stat-value">{{ formatCount(getCounts().likes) }}</span>
         </div>
-        <div class="stat-item" :class="{ 'sort-highlighted': !isViewsDimmed && sortMode !== 'relevance', 'sort-dimmed': isViewsDimmed }">
+        <div
+          class="stat-item"
+          :class="{
+            'sort-highlighted': !isViewsDimmed && sortMode !== 'relevance',
+            'sort-dimmed': isViewsDimmed,
+          }"
+        >
           <EyeIcon :stroke-width="2" />
           <span class="stat-value">{{ formatCount(getCounts().views) }}</span>
         </div>
       </div>
     </div>
-    
+
     <div class="card-right">
       <div class="card-header">
         <div class="title-section">
@@ -41,25 +75,46 @@
           <span>摄影师</span>
         </div>
       </div>
-      
+
       <div class="card-body">
-        <p v-if="item.description" class="card-description">{{ item.description }}</p>
-        
+        <p v-if="item.description" class="card-description">
+          {{ item.description }}
+        </p>
+
         <div v-if="item.joinDate || item.location" class="info-row">
-          <div v-if="item.joinDate" class="join-date" :class="{ 'sort-highlighted': !isDateDimmed && sortMode !== 'relevance', 'sort-dimmed': isDateDimmed }">
+          <div
+            v-if="item.joinDate"
+            class="join-date"
+            :class="{
+              'sort-highlighted': !isDateDimmed && sortMode !== 'relevance',
+              'sort-dimmed': isDateDimmed,
+            }"
+          >
             <CalendarIcon :stroke-width="2" />
-            <span>{{ item.joinDate.includes('加入') ? item.joinDate : item.joinDate + ' 加入' }}</span>
+            <span>
+              {{
+                item.joinDate.includes('加入')
+                  ? item.joinDate
+                  : item.joinDate + ' 加入'
+              }}
+            </span>
           </div>
-          <span v-if="item.joinDate && item.location" class="info-divider">|</span>
+          <span v-if="item.joinDate && item.location" class="info-divider">
+            |
+          </span>
           <div v-if="item.location" class="location-info">
             <LocationIcon :stroke-width="2" />
             <span>{{ item.location }}</span>
           </div>
         </div>
       </div>
-      
+
       <div class="card-footer">
-        <button class="follow-btn" :class="{ following: isFollowing }" @click="handleFollow">
+        <button
+          class="follow-btn"
+          :class="{ following: isFollowing }"
+          @click="handleFollow"
+        >
           <UserPlusIcon :stroke-width="2" />
           <span>{{ isFollowing ? '已关注' : '关注' }}</span>
         </button>
@@ -80,80 +135,81 @@
 </template>
 
 <script setup lang="ts">
-import { computed, watch } from 'vue'
-import UserIcon from '../../../../icons/common/UserIcon.vue'
-import CheckIcon from '../../../../icons/common/CheckIcon.vue'
-import CalendarIcon from '../../../../icons/common/CalendarIcon.vue'
-import LocationIcon from '../../../../icons/common/LocationIcon.vue'
-import UsersIcon from '../../../../icons/common/UsersIcon.vue'
-import ImageIcon from '../../../../icons/common/ImageIcon.vue'
-import ThumbUpIcon from '../../../../icons/common/ThumbUpIcon.vue'
-import EyeIcon from '../../../../icons/common/EyeIcon.vue'
-import UserPlusIcon from '../../../../icons/common/UserPlusIcon.vue'
-import InstagramIcon from '../../../../icons/common/InstagramIcon.vue'
-import TwitterIcon from '../../../../icons/common/TwitterIcon.vue'
-import YoutubeIcon from '../../../../icons/common/YoutubeIcon.vue'
+  import { computed, watch } from 'vue';
+  import UserIcon from '../../../../icons/common/UserIcon.vue';
+  import CheckIcon from '../../../../icons/common/CheckIcon.vue';
+  import CalendarIcon from '../../../../icons/common/CalendarIcon.vue';
+  import LocationIcon from '../../../../icons/common/LocationIcon.vue';
+  import UsersIcon from '../../../../icons/common/UsersIcon.vue';
+  import ImageIcon from '../../../../icons/common/ImageIcon.vue';
+  import ThumbUpIcon from '../../../../icons/common/ThumbUpIcon.vue';
+  import EyeIcon from '../../../../icons/common/EyeIcon.vue';
+  import UserPlusIcon from '../../../../icons/common/UserPlusIcon.vue';
+  import InstagramIcon from '../../../../icons/common/InstagramIcon.vue';
+  import TwitterIcon from '../../../../icons/common/TwitterIcon.vue';
+  import YoutubeIcon from '../../../../icons/common/YoutubeIcon.vue';
 
-import type { SearchResultItem } from '@/utils/landscape'
-import { useInteractionStore } from '@/stores/landscape'
+  import type { SearchResultItem } from '@/utils/landscape';
+  import { useInteractionStore } from '@/stores/landscape';
 
-interface Props {
-  item: SearchResultItem
-  sortMode: string
-}
+  interface Props {
+    item: SearchResultItem;
+    sortMode: string;
+  }
 
-const props = defineProps<Props>()
+  const props = defineProps<Props>();
 
-const emit = defineEmits<{
-  follow: [id: string]
-  like: [id: string]
-}>()
+  const emit = defineEmits<{
+    follow: [id: string];
+    like: [id: string];
+  }>();
 
-const interactionStore = useInteractionStore()
-const isFollowing = computed(() => interactionStore.isFollowing(String(props.item.id)))
-const getCounts = () => interactionStore.getCount(String(props.item.id))
+  const interactionStore = useInteractionStore();
+  const isFollowing = computed(() =>
+    interactionStore.isFollowing(String(props.item.id)),
+  );
+  const getCounts = () => interactionStore.getCount(String(props.item.id));
 
-watch(
-  () => props.item.id,
-  () => {
-    interactionStore.registerCount(String(props.item.id), {
-      followers: Number(props.item.followers) || 0,
-    })
-  },
-  { immediate: true },
-)
+  watch(
+    () => props.item.id,
+    () => {
+      interactionStore.registerCount(String(props.item.id), {
+        followers: Number(props.item.followers) || 0,
+      });
+    },
+    { immediate: true },
+  );
 
-const isDateDimmed = computed(() => {
-  const mode = props.sortMode
-  return mode !== 'relevance' && mode !== 'latest'
-})
-const isFollowersDimmed = computed(() => {
-  const mode = props.sortMode
-  return mode !== 'relevance' && mode !== 'followers'
-})
-const isWorksDimmed = computed(() => {
-  const mode = props.sortMode
-  return mode !== 'relevance' && mode !== 'works'
-})
-const isLikeDimmed = computed(() => {
-  const mode = props.sortMode
-  return mode !== 'relevance' && mode !== 'likes'
-})
-const isViewsDimmed = computed(() => {
-  const mode = props.sortMode
-  return mode !== 'relevance' && mode !== 'views'
-})
+  const isDateDimmed = computed(() => {
+    const mode = props.sortMode;
+    return mode !== 'relevance' && mode !== 'latest';
+  });
+  const isFollowersDimmed = computed(() => {
+    const mode = props.sortMode;
+    return mode !== 'relevance' && mode !== 'followers';
+  });
+  const isWorksDimmed = computed(() => {
+    const mode = props.sortMode;
+    return mode !== 'relevance' && mode !== 'works';
+  });
+  const isLikeDimmed = computed(() => {
+    const mode = props.sortMode;
+    return mode !== 'relevance' && mode !== 'likes';
+  });
+  const isViewsDimmed = computed(() => {
+    const mode = props.sortMode;
+    return mode !== 'relevance' && mode !== 'views';
+  });
 
-const formatCount = (count: number) => {
-  if (count >= 10000) return (count / 10000).toFixed(1) + 'w'
-  if (count >= 1000) return (count / 1000).toFixed(1) + 'k'
-  return String(count)
-}
+  const formatCount = (count: number) => {
+    if (count >= 10000) return (count / 10000).toFixed(1) + 'w';
+    if (count >= 1000) return (count / 1000).toFixed(1) + 'k';
+    return String(count);
+  };
 
-const handleFollow = () => {
-
-  emit('follow', String(props.item.id))
-}
+  const handleFollow = () => {
+    emit('follow', String(props.item.id));
+  };
 </script>
 
 <style scoped lang="scss" src="./index.scss" />

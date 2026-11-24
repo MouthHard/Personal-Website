@@ -28,7 +28,7 @@
                         <div class="tape-reel left"></div>
                         <div class="tape-reel right"></div>
                       </div>
-                      <img
+                      <LandscapeImage
                         loading="lazy"
                         :src="item.poster"
                         class="tape-thumb"
@@ -65,7 +65,7 @@
                       ></span>
                     </div>
                     <div class="cc-frame">
-                      <img
+                      <LandscapeImage
                         :src="item.cover"
                         class="cc-thumb"
                         loading="lazy"
@@ -116,7 +116,7 @@
                 <div class="bezel-vents"></div>
                 <div class="player-container">
                   <div v-if="!hasStarted" class="video-preview">
-                    <img
+                    <LandscapeImage
                       :src="video?.poster"
                       class="preview-poster"
                       :alt="video?.title"
@@ -227,10 +227,11 @@
                 <div class="sticker-rivet rivet-br"></div>
 
                 <div class="badge-frame">
-                  <img
+                  <LandscapeImage
                     loading="lazy"
                     :src="video?.authorAvatar"
                     class="author-avatar"
+                    variant="avatar"
                   />
                   <div class="badge-glass"></div>
                 </div>
@@ -330,6 +331,7 @@
   import { formatNumber } from '@/utils/landscape/format';
   import { useRelatedRecommend } from '@/composables/landscape/useRelatedRecommend';
   import ConfirmDialog from '@/pages/Landscape/components/common/ConfirmDialog/index.vue';
+  import LandscapeImage from '../../../../../common/LandscapeImage/index.vue';
   import type { GlobalVideo } from '@/typesOfPages/landscape/data';
   import CloseIcon from '@/pages/Landscape/icons/common/CloseIcon.vue';
   import PlayIcon from '@/pages/Landscape/icons/common/PlayIcon.vue';
