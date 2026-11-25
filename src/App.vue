@@ -4,22 +4,32 @@
          之后该应用的 chunk 与 keep-alive 都在，切过去是瞬时的，改回「导航超过 400ms 才显示」的兜底策略。
          导航迟迟不完成时帘幕会保持覆盖并逐级提示，失败则就地给出重试，不会退场留白屏。 -->
     <PageChange />
-    <div class="clock-container">
-      <div ref="timeEl" class="time"></div>
-      <div ref="dateEl" class="date"></div>
-    </div>
-    <div id="curPageName">
-      {{ curPageName }}
-    </div>
 
     <ErrorBoundary>
       <div id="mainPage" ref="mainPageEl">
-        <!-- 时钟 -->
-        <div class="clock-container">
-          <div ref="hourEl" class="needle hour"></div>
-          <div ref="minuteEl" class="needle minute"></div>
-          <div ref="secondEl" class="needle second"></div>
-        </div>
+        <!-- 左侧分类 tab：与行星一一对应，悬停时对应行星暂停并高亮 -->
+        <nav class="app-tabs" aria-label="子应用分类">
+          <button
+            v-for="value in routeArr"
+            :key="value.routeId"
+            type="button"
+            class="app-tab"
+            :class="{ 'is-active': activeTabId === value.routeId }"
+            @mouseenter="activeTabId = value.routeId"
+            @mouseleave="activeTabId = ''"
+            @focus="activeTabId = value.routeId"
+            @blur="activeTabId = ''"
+            @click="jumpToRouter(value.routeName)"
+          >
+            <span class="app-tab-index">0{{ value.routeId }}</span>
+            <span
+              class="app-tab-dot"
+              :style="{ backgroundImage: `url(${value.bg})` }"
+            ></span>
+            <span class="app-tab-name">{{ value.pageName }}</span>
+          </button>
+        </nav>
+
         <!-- 轨迹星图：整层统一做 3D 透视倾斜，行星各自反向抵消保持正对镜头 -->
         <div class="trajectory">
           <div class="solar-plane">
@@ -28,10 +38,11 @@
             <template v-for="value in routeArr" :key="value.routeId">
               <p
                 class="orbit"
-                :class="`orbit-${value.routeId}`"
+                :class="[
+                  `orbit-${value.routeId}`,
+                  { 'is-highlighted': activeTabId === value.routeId },
+                ]"
                 @click="jumpToRouter(value.routeName)"
-                @mouseover="mouseOverPages(value.routeName)"
-                @mouseout="curPageName = ''"
               >
                 <span class="planet-slot">
                   <button
@@ -47,6 +58,8 @@
                 </span>
               </p>
             </template>
+            <!-- 小行星带：位于火星与木星轨道之间 -->
+            <div class="asteroid-belt" aria-hidden="true"></div>
           </div>
         </div>
       </div>
@@ -71,15 +84,14 @@
 <script setup lang="ts">
   import { onMounted, onUnmounted, ref, watch, computed } from 'vue';
   import { useRouter } from 'vue-router';
-  import { scale, formatTime, formatDate } from '@/utils/common';
   import type { RouteItem } from '@/typesOfPages/common';
   import { ErrorBoundary } from '@/components/common/ErrorBoundary';
   import PageChange from '@/components/common/PageChange/index.vue';
   import { preloadPageChangeImages } from '@/components/common/PageChange/preload';
 
   const router = useRouter();
-  const curPageName = ref<string>('');
-  const timer = ref<number>();
+  /** 当前高亮的分类 id：由左侧 tab 悬停或键盘聚焦驱动 */
+  const activeTabId = ref<string>('');
 
   const keepAliveNames = computed(() =>
     router
@@ -91,11 +103,6 @@
   // DOM 引用
   const mainPageEl = ref<HTMLElement>();
   const tabContainer = ref<HTMLElement>();
-  const hourEl = ref<HTMLElement>();
-  const minuteEl = ref<HTMLElement>();
-  const secondEl = ref<HTMLElement>();
-  const timeEl = ref<HTMLElement>();
-  const dateEl = ref<HTMLElement>();
 
   const routeArr: RouteItem[] = [
     {
@@ -146,13 +153,6 @@
     router.push(route);
   };
 
-  const mouseOverPages = (add: string): void => {
-    const obj = routeArr.find((value) => value.routeName === add);
-    if (obj) {
-      curPageName.value = obj.pageName;
-    }
-  };
-
   // 监听路由变化
   watch(
     () => router.currentRoute.value.path,
@@ -190,78 +190,12 @@
       }
     }
 
-    // 时钟
-    let lastSecond = -1;
-
-    function setTime(): void {
-      const time = new Date();
-      const seconds = time.getSeconds();
-
-      if (seconds !== lastSecond) {
-        lastSecond = seconds;
-        const hours = time.getHours();
-        const minutes = time.getMinutes();
-
-        if (hourEl.value) {
-          hourEl.value.style.transform = `translate(-50%, -100%) rotate(${scale(
-            hours,
-            0,
-            12,
-            0,
-            360,
-          )}deg)`;
-        }
-
-        if (minuteEl.value) {
-          minuteEl.value.style.transform = `translate(-50%, -100%) rotate(${scale(
-            minutes,
-            0,
-            60,
-            0,
-            360,
-          )}deg)`;
-        }
-
-        if (secondEl.value) {
-          secondEl.value.style.transform = `translate(-50%, -100%) rotate(${scale(
-            seconds,
-            0,
-            60,
-            0,
-            360,
-          )}deg)`;
-        }
-
-        if (timeEl.value) {
-          timeEl.value.innerHTML = formatTime(time);
-        }
-
-        if (dateEl.value) {
-          dateEl.value.innerHTML = formatDate(time);
-        }
-      }
-    }
-
-    function tick(): void {
-      if (!document.hidden) {
-        setTime();
-      }
-      timer.value = window.requestAnimationFrame(tick) as unknown as number;
-    }
-
-    setTime();
-    timer.value = window.requestAnimationFrame(tick) as unknown as number;
-
     // 首屏渲染后空闲时预加载页面切换过渡图，缓存命中后切换瞬间展示
     preloadPageChangeImages();
   });
 
   onUnmounted(() => {
     window.removeEventListener('mousemove', handlePointerMove);
-    if (timer.value) {
-      window.cancelAnimationFrame(timer.value);
-      timer.value = undefined;
-    }
   });
 </script>
 <style scoped lang="scss" src="@/assets/css/SolarSystem.scss" />

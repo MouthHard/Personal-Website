@@ -130,15 +130,17 @@
 
   /* 太阳系所在平面：统一倾斜，行星各自反向抵消，保持正对镜头 */
   .solar-plane {
-    /* 倾斜角随鼠标纵向位置微调；该变量会被行星与太阳的反向变换共用 */
-    --tilt: calc(62deg + var(--py) * 5deg);
+    /* 倾角与滚转角随鼠标位置微动；这两个变量会被行星与太阳的反向变换共用 */
+    --tilt: calc(56deg + var(--py) * 5deg);
+    --roll: -9deg;
 
     position: relative;
-    width: 55vmin;
-    height: 55vmin;
+    width: 66vmin;
+    height: 66vmin;
     border-radius: 50%;
     transform-style: preserve-3d;
-    transform: rotateX(var(--tilt)) rotateY(calc(var(--px) * 7deg));
+    transform: rotateZ(var(--roll)) rotateX(var(--tilt))
+      rotateY(calc(var(--px) * 7deg));
     transition: transform 0.35s ease-out;
     will-change: transform;
 
@@ -220,6 +222,21 @@
     pointer-events: auto;
     animation: planet-counter var(--orbit-duration) linear infinite;
     animation-delay: var(--orbit-delay);
+
+    /* 高亮光环：仅当左侧 tab 悬停/聚焦对应项时出现 */
+    &::after {
+      content: '';
+      position: absolute;
+      inset: -28%;
+      border-radius: 50%;
+      border: 1px solid rgba(150, 210, 255, 0.55);
+      opacity: 0;
+      transform: scale(0.7);
+      transition:
+        opacity 0.35s ease,
+        transform 0.35s ease;
+      pointer-events: none;
+    }
   }
 
   .planet-btn {
@@ -246,14 +263,19 @@
       pointer-events: none;
       background:
         radial-gradient(
-          circle at 32% 28%,
-          rgba(255, 255, 255, 0.3) 0%,
-          transparent 42%
+          circle at 30% 26%,
+          rgba(255, 255, 255, 0.42) 0%,
+          transparent 30%
         ),
         radial-gradient(
-          circle at 72% 76%,
-          rgba(0, 0, 0, 0.62) 0%,
+          circle at 72% 78%,
+          rgba(0, 0, 0, 0.7) 0%,
           transparent 68%
+        ),
+        radial-gradient(
+          circle at 82% 88%,
+          rgba(120, 170, 255, 0.18) 0%,
+          transparent 44%
         );
       box-shadow:
         inset -0.28vmin -0.28vmin 0.7vmin rgba(0, 0, 0, 0.8),
@@ -282,6 +304,28 @@
     box-shadow: 0 0 2vmin rgba(150, 210, 255, 0.6);
   }
 
+  /* 左侧分类 tab 悬停：对应行星停止公转/自转并亮起 */
+  .orbit.is-highlighted {
+    border-color: rgba(150, 205, 255, 0.5);
+    box-shadow: 0 0 2vmin rgba(110, 180, 255, 0.22);
+    animation-play-state: paused;
+
+    .planet-slot,
+    .planet-surface {
+      animation-play-state: paused;
+    }
+
+    .planet-btn {
+      transform: scale(1.42);
+      box-shadow: 0 0 2.4vmin rgba(150, 210, 255, 0.75);
+    }
+
+    .planet-slot::after {
+      opacity: 1;
+      animation: planet-ping 2s ease-out infinite;
+    }
+  }
+
   /* 土星环：挂在行星槽上，不受纹理自转影响 */
   .orbit-6 .planet-slot::before {
     content: '';
@@ -308,9 +352,9 @@
     background-size: 100% 100%;
     background-position: center;
 
-    /* 反向抵消平面倾斜与鼠标视差，让日面正对镜头 */
+    /* 反向抵消平面倾斜、滚转与鼠标视差，让日面正对镜头 */
     transform: translate(-50%, -50%) rotateY(calc(var(--px) * -7deg))
-      rotateX(calc(var(--tilt) * -1));
+      rotateX(calc(var(--tilt) * -1)) rotateZ(calc(var(--roll) * -1));
     transition: transform 0.35s ease-out;
     box-shadow:
       0 0 1.2vmin 0.2vmin rgba(255, 232, 180, 0.9),
@@ -318,159 +362,210 @@
       0 0 9vmin 3vmin rgba(255, 112, 20, 0.18);
   }
 
+  /* 小行星带：火星与木星轨道之间的碎屑环，用点状描边模拟密集碎石 */
+  .asteroid-belt {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 45.75vmin;
+    height: 45.75vmin;
+    border-radius: 50%;
+    border: 0.32vmin dotted rgba(214, 200, 172, 0.4);
+    box-shadow: 0 0 1.5vmin rgba(214, 200, 172, 0.06);
+    pointer-events: none;
+    animation: rotate 720s linear infinite;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      border: 0.2vmin dotted rgba(190, 176, 150, 0.26);
+    }
+
+    &::before {
+      inset: -1.4vmin;
+    }
+
+    &::after {
+      inset: 1.2vmin;
+    }
+  }
+
   /* 公转圈序号：尺寸 / 行星大小 / 公转周期 / 自转周期 */
   .orbit-1 {
-    --orbit-size: 14vmin;
-    --planet-size: 2.2vmin;
+    --orbit-size: 16vmin;
+    --planet-size: 2.4vmin;
     --orbit-duration: 3s;
     --orbit-delay: -0.36s;
     --spin-duration: 40s;
   }
 
   .orbit-2 {
-    --orbit-size: 20vmin;
-    --planet-size: 2.4vmin;
+    --orbit-size: 24.5vmin;
+    --planet-size: 2.8vmin;
     --orbit-duration: 7.2s;
     --orbit-delay: -2.52s;
     --spin-duration: 52s;
   }
 
   .orbit-3 {
-    --orbit-size: 26vmin;
-    --planet-size: 3.2vmin;
+    --orbit-size: 33vmin;
+    --planet-size: 3.4vmin;
     --orbit-duration: 12s;
     --orbit-delay: -6.96s;
     --spin-duration: 30s;
   }
 
   .orbit-4 {
-    --orbit-size: 33vmin;
-    --planet-size: 2.8vmin;
+    --orbit-size: 41.5vmin;
+    --planet-size: 3vmin;
     --orbit-duration: 24s;
     --orbit-delay: -19.2s;
     --spin-duration: 34s;
   }
 
   .orbit-5 {
-    --orbit-size: 40vmin;
-    --planet-size: 4.8vmin;
+    --orbit-size: 50vmin;
+    --planet-size: 5vmin;
     --orbit-duration: 144s;
     --orbit-delay: -36s;
     --spin-duration: 18s;
   }
 
   .orbit-6 {
-    --orbit-size: 47vmin;
-    --planet-size: 4.4vmin;
+    --orbit-size: 58vmin;
+    --planet-size: 4.6vmin;
     --orbit-duration: 360s;
     --orbit-delay: -234s;
     --spin-duration: 22s;
   }
 
   .orbit-7 {
-    --orbit-size: 55vmin;
-    --planet-size: 3.6vmin;
+    --orbit-size: 66vmin;
+    --planet-size: 3.8vmin;
     --orbit-duration: 1008s;
     --orbit-delay: -453.6s;
     --spin-duration: 26s;
   }
 }
 
-// 时钟
-.clock-container {
+/* 左侧分类 tab：玻璃感胶囊列表，与行星一一对应 */
+.app-tabs {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  left: clamp(1.2rem, 3.5vw, 3.5rem);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  z-index: -5;
-  pointer-events: none;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.55rem;
+  border: 1px solid rgba(120, 170, 255, 0.12);
+  border-radius: 1.5rem;
+  background: linear-gradient(
+    180deg,
+    rgba(12, 22, 42, 0.5),
+    rgba(6, 10, 20, 0.42)
+  );
+  box-shadow:
+    0 0 2.4vmin rgba(0, 0, 0, 0.35),
+    inset 0 0 1.6vmin rgba(90, 150, 255, 0.06);
+  backdrop-filter: blur(8px);
 
-  .needle {
-    background-image: linear-gradient(to bottom, #519bdc, #fff);
-    box-shadow: 0 0 1rem 5px rgb(42, 187, 244);
-    position: absolute;
-    z-index: -5;
-    top: 50%;
-    left: 50%;
-    width: 1px;
-    transform-origin: bottom center;
-    transition: all 0.5s ease-in;
-  }
+  .app-tab {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    width: 100%;
+    padding: 0.5rem 0.95rem 0.5rem 0.6rem;
+    border: 1px solid transparent;
+    border-radius: 1.1rem;
+    background: transparent;
+    color: rgba(206, 222, 255, 0.6);
+    font-family: inherit;
+    font-size: 0.95rem;
+    letter-spacing: 0.14em;
+    text-align: left;
+    cursor: pointer;
+    transition:
+      color 0.3s ease,
+      background 0.3s ease,
+      border-color 0.3s ease,
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
 
-  .needle.hour {
-    transform: translate(-50%, -100%) rotate(0deg);
-    height: 60px;
-  }
-
-  .needle.minute {
-    transform: translate(-50%, -100%) rotate(0deg);
-    height: 90px;
-    background-image: linear-gradient(to top, #0084ff, #fff, #ff0303);
-    box-shadow: 0 0 1rem 5px rgb(255, 0, 0);
-  }
-
-  .needle.second {
-    transform: translate(-50%, -100%) rotate(0deg);
-    height: 120px;
-    background-image: linear-gradient(to top, #000, #fff);
-    box-shadow: 0 0 1rem 5px rgba(255, 255, 255, 1);
-  }
-
-  .time {
-    font-size: 3.5rem;
-    font-weight: bolder;
-    position: absolute;
-    color: #000;
-    top: 0%;
-    left: 40%;
-    animation: changeColor 5s linear infinite;
-  }
-
-  .date {
-    position: absolute;
-    top: 10%;
-    left: 40%;
-    color: #000;
-    font-size: 1.5rem;
-    font-weight: bolder;
-    letter-spacing: 0.3px;
-    animation: changeColor 5s linear infinite;
-  }
-
-  @keyframes changeColor {
-    0% {
-      color: #000;
-    }
-
-    40% {
-      color: #191919;
-    }
-
-    50% {
+    &:hover,
+    &:focus-visible {
       color: #fff;
+      background: linear-gradient(
+        90deg,
+        rgba(74, 132, 214, 0.24),
+        rgba(74, 132, 214, 0.02)
+      );
+      border-color: rgba(140, 200, 255, 0.3);
+      transform: translateX(3px);
+      box-shadow: 0 0 1.4vmin rgba(90, 160, 255, 0.22);
+      outline: none;
+    }
+
+    .app-tab-index {
+      width: 1.1rem;
+      font-size: 0.62rem;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 0;
+      opacity: 0.5;
+    }
+
+    .app-tab-dot {
+      flex: none;
+      width: 0.95rem;
+      height: 0.95rem;
+      border-radius: 50%;
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 0 0.5rem rgba(120, 190, 255, 0.35);
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    .app-tab-name {
+      flex: 1;
+      white-space: nowrap;
+    }
+
+    &.is-active .app-tab-dot {
+      transform: scale(1.18);
+      box-shadow: 0 0 0.9rem rgba(150, 210, 255, 0.75);
     }
   }
 }
 
-#curPageName {
-  position: absolute;
-  height: 98%;
-  display: flex;
-  flex-direction: column;
-  top: 5%;
-  left: 5%;
-  width: 5rem;
-  color: #fff;
-  font-size: 5rem;
-  white-space: pre-wrap;
-  font-weight: bolder;
-  font-family: LiSu, serif;
-  transition: 0.5s;
-  z-index: 1;
-  pointer-events: none;
+@media (max-width: 760px) {
+  .app-tabs {
+    left: 50%;
+    top: auto;
+    bottom: 1.2rem;
+    transform: translateX(-50%);
+    flex-flow: row wrap;
+    justify-content: center;
+    max-width: calc(100vw - 1.6rem);
+    gap: 0.2rem;
+    padding: 0.4rem;
+
+    .app-tab {
+      width: auto;
+      padding: 0.4rem 0.65rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+
+      .app-tab-index {
+        display: none;
+      }
+    }
+  }
 }
 
 // 轨道公转
@@ -484,16 +579,29 @@
   }
 }
 
-// 行星反向抵消：抵消公转角度、平面倾斜与鼠标视差
+// 行星反向抵消：抵消公转角度、平面倾斜、滚转与鼠标视差
 @keyframes planet-counter {
   0% {
     transform: rotateZ(0deg) rotateY(calc(var(--px) * -7deg))
-      rotateX(calc(var(--tilt) * -1));
+      rotateX(calc(var(--tilt) * -1)) rotateZ(calc(var(--roll) * -1));
   }
 
   100% {
     transform: rotateZ(-360deg) rotateY(calc(var(--px) * -7deg))
-      rotateX(calc(var(--tilt) * -1));
+      rotateX(calc(var(--tilt) * -1)) rotateZ(calc(var(--roll) * -1));
+  }
+}
+
+// 高亮光环扩散
+@keyframes planet-ping {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.9;
+  }
+
+  100% {
+    transform: scale(1.7);
+    opacity: 0;
   }
 }
 
