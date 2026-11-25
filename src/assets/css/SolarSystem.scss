@@ -515,7 +515,8 @@
     --angle: 32deg;
     --x: 0%;
     --y: 2%;
-    --len: 15vmin;
+    --len: 32vmin;
+    --thick: 2px;
     --travel: 145vmax;
     --alpha: 0.95;
     --dur: 9s;
@@ -526,7 +527,8 @@
     --angle: 63deg;
     --x: 36%;
     --y: -6%;
-    --len: 9vmin;
+    --len: 10vmin;
+    --thick: 1px;
     --travel: 135vmax;
     --alpha: 0.7;
     --dur: 13s;
@@ -537,10 +539,10 @@
     --angle: 126deg;
     --x: 76%;
     --y: 0%;
-    --len: 18vmin;
+    --len: 35vmin;
+    --thick: 3px;
     --travel: 140vmax;
     --alpha: 1;
-    --thick: 1.5px;
     --dur: 10.5s;
     --delay: 6.4s;
   }
@@ -549,7 +551,8 @@
     --angle: 148deg;
     --x: 98%;
     --y: 18%;
-    --len: 6vmin;
+    --len: 9vmin;
+    --thick: 1.5px;
     --travel: 130vmax;
     --alpha: 0.55;
     --dur: 15s;
@@ -560,7 +563,8 @@
     --angle: 21deg;
     --x: -8%;
     --y: 30%;
-    --len: 12vmin;
+    --len: 18vmin;
+    --thick: 2.5px;
     --travel: 140vmax;
     --alpha: 0.85;
     --dur: 11.5s;
@@ -571,10 +575,10 @@
     --angle: 74deg;
     --x: 56%;
     --y: -10%;
-    --len: 21vmin;
+    --len: 30vmin;
+    --thick: 2px;
     --travel: 150vmax;
     --alpha: 0.75;
-    --thick: 1.5px;
     --dur: 14s;
     --delay: 5.2s;
   }
@@ -583,7 +587,8 @@
     --angle: 108deg;
     --x: 68%;
     --y: -4%;
-    --len: 8vmin;
+    --len: 11vmin;
+    --thick: 1px;
     --travel: 135vmax;
     --alpha: 0.9;
     --dur: 8.5s;
@@ -594,7 +599,8 @@
     --angle: 47deg;
     --x: 20%;
     --y: 8%;
-    --len: 5vmin;
+    --len: 8vmin;
+    --thick: 1.5px;
     --travel: 130vmax;
     --alpha: 0.5;
     --dur: 16s;
@@ -605,7 +611,8 @@
     --angle: 92deg;
     --x: 88%;
     --y: -8%;
-    --len: 14vmin;
+    --len: 24vmin;
+    --thick: 2.5px;
     --travel: 145vmax;
     --alpha: 0.8;
     --dur: 17s;
@@ -616,7 +623,8 @@
     --angle: 165deg;
     --x: 102%;
     --y: 40%;
-    --len: 10vmin;
+    --len: 15vmin;
+    --thick: 1px;
     --travel: 140vmax;
     --alpha: 0.65;
     --dur: 19s;
