@@ -1,5 +1,10 @@
 一个随心的个人博客，平时想写点什么都往里面塞： 诗词、历史、博物馆、风景、音乐、游戏、旅游，七块内容，各有一个小天地。
 
+## 在线访问
+
+- 主站（腾讯云 EdgeOne Pages，国内加速）：https://site.jinfengyulu.cn
+- 备用站（GitHub Pages）：https://mouthhard.github.io/Personal-Website/
+
 内容模块
 📜 诗词 —— 分类浏览、搜索、阅读，附带一个学习小屋
 🏛️ 博物馆 —— 从中国地图出发，逛文物、展览、文创、新闻

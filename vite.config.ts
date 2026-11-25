@@ -45,6 +45,15 @@ export default defineConfig(({ mode }) => {
      */
     base: env.VITE_BASE || '/Personal-Website/',
 
+    /**
+     * 构建版本号：每次构建写入唯一时间戳。
+     * static-data 的 JSON 会被 CDN 长缓存（max-age=31536000），
+     * 带上该版本号后，每次发布都会自动绕过旧缓存。
+     */
+    define: {
+      __BUILD_TIME__: JSON.stringify(String(Date.now())),
+    },
+
     plugins: [
       vue(),
       /** 项目自有组件自动注册（Landscape/common 下的公共组件） */

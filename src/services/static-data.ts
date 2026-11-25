@@ -7,6 +7,12 @@
 
 const DATA_BASE = `${import.meta.env.BASE_URL}static-data`;
 
+/**
+ * 构建版本号（vite define 注入）。
+ * JSON 在 CDN 上是长缓存，带上版本号可保证每次发布后取到最新数据。
+ */
+const BUILD_VERSION = typeof __BUILD_TIME__ === 'string' ? __BUILD_TIME__ : '0';
+
 const cache = new Map<string, Promise<unknown>>();
 
 export function loadJSON<T = unknown>(filename: string): Promise<T> {
@@ -14,7 +20,9 @@ export function loadJSON<T = unknown>(filename: string): Promise<T> {
   if (cache.has(cacheKey)) {
     return cache.get(cacheKey)! as Promise<T>;
   }
-  const promise: Promise<unknown> = fetch(`${DATA_BASE}/${filename}`)
+  const promise: Promise<unknown> = fetch(
+    `${DATA_BASE}/${filename}?v=${BUILD_VERSION}`,
+  )
     .then((resp) => {
       if (!resp.ok) {
         throw new Error(`Failed to load ${filename}: ${resp.status}`);
