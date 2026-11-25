@@ -1,0 +1,1 @@
+import{c as r}from"./index-Boc7j78o.js";const a=r({id:"landscape",radius:10,duration:3e3,minWidth:280,maxWidth:440,background:"rgba(16, 32, 28, 0.92)",colors:{success:"74, 222, 128",info:"125, 211, 252",error:"248, 113, 113",warning:"251, 191, 36"}});export{a as l};
