@@ -21,11 +21,14 @@
             @blur="activeTabId = ''"
             @click="jumpToRouter(value.routeName)"
           >
+            <span class="app-tab-beam" aria-hidden="true"></span>
             <span class="app-tab-index">0{{ value.routeId }}</span>
             <span
               class="app-tab-dot"
               :style="{ backgroundImage: `url(${value.bg})` }"
-            ></span>
+            >
+              <span class="app-tab-sat" aria-hidden="true"></span>
+            </span>
             <span class="app-tab-name">{{ value.pageName }}</span>
           </button>
         </nav>
