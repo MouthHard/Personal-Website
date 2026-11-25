@@ -1,8 +1,10 @@
 # GitHub 项目上传规范
 
-> PersonalWebsite（Vue 3 + Vite + TypeScript，GitHub Pages 托管）
+> PersonalWebsite（Vue 3 + Vite + TypeScript）
 > 仓库：https://github.com/MouthHard/Personal-Website.git
-> 源码分支：`feat/update-site` ｜ 部署分支：`gh-pages`（构建产物，不要手动改动）
+> 源码分支：`feat/update-site` → 合并到 `master`
+> **主站**：腾讯云 EdgeOne Pages（监听 `master`，推送后自动构建）https://site.jinfengyulu.cn
+> **备用站**：GitHub Pages，`gh-pages` 分支（构建产物，不要手动改动）
 >
 > **⚠️ 每次执行之前都要检查大厂、热门、github上的项目的上传规范和项目规范，并依次来迭代我的上传文档md**
 >
@@ -59,7 +61,7 @@ pages/ExamplePage/
 | `index.html` | Vite 入口模板 | ✅ |
 | `package.json` | 依赖与脚本 | ✅ |
 | `package-lock.json` | 依赖版本锁定 | ✅ |
-| `vite.config.ts` | 构建配置（含 `base: "/Personal-Website/"`） | ✅ |
+| `vite.config.ts` | 构建配置（`base` 由 `VITE_BASE` 控制，缺省 `/Personal-Website/`） | ✅ |
 | `tsconfig.json` | TypeScript 配置 | ✅ |
 | `tsconfig.node.json` | Node 环境 TS 配置 | ✅ |
 | `.gitignore` | Git 忽略规则 | ✅ |
@@ -219,9 +221,10 @@ npx vue-tsc --noEmit && echo "✓ 类型检查 0 错误"
 
 ## 三、标准操作流程
 
-### 日常更新与推送（含 GitHub Pages 部署）
+### 日常更新与推送（主站：EdgeOne Pages 自动构建）
 
-> 每次推送到 `feat/update-site` 后，必须紧接着构建并部署到 `gh-pages` 分支，确保线上站点同步更新。
+> 主站由 EdgeOne Pages 监听 `master` 自动构建，代码合入 `master` 后无需任何本地构建命令。
+> `gh-pages` 备用站默认不再随每次提交同步，仅在需要更新备用站时执行文末「备用站部署」。
 
 ```bash
 # ── 提交前准备 ──
@@ -243,15 +246,31 @@ git fetch origin                          # 7. 拉取远程引用
 git merge origin/feat/update-site         # 8. 整合远程提交（Windows 禁用 rebase）
 git push origin feat/update-site          # 9. 推送源码
 
-# ── 构建并部署到 GitHub Pages ──
-npx vue-tsc --noEmit                      # 10. 类型检查（应为 0 错误）
-npx vite build --mode gh-pages            # 11. 构建产物到 dist/（不生成 stats.html）
-rm -f dist/stats.html                     # 12. 防御性清理：stats.html 不是站点资源
-npx gh-pages -d dist --nojekyll -b gh-pages -m "deploy: 更新站点" \
-  -r https://github.com/MouthHard/Personal-Website.git   # 13. 部署到 gh-pages
+# ── 发布到主站 ──
+# 10. 在 GitHub 上开 PR：feat/update-site → master，合并后 EdgeOne Pages 自动构建并上线
+# 11. 构建完成后访问 https://site.jinfengyulu.cn 验收（资源路径应为 /assets/...）
 ```
 
-部署成功后访问：https://mouthhard.github.io/Personal-Website/
+主站访问：https://site.jinfengyulu.cn
+
+> **EdgeOne 项目配置（不要改）**：
+> - 生产分支：`master`｜框架预设：Vite｜根目录：`/`｜输出目录：`dist`｜构建命令：`npm run build`｜安装命令：`npm install`
+> - 环境变量：`VITE_BASE=/`（根路径部署，缺省会退化成 `/Personal-Website/` 导致全站 404）、`NODE_VERSION=22`（Vite 7 要求 Node ≥ 20.19 / 22.12）
+> - `static-data/*.json` 在 CDN 上是一年期缓存，靠 `vite define` 注入的 `__BUILD_TIME__` 版本号自动绕过，**不要手工给 JSON 路径改参数**
+
+### 备用站部署（gh-pages，可选）
+
+> 仅在需要更新 GitHub Pages 备用站时执行；主站已由 EdgeOne 自动发布，不依赖这一步。
+
+```bash
+npx vue-tsc --noEmit                      # 1. 类型检查（应为 0 错误）
+npx vite build --mode gh-pages            # 2. 构建产物到 dist/（不生成 stats.html，base 缺省 /Personal-Website/）
+rm -f dist/stats.html                     # 3. 防御性清理：stats.html 不是站点资源
+npx gh-pages -d dist --nojekyll -b gh-pages -m "deploy: 更新站点" \
+  -r https://github.com/MouthHard/Personal-Website.git   # 4. 部署到 gh-pages（禁用 -a）
+```
+
+备用站访问：https://mouthhard.github.io/Personal-Website/
 
 > **注意**：
 > - PowerShell 下构建必须用 `npx vite build --mode gh-pages`，不要走 `npm run build -- --mode gh-pages`（参数解析会失败）。`npm run build`（production）会生成 2MB 的 `dist/stats.html`，故部署走 gh-pages 模式。
@@ -427,14 +446,15 @@ git commit -m "chore: 移除临时目录的git跟踪"
 2. **提交前必暂存**：`git add -A` 暂存全部改动后再 `git commit`，避免 lint-staged stash 陷阱
 3. **提交后必验证**：`git stash list`（数量=提交前基线、无新增 backup）+ `git diff HEAD`（无输出），确保改动未丢失
 4. **推送前必拉**：先 `git fetch` 再 `git merge`（Windows 禁用 rebase）
-5. **推送后必部署**：源码推送到 `feat/update-site` 后，必须执行 `npx vite build --mode gh-pages` 构建 + `npx gh-pages -d dist --nojekyll` 部署到 `gh-pages` 分支，确保线上站点同步
+5. **发布方式**：主站走 EdgeOne Pages——推送到 `feat/update-site` 并合并进 `master` 即自动构建上线，本地不需要构建；`gh-pages` 仅在需要同步备用站时手动部署
 6. **禁止强推**：不使用 `--force`，保留完整历史
-7. **构建命令**：统一用 `npx vite build --mode gh-pages`；构建前类型检查须 0 错误（当前已达成）
+7. **构建命令**：本地校验用 `npx vite build --mode gh-pages`；EdgeOne 侧固定 `npm run build`，类型检查须 0 错误（当前已达成）
 8. **产物分离**：`dist/` 只推 `gh-pages` 分支，不提交源码分支；`dist/stats.html` 不发布
 9. **禁止 `--add`**：部署一律不加 `-a`，否则旧文件永久残留
 10. **网络波动**：确认无代理后重试，不调整全局代理配置
 11. **禁止跳过钩子**：不用 `--no-verify`，除非确认是 stash 中代码本身的历史 lint 问题
 12. **路径大小写唯一**：新增目录/文件前确认仓库内没有仅大小写不同的同名路径（见四、排障指南）
+13. **EdgeOne 配置不可动**：`VITE_BASE=/` 与 `NODE_VERSION=22` 两个环境变量必须保留，生产分支必须为 `master`；改动会导致全站 404 或构建失败
 
 ---
 
@@ -495,9 +515,9 @@ git restore <文件>                         # 丢弃改动
 git restore --staged .                    # 取消暂存
 git fetch origin                          # 拉取远程引用
 git merge origin/feat/update-site         # 整合远程提交
-git push origin feat/update-site          # 推送源码
-npx vite build --mode gh-pages            # 构建部署产物
-rm -f dist/stats.html                     # 清掉包体积报告，别发布
+git push origin feat/update-site          # 推送源码（合并进 master 后 EdgeOne 自动构建主站）
+npx vite build --mode gh-pages            # 【备用站】构建产物
+rm -f dist/stats.html                     # 【备用站】清掉包体积报告，别发布
 npx gh-pages -d dist --nojekyll -b gh-pages -m "deploy: 更新站点" \
-  -r https://github.com/MouthHard/Personal-Website.git   # 部署（禁用 -a）
+  -r https://github.com/MouthHard/Personal-Website.git   # 【备用站】部署（禁用 -a）
 ```
