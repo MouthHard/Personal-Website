@@ -55,12 +55,23 @@
                       :style="{ backgroundImage: `url(${value.bg})` }"
                     ></span>
                   </button>
+                  <span
+                    v-if="value.routeId === '3' || value.routeId === '5'"
+                    class="planet-moon"
+                    aria-hidden="true"
+                  ></span>
                 </span>
               </p>
             </template>
             <!-- 小行星带：位于火星与木星轨道之间 -->
             <div class="asteroid-belt" aria-hidden="true"></div>
           </div>
+        </div>
+
+        <!-- 背景流星：低频掠过，给深空增加动静对比 -->
+        <div class="meteors" aria-hidden="true">
+          <span class="meteor meteor-a"></span>
+          <span class="meteor meteor-b"></span>
         </div>
       </div>
 
