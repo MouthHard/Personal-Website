@@ -1,1 +1,0 @@
-import{d as o,o as s,c as t,a as e}from"./vue-vendor-DsrRF8lR.js";const r=["stroke-width"],a=o({__name:"CloseIcon",props:{strokeWidth:{}},setup:o=>(a,n)=>(s(),t("svg",{viewBox:"0 0 24 24",fill:"none",stroke:"currentColor","stroke-width":o.strokeWidth},[...n[0]||(n[0]=[e("path",{d:"M18 6 6 18M6 6l12 12"},null,-1)])],8,r))});export{a as _};
