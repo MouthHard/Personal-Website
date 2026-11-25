@@ -21,11 +21,14 @@
             @blur="activeTabId = ''"
             @click="jumpToRouter(value.routeName)"
           >
+            <span class="app-tab-beam" aria-hidden="true"></span>
             <span class="app-tab-index">0{{ value.routeId }}</span>
             <span
               class="app-tab-dot"
               :style="{ backgroundImage: `url(${value.bg})` }"
-            ></span>
+            >
+              <span class="app-tab-sat" aria-hidden="true"></span>
+            </span>
             <span class="app-tab-name">{{ value.pageName }}</span>
           </button>
         </nav>
@@ -44,6 +47,30 @@
                 ]"
                 @click="jumpToRouter(value.routeName)"
               >
+                <!-- 轨道弧光：高亮时沿轨道环流动的光带 -->
+                <span
+                  class="orbit-arc orbit-arc--head"
+                  aria-hidden="true"
+                ></span>
+                <span
+                  class="orbit-arc orbit-arc--trail"
+                  aria-hidden="true"
+                ></span>
+                <!-- 轨道命中层：只有圆环本身可交互，整块圆面仍然透明 -->
+                <svg
+                  class="orbit-hit"
+                  viewBox="-10 -10 120 120"
+                  aria-hidden="true"
+                >
+                  <circle
+                    class="orbit-ring"
+                    cx="50"
+                    cy="50"
+                    r="60"
+                    @mouseenter="activeTabId = value.routeId"
+                    @mouseleave="activeTabId = ''"
+                  />
+                </svg>
                 <span class="planet-slot">
                   <button
                     type="button"
@@ -68,10 +95,14 @@
           </div>
         </div>
 
-        <!-- 背景流星：低频掠过，给深空增加动静对比 -->
+        <!-- 背景流星雨：每颗的划痕朝向与飞行方向一致，长短明暗各不相同 -->
         <div class="meteors" aria-hidden="true">
-          <span class="meteor meteor-a"></span>
-          <span class="meteor meteor-b"></span>
+          <span
+            v-for="n in 10"
+            :key="n"
+            class="meteor"
+            :class="`meteor-${n}`"
+          ></span>
         </div>
       </div>
 
