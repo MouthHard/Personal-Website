@@ -15,9 +15,9 @@
  *
  * 2. 代码分割（manualChunks）— 生产环境优化
  *    将大的第三方库拆分成独立文件，浏览器可以并行下载和缓存
- *    - element-plus → UI 组件库单独一个包
  *    - echarts → 图表库单独一个包
  *    - vue/vue-router/pinia → Vue 核心单独一个包
+ *    （消息弹窗已改为各页面零依赖定制实现，不再引入 element-plus）
  *
  * 3. Terser 压缩 — 生产环境移除 console.log
  *    避免生产环境泄露调试信息
@@ -28,9 +28,7 @@
 import { defineConfig, loadEnv } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import { fileURLToPath, URL } from 'node:url';
-import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 import { visualizer } from 'rollup-plugin-visualizer';
 
 export default defineConfig(({ mode }) => {
@@ -44,14 +42,9 @@ export default defineConfig(({ mode }) => {
 
     plugins: [
       vue(),
-      /** Element Plus 自动导入：不用手动 import 组件，模板中直接用即可 */
-      AutoImport({
-        resolvers: [ElementPlusResolver()],
-        dts: 'types/auto-imports.d.ts',
-      }),
+      /** 项目自有组件自动注册（Landscape/common 下的公共组件） */
       Components({
         dirs: ['src/pages/Landscape/components/common'],
-        resolvers: [ElementPlusResolver()],
         dts: 'types/components.d.ts',
       }),
       /** 包体积可视化分析（仅生产构建时生成） */
@@ -107,16 +100,15 @@ export default defineConfig(({ mode }) => {
            * 2. 库代码很少变动，可以长期缓存（业务代码更新时不用重新下载库）
            *
            * 分包结果：
-           * - element-plus.[hash].js → Element Plus 组件库
            * - echarts.[hash].js → ECharts 图表库
            * - vue-vendor.[hash].js → Vue + Vue Router + Pinia
            * - [name].[hash].js → 业务代码
+           *
+           * 注意：不再对 element-plus 单独分包——项目已移除该依赖，
+           * 消息弹窗改为各页面自带的零依赖定制实现。
            */
           manualChunks(id) {
             if (id.includes('node_modules')) {
-              if (id.includes('element-plus')) {
-                return 'element-plus';
-              }
               if (id.includes('echarts')) {
                 return 'echarts';
               }

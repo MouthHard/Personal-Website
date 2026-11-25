@@ -65,20 +65,11 @@
             <div class="form-row">
               <div class="form-field">
                 <label class="field-label">所在位置</label>
-                <ElCascader
+                <RegionCascader
                   v-model="locationValue"
                   :options="chinaRegions"
-                  :props="{
-                    expandTrigger: 'hover',
-                    checkStrictly: false,
-                    emitPath: true,
-                    value: 'value',
-                    label: 'label',
-                    children: 'children',
-                  }"
                   placeholder="选择省/市/区"
                   class="field-input location-cascader"
-                  popper-class="dark-cascader-popper"
                   clearable
                   @change="handleLocationChange"
                 />
@@ -336,18 +327,22 @@
         </button>
       </div>
     </div>
+
+    <ConfirmDialog
+      v-model:visible="confirmVisible"
+      title="保存修改"
+      message="确定要保存修改吗？"
+      confirm-text="确定"
+      cancel-text="取消"
+      @confirm="handleConfirmSave"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
   import { ref, reactive, computed, watch } from 'vue';
-  import { ElCascader, ElMessageBox } from 'element-plus';
-  import 'element-plus/es/components/select/style/css';
-  import 'element-plus/es/components/cascader/style/css';
-  import 'element-plus/es/components/message-box/style/css';
-  import 'element-plus/es/components/popper/style/css';
-  import 'element-plus/es/components/popper/style/index';
-  import 'element-plus/es/components/scrollbar/style/css';
+  import RegionCascader from '@/pages/Landscape/components/common/RegionCascader/index.vue';
+  import ConfirmDialog from '@/pages/Landscape/components/common/ConfirmDialog/index.vue';
   import { chinaRegions } from '@/constants/landscape/chinaRegions';
   import { ProfileSpecialtyOptions } from '@/constants/landscape';
   import CloseIcon from '@/pages/Landscape/icons/common/CloseIcon.vue';
@@ -497,128 +492,17 @@
     emit('update:visible', false);
   };
 
-  const handleSave = async () => {
-    if (!hasChanges.value) return;
+  const confirmVisible = ref(false);
 
-    try {
-      await ElMessageBox.confirm('确定要保存修改吗？', '提示', {
-        confirmButtonText: '确定',
-        cancelButtonText: '取消',
-        type: 'warning',
-        customClass: 'dark-confirm-dialog',
-      });
-      emit('save', formData);
-      handleClose();
-    } catch {
-      // 用户点击取消
-    }
+  const handleSave = () => {
+    if (!hasChanges.value) return;
+    confirmVisible.value = true;
+  };
+
+  const handleConfirmSave = () => {
+    emit('save', formData);
+    handleClose();
   };
 </script>
-
-<style lang="scss">
-.edit-profile-modal .location-cascader :deep(.el-input__wrapper),
-.edit-profile-modal .experience-select :deep(.el-input__wrapper) {
-  background: linear-gradient(180deg, rgba(26, 31, 46, 0.98) 0%, rgba(15, 20, 32, 0.99) 100%) !important;
-  border: 1px solid rgba(82, 160, 255, 0.5) !important;
-  border-radius: 10px !important;
-  box-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(82, 160, 255, 0.1) !important;
-  padding: 4px 16px !important;
-  --el-input-bg-color: transparent !important;
-  --el-input-border-color: rgba(82, 160, 255, 0.5) !important;
-  --el-input-text-color: #fff !important;
-  --el-input-placeholder-color: rgba(255, 255, 255, 0.5) !important;
-
-  &::after {
-    display: none !important;
-  }
-}
-
-.edit-profile-modal .location-cascader :deep(.el-input__inner),
-.edit-profile-modal .experience-select :deep(.el-input__inner) {
-  color: #fff !important;
-  font-size: 14px;
-  font-weight: 500;
-  background: transparent !important;
-
-  &::placeholder {
-    color: rgba(255, 255, 255, 0.5) !important;
-    font-weight: 400;
-  }
-}
-
-.edit-profile-modal .location-cascader :deep(.el-input__icon),
-.edit-profile-modal .experience-select :deep(.el-input__icon) {
-  color: rgba(82, 160, 255, 0.9) !important;
-}
-
-/* 暗色确认对话框样式 */
-.dark-confirm-dialog {
-  background: linear-gradient(180deg, rgba(26, 31, 46, 0.98) 0%, rgba(15, 20, 32, 0.99) 100%) !important;
-  border: 1px solid rgba(82, 160, 255, 0.3) !important;
-  border-radius: 12px !important;
-  box-shadow:
-    0 8px 24px rgba(0, 0, 0, 0.5),
-    0 0 20px rgba(82, 160, 255, 0.15) !important;
-
-  .el-message-box__header {
-    border-bottom: 1px solid rgba(82, 160, 255, 0.15) !important;
-
-    .el-message-box__title {
-      color: #fff !important;
-      font-weight: 600;
-    }
-
-    .el-message-box__headerbtn {
-      .el-message-box__close {
-        color: rgba(255, 255, 255, 0.7) !important;
-        transition: color 0.2s ease;
-
-        &:hover {
-          color: #fff !important;
-        }
-      }
-    }
-  }
-
-  .el-message-box__content {
-    .el-message-box__message {
-      color: rgba(255, 255, 255, 0.9) !important;
-    }
-
-    .el-icon {
-      color: rgba(250, 173, 20, 0.9) !important;
-    }
-  }
-
-  .el-message-box__btns {
-    .el-button {
-      background: transparent !important;
-      border: 1px solid rgba(82, 160, 255, 0.3) !important;
-      color: #fff !important;
-      border-radius: 8px !important;
-      transition: all 0.2s ease !important;
-
-      &:hover {
-        border-color: rgba(82, 160, 255, 0.6) !important;
-        background: rgba(82, 160, 255, 0.1) !important;
-      }
-
-      &--primary {
-        background: linear-gradient(135deg, rgba(13, 148, 136, 0.9) 0%, rgba(14, 165, 233, 0.9) 100%) !important;
-        border: none !important;
-        color: #fff !important;
-        box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3) !important;
-
-        &:hover {
-          transform: translateY(-1px);
-          box-shadow: 0 6px 16px rgba(14, 165, 233, 0.4) !important;
-        }
-      }
-    }
-  }
-}
-</style>
 
 <style scoped lang="scss" src="./index.scss" />
