@@ -9,261 +9,370 @@
 }
 
 #mainPage {
+  /* 鼠标视差输入：由 JS 写入 -0.5 ~ 0.5，供太阳系平面轻微倾斜 */
+  --px: 0;
+  --py: 0;
+
   position: absolute;
   z-index: 0;
   width: 100%;
   height: 100%;
-  background-image: url('https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/app/bg.avif');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  overflow: hidden;
+
+  /* 深空底：中心星云辉光 + 冷暖星云 + 由深蓝到纯黑的径向渐变，替代原来的硬边灰色圆盘 */
+  background:
+    radial-gradient(
+      ellipse at 50% 48%,
+      rgba(40, 78, 140, 0.3),
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at 15% 18%,
+      rgba(88, 44, 140, 0.16),
+      transparent 46%
+    ),
+    radial-gradient(
+      circle at 85% 82%,
+      rgba(16, 88, 120, 0.14),
+      transparent 46%
+    ),
+    radial-gradient(circle at 50% 50%, #070b16 0%, #03040b 58%, #000 100%);
+
+  /* 远近两层星点：不同密度与漂移速度，形成星空纵深 */
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    inset: -20%;
+    pointer-events: none;
+    background-repeat: repeat;
+  }
+
+  &::before {
+    background-image:
+      radial-gradient(
+        circle 1.6px at 18% 24%,
+        rgba(255, 255, 255, 0.9),
+        transparent
+      ),
+      radial-gradient(
+        circle 1.2px at 63% 12%,
+        rgba(206, 226, 255, 0.75),
+        transparent
+      ),
+      radial-gradient(
+        circle 1.8px at 41% 72%,
+        rgba(255, 255, 255, 0.8),
+        transparent
+      ),
+      radial-gradient(
+        circle 1px at 86% 58%,
+        rgba(210, 228, 255, 0.6),
+        transparent
+      ),
+      radial-gradient(
+        circle 1.4px at 8% 88%,
+        rgba(255, 255, 255, 0.7),
+        transparent
+      ),
+      radial-gradient(
+        circle 1.1px at 74% 91%,
+        rgba(255, 240, 214, 0.6),
+        transparent
+      );
+    background-size: 260px 260px;
+    opacity: 0.85;
+    animation: star-drift 140s linear infinite;
+  }
+
+  &::after {
+    background-image:
+      radial-gradient(
+        circle 0.9px at 32% 46%,
+        rgba(255, 255, 255, 0.55),
+        transparent
+      ),
+      radial-gradient(
+        circle 0.8px at 71% 31%,
+        rgba(196, 218, 255, 0.5),
+        transparent
+      ),
+      radial-gradient(
+        circle 1px at 54% 83%,
+        rgba(255, 255, 255, 0.45),
+        transparent
+      ),
+      radial-gradient(
+        circle 0.7px at 12% 63%,
+        rgba(255, 228, 196, 0.45),
+        transparent
+      );
+    background-size: 190px 190px;
+    opacity: 0.6;
+    animation: star-drift 220s linear infinite reverse;
+  }
+
+  .clock-container {
+    /* 层级：星空(0) < 指针(1) < 太阳系(2)，指针从行星背后穿过 */
+    z-index: 1;
+  }
 
   .trajectory {
-    z-index: 0;
     position: absolute;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    left: 0%;
-    top: 0%;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1400px;
+    perspective-origin: 50% 50%;
+  }
 
-    p {
+  /* 太阳系所在平面：统一倾斜，行星各自反向抵消，保持正对镜头 */
+  .solar-plane {
+    /* 倾斜角随鼠标纵向位置微调；该变量会被行星与太阳的反向变换共用 */
+    --tilt: calc(62deg + var(--py) * 5deg);
+
+    position: relative;
+    width: 55vmin;
+    height: 55vmin;
+    border-radius: 50%;
+    transform-style: preserve-3d;
+    transform: rotateX(var(--tilt)) rotateY(calc(var(--px) * 7deg));
+    transition: transform 0.35s ease-out;
+    will-change: transform;
+
+    /* 被太阳照亮的一层平面辉光，让轨道面显形而不是悬在纯黑里 */
+    background: radial-gradient(
+      circle at 50% 50%,
+      rgba(56, 112, 190, 0.14) 0%,
+      rgba(40, 84, 160, 0.06) 42%,
+      transparent 68%
+    );
+
+    /* 太阳日冕：位于行星层之下，缓慢呼吸 */
+    &::before {
+      content: '';
       position: absolute;
-      border-radius: 50%;
       left: 50%;
       top: 50%;
-      line-height: 0;
+      width: 26vmin;
+      height: 26vmin;
+      margin: -13vmin 0 0 -13vmin;
+      border-radius: 50%;
+      pointer-events: none;
+      background: radial-gradient(
+        circle at 50% 50%,
+        rgba(255, 236, 190, 0.85) 0%,
+        rgba(255, 176, 60, 0.42) 22%,
+        rgba(255, 110, 24, 0.14) 46%,
+        transparent 70%
+      );
+      filter: blur(0.5vmin);
+      animation: sun-corona 5s ease-in-out infinite;
+    }
+  }
 
-      /* 消除文本行高影响 */
-      font-size: 0;
+  /* 单条轨道 */
+  .orbit {
+    --planet-size: 2vmin;
 
-      /* 消除字体大小影响 */
-      transform: translate(-50%, -50%);
-      border: 1px dotted rgba(255, 255, 255, 0.2);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: var(--orbit-size);
+    height: var(--orbit-size);
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+    line-height: 0;
+    border: 1px solid rgba(150, 190, 255, 0.12);
+    border-radius: 50%;
+    box-shadow: 0 0 1.2vmin rgba(120, 170, 255, 0.06);
+    transform-style: preserve-3d;
 
-      &::before {
-        position: absolute;
-        left: 20%;
-        bottom: 0%;
-        color: #fff;
-        font-weight: bolder;
-        opacity: 0;
-        transition: 0.5s;
-      }
+    /* 只有行星可点，避免透明轨道面遮挡交互 */
+    pointer-events: none;
+    animation: rotate var(--orbit-duration) linear infinite;
+    animation-delay: var(--orbit-delay);
 
-      &:hover::before {
-        opacity: 1;
-      }
+    /* 悬停行星时暂停公转与自转，方便瞄准与点击 */
+    &:has(.planet-slot:hover) {
+      animation-play-state: paused;
 
-      .planet-btn {
-        border-radius: 50%;
-        position: absolute;
-        background-size: cover;
-        display: inline-block;
-        opacity: 1;
-        border: none;
-        padding: 0;
-        cursor: pointer;
-        background-color: transparent;
-      }
-
-      &:hover .planet-btn {
-        box-shadow:
-          inset 0 -2px 0.1rem 1px rgb(0, 0, 0),
-          0 0 1.5rem 10px rgb(66, 229, 248);
-      }
-
-      // 水星公转圈
-      &:nth-of-type(1) {
-        z-index: 1;
-        width: 14vmin;
-        height: 14vmin;
-        animation: rotate 3s linear infinite;
-
-        // 水星
-        .planet-btn {
-          left: 2vmin;
-          top: 2vmin;
-          width: 1.5vmin;
-          height: 1.5vmin;
-          background-position: center;
-          animation: rotate 586s linear infinite;
-        }
-      }
-
-      // 金星公转
-      &:nth-of-type(2) {
-        z-index: 0;
-        width: 20vmin;
-        height: 20vmin;
-        animation: rotate 7.2s linear infinite;
-
-        // 金星
-        .planet-btn {
-          left: 3vmin;
-          top: 3vmin;
-          width: 2vmin;
-          height: 2vmin;
-          animation: rotate 2430s linear infinite;
-          background-position: center;
-        }
-      }
-
-      // 地球公转
-      &:nth-of-type(3) {
-        z-index: -1;
-        width: 26vmin;
-        height: 26vmin;
-        animation: rotate 12s linear infinite;
-
-        .planet-btn {
-          left: 3.5vmin;
-          top: 3.5vmin;
-          width: 3vmin;
-          height: 3vmin;
-          animation: rotate 10s linear infinite;
-          background-position: center;
-        }
-      }
-
-      // 火星公转
-      &:nth-of-type(4) {
-        z-index: -2;
-        width: 33vmin;
-        height: 33vmin;
-        animation: rotate 24s linear infinite;
-
-        .planet-btn {
-          left: 4.5vmin;
-          top: 4.5vmin;
-          width: 2.5vmin;
-          height: 2.5vmin;
-          animation: rotate 10s linear infinite;
-          background-position: center;
-        }
-      }
-
-      // 木星公转
-      &:nth-of-type(5) {
-        z-index: -3;
-        width: 40vmin;
-        height: 40vmin;
-        animation: rotate 144s linear infinite;
-
-        .planet-btn {
-          left: 6vmin;
-          top: 6vmin;
-          width: 4.5vmin;
-          height: 4.5vmin;
-          animation: rotate 4s linear infinite;
-          background-position: center;
-        }
-      }
-
-      // 土星公转
-      &:nth-of-type(6) {
-        z-index: -4;
-        width: 47vmin;
-        height: 47vmin;
-        animation: rotate 360s linear infinite;
-
-        .planet-btn {
-          left: 6.5vmin;
-          top: 6.5vmin;
-          width: 4vmin;
-          height: 4vmin;
-          animation: rotate 4s linear infinite;
-          background-position: center;
-        }
-      }
-
-      // 天王星
-      &:nth-of-type(7) {
-        z-index: -5;
-        width: 55vmin;
-        height: 55vmin;
-        animation: rotate 1008s linear infinite;
-
-        .planet-btn {
-          left: 7.5vmin;
-          top: 7.5vmin;
-          width: 3.5vmin;
-          height: 3.5vmin;
-          transform: rotate(-30deg);
-          image-orientation: 30deg;
-          animation: rotate 7s linear infinite;
-          background-position: center;
-        }
-      }
-
-      &:hover {
-        cursor: pointer;
-        box-shadow:
-          inset 0 0 2rem 5px rgb(255, 255, 255),
-          0 0 1.5rem 3px rgb(160, 207, 252);
+      .planet-slot,
+      .planet-surface {
         animation-play-state: paused;
       }
     }
   }
 
+  /* 行星槽：位于轨道最上端，反向旋转抵消公转与平面倾斜 */
+  .planet-slot {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: var(--planet-size);
+    height: var(--planet-size);
+    margin-left: calc(var(--planet-size) / -2);
+    margin-top: calc(var(--planet-size) / -2);
+    transform-style: preserve-3d;
+    pointer-events: auto;
+    animation: planet-counter var(--orbit-duration) linear infinite;
+    animation-delay: var(--orbit-delay);
+  }
+
+  .planet-btn {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    overflow: hidden;
+    background: transparent;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: transform 0.3s ease;
+    box-shadow: 0 0 1.1vmin rgba(120, 190, 255, 0.22);
+
+    /* 球面光照：高光与暗面固定朝向，不随纹理自转 */
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      pointer-events: none;
+      background:
+        radial-gradient(
+          circle at 32% 28%,
+          rgba(255, 255, 255, 0.3) 0%,
+          transparent 42%
+        ),
+        radial-gradient(
+          circle at 72% 76%,
+          rgba(0, 0, 0, 0.62) 0%,
+          transparent 68%
+        );
+      box-shadow:
+        inset -0.28vmin -0.28vmin 0.7vmin rgba(0, 0, 0, 0.8),
+        inset 0.18vmin 0.18vmin 0.4vmin rgba(255, 255, 255, 0.16);
+    }
+
+    &:focus-visible {
+      outline: 2px solid rgba(150, 205, 255, 0.9);
+      outline-offset: 3px;
+    }
+  }
+
+  /* 星球表面纹理：比按钮大一圈，自转时不会露出缺角 */
+  .planet-surface {
+    position: absolute;
+    inset: -30%;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: planet-spin var(--spin-duration) linear infinite;
+  }
+
+  .planet-slot:hover .planet-btn {
+    transform: scale(1.32);
+    box-shadow: 0 0 2vmin rgba(150, 210, 255, 0.6);
+  }
+
+  /* 土星环：挂在行星槽上，不受纹理自转影响 */
+  .orbit-6 .planet-slot::before {
+    content: '';
+    position: absolute;
+    inset: -65%;
+    border-radius: 50%;
+    border: 0.3vmin solid rgba(228, 214, 184, 0.55);
+    box-shadow:
+      0 0 0.6vmin rgba(228, 214, 184, 0.3),
+      inset 0 0 0.6vmin rgba(255, 244, 214, 0.25);
+    transform: rotate(-18deg) scaleY(0.3);
+    pointer-events: none;
+    z-index: -1;
+  }
+
   #sun {
     position: absolute;
-    z-index: -4;
     left: 50%;
     top: 50%;
-    width: 5vmin;
-    height: 5vmin;
+    width: 9vmin;
+    height: 9vmin;
     border-radius: 50%;
-    border: transparent;
-    color: #fff;
-    transform: translate(-50%, -50%);
     background: url('https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/app/Sun.avif');
     background-size: 100% 100%;
     background-position: center;
-    animation: rotateSun 30s ease-in-out infinite both;
 
-    @keyframes rotateSun {
-      100% {
-        transform: translate(-50%, -50%) rotate(360deg);
-      }
-    }
+    /* 反向抵消平面倾斜与鼠标视差，让日面正对镜头 */
+    transform: translate(-50%, -50%) rotateY(calc(var(--px) * -7deg))
+      rotateX(calc(var(--tilt) * -1));
+    transition: transform 0.35s ease-out;
+    box-shadow:
+      0 0 1.2vmin 0.2vmin rgba(255, 232, 180, 0.9),
+      0 0 3.5vmin 0.8vmin rgba(255, 176, 60, 0.45),
+      0 0 9vmin 3vmin rgba(255, 112, 20, 0.18);
+  }
 
-    &::before {
-      content: '';
-      position: absolute;
-      left: -460%;
-      top: -460%;
-      width: 1000%;
-      height: 1000%;
-      border-radius: 50%;
-      background: #000;
-      animation: ping 5s ease-in-out infinite both;
-    }
+  /* 公转圈序号：尺寸 / 行星大小 / 公转周期 / 自转周期 */
+  .orbit-1 {
+    --orbit-size: 14vmin;
+    --planet-size: 2.2vmin;
+    --orbit-duration: 3s;
+    --orbit-delay: -0.36s;
+    --spin-duration: 40s;
+  }
 
-    @keyframes ping {
-      0% {
-        -webkit-transform: scale(0.3);
-        transform: scale(0.3);
-        opacity: 0.7;
-        background: #fffefe;
-      }
+  .orbit-2 {
+    --orbit-size: 20vmin;
+    --planet-size: 2.4vmin;
+    --orbit-duration: 7.2s;
+    --orbit-delay: -2.52s;
+    --spin-duration: 52s;
+  }
 
-      70% {
-        -webkit-transform: scale(1.4);
-        transform: scale(1.4);
-        opacity: 0.3;
-        background: #152454;
-      }
+  .orbit-3 {
+    --orbit-size: 26vmin;
+    --planet-size: 3.2vmin;
+    --orbit-duration: 12s;
+    --orbit-delay: -6.96s;
+    --spin-duration: 30s;
+  }
 
-      100% {
-        -webkit-transform: scale(2.5);
-        transform: scale(2.5);
-        opacity: 0.1;
-        background: #671711;
-      }
-    }
+  .orbit-4 {
+    --orbit-size: 33vmin;
+    --planet-size: 2.8vmin;
+    --orbit-duration: 24s;
+    --orbit-delay: -19.2s;
+    --spin-duration: 34s;
+  }
+
+  .orbit-5 {
+    --orbit-size: 40vmin;
+    --planet-size: 4.8vmin;
+    --orbit-duration: 144s;
+    --orbit-delay: -36s;
+    --spin-duration: 18s;
+  }
+
+  .orbit-6 {
+    --orbit-size: 47vmin;
+    --planet-size: 4.4vmin;
+    --orbit-duration: 360s;
+    --orbit-delay: -234s;
+    --spin-duration: 22s;
+  }
+
+  .orbit-7 {
+    --orbit-size: 55vmin;
+    --planet-size: 3.6vmin;
+    --orbit-duration: 1008s;
+    --orbit-delay: -453.6s;
+    --spin-duration: 26s;
   }
 }
 
@@ -364,13 +473,63 @@
   pointer-events: none;
 }
 
+// 轨道公转
 @keyframes rotate {
   0% {
-    transform: translate(-50%, -50%) rotate(0);
+    transform: translate(-50%, -50%) rotate(0deg);
   }
 
   100% {
     transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+// 行星反向抵消：抵消公转角度、平面倾斜与鼠标视差
+@keyframes planet-counter {
+  0% {
+    transform: rotateZ(0deg) rotateY(calc(var(--px) * -7deg))
+      rotateX(calc(var(--tilt) * -1));
+  }
+
+  100% {
+    transform: rotateZ(-360deg) rotateY(calc(var(--px) * -7deg))
+      rotateX(calc(var(--tilt) * -1));
+  }
+}
+
+// 星球纹理自转
+@keyframes planet-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// 星点漂移
+@keyframes star-drift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-160px, -110px, 0);
+  }
+}
+
+// 日冕呼吸
+@keyframes sun-corona {
+  0%,
+  100% {
+    transform: scale(0.94);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
   }
 }
 

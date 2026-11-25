@@ -13,31 +13,41 @@
     </div>
 
     <ErrorBoundary>
-      <div id="mainPage">
-        <!-- 太阳 -->
-        <div id="sun"></div>
+      <div id="mainPage" ref="mainPageEl">
         <!-- 时钟 -->
         <div class="clock-container">
           <div ref="hourEl" class="needle hour"></div>
           <div ref="minuteEl" class="needle minute"></div>
           <div ref="secondEl" class="needle second"></div>
         </div>
-        <!-- 轨迹星图 -->
+        <!-- 轨迹星图：整层统一做 3D 透视倾斜，行星各自反向抵消保持正对镜头 -->
         <div class="trajectory">
-          <template v-for="value in routeArr" :key="value.routeId">
-            <p
-              @click="jumpToRouter(value.routeName)"
-              @mouseover="mouseOverPages(value.routeName)"
-              @mouseout="curPageName = ''"
-            >
-              <button
-                type="button"
-                class="planet-btn"
-                :style="{ backgroundImage: `url(${value.bg})` }"
-                :aria-label="value.pageName"
-              ></button>
-            </p>
-          </template>
+          <div class="solar-plane">
+            <!-- 太阳 -->
+            <div id="sun"></div>
+            <template v-for="value in routeArr" :key="value.routeId">
+              <p
+                class="orbit"
+                :class="`orbit-${value.routeId}`"
+                @click="jumpToRouter(value.routeName)"
+                @mouseover="mouseOverPages(value.routeName)"
+                @mouseout="curPageName = ''"
+              >
+                <span class="planet-slot">
+                  <button
+                    type="button"
+                    class="planet-btn"
+                    :aria-label="value.pageName"
+                  >
+                    <span
+                      class="planet-surface"
+                      :style="{ backgroundImage: `url(${value.bg})` }"
+                    ></span>
+                  </button>
+                </span>
+              </p>
+            </template>
+          </div>
         </div>
       </div>
 
@@ -79,6 +89,7 @@
   );
 
   // DOM 引用
+  const mainPageEl = ref<HTMLElement>();
   const tabContainer = ref<HTMLElement>();
   const hourEl = ref<HTMLElement>();
   const minuteEl = ref<HTMLElement>();
@@ -157,8 +168,18 @@
     },
   );
 
+  /** 鼠标视差：把指针相对屏幕中心的位置写入 CSS 变量，供太阳系平面做轻微倾斜 */
+  const handlePointerMove = (event: MouseEvent): void => {
+    if (!mainPageEl.value) return;
+    const px = event.clientX / window.innerWidth - 0.5;
+    const py = event.clientY / window.innerHeight - 0.5;
+    mainPageEl.value.style.setProperty('--px', px.toFixed(3));
+    mainPageEl.value.style.setProperty('--py', py.toFixed(3));
+  };
+
   // 生命周期钩子
   onMounted(() => {
+    window.addEventListener('mousemove', handlePointerMove, { passive: true });
     // 页面路由跳转后切换场景
     if (tabContainer.value) {
       if (router.currentRoute.value.path === '/') {
@@ -236,6 +257,7 @@
   });
 
   onUnmounted(() => {
+    window.removeEventListener('mousemove', handlePointerMove);
     if (timer.value) {
       window.cancelAnimationFrame(timer.value);
       timer.value = undefined;
