@@ -10,10 +10,14 @@ import errorCover from '@/assets/image/aphorism/error.webp';
 
 const OSS_BASE =
   'https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/aphorism';
-const POOL_SIZE = 37;
+/**
+ * 诗词背景图池：线上实测 1–34 可用，0 与 35+ 均为 404（34 于 2026-11-25 11:57 补传）。
+ * 取模基数取 34 后 +1，保证结果恒落在 1–34 的安全区间。
+ */
+const POOL_SIZE = 34;
 
 export function poolImage(index: number): string {
-  return `${OSS_BASE}/${((index % POOL_SIZE) + POOL_SIZE) % POOL_SIZE}.webp`;
+  return `${OSS_BASE}/${(((index % POOL_SIZE) + POOL_SIZE) % POOL_SIZE) + 1}.webp`;
 }
 
 /** 根据字符串 id 计算哈希值 */

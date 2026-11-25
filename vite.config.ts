@@ -34,7 +34,8 @@ import { visualizer } from 'rollup-plugin-visualizer';
 export default defineConfig(({ mode }) => {
   /** 加载 .env 环境变量（如 VITE_BASE） */
   const env = loadEnv(mode, process.cwd());
-  const isProduction = mode === 'production';
+  /** 非开发构建都按生产优化处理（线上部署实际走 --mode gh-pages） */
+  const isProduction = mode !== 'development';
 
   return {
     /** 部署基础路径 */
@@ -47,8 +48,8 @@ export default defineConfig(({ mode }) => {
         dirs: ['src/pages/Landscape/components/common'],
         dts: 'types/components.d.ts',
       }),
-      /** 包体积可视化分析（仅生产构建时生成） */
-      isProduction &&
+      /** 包体积可视化分析（仅本地 production 构建时生成，gh-pages 部署不需要） */
+      mode === 'production' &&
         visualizer({
           filename: 'dist/stats.html',
           gzipSize: true,

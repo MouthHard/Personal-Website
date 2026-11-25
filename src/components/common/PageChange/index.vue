@@ -30,7 +30,7 @@
 <script setup lang="ts">
   import { ref, computed, onMounted, onUnmounted } from 'vue';
   import { useRouter } from 'vue-router';
-  import { CHANGE_IMAGE_BASE, IMAGE_POOL_SIZE } from './preload';
+  import { takePreloadedBatch } from './preload';
   import {
     ERROR_CODES,
     isChunkLoadError,
@@ -56,18 +56,8 @@
 
   const router = useRouter();
 
-  /** 图片池：本地 change/ 目录的 20 张图，每次演出随机抽 4 张（同屏不重复） */
+  /** 当前演出的 4 张图：来自 preload 模块已预加载的批次，取走后立即预加载下一批 */
   const blockImages = ref<string[]>([]);
-
-  /** Fisher-Yates 洗牌后取前 4 张，保证同屏不重复 */
-  const pickRandomImages = (count = 4): string[] => {
-    const indexes = Array.from({ length: IMAGE_POOL_SIZE }, (_, i) => i + 1);
-    for (let i = indexes.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [indexes[i], indexes[j]] = [indexes[j], indexes[i]];
-    }
-    return indexes.slice(0, count).map((n) => `${CHANGE_IMAGE_BASE}/${n}.webp`);
-  };
 
   const imgFailed = ref<boolean[]>([]);
 
@@ -234,7 +224,7 @@
   /** 帘幕开始：随机抽 4 张不重复的图 → 滑入 → 停留，动画由 CSS keyframes 驱动 */
   const beginShow = (): void => {
     if (phase.value !== 'hidden') return;
-    blockImages.value = pickRandomImages();
+    blockImages.value = takePreloadedBatch();
     imgFailed.value = [];
     shownAt = Date.now();
     phase.value = 'inside';
