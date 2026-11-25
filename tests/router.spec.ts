@@ -1,158 +1,132 @@
 /**
  * 路由模块测试
- * @description 测试路由配置的正确性
+ * @description 校验路由结构的关键不变量（存在性 / 懒加载 / 唯一性 / 跳转目标有效）。
+ * 刻意不锁定「子路由数量」这类会随页面增删变化的具体数值，
+ * 否则每次加一个页面测试就会失败，失去回归价值。
  */
 
-import { describe, it, expect } from "vitest";
+import { describe, it, expect } from 'vitest';
+import type { RouteRecordRaw } from 'vue-router';
 import {
   aphorismRoutes,
   museumRoutes,
   gameRoutes,
   musicRoutes,
   otherRoutes,
-} from "@/router/modules";
+} from '@/router/modules';
 
-describe("路由模块配置", () => {
-  describe("aphorismRoutes - 格言路由", () => {
-    it("应该包含正确的路径", () => {
-      expect(aphorismRoutes[0].path).toBe("/aphorism");
-      expect(aphorismRoutes[0].name).toBe("aphorism");
-    });
+const allRoutes: RouteRecordRaw[] = [
+  ...aphorismRoutes,
+  ...museumRoutes,
+  ...gameRoutes,
+  ...musicRoutes,
+  ...otherRoutes,
+];
 
-    it("应该使用懒加载", () => {
-      expect(aphorismRoutes[0].component).toBeInstanceOf(Function);
-    });
-  });
+/** 取某个路由的子路由 path 列表 */
+const childPaths = (route: RouteRecordRaw | undefined): string[] =>
+  (route?.children ?? []).map((child) => child.path);
 
-  describe("museumRoutes - 博物馆路由", () => {
-    it("应该包含正确的路径", () => {
-      expect(museumRoutes[0].path).toBe("/museum");
-      expect(museumRoutes[0].name).toBe("museum");
-    });
+/** 取某个路由的子路由 name 列表 */
+const childNames = (route: RouteRecordRaw | undefined): string[] =>
+  (route?.children ?? []).map((child) => String(child.name ?? ''));
 
-    it("应该包含子路由", () => {
-      const museumRoute = museumRoutes[0];
-      expect(museumRoute.children).toBeDefined();
-      expect(museumRoute.children?.length).toBeGreaterThan(0);
-    });
-
-    it("子路由应该包含动态参数", () => {
-      const museumRoute = museumRoutes[0];
-      const detailRoute = museumRoute.children?.find(
-        (r) => r.name === "museum-detail",
-      );
-      expect(detailRoute?.path).toBe(":province/:id");
-    });
-  });
-
-  describe("gameRoutes - 游戏路由", () => {
-    it("应该包含正确的路径", () => {
-      expect(gameRoutes[0].path).toBe("/game");
-      expect(gameRoutes[0].name).toBe("game");
-    });
-
-    it("应该有重定向配置", () => {
-      expect(gameRoutes[0].redirect).toBe("/game/shop-steam");
-    });
-
-    it("应该包含正确的子路由数量", () => {
-      const gameRoute = gameRoutes[0];
-      expect(gameRoute.children?.length).toBe(4);
-    });
-  });
-
-  describe("musicRoutes - 音乐路由", () => {
-    it("应该包含移动音乐路由", () => {
-      const mobileRoute = musicRoutes.find((r) => r.name === "MobileMusic");
-      expect(mobileRoute?.path).toBe("/mobile-music");
-    });
-
-    it("应该包含主音乐路由", () => {
-      const musicRoute = musicRoutes.find((r) => r.name === "music");
-      expect(musicRoute?.path).toBe("/music");
-      expect(musicRoute?.redirect).toBe("/music/recommend");
-    });
-
-    it("音乐路由应该包含多个子路由", () => {
-      const musicRoute = musicRoutes.find((r) => r.name === "music");
-      expect(musicRoute?.children?.length).toBeGreaterThan(10);
-    });
-
-    it("精选路由应该有子路由", () => {
-      const musicRoute = musicRoutes.find((r) => r.name === "music");
-      const choicenessRoute = musicRoute?.children?.find(
-        (r) => r.name === "choiceness",
-      );
-      expect(choicenessRoute?.children?.length).toBeGreaterThan(0);
-    });
-  });
-
-  describe("otherRoutes - 其他路由", () => {
-    it("应该包含旅行攻略路由", () => {
-      const travelRoute = otherRoutes.find((r) => r.name === "travel-guide");
-      expect(travelRoute?.path).toBe("/travel-guide");
-      expect(travelRoute?.children?.length).toBe(2);
-    });
-
-    it("应该包含历史路由", () => {
-      const historyRoute = otherRoutes.find((r) => r.name === "history");
-      expect(historyRoute?.path).toBe("/history");
-    });
-
-    it("应该包含笔记路由", () => {
-      const noteRoute = otherRoutes.find((r) => r.name === "note");
-      expect(noteRoute?.path).toBe("/note");
-    });
-
-    it("应该包含收藏路由", () => {
-      const likeRoute = otherRoutes.find((r) => r.name === "like");
-      expect(likeRoute?.path).toBe("/like");
-    });
-  });
-
-  describe("路由模块整合", () => {
-    it("所有路由模块应该有正确的类型", () => {
-      const allRoutes = [
-        ...aphorismRoutes,
-        ...museumRoutes,
-        ...gameRoutes,
-        ...musicRoutes,
-        ...otherRoutes,
-      ];
+describe('路由模块配置', () => {
+  describe('顶层路由', () => {
+    it('每个子应用都应有顶层路由，且组件为懒加载函数', () => {
+      expect(allRoutes.length).toBeGreaterThan(0);
 
       allRoutes.forEach((route) => {
-        expect(route).toHaveProperty("path");
-        expect(route).toHaveProperty("name");
-        expect(route).toHaveProperty("component");
+        expect(typeof route.path).toBe('string');
+        expect(route.path.startsWith('/')).toBe(true);
+        expect(route.name).toBeTruthy();
+        expect(route.component).toBeInstanceOf(Function);
       });
     });
 
-    it("所有路由路径应该唯一", () => {
-      const allPaths = [
-        ...aphorismRoutes,
-        ...museumRoutes,
-        ...gameRoutes,
-        ...musicRoutes,
-        ...otherRoutes,
-      ].map((r) => r.path);
+    it('重定向目标必须指向自身已存在的子路由', () => {
+      allRoutes
+        .filter((route) => typeof route.redirect === 'string')
+        .forEach((route) => {
+          const redirect = String(route.redirect);
+          const target = redirect.slice(route.path.length + 1).split('/')[0];
+          expect(childPaths(route)).toContain(target);
+        });
+    });
+  });
 
-      const uniquePaths = new Set(allPaths);
-      expect(uniquePaths.size).toBe(allPaths.length);
+  describe('aphorismRoutes - 格言路由', () => {
+    it('应该包含正确的路径与名称', () => {
+      expect(aphorismRoutes[0].path).toBe('/aphorism');
+      expect(aphorismRoutes[0].name).toBe('aphorism');
+    });
+  });
+
+  describe('museumRoutes - 博物馆路由', () => {
+    it('应该包含详情子路由且带动态参数', () => {
+      const museumRoute = museumRoutes[0];
+      expect(museumRoute.path).toBe('/museum');
+
+      const detail = museumRoute.children?.find(
+        (r) => r.name === 'museum-detail',
+      );
+      expect(detail?.path).toBe(':province/:id');
+    });
+  });
+
+  describe('gameRoutes - 游戏路由', () => {
+    it('应该包含核心页面子路由', () => {
+      const gameRoute = gameRoutes[0];
+      expect(gameRoute.path).toBe('/game');
+
+      expect(childPaths(gameRoute)).toEqual(
+        expect.arrayContaining(['store', 'sale', 'ranking', 'library']),
+      );
+    });
+  });
+
+  describe('musicRoutes - 音乐路由', () => {
+    it('应该包含核心页面子路由', () => {
+      const musicRoute = musicRoutes[0];
+      expect(musicRoute.path).toBe('/music');
+
+      expect(childPaths(musicRoute)).toEqual(
+        expect.arrayContaining(['discover', 'category', 'search', 'mine']),
+      );
     });
 
-    it("所有路由名称应该唯一", () => {
-      const allNames = [
-        ...aphorismRoutes,
-        ...museumRoutes,
-        ...gameRoutes,
-        ...musicRoutes,
-        ...otherRoutes,
-      ]
-        .map((r) => r.name)
-        .filter(Boolean);
+    it('「我的音乐」应该有下级子路由', () => {
+      const mineRoute = musicRoutes[0].children?.find(
+        (r) => r.name === 'music-mine',
+      );
+      expect(childPaths(mineRoute).length).toBeGreaterThan(0);
+    });
+  });
 
-      const uniqueNames = new Set(allNames);
-      expect(uniqueNames.size).toBe(allNames.length);
+  describe('otherRoutes - 其他路由', () => {
+    it('旅行攻略应该包含美食与风景子路由', () => {
+      const travelRoute = otherRoutes.find((r) => r.name === 'travel-guide');
+      expect(travelRoute?.path).toBe('/travel-guide');
+      expect(childNames(travelRoute)).toEqual(
+        expect.arrayContaining(['food', 'scenery']),
+      );
+    });
+
+    it('应该包含历史路由', () => {
+      const historyRoute = otherRoutes.find((r) => r.name === 'history');
+      expect(historyRoute?.path).toBe('/history');
+    });
+  });
+
+  describe('路由模块整合', () => {
+    it('所有路由路径应该唯一', () => {
+      const allPaths = allRoutes.map((r) => r.path);
+      expect(new Set(allPaths).size).toBe(allPaths.length);
+    });
+
+    it('所有路由名称应该唯一', () => {
+      const allNames = allRoutes.map((r) => r.name).filter(Boolean);
+      expect(new Set(allNames).size).toBe(allNames.length);
     });
   });
 });

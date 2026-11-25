@@ -2,14 +2,27 @@
   <section v-if="displayedTopics.length > 0" class="hot-topics">
     <div class="section-header">
       <div class="title-wrapper">
-        <h2 class="section-title">
-          <span class="title-icon">
+        <span class="plate-glow" aria-hidden="true"></span>
+        <span class="plate-sheen-clip" aria-hidden="true">
+          <span class="plate-sheen"></span>
+        </span>
+        <span class="plate-corner tl" aria-hidden="true"></span>
+        <span class="plate-corner tr" aria-hidden="true"></span>
+        <span class="plate-corner bl" aria-hidden="true"></span>
+        <span class="plate-corner br" aria-hidden="true"></span>
+
+        <div class="header-left">
+          <span class="title-badge" aria-hidden="true">
             <TrendIcon />
           </span>
-          <span class="title-text">万象景章</span>
-          <span class="title-subtitle">· 风光主题</span>
-        </h2>
-        <div class="title-decoration right"></div>
+          <div class="header-text">
+            <span class="title-label">LANDSCAPE THEMES</span>
+            <h2 class="section-title">万象景章</h2>
+            <p class="section-subtitle">· 风光主题</p>
+          </div>
+        </div>
+
+        <span class="plate-chapter" aria-hidden="true">CHAPTER · 02</span>
       </div>
     </div>
 
@@ -21,12 +34,19 @@
         :class="`card-${index + 1}`"
       >
         <div class="card-image">
-          <img :src="topic.image" :alt="topic.title" loading="lazy" />
+          <LandscapeImage
+            :src="topic.image"
+            :alt="topic.title"
+            loading="lazy"
+          />
           <span class="card-badge">{{ topic.category }}</span>
-          <span class="card-number">0{{ index + 1 }}</span>
+          <span class="card-number">
+            <CompassIcon class="compass-face" aria-hidden="true" />
+            <span class="compass-num">0{{ index + 1 }}</span>
+          </span>
         </div>
         <div class="card-content">
-          <div class="publish-time-top" @click.stop>
+          <div class="publish-time-top">
             <CalendarIcon class="time-svg" />
             <span class="time-text">{{ topic.date }}</span>
           </div>
@@ -62,15 +82,21 @@
             <div class="card-stats">
               <span class="stat stat-views">
                 <EyeIcon />
-                <span class="stat-value">{{ formatNumber(getTopicCount(topic).views) }}</span>
+                <span class="stat-value">
+                  {{ formatNumber(getTopicCount(topic).views) }}
+                </span>
               </span>
               <span class="stat stat-likes">
                 <ThumbUpIcon />
-                <span class="stat-value">{{ formatNumber(getTopicCount(topic).likes) }}</span>
+                <span class="stat-value">
+                  {{ formatNumber(getTopicCount(topic).likes) }}
+                </span>
               </span>
               <span class="stat stat-favorites">
                 <BookmarkIcon />
-                <span class="stat-value">{{ formatNumber(getTopicCount(topic).favorites) }}</span>
+                <span class="stat-value">
+                  {{ formatNumber(getTopicCount(topic).favorites) }}
+                </span>
               </span>
               <span class="stat stat-comments">
                 <CommentIcon />
@@ -86,38 +112,23 @@
         </div>
       </div>
 
-      <div class="load-more-container">
+      <div v-if="canToggle" class="load-more-container">
         <button
           class="load-more-btn"
-          :class="{ loading: isLoading }"
-          :disabled="isLoading || !hasMoreTopics"
-          @click="loadMoreTopics"
+          :class="{ expanded: isExpanded }"
+          :aria-expanded="isExpanded"
+          @click="toggleExpanded"
         >
-          <SpinnerIcon
-            v-if="isLoading"
-            class="loading-icon"
-          />
-          <ChevronDownIcon
-            v-else
-            class="arrow-icon"
-          />
+          <ChevronDownIcon class="arrow-icon" />
           <span>
             {{
-              isLoading
-                ? '加载中...'
-                : hasMoreTopics
-                  ? '加载更多主题'
-                  : '已加载全部'
+              isExpanded ? '收起主题' : `展开全部 ${hotTopics.length} 个主题`
             }}
           </span>
-          <ChevronDownIcon
-            v-if="!isLoading && hasMoreTopics"
-            class="arrow-icon"
-          />
+          <ChevronDownIcon class="arrow-icon" />
         </button>
       </div>
     </div>
-
   </section>
 </template>
 
@@ -125,12 +136,16 @@
   import { ref, computed, watch } from 'vue';
   import { useRouter } from 'vue-router';
   import type { Topic } from '@/typesOfPages/landscape/home';
-  import { useLandscapeDataStore, useInteractionStore } from '@/stores/landscape';
+  import {
+    useLandscapeDataStore,
+    useInteractionStore,
+  } from '@/stores/landscape';
   import { parseCount, formatNumber } from '@/utils/landscape/format';
   import TrendIcon from '@/pages/Landscape/icons/components/home/HotTopics/TrendIcon.vue';
   import PlayCircleIcon from '@/pages/Landscape/icons/components/home/HotTopics/PlayCircleIcon.vue';
-  import SpinnerIcon from '@/pages/Landscape/icons/components/home/HotTopics/SpinnerIcon.vue';
+
   import CalendarIcon from '@/pages/Landscape/icons/common/CalendarIcon.vue';
+  import CompassIcon from '@/pages/Landscape/icons/common/CompassIcon.vue';
   import LocationIcon from '@/pages/Landscape/icons/common/LocationIcon.vue';
   import EyeIcon from '@/pages/Landscape/icons/common/EyeIcon.vue';
   import ThumbUpIcon from '@/pages/Landscape/icons/common/ThumbUpIcon.vue';
@@ -143,21 +158,26 @@
   const interactionStore = useInteractionStore();
 
   const hotTopics = computed(() => dataStore.getAllHotTopics());
-  const displayCount = ref(2);
-  const isLoading = ref(false);
 
-  const displayedTopics = computed(() => {
-    return hotTopics.value.slice(0, displayCount.value);
-  });
+  // 折叠态固定展示 3 张风景主题卡片，展开态展示全部
+  const COLLAPSED_COUNT = 3;
+  const isExpanded = ref(false);
+
+  const displayedTopics = computed(() =>
+    isExpanded.value
+      ? hotTopics.value
+      : hotTopics.value.slice(0, COLLAPSED_COUNT),
+  );
 
   const getTopicId = (topic: Topic) => `topic-${topic.id}`;
 
-  const getTopicCount = (topic: Topic) => interactionStore.getCount(getTopicId(topic));
+  const getTopicCount = (topic: Topic) =>
+    interactionStore.getCount(getTopicId(topic));
 
   watch(
     () => displayedTopics.value,
     (topics) => {
-      topics.forEach(topic => {
+      topics.forEach((topic) => {
         interactionStore.registerCount(getTopicId(topic), {
           views: parseCount(topic.views),
           likes: parseCount(topic.likes),
@@ -168,13 +188,12 @@
     { immediate: true },
   );
 
-  const hasMoreTopics = computed(() => {
-    return displayCount.value < hotTopics.value.length;
-  });
+  // 主题数量超过折叠阈值才提供展开/收起切换
+  const canToggle = computed(() => hotTopics.value.length > COLLAPSED_COUNT);
 
-  const loadMoreTopics = () => {
-    if (isLoading.value || !hasMoreTopics.value) return;
-    displayCount.value += 2;
+  const toggleExpanded = () => {
+    if (!canToggle.value) return;
+    isExpanded.value = !isExpanded.value;
   };
 
   const openTopicDetail = (topic: Topic) => {

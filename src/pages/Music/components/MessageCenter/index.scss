@@ -12,7 +12,11 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at center top, rgba(255, 215, 0, 0.15) 0%, transparent 60%);
+      background: radial-gradient(
+        ellipse at center top,
+        rgba(255, 215, 0, 0.15) 0%,
+        transparent 60%
+      );
     }
 
     .header-content {
@@ -24,7 +28,7 @@
         height: 80px;
         margin: 0 auto 20px;
         border-radius: 50%;
-        background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+        background: linear-gradient(135deg, #ffd700 0%, #ffa500 100%);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -41,7 +45,7 @@
         font-size: 28px;
         font-weight: 700;
         color: #fff;
-        margin: 0 0 12px 0;
+        margin: 0 0 12px;
       }
 
       .unread-badge {
@@ -51,7 +55,7 @@
         border: 1px solid rgba(255, 215, 0, 0.3);
         border-radius: 20px;
         font-size: 13px;
-        color: #FFD700;
+        color: #ffd700;
       }
     }
   }
@@ -86,7 +90,7 @@
 
         &.active {
           background: rgba(255, 215, 0, 0.15);
-          color: #FFD700;
+          color: #ffd700;
           box-shadow: 0 4px 16px rgba(255, 215, 0, 0.2);
           transform: translateY(-2px);
         }
@@ -131,7 +135,7 @@
 
           &:hover {
             background: rgba(255, 215, 0, 0.15);
-            color: #FFD700;
+            color: #ffd700;
           }
         }
       }
@@ -181,7 +185,7 @@
         transform: translateX(4px);
 
         &::before {
-          background: linear-gradient(180deg, #FFD700, #FFA500);
+          background: linear-gradient(180deg, #ffd700, #ffa500);
         }
       }
 
@@ -190,7 +194,7 @@
         border-color: rgba(255, 215, 0, 0.15);
 
         &::before {
-          background: #FFD700;
+          background: #ffd700;
         }
       }
 
@@ -206,22 +210,23 @@
 
           &.system {
             background: rgba(135, 206, 235, 0.15);
+
             svg {
               width: 22px;
               height: 22px;
-              color: #87CEEB;
+              color: #87ceeb;
             }
           }
 
           &.gift {
             background: rgba(255, 215, 0, 0.15);
+
             svg {
               width: 22px;
               height: 22px;
-              color: #FFD700;
+              color: #ffd700;
             }
           }
-
         }
       }
 
@@ -286,7 +291,7 @@
           text-overflow: ellipsis;
 
           .highlight {
-            color: #FFD700;
+            color: #ffd700;
             font-weight: 500;
           }
         }
@@ -315,10 +320,12 @@
 }
 
 @keyframes unreadPulse {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
     opacity: 1;
   }
+
   50% {
     transform: scale(1.2);
     opacity: 0.8;

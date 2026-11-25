@@ -5,12 +5,12 @@ $text-primary: #e8e8f0;
 $text-secondary: rgba(255, 255, 255, 0.5);
 
 // 高贵金色风格
-$accent-gradient: linear-gradient(135deg, #D4AF37, #F4D03F, #FFD700, #FFEC8B);
-$accent-color: #D4AF37;
+$accent-gradient: linear-gradient(135deg, #d4af37, #f4d03f, #ffd700, #ffec8b);
+$accent-color: #d4af37;
 $accent-glow: rgba(212, 175, 55, 0.4);
-$gold-dark: #D4AF37;
-$gold-medium: #F4D03F;
-$gold-light: #FFD700;
+$gold-dark: #d4af37;
+$gold-medium: #f4d03f;
+$gold-light: #ffd700;
 
 .playlist-detail {
   .detail-header {
@@ -354,13 +354,13 @@ $gold-light: #FFD700;
           }
 
           .vip-tag {
-            background: linear-gradient(135deg, #D4AF37, #F4D03F);
+            background: linear-gradient(135deg, #d4af37, #f4d03f);
             color: #1a1a2e;
             box-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
           }
 
           .sq-tag {
-            background: linear-gradient(135deg, #F4D03F, #FFD700);
+            background: linear-gradient(135deg, #f4d03f, #ffd700);
             color: #1a1a2e;
             box-shadow: 0 0 8px rgba(244, 208, 63, 0.5);
           }
@@ -420,6 +420,7 @@ $gold-light: #FFD700;
     opacity: 1;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.6;
     transform: scale(0.9);
@@ -427,10 +428,12 @@ $gold-light: #FFD700;
 }
 
 @keyframes goldSparkle {
-  0%, 100% {
+  0%,
+  100% {
     transform: rotate(45deg) translate(-30%, -30%);
     opacity: 0.4;
   }
+
   50% {
     transform: rotate(45deg) translate(30%, 30%);
     opacity: 0.9;
@@ -438,9 +441,11 @@ $gold-light: #FFD700;
 }
 
 @keyframes goldGlow {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.4;
   }
+
   50% {
     opacity: 0.7;
   }

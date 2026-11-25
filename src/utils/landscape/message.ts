@@ -1,4 +1,4 @@
-import { ElMessage } from 'element-plus';
+import { landscapeMessage } from '@/pages/Landscape/components/LandscapeMessage';
 
 type ContentType = 'image' | 'video' | 'guide' | 'photographer';
 
@@ -12,30 +12,11 @@ const getContentTypeText = (type: ContentType): string => {
   return typeMap[type] || '内容';
 };
 
-const MESSAGE_Z_INDEX = 11000;
-const MESSAGE_DURATION = 3000;
-
+/** 语义消息 → 风景页定制弹窗（引擎内置悬停关闭 + 关闭按钮） */
 const showMessageWithHoverClose = (options: {
   type: 'success' | 'info' | 'error' | 'warning';
   message: string;
-}) => {
-  const handler = ElMessage({
-    ...options,
-    duration: MESSAGE_DURATION,
-    showClose: true,
-    zIndex: MESSAGE_Z_INDEX,
-    onClose: () => { },
-  });
-
-  const messageEl = document.querySelector('.el-message:last-child') as HTMLElement;
-  if (messageEl) {
-    messageEl.addEventListener('mouseenter', () => {
-      handler.close();
-    });
-  }
-
-  return handler;
-};
+}) => landscapeMessage[options.type](options.message);
 
 export const showMessage = {
   like: {

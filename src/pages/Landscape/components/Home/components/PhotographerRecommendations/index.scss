@@ -1,250 +1,549 @@
+// 边框流光弧的旋转角度（@property 注册后才能被 keyframes 平滑插值）
+@property --gem-ring-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+// 抛光高光带：一道斜向镜面反光，高光边缘带按钮自身色相微染，
+// hover 时从左到右掠过（哑光石被打磨出反光），按压时定格在最亮处
+@mixin gem-sheen-band {
+  inset: 0;
+  height: auto;
+  border-radius: inherit;
+  opacity: 1;
+  background: linear-gradient(
+    104deg,
+    transparent 43%,
+    rgba(255, 255, 255, 0.1) 47%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(var(--gem-glow), 0.4) 53%,
+    rgba(255, 255, 255, 0.08) 57%,
+    transparent 60%
+  );
+  background-size: 260% 100%;
+  background-repeat: no-repeat;
+}
+
+// 边框流光弧：conic 高光 + padding 遮罩只留 1.2px 描边，
+// 角度随 @property 旋转，形成一道绕胶囊边框游走的流光
+@mixin gem-ring-orbit {
+  inset: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  padding: 1.4px;
+  opacity: 1;
+  background: conic-gradient(
+    from var(--gem-ring-angle, 0deg),
+    transparent 0 70%,
+    rgba(255, 255, 255, 0.22) 76%,
+    rgba(255, 255, 255, 1) 84%,
+    rgba(var(--gem-glow), 1) 88%,
+    transparent 93%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  filter: drop-shadow(0 0 4px rgba(var(--gem-glow), 0.9))
+    drop-shadow(0 0 1.5px rgba(255, 255, 255, 0.85));
+  animation: gem-ring-orbit 1.9s linear infinite;
+}
 
 .photographer-recommendations {
+  box-sizing: border-box;
   padding: 3rem 2.5rem;
-  max-width: 80vw;
+  max-width: 70vw;
   margin: 0 auto;
 
   .gallery-header {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 2.5rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid rgba(245, 158, 11, 0.08);
+    justify-content: center;
+    margin: 0 auto 2.5rem;
+    width: 100%;
+    max-width: 920px;
 
-    .header-left {
-      .title-label {
-        display: block;
-        font-size: 0.85rem;
-        font-weight: 600;
-        letter-spacing: 0.35em;
-        background: linear-gradient(135deg, #f59e0b, #fbbf24);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        margin-bottom: 0.4rem;
-        text-transform: uppercase;
-      }
-
-      .section-title {
-        font-size: 2.4rem;
-        font-weight: 900;
-        background: linear-gradient(135deg,
-            #f8fafc 0%,
-            #fbbf24 50%,
-            #f59e0b 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        margin: 0;
-        line-height: 1.1;
-        filter: drop-shadow(0 2px 8px rgba(245, 158, 11, 0.15));
-      }
-
-      .section-subtitle {
-        font-size: 1rem;
-        color: #cbd5e1;
-        margin: 0;
-        font-weight: 500;
-        letter-spacing: 0.02em;
-      }
-    }
-
-    .more-btn {
+    .header-plate {
       position: relative;
       display: flex;
       align-items: center;
-      gap: 0.65rem;
-      padding: 0.6rem 1.5rem 0.6rem 0.7rem;
-      border-radius: 12px;
-      border: 1px solid rgba(212, 160, 80, 0.45);
-      background:
-        repeating-linear-gradient(90deg,
-          rgba(8, 5, 2, 0.85) 0px,
-          rgba(8, 5, 2, 0.85) 3px,
-          rgba(50, 32, 14, 0.3) 3px,
-          rgba(50, 32, 14, 0.3) 8px) top / 100% 3px no-repeat,
-        repeating-linear-gradient(90deg,
-          rgba(8, 5, 2, 0.85) 0px,
-          rgba(8, 5, 2, 0.85) 3px,
-          rgba(50, 32, 14, 0.3) 3px,
-          rgba(50, 32, 14, 0.3) 8px) bottom / 100% 3px no-repeat,
-        linear-gradient(180deg, rgba(95, 64, 31, 0.55) 0%, transparent 40%),
-        linear-gradient(145deg, rgba(46, 28, 14, 0.88), rgba(26, 16, 7, 0.92));
-      color: #f0d9a8;
-      font-size: 0.95rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-      letter-spacing: 0.02em;
-      text-shadow:
-        0 1px 0 rgba(0, 0, 0, 0.5),
-        0 -1px 0 rgba(255, 220, 160, 0.18);
-      box-shadow:
-        inset 0 1px 0 rgba(255, 220, 160, 0.24),
-        inset 0 -2px 4px rgba(0, 0, 0, 0.45),
-        inset 1px 0 0 rgba(255, 220, 160, 0.08),
-        inset -1px 0 0 rgba(0, 0, 0, 0.32),
-        inset 0 0 14px rgba(20, 12, 5, 0.45),
-        0 5px 16px rgba(0, 0, 0, 0.45),
-        0 2px 5px rgba(0, 0, 0, 0.25);
-      overflow: hidden;
+      justify-content: space-between;
+      gap: 3rem;
+      width: 100%;
+      padding: 1.35rem 2.4rem;
+      isolation: isolate;
 
       &::before {
         content: '';
         position: absolute;
         inset: 0;
-        border-radius: 12px;
-        pointer-events: none;
-        background: linear-gradient(115deg,
-          transparent 30%,
-          rgba(255, 235, 180, 0.14) 48%,
-          rgba(255, 245, 210, 0.2) 50%,
-          rgba(255, 235, 180, 0.14) 52%,
-          transparent 70%);
-        background-size: 220% 100%;
-        background-position: -120% 0;
-        transition: background-position 0.6s ease;
+        z-index: -2;
+        background: linear-gradient(
+          112deg,
+          rgb(36 26 12 / 92%) 0%,
+          rgb(20 13 6 / 96%) 48%,
+          rgb(32 22 10 / 92%) 100%
+        );
+        border: 1px solid rgba(245, 158, 11, 0.32);
+        border-radius: 4px;
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.12),
+          inset 0 0 40px rgba(245, 158, 11, 0.1),
+          0 1px 0 rgb(0 0 0 / 60%),
+          0 16px 44px rgb(0 0 0 / 55%),
+          0 0 50px rgba(245, 158, 11, 0.16);
       }
 
-      .film-reel {
-        position: relative;
-        z-index: 1;
-        width: 30px;
-        height: 30px;
-        flex-shrink: 0;
-        border-radius: 50%;
-        border: 1px solid rgba(212, 160, 80, 0.55);
-        background:
-          repeating-radial-gradient(circle at center,
-            rgba(18, 11, 4, 0.45) 0px,
-            rgba(18, 11, 4, 0.45) 1px,
-            transparent 1px,
-            transparent 3px),
-          radial-gradient(circle at 35% 30%,
-            rgba(255, 220, 160, 0.38) 0%,
-            rgba(190, 140, 75, 0.22) 28%,
-            rgba(45, 28, 13, 0.65) 72%,
-            rgba(20, 12, 5, 0.85) 100%),
-          linear-gradient(145deg, rgba(62, 41, 20, 0.7), rgba(30, 18, 8, 0.8));
-        box-shadow:
-          inset 0 1px 2px rgba(255, 220, 160, 0.32),
-          inset 0 -2px 3px rgba(0, 0, 0, 0.55),
-          inset 0 0 5px rgba(0, 0, 0, 0.45),
-          0 2px 6px rgba(0, 0, 0, 0.45);
-        transition: all 0.35s ease;
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        border-top: 1px solid rgba(251, 191, 36, 0.55);
+        border-bottom: 1px solid rgba(245, 158, 11, 0.5);
+        border-radius: 4px;
+        pointer-events: none;
+        mask-image: linear-gradient(
+          90deg,
+          transparent,
+          #000 10%,
+          #000 90%,
+          transparent
+        );
+        -webkit-mask-image: linear-gradient(
+          90deg,
+          transparent,
+          #000 10%,
+          #000 90%,
+          transparent
+        );
+      }
 
-        &::after {
-          content: '';
+      .plate-glow {
+        position: absolute;
+        inset: -1px;
+        z-index: -1;
+        border-radius: 4px;
+        background: radial-gradient(
+          ellipse 55% 150% at 20% 0%,
+          rgba(245, 158, 11, 0.28),
+          transparent 62%
+        );
+        filter: blur(9px);
+        animation: artist-plate-breathe 5s ease-in-out infinite;
+        pointer-events: none;
+      }
+
+      .plate-sheen-clip {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        overflow: hidden;
+        border-radius: 4px;
+        pointer-events: none;
+
+        .plate-sheen {
           position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          width: 7px;
-          height: 7px;
-          border-radius: 50%;
-          background: radial-gradient(circle, rgba(8, 5, 2, 0.95) 0%, rgba(30, 18, 8, 0.6) 70%, transparent 100%);
-          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.65);
+          top: 0;
+          bottom: 0;
+          width: 28%;
+          background: linear-gradient(
+            100deg,
+            transparent,
+            rgba(251, 191, 36, 0.13) 50%,
+            transparent
+          );
+          transform: skewX(-22deg) translateX(-280%);
+          animation: artist-plate-sheen 7s ease-in-out infinite;
         }
       }
 
-      .btn-label {
-        position: relative;
-        z-index: 1;
+      .plate-corner {
+        position: absolute;
+        width: 13px;
+        height: 13px;
+        pointer-events: none;
+        z-index: 3;
+
+        &.tl {
+          top: -2px;
+          left: -2px;
+          border-top: 2px solid #fbbf24;
+          border-left: 2px solid #fbbf24;
+          border-top-left-radius: 4px;
+        }
+
+        &.tr {
+          top: -2px;
+          right: -2px;
+          border-top: 2px solid #fbbf24;
+          border-right: 2px solid #fbbf24;
+          border-top-right-radius: 4px;
+        }
+
+        &.bl {
+          bottom: -2px;
+          left: -2px;
+          border-bottom: 2px solid #f59e0b;
+          border-left: 2px solid #f59e0b;
+          border-bottom-left-radius: 4px;
+        }
+
+        &.br {
+          bottom: -2px;
+          right: -2px;
+          border-bottom: 2px solid #f59e0b;
+          border-right: 2px solid #f59e0b;
+          border-bottom-right-radius: 4px;
+        }
       }
 
-      &:hover {
-        color: #fff7ed;
-        border-color: rgba(251, 191, 36, 0.72);
+      .header-left {
+        display: flex;
+        align-items: center;
+        gap: 1.4rem;
+        min-width: 0;
+
+        .title-badge {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 4.2rem;
+          height: 4.2rem;
+          flex-shrink: 0;
+          border-radius: 10px;
+          background: linear-gradient(
+            145deg,
+            rgba(245, 158, 11, 0.32),
+            rgba(42, 26, 6, 0.5)
+          );
+          border: 1px solid rgba(251, 191, 36, 0.42);
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.18),
+            inset 0 -2px 5px rgba(0, 0, 0, 0.4),
+            0 5px 14px rgb(0 0 0 / 45%),
+            0 0 18px rgba(245, 158, 11, 0.3);
+
+          svg {
+            width: 2.6rem;
+            height: 2.6rem;
+            color: #fcd34d;
+            filter: drop-shadow(0 0 6px rgba(251, 191, 36, 0.6));
+          }
+        }
+
+        .header-text {
+          min-width: 0;
+
+          .title-label {
+            display: block;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.35em;
+            background: linear-gradient(135deg, #f59e0b, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.4rem;
+            text-transform: uppercase;
+          }
+
+          .section-title {
+            font-size: 2.4rem;
+            font-weight: 900;
+            background: linear-gradient(
+              135deg,
+              #f8fafc 0%,
+              #fbbf24 50%,
+              #f59e0b 100%
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 0;
+            line-height: 1.1;
+            filter: drop-shadow(0 2px 8px rgba(245, 158, 11, 0.15));
+          }
+
+          .section-subtitle {
+            font-size: 1rem;
+            color: #cbd5e1;
+            margin: 0.4rem 0 0;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+          }
+        }
+      }
+
+      .plate-chapter {
+        font-family: 'Courier New', monospace;
+        font-size: 0.95rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        color: rgba(251, 191, 36, 0.7);
+        padding: 0.35rem 0.8rem;
+        border: 1px solid rgba(245, 158, 11, 0.25);
+        border-radius: 3px;
+        background: rgba(20, 13, 6, 0.5);
+        box-shadow: inset 0 1px 2px rgb(0 0 0 / 40%);
+        white-space: nowrap;
+      }
+
+      .more-btn {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        padding: 0.6rem 1.5rem 0.6rem 0.7rem;
+        border-radius: 12px;
+        border: 1px solid rgba(212, 160, 80, 0.45);
         background:
-          repeating-linear-gradient(90deg,
-            rgba(251, 191, 36, 0.55) 0px,
-            rgba(251, 191, 36, 0.55) 3px,
-            rgba(20, 12, 5, 0.4) 3px,
-            rgba(20, 12, 5, 0.4) 8px) top / 100% 3px no-repeat,
-          repeating-linear-gradient(90deg,
-            rgba(251, 191, 36, 0.55) 0px,
-            rgba(251, 191, 36, 0.55) 3px,
-            rgba(20, 12, 5, 0.4) 3px,
-            rgba(20, 12, 5, 0.4) 8px) bottom / 100% 3px no-repeat,
-          linear-gradient(180deg, rgba(195, 138, 64, 0.5) 0%, transparent 44%),
-          linear-gradient(145deg, rgba(120, 80, 35, 0.65), rgba(70, 45, 18, 0.75)),
-          linear-gradient(135deg, rgba(251, 191, 36, 0.16), transparent 60%);
+          repeating-linear-gradient(
+              90deg,
+              rgba(8, 5, 2, 0.85) 0,
+              rgba(8, 5, 2, 0.85) 3px,
+              rgba(50, 32, 14, 0.3) 3px,
+              rgba(50, 32, 14, 0.3) 8px
+            )
+            top / 100% 3px no-repeat,
+          repeating-linear-gradient(
+              90deg,
+              rgba(8, 5, 2, 0.85) 0,
+              rgba(8, 5, 2, 0.85) 3px,
+              rgba(50, 32, 14, 0.3) 3px,
+              rgba(50, 32, 14, 0.3) 8px
+            )
+            bottom / 100% 3px no-repeat,
+          linear-gradient(180deg, rgba(95, 64, 31, 0.55) 0%, transparent 40%),
+          linear-gradient(
+            145deg,
+            rgba(46, 28, 14, 0.88),
+            rgba(26, 16, 7, 0.92)
+          );
+        color: #f0d9a8;
+        font-size: 0.95rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        letter-spacing: 0.02em;
+        text-shadow:
+          0 1px 0 rgba(0, 0, 0, 0.5),
+          0 -1px 0 rgba(255, 220, 160, 0.18);
         box-shadow:
-          inset 0 1px 0 rgba(255, 235, 180, 0.38),
+          inset 0 1px 0 rgba(255, 220, 160, 0.24),
           inset 0 -2px 4px rgba(0, 0, 0, 0.45),
-          inset 1px 0 0 rgba(255, 235, 180, 0.14),
+          inset 1px 0 0 rgba(255, 220, 160, 0.08),
           inset -1px 0 0 rgba(0, 0, 0, 0.32),
-          inset 0 0 16px rgba(251, 191, 36, 0.14),
-          0 0 20px rgba(245, 158, 11, 0.32),
+          inset 0 0 14px rgba(20, 12, 5, 0.45),
           0 5px 16px rgba(0, 0, 0, 0.45),
           0 2px 5px rgba(0, 0, 0, 0.25);
+        overflow: hidden;
 
         &::before {
-          background-position: 120% 0;
-        }
-
-        .film-reel {
-          border-color: rgba(251, 191, 36, 0.75);
-          box-shadow:
-            inset 0 1px 2px rgba(255, 235, 180, 0.45),
-            inset 0 -2px 3px rgba(0, 0, 0, 0.55),
-            inset 0 0 6px rgba(251, 191, 36, 0.18),
-            0 0 12px rgba(245, 158, 11, 0.35),
-            0 2px 6px rgba(0, 0, 0, 0.45);
-        }
-      }
-
-      &:active {
-        color: #ffffff;
-        text-shadow:
-          0 1px 0 rgba(0, 0, 0, 0.4),
-          0 0 12px rgba(251, 191, 36, 0.6);
-        border-color: rgba(251, 191, 36, 0.9);
-        background:
-          repeating-linear-gradient(90deg,
-            rgba(255, 230, 150, 0.85) 0px,
-            rgba(255, 230, 150, 0.85) 3px,
-            rgba(251, 191, 36, 0.4) 3px,
-            rgba(251, 191, 36, 0.4) 8px) top / 100% 3px no-repeat,
-          repeating-linear-gradient(90deg,
-            rgba(255, 230, 150, 0.85) 0px,
-            rgba(255, 230, 150, 0.85) 3px,
-            rgba(251, 191, 36, 0.4) 3px,
-            rgba(251, 191, 36, 0.4) 8px) bottom / 100% 3px no-repeat,
-          linear-gradient(180deg, rgba(235, 172, 84, 0.6) 0%, transparent 48%),
-          linear-gradient(145deg, rgba(160, 110, 50, 0.75), rgba(100, 65, 24, 0.85)),
-          linear-gradient(135deg, rgba(251, 191, 36, 0.24), transparent 60%);
-        box-shadow:
-          inset 0 1px 0 rgba(255, 240, 200, 0.45),
-          inset 0 -2px 4px rgba(0, 0, 0, 0.45),
-          inset 1px 0 0 rgba(255, 240, 200, 0.18),
-          inset -1px 0 0 rgba(0, 0, 0, 0.32),
-          inset 0 0 18px rgba(251, 191, 36, 0.2),
-          0 0 28px rgba(245, 158, 11, 0.5),
-          0 0 56px rgba(245, 158, 11, 0.22),
-          0 5px 18px rgba(0, 0, 0, 0.45);
-        animation: more-btn-glow 2.6s ease-in-out infinite;
-
-        &::before {
-          background: linear-gradient(115deg,
-            transparent 25%,
-            rgba(255, 240, 200, 0.24) 45%,
-            rgba(255, 250, 220, 0.34) 50%,
-            rgba(255, 240, 200, 0.24) 55%,
-            transparent 75%);
+          content: '';
+          position: absolute;
+          inset: 0;
+          border-radius: 12px;
+          pointer-events: none;
+          background: linear-gradient(
+            115deg,
+            transparent 30%,
+            rgba(255, 235, 180, 0.14) 48%,
+            rgba(255, 245, 210, 0.2) 50%,
+            rgba(255, 235, 180, 0.14) 52%,
+            transparent 70%
+          );
           background-size: 220% 100%;
-          animation: more-btn-shine 2.2s linear infinite;
+          background-position: -120% 0;
+          transition: background-position 0.6s ease;
         }
 
         .film-reel {
-          border-color: rgba(255, 220, 150, 0.9);
+          position: relative;
+          z-index: 1;
+          width: 30px;
+          height: 30px;
+          flex-shrink: 0;
+          border-radius: 50%;
+          border: 1px solid rgba(212, 160, 80, 0.55);
+          background:
+            repeating-radial-gradient(
+              circle at center,
+              rgba(18, 11, 4, 0.45) 0,
+              rgba(18, 11, 4, 0.45) 1px,
+              transparent 1px,
+              transparent 3px
+            ),
+            radial-gradient(
+              circle at 35% 30%,
+              rgba(255, 220, 160, 0.38) 0%,
+              rgba(190, 140, 75, 0.22) 28%,
+              rgba(45, 28, 13, 0.65) 72%,
+              rgba(20, 12, 5, 0.85) 100%
+            ),
+            linear-gradient(145deg, rgba(62, 41, 20, 0.7), rgba(30, 18, 8, 0.8));
           box-shadow:
-            inset 0 1px 2px rgba(255, 240, 200, 0.5),
+            inset 0 1px 2px rgba(255, 220, 160, 0.32),
             inset 0 -2px 3px rgba(0, 0, 0, 0.55),
-            inset 0 0 8px rgba(251, 191, 36, 0.28),
-            0 0 16px rgba(245, 158, 11, 0.5),
+            inset 0 0 5px rgba(0, 0, 0, 0.45),
             0 2px 6px rgba(0, 0, 0, 0.45);
+          transition: all 0.35s ease;
+
+          &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: radial-gradient(
+              circle,
+              rgba(8, 5, 2, 0.95) 0%,
+              rgba(30, 18, 8, 0.6) 70%,
+              transparent 100%
+            );
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.65);
+          }
+        }
+
+        .btn-label {
+          position: relative;
+          z-index: 1;
+        }
+
+        &:hover {
+          color: #fff7ed;
+          border-color: rgba(251, 191, 36, 0.72);
+          background:
+            repeating-linear-gradient(
+                90deg,
+                rgba(251, 191, 36, 0.55) 0,
+                rgba(251, 191, 36, 0.55) 3px,
+                rgba(20, 12, 5, 0.4) 3px,
+                rgba(20, 12, 5, 0.4) 8px
+              )
+              top / 100% 3px no-repeat,
+            repeating-linear-gradient(
+                90deg,
+                rgba(251, 191, 36, 0.55) 0,
+                rgba(251, 191, 36, 0.55) 3px,
+                rgba(20, 12, 5, 0.4) 3px,
+                rgba(20, 12, 5, 0.4) 8px
+              )
+              bottom / 100% 3px no-repeat,
+            linear-gradient(
+              180deg,
+              rgba(195, 138, 64, 0.5) 0%,
+              transparent 44%
+            ),
+            linear-gradient(
+              145deg,
+              rgba(120, 80, 35, 0.65),
+              rgba(70, 45, 18, 0.75)
+            ),
+            linear-gradient(135deg, rgba(251, 191, 36, 0.16), transparent 60%);
+          box-shadow:
+            inset 0 1px 0 rgba(255, 235, 180, 0.38),
+            inset 0 -2px 4px rgba(0, 0, 0, 0.45),
+            inset 1px 0 0 rgba(255, 235, 180, 0.14),
+            inset -1px 0 0 rgba(0, 0, 0, 0.32),
+            inset 0 0 16px rgba(251, 191, 36, 0.14),
+            0 0 20px rgba(245, 158, 11, 0.32),
+            0 5px 16px rgba(0, 0, 0, 0.45),
+            0 2px 5px rgba(0, 0, 0, 0.25);
+
+          &::before {
+            background-position: 120% 0;
+          }
+
+          .film-reel {
+            border-color: rgba(251, 191, 36, 0.75);
+            box-shadow:
+              inset 0 1px 2px rgba(255, 235, 180, 0.45),
+              inset 0 -2px 3px rgba(0, 0, 0, 0.55),
+              inset 0 0 6px rgba(251, 191, 36, 0.18),
+              0 0 12px rgba(245, 158, 11, 0.35),
+              0 2px 6px rgba(0, 0, 0, 0.45);
+          }
+        }
+
+        &:active {
+          color: #fff;
+          text-shadow:
+            0 1px 0 rgba(0, 0, 0, 0.4),
+            0 0 12px rgba(251, 191, 36, 0.6);
+          border-color: rgba(251, 191, 36, 0.9);
+          background:
+            repeating-linear-gradient(
+                90deg,
+                rgba(255, 230, 150, 0.85) 0,
+                rgba(255, 230, 150, 0.85) 3px,
+                rgba(251, 191, 36, 0.4) 3px,
+                rgba(251, 191, 36, 0.4) 8px
+              )
+              top / 100% 3px no-repeat,
+            repeating-linear-gradient(
+                90deg,
+                rgba(255, 230, 150, 0.85) 0,
+                rgba(255, 230, 150, 0.85) 3px,
+                rgba(251, 191, 36, 0.4) 3px,
+                rgba(251, 191, 36, 0.4) 8px
+              )
+              bottom / 100% 3px no-repeat,
+            linear-gradient(
+              180deg,
+              rgba(235, 172, 84, 0.6) 0%,
+              transparent 48%
+            ),
+            linear-gradient(
+              145deg,
+              rgba(160, 110, 50, 0.75),
+              rgba(100, 65, 24, 0.85)
+            ),
+            linear-gradient(135deg, rgba(251, 191, 36, 0.24), transparent 60%);
+          box-shadow:
+            inset 0 1px 0 rgba(255, 240, 200, 0.45),
+            inset 0 -2px 4px rgba(0, 0, 0, 0.45),
+            inset 1px 0 0 rgba(255, 240, 200, 0.18),
+            inset -1px 0 0 rgba(0, 0, 0, 0.32),
+            inset 0 0 18px rgba(251, 191, 36, 0.2),
+            0 0 28px rgba(245, 158, 11, 0.5),
+            0 0 56px rgba(245, 158, 11, 0.22),
+            0 5px 18px rgba(0, 0, 0, 0.45);
+          animation: more-btn-glow 2.6s ease-in-out infinite;
+
+          &::before {
+            background: linear-gradient(
+              115deg,
+              transparent 25%,
+              rgba(255, 240, 200, 0.24) 45%,
+              rgba(255, 250, 220, 0.34) 50%,
+              rgba(255, 240, 200, 0.24) 55%,
+              transparent 75%
+            );
+            background-size: 220% 100%;
+            animation: more-btn-shine 2.2s linear infinite;
+          }
+
+          .film-reel {
+            border-color: rgba(255, 220, 150, 0.9);
+            box-shadow:
+              inset 0 1px 2px rgba(255, 240, 200, 0.5),
+              inset 0 -2px 3px rgba(0, 0, 0, 0.55),
+              inset 0 0 8px rgba(251, 191, 36, 0.28),
+              0 0 16px rgba(245, 158, 11, 0.5),
+              0 2px 6px rgba(0, 0, 0, 0.45);
+          }
         }
       }
     }
@@ -285,8 +584,16 @@
         gap: 0.8rem;
         padding: 1.5rem 1.3rem 1.4rem;
         background:
-          radial-gradient(circle at 0% 0%, rgba(253, 224, 71, 0.15) 0%, transparent 45%),
-          radial-gradient(circle at 100% 100%, rgba(15, 8, 4, 0.3) 0%, transparent 50%),
+          radial-gradient(
+            circle at 0% 0%,
+            rgba(253, 224, 71, 0.15) 0%,
+            transparent 45%
+          ),
+          radial-gradient(
+            circle at 100% 100%,
+            rgba(15, 8, 4, 0.3) 0%,
+            transparent 50%
+          ),
           linear-gradient(155deg, #2d1810 0%, #241a10 45%, #1a0e08 100%);
         border: 1px solid rgba(251, 191, 36, 0.22);
         border-radius: 4px;
@@ -299,21 +606,97 @@
           inset -1px 0 3px rgba(15, 8, 4, 0.2);
         overflow: hidden;
 
-
         &::after {
           content: '';
           position: absolute;
           inset: 0;
-          background: linear-gradient(115deg,
+          background: linear-gradient(
+            115deg,
             transparent 22%,
             rgba(253, 224, 71, 0.08) 40%,
             rgba(254, 215, 170, 0.14) 50%,
             rgba(253, 224, 71, 0.07) 60%,
-            transparent 78%);
+            transparent 78%
+          );
           pointer-events: none;
           z-index: 0;
         }
 
+        // 器材箱黄铜雕刻铭牌：凹刻专业方向，紧贴卡片上边框
+        .panel-plate {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.6rem;
+          width: fit-content;
+          margin: -1.5rem auto 0;
+          padding: 0.32rem 1.15rem 0.36rem;
+          position: relative;
+          z-index: 2;
+          background:
+            linear-gradient(
+              180deg,
+              rgba(255, 244, 214, 0.35) 0%,
+              transparent 48%
+            ),
+            linear-gradient(160deg, #d9a441 0%, #b4832e 48%, #8a5a1c 100%);
+          border: 1px solid rgba(112, 66, 18, 0.9);
+          border-top-color: rgba(253, 230, 138, 0.75);
+          border-radius: 3px 3px 5px 5px;
+          box-shadow:
+            0 4px 10px rgba(10, 5, 2, 0.5),
+            0 1px 3px rgba(10, 5, 2, 0.35),
+            inset 0 1px 0 rgba(255, 240, 200, 0.55),
+            inset 0 -2px 3px rgba(90, 50, 10, 0.55),
+            inset 1px 0 2px rgba(255, 230, 170, 0.25),
+            inset -1px 0 2px rgba(90, 50, 10, 0.4);
+
+          .plate-text {
+            font-size: 0.86rem;
+            font-weight: 800;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #2e1a06;
+
+            // 凹刻：下亮上暗的相反浮雕（letterpress）
+            text-shadow: 0 1px 0 rgba(255, 235, 190, 0.4);
+          }
+
+          .plate-screw {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            background: radial-gradient(
+              circle at 35% 35%,
+              #fde68a,
+              #b4832e 60%,
+              #6d4315 100%
+            );
+            box-shadow:
+              0 1px 1px rgba(60, 30, 5, 0.6),
+              inset 0 1px 1px rgba(255, 255, 255, 0.5);
+            position: relative;
+
+            &::after {
+              content: '';
+              position: absolute;
+              top: 50%;
+              left: 12%;
+              right: 12%;
+              height: 1px;
+              background: rgba(60, 32, 8, 0.75);
+            }
+
+            &.plate-screw-left::after {
+              transform: rotate(38deg);
+            }
+
+            &.plate-screw-right::after {
+              transform: rotate(-21deg);
+            }
+          }
+        }
 
         .panel-avatar-area {
           position: relative;
@@ -329,7 +712,14 @@
             border-radius: 3px;
             overflow: hidden;
             border: 5px solid;
-            border-image: linear-gradient(145deg, #92400e 0%, #241a10 40%, #2d1810 60%, #1a0e08 100%) 1;
+            border-image: linear-gradient(
+                145deg,
+                #92400e 0%,
+                #241a10 40%,
+                #2d1810 60%,
+                #1a0e08 100%
+              )
+              1;
             box-shadow:
               0 10px 30px rgba(15, 8, 4, 0.65),
               0 6px 16px rgba(15, 8, 4, 0.4),
@@ -341,13 +731,10 @@
               inset 2px 0 4px rgba(251, 191, 36, 0.08),
               inset -2px 0 4px rgba(15, 8, 4, 0.25);
 
-            .avatar-img {
-              position: relative;
+            // LandscapeImage 内部 img 不携带本组件 scopeId，父级 scoped 选择器
+            // 必须 :deep 才能命中；铺满与 cover 由组件 scene 变体负责
+            :deep(.avatar-img) {
               z-index: 1;
-              width: 100%;
-              height: 100%;
-              border-radius: 0;
-              object-fit: cover;
               filter: saturate(0.92) contrast(1.08) brightness(0.95);
             }
 
@@ -359,37 +746,68 @@
               pointer-events: none;
               animation: develop-fade 3s ease-out forwards;
             }
+
+            // 相册黄铜护角：四个三角贴角压住照片
+            .avatar-corner {
+              position: absolute;
+              width: 20px;
+              height: 20px;
+              z-index: 3;
+              pointer-events: none;
+              background:
+                linear-gradient(
+                  135deg,
+                  rgba(255, 244, 214, 0.4) 0%,
+                  transparent 55%
+                ),
+                linear-gradient(150deg, #d9a441 0%, #a9791f 55%, #6d4315 100%);
+              box-shadow: 0 1px 2px rgba(10, 5, 2, 0.55);
+
+              &.corner-tl {
+                top: 0;
+                left: 0;
+                clip-path: polygon(0 0, 100% 0, 0 100%);
+              }
+
+              &.corner-tr {
+                top: 0;
+                right: 0;
+                clip-path: polygon(0 0, 100% 0, 100% 100%);
+              }
+
+              &.corner-bl {
+                bottom: 0;
+                left: 0;
+                clip-path: polygon(0 0, 0 100%, 100% 100%);
+              }
+
+              &.corner-br {
+                bottom: 0;
+                right: 0;
+                clip-path: polygon(100% 0, 100% 100%, 0 100%);
+              }
+            }
           }
 
           .avatar-glow {
             position: absolute;
             inset: -12px;
             border-radius: 8px;
-            background: radial-gradient(circle,
-                rgba(251, 191, 36, 0.1) 0%,
-                rgba(251, 191, 36, 0.03) 40%,
-                transparent 65%);
+            background: radial-gradient(
+              circle,
+              rgba(251, 191, 36, 0.1) 0%,
+              rgba(251, 191, 36, 0.03) 40%,
+              transparent 65%
+            );
             pointer-events: none;
             animation: glow-pulse 4s ease-in-out infinite;
           }
         }
 
-
         .panel-identity {
           text-align: center;
           position: relative;
           z-index: 1;
-
-          .identity-specialty {
-            display: block;
-            font-size: 0.92rem;
-            font-weight: 800;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            color: #fef3c7;
-            margin-bottom: 0.35rem;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-          }
 
           .identity-name {
             margin: 0;
@@ -399,78 +817,62 @@
             .name-text {
               font-size: 1.8rem;
               font-weight: 900;
-              color: #fef3c7;
-              text-shadow:
-                0 1px 0 rgba(0, 0, 0, 0.5),
-                0 1px 3px rgba(0, 0, 0, 0.3);
+
+              // 金箔烫印：纵向渐变 + 投影保证可读性
+              background: linear-gradient(
+                180deg,
+                #fffbeb 0%,
+                #fde68a 45%,
+                #f59e0b 78%,
+                #b45309 100%
+              );
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+              background-clip: text;
+              filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.5))
+                drop-shadow(0 0 8px rgba(251, 191, 36, 0.25));
               letter-spacing: 0.02em;
-            }
-
-            .name-underline {
-              position: absolute;
-              bottom: -4px;
-              left: 8%;
-              right: 8%;
-              height: 3px;
-              border-radius: 2px;
-              background: linear-gradient(90deg,
-                  transparent,
-                  rgba(251, 191, 36, 0.55),
-                  rgba(253, 224, 71, 0.2),
-                  transparent);
-              box-shadow: 0 1px 3px rgba(251, 191, 36, 0.3);
-            }
-          }
-
-          .identity-featured {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.35rem;
-            margin-top: 0.55rem;
-            padding: 0.28rem 0.85rem;
-            background:
-              linear-gradient(145deg, rgba(251, 191, 36, 0.25), rgba(234, 88, 12, 0.12)),
-              linear-gradient(180deg, rgba(255, 255, 255, 0.12), transparent 50%),
-              linear-gradient(180deg, transparent 60%, rgba(15, 8, 4, 0.15));
-            border: 1px solid rgba(251, 191, 36, 0.4);
-            border-top: 2px solid rgba(253, 224, 71, 0.65);
-            border-bottom: 1px solid rgba(234, 88, 12, 0.3);
-            border-radius: 4px;
-            color: #fef3c7;
-            font-size: 0.86rem;
-            font-weight: 800;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            box-shadow:
-              0 4px 14px rgba(251, 191, 36, 0.3),
-              0 2px 6px rgba(15, 8, 4, 0.25),
-              0 1px 2px rgba(15, 8, 4, 0.15),
-              inset 0 1px 0 rgba(255, 255, 255, 0.25),
-              inset 0 -3px 3px rgba(15, 8, 4, 0.3),
-              inset 1px 0 3px rgba(251, 191, 36, 0.1),
-              inset -1px 0 3px rgba(251, 191, 36, 0.1);
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-
-            svg {
-              color: #fbbf24;
-              animation: star-glow 2s ease-in-out infinite;
-              filter: drop-shadow(0 0 3px rgba(251, 191, 36, 0.5));
             }
           }
         }
 
         .panel-divider {
-          height: 2px;
-          background: linear-gradient(90deg,
-              transparent,
-              rgba(251, 191, 36, 0.25),
-              rgba(251, 191, 36, 0.12),
-              transparent);
+          height: 14px;
+          border-radius: 2px;
           margin: 0.2rem 0;
           position: relative;
           z-index: 1;
-          box-shadow: 0 1px 2px rgba(15, 8, 4, 0.2);
+
+          // 35mm 胶片条：深色片基 + 上下两排齿孔 + 中缝漏光
+          background:
+            linear-gradient(
+                90deg,
+                transparent 3%,
+                rgba(251, 191, 36, 0.4) 50%,
+                transparent 97%
+              )
+              0 6.5px / 100% 1px no-repeat,
+            repeating-linear-gradient(
+                90deg,
+                rgba(253, 224, 71, 0.3) 0 4px,
+                transparent 4px 11px
+              )
+              0 2px / 100% 2px no-repeat,
+            repeating-linear-gradient(
+                90deg,
+                rgba(253, 224, 71, 0.3) 0 4px,
+                transparent 4px 11px
+              )
+              0 10px / 100% 2px no-repeat,
+            linear-gradient(
+              180deg,
+              rgba(24, 14, 8, 0.85),
+              rgba(13, 7, 4, 0.85)
+            );
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.06),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.4),
+            0 1px 2px rgba(15, 8, 4, 0.25);
 
           &::after {
             content: '';
@@ -481,7 +883,12 @@
             width: 6px;
             height: 6px;
             border-radius: 50%;
-            background: radial-gradient(circle at 35% 35%, #fde68a, #fbbf24 60%, #92400e 100%);
+            background: radial-gradient(
+              circle at 35% 35%,
+              #fde68a,
+              #fbbf24 60%,
+              #92400e 100%
+            );
             box-shadow:
               0 0 5px rgba(251, 191, 36, 0.4),
               0 1px 2px rgba(15, 8, 4, 0.3),
@@ -493,185 +900,386 @@
           font-size: 1rem;
           font-weight: 600;
           line-height: 1.7;
-          color: rgba(254, 243, 199, 0.9);
+          color: rgba(254, 243, 199, 0.94);
           margin: 0;
+          padding: 0.6rem 0.95rem;
+          border-radius: 6px;
           text-align: center;
-          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
           position: relative;
           z-index: 1;
-        }
 
+          // 阳光照射的凸起刻字板：左上受光、右下背光
+          text-shadow:
+            0 1px 1px rgba(0, 0, 0, 0.55),
+            0 -1px 0 rgba(255, 244, 214, 0.08);
+          background:
+            linear-gradient(
+              145deg,
+              rgba(254, 243, 199, 0.14) 0%,
+              rgba(254, 243, 199, 0.04) 24%,
+              transparent 46%
+            ),
+            linear-gradient(
+              180deg,
+              rgba(46, 26, 13, 0.92) 0%,
+              rgba(28, 16, 9, 0.94) 100%
+            );
+          border: 1px solid rgba(251, 191, 36, 0.2);
+          box-shadow:
+            inset 0 1px 0 rgba(255, 240, 200, 0.32),
+            inset 1px 0 0 rgba(255, 240, 200, 0.12),
+            inset 0 -2px 4px rgba(0, 0, 0, 0.5),
+            inset -2px 0 4px rgba(0, 0, 0, 0.3),
+            0 8px 18px -6px rgba(0, 0, 0, 0.55),
+            0 2px 4px rgba(0, 0, 0, 0.35);
+
+          // 取景器四角框：琥珀色括角罩住简介
+          &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background:
+              linear-gradient(
+                  rgba(251, 191, 36, 0.75),
+                  rgba(251, 191, 36, 0.75)
+                )
+                0 0 / 14px 2px no-repeat,
+              linear-gradient(
+                  rgba(251, 191, 36, 0.75),
+                  rgba(251, 191, 36, 0.75)
+                )
+                0 0 / 2px 14px no-repeat,
+              linear-gradient(
+                  rgba(251, 191, 36, 0.75),
+                  rgba(251, 191, 36, 0.75)
+                )
+                100% 0 / 14px 2px no-repeat,
+              linear-gradient(
+                  rgba(251, 191, 36, 0.75),
+                  rgba(251, 191, 36, 0.75)
+                )
+                100% 0 / 2px 14px no-repeat,
+              linear-gradient(
+                  rgba(251, 191, 36, 0.75),
+                  rgba(251, 191, 36, 0.75)
+                )
+                0 100% / 14px 2px no-repeat,
+              linear-gradient(
+                  rgba(251, 191, 36, 0.75),
+                  rgba(251, 191, 36, 0.75)
+                )
+                0 100% / 2px 14px no-repeat,
+              linear-gradient(
+                  rgba(251, 191, 36, 0.75),
+                  rgba(251, 191, 36, 0.75)
+                )
+                100% 100% / 14px 2px no-repeat,
+              linear-gradient(
+                  rgba(251, 191, 36, 0.75),
+                  rgba(251, 191, 36, 0.75)
+                )
+                100% 100% / 2px 14px no-repeat;
+          }
+        }
 
         .panel-stats {
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 0.6rem;
+          gap: 0.45rem;
           position: relative;
           z-index: 1;
-          padding: 0.5rem 0.4rem;
+          padding: 0.6rem 2rem 0.55rem;
+          border-radius: 8px;
+
+          // 相机顶板仪表条：左上受光的凸起拉丝金属板，内嵌三块 LCD 显示窗
+          background:
+            linear-gradient(
+              145deg,
+              rgba(254, 243, 199, 0.12) 0%,
+              rgba(254, 243, 199, 0.03) 26%,
+              transparent 48%
+            ),
+            repeating-linear-gradient(
+              90deg,
+              rgba(255, 255, 255, 0.03) 0 1px,
+              transparent 1px 3px
+            ),
+            linear-gradient(160deg, #38200e 0%, #2a1509 40%, #190d05 100%);
+          border: 1px solid rgba(251, 191, 36, 0.22);
+          border-top-color: rgba(253, 230, 138, 0.4);
+          box-shadow:
+            inset 0 1px 0 rgba(255, 240, 200, 0.3),
+            inset 1px 0 0 rgba(255, 240, 200, 0.1),
+            inset 0 -2px 5px rgba(0, 0, 0, 0.5),
+            inset -2px 0 4px rgba(0, 0, 0, 0.28),
+            0 9px 20px -6px rgba(0, 0, 0, 0.6),
+            0 2px 5px rgba(0, 0, 0, 0.35);
+
+          // 面板两端固定螺丝
+          &::before,
+          &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 7px;
+            height: 7px;
+            margin-top: -3.5px;
+            border-radius: 50%;
+            background: radial-gradient(
+              circle at 35% 35%,
+              #fde68a,
+              #b4832e 60%,
+              #6d4315 100%
+            );
+            box-shadow:
+              0 1px 1px rgba(0, 0, 0, 0.6),
+              inset 0 1px 1px rgba(255, 255, 255, 0.5);
+          }
+
+          &::before {
+            left: 8px;
+          }
+
+          &::after {
+            right: 8px;
+          }
 
           .stat-item {
             flex: 1;
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.2rem;
             position: relative;
-            padding: 0.6rem 0.3rem;
+            padding: 9px 14px 7px 9px;
             border-radius: 8px;
-            background:
-              linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, transparent 45%),
-              linear-gradient(180deg, rgba(245, 158, 11, 0.1) 0%, transparent 30%),
-              radial-gradient(circle at 32% 28%, rgba(120, 53, 15, 0.85) 0%, rgba(100, 40, 10, 0.88) 55%, rgba(80, 30, 5, 0.92) 100%);
-            border: 1px solid rgba(245, 158, 11, 0.3);
+
+            // 黄铜镶嵌表圈：凸起受光的金属框，斜面渐变模拟倒角
+            background: linear-gradient(
+              160deg,
+              #edb95e 0%,
+              #c08c33 38%,
+              #8a5a1c 78%,
+              #6d4315 100%
+            );
             box-shadow:
-              0 6px 18px rgba(15, 8, 4, 0.45),
-              0 3px 8px rgba(15, 8, 4, 0.25),
-              0 1px 2px rgba(15, 8, 4, 0.15),
-              inset 0 1px 1px rgba(253, 224, 71, 0.2),
-              inset 0 -3px 5px rgba(15, 8, 4, 0.4),
-              inset 1px 0 3px rgba(253, 224, 71, 0.06),
-              inset -1px 0 3px rgba(15, 8, 4, 0.2);
+              inset 0 1px 0 rgba(255, 240, 200, 0.55),
+              inset 1px 0 0 rgba(255, 240, 200, 0.22),
+              inset 0 -1px 0 rgba(55, 28, 5, 0.65),
+              inset -1px 0 0 rgba(55, 28, 5, 0.4),
+              0 5px 12px -3px rgba(0, 0, 0, 0.55),
+              0 1px 2px rgba(0, 0, 0, 0.4);
 
-            &::before {
-              content: '';
-              position: absolute;
-              inset: -3px;
-              border-radius: 50%;
-              background: repeating-conic-gradient(from 0deg,
-                rgba(245, 158, 11, 0.3) 0deg 1.5deg,
-                transparent 1.5deg 10deg);
-              -webkit-mask: radial-gradient(circle, transparent 62%, #000 64%, #000 70%, transparent 72%);
-              mask: radial-gradient(circle, transparent 62%, #000 64%, #000 70%, transparent 72%);
-              pointer-events: none;
-            }
-
+            // 右侧滚花调节轮（老相机计数器的对位轮）
             &::after {
               content: '';
               position: absolute;
-              top: 3px;
-              left: 50%;
-              transform: translateX(-50%);
-              width: 6px;
-              height: 6px;
-              border-radius: 50%;
-              background: radial-gradient(circle at 35% 35%, #fde68a, #fbbf24 60%, #92400e 100%);
+              right: 2.5px;
+              top: 50%;
+              transform: translateY(-50%);
+              width: 5px;
+              height: 58%;
+              border-radius: 3px;
+              background: repeating-linear-gradient(
+                180deg,
+                #e2b45c 0 1.5px,
+                #6d4315 1.5px 3px
+              );
               box-shadow:
-                0 0 5px rgba(245, 158, 11, 0.6),
-                0 1px 2px rgba(15, 8, 4, 0.3),
-                inset 0 1px 1px rgba(255, 255, 255, 0.4);
+                inset 1px 0 1px rgba(255, 240, 200, 0.4),
+                inset -1px 0 1px rgba(0, 0, 0, 0.5),
+                0 1px 2px rgba(0, 0, 0, 0.5);
+            }
+
+            // 内嵌 LCD 深窗：外暗内微亮的径向凹陷 + 扫描线，下缘受光
+            .stat-window {
+              flex: 1;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              gap: 0.18rem;
+              padding: 0.5rem 0.3rem 0.42rem;
+              border-radius: 4px;
+              background:
+                repeating-linear-gradient(
+                  180deg,
+                  rgba(255, 255, 255, 0.035) 0 1px,
+                  transparent 1px 3px
+                ),
+                radial-gradient(
+                  ellipse 130% 110% at 50% 46%,
+                  #2e1d0e 0%,
+                  #1a1008 48%,
+                  #0c0502 100%
+                );
+              box-shadow:
+                inset 0 3px 8px rgba(0, 0, 0, 0.8),
+                inset 0 0 14px rgba(0, 0, 0, 0.5),
+                inset 0 -1px 0 rgba(255, 240, 200, 0.22),
+                inset 0 0 12px rgba(245, 158, 11, 0.08);
             }
 
             .stat-num {
               font-size: 1.18rem;
               font-weight: 800;
-              background: linear-gradient(135deg, #fef3c7, #fbbf24);
+              background: linear-gradient(
+                180deg,
+                #fffbeb 0%,
+                #fde68a 50%,
+                #fbbf24 100%
+              );
               -webkit-background-clip: text;
               -webkit-text-fill-color: transparent;
               background-clip: text;
               font-variant-numeric: tabular-nums;
-              filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+              filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4))
+                drop-shadow(0 0 7px rgba(251, 191, 36, 0.4));
             }
 
             .stat-label {
               font-size: 0.76rem;
               font-weight: 800;
-              color: rgba(253, 230, 138, 0.9);
+              color: #fde68a;
               letter-spacing: 0.14em;
               text-transform: uppercase;
+              text-shadow:
+                0 1px 2px rgba(0, 0, 0, 0.45),
+                0 0 8px rgba(245, 158, 11, 0.35);
+            }
+          }
+
+          .stat-item:nth-of-type(2) {
+            // 青蓝阳极氧化金属表圈
+            background: linear-gradient(
+              160deg,
+              #8fd0f2 0%,
+              #4d9fce 38%,
+              #2b6a96 78%,
+              #1b4a70 100%
+            );
+            box-shadow:
+              inset 0 1px 0 rgba(224, 242, 254, 0.55),
+              inset 1px 0 0 rgba(224, 242, 254, 0.22),
+              inset 0 -1px 0 rgba(6, 34, 56, 0.65),
+              inset -1px 0 0 rgba(6, 34, 56, 0.4),
+              0 5px 12px -3px rgba(0, 0, 0, 0.55),
+              0 1px 2px rgba(0, 0, 0, 0.4);
+
+            &::after {
+              background: repeating-linear-gradient(
+                180deg,
+                #8fd0f2 0 1.5px,
+                #1b4a70 1.5px 3px
+              );
             }
 
-            .stat-glow {
-              display: none;
+            .stat-window {
+              background:
+                repeating-linear-gradient(
+                  180deg,
+                  rgba(255, 255, 255, 0.035) 0 1px,
+                  transparent 1px 3px
+                ),
+                radial-gradient(
+                  ellipse 130% 110% at 50% 46%,
+                  #1c2f42 0%,
+                  #101d2b 48%,
+                  #060b12 100%
+                );
+              box-shadow:
+                inset 0 3px 8px rgba(0, 0, 0, 0.8),
+                inset 0 0 14px rgba(0, 0, 0, 0.5),
+                inset 0 -1px 0 rgba(224, 242, 254, 0.22),
+                inset 0 0 12px rgba(56, 189, 248, 0.1);
+            }
+
+            .stat-num {
+              background: linear-gradient(
+                180deg,
+                #f0f9ff 0%,
+                #bae6fd 50%,
+                #38bdf8 100%
+              );
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+              background-clip: text;
+              filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4))
+                drop-shadow(0 0 7px rgba(56, 189, 248, 0.4));
+            }
+
+            .stat-label {
+              color: #bae6fd;
+              text-shadow:
+                0 1px 2px rgba(0, 0, 0, 0.45),
+                0 0 8px rgba(56, 189, 248, 0.3);
             }
           }
 
           .stat-item:nth-of-type(3) {
-            background:
-              linear-gradient(180deg, rgba(250, 204, 21, 0.1) 0%, transparent 30%),
-              radial-gradient(circle at 32% 28%, rgba(40, 20, 5, 0.85) 0%, rgba(15, 40, 55, 0.88) 55%, rgba(10, 30, 45, 0.92) 100%);
-            border: 1px solid rgba(250, 204, 21, 0.3);
+            // 翠绿珐琅金属表圈
+            background: linear-gradient(
+              160deg,
+              #82ddb2 0%,
+              #48bd90 38%,
+              #2a8a66 78%,
+              #1a5c44 100%
+            );
             box-shadow:
-              0 4px 14px rgba(20, 10, 5, 0.4),
-              0 2px 5px rgba(20, 10, 5, 0.2),
-              inset 0 1px 1px rgba(253, 224, 71, 0.16),
-              inset 0 -2px 4px rgba(20, 10, 5, 0.35);
-
-            &::before {
-              background: repeating-conic-gradient(from 0deg,
-                rgba(250, 204, 21, 0.3) 0deg 1.5deg,
-                transparent 1.5deg 10deg);
-            }
+              inset 0 1px 0 rgba(209, 250, 229, 0.55),
+              inset 1px 0 0 rgba(209, 250, 229, 0.22),
+              inset 0 -1px 0 rgba(4, 47, 36, 0.65),
+              inset -1px 0 0 rgba(4, 47, 36, 0.4),
+              0 5px 12px -3px rgba(0, 0, 0, 0.55),
+              0 1px 2px rgba(0, 0, 0, 0.4);
 
             &::after {
-              background: radial-gradient(circle at 35% 35%, #fef9c3, #facc15 60%, #854d0e 100%);
+              background: repeating-linear-gradient(
+                180deg,
+                #82ddb2 0 1.5px,
+                #1a5c44 1.5px 3px
+              );
+            }
+
+            .stat-window {
+              background:
+                repeating-linear-gradient(
+                  180deg,
+                  rgba(255, 255, 255, 0.035) 0 1px,
+                  transparent 1px 3px
+                ),
+                radial-gradient(
+                  ellipse 130% 110% at 50% 46%,
+                  #173726 0%,
+                  #0d2015 48%,
+                  #05100b 100%
+                );
               box-shadow:
-                0 0 5px rgba(250, 204, 21, 0.6),
-                0 1px 2px rgba(20, 10, 5, 0.3),
-                inset 0 1px 1px rgba(255, 255, 255, 0.4);
+                inset 0 3px 8px rgba(0, 0, 0, 0.8),
+                inset 0 0 14px rgba(0, 0, 0, 0.5),
+                inset 0 -1px 0 rgba(209, 250, 229, 0.22),
+                inset 0 0 12px rgba(52, 211, 153, 0.1);
             }
 
             .stat-num {
-              background: linear-gradient(135deg, #fef9c3, #facc15);
+              background: linear-gradient(
+                180deg,
+                #ecfdf5 0%,
+                #a7f3d0 50%,
+                #34d399 100%
+              );
               -webkit-background-clip: text;
               -webkit-text-fill-color: transparent;
               background-clip: text;
+              filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4))
+                drop-shadow(0 0 7px rgba(52, 211, 153, 0.4));
             }
 
             .stat-label {
-              color: rgba(254, 249, 195, 0.9);
+              color: #d1fae5;
+              text-shadow:
+                0 1px 2px rgba(0, 0, 0, 0.45),
+                0 0 8px rgba(52, 211, 153, 0.3);
             }
-          }
-
-          .stat-item:nth-of-type(5) {
-            background:
-              linear-gradient(180deg, rgba(52, 211, 153, 0.1) 0%, transparent 30%),
-              radial-gradient(circle at 32% 28%, rgba(6, 78, 59, 0.85) 0%, rgba(4, 60, 45, 0.88) 55%, rgba(2, 45, 35, 0.92) 100%);
-            border: 1px solid rgba(52, 211, 153, 0.3);
-            box-shadow:
-              0 4px 14px rgba(15, 8, 4, 0.4),
-              0 2px 5px rgba(15, 8, 4, 0.2),
-              inset 0 1px 1px rgba(110, 231, 183, 0.16),
-              inset 0 -2px 4px rgba(15, 8, 4, 0.35);
-
-            &::before {
-              background: repeating-conic-gradient(from 0deg,
-                rgba(52, 211, 153, 0.3) 0deg 1.5deg,
-                transparent 1.5deg 10deg);
-            }
-
-            &::after {
-              background: radial-gradient(circle at 35% 35%, #d1fae5, #34d399 60%, #065f46 100%);
-              box-shadow:
-                0 0 5px rgba(52, 211, 153, 0.6),
-                0 1px 2px rgba(15, 8, 4, 0.3),
-                inset 0 1px 1px rgba(255, 255, 255, 0.4);
-            }
-
-            .stat-num {
-              background: linear-gradient(135deg, #d1fae5, #34d399);
-              -webkit-background-clip: text;
-              -webkit-text-fill-color: transparent;
-              background-clip: text;
-            }
-
-            .stat-label {
-              color: rgba(209, 250, 229, 0.9);
-            }
-          }
-
-          .stat-divider {
-            width: 7px;
-            height: 7px;
-            background: radial-gradient(circle at 35% 35%, #fde68a, #fbbf24 60%, #92400e 100%);
-            border-radius: 50%;
-            box-shadow:
-              0 1px 2px rgba(15, 8, 4, 0.4),
-              0 0 5px rgba(245, 158, 11, 0.35),
-              inset 0 1px 1px rgba(255, 255, 255, 0.35);
-            margin: 0 0.1rem;
-            flex-shrink: 0;
           }
         }
 
@@ -682,19 +1290,56 @@
           flex-wrap: wrap;
           position: relative;
           z-index: 1;
-          gap: 0.3rem;
+          gap: 0.35rem;
+          padding: 0.42rem 0.65rem;
+          border-radius: 6px;
+
+          // 参数托轨：内凹暗槽（下缘受光），托住一排浮雕铭签
+          background: linear-gradient(
+            180deg,
+            rgba(12, 6, 3, 0.55) 0%,
+            rgba(22, 13, 7, 0.4) 100%
+          );
+          border: 1px solid rgba(251, 191, 36, 0.14);
+          box-shadow:
+            inset 0 2px 5px rgba(0, 0, 0, 0.45),
+            inset 0 -1px 0 rgba(255, 240, 200, 0.14);
 
           .tag {
             display: inline-flex;
             align-items: center;
-            gap: 0.2rem;
-            padding: 0.22rem 0.6rem;
-            border-radius: 2px;
-            font-size: 0.86rem;
+            gap: 0.25rem;
+            padding: 0.28rem 0.72rem;
+            border-radius: 3px;
+            font-size: 0.95rem;
             font-weight: 800;
             transition: all 0.25s ease;
             cursor: default;
             position: relative;
+
+            // 阳光斜照的浮雕铭签：左上受光边、右下背光边、右下落影
+            box-shadow:
+              inset 0 1px 0 rgba(255, 240, 200, 0.4),
+              inset 1px 0 0 rgba(255, 240, 200, 0.16),
+              inset 0 -2px 3px rgba(0, 0, 0, 0.42),
+              inset -1px 0 2px rgba(0, 0, 0, 0.25),
+              0 4px 8px -2px rgba(0, 0, 0, 0.5),
+              0 1px 2px rgba(0, 0, 0, 0.35);
+
+            // 左上阳光光斑
+            &::before {
+              content: '';
+              position: absolute;
+              inset: 0;
+              border-radius: inherit;
+              background: linear-gradient(
+                145deg,
+                rgba(255, 244, 214, 0.24) 0%,
+                rgba(255, 244, 214, 0.07) 30%,
+                transparent 55%
+              );
+              pointer-events: none;
+            }
 
             &::after {
               content: '';
@@ -712,60 +1357,72 @@
           }
 
           .tag-location {
-            background: rgba(56, 189, 248, 0.12);
-            border: 1px solid rgba(56, 189, 248, 0.2);
-            border-top: 2px solid rgba(125, 211, 252, 0.4);
-            color: #7dd3fc;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            background: rgba(56, 189, 248, 0.16);
+            border: 1px solid rgba(56, 189, 248, 0.28);
+            border-top: 2px solid rgba(125, 211, 252, 0.5);
+            color: #bae6fd;
+            text-shadow:
+              0 1px 2px rgba(0, 0, 0, 0.4),
+              0 0 9px rgba(56, 189, 248, 0.35);
 
             &:hover {
-              background: rgba(56, 189, 248, 0.2);
-              border-top-color: rgba(125, 211, 252, 0.6);
+              background: rgba(56, 189, 248, 0.24);
+              border-top-color: rgba(125, 211, 252, 0.7);
             }
           }
 
           .tag-rating {
-            background: rgba(34, 211, 238, 0.12);
-            border: 1px solid rgba(34, 211, 238, 0.2);
-            border-top: 2px solid rgba(103, 232, 249, 0.4);
-            color: #67e8f9;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            background: rgba(34, 211, 238, 0.16);
+            border: 1px solid rgba(34, 211, 238, 0.28);
+            border-top: 2px solid rgba(103, 232, 249, 0.5);
+            color: #a5f3fc;
+            text-shadow:
+              0 1px 2px rgba(0, 0, 0, 0.4),
+              0 0 9px rgba(34, 211, 238, 0.35);
 
             svg {
-              color: #22d3ee;
+              color: #67e8f9;
             }
 
             &:hover {
-              background: rgba(34, 211, 238, 0.2);
-              border-top-color: rgba(103, 232, 249, 0.6);
+              background: rgba(34, 211, 238, 0.24);
+              border-top-color: rgba(103, 232, 249, 0.7);
             }
           }
 
           .tag-equip {
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            text-shadow:
+              0 1px 2px rgba(0, 0, 0, 0.4),
+              0 0 9px rgba(148, 163, 184, 0.2);
           }
 
           .tag-equip-1 {
-            background: rgba(167, 139, 250, 0.12);
-            border: 1px solid rgba(167, 139, 250, 0.2);
-            border-top: 2px solid rgba(196, 181, 253, 0.4);
-            color: #c4b5fd;
+            background: rgba(167, 139, 250, 0.16);
+            border: 1px solid rgba(167, 139, 250, 0.28);
+            border-top: 2px solid rgba(196, 181, 253, 0.5);
+            color: #ddd6fe;
+            text-shadow:
+              0 1px 2px rgba(0, 0, 0, 0.4),
+              0 0 9px rgba(167, 139, 250, 0.35);
 
             &:hover {
-              background: rgba(167, 139, 250, 0.2);
-              border-top-color: rgba(196, 181, 253, 0.6);
+              background: rgba(167, 139, 250, 0.24);
+              border-top-color: rgba(196, 181, 253, 0.7);
             }
           }
 
           .tag-equip-2 {
-            background: rgba(236, 72, 153, 0.12);
-            border: 1px solid rgba(236, 72, 153, 0.2);
-            border-top: 2px solid rgba(244, 114, 182, 0.4);
-            color: #f9a8d4;
+            background: rgba(236, 72, 153, 0.16);
+            border: 1px solid rgba(236, 72, 153, 0.28);
+            border-top: 2px solid rgba(244, 114, 182, 0.5);
+            color: #fbcfe8;
+            text-shadow:
+              0 1px 2px rgba(0, 0, 0, 0.4),
+              0 0 9px rgba(236, 72, 153, 0.35);
 
             &:hover {
-              background: rgba(236, 72, 153, 0.2);
-              border-top-color: rgba(244, 114, 182, 0.6);
+              background: rgba(236, 72, 153, 0.24);
+              border-top-color: rgba(244, 114, 182, 0.7);
             }
           }
         }
@@ -784,7 +1441,11 @@
             gap: 0.45rem;
             padding: 0.55rem 1.7rem;
             background:
-              linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, transparent 45%),
+              linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0.12) 0%,
+                transparent 45%
+              ),
               linear-gradient(135deg, #fbbf24, #ea580c 60%, #92400e 100%);
             border: 1px solid rgba(253, 224, 71, 0.5);
             border-top: 2px solid rgba(253, 230, 138, 0.7);
@@ -793,7 +1454,10 @@
             font-size: 1.05rem;
             font-weight: 800;
             cursor: pointer;
-            transition: box-shadow 0.3s ease, transform 0.2s ease, filter 0.3s ease;
+            transition:
+              box-shadow 0.3s ease,
+              transform 0.2s ease,
+              filter 0.3s ease;
             box-shadow:
               0 8px 24px rgba(251, 191, 36, 0.4),
               0 4px 12px rgba(15, 8, 4, 0.35),
@@ -816,7 +1480,11 @@
               right: 8px;
               height: 40%;
               border-radius: 50%;
-              background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), transparent);
+              background: linear-gradient(
+                to bottom,
+                rgba(255, 255, 255, 0.3),
+                transparent
+              );
               pointer-events: none;
             }
 
@@ -825,12 +1493,14 @@
               position: absolute;
               inset: 0;
               border-radius: 50px;
-              background: linear-gradient(120deg,
+              background: linear-gradient(
+                120deg,
                 transparent 25%,
                 rgba(255, 247, 237, 0.35) 45%,
                 rgba(255, 247, 237, 0.5) 50%,
                 rgba(255, 247, 237, 0.35) 55%,
-                transparent 75%);
+                transparent 75%
+              );
               background-size: 250% 100%;
               background-position: -150% 0;
               pointer-events: none;
@@ -870,7 +1540,11 @@
 
             &.followed {
               background:
-                linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, transparent 45%),
+                linear-gradient(
+                  180deg,
+                  rgba(255, 255, 255, 0.15) 0%,
+                  transparent 45%
+                ),
                 linear-gradient(135deg, #10b981, #059669 60%, #047857 100%);
               border: 1px solid rgba(110, 231, 183, 0.5);
               border-top: 2px solid rgba(209, 250, 229, 0.7);
@@ -901,12 +1575,14 @@
 
                 &::after {
                   opacity: 1;
-                  background: linear-gradient(120deg,
+                  background: linear-gradient(
+                    120deg,
                     transparent 25%,
                     rgba(236, 253, 245, 0.35) 45%,
                     rgba(236, 253, 245, 0.5) 50%,
                     rgba(236, 253, 245, 0.35) 55%,
-                    transparent 75%);
+                    transparent 75%
+                  );
                   animation: follow-sweep 1.4s ease-in-out;
                 }
               }
@@ -919,14 +1595,22 @@
             border-radius: 50%;
             border: 2px solid rgba(202, 138, 4, 0.3);
             border-top: 2px solid rgba(250, 204, 21, 0.45);
-            background:
-              radial-gradient(circle at 32% 28%, rgba(40, 20, 5, 0.7) 0%, rgba(30, 15, 5, 0.78) 60%, rgba(20, 10, 5, 0.88) 100%);
+            background: radial-gradient(
+              circle at 32% 28%,
+              rgba(40, 20, 5, 0.7) 0%,
+              rgba(30, 15, 5, 0.78) 60%,
+              rgba(20, 10, 5, 0.88) 100%
+            );
             color: #fde047;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: box-shadow 0.3s ease, transform 0.2s ease, border-color 0.3s ease, color 0.3s ease;
+            transition:
+              box-shadow 0.3s ease,
+              transform 0.2s ease,
+              border-color 0.3s ease,
+              color 0.3s ease;
             position: relative;
             box-shadow:
               0 4px 12px rgba(20, 10, 5, 0.4),
@@ -1021,8 +1705,17 @@
           z-index: 1;
           padding: 0.45rem;
           background:
-            linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, transparent 45%),
-            linear-gradient(145deg, rgba(60, 30, 10, 0.8), rgba(50, 25, 8, 0.55), rgba(40, 20, 5, 0.7));
+            linear-gradient(
+              135deg,
+              rgba(255, 255, 255, 0.06) 0%,
+              transparent 45%
+            ),
+            linear-gradient(
+              145deg,
+              rgba(60, 30, 10, 0.8),
+              rgba(50, 25, 8, 0.55),
+              rgba(40, 20, 5, 0.7)
+            );
           border-radius: 10px;
           border: 1px solid rgba(249, 115, 22, 0.25);
           box-shadow:
@@ -1040,11 +1733,13 @@
             left: 15%;
             right: 15%;
             height: 1px;
-            background: linear-gradient(90deg,
-                transparent,
-                rgba(249, 115, 22, 0.25),
-                rgba(253, 186, 116, 0.1),
-                transparent);
+            background: linear-gradient(
+              90deg,
+              transparent,
+              rgba(249, 115, 22, 0.25),
+              rgba(253, 186, 116, 0.1),
+              transparent
+            );
           }
 
           .tab-indicator {
@@ -1052,10 +1747,12 @@
             top: 0.4rem;
             height: calc(100% - 0.8rem);
             border-radius: 10px;
-            background: linear-gradient(145deg,
-                rgba(251, 146, 60, 0.18),
-                rgba(180, 83, 9, 0.1),
-                rgba(251, 146, 60, 0.14));
+            background: linear-gradient(
+              145deg,
+              rgba(251, 146, 60, 0.18),
+              rgba(180, 83, 9, 0.1),
+              rgba(251, 146, 60, 0.14)
+            );
             border: 1px solid rgba(251, 146, 60, 0.45);
             box-shadow:
               0 0 18px rgba(249, 115, 22, 0.25),
@@ -1075,7 +1772,11 @@
               right: 10%;
               height: 40%;
               border-radius: 50%;
-              background: linear-gradient(to bottom, rgba(255, 220, 160, 0.12), transparent);
+              background: linear-gradient(
+                to bottom,
+                rgba(255, 220, 160, 0.12),
+                transparent
+              );
             }
           }
 
@@ -1091,12 +1792,18 @@
             border-radius: 10px;
             border: 1px solid rgba(180, 120, 60, 0.28);
             background:
-              repeating-linear-gradient(90deg,
-                rgba(255, 255, 255, 0.018) 0px,
+              repeating-linear-gradient(
+                90deg,
+                rgba(255, 255, 255, 0.018) 0,
                 rgba(255, 255, 255, 0.018) 1px,
                 transparent 1px,
-                transparent 3px),
-              linear-gradient(145deg, rgba(35, 18, 5, 0.62), rgba(55, 28, 10, 0.42));
+                transparent 3px
+              ),
+              linear-gradient(
+                145deg,
+                rgba(35, 18, 5, 0.62),
+                rgba(55, 28, 10, 0.42)
+              );
             color: #e8d5b8;
             font-size: 1rem;
             font-weight: 800;
@@ -1119,12 +1826,13 @@
               right: 5px;
               height: 3px;
               border-radius: 1px;
-              background:
-                repeating-linear-gradient(90deg,
-                  rgba(12, 6, 2, 0.92) 0px,
-                  rgba(12, 6, 2, 0.92) 3px,
-                  rgba(60, 32, 12, 0.5) 3px,
-                  rgba(60, 32, 12, 0.5) 8px);
+              background: repeating-linear-gradient(
+                90deg,
+                rgba(12, 6, 2, 0.92) 0,
+                rgba(12, 6, 2, 0.92) 3px,
+                rgba(60, 32, 12, 0.5) 3px,
+                rgba(60, 32, 12, 0.5) 8px
+              );
               pointer-events: none;
               transition: background 0.35s ease;
             }
@@ -1137,12 +1845,13 @@
               right: 5px;
               height: 3px;
               border-radius: 1px;
-              background:
-                repeating-linear-gradient(90deg,
-                  rgba(12, 6, 2, 0.92) 0px,
-                  rgba(12, 6, 2, 0.92) 3px,
-                  rgba(60, 32, 12, 0.5) 3px,
-                  rgba(60, 32, 12, 0.5) 8px);
+              background: repeating-linear-gradient(
+                90deg,
+                rgba(12, 6, 2, 0.92) 0,
+                rgba(12, 6, 2, 0.92) 3px,
+                rgba(60, 32, 12, 0.5) 3px,
+                rgba(60, 32, 12, 0.5) 8px
+              );
               pointer-events: none;
               transition: background 0.35s ease;
             }
@@ -1154,7 +1863,11 @@
             .tab-count {
               padding: 0.14rem 0.5rem;
               border-radius: 10px;
-              background: linear-gradient(145deg, rgba(180, 120, 60, 0.16), rgba(120, 70, 20, 0.1));
+              background: linear-gradient(
+                145deg,
+                rgba(180, 120, 60, 0.16),
+                rgba(120, 70, 20, 0.1)
+              );
               font-size: 0.86rem;
               font-weight: 800;
               font-variant-numeric: tabular-nums;
@@ -1169,13 +1882,23 @@
               color: #fff7ed;
               border-color: rgba(251, 146, 60, 0.5);
               background:
-                repeating-linear-gradient(90deg,
-                  rgba(255, 220, 160, 0.04) 0px,
+                repeating-linear-gradient(
+                  90deg,
+                  rgba(255, 220, 160, 0.04) 0,
                   rgba(255, 220, 160, 0.04) 1px,
                   transparent 1px,
-                  transparent 3px),
-                linear-gradient(145deg, rgba(249, 115, 22, 0.2), rgba(180, 83, 9, 0.12)),
-                linear-gradient(180deg, rgba(253, 186, 116, 0.1), transparent 60%);
+                  transparent 3px
+                ),
+                linear-gradient(
+                  145deg,
+                  rgba(249, 115, 22, 0.2),
+                  rgba(180, 83, 9, 0.12)
+                ),
+                linear-gradient(
+                  180deg,
+                  rgba(253, 186, 116, 0.1),
+                  transparent 60%
+                );
               box-shadow:
                 0 0 16px rgba(249, 115, 22, 0.25),
                 0 4px 12px rgba(234, 88, 12, 0.15),
@@ -1184,22 +1907,24 @@
                 inset 0 0 12px rgba(253, 186, 116, 0.08);
 
               &::before {
-                background:
-                  repeating-linear-gradient(90deg,
-                    rgba(251, 146, 60, 0.75) 0px,
-                    rgba(251, 146, 60, 0.75) 3px,
-                    rgba(20, 10, 3, 0.55) 3px,
-                    rgba(20, 10, 3, 0.55) 8px);
+                background: repeating-linear-gradient(
+                  90deg,
+                  rgba(251, 146, 60, 0.75) 0,
+                  rgba(251, 146, 60, 0.75) 3px,
+                  rgba(20, 10, 3, 0.55) 3px,
+                  rgba(20, 10, 3, 0.55) 8px
+                );
                 animation: film-perforation-glow 1.6s ease-in-out infinite;
               }
 
               &::after {
-                background:
-                  repeating-linear-gradient(90deg,
-                    rgba(251, 146, 60, 0.75) 0px,
-                    rgba(251, 146, 60, 0.75) 3px,
-                    rgba(20, 10, 3, 0.55) 3px,
-                    rgba(20, 10, 3, 0.55) 8px);
+                background: repeating-linear-gradient(
+                  90deg,
+                  rgba(251, 146, 60, 0.75) 0,
+                  rgba(251, 146, 60, 0.75) 3px,
+                  rgba(20, 10, 3, 0.55) 3px,
+                  rgba(20, 10, 3, 0.55) 8px
+                );
                 animation: film-perforation-glow 1.6s ease-in-out infinite 0.4s;
               }
 
@@ -1208,7 +1933,11 @@
               }
 
               .tab-count {
-                background: linear-gradient(145deg, rgba(251, 146, 60, 0.3), rgba(234, 88, 12, 0.18));
+                background: linear-gradient(
+                  145deg,
+                  rgba(251, 146, 60, 0.3),
+                  rgba(234, 88, 12, 0.18)
+                );
                 color: #fff7ed;
                 box-shadow:
                   0 0 8px rgba(249, 115, 22, 0.25),
@@ -1218,21 +1947,39 @@
             }
 
             &.active {
-              color: #ffffff;
+              color: #fff;
               text-shadow:
                 0 0 14px rgba(251, 146, 60, 0.7),
                 0 0 4px rgba(249, 115, 22, 0.5);
               border-color: rgba(251, 146, 60, 0.75);
               background:
-                radial-gradient(circle at center, rgba(255, 230, 180, 0.16) 0%, transparent 62%),
-                repeating-linear-gradient(90deg,
-                  rgba(255, 230, 180, 0.06) 0px,
+                radial-gradient(
+                  circle at center,
+                  rgba(255, 230, 180, 0.16) 0%,
+                  transparent 62%
+                ),
+                repeating-linear-gradient(
+                  90deg,
+                  rgba(255, 230, 180, 0.06) 0,
                   rgba(255, 230, 180, 0.06) 1px,
                   transparent 1px,
-                  transparent 3px),
-                linear-gradient(145deg, rgba(249, 115, 22, 0.42), rgba(234, 88, 12, 0.25)),
-                linear-gradient(180deg, rgba(253, 186, 116, 0.18), transparent 70%),
-                linear-gradient(135deg, rgba(251, 191, 36, 0.1), transparent 50%);
+                  transparent 3px
+                ),
+                linear-gradient(
+                  145deg,
+                  rgba(249, 115, 22, 0.42),
+                  rgba(234, 88, 12, 0.25)
+                ),
+                linear-gradient(
+                  180deg,
+                  rgba(253, 186, 116, 0.18),
+                  transparent 70%
+                ),
+                linear-gradient(
+                  135deg,
+                  rgba(251, 191, 36, 0.1),
+                  transparent 50%
+                );
               box-shadow:
                 0 0 26px rgba(249, 115, 22, 0.45),
                 0 0 52px rgba(234, 88, 12, 0.18),
@@ -1243,22 +1990,24 @@
               animation: film-exposure-pulse 2.6s ease-in-out infinite;
 
               &::before {
-                background:
-                  repeating-linear-gradient(90deg,
-                    rgba(255, 220, 130, 0.95) 0px,
-                    rgba(255, 220, 130, 0.95) 3px,
-                    rgba(251, 146, 60, 0.5) 3px,
-                    rgba(251, 146, 60, 0.5) 8px);
+                background: repeating-linear-gradient(
+                  90deg,
+                  rgba(255, 220, 130, 0.95) 0,
+                  rgba(255, 220, 130, 0.95) 3px,
+                  rgba(251, 146, 60, 0.5) 3px,
+                  rgba(251, 146, 60, 0.5) 8px
+                );
                 animation: film-perforation-expose 2s ease-in-out infinite;
               }
 
               &::after {
-                background:
-                  repeating-linear-gradient(90deg,
-                    rgba(255, 220, 130, 0.95) 0px,
-                    rgba(255, 220, 130, 0.95) 3px,
-                    rgba(251, 146, 60, 0.5) 3px,
-                    rgba(251, 146, 60, 0.5) 8px);
+                background: repeating-linear-gradient(
+                  90deg,
+                  rgba(255, 220, 130, 0.95) 0,
+                  rgba(255, 220, 130, 0.95) 3px,
+                  rgba(251, 146, 60, 0.5) 3px,
+                  rgba(251, 146, 60, 0.5) 8px
+                );
                 animation: film-perforation-expose 2s ease-in-out infinite 0.5s;
               }
 
@@ -1267,9 +2016,12 @@
               }
 
               .tab-count {
-                background:
-                  linear-gradient(145deg, rgba(251, 146, 60, 0.45), rgba(234, 88, 12, 0.28));
-                color: #ffffff;
+                background: linear-gradient(
+                  145deg,
+                  rgba(251, 146, 60, 0.45),
+                  rgba(234, 88, 12, 0.28)
+                );
+                color: #fff;
                 box-shadow:
                   0 0 12px rgba(249, 115, 22, 0.35),
                   0 2px 8px rgba(234, 88, 12, 0.2),
@@ -1297,9 +2049,11 @@
           overflow: hidden;
           break-inside: avoid;
           margin-bottom: 0.8rem;
-          background: linear-gradient(145deg,
-              rgba(40, 20, 5, 0.5),
-              rgba(60, 30, 10, 0.3));
+          background: linear-gradient(
+            145deg,
+            rgba(40, 20, 5, 0.5),
+            rgba(60, 30, 10, 0.3)
+          );
           backdrop-filter: blur(10px);
           border: 1px solid rgba(245, 158, 11, 0.08);
           transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1318,17 +2072,17 @@
             left: 8%;
             right: 8%;
             height: 1px;
-            background: linear-gradient(90deg,
-                transparent,
-                rgba(245, 158, 11, 0.2),
-                rgba(255, 255, 255, 0.15),
-                rgba(245, 158, 11, 0.2),
-                transparent);
+            background: linear-gradient(
+              90deg,
+              transparent,
+              rgba(245, 158, 11, 0.2),
+              rgba(255, 255, 255, 0.15),
+              rgba(245, 158, 11, 0.2),
+              transparent
+            );
             z-index: 5;
             pointer-events: none;
           }
-
-  
 
           &:hover {
             transform: translateY(-8px) scale(1.02);
@@ -1340,7 +2094,7 @@
               inset 0 1px 0 rgba(255, 255, 255, 0.1),
               inset 0 -1px 0 rgba(0, 0, 0, 0.2);
 
-            .card-media .media-img {
+            .card-media :deep(.media-img) {
               transform: scale(1.1);
             }
 
@@ -1358,10 +2112,8 @@
             position: relative;
             overflow: hidden;
 
-            .media-img {
-              width: 100%;
-              height: 100%;
-              object-fit: cover;
+            // scene 变体已让 img absolute 铺满，这里只需透传动效
+            :deep(.media-img) {
               transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
             }
           }
@@ -1372,11 +2124,13 @@
             left: -60%;
             width: 40%;
             height: 100%;
-            background: linear-gradient(90deg,
-                transparent,
-                rgba(255, 255, 255, 0.18),
-                rgba(255, 255, 255, 0.06),
-                transparent);
+            background: linear-gradient(
+              90deg,
+              transparent,
+              rgba(255, 255, 255, 0.18),
+              rgba(255, 255, 255, 0.06),
+              transparent
+            );
             transform: translateX(-100%);
             transition: all 0.8s ease;
             pointer-events: none;
@@ -1385,21 +2139,13 @@
 
           &.work-photo {
             .card-media {
-              min-height: 400px;
-
-              .media-img {
-                height: 100%;
-              }
+              min-height: 340px;
             }
           }
 
           &.work-video {
             .card-media {
-              min-height: 420px;
-
-              .media-img {
-                height: 100%;
-              }
+              min-height: 360px;
             }
 
             .media-video {
@@ -1413,9 +2159,11 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                background: linear-gradient(135deg,
-                    rgba(0, 0, 0, 0.2),
-                    rgba(0, 0, 0, 0.35));
+                background: linear-gradient(
+                  135deg,
+                  rgba(0, 0, 0, 0.2),
+                  rgba(0, 0, 0, 0.35)
+                );
                 transition: background 0.3s ease;
 
                 .play-btn {
@@ -1463,9 +2211,11 @@
             }
 
             &:hover .video-overlay {
-              background: linear-gradient(135deg,
-                  rgba(0, 0, 0, 0.3),
-                  rgba(0, 0, 0, 0.45));
+              background: linear-gradient(
+                135deg,
+                rgba(0, 0, 0, 0.3),
+                rgba(0, 0, 0, 0.45)
+              );
 
               .play-btn {
                 transform: scale(1.12);
@@ -1476,7 +2226,7 @@
 
           &.work-guide {
             .card-media {
-              min-height: 380px;
+              min-height: 320px;
               position: relative;
               overflow: hidden;
             }
@@ -1489,26 +2239,20 @@
             }
 
             &.card-size-large .card-media {
-              min-height: 300px;
-              max-height: 420px;
+              min-height: 240px;
+              max-height: 360px;
             }
 
             &.card-size-large .card-media {
-              min-height: 260px;
+              min-height: 200px;
             }
 
             .media-guide {
               position: relative;
               overflow: hidden;
 
-              .guide-bg-img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                display: block;
-                position: absolute;
-                inset: 0;
-                z-index: 0;
+              // 铺满/absolute 由 LandscapeImage scene 变体负责，这里只透传动效
+              :deep(.guide-bg-img) {
                 transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
               }
 
@@ -1516,10 +2260,12 @@
                 position: absolute;
                 inset: 0;
                 z-index: 1;
-                background: linear-gradient(to bottom,
-                    rgba(15, 15, 30, 0.5) 0%,
-                    rgba(15, 15, 30, 0.7) 50%,
-                    rgba(15, 15, 30, 0.92) 100%);
+                background: linear-gradient(
+                  to bottom,
+                  rgba(15, 15, 30, 0.5) 0%,
+                  rgba(15, 15, 30, 0.7) 50%,
+                  rgba(15, 15, 30, 0.92) 100%
+                );
               }
 
               .guide-accent-line {
@@ -1528,10 +2274,12 @@
                 left: 0;
                 width: 3px;
                 height: 100%;
-                background: linear-gradient(to bottom,
-                    rgba(16, 185, 129, 0.5),
-                    rgba(52, 211, 153, 0.2),
-                    transparent);
+                background: linear-gradient(
+                  to bottom,
+                  rgba(16, 185, 129, 0.5),
+                  rgba(52, 211, 153, 0.2),
+                  transparent
+                );
                 border-radius: 0 2px 2px 0;
                 z-index: 2;
               }
@@ -1550,9 +2298,11 @@
                 width: 42px;
                 height: 42px;
                 border-radius: 12px;
-                background: linear-gradient(135deg,
-                    rgba(16, 185, 129, 0.2),
-                    rgba(52, 211, 153, 0.1));
+                background: linear-gradient(
+                  135deg,
+                  rgba(16, 185, 129, 0.2),
+                  rgba(52, 211, 153, 0.1)
+                );
                 border: 1px solid rgba(16, 185, 129, 0.3);
                 display: flex;
                 align-items: center;
@@ -1604,7 +2354,7 @@
             }
 
             &:hover {
-              .guide-bg-img {
+              :deep(.guide-bg-img) {
                 transform: scale(1.05);
               }
 
@@ -1625,16 +2375,19 @@
           }
 
           .card-info {
-            padding: 0.5rem 0.7rem;
+            // 左右内边距略收，给交互 chip 的加大内边距与换行留出宽度
+            padding: 0.5rem 0.55rem;
             display: flex;
             flex-direction: column;
             gap: 0.35rem;
             opacity: 0.65;
             transition: all 0.3s ease;
             position: relative;
-            background: linear-gradient(to bottom,
-                rgba(40, 20, 5, 0.4),
-                rgba(40, 20, 5, 0.2));
+            background: linear-gradient(
+              to bottom,
+              rgba(40, 20, 5, 0.4),
+              rgba(40, 20, 5, 0.2)
+            );
             box-shadow:
               inset 0 1px 0 rgba(255, 255, 255, 0.06),
               inset 0 -1px 0 rgba(0, 0, 0, 0.1);
@@ -1646,12 +2399,14 @@
               left: 5%;
               right: 5%;
               height: 1px;
-              background: linear-gradient(90deg,
-                  transparent,
-                  rgba(245, 158, 11, 0.15),
-                  rgba(255, 255, 255, 0.1),
-                  rgba(245, 158, 11, 0.15),
-                  transparent);
+              background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(245, 158, 11, 0.15),
+                rgba(255, 255, 255, 0.1),
+                rgba(245, 158, 11, 0.15),
+                transparent
+              );
               pointer-events: none;
             }
 
@@ -1664,56 +2419,95 @@
             .card-actions {
               display: flex;
               align-items: center;
-              gap: 0.3rem;
-              flex-wrap: nowrap;
-              overflow-x: auto;
+              gap: 0.35rem 0.4rem;
+              flex-wrap: wrap;
               padding: 0.15rem 0;
 
-              &::-webkit-scrollbar {
-                display: none;
-              }
-
+              // 宝石按钮：切面渐变芯 + 玻璃包边 + 顶弧反光，色相由变体变量注入
               .act-chip {
+                --gem-hi: rgba(148, 163, 184, 0.5);
+                --gem-core: rgba(71, 85, 105, 0.55);
+                --gem-lo: rgba(15, 23, 42, 0.65);
+                --gem-glow: 148, 163, 184;
+                --gem-text: #cbd5e1;
+
                 display: inline-flex;
                 align-items: center;
-                gap: 0.25rem;
-                padding: 0.28rem 0.7rem;
+                gap: 0.2rem;
+                padding: 0.28rem 0.8rem;
                 border-radius: 1.2rem;
                 font-size: 0.95rem;
                 font-weight: 800;
                 font-variant-numeric: tabular-nums;
-                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-                background: linear-gradient(145deg, rgba(40, 20, 5, 0.85), rgba(60, 30, 10, 0.6));
-                border: 1.5px solid rgba(255, 255, 255, 0.1);
-                color: #cbd5e1;
+                color: var(--gem-text);
                 position: relative;
-                overflow: hidden;
                 white-space: nowrap;
+                cursor: pointer;
+                overflow: hidden;
+                border: 1px solid rgba(255, 255, 255, 0.16);
+                background:
+                  radial-gradient(
+                    ellipse 120% 80% at 50% -10%,
+                    rgba(255, 255, 255, 0.08),
+                    transparent 55%
+                  ),
+                  linear-gradient(
+                    180deg,
+                    rgba(46, 51, 60, 0.9) 0%,
+                    rgba(26, 29, 35, 0.94) 100%
+                  );
                 box-shadow:
-                  0 3px 10px rgba(0, 0, 0, 0.5),
-                  0 1px 3px rgba(0, 0, 0, 0.3),
+                  0 3px 10px -2px rgba(0, 0, 0, 0.5),
                   inset 0 1px 0 rgba(255, 255, 255, 0.12),
-                  inset 0 -1px 0 rgba(0, 0, 0, 0.25);
+                  inset 0 -1px 1px rgba(0, 0, 0, 0.42);
+                transition:
+                  transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  box-shadow 0.25s ease,
+                  filter 0.25s ease,
+                  border-color 0.25s ease;
 
+                // 顶部哑光微光
                 &::before {
                   content: '';
                   position: absolute;
-                  top: 0;
-                  left: 0;
-                  width: 100%;
-                  height: 1px;
-                  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+                  top: 1px;
+                  left: 8%;
+                  right: 8%;
+                  height: 44%;
+                  border-radius: 1rem 1rem 50% 50% / 1.1rem 1.1rem 100% 100%;
+                  background: linear-gradient(
+                    180deg,
+                    rgba(255, 255, 255, 0.12),
+                    rgba(255, 255, 255, 0.02) 68%,
+                    transparent
+                  );
+                  opacity: 0.85;
+                  transition:
+                    opacity 0.25s ease,
+                    background 0.25s ease;
+                  pointer-events: none;
                 }
 
+                // 左上小高光
                 &::after {
                   content: '';
                   position: absolute;
-                  top: 2px;
-                  left: 6px;
-                  right: 6px;
-                  height: 45%;
+                  top: 3px;
+                  left: 13px;
+                  width: 11px;
+                  height: 5px;
                   border-radius: 50%;
-                  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), transparent);
+                  background: radial-gradient(
+                    ellipse at center,
+                    rgba(255, 255, 255, 0.45),
+                    transparent 72%
+                  );
+                  filter: blur(0.4px);
+                  opacity: 0.5;
+                  transform: scale(1);
+                  transition:
+                    opacity 0.25s ease,
+                    transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
                   pointer-events: none;
                 }
 
@@ -1721,235 +2515,288 @@
                   width: 19px;
                   height: 19px;
                   flex-shrink: 0;
-                  transition: transform 0.3s ease;
+                  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
                 }
 
-                &.act-views {
-                  cursor: default;
-                  background: linear-gradient(145deg, rgba(245, 158, 11, 0.28), rgba(146, 64, 14, 0.18));
-                  border-color: rgba(245, 158, 11, 0.35);
+                // 悬停：哑光石被打磨抛光——斜向镜面高光带周期性掠过
+                // + 顶部浮出细长镜面反光 + 边框点亮 + 图标余辉，底色与位置不动
+                &:hover {
+                  border-color: rgba(255, 255, 255, 0.32);
+                  box-shadow:
+                    0 4px 14px -2px rgba(0, 0, 0, 0.55),
+                    0 0 12px -2px rgba(var(--gem-glow), 0.3),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+                    inset 0 -1px 1px rgba(0, 0, 0, 0.42);
 
-                  svg {
-                    color: #fde68a;
-                    filter: drop-shadow(0 0 3px rgba(251, 191, 36, 0.5));
+                  // 进入瞬间一道抛光反光自左向右掠过（只播一次）
+                  &::before {
+                    @include gem-sheen-band;
+
+                    background-position: -40% 0;
+                    animation: gem-polish-sweep 0.95s
+                      cubic-bezier(0.45, 0, 0.25, 1) forwards;
                   }
 
-                  color: #fef3c7;
-                  box-shadow: 0 3px 10px rgba(245, 158, 11, 0.2),
-                  0 1px 3px rgba(0, 0, 0, 0.3),
-                  inset 0 1px 0 rgba(255, 255, 255, 0.1),
-                  inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+                  // 边框上出现一道绕行流光弧，hover 期间持续可见
+                  &::after {
+                    @include gem-ring-orbit;
+                  }
+
+                  // 光带掠过之后图标才亮起，像被光"点燃"
+                  svg {
+                    transform: scale(1.1);
+                    filter: drop-shadow(0 0 5px rgba(var(--gem-glow), 0.55));
+                    transition-delay: 0.12s;
+                  }
+                }
+
+                // 按下：白热爆亮 + 周边树枝状裂纹（同 hover）+ 棱镜色散 + 冲击环
+                &:active {
+                  border-color: rgba(255, 255, 255, 0.9);
+                  color: #fff;
+                  transform: translateY(2px) scale(0.94);
+                  transition-duration: 0.07s;
+                  animation: none;
+                  filter: brightness(1.28) saturate(1.3);
+
+                  // 棱镜色散：文字分裂出红/青两道残影
+                  text-shadow:
+                    -1.5px 0 0 rgba(255, 60, 120, 0.65),
+                    1.5px 0 0 rgba(80, 220, 255, 0.65);
+                  background:
+                    radial-gradient(
+                      ellipse 120% 90% at 50% 42%,
+                      rgba(255, 255, 255, 0.55),
+                      transparent 46%
+                    ),
+                    radial-gradient(
+                      ellipse 130% 95% at 50% -4%,
+                      rgba(255, 255, 255, 0.4),
+                      transparent 56%
+                    ),
+                    linear-gradient(
+                      160deg,
+                      rgba(var(--gem-glow), 0.85) 0%,
+                      rgba(var(--gem-glow), 0.6) 46%,
+                      rgba(var(--gem-glow), 0.45) 100%
+                    );
+                  box-shadow:
+                    0 0 34px rgba(var(--gem-glow), 0.55),
+                    0 0 0 2.5px rgba(var(--gem-glow), 0.4),
+                    0 6px 14px -4px rgba(0, 0, 0, 0.5),
+                    inset 0 2px 6px rgba(0, 0, 0, 0.28),
+                    inset 0 0 22px rgba(255, 255, 255, 0.3);
+
+                  // 抛光高光带定格在最亮处（与 hover 同层，白热反光）
+                  &::before {
+                    @include gem-sheen-band;
+
+                    background-position: 50% 0;
+                    filter: brightness(1.4);
+                    animation: none;
+                  }
+
+                  // 星光点临时换成向内塌缩的冲击环（每次按压重播）
+                  &::after {
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    padding: 0;
+                    border-radius: 1.2rem;
+                    background: none;
+                    filter: none;
+                    opacity: 0;
+                    border: 2px solid rgba(255, 255, 255, 0.6);
+                    -webkit-mask: none;
+                    mask: none;
+                    animation: gem-impact 0.34s ease-out forwards;
+                  }
+
+                  // icon 棱镜色散：红/青分离残影 + 白热辉光
+                  svg {
+                    color: #fff;
+                    transform: scale(1.22);
+                    filter: drop-shadow(-2px 0 2px rgba(255, 60, 120, 0.7))
+                      drop-shadow(2px 0 2px rgba(80, 220, 255, 0.7))
+                      drop-shadow(0 0 8px rgba(255, 255, 255, 0.9))
+                      drop-shadow(0 0 16px rgba(var(--gem-glow), 1));
+                  }
+                }
+
+                // —— 各宝石变体：六种互不相似的色相（蓝/金/玫红/绿/紫/橙）——
+                &.act-views {
+                  cursor: default;
+
+                  --gem-hi: rgba(125, 211, 252, 0.5);
+                  --gem-core: rgba(2, 132, 199, 0.52);
+                  --gem-lo: rgba(8, 47, 73, 0.62);
+                  --gem-glow: 56, 189, 248;
+                  --gem-text: #bae6fd;
+
+                  svg {
+                    color: #7dd3fc;
+                    filter: drop-shadow(0 0 4px rgba(125, 211, 252, 0.6));
+                  }
                 }
 
                 &.act-like {
-                  cursor: pointer;
-                  background: linear-gradient(145deg, rgba(234, 88, 12, 0.28), rgba(154, 52, 18, 0.18));
-                  border-color: rgba(234, 88, 12, 0.35);
+                  --gem-hi: rgba(253, 224, 71, 0.5);
+                  --gem-core: rgba(202, 138, 4, 0.52);
+                  --gem-lo: rgba(66, 48, 4, 0.62);
+                  --gem-glow: 250, 204, 21;
+                  --gem-text: #fef9c3;
 
                   svg {
-                    color: #ea580c;
-                    filter: drop-shadow(0 0 3px rgba(234, 88, 12, 0.5));
-                  }
-
-                  color: #fed7aa;
-                  box-shadow: 0 3px 10px rgba(234, 88, 12, 0.2),
-                  0 1px 3px rgba(0, 0, 0, 0.3),
-                  inset 0 1px 0 rgba(255, 255, 255, 0.1),
-                  inset 0 -1px 0 rgba(0, 0, 0, 0.2);
-
-                  &:hover {
-                    background: linear-gradient(145deg, rgba(234, 88, 12, 0.45), rgba(154, 52, 18, 0.3));
-                    border-color: rgba(234, 88, 12, 0.7);
-                    color: #fff;
-                    transform: translateY(-1px) scale(1.05);
-                    box-shadow:
-                      0 6px 20px rgba(234, 88, 12, 0.4),
-                      0 2px 6px rgba(0, 0, 0, 0.3),
-                      0 0 12px rgba(234, 88, 12, 0.2),
-                      inset 0 1px 0 rgba(255, 255, 255, 0.15),
-                      inset 0 -1px 0 rgba(0, 0, 0, 0.2);
-
-                    svg {
-                      transform: scale(1.1);
-                    }
-                  }
-
-                  &.liked {
-                    background: linear-gradient(145deg, #ea580c, #9a3412);
-                    border-color: rgba(234, 88, 12, 0.8);
-                    color: #fff;
-                    box-shadow:
-                      0 4px 15px rgba(234, 88, 12, 0.5),
-                      inset 0 1px 0 rgba(255, 255, 255, 0.2);
-
-                    svg {
-                      color: #fff;
-                      filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
-                    }
+                    color: #fde047;
+                    filter: drop-shadow(0 0 4px rgba(253, 224, 71, 0.6));
                   }
                 }
 
                 &.act-love {
-                  cursor: pointer;
-                  background: linear-gradient(145deg, rgba(239, 68, 68, 0.28), rgba(220, 38, 38, 0.18));
-                  border-color: rgba(239, 68, 68, 0.35);
+                  --gem-hi: rgba(253, 164, 175, 0.5);
+                  --gem-core: rgba(190, 18, 60, 0.52);
+                  --gem-lo: rgba(76, 5, 25, 0.62);
+                  --gem-glow: 244, 63, 94;
+                  --gem-text: #fda4af;
 
                   svg {
-                    color: #ef4444;
-                    filter: drop-shadow(0 0 3px rgba(239, 68, 68, 0.5));
-                  }
-
-                  color: #fca5a5;
-                  box-shadow: 0 3px 10px rgba(239, 68, 68, 0.2),
-                  0 1px 3px rgba(0, 0, 0, 0.3),
-                  inset 0 1px 0 rgba(255, 255, 255, 0.1),
-                  inset 0 -1px 0 rgba(0, 0, 0, 0.2);
-
-                  &:hover {
-                    background: linear-gradient(145deg, rgba(239, 68, 68, 0.45), rgba(220, 38, 38, 0.3));
-                    border-color: rgba(239, 68, 68, 0.7);
-                    color: #fff;
-                    transform: translateY(-1px) scale(1.05);
-                    box-shadow:
-                      0 6px 20px rgba(239, 68, 68, 0.4),
-                      0 2px 6px rgba(0, 0, 0, 0.3),
-                      0 0 12px rgba(239, 68, 68, 0.2),
-                      inset 0 1px 0 rgba(255, 255, 255, 0.15),
-                      inset 0 -1px 0 rgba(0, 0, 0, 0.2);
-
-                    svg {
-                      transform: scale(1.1);
-                    }
-                  }
-
-                  &.loved {
-                    background: linear-gradient(145deg, #ef4444, #dc2626);
-                    border-color: rgba(239, 68, 68, 0.8);
-                    color: #fff;
-                    box-shadow:
-                      0 4px 15px rgba(239, 68, 68, 0.5),
-                      inset 0 1px 0 rgba(255, 255, 255, 0.2);
-
-                    svg {
-                      color: #fff;
-                      filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
-                    }
+                    color: #fb7185;
+                    filter: drop-shadow(0 0 4px rgba(251, 113, 133, 0.6));
                   }
                 }
 
                 &.act-bookmark {
-                  cursor: pointer;
-                  background: linear-gradient(145deg, rgba(16, 185, 129, 0.28), rgba(5, 150, 105, 0.18));
-                  border-color: rgba(16, 185, 129, 0.35);
+                  --gem-hi: rgba(110, 231, 183, 0.5);
+                  --gem-core: rgba(6, 148, 105, 0.52);
+                  --gem-lo: rgba(6, 60, 44, 0.62);
+                  --gem-glow: 16, 185, 129;
+                  --gem-text: #a7f3d0;
 
                   svg {
-                    color: #10b981;
-                    filter: drop-shadow(0 0 3px rgba(16, 185, 129, 0.5));
-                  }
-
-                  color: #a7f3d0;
-                  box-shadow: 0 3px 10px rgba(16, 185, 129, 0.2),
-                  0 1px 3px rgba(0, 0, 0, 0.3),
-                  inset 0 1px 0 rgba(255, 255, 255, 0.1),
-                  inset 0 -1px 0 rgba(0, 0, 0, 0.2);
-
-                  &:hover {
-                    background: linear-gradient(145deg, rgba(16, 185, 129, 0.45), rgba(5, 150, 105, 0.3));
-                    border-color: rgba(16, 185, 129, 0.7);
-                    color: #fff;
-                    transform: translateY(-1px) scale(1.05);
-                    box-shadow:
-                      0 6px 20px rgba(16, 185, 129, 0.4),
-                      0 2px 6px rgba(0, 0, 0, 0.3),
-                      0 0 12px rgba(16, 185, 129, 0.2),
-                      inset 0 1px 0 rgba(255, 255, 255, 0.15),
-                      inset 0 -1px 0 rgba(0, 0, 0, 0.2);
-
-                    svg {
-                      transform: scale(1.1);
-                    }
-                  }
-
-                  &.collected {
-                    background: linear-gradient(145deg, #10b981, #059669);
-                    border-color: rgba(16, 185, 129, 0.8);
-                    color: #fff;
-                    box-shadow:
-                      0 4px 15px rgba(16, 185, 129, 0.5),
-                      inset 0 1px 0 rgba(255, 255, 255, 0.2);
-
-                    svg {
-                      color: #fff;
-                      filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
-                    }
+                    color: #34d399;
+                    filter: drop-shadow(0 0 4px rgba(52, 211, 153, 0.6));
                   }
                 }
 
                 &.act-share {
-                  cursor: pointer;
-                  background: linear-gradient(145deg, rgba(250, 204, 21, 0.28), rgba(234, 88, 12, 0.18));
-                  border-color: rgba(250, 204, 21, 0.35);
+                  --gem-hi: rgba(196, 181, 253, 0.5);
+                  --gem-core: rgba(109, 40, 217, 0.52);
+                  --gem-lo: rgba(46, 16, 101, 0.62);
+                  --gem-glow: 139, 92, 246;
+                  --gem-text: #ddd6fe;
 
                   svg {
-                    color: #facc15;
-                    filter: drop-shadow(0 0 3px rgba(250, 204, 21, 0.5));
-                  }
-
-                  color: #fef08a;
-                  box-shadow: 0 3px 10px rgba(250, 204, 21, 0.2),
-                  0 1px 3px rgba(0, 0, 0, 0.3),
-                  inset 0 1px 0 rgba(255, 255, 255, 0.1),
-                  inset 0 -1px 0 rgba(0, 0, 0, 0.2);
-
-                  &:hover {
-                    background: linear-gradient(145deg, rgba(250, 204, 21, 0.45), rgba(234, 88, 12, 0.3));
-                    border-color: rgba(250, 204, 21, 0.7);
-                    color: #fff;
-                    transform: translateY(-1px) scale(1.05);
-                    box-shadow:
-                      0 6px 20px rgba(250, 204, 21, 0.4),
-                      0 2px 6px rgba(0, 0, 0, 0.3),
-                      0 0 12px rgba(250, 204, 21, 0.2),
-                      inset 0 1px 0 rgba(255, 255, 255, 0.15),
-                      inset 0 -1px 0 rgba(0, 0, 0, 0.2);
-
-                    svg {
-                      transform: scale(1.1);
-                    }
+                    color: #a78bfa;
+                    filter: drop-shadow(0 0 4px rgba(167, 139, 250, 0.6));
                   }
                 }
 
                 &.act-download {
-                  cursor: pointer;
-                  background: linear-gradient(145deg, rgba(52, 211, 153, 0.28), rgba(16, 185, 129, 0.18));
-                  border-color: rgba(52, 211, 153, 0.35);
+                  --gem-hi: rgba(253, 186, 116, 0.5);
+                  --gem-core: rgba(234, 88, 12, 0.52);
+                  --gem-lo: rgba(82, 26, 6, 0.62);
+                  --gem-glow: 249, 115, 22;
+                  --gem-text: #fed7aa;
 
                   svg {
-                    color: #34d399;
-                    filter: drop-shadow(0 0 3px rgba(52, 211, 153, 0.5));
+                    color: #fb923c;
+                    filter: drop-shadow(0 0 4px rgba(251, 146, 60, 0.6));
+                  }
+                }
+
+                // —— 激活态：已镶嵌点亮的徽章宝石——亮彩实芯 + 双层镶座环
+                // + 右上角星芒角标 + 呼吸辉光，与暗色自然态一眼区分 ——
+                &.liked,
+                &.loved,
+                &.collected {
+                  --gem-text: #fff;
+
+                  overflow: visible;
+                  border-color: rgba(255, 255, 255, 0.92);
+                  animation: gem-breathe 2.6s ease-in-out infinite;
+                  background:
+                    radial-gradient(
+                      ellipse 130% 95% at 50% -4%,
+                      rgba(255, 255, 255, 0.5),
+                      transparent 56%
+                    ),
+                    radial-gradient(
+                      ellipse 90% 110% at 50% 118%,
+                      rgba(0, 0, 0, 0.32),
+                      transparent 62%
+                    ),
+                    linear-gradient(
+                      160deg,
+                      rgba(var(--gem-glow), 0.88) 0%,
+                      rgba(var(--gem-glow), 0.6) 46%,
+                      rgba(var(--gem-glow), 0.44) 100%
+                    );
+                  box-shadow:
+                    0 0 0 2px rgba(var(--gem-glow), 0.55),
+                    0 0 0 4.5px rgba(var(--gem-glow), 0.18),
+                    0 6px 20px -4px rgba(var(--gem-glow), 0.6),
+                    0 0 26px rgba(var(--gem-glow), 0.42),
+                    inset 0 1px 2px rgba(255, 255, 255, 0.65),
+                    inset 0 -1px 2px rgba(0, 0, 0, 0.22),
+                    inset 0 0 16px rgba(255, 255, 255, 0.16);
+
+                  // 玻璃弧增亮（几何与背景尺寸复位，避免继承 hover 扫光层）
+                  &::before {
+                    inset: 1px 8% auto;
+                    height: 44%;
+                    border-radius: 1rem 1rem 50% 50% / 1.1rem 1.1rem 100% 100%;
+                    opacity: 1;
+                    background: linear-gradient(
+                      180deg,
+                      rgba(255, 255, 255, 0.6),
+                      rgba(255, 255, 255, 0.14) 70%,
+                      transparent
+                    );
+                    background-size: auto;
+                    background-repeat: repeat;
+                    animation: none;
                   }
 
-                  color: #a7f3d0;
-                  box-shadow: 0 3px 10px rgba(52, 211, 153, 0.2),
-                  0 1px 3px rgba(0, 0, 0, 0.3),
-                  inset 0 1px 0 rgba(255, 255, 255, 0.1),
-                  inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+                  // 星光点换成右上角四角星芒角标（露出按钮外的"已激活"徽记）
+                  // padding/mask/animation 复位，避免继承 hover 边框流光的遮罩
+                  &::after {
+                    top: -3px;
+                    left: auto;
+                    right: -3px;
+                    width: 13px;
+                    height: 13px;
+                    padding: 0;
+                    border-radius: 0;
+                    background: radial-gradient(
+                      circle at 42% 38%,
+                      #fff,
+                      rgba(var(--gem-glow), 1) 68%
+                    );
+                    -webkit-mask: none;
+                    mask: none;
+                    clip-path: polygon(
+                      50% 0,
+                      61% 39%,
+                      100% 50%,
+                      61% 61%,
+                      50% 100%,
+                      39% 61%,
+                      0 50%,
+                      39% 39%
+                    );
+                    filter: drop-shadow(0 0 5px rgba(var(--gem-glow), 0.95))
+                      drop-shadow(0 0 2px rgba(255, 255, 255, 0.7));
+                    opacity: 1;
+                    transform: scale(1) rotate(0deg);
+                    animation: none;
+                  }
 
-                  &:hover {
-                    background: linear-gradient(145deg, rgba(52, 211, 153, 0.45), rgba(16, 185, 129, 0.3));
-                    border-color: rgba(52, 211, 153, 0.7);
+                  svg {
                     color: #fff;
-                    transform: translateY(-1px) scale(1.05);
-                    box-shadow:
-                      0 6px 20px rgba(52, 211, 153, 0.4),
-                      0 2px 6px rgba(0, 0, 0, 0.3),
-                      0 0 12px rgba(52, 211, 153, 0.2),
-                      inset 0 1px 0 rgba(255, 255, 255, 0.15),
-                      inset 0 -1px 0 rgba(0, 0, 0, 0.2);
-
-                    svg {
-                      transform: scale(1.1);
-                    }
+                    transform: none;
+                    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7))
+                      drop-shadow(0 0 12px rgba(var(--gem-glow), 0.85));
                   }
                 }
               }
@@ -2036,6 +2883,254 @@
           transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
         }
       }
+
+      // —— 折叠拉手：一条皮带从两张卡片下面抽出来，铜环指示开合 ——
+      .works-toggle {
+        display: flex;
+        align-items: center;
+        gap: 0.9rem;
+        margin-top: 0.85rem;
+        padding: 0 0.2rem 0.3rem;
+        animation: card-appear 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
+
+        // 引带：靠近拉手一端亮，向画外淡出，末端钉一枚铜铆钉
+        .toggle-rail {
+          position: relative;
+          flex: 1 1 auto;
+          height: 1px;
+          background: linear-gradient(
+            90deg,
+            rgba(245, 158, 11, 0.06),
+            rgba(245, 158, 11, 0.28) 62%,
+            rgba(255, 220, 160, 0.55)
+          );
+
+          &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -2px;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            transform: translateY(-50%);
+            background: radial-gradient(
+              circle at 34% 28%,
+              rgba(255, 240, 205, 0.95),
+              rgba(190, 138, 62, 0.85) 54%,
+              rgba(52, 31, 11, 0.9) 100%
+            );
+            box-shadow:
+              0 0 7px rgba(245, 158, 11, 0.4),
+              inset 0 -1px 1px rgba(0, 0, 0, 0.5);
+          }
+
+          &.right {
+            transform: scaleX(-1);
+          }
+        }
+
+        .toggle-tab {
+          position: relative;
+          display: inline-flex;
+          flex: 0 0 auto;
+          align-items: center;
+          gap: 0.72rem;
+          padding: 0.42rem 1.35rem 0.42rem 0.46rem;
+          border: 1px solid rgba(212, 160, 80, 0.5);
+          border-radius: 999px;
+
+          // 皮带质地：斜向细纹 + 上方受光、下方沉入阴影
+          background:
+            repeating-linear-gradient(
+              118deg,
+              rgba(255, 226, 178, 0.05) 0 1px,
+              rgba(0, 0, 0, 0) 1px 3px
+            ),
+            linear-gradient(
+              180deg,
+              rgba(112, 74, 36, 0.5),
+              rgba(32, 19, 8, 0.88) 56%,
+              rgba(16, 9, 4, 0.94)
+            );
+          color: #f2ddb2;
+          font-family: inherit;
+          white-space: nowrap;
+          cursor: pointer;
+          isolation: isolate;
+          box-shadow:
+            0 3px 0 #140b03,
+            0 10px 22px -10px rgba(0, 0, 0, 0.9),
+            inset 0 1px 0 rgba(255, 226, 178, 0.26),
+            inset 0 -10px 14px -12px rgba(0, 0, 0, 0.9);
+          transition:
+            transform 0.32s cubic-bezier(0.34, 1.3, 0.64, 1),
+            border-color 0.3s ease,
+            box-shadow 0.3s ease,
+            color 0.3s ease;
+
+          // 缝线
+          &::after {
+            content: '';
+            position: absolute;
+            inset: 4px;
+            border: 1px dashed rgba(255, 226, 178, 0.2);
+            border-radius: 999px;
+            pointer-events: none;
+            transition: border-color 0.3s ease;
+          }
+
+          // 铜环拉头：暗玻璃内胆 + 反光箭头，像旋钮上的指示
+          .tab-knob {
+            position: relative;
+            display: grid;
+            flex: 0 0 auto;
+            place-items: center;
+            width: 30px;
+            height: 30px;
+            border: 1px solid rgba(232, 186, 116, 0.55);
+            border-radius: 50%;
+            background:
+              radial-gradient(
+                circle at 36% 28%,
+                rgba(255, 232, 184, 0.34) 0%,
+                rgba(168, 116, 52, 0.26) 34%,
+                rgba(30, 18, 7, 0.9) 74%,
+                rgba(10, 6, 2, 0.96) 100%
+              ),
+              linear-gradient(
+                145deg,
+                rgba(74, 47, 21, 0.72),
+                rgba(24, 14, 6, 0.88)
+              );
+            box-shadow:
+              inset 0 1px 2px rgba(255, 232, 184, 0.42),
+              inset 0 -2px 4px rgba(0, 0, 0, 0.66),
+              0 2px 0 #0f0803,
+              0 5px 12px -4px rgba(0, 0, 0, 0.78),
+              0 0 12px -4px rgba(245, 158, 11, 0.34);
+            transition: box-shadow 0.32s ease;
+
+            // 环外滚花
+            &::before {
+              content: '';
+              position: absolute;
+              inset: -3.5px;
+              border-radius: 50%;
+              background: repeating-conic-gradient(
+                from 0deg,
+                rgba(255, 232, 180, 0.62) 0deg 3deg,
+                rgba(28, 16, 4, 0.5) 3deg 6deg
+              );
+              mask: radial-gradient(circle, transparent 0 66%, #000 68%);
+              -webkit-mask: radial-gradient(
+                circle,
+                transparent 0 66%,
+                #000 68%
+              );
+              opacity: 0.5;
+              pointer-events: none;
+            }
+
+            svg {
+              position: relative;
+              z-index: 1;
+              width: 14px;
+              height: 14px;
+              color: #ffd9a0;
+              filter: drop-shadow(0 0 5px rgba(245, 158, 11, 0.62));
+              transition: transform 0.45s cubic-bezier(0.34, 1.4, 0.64, 1);
+            }
+          }
+
+          .tab-copy {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.12rem;
+            line-height: 1.15;
+          }
+
+          .tab-label {
+            font-size: 0.92rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-shadow: 0 1px 0 rgba(0, 0, 0, 0.55);
+          }
+
+          .tab-meta {
+            font-size: 0.66rem;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            color: rgba(226, 190, 130, 0.72);
+            transition: color 0.3s ease;
+          }
+
+          &:hover,
+          &:focus-visible {
+            border-color: rgba(251, 191, 36, 0.75);
+            color: #fff5df;
+            transform: translateY(-2px);
+            box-shadow:
+              0 5px 0 #140b03,
+              0 20px 30px -14px rgba(0, 0, 0, 0.92),
+              0 0 26px -6px rgba(245, 158, 11, 0.5),
+              inset 0 1px 0 rgba(255, 240, 200, 0.4),
+              inset 0 -10px 14px -12px rgba(0, 0, 0, 0.9);
+
+            &::after {
+              border-color: rgba(255, 236, 190, 0.34);
+            }
+
+            .tab-knob {
+              box-shadow:
+                inset 0 1px 2px rgba(255, 246, 214, 0.55),
+                inset 0 -2px 4px rgba(0, 0, 0, 0.66),
+                0 2px 0 #0f0803,
+                0 0 18px rgba(245, 158, 11, 0.5),
+                0 5px 12px -4px rgba(0, 0, 0, 0.78);
+            }
+
+            .tab-meta {
+              color: rgba(255, 226, 178, 0.92);
+            }
+          }
+
+          &:active {
+            transform: translateY(1px);
+            box-shadow:
+              0 1px 0 #140b03,
+              0 6px 14px -10px rgba(0, 0, 0, 0.9),
+              inset 0 2px 5px rgba(0, 0, 0, 0.55),
+              inset 0 -8px 12px -12px rgba(0, 0, 0, 0.8);
+          }
+
+          &:focus-visible {
+            outline: 2px solid rgba(251, 191, 36, 0.75);
+            outline-offset: 3px;
+          }
+        }
+
+        // 展开后箭头翻上来，提示「可以收回去」
+        &.is-open .tab-knob svg {
+          transform: rotate(180deg);
+        }
+
+        @media (max-width: 760px) {
+          gap: 0;
+
+          .toggle-rail {
+            display: none;
+          }
+
+          .toggle-tab {
+            flex: 1 1 auto;
+            justify-content: center;
+          }
+        }
+      }
     }
   }
 
@@ -2044,9 +3139,22 @@
     margin: 0 0 1.5rem;
     padding: 0.8rem 3.5rem;
     background:
-      radial-gradient(ellipse at 30% 30%, rgba(245, 200, 130, 0.1) 0%, transparent 50%),
-      radial-gradient(ellipse at 70% 70%, rgba(251, 191, 36, 0.08) 0%, transparent 50%),
-      linear-gradient(135deg, rgba(80, 40, 15, 0.85) 0%, rgba(60, 30, 10, 0.88) 50%, rgba(40, 20, 5, 0.92) 100%);
+      radial-gradient(
+        ellipse at 30% 30%,
+        rgba(245, 200, 130, 0.1) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        ellipse at 70% 70%,
+        rgba(251, 191, 36, 0.08) 0%,
+        transparent 50%
+      ),
+      linear-gradient(
+        135deg,
+        rgba(80, 40, 15, 0.85) 0%,
+        rgba(60, 30, 10, 0.88) 50%,
+        rgba(40, 20, 5, 0.92) 100%
+      );
     backdrop-filter: blur(14px);
     border: 1px solid rgba(251, 191, 36, 0.18);
     border-radius: 12px;
@@ -2063,19 +3171,38 @@
       border-radius: 14px;
       overflow: hidden;
       background:
-        radial-gradient(ellipse at 30% 25%, rgba(245, 200, 130, 0.18) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 50%, rgba(245, 158, 11, 0.15) 0%, transparent 40%),
-        radial-gradient(ellipse at 20% 60%, rgba(251, 191, 36, 0.12) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 60%, rgba(251, 191, 36, 0.12) 0%, transparent 50%),
-        linear-gradient(135deg, rgba(100, 50, 20, 0.95) 0%, rgba(70, 35, 12, 0.98) 50%, rgba(45, 22, 8, 1) 100%);
+        radial-gradient(
+          ellipse at 30% 25%,
+          rgba(245, 200, 130, 0.18) 0%,
+          transparent 50%
+        ),
+        radial-gradient(
+          ellipse at 50% 50%,
+          rgba(245, 158, 11, 0.15) 0%,
+          transparent 40%
+        ),
+        radial-gradient(
+          ellipse at 20% 60%,
+          rgba(251, 191, 36, 0.12) 0%,
+          transparent 50%
+        ),
+        radial-gradient(
+          ellipse at 80% 60%,
+          rgba(251, 191, 36, 0.12) 0%,
+          transparent 50%
+        ),
+        linear-gradient(
+          135deg,
+          rgba(100, 50, 20, 0.95) 0%,
+          rgba(70, 35, 12, 0.98) 50%,
+          rgba(45, 22, 8, 1) 100%
+        );
       box-shadow:
         inset 0 5px 16px rgba(0, 0, 0, 0.6),
         inset 0 -1px 3px rgba(255, 255, 255, 0.1),
         inset 2px 0 6px rgba(0, 0, 0, 0.15),
         inset -2px 0 6px rgba(0, 0, 0, 0.15),
         0 2px 8px rgba(0, 0, 0, 0.15);
-
- 
 
       &::after {
         content: '';
@@ -2084,7 +3211,11 @@
         left: 0;
         right: 0;
         height: 30%;
-        background: linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, transparent 100%);
+        background: linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.3) 0%,
+          transparent 100%
+        );
         pointer-events: none;
         z-index: 0;
       }
@@ -2094,7 +3225,12 @@
         top: 50%;
         width: 150px;
         padding: 7px 7px 34px;
-        background: linear-gradient(180deg, #f5f0e8 0%, #ece5dc 40%, #e2dbd0 100%);
+        background: linear-gradient(
+          180deg,
+          #f5f0e8 0%,
+          #ece5dc 40%,
+          #e2dbd0 100%
+        );
         border-radius: 5px;
         box-shadow:
           0 2px 4px rgba(0, 0, 0, 0.3),
@@ -2105,10 +3241,11 @@
           inset 1px 0 0 rgba(255, 255, 255, 0.3),
           inset -1px 0 0 rgba(255, 255, 255, 0.15);
         cursor: pointer;
-        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-                    opacity 0.5s ease,
-                    box-shadow 0.4s ease,
-                    filter 0.4s ease;
+        transition:
+          transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+          opacity 0.5s ease,
+          box-shadow 0.4s ease,
+          filter 0.4s ease;
 
         .photo-area {
           position: relative;
@@ -2122,10 +3259,8 @@
             inset 0 -1px 2px rgba(0, 0, 0, 0.4),
             inset 0 1px 0 rgba(255, 255, 255, 0.08);
 
-          .photo-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+          // scene 变体已负责铺满，这里只透传拍立得滤镜动效
+          :deep(.photo-img) {
             filter: grayscale(0.2) brightness(0.85) sepia(0.05);
             transition: filter 0.45s ease;
           }
@@ -2134,8 +3269,16 @@
             position: absolute;
             inset: 0;
             background:
-              linear-gradient(180deg, transparent 60%, rgba(245, 158, 11, 0.06) 100%),
-              radial-gradient(ellipse at 50% 40%, transparent 50%, rgba(0, 0, 0, 0.15) 100%);
+              linear-gradient(
+                180deg,
+                transparent 60%,
+                rgba(245, 158, 11, 0.06) 100%
+              ),
+              radial-gradient(
+                ellipse at 50% 40%,
+                transparent 50%,
+                rgba(0, 0, 0, 0.15) 100%
+              );
             pointer-events: none;
           }
         }
@@ -2155,7 +3298,12 @@
             left: 15%;
             right: 15%;
             height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.08), transparent);
+            background: linear-gradient(
+              90deg,
+              transparent,
+              rgba(0, 0, 0, 0.08),
+              transparent
+            );
           }
 
           .sig-name {
@@ -2179,7 +3327,7 @@
         }
 
         &:hover {
-          .photo-img {
+          :deep(.photo-img) {
             filter: grayscale(0) brightness(1) sepia(0);
           }
         }
@@ -2196,7 +3344,7 @@
             inset 1px 0 0 rgba(255, 255, 255, 0.4),
             inset -1px 0 0 rgba(255, 255, 255, 0.2);
 
-          .photo-img {
+          :deep(.photo-img) {
             filter: grayscale(0) brightness(1.08) sepia(0);
           }
 
@@ -2211,13 +3359,17 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      width: 36px;
-      height: 36px;
+      width: 40px;
+      height: 40px;
+      padding: 0;
       border-radius: 50%;
       border: 1px solid rgba(251, 191, 36, 0.2);
       border-top: 2px solid rgba(253, 224, 71, 0.35);
-      background:
-        radial-gradient(circle at 32% 28%, rgba(60, 30, 10, 0.7) 0%, rgba(40, 20, 5, 0.9) 100%);
+      background: radial-gradient(
+        circle at 32% 28%,
+        rgba(60, 30, 10, 0.7) 0%,
+        rgba(40, 20, 5, 0.9) 100%
+      );
       color: #fcd34d;
       cursor: pointer;
       display: flex;
@@ -2230,8 +3382,9 @@
         inset 0 1px 1px rgba(253, 224, 71, 0.1);
 
       svg {
-        width: 18px;
-        height: 18px;
+        width: 24px;
+        height: 24px;
+        flex-shrink: 0;
       }
 
       &.switcher-arrow-left {
@@ -2243,9 +3396,15 @@
       }
 
       &:hover {
-        background: radial-gradient(circle at 32% 28%, rgba(251, 191, 36, 0.2) 0%, rgba(40, 20, 5, 0.9) 100%);
+        background: radial-gradient(
+          circle at 32% 28%,
+          rgba(251, 191, 36, 0.2) 0%,
+          rgba(40, 20, 5, 0.9) 100%
+        );
         border-color: rgba(251, 191, 36, 0.45);
-        box-shadow: 0 0 16px rgba(251, 191, 36, 0.25), 0 3px 10px rgba(15, 8, 4, 0.4);
+        box-shadow:
+          0 0 16px rgba(251, 191, 36, 0.25),
+          0 3px 10px rgba(15, 8, 4, 0.4);
         transform: translateY(-50%) scale(1.08);
       }
 
@@ -2256,11 +3415,7 @@
   }
 }
 
-
-
-
 @keyframes glow-pulse {
-
   0%,
   100% {
     opacity: 0.5;
@@ -2296,7 +3451,6 @@
 }
 
 @keyframes dot-blink {
-
   0%,
   100% {
     opacity: 1;
@@ -2310,7 +3464,6 @@
 }
 
 @keyframes star-glow {
-
   0%,
   100% {
     filter: drop-shadow(0 0 2px rgba(245, 158, 11, 0.3));
@@ -2322,7 +3475,6 @@
 }
 
 @keyframes particle-float {
-
   0%,
   100% {
     transform: translateY(0) scale(1);
@@ -2348,7 +3500,6 @@
 }
 
 @keyframes ring-breathe {
-
   0%,
   100% {
     opacity: 0.5;
@@ -2398,7 +3549,6 @@
 }
 
 @keyframes film-perforation-expose {
-
   0%,
   100% {
     opacity: 0.85;
@@ -2412,7 +3562,6 @@
 }
 
 @keyframes film-exposure-pulse {
-
   0%,
   100% {
     box-shadow:
@@ -2446,7 +3595,6 @@
 }
 
 @keyframes more-btn-glow {
-
   0%,
   100% {
     box-shadow:
@@ -2473,4 +3621,106 @@
   }
 }
 
+@keyframes artist-plate-breathe {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
 
+  50% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+}
+
+@keyframes artist-plate-sheen {
+  0%,
+  58% {
+    transform: skewX(-22deg) translateX(-280%);
+  }
+
+  100% {
+    transform: skewX(-22deg) translateX(460%);
+  }
+}
+
+// —— 窄屏：固定 400px 的画家面板会把作品区挤出视口，改成上下排 ——
+@media (max-width: 980px) {
+  .photographer-recommendations {
+    max-width: 100%;
+    padding: 2.4rem 1.25rem;
+
+    .gallery-header {
+      margin-bottom: 1.8rem;
+
+      .header-plate {
+        flex-wrap: wrap;
+        gap: 1rem 1.6rem;
+      }
+    }
+
+    .gallery-stage {
+      flex-direction: column;
+      gap: 1.4rem;
+      min-height: 0;
+
+      .artist-panel {
+        flex: 0 0 auto;
+        width: 100%;
+
+        .panel-inner {
+          position: relative;
+          top: auto;
+        }
+      }
+
+      .works-gallery {
+        width: 100%;
+      }
+    }
+  }
+}
+
+// 宝石按钮 hover 抛光扫光：高光带自左向右掠过一次
+@keyframes gem-polish-sweep {
+  0% {
+    background-position: -40% 0;
+  }
+
+  100% {
+    background-position: 140% 0;
+  }
+}
+
+// 宝石按钮 hover 边框流光：高光弧绕胶囊边框一圈（旋转 conic 角度）
+@keyframes gem-ring-orbit {
+  to {
+    --gem-ring-angle: 360deg;
+  }
+}
+
+// 宝石按钮激活态呼吸辉光
+@keyframes gem-breathe {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+
+  50% {
+    filter: brightness(1.16);
+  }
+}
+
+// 宝石按钮 active 冲击环塌缩
+@keyframes gem-impact {
+  0% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+}

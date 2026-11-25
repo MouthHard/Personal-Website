@@ -1,0 +1,175 @@
+@use 'variables' as *;
+
+// ===== 动画 =====
+// 真实卷轴展开动画：纸张从顶部向下展开，底部轴跟随纸张底边滑动
+@keyframes overlayFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 100%;
+  }
+}
+
+// 顶部轴动画：从紧贴位置向上移动到顶部，不旋转
+@keyframes rodTopUnfurl {
+  0% {
+    // 初始状态：与底部轴紧贴在顶部位置
+    transform: translateY(0);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 100%;
+  }
+
+  100% {
+    // 到达顶部位置
+    transform: translateY(0);
+    opacity: 100%;
+  }
+}
+
+// 底部轴动画：从顶部紧贴位置向下滑动到底部，紧贴纸张底边
+// 初始位移 = -(纸张高度) = -(scroll高度 - 2*轴杆高度) = -(90vh - 72px)
+@keyframes rodBottomUnfurl {
+  0% {
+    transform: translateY(calc(-90vh + 72px));
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 100%;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 100%;
+  }
+}
+
+// 纸张展开动画：从顶部向下展开，与底部轴杆同步
+@keyframes paperUnfurl {
+  0% {
+    clip-path: inset(0 0 100% 0);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 100%;
+  }
+
+  100% {
+    clip-path: inset(0 0 0 0);
+    opacity: 100%;
+  }
+}
+
+// 纸张展开的备用动画（从底部向上展开，用于右轴）
+@keyframes paperUnfurlRight {
+  0% {
+    clip-path: inset(0 0 100% 0);
+    opacity: 0;
+  }
+
+  30% {
+    clip-path: inset(0 0 30% 0);
+    opacity: 50%;
+  }
+
+  100% {
+    clip-path: inset(0 0 0 0);
+    opacity: 100%;
+  }
+}
+
+// 墨香飘散动画
+@keyframes inkDrift {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0.5);
+  }
+
+  30% {
+    opacity: 40%;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(35px) scale(1.2);
+  }
+}
+
+// 金光散射动画
+@keyframes goldPulse {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  50% {
+    opacity: 25%;
+    transform: scale(1.2);
+  }
+}
+
+// 纸张展开的备用动画（从底部向上展开，用于右轴）
+@keyframes paperUnfurlRight {
+  0% {
+    clip-path: inset(100% 0 0 0);
+    opacity: 0;
+  }
+
+  30% {
+    clip-path: inset(30% 0 0 0);
+    opacity: 50%;
+  }
+
+  100% {
+    clip-path: inset(0 0 0 0);
+    opacity: 100%;
+  }
+}
+
+// 墨香飘散动画
+@keyframes inkDrift {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0.5);
+  }
+
+  30% {
+    opacity: 40%;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(35px) scale(1.2);
+  }
+}
+
+// 金光散射动画
+@keyframes goldPulse {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  50% {
+    opacity: 25%;
+    transform: scale(1.2);
+  }
+}
+
+.modal-enter-active,
+.modal-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.modal-enter-from,
+.modal-leave-to {
+  opacity: 0;
+}

@@ -6,9 +6,7 @@
   height: 100%;
   box-sizing: border-box;
   flex-shrink: 0;
-  overflow-y: auto;
-  overflow-x: hidden;
-  scrollbar-width: none;
+  overflow: hidden auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
 
@@ -29,7 +27,7 @@
       border: 1px solid rgba(120, 119, 198, 0.25);
       border-radius: 20px;
       font-size: 0.85rem;
-      color: #ffffff;
+      color: #fff;
       animation: countFadeIn 0.3s ease;
 
       .count-icon {
@@ -44,10 +42,10 @@
       }
 
       .count-text {
-        color: #ffffff;
+        color: #fff;
 
         strong {
-          color: #ffffff;
+          color: #fff;
           font-weight: 700;
           font-size: 1rem;
         }
@@ -189,7 +187,7 @@
                 rgba(120, 119, 198, 0.9),
                 rgba(100, 99, 178, 0.8)
               );
-              color: #ffffff;
+              color: #fff;
               font-weight: 600;
               box-shadow:
                 0 6px 20px rgba(120, 119, 198, 0.5),
@@ -272,6 +270,7 @@
     opacity: 0;
     transform: translateY(-4px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);

@@ -1,12 +1,12 @@
-$yellow: #FACC15;
-$yellow-light: #FEF3C7;
-$yellow-dark: #CA8A04;
-$orange: #FB923C;
-$orange-light: #FDBA74;
-$pink: #EC4899;
-$pink-light: #F472B6;
-$cyan: #06B6D4;
-$cyan-light: #22D3EE;
+$yellow: #facc15;
+$yellow-light: #fef3c7;
+$yellow-dark: #ca8a04;
+$orange: #fb923c;
+$orange-light: #fdba74;
+$pink: #ec4899;
+$pink-light: #f472b6;
+$cyan: #06b6d4;
+$cyan-light: #22d3ee;
 
 .photographer-card {
   display: flex;
@@ -32,7 +32,14 @@ $cyan-light: #22D3EE;
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, $yellow-dark, $yellow, $yellow-light, $yellow, $yellow-dark);
+    background: linear-gradient(
+      90deg,
+      $yellow-dark,
+      $yellow,
+      $yellow-light,
+      $yellow,
+      $yellow-dark
+    );
     background-size: 200% 100%;
     animation: gradientFlow 3s ease infinite;
     z-index: 3;
@@ -44,7 +51,11 @@ $cyan-light: #22D3EE;
     position: absolute;
     inset: 0;
     border-radius: 16px;
-    background: linear-gradient(135deg, rgba($yellow, 0.05) 0%, transparent 50%);
+    background: linear-gradient(
+      135deg,
+      rgba($yellow, 0.05) 0%,
+      transparent 50%
+    );
     pointer-events: none;
     z-index: 1;
   }
@@ -59,7 +70,7 @@ $cyan-light: #22D3EE;
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
 
     .card-left .avatar-container {
-      .avatar {
+      :deep(.avatar) {
         transform: scale(1.05);
       }
     }
@@ -79,7 +90,7 @@ $cyan-light: #22D3EE;
       width: 80px;
       height: 80px;
 
-      .avatar {
+      :deep(.avatar) {
         width: 100%;
         height: 100%;
         border-radius: 50%;
@@ -94,8 +105,8 @@ $cyan-light: #22D3EE;
         inset: -5px;
         border-radius: 50%;
         border: 2px solid transparent;
-        background: linear-gradient(135deg, $yellow-dark, $yellow, $yellow-dark) border-box;
- 
+        background: linear-gradient(135deg, $yellow-dark, $yellow, $yellow-dark)
+          border-box;
         -webkit-mask-composite: xor;
         mask-composite: exclude;
         opacity: 0;
@@ -110,7 +121,7 @@ $cyan-light: #22D3EE;
         width: 28px;
         height: 28px;
         border-radius: 50%;
-        background: linear-gradient(135deg, #3498DB 0%, #2980B9 100%);
+        background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -131,7 +142,7 @@ $cyan-light: #22D3EE;
         width: 12px;
         height: 12px;
         border-radius: 50%;
-        background: #27AE60;
+        background: #27ae60;
         border: 2px solid #160d1e;
         animation: onlinePulse 2s ease-in-out infinite;
       }
@@ -168,7 +179,11 @@ $cyan-light: #22D3EE;
           border-radius: 8px;
           opacity: 0;
           transition: opacity 0.3s ease;
-          background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, transparent 40%);
+          background: linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.06) 0%,
+            transparent 40%
+          );
         }
 
         &::after {
@@ -178,13 +193,22 @@ $cyan-light: #22D3EE;
           left: -100%;
           width: 100%;
           height: 100%;
-          background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.12),
+            transparent
+          );
           transition: left 0.4s ease;
           z-index: 1;
         }
 
         &:nth-child(1) {
-          background: linear-gradient(135deg, rgba($yellow, 0.25) 0%, rgba($yellow-dark, 0.12) 100%);
+          background: linear-gradient(
+            135deg,
+            rgba($yellow, 0.25) 0%,
+            rgba($yellow-dark, 0.12) 100%
+          );
           border: 1px solid rgba($yellow, 0.45);
           box-shadow:
             0 2px 6px rgba($yellow, 0.25),
@@ -209,7 +233,11 @@ $cyan-light: #22D3EE;
           }
 
           &:hover {
-            background: linear-gradient(135deg, rgba($yellow, 0.38) 0%, rgba($yellow-dark, 0.2) 100%);
+            background: linear-gradient(
+              135deg,
+              rgba($yellow, 0.38) 0%,
+              rgba($yellow-dark, 0.2) 100%
+            );
             border-color: rgba($yellow, 0.65);
             box-shadow:
               0 3px 10px rgba($yellow, 0.35),
@@ -228,7 +256,11 @@ $cyan-light: #22D3EE;
         }
 
         &:nth-child(2) {
-          background: linear-gradient(135deg, rgba($orange, 0.25) 0%, rgba($orange, 0.12) 100%);
+          background: linear-gradient(
+            135deg,
+            rgba($orange, 0.25) 0%,
+            rgba($orange, 0.12) 100%
+          );
           border: 1px solid rgba($orange, 0.45);
           box-shadow:
             0 2px 6px rgba($orange, 0.25),
@@ -253,7 +285,11 @@ $cyan-light: #22D3EE;
           }
 
           &:hover {
-            background: linear-gradient(135deg, rgba($orange, 0.38) 0%, rgba($orange, 0.2) 100%);
+            background: linear-gradient(
+              135deg,
+              rgba($orange, 0.38) 0%,
+              rgba($orange, 0.2) 100%
+            );
             border-color: rgba($orange, 0.65);
             box-shadow:
               0 3px 10px rgba($orange, 0.35),
@@ -272,7 +308,11 @@ $cyan-light: #22D3EE;
         }
 
         &:nth-child(3) {
-          background: linear-gradient(135deg, rgba($pink, 0.25) 0%, rgba($pink, 0.12) 100%);
+          background: linear-gradient(
+            135deg,
+            rgba($pink, 0.25) 0%,
+            rgba($pink, 0.12) 100%
+          );
           border: 1px solid rgba($pink, 0.45);
           box-shadow:
             0 2px 6px rgba($pink, 0.25),
@@ -297,7 +337,11 @@ $cyan-light: #22D3EE;
           }
 
           &:hover {
-            background: linear-gradient(135deg, rgba($pink, 0.38) 0%, rgba($pink, 0.2) 100%);
+            background: linear-gradient(
+              135deg,
+              rgba($pink, 0.38) 0%,
+              rgba($pink, 0.2) 100%
+            );
             border-color: rgba($pink, 0.65);
             box-shadow:
               0 3px 10px rgba($pink, 0.35),
@@ -316,7 +360,11 @@ $cyan-light: #22D3EE;
         }
 
         &:nth-child(4) {
-          background: linear-gradient(135deg, rgba($cyan, 0.25) 0%, rgba($cyan, 0.12) 100%);
+          background: linear-gradient(
+            135deg,
+            rgba($cyan, 0.25) 0%,
+            rgba($cyan, 0.12) 100%
+          );
           border: 1px solid rgba($cyan, 0.45);
           box-shadow:
             0 2px 6px rgba($cyan, 0.25),
@@ -341,7 +389,11 @@ $cyan-light: #22D3EE;
           }
 
           &:hover {
-            background: linear-gradient(135deg, rgba($cyan, 0.38) 0%, rgba($cyan, 0.2) 100%);
+            background: linear-gradient(
+              135deg,
+              rgba($cyan, 0.38) 0%,
+              rgba($cyan, 0.2) 100%
+            );
             border-color: rgba($cyan, 0.65);
             box-shadow:
               0 3px 10px rgba($cyan, 0.35),
@@ -421,7 +473,11 @@ $cyan-light: #22D3EE;
         .user-title {
           display: inline-block;
           padding: 4px 10px;
-          background: linear-gradient(135deg, rgba($yellow, 0.25) 0%, rgba($yellow-dark, 0.12) 100%);
+          background: linear-gradient(
+            135deg,
+            rgba($yellow, 0.25) 0%,
+            rgba($yellow-dark, 0.12) 100%
+          );
           border: 1px solid rgba($yellow, 0.4);
           border-radius: 8px;
           font-size: 11px;
@@ -497,7 +553,6 @@ $cyan-light: #22D3EE;
         color: rgba(255, 255, 255, 0.65);
         line-height: 1.6;
         display: -webkit-box;
- 
         -webkit-box-orient: vertical;
         overflow: hidden;
       }
@@ -584,13 +639,22 @@ $cyan-light: #22D3EE;
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+            background: linear-gradient(
+              90deg,
+              transparent,
+              rgba(255, 255, 255, 0.25),
+              transparent
+            );
             transition: left 0.5s ease;
             z-index: 1;
           }
 
           &:nth-child(1) {
-            background: linear-gradient(135deg, rgba($yellow, 0.28) 0%, rgba($yellow-dark, 0.14) 100%);
+            background: linear-gradient(
+              135deg,
+              rgba($yellow, 0.28) 0%,
+              rgba($yellow-dark, 0.14) 100%
+            );
             border: 1px solid rgba($yellow, 0.5);
             color: $yellow;
             box-shadow:
@@ -601,7 +665,11 @@ $cyan-light: #22D3EE;
           }
 
           &:nth-child(2) {
-            background: linear-gradient(135deg, rgba($orange, 0.28) 0%, rgba($orange, 0.14) 100%);
+            background: linear-gradient(
+              135deg,
+              rgba($orange, 0.28) 0%,
+              rgba($orange, 0.14) 100%
+            );
             border: 1px solid rgba($orange, 0.5);
             color: $orange-light;
             box-shadow:
@@ -612,7 +680,11 @@ $cyan-light: #22D3EE;
           }
 
           &:nth-child(3) {
-            background: linear-gradient(135deg, rgba($pink, 0.28) 0%, rgba($pink, 0.14) 100%);
+            background: linear-gradient(
+              135deg,
+              rgba($pink, 0.28) 0%,
+              rgba($pink, 0.14) 100%
+            );
             border: 1px solid rgba($pink, 0.5);
             color: $pink-light;
             box-shadow:
@@ -623,7 +695,11 @@ $cyan-light: #22D3EE;
           }
 
           &:nth-child(4) {
-            background: linear-gradient(135deg, rgba($cyan, 0.28) 0%, rgba($cyan, 0.14) 100%);
+            background: linear-gradient(
+              135deg,
+              rgba($cyan, 0.28) 0%,
+              rgba($cyan, 0.14) 100%
+            );
             border: 1px solid rgba($cyan, 0.5);
             color: $cyan-light;
             box-shadow:
@@ -641,7 +717,11 @@ $cyan-light: #22D3EE;
             }
 
             &:nth-child(1) {
-              background: linear-gradient(135deg, rgba($orange, 0.4) 0%, rgba($orange, 0.2) 100%);
+              background: linear-gradient(
+                135deg,
+                rgba($orange, 0.4) 0%,
+                rgba($orange, 0.2) 100%
+              );
               border-color: rgba($orange, 0.7);
               box-shadow:
                 0 5px 15px rgba($orange, 0.45),
@@ -652,7 +732,11 @@ $cyan-light: #22D3EE;
             }
 
             &:nth-child(2) {
-              background: linear-gradient(135deg, rgba($pink, 0.4) 0%, rgba($pink, 0.2) 100%);
+              background: linear-gradient(
+                135deg,
+                rgba($pink, 0.4) 0%,
+                rgba($pink, 0.2) 100%
+              );
               border-color: rgba($pink, 0.7);
               box-shadow:
                 0 5px 15px rgba($pink, 0.45),
@@ -663,7 +747,11 @@ $cyan-light: #22D3EE;
             }
 
             &:nth-child(3) {
-              background: linear-gradient(135deg, rgba($cyan, 0.4) 0%, rgba($cyan, 0.2) 100%);
+              background: linear-gradient(
+                135deg,
+                rgba($cyan, 0.4) 0%,
+                rgba($cyan, 0.2) 100%
+              );
               border-color: rgba($cyan, 0.7);
               box-shadow:
                 0 5px 15px rgba($cyan, 0.45),
@@ -674,7 +762,11 @@ $cyan-light: #22D3EE;
             }
 
             &:nth-child(4) {
-              background: linear-gradient(135deg, rgba(255, 193, 7, 0.4) 0%, rgba(255, 193, 7, 0.2) 100%);
+              background: linear-gradient(
+                135deg,
+                rgba(255, 193, 7, 0.4) 0%,
+                rgba(255, 193, 7, 0.2) 100%
+              );
               border-color: rgba(255, 193, 7, 0.7);
               box-shadow:
                 0 5px 15px rgba(255, 193, 7, 0.45),
@@ -686,7 +778,6 @@ $cyan-light: #22D3EE;
           }
         }
       }
-
     }
 
     .card-footer {
@@ -748,13 +839,21 @@ $cyan-light: #22D3EE;
         }
 
         &.following {
-          background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+          background: linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.1) 0%,
+            rgba(255, 255, 255, 0.05) 100%
+          );
           border: 1px solid rgba($yellow, 0.3);
           color: $yellow;
           box-shadow: none;
 
           &:hover {
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
+            background: linear-gradient(
+              180deg,
+              rgba(255, 255, 255, 0.15) 0%,
+              rgba(255, 255, 255, 0.08) 100%
+            );
           }
         }
       }
@@ -767,7 +866,11 @@ $cyan-light: #22D3EE;
           width: 40px;
           height: 40px;
           border-radius: 10px;
-          background: linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.04) 100%);
+          background: linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.12) 0%,
+            rgba(255, 255, 255, 0.04) 100%
+          );
           border: 1px solid rgba(255, 255, 255, 0.25);
           border-top: 1px solid rgba(255, 255, 255, 0.4);
           display: flex;
@@ -806,17 +909,17 @@ $cyan-light: #22D3EE;
           }
 
           &.instagram:hover {
-            background: linear-gradient(135deg, #E1306C 0%, #F77737 100%);
+            background: linear-gradient(135deg, #e1306c 0%, #f77737 100%);
             border-color: transparent;
           }
 
           &.twitter:hover {
-            background: linear-gradient(135deg, #1DA1F2 0%, #0D95E8 100%);
+            background: linear-gradient(135deg, #1da1f2 0%, #0d95e8 100%);
             border-color: transparent;
           }
 
           &.youtube:hover {
-            background: linear-gradient(135deg, #FF0000 0%, #CC0000 100%);
+            background: linear-gradient(135deg, #f00 0%, #c00 100%);
             border-color: transparent;
           }
         }
@@ -826,7 +929,8 @@ $cyan-light: #22D3EE;
 }
 
 @keyframes gradientFlow {
-  0%, 100% {
+  0%,
+  100% {
     background-position: 0% 50%;
   }
 
@@ -846,7 +950,8 @@ $cyan-light: #22D3EE;
 }
 
 @keyframes onlinePulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
     box-shadow: 0 0 0 0 rgba(39, 174, 96, 0.7);
   }

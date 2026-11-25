@@ -35,7 +35,11 @@ $mono: 'Consolas', 'Monaco', 'Courier New', monospace;
   justify-content: center;
   padding: 2rem;
   background:
-    radial-gradient(ellipse at center, rgba(0, 240, 255, 0.04), transparent 60%),
+    radial-gradient(
+      ellipse at center,
+      rgba(0, 240, 255, 0.04),
+      transparent 60%
+    ),
     rgba(4, 7, 13, 0.92);
   backdrop-filter: blur(12px);
 }
@@ -50,10 +54,30 @@ $mono: 'Consolas', 'Monaco', 'Courier New', monospace;
   display: flex;
   flex-direction: column;
   background:
-    radial-gradient(circle at 85% 15%, rgba(0, 240, 255, 0.07), transparent 45%),
-    radial-gradient(circle at 15% 85%, rgba(0, 150, 255, 0.05), transparent 45%),
-    repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(0, 240, 255, 0.015) 40px, rgba(0, 240, 255, 0.015) 41px),
-    repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(0, 240, 255, 0.015) 40px, rgba(0, 240, 255, 0.015) 41px),
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(0, 240, 255, 0.07),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 15% 85%,
+      rgba(0, 150, 255, 0.05),
+      transparent 45%
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 40px,
+      rgba(0, 240, 255, 0.015) 40px,
+      rgba(0, 240, 255, 0.015) 41px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 40px,
+      rgba(0, 240, 255, 0.015) 40px,
+      rgba(0, 240, 255, 0.015) 41px
+    ),
     linear-gradient(180deg, #131a26 0%, #0a0e16 50%, #060a12 100%);
   border: 1px solid rgba(0, 240, 255, 0.35);
   border-radius: 2px;
@@ -86,29 +110,77 @@ $mono: 'Consolas', 'Monaco', 'Courier New', monospace;
     &-tl {
       top: 6px;
       left: 6px;
-      &::before { top: 0; left: 0; width: 22px; height: 2px; }
-      &::after  { top: 0; left: 0; width: 2px; height: 22px; }
+
+      &::before {
+        top: 0;
+        left: 0;
+        width: 22px;
+        height: 2px;
+      }
+
+      &::after {
+        top: 0;
+        left: 0;
+        width: 2px;
+        height: 22px;
+      }
     }
 
     &-tr {
       top: 6px;
       right: 6px;
-      &::before { top: 0; right: 0; width: 22px; height: 2px; }
-      &::after  { top: 0; right: 0; width: 2px; height: 22px; }
+
+      &::before {
+        top: 0;
+        right: 0;
+        width: 22px;
+        height: 2px;
+      }
+
+      &::after {
+        top: 0;
+        right: 0;
+        width: 2px;
+        height: 22px;
+      }
     }
 
     &-bl {
       bottom: 6px;
       left: 6px;
-      &::before { bottom: 0; left: 0; width: 22px; height: 2px; }
-      &::after  { bottom: 0; left: 0; width: 2px; height: 22px; }
+
+      &::before {
+        bottom: 0;
+        left: 0;
+        width: 22px;
+        height: 2px;
+      }
+
+      &::after {
+        bottom: 0;
+        left: 0;
+        width: 2px;
+        height: 22px;
+      }
     }
 
     &-br {
       bottom: 6px;
       right: 6px;
-      &::before { bottom: 0; right: 0; width: 22px; height: 2px; }
-      &::after  { bottom: 0; right: 0; width: 2px; height: 22px; }
+
+      &::before {
+        bottom: 0;
+        right: 0;
+        width: 22px;
+        height: 2px;
+      }
+
+      &::after {
+        bottom: 0;
+        right: 0;
+        width: 2px;
+        height: 22px;
+      }
     }
   }
 
@@ -122,7 +194,12 @@ $mono: 'Consolas', 'Monaco', 'Courier New', monospace;
     align-items: center;
     gap: 0.5rem;
     padding: 0.4rem 3rem 0.4rem 2.8rem;
-    background: linear-gradient(90deg, rgba(0, 240, 255, 0.1), rgba(0, 150, 255, 0.05), transparent);
+    background: linear-gradient(
+      90deg,
+      rgba(0, 240, 255, 0.1),
+      rgba(0, 150, 255, 0.05),
+      transparent
+    );
     border-bottom: 1px solid rgba(0, 240, 255, 0.2);
     font-family: $mono;
     font-size: 0.68rem;
@@ -247,8 +324,11 @@ $mono: 'Consolas', 'Monaco', 'Courier New', monospace;
     flex: 0 0 42%;
     display: flex;
     flex-direction: column;
-    background:
-      linear-gradient(180deg, rgba(15, 20, 29, 0.7), rgba(10, 14, 22, 0.9));
+    background: linear-gradient(
+      180deg,
+      rgba(15, 20, 29, 0.7),
+      rgba(10, 14, 22, 0.9)
+    );
     border-right: 1px solid rgba(0, 240, 255, 0.2);
 
     // 样本标签
@@ -315,7 +395,12 @@ $mono: 'Consolas', 'Monaco', 'Courier New', monospace;
       .detail-hero-shade {
         position: absolute;
         inset: 0;
-        background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, transparent 25%, rgba(10, 14, 22, 0.95) 100%);
+        background: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.25) 0%,
+          transparent 25%,
+          rgba(10, 14, 22, 0.95) 100%
+        );
         pointer-events: none;
       }
 
@@ -324,8 +409,20 @@ $mono: 'Consolas', 'Monaco', 'Courier New', monospace;
         position: absolute;
         inset: 0;
         background:
-          repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0, 240, 255, 0.03) 3px, rgba(0, 240, 255, 0.03) 4px),
-          repeating-linear-gradient(90deg, transparent, transparent 3px, rgba(0, 240, 255, 0.02) 3px, rgba(0, 240, 255, 0.02) 4px);
+          repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 3px,
+            rgba(0, 240, 255, 0.03) 3px,
+            rgba(0, 240, 255, 0.03) 4px
+          ),
+          repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 3px,
+            rgba(0, 240, 255, 0.02) 3px,
+            rgba(0, 240, 255, 0.02) 4px
+          );
         pointer-events: none;
         mix-blend-mode: screen;
       }
@@ -340,7 +437,11 @@ $mono: 'Consolas', 'Monaco', 'Courier New', monospace;
 
         .detail-badge-category {
           padding: 0.35rem 0.8rem;
-          background: linear-gradient(135deg, rgba(0, 240, 255, 0.55), rgba(0, 150, 255, 0.3));
+          background: linear-gradient(
+            135deg,
+            rgba(0, 240, 255, 0.55),
+            rgba(0, 150, 255, 0.3)
+          );
           border: 1px solid rgba(0, 240, 255, 0.5);
           border-radius: 2px;
           font-size: 0.78rem;
@@ -491,7 +592,12 @@ $mono: 'Consolas', 'Monaco', 'Courier New', monospace;
           left: 10%;
           right: 10%;
           height: 1px;
-          background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.3), transparent);
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(0, 240, 255, 0.3),
+            transparent
+          );
           opacity: 0.5;
           transition: opacity 0.3s ease;
         }
@@ -553,7 +659,12 @@ $mono: 'Consolas', 'Monaco', 'Courier New', monospace;
           border-color: rgba(74, 222, 128, 0.3);
 
           &::before {
-            background: linear-gradient(90deg, transparent, rgba(74, 222, 128, 0.3), transparent);
+            background: linear-gradient(
+              90deg,
+              transparent,
+              rgba(74, 222, 128, 0.3),
+              transparent
+            );
           }
 
           &:hover {
@@ -573,11 +684,14 @@ $mono: 'Consolas', 'Monaco', 'Courier New', monospace;
           }
 
           &.active {
-            background: linear-gradient(135deg, rgba(74, 222, 128, 0.4), rgba(34, 197, 94, 0.25));
+            background: linear-gradient(
+              135deg,
+              rgba(74, 222, 128, 0.4),
+              rgba(34, 197, 94, 0.25)
+            );
             border-color: #4ade80;
           }
         }
-
       }
     }
 
@@ -617,7 +731,12 @@ $mono: 'Consolas', 'Monaco', 'Courier New', monospace;
           left: 10%;
           right: 10%;
           height: 1px;
-          background: linear-gradient(90deg, transparent, rgba(253, 224, 71, 0.25), transparent);
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(253, 224, 71, 0.25),
+            transparent
+          );
           opacity: 0.5;
           transition: opacity 0.3s ease;
         }
@@ -670,7 +789,12 @@ $mono: 'Consolas', 'Monaco', 'Courier New', monospace;
           border-color: rgba(255, 45, 111, 0.3);
 
           &::before {
-            background: linear-gradient(90deg, transparent, rgba(255, 45, 111, 0.25), transparent);
+            background: linear-gradient(
+              90deg,
+              transparent,
+              rgba(255, 45, 111, 0.25),
+              transparent
+            );
           }
 
           &:hover {
@@ -689,7 +813,11 @@ $mono: 'Consolas', 'Monaco', 'Courier New', monospace;
           }
 
           &.active {
-            background: linear-gradient(135deg, rgba(255, 45, 111, 0.4), rgba(190, 24, 93, 0.25));
+            background: linear-gradient(
+              135deg,
+              rgba(255, 45, 111, 0.4),
+              rgba(190, 24, 93, 0.25)
+            );
             border-color: $magenta;
             box-shadow:
               0 0 18px rgba(255, 45, 111, 0.4),
@@ -703,7 +831,11 @@ $mono: 'Consolas', 'Monaco', 'Courier New', monospace;
         }
 
         &.checkin-want.active {
-          background: linear-gradient(135deg, rgba(253, 224, 71, 0.4), rgba(217, 119, 6, 0.25));
+          background: linear-gradient(
+            135deg,
+            rgba(253, 224, 71, 0.4),
+            rgba(217, 119, 6, 0.25)
+          );
           border-color: $yellow;
           box-shadow:
             0 0 18px $yellow-glow,
@@ -823,7 +955,9 @@ $mono: 'Consolas', 'Monaco', 'Courier New', monospace;
             0 0 12px rgba(253, 224, 71, 0.15),
             0 2px 6px rgba(0, 0, 0, 0.2);
 
-          .meta-chip-label { color: $yellow; }
+          .meta-chip-label {
+            color: $yellow;
+          }
         }
 
         &.detail-meta-cook {
@@ -836,7 +970,9 @@ $mono: 'Consolas', 'Monaco', 'Courier New', monospace;
             0 0 12px rgba(0, 240, 255, 0.15),
             0 2px 6px rgba(0, 0, 0, 0.2);
 
-          .meta-chip-label { color: $cyan-soft; }
+          .meta-chip-label {
+            color: $cyan-soft;
+          }
         }
       }
     }
@@ -848,8 +984,11 @@ $mono: 'Consolas', 'Monaco', 'Courier New', monospace;
       position: relative;
       margin-bottom: 1.2rem;
       padding: 1.1rem 1.25rem;
-      background:
-        linear-gradient(145deg, rgba(21, 27, 39, 0.7), rgba(15, 20, 29, 0.5));
+      background: linear-gradient(
+        145deg,
+        rgba(21, 27, 39, 0.7),
+        rgba(15, 20, 29, 0.5)
+      );
       border: 1px solid rgba(0, 240, 255, 0.18);
       border-radius: 2px;
       box-shadow:
@@ -879,7 +1018,11 @@ $mono: 'Consolas', 'Monaco', 'Courier New', monospace;
         right: -1px;
         width: 12px;
         height: 12px;
-        background: linear-gradient(225deg, rgba(0, 240, 255, 0.3), transparent 60%);
+        background: linear-gradient(
+          225deg,
+          rgba(0, 240, 255, 0.3),
+          transparent 60%
+        );
         border-top: 1px solid $cyan;
         border-right: 1px solid $cyan;
         box-shadow: 0 0 6px $cyan-glow;
@@ -887,8 +1030,11 @@ $mono: 'Consolas', 'Monaco', 'Courier New', monospace;
 
       &:hover {
         border-color: rgba(0, 240, 255, 0.4);
-        background:
-          linear-gradient(145deg, rgba(21, 27, 39, 0.8), rgba(15, 20, 29, 0.6));
+        background: linear-gradient(
+          145deg,
+          rgba(21, 27, 39, 0.8),
+          rgba(15, 20, 29, 0.6)
+        );
         box-shadow:
           0 14px 36px rgba(0, 0, 0, 0.4),
           0 0 24px rgba(0, 240, 255, 0.12),
@@ -897,7 +1043,12 @@ $mono: 'Consolas', 'Monaco', 'Courier New', monospace;
           inset 0 -1px 0 rgba(0, 0, 0, 0.2);
 
         &::before {
-          background: linear-gradient(180deg, transparent, $cyan-soft, transparent);
+          background: linear-gradient(
+            180deg,
+            transparent,
+            $cyan-soft,
+            transparent
+          );
           box-shadow: 0 0 12px $cyan-glow;
         }
 
@@ -946,7 +1097,11 @@ $mono: 'Consolas', 'Monaco', 'Courier New', monospace;
           flex: 1;
           height: 1px;
           margin-left: 0.5rem;
-          background: linear-gradient(90deg, rgba(0, 240, 255, 0.25), transparent);
+          background: linear-gradient(
+            90deg,
+            rgba(0, 240, 255, 0.25),
+            transparent
+          );
         }
       }
 
@@ -968,14 +1123,20 @@ $mono: 'Consolas', 'Monaco', 'Courier New', monospace;
       .detail-tag {
         position: relative;
         padding: 0.38rem 0.85rem;
-        background: linear-gradient(135deg, rgba(224, 64, 251, 0.18), rgba(186, 42, 255, 0.1));
+        background: linear-gradient(
+          135deg,
+          rgba(224, 64, 251, 0.18),
+          rgba(186, 42, 255, 0.1)
+        );
         border: 1px solid rgba(224, 64, 251, 0.42);
         border-radius: 3px;
         font-size: 0.82rem;
         font-weight: 700;
         color: #e0b0ff;
         letter-spacing: 0.4px;
-        text-shadow: 0 0 8px rgba(224, 64, 251, 0.35), 0 1px 2px rgba(0, 0, 0, 0.4);
+        text-shadow:
+          0 0 8px rgba(224, 64, 251, 0.35),
+          0 1px 2px rgba(0, 0, 0, 0.4);
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         box-shadow:
           0 3px 10px rgba(0, 0, 0, 0.3),
@@ -990,15 +1151,26 @@ $mono: 'Consolas', 'Monaco', 'Courier New', monospace;
           left: 20%;
           right: 20%;
           height: 1px;
-          background: linear-gradient(90deg, transparent, rgba(224, 64, 251, 0.5), transparent);
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(224, 64, 251, 0.5),
+            transparent
+          );
         }
 
         &:hover {
-          background: linear-gradient(135deg, rgba(224, 64, 251, 0.3), rgba(186, 42, 255, 0.18));
+          background: linear-gradient(
+            135deg,
+            rgba(224, 64, 251, 0.3),
+            rgba(186, 42, 255, 0.18)
+          );
           border-color: rgba(224, 64, 251, 0.75);
           color: #f3e0ff;
           transform: translateY(-3px) scale(1.03);
-          text-shadow: 0 0 12px rgba(224, 64, 251, 0.6), 0 1px 2px rgba(0, 0, 0, 0.4);
+          text-shadow:
+            0 0 12px rgba(224, 64, 251, 0.6),
+            0 1px 2px rgba(0, 0, 0, 0.4);
           box-shadow:
             0 8px 22px rgba(224, 64, 251, 0.3),
             0 0 18px rgba(224, 64, 251, 0.25),
@@ -1040,14 +1212,20 @@ $mono: 'Consolas', 'Monaco', 'Courier New', monospace;
           .recommend-chip {
             position: relative;
             padding: 0.35rem 0.8rem;
-            background: linear-gradient(135deg, rgba(253, 224, 71, 0.18), rgba(245, 158, 11, 0.1));
+            background: linear-gradient(
+              135deg,
+              rgba(253, 224, 71, 0.18),
+              rgba(245, 158, 11, 0.1)
+            );
             border: 1px solid rgba(253, 224, 71, 0.42);
             border-radius: 3px;
             font-size: 0.8rem;
             font-weight: 700;
             color: $yellow;
             letter-spacing: 0.3px;
-            text-shadow: 0 0 8px rgba(253, 224, 71, 0.3), 0 1px 2px rgba(0, 0, 0, 0.4);
+            text-shadow:
+              0 0 8px rgba(253, 224, 71, 0.3),
+              0 1px 2px rgba(0, 0, 0, 0.4);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow:
               0 3px 10px rgba(0, 0, 0, 0.3),
@@ -1062,15 +1240,26 @@ $mono: 'Consolas', 'Monaco', 'Courier New', monospace;
               left: 20%;
               right: 20%;
               height: 1px;
-              background: linear-gradient(90deg, transparent, rgba(253, 224, 71, 0.5), transparent);
+              background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(253, 224, 71, 0.5),
+                transparent
+              );
             }
 
             &:hover {
-              background: linear-gradient(135deg, rgba(253, 224, 71, 0.3), rgba(245, 158, 11, 0.18));
+              background: linear-gradient(
+                135deg,
+                rgba(253, 224, 71, 0.3),
+                rgba(245, 158, 11, 0.18)
+              );
               border-color: rgba(253, 224, 71, 0.75);
               color: #fef3c7;
               transform: translateY(-3px) scale(1.03);
-              text-shadow: 0 0 12px rgba(253, 224, 71, 0.6), 0 1px 2px rgba(0, 0, 0, 0.4);
+              text-shadow:
+                0 0 12px rgba(253, 224, 71, 0.6),
+                0 1px 2px rgba(0, 0, 0, 0.4);
               box-shadow:
                 0 8px 22px rgba(253, 224, 71, 0.3),
                 0 0 18px rgba(253, 224, 71, 0.25),
@@ -1097,20 +1286,47 @@ $mono: 'Consolas', 'Monaco', 'Courier New', monospace;
 // 动画
 // ============================================================================
 @keyframes status-pulse {
-  0%, 100% { opacity: 1; box-shadow: 0 0 8px rgba(74, 222, 128, 0.6); }
-  50% { opacity: 0.4; box-shadow: 0 0 4px rgba(74, 222, 128, 0.3); }
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 8px rgba(74, 222, 128, 0.6);
+  }
+
+  50% {
+    opacity: 0.4;
+    box-shadow: 0 0 4px rgba(74, 222, 128, 0.3);
+  }
 }
 
 @keyframes tag-blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
 }
 
 @keyframes scanline-sweep {
-  0% { top: 0; opacity: 0; }
-  10% { opacity: 0.6; }
-  90% { opacity: 0.6; }
-  100% { top: 100%; opacity: 0; }
+  0% {
+    top: 0;
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.6;
+  }
+
+  90% {
+    opacity: 0.6;
+  }
+
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
 }
 
 // ============================================================================

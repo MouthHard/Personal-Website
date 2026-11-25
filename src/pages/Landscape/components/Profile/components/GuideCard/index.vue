@@ -6,7 +6,13 @@
       <div class="cover" @click="handleClick">
         <div class="cover-bg">
           <div class="cover-image">
-            <img v-if="item.thumbnail" :src="item.thumbnail" alt="" class="cover-img" loading="lazy" />
+            <LandscapeImage
+              v-if="item.thumbnail"
+              :src="item.thumbnail"
+              alt=""
+              class="cover-img"
+              loading="lazy"
+            />
             <div class="image-overlay"></div>
           </div>
           <div class="leather-border"></div>
@@ -24,7 +30,10 @@
             </div>
 
             <div class="quick-badges">
-              <span class="difficulty-seal" :class="item.difficulty || 'intermediate'">
+              <span
+                class="difficulty-seal"
+                :class="item.difficulty || 'intermediate'"
+              >
                 <StarIcon :stroke-width="2" :fill="'none'" />
                 <span>{{ getDifficultyLabel(item.difficulty) }}</span>
               </span>
@@ -38,45 +47,74 @@
           <div class="cover-body">
             <h3 class="guide-title">{{ item.title }}</h3>
             <p class="guide-summary">{{ item.summary }}</p>
-
           </div>
 
           <div class="cover-footer">
             <div class="cover-author">
               <div class="author-avatar">
-                <img v-if="item.authorAvatar" :src="item.authorAvatar" :alt="item.author" class="avatar-img"
-                  loading="lazy" />
+                <LandscapeImage
+                  v-if="item.authorAvatar"
+                  :src="item.authorAvatar"
+                  :alt="item.author"
+                  class="avatar-img"
+                  loading="lazy"
+                  variant="avatar"
+                />
                 <UserIcon v-else />
               </div>
               <div class="author-info">
-                <span class="author-name">{{ item.author || '未知摄影师' }}</span>
+                <span class="author-name">
+                  {{ item.author || '未知摄影师' }}
+                </span>
                 <span class="author-date">{{ item.date || '最近更新' }}</span>
               </div>
             </div>
 
             <div class="cover-actions">
-              <button class="cover-btn like-btn" :class="{ active: isLiked }" title="点赞" @click.stop="toggleLike">
+              <button
+                class="cover-btn like-btn"
+                :class="{ active: isLiked }"
+                title="点赞"
+                @click.stop="toggleLike"
+              >
                 <ThumbUpIcon :filled="isLiked" />
                 <span>{{ formatNumber(getCounts().likes) }}</span>
               </button>
 
-              <button class="cover-btn love-btn" :class="{ active: isLoved }" title="喜爱" @click.stop="toggleLove">
+              <button
+                class="cover-btn love-btn"
+                :class="{ active: isLoved }"
+                title="喜爱"
+                @click.stop="toggleLove"
+              >
                 <HeartIcon :filled="isLoved" />
                 <span>{{ formatNumber(getCounts().loves) }}</span>
               </button>
 
-              <button class="cover-btn collect-btn" :class="{ active: isCollected }" title="收藏"
-                @click.stop="toggleCollect">
+              <button
+                class="cover-btn collect-btn"
+                :class="{ active: isCollected }"
+                title="收藏"
+                @click.stop="toggleCollect"
+              >
                 <BookmarkIcon :filled="isCollected" />
                 <span>{{ formatNumber(getCounts().favorites) }}</span>
               </button>
 
-              <button class="cover-btn share-btn" title="分享" @click.stop="handleShare">
+              <button
+                class="cover-btn share-btn"
+                title="分享"
+                @click.stop="handleShare"
+              >
                 <ShareIcon />
                 <span>{{ formatNumber(getCounts().shares) }}</span>
               </button>
 
-              <button class="cover-btn view-btn" title="查看详情" @click.stop="handleClick">
+              <button
+                class="cover-btn view-btn"
+                title="查看详情"
+                @click.stop="handleClick"
+              >
                 <ExpandIcon />
                 <span>{{ formatNumber(getCounts().views) }}</span>
               </button>
@@ -163,10 +201,16 @@
 
             <!-- 动态章节模块（完整搬用 Guides 攻略内容，不同攻略模块数量/标题/内容不同） -->
             <div v-if="item.sections?.length" class="content-sections">
-              <div v-for="(section, index) in item.sections" :key="index" class="section-block">
+              <div
+                v-for="(section, index) in item.sections"
+                :key="index"
+                class="section-block"
+              >
                 <h4 class="section-title">{{ section.title }}</h4>
                 <ul class="section-items">
-                  <li v-for="(secItem, idx) in section.items" :key="idx">{{ secItem }}</li>
+                  <li v-for="(secItem, idx) in section.items" :key="idx">
+                    {{ secItem }}
+                  </li>
                 </ul>
               </div>
             </div>
@@ -178,13 +222,25 @@
                 装备清单
               </h4>
               <div class="equipments-grid">
-                <div v-for="(equipment, index) in item.equipments" :key="index" class="equipment-card">
+                <div
+                  v-for="(equipment, index) in item.equipments"
+                  :key="index"
+                  class="equipment-card"
+                >
                   <div class="equipment-header">
-                    <span class="equipment-icon"><component :is="equipmentIconMap[equipment.icon] || BoxIcon" /></span>
-                    <span class="equipment-title-text">{{ equipment.title }}</span>
+                    <span class="equipment-icon">
+                      <component
+                        :is="equipmentIconMap[equipment.icon] || BoxIcon"
+                      />
+                    </span>
+                    <span class="equipment-title-text">
+                      {{ equipment.title }}
+                    </span>
                   </div>
                   <ul class="equipment-items">
-                    <li v-for="(eqItem, idx) in equipment.items" :key="idx">{{ eqItem }}</li>
+                    <li v-for="(eqItem, idx) in equipment.items" :key="idx">
+                      {{ eqItem }}
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -196,7 +252,11 @@
                 核心亮点
               </h4>
               <div class="highlights-grid">
-                <span v-for="(h, idx) in item.highlights" :key="idx" class="highlight-card">
+                <span
+                  v-for="(h, idx) in item.highlights"
+                  :key="idx"
+                  class="highlight-card"
+                >
                   {{ h }}
                 </span>
               </div>
@@ -207,12 +267,17 @@
                 <AlertTriangleIcon />
                 <div class="warning-content">
                   <span class="warning-title">注意事项</span>
-                  <span class="warning-text">{{ item.warnings.join(' · ') }}</span>
+                  <span class="warning-text">
+                    {{ item.warnings.join(' · ') }}
+                  </span>
                 </div>
               </div>
             </div>
 
-            <div v-if="item.shootTime || item.shootParams?.length" class="shoot-section">
+            <div
+              v-if="item.shootTime || item.shootParams?.length"
+              class="shoot-section"
+            >
               <h4 class="section-header">
                 <ClockIcon />
                 拍摄指南
@@ -223,7 +288,11 @@
                   <span class="shoot-value">{{ item.shootTime }}</span>
                 </div>
                 <div v-if="item.shootParams?.length" class="params-grid">
-                  <div v-for="(p, idx) in item.shootParams" :key="idx" class="param-item">
+                  <div
+                    v-for="(p, idx) in item.shootParams"
+                    :key="idx"
+                    class="param-item"
+                  >
                     <span class="param-label">{{ p.label }}</span>
                     <span class="param-value">{{ p.value }}</span>
                   </div>
@@ -237,8 +306,16 @@
                 器材清单
               </h4>
               <div class="gear-grid">
-                <span v-for="(g, idx) in item.gears" :key="idx" class="gear-tag" :class="{ required: g.required }">
-                  <StarIcon v-if="g.required" :style="{ width: '10px', height: '10px' }" />
+                <span
+                  v-for="(g, idx) in item.gears"
+                  :key="idx"
+                  class="gear-tag"
+                  :class="{ required: g.required }"
+                >
+                  <StarIcon
+                    v-if="g.required"
+                    :style="{ width: '10px', height: '10px' }"
+                  />
                   {{ g.name }}
                 </span>
               </div>
@@ -250,7 +327,12 @@
                 安全须知
               </h4>
               <div class="safety-list">
-                <div v-for="(s, idx) in item.safety" :key="idx" class="safety-item" :class="s.type">
+                <div
+                  v-for="(s, idx) in item.safety"
+                  :key="idx"
+                  class="safety-item"
+                  :class="s.type"
+                >
                   <span class="safety-title">{{ s.title }}</span>
                   <span class="safety-content">{{ s.content }}</span>
                 </div>
@@ -287,7 +369,11 @@
                 实用提示
               </h4>
               <div class="guide-tips-list">
-                <div v-for="(tip, index) in item.guideTips" :key="index" :class="['tip-card', `tip-${tip.type || 'info'}`]">
+                <div
+                  v-for="(tip, index) in item.guideTips"
+                  :key="index"
+                  :class="['tip-card', `tip-${tip.type || 'info'}`]"
+                >
                   <div class="tip-icon">
                     <AlertTriangleIcon v-if="tip.type === 'warning'" />
                     <LightbulbIcon v-else-if="tip.type === 'tip'" />
@@ -302,7 +388,15 @@
             </div>
 
             <!-- 补充信息 -->
-            <div v-if="item.bestTime || item.weather || item.transportation || item.budgetDetail" class="extra-info-section">
+            <div
+              v-if="
+                item.bestTime ||
+                item.weather ||
+                item.transportation ||
+                item.budgetDetail
+              "
+              class="extra-info-section"
+            >
               <h4 class="section-header">
                 <ClockIcon />
                 补充信息
@@ -334,7 +428,9 @@
                 安全须知
               </h4>
               <ul class="safety-notes-list">
-                <li v-for="(note, index) in item.safetyNotes" :key="index">{{ note }}</li>
+                <li v-for="(note, index) in item.safetyNotes" :key="index">
+                  {{ note }}
+                </li>
               </ul>
             </div>
 
@@ -345,7 +441,11 @@
                 行程路线
               </h4>
               <div class="route-timeline">
-                <div v-for="(point, index) in item.routePoints" :key="index" class="route-point">
+                <div
+                  v-for="(point, index) in item.routePoints"
+                  :key="index"
+                  class="route-point"
+                >
                   <div class="route-marker">{{ index + 1 }}</div>
                   <div class="route-text">{{ point }}</div>
                 </div>
@@ -353,24 +453,38 @@
             </div>
 
             <!-- 推荐装备 -->
-            <div v-if="item.recommendedGear?.length" class="recommended-gear-section">
+            <div
+              v-if="item.recommendedGear?.length"
+              class="recommended-gear-section"
+            >
               <h4 class="section-header">
                 <TagIcon />
                 推荐装备
               </h4>
               <div class="recommended-gear-tags">
-                <span v-for="(gear, index) in item.recommendedGear" :key="index" class="recommended-gear-tag">{{ gear }}</span>
+                <span
+                  v-for="(gear, index) in item.recommendedGear"
+                  :key="index"
+                  class="recommended-gear-tag"
+                >
+                  {{ gear }}
+                </span>
               </div>
             </div>
 
             <!-- 后期处理 -->
-            <div v-if="item.postProcessing?.length" class="post-processing-section">
+            <div
+              v-if="item.postProcessing?.length"
+              class="post-processing-section"
+            >
               <h4 class="section-header">
                 <PaletteIcon />
                 后期处理
               </h4>
               <ul class="post-processing-list">
-                <li v-for="(step, index) in item.postProcessing" :key="index">{{ step }}</li>
+                <li v-for="(step, index) in item.postProcessing" :key="index">
+                  {{ step }}
+                </li>
               </ul>
             </div>
           </div>
@@ -385,161 +499,168 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
-import { showMessage, createSimpleInteractionItem } from '@/utils/landscape'
-import type { GuideItem } from '@/typesOfPages/landscape'
-import { formatNumber, getDifficultyLabel } from '@/utils/landscape'
-import { useInteractionStore } from '@/stores/landscape'
-import StarIcon from '@/pages/Landscape/icons/common/StarIcon.vue'
-import UserIcon from '@/pages/Landscape/icons/common/UserIcon.vue'
-import ThumbUpIcon from '@/pages/Landscape/icons/common/ThumbUpIcon.vue'
-import HeartIcon from '@/pages/Landscape/icons/common/HeartIcon.vue'
-import BookmarkIcon from '@/pages/Landscape/icons/common/BookmarkIcon.vue'
-import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue'
-import ShareMenu from '../../../common/ShareMenu/index.vue'
-import ChevronLeftIcon from '@/pages/Landscape/icons/common/ChevronLeftIcon.vue'
-import UsersIcon from '@/pages/Landscape/icons/common/UsersIcon.vue'
-import ClockIcon from '@/pages/Landscape/icons/common/ClockIcon.vue'
-import LocationIcon from '@/pages/Landscape/icons/common/LocationIcon.vue'
-import MessageBubbleIcon from '@/pages/Landscape/icons/components/profile/common/MessageBubbleIcon.vue'
-import InfoIcon from '@/pages/Landscape/icons/common/InfoIcon.vue'
-import LightbulbIcon from '@/pages/Landscape/icons/common/LightbulbIcon.vue'
-import TagIcon from '@/pages/Landscape/icons/common/TagIcon.vue'
-import MapPinIcon from '@/pages/Landscape/icons/common/LocationIcon.vue'
-import ExpandIcon from '@/pages/Landscape/icons/components/profile/GuideCard/ExpandIcon.vue'
-import BoltIcon from '@/pages/Landscape/icons/components/profile/GuideCard/BoltIcon.vue'
-import BuildingIcon from '@/pages/Landscape/icons/components/profile/GuideCard/BuildingIcon.vue'
-import BoxIcon from '@/pages/Landscape/icons/components/profile/GuideCard/BoxIcon.vue'
-import AlertTriangleIcon from '@/pages/Landscape/icons/components/profile/GuideCard/AlertTriangleIcon.vue'
-import ShieldSimpleIcon from '@/pages/Landscape/icons/common/ShieldIcon.vue'
-import LayersSimpleIcon from '@/pages/Landscape/icons/common/LayersIcon.vue'
-import ThermometerIcon from '@/pages/Landscape/icons/components/profile/GuideCard/ThermometerIcon.vue'
-import PaletteIcon from '@/pages/Landscape/icons/components/profile/GuideCard/PaletteIcon.vue'
-import CameraIcon from '@/pages/Landscape/icons/common/CameraIcon.vue'
-import SearchIcon from '@/pages/Landscape/icons/common/SearchIcon.vue'
-import CompassIcon from '@/pages/Landscape/icons/common/CompassIcon.vue'
-import SparkleIcon from '@/pages/Landscape/icons/common/SparkleIcon.vue'
+  import { ref, computed } from 'vue';
+  import { showMessage, createSimpleInteractionItem } from '@/utils/landscape';
+  import type { GuideItem } from '@/typesOfPages/landscape';
+  import { formatNumber, getDifficultyLabel } from '@/utils/landscape';
+  import { useInteractionStore } from '@/stores/landscape';
+  import StarIcon from '@/pages/Landscape/icons/common/StarIcon.vue';
+  import UserIcon from '@/pages/Landscape/icons/common/UserIcon.vue';
+  import ThumbUpIcon from '@/pages/Landscape/icons/common/ThumbUpIcon.vue';
+  import HeartIcon from '@/pages/Landscape/icons/common/HeartIcon.vue';
+  import BookmarkIcon from '@/pages/Landscape/icons/common/BookmarkIcon.vue';
+  import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue';
+  import ShareMenu from '../../../common/ShareMenu/index.vue';
+  import ChevronLeftIcon from '@/pages/Landscape/icons/common/ChevronLeftIcon.vue';
+  import UsersIcon from '@/pages/Landscape/icons/common/UsersIcon.vue';
+  import ClockIcon from '@/pages/Landscape/icons/common/ClockIcon.vue';
+  import LocationIcon from '@/pages/Landscape/icons/common/LocationIcon.vue';
+  import MessageBubbleIcon from '@/pages/Landscape/icons/components/profile/common/MessageBubbleIcon.vue';
+  import InfoIcon from '@/pages/Landscape/icons/common/InfoIcon.vue';
+  import LightbulbIcon from '@/pages/Landscape/icons/common/LightbulbIcon.vue';
+  import TagIcon from '@/pages/Landscape/icons/common/TagIcon.vue';
+  import MapPinIcon from '@/pages/Landscape/icons/common/LocationIcon.vue';
+  import ExpandIcon from '@/pages/Landscape/icons/components/profile/GuideCard/ExpandIcon.vue';
+  import BoltIcon from '@/pages/Landscape/icons/components/profile/GuideCard/BoltIcon.vue';
+  import BuildingIcon from '@/pages/Landscape/icons/components/profile/GuideCard/BuildingIcon.vue';
+  import BoxIcon from '@/pages/Landscape/icons/components/profile/GuideCard/BoxIcon.vue';
+  import AlertTriangleIcon from '@/pages/Landscape/icons/components/profile/GuideCard/AlertTriangleIcon.vue';
+  import ShieldSimpleIcon from '@/pages/Landscape/icons/common/ShieldIcon.vue';
+  import LayersSimpleIcon from '@/pages/Landscape/icons/common/LayersIcon.vue';
+  import ThermometerIcon from '@/pages/Landscape/icons/components/profile/GuideCard/ThermometerIcon.vue';
+  import PaletteIcon from '@/pages/Landscape/icons/components/profile/GuideCard/PaletteIcon.vue';
+  import CameraIcon from '@/pages/Landscape/icons/common/CameraIcon.vue';
+  import SearchIcon from '@/pages/Landscape/icons/common/SearchIcon.vue';
+  import CompassIcon from '@/pages/Landscape/icons/common/CompassIcon.vue';
+  import SparkleIcon from '@/pages/Landscape/icons/common/SparkleIcon.vue';
 
-const equipmentIconMap: Record<string, any> = {
-  '📷': CameraIcon,
-  '🔍': SearchIcon,
-  '🦿': LayersSimpleIcon,
-  '💡': LightbulbIcon,
-  '🧥': ShieldSimpleIcon,
-  '🚗': CompassIcon,
-  '🥾': LocationIcon,
-  '🌸': SparkleIcon,
-}
+  const equipmentIconMap: Record<string, any> = {
+    '📷': CameraIcon,
+    '🔍': SearchIcon,
+    '🦿': LayersSimpleIcon,
+    '💡': LightbulbIcon,
+    '🧥': ShieldSimpleIcon,
+    '🚗': CompassIcon,
+    '🥾': LocationIcon,
+    '🌸': SparkleIcon,
+  };
 
-const props = defineProps<{
-  item: GuideItem
-  delay?: string
-}>()
+  const props = defineProps<{
+    item: GuideItem;
+    delay?: string;
+  }>();
 
-const emit = defineEmits<{
-  (e: 'collect', id: string): void
-  (e: 'like', id: string): void
-  (e: 'share', item: GuideItem): void
-  (e: 'click', item: GuideItem): void
-}>()
+  const emit = defineEmits<{
+    (e: 'collect', id: string): void;
+    (e: 'like', id: string): void;
+    (e: 'share', item: GuideItem): void;
+    (e: 'click', item: GuideItem): void;
+  }>();
 
-const interactionStore = useInteractionStore()
-const isExpanded = ref(false)
+  const interactionStore = useInteractionStore();
+  const isExpanded = ref(false);
 
-const isCollected = computed(() => interactionStore.isFavorited(props.item.id))
-const isLiked = computed(() => interactionStore.isLiked(props.item.id))
-const isLoved = computed(() => interactionStore.isLoved(props.item.id))
+  const isCollected = computed(() =>
+    interactionStore.isFavorited(props.item.id),
+  );
+  const isLiked = computed(() => interactionStore.isLiked(props.item.id));
+  const isLoved = computed(() => interactionStore.isLoved(props.item.id));
 
-const getCounts = () => interactionStore.getCount(props.item.id)
+  const getCounts = () => interactionStore.getCount(props.item.id);
 
-const toggleCollect = () => {
-  const item = {
-    id: props.item.id,
+  const toggleCollect = () => {
+    const item = {
+      id: props.item.id,
+      type: 'guide' as const,
+      title: props.item.title,
+      image: props.item.thumbnail || '',
+      location: props.item.location,
+      category: props.item.category,
+      timestamp: Date.now(),
+      likes: props.item.likes,
+      views: props.item.views,
+      favorites: props.item.saves,
+      shares: props.item.shares,
+      author: props.item.author,
+      authorId: props.item.authorId,
+      authorAvatar: props.item.authorAvatar,
+    };
+    const isAdded = interactionStore.toggleFavorite(item);
+    if (isAdded) {
+      showMessage.favorite.success(props.item.title, 'guide');
+    } else {
+      showMessage.favorite.cancel(props.item.title, 'guide');
+    }
+    emit('collect', props.item.id);
+  };
+
+  const toggleLike = () => {
+    const item = createSimpleInteractionItem(
+      props.item.id,
+      'guide',
+      props.item.title,
+      {
+        image: props.item.thumbnail || '',
+        location: props.item.location,
+        category: props.item.category,
+      },
+    );
+    const isAdded = interactionStore.toggleLike(item);
+    if (isAdded) {
+      showMessage.like.success(props.item.title);
+    } else {
+      showMessage.like.cancel();
+    }
+    emit('like', props.item.id);
+  };
+
+  const toggleLove = () => {
+    const item = {
+      id: props.item.id,
+      type: 'guide' as const,
+      title: props.item.title,
+      image: props.item.thumbnail || '',
+      location: props.item.location,
+      category: props.item.category,
+      timestamp: Date.now(),
+      likes: props.item.likes,
+      views: props.item.views,
+      favorites: props.item.saves,
+      shares: props.item.shares,
+      author: props.item.author,
+      authorId: props.item.authorId,
+      authorAvatar: props.item.authorAvatar,
+    };
+    const isAdded = interactionStore.toggleLove(item);
+    if (isAdded) {
+      showMessage.love.success(props.item.title, 'guide');
+    } else {
+      showMessage.love.cancel(props.item.title, 'guide');
+    }
+  };
+
+  const showShareMenu = ref(false);
+  const shareWork = computed(() => ({
     type: 'guide' as const,
     title: props.item.title,
-    image: props.item.thumbnail || '',
-    location: props.item.location,
-    category: props.item.category,
-    timestamp: Date.now(),
-    likes: props.item.likes,
-    views: props.item.views,
-    favorites: props.item.saves,
-    shares: props.item.shares,
+    description: props.item.summary,
+    cover: props.item.thumbnail,
     author: props.item.author,
-    authorId: props.item.authorId,
-    authorAvatar: props.item.authorAvatar,
-  }
-  const isAdded = interactionStore.toggleFavorite(item)
-  if (isAdded) {
-    showMessage.favorite.success(props.item.title, 'guide')
-  } else {
-    showMessage.favorite.cancel(props.item.title, 'guide')
-  }
-  emit('collect', props.item.id)
-}
-
-const toggleLike = () => {
-  const item = createSimpleInteractionItem(props.item.id, 'guide', props.item.title, {
-    image: props.item.thumbnail || '',
+    date: props.item.date,
     location: props.item.location,
     category: props.item.category,
-  })
-  const isAdded = interactionStore.toggleLike(item)
-  if (isAdded) {
-    showMessage.like.success(props.item.title)
-  } else {
-    showMessage.like.cancel()
-  }
-  emit('like', props.item.id)
-}
+    rating: props.item.rating,
+  }));
 
-const toggleLove = () => {
-  const item = {
-    id: props.item.id,
-    type: 'guide' as const,
-    title: props.item.title,
-    image: props.item.thumbnail || '',
-    location: props.item.location,
-    category: props.item.category,
-    timestamp: Date.now(),
-    likes: props.item.likes,
-    views: props.item.views,
-    favorites: props.item.saves,
-    shares: props.item.shares,
-    author: props.item.author,
-    authorId: props.item.authorId,
-    authorAvatar: props.item.authorAvatar,
-  }
-  const isAdded = interactionStore.toggleLove(item)
-  if (isAdded) {
-    showMessage.love.success(props.item.title, 'guide')
-  } else {
-    showMessage.love.cancel(props.item.title, 'guide')
-  }
-}
+  const handleShare = () => {
+    showShareMenu.value = true;
+    emit('share', props.item);
+  };
 
-const showShareMenu = ref(false)
-const shareWork = computed(() => ({
-  type: 'guide' as const,
-  title: props.item.title,
-  description: props.item.summary,
-  cover: props.item.thumbnail,
-  author: props.item.author,
-  date: props.item.date,
-  location: props.item.location,
-  category: props.item.category,
-  rating: props.item.rating,
-}))
-
-const handleShare = () => {
-  showShareMenu.value = true
-  emit('share', props.item)
-}
-
-const handleClick = () => {
-  isExpanded.value = !isExpanded.value
-  emit('click', props.item)
-}
+  const handleClick = () => {
+    isExpanded.value = !isExpanded.value;
+    emit('click', props.item);
+  };
 </script>
 
 <style scoped lang="scss" src="./index.scss" />

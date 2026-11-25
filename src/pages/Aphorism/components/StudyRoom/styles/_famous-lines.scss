@@ -1,0 +1,365 @@
+.studyroom-page {
+  .page-main {
+    .modules-section {
+      .module-card {
+        &.famous-lines {
+          --tag-a: #8a9290;
+          --tag-b: #59615f;
+          --accent: #838d8a;
+
+          padding: 34px 28px 38px;
+          box-sizing: border-box;
+          position: relative;
+          isolation: isolate;
+
+          // 整体加高：碑板更厚重（再次放大）
+          min-height: 380px;
+
+          // 外层青灰石墨碑板：左上受光 → 右下背光，窗棂斜光束 + 凿痕石纹
+          background:
+            // 阳光主光带：左上暖亮 → 右下深暗，明暗分界分明
+            linear-gradient(
+              126deg,
+              rgba(255, 252, 235, 0.3) 0%,
+              rgba(255, 248, 222, 0.16) 15%,
+              rgba(255, 252, 235, 0.02) 33%,
+              transparent 44%,
+              rgba(6, 12, 11, 0.28) 66%,
+              rgba(4, 9, 8, 0.5) 100%
+            ),
+            // 窗棂斜光束：平行亮带模拟阳光透过窗格
+            repeating-linear-gradient(
+                126deg,
+                rgba(255, 253, 240, 0.045) 0 20px,
+                transparent 20px 118px
+              ),
+            // 石面凿痕双向细纹
+            repeating-linear-gradient(
+                45deg,
+                rgba(18, 28, 27, 0.09) 0 1px,
+                transparent 1px 8px
+              ),
+            repeating-linear-gradient(
+              -45deg,
+              rgba(215, 226, 220, 0.04) 0 1px,
+              transparent 1px 11px
+            ),
+            // 斑驳：受光角亮、背光角暗
+            radial-gradient(
+                ellipse at 12% 16%,
+                rgba(215, 228, 220, 0.16),
+                transparent 34%
+              ),
+            radial-gradient(
+              ellipse at 88% 84%,
+              rgba(8, 16, 14, 0.3),
+              transparent 42%
+            ),
+            // 底色：左上亮青灰 → 右下暗石墨
+            linear-gradient(145deg, #737e7a 0%, #4d5754 44%, #2a322f 100%);
+          border-top: 1px solid rgb(226 236 230 / 38%);
+          border-left: 1px solid rgb(226 236 230 / 24%);
+          border-right: 1px solid rgb(8 14 12 / 90%);
+          border-bottom: 1px solid rgb(8 14 12 / 90%);
+          border-radius: 8px;
+          box-shadow:
+            inset 2px 2px 3px rgb(232 242 235 / 28%),
+            inset -8px -10px 16px rgb(4 10 9 / 70%),
+            0 6px 0 #222a28,
+            0 11px 0 #151b19,
+            0 20px 34px rgb(4 10 9 / 60%);
+
+          // 碑额螭纹（顶部两端，纯装饰）
+          &::before,
+          &::after {
+            content: '';
+            position: absolute;
+            top: 8px;
+            width: 60px;
+            height: 30px;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 50%;
+            background:
+              radial-gradient(
+                circle at 10px 15px,
+                transparent 0 6px,
+                rgb(220 232 226 / 45%) 6.5px 8px,
+                transparent 8.5px
+              ),
+              radial-gradient(
+                circle at 26px 15px,
+                transparent 0 5px,
+                rgb(220 232 226 / 36%) 5.5px 7px,
+                transparent 7.5px
+              ),
+              radial-gradient(
+                circle at 42px 15px,
+                transparent 0 4px,
+                rgb(220 232 226 / 30%) 4.5px 6px,
+                transparent 6.5px
+              );
+          }
+
+          &::before {
+            left: 10px;
+          }
+
+          &::after {
+            right: 10px;
+            transform: scaleX(-1);
+          }
+
+          // header 右侧翻页石钮（斜照：左上亮、右下暗）
+          .line-nav {
+            display: flex;
+            gap: 9px;
+            padding-right: 4px;
+
+            button {
+              width: 34px;
+              height: 34px;
+              border-top: 1px solid rgb(230 240 234 / 50%);
+              border-left: 1px solid rgb(230 240 234 / 32%);
+              border-right: 1px solid rgb(8 14 13 / 70%);
+              border-bottom: 1px solid rgb(8 14 13 / 88%);
+              border-radius: 5px;
+              cursor: pointer;
+              font-size: 21px;
+              font-weight: 800;
+              line-height: 1;
+              color: #eaf0e9;
+              background:
+                linear-gradient(
+                  145deg,
+                  rgb(240 248 242 / 30%) 0%,
+                  transparent 45%
+                ),
+                linear-gradient(145deg, #6b7672 0%, #454f4b 52%, #242c29 100%);
+              box-shadow:
+                inset 1px 1px 1px rgb(235 245 238 / 45%),
+                inset -2px -2px 3px rgb(0 0 0 / 40%),
+                0 3px 5px rgb(0 0 0 / 60%);
+              transition-property: transform, box-shadow, background, color;
+              transition-duration: 0.2s;
+              transition-timing-function: ease;
+
+              &:hover {
+                transform: translateY(-2px);
+                color: #fff;
+                background: linear-gradient(
+                  145deg,
+                  #7d8985 0%,
+                  #56615d 52%,
+                  #303936 100%
+                );
+                box-shadow:
+                  inset 1px 1px 1px rgb(235 245 238 / 55%),
+                  inset -2px -2px 3px rgb(0 0 0 / 45%),
+                  0 5px 9px rgb(0 0 0 / 68%);
+              }
+            }
+          }
+
+          // 碑面凹槽：斜照内阴影（左上浅亮 / 右下深暗），木托盘嵌在石槽里
+          .lines-strip {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 22px;
+            margin-top: 16px;
+            padding: 24px 28px 22px;
+            position: relative;
+            border-radius: 4px;
+            background:
+              linear-gradient(
+                126deg,
+                rgb(220 232 224 / 14%) 0%,
+                transparent 28%,
+                rgb(0 0 0 / 34%) 100%
+              ),
+              repeating-linear-gradient(
+                0deg,
+                rgb(10 18 17 / 10%) 0 2px,
+                transparent 2px 6px
+              ),
+              linear-gradient(145deg, #414b47 0%, #2b3330 56%, #171d1b 100%);
+            box-shadow:
+              inset 3px 3px 8px rgb(200 214 207 / 12%),
+              inset -8px -10px 18px rgb(0 0 0 / 68%),
+              inset 6px 0 12px rgb(0 0 0 / 35%),
+              inset -6px 0 12px rgb(0 0 0 / 50%);
+
+            // 木活字托盘：暖色原木嵌在冷色石槽中，斜照让木纹明暗分明
+            .line-card {
+              flex: 1 1 0;
+              min-width: 0;
+              position: relative;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              gap: 18px;
+              min-height: 260px;
+              margin: 4px 3px 8px;
+              padding: 24px 12px 22px;
+              cursor: pointer;
+              border-radius: 4px;
+              background:
+                // 斜照光斑：左上亮 → 右下暗
+                linear-gradient(
+                  135deg,
+                  rgba(255, 248, 222, 0.55) 0%,
+                  rgba(255, 240, 200, 0.18) 26%,
+                  transparent 48%,
+                  rgba(70, 40, 12, 0.28) 100%
+                ),
+                // 木纹细丝
+                repeating-linear-gradient(
+                    88deg,
+                    rgba(120, 78, 32, 0.06) 0 1px,
+                    transparent 1px 6px
+                  ),
+                linear-gradient(145deg, #d3ad74 0%, #b38852 48%, #8a6134 100%);
+              border-top: 1px solid rgb(255 240 205 / 60%);
+              border-left: 1px solid rgb(255 235 195 / 40%);
+              border-right: 1px solid rgb(70 42 14 / 75%);
+              border-bottom: 1px solid rgb(60 36 12 / 85%);
+              box-shadow:
+                inset 1px 1px 2px rgb(255 245 215 / 55%),
+                inset -3px -4px 8px rgb(80 48 14 / 45%),
+                0 3px 0 #6e4a1c,
+                0 5px 0 #563716,
+                0 9px 16px rgb(0 0 0 / 60%);
+              transition-property: transform, box-shadow;
+              transition-duration: 0.25s;
+              transition-timing-function: ease;
+
+              &:hover {
+                transform: translateY(-6px);
+                box-shadow:
+                  inset 1px 1px 2px rgb(255 250 225 / 70%),
+                  inset -3px -4px 8px rgb(80 48 14 / 50%),
+                  0 4px 0 #6e4a1c,
+                  0 7px 0 #563716,
+                  0 15px 24px rgb(0 0 0 / 68%);
+              }
+
+              // 一排凸起的木活字
+              .line-text {
+                position: relative;
+                z-index: 1;
+                width: 100%;
+                margin: 0;
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: center;
+                gap: 6px 4px;
+
+                // 单颗木活字：左上受光、右下背光，顶面刻字 + 侧面厚度 + 投影
+                .type-char {
+                  width: 36px;
+                  height: 38px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  box-sizing: border-box;
+                  border-radius: 3px;
+                  font-size: 23px;
+                  font-weight: 800;
+                  line-height: 1;
+                  color: #3d2005;
+                  font-family: STKaiti, KaiTi, 'Noto Serif SC', serif;
+
+                  // 刻痕：下缘受光高光 + 上缘背光暗影
+                  text-shadow:
+                    0 1px 0 rgb(255 245 210 / 95%),
+                    0 -1px 1px rgb(90 52 12 / 40%);
+                  background:
+                    // 左上顶面高光
+                    radial-gradient(
+                      ellipse at 26% 16%,
+                      rgba(255, 252, 232, 0.95) 0%,
+                      transparent 58%
+                    ),
+                    // 斜照主体：左上亮 → 右下暗
+                    linear-gradient(
+                        145deg,
+                        #f9e7bb 0%,
+                        #eccd90 32%,
+                        #d3ab68 64%,
+                        #a97f3d 100%
+                      );
+                  border-top: 1px solid rgb(255 252 232 / 95%);
+                  border-left: 1px solid rgb(255 248 218 / 70%);
+                  border-right: 1px solid rgb(86 52 16 / 80%);
+                  border-bottom: 1px solid rgb(70 40 12 / 90%);
+                  box-shadow:
+                    inset 1px 1px 0 rgb(255 253 236 / 95%),
+                    inset -2px -3px 5px rgb(120 76 24 / 40%),
+                    0 3px 0 #a67c3e,
+                    0 4px 0 #7d5723,
+                    0 6px 4px rgb(30 16 4 / 50%),
+                    0 9px 12px rgb(0 0 0 / 42%);
+
+                  // 标点活字：略窄、字淡
+                  &.is-punct {
+                    width: 22px;
+                    color: #7a5223;
+                    font-size: 20px;
+                  }
+
+                  &:hover {
+                    transform: translateY(-2px);
+                    box-shadow:
+                      inset 1px 1px 0 rgb(255 254 242 / 100%),
+                      inset -2px -3px 5px rgb(120 76 24 / 45%),
+                      0 4px 0 #a67c3e,
+                      0 5px 0 #7d5723,
+                      0 8px 6px rgb(30 16 4 / 55%),
+                      0 12px 16px rgb(0 0 0 / 50%);
+                  }
+                }
+              }
+
+              // 落款：朱红印泥签（斜照红，左上亮右下暗）
+              .line-source {
+                position: relative;
+                z-index: 1;
+                margin: 0;
+                padding: 5px 14px 6px;
+                max-width: 100%;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                border-radius: 3px;
+                font-size: 19px;
+                font-weight: 800;
+                color: #ffead4;
+                text-align: center;
+                font-family: STKaiti, KaiTi, 'Noto Serif SC', serif;
+                letter-spacing: 1px;
+                background: linear-gradient(
+                  145deg,
+                  #c4473a 0%,
+                  #a32e24 45%,
+                  #741811 100%
+                );
+                border-top: 1px solid rgb(255 215 185 / 60%);
+                border-left: 1px solid rgb(255 200 170 / 40%);
+                border-right: 1px solid rgb(60 8 4 / 70%);
+                border-bottom: 1px solid rgb(50 6 3 / 85%);
+                box-shadow:
+                  inset 1px 1px 0 rgb(255 215 185 / 55%),
+                  inset -2px -2px 4px rgb(60 8 4 / 40%),
+                  0 3px 6px rgb(0 0 0 / 55%);
+                text-shadow: 0 1px 2px rgb(50 10 5 / 70%);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

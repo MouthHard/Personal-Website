@@ -22,14 +22,18 @@
       margin-bottom: 1.5rem;
       filter: drop-shadow(0 4px 12px rgba(120, 119, 198, 0.3));
       animation: floatIcon 3s ease-in-out infinite;
-      svg { width: 64px; height: 64px; }
+
+      svg {
+        width: 64px;
+        height: 64px;
+      }
     }
 
     .empty-title {
       font-size: 1.6rem;
       color: #e0e0ff;
-      margin: 0 0 0.75rem 0;
-      font-family: 'FangSong', 'STFangsong', serif;
+      margin: 0 0 0.75rem;
+      font-family: fangsong, STFangsong, serif;
       letter-spacing: 0.1em;
       text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
     }
@@ -44,8 +48,14 @@
   }
 
   @keyframes floatIcon {
-    0%, 100% { transform: translateY(0); }
-    50%      { transform: translateY(-10px); }
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
   }
 
   &::after {
@@ -128,7 +138,7 @@
 
     .section-title {
       font-size: 2.2rem;
-      font-family: 'FangSong', 'STFangsong', serif;
+      font-family: fangsong, STFangsong, serif;
       color: #f0f8ff;
       margin-bottom: 2.5rem;
       text-shadow:
@@ -232,6 +242,7 @@
           inset 0 0 40px rgba(100, 149, 237, 0.2),
           inset 0 1px 0 rgba(255, 255, 255, 0.3),
           inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+
         .exhibition-info::after {
           animation: shine 2.5s ease;
         }
@@ -242,6 +253,7 @@
         width: 100%;
         height: 50%;
         overflow: hidden;
+
         img {
           width: 100%;
           height: 100%;
@@ -271,7 +283,7 @@
       }
 
       .exhibition-info {
-        padding: 1.5rem 1.5rem 1rem 1.5rem;
+        padding: 1.5rem 1.5rem 1rem;
         background: linear-gradient(
           180deg,
           rgba(230, 245, 255, 1) 0%,
@@ -288,7 +300,8 @@
         flex-direction: column;
         flex: 1;
         justify-content: space-between;
-        font-family: 'KaiTi', 'STKaiti', serif;
+        font-family: KaiTi, STKaiti, serif;
+
         &::after {
           content: '';
           position: absolute;
@@ -318,7 +331,7 @@
 
         .exhibition-title {
           font-size: 1.5rem;
-          color: #000000;
+          color: #000;
           font-weight: bolder;
           margin: 0 0.5rem;
           text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -337,7 +350,7 @@
         }
 
         .exhibition-description {
-          color: #000000;
+          color: #000;
           font-weight: bolder;
           line-height: 1.7;
           font-size: 1rem;
@@ -372,6 +385,7 @@
             overflow: hidden;
             border: 2px solid rgba(255, 255, 255, 0.3);
             white-space: nowrap;
+
             .button-icon {
               font-size: 1rem;
               display: inline-flex;
@@ -387,7 +401,7 @@
 
             .button-text {
               font-size: 1rem;
-              color: #000000;
+              color: #000;
               font-weight: bolder;
             }
 
@@ -405,7 +419,6 @@
                 transparent 100%
               );
               border-radius: 50%;
-
               pointer-events: none;
             }
 
@@ -436,7 +449,7 @@
 
             &.favorite-button {
               background: #d03838;
-              color: #000000;
+              color: #000;
               border-color: rgba(139, 26, 26, 0.9);
               box-shadow:
                 0 2px 4px rgba(0, 0, 0, 1),
@@ -454,7 +467,7 @@
 
             &.follow-button {
               background: #ffa500;
-              color: #000000;
+              color: #000;
               border-color: rgba(255, 165, 0, 0.9);
               box-shadow:
                 0 2px 4px rgba(0, 0, 0, 1),
@@ -472,7 +485,7 @@
 
             &.share-button {
               background: #1e90ff;
-              color: #000000;
+              color: #000;
               border-color: rgba(65, 105, 225, 0.9);
               box-shadow:
                 0 2px 4px rgba(0, 0, 0, 1),

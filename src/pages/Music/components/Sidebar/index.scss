@@ -1,30 +1,39 @@
 .sidebar {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(15, 15, 24, 0.95) 0%, rgba(10, 10, 15, 0.98) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(15, 15, 24, 0.95) 0%,
+    rgba(10, 10, 15, 0.98) 100%
+  );
   border-right: 1px solid rgba(255, 255, 255, 0.05);
   display: flex;
   flex-direction: column;
   position: relative;
   z-index: 10;
   backdrop-filter: blur(40px) saturate(200%);
-  box-shadow: 
+  box-shadow:
     2px 0 40px rgba(0, 0, 0, 0.4),
     0 0 80px rgba(255, 215, 0, 0.1),
     inset -2px 0 20px rgba(0, 0, 0, 0.1);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
-  
+
   &::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-      radial-gradient(circle at 20% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(135, 206, 235, 0.1) 0%, transparent 50%);
+    inset: 0;
+    background:
+      radial-gradient(
+        circle at 20% 20%,
+        rgba(255, 215, 0, 0.1) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 80% 80%,
+        rgba(135, 206, 235, 0.1) 0%,
+        transparent 50%
+      );
     pointer-events: none;
     z-index: 0;
   }
@@ -35,26 +44,29 @@
     left: 0;
     width: 100%;
     height: 200px;
-    background: linear-gradient(180deg, rgba(255, 215, 0, 0.1) 0%, transparent 100%);
+    background: linear-gradient(
+      180deg,
+      rgba(255, 215, 0, 0.1) 0%,
+      transparent 100%
+    );
     pointer-events: none;
     opacity: 0.5;
   }
 
   .sidebar-nav {
     flex: 1;
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow: hidden auto;
     padding: 0 12px;
-    
+
     &::-webkit-scrollbar {
       width: 0;
       height: 0;
     }
-    
+
     &::-webkit-scrollbar-thumb {
       background: transparent;
     }
-    
+
     &::-webkit-scrollbar-track {
       background: transparent;
     }
@@ -101,14 +113,18 @@
         }
 
         &.active {
-          background: linear-gradient(135deg, rgba(255, 215, 0, 0.2) 0%, rgba(135, 206, 235, 0.2) 100%);
-          box-shadow: 
+          background: linear-gradient(
+            135deg,
+            rgba(255, 215, 0, 0.2) 0%,
+            rgba(135, 206, 235, 0.2) 100%
+          );
+          box-shadow:
             0 4px 15px rgba(255, 215, 0, 0.2),
             inset 0 1px 0 rgba(255, 255, 255, 0.05);
           transform: translateX(4px);
 
           .nav-icon {
-            color: #FFD700;
+            color: #ffd700;
             filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.5));
           }
 
@@ -126,7 +142,12 @@
             transform: translateY(-50%);
             width: 4px;
             height: 70%;
-            background: linear-gradient(135deg, #FFD700 0%, #87CEEB 50%, #00BFFF 100%);
+            background: linear-gradient(
+              135deg,
+              #ffd700 0%,
+              #87ceeb 50%,
+              #00bfff 100%
+            );
             border-radius: 0 2px 2px 0;
             box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
           }
@@ -143,7 +164,11 @@
           right: 0;
           width: 50%;
           height: 100%;
-          background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05));
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.05)
+          );
           opacity: 0;
           transition: opacity 0.3s;
         }
@@ -179,9 +204,11 @@
 }
 
 @keyframes activeShine {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateX(-100%) skewX(-20deg);
   }
+
   50% {
     transform: translateX(100%) skewX(-20deg);
   }

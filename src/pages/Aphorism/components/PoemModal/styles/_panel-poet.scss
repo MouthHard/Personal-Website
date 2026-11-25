@@ -1,0 +1,436 @@
+@use 'variables' as *;
+
+.scroll-annotation {
+  .scroll-paper {
+    .annotation-content {
+      // ===== 诗人模块：金箔题签名片 + 生平卷轴 =====
+      .tab-panel.poet-panel {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        overflow: hidden auto;
+        padding-right: 6px;
+
+        &::-webkit-scrollbar {
+          width: 6px;
+        }
+
+        &::-webkit-scrollbar-track {
+          background: rgb(138 96 48 / 8%);
+          border-radius: 3px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background: linear-gradient(
+            180deg,
+            #c09050 0%,
+            #9a7040 50%,
+            #7a5830 100%
+          );
+          border-radius: 3px;
+          box-shadow: inset 0 1px 2px rgb(255 240 220 / 20%);
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+          background: linear-gradient(
+            180deg,
+            #d0a060 0%,
+            #aa8050 50%,
+            #8a6840 100%
+          );
+        }
+
+        // 诗人名片——金箔题签风格
+        .poet-card {
+          position: relative;
+          padding: 18px 20px 14px;
+          border-radius: 10px;
+          overflow: hidden;
+          background:
+            // 金箔暗纹——云纹水印
+            radial-gradient(
+              ellipse 50px 25px at 80% 20%,
+              rgba(180, 130, 50, 0.08) 0%,
+              transparent 70%
+            ),
+            radial-gradient(
+              ellipse 40px 20px at 20% 80%,
+              rgba(180, 130, 50, 0.06) 0%,
+              transparent 70%
+            ),
+            // 金箔底色渐变
+            linear-gradient(
+                160deg,
+                #f5e8c0 0%,
+                #ecd8a0 40%,
+                #e0c880 80%,
+                #d8b870 100%
+              );
+          box-shadow:
+            // 内框——双层金边
+            inset 0 0 0 1px rgba(180, 130, 50, 0.4),
+            inset 0 0 0 2px rgba(245, 232, 192, 0.6),
+            // 内凹凸——金箔质感
+            inset 0 2px 4px rgba(255, 240, 200, 0.5),
+            inset 0 -2px 3px rgba(180, 130, 50, 0.15),
+            // 外阴影——题签悬浮
+            0 4px 10px rgba(0, 0, 0, 0.12),
+            0 2px 4px rgba(0, 0, 0, 0.06);
+
+          // 左侧金线装饰
+          &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            bottom: 10px;
+            width: 3px;
+            border-radius: 0 2px 2px 0;
+            background: linear-gradient(
+              180deg,
+              #e0b060 0%,
+              #c09030 30%,
+              #a07020 60%,
+              #805010 100%
+            );
+            box-shadow:
+              0 0 4px rgb(200 150 60 / 40%),
+              inset 0 1px 0 rgb(255 220 150 / 50%);
+          }
+
+          // 右上角金色光晕
+          &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 32px;
+            height: 32px;
+            border-radius: 0 10px 0 0;
+            background: radial-gradient(
+              circle at top right,
+              rgb(220 160 60 / 20%) 0%,
+              rgb(220 160 60 / 5%) 40%,
+              transparent 70%
+            );
+            pointer-events: none;
+          }
+
+          .poet-name-row {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 10px;
+
+            .poet-name {
+              font-size: 28px;
+              font-weight: 900;
+              color: #2a1800;
+              font-family: STKaiti, KaiTi, serif;
+              text-shadow:
+                0 1px 0 rgb(255 240 200 / 50%),
+                0 2px 2px rgb(0 0 0 / 5%);
+              letter-spacing: 2px;
+            }
+
+            .poet-badge {
+              display: inline-flex;
+              align-items: center;
+              padding: 4px 12px;
+              border-radius: 5px;
+              font-size: 19px;
+              font-weight: 800;
+              font-family: STKaiti, KaiTi, serif;
+              position: relative;
+              white-space: nowrap;
+            }
+
+            .poet-badge-dynasty {
+              color: #fff0dc;
+              text-shadow: 0 1px 1px rgb(80 40 5 / 50%);
+              background: linear-gradient(
+                135deg,
+                #d8a848 0%,
+                #b88828 50%,
+                #906818 100%
+              );
+              box-shadow:
+                inset 0 0 0 1px rgb(255 240 200 / 50%),
+                inset 0 0 0 2px rgb(140 100 20 / 30%),
+                inset 0 2px 3px rgb(240 200 100 / 35%),
+                inset 0 -2px 3px rgb(100 70 10 / 40%),
+                0 2px 5px rgb(120 80 20 / 35%);
+
+              &::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                border-radius: 5px;
+                background: linear-gradient(
+                  180deg,
+                  rgb(255 255 255 / 30%) 0%,
+                  rgb(255 255 255 / 5%) 30%,
+                  transparent 50%
+                );
+                pointer-events: none;
+              }
+            }
+
+            .poet-badge-courtesy {
+              color: #f0e8d8;
+              text-shadow: 0 1px 1px rgb(0 0 0 / 40%);
+              background: linear-gradient(
+                135deg,
+                #4a3828 0%,
+                #3a2818 50%,
+                #2a1808 100%
+              );
+              box-shadow:
+                inset 0 0 0 1px rgb(200 180 150 / 30%),
+                inset 0 0 0 2px rgb(40 25 10 / 40%),
+                inset 0 2px 3px rgb(80 60 40 / 30%),
+                inset 0 -2px 3px rgb(10 5 0 / 40%),
+                0 2px 5px rgb(20 10 0 / 35%);
+
+              &::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                border-radius: 5px;
+                background: linear-gradient(
+                  180deg,
+                  rgb(255 255 255 / 15%) 0%,
+                  transparent 40%
+                );
+                pointer-events: none;
+              }
+            }
+
+            .poet-badge-pseudonym {
+              color: #e8f0e0;
+              text-shadow: 0 1px 1px rgb(0 20 10 / 40%);
+              background: linear-gradient(
+                135deg,
+                #4a6850 0%,
+                #3a5840 50%,
+                #2a4830 100%
+              );
+              box-shadow:
+                inset 0 0 0 1px rgb(200 230 210 / 30%),
+                inset 0 0 0 2px rgb(30 50 35 / 40%),
+                inset 0 2px 3px rgb(80 110 90 / 30%),
+                inset 0 -2px 3px rgb(10 25 15 / 40%),
+                0 2px 5px rgb(10 30 15 / 35%);
+
+              &::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                border-radius: 5px;
+                background: linear-gradient(
+                  180deg,
+                  rgb(255 255 255 / 20%) 0%,
+                  transparent 40%
+                );
+                pointer-events: none;
+              }
+            }
+          }
+
+          .poet-tags-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+
+            .poet-tag {
+              display: inline-flex;
+              align-items: center;
+              padding: 5px 14px;
+              border-radius: 5px;
+              font-size: 19px;
+              font-weight: 800;
+              font-family: STKaiti, KaiTi, serif;
+              position: relative;
+              white-space: nowrap;
+
+              &::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                border-radius: 5px;
+                pointer-events: none;
+              }
+            }
+
+            .poet-tag-year {
+              color: #2a1800;
+              text-shadow: 0 1px 0 rgb(255 240 200 / 30%);
+              background: linear-gradient(
+                135deg,
+                #e8c878 0%,
+                #d8b860 50%,
+                #c8a848 100%
+              );
+              box-shadow:
+                inset 0 0 0 1px rgb(255 240 200 / 40%),
+                inset 0 0 0 2px rgb(160 120 40 / 25%),
+                inset 0 2px 3px rgb(250 220 150 / 30%),
+                inset 0 -2px 2px rgb(140 100 30 / 20%),
+                0 2px 4px rgb(120 90 20 / 25%);
+
+              &::before {
+                background: linear-gradient(
+                  180deg,
+                  rgb(255 255 255 / 25%) 0%,
+                  transparent 40%
+                );
+              }
+            }
+
+            .poet-tag-home {
+              color: #1a3008;
+              text-shadow: 0 1px 0 rgb(220 240 200 / 30%);
+              background: linear-gradient(
+                135deg,
+                #b8d098 0%,
+                #98c078 50%,
+                #80a860 100%
+              );
+              box-shadow:
+                inset 0 0 0 1px rgb(220 240 200 / 40%),
+                inset 0 0 0 2px rgb(80 120 50 / 25%),
+                inset 0 2px 3px rgb(180 220 150 / 30%),
+                inset 0 -2px 2px rgb(60 100 30 / 20%),
+                0 2px 4px rgb(60 100 30 / 25%);
+
+              &::before {
+                background: linear-gradient(
+                  180deg,
+                  rgb(255 255 255 / 20%) 0%,
+                  transparent 40%
+                );
+              }
+            }
+
+            .poet-tag-identity {
+              color: #fff0dc;
+              text-shadow: 0 1px 1px rgb(80 10 5 / 40%);
+              background: linear-gradient(
+                135deg,
+                #c8523f 0%,
+                #a03525 50%,
+                #7a1810 100%
+              );
+              box-shadow:
+                inset 0 0 0 1px rgb(255 240 220 / 40%),
+                inset 0 0 0 2px rgb(120 30 15 / 30%),
+                inset 0 2px 3px rgb(230 100 80 / 30%),
+                inset 0 -2px 3px rgb(80 10 5 / 40%),
+                0 2px 5px rgb(100 20 10 / 35%);
+
+              &::before {
+                background: linear-gradient(
+                  180deg,
+                  rgb(255 255 255 / 25%) 0%,
+                  transparent 40%
+                );
+              }
+            }
+
+            .poet-tag-title {
+              color: #fff0dc;
+              text-shadow: 0 1px 1px rgb(40 5 20 / 50%);
+              background: linear-gradient(
+                135deg,
+                #a868a0 0%,
+                #884880 50%,
+                #682860 100%
+              );
+              box-shadow:
+                inset 0 0 0 1px rgb(255 240 220 / 40%),
+                inset 0 0 0 2px rgb(80 30 70 / 30%),
+                inset 0 2px 3px rgb(180 120 170 / 30%),
+                inset 0 -2px 3px rgb(40 10 35 / 40%),
+                0 2px 5px rgb(60 20 50 / 35%);
+
+              &::before {
+                background: linear-gradient(
+                  180deg,
+                  rgb(255 255 255 / 30%) 0%,
+                  rgb(255 255 255 / 5%) 30%,
+                  transparent 50%
+                );
+              }
+            }
+          }
+        }
+
+        // 生平卷轴——宣纸墨书
+        .poet-biography {
+          position: relative;
+          padding: 16px 20px;
+          border-radius: 8px;
+          overflow: hidden;
+          background:
+            // 竖纹纸理
+            repeating-linear-gradient(
+              90deg,
+              rgba(74, 40, 16, 0.02) 0%,
+              rgba(74, 40, 16, 0.02) 1px,
+              transparent 1px,
+              transparent 7px
+            ),
+            // 宣纸底色
+            linear-gradient(
+                160deg,
+                #f8ecd4 0%,
+                #f0dcb8 40%,
+                #e8cc9c 80%,
+                #e0c090 100%
+              );
+          box-shadow:
+            inset 0 0 0 1px rgb(138 96 48 / 35%),
+            inset 0 0 0 2px rgb(248 236 212 / 50%),
+            inset 0 2px 4px rgb(255 248 224 / 40%),
+            inset 0 -2px 3px rgb(138 96 48 / 12%),
+            0 3px 8px rgb(0 0 0 / 10%),
+            0 1px 3px rgb(0 0 0 / 5%);
+
+          // 左侧墨线装饰
+          &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            bottom: 8px;
+            width: 3px;
+            border-radius: 0 2px 2px 0;
+            background: linear-gradient(
+              180deg,
+              #5a4030 0%,
+              #3a2810 50%,
+              #2a1808 100%
+            );
+            box-shadow:
+              0 0 3px rgb(40 20 5 / 30%),
+              inset 0 1px 0 rgb(100 70 40 / 30%);
+          }
+
+          .poet-biography-text {
+            font-size: 22px;
+            line-height: 2;
+            font-weight: 700;
+            color: #1a0800;
+            font-family: STKaiti, KaiTi, 'Noto Serif SC', serif;
+            margin: 0;
+            text-shadow:
+              0 1px 0 rgb(255 248 224 / 40%),
+              0 1px 2px rgb(0 0 0 / 4%);
+            word-break: break-all;
+          }
+        }
+      }
+    }
+  }
+}

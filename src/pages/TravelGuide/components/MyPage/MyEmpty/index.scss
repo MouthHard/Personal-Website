@@ -45,8 +45,18 @@
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(0deg, transparent 49%, rgba(0, 229, 255, 0.04) 50%, transparent 51%),
-        linear-gradient(90deg, transparent 49%, rgba(0, 229, 255, 0.04) 50%, transparent 51%);
+        linear-gradient(
+          0deg,
+          transparent 49%,
+          rgba(0, 229, 255, 0.04) 50%,
+          transparent 51%
+        ),
+        linear-gradient(
+          90deg,
+          transparent 49%,
+          rgba(0, 229, 255, 0.04) 50%,
+          transparent 51%
+        );
       background-size: 20px 20px;
       pointer-events: none;
     }
@@ -57,15 +67,28 @@
       border: 1px solid rgba(0, 229, 255, 0.15);
       pointer-events: none;
     }
-    .r1 { inset: 25%; }
-    .r2 { inset: 12%; border-color: rgba(0, 229, 255, 0.12); }
-    .r3 { inset: 2%; border-color: rgba(0, 229, 255, 0.1); border-style: dashed; }
+
+    .r1 {
+      inset: 25%;
+    }
+
+    .r2 {
+      inset: 12%;
+      border-color: rgba(0, 229, 255, 0.12);
+    }
+
+    .r3 {
+      inset: 2%;
+      border-color: rgba(0, 229, 255, 0.1);
+      border-style: dashed;
+    }
 
     .radar-crosshair {
       position: absolute;
       background: rgba(0, 229, 255, 0.12);
       pointer-events: none;
     }
+
     .ch-h {
       top: 50%;
       left: 10%;
@@ -73,6 +96,7 @@
       height: 1px;
       transform: translateY(-50%);
     }
+
     .ch-v {
       left: 50%;
       top: 10%;
@@ -88,10 +112,38 @@
       border: 2px solid rgba(0, 229, 255, 0.5);
       pointer-events: none;
     }
-    .br-tl { top: -2px; left: -2px; border-right: none; border-bottom: none; border-top-left-radius: 6px; }
-    .br-tr { top: -2px; right: -2px; border-left: none; border-bottom: none; border-top-right-radius: 6px; }
-    .br-bl { bottom: -2px; left: -2px; border-right: none; border-top: none; border-bottom-left-radius: 6px; }
-    .br-br { bottom: -2px; right: -2px; border-left: none; border-top: none; border-bottom-right-radius: 6px; }
+
+    .br-tl {
+      top: -2px;
+      left: -2px;
+      border-right: none;
+      border-bottom: none;
+      border-top-left-radius: 6px;
+    }
+
+    .br-tr {
+      top: -2px;
+      right: -2px;
+      border-left: none;
+      border-bottom: none;
+      border-top-right-radius: 6px;
+    }
+
+    .br-bl {
+      bottom: -2px;
+      left: -2px;
+      border-right: none;
+      border-top: none;
+      border-bottom-left-radius: 6px;
+    }
+
+    .br-br {
+      bottom: -2px;
+      right: -2px;
+      border-left: none;
+      border-top: none;
+      border-bottom-right-radius: 6px;
+    }
 
     .radar-core {
       position: absolute;
@@ -125,15 +177,50 @@
       height: 5px;
       border-radius: 50%;
       background: #00e5ff;
-      box-shadow: 0 0 6px #00e5ff, 0 0 12px rgba(0, 229, 255, 0.4);
+      box-shadow:
+        0 0 6px #00e5ff,
+        0 0 12px rgba(0, 229, 255, 0.4);
       animation: blipPulse 2s ease-in-out infinite;
       z-index: 5;
     }
-    .blip-1 { top: 22%; left: 65%; animation-delay: 0s; }
-    .blip-2 { top: 68%; left: 30%; animation-delay: 0.4s; background: #ffc400; box-shadow: 0 0 6px #ffc400, 0 0 12px rgba(255, 196, 0, 0.4); }
-    .blip-3 { top: 40%; left: 78%; animation-delay: 0.8s; }
-    .blip-4 { top: 75%; left: 60%; animation-delay: 1.2s; background: #ffc400; box-shadow: 0 0 6px #ffc400, 0 0 12px rgba(255, 196, 0, 0.4); }
-    .blip-5 { top: 30%; left: 25%; animation-delay: 1.6s; }
+
+    .blip-1 {
+      top: 22%;
+      left: 65%;
+      animation-delay: 0s;
+    }
+
+    .blip-2 {
+      top: 68%;
+      left: 30%;
+      animation-delay: 0.4s;
+      background: #ffc400;
+      box-shadow:
+        0 0 6px #ffc400,
+        0 0 12px rgba(255, 196, 0, 0.4);
+    }
+
+    .blip-3 {
+      top: 40%;
+      left: 78%;
+      animation-delay: 0.8s;
+    }
+
+    .blip-4 {
+      top: 75%;
+      left: 60%;
+      animation-delay: 1.2s;
+      background: #ffc400;
+      box-shadow:
+        0 0 6px #ffc400,
+        0 0 12px rgba(255, 196, 0, 0.4);
+    }
+
+    .blip-5 {
+      top: 30%;
+      left: 25%;
+      animation-delay: 1.6s;
+    }
   }
 
   .empty-title {
@@ -142,8 +229,11 @@
     font-weight: 800;
     letter-spacing: 0.04em;
     color: #dbeafe;
-    text-shadow: 0 0 14px rgba(0, 229, 255, 0.35), 0 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow:
+      0 0 14px rgba(0, 229, 255, 0.35),
+      0 2px 4px rgba(0, 0, 0, 0.3);
   }
+
   .empty-hint {
     margin: 0;
     font-size: 1.05rem;
@@ -155,12 +245,18 @@
 }
 
 @keyframes radarSweep {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes corePulse {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow:
       0 0 20px rgba(0, 229, 255, 0.5),
       0 0 40px rgba(0, 229, 255, 0.2),
@@ -168,6 +264,7 @@
       inset 0 2px 3px rgba(255, 255, 255, 0.12),
       inset 0 -2px 3px rgba(0, 0, 0, 0.3);
   }
+
   50% {
     box-shadow:
       0 0 28px rgba(0, 229, 255, 0.7),
@@ -179,10 +276,12 @@
 }
 
 @keyframes blipPulse {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(0.6);
     opacity: 0.4;
   }
+
   50% {
     transform: scale(1.3);
     opacity: 1;

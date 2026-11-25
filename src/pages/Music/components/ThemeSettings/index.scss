@@ -12,7 +12,11 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at center top, rgba(255, 215, 0, 0.15) 0%, transparent 60%);
+      background: radial-gradient(
+        ellipse at center top,
+        rgba(255, 215, 0, 0.15) 0%,
+        transparent 60%
+      );
     }
 
     .header-content {
@@ -24,7 +28,7 @@
         height: 80px;
         margin: 0 auto 20px;
         border-radius: 50%;
-        background: linear-gradient(135deg, #4ECDC4 0%, #45B7D1 100%);
+        background: linear-gradient(135deg, #4ecdc4 0%, #45b7d1 100%);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -42,7 +46,7 @@
         font-size: 28px;
         font-weight: 700;
         color: #fff;
-        margin: 0 0 8px 0;
+        margin: 0 0 8px;
       }
 
       p {
@@ -63,7 +67,7 @@
         font-size: 20px;
         font-weight: 600;
         color: #fff;
-        margin: 0 0 24px 0;
+        margin: 0 0 24px;
         display: flex;
         align-items: center;
         gap: 12px;
@@ -72,7 +76,7 @@
           content: '';
           width: 4px;
           height: 20px;
-          background: linear-gradient(180deg, #FFD700, #FFA500);
+          background: linear-gradient(180deg, #ffd700, #ffa500);
           border-radius: 2px;
         }
       }
@@ -97,11 +101,13 @@
       &:hover {
         transform: translateY(-8px) rotateX(2deg);
         border-color: rgba(255, 215, 0, 0.3);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(255, 215, 0, 0.1);
+        box-shadow:
+          0 20px 40px rgba(0, 0, 0, 0.3),
+          0 0 30px rgba(255, 215, 0, 0.1);
       }
 
       &.active {
-        border-color: #FFD700;
+        border-color: #ffd700;
         box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
       }
 
@@ -155,7 +161,7 @@
           font-size: 16px;
           font-weight: 600;
           color: #fff;
-          margin: 0 0 6px 0;
+          margin: 0 0 6px;
         }
 
         p {
@@ -171,7 +177,7 @@
         right: 12px;
         width: 28px;
         height: 28px;
-        background: #FFD700;
+        background: #ffd700;
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -214,7 +220,7 @@
 
       &.active {
         background: rgba(255, 215, 0, 0.1);
-        border-color: #FFD700;
+        border-color: #ffd700;
       }
 
       .effect-icon {
@@ -227,6 +233,7 @@
 
         &.none {
           background: rgba(255, 255, 255, 0.05);
+
           svg {
             width: 22px;
             height: 22px;
@@ -235,29 +242,36 @@
         }
 
         &.gradient {
-          background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(135, 206, 235, 0.2));
+          background: linear-gradient(
+            135deg,
+            rgba(255, 215, 0, 0.2),
+            rgba(135, 206, 235, 0.2)
+          );
+
           svg {
             width: 24px;
             height: 24px;
-            color: #FFD700;
+            color: #ffd700;
           }
         }
 
         &.particles {
           background: rgba(147, 112, 219, 0.15);
+
           svg {
             width: 22px;
             height: 22px;
-            color: #9370DB;
+            color: #9370db;
           }
         }
 
         &.grid {
           background: rgba(78, 205, 196, 0.15);
+
           svg {
             width: 22px;
             height: 22px;
-            color: #4ECDC4;
+            color: #4ecdc4;
           }
         }
       }
@@ -291,7 +305,7 @@
         align-items: center;
         gap: 12px;
 
-        input[type="color"] {
+        input[type='color'] {
           width: 56px;
           height: 56px;
           border: none;
@@ -313,14 +327,14 @@
         .color-value {
           font-size: 13px;
           color: rgba(255, 255, 255, 0.4);
-          font-family: 'Monaco', 'Consolas', monospace;
+          font-family: Monaco, Consolas, monospace;
         }
       }
     }
 
     .apply-btn {
       padding: 14px 32px;
-      background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+      background: linear-gradient(135deg, #ffd700 0%, #ffa500 100%);
       border: none;
       border-radius: 14px;
       color: #000;
@@ -367,7 +381,7 @@
 
       &.active {
         background: rgba(255, 215, 0, 0.1);
-        border-color: #FFD700;
+        border-color: #ffd700;
       }
 
       .style-preview {
@@ -382,7 +396,7 @@
         svg {
           width: 28px;
           height: 28px;
-          color: #FFD700;
+          color: #ffd700;
         }
       }
 
@@ -399,6 +413,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -408,9 +423,11 @@
   0% {
     transform: scale(0);
   }
+
   50% {
     transform: scale(1.2);
   }
+
   100% {
     transform: scale(1);
   }

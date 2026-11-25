@@ -3,9 +3,11 @@
   100% {
     transform: translateX(-50%) rotate(0);
   }
+
   30% {
     transform: translateX(-50%) rotate(-4deg);
   }
+
   70% {
     transform: translateX(-50%) rotate(4deg);
   }
@@ -44,9 +46,21 @@
       border-radius: 7px;
       background:
         linear-gradient(180deg, rgba(255, 240, 200, 0.16) 0%, transparent 9%),
-        radial-gradient(circle at 15% 8%, rgba(255, 242, 208, 0.32) 0%, transparent 44%),
-        repeating-linear-gradient(0deg, rgba(255, 220, 170, 0.04) 0 1px, transparent 1px 4px),
-        repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.08) 0 1px, transparent 1px 5px),
+        radial-gradient(
+          circle at 15% 8%,
+          rgba(255, 242, 208, 0.32) 0%,
+          transparent 44%
+        ),
+        repeating-linear-gradient(
+          0deg,
+          rgba(255, 220, 170, 0.04) 0 1px,
+          transparent 1px 4px
+        ),
+        repeating-linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 0.08) 0 1px,
+          transparent 1px 5px
+        ),
         linear-gradient(158deg, #6e522c 0%, #4a3418 48%, #281906 100%);
       border: 1px solid #1e1408;
       box-shadow:
@@ -91,7 +105,12 @@
       width: 12px;
       height: 12px;
       border-radius: 50%;
-      background: radial-gradient(circle at 32% 30%, #f6cc80, #a06828 52%, #4a2c0a);
+      background: radial-gradient(
+        circle at 32% 30%,
+        #f6cc80,
+        #a06828 52%,
+        #4a2c0a
+      );
       box-shadow:
         inset 0 1px 1px rgba(255, 242, 188, 0.8),
         inset 0 -1px 2px rgba(0, 0, 0, 0.6),
@@ -102,10 +121,12 @@
         top: 10px;
         left: 10px;
       }
+
       &.rivet-bl {
         bottom: 10px;
         left: 10px;
       }
+
       &.rivet-br {
         bottom: 10px;
         right: 10px;
@@ -147,6 +168,7 @@
           left: -10px;
           transform: rotate(-32deg);
         }
+
         &.tape-br {
           bottom: 11px;
           right: -10px;
@@ -197,10 +219,12 @@
         background: linear-gradient(160deg, #b4d884 0%, #6a8e38 100%);
         border-color: #2a4a14;
       }
+
       &[data-d='中等'] {
         background: linear-gradient(160deg, #f0c860 0%, #b88820 100%);
         border-color: #6a4810;
       }
+
       &[data-d='较难'] {
         background: linear-gradient(160deg, #e07e68 0%, #a04030 100%);
         border-color: #5a1808;
@@ -242,7 +266,12 @@
           left: 5px;
           right: 5px;
           height: 1px;
-          background: linear-gradient(90deg, transparent, rgba(255, 235, 190, 0.5), transparent);
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 235, 190, 0.5),
+            transparent
+          );
         }
 
         :deep(svg) {
@@ -257,10 +286,12 @@
         .rating-val {
           font-weight: 700;
         }
+
         .rating-count {
           color: rgba(255, 232, 112, 0.78);
           font-size: 0.7rem;
         }
+
         :deep(svg) {
           color: #ffe870;
         }
@@ -288,7 +319,7 @@
         display: flex;
         align-items: center;
         gap: 7px;
-        padding: 9px 9px;
+        padding: 9px;
         border-radius: 3px;
         background: linear-gradient(160deg, #624a26 0%, #34220e 100%);
         border: 1px solid #1e1408;
@@ -304,28 +335,35 @@
           left: 5px;
           right: 5px;
           height: 1px;
-          background: linear-gradient(90deg, transparent, rgba(255, 238, 195, 0.55), transparent);
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 238, 195, 0.55),
+            transparent
+          );
         }
 
         .cell-icon {
           color: #ffd870;
           flex-shrink: 0;
-          filter:
-            drop-shadow(0 1px 1px rgba(0, 0, 0, 0.55))
+          filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.55))
             drop-shadow(0 0 3px rgba(255, 200, 90, 0.35));
         }
+
         .cell-text {
           display: flex;
           flex-direction: column;
           gap: 2px;
           min-width: 0;
         }
+
         .cell-label {
           font-size: 0.7rem;
           color: rgba(255, 248, 230, 0.8);
           font-weight: 600;
           letter-spacing: 0.03em;
         }
+
         .cell-val {
           font-size: 0.88rem;
           color: #fff5dc;
@@ -343,7 +381,11 @@
       padding: 6px 9px;
       margin-bottom: 11px;
       border-radius: 3px;
-      background: linear-gradient(160deg, rgba(40, 28, 12, 0.45) 0%, rgba(20, 12, 4, 0.35) 100%);
+      background: linear-gradient(
+        160deg,
+        rgba(40, 28, 12, 0.45) 0%,
+        rgba(20, 12, 4, 0.35) 100%
+      );
       border: 1px solid rgba(30, 20, 8, 0.5);
       box-shadow:
         inset 1px 1px 0 rgba(255, 225, 170, 0.18),
@@ -354,6 +396,7 @@
         flex-shrink: 0;
         filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.5));
       }
+
       .loc-val {
         color: #fff8ee;
         font-weight: 700;
@@ -422,7 +465,12 @@
           left: 5px;
           right: 5px;
           height: 1px;
-          background: linear-gradient(90deg, transparent, rgba(255, 235, 190, 0.5), transparent);
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 235, 190, 0.5),
+            transparent
+          );
         }
 
         :deep(svg) {
@@ -473,7 +521,11 @@
       font-weight: 700;
       color: #ffe8a0;
       letter-spacing: 0.06em;
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0.22) 0%, rgba(0, 0, 0, 0.05) 100%);
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.22) 0%,
+        rgba(0, 0, 0, 0.05) 100%
+      );
       box-shadow:
         inset 0 2px 4px rgba(0, 0, 0, 0.4),
         inset 0 -1px 0 rgba(255, 225, 170, 0.2);
@@ -500,7 +552,12 @@
       place-items: center;
       border-radius: 50%;
       border: 1px solid #2a1c0a;
-      background: radial-gradient(circle at 32% 28%, #f6cc80, #8a5818 58%, #3e2408);
+      background: radial-gradient(
+        circle at 32% 28%,
+        #f6cc80,
+        #8a5818 58%,
+        #3e2408
+      );
       color: #2a1c0a;
       cursor: pointer;
       box-shadow:
@@ -515,7 +572,12 @@
       z-index: 5;
 
       &:hover {
-        background: radial-gradient(circle at 32% 28%, #f48878, #a02818 58%, #4e0808);
+        background: radial-gradient(
+          circle at 32% 28%,
+          #f48878,
+          #a02818 58%,
+          #4e0808
+        );
         color: #fff;
         border-color: #3a0808;
         box-shadow:

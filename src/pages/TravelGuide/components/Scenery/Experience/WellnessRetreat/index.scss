@@ -1,4 +1,5 @@
 @use 'sass:color';
+
 // ============================================================
 // WellnessRetreat · 香席茶案（左右两栏版 · 拟物增强版 II）
 // 布局：分类器物台（含"全部"）→ 左栏卡片列表 + 右栏卷笺详情 → 案脚铭牌
@@ -52,13 +53,31 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
     flex-direction: column;
     background:
       // 横向木纹（深木纹路）
-      repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.06) 0 1px, transparent 1px 3px, rgba(0, 0, 0, 0.03) 3px 5px, transparent 5px 11px),
+      repeating-linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.06) 0 1px,
+        transparent 1px 3px,
+        rgba(0, 0, 0, 0.03) 3px 5px,
+        transparent 5px 11px
+      ),
       // 纵向木纹细纹
-      repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.018) 0 1px, transparent 1px 4px),
+      repeating-linear-gradient(
+          0deg,
+          rgba(255, 255, 255, 0.018) 0 1px,
+          transparent 1px 4px
+        ),
       // 顶部高光带（光从左上方斜照）
-      radial-gradient(ellipse 80% 40% at 28% 8%, rgba(255, 220, 160, 0.22), transparent 60%),
+      radial-gradient(
+          ellipse 80% 40% at 28% 8%,
+          rgba(255, 220, 160, 0.22),
+          transparent 60%
+        ),
       // 底部反射光
-      radial-gradient(ellipse 70% 30% at 50% 100%, rgba(176, 122, 60, 0.18), transparent 70%),
+      radial-gradient(
+          ellipse 70% 30% at 50% 100%,
+          rgba(176, 122, 60, 0.18),
+          transparent 70%
+        ),
       // 主木色渐变
       linear-gradient(172deg, $wood 0%, $wood-deep 58%, $wood-void 100%);
     border: 2px solid rgba(0, 0, 0, 0.72);
@@ -91,11 +110,25 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
       border-radius: 13px;
       background:
         // 横向木纹
-        repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.09) 0 1px, transparent 1px 3px, rgba(0, 0, 0, 0.05) 3px 5px, transparent 5px 10px),
+        repeating-linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 0.09) 0 1px,
+          transparent 1px 3px,
+          rgba(0, 0, 0, 0.05) 3px 5px,
+          transparent 5px 10px
+        ),
         // 纵向细纹
-        repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.06) 0 1px, transparent 1px 4px),
+        repeating-linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.06) 0 1px,
+            transparent 1px 4px
+          ),
         // 顶部微光
-        radial-gradient(ellipse 60% 30% at 50% 0%, rgba(255, 220, 160, 0.12), transparent 70%),
+        radial-gradient(
+            ellipse 60% 30% at 50% 0%,
+            rgba(255, 220, 160, 0.12),
+            transparent 70%
+          ),
         // 深凹面板主色
         linear-gradient(180deg, #4a2e14 0%, #2e1a0a 60%, #1c0f06 100%);
       border: 3px solid rgba(0, 0, 0, 0.78);
@@ -153,14 +186,38 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
           border-radius: 50%;
           background:
             // 交叉编织纹理（45° / -45°）
-            repeating-linear-gradient(45deg, rgba(92, 72, 36, 0.2) 0 2px, transparent 2px 4px, rgba(140, 110, 60, 0.12) 4px 6px, transparent 6px 9px),
-            repeating-linear-gradient(-45deg, rgba(92, 72, 36, 0.2) 0 2px, transparent 2px 4px, rgba(140, 110, 60, 0.12) 4px 6px, transparent 6px 9px),
+            repeating-linear-gradient(
+              45deg,
+              rgba(92, 72, 36, 0.2) 0 2px,
+              transparent 2px 4px,
+              rgba(140, 110, 60, 0.12) 4px 6px,
+              transparent 6px 9px
+            ),
+            repeating-linear-gradient(
+              -45deg,
+              rgba(92, 72, 36, 0.2) 0 2px,
+              transparent 2px 4px,
+              rgba(140, 110, 60, 0.12) 4px 6px,
+              transparent 6px 9px
+            ),
             // 竹节横纹
-            repeating-linear-gradient(0deg, rgba(92, 72, 36, 0.08) 0 1px, transparent 1px 8px),
+            repeating-linear-gradient(
+                0deg,
+                rgba(92, 72, 36, 0.08) 0 1px,
+                transparent 1px 8px
+              ),
             // 顶部高光（光从左上方斜照，增强反光）
-            radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.78), transparent 50%),
+            radial-gradient(
+                circle at 32% 26%,
+                rgba(255, 255, 255, 0.78),
+                transparent 50%
+              ),
             // 底部暗影
-            radial-gradient(circle at 68% 80%, rgba(60, 44, 18, 0.35), transparent 55%),
+            radial-gradient(
+                circle at 68% 80%,
+                rgba(60, 44, 18, 0.35),
+                transparent 55%
+              ),
             // 主竹色渐变（提亮：更亮的竹色让 icon 更突出）
             linear-gradient(180deg, #f0dca8 0%, #e0c890 50%, #c0a868 100%);
           box-shadow:
@@ -179,7 +236,9 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
             0 3px 6px rgba(0, 0, 0, 0.4),
             0 8px 14px rgba(0, 0, 0, 0.42),
             0 16px 26px rgba(0, 0, 0, 0.3);
-          transition: box-shadow 0.28s ease, transform 0.28s ease;
+          transition:
+            box-shadow 0.28s ease,
+            transform 0.28s ease;
 
           .pedestal-rim {
             position: absolute;
@@ -197,8 +256,11 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
             position: relative;
             z-index: 1;
             color: #4a3818;
-            filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.45)) drop-shadow(0 0 1px rgba(255, 255, 255, 0.3));
-            transition: color 0.28s ease, filter 0.28s ease;
+            filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.45))
+              drop-shadow(0 0 1px rgba(255, 255, 255, 0.3));
+            transition:
+              color 0.28s ease,
+              filter 0.28s ease;
           }
         }
 
@@ -225,11 +287,25 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
           border-radius: 999px;
           background:
             // 顶部高光（金属反光）
-            radial-gradient(circle at 32% 24%, rgba(255, 255, 255, 0.85), transparent 55%),
+            radial-gradient(
+              circle at 32% 24%,
+              rgba(255, 255, 255, 0.85),
+              transparent 55%
+            ),
             // 底部暗影
-            radial-gradient(circle at 68% 80%, rgba(124, 94, 30, 0.5), transparent 55%),
+            radial-gradient(
+                circle at 68% 80%,
+                rgba(124, 94, 30, 0.5),
+                transparent 55%
+              ),
             // 鎏金主色
-            linear-gradient(180deg, $gold-glow 0%, $gold 35%, $gold-deep 75%, $gold-dark 100%);
+            linear-gradient(
+                180deg,
+                $gold-glow 0%,
+                $gold 35%,
+                $gold-deep 75%,
+                $gold-dark 100%
+              );
           border: 2px solid $gold-dark;
           color: #2e1a0c;
           font-size: 13px;
@@ -250,12 +326,36 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
           // 竹垫：亮黄色（与 active 一致）+ 柔和 sub-color 光晕
           .pedestal {
             background:
-              repeating-linear-gradient(45deg, rgba(92, 72, 36, 0.18) 0 2px, transparent 2px 4px, rgba(140, 110, 60, 0.1) 4px 6px, transparent 6px 9px),
-              repeating-linear-gradient(-45deg, rgba(92, 72, 36, 0.18) 0 2px, transparent 2px 4px, rgba(140, 110, 60, 0.1) 4px 6px, transparent 6px 9px),
-              repeating-linear-gradient(0deg, rgba(92, 72, 36, 0.06) 0 1px, transparent 1px 8px),
+              repeating-linear-gradient(
+                45deg,
+                rgba(92, 72, 36, 0.18) 0 2px,
+                transparent 2px 4px,
+                rgba(140, 110, 60, 0.1) 4px 6px,
+                transparent 6px 9px
+              ),
+              repeating-linear-gradient(
+                -45deg,
+                rgba(92, 72, 36, 0.18) 0 2px,
+                transparent 2px 4px,
+                rgba(140, 110, 60, 0.1) 4px 6px,
+                transparent 6px 9px
+              ),
+              repeating-linear-gradient(
+                0deg,
+                rgba(92, 72, 36, 0.06) 0 1px,
+                transparent 1px 8px
+              ),
               // 顶部高光增强（被灯光照亮）
-              radial-gradient(circle at 32% 24%, rgba(255, 255, 255, 0.95), transparent 50%),
-              radial-gradient(circle at 68% 80%, rgba(140, 100, 40, 0.25), transparent 55%),
+              radial-gradient(
+                  circle at 32% 24%,
+                  rgba(255, 255, 255, 0.95),
+                  transparent 50%
+                ),
+              radial-gradient(
+                circle at 68% 80%,
+                rgba(140, 100, 40, 0.25),
+                transparent 55%
+              ),
               // 亮黄色主渐变（与 active 一致）
               linear-gradient(180deg, #fff0c0 0%, #fde088 45%, #f0c860 100%);
             box-shadow:
@@ -271,21 +371,46 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
               0 20px 32px rgba(0, 0, 0, 0.5),
               0 36px 54px rgba(0, 0, 0, 0.35),
               // 柔和 sub-color 外发光环（被拿起的光晕）
-              0 0 0 2px color-mix(in srgb, var(--sub-color, #{$gold-deep}) 50%, transparent),
-              0 0 24px color-mix(in srgb, var(--sub-color, #{$gold-deep}) 55%, transparent),
+              0 0 0 2px
+                color-mix(
+                  in srgb,
+                  var(--sub-color, #{$gold-deep}) 50%,
+                  transparent
+                ),
+              0 0 24px
+                color-mix(
+                  in srgb,
+                  var(--sub-color, #{$gold-deep}) 55%,
+                  transparent
+                ),
               // 底部 sub-color 光晕投影
-              0 12px 28px color-mix(in srgb, var(--sub-color, #{$gold-deep}) 35%, transparent);
+              0 12px 28px
+                color-mix(
+                  in srgb,
+                  var(--sub-color, #{$gold-deep}) 35%,
+                  transparent
+                );
           }
 
           .pedestal-icon {
             color: #4a3818;
-            filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 12px color-mix(in srgb, var(--sub-color, #{$gold-deep}) 75%, transparent));
+            filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.5))
+              drop-shadow(
+                0 0 12px
+                  color-mix(
+                    in srgb,
+                    var(--sub-color, #{$gold-deep}) 75%,
+                    transparent
+                  )
+              );
             transform: scale(1.1);
           }
 
           .artifact-label {
             color: $gold;
-            text-shadow: 0 0 12px rgba(240, 214, 138, 0.7), 0 1px 2px rgba(0, 0, 0, 0.6);
+            text-shadow:
+              0 0 12px rgba(240, 214, 138, 0.7),
+              0 1px 2px rgba(0, 0, 0, 0.6);
           }
         }
 
@@ -302,7 +427,15 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
             width: 90%;
             height: 22px;
             border-radius: 50%;
-            background: radial-gradient(ellipse at 50% 50%, color-mix(in srgb, var(--sub-color, #{$gold-deep}) 95%, transparent), transparent 70%);
+            background: radial-gradient(
+              ellipse at 50% 50%,
+              color-mix(
+                in srgb,
+                var(--sub-color, #{$gold-deep}) 95%,
+                transparent
+              ),
+              transparent 70%
+            );
             filter: blur(7px);
             pointer-events: none;
             z-index: 0;
@@ -311,12 +444,36 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
           // 底座变亮黄色（不染 sub-color，提亮竹色让 icon 更突出）
           .pedestal {
             background:
-              repeating-linear-gradient(45deg, rgba(92, 72, 36, 0.18) 0 2px, transparent 2px 4px, rgba(140, 110, 60, 0.1) 4px 6px, transparent 6px 9px),
-              repeating-linear-gradient(-45deg, rgba(92, 72, 36, 0.18) 0 2px, transparent 2px 4px, rgba(140, 110, 60, 0.1) 4px 6px, transparent 6px 9px),
-              repeating-linear-gradient(0deg, rgba(92, 72, 36, 0.06) 0 1px, transparent 1px 8px),
+              repeating-linear-gradient(
+                45deg,
+                rgba(92, 72, 36, 0.18) 0 2px,
+                transparent 2px 4px,
+                rgba(140, 110, 60, 0.1) 4px 6px,
+                transparent 6px 9px
+              ),
+              repeating-linear-gradient(
+                -45deg,
+                rgba(92, 72, 36, 0.18) 0 2px,
+                transparent 2px 4px,
+                rgba(140, 110, 60, 0.1) 4px 6px,
+                transparent 6px 9px
+              ),
+              repeating-linear-gradient(
+                0deg,
+                rgba(92, 72, 36, 0.06) 0 1px,
+                transparent 1px 8px
+              ),
               // 顶部高光（亮黄反光）
-              radial-gradient(circle at 32% 24%, rgba(255, 255, 255, 0.95), transparent 50%),
-              radial-gradient(circle at 68% 80%, rgba(140, 100, 40, 0.25), transparent 55%),
+              radial-gradient(
+                  circle at 32% 24%,
+                  rgba(255, 255, 255, 0.95),
+                  transparent 50%
+                ),
+              radial-gradient(
+                circle at 68% 80%,
+                rgba(140, 100, 40, 0.25),
+                transparent 55%
+              ),
               // 亮黄色主渐变
               linear-gradient(180deg, #fff0c0 0%, #fde088 45%, #f0c860 100%);
             box-shadow:
@@ -329,14 +486,49 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
               0 26px 42px rgba(0, 0, 0, 0.6),
               0 48px 72px rgba(0, 0, 0, 0.45),
               // 逐层往外散光（光晕，画在实心环之下，从内到外变淡）
-              0 0 60px 22px color-mix(in srgb, var(--sub-color, #{$gold-deep}) 8%, transparent),
-              0 0 40px 16px color-mix(in srgb, var(--sub-color, #{$gold-deep}) 16%, transparent),
-              0 0 24px 10px color-mix(in srgb, var(--sub-color, #{$gold-deep}) 30%, transparent),
-              0 0 12px 5px color-mix(in srgb, var(--sub-color, #{$gold-deep}) 50%, transparent),
+              0 0 60px 22px
+                color-mix(
+                  in srgb,
+                  var(--sub-color, #{$gold-deep}) 8%,
+                  transparent
+                ),
+              0 0 40px 16px
+                color-mix(
+                  in srgb,
+                  var(--sub-color, #{$gold-deep}) 16%,
+                  transparent
+                ),
+              0 0 24px 10px
+                color-mix(
+                  in srgb,
+                  var(--sub-color, #{$gold-deep}) 30%,
+                  transparent
+                ),
+              0 0 12px 5px
+                color-mix(
+                  in srgb,
+                  var(--sub-color, #{$gold-deep}) 50%,
+                  transparent
+                ),
               // 明显边界的实心同心环（外层在下内层在上，每环边界清晰，浓度从内到外递减）
-              0 0 0 14px color-mix(in srgb, var(--sub-color, #{$gold-deep}) 26%, transparent),
-              0 0 0 9px color-mix(in srgb, var(--sub-color, #{$gold-deep}) 46%, transparent),
-              0 0 0 5px color-mix(in srgb, var(--sub-color, #{$gold-deep}) 70%, transparent),
+              0 0 0 14px
+                color-mix(
+                  in srgb,
+                  var(--sub-color, #{$gold-deep}) 26%,
+                  transparent
+                ),
+              0 0 0 9px
+                color-mix(
+                  in srgb,
+                  var(--sub-color, #{$gold-deep}) 46%,
+                  transparent
+                ),
+              0 0 0 5px
+                color-mix(
+                  in srgb,
+                  var(--sub-color, #{$gold-deep}) 70%,
+                  transparent
+                ),
               0 0 0 2px var(--sub-color, #{$gold-deep});
 
             // 内圈选中环（统一 sub-color 色系）
@@ -344,20 +536,28 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
               border-color: var(--sub-color, #{$gold-deep});
               border-width: 3px;
               box-shadow:
-                0 0 14px color-mix(in srgb, var(--sub-color, #{$gold-deep}) 85%, transparent),
+                0 0 14px
+                  color-mix(
+                    in srgb,
+                    var(--sub-color, #{$gold-deep}) 85%,
+                    transparent
+                  ),
                 0 1px 0 rgba(60, 44, 18, 0.4);
             }
           }
 
           .pedestal-icon {
             color: #4a3818;
-            filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 8px rgba(0, 0, 0, 0.3));
+            filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.5))
+              drop-shadow(0 0 8px rgba(0, 0, 0, 0.3));
             transform: scale(1.12);
           }
 
           .artifact-label {
             color: $gold-deep;
-            text-shadow: 0 0 14px rgba(176, 141, 62, 0.8), 0 1px 2px rgba(0, 0, 0, 0.7);
+            text-shadow:
+              0 0 14px rgba(176, 141, 62, 0.8),
+              0 1px 2px rgba(0, 0, 0, 0.7);
 
             // 底部装饰下划线（sub-color 选中标记）
             &::after {
@@ -369,10 +569,20 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
               width: 80%;
               height: 3px;
               border-radius: 999px;
-              background: linear-gradient(90deg, transparent, var(--sub-color, #{$gold-deep}) 25%, var(--sub-color, #{$gold-deep}) 75%, transparent);
-              box-shadow: 0 0 10px color-mix(in srgb, var(--sub-color, #{$gold-deep}) 85%, transparent);
+              background: linear-gradient(
+                90deg,
+                transparent,
+                var(--sub-color, #{$gold-deep}) 25%,
+                var(--sub-color, #{$gold-deep}) 75%,
+                transparent
+              );
+              box-shadow: 0 0 10px
+                color-mix(
+                  in srgb,
+                  var(--sub-color, #{$gold-deep}) 85%,
+                  transparent
+                );
             }
-
           }
         }
 
@@ -382,12 +592,42 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
 
           .pedestal {
             background:
-              repeating-linear-gradient(45deg, rgba(124, 94, 30, 0.24) 0 2px, transparent 2px 4px, rgba(180, 141, 62, 0.16) 4px 6px, transparent 6px 9px),
-              repeating-linear-gradient(-45deg, rgba(124, 94, 30, 0.24) 0 2px, transparent 2px 4px, rgba(180, 141, 62, 0.16) 4px 6px, transparent 6px 9px),
-              repeating-linear-gradient(0deg, rgba(124, 94, 30, 0.12) 0 1px, transparent 1px 8px),
-              radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.75), transparent 50%),
-              radial-gradient(circle at 68% 80%, rgba(124, 94, 30, 0.45), transparent 55%),
-              linear-gradient(180deg, $gold-glow 0%, $gold 35%, $gold-deep 75%, $gold-dark 100%);
+              repeating-linear-gradient(
+                45deg,
+                rgba(124, 94, 30, 0.24) 0 2px,
+                transparent 2px 4px,
+                rgba(180, 141, 62, 0.16) 4px 6px,
+                transparent 6px 9px
+              ),
+              repeating-linear-gradient(
+                -45deg,
+                rgba(124, 94, 30, 0.24) 0 2px,
+                transparent 2px 4px,
+                rgba(180, 141, 62, 0.16) 4px 6px,
+                transparent 6px 9px
+              ),
+              repeating-linear-gradient(
+                0deg,
+                rgba(124, 94, 30, 0.12) 0 1px,
+                transparent 1px 8px
+              ),
+              radial-gradient(
+                circle at 32% 26%,
+                rgba(255, 255, 255, 0.75),
+                transparent 50%
+              ),
+              radial-gradient(
+                circle at 68% 80%,
+                rgba(124, 94, 30, 0.45),
+                transparent 55%
+              ),
+              linear-gradient(
+                180deg,
+                $gold-glow 0%,
+                $gold 35%,
+                $gold-deep 75%,
+                $gold-dark 100%
+              );
 
             .pedestal-rim {
               border-color: rgba(124, 94, 30, 0.65);
@@ -395,7 +635,8 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
 
             .pedestal-icon {
               color: #2e1a0c;
-              filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.4)) drop-shadow(0 0 2px rgba(255, 233, 168, 0.5));
+              filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.4))
+                drop-shadow(0 0 2px rgba(255, 233, 168, 0.5));
             }
           }
 
@@ -403,17 +644,47 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
           &.active {
             .pedestal {
               background:
-                repeating-linear-gradient(45deg, rgba(124, 94, 30, 0.24) 0 2px, transparent 2px 4px, rgba(180, 141, 62, 0.16) 4px 6px, transparent 6px 9px),
-                repeating-linear-gradient(-45deg, rgba(124, 94, 30, 0.24) 0 2px, transparent 2px 4px, rgba(180, 141, 62, 0.16) 4px 6px, transparent 6px 9px),
-                repeating-linear-gradient(0deg, rgba(124, 94, 30, 0.12) 0 1px, transparent 1px 8px),
-                radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.85), transparent 50%),
-                radial-gradient(circle at 68% 80%, rgba(124, 94, 30, 0.55), transparent 55%),
-                linear-gradient(180deg, $gold 0%, $gold-deep 45%, $gold-dark 100%);
+                repeating-linear-gradient(
+                  45deg,
+                  rgba(124, 94, 30, 0.24) 0 2px,
+                  transparent 2px 4px,
+                  rgba(180, 141, 62, 0.16) 4px 6px,
+                  transparent 6px 9px
+                ),
+                repeating-linear-gradient(
+                  -45deg,
+                  rgba(124, 94, 30, 0.24) 0 2px,
+                  transparent 2px 4px,
+                  rgba(180, 141, 62, 0.16) 4px 6px,
+                  transparent 6px 9px
+                ),
+                repeating-linear-gradient(
+                  0deg,
+                  rgba(124, 94, 30, 0.12) 0 1px,
+                  transparent 1px 8px
+                ),
+                radial-gradient(
+                  circle at 32% 26%,
+                  rgba(255, 255, 255, 0.85),
+                  transparent 50%
+                ),
+                radial-gradient(
+                  circle at 68% 80%,
+                  rgba(124, 94, 30, 0.55),
+                  transparent 55%
+                ),
+                linear-gradient(
+                  180deg,
+                  $gold 0%,
+                  $gold-deep 45%,
+                  $gold-dark 100%
+                );
             }
 
             .pedestal-icon {
               color: #2e1a0c;
-              filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 14px rgba(176, 141, 62, 0.8));
+              filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.5))
+                drop-shadow(0 0 14px rgba(176, 141, 62, 0.8));
             }
           }
         }
@@ -434,19 +705,43 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
         flex: 1;
         min-width: 300px;
         position: relative;
-        padding: 8px ;
+        padding: 8px;
         border-radius: 14px;
         background:
           // 麻布双向斜纹
-          repeating-linear-gradient(45deg, rgba(90, 69, 48, 0.06) 0 1px, transparent 1px 4px),
-          repeating-linear-gradient(-45deg, rgba(90, 69, 48, 0.06) 0 1px, transparent 1px 4px),
+          repeating-linear-gradient(
+            45deg,
+            rgba(90, 69, 48, 0.06) 0 1px,
+            transparent 1px 4px
+          ),
+          repeating-linear-gradient(
+            -45deg,
+            rgba(90, 69, 48, 0.06) 0 1px,
+            transparent 1px 4px
+          ),
           // 麻布纤维细纹
-          repeating-linear-gradient(0deg, rgba(90, 69, 48, 0.03) 0 1px, transparent 1px 3px),
-          repeating-linear-gradient(90deg, rgba(90, 69, 48, 0.03) 0 1px, transparent 1px 3px),
+          repeating-linear-gradient(
+              0deg,
+              rgba(90, 69, 48, 0.03) 0 1px,
+              transparent 1px 3px
+            ),
+          repeating-linear-gradient(
+            90deg,
+            rgba(90, 69, 48, 0.03) 0 1px,
+            transparent 1px 3px
+          ),
           // 顶部高光
-          radial-gradient(ellipse 70% 30% at 50% 0%, rgba(255, 255, 255, 0.6), transparent 65%),
+          radial-gradient(
+              ellipse 70% 30% at 50% 0%,
+              rgba(255, 255, 255, 0.6),
+              transparent 65%
+            ),
           // 底部暗影
-          radial-gradient(ellipse 60% 25% at 50% 100%, rgba(88, 66, 28, 0.18), transparent 70%),
+          radial-gradient(
+              ellipse 60% 25% at 50% 100%,
+              rgba(88, 66, 28, 0.18),
+              transparent 70%
+            ),
           // 主色
           linear-gradient(180deg, $cloth-l 0%, $cloth-d 100%);
         border: 3px solid rgba(88, 66, 28, 0.62);
@@ -502,14 +797,26 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
           gap: 14px;
           flex: 1 1 auto;
           min-height: 0;
-          overflow-x: hidden;
-          overflow-y: auto;
+          overflow: hidden auto;
           padding: 4px 8px;
 
-          &::-webkit-scrollbar { width: 6px; }
-          &::-webkit-scrollbar-track { background: rgba(88, 66, 28, 0.08); border-radius: 3px; }
-          &::-webkit-scrollbar-thumb { background: rgba(120, 90, 45, 0.45); border-radius: 3px; }
-          &::-webkit-scrollbar-thumb:hover { background: rgba(120, 90, 45, 0.65); }
+          &::-webkit-scrollbar {
+            width: 6px;
+          }
+
+          &::-webkit-scrollbar-track {
+            background: rgba(88, 66, 28, 0.08);
+            border-radius: 3px;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            background: rgba(120, 90, 45, 0.45);
+            border-radius: 3px;
+          }
+
+          &::-webkit-scrollbar-thumb:hover {
+            background: rgba(120, 90, 45, 0.65);
+          }
         }
 
         .tray-empty {
@@ -540,9 +847,21 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
           min-height: 320px;
           border-radius: 14px;
           background:
-            radial-gradient(ellipse 70% 40% at 50% 50%, rgba(255, 255, 255, 0.5), transparent 70%),
-            repeating-linear-gradient(45deg, rgba(90, 69, 48, 0.04) 0 1px, transparent 1px 4px),
-            repeating-linear-gradient(-45deg, rgba(90, 69, 48, 0.04) 0 1px, transparent 1px 4px),
+            radial-gradient(
+              ellipse 70% 40% at 50% 50%,
+              rgba(255, 255, 255, 0.5),
+              transparent 70%
+            ),
+            repeating-linear-gradient(
+              45deg,
+              rgba(90, 69, 48, 0.04) 0 1px,
+              transparent 1px 4px
+            ),
+            repeating-linear-gradient(
+              -45deg,
+              rgba(90, 69, 48, 0.04) 0 1px,
+              transparent 1px 4px
+            ),
             linear-gradient(180deg, $cloth-l 0%, $cloth-d 100%);
           border: 3px solid rgba(88, 66, 28, 0.5);
           box-shadow:
@@ -567,7 +886,6 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
     .item-card {
       position: relative;
       appearance: none;
-      border: none;
       cursor: pointer;
       text-align: left;
       display: flex;
@@ -576,12 +894,28 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
       border-radius: 10px;
       background:
         // 宣纸纤维纹理（横纵双向）
-        repeating-linear-gradient(0deg, rgba(120, 90, 45, 0.025) 0 1px, transparent 1px 3px),
-        repeating-linear-gradient(90deg, rgba(120, 90, 45, 0.02) 0 1px, transparent 1px 4px),
+        repeating-linear-gradient(
+          0deg,
+          rgba(120, 90, 45, 0.025) 0 1px,
+          transparent 1px 3px
+        ),
+        repeating-linear-gradient(
+          90deg,
+          rgba(120, 90, 45, 0.02) 0 1px,
+          transparent 1px 4px
+        ),
         // 顶部高光（光从左上方斜照）
-        radial-gradient(circle at 28% 0%, rgba(255, 255, 255, 0.75), transparent 55%),
+        radial-gradient(
+            circle at 28% 0%,
+            rgba(255, 255, 255, 0.75),
+            transparent 55%
+          ),
         // 底部暗影
-        radial-gradient(circle at 72% 100%, rgba(120, 90, 45, 0.1), transparent 50%),
+        radial-gradient(
+            circle at 72% 100%,
+            rgba(120, 90, 45, 0.1),
+            transparent 50%
+          ),
         // 宣纸主色
         linear-gradient(180deg, $paper 0%, $paper-dim 100%);
       border: 2px solid rgba(120, 90, 45, 0.55);
@@ -600,7 +934,11 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
         0 6px 10px rgba(88, 66, 28, 0.28),
         0 12px 20px rgba(88, 66, 28, 0.22),
         0 20px 32px rgba(88, 66, 28, 0.14);
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+      transition:
+        transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
       animation: cardEnter 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 
       // 左侧子类色条（厚木纹相框感 · 自然态隐藏，hover/active 才出现）
@@ -614,8 +952,16 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
         height: 70%;
         border-radius: 0 4px 4px 0;
         background:
-          repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.12) 0 1px, transparent 1px 3px),
-          linear-gradient(180deg, color-mix(in srgb, var(--sub-color) 82%, white), var(--sub-color));
+          repeating-linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.12) 0 1px,
+            transparent 1px 3px
+          ),
+          linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--sub-color) 82%, white),
+            var(--sub-color)
+          );
         box-shadow:
           inset 0 1px 0 rgba(255, 255, 255, 0.55),
           inset 0 -1px 2px rgba(0, 0, 0, 0.3),
@@ -623,7 +969,10 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
           0 2px 4px rgba(0, 0, 0, 0.35),
           0 4px 8px rgba(0, 0, 0, 0.2);
         opacity: 0;
-        transition: opacity 0.3s ease, width 0.3s ease, box-shadow 0.3s ease;
+        transition:
+          opacity 0.3s ease,
+          width 0.3s ease,
+          box-shadow 0.3s ease;
       }
 
       .card-img-wrap {
@@ -659,8 +1008,16 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
           right: 4px;
           padding: 2px 7px;
           background:
-            radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.45), transparent 55%),
-            radial-gradient(circle at 68% 80%, rgba(90, 22, 14, 0.5), transparent 55%),
+            radial-gradient(
+              circle at 32% 26%,
+              rgba(255, 255, 255, 0.45),
+              transparent 55%
+            ),
+            radial-gradient(
+              circle at 68% 80%,
+              rgba(90, 22, 14, 0.5),
+              transparent 55%
+            ),
             linear-gradient(180deg, #c84a3a, $seal 60%, $seal-deep);
           border: 1px solid rgba(90, 22, 14, 0.75);
           border-radius: 3px;
@@ -717,8 +1074,12 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
             text-overflow: ellipsis;
             position: relative;
             border: 1px solid rgba(120, 90, 45, 0.45);
-            background:
-              linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 240, 220, 0.5) 45%, rgba(232, 216, 180, 0.3) 100%);
+            background: linear-gradient(
+              180deg,
+              rgba(255, 255, 255, 0.95) 0%,
+              rgba(248, 240, 220, 0.5) 45%,
+              rgba(232, 216, 180, 0.3) 100%
+            );
             box-shadow:
               inset 0 1px 0 rgba(255, 255, 255, 1),
               inset 0 -2px 2px rgba(120, 90, 45, 0.22),
@@ -738,7 +1099,11 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
               height: 6px;
               border-radius: 50%;
               background:
-                radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.95), transparent 55%),
+                radial-gradient(
+                  circle at 32% 28%,
+                  rgba(255, 255, 255, 0.95),
+                  transparent 55%
+                ),
                 var(--dot-color, rgba(120, 90, 45, 0.75));
               box-shadow:
                 inset 0 -1px 1px rgba(0, 0, 0, 0.3),
@@ -748,20 +1113,45 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
             // 子类签：sub-color 色系
             &.tag-sub {
               color: var(--sub-color, #{$gold-deep});
+
               --dot-color: var(--sub-color, #{$gold-deep});
-              border-color: color-mix(in srgb, var(--sub-color, #{$gold-deep}) 62%, transparent);
-              background:
-                linear-gradient(180deg,
-                  color-mix(in srgb, var(--sub-color, #{$gold-deep}) 20%, white) 0%,
-                  color-mix(in srgb, var(--sub-color, #{$gold-deep}) 11%, #f8f0dc) 50%,
-                  color-mix(in srgb, var(--sub-color, #{$gold-deep}) 6%, #f0e4c8) 100%);
+
+              border-color: color-mix(
+                in srgb,
+                var(--sub-color, #{$gold-deep}) 62%,
+                transparent
+              );
+              background: linear-gradient(
+                180deg,
+                color-mix(in srgb, var(--sub-color, #{$gold-deep}) 20%, white)
+                  0%,
+                color-mix(in srgb, var(--sub-color, #{$gold-deep}) 11%, #f8f0dc)
+                  50%,
+                color-mix(in srgb, var(--sub-color, #{$gold-deep}) 6%, #f0e4c8)
+                  100%
+              );
               box-shadow:
                 inset 0 1px 0 rgba(255, 255, 255, 1),
-                inset 0 -2px 2px color-mix(in srgb, var(--sub-color, #{$gold-deep}) 38%, transparent),
+                inset 0 -2px 2px
+                  color-mix(
+                    in srgb,
+                    var(--sub-color, #{$gold-deep}) 38%,
+                    transparent
+                  ),
                 inset 1px 0 1px rgba(255, 255, 255, 0.5),
                 0 1px 0 rgba(255, 255, 255, 0.85),
-                0 2px 3px color-mix(in srgb, var(--sub-color, #{$gold-deep}) 30%, transparent),
-                0 4px 7px color-mix(in srgb, var(--sub-color, #{$gold-deep}) 18%, transparent);
+                0 2px 3px
+                  color-mix(
+                    in srgb,
+                    var(--sub-color, #{$gold-deep}) 30%,
+                    transparent
+                  ),
+                0 4px 7px
+                  color-mix(
+                    in srgb,
+                    var(--sub-color, #{$gold-deep}) 18%,
+                    transparent
+                  );
               text-shadow: 0 1px 0 rgba(255, 255, 255, 0.95);
               font-weight: 800;
             }
@@ -769,10 +1159,16 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
             // 地点签：墨色系
             &.tag-loc {
               color: #2a1c08;
+
               --dot-color: #5a4220;
+
               border-color: rgba(60, 44, 18, 0.5);
-              background:
-                linear-gradient(180deg, rgba(255, 252, 240, 0.98) 0%, rgba(238, 226, 198, 0.85) 50%, rgba(220, 204, 168, 0.6) 100%);
+              background: linear-gradient(
+                180deg,
+                rgba(255, 252, 240, 0.98) 0%,
+                rgba(238, 226, 198, 0.85) 50%,
+                rgba(220, 204, 168, 0.6) 100%
+              );
               box-shadow:
                 inset 0 1px 0 rgba(255, 255, 255, 1),
                 inset 0 -2px 2px rgba(88, 66, 28, 0.3),
@@ -785,10 +1181,16 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
             // 时长签：琥珀色系
             &.tag-dur {
               color: #6a3e10;
+
               --dot-color: #b87a38;
+
               border-color: rgba(176, 122, 60, 0.55);
-              background:
-                linear-gradient(180deg, rgba(255, 246, 218, 0.98) 0%, rgba(244, 222, 174, 0.88) 50%, rgba(228, 198, 150, 0.65) 100%);
+              background: linear-gradient(
+                180deg,
+                rgba(255, 246, 218, 0.98) 0%,
+                rgba(244, 222, 174, 0.88) 50%,
+                rgba(228, 198, 150, 0.65) 100%
+              );
               box-shadow:
                 inset 0 1px 0 rgba(255, 255, 255, 1),
                 inset 0 -2px 2px rgba(176, 122, 60, 0.34),
@@ -814,14 +1216,21 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
           font-size: 15px;
           font-weight: 800;
           color: $seal;
-          text-shadow: 0 1px 0 rgba(255, 255, 255, 0.85), 0 0 8px rgba(184, 56, 43, 0.3);
+          text-shadow:
+            0 1px 0 rgba(255, 255, 255, 0.85),
+            0 0 8px rgba(184, 56, 43, 0.3);
         }
       }
 
       // 鎏金扫光动画（光带从左掠到右）
       @keyframes cardSweep {
-        0% { background-position: -130% 0; }
-        100% { background-position: 130% 0; }
+        0% {
+          background-position: -130% 0;
+        }
+
+        100% {
+          background-position: 130% 0;
+        }
       }
 
       // Hover：鎏金扫光——光掠过宣纸表面 + 边缘透 sub-color 微光 + 轻上浮
@@ -844,8 +1253,16 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
         &::before {
           opacity: 1;
           background:
-            repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0 1px, transparent 1px 3px),
-            linear-gradient(180deg, color-mix(in srgb, var(--sub-color) 92%, white), var(--sub-color));
+            repeating-linear-gradient(
+              0deg,
+              rgba(0, 0, 0, 0.1) 0 1px,
+              transparent 1px 3px
+            ),
+            linear-gradient(
+              180deg,
+              color-mix(in srgb, var(--sub-color) 92%, white),
+              var(--sub-color)
+            );
           box-shadow:
             inset 0 1px 0 rgba(255, 255, 255, 0.7),
             inset 0 -1px 2px rgba(0, 0, 0, 0.3),
@@ -861,12 +1278,14 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
           position: absolute;
           inset: 0;
           border-radius: 10px;
-          background: linear-gradient(110deg,
+          background: linear-gradient(
+            110deg,
             transparent 38%,
             rgba(255, 235, 165, 0.5) 47%,
             rgba(255, 248, 210, 0.85) 50%,
             rgba(255, 235, 165, 0.5) 53%,
-            transparent 62%);
+            transparent 62%
+          );
           background-size: 250% 100%;
           pointer-events: none;
           animation: cardSweep 0.75s ease;
@@ -880,12 +1299,37 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
         border-color: var(--sub-color);
         background:
           // sub-color 水墨晕染（墨滴洇开）
-          radial-gradient(ellipse 70% 55% at 50% 45%, color-mix(in srgb, var(--sub-color) 16%, transparent), transparent 70%),
-          radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--sub-color) 8%, transparent), transparent 50%),
-          repeating-linear-gradient(0deg, rgba(120, 90, 45, 0.025) 0 1px, transparent 1px 3px),
-          repeating-linear-gradient(90deg, rgba(120, 90, 45, 0.02) 0 1px, transparent 1px 4px),
-          radial-gradient(circle at 28% 0%, rgba(255, 255, 255, 0.75), transparent 55%),
-          radial-gradient(circle at 72% 100%, rgba(120, 90, 45, 0.1), transparent 50%),
+
+          radial-gradient(
+            ellipse 70% 55% at 50% 45%,
+            color-mix(in srgb, var(--sub-color) 16%, transparent),
+            transparent 70%
+          ),
+          radial-gradient(
+            circle at 50% 50%,
+            color-mix(in srgb, var(--sub-color) 8%, transparent),
+            transparent 50%
+          ),
+          repeating-linear-gradient(
+            0deg,
+            rgba(120, 90, 45, 0.025) 0 1px,
+            transparent 1px 3px
+          ),
+          repeating-linear-gradient(
+            90deg,
+            rgba(120, 90, 45, 0.02) 0 1px,
+            transparent 1px 4px
+          ),
+          radial-gradient(
+            circle at 28% 0%,
+            rgba(255, 255, 255, 0.75),
+            transparent 55%
+          ),
+          radial-gradient(
+            circle at 72% 100%,
+            rgba(120, 90, 45, 0.1),
+            transparent 50%
+          ),
           linear-gradient(180deg, $paper 0%, $paper-dim 100%);
         box-shadow:
           inset 0 1px 0 rgba(255, 255, 255, 1),
@@ -904,8 +1348,16 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
           opacity: 0;
           width: 8px;
           background:
-            repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0 1px, transparent 1px 3px),
-            linear-gradient(180deg, color-mix(in srgb, var(--sub-color) 96%, white), var(--sub-color));
+            repeating-linear-gradient(
+              0deg,
+              rgba(0, 0, 0, 0.1) 0 1px,
+              transparent 1px 3px
+            ),
+            linear-gradient(
+              180deg,
+              color-mix(in srgb, var(--sub-color) 96%, white),
+              var(--sub-color)
+            );
           box-shadow:
             inset 0 1px 0 rgba(255, 255, 255, 0.8),
             inset 0 -1px 2px rgba(0, 0, 0, 0.3),
@@ -934,13 +1386,23 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
         justify-content: center;
         opacity: 0;
         pointer-events: none;
-        transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        transition:
+          opacity 0.3s ease,
+          transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         z-index: 4;
 
         // 鎏金底座
         background:
-          radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.98), transparent 55%),
-          radial-gradient(circle at 68% 80%, rgba(120, 80, 20, 0.5), transparent 55%),
+          radial-gradient(
+            circle at 32% 26%,
+            rgba(255, 255, 255, 0.98),
+            transparent 55%
+          ),
+          radial-gradient(
+            circle at 68% 80%,
+            rgba(120, 80, 20, 0.5),
+            transparent 55%
+          ),
           linear-gradient(180deg, #f5d870, $gold 55%, $gold-deep);
         border: 2px solid #6a4818;
         border-radius: 50%;
@@ -1009,18 +1471,48 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
       overflow-y: auto;
       border-radius: 8px;
 
-      &::-webkit-scrollbar { width: 6px; }
-      &::-webkit-scrollbar-track { background: rgba(120, 90, 45, 0.06); border-radius: 3px; }
-      &::-webkit-scrollbar-thumb { background: rgba(184, 56, 43, 0.35); border-radius: 3px; }
-      &::-webkit-scrollbar-thumb:hover { background: rgba(184, 56, 43, 0.55); }
+      &::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: rgba(120, 90, 45, 0.06);
+        border-radius: 3px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: rgba(184, 56, 43, 0.35);
+        border-radius: 3px;
+      }
+
+      &::-webkit-scrollbar-thumb:hover {
+        background: rgba(184, 56, 43, 0.55);
+      }
+
       background:
         // 宣纸纤维纹理（横纵双向）
-        repeating-linear-gradient(0deg, rgba(120, 90, 45, 0.03) 0 1px, transparent 1px 4px),
-        repeating-linear-gradient(90deg, rgba(120, 90, 45, 0.022) 0 1px, transparent 1px 5px),
+        repeating-linear-gradient(
+          0deg,
+          rgba(120, 90, 45, 0.03) 0 1px,
+          transparent 1px 4px
+        ),
+        repeating-linear-gradient(
+          90deg,
+          rgba(120, 90, 45, 0.022) 0 1px,
+          transparent 1px 5px
+        ),
         // 顶部高光
-        radial-gradient(ellipse 80% 30% at 50% 0%, rgba(255, 255, 255, 0.55), transparent 65%),
+        radial-gradient(
+            ellipse 80% 30% at 50% 0%,
+            rgba(255, 255, 255, 0.55),
+            transparent 65%
+          ),
         // 底部暗影
-        radial-gradient(ellipse 60% 25% at 50% 100%, rgba(120, 90, 45, 0.12), transparent 70%),
+        radial-gradient(
+            ellipse 60% 25% at 50% 100%,
+            rgba(120, 90, 45, 0.12),
+            transparent 70%
+          ),
         // 宣纸主色
         linear-gradient(180deg, $paper 0%, $paper-dim 100%);
       border: 2px solid rgba(120, 90, 45, 0.58);
@@ -1043,11 +1535,25 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
         height: 20px;
         background:
           // 横向木纹
-          repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0 1px, transparent 1px 3px, rgba(0, 0, 0, 0.05) 3px 5px, transparent 5px 9px),
+          repeating-linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.1) 0 1px,
+            transparent 1px 3px,
+            rgba(0, 0, 0, 0.05) 3px 5px,
+            transparent 5px 9px
+          ),
           // 纵向细纹
-          repeating-linear-gradient(90deg, rgba(255, 220, 160, 0.04) 0 1px, transparent 1px 4px),
+          repeating-linear-gradient(
+              90deg,
+              rgba(255, 220, 160, 0.04) 0 1px,
+              transparent 1px 4px
+            ),
           // 顶部高光
-          radial-gradient(ellipse 60% 50% at 50% 0%, rgba(255, 220, 160, 0.25), transparent 70%),
+          radial-gradient(
+              ellipse 60% 50% at 50% 0%,
+              rgba(255, 220, 160, 0.25),
+              transparent 70%
+            ),
           // 主木色
           linear-gradient(180deg, $wood-light 0%, $wood 45%, $wood-deep 90%);
         box-shadow:
@@ -1071,11 +1577,24 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
           border-radius: 6px;
           background:
             // 顶部高光（金属反光）
-            radial-gradient(circle at 32% 22%, rgba(255, 220, 160, 0.6), transparent 55%),
+            radial-gradient(
+              circle at 32% 22%,
+              rgba(255, 220, 160, 0.6),
+              transparent 55%
+            ),
             // 底部暗影
-            radial-gradient(circle at 68% 80%, rgba(0, 0, 0, 0.5), transparent 55%),
+            radial-gradient(
+                circle at 68% 80%,
+                rgba(0, 0, 0, 0.5),
+                transparent 55%
+              ),
             // 主木色 + 金属端盖
-            radial-gradient(circle at 35% 30%, color.adjust($wood-light, $lightness: 18%), $wood-light 50%, $wood-deep);
+            radial-gradient(
+                circle at 35% 30%,
+                color.adjust($wood-light, $lightness: 18%),
+                $wood-light 50%,
+                $wood-deep
+              );
           box-shadow:
             inset 0 1px 1px rgba(255, 220, 160, 0.5),
             inset 0 -2px 3px rgba(0, 0, 0, 0.55),
@@ -1141,9 +1660,21 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
               padding: 5px 11px;
               border-radius: 5px;
               background:
-                radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.45), transparent 55%),
-                radial-gradient(circle at 68% 80%, rgba(0, 0, 0, 0.3), transparent 55%),
-                linear-gradient(180deg, color-mix(in srgb, var(--sub-color) 88%, white), var(--sub-color));
+                radial-gradient(
+                  circle at 32% 26%,
+                  rgba(255, 255, 255, 0.45),
+                  transparent 55%
+                ),
+                radial-gradient(
+                  circle at 68% 80%,
+                  rgba(0, 0, 0, 0.3),
+                  transparent 55%
+                ),
+                linear-gradient(
+                  180deg,
+                  color-mix(in srgb, var(--sub-color) 88%, white),
+                  var(--sub-color)
+                );
               border: 1px solid rgba(0, 0, 0, 0.45);
               color: #fff;
               font-size: 14px;
@@ -1163,8 +1694,16 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
               right: 8px;
               padding: 4px 9px;
               background:
-                radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.45), transparent 55%),
-                radial-gradient(circle at 68% 80%, rgba(90, 22, 14, 0.5), transparent 55%),
+                radial-gradient(
+                  circle at 32% 26%,
+                  rgba(255, 255, 255, 0.45),
+                  transparent 55%
+                ),
+                radial-gradient(
+                  circle at 68% 80%,
+                  rgba(90, 22, 14, 0.5),
+                  transparent 55%
+                ),
                 linear-gradient(180deg, #c84a3a, $seal 60%, $seal-deep);
               border: 1px solid rgba(90, 22, 14, 0.75);
               border-radius: 3px;
@@ -1200,7 +1739,9 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
                 color: $ink;
                 letter-spacing: 1px;
                 line-height: 1.3;
-                text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9), 0 2px 4px rgba(120, 90, 45, 0.18);
+                text-shadow:
+                  0 1px 0 rgba(255, 255, 255, 0.9),
+                  0 2px 4px rgba(120, 90, 45, 0.18);
               }
 
               .sheet-actions {
@@ -1217,11 +1758,12 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
                   font-weight: 700;
                   border-radius: 3px;
                   cursor: pointer;
-                  transition: transform 0.28s cubic-bezier(0.34, 1.4, 0.64, 1),
-                             background 0.3s ease,
-                             border-color 0.3s ease,
-                             color 0.3s ease,
-                             box-shadow 0.3s ease;
+                  transition:
+                    transform 0.28s cubic-bezier(0.34, 1.4, 0.64, 1),
+                    background 0.3s ease,
+                    border-color 0.3s ease,
+                    color 0.3s ease,
+                    box-shadow 0.3s ease;
                   letter-spacing: 1.2px;
                   position: relative;
                   overflow: visible;
@@ -1233,9 +1775,21 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
 
                   // 素笺未盖（自然态）
                   background:
-                    repeating-linear-gradient(0deg, rgba(120, 90, 45, 0.025) 0 1px, transparent 1px 4px),
-                    repeating-linear-gradient(90deg, rgba(120, 90, 45, 0.018) 0 1px, transparent 1px 5px),
-                    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(255, 255, 255, 0.5), transparent 65%),
+                    repeating-linear-gradient(
+                      0deg,
+                      rgba(120, 90, 45, 0.025) 0 1px,
+                      transparent 1px 4px
+                    ),
+                    repeating-linear-gradient(
+                      90deg,
+                      rgba(120, 90, 45, 0.018) 0 1px,
+                      transparent 1px 5px
+                    ),
+                    radial-gradient(
+                      ellipse 70% 50% at 50% 0%,
+                      rgba(255, 255, 255, 0.5),
+                      transparent 65%
+                    ),
                     linear-gradient(180deg, $paper 0%, $paper-dim 100%);
                   border: 1.5px solid rgba($ink, 0.32);
                   color: $ink-body;
@@ -1252,7 +1806,9 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
                     height: 17px;
                     flex-shrink: 0;
                     color: $ink-body;
-                    transition: color 0.3s ease, filter 0.3s ease;
+                    transition:
+                      color 0.3s ease,
+                      filter 0.3s ease;
                     filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.5));
                   }
 
@@ -1268,11 +1824,14 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
                       0 0 12px rgba($c, 0.22),
                       0 5px 10px rgba(88, 66, 28, 0.28),
                       0 10px 18px rgba(88, 66, 28, 0.12);
-                    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5), 0 0 6px rgba($c, 0.3);
+                    text-shadow:
+                      0 1px 0 rgba(255, 255, 255, 0.5),
+                      0 0 6px rgba($c, 0.3);
 
                     :deep(svg) {
                       color: $c;
-                      filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.4)) drop-shadow(0 0 4px rgba($c, 0.4));
+                      filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.4))
+                        drop-shadow(0 0 4px rgba($c, 0.4));
                     }
 
                     // 底部印泥色渐隐光带（沾了印泥）
@@ -1283,7 +1842,12 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
                       left: 8px;
                       right: 8px;
                       height: 2px;
-                      background: linear-gradient(90deg, transparent, $c, transparent);
+                      background: linear-gradient(
+                        90deg,
+                        transparent,
+                        $c,
+                        transparent
+                      );
                       border-radius: 1px;
                       opacity: 0.7;
                       box-shadow: 0 0 6px rgba($c, 0.5);
@@ -1294,9 +1858,22 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
                   &.is-active {
                     transform: translateY(1px) scale(0.97);
                     background:
-                      radial-gradient(ellipse 80% 60% at 50% 30%, rgba(255, 255, 255, 0.18), transparent 60%),
-                      radial-gradient(ellipse 90% 70% at 50% 100%, rgba(0, 0, 0, 0.15), transparent 55%),
-                      linear-gradient(180deg, $c-bright 0%, $c 45%, $c-deep 100%);
+                      radial-gradient(
+                        ellipse 80% 60% at 50% 30%,
+                        rgba(255, 255, 255, 0.18),
+                        transparent 60%
+                      ),
+                      radial-gradient(
+                        ellipse 90% 70% at 50% 100%,
+                        rgba(0, 0, 0, 0.15),
+                        transparent 55%
+                      ),
+                      linear-gradient(
+                        180deg,
+                        $c-bright 0%,
+                        $c 45%,
+                        $c-deep 100%
+                      );
                     border: 2px solid $gold-deep;
                     color: #fff;
                     box-shadow:
@@ -1321,7 +1898,14 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
                       left: 6px;
                       right: 6px;
                       height: 2px;
-                      background: linear-gradient(90deg, transparent, $gold, $gold-glow, $gold, transparent);
+                      background: linear-gradient(
+                        90deg,
+                        transparent,
+                        $gold,
+                        $gold-glow,
+                        $gold,
+                        transparent
+                      );
                       border-radius: 1px;
                       box-shadow: 0 0 5px rgba($gold, 0.5);
                     }
@@ -1338,11 +1922,14 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
                         0 0 18px rgba($c, 0.4),
                         0 0 28px rgba($gold, 0.2),
                         0 5px 10px rgba($c-deep, 0.45);
-                      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 0 8px rgba($c-glow, 0.4);
+                      text-shadow:
+                        0 1px 2px rgba(0, 0, 0, 0.35),
+                        0 0 8px rgba($c-glow, 0.4);
 
                       :deep(svg) {
                         color: #fff;
-                        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25)) drop-shadow(0 0 5px rgba($c-glow, 0.5));
+                        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25))
+                          drop-shadow(0 0 5px rgba($c-glow, 0.5));
                       }
 
                       &::after {
@@ -1355,19 +1942,56 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
 
                 .action-btn {
                   // 朱砂印（收藏）— 宣纸朱印
-                  &.btn-fav { @include seal-three-state(#b8382b, #8a2418, #d4462f, #e85a4a); }
+                  &.btn-fav {
+                    @include seal-three-state(
+                      #b8382b,
+                      #8a2418,
+                      #d4462f,
+                      #e85a4a
+                    );
+                  }
+
                   // 茶汤珀（体验）— 茶汤琥珀
-                  &.btn-been { @include seal-three-state(#b08d3e, #7c5e1e, #d4a852, #f0d68a); }
+                  &.btn-been {
+                    @include seal-three-state(
+                      #b08d3e,
+                      #7c5e1e,
+                      #d4a852,
+                      #f0d68a
+                    );
+                  }
+
                   // 墨青瓷（分享）— 青瓷温泉
-                  &.btn-share { @include seal-three-state(#4a8b8c, #2e6b6c, #6baeb0, #8fc8ca); }
+                  &.btn-share {
+                    @include seal-three-state(
+                      #4a8b8c,
+                      #2e6b6c,
+                      #6baeb0,
+                      #8fc8ca
+                    );
+                  }
                 }
 
                 // 预约按钮（鎏金 · 增强版：金属质感 + 反光）
                 .sheet-book {
                   background:
-                    radial-gradient(circle at 30% 22%, rgba(255, 255, 255, 0.75), transparent 50%),
-                    radial-gradient(circle at 70% 100%, rgba(124, 94, 30, 0.35), transparent 55%),
-                    linear-gradient(180deg, $gold-glow 0%, $gold 40%, $gold-deep 80%, $gold-dark 100%);
+                    radial-gradient(
+                      circle at 30% 22%,
+                      rgba(255, 255, 255, 0.75),
+                      transparent 50%
+                    ),
+                    radial-gradient(
+                      circle at 70% 100%,
+                      rgba(124, 94, 30, 0.35),
+                      transparent 55%
+                    ),
+                    linear-gradient(
+                      180deg,
+                      $gold-glow 0%,
+                      $gold 40%,
+                      $gold-deep 80%,
+                      $gold-dark 100%
+                    );
                   border-color: $gold-dark;
                   color: #2e1a0c;
                   box-shadow:
@@ -1410,9 +2034,21 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
               padding: 5px 13px;
               border-radius: 999px;
               background:
-                radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.7), transparent 55%),
-                radial-gradient(circle at 68% 80%, rgba(120, 90, 45, 0.15), transparent 55%),
-                linear-gradient(180deg, rgba(253, 249, 238, 0.75), rgba(240, 230, 205, 0.65));
+                radial-gradient(
+                  circle at 32% 26%,
+                  rgba(255, 255, 255, 0.7),
+                  transparent 55%
+                ),
+                radial-gradient(
+                  circle at 68% 80%,
+                  rgba(120, 90, 45, 0.15),
+                  transparent 55%
+                ),
+                linear-gradient(
+                  180deg,
+                  rgba(253, 249, 238, 0.75),
+                  rgba(240, 230, 205, 0.65)
+                );
               border: 1px solid rgba(176, 141, 62, 0.5);
               width: fit-content;
               box-shadow:
@@ -1425,7 +2061,8 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
 
               .rating-star {
                 color: #8a6d2e;
-                filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.25)) drop-shadow(0 0 2px rgba(240, 214, 138, 0.5));
+                filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.25))
+                  drop-shadow(0 0 2px rgba(240, 214, 138, 0.5));
               }
 
               .rating-num {
@@ -1446,7 +2083,6 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
               line-height: 1.7;
               color: $ink-body;
               display: -webkit-box;
-       
               -webkit-box-orient: vertical;
               overflow: hidden;
             }
@@ -1460,17 +2096,31 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
               .efficacy-chip {
                 padding: 5px 13px;
                 border-radius: 999px;
-                border: 1px solid color-mix(in srgb, var(--sub-color) 72%, transparent);
+                border: 1px solid
+                  color-mix(in srgb, var(--sub-color) 72%, transparent);
                 background:
-                  radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.65), transparent 55%),
-                  radial-gradient(circle at 68% 80%, color-mix(in srgb, var(--sub-color) 30%, transparent), transparent 55%),
-                  linear-gradient(180deg, color-mix(in srgb, var(--sub-color) 22%, white), color-mix(in srgb, var(--sub-color) 12%, white));
+                  radial-gradient(
+                    circle at 32% 26%,
+                    rgba(255, 255, 255, 0.65),
+                    transparent 55%
+                  ),
+                  radial-gradient(
+                    circle at 68% 80%,
+                    color-mix(in srgb, var(--sub-color) 30%, transparent),
+                    transparent 55%
+                  ),
+                  linear-gradient(
+                    180deg,
+                    color-mix(in srgb, var(--sub-color) 22%, white),
+                    color-mix(in srgb, var(--sub-color) 12%, white)
+                  );
                 color: $ink;
                 font-size: 15px;
                 font-weight: 700;
                 box-shadow:
                   inset 0 1px 0 rgba(255, 255, 255, 1),
-                  inset 0 -2px 4px color-mix(in srgb, var(--sub-color) 35%, transparent),
+                  inset 0 -2px 4px
+                    color-mix(in srgb, var(--sub-color) 35%, transparent),
                   inset 1px 0 0 rgba(255, 255, 255, 0.3),
                   0 3px 6px rgba(88, 66, 28, 0.3),
                   0 6px 12px rgba(88, 66, 28, 0.18),
@@ -1490,9 +2140,21 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
                 gap: 3px;
                 padding: 9px 12px;
                 background:
-                  radial-gradient(circle at 30% 18%, rgba(255, 255, 255, 0.8), transparent 55%),
-                  radial-gradient(circle at 70% 100%, rgba(120, 90, 45, 0.12), transparent 55%),
-                  linear-gradient(180deg, rgba(253, 249, 238, 0.96), rgba(240, 230, 205, 0.9));
+                  radial-gradient(
+                    circle at 30% 18%,
+                    rgba(255, 255, 255, 0.8),
+                    transparent 55%
+                  ),
+                  radial-gradient(
+                    circle at 70% 100%,
+                    rgba(120, 90, 45, 0.12),
+                    transparent 55%
+                  ),
+                  linear-gradient(
+                    180deg,
+                    rgba(253, 249, 238, 0.96),
+                    rgba(240, 230, 205, 0.9)
+                  );
                 border: 1px solid rgba(120, 90, 45, 0.5);
                 border-radius: 7px;
                 box-shadow:
@@ -1520,12 +2182,22 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
                   &.price-val {
                     color: $seal;
                     font-weight: 800;
-                    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.85), 0 0 6px rgba(184, 56, 43, 0.3);
+                    text-shadow:
+                      0 1px 0 rgba(255, 255, 255, 0.85),
+                      0 0 6px rgba(184, 56, 43, 0.3);
                   }
 
-                  &[data-level='轻松'] { color: #2d5d2d; }
-                  &[data-level='适中'] { color: #7c5e1e; }
-                  &[data-level='深度'] { color: #b04936; }
+                  &[data-level='轻松'] {
+                    color: #2d5d2d;
+                  }
+
+                  &[data-level='适中'] {
+                    color: #7c5e1e;
+                  }
+
+                  &[data-level='深度'] {
+                    color: #b04936;
+                  }
                 }
               }
             }
@@ -1552,9 +2224,21 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
           .sheet-package {
             padding: 11px 13px;
             background:
-              radial-gradient(circle at 30% 0%, rgba(255, 255, 255, 0.6), transparent 55%),
-              radial-gradient(circle at 70% 100%, rgba(120, 90, 45, 0.1), transparent 55%),
-              linear-gradient(180deg, rgba(253, 249, 238, 0.92), rgba(240, 230, 205, 0.88));
+              radial-gradient(
+                circle at 30% 0%,
+                rgba(255, 255, 255, 0.6),
+                transparent 55%
+              ),
+              radial-gradient(
+                circle at 70% 100%,
+                rgba(120, 90, 45, 0.1),
+                transparent 55%
+              ),
+              linear-gradient(
+                180deg,
+                rgba(253, 249, 238, 0.92),
+                rgba(240, 230, 205, 0.88)
+              );
             border: 1px solid rgba(120, 90, 45, 0.5);
             border-left: 5px solid var(--sub-color);
             border-radius: 7px;
@@ -1598,9 +2282,21 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
           .sheet-suitable {
             padding: 11px 13px;
             background:
-              radial-gradient(circle at 30% 0%, rgba(255, 255, 255, 0.6), transparent 55%),
-              radial-gradient(circle at 70% 100%, rgba(120, 90, 45, 0.1), transparent 55%),
-              linear-gradient(180deg, rgba(253, 249, 238, 0.92), rgba(240, 230, 205, 0.88));
+              radial-gradient(
+                circle at 30% 0%,
+                rgba(255, 255, 255, 0.6),
+                transparent 55%
+              ),
+              radial-gradient(
+                circle at 70% 100%,
+                rgba(120, 90, 45, 0.1),
+                transparent 55%
+              ),
+              linear-gradient(
+                180deg,
+                rgba(253, 249, 238, 0.92),
+                rgba(240, 230, 205, 0.88)
+              );
             border: 1px solid rgba(120, 90, 45, 0.5);
             border-radius: 7px;
             box-shadow:
@@ -1621,9 +2317,21 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
                 padding: 5px 12px;
                 border-radius: 6px;
                 background:
-                  radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.55), transparent 55%),
-                  radial-gradient(circle at 68% 80%, rgba(176, 141, 62, 0.2), transparent 55%),
-                  linear-gradient(180deg, rgba(176, 141, 62, 0.3), rgba(176, 141, 62, 0.15));
+                  radial-gradient(
+                    circle at 32% 26%,
+                    rgba(255, 255, 255, 0.55),
+                    transparent 55%
+                  ),
+                  radial-gradient(
+                    circle at 68% 80%,
+                    rgba(176, 141, 62, 0.2),
+                    transparent 55%
+                  ),
+                  linear-gradient(
+                    180deg,
+                    rgba(176, 141, 62, 0.3),
+                    rgba(176, 141, 62, 0.15)
+                  );
                 border: 1px solid rgba(176, 141, 62, 0.58);
                 color: $ink-body;
                 font-size: 15px;
@@ -1652,9 +2360,21 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
               padding: 6px 12px;
               border-radius: 6px;
               background:
-                radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.6), transparent 55%),
-                radial-gradient(circle at 68% 80%, rgba(120, 90, 45, 0.15), transparent 55%),
-                linear-gradient(180deg, rgba(120, 90, 45, 0.2), rgba(120, 90, 45, 0.1));
+                radial-gradient(
+                  circle at 32% 26%,
+                  rgba(255, 255, 255, 0.6),
+                  transparent 55%
+                ),
+                radial-gradient(
+                  circle at 68% 80%,
+                  rgba(120, 90, 45, 0.15),
+                  transparent 55%
+                ),
+                linear-gradient(
+                  180deg,
+                  rgba(120, 90, 45, 0.2),
+                  rgba(120, 90, 45, 0.1)
+                );
               border: 1px solid rgba(120, 90, 45, 0.5);
               color: $ink-body;
               box-shadow:
@@ -1668,9 +2388,21 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
               // 非遗标签（朱印色 · 增强版）
               &.tag-heritage {
                 background:
-                  radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.5), transparent 55%),
-                  radial-gradient(circle at 68% 80%, rgba(184, 56, 43, 0.25), transparent 55%),
-                  linear-gradient(180deg, rgba(184, 56, 43, 0.25), rgba(184, 56, 43, 0.12));
+                  radial-gradient(
+                    circle at 32% 26%,
+                    rgba(255, 255, 255, 0.5),
+                    transparent 55%
+                  ),
+                  radial-gradient(
+                    circle at 68% 80%,
+                    rgba(184, 56, 43, 0.25),
+                    transparent 55%
+                  ),
+                  linear-gradient(
+                    180deg,
+                    rgba(184, 56, 43, 0.25),
+                    rgba(184, 56, 43, 0.12)
+                  );
                 border-color: rgba(184, 56, 43, 0.62);
                 color: $seal;
                 font-weight: 800;
@@ -1685,7 +2417,6 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
         }
       }
     }
-
   }
 
   // ============================================
@@ -1708,7 +2439,13 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
       border-radius: 16px;
       overflow: hidden;
       background:
-        repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.06) 0 1px, transparent 1px 3px, rgba(0, 0, 0, 0.03) 3px 5px, transparent 5px 9px),
+        repeating-linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 0.06) 0 1px,
+          transparent 1px 3px,
+          rgba(0, 0, 0, 0.03) 3px 5px,
+          transparent 5px 9px
+        ),
         linear-gradient(165deg, $wood 0%, $wood-deep 100%);
       border: 3px solid rgba(0, 0, 0, 0.6);
       box-shadow:
@@ -1724,8 +2461,16 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
         gap: 16px;
         padding: 24px 20px 18px;
         background:
-          linear-gradient(180deg, rgba(255, 220, 160, 0.08) 0%, transparent 60%),
-          repeating-linear-gradient(90deg, transparent 0 4px, rgba(0, 0, 0, 0.04) 4px 5px);
+          linear-gradient(
+            180deg,
+            rgba(255, 220, 160, 0.08) 0%,
+            transparent 60%
+          ),
+          repeating-linear-gradient(
+            90deg,
+            transparent 0 4px,
+            rgba(0, 0, 0, 0.04) 4px 5px
+          );
         border-bottom: 2px solid rgba(0, 0, 0, 0.4);
         box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.3);
 
@@ -1738,9 +2483,21 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
           justify-content: center;
           border-radius: 50%;
           background:
-            repeating-linear-gradient(45deg, rgba(92, 72, 36, 0.18) 0 2px, transparent 2px 4px),
-            repeating-linear-gradient(-45deg, rgba(92, 72, 36, 0.18) 0 2px, transparent 2px 4px),
-            radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.55), transparent 50%),
+            repeating-linear-gradient(
+              45deg,
+              rgba(92, 72, 36, 0.18) 0 2px,
+              transparent 2px 4px
+            ),
+            repeating-linear-gradient(
+              -45deg,
+              rgba(92, 72, 36, 0.18) 0 2px,
+              transparent 2px 4px
+            ),
+            radial-gradient(
+              circle at 32% 26%,
+              rgba(255, 255, 255, 0.55),
+              transparent 50%
+            ),
             linear-gradient(180deg, $bamboo-light, $bamboo-deep);
           box-shadow:
             inset 0 2px 2px rgba(255, 255, 255, 0.55),
@@ -1769,7 +2526,13 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
         padding: 32px 28px;
         text-align: center;
         background:
-          repeating-linear-gradient(0deg, transparent 0, transparent 3px, rgba(58, 46, 31, 0.02) 3px, rgba(58, 46, 31, 0.02) 4px),
+          repeating-linear-gradient(
+            0deg,
+            transparent 0,
+            transparent 3px,
+            rgba(58, 46, 31, 0.02) 3px,
+            rgba(58, 46, 31, 0.02) 4px
+          ),
           linear-gradient(180deg, $cloth-l 0%, $cloth-d 100%);
       }
 
@@ -1829,7 +2592,11 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
           padding: 7px 16px;
           border-radius: 999px;
           background:
-            radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.65), transparent 55%),
+            radial-gradient(
+              circle at 32% 26%,
+              rgba(255, 255, 255, 0.65),
+              transparent 55%
+            ),
             linear-gradient(180deg, #f5edd9, #ecdfc2);
           border: 1px solid #ddcda8;
           color: $ink;
@@ -1842,7 +2609,6 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
       }
     }
   }
-
 }
 
 @keyframes artifactEnter {
@@ -1850,6 +2616,7 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
     opacity: 0;
     transform: translateY(14px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -1861,6 +2628,7 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
     opacity: 0;
     transform: translateY(11px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -1901,7 +2669,13 @@ $serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
     }
   }
 }
+
 @keyframes btnScan {
-  0% { left: -100%; }
-  100% { left: 100%; }
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 100%;
+  }
 }

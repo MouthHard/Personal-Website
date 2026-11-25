@@ -11,23 +11,26 @@
     align-items: center;
     gap: 8px;
     padding: 12px 24px;
-    border: 2px solid rgba(184, 115, 51, 0.3);
+    border: 2px solid rgb(184 115 51 / 30%);
     background: linear-gradient(135deg, #fff, #f8f5f0);
     border-radius: 12px;
     cursor: pointer;
     font-size: 18px;
     font-weight: bolder;
-    color: #000000;
-    transition: all 0.3s ease;
- 
+    color: #000;
+    transition-property:
+      transform, opacity, box-shadow, color, background, background-color,
+      border-color, filter, text-shadow, left;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(184, 115, 51, 0.3);
+    box-shadow: 0 4px 12px rgb(184 115 51 / 30%);
     transform-style: preserve-3d;
     perspective: 1000px;
 
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
       left: -100%;
@@ -36,7 +39,7 @@
       background: linear-gradient(
         90deg,
         transparent,
-        rgba(184, 115, 51, 0.1),
+        rgb(184 115 51 / 10%),
         transparent
       );
       transition: left 0.6s ease;
@@ -44,12 +47,12 @@
 
     &:hover:not(:disabled) {
       border-color: #b87333;
-      background: linear-gradient(135deg, rgba(184, 115, 51, 0.08), #f8f5f0);
+      background: linear-gradient(135deg, rgb(184 115 51 / 8%), #f8f5f0);
       color: #8b4513;
       transform: translateY(-4px) rotateX(3deg);
       box-shadow:
-        0 8px 20px rgba(184, 115, 51, 0.3),
-        0 4px 12px rgba(184, 115, 51, 0.2);
+        0 8px 20px rgb(184 115 51 / 30%),
+        0 4px 12px rgb(184 115 51 / 20%);
 
       &::before {
         left: 100%;
@@ -57,22 +60,24 @@
     }
 
     &:disabled {
-      opacity: 0.5;
+      opacity: 50%;
       cursor: not-allowed;
     }
 
     .button-icon {
       :deep(svg) {
-        width: 18px;
-        height: 18px;
+        width: 20px;
+        height: 20px;
         color: #8b4513;
       }
+
       line-height: 1;
     }
 
     .button-text {
-      font-size: 14px;
-      font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+      font-size: 18px;
+      font-weight: bolder;
+      font-family: STKaiti, KaiTi, 'Noto Serif SC', serif;
     }
   }
 
@@ -83,25 +88,29 @@
     .page-button {
       min-width: 44px;
       height: 44px;
-      border: 2px solid rgba(184, 115, 51, 0.3);
+      border: 2px solid rgb(184 115 51 / 30%);
       background: linear-gradient(135deg, #fff, #f8f5f0);
       border-radius: 12px;
       cursor: pointer;
-      font-size: 15px;
-      color: #4a4a4a;
-      transition: all 0.3s ease;
-      font-weight: bold;
+      font-size: 18px;
+      color: #2a2a2a;
+      transition-property:
+        transform, opacity, box-shadow, color, background, background-color,
+        border-color, filter, text-shadow, left;
+      transition-duration: 0.3s;
+      transition-timing-function: ease;
+      font-weight: bolder;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 4px 12px rgba(184, 115, 51, 0.15);
+      box-shadow: 0 4px 12px rgb(184 115 51 / 15%);
       transform-style: preserve-3d;
       perspective: 1000px;
 
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         top: 0;
         left: -100%;
@@ -110,20 +119,20 @@
         background: linear-gradient(
           90deg,
           transparent,
-          rgba(184, 115, 51, 0.1),
+          rgb(184 115 51 / 10%),
           transparent
         );
         transition: left 0.6s ease;
       }
 
-      &:hover:not(:disabled):not(.ellipsis) {
+      &:hover:not(:disabled, .ellipsis) {
         border-color: #b87333;
-        background: linear-gradient(135deg, rgba(184, 115, 51, 0.08), #f8f5f0);
+        background: linear-gradient(135deg, rgb(184 115 51 / 8%), #f8f5f0);
         color: #8b4513;
         transform: translateY(-4px) rotateX(3deg) scale(1.05);
         box-shadow:
-          0 8px 20px rgba(184, 115, 51, 0.3),
-          0 4px 12px rgba(184, 115, 51, 0.2);
+          0 8px 20px rgb(184 115 51 / 30%),
+          0 4px 12px rgb(184 115 51 / 20%);
 
         &::before {
           left: 100%;
@@ -134,9 +143,10 @@
         background: linear-gradient(135deg, #cd5c5c, #b22222);
         border-color: #cd5c5c;
         color: white;
+        font-weight: bolder;
         box-shadow:
-          0 10px 25px rgba(205, 92, 92, 0.4),
-          0 5px 15px rgba(205, 92, 92, 0.3);
+          0 10px 25px rgb(205 92 92 / 40%),
+          0 5px 15px rgb(205 92 92 / 30%);
         transform: translateY(-5px) rotateX(5deg) scale(1.05);
       }
 
@@ -153,23 +163,135 @@
     }
   }
 
+  // 每页条数选择器
+  .page-size-selector {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: 8px;
+    padding-left: 16px;
+    border-left: 2px solid rgb(184 115 51 / 20%);
+
+    .page-size-label {
+      font-size: 16px;
+      font-weight: bolder;
+      color: #2a2a2a;
+      font-family: STKaiti, KaiTi, 'Noto Serif SC', serif;
+    }
+
+    .page-size-dropdown {
+      position: relative;
+
+      .page-size-trigger {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        padding: 8px 14px;
+        border: 2px solid rgb(184 115 51 / 30%);
+        background: linear-gradient(135deg, #fff, #f8f5f0);
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: bolder;
+        color: #2a2a2a;
+        transition-property:
+          transform, opacity, box-shadow, color, background, background-color,
+          border-color, filter, text-shadow;
+        transition-duration: 0.3s;
+        transition-timing-function: ease;
+        box-shadow: 0 4px 12px rgb(184 115 51 / 15%);
+        min-width: 56px;
+        justify-content: center;
+
+        &:hover {
+          border-color: #b87333;
+          background: linear-gradient(135deg, rgb(184 115 51 / 8%), #f8f5f0);
+          color: #8b4513;
+          transform: translateY(-2px);
+          box-shadow: 0 6px 16px rgb(184 115 51 / 25%);
+        }
+
+        .page-size-value {
+          font-family: STKaiti, KaiTi, 'Noto Serif SC', serif;
+        }
+
+        .page-size-arrow {
+          font-size: 14px;
+          color: #8b4513;
+          transition: transform 0.3s ease;
+        }
+      }
+
+      &.open .page-size-arrow {
+        transform: rotate(180deg);
+      }
+
+      .page-size-options {
+        position: absolute;
+        bottom: calc(100% + 6px);
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        padding: 8px;
+        background: linear-gradient(135deg, #fff, #f8f5f0);
+        border: 2px solid rgb(184 115 51 / 30%);
+        border-radius: 10px;
+        box-shadow: 0 -8px 24px rgb(184 115 51 / 30%);
+        z-index: 100;
+        min-width: 80px;
+
+        .page-size-option {
+          padding: 8px 16px;
+          border: none;
+          background: transparent;
+          border-radius: 8px;
+          cursor: pointer;
+          font-size: 18px;
+          font-weight: bolder;
+          color: #4a4a4a;
+          font-family: STKaiti, KaiTi, 'Noto Serif SC', serif;
+          transition-property:
+            transform, opacity, box-shadow, color, background, background-color,
+            border-color, filter, text-shadow;
+          transition-duration: 0.2s;
+          transition-timing-function: ease;
+          text-align: center;
+
+          &:hover {
+            background: linear-gradient(135deg, rgb(184 115 51 / 8%), #f8f5f0);
+            color: #8b4513;
+          }
+
+          &.active {
+            background: linear-gradient(135deg, #cd5c5c, #b22222);
+            color: white;
+            box-shadow: 0 4px 12px rgb(205 92 92 / 30%);
+          }
+        }
+      }
+    }
+  }
+
   .pagination-info {
     display: flex;
     align-items: center;
     gap: 12px;
     margin-left: 20px;
     padding-left: 20px;
-    border-left: 2px solid rgba(184, 115, 51, 0.2);
+    border-left: 2px solid rgb(184 115 51 / 20%);
 
     .info-text {
-      font-size: 13px;
-      font-weight: 700;
-      color: #4a4a4a;
-      font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+      font-size: 16px;
+      font-weight: bolder;
+      color: #2a2a2a;
+      font-family: STKaiti, KaiTi, 'Noto Serif SC', serif;
     }
 
     .info-divider {
       color: #ccc;
+      font-size: 16px;
     }
   }
 }

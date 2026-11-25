@@ -1,7 +1,6 @@
 .profile-page {
   height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden auto;
   background: linear-gradient(180deg, #0a0a0f 0%, #0c0c14 100%);
   padding-bottom: 40px;
 

@@ -10,9 +10,14 @@
   }
 
   .setting-card {
-    background: 
+    background:
       linear-gradient(165deg, rgba(10, 15, 25, 0.98), rgba(0, 0, 0, 1)),
-      linear-gradient(135deg, rgba(254, 249, 195, 0.08) 0%, transparent 30%, rgba(56, 189, 248, 0.05) 100%);
+      linear-gradient(
+        135deg,
+        rgba(254, 249, 195, 0.08) 0%,
+        transparent 30%,
+        rgba(56, 189, 248, 0.05) 100%
+      );
     border: 1px solid rgba(254, 249, 195, 0.28);
     border-top-color: rgba(254, 249, 195, 0.45);
     border-bottom-color: rgba(56, 189, 248, 0.2);
@@ -36,14 +41,16 @@
       left: 0;
       right: 0;
       height: 3px;
-      background: linear-gradient(90deg, 
-        transparent 0%, 
-        rgba(254, 249, 195, 0.4) 15%, 
-        rgba(254, 249, 195, 0.7) 35%, 
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(254, 249, 195, 0.4) 15%,
+        rgba(254, 249, 195, 0.7) 35%,
         rgba(56, 189, 248, 0.6) 55%,
-        rgba(254, 249, 195, 0.7) 75%, 
-        rgba(254, 249, 195, 0.4) 85%, 
-        transparent 100%);
+        rgba(254, 249, 195, 0.7) 75%,
+        rgba(254, 249, 195, 0.4) 85%,
+        transparent 100%
+      );
       box-shadow: 0 0 20px rgba(254, 249, 195, 0.35);
     }
 
@@ -54,12 +61,14 @@
       left: 25%;
       right: 25%;
       height: 1px;
-      background: linear-gradient(90deg, 
-        transparent, 
-        rgba(255, 255, 255, 0.2), 
-        rgba(254, 249, 195, 0.28), 
-        rgba(255, 255, 255, 0.2), 
-        transparent);
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        rgba(254, 249, 195, 0.28),
+        rgba(255, 255, 255, 0.2),
+        transparent
+      );
     }
 
     &:hover {
@@ -76,8 +85,12 @@
       align-items: center;
       gap: 18px;
       padding: 12px 24px;
-      background: 
-        linear-gradient(165deg, rgba(252, 211, 77, 0.18), rgba(251, 191, 36, 0.1)),
+      background:
+        linear-gradient(
+          165deg,
+          rgba(252, 211, 77, 0.18),
+          rgba(251, 191, 36, 0.1)
+        ),
         linear-gradient(135deg, rgba(253, 230, 138, 0.1) 0%, transparent 50%);
       border-bottom: 1px solid rgba(252, 211, 77, 0.25);
       position: relative;
@@ -89,26 +102,32 @@
         left: 28px;
         right: 28px;
         height: 1px;
-        background: linear-gradient(90deg, 
-          transparent, 
-          rgba(254, 243, 199, 0.3), 
-          rgba(252, 211, 77, 0.35), 
-          rgba(254, 243, 199, 0.3), 
-          transparent);
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(254, 243, 199, 0.3),
+          rgba(252, 211, 77, 0.35),
+          rgba(254, 243, 199, 0.3),
+          transparent
+        );
       }
 
       .card-icon {
         width: 46px;
         height: 46px;
-        background: 
-          linear-gradient(150deg, rgba(252, 211, 77, 0.35), rgba(251, 191, 36, 0.25)),
+        background:
+          linear-gradient(
+            150deg,
+            rgba(252, 211, 77, 0.35),
+            rgba(251, 191, 36, 0.25)
+          ),
           linear-gradient(135deg, rgba(254, 243, 199, 0.18) 0%, transparent 50%);
         border-radius: 14px;
         display: flex;
         align-items: center;
         justify-content: center;
         border: 1px solid rgba(252, 211, 77, 0.45);
-        box-shadow: 
+        box-shadow:
           0 8px 20px rgba(252, 211, 77, 0.25),
           0 0 24px rgba(253, 230, 138, 0.12),
           inset 0 2px 0 rgba(254, 243, 199, 0.18),
@@ -122,10 +141,12 @@
           left: 18%;
           right: 18%;
           height: 1px;
-          background: linear-gradient(90deg, 
-            transparent, 
-            rgba(255, 255, 255, 0.25), 
-            transparent);
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.25),
+            transparent
+          );
         }
 
         svg {
@@ -164,11 +185,14 @@
 
         &:last-child {
           border-bottom: none;
-
         }
 
         &:hover {
-          background: linear-gradient(to right, rgba(56, 189, 248, 0.15), transparent 55%);
+          background: linear-gradient(
+            to right,
+            rgba(56, 189, 248, 0.15),
+            transparent 55%
+          );
           border-radius: 8px;
           border-color: rgba(252, 211, 77, 0.25);
         }

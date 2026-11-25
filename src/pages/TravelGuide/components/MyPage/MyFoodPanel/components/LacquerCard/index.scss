@@ -1,6 +1,6 @@
 @use '../../variables' as *;
-
 @use 'sass:color';
+
 // ==========================================================================
 // 朱红漆器食盒（美食卡片）
 // ==========================================================================
@@ -19,24 +19,31 @@
     border-radius: 8px;
     overflow: hidden;
     cursor: pointer;
+
     // 漆器食盒主体：木纹纹理 + 135° 斜照主光（左上高光→右下暗影）
     background:
-      repeating-linear-gradient(90deg,
-        rgba(255, 200, 200, 0.045) 0px,
+      repeating-linear-gradient(
+        90deg,
+        rgba(255, 200, 200, 0.045) 0,
         rgba(255, 200, 200, 0.045) 1px,
         transparent 1px,
-        transparent 3px),
-      repeating-linear-gradient(0deg,
-        rgba(0, 0, 0, 0.06) 0px,
+        transparent 3px
+      ),
+      repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.06) 0,
         rgba(0, 0, 0, 0.06) 1px,
         transparent 1px,
-        transparent 4px),
-      linear-gradient(135deg,
+        transparent 4px
+      ),
+      linear-gradient(
+        135deg,
         $lacquer-hi 0%,
         $lacquer 22%,
         $lacquer-mid 52%,
         $lacquer-deep 80%,
-        $lacquer-shadow 100%);
+        $lacquer-shadow 100%
+      );
     border: 2px solid $gilt;
     box-shadow:
       0 2px 4px rgba(0, 0, 0, 0.5),
@@ -54,21 +61,22 @@
     &::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      inset: 0;
       background:
-        linear-gradient(180deg,
+        linear-gradient(
+          180deg,
           rgba(255, 225, 225, 0.32) 0%,
           rgba(255, 210, 210, 0.14) 14%,
-          transparent 32%),
-        linear-gradient(105deg,
+          transparent 32%
+        ),
+        linear-gradient(
+          105deg,
           transparent 26%,
           rgba(255, 230, 230, 0.16) 44%,
           rgba(255, 245, 245, 0.26) 50%,
           rgba(255, 230, 230, 0.16) 56%,
-          transparent 74%);
+          transparent 74%
+        );
       pointer-events: none;
       z-index: 1;
     }
@@ -81,10 +89,12 @@
       left: 0;
       width: 55%;
       height: 55%;
-      background: radial-gradient(ellipse at 18% 18%,
+      background: radial-gradient(
+        ellipse at 18% 18%,
         rgba(255, 235, 235, 0.3) 0%,
         rgba(255, 210, 210, 0.12) 30%,
-        transparent 60%);
+        transparent 60%
+      );
       pointer-events: none;
       z-index: 1;
     }
@@ -92,11 +102,13 @@
     .box-lid {
       position: relative;
       height: 12px;
-      background: linear-gradient(180deg,
+      background: linear-gradient(
+        180deg,
         $lacquer-hi 0%,
         $lacquer 35%,
         $lacquer-mid 75%,
-        $lacquer-deep 100%);
+        $lacquer-deep 100%
+      );
       border-bottom: 1.5px solid $gilt;
       box-shadow:
         inset 0 1px 0 rgba(255, 225, 225, 0.55),
@@ -112,16 +124,19 @@
         right: 8%;
         height: 1.5px;
         transform: translateY(-50%);
-        background: linear-gradient(90deg,
+        background: linear-gradient(
+          90deg,
           transparent 0%,
           $gilt-hi 18%,
           $gilt 50%,
           $gilt-hi 82%,
-          transparent 100%);
-        box-shadow: 0 0 4px $gilt, 0 0 1px $gilt-hi;
+          transparent 100%
+        );
+        box-shadow:
+          0 0 4px $gilt,
+          0 0 1px $gilt-hi;
       }
     }
-
 
     .box-cells {
       position: relative;
@@ -130,7 +145,12 @@
       grid-template-columns: 1.1fr 1fr;
       gap: 5px;
       padding: 8px 8px 0;
-      background: linear-gradient(90deg, $lacquer-deep 0%, $lacquer-shadow 60%, $ink 100%);
+      background: linear-gradient(
+        90deg,
+        $lacquer-deep 0%,
+        $lacquer-shadow 60%,
+        $ink 100%
+      );
       box-shadow:
         inset 0 3px 6px rgba(0, 0, 0, 0.7),
         inset 0 -1px 0 rgba(255, 200, 200, 0.1),
@@ -143,6 +163,7 @@
         background: $lacquer-pit;
         border-radius: 5px;
         overflow: hidden;
+
         // 格腔凹陷：左上壁受光高光 + 右下壁暗影
         box-shadow:
           inset 0 0 0 1.5px rgba(212, 164, 74, 0.55),
@@ -167,12 +188,19 @@
           font-size: 1.02rem;
           font-weight: 800;
           color: $gold-text;
-          background: linear-gradient(90deg, $lacquer 0%, $lacquer-mid 55%, $lacquer-deep 100%);
+          background: linear-gradient(
+            90deg,
+            $lacquer 0%,
+            $lacquer-mid 55%,
+            $lacquer-deep 100%
+          );
           border: 1.5px solid $gilt;
           border-radius: 3px;
           z-index: 3;
           letter-spacing: 0.05em;
-          text-shadow: 0 0 5px $gilt, 0 1px 1px rgba(0, 0, 0, 0.7);
+          text-shadow:
+            0 0 5px $gilt,
+            0 1px 1px rgba(0, 0, 0, 0.7);
           box-shadow:
             0 3px 6px rgba(0, 0, 0, 0.8),
             0 6px 12px rgba(0, 0, 0, 0.5),
@@ -189,9 +217,11 @@
             left: 1px;
             right: 1px;
             height: 45%;
-            background: linear-gradient(180deg,
+            background: linear-gradient(
+              180deg,
               rgba(255, 230, 230, 0.4) 0%,
-              transparent 100%);
+              transparent 100%
+            );
             border-radius: 2px 2px 0 0;
             pointer-events: none;
           }
@@ -208,7 +238,12 @@
           font-size: 1.02rem;
           font-weight: 800;
           color: $gilt-hi;
-          background: linear-gradient(90deg, $lacquer-deep 0%, $lacquer-pit 60%, $ink 100%);
+          background: linear-gradient(
+            90deg,
+            $lacquer-deep 0%,
+            $lacquer-pit 60%,
+            $ink 100%
+          );
           border: 1.5px solid $gilt;
           border-radius: 3px;
           z-index: 3;
@@ -228,9 +263,11 @@
             left: 1px;
             right: 1px;
             height: 45%;
-            background: linear-gradient(180deg,
+            background: linear-gradient(
+              180deg,
               rgba(255, 220, 220, 0.3) 0%,
-              transparent 100%);
+              transparent 100%
+            );
             border-radius: 2px 2px 0 0;
             pointer-events: none;
           }
@@ -245,8 +282,16 @@
           position: absolute;
           inset: 0;
           background:
-            radial-gradient(ellipse at 28% 22%, rgba(255, 210, 210, 0.14) 0%, transparent 45%),
-            radial-gradient(ellipse at center, transparent 42%, rgba(0, 0, 0, 0.45) 100%);
+            radial-gradient(
+              ellipse at 28% 22%,
+              rgba(255, 210, 210, 0.14) 0%,
+              transparent 45%
+            ),
+            radial-gradient(
+              ellipse at center,
+              transparent 42%,
+              rgba(0, 0, 0, 0.45) 100%
+            );
           pointer-events: none;
           z-index: 2;
         }
@@ -263,8 +308,13 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          padding: 0.5rem 0.5rem;
-          background: linear-gradient(90deg, $lacquer 0%, $lacquer-mid 50%, $lacquer-deep 100%);
+          padding: 0.5rem;
+          background: linear-gradient(
+            90deg,
+            $lacquer 0%,
+            $lacquer-mid 50%,
+            $lacquer-deep 100%
+          );
           border-radius: 0;
           box-shadow:
             inset 0 0 0 1.5px rgba(212, 164, 74, 0.45),
@@ -283,9 +333,11 @@
             left: 0;
             right: 0;
             height: 40%;
-            background: linear-gradient(180deg,
+            background: linear-gradient(
+              180deg,
               rgba(255, 230, 230, 0.3) 0%,
-              transparent 100%);
+              transparent 100%
+            );
             pointer-events: none;
           }
 
@@ -297,12 +349,31 @@
             pointer-events: none;
             z-index: 1;
             opacity: 0.92;
-            filter: drop-shadow(0 0 3px $gilt-hi) drop-shadow(0 1px 1px rgba(0, 0, 0, 0.4));
+            filter: drop-shadow(0 0 3px $gilt-hi)
+              drop-shadow(0 1px 1px rgba(0, 0, 0, 0.4));
 
-            &.cn-corner-tl { top: 1px; left: 1px; }
-            &.cn-corner-tr { top: 1px; right: 1px; transform: scaleX(-1); }
-            &.cn-corner-bl { bottom: 1px; left: 1px; transform: scaleY(-1); }
-            &.cn-corner-br { bottom: 1px; right: 1px; transform: scale(-1, -1); }
+            &.cn-corner-tl {
+              top: 1px;
+              left: 1px;
+            }
+
+            &.cn-corner-tr {
+              top: 1px;
+              right: 1px;
+              transform: scaleX(-1);
+            }
+
+            &.cn-corner-bl {
+              bottom: 1px;
+              left: 1px;
+              transform: scaleY(-1);
+            }
+
+            &.cn-corner-br {
+              bottom: 1px;
+              right: 1px;
+              transform: scale(-1, -1);
+            }
           }
 
           .dish-title {
@@ -334,8 +405,13 @@
           justify-content: center;
           gap: 0.4rem;
           flex-wrap: wrap;
-          padding: 0.4rem 0.4rem;
-          background: linear-gradient(90deg, $lacquer-deep 0%, $lacquer-pit 60%, $ink 100%);
+          padding: 0.4rem;
+          background: linear-gradient(
+            90deg,
+            $lacquer-deep 0%,
+            $lacquer-pit 60%,
+            $ink 100%
+          );
           border-radius: 5px;
           box-shadow:
             inset 0 0 0 1.5px rgba(212, 164, 74, 0.35),
@@ -354,9 +430,11 @@
             left: 0;
             right: 0;
             height: 40%;
-            background: linear-gradient(180deg,
+            background: linear-gradient(
+              180deg,
               rgba(255, 200, 200, 0.22) 0%,
-              transparent 100%);
+              transparent 100%
+            );
             pointer-events: none;
           }
 
@@ -368,7 +446,12 @@
             font-size: 0.98rem;
             font-weight: 800;
             color: $ink;
-            background: linear-gradient(90deg, $gilt-hi 0%, $gilt 50%, $gilt-mid 100%);
+            background: linear-gradient(
+              90deg,
+              $gilt-hi 0%,
+              $gilt 50%,
+              $gilt-mid 100%
+            );
             border: 1.5px solid $gilt-hi;
             border-radius: 3px;
             letter-spacing: 0.04em;
@@ -389,9 +472,11 @@
               left: 1px;
               right: 1px;
               height: 40%;
-              background: linear-gradient(180deg,
+              background: linear-gradient(
+                180deg,
                 rgba(255, 255, 230, 0.55) 0%,
-                transparent 100%);
+                transparent 100%
+              );
               border-radius: 2px 2px 0 0;
               pointer-events: none;
             }
@@ -405,11 +490,18 @@
             font-size: 0.98rem;
             font-weight: 800;
             color: $gold-text;
-            background: linear-gradient(90deg, $lacquer 0%, $lacquer-mid 55%, $lacquer-deep 100%);
+            background: linear-gradient(
+              90deg,
+              $lacquer 0%,
+              $lacquer-mid 55%,
+              $lacquer-deep 100%
+            );
             border: 1.5px solid $gilt;
             border-radius: 3px;
             letter-spacing: 0.04em;
-            text-shadow: 0 0 5px $gilt, 0 1px 1px rgba(0, 0, 0, 0.7);
+            text-shadow:
+              0 0 5px $gilt,
+              0 1px 1px rgba(0, 0, 0, 0.7);
             box-shadow:
               0 3px 6px rgba(0, 0, 0, 0.75),
               0 6px 12px rgba(0, 0, 0, 0.5),
@@ -426,9 +518,11 @@
               left: 1px;
               right: 1px;
               height: 40%;
-              background: linear-gradient(180deg,
+              background: linear-gradient(
+                180deg,
                 rgba(255, 230, 230, 0.4) 0%,
-                transparent 100%);
+                transparent 100%
+              );
               border-radius: 2px 2px 0 0;
               pointer-events: none;
             }
@@ -442,7 +536,12 @@
           align-items: center;
           justify-content: center;
           padding: 0.35rem 0.4rem;
-          background: linear-gradient(90deg, $lacquer 0%, $lacquer-mid 50%, $lacquer-deep 100%);
+          background: linear-gradient(
+            90deg,
+            $lacquer 0%,
+            $lacquer-mid 50%,
+            $lacquer-deep 100%
+          );
           border-radius: 5px;
           box-shadow:
             inset 0 0 0 1.5px rgba(212, 164, 74, 0.45),
@@ -461,9 +560,11 @@
             left: 0;
             right: 0;
             height: 40%;
-            background: linear-gradient(180deg,
+            background: linear-gradient(
+              180deg,
               rgba(255, 230, 230, 0.3) 0%,
-              transparent 100%);
+              transparent 100%
+            );
             pointer-events: none;
           }
 
@@ -491,10 +592,12 @@
               color: $gold-dim;
               text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
 
-              i { color: $gold-dim; text-shadow: none; }
+              i {
+                color: $gold-dim;
+                text-shadow: none;
+              }
             }
           }
-
         }
       }
     }
@@ -504,7 +607,12 @@
       z-index: 2;
       margin: 5px 8px 0;
       padding: 0.55rem 0.65rem;
-      background: linear-gradient(90deg, $lacquer-pit 0%, $ink 70%, color.adjust($ink, $lightness: -4%) 100%);
+      background: linear-gradient(
+        90deg,
+        $lacquer-pit 0%,
+        $ink 70%,
+        color.adjust($ink, $lightness: -4%) 100%
+      );
       border-radius: 5px;
       border: 1.5px solid rgba(212, 164, 74, 0.4);
       box-shadow:
@@ -521,7 +629,6 @@
         line-height: 1.5;
         color: $cream-dim;
         display: -webkit-box;
- 
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
@@ -537,14 +644,16 @@
       align-items: center;
       justify-content: space-between;
       padding: 5px 8px;
+
       // 左→右阳光斜照：左端高光受光 → 右端暗影背光（木质漆面反光）
-      background:
-        linear-gradient(90deg,
-          $lacquer-hi 0%,
-          $lacquer 26%,
-          $lacquer-mid 56%,
-          $lacquer-deep 82%,
-          $lacquer-shadow 100%);
+      background: linear-gradient(
+        90deg,
+        $lacquer-hi 0%,
+        $lacquer 26%,
+        $lacquer-mid 56%,
+        $lacquer-deep 82%,
+        $lacquer-shadow 100%
+      );
       border-bottom: 1.5px solid $gilt;
       box-shadow:
         inset 0 1px 0 rgba(255, 235, 235, 0.55),
@@ -561,10 +670,12 @@
         left: 0;
         right: 0;
         height: 45%;
-        background: linear-gradient(180deg,
+        background: linear-gradient(
+          180deg,
           rgba(255, 240, 240, 0.35) 0%,
           rgba(255, 225, 225, 0.12) 60%,
-          transparent 100%);
+          transparent 100%
+        );
         pointer-events: none;
       }
 
@@ -576,9 +687,11 @@
         left: 0;
         width: 30%;
         height: 100%;
-        background: linear-gradient(90deg,
+        background: linear-gradient(
+          90deg,
           rgba(255, 245, 245, 0.22) 0%,
-          transparent 100%);
+          transparent 100%
+        );
         pointer-events: none;
       }
 
@@ -590,7 +703,8 @@
         pointer-events: none;
         z-index: 0;
         opacity: 0.85;
-        filter: drop-shadow(0 0 3px $gilt-hi) drop-shadow(0 1px 1px rgba(0, 0, 0, 0.4));
+        filter: drop-shadow(0 0 3px $gilt-hi)
+          drop-shadow(0 1px 1px rgba(0, 0, 0, 0.4));
 
         &.topbar-corner-l {
           top: 0;
@@ -615,8 +729,12 @@
         font-size: 1.15rem;
         font-weight: 900;
         color: $ink;
-        background:
-          radial-gradient(circle at 32% 28%, $gilt-hi 0%, $gilt 45%, $gilt-mid 100%);
+        background: radial-gradient(
+          circle at 32% 28%,
+          $gilt-hi 0%,
+          $gilt 45%,
+          $gilt-mid 100%
+        );
         border: 1.5px solid $gilt-hi;
         border-radius: 50%;
         letter-spacing: 0;
@@ -639,10 +757,12 @@
           left: 5px;
           width: 9px;
           height: 6px;
-          background: radial-gradient(ellipse at center,
+          background: radial-gradient(
+            ellipse at center,
             rgba(255, 255, 240, 0.85) 0%,
             rgba(255, 245, 200, 0.3) 50%,
-            transparent 75%);
+            transparent 75%
+          );
           border-radius: 50%;
           pointer-events: none;
         }
@@ -656,12 +776,14 @@
           transform: translateX(-50%);
           width: 14px;
           height: 3px;
-          background: linear-gradient(90deg,
+          background: linear-gradient(
+            90deg,
             transparent 0%,
             rgba(255, 230, 160, 0.4) 40%,
             rgba(255, 230, 160, 0.5) 50%,
             rgba(255, 230, 160, 0.4) 60%,
-            transparent 100%);
+            transparent 100%
+          );
           border-radius: 50%;
           pointer-events: none;
         }
@@ -694,7 +816,11 @@
         place-items: center;
         border-radius: 50%;
         border: 1.5px solid $gilt;
-        background: radial-gradient(circle at 30% 30%, $lacquer 0%, $lacquer-deep 100%);
+        background: radial-gradient(
+          circle at 30% 30%,
+          $lacquer 0%,
+          $lacquer-deep 100%
+        );
         color: $gold-text;
         cursor: pointer;
         transition: all 0.25s ease;
@@ -714,16 +840,22 @@
           left: 5px;
           width: 8px;
           height: 5px;
-          background: radial-gradient(ellipse at center,
+          background: radial-gradient(
+            ellipse at center,
             rgba(255, 240, 240, 0.7) 0%,
             rgba(255, 220, 220, 0.2) 55%,
-            transparent 80%);
+            transparent 80%
+          );
           border-radius: 50%;
           pointer-events: none;
         }
 
         &:hover {
-          background: radial-gradient(circle at 30% 30%, $danger 0%, #b02a3a 100%);
+          background: radial-gradient(
+            circle at 30% 30%,
+            $danger 0%,
+            #b02a3a 100%
+          );
           border-color: #ff6b7a;
           color: #fff;
           box-shadow:
@@ -734,23 +866,24 @@
       }
     }
 
-
     .box-base {
       position: relative;
       z-index: 2;
       display: flex;
       align-items: center;
       justify-content: space-around;
-      padding: 0.5rem 0.5rem;
+      padding: 0.5rem;
       margin-top: 5px;
+
       // 左→右阳光斜照：左端受光高光 → 右端背光暗影
-      background:
-        linear-gradient(90deg,
-          $lacquer-hi 0%,
-          $lacquer 25%,
-          $lacquer-mid 55%,
-          $lacquer-deep 82%,
-          $lacquer-shadow 100%);
+      background: linear-gradient(
+        90deg,
+        $lacquer-hi 0%,
+        $lacquer 25%,
+        $lacquer-mid 55%,
+        $lacquer-deep 82%,
+        $lacquer-shadow 100%
+      );
       border-top: 1.5px solid $gilt;
       box-shadow:
         inset 0 1px 0 rgba(255, 230, 230, 0.45),
@@ -767,7 +900,8 @@
         pointer-events: none;
         z-index: 0;
         opacity: 0.85;
-        filter: drop-shadow(0 0 3px $gilt-hi) drop-shadow(0 1px 1px rgba(0, 0, 0, 0.4));
+        filter: drop-shadow(0 0 3px $gilt-hi)
+          drop-shadow(0 1px 1px rgba(0, 0, 0, 0.4));
 
         &.base-corner-l {
           bottom: 0;
@@ -815,9 +949,14 @@
         place-items: center;
         border-radius: 50%;
         border: 1.5px solid $gilt;
+
         // 每个按钮也左→右受光（漆面木质反光）
-        background:
-          radial-gradient(circle at 28% 28%, $lacquer-hi 0%, $lacquer 40%, $lacquer-deep 100%);
+        background: radial-gradient(
+          circle at 28% 28%,
+          $lacquer-hi 0%,
+          $lacquer 40%,
+          $lacquer-deep 100%
+        );
         color: $gold-text;
         cursor: pointer;
         transition: all 0.25s ease;
@@ -839,10 +978,12 @@
           transform: translateX(-50%);
           width: 14px;
           height: 5px;
-          background: radial-gradient(ellipse at center,
+          background: radial-gradient(
+            ellipse at center,
             rgba(255, 240, 240, 0.6) 0%,
             rgba(255, 220, 220, 0.15) 55%,
-            transparent 80%);
+            transparent 80%
+          );
           border-radius: 50%;
           pointer-events: none;
         }
@@ -856,18 +997,25 @@
           transform: translateX(-50%);
           width: 16px;
           height: 3px;
-          background: linear-gradient(90deg,
+          background: linear-gradient(
+            90deg,
             transparent 0%,
             rgba(212, 164, 74, 0.3) 35%,
             rgba(212, 164, 74, 0.4) 50%,
             rgba(212, 164, 74, 0.3) 65%,
-            transparent 100%);
+            transparent 100%
+          );
           border-radius: 50%;
           pointer-events: none;
         }
 
         &:hover {
-          background: radial-gradient(circle at 28% 28%, $gilt-hi 0%, $gilt 45%, $gilt-mid 100%);
+          background: radial-gradient(
+            circle at 28% 28%,
+            $gilt-hi 0%,
+            $gilt 45%,
+            $gilt-mid 100%
+          );
           border-color: $gilt-hi;
           color: $ink;
           box-shadow:
@@ -882,7 +1030,12 @@
 
         // 点赞 active 态（teal-400 青绿色系）
         &.is-liked {
-          background: radial-gradient(circle at 28% 28%, #5eead4 0%, #2dd4bf 45%, #14b8a6 100%);
+          background: radial-gradient(
+            circle at 28% 28%,
+            #5eead4 0%,
+            #2dd4bf 45%,
+            #14b8a6 100%
+          );
           border-color: #5eead4;
           color: #0a2e2a;
           box-shadow:
@@ -897,26 +1050,35 @@
 
           // 顶部高光斑（青绿反光）
           &::before {
-            background: radial-gradient(ellipse at center,
+            background: radial-gradient(
+              ellipse at center,
               rgba(220, 255, 250, 0.75) 0%,
               rgba(94, 234, 212, 0.2) 55%,
-              transparent 80%);
+              transparent 80%
+            );
           }
 
           // 底部反射光带（青绿）
           &::after {
-            background: linear-gradient(90deg,
+            background: linear-gradient(
+              90deg,
               transparent 0%,
               rgba(94, 234, 212, 0.4) 35%,
               rgba(94, 234, 212, 0.55) 50%,
               rgba(94, 234, 212, 0.4) 65%,
-              transparent 100%);
+              transparent 100%
+            );
           }
         }
 
         // 想吃 active 态（amber-400 金黄色系）
         &.is-favored {
-          background: radial-gradient(circle at 28% 28%, #fde047 0%, #fbbf24 45%, #f59e0b 100%);
+          background: radial-gradient(
+            circle at 28% 28%,
+            #fde047 0%,
+            #fbbf24 45%,
+            #f59e0b 100%
+          );
           border-color: #fde047;
           color: #2a1a00;
           box-shadow:
@@ -931,26 +1093,35 @@
 
           // 顶部高光斑（金黄反光）
           &::before {
-            background: radial-gradient(ellipse at center,
+            background: radial-gradient(
+              ellipse at center,
               rgba(255, 250, 220, 0.75) 0%,
               rgba(253, 224, 71, 0.2) 55%,
-              transparent 80%);
+              transparent 80%
+            );
           }
 
           // 底部反射光带（金黄）
           &::after {
-            background: linear-gradient(90deg,
+            background: linear-gradient(
+              90deg,
               transparent 0%,
               rgba(253, 224, 71, 0.4) 35%,
               rgba(253, 224, 71, 0.55) 50%,
               rgba(253, 224, 71, 0.4) 65%,
-              transparent 100%);
+              transparent 100%
+            );
           }
         }
 
         // 已吃 active 态（rose-400 红色系）
         &.is-eaten {
-          background: radial-gradient(circle at 28% 28%, #fda4af 0%, #fb7185 45%, #f43f5e 100%);
+          background: radial-gradient(
+            circle at 28% 28%,
+            #fda4af 0%,
+            #fb7185 45%,
+            #f43f5e 100%
+          );
           border-color: #fda4af;
           color: #3a0a14;
           box-shadow:
@@ -965,20 +1136,24 @@
 
           // 顶部高光斑（玫红反光）
           &::before {
-            background: radial-gradient(ellipse at center,
+            background: radial-gradient(
+              ellipse at center,
               rgba(255, 230, 235, 0.75) 0%,
               rgba(253, 164, 175, 0.2) 55%,
-              transparent 80%);
+              transparent 80%
+            );
           }
 
           // 底部反射光带（玫红）
           &::after {
-            background: linear-gradient(90deg,
+            background: linear-gradient(
+              90deg,
               transparent 0%,
               rgba(253, 164, 175, 0.4) 35%,
               rgba(253, 164, 175, 0.55) 50%,
               rgba(253, 164, 175, 0.4) 65%,
-              transparent 100%);
+              transparent 100%
+            );
           }
         }
       }
@@ -1000,29 +1175,34 @@
 
       &::before {
         background:
-          linear-gradient(180deg,
+          linear-gradient(
+            180deg,
             rgba(255, 235, 235, 0.4) 0%,
             rgba(255, 220, 220, 0.18) 16%,
-            transparent 34%),
-          linear-gradient(105deg,
+            transparent 34%
+          ),
+          linear-gradient(
+            105deg,
             transparent 16%,
             rgba(255, 245, 245, 0.28) 40%,
             rgba(255, 255, 255, 0.38) 50%,
             rgba(255, 245, 245, 0.28) 60%,
-            transparent 84%);
+            transparent 84%
+          );
       }
 
       &::after {
-        background: radial-gradient(ellipse at 18% 18%,
+        background: radial-gradient(
+          ellipse at 18% 18%,
           rgba(255, 245, 245, 0.42) 0%,
           rgba(255, 220, 220, 0.18) 30%,
-          transparent 60%);
+          transparent 60%
+        );
       }
 
       .cell-image img {
         transform: scale(1.12);
       }
-
 
       .cell-name .dish-title {
         color: #fff;

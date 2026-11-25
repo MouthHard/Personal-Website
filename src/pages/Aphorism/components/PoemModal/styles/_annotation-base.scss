@@ -1,0 +1,491 @@
+@use 'variables' as *;
+
+// ===== 右轴：注释轴（更宽） =====
+.scroll-annotation {
+  flex: 3;
+  max-width: 980px;
+
+  // 关闭按钮——墨砚金饰：深墨黑玉扣，hover泛金光
+  .scroll-close {
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-4deg);
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 28px;
+    font-weight: 900;
+    color: #f0e0c8;
+    transition-property:
+      transform, opacity, box-shadow, color, background, background-color,
+      border-color, filter, text-shadow;
+    transition-duration: 0.4s;
+    transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    overflow: hidden;
+
+    // 墨砚封印——深墨黑球面光照（顶部微亮，底部深暗）
+    background: radial-gradient(
+      ellipse 80% 60% at 35% 25%,
+      #4a4a50 0%,
+      #2a2a30 20%,
+      #1a1a20 50%,
+      #0a0a10 80%,
+      #050508 100%
+    );
+
+    // 金边扣边 + 球面立体光影
+    box-shadow:
+      0 3px 6px #1a1a20,
+      0 1px 2px #050508,
+      inset 0 0 0 1px #d8b080,
+      inset 0 0 0 2px #1a1a20,
+      inset 0 0 0 3px #d8b080,
+      inset 0 2px 4px #5a5a60,
+      inset 0 -3px 5px #050508;
+    text-shadow:
+      0 1px 3px #050508,
+      0 0 6px rgb(216 176 128 / 30%);
+
+    // 穿绳孔——顶部小椭圆孔
+    &::before {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 12px;
+      height: 3px;
+      border-radius: 50%;
+      background: #050508;
+      box-shadow: inset 0 1px 1px #000;
+      z-index: 3;
+    }
+
+    .close-icon {
+      position: relative;
+      z-index: 2;
+      margin-top: 3px;
+    }
+
+    &:hover {
+      transform: translateX(-50%) rotate(-4deg) translateY(-5px);
+
+      // hover时墨砚泛金光——金饰光芒
+      box-shadow:
+        0 5px 10px #1a1a20,
+        0 0 16px #d8b080,
+        inset 0 0 0 1px #f0d0a0,
+        inset 0 0 0 2px #1a1a20,
+        inset 0 0 0 3px #f0d0a0,
+        inset 0 2px 4px #6a6a70,
+        inset 0 -3px 5px #050508;
+      color: #ffe8b0;
+    }
+
+    &:active {
+      transform: translateX(-50%) rotate(-4deg) scale(0.9);
+      transition-property:
+        transform, opacity, box-shadow, color, background, background-color,
+        border-color, filter, text-shadow, border-radius, height, left, top,
+        width;
+      transition-duration: 0.15s;
+      transition-timing-function: ease;
+      box-shadow:
+        0 2px 4px #050508,
+        inset 0 0 0 1px #d8b080,
+        inset 0 0 0 2px #1a1a20,
+        inset 0 0 0 3px #d8b080,
+        inset 0 2px 6px #050508;
+    }
+  }
+
+  .scroll-paper {
+    display: flex;
+    flex-direction: column;
+
+    // Tab按钮区——横排竹简木牌
+    .annotation-tabs {
+      position: relative;
+      display: flex;
+      justify-content: space-around;
+      padding: 18px 20px 14px;
+      z-index: 5;
+      flex-shrink: 0;
+
+      .tab-button {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 18px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition-property:
+          transform, opacity, box-shadow, color, background, background-color,
+          border-color, filter, text-shadow, font-size, left, letter-spacing,
+          padding;
+        transition-duration: 0.45s;
+        transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+        position: relative;
+        overflow: hidden;
+
+        // 浅竹简底色——均匀浅色，微妙竹纹
+        background:
+          repeating-linear-gradient(
+            90deg,
+            rgb(74 40 16 / 5%) 0%,
+            rgb(74 40 16 / 5%) 1px,
+            transparent 1px,
+            transparent 6px
+          ),
+          linear-gradient(135deg, #f5e8c8 0%, #e8d8b0 100%);
+
+        // 竹简边框——内凹雕刻（默认态）
+        box-shadow:
+          inset 0 0 0 1px #8a6030,
+          inset 0 0 0 2px #f5e8c8,
+          inset 0 0 0 3px #8a6030,
+          inset 0 2px 3px #fff8e0,
+          inset 0 -2px 3px #c8a878,
+          0 4px 8px rgb(0 0 0 / 20%),
+          0 1px 2px rgb(0 0 0 / 10%);
+
+        // 光泽扫过层——hover时触发
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 50%;
+          height: 100%;
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgb(255 248 220 / 50%),
+            transparent
+          );
+          transition: left 0.5s ease;
+          pointer-events: none;
+          z-index: 1;
+        }
+
+        .tab-icon {
+          width: 28px;
+          height: 28px;
+          color: #8a6030;
+          transition-property:
+            transform, opacity, box-shadow, color, background, background-color,
+            border-color, filter, text-shadow, font-size, left, letter-spacing,
+            padding;
+          transition-duration: 0.45s;
+          transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+          filter: drop-shadow(0 1px 2px rgb(0 0 0 / 15%));
+          flex-shrink: 0;
+          position: relative;
+          z-index: 2;
+        }
+
+        .tab-label {
+          font-size: 18px;
+          font-weight: 800;
+          color: #2a2018;
+          font-family: STKaiti, KaiTi, 'Noto Serif SC', serif;
+          letter-spacing: 3px;
+          text-shadow: 0 1px 0 #fff8e0;
+          transition-property:
+            transform, opacity, box-shadow, color, background, background-color,
+            border-color, filter, text-shadow, font-size, left, letter-spacing,
+            padding;
+          transition-duration: 0.45s;
+          transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+          white-space: nowrap;
+          position: relative;
+          z-index: 2;
+        }
+
+        // 底部金色指示条——默认隐藏
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -2px;
+          left: 50%;
+          transform: translateX(-50%) scaleX(0);
+          width: 80%;
+          height: 3px;
+          border-radius: 2px;
+          background: linear-gradient(
+            90deg,
+            transparent,
+            #d8b080,
+            #f0d0a0,
+            #d8b080,
+            transparent
+          );
+          box-shadow: 0 0 8px #b89060;
+          transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        &:hover {
+          // 无位移——3D立体凸起效果
+          // 背景——球面光照（顶部中心亮，底部边缘暗，模拟光源照射凸起面）
+          background:
+            repeating-linear-gradient(
+              90deg,
+              rgb(74 40 16 / 4%) 0%,
+              rgb(74 40 16 / 4%) 1px,
+              transparent 1px,
+              transparent 6px
+            ),
+            radial-gradient(
+              ellipse 90% 70% at 50% 25%,
+              #fff5d8 0%,
+              #f5e8c8 25%,
+              #e8d8b0 55%,
+              #d8c8a0 85%,
+              #c8b888 100%
+            );
+          box-shadow:
+            // === 嵌入书页——内凹深色压痕 ===
+            inset 0 2px 4px #3a2010,
+            inset 0 -4px 5px #2a1808,
+            inset 2px 0 4px #3a2010,
+            inset -2px 0 4px #2a1808,
+            // === 四角金钉 ===
+            inset 5px 5px 0 -3px #f0d0a0,
+            inset -5px 5px 0 -3px #f0d0a0,
+            inset 5px -5px 0 -3px #f0d0a0,
+            inset -5px -5px 0 -3px #f0d0a0,
+            // === 雕刻边框 ===
+            inset 0 0 0 1px #c0733a,
+            inset 0 0 0 2px #fff8e0,
+            inset 0 0 0 3px #c0733a,
+            // === 紧贴边缘的外部压痕——深色窄范围 ===
+            0 1px 0 #fff8e0,
+            0 2px 4px #2a1808,
+            0 3px 6px #1a0a04;
+
+          // 光泽扫过
+          &::before {
+            left: 150%;
+          }
+
+          // 底部指示条——hover时半显示
+          &::after {
+            transform: translateX(-50%) scaleX(0.5);
+          }
+
+          .tab-icon {
+            color: #c0733a;
+            transform: scale(1.2) rotate(-10deg);
+            filter: drop-shadow(0 2px 4px rgb(192 115 58 / 50%));
+          }
+
+          .tab-label {
+            color: #5a3010;
+            text-shadow:
+              0 1px 0 #fff8e0,
+              0 0 6px rgb(192 115 58 / 30%);
+          }
+        }
+
+        &.active {
+          // 激活态——朱砂金边印章：盖在书页上的印章
+          padding: 12px 24px 10px;
+
+          // 朱砂印泥——浓淡不均（中心浓、边缘淡）+ 印泥颗粒纹理
+          background:
+            repeating-linear-gradient(
+              90deg,
+              rgb(240 208 160 / 3%) 0%,
+              rgb(240 208 160 / 3%) 1px,
+              transparent 1px,
+              transparent 5px
+            ),
+            radial-gradient(
+              ellipse 85% 65% at 50% 35%,
+              #d04030 0%,
+              #b83020 25%,
+              #9a2010 50%,
+              #7a1008 80%,
+              #5a0805 100%
+            );
+          box-shadow:
+            // 印面内凹——顶部高光（印泥反光）
+            inset 0 2px 4px #e06050,
+            // 印面内凹——底部深暗（印泥沉积）
+            inset 0 -4px 6px #4a0805,
+            // 左侧高光
+            inset 2px 0 3px #c85040,
+            // 右侧深暗
+            inset -2px 0 3px #4a0805,
+            // 金边雕刻——双线金边
+            inset 0 0 0 1px #f0d0a0,
+            inset 0 0 0 2px #5a0805,
+            inset 0 0 0 3px #f0d0a0,
+            // 外部压痕——嵌在书页上的印章压痕
+            0 1px 0 #fff8e0,
+            0 2px 4px #4a0805,
+            0 4px 8px #2a0403;
+
+          // 底部金色指示条——全显示，更亮
+          &::after {
+            transform: translateX(-50%) scaleX(1);
+            background: linear-gradient(
+              90deg,
+              transparent,
+              #f0d0a0,
+              #ffe8b0,
+              #f0d0a0,
+              transparent
+            );
+            box-shadow: 0 0 10px #d8b080;
+          }
+
+          .tab-icon {
+            color: #f0d0a0;
+            transform: scale(1.15);
+            filter: drop-shadow(0 1px 3px rgb(100 10 5 / 60%));
+          }
+
+          .tab-label {
+            color: #f0d0a0;
+            font-size: 20px;
+            letter-spacing: 4px;
+            text-shadow:
+              0 1px 0 #5a0805,
+              0 0 8px #d8b080;
+          }
+        }
+      }
+    }
+
+    // Tab内容区——纸面墨书区域
+    .annotation-content {
+      position: relative;
+      flex: 1;
+      min-height: 0;
+      padding: 12px 28px 18px;
+      overflow: hidden auto;
+      z-index: 5;
+
+      // 古风滚动条——古铜色细条，与卷轴风格统一
+      scrollbar-width: thin;
+      scrollbar-color: #a07040 transparent;
+
+      &::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: transparent;
+        margin: 4px 0;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: linear-gradient(
+          180deg,
+          #b08040 0%,
+          #8a6030 50%,
+          #6a4820 100%
+        );
+        border-radius: 4px;
+        border: 1px solid rgb(255 240 220 / 30%);
+        box-shadow: inset 0 1px 2px rgb(255 240 220 / 20%);
+      }
+
+      &::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(
+          180deg,
+          #c09050 0%,
+          #9a7040 50%,
+          #7a5830 100%
+        );
+      }
+
+      &::-webkit-scrollbar-thumb:active {
+        background: linear-gradient(
+          180deg,
+          #8a6030 0%,
+          #6a4820 50%,
+          #4a3010 100%
+        );
+      }
+
+      .tab-panel {
+        .panel-empty {
+          display: flex;
+          align-items: center;
+          gap: 14px;
+          padding: 18px 22px;
+          border-radius: 4px;
+          border: none;
+
+          // 浅纸面底色——均匀浅色，微妙竹纹
+          background:
+            repeating-linear-gradient(
+              90deg,
+              rgb(74 40 16 / 4%) 0%,
+              rgb(74 40 16 / 4%) 1px,
+              transparent 1px,
+              transparent 6px
+            ),
+            linear-gradient(135deg, #f0e0c8 0%, #e0d0b0 100%);
+
+          // 卷轴端饰边框——深色线条勾勒
+          box-shadow:
+            inset 0 0 0 1px #8a6030,
+            inset 0 0 0 2px #f5e8c8,
+            inset 0 0 0 3px #8a6030,
+            inset 0 2px 4px #fff8e0,
+            inset 0 -2px 4px #c8a878,
+            0 4px 10px rgb(0 0 0 / 15%),
+            0 1px 2px rgb(0 0 0 / 8%);
+
+          .empty-seal {
+            width: 38px;
+            height: 38px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: 800;
+            color: #fff0dc;
+            font-family: STKaiti, KaiTi, serif;
+            border: none;
+            transform: rotate(-5deg);
+
+            // 朱砂印章——均匀深红底色
+            background: linear-gradient(135deg, #c8523f 0%, #8f1f1f 100%);
+            box-shadow:
+              0 4px 10px #8f1f1f,
+              inset 0 0 0 1px #fff0dc,
+              inset 0 0 0 2px #8f1f1f,
+              inset 0 0 0 3px #fff0dc,
+              inset 0 2px 3px #e06050,
+              inset 0 -2px 3px #640a05;
+            text-shadow: 0 1px 2px #640a05;
+          }
+
+          .empty-label {
+            font-size: 17px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #3a2010;
+            font-family: STKaiti, KaiTi, serif;
+            text-shadow: 0 1px 0 #fff8e0;
+          }
+        }
+      }
+    }
+  }
+}

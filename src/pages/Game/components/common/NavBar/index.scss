@@ -1,10 +1,12 @@
+@use 'sass:color';
+
 $steam-blue: #66c0f4;
 $steam-dark: #1b2838;
 $steam-darker: #171a21;
 $steam-top: #2a475e;
 $text-primary: #c7d5e0;
 $text-secondary: #8f98a0;
-$text-bright: #ffffff;
+$text-bright: #fff;
 $green: #4c6b22;
 $green-text: #a4d007;
 
@@ -16,7 +18,12 @@ $green-text: #a4d007;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
 
   &__top {
-    background: linear-gradient(to right, $steam-darker 0%, #1e3a4f 50%, $steam-darker 100%);
+    background: linear-gradient(
+      to right,
+      $steam-darker 0%,
+      #1e3a4f 50%,
+      $steam-darker 100%
+    );
   }
 
   &__inner {
@@ -114,7 +121,9 @@ $green-text: #a4d007;
 
     &:focus-within {
       border-color: $steam-blue;
-      box-shadow: 0 0 0 2px rgba($steam-blue, 0.15), 0 0 16px rgba($steam-blue, 0.2);
+      box-shadow:
+        0 0 0 2px rgba($steam-blue, 0.15),
+        0 0 16px rgba($steam-blue, 0.2);
       background: rgba(0, 0, 0, 0.4);
     }
 
@@ -139,7 +148,9 @@ $green-text: #a4d007;
       width: 220px;
     }
 
-    &::placeholder { color: rgba(143, 152, 160, 0.6); }
+    &::placeholder {
+      color: rgba(143, 152, 160, 0.6);
+    }
   }
 
   &__search-btn {
@@ -214,7 +225,7 @@ $green-text: #a4d007;
     height: 16px;
     padding: 0 4px;
     background: #ef4444;
-    color: #ffffff;
+    color: #fff;
     font-size: 10px;
     font-weight: 700;
     border-radius: 8px;
@@ -229,6 +240,7 @@ $green-text: #a4d007;
         transform: scale(0);
         opacity: 0;
       }
+
       to {
         transform: scale(1);
         opacity: 1;
@@ -249,7 +261,9 @@ $green-text: #a4d007;
     margin: 0 auto;
     overflow-x: auto;
 
-    &::-webkit-scrollbar { height: 0; }
+    &::-webkit-scrollbar {
+      height: 0;
+    }
   }
 
   &__cat {
@@ -293,7 +307,7 @@ $green-text: #a4d007;
       text-shadow: 0 0 8px rgba($steam-blue, 0.4);
 
       &:hover {
-        border-bottom-color: lighten($steam-blue, 10%);
+        border-bottom-color: color.adjust($steam-blue, $lightness: 10%);
       }
     }
   }

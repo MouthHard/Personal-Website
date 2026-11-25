@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import SparklesIcon from '../../../../../icons/common/SparklesIcon.vue';
-import FoodEmptyState from '../../../components/FoodEmptyState/index.vue';
+  import SparklesIcon from '../../../../../icons/common/SparklesIcon.vue';
 
-defineProps<{
-  tips: { question: string; answer: string }[];
-}>();
+  defineProps<{
+    tips: { question: string; answer: string }[];
+  }>();
 </script>
 
 <template>
@@ -14,11 +13,7 @@ defineProps<{
       <span>避坑小贴士</span>
     </h3>
     <div class="hazard-matrix">
-      <article
-        v-for="(tip, i) in tips"
-        :key="tip.question"
-        class="hazard-cell"
-      >
+      <article v-for="(tip, i) in tips" :key="tip.question" class="hazard-cell">
         <div class="cell-crystal-column">
           <div class="crystal-hex crystal-hex-top"></div>
           <div class="crystal-link"></div>

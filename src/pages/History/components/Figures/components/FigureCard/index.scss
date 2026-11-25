@@ -90,7 +90,7 @@
           .header-text {
             font-size: 12px;
             font-weight: 600;
-            color: #000000;
+            color: #000;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
@@ -117,7 +117,7 @@
           .figure-name {
             font-size: 24px;
             font-weight: bolder;
-            color: #000000;
+            color: #000;
             margin: 10px 0 5px;
             text-shadow:
               0 2px 4px rgba(0, 0, 0, 0.1),
@@ -290,7 +290,7 @@
                     #b88646,
                     #6f440e
                   );
-                  color: #000000;
+                  color: #000;
                   font-style: italic;
                   box-shadow:
                     0 3px 6px rgba(0, 0, 0, 0.5),
@@ -340,13 +340,13 @@
 
               &.detail-btn {
                 background: linear-gradient(135deg, #f9e090, #e6b868, #d4a050);
-                color: #000000;
+                color: #000;
                 border: 1px solid rgba(218, 165, 32, 0.6);
               }
 
               &.flip-btn {
                 background: linear-gradient(135deg, #d4a76a, #b88646, #9d6c30);
-                color: #000000;
+                color: #000;
                 border: 1px solid rgba(139, 69, 19, 0.6);
               }
 
@@ -373,7 +373,7 @@
         border: 2px solid #8b4513;
         border-right: none;
         border-bottom: none;
-        border-radius: 12px 0 12px 0;
+        border-radius: 12px 0;
         background: linear-gradient(
           135deg,
           #f9f1e3 0%,
@@ -398,7 +398,6 @@
 
     /* 背面 */
     .card-back {
-      position: absolute;
       inset: 0;
       backface-visibility: hidden;
       transform: rotateY(180deg);
@@ -447,13 +446,13 @@
 
           &.back-detail-btn {
             background: linear-gradient(135deg, #f9e090, #e6b868, #d4a050);
-            color: #000000;
+            color: #000;
             border: 1px solid rgba(218, 165, 32, 0.6);
           }
 
           &.back-flip-btn {
             background: linear-gradient(135deg, #d4a76a, #b88646, #9d6c30);
-            color: #000000;
+            color: #000;
             border: 1px solid rgba(139, 69, 19, 0.6);
           }
 

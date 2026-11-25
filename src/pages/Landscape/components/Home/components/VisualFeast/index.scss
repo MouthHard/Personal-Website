@@ -1,175 +1,587 @@
-.visual-feast-section {
+@property --aurora-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
 
+@keyframes feast-ring-aurora {
+  to {
+    --aurora-angle: 360deg;
+  }
+}
+
+// 已选中态：液态极光核。平滑旋转光环 + 宝石内核，和常态的星尘刻度形成材质区分
+@mixin feast-ring-active-core {
+  background:
+    radial-gradient(circle, rgba(9, 7, 15, 0.92) 0 46%, transparent 60%),
+    conic-gradient(
+      from var(--aurora-angle, 0deg),
+      transparent 0deg,
+      rgba(var(--tint), 0.18) 48deg,
+      rgba(var(--tint), 0.9) 100deg,
+      rgba(255, 255, 255, 0.92) 130deg,
+      rgba(var(--tint), 0.85) 162deg,
+      transparent 224deg,
+      transparent 300deg,
+      rgba(var(--tint), 0.42) 344deg,
+      transparent 360deg
+    ),
+    radial-gradient(
+      circle at 42% 35%,
+      rgba(var(--tint), 0.58),
+      rgba(11, 8, 18, 0.98) 78%
+    );
+  border-color: rgba(var(--tint), 0.78);
+  box-shadow:
+    0 0 18px rgba(var(--tint), 0.52),
+    0 0 42px rgba(var(--tint), 0.24),
+    inset 0 0 12px rgba(var(--tint), 0.38),
+    inset 0 0 0 2px rgba(255, 255, 255, 0.12);
+  animation: feast-ring-aurora 7s linear infinite;
+}
+
+.visual-feast-section {
+  box-sizing: border-box;
   padding: 4rem 2rem;
-  max-width: 80vw;
+  max-width: 70vw;
   margin: 0 auto;
 
   .section-header {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 3rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid rgba(139, 92, 246, 0.15);
+    justify-content: center;
+    margin: 0 auto 3rem;
+    width: 100%;
+    max-width: 920px;
 
-    .header-left {
-      .title-label {
-        display: block;
-        font-size: 0.7rem;
-        font-weight: 600;
-        letter-spacing: 0.25em;
-        color: #ec4899;
-        margin-bottom: 0.5rem;
-        text-transform: uppercase;
-      }
-
-      .section-title {
-        font-size: 2.5rem;
-        font-weight: 800;
-        background: linear-gradient(
-          135deg,
-          #f8fafc 0%,
-          #f472b6 50%,
-          #ec4899 100%
-        );
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        margin: 0;
-        line-height: 1.2;
-      }
-
-      .section-subtitle {
-        font-size: 0.95rem;
-        color: #64748b;
-        margin: 0.5rem 0 0;
-        font-weight: 500;
-      }
-    }
-
-    .more-btn {
+    .header-plate {
+      position: relative;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.75rem 1.5rem;
-      background: transparent;
-      border: 1px solid rgba(236, 72, 153, 0.3);
-      border-radius: 8px;
-      color: #f472b6;
-      font-size: 0.9rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
+      justify-content: space-between;
+      gap: 3rem;
+      width: 100%;
+      padding: 1.35rem 2.4rem;
+      isolation: isolate;
 
       &::before {
         content: '';
         position: absolute;
         inset: 0;
+        z-index: -2;
         background: linear-gradient(
-          135deg,
-          rgba(236, 72, 153, 0.2),
-          rgba(244, 114, 182, 0.2)
+          112deg,
+          rgb(46 14 36 / 92%) 0%,
+          rgb(24 8 20 / 96%) 48%,
+          rgb(40 12 32 / 92%) 100%
         );
-        opacity: 0;
-        transition: opacity 0.3s ease;
+        border: 1px solid rgba(236, 72, 153, 0.32);
+        border-radius: 4px;
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.12),
+          inset 0 0 40px rgba(236, 72, 153, 0.12),
+          0 1px 0 rgb(0 0 0 / 60%),
+          0 16px 44px rgb(0 0 0 / 55%),
+          0 0 50px rgba(236, 72, 153, 0.18);
       }
 
-      svg {
-        width: 18px;
-        height: 18px;
-        transition: transform 0.3s ease;
-        position: relative;
-        z-index: 1;
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        border-top: 1px solid rgba(244, 114, 182, 0.55);
+        border-bottom: 1px solid rgba(236, 72, 153, 0.5);
+        border-radius: 4px;
+        pointer-events: none;
+        mask-image: linear-gradient(
+          90deg,
+          transparent,
+          #000 10%,
+          #000 90%,
+          transparent
+        );
+        -webkit-mask-image: linear-gradient(
+          90deg,
+          transparent,
+          #000 10%,
+          #000 90%,
+          transparent
+        );
       }
 
-      span {
-        position: relative;
-        z-index: 1;
+      .plate-glow {
+        position: absolute;
+        inset: -1px;
+        z-index: -1;
+        border-radius: 4px;
+        background: radial-gradient(
+          ellipse 55% 150% at 20% 0%,
+          rgba(236, 72, 153, 0.26),
+          transparent 62%
+        );
+        filter: blur(9px);
+        animation: feast-plate-breathe 5s ease-in-out infinite;
+        pointer-events: none;
       }
 
-      &:hover {
-        border-color: #ec4899;
-        color: #f8fafc;
-        box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
+      .plate-sheen-clip {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        overflow: hidden;
+        border-radius: 4px;
+        pointer-events: none;
 
-        &::before {
-          opacity: 1;
+        .plate-sheen {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          width: 28%;
+          background: linear-gradient(
+            100deg,
+            transparent,
+            rgba(244, 114, 182, 0.13) 50%,
+            transparent
+          );
+          transform: skewX(-22deg) translateX(-280%);
+          animation: feast-plate-sheen 7s ease-in-out infinite;
+        }
+      }
+
+      .plate-corner {
+        position: absolute;
+        width: 13px;
+        height: 13px;
+        pointer-events: none;
+        z-index: 3;
+
+        &.tl {
+          top: -2px;
+          left: -2px;
+          border-top: 2px solid #f472b6;
+          border-left: 2px solid #f472b6;
+          border-top-left-radius: 4px;
         }
 
-        svg {
-          transform: translateX(4px);
+        &.tr {
+          top: -2px;
+          right: -2px;
+          border-top: 2px solid #f472b6;
+          border-right: 2px solid #f472b6;
+          border-top-right-radius: 4px;
+        }
+
+        &.bl {
+          bottom: -2px;
+          left: -2px;
+          border-bottom: 2px solid #ec4899;
+          border-left: 2px solid #ec4899;
+          border-bottom-left-radius: 4px;
+        }
+
+        &.br {
+          bottom: -2px;
+          right: -2px;
+          border-bottom: 2px solid #ec4899;
+          border-right: 2px solid #ec4899;
+          border-bottom-right-radius: 4px;
         }
       }
 
-      &:active {
-        transform: scale(0.98);
+      .header-left {
+        display: flex;
+        align-items: center;
+        gap: 1.4rem;
+        min-width: 0;
+
+        .title-badge {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 4.2rem;
+          height: 4.2rem;
+          flex-shrink: 0;
+          border-radius: 10px;
+          background: linear-gradient(
+            145deg,
+            rgba(236, 72, 153, 0.32),
+            rgba(52, 8, 38, 0.5)
+          );
+          border: 1px solid rgba(244, 114, 182, 0.42);
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.18),
+            inset 0 -2px 5px rgba(0, 0, 0, 0.4),
+            0 5px 14px rgb(0 0 0 / 45%),
+            0 0 18px rgba(236, 72, 153, 0.3);
+
+          svg {
+            width: 2.6rem;
+            height: 2.6rem;
+            color: #f9a8d4;
+            filter: drop-shadow(0 0 6px rgba(236, 72, 153, 0.6));
+          }
+        }
+
+        .header-text {
+          min-width: 0;
+
+          .title-label {
+            display: block;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.25em;
+            color: #ec4899;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+          }
+
+          .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(
+              135deg,
+              #f8fafc 0%,
+              #f472b6 50%,
+              #ec4899 100%
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 0;
+            line-height: 1.2;
+          }
+
+          .section-subtitle {
+            font-size: 0.95rem;
+            color: #cbd5e1;
+            margin: 0.5rem 0 0;
+            font-weight: 500;
+          }
+        }
+      }
+
+      .plate-chapter {
+        font-family: 'Courier New', monospace;
+        font-size: 0.95rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        color: rgba(244, 114, 182, 0.7);
+        padding: 0.35rem 0.8rem;
+        border: 1px solid rgba(236, 72, 153, 0.25);
+        border-radius: 3px;
+        background: rgba(24, 8, 20, 0.5);
+        box-shadow: inset 0 1px 2px rgb(0 0 0 / 40%);
+        white-space: nowrap;
+      }
+
+      // 「更多」= 一段胶片画格：上下两排齿孔 + 片基厚度 + 尽头一枚粉光箭头徽
+      .more-btn {
+        position: relative;
+        display: inline-flex;
+        flex: 0 0 auto;
+        align-items: center;
+        gap: 0.8rem;
+        padding: 1.1rem 1.12rem 1.1rem 2rem;
+        border: 1px solid rgb(244 114 182 / 48%);
+        border-radius: 4px;
+        background:
+          linear-gradient(
+            100deg,
+            transparent 24%,
+            rgb(255 214 235 / 11%) 46%,
+            transparent 66%
+          ),
+          radial-gradient(
+            ellipse 72% 118% at 50% 58%,
+            rgb(158 54 100 / 40%),
+            transparent 72%
+          ),
+          linear-gradient(180deg, rgb(255 255 255 / 12%), transparent 38%),
+          linear-gradient(168deg, #5c2343 0%, #2d1022 55%, #170711 100%);
+        color: #ffe3f1;
+        font-family: inherit;
+        font-size: 1.1rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        white-space: nowrap;
+        cursor: pointer;
+        isolation: isolate;
+        box-shadow:
+          0 4px 0 #0c040a,
+          0 14px 26px -10px rgb(0 0 0 / 86%),
+          0 0 0 1px rgb(0 0 0 / 58%),
+          inset 0 1px 0 rgb(255 255 255 / 26%),
+          inset 0 -14px 20px -14px rgb(236 72 153 / 76%);
+        transition:
+          transform 0.28s cubic-bezier(0.34, 1.4, 0.64, 1),
+          border-color 0.28s ease,
+          box-shadow 0.28s ease;
+
+        // 齿孔：一排圆孔，压在片边暗带上，像真胶片边上的挂孔
+        .film-holes {
+          position: absolute;
+          right: 9px;
+          left: 9px;
+          height: 7px;
+          background-image:
+            radial-gradient(
+              circle at 4px 50%,
+              rgb(3 1 5 / 97%) 0 2.3px,
+              transparent 2.6px
+            ),
+            linear-gradient(180deg, rgb(0 0 0 / 34%), rgb(0 0 0 / 14%));
+          background-size:
+            8.5px 100%,
+            100% 100%;
+          background-repeat: repeat-x, no-repeat;
+          pointer-events: none;
+
+          &.top {
+            top: 2px;
+          }
+
+          &.bottom {
+            bottom: 2px;
+          }
+        }
+
+        .more-text {
+          position: relative;
+          z-index: 1;
+          text-shadow: 0 0 14px rgb(236 72 153 / 72%);
+        }
+
+        // 尽头箭头徽：一小枚金属片，箭头压在片上
+        .more-arrow {
+          position: relative;
+          display: grid;
+          flex: 0 0 auto;
+          place-items: center;
+          width: 30px;
+          height: 30px;
+          border: 1px solid rgb(255 200 226 / 58%);
+          border-radius: 3px;
+          background: linear-gradient(
+            160deg,
+            #f472b6 0%,
+            #be185d 58%,
+            #7a0f39 100%
+          );
+          box-shadow:
+            0 2px 0 #4d0722,
+            0 7px 14px -6px rgb(236 72 153 / 88%),
+            inset 0 1px 0 rgb(255 255 255 / 52%),
+            inset 0 -3px 6px -3px rgb(60 2 26 / 76%);
+          transition:
+            transform 0.28s ease,
+            box-shadow 0.28s ease;
+
+          svg {
+            width: 17px;
+            height: 17px;
+            color: #fff;
+            filter: drop-shadow(0 1px 1px rgb(80 4 32 / 72%));
+            transition: transform 0.28s ease;
+          }
+        }
+
+        &:hover,
+        &:focus-visible {
+          border-color: rgb(249 168 212 / 92%);
+          transform: translateY(-2px);
+          box-shadow:
+            0 6px 0 #0c040a,
+            0 22px 32px -12px rgb(0 0 0 / 88%),
+            0 0 0 1px rgb(0 0 0 / 58%),
+            0 0 30px -4px rgb(236 72 153 / 82%),
+            inset 0 1px 0 rgb(255 255 255 / 32%),
+            inset 0 -14px 20px -14px rgb(236 72 153 / 92%);
+
+          // 卷片：齿孔匀速爬行，像胶片在过片
+          .film-holes {
+            animation: feast-film-run 0.85s linear infinite;
+          }
+
+          .more-arrow {
+            transform: translateX(3px);
+            box-shadow:
+              0 3px 0 #4d0722,
+              0 9px 18px -6px rgb(236 72 153 / 100%),
+              inset 0 1px 0 rgb(255 255 255 / 60%),
+              inset 0 -3px 6px -3px rgb(60 2 26 / 76%);
+          }
+
+          .more-arrow svg {
+            transform: translateX(1px);
+          }
+        }
+
+        &:active {
+          transform: translateY(1px);
+          box-shadow:
+            0 1px 0 #0c040a,
+            0 6px 14px -8px rgb(0 0 0 / 84%),
+            0 0 0 1px rgb(0 0 0 / 58%),
+            inset 0 2px 6px rgb(0 0 0 / 58%),
+            inset 0 -10px 16px -14px rgb(236 72 153 / 60%);
+
+          .more-arrow {
+            transform: translateX(3px) translateY(1px);
+            box-shadow:
+              0 1px 0 #4d0722,
+              inset 0 1px 0 rgb(255 255 255 / 44%);
+          }
+        }
+
+        &:focus-visible {
+          outline: 2px solid rgb(249 168 212 / 82%);
+          outline-offset: 3px;
+        }
       }
     }
   }
 
   .masonry-grid {
-    column-count: 4;
-    column-gap: 12px;
+    // 三列：卡片变宽后才放得下放大的标题、定位与六个数据环
+    column-count: 3;
+    column-gap: 16px;
 
     .masonry-item {
       break-inside: avoid;
-      margin-bottom: 12px;
+      margin-bottom: 16px;
       animation: card-fade-in 0.8s ease-out backwards;
       animation-delay: var(--delay);
 
       .image-card {
+        // 数据环尺寸统一走变量，窄屏好整体收一档
+        --ring-size: 36px;
+        --ring-icon: 17px;
+        --ring-val: 0.82rem;
+        --ring-gap: 0.3rem;
+
         position: relative;
-        border-radius: 12px;
+        border-radius: 16px;
         overflow: hidden;
         cursor: pointer;
-        background: rgba(15, 23, 42, 0.6);
-        border: 1px solid rgba(236, 72, 153, 0.15);
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        background: #120c18;
+        border: 1px solid rgba(236, 72, 153, 0.3);
+        box-shadow:
+          0 2px 6px rgba(0, 0, 0, 0.55),
+          0 12px 26px -14px rgba(0, 0, 0, 0.9);
+        transition:
+          transform 0.5s cubic-bezier(0.2, 0.9, 0.25, 1),
+          box-shadow 0.5s ease,
+          border-color 0.4s ease;
 
-        &::before {
+        // 装裱卡纸：一圈压在照片上的深色内衬 + 金属压边，画框感来自这里
+        &::after {
           content: '';
           position: absolute;
           inset: 0;
-          background: linear-gradient(
-            135deg,
-            rgba(236, 72, 153, 0.1),
-            transparent
-          );
-          opacity: 0;
-          transition: opacity 0.3s ease;
+          border-radius: inherit;
+          z-index: 5;
           pointer-events: none;
-          z-index: 1;
+          box-shadow:
+            inset 0 0 0 6px rgba(18, 12, 24, 0.94),
+            inset 0 0 0 7px rgba(236, 72, 153, 0.34),
+            inset 0 0 0 8px rgba(255, 255, 255, 0.07),
+            inset 0 0 0 11px rgba(0, 0, 0, 0.6),
+            inset 0 16px 22px -16px rgba(0, 0, 0, 0.92);
+        }
+
+        // 玻璃罩顶部常驻的一道薄反光
+        &::before {
+          content: '';
+          position: absolute;
+          inset: 11px 11px auto;
+          height: 42%;
+          background: linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.11),
+            rgba(255, 255, 255, 0) 100%
+          );
+          border-radius: 8px 8px 40% 40%;
+          opacity: 0.7;
+          pointer-events: none;
+          z-index: 3;
+          transition: opacity 0.4s ease;
         }
 
         &:hover {
-          transform: translateY(-6px);
-          border-color: rgba(236, 72, 153, 0.4);
+          transform: translateY(-10px);
+          border-color: rgba(236, 72, 153, 0.6);
           box-shadow:
-            0 15px 40px rgba(0, 0, 0, 0.4),
-            0 0 25px rgba(236, 72, 153, 0.2);
+            0 3px 8px rgba(0, 0, 0, 0.5),
+            0 28px 52px -18px rgba(0, 0, 0, 0.95),
+            0 0 36px -8px rgba(236, 72, 153, 0.42);
 
           &::before {
-            opacity: 1;
+            opacity: 0.25;
+          }
+
+          .glass-sheen {
+            animation: glass-sweep 1.15s cubic-bezier(0.25, 0.6, 0.3, 1);
           }
 
           .image-overlay {
-            opacity: 1;
+            // 底部多留一截，把整块内容抬离画框内衬的压边线，数字不再被切过
+            padding-bottom: 2.5rem;
+            background: linear-gradient(
+              to top,
+              rgba(8, 5, 12, 0.97) 0%,
+              rgba(8, 5, 12, 0.82) 36%,
+              rgba(8, 5, 12, 0.36) 62%,
+              transparent 86%
+            );
 
-            .overlay-content {
+            .overlay-content .action-rings {
+              max-height: 108px;
+              opacity: 1;
               transform: translateY(0);
+              margin-top: 0.85rem;
+
+              // 上下左右留出光晕扩散的空间，overflow 的裁切边界才不会削平环的外圈
+              padding: 0.55rem 0.4rem;
+              overflow: visible;
             }
           }
 
           .image-badge {
-            transform: translateY(0);
-            opacity: 1;
+            transform: translateY(-2px);
+            border-color: rgba(236, 72, 153, 0.8);
+            box-shadow:
+              inset 0 1px 0 rgba(255, 255, 255, 0.22),
+              inset 0 0 14px rgba(236, 72, 153, 0.32),
+              0 4px 0 rgba(88, 10, 44, 0.85),
+              0 14px 24px -8px rgba(0, 0, 0, 0.9),
+              0 0 24px -4px rgba(236, 72, 153, 0.7);
           }
 
-          .image-container img {
-            transform: scale(1.08);
+          .image-container :deep(img) {
+            transform: scale(1.09);
           }
+        }
+
+        // 玻璃罩扫光：hover 时一道斜光从左上掠到右下
+        .glass-sheen {
+          position: absolute;
+          inset: 11px;
+          z-index: 3;
+          border-radius: 8px;
+          pointer-events: none;
+          opacity: 0;
+          background: linear-gradient(
+            104deg,
+            transparent 34%,
+            rgba(255, 255, 255, 0.03) 41%,
+            rgba(255, 255, 255, 0.42) 48%,
+            rgba(255, 220, 240, 0.16) 53%,
+            transparent 62%
+          );
+          background-size: 250% 100%;
+          background-position: 130% 0;
         }
 
         .image-container {
@@ -178,7 +590,7 @@
           height: var(--card-height, 280px);
           overflow: hidden;
 
-          img {
+          :deep(img) {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -191,84 +603,126 @@
           inset: 0;
           background: linear-gradient(
             to top,
-            rgba(0, 0, 0, 0.9) 0%,
-            rgba(0, 0, 0, 0.4) 50%,
-            transparent 100%
+            rgba(8, 5, 12, 0.92) 0%,
+            rgba(8, 5, 12, 0.62) 26%,
+            rgba(8, 5, 12, 0.12) 50%,
+            transparent 72%
           );
           display: flex;
           align-items: flex-end;
-          padding: 1.25rem;
-          opacity: 0;
-          transition: all 0.3s ease;
+          padding: 1.6rem 1.4rem;
           z-index: 2;
+          transition:
+            background 0.4s ease,
+            padding-bottom 0.42s cubic-bezier(0.2, 0.9, 0.25, 1);
 
           .overlay-content {
             width: 100%;
-            transform: translateY(15px);
-            transition: transform 0.3s ease;
 
             h3 {
-              font-size: 1rem;
-              font-weight: 700;
-              color: #f8fafc;
-              margin: 0 0 0.375rem;
-              line-height: 1.3;
-              text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+              font-size: 1.34rem;
+              font-weight: 800;
+              letter-spacing: 0.01em;
+              color: #fff;
+              margin: 0 0 0.42rem;
+              line-height: 1.28;
+              text-shadow:
+                0 2px 12px rgba(0, 0, 0, 0.85),
+                0 0 1px rgba(0, 0, 0, 0.9);
             }
 
             .location {
-              color: #cbd5e1;
-              font-size: 0.8rem;
-              margin: 0 0 0.4rem;
+              color: rgba(240, 232, 242, 0.88);
+              font-size: 0.92rem;
+              margin: 0;
               font-weight: 600;
+              line-height: 1.3;
               display: flex;
               align-items: center;
-              gap: 0.375rem;
+              gap: 0.4rem;
+              text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8);
 
+              svg {
+                width: 16px;
+                height: 16px;
+                flex-shrink: 0;
+                color: #f9a8d4;
+              }
             }
 
             .action-rings {
               display: flex;
               align-items: center;
               justify-content: center;
-              gap: 0.5rem;
-              margin-top: 0.6rem;
+              gap: var(--ring-gap);
+              max-height: 0;
+              margin-top: 0;
+              padding: 0;
+              opacity: 0;
+              overflow: hidden;
               position: relative;
-              padding: 0.3rem 0;
+              transform: translateY(10px);
+              transition:
+                max-height 0.45s cubic-bezier(0.2, 0.9, 0.25, 1),
+                opacity 0.3s ease,
+                transform 0.4s ease,
+                margin-top 0.4s ease,
+                padding 0.42s ease;
 
+              .ring-node {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.2rem;
+                background: none;
+                border: none;
+                padding: 0;
+                cursor: pointer;
+                outline: none;
+                z-index: 1;
+                -webkit-tap-highlight-color: transparent;
 
-                .ring-node {
+                .ring-body {
                   position: relative;
-                  display: flex;
-                  flex-direction: column;
-                  align-items: center;
-                  gap: 0.2rem;
-                  background: none;
-                  border: none;
-                  padding: 0;
-                  cursor: pointer;
-                  outline: none;
-                  z-index: 1;
-                  -webkit-tap-highlight-color: transparent;
-
-                  .ring-body {
-                  position: relative;
-                  width: 28px;
-                  height: 28px;
+                  width: var(--ring-size);
+                  height: var(--ring-size);
                   border-radius: 50%;
                   display: flex;
                   align-items: center;
                   justify-content: center;
-                  background: radial-gradient(
-                    circle at 40% 35%,
-                    rgba(30, 41, 59, 0.95),
-                    rgba(15, 23, 42, 0.98)
-                  );
-                  border: 1.5px solid rgba(148, 163, 184, 0.12);
+
+                  // 镜头对焦环刻度：30 格分布，比最初的 45 格稀、比上一版 20 格密，颜色跟随各按钮主题色
+                  --tint: 148, 163, 184;
+
+                  background:
+                    // 中心遮罩：盖住内圈的刻度，给中间 icon 留一圈干净的镜筒
+                    radial-gradient(
+                        circle,
+                        rgba(16, 11, 22, 0.98) 0%,
+                        rgba(16, 11, 22, 0.98) 56%,
+                        transparent 60%
+                      )
+                      border-box,
+                    // 刻度层：只在遮罩外的边缘环带露出
+                    repeating-conic-gradient(
+                        from 0deg,
+                        rgba(var(--tint), 0.62) 0deg 1deg,
+                        transparent 1deg 12deg
+                      )
+                      border-box,
+                    radial-gradient(
+                        circle at 40% 35%,
+                        rgba(30, 41, 59, 0.95),
+                        rgba(15, 23, 42, 0.98)
+                      )
+                      padding-box;
+                  border: 2px solid rgba(148, 163, 184, 0.14);
                   transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
                   box-shadow:
-                    0 0 6px rgba(148, 163, 184, 0.05),
-                    inset 0 0 6px rgba(148, 163, 184, 0.03);
+                    0 0 8px rgba(148, 163, 184, 0.07),
+                    inset 0 0 8px rgba(148, 163, 184, 0.04),
+                    inset 0 0 0 3px rgba(10, 8, 16, 0.92);
 
                   &::before {
                     content: '';
@@ -294,8 +748,8 @@
                   }
 
                   svg {
-                    width: 13px;
-                    height: 13px;
+                    width: var(--ring-icon);
+                    height: var(--ring-icon);
                     flex-shrink: 0;
                     position: relative;
                     z-index: 1;
@@ -305,12 +759,12 @@
                 }
 
                 .ring-val {
-                  font-size: 0.5rem;
-                  font-weight: 700;
+                  font-size: var(--ring-val);
+                  font-weight: 800;
                   font-variant-numeric: tabular-nums;
                   line-height: 1;
-                  letter-spacing: 0.04em;
-                  opacity: 0.55;
+                  letter-spacing: 0.02em;
+                  opacity: 0.9;
                   transition: all 0.35s ease;
                   transform: translateY(1px);
                 }
@@ -365,8 +819,12 @@
                   cursor: default;
 
                   .ring-body {
+                    --tint: 244, 114, 182;
+
                     border-color: rgba(244, 114, 182, 0.35);
-                    box-shadow: 0 0 16px rgba(244, 114, 182, 0.22), 0 0 32px rgba(244, 114, 182, 0.1);
+                    box-shadow:
+                      0 0 16px rgba(244, 114, 182, 0.22),
+                      0 0 32px rgba(244, 114, 182, 0.1);
                     transform: rotate(-2deg);
 
                     &::before {
@@ -411,14 +869,16 @@
                       }
                     }
                   }
-
                 }
 
                 &.r-like {
-
                   .ring-body {
+                    --tint: 6, 182, 212;
+
                     border-color: rgba(6, 182, 212, 0.35);
-                    box-shadow: 0 0 16px rgba(6, 182, 212, 0.2), 0 0 32px rgba(6, 182, 212, 0.1);
+                    box-shadow:
+                      0 0 16px rgba(6, 182, 212, 0.2),
+                      0 0 32px rgba(6, 182, 212, 0.1);
                     transform: rotate(1.5deg);
 
                     &::before {
@@ -468,13 +928,7 @@
 
                   &.active {
                     .ring-body {
-                      background: radial-gradient(
-                        circle at 40% 35%,
-                        rgba(6, 182, 212, 0.55),
-                        rgba(6, 182, 212, 0.3)
-                      );
-                      border-color: rgba(6, 182, 212, 0.7);
-                      box-shadow: 0 0 20px rgba(6, 182, 212, 0.45);
+                      @include feast-ring-active-core;
 
                       svg {
                         color: #22d3ee;
@@ -490,10 +944,13 @@
                 }
 
                 &.r-love {
-
                   .ring-body {
+                    --tint: 239, 68, 68;
+
                     border-color: rgba(239, 68, 68, 0.35);
-                    box-shadow: 0 0 16px rgba(239, 68, 68, 0.22), 0 0 32px rgba(239, 68, 68, 0.1);
+                    box-shadow:
+                      0 0 16px rgba(239, 68, 68, 0.22),
+                      0 0 32px rgba(239, 68, 68, 0.1);
                     transform: rotate(-1deg);
 
                     &::before {
@@ -543,13 +1000,7 @@
 
                   &.active {
                     .ring-body {
-                      background: radial-gradient(
-                        circle at 40% 35%,
-                        rgba(239, 68, 68, 0.55),
-                        rgba(239, 68, 68, 0.3)
-                      );
-                      border-color: rgba(239, 68, 68, 0.7);
-                      box-shadow: 0 0 20px rgba(239, 68, 68, 0.45);
+                      @include feast-ring-active-core;
 
                       svg {
                         color: #fb7185;
@@ -565,10 +1016,13 @@
                 }
 
                 &.r-bookmark {
-
                   .ring-body {
+                    --tint: 16, 185, 129;
+
                     border-color: rgba(16, 185, 129, 0.35);
-                    box-shadow: 0 0 16px rgba(16, 185, 129, 0.22), 0 0 32px rgba(16, 185, 129, 0.1);
+                    box-shadow:
+                      0 0 16px rgba(16, 185, 129, 0.22),
+                      0 0 32px rgba(16, 185, 129, 0.1);
                     transform: rotate(-1deg);
 
                     &::before {
@@ -618,13 +1072,7 @@
 
                   &.active {
                     .ring-body {
-                      background: radial-gradient(
-                        circle at 40% 35%,
-                        rgba(16, 185, 129, 0.55),
-                        rgba(16, 185, 129, 0.3)
-                      );
-                      border-color: rgba(16, 185, 129, 0.7);
-                      box-shadow: 0 0 20px rgba(16, 185, 129, 0.45);
+                      @include feast-ring-active-core;
 
                       svg {
                         color: #34d399;
@@ -640,86 +1088,85 @@
                 }
 
                 &.r-share {
-
                   .ring-body {
-                    border-color: rgba(6, 182, 212, 0.35);
-                    box-shadow: 0 0 16px rgba(6, 182, 212, 0.22), 0 0 32px rgba(6, 182, 212, 0.1);
+                    --tint: 167, 139, 250;
+
+                    border-color: rgba(167, 139, 250, 0.35);
+                    box-shadow:
+                      0 0 16px rgba(167, 139, 250, 0.22),
+                      0 0 32px rgba(167, 139, 250, 0.1);
                     transform: rotate(1deg);
 
                     &::before {
-                      border-color: rgba(6, 182, 212, 0.28);
+                      border-color: rgba(167, 139, 250, 0.28);
                     }
 
                     &::after {
                       background: radial-gradient(
                         circle,
-                        rgba(6, 182, 212, 0.5),
+                        rgba(167, 139, 250, 0.5),
                         transparent 70%
                       );
                     }
 
                     svg {
-                      color: #22d3ee;
-                      filter: drop-shadow(0 0 3px rgba(6, 182, 212, 0.4));
+                      color: #a78bfa;
+                      filter: drop-shadow(0 0 3px rgba(167, 139, 250, 0.4));
                     }
                   }
 
                   .ring-val {
-                    color: #67e8f9;
+                    color: #c4b5fd;
                   }
 
                   &:hover {
                     .ring-body {
                       transform: scale(1.15) rotate(1deg);
                       box-shadow:
-                        0 0 24px rgba(6, 182, 212, 0.45),
-                        0 0 48px rgba(6, 182, 212, 0.22),
-                        0 0 72px rgba(6, 182, 212, 0.12);
-                      border-color: rgba(6, 182, 212, 0.65);
+                        0 0 24px rgba(167, 139, 250, 0.45),
+                        0 0 48px rgba(167, 139, 250, 0.22),
+                        0 0 72px rgba(167, 139, 250, 0.12);
+                      border-color: rgba(167, 139, 250, 0.65);
 
                       &::before {
                         border-color: inherit;
                         opacity: 1;
                         inset: -5px;
-                        box-shadow: 0 0 14px rgba(6, 182, 212, 0.2);
+                        box-shadow: 0 0 14px rgba(167, 139, 250, 0.2);
                       }
 
                       svg {
                         color: #fff;
-                        filter: drop-shadow(0 0 8px rgba(6, 182, 212, 0.9));
+                        filter: drop-shadow(0 0 8px rgba(167, 139, 250, 0.9));
                       }
                     }
                   }
 
                   &.active {
                     .ring-body {
-                      background: radial-gradient(
-                        circle at 40% 35%,
-                        rgba(6, 182, 212, 0.55),
-                        rgba(6, 182, 212, 0.3)
-                      );
-                      border-color: rgba(6, 182, 212, 0.7);
-                      box-shadow: 0 0 20px rgba(6, 182, 212, 0.45);
+                      @include feast-ring-active-core;
 
                       svg {
-                        color: #22d3ee;
-                        filter: drop-shadow(0 0 6px rgba(6, 182, 212, 0.7));
+                        color: #a78bfa;
+                        filter: drop-shadow(0 0 6px rgba(167, 139, 250, 0.7));
                       }
                     }
 
                     .ring-val {
-                      color: #22d3ee;
+                      color: #a78bfa;
                       opacity: 1;
                     }
                   }
                 }
 
-
                 &.r-download {
-
                   .ring-body {
+                    --tint: 59, 130, 246;
+
                     border-color: rgba(59, 130, 246, 0.35);
-                    box-shadow: 0 0 16px rgba(59, 130, 246, 0.22), 0 0 32px rgba(59, 130, 246, 0.1);
+                    box-shadow:
+                      0 0 16px rgba(59, 130, 246, 0.22),
+                      0 0 32px rgba(59, 130, 246, 0.1);
                     transform: rotate(-1.5deg);
 
                     &::before {
@@ -769,13 +1216,7 @@
 
                   &.active {
                     .ring-body {
-                      background: radial-gradient(
-                        circle at 40% 35%,
-                        rgba(59, 130, 246, 0.55),
-                        rgba(59, 130, 246, 0.3)
-                      );
-                      border-color: rgba(59, 130, 246, 0.7);
-                      box-shadow: 0 0 20px rgba(59, 130, 246, 0.45);
+                      @include feast-ring-active-core;
 
                       svg {
                         color: #60a5fa;
@@ -789,42 +1230,588 @@
                     }
                   }
                 }
-
               }
             }
           }
         }
 
+        // 分类铭牌：深色玻璃底 + 品红发光边 + 宝石指示点，呼应装裱画框的质感
         .image-badge {
           position: absolute;
-          top: 0.75rem;
-          left: 0.75rem;
-          padding: 0.375rem 0.75rem;
-          background: linear-gradient(135deg, #ec4899, #db2777);
+          top: 1rem;
+          left: 1rem;
+          z-index: 4;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.42rem;
+          padding: 0.4rem 0.78rem;
+          color: #ffe6f2;
+          font-size: 0.76rem;
+          font-weight: 800;
+          letter-spacing: 0.08em;
           border-radius: 6px;
-          color: white;
-          font-size: 0.7rem;
-          font-weight: 700;
-          transform: translateY(-10px);
-          opacity: 0;
-          transition: all 0.3s ease;
-          z-index: 3;
+          background: linear-gradient(
+            160deg,
+            rgba(52, 10, 33, 0.92),
+            rgba(22, 6, 16, 0.94)
+          );
+          border: 1px solid rgba(236, 72, 153, 0.5);
+          backdrop-filter: blur(8px);
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.16),
+            inset 0 0 12px rgba(236, 72, 153, 0.2),
+            0 3px 0 rgba(88, 10, 44, 0.85),
+            0 10px 20px -8px rgba(0, 0, 0, 0.9),
+            0 0 18px -6px rgba(236, 72, 153, 0.55);
+          transition: all 0.35s ease;
+
+          // 左侧宝石指示点
+          &::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #fff, #f472b6 70%);
+            box-shadow:
+              0 0 8px rgba(244, 114, 182, 0.9),
+              inset 0 -1px 1px rgba(0, 0, 0, 0.3);
+          }
+
+          // 顶部镜面高光
+          &::after {
+            content: '';
+            position: absolute;
+            inset: 1px 1px auto;
+            height: 45%;
+            border-radius: 5px 5px 50% 50%;
+            background: linear-gradient(
+              180deg,
+              rgba(255, 255, 255, 0.14),
+              transparent
+            );
+            pointer-events: none;
+          }
         }
       }
     }
-  
 
-  @keyframes card-fade-in {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
+    @keyframes glass-sweep {
+      0% {
+        opacity: 0;
+        background-position: 130% 0;
+      }
+
+      15% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+        background-position: -60% 0;
+      }
     }
 
-    to {
-      opacity: 1;
-      transform: translateY(0);
+    @keyframes card-fade-in {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  } // 闭合 .masonry-grid
+
+  // —— 片尾引带：抽出一段新底片 / 把底片卷回画册 ——
+  .feast-toggle {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.9rem;
+    padding: 0 0.2rem;
+
+    .toggle-rail {
+      position: relative;
+      flex: 1 1 auto;
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        rgb(236 72 153 / 8%),
+        rgb(236 72 153 / 40%) 58%,
+        rgb(249 168 212 / 78%)
+      );
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: -2px;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        transform: translateY(-50%);
+        background: radial-gradient(
+          circle at 34% 28%,
+          #ffd9ee,
+          #d1478a 55%,
+          #3c0a23 100%
+        );
+        box-shadow: 0 0 8px rgb(236 72 153 / 55%);
+      }
+
+      &.right {
+        transform: scaleX(-1);
+      }
+    }
+
+    .feast-tab {
+      position: relative;
+      display: inline-flex;
+      flex: 0 0 auto;
+      align-items: center;
+      gap: 0.9rem;
+      padding: 1.05rem 1.75rem 1.05rem 1rem;
+      border: 1px solid rgb(244 114 182 / 50%);
+      border-radius: 4px;
+      background:
+        radial-gradient(
+          ellipse 68% 120% at 50% 62%,
+          rgb(163 50 100 / 34%),
+          transparent 76%
+        ),
+        linear-gradient(180deg, rgb(255 255 255 / 12%), transparent 30%),
+        linear-gradient(168deg, #52203b 0%, #2a0f21 58%, #150710 100%);
+      color: #ffe3f1;
+      font-family: inherit;
+      white-space: nowrap;
+      cursor: pointer;
+      isolation: isolate;
+      box-shadow:
+        0 3px 0 #0b0409,
+        0 16px 28px -12px rgb(0 0 0 / 88%),
+        0 0 0 1px rgb(0 0 0 / 55%),
+        inset 0 1px 0 rgb(255 255 255 / 26%),
+        inset 0 -14px 20px -14px rgb(236 72 153 / 80%);
+      transition:
+        transform 0.28s cubic-bezier(0.34, 1.4, 0.64, 1),
+        border-color 0.28s ease,
+        box-shadow 0.28s ease;
+
+      // 上下两排齿孔，和「更多」那片胶片同一套孔距
+      .tab-holes {
+        position: absolute;
+        right: 10px;
+        left: 10px;
+        height: 9px;
+        background-image:
+          radial-gradient(
+            circle at 4.5px 50%,
+            rgb(3 1 5 / 97%) 0 2.6px,
+            transparent 2.9px
+          ),
+          linear-gradient(180deg, rgb(0 0 0 / 40%), rgb(0 0 0 / 16%));
+        background-size:
+          9px 100%,
+          100% 100%;
+        background-repeat: repeat-x, no-repeat;
+        pointer-events: none;
+
+        &.top {
+          top: 2.5px;
+        }
+
+        &.bottom {
+          bottom: 2.5px;
+        }
+      }
+
+      .tab-badge {
+        position: relative;
+        display: grid;
+        flex: 0 0 auto;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        border: 1px solid rgb(255 200 226 / 62%);
+        border-radius: 50%;
+        background: radial-gradient(
+          circle at 36% 26%,
+          #f9a8d4 0%,
+          #db2777 46%,
+          #9d1550 74%,
+          #5f0a2d 100%
+        );
+        box-shadow:
+          inset 0 1px 0 rgb(255 255 255 / 60%),
+          inset 0 -3px 6px -2px rgb(60 2 26 / 70%),
+          0 2px 0 #3f0619,
+          0 0 18px -3px rgb(236 72 153 / 78%);
+        transition: box-shadow 0.28s ease;
+
+        svg {
+          position: relative;
+          z-index: 1;
+          width: 16px;
+          height: 16px;
+          color: #fff;
+          filter: drop-shadow(0 1px 1px rgb(80 4 32 / 78%));
+          transition: transform 0.45s cubic-bezier(0.34, 1.4, 0.64, 1);
+        }
+      }
+
+      .tab-copy {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.14rem;
+        line-height: 1.15;
+      }
+
+      .tab-label {
+        font-size: 1.02rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-shadow: 0 0 14px rgb(236 72 153 / 62%);
+      }
+
+      .tab-meta {
+        font-size: 0.72rem;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        color: rgb(244 190 218 / 72%);
+        transition: color 0.28s ease;
+      }
+
+      &:hover,
+      &:focus-visible {
+        border-color: rgb(249 168 212 / 92%);
+        transform: translateY(-2px);
+        box-shadow:
+          0 5px 0 #0b0409,
+          0 22px 32px -14px rgb(0 0 0 / 90%),
+          0 0 0 1px rgb(0 0 0 / 55%),
+          0 0 30px -4px rgb(236 72 153 / 78%),
+          inset 0 1px 0 rgb(255 255 255 / 30%),
+          inset 0 -12px 18px -14px rgb(236 72 153 / 92%);
+
+        .tab-holes {
+          animation: feast-film-run 0.85s linear infinite;
+        }
+
+        .tab-badge {
+          box-shadow:
+            inset 0 1px 0 rgb(255 255 255 / 62%),
+            inset 0 -3px 6px -2px rgb(60 2 26 / 70%),
+            0 2px 0 #3f0619,
+            0 0 22px -2px rgb(236 72 153 / 95%);
+        }
+
+        .tab-meta {
+          color: rgb(255 226 240 / 92%);
+        }
+      }
+
+      &:active {
+        transform: translateY(1px);
+        box-shadow:
+          0 1px 0 #0b0409,
+          0 8px 16px -12px rgb(0 0 0 / 90%),
+          0 0 0 1px rgb(0 0 0 / 55%),
+          inset 0 2px 6px rgb(0 0 0 / 55%),
+          inset 0 -10px 16px -14px rgb(236 72 153 / 55%);
+      }
+
+      &:focus-visible {
+        outline: 2px solid rgb(249 168 212 / 82%);
+        outline-offset: 3px;
+      }
+    }
+
+    &.is-open .tab-badge svg {
+      transform: rotate(180deg);
     }
   }
+}
 
-  } // 闭合 .masonry-grid
+@keyframes feast-plate-breathe {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+}
+
+@keyframes feast-plate-sheen {
+  0%,
+  58% {
+    transform: skewX(-22deg) translateX(-280%);
+  }
+
+  100% {
+    transform: skewX(-22deg) translateX(460%);
+  }
+}
+
+// 齿孔过片：只让孔层位移一个孔距，底层暗带不动
+@keyframes feast-film-run {
+  from {
+    background-position:
+      0 0,
+      0 0;
+  }
+
+  to {
+    background-position:
+      8.5px 0,
+      0 0;
+  }
+}
+
+// —— 响应式：三列 → 两列 → 单列，数据环与卡片高度同步收档 ——
+@media (max-width: 1180px) {
+  .visual-feast-section {
+    max-width: 88vw;
+    padding: 3.2rem 1.5rem;
+
+    .section-header .header-plate {
+      flex-wrap: wrap;
+      gap: 1.6rem 2rem;
+      padding: 1.25rem 1.8rem;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .visual-feast-section {
+    max-width: 100%;
+    padding: 2.8rem 1.25rem;
+
+    .section-header {
+      margin-bottom: 2.2rem;
+
+      .header-plate {
+        gap: 1.1rem 1.4rem;
+        padding: 1.2rem 1.4rem;
+
+        .header-left {
+          gap: 1rem;
+
+          .title-badge {
+            width: 3.7rem;
+            height: 3.7rem;
+
+            svg {
+              width: 2.3rem;
+              height: 2.3rem;
+            }
+          }
+
+          .header-text {
+            .section-title {
+              font-size: 2.05rem;
+            }
+
+            .section-subtitle {
+              font-size: 0.9rem;
+            }
+          }
+        }
+
+        .plate-chapter {
+          font-size: 0.85rem;
+        }
+
+        .more-btn {
+          margin-left: auto;
+        }
+      }
+    }
+
+    .masonry-grid {
+      column-count: 2;
+      column-gap: 14px;
+
+      .masonry-item {
+        margin-bottom: 14px;
+
+        .image-card {
+          --ring-size: 40px;
+          --ring-icon: 18px;
+          --ring-val: 0.84rem;
+          --ring-gap: 0.4rem;
+
+          .image-container {
+            height: calc(var(--card-height) * 0.78);
+          }
+
+          .image-overlay {
+            padding: 1.2rem 1.1rem 1.1rem;
+
+            .overlay-content {
+              h3 {
+                font-size: 1.2rem;
+              }
+
+              .location {
+                font-size: 0.9rem;
+
+                svg {
+                  width: 15px;
+                  height: 15px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .visual-feast-section {
+    padding: 2.4rem 1rem;
+
+    .section-header {
+      margin-bottom: 1.8rem;
+
+      .header-plate {
+        padding: 1.1rem 1.15rem;
+
+        .header-left {
+          .title-badge {
+            width: 3.2rem;
+            height: 3.2rem;
+
+            svg {
+              width: 2rem;
+              height: 2rem;
+            }
+          }
+
+          .header-text {
+            .section-title {
+              font-size: 1.72rem;
+            }
+
+            .section-subtitle {
+              font-size: 0.84rem;
+            }
+          }
+        }
+
+        .plate-chapter {
+          display: none;
+        }
+
+        .more-btn {
+          flex: 0 0 auto;
+          justify-content: space-between;
+          min-width: 162px;
+          margin-left: 0;
+          padding: 0.95rem 1.1rem 0.95rem 1.5rem;
+        }
+      }
+    }
+
+    .masonry-grid {
+      column-count: 1;
+
+      .masonry-item {
+        // 单列时卡片不铺满整屏，否则宽高比过扁、环形数据显得过小
+        max-width: 470px;
+        margin-right: auto;
+        margin-left: auto;
+
+        .image-card {
+          --ring-size: 40px;
+          --ring-icon: 18px;
+          --ring-val: 0.82rem;
+          --ring-gap: 0.42rem;
+
+          .image-container {
+            height: clamp(320px, 74vw, 540px);
+          }
+
+          .image-overlay {
+            padding: 1.15rem 1rem 1rem;
+
+            .overlay-content {
+              h3 {
+                font-size: 1.16rem;
+              }
+
+              .location {
+                font-size: 0.88rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .visual-feast-section .feast-toggle {
+    gap: 0;
+
+    .toggle-rail {
+      display: none;
+    }
+
+    .feast-tab {
+      flex: 1 1 auto;
+      justify-content: center;
+      padding-right: 1rem;
+    }
+  }
+}
+
+// 触屏设备没有 hover：数据环改为常驻展开，否则交互按钮永远折叠着点不到
+@media (hover: none) {
+  .visual-feast-section .masonry-grid .masonry-item .image-card {
+    .image-overlay {
+      padding-bottom: 2.5rem;
+
+      .overlay-content .action-rings {
+        max-height: 108px;
+        opacity: 1;
+        transform: none;
+        margin-top: 0.7rem;
+        padding: 0.55rem 0.4rem;
+        overflow: visible;
+      }
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .visual-feast-section {
+    .more-btn,
+    .more-btn .more-arrow,
+    .more-btn .more-arrow svg,
+    .more-btn .film-holes,
+    .feast-tab,
+    .feast-tab .tab-holes,
+    .feast-tab .tab-badge svg,
+    .masonry-item,
+    .image-card,
+    .image-card .glass-sheen,
+    .image-container :deep(img),
+    .action-rings .ring-node.active .ring-body {
+      animation: none;
+      transition: none;
+    }
+  }
 }

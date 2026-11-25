@@ -1,6 +1,6 @@
 .creative-section {
   padding: 2rem;
-  background: radial-gradient(#ffffff, #fcebd0, #f5d096);
+  background: radial-gradient(#fff, #fcebd0, #f5d096);
   min-height: 100vh;
   position: relative;
   overflow: hidden;
@@ -14,7 +14,7 @@
     .page-title {
       font-size: 2.5rem;
       font-weight: 700;
-      color: #000000;
+      color: #000;
       margin-bottom: 0.75rem;
       display: flex;
       align-items: center;
@@ -34,12 +34,9 @@
       margin: 0 auto;
       line-height: 1.6;
     }
-
-
   }
 
   @keyframes float {
-
     0%,
     100% {
       transform: translateY(0);
@@ -49,6 +46,4 @@
       transform: translateY(-10px);
     }
   }
-
-
 }

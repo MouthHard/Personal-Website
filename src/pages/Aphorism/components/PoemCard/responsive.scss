@@ -1,0 +1,59 @@
+// 诗词卡片 · 兼容与适配
+// 只放媒体查询与降级规则；大屏基础样式仍保留在 index.scss。
+
+@media (width <= 768px) {
+  .poem-card {
+    .scroll-container {
+      .poem-title {
+        font-size: 20px;
+        letter-spacing: 3px;
+        min-height: 58px;
+        padding: 4px 14px;
+        margin-bottom: 8px;
+      }
+
+      .meta-info {
+        .dynasty-badge,
+        .author-name {
+          font-size: 14px;
+          padding: 5px 12px;
+          letter-spacing: 2px;
+        }
+      }
+
+      .poem-tags .tag {
+        font-size: 13px;
+        padding: 4px 10px;
+      }
+
+      .poem-content .content-line {
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+@media (width <= 430px) {
+  .poem-card {
+    .scroll-container {
+      .poem-title {
+        font-size: 18px;
+        letter-spacing: 2px;
+        min-height: 52px;
+      }
+
+      .meta-info {
+        .dynasty-badge,
+        .author-name {
+          font-size: 13px;
+          padding: 4px 10px;
+          letter-spacing: 1px;
+        }
+      }
+
+      .poem-content .content-line {
+        font-size: 14px;
+      }
+    }
+  }
+}

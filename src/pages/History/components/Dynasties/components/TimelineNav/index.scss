@@ -112,8 +112,6 @@
           inset 1px 0 2px rgba(255, 200, 100, 0.1),
           inset -1px 0 2px rgba(0, 0, 0, 0.3);
 
-
-
         // 高光扫过效果
         &::after {
           content: '';
@@ -138,7 +136,6 @@
           color: #f8e4b0;
           transform: translateY(-4px) translateZ(10px) scale(1.02);
           text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
-
           box-shadow:
             0 12px 24px rgba(0, 0, 0, 0.6),
             0 6px 12px rgba(139, 69, 19, 0.4),
@@ -164,7 +161,6 @@
           color: #fff8e7;
           transform: translateY(-2px) translateZ(15px) scale(1.05);
           text-shadow: 0 2px 6px rgba(200, 155, 60, 0.6);
-
           box-shadow:
             0 10px 20px rgba(139, 69, 19, 0.6),
             0 5px 10px rgba(200, 155, 60, 0.4),
@@ -174,8 +170,6 @@
             inset 3px 0 6px rgba(255, 220, 180, 0.3),
             inset -3px 0 6px rgba(80, 50, 20, 0.5),
             0 0 20px rgba(200, 155, 60, 0.3);
-
- 
 
           &::after {
             background: linear-gradient(
@@ -281,10 +275,7 @@
       &::after {
         content: '';
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+        inset: 0;
         background:
           repeating-linear-gradient(
             0deg,
@@ -307,7 +298,6 @@
       &:hover {
         border-color: rgba(200, 155, 60, 0.5);
         transform: translateY(-3px) translateZ(8px) scale(1.01);
-
         box-shadow:
           0 12px 24px rgba(0, 0, 0, 0.6),
           0 6px 12px rgba(139, 69, 19, 0.4),
@@ -332,7 +322,6 @@
         );
         border-color: #c89b3c;
         transform: translateY(-2px) translateZ(12px) scale(1.02);
-
         box-shadow:
           0 10px 20px rgba(139, 69, 19, 0.6),
           0 5px 10px rgba(200, 155, 60, 0.4),
@@ -488,12 +477,12 @@
           }
         }
       }
+
       .item-icon {
         position: absolute;
         right: 7px;
         top: 50%;
         transform: translateY(-50%);
-  
         z-index: 2;
       }
     }
@@ -506,6 +495,7 @@
     opacity: 0;
     transform: translateX(-30px) scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: translateX(0) scale(1);

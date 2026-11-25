@@ -1,0 +1,104 @@
+@keyframes diamondPulse {
+  0%,
+  100% {
+    transform: rotate(45deg) scale(1);
+    opacity: 100%;
+  }
+
+  50% {
+    transform: rotate(45deg) scale(1.2);
+    opacity: 80%;
+  }
+}
+
+@keyframes sealFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-18px) rotate(2deg);
+  }
+}
+
+@keyframes bookRise {
+  0%,
+  100% {
+    transform: scaleY(0.12);
+    opacity: 35%;
+  }
+
+  48% {
+    transform: scaleY(1);
+    opacity: 100%;
+  }
+
+  62% {
+    transform: scaleY(1);
+    opacity: 100%;
+  }
+}
+
+@keyframes lmPulse {
+  0%,
+  100% {
+    transform: scale(0.85);
+    opacity: 50%;
+  }
+
+  50% {
+    transform: scale(1.2);
+    opacity: 100%;
+  }
+}
+
+@keyframes bambooLeafSway {
+  0%,
+  100% {
+    transform: rotate(-20deg) translateX(0);
+  }
+
+  25% {
+    transform: rotate(-12deg) translateX(2px);
+  }
+
+  50% {
+    transform: rotate(-22deg) translateX(-1px);
+  }
+
+  75% {
+    transform: rotate(-15deg) translateX(1px);
+  }
+}
+
+@keyframes clearPulse {
+  0%,
+  100% {
+    box-shadow:
+      inset 1px 1px 0 rgb(255 220 175 / 55%),
+      inset -2px -2px 4px rgb(40 8 2 / 45%),
+      0 3px 0 #491106,
+      0 6px 10px rgb(35 8 2 / 40%);
+  }
+
+  50% {
+    box-shadow:
+      inset 1px 1px 0 rgb(255 235 200 / 75%),
+      inset -2px -2px 4px rgb(40 8 2 / 45%),
+      0 3px 0 #491106,
+      0 0 16px rgb(214 74 44 / 85%),
+      0 8px 16px rgb(35 8 2 / 50%);
+  }
+}

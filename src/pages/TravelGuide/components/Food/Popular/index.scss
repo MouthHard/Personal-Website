@@ -22,12 +22,24 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
   padding: 2rem 2.25rem 2.25rem;
   margin: 1.25rem 0 0;
   background:
-    radial-gradient(circle at 15% 25%, rgba(0, 240, 255, 0.08) 0%, transparent 30%),
-    radial-gradient(circle at 85% 75%, rgba(0, 150, 255, 0.07) 0%, transparent 30%),
-    radial-gradient(circle at 50% 50%, rgba(0, 240, 255, 0.04) 0%, transparent 45%),
+    radial-gradient(
+      circle at 15% 25%,
+      rgba(0, 240, 255, 0.08) 0%,
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 75%,
+      rgba(0, 150, 255, 0.07) 0%,
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(0, 240, 255, 0.04) 0%,
+      transparent 45%
+    ),
     linear-gradient(145deg, #0c1018 0%, #080c14 100%);
   border: 1px solid rgba(0, 240, 255, 0.25);
-  border-radius: 28px 6px 28px 6px;
+  border-radius: 28px 6px;
   overflow: hidden;
   box-shadow:
     0 24px 64px rgba(0, 0, 0, 0.55),
@@ -41,7 +53,11 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
     right: -10%;
     width: 55%;
     height: 65%;
-    background: radial-gradient(ellipse, rgba(0, 240, 255, 0.14), transparent 70%);
+    background: radial-gradient(
+      ellipse,
+      rgba(0, 240, 255, 0.14),
+      transparent 70%
+    );
     pointer-events: none;
     z-index: 0;
     filter: blur(24px);
@@ -87,7 +103,11 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
       transform: rotate(45deg);
       border-radius: 10px;
       background:
-        linear-gradient(135deg, rgba(0, 240, 255, 0.22), rgba(0, 150, 255, 0.12)),
+        linear-gradient(
+          135deg,
+          rgba(0, 240, 255, 0.22),
+          rgba(0, 150, 255, 0.12)
+        ),
         linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent);
       border: 1px solid rgba(0, 240, 255, 0.4);
       box-shadow:
@@ -117,7 +137,12 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
         margin-bottom: 0.5rem;
         letter-spacing: 2px;
         line-height: 1.2;
-        background: linear-gradient(180deg, $ice 0%, $cyan-soft 55%, $blue 100%);
+        background: linear-gradient(
+          180deg,
+          $ice 0%,
+          $cyan-soft 55%,
+          $blue 100%
+        );
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -143,9 +168,17 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
     padding: 0.7rem 1.15rem 0.7rem 1.1rem;
     background:
       linear-gradient(180deg, rgba(0, 240, 255, 0.2) 0%, transparent 28%),
-      linear-gradient(135deg, rgba(0, 240, 255, 0.14) 0%, rgba(0, 150, 255, 0.06) 100%),
+      linear-gradient(
+        135deg,
+        rgba(0, 240, 255, 0.14) 0%,
+        rgba(0, 150, 255, 0.06) 100%
+      ),
       linear-gradient(0deg, rgba(0, 0, 0, 0.45) 0%, transparent 45%),
-      linear-gradient(180deg, rgba(15, 25, 40, 0.7) 0%, rgba(8, 14, 24, 0.88) 100%);
+      linear-gradient(
+        180deg,
+        rgba(15, 25, 40, 0.7) 0%,
+        rgba(8, 14, 24, 0.88) 100%
+      );
     border: 1px solid rgba(0, 240, 255, 0.42);
     clip-path: polygon(
       12px 0,
@@ -155,8 +188,7 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
       0 100%,
       0 12px
     );
-    filter:
-      drop-shadow(0 0 10px rgba(0, 240, 255, 0.42))
+    filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.42))
       drop-shadow(0 0 22px rgba(0, 240, 255, 0.22))
       drop-shadow(0 6px 14px rgba(0, 0, 0, 0.55));
     box-shadow:
@@ -174,7 +206,12 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
       left: 16px;
       right: 16px;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.7), transparent);
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(0, 240, 255, 0.7),
+        transparent
+      );
       pointer-events: none;
       z-index: 2;
       animation: scanLine 3s ease-in-out infinite;
@@ -212,7 +249,7 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
         font-weight: 700;
         color: $text-mute;
         letter-spacing: 1.5px;
-        font-family: 'Consolas', 'Monaco', monospace;
+        font-family: Consolas, Monaco, monospace;
         text-transform: uppercase;
       }
 
@@ -220,7 +257,7 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
         display: inline-flex;
         align-items: baseline;
         gap: 0.18rem;
-        font-family: 'Consolas', 'Monaco', monospace;
+        font-family: Consolas, Monaco, monospace;
         font-weight: 800;
 
         .counter-current {
@@ -251,20 +288,27 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
       position: relative;
       width: 150px;
       height: 16px;
-      background:
-        linear-gradient(180deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.35) 100%);
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.65) 0%,
+        rgba(0, 0, 0, 0.35) 100%
+      );
       border: 1px solid rgba(0, 240, 255, 0.32);
       border-radius: 2px;
       overflow: hidden;
       background-image:
         repeating-linear-gradient(
           90deg,
-          transparent 0px,
+          transparent 0,
           transparent 14px,
           rgba(0, 240, 255, 0.16) 14px,
           rgba(0, 240, 255, 0.16) 15px
         ),
-        linear-gradient(180deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.35) 100%);
+        linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.65) 0%,
+          rgba(0, 0, 0, 0.35) 100%
+        );
       box-shadow:
         inset 0 2px 5px rgba(0, 0, 0, 0.75),
         inset 0 -1px 0 rgba(0, 240, 255, 0.18),
@@ -276,7 +320,7 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
         background:
           repeating-linear-gradient(
             90deg,
-            rgba(255, 255, 255, 0.22) 0px,
+            rgba(255, 255, 255, 0.22) 0,
             rgba(255, 255, 255, 0.22) 2px,
             transparent 2px,
             transparent 9px
@@ -296,7 +340,7 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
       font-weight: 800;
       color: #fff;
       min-width: 46px;
-      font-family: 'Consolas', 'Monaco', monospace;
+      font-family: Consolas, Monaco, monospace;
       letter-spacing: 0.5px;
       text-shadow:
         0 0 10px $cyan-glow,
@@ -329,14 +373,20 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
   align-items: stretch;
   gap: 1.1rem;
   padding: 1rem 1.1rem 1rem 0.5rem;
-
-
   background:
-    radial-gradient(circle at 12% 18%, rgba(0, 240, 255, 0.09) 0%, transparent 38%),
-    radial-gradient(circle at 88% 82%, rgba(0, 150, 255, 0.07) 0%, transparent 42%),
+    radial-gradient(
+      circle at 12% 18%,
+      rgba(0, 240, 255, 0.09) 0%,
+      transparent 38%
+    ),
+    radial-gradient(
+      circle at 88% 82%,
+      rgba(0, 150, 255, 0.07) 0%,
+      transparent 42%
+    ),
     linear-gradient(145deg, $ink-4 0%, $ink-3 100%);
   border: 1px solid rgba(0, 240, 255, 0.22);
-  border-radius: 18px 4px 18px 4px;
+  border-radius: 18px 4px;
   overflow: hidden;
   cursor: pointer;
   transition:
@@ -345,6 +395,7 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
     border-color 0.35s ease;
   animation: itemEnter 0.5s ease-out backwards;
   animation-delay: calc(var(--item-index, 0) * 0.06s);
+
   // 多层阴影叠加：深落差 + 中层 + 霓虹外发光 + inset 玻璃高光 + inset 内射光 + inset 底部暗影 + inset 边缘反射
   box-shadow:
     0 14px 36px rgba(0, 0, 0, 0.55),
@@ -380,7 +431,10 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
     background: $cyan;
     pointer-events: none;
     z-index: 2;
-    transition: left 0.4s ease, right 0.4s ease, opacity 0.3s ease;
+    transition:
+      left 0.4s ease,
+      right 0.4s ease,
+      opacity 0.3s ease;
     opacity: 0;
     box-shadow: 0 0 8px $cyan-glow;
   }
@@ -435,7 +489,7 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
     font-size: 1.85rem;
     font-weight: 700;
     color: rgba(0, 240, 255, 0.3);
-    font-family: 'Consolas', 'Monaco', monospace;
+    font-family: Consolas, Monaco, monospace;
     letter-spacing: -1px;
     transition: all 0.3s ease;
     text-shadow: 0 0 10px rgba(0, 240, 255, 0.12);
@@ -459,7 +513,7 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
     width: 124px;
     height: 94px;
     flex-shrink: 0;
-    border-radius: 14px 3px 14px 3px;
+    border-radius: 14px 3px;
     overflow: hidden;
     background: $ink-2;
     border: 1px solid rgba(0, 240, 255, 0.12);
@@ -471,13 +525,19 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.5s ease, filter 0.5s ease;
+      transition:
+        transform 0.5s ease,
+        filter 0.5s ease;
     }
 
     .image-shade {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, transparent 45%, rgba(6, 10, 18, 0.75) 100%);
+      background: linear-gradient(
+        180deg,
+        transparent 45%,
+        rgba(6, 10, 18, 0.75) 100%
+      );
       pointer-events: none;
     }
 
@@ -496,7 +556,7 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
       font-size: 0.78rem;
       font-weight: 700;
       color: $yellow;
-      font-family: 'Consolas', 'Monaco', monospace;
+      font-family: Consolas, Monaco, monospace;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 
       .rating-star {
@@ -506,7 +566,6 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
         filter: drop-shadow(0 0 4px $yellow-glow);
       }
     }
-
   }
 
   // 内容区
@@ -588,8 +647,7 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
               inset 0 -1px 0 rgba(0, 0, 0, 0.35),
               inset 1px 0 0 rgba(255, 255, 255, 0.18),
               inset -1px 0 0 rgba(0, 0, 0, 0.25);
-            filter:
-              drop-shadow(0 0 6px rgba(235, 130, 142, 0.85))
+            filter: drop-shadow(0 0 6px rgba(235, 130, 142, 0.85))
               drop-shadow(0 0 14px rgba(250, 117, 132, 0.45))
               drop-shadow(0 2px 3px rgba(0, 0, 0, 0.55));
           }
@@ -602,8 +660,7 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
               inset 0 -1px 0 rgba(0, 0, 0, 0.35),
               inset 1px 0 0 rgba(255, 255, 255, 0.18),
               inset -1px 0 0 rgba(0, 0, 0, 0.25);
-            filter:
-              drop-shadow(0 0 6px rgba(252, 211, 77, 0.85))
+            filter: drop-shadow(0 0 6px rgba(252, 211, 77, 0.85))
               drop-shadow(0 0 14px rgba(252, 211, 77, 0.45))
               drop-shadow(0 2px 3px rgba(0, 0, 0, 0.55));
           }
@@ -617,7 +674,6 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
         color: #fff;
         line-height: 1.8;
         display: -webkit-box;
- 
         -webkit-box-orient: vertical;
         overflow: hidden;
       }
@@ -652,7 +708,7 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
           font-size: 1.6rem;
           font-weight: 800;
           color: $cyan;
-          font-family: 'Consolas', 'Monaco', monospace;
+          font-family: Consolas, Monaco, monospace;
           text-shadow:
             0 0 10px rgba(0, 240, 255, 0.55),
             0 0 18px rgba(0, 240, 255, 0.3);
@@ -680,7 +736,11 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
         align-items: center;
         gap: 0.4rem;
         padding: 0.55rem 0.85rem;
-        background: linear-gradient(135deg, rgba(0, 240, 255, 0.22), rgba(0, 150, 255, 0.14));
+        background: linear-gradient(
+          135deg,
+          rgba(0, 240, 255, 0.22),
+          rgba(0, 150, 255, 0.14)
+        );
         border: 1px solid rgba(0, 240, 255, 0.5);
         border-radius: 3px;
         color: #fff;
@@ -690,7 +750,6 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
         cursor: pointer;
         transition: all 0.3s ease;
         overflow: hidden;
-    
         box-shadow:
           0 2px 8px rgba(0, 240, 255, 0.2),
           0 0 12px rgba(0, 240, 255, 0.12),
@@ -711,7 +770,11 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
           left: 0;
           right: 0;
           height: 0;
-          background: linear-gradient(0deg, rgba(0, 240, 255, 0.4), rgba(0, 240, 255, 0.08));
+          background: linear-gradient(
+            0deg,
+            rgba(0, 240, 255, 0.4),
+            rgba(0, 240, 255, 0.08)
+          );
           transition: height 0.3s ease;
           z-index: 0;
         }
@@ -725,7 +788,6 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
         &:hover {
           border-color: rgba(0, 240, 255, 0.7);
           color: #fff;
-
           box-shadow:
             0 6px 20px rgba(0, 240, 255, 0.3),
             0 0 18px rgba(0, 240, 255, 0.2),
@@ -741,20 +803,35 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
           }
         }
 
-
         // 点赞 — 鲜亮绿
         &.like-btn {
-          background: linear-gradient(135deg, rgba(74, 222, 128, 0.42), rgba(34, 197, 94, 0.26));
+          background: linear-gradient(
+            135deg,
+            rgba(74, 222, 128, 0.42),
+            rgba(34, 197, 94, 0.26)
+          );
           border-color: rgba(74, 222, 128, 0.72);
           color: #fff;
-          text-shadow: 0 0 8px rgba(74, 222, 128, 0.6), 0 1px 2px rgba(0, 0, 0, 0.5);
+          text-shadow:
+            0 0 8px rgba(74, 222, 128, 0.6),
+            0 1px 2px rgba(0, 0, 0, 0.5);
           box-shadow:
             0 2px 8px rgba(74, 222, 128, 0.32),
             0 0 12px rgba(74, 222, 128, 0.22),
             inset 0 1px 0 rgba(255, 255, 255, 0.18);
 
-          .checkin-icon { color: #fff; filter: drop-shadow(0 0 4px rgba(74, 222, 128, 0.65)); }
-          &::before { background: linear-gradient(0deg, rgba(74, 222, 128, 0.42), rgba(74, 222, 128, 0.1)); }
+          .checkin-icon {
+            color: #fff;
+            filter: drop-shadow(0 0 4px rgba(74, 222, 128, 0.65));
+          }
+
+          &::before {
+            background: linear-gradient(
+              0deg,
+              rgba(74, 222, 128, 0.42),
+              rgba(74, 222, 128, 0.1)
+            );
+          }
 
           &:hover {
             border-color: rgba(74, 222, 128, 0.88);
@@ -762,38 +839,71 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
               0 6px 20px rgba(74, 222, 128, 0.42),
               0 0 18px rgba(74, 222, 128, 0.32),
               inset 0 1px 0 rgba(255, 255, 255, 0.28);
-            .checkin-icon { filter: drop-shadow(0 0 8px rgba(74, 222, 128, 0.88)); }
+
+            .checkin-icon {
+              filter: drop-shadow(0 0 8px rgba(74, 222, 128, 0.88));
+            }
           }
 
           &.active {
             border: 2px solid rgba(74, 222, 128, 0.92);
             border-radius: 3px;
-            background: linear-gradient(135deg, rgba(74, 222, 128, 0.62), rgba(34, 197, 94, 0.38));
-
+            background: linear-gradient(
+              135deg,
+              rgba(74, 222, 128, 0.62),
+              rgba(34, 197, 94, 0.38)
+            );
             animation: btnPulseLike 1.6s ease-in-out infinite;
             box-shadow:
               0 0 12px rgba(74, 222, 128, 0.72),
               0 0 24px rgba(74, 222, 128, 0.42),
               0 6px 16px rgba(0, 0, 0, 0.35),
               inset 0 1px 0 rgba(255, 255, 255, 0.5);
-            .checkin-icon { filter: drop-shadow(0 0 6px rgba(134, 239, 172, 1)); }
-            &::before { height: 100%; background: linear-gradient(0deg, rgba(74, 222, 128, 0.35), rgba(74, 222, 128, 0.1)); }
+
+            .checkin-icon {
+              filter: drop-shadow(0 0 6px rgba(134, 239, 172, 1));
+            }
+
+            &::before {
+              height: 100%;
+              background: linear-gradient(
+                0deg,
+                rgba(74, 222, 128, 0.35),
+                rgba(74, 222, 128, 0.1)
+              );
+            }
           }
         }
 
         // 分享 — 鲜亮橙
         &.share-btn {
-          background: linear-gradient(135deg, rgba(251, 146, 60, 0.42), rgba(249, 115, 22, 0.26));
+          background: linear-gradient(
+            135deg,
+            rgba(251, 146, 60, 0.42),
+            rgba(249, 115, 22, 0.26)
+          );
           border-color: rgba(251, 146, 60, 0.72);
           color: #fff;
-          text-shadow: 0 0 8px rgba(251, 146, 60, 0.6), 0 1px 2px rgba(0, 0, 0, 0.5);
+          text-shadow:
+            0 0 8px rgba(251, 146, 60, 0.6),
+            0 1px 2px rgba(0, 0, 0, 0.5);
           box-shadow:
             0 2px 8px rgba(251, 146, 60, 0.32),
             0 0 12px rgba(251, 146, 60, 0.22),
             inset 0 1px 0 rgba(255, 255, 255, 0.18);
 
-          .checkin-icon { color: #fff; filter: drop-shadow(0 0 4px rgba(251, 146, 60, 0.65)); }
-          &::before { background: linear-gradient(0deg, rgba(251, 146, 60, 0.42), rgba(251, 146, 60, 0.1)); }
+          .checkin-icon {
+            color: #fff;
+            filter: drop-shadow(0 0 4px rgba(251, 146, 60, 0.65));
+          }
+
+          &::before {
+            background: linear-gradient(
+              0deg,
+              rgba(251, 146, 60, 0.42),
+              rgba(251, 146, 60, 0.1)
+            );
+          }
 
           &:hover {
             border-color: rgba(251, 146, 60, 0.88);
@@ -801,16 +911,25 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
               0 6px 20px rgba(251, 146, 60, 0.42),
               0 0 18px rgba(251, 146, 60, 0.32),
               inset 0 1px 0 rgba(255, 255, 255, 0.28);
-            .checkin-icon { filter: drop-shadow(0 0 8px rgba(251, 146, 60, 0.88)); }
+
+            .checkin-icon {
+              filter: drop-shadow(0 0 8px rgba(251, 146, 60, 0.88));
+            }
           }
         }
 
         // 已吃按钮 — 珊瑚红系
         &.eaten-btn {
-          background: linear-gradient(135deg, rgba(251, 113, 133, 0.22), rgba(225, 29, 72, 0.14));
+          background: linear-gradient(
+            135deg,
+            rgba(251, 113, 133, 0.22),
+            rgba(225, 29, 72, 0.14)
+          );
           border-color: rgba(251, 113, 133, 0.5);
           color: #fff;
-          text-shadow: 0 0 8px rgba(251, 113, 133, 0.55), 0 1px 2px rgba(0, 0, 0, 0.5);
+          text-shadow:
+            0 0 8px rgba(251, 113, 133, 0.55),
+            0 1px 2px rgba(0, 0, 0, 0.5);
           box-shadow:
             0 2px 8px rgba(251, 113, 133, 0.2),
             0 0 12px rgba(251, 113, 133, 0.12),
@@ -822,7 +941,11 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
           }
 
           &::before {
-            background: linear-gradient(0deg, rgba(251, 113, 133, 0.4), rgba(251, 113, 133, 0.08));
+            background: linear-gradient(
+              0deg,
+              rgba(251, 113, 133, 0.4),
+              rgba(251, 113, 133, 0.08)
+            );
           }
 
           &:hover {
@@ -848,7 +971,6 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
           font-weight: 900;
           font-size: 1rem;
           letter-spacing: 1px;
-
           box-shadow:
             0 0 14px rgba(251, 191, 36, 0.85),
             0 0 28px rgba(251, 191, 36, 0.5),
@@ -863,14 +985,17 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
             width: 19px;
             height: 19px;
             color: #1a0e00;
-            filter:
-              drop-shadow(0 1px 1px rgba(0, 0, 0, 0.5))
+            filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.5))
               drop-shadow(0 0 3px rgba(255, 255, 255, 0.4));
           }
 
           &::before {
             height: 100%;
-            background: linear-gradient(0deg, rgba(255, 255, 255, 0.25), rgba(251, 191, 36, 0.05));
+            background: linear-gradient(
+              0deg,
+              rgba(255, 255, 255, 0.25),
+              rgba(251, 191, 36, 0.05)
+            );
           }
         }
 
@@ -881,7 +1006,6 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
           font-weight: 900;
           font-size: 1rem;
           letter-spacing: 1px;
-
           box-shadow:
             0 0 14px rgba(251, 113, 133, 0.85),
             0 0 28px rgba(251, 113, 133, 0.5),
@@ -900,7 +1024,11 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
           }
 
           &::before {
-            background: linear-gradient(0deg, rgba(255, 255, 255, 0.25), rgba(251, 113, 133, 0.05));
+            background: linear-gradient(
+              0deg,
+              rgba(255, 255, 255, 0.25),
+              rgba(251, 113, 133, 0.05)
+            );
           }
         }
       }
@@ -909,7 +1037,6 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
 
   // 已吃状态 — 珊瑚红区分
   &.eaten {
-
     border: 1.5px solid rgba(251, 113, 133, 0.45);
     background: linear-gradient(145deg, #1f0d18 0%, #180a10 100%);
     box-shadow:
@@ -943,7 +1070,6 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
 
   // 想吃状态 — 金黄色区分
   &.want {
-
     border: 1.5px solid rgba(251, 191, 36, 0.45);
     background: linear-gradient(145deg, #1f1a0a 0%, #181408 100%);
     box-shadow:
@@ -969,7 +1095,6 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
 
   // 想吃+已吃同时 — 绿色系（特异性高于 eaten/want 单独状态）
   &.eaten.want {
-
     border: 1.5px solid rgba(74, 222, 128, 0.5);
     background: linear-gradient(145deg, #0d1f0a 0%, #081405 100%);
     box-shadow:
@@ -1068,6 +1193,7 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
     opacity: 0;
     transform: translateY(14px) scale(0.97);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -1076,24 +1202,38 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
 
 // 任务终端顶部扫描线 — 左右往复流光
 @keyframes scanLine {
-  0%, 100% {
-    background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.3), transparent);
+  0%,
+  100% {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(0, 240, 255, 0.3),
+      transparent
+    );
     opacity: 0.6;
   }
+
   50% {
-    background: linear-gradient(90deg, transparent, rgba(125, 249, 255, 0.9), transparent);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(125, 249, 255, 0.9),
+      transparent
+    );
     opacity: 1;
   }
 }
 
 // 能量指示灯脉冲
 @keyframes energyPulse {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow:
       0 0 6px $cyan,
       0 0 12px $cyan-glow;
     opacity: 0.75;
   }
+
   50% {
     box-shadow:
       0 0 12px $cyan,
@@ -1103,9 +1243,9 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
   }
 }
 
-
 @keyframes btnPulse {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow:
       0 0 24px rgba(251, 191, 36, 0.85),
       0 0 48px rgba(251, 191, 36, 0.5),
@@ -1114,6 +1254,7 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
       inset 0 1px 0 rgba(255, 255, 255, 0.5),
       inset 0 0 16px rgba(255, 255, 255, 0.2);
   }
+
   50% {
     box-shadow:
       0 0 36px rgba(251, 191, 36, 1),
@@ -1126,7 +1267,8 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
 }
 
 @keyframes btnPulseGreen {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow:
       0 0 24px rgba(251, 113, 133, 0.85),
       0 0 48px rgba(251, 113, 133, 0.5),
@@ -1135,6 +1277,7 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
       inset 0 1px 0 rgba(255, 255, 255, 0.5),
       inset 0 0 16px rgba(255, 255, 255, 0.2);
   }
+
   50% {
     box-shadow:
       0 0 36px rgba(251, 113, 133, 1),
@@ -1146,9 +1289,9 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
   }
 }
 
-
 @keyframes btnPulseLike {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow:
       0 0 12px rgba(74, 222, 128, 0.65),
       0 0 22px rgba(74, 222, 128, 0.35),
@@ -1156,6 +1299,7 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
       inset 0 1px 0 rgba(255, 255, 255, 0.5),
       inset 0 0 14px rgba(134, 239, 172, 0.22);
   }
+
   50% {
     box-shadow:
       0 0 18px rgba(74, 222, 128, 0.88),
@@ -1172,7 +1316,7 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
 @media (max-width: 768px) {
   .must-eat-section {
     padding: 1.5rem 1rem 1.75rem;
-    border-radius: 18px 4px 18px 4px;
+    border-radius: 18px 4px;
   }
 
   .section-header {
@@ -1203,7 +1347,7 @@ $eaten-glow: rgba(251, 113, 133, 0.55);
   .must-eat-item {
     gap: 0.75rem;
     padding: 0.85rem 0.85rem 0.85rem 0.25rem;
-    border-radius: 14px 3px 14px 3px;
+    border-radius: 14px 3px;
 
     .item-number {
       width: 40px;

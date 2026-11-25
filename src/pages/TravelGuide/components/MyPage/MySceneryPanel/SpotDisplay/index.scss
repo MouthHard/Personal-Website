@@ -45,7 +45,9 @@ $ink-3: #64748b;
       inset -3px 0 8px rgba(120, 100, 70, 0.12),
       inset 0 0 0 1px rgba(255, 255, 255, 0.15);
     border: 1px solid rgba(180, 160, 120, 0.25);
-    transition: box-shadow 0.4s ease, border-color 0.4s ease;
+    transition:
+      box-shadow 0.4s ease,
+      border-color 0.4s ease;
 
     .ticket-main {
       position: relative;
@@ -59,7 +61,13 @@ $ink-3: #64748b;
           rgba(180, 160, 120, 0.025) 3px,
           rgba(180, 160, 120, 0.025) 4px
         ),
-        linear-gradient(105deg, #fffefb 0%, #faf4ea 25%, #f0e8d6 55%, #e2d9c5 100%);
+        linear-gradient(
+          105deg,
+          #fffefb 0%,
+          #faf4ea 25%,
+          #f0e8d6 55%,
+          #e2d9c5 100%
+        );
       padding: 14px 14px 12px;
       display: flex;
       flex-direction: column;
@@ -104,8 +112,10 @@ $ink-3: #64748b;
           height: 100%;
           object-fit: cover;
           display: block;
-          filter: brightness(1.0) saturate(1.05);
-          transition: filter 0.45s ease, transform 0.5s ease;
+          filter: brightness(1) saturate(1.05);
+          transition:
+            filter 0.45s ease,
+            transform 0.5s ease;
         }
 
         .photo-vignette {
@@ -132,7 +142,12 @@ $ink-3: #64748b;
           font-size: 0.78rem;
           font-weight: 800;
           color: #fff;
-          background: linear-gradient(145deg, $gold-l 0%, $gold 40%, #b45309 100%);
+          background: linear-gradient(
+            145deg,
+            $gold-l 0%,
+            $gold 40%,
+            #b45309 100%
+          );
           border: 1px solid rgba(180, 120, 20, 0.5);
           border-radius: 4px;
           letter-spacing: 0.5px;
@@ -156,7 +171,9 @@ $ink-3: #64748b;
           line-height: 1.2;
           letter-spacing: 0.4px;
           text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
-          transition: color 0.3s ease, text-shadow 0.3s ease;
+          transition:
+            color 0.3s ease,
+            text-shadow 0.3s ease;
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
@@ -194,7 +211,11 @@ $ink-3: #64748b;
           font-size: 0.78rem;
           font-weight: 700;
           color: $ink-2;
-          background: linear-gradient(100deg, rgba(255, 255, 255, 0.9), rgba(238, 230, 218, 0.6));
+          background: linear-gradient(
+            100deg,
+            rgba(255, 255, 255, 0.9),
+            rgba(238, 230, 218, 0.6)
+          );
           border: 1px solid rgba(180, 160, 120, 0.3);
           border-radius: 4px;
           letter-spacing: 0.3px;
@@ -205,7 +226,10 @@ $ink-3: #64748b;
             inset 0 -1px 0 rgba(160, 140, 100, 0.12),
             inset 1px 0 2px rgba(255, 245, 225, 0.25),
             inset -1px 0 2px rgba(120, 100, 70, 0.08);
-          transition: color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+          transition:
+            color 0.3s ease,
+            border-color 0.3s ease,
+            box-shadow 0.3s ease;
         }
       }
     }
@@ -227,8 +251,14 @@ $ink-3: #64748b;
         z-index: 5;
         box-shadow: inset 0 1px 2px rgba(120, 100, 70, 0.2);
       }
-      .tear-notch.top { top: -7px; }
-      .tear-notch.bottom { bottom: -7px; }
+
+      .tear-notch.top {
+        top: -7px;
+      }
+
+      .tear-notch.bottom {
+        bottom: -7px;
+      }
 
       .tear-line {
         position: absolute;
@@ -260,13 +290,18 @@ $ink-3: #64748b;
           rgba(180, 160, 120, 0.02) 3px,
           rgba(180, 160, 120, 0.02) 4px
         ),
-        linear-gradient(105deg, #f2ede2 0%, #ebe4d4 35%, #ddd4c2 65%, #cfc6b0 100%);
+        linear-gradient(
+          105deg,
+          #f2ede2 0%,
+          #ebe4d4 35%,
+          #ddd4c2 65%,
+          #cfc6b0 100%
+        );
       padding: 14px 12px 12px;
       display: flex;
       flex-direction: column;
       gap: 8px;
       transition: background 0.4s ease;
-
 
       .stub-rating {
         display: flex;
@@ -274,7 +309,9 @@ $ink-3: #64748b;
         gap: 5px;
         color: $gold;
         filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.5));
-        transition: color 0.3s ease, filter 0.3s ease;
+        transition:
+          color 0.3s ease,
+          filter 0.3s ease;
 
         b {
           font-size: 1.15rem;
@@ -316,6 +353,7 @@ $ink-3: #64748b;
               0 0 6px rgba(22, 163, 74, 0.4),
               inset 0 1px 0 rgba(255, 255, 255, 0.4);
           }
+
           &.culture {
             background: $share-c;
             box-shadow:
@@ -327,7 +365,12 @@ $ink-3: #64748b;
 
       .stub-divider {
         height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(180, 160, 120, 0.3), transparent);
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(180, 160, 120, 0.3),
+          transparent
+        );
         margin: 4px 0;
         transition: background 0.35s ease;
       }
@@ -344,7 +387,7 @@ $ink-3: #64748b;
           height: 34px;
           border-radius: 7px;
           border: 1px solid rgba(180, 160, 120, 0.3);
-          background: linear-gradient(100deg, #ffffff, #ede5d3);
+          background: linear-gradient(100deg, #fff, #ede5d3);
           color: $ink-3;
           cursor: pointer;
           box-shadow:
@@ -366,7 +409,11 @@ $ink-3: #64748b;
 
           &.s-like {
             &:hover {
-              background: linear-gradient(180deg, rgba($like-c, 0.15), rgba($like-c, 0.05));
+              background: linear-gradient(
+                180deg,
+                rgba($like-c, 0.15),
+                rgba($like-c, 0.05)
+              );
               border-color: $like-c;
               color: $like-c;
               box-shadow:
@@ -375,8 +422,13 @@ $ink-3: #64748b;
                 inset 0 1px 0 rgba(255, 255, 255, 0.5),
                 inset 0 -2px 0 rgba(160, 140, 100, 0.1);
             }
+
             &.on {
-              background: linear-gradient(180deg, rgba($like-c, 0.95), rgba($like-c, 0.75));
+              background: linear-gradient(
+                180deg,
+                rgba($like-c, 0.95),
+                rgba($like-c, 0.75)
+              );
               border-color: $like-c;
               color: #fff;
               box-shadow:
@@ -384,6 +436,7 @@ $ink-3: #64748b;
                 0 3px 6px rgba(100, 80, 50, 0.25),
                 inset 0 1px 0 rgba(255, 255, 255, 0.35),
                 inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+
               &:hover {
                 box-shadow:
                   0 0 20px rgba($like-c, 0.65),
@@ -391,8 +444,13 @@ $ink-3: #64748b;
                   inset 0 1px 0 rgba(255, 255, 255, 0.45),
                   inset 0 -2px 0 rgba(0, 0, 0, 0.2);
               }
+
               &:active {
-                background: linear-gradient(180deg, rgba($like-c, 0.8), rgba($like-c, 0.65));
+                background: linear-gradient(
+                  180deg,
+                  rgba($like-c, 0.8),
+                  rgba($like-c, 0.65)
+                );
                 box-shadow:
                   0 0 8px rgba($like-c, 0.3),
                   inset 0 3px 6px rgba(0, 0, 0, 0.25),
@@ -403,7 +461,11 @@ $ink-3: #64748b;
 
           &.s-want {
             &:hover {
-              background: linear-gradient(180deg, rgba($want-c, 0.15), rgba($want-c, 0.05));
+              background: linear-gradient(
+                180deg,
+                rgba($want-c, 0.15),
+                rgba($want-c, 0.05)
+              );
               border-color: $want-c;
               color: $want-c;
               box-shadow:
@@ -412,8 +474,13 @@ $ink-3: #64748b;
                 inset 0 1px 0 rgba(255, 255, 255, 0.5),
                 inset 0 -2px 0 rgba(160, 140, 100, 0.1);
             }
+
             &.on {
-              background: linear-gradient(180deg, rgba($want-c, 0.95), rgba($want-c, 0.75));
+              background: linear-gradient(
+                180deg,
+                rgba($want-c, 0.95),
+                rgba($want-c, 0.75)
+              );
               border-color: $want-c;
               color: #fff;
               box-shadow:
@@ -421,6 +488,7 @@ $ink-3: #64748b;
                 0 3px 6px rgba(100, 80, 50, 0.25),
                 inset 0 1px 0 rgba(255, 255, 255, 0.35),
                 inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+
               &:hover {
                 box-shadow:
                   0 0 20px rgba($want-c, 0.65),
@@ -428,8 +496,13 @@ $ink-3: #64748b;
                   inset 0 1px 0 rgba(255, 255, 255, 0.45),
                   inset 0 -2px 0 rgba(0, 0, 0, 0.2);
               }
+
               &:active {
-                background: linear-gradient(180deg, rgba($want-c, 0.8), rgba($want-c, 0.65));
+                background: linear-gradient(
+                  180deg,
+                  rgba($want-c, 0.8),
+                  rgba($want-c, 0.65)
+                );
                 box-shadow:
                   0 0 8px rgba($want-c, 0.3),
                   inset 0 3px 6px rgba(0, 0, 0, 0.25),
@@ -440,7 +513,11 @@ $ink-3: #64748b;
 
           &.s-been {
             &:hover {
-              background: linear-gradient(180deg, rgba($been-c, 0.15), rgba($been-c, 0.05));
+              background: linear-gradient(
+                180deg,
+                rgba($been-c, 0.15),
+                rgba($been-c, 0.05)
+              );
               border-color: $been-c;
               color: $been-c;
               box-shadow:
@@ -449,8 +526,13 @@ $ink-3: #64748b;
                 inset 0 1px 0 rgba(255, 255, 255, 0.5),
                 inset 0 -2px 0 rgba(160, 140, 100, 0.1);
             }
+
             &.on {
-              background: linear-gradient(180deg, rgba($been-c, 0.95), rgba($been-c, 0.75));
+              background: linear-gradient(
+                180deg,
+                rgba($been-c, 0.95),
+                rgba($been-c, 0.75)
+              );
               border-color: $been-c;
               color: #fff;
               box-shadow:
@@ -458,6 +540,7 @@ $ink-3: #64748b;
                 0 3px 6px rgba(100, 80, 50, 0.25),
                 inset 0 1px 0 rgba(255, 255, 255, 0.35),
                 inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+
               &:hover {
                 box-shadow:
                   0 0 20px rgba($been-c, 0.65),
@@ -465,8 +548,13 @@ $ink-3: #64748b;
                   inset 0 1px 0 rgba(255, 255, 255, 0.45),
                   inset 0 -2px 0 rgba(0, 0, 0, 0.2);
               }
+
               &:active {
-                background: linear-gradient(180deg, rgba($been-c, 0.8), rgba($been-c, 0.65));
+                background: linear-gradient(
+                  180deg,
+                  rgba($been-c, 0.8),
+                  rgba($been-c, 0.65)
+                );
                 box-shadow:
                   0 0 8px rgba($been-c, 0.3),
                   inset 0 3px 6px rgba(0, 0, 0, 0.25),
@@ -477,7 +565,11 @@ $ink-3: #64748b;
 
           &.s-share {
             &:hover {
-              background: linear-gradient(180deg, rgba($share-c, 0.15), rgba($share-c, 0.05));
+              background: linear-gradient(
+                180deg,
+                rgba($share-c, 0.15),
+                rgba($share-c, 0.05)
+              );
               border-color: $share-c;
               color: $share-c;
               box-shadow:
@@ -490,7 +582,11 @@ $ink-3: #64748b;
 
           &.s-remove {
             &:hover {
-              background: linear-gradient(180deg, rgba($rm-c, 0.15), rgba($rm-c, 0.05));
+              background: linear-gradient(
+                180deg,
+                rgba($rm-c, 0.15),
+                rgba($rm-c, 0.05)
+              );
               border-color: $rm-c;
               color: $rm-c;
               box-shadow:
@@ -569,7 +665,13 @@ $ink-3: #64748b;
             rgba(180, 160, 120, 0.035) 3px,
             rgba(180, 160, 120, 0.035) 4px
           ),
-          linear-gradient(105deg, #fffffe 0%, #fdf9f2 25%, #f5eee0 55%, #e8e0d0 100%);
+          linear-gradient(
+            105deg,
+            #fffffe 0%,
+            #fdf9f2 25%,
+            #f5eee0 55%,
+            #e8e0d0 100%
+          );
 
         .watermark {
           color: rgba($accent, 0.1);
@@ -586,7 +688,9 @@ $ink-3: #64748b;
 
         .ticket-name {
           color: $accent-d;
-          text-shadow: 0 0 10px $accent-glow, 0 1px 0 rgba(255, 255, 255, 0.8);
+          text-shadow:
+            0 0 10px $accent-glow,
+            0 1px 0 rgba(255, 255, 255, 0.8);
         }
 
         .ticket-loc {
@@ -626,19 +730,38 @@ $ink-3: #64748b;
             rgba(180, 160, 120, 0.03) 3px,
             rgba(180, 160, 120, 0.03) 4px
           ),
-          linear-gradient(105deg, #f5f0e6 0%, #ede6d6 35%, #e0d8c6 65%, #d2c9b4 100%);
-
+          linear-gradient(
+            105deg,
+            #f5f0e6 0%,
+            #ede6d6 35%,
+            #e0d8c6 65%,
+            #d2c9b4 100%
+          );
 
         .stub-rating {
           color: $gold;
           filter: drop-shadow(0 0 4px rgba(217, 119, 6, 0.3));
-          b { color: $ink; }
+
+          b {
+            color: $ink;
+          }
         }
-        .stub-type { color: $ink; }
-        .stub-divider { background: linear-gradient(90deg, transparent, rgba($accent, 0.3), transparent); }
+
+        .stub-type {
+          color: $ink;
+        }
+
+        .stub-divider {
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba($accent, 0.3),
+            transparent
+          );
+        }
 
         .s-act {
-          background: linear-gradient(100deg, #ffffff, #f2ebda);
+          background: linear-gradient(100deg, #fff, #f2ebda);
           color: $ink-2;
           border-color: rgba(180, 160, 120, 0.4);
           box-shadow:
@@ -650,8 +773,13 @@ $ink-3: #64748b;
             inset -2px 0 3px rgba(120, 100, 70, 0.08);
         }
 
-        .stub-barcode { opacity: 0.85; }
-        .stub-no { color: $ink-2; }
+        .stub-barcode {
+          opacity: 0.85;
+        }
+
+        .stub-no {
+          color: $ink-2;
+        }
       }
     }
   }

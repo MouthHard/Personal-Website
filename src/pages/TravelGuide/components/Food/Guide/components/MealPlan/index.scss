@@ -1,5 +1,4 @@
 @use '../../variables' as *;
-
 @include guide-block;
 
 .meal-plan {
@@ -20,80 +19,221 @@ $magenta-soft: #ff6b9d;
 $magenta-deep: #c0185a;
 
 @keyframes reelSpin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
+
 @keyframes headSweep {
-  0% { left: 8%; }
-  50% { left: 88%; }
-  100% { left: 8%; }
+  0% {
+    left: 8%;
+  }
+
+  50% {
+    left: 88%;
+  }
+
+  100% {
+    left: 8%;
+  }
 }
+
 @keyframes waveFlow {
-  0% { background-position: 0 0; }
-  100% { background-position: 20px 0; }
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 20px 0;
+  }
 }
+
 @keyframes glitchFlicker {
-  0%, 100% { opacity: 1; }
-  92% { opacity: 1; }
-  93% { opacity: 0.3; }
-  94% { opacity: 1; }
-  96% { opacity: 0.5; }
-  97% { opacity: 1; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  92% {
+    opacity: 1;
+  }
+
+  93% {
+    opacity: 0.3;
+  }
+
+  94% {
+    opacity: 1;
+  }
+
+  96% {
+    opacity: 0.5;
+  }
+
+  97% {
+    opacity: 1;
+  }
 }
+
 // 霓虹灯闪烁
 @keyframes neonFlicker {
-  0%, 100% { opacity: 1; }
-  3% { opacity: 0.4; }
-  6% { opacity: 1; }
-  9% { opacity: 0.6; }
-  12% { opacity: 1; }
-  70% { opacity: 1; }
-  72% { opacity: 0.5; }
-  74% { opacity: 1; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  3% {
+    opacity: 0.4;
+  }
+
+  6% {
+    opacity: 1;
+  }
+
+  9% {
+    opacity: 0.6;
+  }
+
+  12% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  72% {
+    opacity: 0.5;
+  }
+
+  74% {
+    opacity: 1;
+  }
 }
+
 // 磁带窗口扫光
 @keyframes windowScan {
-  0% { transform: translateX(-120%); }
-  100% { transform: translateX(120%); }
+  0% {
+    transform: translateX(-120%);
+  }
+
+  100% {
+    transform: translateX(120%);
+  }
 }
+
 // 面板扫描线一扫到底
 @keyframes panelScan {
-  0% { transform: scaleX(0); transform-origin: left center; opacity: 0; }
-  10% { opacity: 1; }
-  45% { transform: scaleX(1); transform-origin: left center; opacity: 1; }
-  55% { transform: scaleX(1); transform-origin: right center; opacity: 1; }
-  90% { opacity: 1; }
-  100% { transform: scaleX(0); transform-origin: right center; opacity: 0; }
+  0% {
+    transform: scaleX(0);
+    transform-origin: left center;
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  45% {
+    transform: scaleX(1);
+    transform-origin: left center;
+    opacity: 1;
+  }
+
+  55% {
+    transform: scaleX(1);
+    transform-origin: right center;
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: scaleX(0);
+    transform-origin: right center;
+    opacity: 0;
+  }
 }
+
 // 心电图波形流动（生命体征监护）
 @keyframes ecgFlow {
-  0% { background-position: 0 0; }
-  100% { background-position: -110px 0; }
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: -110px 0;
+  }
 }
+
 // 卷轴中心脉冲
 @keyframes hubPulse {
-  0%, 100% { box-shadow: 0 0 8px $magenta-glow, 0 0 14px rgba(255, 45, 111, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.5); }
-  50% { box-shadow: 0 0 14px rgba(255, 45, 111, 0.8), 0 0 24px rgba(255, 45, 111, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.7); }
+  0%,
+  100% {
+    box-shadow:
+      0 0 8px $magenta-glow,
+      0 0 14px rgba(255, 45, 111, 0.3),
+      inset 0 1px 1px rgba(255, 255, 255, 0.5);
+  }
+
+  50% {
+    box-shadow:
+      0 0 14px rgba(255, 45, 111, 0.8),
+      0 0 24px rgba(255, 45, 111, 0.5),
+      inset 0 1px 1px rgba(255, 255, 255, 0.7);
+  }
 }
+
 // 音轨项扫光
 @keyframes trackSweep {
-  0% { left: -30%; }
-  100% { left: 130%; }
+  0% {
+    left: -30%;
+  }
+
+  100% {
+    left: 130%;
+  }
 }
+
 // 导轨能量流
 @keyframes railFlow {
-  0% { background-position: 0 0; }
-  100% { background-position: 40px 0; }
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 40px 0;
+  }
 }
+
 // 导轨精致光点流动
 @keyframes railDotFlow {
-  0% { left: -10%; opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { left: 110%; opacity: 0; }
+  0% {
+    left: -10%;
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    left: 110%;
+    opacity: 0;
+  }
 }
+
 // 边框光环旋转
 @keyframes borderRotate {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .cassette-card {
@@ -127,12 +267,14 @@ $magenta-deep: #c0185a;
     left: 10%;
     right: 10%;
     height: 1px;
-    background: linear-gradient(90deg,
+    background: linear-gradient(
+      90deg,
       transparent,
       rgba(255, 45, 111, 0.3) 20%,
       rgba(255, 138, 184, 0.9) 50%,
       rgba(255, 45, 111, 0.3) 80%,
-      transparent);
+      transparent
+    );
     box-shadow: 0 0 10px rgba(255, 45, 111, 0.6);
     z-index: 4;
     pointer-events: none;
@@ -140,7 +282,6 @@ $magenta-deep: #c0185a;
 
   // 内层旋转边框光晕（科幻氛围）
   &::after {
-
     content: '';
     position: absolute;
     inset: -1px;
@@ -177,10 +318,18 @@ $magenta-deep: #c0185a;
       inset 0 -2px 0 rgba(0, 0, 0, 0.5);
     animation: glitchFlicker 4s steps(1) infinite;
 
-    .reel-hub { animation-duration: 0.8s; }
+    .reel-hub {
+      animation-duration: 0.8s;
+    }
 
-    .cassette-tape-bg::after { transform: translateX(200%); }
-    &::after { opacity: 1; animation-duration: 4s; }
+    .cassette-tape-bg::after {
+      transform: translateX(200%);
+    }
+
+    &::after {
+      opacity: 1;
+      animation-duration: 4s;
+    }
   }
 
   // 顶部卷轴区
@@ -193,6 +342,7 @@ $magenta-deep: #c0185a;
     padding: 0.75rem 1rem 0.55rem;
     background:
       // 顶部金属面板高光
+
       linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, transparent 12%),
       linear-gradient(180deg, rgba(255, 45, 111, 0.1) 0%, transparent 100%),
       linear-gradient(180deg, #14101a 0%, #0f0a14 100%);
@@ -201,7 +351,6 @@ $magenta-deep: #c0185a;
       inset 0 -1px 0 rgba(0, 0, 0, 0.5),
       inset 0 1px 0 rgba(255, 255, 255, 0.04);
 
-
     .reel {
       position: relative;
       width: 34px;
@@ -209,8 +358,17 @@ $magenta-deep: #c0185a;
       border-radius: 50%;
       background:
         // 3D 球面高光
-        radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.28), transparent 42%),
-        radial-gradient(circle at 70% 80%, rgba(255, 45, 111, 0.18), transparent 50%),
+
+        radial-gradient(
+          circle at 30% 25%,
+          rgba(255, 255, 255, 0.28),
+          transparent 42%
+        ),
+        radial-gradient(
+          circle at 70% 80%,
+          rgba(255, 45, 111, 0.18),
+          transparent 50%
+        ),
         radial-gradient(circle, #2a1a2e 30%, #1a0f20 100%);
       border: 1.5px solid rgba(255, 45, 111, 0.55);
       box-shadow:
@@ -231,14 +389,21 @@ $magenta-deep: #c0185a;
         position: absolute;
         inset: 4px;
         border-radius: 50%;
-        background:
-          conic-gradient(
-            from 0deg,
-            transparent 0deg, rgba(255, 45, 111, 0.4) 5deg, transparent 10deg,
-            transparent 85deg, rgba(255, 45, 111, 0.4) 90deg, transparent 95deg,
-            transparent 175deg, rgba(255, 45, 111, 0.4) 180deg, transparent 185deg,
-            transparent 265deg, rgba(255, 45, 111, 0.4) 270deg, transparent 275deg
-          );
+        background: conic-gradient(
+          from 0deg,
+          transparent 0deg,
+          rgba(255, 45, 111, 0.4) 5deg,
+          transparent 10deg,
+          transparent 85deg,
+          rgba(255, 45, 111, 0.4) 90deg,
+          transparent 95deg,
+          transparent 175deg,
+          rgba(255, 45, 111, 0.4) 180deg,
+          transparent 185deg,
+          transparent 265deg,
+          rgba(255, 45, 111, 0.4) 270deg,
+          transparent 275deg
+        );
         box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.5);
       }
 
@@ -251,14 +416,25 @@ $magenta-deep: #c0185a;
         margin: -4.5px 0 0 -4.5px;
         border-radius: 50%;
         background:
-          radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.6), transparent 50%),
-          radial-gradient(circle, $magenta-soft 20%, $magenta 60%, $magenta-deep 100%);
+          radial-gradient(
+            circle at 30% 30%,
+            rgba(255, 255, 255, 0.6),
+            transparent 50%
+          ),
+          radial-gradient(
+            circle,
+            $magenta-soft 20%,
+            $magenta 60%,
+            $magenta-deep 100%
+          );
         border: 1px solid rgba(255, 45, 111, 0.8);
         box-shadow:
           0 0 8px $magenta-glow,
           0 0 14px rgba(255, 45, 111, 0.3),
           inset 0 1px 1px rgba(255, 255, 255, 0.5);
-        animation: reelSpin 3s linear infinite, hubPulse 2s ease-in-out infinite;
+        animation:
+          reelSpin 3s linear infinite,
+          hubPulse 2s ease-in-out infinite;
       }
     }
 
@@ -270,8 +446,14 @@ $magenta-deep: #c0185a;
       display: flex;
       align-items: center;
       justify-content: center;
+
       // CRT 凹面感
-      background: radial-gradient(ellipse at 50% 50%, #0a0610 0%, #050308 70%, #020104 100%);
+      background: radial-gradient(
+        ellipse at 50% 50%,
+        #0a0610 0%,
+        #050308 70%,
+        #020104 100%
+      );
       border: 1px solid rgba(255, 45, 111, 0.45);
       border-radius: 3px;
       box-shadow:
@@ -298,8 +480,7 @@ $magenta-deep: #c0185a;
         background-repeat: repeat-x;
         background-size: 110px 20px;
         background-position: 0 0;
-        filter:
-          drop-shadow(0 0 2px rgba(255, 138, 184, 0.35))
+        filter: drop-shadow(0 0 2px rgba(255, 138, 184, 0.35))
           drop-shadow(0 0 4px rgba(255, 45, 111, 0.2));
         animation: ecgFlow 2.8s linear infinite;
         pointer-events: none;
@@ -312,7 +493,7 @@ $magenta-deep: #c0185a;
         z-index: 2;
         font-size: 1.5rem;
         font-weight: 900;
-        color: #ffffff;
+        color: #fff;
         letter-spacing: 5px;
         font-family: 'Courier New', monospace;
         text-shadow:
@@ -327,13 +508,17 @@ $magenta-deep: #c0185a;
   // 磁带主体
   .cassette-body {
     position: relative;
-    padding: 0.7rem 1rem 0.7rem;
+    padding: 0.7rem 1rem;
 
     // 磁带纹理背景
     .cassette-tape-bg {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(26, 20, 32, 0.5) 0%, rgba(15, 10, 20, 0.3) 100%);
+      background: linear-gradient(
+        180deg,
+        rgba(26, 20, 32, 0.5) 0%,
+        rgba(15, 10, 20, 0.3) 100%
+      );
       pointer-events: none;
 
       // 磁带光泽流动
@@ -344,7 +529,12 @@ $magenta-deep: #c0185a;
         left: 0;
         width: 30%;
         height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 45, 111, 0.15), transparent);
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 45, 111, 0.15),
+          transparent
+        );
         transform: translateX(-100%);
         transition: transform 0.8s ease;
         pointer-events: none;
@@ -365,7 +555,11 @@ $magenta-deep: #c0185a;
         gap: 0.5rem;
         padding: 0.45rem 0.55rem;
         background:
-          linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, transparent 50%),
+          linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.02) 0%,
+            transparent 50%
+          ),
           rgba(10, 6, 14, 0.6);
         border: 1px solid rgba(255, 45, 111, 0.14);
         border-radius: 4px;
@@ -384,19 +578,24 @@ $magenta-deep: #c0185a;
           bottom: 0;
           left: -30%;
           width: 30%;
-          background: linear-gradient(90deg,
+          background: linear-gradient(
+            90deg,
             transparent,
             rgba(255, 138, 184, 0.18) 45%,
             rgba(255, 255, 255, 0.12) 50%,
             rgba(255, 138, 184, 0.18) 55%,
-            transparent);
+            transparent
+          );
           pointer-events: none;
           z-index: 0;
         }
 
         &:hover {
-          background:
-            linear-gradient(180deg, rgba(255, 45, 111, 0.12) 0%, rgba(255, 45, 111, 0.04) 100%);
+          background: linear-gradient(
+            180deg,
+            rgba(255, 45, 111, 0.12) 0%,
+            rgba(255, 45, 111, 0.04) 100%
+          );
           border-color: rgba(255, 45, 111, 0.55);
           box-shadow:
             0 2px 6px rgba(0, 0, 0, 0.4),
@@ -404,7 +603,9 @@ $magenta-deep: #c0185a;
             inset 0 1px 0 rgba(255, 255, 255, 0.1),
             inset 0 -1px 0 rgba(0, 0, 0, 0.3);
 
-          &::before { animation: trackSweep 0.9s ease-out; }
+          &::before {
+            animation: trackSweep 0.9s ease-out;
+          }
 
           .track-wave {
             background-position: 0 0;
@@ -456,12 +657,17 @@ $magenta-deep: #c0185a;
           width: 20px;
           height: 16px;
           flex-shrink: 0;
-          background:
-            repeating-linear-gradient(90deg,
-              $magenta 0, $magenta 1.5px,
-              transparent 1.5px, transparent 3px,
-              $magenta-soft 3px, $magenta-soft 4.5px,
-              transparent 4.5px, transparent 6px);
+          background: repeating-linear-gradient(
+            90deg,
+            $magenta 0,
+            $magenta 1.5px,
+            transparent 1.5px,
+            transparent 3px,
+            $magenta-soft 3px,
+            $magenta-soft 4.5px,
+            transparent 4.5px,
+            transparent 6px
+          );
           background-size: 20px 100%;
           background-position: 20px 0;
           opacity: 0.55;
@@ -536,14 +742,16 @@ $magenta-deep: #c0185a;
       right: 6%;
       height: 2px;
       margin-top: -1px;
+
       // 双层光带：底层渐变 + 上层流动光段
-      background:
-        linear-gradient(90deg,
-          transparent 0%,
-          rgba(255, 45, 111, 0.35) 10%,
-          rgba(255, 138, 184, 0.65) 50%,
-          rgba(255, 45, 111, 0.35) 90%,
-          transparent 100%);
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 45, 111, 0.35) 10%,
+        rgba(255, 138, 184, 0.65) 50%,
+        rgba(255, 45, 111, 0.35) 90%,
+        transparent 100%
+      );
       border-radius: 1px;
       box-shadow:
         0 0 6px rgba(255, 138, 184, 0.6),
@@ -560,11 +768,13 @@ $magenta-deep: #c0185a;
         height: 4px;
         margin-top: -2px;
         border-radius: 2px;
-        background: radial-gradient(ellipse at 50% 50%,
+        background: radial-gradient(
+          ellipse at 50% 50%,
           rgba(255, 255, 255, 0.9) 0%,
           rgba(255, 138, 184, 0.8) 30%,
           rgba(255, 45, 111, 0.4) 60%,
-          transparent 100%);
+          transparent 100%
+        );
         box-shadow:
           0 0 8px rgba(255, 138, 184, 0.9),
           0 0 14px rgba(255, 45, 111, 0.5);
@@ -576,8 +786,13 @@ $magenta-deep: #c0185a;
         content: '';
         position: absolute;
         inset: 0;
-        background:
-          linear-gradient(90deg, #0a0610 0%, transparent 8%, transparent 92%, #0a0610 100%);
+        background: linear-gradient(
+          90deg,
+          #0a0610 0%,
+          transparent 8%,
+          transparent 92%,
+          #0a0610 100%
+        );
         pointer-events: none;
       }
     }
@@ -594,12 +809,14 @@ $ion-deep: #c0185a;
 $ion-mist: rgba(255, 45, 111, 0.12);
 
 @keyframes ionPulse {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow:
       0 0 8px $ion-glow,
       0 0 16px rgba(255, 45, 111, 0.25),
       inset 0 0 6px rgba(255, 107, 157, 0.4);
   }
+
   50% {
     box-shadow:
       0 0 14px rgba(255, 45, 111, 0.8),
@@ -607,21 +824,55 @@ $ion-mist: rgba(255, 45, 111, 0.12);
       inset 0 0 10px rgba(255, 107, 157, 0.7);
   }
 }
+
 @keyframes ionStream {
-  0% { transform: translateY(-100%); opacity: 0; }
-  20% { opacity: 1; }
-  80% { opacity: 1; }
-  100% { transform: translateY(100%); opacity: 0; }
-}
-@keyframes coreBreath {
-  0%, 100% { transform: scale(1); opacity: 0.9; }
-  50% { transform: scale(1.15); opacity: 1; }
-}
-@keyframes ringOrbit {
-  to { transform: rotate(360deg); }
-}
-@keyframes thrusterGlow {
-  0%, 100% { opacity: 0.5; height: 8px; }
-  50% { opacity: 0.85; height: 14px; }
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
 }
 
+@keyframes coreBreath {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+
+@keyframes ringOrbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes thrusterGlow {
+  0%,
+  100% {
+    opacity: 0.5;
+    height: 8px;
+  }
+
+  50% {
+    opacity: 0.85;
+    height: 14px;
+  }
+}

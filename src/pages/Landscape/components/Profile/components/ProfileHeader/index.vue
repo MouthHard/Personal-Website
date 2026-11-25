@@ -8,13 +8,20 @@
           <div class="avatar-ring ring-inner"></div>
           <div class="avatar-glow"></div>
           <div class="avatar-container">
-            <img v-if="user.avatar" loading="lazy" :src="user.avatar" :alt="user.name" class="avatar-image" />
+            <LandscapeImage
+              v-if="user.avatar"
+              loading="lazy"
+              :src="user.avatar"
+              :alt="user.name"
+              class="avatar-image"
+              variant="avatar"
+            />
             <div v-else class="avatar-placeholder">
               <UserIcon />
             </div>
           </div>
         </div>
-        
+
         <div class="profile-info">
           <div class="name-section">
             <h1 class="user-name">{{ user.name }}</h1>
@@ -24,7 +31,7 @@
           </div>
           <p class="user-title">{{ user.title }}</p>
           <p class="user-bio">{{ user.bio }}</p>
-          
+
           <div class="profile-meta">
             <div v-if="user.location" class="meta-item">
               <LocationIcon />
@@ -37,7 +44,9 @@
             <div v-if="user.tags && user.tags.length > 0" class="tags-wrapper">
               <LayersIcon class="tags-icon" />
               <div class="tags-list">
-                <span v-for="tag in user.tags" :key="tag" class="tag-chip">{{ tag }}</span>
+                <span v-for="tag in user.tags" :key="tag" class="tag-chip">
+                  {{ tag }}
+                </span>
               </div>
             </div>
           </div>
@@ -46,7 +55,12 @@
 
       <!-- 右侧：数据统计 -->
       <div class="stats-cosmos">
-        <div v-for="(stat, index) in stats" :key="stat.label" class="stat-card" :style="{ '--delay': `${index * 0.1}s` }">
+        <div
+          v-for="(stat, index) in stats"
+          :key="stat.label"
+          class="stat-card"
+          :style="{ '--delay': `${index * 0.1}s` }"
+        >
           <div class="stat-content">
             <div class="stat-value">{{ stat.value }}</div>
             <div class="stat-label">{{ stat.label }}</div>
@@ -81,51 +95,53 @@
 </template>
 
 <script setup lang="ts">
-import { ref, type VNode } from 'vue';
-import EditProfileModal from './components/EditProfileModal/index.vue';
-import type { User } from '@/typesOfPages/landscape';
-import UserIcon from '@/pages/Landscape/icons/common/UserIcon.vue';
-import CheckCircleIcon from '@/pages/Landscape/icons/components/profile/ProfileHeader/CheckCircleIcon.vue';
-import LocationIcon from '@/pages/Landscape/icons/common/LocationIcon.vue';
-import CalendarIcon from '@/pages/Landscape/icons/common/CalendarIcon.vue';
-import LayersIcon from '@/pages/Landscape/icons/common/LayersIcon.vue';
-import ChevronUpIcon from '@/pages/Landscape/icons/common/ChevronUpIcon.vue';
-import ChevronDownIcon from '@/pages/Landscape/icons/common/ChevronDownIcon.vue';
-import EditIcon from '@/pages/Landscape/icons/common/EditIcon.vue';
+  import { ref, type VNode } from 'vue';
+  import EditProfileModal from './components/EditProfileModal/index.vue';
+  import type { User } from '@/typesOfPages/landscape';
+  import UserIcon from '@/pages/Landscape/icons/common/UserIcon.vue';
+  import LandscapeImage from '../../../common/LandscapeImage/index.vue';
+  import CheckCircleIcon from '@/pages/Landscape/icons/components/profile/ProfileHeader/CheckCircleIcon.vue';
+  import LocationIcon from '@/pages/Landscape/icons/common/LocationIcon.vue';
+  import CalendarIcon from '@/pages/Landscape/icons/common/CalendarIcon.vue';
+  import LayersIcon from '@/pages/Landscape/icons/common/LayersIcon.vue';
+  import ChevronUpIcon from '@/pages/Landscape/icons/common/ChevronUpIcon.vue';
+  import ChevronDownIcon from '@/pages/Landscape/icons/common/ChevronDownIcon.vue';
+  import EditIcon from '@/pages/Landscape/icons/common/EditIcon.vue';
 
-interface Stat {
-  label: string;
-  value: string;
-  trend: number;
-  icon: VNode;
-}
+  interface Stat {
+    label: string;
+    value: string;
+    trend: number;
+    icon: VNode;
+  }
 
-const props = defineProps<{
-  user: User;
-  stats: Stat[];
-}>();
+  const props = defineProps<{
+    user: User;
+    stats: Stat[];
+  }>();
 
-const emit = defineEmits<{
-  'update:user': [value: User];
-}>();
+  const emit = defineEmits<{
+    'update:user': [value: User];
+  }>();
 
-const showEditModal = ref(false);
+  const showEditModal = ref(false);
 
-const handleSaveProfile = (data: Partial<User> & { avatar?: string; tags?: string[] }) => {
-  const updatedUser: User = {
-    ...props.user,
-    name: data.name || props.user.name || '',
-    title: data.title || props.user.title || '',
-    bio: data.bio || props.user.bio || '',
-    location: data.location || props.user.location || '',
-    joinDate: props.user.joinDate || '',
-    tags: data.tags || props.user.tags || [],
-    verified: props.user.verified || false,
-    avatar: data.avatar || props.user.avatar,
+  const handleSaveProfile = (
+    data: Partial<User> & { avatar?: string; tags?: string[] },
+  ) => {
+    const updatedUser: User = {
+      ...props.user,
+      name: data.name || props.user.name || '',
+      title: data.title || props.user.title || '',
+      bio: data.bio || props.user.bio || '',
+      location: data.location || props.user.location || '',
+      joinDate: props.user.joinDate || '',
+      tags: data.tags || props.user.tags || [],
+      verified: props.user.verified || false,
+      avatar: data.avatar || props.user.avatar,
+    };
+    emit('update:user', updatedUser);
   };
-  emit('update:user', updatedUser);
-};
 </script>
 
 <style scoped lang="scss" src="./index.scss" />
-

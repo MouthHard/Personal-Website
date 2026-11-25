@@ -1,4 +1,4 @@
-@use './_variables' as *;
+@use './variables' as *;
 
 // ============================================================================
 // 主容器 — 时令光谱舱
@@ -8,10 +8,26 @@
   padding: 2rem 2.5rem 2.5rem;
   margin: 1.25rem 0 0;
   background:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(249, 115, 22, 0.16), transparent 70%),
-    radial-gradient(ellipse 60% 40% at 50% 120%, rgba(194, 65, 12, 0.12), transparent 70%),
-    radial-gradient(ellipse at top right, rgba(251, 191, 36, 0.1), transparent 55%),
-    radial-gradient(ellipse at bottom left, rgba(249, 115, 22, 0.06), transparent 55%),
+    radial-gradient(
+      ellipse 80% 50% at 50% -20%,
+      rgba(249, 115, 22, 0.16),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 60% 40% at 50% 120%,
+      rgba(194, 65, 12, 0.12),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse at top right,
+      rgba(251, 191, 36, 0.1),
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse at bottom left,
+      rgba(249, 115, 22, 0.06),
+      transparent 55%
+    ),
     linear-gradient(180deg, $ink-2 0%, $ink 100%);
   border: 1px solid $line;
   border-radius: 20px;
@@ -31,7 +47,8 @@
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg,
+    background: linear-gradient(
+      90deg,
       transparent 0%,
       $amber-deep 15%,
       $amber 35%,
@@ -54,7 +71,11 @@
     width: 55%;
     height: 50%;
     transform: translateX(-50%);
-    background: radial-gradient(circle, rgba(249, 115, 22, 0.14), transparent 70%);
+    background: radial-gradient(
+      circle,
+      rgba(249, 115, 22, 0.14),
+      transparent 70%
+    );
     pointer-events: none;
     z-index: 0;
     animation: chamberBreath 6s ease-in-out infinite;
@@ -91,8 +112,16 @@
       height: 52px;
       border-radius: 14px;
       background:
-        radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.15), transparent 55%),
-        linear-gradient(135deg, rgba(249, 115, 22, 0.32), rgba(251, 191, 36, 0.2)),
+        radial-gradient(
+          circle at 35% 30%,
+          rgba(255, 255, 255, 0.15),
+          transparent 55%
+        ),
+        linear-gradient(
+          135deg,
+          rgba(249, 115, 22, 0.32),
+          rgba(251, 191, 36, 0.2)
+        ),
         linear-gradient(180deg, $ink-3 0%, $ink 100%);
       border: 1px solid rgba(249, 115, 22, 0.4);
       box-shadow:
@@ -144,7 +173,11 @@
     gap: 0.5rem;
     padding: 0.4rem;
     background:
-      radial-gradient(ellipse 80% 50% at 50% 0%, rgba(255, 255, 255, 0.04), transparent 60%),
+      radial-gradient(
+        ellipse 80% 50% at 50% 0%,
+        rgba(255, 255, 255, 0.04),
+        transparent 60%
+      ),
       linear-gradient(180deg, $ink-3 0%, $ink-2 100%);
     border: 1px solid $line;
     border-radius: 12px;
@@ -171,7 +204,11 @@
       font-weight: 700;
       letter-spacing: 1px;
       cursor: pointer;
-      transition: border-color 0.35s ease, box-shadow 0.35s ease, background 0.35s ease, color 0.35s ease;
+      transition:
+        border-color 0.35s ease,
+        box-shadow 0.35s ease,
+        background 0.35s ease,
+        color 0.35s ease;
       box-shadow:
         0 1px 2px rgba(0, 0, 0, 0.3),
         0 4px 10px rgba(0, 0, 0, 0.45),
@@ -185,7 +222,9 @@
         width: 18px;
         height: 18px;
         color: $amber-soft;
-        transition: filter 0.3s ease, color 0.3s ease;
+        transition:
+          filter 0.3s ease,
+          color 0.3s ease;
       }
 
       .segment-name {
@@ -195,8 +234,16 @@
 
       &:hover {
         background:
-          linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, transparent 50%),
-          linear-gradient(135deg, rgba(249, 115, 22, 0.2) 0%, rgba(251, 191, 36, 0.1) 100%),
+          linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.12) 0%,
+            transparent 50%
+          ),
+          linear-gradient(
+            135deg,
+            rgba(249, 115, 22, 0.2) 0%,
+            rgba(251, 191, 36, 0.1) 100%
+          ),
           linear-gradient(180deg, $ink-4 0%, $ink 100%);
         border-color: rgba(249, 115, 22, 0.5);
         color: $cream;
@@ -224,43 +271,63 @@
           inset 0 1px 0 rgba(255, 255, 255, 0.25),
           inset 0 -2px 4px rgba(0, 0, 0, 0.35),
           inset 0 0 18px var(--seg-glow, #{$amber-glow});
-
         border-color: var(--seg-color, rgba(249, 115, 22, 0.7));
 
         .segment-icon {
-          filter: drop-shadow(0 0 8px var(--seg-glow, #{$amber-glow})) drop-shadow(0 0 2px rgba(255, 255, 255, 0.4));
+          filter: drop-shadow(0 0 8px var(--seg-glow, #{$amber-glow}))
+            drop-shadow(0 0 2px rgba(255, 255, 255, 0.4));
           color: #fff;
         }
 
         &.term-spring {
           --seg-color: #{$spring};
           --seg-glow: #{$spring-glow};
+
           background:
-            radial-gradient(circle at 30% 25%, rgba(244, 114, 182, 0.5), rgba(190, 24, 93, 0.2) 65%),
+            radial-gradient(
+              circle at 30% 25%,
+              rgba(244, 114, 182, 0.5),
+              rgba(190, 24, 93, 0.2) 65%
+            ),
             linear-gradient(180deg, $ink-4 0%, $ink 100%);
         }
 
         &.term-summer {
           --seg-color: #{$summer};
           --seg-glow: #{$summer-glow};
+
           background:
-            radial-gradient(circle at 30% 25%, rgba(74, 222, 128, 0.5), rgba(21, 128, 61, 0.2) 65%),
+            radial-gradient(
+              circle at 30% 25%,
+              rgba(74, 222, 128, 0.5),
+              rgba(21, 128, 61, 0.2) 65%
+            ),
             linear-gradient(180deg, $ink-4 0%, $ink 100%);
         }
 
         &.term-autumn {
           --seg-color: #{$autumn};
           --seg-glow: #{$autumn-glow};
+
           background:
-            radial-gradient(circle at 30% 25%, rgba(251, 191, 36, 0.5), rgba(180, 83, 9, 0.2) 65%),
+            radial-gradient(
+              circle at 30% 25%,
+              rgba(251, 191, 36, 0.5),
+              rgba(180, 83, 9, 0.2) 65%
+            ),
             linear-gradient(180deg, $ink-4 0%, $ink 100%);
         }
 
         &.term-winter {
           --seg-color: #{$winter};
           --seg-glow: #{$winter-glow};
+
           background:
-            radial-gradient(circle at 30% 25%, rgba(125, 211, 252, 0.5), rgba(3, 105, 161, 0.2) 65%),
+            radial-gradient(
+              circle at 30% 25%,
+              rgba(125, 211, 252, 0.5),
+              rgba(3, 105, 161, 0.2) 65%
+            ),
             linear-gradient(180deg, $ink-4 0%, $ink 100%);
         }
       }
@@ -355,10 +422,12 @@
 
 // 动画
 @keyframes chamberBreath {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.7;
     transform: translateX(-50%) scale(1);
   }
+
   50% {
     opacity: 1;
     transform: translateX(-50%) scale(1.08);
@@ -366,10 +435,12 @@
 }
 
 @keyframes iconBreath {
-  0%, 100% {
+  0%,
+  100% {
     filter: drop-shadow(0 0 8px var(--season-glow, #{$amber-glow}));
     transform: scale(1);
   }
+
   50% {
     filter: drop-shadow(0 0 12px var(--season-glow, #{$amber-glow}));
     transform: scale(1.05);

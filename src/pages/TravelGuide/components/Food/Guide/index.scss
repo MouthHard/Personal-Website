@@ -6,12 +6,38 @@
   margin: 1.25rem 0 0;
   background:
     // 同心圆环
-    radial-gradient(circle at 80% 20%, transparent 80px, rgba(251, 113, 133, 0.03) 81px, rgba(251, 113, 133, 0.03) 82px, transparent 83px),
-    radial-gradient(circle at 80% 20%, transparent 140px, rgba(251, 113, 133, 0.025) 141px, rgba(251, 113, 133, 0.025) 142px, transparent 143px),
-    radial-gradient(circle at 80% 20%, transparent 200px, rgba(251, 113, 133, 0.02) 201px, rgba(251, 113, 133, 0.02) 202px, transparent 203px),
+    radial-gradient(
+      circle at 80% 20%,
+      transparent 80px,
+      rgba(251, 113, 133, 0.03) 81px,
+      rgba(251, 113, 133, 0.03) 82px,
+      transparent 83px
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      transparent 140px,
+      rgba(251, 113, 133, 0.025) 141px,
+      rgba(251, 113, 133, 0.025) 142px,
+      transparent 143px
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      transparent 200px,
+      rgba(251, 113, 133, 0.02) 201px,
+      rgba(251, 113, 133, 0.02) 202px,
+      transparent 203px
+    ),
     // 径向辉光
-    radial-gradient(ellipse at top right, rgba(225, 29, 72, 0.08), transparent 55%),
-    radial-gradient(ellipse at bottom left, rgba(251, 113, 133, 0.05), transparent 55%),
+    radial-gradient(
+        ellipse at top right,
+        rgba(225, 29, 72, 0.08),
+        transparent 55%
+      ),
+    radial-gradient(
+      ellipse at bottom left,
+      rgba(251, 113, 133, 0.05),
+      transparent 55%
+    ),
     linear-gradient(180deg, $ink-2 0%, $ink 100%);
   border: 1px solid $line;
   border-radius: 18px;
@@ -26,7 +52,11 @@
     right: 10%;
     width: 50%;
     height: 50%;
-    background: radial-gradient(circle, rgba(251, 113, 133, 0.08), transparent 70%);
+    background: radial-gradient(
+      circle,
+      rgba(251, 113, 133, 0.08),
+      transparent 70%
+    );
     pointer-events: none;
     z-index: 0;
   }
@@ -37,40 +67,89 @@
 // 3D 立体图标舱 / 切角标题条 / 数据流副标题 / HUD 角落 / 扫描线 / 透视网格
 // ----------------------------------------------------------------------------
 @keyframes ringRotate {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
+
 @keyframes ringRotateReverse {
-  to { transform: rotate(-360deg); }
+  to {
+    transform: rotate(-360deg);
+  }
 }
+
 @keyframes coreFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-2px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-2px);
+  }
 }
+
 @keyframes ledBlink {
-  0%, 100% { opacity: 1; box-shadow: 0 0 8px $cyan, 0 0 16px $cyan-glow; }
-  50% { opacity: 0.4; box-shadow: 0 0 4px $cyan; }
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow:
+      0 0 8px $cyan,
+      0 0 16px $cyan-glow;
+  }
+
+  50% {
+    opacity: 0.4;
+    box-shadow: 0 0 4px $cyan;
+  }
 }
+
 @keyframes scanlineMove {
-  0% { left: 66.66%; }
-  100% { left: calc(100% - 2px); }
+  0% {
+    left: 66.66%;
+  }
+
+  100% {
+    left: calc(100% - 2px);
+  }
 }
+
 @keyframes streamBarFlow {
-  0% { background-position: 0% 0; }
-  100% { background-position: 200% 0; }
+  0% {
+    background-position: 0% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
 }
+
 @keyframes titleChipPulse {
-  0%, 100% { box-shadow: 0 0 6px rgba(251, 113, 133, 0.4), inset 0 0 4px rgba(251, 113, 133, 0.2); }
-  50% { box-shadow: 0 0 12px rgba(251, 113, 133, 0.7), inset 0 0 8px rgba(251, 113, 133, 0.4); }
+  0%,
+  100% {
+    box-shadow:
+      0 0 6px rgba(251, 113, 133, 0.4),
+      inset 0 0 4px rgba(251, 113, 133, 0.2);
+  }
+
+  50% {
+    box-shadow:
+      0 0 12px rgba(251, 113, 133, 0.7),
+      inset 0 0 8px rgba(251, 113, 133, 0.4);
+  }
 }
+
 .section-header {
   position: relative;
   z-index: 1;
   margin-bottom: 1.75rem;
   padding: 1.4rem 1.5rem 1.5rem;
   border: 1px solid $line;
- 
-  background:
-    linear-gradient(180deg, rgba(15, 20, 29, 0.6) 0%, rgba(10, 14, 22, 0.4) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(15, 20, 29, 0.6) 0%,
+    rgba(10, 14, 22, 0.4) 100%
+  );
   box-shadow:
     0 8px 24px rgba(0, 0, 0, 0.35),
     inset 0 1px 0 rgba(251, 113, 133, 0.08),
@@ -83,10 +162,34 @@
     position: absolute;
     inset: 0;
     background:
-      repeating-linear-gradient(90deg, transparent 0, transparent 39px, rgba(251, 113, 133, 0.04) 39px, rgba(251, 113, 133, 0.04) 40px),
-      repeating-linear-gradient(0deg, transparent 0, transparent 39px, rgba(251, 113, 133, 0.04) 39px, rgba(251, 113, 133, 0.04) 40px);
-    mask-image: linear-gradient(135deg, transparent 0%, black 30%, black 70%, transparent 100%);
-    -webkit-mask-image: linear-gradient(135deg, transparent 0%, black 30%, black 70%, transparent 100%);
+      repeating-linear-gradient(
+        90deg,
+        transparent 0,
+        transparent 39px,
+        rgba(251, 113, 133, 0.04) 39px,
+        rgba(251, 113, 133, 0.04) 40px
+      ),
+      repeating-linear-gradient(
+        0deg,
+        transparent 0,
+        transparent 39px,
+        rgba(251, 113, 133, 0.04) 39px,
+        rgba(251, 113, 133, 0.04) 40px
+      );
+    mask-image: linear-gradient(
+      135deg,
+      transparent 0%,
+      black 30%,
+      black 70%,
+      transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      135deg,
+      transparent 0%,
+      black 30%,
+      black 70%,
+      transparent 100%
+    );
     pointer-events: none;
     z-index: 0;
   }
@@ -101,10 +204,33 @@
     pointer-events: none;
     z-index: 2;
 
-    &.hud-tl { top: 8px; left: 8px; border-right: none; border-bottom: none; }
-    &.hud-tr { top: 8px; right: 8px; border-left: none; border-bottom: none; }
-    &.hud-bl { bottom: 8px; left: 8px; border-right: none; border-top: none; }
-    &.hud-br { bottom: 8px; right: 8px; border-left: none; border-top: none; }
+    &.hud-tl {
+      top: 8px;
+      left: 8px;
+      border-right: none;
+      border-bottom: none;
+    }
+
+    &.hud-tr {
+      top: 8px;
+      right: 8px;
+      border-left: none;
+      border-bottom: none;
+    }
+
+    &.hud-bl {
+      bottom: 8px;
+      left: 8px;
+      border-right: none;
+      border-top: none;
+    }
+
+    &.hud-br {
+      bottom: 8px;
+      right: 8px;
+      border-left: none;
+      border-top: none;
+    }
   }
 
   // 扫描线 — 竖向，右侧三分之一区域内来回扫描
@@ -113,8 +239,15 @@
     top: 0;
     bottom: 0;
     width: 2px;
-    background: linear-gradient(180deg, transparent 0%, $cyan 50%, transparent 100%);
-    box-shadow: 0 0 8px $cyan-glow, 0 0 16px rgba(251, 113, 133, 0.3);
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      $cyan 50%,
+      transparent 100%
+    );
+    box-shadow:
+      0 0 8px $cyan-glow,
+      0 0 16px rgba(251, 113, 133, 0.3);
     animation: scanlineMove 3s ease-in-out infinite alternate;
     pointer-events: none;
     z-index: 1;
@@ -164,8 +297,17 @@
         inset: 0;
         border-radius: 50%;
         background:
-          radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.12), transparent 50%),
-          linear-gradient(135deg, rgba(251, 113, 133, 0.3), rgba(225, 29, 72, 0.15) 50%, rgba(15, 20, 29, 0.9));
+          radial-gradient(
+            circle at 30% 30%,
+            rgba(255, 255, 255, 0.12),
+            transparent 50%
+          ),
+          linear-gradient(
+            135deg,
+            rgba(251, 113, 133, 0.3),
+            rgba(225, 29, 72, 0.15) 50%,
+            rgba(15, 20, 29, 0.9)
+          );
         border: 1.5px solid rgba(251, 113, 133, 0.5);
         box-shadow:
           0 0 16px rgba(251, 113, 133, 0.25),
@@ -190,7 +332,11 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background: radial-gradient(circle, rgba(251, 113, 133, 0.18), rgba(10, 14, 22, 0.9));
+        background: radial-gradient(
+          circle,
+          rgba(251, 113, 133, 0.18),
+          rgba(10, 14, 22, 0.9)
+        );
         border: 1px solid rgba(251, 113, 133, 0.35);
         box-shadow:
           inset 0 0 10px rgba(251, 113, 133, 0.15),
@@ -213,7 +359,11 @@
         transform: translateX(-50%);
         width: 48px;
         height: 8px;
-        background: radial-gradient(ellipse, rgba(251, 113, 133, 0.3), transparent 70%);
+        background: radial-gradient(
+          ellipse,
+          rgba(251, 113, 133, 0.3),
+          transparent 70%
+        );
         filter: blur(2px);
         pointer-events: none;
       }
@@ -229,11 +379,22 @@
         gap: 0.35rem;
         padding: 0.5rem 1rem 0.5rem 0.9rem;
         margin-bottom: 0.5rem;
-        background:
-          linear-gradient(135deg, rgba(251, 113, 133, 0.12) 0%, rgba(225, 29, 72, 0.06) 50%, rgba(15, 20, 29, 0.4) 100%);
+        background: linear-gradient(
+          135deg,
+          rgba(251, 113, 133, 0.12) 0%,
+          rgba(225, 29, 72, 0.06) 50%,
+          rgba(15, 20, 29, 0.4) 100%
+        );
         border: 1px solid rgba(251, 113, 133, 0.3);
         border-radius: 4px;
-        clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+        clip-path: polygon(
+          0 0,
+          calc(100% - 12px) 0,
+          100% 12px,
+          100% 100%,
+          12px 100%,
+          0 calc(100% - 12px)
+        );
         box-shadow:
           0 4px 12px rgba(0, 0, 0, 0.4),
           0 0 16px rgba(251, 113, 133, 0.1),
@@ -298,7 +459,7 @@
         }
 
         .stream-text {
-          font-size: 1.0rem;
+          font-size: 1rem;
           font-weight: 600;
           color: #e8dde0;
           letter-spacing: 1px;
@@ -309,8 +470,13 @@
         .stream-bar {
           width: 40px;
           height: 4px;
-          background:
-            repeating-linear-gradient(90deg, $cyan 0, $cyan 3px, transparent 3px, transparent 6px);
+          background: repeating-linear-gradient(
+            90deg,
+            $cyan 0,
+            $cyan 3px,
+            transparent 3px,
+            transparent 6px
+          );
           background-size: 200% 100%;
           animation: streamBarFlow 3s linear infinite;
           flex-shrink: 0;
@@ -331,6 +497,7 @@
   flex-direction: column;
   gap: 3.6rem;
 }
+
 @media (max-width: 768px) {
   .guide-section {
     padding: 1.5rem 1rem 2rem;

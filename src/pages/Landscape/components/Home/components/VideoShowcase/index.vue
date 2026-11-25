@@ -1,28 +1,47 @@
 <template>
   <section v-if="videos.length > 0" class="video-showcase">
     <div class="section-header">
-      <div class="header-left">
-        <span class="title-label">CINEMA</span>
-        <h2 class="section-title">流光掠影</h2>
-        <p class="section-subtitle">用镜头记录世界</p>
-      </div>
-      <button class="more-btn" @click="handleMore">
-        <span class="clapper">
-          <span class="clapper-top">
-            <span class="top-stripes"></span>
-          </span>
-          <span class="clapper-hinge clapper-hinge-l"></span>
-          <span class="clapper-hinge clapper-hinge-r"></span>
-          <span class="clapper-body">
-            <span class="body-glow"></span>
-            <span class="body-content">
-              <span class="more-text">更多</span>
-              <ArrowRightIcon :stroke-width="2.2" class="more-arrow" />
-            </span>
-            <span class="body-engrave"></span>
-          </span>
+      <div class="header-plate">
+        <span class="plate-glow" aria-hidden="true"></span>
+        <span class="plate-sheen-clip" aria-hidden="true">
+          <span class="plate-sheen"></span>
         </span>
-      </button>
+        <span class="plate-corner tl" aria-hidden="true"></span>
+        <span class="plate-corner tr" aria-hidden="true"></span>
+        <span class="plate-corner bl" aria-hidden="true"></span>
+        <span class="plate-corner br" aria-hidden="true"></span>
+
+        <div class="header-left">
+          <span class="title-badge" aria-hidden="true">
+            <VideoIcon />
+          </span>
+          <div class="header-text">
+            <span class="title-label">CINEMA</span>
+            <h2 class="section-title">流光掠影</h2>
+            <p class="section-subtitle">用镜头记录世界</p>
+          </div>
+        </div>
+
+        <span class="plate-chapter" aria-hidden="true">CHAPTER · 06</span>
+
+        <button class="more-btn">
+          <span class="clapper">
+            <span class="clapper-top">
+              <span class="top-stripes"></span>
+            </span>
+            <span class="clapper-hinge clapper-hinge-l"></span>
+            <span class="clapper-hinge clapper-hinge-r"></span>
+            <span class="clapper-body">
+              <span class="body-glow"></span>
+              <span class="body-content">
+                <span class="more-text">更多</span>
+                <ArrowRightIcon :stroke-width="2.2" class="more-arrow" />
+              </span>
+              <span class="body-engrave"></span>
+            </span>
+          </span>
+        </button>
+      </div>
     </div>
 
     <div class="coverflow-stage">
@@ -55,7 +74,6 @@
       </VideoFrame>
     </div>
 
-
     <VideoModal
       ref="videoModalRef"
       :visible="showVideoModal"
@@ -81,239 +99,238 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted, watch, nextTick } from 'vue';
-import { showMessage, createSimpleInteractionItem } from '@/utils/landscape';
-import { useInteractionStore } from '@/stores/landscape';
-import { useHomeViewData } from '@/composables/landscape';
-import type { GlobalVideo } from '@/typesOfPages/landscape/data';
-import ArrowRightIcon from '@/pages/Landscape/icons/common/ArrowRightIcon.vue';
+  import { ref, computed, onMounted, onUnmounted, watch, nextTick } from 'vue';
+  import { showMessage, createSimpleInteractionItem } from '@/utils/landscape';
+  import { useInteractionStore } from '@/stores/landscape';
+  import { useHomeViewData } from '@/composables/landscape';
+  import type { GlobalVideo } from '@/typesOfPages/landscape/data';
+  import ArrowRightIcon from '@/pages/Landscape/icons/common/ArrowRightIcon.vue';
+  import VideoIcon from '@/pages/Landscape/icons/common/VideoIcon.vue';
 
-import VideoSlide from './components/VideoSlide/index.vue';
-import VideoFrame from './components/VideoFrame/index.vue';
-import VideoModal from './components/VideoModal/index.vue';
-import ShareMenu from '../../../common/ShareMenu/index.vue';
+  import VideoSlide from './components/VideoSlide/index.vue';
+  import VideoFrame from './components/VideoFrame/index.vue';
+  import VideoModal from './components/VideoModal/index.vue';
+  import ShareMenu from '../../../common/ShareMenu/index.vue';
 
-const interactionStore = useInteractionStore();
-const showVideoModal = ref(false);
-const selectedVideo = ref<GlobalVideo | null>(null);
-const showShareMenu = ref(false);
-const currentShareVideo = ref<GlobalVideo | null>(null);
-const shareWork = computed(() => {
-  const v = currentShareVideo.value;
-  if (!v) return {};
-  return {
-    type: 'video' as const,
-    title: v.title,
-    cover: v.poster,
-    author: v.author,
-    location: v.location,
-    category: v.category,
-    duration: v.duration,
-  };
-});
-const isFollowing = computed(() => {
-  const authorId = selectedVideo.value?.authorId;
-  return authorId ? interactionStore.isFollowing(authorId) : false;
-});
-const activeIndex = ref(0);
-const videoModalRef = ref<{ videoPlayer: HTMLVideoElement | null } | null>(null);
-
-const emptyCounts = { views: 0, likes: 0, loves: 0, favorites: 0, shares: 0 };
-
-const { videoShowcase } = useHomeViewData();
-const videos = computed(() => videoShowcase());
-
-const getVideoGlobalId = (id: string | number) => String(id);
-
-watch(
-  () => videos.value.length,
-  (len) => {
-    if (len > 0) {
-      interactionStore.registerBatch(
-        videos.value.map((v: GlobalVideo) => ({
-          id: getVideoGlobalId(v.id),
-          counts: {
-            likes: v.likes || 0,
-            views: v.views || 0,
-            loves: v.loves || 0,
-            favorites: v.bookmarks || 0,
-            shares: v.shares || 0,
-          },
-        })),
-      );
-    }
-  },
-  { immediate: true },
-);
-
-const getVideoCount = (id: string | number) =>
-  interactionStore.getCount(getVideoGlobalId(id));
-
-const isVideoLiked = (id: string | number) =>
-  interactionStore.isLiked(getVideoGlobalId(id));
-const isVideoLoved = (id: string | number) =>
-  interactionStore.isLoved(getVideoGlobalId(id));
-const isVideoFavorited = (id: string | number) =>
-  interactionStore.isFavorited(getVideoGlobalId(id));
-
-const toggleVideoLike = (video: GlobalVideo | null) => {
-  if (!video) return;
-  const gId = getVideoGlobalId(video.id);
-  const c = interactionStore.getCount(gId);
-  const item = {
-    id: gId,
-    type: 'video' as const,
-    title: video.title,
-    image: video.poster || '',
-    location: video.location,
-    category: video.category,
-    timestamp: Date.now(),
-    likes: c.likes,
-    views: c.views,
-    favorites: c.favorites,
-    shares: c.shares,
-  };
-  const isAdded = interactionStore.toggleLike(item);
-  if (isAdded) {
-    showMessage.like.success(video.title);
-  } else {
-    showMessage.like.cancel();
-  }
-};
-
-const toggleVideoLove = (video: GlobalVideo | null) => {
-  if (!video) return;
-  const gId = getVideoGlobalId(video.id);
-  const item = createSimpleInteractionItem(gId, 'video', video.title, {
-    image: video.poster || '',
-    location: video.location,
-    category: video.category,
-    author: video.author,
-    authorId: video.authorId,
-    authorAvatar: video.authorAvatar,
-  });
-  const isAdded = interactionStore.toggleLove(item);
-  if (isAdded) {
-    showMessage.love.success(video.title, 'video');
-  } else {
-    showMessage.love.cancel(video.title, 'video');
-  }
-};
-
-const toggleVideoFavorite = (video: GlobalVideo | null) => {
-  if (!video) return;
-  const gId = getVideoGlobalId(video.id);
-  const item = createSimpleInteractionItem(gId, 'video', video.title, {
-    image: video.poster || '',
-    location: video.location,
-    category: video.category,
-    author: video.author,
-    authorId: video.authorId,
-    authorAvatar: video.authorAvatar,
-  });
-  const isAdded = interactionStore.toggleFavorite(item);
-  if (isAdded) {
-    showMessage.favorite.success(video.title, 'video');
-  } else {
-    showMessage.favorite.cancel(video.title, 'video');
-  }
-};
-
-const toggleVideoShare = (video: GlobalVideo | null) => {
-  if (!video) return;
-  currentShareVideo.value = video;
-  showShareMenu.value = true;
-};
-
-const slideStyles = computed(() => {
-  const cur = activeIndex.value;
-  return videos.value.map((_, index) => {
-    const offset = index - cur;
-    const absOffset = Math.abs(offset);
-    const isLeft = offset < 0;
-    const translateX = offset * 280;
-    const translateZ = -absOffset * 200;
-    const rotateY = isLeft ? 45 : offset > 0 ? -45 : 0;
-    const scale = Math.max(1 - absOffset * 0.15, 0.6);
-    const opacity = Math.max(1 - absOffset * 0.3, 0.3);
-    const zIndex = 100 - absOffset;
-
+  const interactionStore = useInteractionStore();
+  const showVideoModal = ref(false);
+  const selectedVideo = ref<GlobalVideo | null>(null);
+  const showShareMenu = ref(false);
+  const currentShareVideo = ref<GlobalVideo | null>(null);
+  const shareWork = computed(() => {
+    const v = currentShareVideo.value;
+    if (!v) return {};
     return {
-      transform: `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`,
-      opacity: opacity,
-      zIndex: zIndex,
-      transition: 'all 0.6s cubic-bezier(0.23, 1, 0.32, 1)',
+      type: 'video' as const,
+      title: v.title,
+      cover: v.poster,
+      author: v.author,
+      location: v.location,
+      category: v.category,
+      duration: v.duration,
     };
   });
-});
-
-const setActive = (index: number) => {
-  activeIndex.value = index;
-};
-
-const prevSlide = () => {
-  if (activeIndex.value > 0) activeIndex.value--;
-};
-
-const nextSlide = () => {
-  if (activeIndex.value < videos.value.length - 1) activeIndex.value++;
-};
-
-const handleKeydown = (e: KeyboardEvent) => {
-  if (showVideoModal.value) return;
-  if (e.key === 'ArrowLeft') prevSlide();
-  if (e.key === 'ArrowRight') nextSlide();
-};
-
-onMounted(() => {
-  document.addEventListener('keydown', handleKeydown);
-});
-
-onUnmounted(() => {
-  document.removeEventListener('keydown', handleKeydown);
-});
-
-const handleMore = () => {
-  // 查看更多处理
-};
-
-const openVideoModal = (video: GlobalVideo) => {
-  selectedVideo.value = video;
-  showVideoModal.value = true;
-  document.body.style.overflow = 'hidden';
-  nextTick(() => {
-    if (videoModalRef.value?.videoPlayer) {
-      videoModalRef.value.videoPlayer.play();
-    }
+  const isFollowing = computed(() => {
+    const authorId = selectedVideo.value?.authorId;
+    return authorId ? interactionStore.isFollowing(authorId) : false;
   });
-};
+  const activeIndex = ref(0);
+  const videoModalRef = ref<{ videoPlayer: HTMLVideoElement | null } | null>(
+    null,
+  );
 
-const closeVideoModal = () => {
-  showVideoModal.value = false;
-  document.body.style.overflow = '';
-  if (videoModalRef.value?.videoPlayer) {
-    videoModalRef.value.videoPlayer.pause();
-  }
-};
+  const emptyCounts = { views: 0, likes: 0, loves: 0, favorites: 0, shares: 0 };
 
-const handleVideoEnd = () => {
-  const video = selectedVideo.value;
-  if (!video) return;
-  const currentIndex = videos.value.findIndex((v) => v.id === video.id);
-  const nextIndex = (currentIndex + 1) % videos.value.length;
-  openVideoModal(videos.value[nextIndex]);
-};
+  const { videoShowcase } = useHomeViewData();
+  const videos = computed(() => videoShowcase());
 
-const toggleFollow = () => {
-  const authorId = selectedVideo.value?.authorId;
-  if (!authorId) return;
-  const isNowFollowing = interactionStore.toggleFollowPhotographer(authorId);
-  if (isNowFollowing) {
-    showMessage.follow.success(selectedVideo.value?.author || '');
-  } else {
-    showMessage.follow.cancel(selectedVideo.value?.author || '');
-  }
-};
+  const getVideoGlobalId = (id: string | number) => String(id);
+
+  watch(
+    () => videos.value.length,
+    (len) => {
+      if (len > 0) {
+        interactionStore.registerBatch(
+          videos.value.map((v: GlobalVideo) => ({
+            id: getVideoGlobalId(v.id),
+            counts: {
+              likes: v.likes || 0,
+              views: v.views || 0,
+              loves: v.loves || 0,
+              favorites: v.bookmarks || 0,
+              shares: v.shares || 0,
+            },
+          })),
+        );
+      }
+    },
+    { immediate: true },
+  );
+
+  const getVideoCount = (id: string | number) =>
+    interactionStore.getCount(getVideoGlobalId(id));
+
+  const isVideoLiked = (id: string | number) =>
+    interactionStore.isLiked(getVideoGlobalId(id));
+  const isVideoLoved = (id: string | number) =>
+    interactionStore.isLoved(getVideoGlobalId(id));
+  const isVideoFavorited = (id: string | number) =>
+    interactionStore.isFavorited(getVideoGlobalId(id));
+
+  const toggleVideoLike = (video: GlobalVideo | null) => {
+    if (!video) return;
+    const gId = getVideoGlobalId(video.id);
+    const c = interactionStore.getCount(gId);
+    const item = {
+      id: gId,
+      type: 'video' as const,
+      title: video.title,
+      image: video.poster || '',
+      location: video.location,
+      category: video.category,
+      timestamp: Date.now(),
+      likes: c.likes,
+      views: c.views,
+      favorites: c.favorites,
+      shares: c.shares,
+    };
+    const isAdded = interactionStore.toggleLike(item);
+    if (isAdded) {
+      showMessage.like.success(video.title);
+    } else {
+      showMessage.like.cancel();
+    }
+  };
+
+  const toggleVideoLove = (video: GlobalVideo | null) => {
+    if (!video) return;
+    const gId = getVideoGlobalId(video.id);
+    const item = createSimpleInteractionItem(gId, 'video', video.title, {
+      image: video.poster || '',
+      location: video.location,
+      category: video.category,
+      author: video.author,
+      authorId: video.authorId,
+      authorAvatar: video.authorAvatar,
+    });
+    const isAdded = interactionStore.toggleLove(item);
+    if (isAdded) {
+      showMessage.love.success(video.title, 'video');
+    } else {
+      showMessage.love.cancel(video.title, 'video');
+    }
+  };
+
+  const toggleVideoFavorite = (video: GlobalVideo | null) => {
+    if (!video) return;
+    const gId = getVideoGlobalId(video.id);
+    const item = createSimpleInteractionItem(gId, 'video', video.title, {
+      image: video.poster || '',
+      location: video.location,
+      category: video.category,
+      author: video.author,
+      authorId: video.authorId,
+      authorAvatar: video.authorAvatar,
+    });
+    const isAdded = interactionStore.toggleFavorite(item);
+    if (isAdded) {
+      showMessage.favorite.success(video.title, 'video');
+    } else {
+      showMessage.favorite.cancel(video.title, 'video');
+    }
+  };
+
+  const toggleVideoShare = (video: GlobalVideo | null) => {
+    if (!video) return;
+    currentShareVideo.value = video;
+    showShareMenu.value = true;
+  };
+
+  const slideStyles = computed(() => {
+    const cur = activeIndex.value;
+    return videos.value.map((_, index) => {
+      const offset = index - cur;
+      const absOffset = Math.abs(offset);
+      const isLeft = offset < 0;
+      const translateX = offset * 280;
+      const translateZ = -absOffset * 200;
+      const rotateY = isLeft ? 45 : offset > 0 ? -45 : 0;
+      const scale = Math.max(1 - absOffset * 0.15, 0.6);
+      const opacity = Math.max(1 - absOffset * 0.3, 0.3);
+      const zIndex = 100 - absOffset;
+
+      return {
+        transform: `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`,
+        opacity: opacity,
+        zIndex: zIndex,
+        transition: 'all 0.6s cubic-bezier(0.23, 1, 0.32, 1)',
+      };
+    });
+  });
+
+  const setActive = (index: number) => {
+    activeIndex.value = index;
+  };
+
+  const prevSlide = () => {
+    if (activeIndex.value > 0) activeIndex.value--;
+  };
+
+  const nextSlide = () => {
+    if (activeIndex.value < videos.value.length - 1) activeIndex.value++;
+  };
+
+  const handleKeydown = (e: KeyboardEvent) => {
+    if (showVideoModal.value) return;
+    if (e.key === 'ArrowLeft') prevSlide();
+    if (e.key === 'ArrowRight') nextSlide();
+  };
+
+  onMounted(() => {
+    document.addEventListener('keydown', handleKeydown);
+  });
+
+  onUnmounted(() => {
+    document.removeEventListener('keydown', handleKeydown);
+  });
+
+  const openVideoModal = (video: GlobalVideo) => {
+    selectedVideo.value = video;
+    showVideoModal.value = true;
+    document.body.style.overflow = 'hidden';
+    nextTick(() => {
+      if (videoModalRef.value?.videoPlayer) {
+        videoModalRef.value.videoPlayer.play();
+      }
+    });
+  };
+
+  const closeVideoModal = () => {
+    showVideoModal.value = false;
+    document.body.style.overflow = '';
+    if (videoModalRef.value?.videoPlayer) {
+      videoModalRef.value.videoPlayer.pause();
+    }
+  };
+
+  const handleVideoEnd = () => {
+    const video = selectedVideo.value;
+    if (!video) return;
+    const currentIndex = videos.value.findIndex((v) => v.id === video.id);
+    const nextIndex = (currentIndex + 1) % videos.value.length;
+    openVideoModal(videos.value[nextIndex]);
+  };
+
+  const toggleFollow = () => {
+    const authorId = selectedVideo.value?.authorId;
+    if (!authorId) return;
+    const isNowFollowing = interactionStore.toggleFollowPhotographer(authorId);
+    if (isNowFollowing) {
+      showMessage.follow.success(selectedVideo.value?.author || '');
+    } else {
+      showMessage.follow.cancel(selectedVideo.value?.author || '');
+    }
+  };
 </script>
 
 <style scoped lang="scss" src="./index.scss" />

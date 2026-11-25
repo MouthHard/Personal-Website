@@ -11,6 +11,7 @@
   border-radius: 4px;
   max-width: 600px;
   margin: 0 auto;
+
   /* 竹简纹理 */
   background-image:
     repeating-linear-gradient(
@@ -27,6 +28,7 @@
       rgba(139, 110, 74, 0.05) 1px,
       rgba(139, 110, 74, 0.05) 2px
     );
+
   /* 竹简边缘效果 */
   box-shadow:
     0 6px 12px rgba(0, 0, 0, 0.2),
@@ -64,12 +66,13 @@
     border: 2px solid #8b6e4a;
     border-radius: 4px;
     font-weight: bold;
-    color: #000000;
+    color: #000;
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
     z-index: 1;
+
     /* 竹简效果 */
     box-shadow:
       0 4px 8px rgba(0, 0, 0, 0.2),
@@ -88,7 +91,6 @@
     }
 
     &:hover:not(:disabled) {
- 
       border-color: #7d5d3a;
       color: #4a3018;
       transform: translateY(-4px) rotateX(3deg);
@@ -147,15 +149,15 @@
     background: linear-gradient(90deg, #b88b5a, #f7dfa3, #b88b5a);
     border: 2px solid #8b6e4a;
     border-radius: 4px;
+
     /* 竹简风格 */
     box-shadow:
       0 4px 8px rgba(0, 0, 0, 0.2),
       inset 0 0 10px rgba(139, 110, 74, 0.2);
     animation: pageIndicatorPulse 3s infinite;
     transition: all 0.3s ease;
- 
     font-weight: bold;
- 
+
     /* 竹简绑绳效果 */
     &::before {
       content: '';
@@ -171,7 +173,7 @@
     .current-page,
     .total-pages {
       font-size: 18px;
-      font-family: 'SimSun', monospace;
+      font-family: SimSun, monospace;
       letter-spacing: 2px;
       color: #341e07;
       text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
@@ -190,6 +192,7 @@
   0% {
     left: -100%;
   }
+
   100% {
     left: 100%;
   }
@@ -202,12 +205,14 @@
       0 4px 8px rgba(0, 0, 0, 0.2),
       inset 0 0 10px rgba(139, 110, 74, 0.2);
   }
+
   50% {
     transform: scale(1.05);
     box-shadow:
       0 6px 12px rgba(139, 110, 74, 0.4),
       inset 0 0 15px rgba(255, 255, 255, 0.2);
   }
+
   100% {
     transform: scale(1);
     box-shadow:

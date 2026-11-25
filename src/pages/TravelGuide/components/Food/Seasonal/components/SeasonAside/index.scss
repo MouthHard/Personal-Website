@@ -1,12 +1,20 @@
-@use '../../_variables' as *;
+@use '../../variables' as *;
 
 // 左侧时令信息卡 — 全息投影 3D 科幻风容器（色系跟随季节）
 .season-aside {
   position: relative;
   padding: 1.6rem 1.5rem;
   background:
-    radial-gradient(ellipse 80% 60% at 50% 35%, var(--season-glow), transparent 70%),
-    radial-gradient(ellipse 60% 40% at 50% 100%, var(--season-glow), transparent 60%),
+    radial-gradient(
+      ellipse 80% 60% at 50% 35%,
+      var(--season-glow),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 60% 40% at 50% 100%,
+      var(--season-glow),
+      transparent 60%
+    ),
     linear-gradient(180deg, $ink-3 0%, $ink-2 100%);
   border: 1px solid var(--season-color);
   border-radius: 16px;
@@ -29,7 +37,8 @@
     left: 1.5rem;
     right: 1.5rem;
     height: 2px;
-    background: linear-gradient(90deg,
+    background: linear-gradient(
+      90deg,
       transparent,
       var(--season-deep) 15%,
       var(--season-color) 35%,
@@ -49,7 +58,12 @@
     left: 20%;
     right: 20%;
     height: 3px;
-    background: linear-gradient(90deg, transparent, var(--season-color), transparent);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--season-color),
+      transparent
+    );
     filter: blur(2px);
     border-radius: 2px;
     opacity: 0.6;
@@ -65,8 +79,17 @@
     margin: 0 auto 1.1rem;
     border-radius: 50%;
     background:
-      radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.2), transparent 55%),
-      radial-gradient(circle at 35% 35%, var(--season-glow), rgba(255, 255, 255, 0.05) 60%, $ink-3 100%);
+      radial-gradient(
+        circle at 35% 30%,
+        rgba(255, 255, 255, 0.2),
+        transparent 55%
+      ),
+      radial-gradient(
+        circle at 35% 35%,
+        var(--season-glow),
+        rgba(255, 255, 255, 0.05) 60%,
+        $ink-3 100%
+      );
     border: 1px solid var(--season-color);
     box-shadow:
       0 2px 6px rgba(0, 0, 0, 0.4),
@@ -83,7 +106,8 @@
       width: 36px;
       height: 36px;
       color: var(--season-soft);
-      filter: drop-shadow(0 0 14px var(--season-glow)) drop-shadow(0 0 4px rgba(255, 255, 255, 0.4));
+      filter: drop-shadow(0 0 14px var(--season-glow))
+        drop-shadow(0 0 4px rgba(255, 255, 255, 0.4));
       animation: iconBreath 4s ease-in-out infinite;
     }
 
@@ -195,10 +219,12 @@
 }
 
 @keyframes iconBreath {
-  0%, 100% {
+  0%,
+  100% {
     filter: drop-shadow(0 0 8px var(--season-glow, #{$amber-glow}));
     transform: scale(1);
   }
+
   50% {
     filter: drop-shadow(0 0 12px var(--season-glow, #{$amber-glow}));
     transform: scale(1.05);
@@ -206,10 +232,12 @@
 }
 
 @keyframes dataPulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
     box-shadow: 0 0 8px var(--season-glow, #{$amber-glow});
   }
+
   50% {
     opacity: 0.4;
     box-shadow: 0 0 14px var(--season-glow, #{$amber-glow});
@@ -217,10 +245,12 @@
 }
 
 @keyframes haloBreath {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.3;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.8;
     transform: scale(1.08);

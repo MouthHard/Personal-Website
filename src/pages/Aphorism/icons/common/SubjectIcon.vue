@@ -9,7 +9,9 @@
     stroke-linecap="round"
     stroke-linejoin="round"
   >
-    <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+    <path
+      d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"
+    />
     <polyline points="14 2 14 8 20 8" />
     <line x1="16" y1="13" x2="8" y2="13" />
     <line x1="16" y1="17" x2="8" y2="17" />
@@ -18,17 +20,19 @@
 </template>
 
 <script setup lang="ts">
-import type { CSSProperties } from 'vue';
+  import type { CSSProperties } from 'vue';
 
-interface Props {
-  fill?: string;
-  strokeWidth?: number | string;
-  class?: string;
-  style?: CSSProperties;
-}
+  interface Props {
+    fill?: string;
+    strokeWidth?: number | string;
+    class?: string;
+    style?: CSSProperties;
+  }
 
-withDefaults(defineProps<Props>(), {
-  fill: 'none',
-  strokeWidth: 2,
-});
+  withDefaults(defineProps<Props>(), {
+    fill: 'none',
+    strokeWidth: 2,
+    class: '',
+    style: () => ({}),
+  });
 </script>

@@ -12,7 +12,6 @@
     0 8px 16px rgba(0, 0, 0, 0.9),
     0 4px 8px rgba(0, 0, 0, 0.8),
     inset 0 1px 0 rgba(100, 149, 237, 0.1);
-
   display: flex;
   gap: 1rem;
   align-items: flex-start;
@@ -31,7 +30,7 @@
       border-radius: 10px;
       border: 2px solid rgba(100, 80, 60, 0.6);
       background: linear-gradient(135deg, #f1f0ef 0%, #2a170f 100%);
-      color: #000000;
+      color: #000;
       font-size: 1rem;
       font-weight: bolder;
       transition: all 0.3s ease;
@@ -46,7 +45,7 @@
         outline: none;
         border-color: rgba(167, 132, 17, 0.8);
         box-shadow: 0 0 10px rgba(100, 149, 237, 0.3);
-        color: #000000;
+        color: #000;
       }
     }
 
@@ -59,7 +58,7 @@
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
-      color: #ffffff;
+      color: #fff;
       background: linear-gradient(
         135deg,
         #2f855a 0%,
@@ -99,7 +98,6 @@
           #40a271 50%,
           #276754 100%
         );
-
         transform: translateY(-2px);
         box-shadow:
           0 1px 3px rgb(254, 254, 254),
@@ -116,6 +114,7 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+
     .category-filters {
       display: flex;
       flex-wrap: wrap;
@@ -130,7 +129,7 @@
         transition: all 0.3s ease;
         position: relative;
         overflow: hidden;
-        color: #ffffff;
+        color: #fff;
         background: linear-gradient(
           135deg,
           #5a473f 0%,
@@ -171,7 +170,7 @@
             #7b6156 50%,
             #65463b 100%
           );
-          color: #ffffff;
+          color: #fff;
           transform: translateY(-1px);
           box-shadow:
             0 1px 2px rgb(255, 255, 255),
@@ -182,7 +181,7 @@
         }
 
         &.active {
-          color: #ffffff;
+          color: #fff;
           background: linear-gradient(
             135deg,
             #8ad1f4 0%,

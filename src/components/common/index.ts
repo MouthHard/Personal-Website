@@ -1,2 +1,0 @@
-export { PageChange } from './PageChange'
-

@@ -1,7 +1,5 @@
 <template>
   <svg
-    width="1em"
-    height="1em"
     viewBox="0 0 24 24"
     :fill="fill"
     stroke="currentColor"
@@ -16,17 +14,19 @@
 </template>
 
 <script setup lang="ts">
-import type { CSSProperties } from 'vue';
+  import type { CSSProperties } from 'vue';
 
-interface Props {
-  fill?: string;
-  strokeWidth?: number | string;
-  class?: string;
-  style?: CSSProperties;
-}
+  interface Props {
+    fill?: string;
+    strokeWidth?: number | string;
+    class?: string;
+    style?: CSSProperties;
+  }
 
-withDefaults(defineProps<Props>(), {
-  fill: 'currentColor',
-  strokeWidth: 0,
-});
+  withDefaults(defineProps<Props>(), {
+    fill: 'currentColor',
+    strokeWidth: 0,
+    class: '',
+    style: () => ({}),
+  });
 </script>

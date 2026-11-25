@@ -1,8 +1,7 @@
 /* 古风Tab分类样式 */
 .category-section {
   width: 100%;
-  padding: 0 0 20px 0;
-
+  padding: 0 0 20px;
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
@@ -24,13 +23,13 @@
       color: #d1c4b8;
       cursor: pointer;
       transition: all 0.4s ease;
-      
       box-shadow:
         0 4px 8px rgba(0, 0, 0, 0.7),
         0 1px 3px rgba(0, 0, 0, 0.5),
         inset 0 1px 0 rgba(255, 255, 255, 0.08);
       position: relative;
       overflow: hidden;
+
       /* 古风书籍色渐变：未激活状态更暗，增加层次感 */
       background: linear-gradient(
         135deg,
@@ -71,10 +70,7 @@
       &::after {
         content: '';
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+        inset: 0;
         background: linear-gradient(
           180deg,
           rgba(215, 204, 200, 0.2) 0%,
@@ -137,7 +133,7 @@
         );
         background-size: 200% 200%;
         border-color: #b8956a;
-        color: #ffffff;
+        color: #fff;
         box-shadow:
           0 8px 16px rgba(0, 0, 0, 0.7),
           0 4px 8px rgba(0, 0, 0, 0.5),
@@ -170,7 +166,7 @@
             #7a5528 70%,
             #5d3f1f 100%
           );
-          color: #ffffff;
+          color: #fff;
           transform: scale(1.1);
           box-shadow:
             0 4px 8px rgba(0, 0, 0, 0.5),
@@ -220,6 +216,7 @@
         border-radius: 3px;
         border: 1px solid #4a3728;
         transition: all 0.3s ease;
+
         /* 图标立体效果 - 增强版 */
         box-shadow:
           0 3px 6px rgba(0, 0, 0, 1),
@@ -246,7 +243,9 @@
 
       .tab-name {
         font-weight: bold;
-        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6), 0 0 4px rgba(0, 0, 0, 0.4);
+        text-shadow:
+          0 1px 2px rgba(0, 0, 0, 0.6),
+          0 0 4px rgba(0, 0, 0, 0.4);
         letter-spacing: 1px;
         position: relative;
         transition: all 0.3s ease;
@@ -271,7 +270,6 @@
         box-shadow:
           0 2px 4px rgba(0, 0, 0, 1),
           inset 0 1px 0 rgba(160, 144, 128, 0.08);
-    
         transition: all 0.3s ease;
         position: relative;
 
@@ -322,10 +320,7 @@
       &::before {
         content: '';
         position: absolute;
-        top: 3px;
-        left: 3px;
-        right: 3px;
-        bottom: 3px;
+        inset: 3px;
         border-radius: 50%;
         background: #2d1f1a;
       }
@@ -370,5 +365,3 @@
     }
   }
 }
-
- 

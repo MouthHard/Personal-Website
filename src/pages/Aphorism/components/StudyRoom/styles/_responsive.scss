@@ -1,0 +1,492 @@
+// 书房 · 兼容与适配
+// 大屏基础样式留在各模块 partial；这里统一收口媒体查询与降级规则。
+
+@media (width <= 900px) {
+  .studyroom-page {
+    .page-main {
+      .modules-section {
+        grid-template-columns: 1fr;
+        gap: 24px;
+
+        > .daily-pick,
+        > .famous-lines,
+        > .reading-ledger {
+          grid-column: auto;
+        }
+      }
+
+      .module-card.daily-pick {
+        .screen-wing {
+          flex-basis: 72px;
+        }
+
+        .screen-panel {
+          padding: 6px 14px 4px;
+        }
+      }
+    }
+  }
+}
+
+// —— 窄屏适配：标题/返回键/徽章从「绝对定位挤压」改为纵向堆叠 ——
+// 触发依据：头部固有宽 452px、徽章组固定 314px，≤560 起标题被徽章覆盖
+@media (width <= 768px) {
+  .studyroom-page {
+    .sticky-header {
+      .page-header {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        padding: 10px 12px 8px;
+
+        .back-button {
+          position: static;
+          align-self: flex-start;
+          padding: 7px 12px;
+          font-size: 13px;
+        }
+
+        .header-content {
+          gap: 8px;
+          padding: 0;
+
+          .decoration-pattern .pattern-line {
+            width: 18px;
+          }
+
+          .header-title-area {
+            .title-seal {
+              gap: 6px;
+              padding: 7px 14px;
+
+              .seal-char {
+                font-size: 21px;
+              }
+            }
+
+            .subtitle-paperweight {
+              padding: 4px 10px;
+            }
+
+            .subtitle-paperweight .title-subtitle {
+              font-size: 11px;
+              letter-spacing: 1px;
+              white-space: nowrap;
+            }
+          }
+        }
+      }
+
+      .status-badges-float {
+        position: static;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        padding: 0 12px 8px;
+
+        .status-badge {
+          min-width: 48px;
+          height: 64px;
+          padding: 7px 6px 5px;
+          gap: 2px;
+
+          svg {
+            width: 19px;
+            height: 19px;
+          }
+
+          .badge-value {
+            font-size: 26px;
+          }
+
+          .badge-label {
+            font-size: 13px;
+            letter-spacing: 1px;
+          }
+        }
+      }
+
+      // 三枚线装书签改为等宽排列，避免 2+1 换行把内容区压矮
+      .tabs-wrapper {
+        padding: 10px 12px 12px;
+
+        .tabs-container {
+          flex-wrap: nowrap;
+          gap: 8px;
+        }
+
+        .tabs-container .tab-item {
+          flex: 1 1 0;
+          width: auto;
+          min-width: 0;
+          max-width: 108px;
+          height: 60px;
+          gap: 5px;
+          padding: 0 8px;
+
+          .tab-slip {
+            width: auto;
+            min-width: 0;
+            padding: 7px 0;
+
+            .slip-text {
+              font-size: 14px;
+              letter-spacing: 0;
+            }
+          }
+
+          .tab-mark {
+            width: 28px;
+            height: 28px;
+
+            svg {
+              width: 18px;
+              height: 18px;
+            }
+          }
+        }
+      }
+    }
+
+    .page-main {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 16px 12px;
+
+      .module-group .group-label {
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 0 2px;
+
+        .group-seal {
+          width: 24px;
+          height: 24px;
+          min-width: 24px;
+          border-radius: 6px;
+          font-size: 14px;
+        }
+
+        .group-title {
+          font-size: 22px;
+          letter-spacing: 2px;
+        }
+
+        .group-sub {
+          font-size: 14px;
+          letter-spacing: 1px;
+          padding-top: 1px;
+        }
+      }
+
+      .module-group + .module-group {
+        margin-top: 24px;
+      }
+
+      .modules-section {
+        gap: 18px;
+
+        .module-card {
+          .module-header {
+            gap: 8px;
+            padding: 12px 12px 0;
+
+            .module-tag {
+              padding: 5px 12px;
+              font-size: 16px;
+              letter-spacing: 1px;
+            }
+
+            .refresh-btn {
+              width: 26px;
+              height: 26px;
+
+              svg {
+                width: 15px;
+                height: 15px;
+              }
+            }
+          }
+
+          .module-body {
+            padding: 12px;
+          }
+        }
+
+        // 今日推荐：屏扇收窄，把宽度让给中屏诗词
+        .module-card.daily-pick {
+          min-height: 320px;
+          padding: 22px 12px 26px;
+
+          .screen-wing {
+            flex-basis: 56px;
+            min-height: 260px;
+
+            .wing-moon {
+              top: 10px;
+              right: 10px;
+              width: 30px;
+              height: 30px;
+            }
+
+            .wing-seal {
+              right: 10px;
+              bottom: 10px;
+              width: 20px;
+              height: 20px;
+              font-size: 11px;
+            }
+          }
+
+          .screen-panel {
+            padding: 4px 12px;
+
+            .module-body {
+              .pick-title {
+                font-size: 20px;
+                letter-spacing: 3px;
+                margin: 6px 0 4px;
+                padding-left: 12px;
+              }
+
+              .pick-meta {
+                font-size: 16px;
+                letter-spacing: 1px;
+                margin-bottom: 8px;
+              }
+
+              .pick-content {
+                font-size: 15px;
+                line-height: 1.7;
+                letter-spacing: 1px;
+              }
+            }
+
+            .pick-hint {
+              gap: 6px;
+              margin-top: 10px;
+              padding: 7px 14px 9px;
+              font-size: 15px;
+              letter-spacing: 2px;
+
+              .hint-arrow {
+                font-size: 18px;
+              }
+            }
+          }
+        }
+
+        // 名句拾遗：木活字与落款同步缩号，避免窄屏折成过多行
+        .module-card.famous-lines {
+          min-height: 300px;
+          padding: 22px 14px 24px;
+
+          &::before,
+          &::after {
+            width: 36px;
+            height: 20px;
+          }
+
+          .line-nav button {
+            width: 30px;
+            height: 30px;
+            font-size: 18px;
+          }
+
+          .lines-strip {
+            gap: 10px;
+            margin-top: 12px;
+            padding: 14px 12px;
+
+            .line-card {
+              min-height: 180px;
+              gap: 12px;
+              margin: 2px;
+              padding: 14px 8px;
+
+              .line-text {
+                gap: 5px 3px;
+
+                .type-char {
+                  width: 28px;
+                  height: 30px;
+                  font-size: 18px;
+
+                  &.is-punct {
+                    width: 18px;
+                    font-size: 16px;
+                  }
+                }
+              }
+
+              .line-source {
+                padding: 4px 10px;
+                font-size: 14px;
+              }
+            }
+          }
+        }
+
+        // 阅读足迹：内容回到离书脊较近的位置，签条整体缩一号
+        .module-card.reading-ledger {
+          padding: 16px 14px 18px 34px;
+
+          .module-header {
+            flex-wrap: wrap;
+            gap: 10px 12px;
+            padding: 12px 10px 4px 8px;
+
+            .ledger-heading {
+              flex-wrap: wrap;
+              gap: 8px 10px;
+            }
+
+            .module-tag {
+              white-space: nowrap;
+            }
+
+            .clear-btn {
+              padding: 7px 16px;
+              font-size: 17px;
+            }
+
+            .ledger-clear-actions .clear-cancel-btn {
+              padding: 7px 14px;
+              font-size: 16px;
+            }
+          }
+
+          .module-header .ledger-heading .ledger-counts {
+            padding: 5px 10px;
+            gap: 7px;
+
+            .lc-item b {
+              font-size: 20px;
+            }
+
+            .lc-item i {
+              font-size: 13px;
+            }
+          }
+
+          .ledger-tabs {
+            margin: 12px 0 0 10px;
+          }
+
+          .ledger-tabs .ledger-tab {
+            min-width: 72px;
+            padding: 8px 10px 12px;
+
+            .lt-label {
+              font-size: 18px;
+              letter-spacing: 2px;
+            }
+          }
+
+          .ledger-list {
+            gap: 16px 12px;
+          }
+
+          .ledger-row.tag {
+            height: 212px;
+            width: calc(92px + var(--tag-cols, 1) * 26px);
+            padding: 14px 9px 8px;
+
+            .tag-text {
+              font-size: 22px;
+              letter-spacing: 4px;
+              max-height: 132px;
+            }
+
+            .tag-foot {
+              font-size: 11px;
+            }
+          }
+        }
+      }
+
+      .poems-grid {
+        grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+        gap: 16px;
+      }
+    }
+  }
+}
+
+@media (width <= 430px) {
+  .studyroom-page {
+    .sticky-header {
+      .status-badges-float {
+        .status-badge {
+          flex: 0 0 44%;
+          box-sizing: border-box;
+          height: 60px;
+
+          .badge-value {
+            font-size: 24px;
+          }
+        }
+      }
+
+      .tabs-wrapper .tabs-container .tab-item {
+        max-width: none;
+        height: 56px;
+
+        .tab-slip .slip-text {
+          font-size: 13px;
+        }
+      }
+    }
+
+    .page-main {
+      padding: 14px 10px;
+
+      .module-group .group-label {
+        .group-title {
+          font-size: 20px;
+        }
+
+        .group-sub {
+          font-size: 12px;
+        }
+
+        &::after {
+          display: none;
+        }
+      }
+
+      .modules-section .module-card.daily-pick .screen-wing {
+        flex-basis: 42px;
+      }
+
+      .modules-section .module-card.reading-ledger {
+        padding-left: 30px;
+
+        .ledger-row.tag {
+          height: 196px;
+          width: calc(82px + var(--tag-cols, 1) * 24px);
+
+          .tag-text {
+            font-size: 20px;
+            letter-spacing: 3px;
+            max-height: 120px;
+          }
+        }
+      }
+
+      .poems-grid {
+        gap: 14px;
+      }
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

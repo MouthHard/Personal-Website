@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 $steam-blue: #66c0f4;
 $steam-dark: #1b2838;
 $green: #4c6b22;
@@ -5,7 +7,7 @@ $green-text: #a4d007;
 $amber: #fbbf24;
 $text-primary: #c7d5e0;
 $text-secondary: #8f98a0;
-$text-bright: #ffffff;
+$text-bright: #fff;
 $text-dim: #556772;
 $bg-card: #16202d;
 
@@ -16,8 +18,15 @@ $bg-card: #16202d;
   animation: pageEnter 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 
   @keyframes pageEnter {
-    from { opacity: 0; transform: translateY(12px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   &__head {
@@ -54,12 +63,14 @@ $bg-card: #16202d;
     flex-wrap: wrap;
   }
 
-  &__sort, &__filter {
+  &__sort,
+  &__filter {
     display: flex;
     gap: 0;
   }
 
-  &__sort-btn, &__filter-btn {
+  &__sort-btn,
+  &__filter-btn {
     padding: 5px 12px;
     background: transparent;
     border: none;
@@ -68,7 +79,9 @@ $bg-card: #16202d;
     cursor: pointer;
     transition: all 0.15s;
 
-    &:hover { color: $text-bright; }
+    &:hover {
+      color: $text-bright;
+    }
   }
 
   &__sort-btn--active {
@@ -96,8 +109,14 @@ $bg-card: #16202d;
     animation: emptyFloat 3s ease-in-out infinite;
 
     @keyframes emptyFloat {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
     }
   }
 
@@ -144,7 +163,7 @@ $bg-card: #16202d;
       font-weight: 700;
 
       &:hover {
-        background: lighten($green, 5%);
+        background: color.adjust($green, $lightness: 5%);
         color: $green-text;
       }
     }
@@ -183,7 +202,9 @@ $bg-card: #16202d;
     min-width: 0;
     border-radius: 2px;
 
-    &:hover { background: lighten($bg-card, 5%); }
+    &:hover {
+      background: color.adjust($bg-card, $lightness: 5%);
+    }
   }
 
   &__empty-sug-cover {
@@ -201,7 +222,9 @@ $bg-card: #16202d;
     text-overflow: ellipsis;
     transition: color 0.15s;
 
-    .library-page__empty-sug-item:hover & { color: $text-bright; }
+    .library-page__empty-sug-item:hover & {
+      color: $text-bright;
+    }
   }
 
   &__list {
@@ -221,7 +244,9 @@ $bg-card: #16202d;
   border-radius: 2px;
   margin-bottom: 1px;
 
-  &:hover { background: lighten($bg-card, 5%); }
+  &:hover {
+    background: color.adjust($bg-card, $lightness: 5%);
+  }
 
   &__cover {
     width: 80px;
@@ -248,7 +273,9 @@ $bg-card: #16202d;
     text-overflow: ellipsis;
     transition: color 0.15s;
 
-    .lib-item:hover & { color: $text-bright; }
+    .lib-item:hover & {
+      color: $text-bright;
+    }
   }
 
   &__cat {

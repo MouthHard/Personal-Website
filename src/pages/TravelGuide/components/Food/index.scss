@@ -9,10 +9,11 @@
   &::-webkit-scrollbar {
     display: none;
   }
+
   -ms-overflow-style: none;
   scrollbar-width: none;
   background: rgba(10, 14, 23, 1);
-  color: #ffffff;
+  color: #fff;
   position: relative;
   z-index: 1;
 

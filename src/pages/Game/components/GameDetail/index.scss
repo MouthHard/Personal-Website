@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 $steam-blue: #66c0f4;
 $steam-dark: #1b2838;
 $green: #4c6b22;
@@ -6,7 +8,7 @@ $amber: #fbbf24;
 $red: #c04a4a;
 $text-primary: #c7d5e0;
 $text-secondary: #8f98a0;
-$text-bright: #ffffff;
+$text-bright: #fff;
 $text-dim: #556772;
 $bg-card: #16202d;
 
@@ -17,8 +19,15 @@ $bg-card: #16202d;
   animation: detailEnter 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 
   @keyframes detailEnter {
-    from { opacity: 0; transform: translateY(12px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   &__hero {
@@ -38,7 +47,12 @@ $bg-card: #16202d;
     position: absolute;
     inset: 0;
     background:
-      linear-gradient(to bottom, transparent 30%, rgba(27, 40, 56, 0.6) 60%, $steam-dark 100%),
+      linear-gradient(
+        to bottom,
+        transparent 30%,
+        rgba(27, 40, 56, 0.6) 60%,
+        $steam-dark 100%
+      ),
       linear-gradient(to right, rgba(27, 40, 56, 0.3) 0%, transparent 40%);
   }
 
@@ -100,8 +114,14 @@ $bg-card: #16202d;
     overflow-x: auto;
     padding-bottom: 8px;
 
-    &::-webkit-scrollbar { height: 3px; }
-    &::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.08); border-radius: 2px; }
+    &::-webkit-scrollbar {
+      height: 3px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 2px;
+    }
   }
 
   &__ss-item {
@@ -120,7 +140,9 @@ $bg-card: #16202d;
       object-fit: cover;
     }
 
-    &:hover { opacity: 0.9; }
+    &:hover {
+      opacity: 0.9;
+    }
 
     &--active {
       border-color: $steam-blue;
@@ -134,7 +156,9 @@ $bg-card: #16202d;
     aspect-ratio: 16 / 9;
     background: #0a0a0f;
 
-    &:hover .detail-page__ss-arrow { opacity: 1; }
+    &:hover .detail-page__ss-arrow {
+      opacity: 1;
+    }
   }
 
   &__ss-preview {
@@ -144,8 +168,15 @@ $bg-card: #16202d;
     animation: ssFadeIn 0.3s ease;
 
     @keyframes ssFadeIn {
-      from { opacity: 0.3; transform: scale(1.02); }
-      to { opacity: 1; transform: scale(1); }
+      from {
+        opacity: 0.3;
+        transform: scale(1.02);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
   }
 
@@ -173,8 +204,13 @@ $bg-card: #16202d;
       color: $text-bright;
     }
 
-    &--prev { left: 8px; }
-    &--next { right: 8px; }
+    &--prev {
+      left: 8px;
+    }
+
+    &--next {
+      right: 8px;
+    }
   }
 
   &__ss-counter {
@@ -285,7 +321,12 @@ $bg-card: #16202d;
       left: 0;
       right: 0;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba($steam-blue, 0.2), transparent);
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba($steam-blue, 0.2),
+        transparent
+      );
     }
   }
 
@@ -330,7 +371,11 @@ $bg-card: #16202d;
     padding: 10px;
     border: none;
     border-radius: 2px;
-    background: linear-gradient(135deg, $green, lighten($green, 8%));
+    background: linear-gradient(
+      135deg,
+      $green,
+      color.adjust($green, $lightness: 8%)
+    );
     color: $green-text;
     font-size: 14px;
     font-weight: 700;
@@ -344,15 +389,25 @@ $bg-card: #16202d;
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.1));
+      background: linear-gradient(
+        135deg,
+        transparent,
+        rgba(255, 255, 255, 0.1)
+      );
       opacity: 0;
       transition: opacity 0.3s;
     }
 
     &:hover {
-      background: linear-gradient(135deg, lighten($green, 5%), lighten($green, 12%));
+      background: linear-gradient(
+        135deg,
+        color.adjust($green, $lightness: 5%),
+        color.adjust($green, $lightness: 12%)
+      );
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(76, 107, 34, 0.4), 0 0 30px rgba(164, 208, 7, 0.2);
+      box-shadow:
+        0 6px 20px rgba(76, 107, 34, 0.4),
+        0 0 30px rgba(164, 208, 7, 0.2);
 
       &::before {
         opacity: 1;
@@ -369,7 +424,6 @@ $bg-card: #16202d;
   &__wish-btn {
     width: 100%;
     padding: 8px;
-    border: none;
     border-radius: 2px;
     background: rgba(0, 0, 0, 0.2);
     color: $text-dim;
@@ -398,9 +452,11 @@ $bg-card: #16202d;
       animation: wishPulse 2s ease-in-out infinite;
 
       @keyframes wishPulse {
-        0%, 100% {
+        0%,
+        100% {
           box-shadow: 0 0 0 rgba($red, 0);
         }
+
         50% {
           box-shadow: 0 0 12px rgba($red, 0.3);
         }

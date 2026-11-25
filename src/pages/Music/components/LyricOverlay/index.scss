@@ -2,18 +2,15 @@ $bg-primary: #0c0c14;
 $bg-hover: rgba(255, 255, 255, 0.08);
 $text-primary: #e8e8f0;
 $text-secondary: rgba(255, 255, 255, 0.5);
-$accent-gradient: linear-gradient(135deg, #8B5CF6, #EC4899);
-$accent-color: #8B5CF6;
+$accent-gradient: linear-gradient(135deg, #8b5cf6, #ec4899);
+$accent-color: #8b5cf6;
 $accent-glow: rgba(139, 92, 246, 0.4);
 $sidebar-width: 200px;
 $player-height: 72px;
 
 .lyric-overlay {
   position: fixed;
-  top: 0;
-  left: $sidebar-width;
-  right: 0;
-  bottom: $player-height;
+  inset: 0 0 $player-height $sidebar-width;
   z-index: 30;
   display: flex;
   flex-direction: column;

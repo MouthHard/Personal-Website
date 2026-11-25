@@ -14,22 +14,24 @@
     min-height: 0;
     display: flex;
     flex-direction: column;
+
     @include leather-texture;
+
     border: 2px solid $leather-darkest;
     border-radius: 10px;
     box-shadow:
-      inset 0 2px 3px rgba(245,217,122,0.08),
-      inset 0 -4px 6px rgba(0,0,0,0.6),
-      inset 0 0 80px rgba(0,0,0,0.5),
-      0 20px 56px rgba(0,0,0,0.7),
-      0 4px 12px rgba(0,0,0,0.5);
+      inset 0 2px 3px rgba(245, 217, 122, 0.08),
+      inset 0 -4px 6px rgba(0, 0, 0, 0.6),
+      inset 0 0 80px rgba(0, 0, 0, 0.5),
+      0 20px 56px rgba(0, 0, 0, 0.7),
+      0 4px 12px rgba(0, 0, 0, 0.5);
 
     // 缝线
     &::after {
       content: '';
       position: absolute;
       inset: 6px;
-      border: 1px dashed rgba(212,168,67,0.28);
+      border: 1px dashed rgba(212, 168, 67, 0.28);
       border-radius: 7px;
       pointer-events: none;
       z-index: 0;
@@ -42,34 +44,65 @@
       height: 26px;
       z-index: 10;
       pointer-events: none;
-      background: linear-gradient(135deg, $brass-bright 0%, $brass 40%, $brass-deep 70%, $brass-shadow 100%);
+      background: linear-gradient(
+        135deg,
+        $brass-bright 0%,
+        $brass 40%,
+        $brass-deep 70%,
+        $brass-shadow 100%
+      );
       box-shadow:
-        inset 0 1px 1px rgba(255,245,200,0.5),
-        inset 0 -1px 2px rgba(0,0,0,0.5),
-        0 2px 5px rgba(0,0,0,0.6);
+        inset 0 1px 1px rgba(255, 245, 200, 0.5),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.5),
+        0 2px 5px rgba(0, 0, 0, 0.6);
 
       &--tl {
-        top: -2px; left: -2px;
-        border-radius: 10px 0 0 0;
+        top: -2px;
+        left: -2px;
+        border-radius: 10px 0 0;
         clip-path: polygon(0 0, 100% 0, 0 100%);
       }
+
       &--tr {
-        top: -2px; right: -2px;
+        top: -2px;
+        right: -2px;
         border-radius: 0 10px 0 0;
         clip-path: polygon(0 0, 100% 0, 100% 100%);
-        background: linear-gradient(225deg, $brass-bright 0%, $brass 40%, $brass-deep 70%, $brass-shadow 100%);
+        background: linear-gradient(
+          225deg,
+          $brass-bright 0%,
+          $brass 40%,
+          $brass-deep 70%,
+          $brass-shadow 100%
+        );
       }
+
       &--bl {
-        bottom: -2px; left: -2px;
+        bottom: -2px;
+        left: -2px;
         border-radius: 0 0 0 10px;
         clip-path: polygon(0 0, 0 100%, 100% 100%);
-        background: linear-gradient(45deg, $brass-bright 0%, $brass 40%, $brass-deep 70%, $brass-shadow 100%);
+        background: linear-gradient(
+          45deg,
+          $brass-bright 0%,
+          $brass 40%,
+          $brass-deep 70%,
+          $brass-shadow 100%
+        );
       }
+
       &--br {
-        bottom: -2px; right: -2px;
-        border-radius: 0 0 10px 0;
+        bottom: -2px;
+        right: -2px;
+        border-radius: 0 0 10px;
         clip-path: polygon(100% 0, 100% 100%, 0 100%);
-        background: linear-gradient(315deg, $brass-bright 0%, $brass 40%, $brass-deep 70%, $brass-shadow 100%);
+        background: linear-gradient(
+          315deg,
+          $brass-bright 0%,
+          $brass 40%,
+          $brass-deep 70%,
+          $brass-shadow 100%
+        );
       }
     }
 
@@ -85,6 +118,7 @@
     }
   }
 }
+
 .theme-empty {
   display: flex;
   flex-direction: column;

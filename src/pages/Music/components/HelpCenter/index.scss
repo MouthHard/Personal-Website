@@ -12,7 +12,11 @@
     .header-bg {
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(135, 206, 235, 0.08) 100%);
+      background: linear-gradient(
+        135deg,
+        rgba(255, 215, 0, 0.1) 0%,
+        rgba(135, 206, 235, 0.08) 100%
+      );
     }
 
     .header-content {
@@ -25,7 +29,7 @@
         height: 80px;
         margin: 0 auto 20px;
         border-radius: 50%;
-        background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+        background: linear-gradient(135deg, #ffd700 0%, #ffa500 100%);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -42,7 +46,7 @@
         font-size: 32px;
         font-weight: 700;
         color: #fff;
-        margin: 0 0 12px 0;
+        margin: 0 0 12px;
       }
 
       p {
@@ -83,7 +87,7 @@
         }
 
         &:focus-within + svg {
-          color: #FFD700;
+          color: #ffd700;
         }
       }
 
@@ -190,7 +194,7 @@
           svg {
             width: 22px;
             height: 22px;
-            color: #FFD700;
+            color: #ffd700;
           }
         }
 
@@ -225,7 +229,7 @@
           font-size: 15px;
           color: rgba(255, 255, 255, 0.75);
           line-height: 1.8;
-          margin: 0 0 20px 0;
+          margin: 0 0 20px;
         }
 
         .steps-list {
@@ -245,7 +249,7 @@
             height: 32px;
             border-radius: 8px;
             background: rgba(255, 215, 0, 0.15);
-            color: #FFD700;
+            color: #ffd700;
             font-size: 15px;
             font-weight: 600;
             display: flex;
@@ -269,7 +273,6 @@
           background: rgba(255, 215, 0, 0.08);
           border-radius: 12px;
 
-
           .tips-text {
             font-size: 14px;
             color: rgba(255, 255, 255, 0.8);
@@ -289,7 +292,7 @@
         h3 {
           font-size: 18px;
           color: #fff;
-          margin: 0 0 8px 0;
+          margin: 0 0 8px;
         }
 
         p {
@@ -366,7 +369,7 @@
         h3 {
           font-size: 16px;
           color: #fff;
-          margin: 0 0 8px 0;
+          margin: 0 0 8px;
         }
 
         p {
@@ -397,7 +400,7 @@
         h2 {
           font-size: 22px;
           color: #fff;
-          margin: 0 0 8px 0;
+          margin: 0 0 8px;
         }
 
         p {
@@ -450,7 +453,7 @@
           h3 {
             font-size: 16px;
             color: #fff;
-            margin: 0 0 6px 0;
+            margin: 0 0 6px;
           }
 
           p {
@@ -476,7 +479,7 @@
 
           &:hover {
             background: rgba(255, 215, 0, 0.2);
-            color: #FFD700;
+            color: #ffd700;
           }
 
           svg {
@@ -497,7 +500,11 @@
       align-items: center;
       gap: 20px;
       padding: 24px 32px;
-      background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(135, 206, 235, 0.08) 100%);
+      background: linear-gradient(
+        135deg,
+        rgba(255, 215, 0, 0.1) 0%,
+        rgba(135, 206, 235, 0.08) 100%
+      );
       border: 1px solid rgba(255, 215, 0, 0.2);
       border-radius: 20px;
 
@@ -511,7 +518,7 @@
         h3 {
           font-size: 16px;
           color: #fff;
-          margin: 0 0 6px 0;
+          margin: 0 0 6px;
         }
 
         p {
@@ -523,7 +530,7 @@
 
       .feedback-btn {
         padding: 12px 28px;
-        background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+        background: linear-gradient(135deg, #ffd700 0%, #ffa500 100%);
         border: none;
         border-radius: 14px;
         color: #000;

@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 $steam-blue: #66c0f4;
 $steam-dark: #1b2838;
 $green: #4c6b22;
@@ -5,7 +7,7 @@ $green-text: #a4d007;
 $amber: #fbbf24;
 $text-primary: #c7d5e0;
 $text-secondary: #8f98a0;
-$text-bright: #ffffff;
+$text-bright: #fff;
 $text-dim: #556772;
 $bg-card: #16202d;
 
@@ -30,7 +32,7 @@ $bg-card: #16202d;
   }
 
   &:hover {
-    background: lighten($bg-card, 6%);
+    background: color.adjust($bg-card, $lightness: 6%);
     transform: translateY(-4px);
     box-shadow:
       0 8px 24px rgba(0, 0, 0, 0.5),
@@ -100,7 +102,11 @@ $bg-card: #16202d;
   &__hover-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.75) 100%);
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0.75) 100%
+    );
     display: flex;
     align-items: center;
     justify-content: center;
@@ -121,7 +127,9 @@ $bg-card: #16202d;
     gap: 6px;
     transform: translateY(8px);
     opacity: 0;
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s;
+    transition:
+      transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 0.3s;
 
     .game-card:hover & {
       transform: translateY(0);
@@ -140,10 +148,12 @@ $bg-card: #16202d;
       color: #66c0f4;
       filter: drop-shadow(0 0 6px rgba(102, 192, 244, 0.4));
     }
+
     &--mixed {
       color: $amber;
       filter: drop-shadow(0 0 6px rgba(251, 191, 36, 0.4));
     }
+
     &--negative {
       color: #c04a4a;
       filter: drop-shadow(0 0 6px rgba(192, 74, 74, 0.4));
@@ -284,7 +294,9 @@ $bg-card: #16202d;
     z-index: 3;
     backdrop-filter: blur(4px);
 
-    .game-card:hover & { opacity: 1; }
+    .game-card:hover & {
+      opacity: 1;
+    }
 
     &:hover {
       background: rgba(0, 0, 0, 0.7);
@@ -305,11 +317,13 @@ $bg-card: #16202d;
       animation: heartPulse 2s ease-in-out infinite;
 
       @keyframes heartPulse {
-        0%, 100% { 
+        0%,
+        100% {
           box-shadow: 0 0 0 rgba(244, 114, 182, 0);
           transform: scale(1);
         }
-        50% { 
+
+        50% {
           box-shadow: 0 0 16px rgba(244, 114, 182, 0.4);
           transform: scale(1.08);
         }

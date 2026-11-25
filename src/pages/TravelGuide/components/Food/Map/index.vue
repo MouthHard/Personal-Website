@@ -1,5 +1,8 @@
 <template>
-  <section v-if="foodMapLocations && foodMapLocations.length > 0" class="shops-section">
+  <section
+    v-if="foodMapLocations && foodMapLocations.length > 0"
+    class="shops-section"
+  >
     <div class="ambient-glow"></div>
 
     <header class="section-header">
@@ -64,7 +67,7 @@
 
 <script setup lang="ts">
   import { ref, computed, watch } from 'vue';
-  import { useDebounceFn } from '@vueuse/core';
+  import { debounce } from '@/utils/common';
   import SearchIcon from '../../../icons/common/SearchIcon.vue';
   import CloseIcon from '../../../icons/common/CloseIcon.vue';
   import LocationIcon from '../../../icons/common/LocationIcon.vue';
@@ -85,7 +88,7 @@
   const debouncedQuery = ref('');
   const selectedType = ref('');
 
-  const updateDebounced = useDebounceFn((val: string) => {
+  const updateDebounced = debounce((val: string) => {
     debouncedQuery.value = val;
   }, 200);
   watch(searchQuery, (val) => updateDebounced(val));
@@ -114,7 +117,8 @@
         !q ||
         location.name.toLowerCase().includes(q) ||
         location.location.toLowerCase().includes(q);
-      const matchesType = !selectedType.value || location.type === selectedType.value;
+      const matchesType =
+        !selectedType.value || location.type === selectedType.value;
       return matchesSearch && matchesType;
     });
   });

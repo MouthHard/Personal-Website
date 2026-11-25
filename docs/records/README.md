@@ -40,6 +40,7 @@ docs/records/
 ├── README.md          # 本文件
 ├── common/            # 公共组件修改（PageChange、ErrorBoundary 等）
 │   ├── PageChange/
+│   ├── 加载错误体系/
 │   └── AVIF格式迁移/
 ├── Landscape/         # 风景页面修改
 │   └── VisualFeast/
@@ -55,6 +56,16 @@ docs/records/
 
 | 日期 | 记录 | 路径 |
 |------|------|------|
+| 2026-11-20 | 过渡动画与错误体系统一收口 | `common/加载错误体系/过渡动画与错误边界统一收口.md` |
+| 2026-11-20 | 封面加载状态双端统一 | `Aphorism/封面加载状态双端统一.md` |
+| 2026-11-17 | 过时与弃用代码清理 P0-P2 | `Aphorism/过时与弃用代码清理P0-P2.md` |
+| 2026-11-17 | 探索模块单列布局与四物品化外观 | `Aphorism/探索模块单列布局与四物品化外观.md` |
+| 2026-11-17 | 诗词页面架构审查与分级优化 | `Aphorism/诗词页面架构审查与分级优化.md` |
+| 2026-11-03 | 分类导航竹简卷轴方案定稿 | `Aphorism/CategoryNav/分类导航竹简卷轴方案定稿.md` |
+| 2026-11-02 | 视觉盛宴弹窗护照主题大幅美化 | `Landscape/VisualFeast/视觉盛宴弹窗护照主题大幅美化.md` |
+| 2026-11-01 | 视频弹窗胶片帧卡片与订阅按钮VHS仓门改造 | `Landscape/VideoShowcase/视频弹窗胶片帧卡片与订阅按钮VHS仓门改造.md` |
+| 2026-11-01 | 视觉盛宴弹窗交互增强与跨类型推荐 | `Landscape/VisualFeast/视觉盛宴弹窗交互增强与跨类型推荐.md` |
+| 2026-10-31 | 视觉盛宴弹窗拟物化方案定稿 | `Landscape/VisualFeast/视觉盛宴弹窗拟物化方案定稿.md` |
 | 2026-10-30 | 取景器弹窗子组件提取 | `Landscape/VisualFeast/取景器弹窗子组件提取.md` |
 | 2026-10-30 | 过渡图本地化与AVIF优化 | `common/PageChange/过渡图本地化与AVIF优化.md` |
 | 2026-10-30 | 首页图片WebP转AVIF | `common/AVIF格式迁移/首页图片WebP转AVIF.md` |

@@ -1,0 +1,261 @@
+.studyroom-page {
+  .page-main {
+    .module-group {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+
+      + .module-group {
+        margin-top: 36px;
+      }
+
+      .group-label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 0 4px;
+
+        .group-seal {
+          width: 30px;
+          height: 30px;
+          min-width: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 7px;
+          font-size: 17px;
+          font-weight: bold;
+          color: #fff2e0;
+          font-family: STKaiti, KaiTi, 'Noto Serif SC', serif;
+          background: linear-gradient(145deg, #c8523f, #8f1f1f);
+          box-shadow:
+            inset 0 0 0 2px rgb(255 240 220 / 55%),
+            inset 0 1px 1px rgb(255 220 200 / 40%),
+            0 2px 5px rgb(143 31 31 / 35%);
+          transform: rotate(-6deg);
+          text-shadow: 0 1px 2px rgb(80 15 10 / 60%);
+        }
+
+        .group-title {
+          font-size: 30px;
+          font-weight: 800;
+          color: #2c1b08;
+          letter-spacing: 4px;
+          font-family: STKaiti, KaiTi, 'Noto Serif SC', serif;
+          text-shadow: 0 1px 0 rgb(255 255 245 / 90%);
+        }
+
+        .group-sub {
+          font-size: 21px;
+          font-weight: 700;
+
+          // 浅驼色在原底色上过淡，压深到褐棕以拉开对比
+          color: #5f4522;
+          font-family: STKaiti, KaiTi, 'Noto Serif SC', serif;
+          letter-spacing: 1px;
+          padding-top: 3px;
+        }
+
+        // 麻绳分隔线：标签后延伸到行尾
+        &::after {
+          content: '';
+          flex: 1;
+          height: 4px;
+          border-radius: 2px;
+          margin-left: 6px;
+          background:
+            repeating-linear-gradient(
+              115deg,
+              rgb(90 62 26 / 28%) 0%,
+              rgb(90 62 26 / 28%) 1.5px,
+              transparent 1.5px,
+              transparent 4px
+            ),
+            linear-gradient(180deg, #e6c88a 0%, #b8914c 42%, #7a5a26 100%);
+          box-shadow: inset 0 1px 0 rgb(255 245 210 / 55%);
+        }
+      }
+    }
+
+    .modules-section {
+      display: grid;
+
+      // 主视觉 + 两列：今日推荐 / 名句拾遗 / 阅读足迹 各占通栏
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 34px;
+
+      // 今日推荐信息量足，独占第一行通栏
+      > .daily-pick {
+        grid-column: 1 / -1;
+      }
+
+      // 名句拾遗为横向多张金句卡，独占一行通栏
+      > .famous-lines {
+        grid-column: 1 / -1;
+      }
+
+      // 阅读足迹合并诗人/朝代/诗词三类，独占一行通栏
+      > .reading-ledger {
+        grid-column: 1 / -1;
+      }
+
+      .module-card {
+        // ---- 各模块主题变量（在 &.xxx 中覆盖，实现不同物品外观）----
+        --tag-a: #b87333;
+        --tag-b: #8b6914;
+        --accent: #b87333;
+        --paper-a: #fffcf5;
+        --paper-b: #faf5e8;
+        --ink: #1a0a00;
+        --ink-sub: #4a3a2a;
+
+        position: relative;
+        border-radius: 18px;
+        overflow: hidden;
+        transition:
+          transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+          box-shadow 0.4s ease,
+          filter 0.4s ease;
+        display: flex;
+        flex-direction: column;
+        min-height: 232px;
+        background: linear-gradient(135deg, var(--paper-a), var(--paper-b));
+        box-shadow: 0 5px 18px rgb(60 40 20 / 13%);
+
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 14px 34px rgb(60 40 20 / 24%);
+          filter: brightness(1.03);
+        }
+
+        .module-body {
+          flex: 1;
+          position: relative;
+          z-index: 2;
+        }
+
+        .module-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          // 顶部留出 20px 安全区，避开天杆/编绳等顶部装饰（≤13px），确保标签不被压
+          padding: 20px 18px 0;
+          position: relative;
+          z-index: 3;
+
+          .module-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 7px 18px;
+            border-radius: 12px;
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            font-family: STKaiti, KaiTi, 'Noto Serif SC', serif;
+            background: linear-gradient(135deg, var(--tag-a), var(--tag-b));
+            color: #fffaf0;
+            text-shadow: 0 1px 2px rgb(50 25 8 / 55%);
+            box-shadow:
+              0 2px 8px rgb(60 40 20 / 28%),
+              inset 0 1px 1px rgb(255 255 255 / 40%);
+          }
+
+          .refresh-btn {
+            width: 30px;
+            height: 30px;
+            border: 1px solid rgb(143 31 31 / 28%);
+            border-radius: 50%;
+            background: linear-gradient(180deg, #fff6ec, #f0dcc4);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            // 深朱红图标 + 微高光，比原灰棕更醒目鲜亮
+            color: #9e2b22;
+            box-shadow:
+              inset 0 1px 1px rgb(255 255 255 / 90%),
+              0 1px 3px rgb(120 70 40 / 22%);
+            transition-property:
+              transform, opacity, box-shadow, color, background,
+              background-color, border-color, filter, text-shadow;
+            transition-duration: 0.3s;
+
+            :deep(svg) {
+              width: 17px;
+              height: 17px;
+              filter: drop-shadow(0 1px 0 rgb(255 255 255 / 80%));
+            }
+
+            &:hover {
+              background: linear-gradient(180deg, #fff, #f6e6d4);
+              color: #c8523f;
+              border-color: rgb(200 82 63 / 50%);
+              box-shadow:
+                inset 0 1px 1px rgb(255 255 255 / 95%),
+                0 2px 6px rgb(160 45 34 / 30%);
+              transform: rotate(180deg);
+            }
+          }
+
+          .clear-btn {
+            padding: 8px 18px;
+            border: 1px solid rgb(184 115 51 / 25%);
+            border-radius: 10px;
+            background: transparent;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: 800;
+            color: #241304;
+            font-family: STKaiti, KaiTi, 'Noto Serif SC', serif;
+            transition-property:
+              transform, opacity, box-shadow, color, background,
+              background-color, border-color, filter, text-shadow;
+            transition-duration: 0.3s;
+
+            &:hover {
+              background: rgb(220 38 38 / 8%);
+              color: #dc2626;
+              border-color: rgb(220 38 38 / 30%);
+            }
+          }
+        }
+
+        .module-body {
+          padding: 18px 18px 20px;
+        }
+
+        .module-empty {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          padding: 30px 18px 26px;
+          text-align: center;
+
+          .me-icon {
+            width: 42px;
+            height: 42px;
+            color: #b87333;
+            opacity: 90%;
+            filter: drop-shadow(0 3px 8px rgb(139 115 85 / 25%));
+            animation: float 4s ease-in-out infinite;
+          }
+
+          p {
+            margin: 0;
+            color: #1f1002;
+            font-size: 19px;
+            font-weight: 800;
+            line-height: 1.7;
+            max-width: 280px;
+            letter-spacing: 1px;
+            font-family: STKaiti, KaiTi, 'Noto Serif SC', serif;
+          }
+        }
+      }
+    }
+  }
+}

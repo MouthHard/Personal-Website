@@ -1,0 +1,264 @@
+// 搜索栏 · 兼容与适配
+// 只放媒体查询与降级规则；大屏基础样式仍保留在 index.scss。
+
+@media (width <= 768px) {
+  .search-bar {
+    .search-container {
+      padding: 14px 18px 12px 20px;
+
+      .search-icon {
+        margin-right: 10px;
+
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+      .search-input-container {
+        .search-input {
+          font-size: 18px;
+          padding-right: 32px;
+        }
+
+        .clear-button {
+          width: 22px;
+          height: 22px;
+          font-size: 15px;
+        }
+      }
+
+      .search-button {
+        padding: 8px 18px;
+        font-size: 16px;
+        letter-spacing: 1px;
+      }
+    }
+
+    .search-dropdown {
+      margin-top: 8px;
+      padding: 14px 16px 12px;
+      max-height: 360px;
+
+      .search-history-section {
+        .history-header {
+          margin-bottom: 8px;
+
+          .section-label {
+            font-size: 17px;
+          }
+
+          .history-actions .history-action-btn {
+            padding: 3px 10px;
+            font-size: 14px;
+            border-radius: 10px;
+          }
+        }
+
+        .history-tags {
+          gap: 6px;
+          max-height: 28px;
+
+          .history-tag {
+            padding: 4px 10px;
+            font-size: 15px;
+
+            .history-remove {
+              width: 16px;
+              height: 16px;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+
+      .search-empty-history {
+        .seh-seal {
+          width: 32px;
+          height: 32px;
+          font-size: 16px;
+        }
+
+        .seh-text {
+          font-size: 15px;
+        }
+      }
+
+      .hot-searches-section {
+        gap: 10px;
+        padding: 8px 2px 4px;
+
+        .hot-label {
+          font-size: 17px;
+        }
+
+        .hot-tag {
+          padding: 5px 14px;
+          font-size: 15px;
+        }
+
+        .hot-tags-loading .htl-chip {
+          width: 52px;
+          height: 28px;
+          border-radius: 12px;
+
+          &:nth-child(2) {
+            width: 44px;
+          }
+
+          &:nth-child(3) {
+            width: 56px;
+          }
+
+          &:nth-child(4) {
+            width: 48px;
+          }
+        }
+
+        .hot-tags-empty {
+          .hte-seal {
+            width: 32px;
+            height: 32px;
+            font-size: 16px;
+          }
+
+          .hte-text {
+            font-size: 15px;
+          }
+        }
+      }
+    }
+
+    .search-suggestions {
+      margin-top: 8px;
+      padding: 12px 16px;
+      max-height: 320px;
+
+      .suggestion-item {
+        padding: 8px 2px;
+
+        .suggestion-icon svg {
+          width: 20px;
+          height: 20px;
+        }
+
+        .suggestion-text {
+          font-size: 15px;
+        }
+
+        .suggestion-count {
+          padding: 3px 10px;
+          font-size: 14px;
+          border-radius: 10px 10px 4px 4px;
+        }
+      }
+
+      .suggestion-empty {
+        .ses-seal {
+          width: 32px;
+          height: 32px;
+          font-size: 16px;
+        }
+
+        .suggestion-empty-text {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}
+
+// 手机档：搜索框、下拉与建议浮层再收一档，避免遮挡首屏列表
+@media (width <= 430px) {
+  .search-bar {
+    .search-container {
+      padding: 10px 12px 10px 14px;
+
+      .search-icon {
+        margin-right: 8px;
+
+        svg {
+          width: 18px;
+          height: 18px;
+        }
+      }
+
+      .search-input-container {
+        .search-input {
+          font-size: 15px;
+          padding-right: 28px;
+        }
+      }
+
+      .search-button {
+        padding: 7px 10px;
+        font-size: 14px;
+        letter-spacing: 0;
+        white-space: nowrap;
+      }
+    }
+
+    .search-dropdown {
+      padding: 10px 12px 8px;
+      max-height: 300px;
+
+      .search-history-section {
+        .history-header {
+          .section-label {
+            font-size: 15px;
+          }
+        }
+
+        .history-tags {
+          gap: 5px;
+          max-height: 26px;
+
+          .history-tag {
+            padding: 3px 8px;
+            font-size: 13px;
+          }
+        }
+      }
+
+      .hot-searches-section {
+        gap: 8px;
+        padding: 7px 2px 3px;
+
+        .hot-label {
+          font-size: 15px;
+        }
+
+        .hot-tag {
+          padding: 4px 10px;
+          font-size: 13px;
+        }
+      }
+    }
+
+    .search-suggestions {
+      padding: 10px 12px;
+      max-height: 260px;
+
+      .suggestion-item {
+        padding: 7px 2px;
+
+        .suggestion-icon svg {
+          width: 18px;
+          height: 18px;
+        }
+
+        .suggestion-text {
+          font-size: 14px;
+        }
+
+        .suggestion-count {
+          font-size: 13px;
+        }
+      }
+
+      .suggestion-empty-text {
+        font-size: 14px;
+      }
+    }
+  }
+}

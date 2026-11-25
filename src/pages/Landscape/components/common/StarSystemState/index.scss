@@ -23,15 +23,25 @@
   .loader-scene {
     // 场景基准尺寸：随视窗自适应（70vw×70vh 容器的大部分）
     --sz: min(66vw, 50vh);
+
     position: relative;
     width: var(--sz);
     height: var(--sz);
     flex-shrink: 0;
     perspective: calc(var(--sz) * 1.6);
+
     // 星云底衬：中央深紫微光，营造宇宙纵深
     background:
-      radial-gradient(46% 46% at 50% 52%, rgba(139, 92, 246, 0.09), transparent 70%),
-      radial-gradient(70% 60% at 50% 110%, rgba(59, 40, 110, 0.12), transparent 72%);
+      radial-gradient(
+        46% 46% at 50% 52%,
+        rgba(139, 92, 246, 0.09),
+        transparent 70%
+      ),
+      radial-gradient(
+        70% 60% at 50% 110%,
+        rgba(59, 40, 110, 0.12),
+        transparent 72%
+      );
 
     // 星尘：14 颗闪烁星点（@for 生成错落位置与延迟）
     .stardust {
@@ -53,13 +63,13 @@
             top: math.percentage(math.div(($i * 57) % 100, 100));
             animation-delay: #{$i * 0.24}s;
 
-            @if ($i % 3)==0 {
+            @if ($i % 3) == 0 {
               width: calc(var(--sz) * 0.0075);
               height: calc(var(--sz) * 0.0075);
               opacity: 0.95;
             }
 
-            @if ($i % 4)==0 {
+            @if ($i % 4) == 0 {
               width: calc(var(--sz) * 0.0045);
               height: calc(var(--sz) * 0.0045);
               opacity: 0.6;
@@ -123,6 +133,7 @@
       &.o-3 {
         border: 1px solid rgba(227, 161, 242, 0.3);
         box-shadow: 0 0 14px rgba(227, 161, 242, 0.12);
+
         // 非匀速公转：每周期加速-减速，呈椭圆轨道的开普勒快慢感
         animation: orbitSpin 8.5s ease-in-out infinite;
       }
@@ -144,8 +155,13 @@
       &.pl-a {
         width: calc(var(--sz) * 0.062);
         height: calc(var(--sz) * 0.062);
-        background:
-          radial-gradient(circle at 32% 28%, #f4eeff 0%, #a78bfa 38%, #5b21b6 78%, #3b1d7a 100%);
+        background: radial-gradient(
+          circle at 32% 28%,
+          #f4eeff 0%,
+          #a78bfa 38%,
+          #5b21b6 78%,
+          #3b1d7a 100%
+        );
         box-shadow:
           0 0 16px rgba(167, 139, 250, 0.9),
           0 0 34px rgba(139, 92, 246, 0.45),
@@ -156,8 +172,13 @@
       &.pl-b {
         width: calc(var(--sz) * 0.052);
         height: calc(var(--sz) * 0.052);
-        background:
-          radial-gradient(circle at 32% 28%, #ffeaf7 0%, #e3a1f2 40%, #86198f 80%, #4a0d52 100%);
+        background: radial-gradient(
+          circle at 32% 28%,
+          #ffeaf7 0%,
+          #e3a1f2 40%,
+          #86198f 80%,
+          #4a0d52 100%
+        );
         box-shadow:
           0 0 14px rgba(227, 161, 242, 0.85),
           0 0 28px rgba(192, 77, 200, 0.4),
@@ -168,8 +189,13 @@
       &.pl-c {
         width: calc(var(--sz) * 0.045);
         height: calc(var(--sz) * 0.045);
-        background:
-          radial-gradient(circle at 32% 28%, #eefaff 0%, #7dd3fc 42%, #0e7490 82%, #08404f 100%);
+        background: radial-gradient(
+          circle at 32% 28%,
+          #eefaff 0%,
+          #7dd3fc 42%,
+          #0e7490 82%,
+          #08404f 100%
+        );
         box-shadow:
           0 0 12px rgba(125, 211, 252, 0.85),
           0 0 24px rgba(56, 189, 248, 0.4),
@@ -180,8 +206,13 @@
       &.pl-d {
         width: calc(var(--sz) * 0.048);
         height: calc(var(--sz) * 0.048);
-        background:
-          radial-gradient(circle at 32% 28%, #fff4e0 0%, #fbbf24 42%, #b45309 82%, #6b3208 100%);
+        background: radial-gradient(
+          circle at 32% 28%,
+          #fff4e0 0%,
+          #fbbf24 42%,
+          #b45309 82%,
+          #6b3208 100%
+        );
         box-shadow:
           0 0 13px rgba(251, 191, 36, 0.85),
           0 0 26px rgba(217, 119, 6, 0.4),
@@ -194,8 +225,13 @@
         left: 100%;
         width: calc(var(--sz) * 0.038);
         height: calc(var(--sz) * 0.038);
-        background:
-          radial-gradient(circle at 32% 28%, #ecfdf5 0%, #6ee7b7 42%, #047857 82%, #03362b 100%);
+        background: radial-gradient(
+          circle at 32% 28%,
+          #ecfdf5 0%,
+          #6ee7b7 42%,
+          #047857 82%,
+          #03362b 100%
+        );
         box-shadow:
           0 0 11px rgba(110, 231, 183, 0.85),
           0 0 22px rgba(16, 185, 129, 0.4),
@@ -225,6 +261,7 @@
         position: absolute;
         inset: 0;
         border-radius: 50%;
+
         // 互绕轨道虚线：双星质心轨迹
         border: 1px dashed rgba(196, 181, 253, 0.22);
         transform-style: preserve-3d;
@@ -248,7 +285,12 @@
             position: absolute;
             inset: calc(var(--sz) * -0.105);
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(196, 181, 253, 0.38) 0%, rgba(139, 92, 246, 0.16) 40%, transparent 68%);
+            background: radial-gradient(
+              circle,
+              rgba(196, 181, 253, 0.38) 0%,
+              rgba(139, 92, 246, 0.16) 40%,
+              transparent 68%
+            );
             animation: starGlow 2.8s ease-in-out infinite;
           }
 
@@ -256,14 +298,22 @@
             position: absolute;
             inset: 0;
             border-radius: 50%;
-            background:
-              radial-gradient(circle at 38% 32%, #ffffff 0%, #ddd3ff 22%, #a78bfa 48%, #6d3fd4 72%, #2a1065 100%);
+            background: radial-gradient(
+              circle at 38% 32%,
+              #fff 0%,
+              #ddd3ff 22%,
+              #a78bfa 48%,
+              #6d3fd4 72%,
+              #2a1065 100%
+            );
             box-shadow:
               0 0 calc(var(--sz) * 0.045) rgba(167, 139, 250, 0.95),
               0 0 calc(var(--sz) * 0.1) rgba(139, 92, 246, 0.5),
               0 0 calc(var(--sz) * 0.19) rgba(139, 92, 246, 0.25),
-              inset calc(var(--sz) * -0.008) calc(var(--sz) * -0.01) calc(var(--sz) * 0.02) rgba(20, 8, 60, 0.6),
-              inset calc(var(--sz) * 0.005) calc(var(--sz) * 0.005) calc(var(--sz) * 0.01) rgba(255, 255, 255, 0.8);
+              inset calc(var(--sz) * -0.008) calc(var(--sz) * -0.01)
+                calc(var(--sz) * 0.02) rgba(20, 8, 60, 0.6),
+              inset calc(var(--sz) * 0.005) calc(var(--sz) * 0.005)
+                calc(var(--sz) * 0.01) rgba(255, 255, 255, 0.8);
             animation: starPulse 3.2s ease-in-out infinite;
           }
 
@@ -274,7 +324,11 @@
             width: calc(var(--sz) * 0.03);
             height: calc(var(--sz) * 0.03);
             border-radius: 50%;
-            background: radial-gradient(circle at 40% 35%, rgba(255, 255, 255, 0.95), transparent 70%);
+            background: radial-gradient(
+              circle at 40% 35%,
+              rgba(255, 255, 255, 0.95),
+              transparent 70%
+            );
             animation: starGlow 1.9s ease-in-out infinite;
           }
 
@@ -287,10 +341,14 @@
             background: #fff;
             border-radius: 50%;
             box-shadow:
-              0 calc(var(--sz) * -0.028) 0 calc(var(--sz) * -0.002) rgba(255, 255, 255, 0.55),
-              0 calc(var(--sz) * 0.028) 0 calc(var(--sz) * -0.002) rgba(255, 255, 255, 0.55),
-              calc(var(--sz) * -0.028) 0 0 calc(var(--sz) * -0.002) rgba(255, 255, 255, 0.55),
-              calc(var(--sz) * 0.028) 0 0 calc(var(--sz) * -0.002) rgba(255, 255, 255, 0.55);
+              0 calc(var(--sz) * -0.028) 0 calc(var(--sz) * -0.002)
+                rgba(255, 255, 255, 0.55),
+              0 calc(var(--sz) * 0.028) 0 calc(var(--sz) * -0.002)
+                rgba(255, 255, 255, 0.55),
+              calc(var(--sz) * -0.028) 0 0 calc(var(--sz) * -0.002)
+                rgba(255, 255, 255, 0.55),
+              calc(var(--sz) * 0.028) 0 0 calc(var(--sz) * -0.002)
+                rgba(255, 255, 255, 0.55);
             animation: sparkFlash 2.4s ease-in-out infinite;
           }
         }
@@ -305,7 +363,12 @@
             position: absolute;
             inset: calc(var(--sz) * -0.078);
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(253, 230, 138, 0.34) 0%, rgba(217, 119, 6, 0.15) 40%, transparent 68%);
+            background: radial-gradient(
+              circle,
+              rgba(253, 230, 138, 0.34) 0%,
+              rgba(217, 119, 6, 0.15) 40%,
+              transparent 68%
+            );
             animation: starGlow 2.2s ease-in-out infinite;
           }
 
@@ -313,14 +376,22 @@
             position: absolute;
             inset: 0;
             border-radius: 50%;
-            background:
-              radial-gradient(circle at 38% 32%, #ffffff 0%, #fef3c7 24%, #fbbf24 50%, #b45309 76%, #5c2a06 100%);
+            background: radial-gradient(
+              circle at 38% 32%,
+              #fff 0%,
+              #fef3c7 24%,
+              #fbbf24 50%,
+              #b45309 76%,
+              #5c2a06 100%
+            );
             box-shadow:
               0 0 calc(var(--sz) * 0.035) rgba(251, 191, 36, 0.9),
               0 0 calc(var(--sz) * 0.078) rgba(217, 119, 6, 0.45),
               0 0 calc(var(--sz) * 0.15) rgba(217, 119, 6, 0.2),
-              inset calc(var(--sz) * -0.007) calc(var(--sz) * -0.007) calc(var(--sz) * 0.016) rgba(74, 35, 6, 0.6),
-              inset calc(var(--sz) * 0.004) calc(var(--sz) * 0.004) calc(var(--sz) * 0.009) rgba(255, 255, 255, 0.8);
+              inset calc(var(--sz) * -0.007) calc(var(--sz) * -0.007)
+                calc(var(--sz) * 0.016) rgba(74, 35, 6, 0.6),
+              inset calc(var(--sz) * 0.004) calc(var(--sz) * 0.004)
+                calc(var(--sz) * 0.009) rgba(255, 255, 255, 0.8);
             animation: starPulse 2.6s ease-in-out infinite;
           }
 
@@ -331,7 +402,11 @@
             width: calc(var(--sz) * 0.022);
             height: calc(var(--sz) * 0.022);
             border-radius: 50%;
-            background: radial-gradient(circle at 40% 35%, rgba(255, 255, 255, 0.95), transparent 70%);
+            background: radial-gradient(
+              circle at 40% 35%,
+              rgba(255, 255, 255, 0.95),
+              transparent 70%
+            );
             animation: starGlow 1.7s ease-in-out infinite;
           }
         }
@@ -360,7 +435,12 @@
       width: 46px;
       height: 5px;
       border-radius: 3px;
-      background: linear-gradient(90deg, rgba(139, 92, 246, 0.18), rgba(196, 181, 253, 0.55), rgba(139, 92, 246, 0.18));
+      background: linear-gradient(
+        90deg,
+        rgba(139, 92, 246, 0.18),
+        rgba(196, 181, 253, 0.55),
+        rgba(139, 92, 246, 0.18)
+      );
       background-size: 220% 100%;
       animation: ldBarSweep 1.4s ease-in-out infinite;
 
@@ -392,10 +472,19 @@
   align-items: center;
   justify-content: center;
   padding: 2rem;
+
   // 失联氛围：中央紫晕 + 底部余烬暖光，尽量透出全站星空
   background:
-    radial-gradient(42% 36% at 50% 40%, rgba(139, 92, 246, 0.09), transparent 70%),
-    radial-gradient(56% 40% at 50% 96%, rgba(245, 158, 11, 0.05), transparent 72%);
+    radial-gradient(
+      42% 36% at 50% 40%,
+      rgba(139, 92, 246, 0.09),
+      transparent 70%
+    ),
+    radial-gradient(
+      56% 40% at 50% 96%,
+      rgba(245, 158, 11, 0.05),
+      transparent 72%
+    );
 
   // 深空尘埃：青紫双色微光星尘
   .void-dust {
@@ -418,12 +507,12 @@
           top: math.percentage(math.div(($i * 67) % 100, 100));
           animation-delay: #{$i * 0.38}s;
 
-          @if ($i % 3)==0 {
+          @if ($i % 3) == 0 {
             background: #a78bfa;
             box-shadow: 0 0 8px rgba(167, 139, 250, 0.7);
           }
 
-          @if ($i % 4)==0 {
+          @if ($i % 4) == 0 {
             width: 2px;
             height: 2px;
             opacity: 0.6;
@@ -436,6 +525,7 @@
   // ===== 求救场景：信号波 + 碎片残环 + 熄灭星核 =====
   .distress-scene {
     --bsz: min(44vw, 34vh);
+
     position: relative;
     width: var(--bsz);
     height: var(--bsz);
@@ -483,7 +573,12 @@
 
       .debris {
         position: absolute;
-        background: linear-gradient(135deg, #4c4370 0%, #2e2a4a 55%, #1c1930 100%);
+        background: linear-gradient(
+          135deg,
+          #4c4370 0%,
+          #2e2a4a 55%,
+          #1c1930 100%
+        );
         box-shadow:
           0 0 10px rgba(124, 108, 192, 0.4),
           inset 1px 1px 1px rgba(196, 181, 253, 0.35),
@@ -551,7 +646,12 @@
         position: absolute;
         inset: calc(var(--bsz) * -0.14);
         border-radius: 50%;
-        background: radial-gradient(circle, rgba(245, 158, 11, 0.22) 0%, rgba(180, 83, 9, 0.1) 40%, transparent 68%);
+        background: radial-gradient(
+          circle,
+          rgba(245, 158, 11, 0.22) 0%,
+          rgba(180, 83, 9, 0.1) 40%,
+          transparent 68%
+        );
         animation: emberHalo 3.4s ease-in-out infinite;
       }
 
@@ -560,8 +660,14 @@
         position: absolute;
         inset: 0;
         border-radius: 50%;
-        background:
-          radial-gradient(circle at 36% 30%, #8a5a24 0%, #5d3a15 30%, #3a2310 58%, #1c1108 85%, #0e0904 100%);
+        background: radial-gradient(
+          circle at 36% 30%,
+          #8a5a24 0%,
+          #5d3a15 30%,
+          #3a2310 58%,
+          #1c1108 85%,
+          #0e0904 100%
+        );
         box-shadow:
           0 0 34px rgba(245, 158, 11, 0.16),
           0 18px 40px rgba(0, 0, 0, 0.6),
@@ -573,7 +679,14 @@
       .crack {
         position: absolute;
         border-radius: 40%;
-        background: linear-gradient(180deg, transparent, rgba(251, 191, 36, 0.9) 30%, rgba(253, 224, 71, 0.95) 50%, rgba(251, 191, 36, 0.85) 70%, transparent);
+        background: linear-gradient(
+          180deg,
+          transparent,
+          rgba(251, 191, 36, 0.9) 30%,
+          rgba(253, 224, 71, 0.95) 50%,
+          rgba(251, 191, 36, 0.85) 70%,
+          transparent
+        );
         filter: drop-shadow(0 0 5px rgba(245, 158, 11, 0.8));
         animation: crackGlow 2.6s ease-in-out infinite;
 
@@ -612,7 +725,12 @@
         width: calc(var(--bsz) * 0.026);
         height: calc(var(--bsz) * 0.026);
         border-radius: 50%;
-        background: radial-gradient(circle at 38% 32%, #fff8e1, #fbbf24 55%, transparent 78%);
+        background: radial-gradient(
+          circle at 38% 32%,
+          #fff8e1,
+          #fbbf24 55%,
+          transparent 78%
+        );
         box-shadow: 0 0 14px rgba(251, 191, 36, 0.8);
         animation: emberPulse 2.2s ease-in-out infinite;
       }
@@ -634,7 +752,8 @@
       gap: 0.55rem;
       margin-bottom: 0.9rem;
       color: #67e8f9;
-      font-family: 'JetBrains Mono', ui-monospace, 'Cascadia Code', Consolas, monospace;
+      font-family:
+        'JetBrains Mono', ui-monospace, 'Cascadia Code', Consolas, monospace;
       font-size: 0.82rem;
       font-weight: 600;
       letter-spacing: 0.42em;
@@ -655,7 +774,13 @@
       font-size: 2.1rem;
       font-weight: 800;
       letter-spacing: 0.14em;
-      background: linear-gradient(135deg, #f8fafc 0%, #fde68a 32%, #67e8f9 68%, #a78bfa 100%);
+      background: linear-gradient(
+        135deg,
+        #f8fafc 0%,
+        #fde68a 32%,
+        #67e8f9 68%,
+        #a78bfa 100%
+      );
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -670,7 +795,8 @@
       margin: 0 0 2.2rem;
       max-width: min(72vw, 560px);
       color: #8b95b5;
-      font-family: 'JetBrains Mono', ui-monospace, 'Cascadia Code', Consolas, monospace;
+      font-family:
+        'JetBrains Mono', ui-monospace, 'Cascadia Code', Consolas, monospace;
       font-size: 0.86rem;
       line-height: 1.6;
       word-break: break-all;
@@ -681,11 +807,19 @@
         flex-shrink: 0;
         width: 56px;
         height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(103, 232, 249, 0.5));
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(103, 232, 249, 0.5)
+        );
       }
 
       &::after {
-        background: linear-gradient(90deg, rgba(103, 232, 249, 0.5), transparent);
+        background: linear-gradient(
+          90deg,
+          rgba(103, 232, 249, 0.5),
+          transparent
+        );
       }
     }
 
@@ -696,7 +830,13 @@
       align-items: center;
       gap: 0.7rem;
       padding: 0.9rem 3rem;
-      background: linear-gradient(135deg, #fde68a 0%, #fbbf24 34%, #38bdf8 72%, #0284c7 100%);
+      background: linear-gradient(
+        135deg,
+        #fde68a 0%,
+        #fbbf24 34%,
+        #38bdf8 72%,
+        #0284c7 100%
+      );
       border: 1px solid rgba(251, 191, 36, 0.55);
       border-radius: 999px;
       color: #1c1206;
@@ -718,7 +858,7 @@
         width: 12px;
         height: 12px;
         border-radius: 50%;
-        background: radial-gradient(circle at 35% 30%, #ffffff, #fbbf24 60%);
+        background: radial-gradient(circle at 35% 30%, #fff, #fbbf24 60%);
         box-shadow:
           0 0 12px rgba(251, 191, 36, 0.95),
           0 0 26px rgba(245, 158, 11, 0.55);
@@ -733,7 +873,12 @@
         bottom: 0;
         width: 36%;
         left: -40%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.72), transparent);
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.72),
+          transparent
+        );
         transform: skewX(-18deg);
         animation: btnSweep 2.8s ease-in-out infinite;
       }
@@ -790,7 +935,6 @@
 }
 
 @keyframes emberHalo {
-
   0%,
   100% {
     opacity: 0.5;
@@ -804,7 +948,6 @@
 }
 
 @keyframes crackGlow {
-
   0%,
   100% {
     opacity: 0.35;
@@ -818,7 +961,6 @@
 }
 
 @keyframes emberPulse {
-
   0%,
   100% {
     opacity: 0.45;
@@ -832,7 +974,6 @@
 }
 
 @keyframes dustTwinkle {
-
   0%,
   100% {
     opacity: 0.18;
@@ -856,7 +997,6 @@
 }
 
 @keyframes beaconBlink {
-
   0%,
   100% {
     opacity: 0.55;

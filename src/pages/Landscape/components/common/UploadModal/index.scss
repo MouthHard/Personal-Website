@@ -1,8 +1,8 @@
-$blue: #3B82F6;
-$sky: #0EA5E9;
-$sky-light: #7DD3FC;
-$amber: #F59E0B;
-$amber-light: #FDE68A;
+$blue: #3b82f6;
+$sky: #0ea5e9;
+$sky-light: #7dd3fc;
+$amber: #f59e0b;
+$amber-light: #fde68a;
 $transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
 .modal-overlay {
@@ -10,15 +10,18 @@ $transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   inset: 0;
   background: rgba(0, 0, 0, 0.88);
   backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  z-index: 10001;
+  z-index: 2100;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 2rem;
 
   .upload-modal {
-    background: linear-gradient(145deg, rgba(15, 18, 25, 0.98) 0%, rgba(10, 12, 18, 0.99) 100%);
+    background: linear-gradient(
+      145deg,
+      rgba(15, 18, 25, 0.98) 0%,
+      rgba(10, 12, 18, 0.99) 100%
+    );
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 24px;
     max-width: 580px;
@@ -79,8 +82,11 @@ $transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
           linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
           linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
         background-size: 32px 32px;
-        mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
-        -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+        mask-image: radial-gradient(
+          ellipse at center,
+          black 30%,
+          transparent 75%
+        );
       }
     }
 
@@ -147,9 +153,8 @@ $transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         font-size: 1.6rem;
         font-weight: 800;
         background: linear-gradient(135deg, #fff 0%, $sky-light 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
         background-clip: text;
+        -webkit-text-fill-color: transparent;
         margin-bottom: 0.5rem;
         letter-spacing: 0.02em;
       }
@@ -194,7 +199,11 @@ $transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         position: absolute;
         inset: -1px;
         border-radius: 18px;
-        background: linear-gradient(135deg, rgba($sky, 0.08), rgba($amber, 0.06));
+        background: linear-gradient(
+          135deg,
+          rgba($sky, 0.08),
+          rgba($amber, 0.06)
+        );
         opacity: 0;
         transition: opacity 0.4s ease;
         pointer-events: none;
@@ -314,23 +323,46 @@ $transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @keyframes orb-float-1 {
-  0%, 100% { transform: translate(0, 0); }
-  50% { transform: translate(-20px, 15px); }
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(-20px, 15px);
+  }
 }
 
 @keyframes orb-float-2 {
-  0%, 100% { transform: translate(0, 0); }
-  50% { transform: translate(15px, -20px); }
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(15px, -20px);
+  }
 }
 
 @keyframes orb-float-3 {
-  0%, 100% { transform: translate(0, 0); }
-  33% { transform: translate(-15px, 10px); }
-  66% { transform: translate(10px, -15px); }
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  33% {
+    transform: translate(-15px, 10px);
+  }
+
+  66% {
+    transform: translate(10px, -15px);
+  }
 }
 
 @keyframes ring-rotate {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .modal-enter-active,

@@ -9,7 +9,10 @@ module.exports = {
     "plugin:vue/vue3-recommended",
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended",
+    // 只引入 prettier 的格式冲突消解规则（等价于 eslint-config-prettier）；
+    // 不用 plugin:prettier/recommended，因为本项目关闭了 prettier/prettier 检查，
+    // 保留插件却关闭其核心规则会造成配置矛盾。格式化由 npm run format 单独负责。
+    "prettier",
   ],
   parser: "vue-eslint-parser",
   parserOptions: {
@@ -17,6 +20,10 @@ module.exports = {
     ecmaVersion: 2022,
     sourceType: "module",
   },
+  // 构建产物与覆盖率报告不参与 lint：
+  // 本地存在 dist/ 时，`npm run lint` 会把压缩后的产物当成源码检查，产生数千条无意义错误。
+  // CI 是干净检出所以看不出问题，但本地会一直红。
+  ignorePatterns: ["dist/**", "node_modules/**", "coverage/**"],
   rules: {
     "no-console": "off",
     "no-debugger": "off",

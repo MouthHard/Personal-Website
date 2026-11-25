@@ -1,0 +1,564 @@
+.studyroom-page {
+  .page-main {
+    .modules-section {
+      .module-card {
+        &.daily-pick {
+          --tag-a: #5a7d6a;
+          --tag-b: #33513f;
+          --accent: #8a6a3a;
+
+          cursor: pointer;
+          padding: 32px 18px 36px;
+          box-sizing: border-box;
+          position: relative;
+          isolation: isolate;
+          display: flex;
+          flex-direction: row;
+          align-items: stretch;
+          gap: 0;
+          perspective: 1400px;
+
+          // 整体加高：屏风更舒展大气（再次放大，内部更从容）
+          min-height: 400px;
+
+          // 屏架底座（三段木台厚度 + 投影）
+          background: linear-gradient(
+            180deg,
+            #6b4a2a 0%,
+            #4e3419 40%,
+            #3a2611 100%
+          );
+          border: 1px solid #2c1c0c;
+          border-radius: 4px;
+          box-shadow:
+            inset 0 2px 0 rgb(255 220 170 / 28%),
+            inset 0 -4px 8px rgb(0 0 0 / 45%),
+            0 4px 0 #2f1f0e,
+            0 8px 0 #201408,
+            0 18px 30px rgb(40 24 10 / 45%);
+
+          // 顶部屏楣：雕花木梁 + 描金回纹
+          &::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            right: -8px;
+            top: -14px;
+            height: 22px;
+            z-index: 6;
+            pointer-events: none;
+            border-radius: 4px 4px 0 0;
+            background:
+              repeating-linear-gradient(
+                90deg,
+                rgb(214 178 106 / 55%) 0 2px,
+                transparent 2px 9px,
+                rgb(214 178 106 / 30%) 9px 11px,
+                transparent 11px 20px
+              ),
+              linear-gradient(180deg, #9a6d3a 0%, #6b4522 45%, #43290f 100%);
+            border-top: 1px solid rgb(255 235 190 / 65%);
+            border-bottom: 2px solid #2c1c0c;
+            box-shadow:
+              inset 0 1px 0 rgb(255 235 190 / 55%),
+              inset 0 2px 0 rgb(120 80 35 / 50%),
+              0 3px 6px rgb(40 24 10 / 55%);
+          }
+
+          // 底部屏座：两个雕花木脚 + 描金线
+          &::after {
+            content: '';
+            position: absolute;
+            left: -10px;
+            right: -10px;
+            bottom: -15px;
+            height: 18px;
+            z-index: 6;
+            pointer-events: none;
+            background:
+              linear-gradient(
+                180deg,
+                rgb(214 178 106 / 70%) 0 1px,
+                transparent 1px 3px
+              ),
+              repeating-linear-gradient(
+                90deg,
+                #6b4522 0 22px,
+                #9a6d3a 22px 25px,
+                transparent 25px calc(100% - 25px),
+                #9a6d3a calc(100% - 25px) calc(100% - 22px),
+                #6b4522 calc(100% - 22px) 100%
+              ),
+              linear-gradient(180deg, #7a5229, #3a2410);
+            border-top: 1px solid rgb(255 225 175 / 50%);
+            border-radius: 0 0 5px 5px;
+            box-shadow: 0 5px 8px rgb(40 24 10 / 55%);
+          }
+
+          // 左右屏扇：米青绢面 + 月下墨竹雅集，沿接缝内折
+          .screen-wing {
+            position: relative;
+            flex: 0 0 200px;
+            min-height: 320px;
+            z-index: 2;
+            overflow: hidden;
+            border: 2px solid #2e1e0e;
+            border-radius: 2px;
+            background:
+              // 斜照：左上受光 → 右下背光
+              linear-gradient(
+                125deg,
+                rgba(255, 253, 240, 0.5) 0%,
+                transparent 45%,
+                rgba(60, 50, 30, 0.14) 100%
+              ),
+              // 绢布经纬纹（加密）
+              repeating-linear-gradient(
+                  0deg,
+                  rgba(90, 100, 80, 0.06) 0 1px,
+                  transparent 1px 3px
+                ),
+              repeating-linear-gradient(
+                90deg,
+                rgba(90, 100, 80, 0.06) 0 1px,
+                transparent 1px 3px
+              ),
+              linear-gradient(180deg, #eef2e4 0%, #dfe7d1 55%, #ccd7b8 100%);
+            box-shadow:
+              inset 0 0 0 3px rgb(107 69 34 / 55%),
+              inset 0 0 0 4px rgb(255 248 225 / 50%),
+              inset 0 3px 10px rgb(60 50 30 / 22%),
+              inset 0 -6px 12px rgb(60 50 30 / 14%);
+            pointer-events: none;
+
+            // 月晕：右上柔光圆月
+            .wing-moon {
+              position: absolute;
+              top: 14px;
+              right: 20px;
+              width: 46px;
+              height: 46px;
+              border-radius: 50%;
+              background: radial-gradient(
+                circle at 42% 40%,
+                rgb(255 253 236 / 95%) 0 38%,
+                rgb(255 250 220 / 55%) 60%,
+                transparent 74%
+              );
+              box-shadow: 0 0 18px rgb(255 250 215 / 50%);
+              opacity: 85%;
+            }
+
+            // 远山：底部淡墨层叠剪影
+            .wing-hill {
+              position: absolute;
+              left: -10%;
+              right: -10%;
+              bottom: -6px;
+              height: 52px;
+              background:
+                radial-gradient(
+                  ellipse 60% 100% at 22% 100%,
+                  rgb(74 96 72 / 28%) 0 60%,
+                  transparent 62%
+                ),
+                radial-gradient(
+                  ellipse 55% 90% at 78% 100%,
+                  rgb(90 112 86 / 22%) 0 60%,
+                  transparent 62%
+                );
+              filter: blur(1px);
+            }
+
+            // 墨竹：竹竿定位/倾斜/粗细由内联 style（伪随机）控制，竹叶用 .b-leaf 承载
+            .bamboo {
+              position: absolute;
+              bottom: -8px;
+              border-radius: 3px;
+              transform-origin: bottom center;
+            }
+
+            // 远景竹：细、淡、偏灰，营造纵深
+            .bamboo-far {
+              filter: blur(0.6px);
+              background:
+                repeating-linear-gradient(
+                  180deg,
+                  transparent 0 30px,
+                  rgb(50 70 48 / 40%) 30px 31px
+                ),
+                linear-gradient(90deg, #6b8262, #9fb08a 50%, #5d7454);
+            }
+
+            // 近景竹：粗、浓、带高光竹节
+            .bamboo-near {
+              background:
+                repeating-linear-gradient(
+                  180deg,
+                  transparent 0 24px,
+                  rgb(24 40 26 / 60%) 24px 26px,
+                  rgb(130 155 112 / 40%) 26px 28px
+                ),
+                linear-gradient(
+                  90deg,
+                  #29402c 0%,
+                  #4d6b44 38%,
+                  #86a36d 58%,
+                  #2f472f 100%
+                );
+              box-shadow:
+                1px 0 3px rgb(28 44 26 / 35%),
+                inset 1px 0 1px rgb(220 235 200 / 30%);
+            }
+
+            // 竹叶：位置(top)/角度(rotate)/朝向(scaleX)/长度(width)/透明度由内联 style 伪随机控制
+            .b-leaf {
+              position: absolute;
+              left: -3px;
+              height: 9px;
+              pointer-events: none;
+              transform-origin: left center; // 以叶柄为轴，旋出方向更自然
+              background: linear-gradient(
+                90deg,
+                #2b4630 0%,
+                #4e6d3f 65%,
+                #77915a 100%
+              );
+              border-radius: 0 100%;
+              box-shadow: 0 1px 2px rgb(28 44 26 / 22%);
+            }
+
+            .bamboo-far .b-leaf {
+              height: 7px;
+              background: linear-gradient(90deg, #6b8262, #90a37a);
+              box-shadow: none;
+            }
+
+            // 飞鸟：两笔写意人字
+            .wing-bird {
+              position: absolute;
+              width: 16px;
+              height: 8px;
+              border-top: 2px solid rgb(52 72 52 / 75%);
+              border-radius: 50% 50% 0 0;
+              transform: rotate(-8deg);
+            }
+
+            .bird-a {
+              top: 34%;
+              right: 28%;
+            }
+
+            .bird-b {
+              top: 44%;
+              right: 16%;
+              transform: rotate(6deg) scale(0.75);
+            }
+
+            // 朱文闲章：扇角闲章
+            .wing-seal {
+              position: absolute;
+              bottom: 16px;
+              right: 16px;
+              width: 26px;
+              height: 26px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border-radius: 3px;
+              font-size: 15px;
+              font-weight: 800;
+              font-family: STKaiti, KaiTi, serif;
+              color: #fff3e6;
+              background: linear-gradient(145deg, #bd4634, #8a1f18);
+              box-shadow:
+                inset 0 0 0 1px rgb(255 235 220 / 70%),
+                0 2px 4px rgb(90 20 14 / 40%);
+              transform: rotate(-7deg);
+              opacity: 90%;
+            }
+
+            // 接缝铜合页（贴中屏一侧）
+            &::after {
+              content: '';
+              position: absolute;
+              top: 30%;
+              bottom: 30%;
+              width: 9px;
+              z-index: 5;
+              border-radius: 2px;
+              background:
+                radial-gradient(
+                    circle at 50% 18%,
+                    #fff3c8 0 1.5px,
+                    transparent 60%
+                  )
+                  0 0 / 100% 34% no-repeat,
+                radial-gradient(
+                    circle at 50% 82%,
+                    #fff3c8 0 1.5px,
+                    transparent 60%
+                  )
+                  0 0 / 100% 100% no-repeat,
+                linear-gradient(90deg, #8a6a2a 0%, #d9bb6a 45%, #8a6a2a 100%);
+              box-shadow:
+                0 1px 3px rgb(30 20 8 / 55%),
+                inset 0 0 0 1px rgb(60 40 10 / 50%);
+            }
+          }
+
+          // 左扇向内折（右缘为轴），右扇向内折（左缘为轴）
+          .wing-left {
+            transform: rotateY(22deg);
+            transform-origin: right center;
+            border-radius: 3px 0 0 3px;
+
+            &::after {
+              right: -5px;
+            }
+          }
+
+          .wing-right {
+            transform: rotateY(-22deg);
+            transform-origin: left center;
+            border-radius: 0 3px 3px 0;
+
+            &::after {
+              left: -5px;
+            }
+          }
+
+          // 中屏：米青绢面 + 题诗内容
+          .screen-panel {
+            position: relative;
+            flex: 1 1 auto;
+            min-width: 0;
+            z-index: 3;
+            padding: 6px 30px 4px;
+            border: 2px solid #2e1e0e;
+            border-radius: 2px;
+            background:
+              linear-gradient(
+                118deg,
+                rgb(255 253 240 / 62%) 0%,
+                transparent 42%,
+                rgb(60 50 30 / 10%) 100%
+              ),
+              repeating-linear-gradient(
+                0deg,
+                rgb(90 100 80 / 4.5%) 0 1px,
+                transparent 1px 4px
+              ),
+              repeating-linear-gradient(
+                90deg,
+                rgb(90 100 80 / 4.5%) 0 1px,
+                transparent 1px 4px
+              ),
+              linear-gradient(180deg, #eef1e4 0%, #e2e8d7 52%, #d0d9bf 100%);
+            box-shadow:
+              inset 0 0 0 3px rgb(107 69 34 / 50%),
+              inset 0 0 0 4px rgb(255 248 225 / 50%),
+              inset 0 4px 10px rgb(60 50 30 / 16%),
+              0 2px 10px rgb(40 24 10 / 35%);
+
+            .module-header {
+              justify-content: flex-start;
+              gap: 10px;
+              padding-top: 0;
+              position: relative;
+              z-index: 2;
+            }
+
+            .module-body {
+              position: relative;
+              z-index: 2;
+
+              .pick-title {
+                position: relative;
+                font-size: 27px;
+                margin: 8px 0 6px;
+                padding-left: 18px;
+                color: #141c12;
+                font-family: STKaiti, KaiTi, 'Noto Serif SC', serif;
+                letter-spacing: 6px;
+                font-weight: 800;
+
+                &::before {
+                  content: '';
+                  position: absolute;
+                  left: 0;
+                  top: 4px;
+                  bottom: 4px;
+                  width: 4px;
+                  border-radius: 2px;
+                  pointer-events: none;
+                  background: linear-gradient(180deg, #5a7d6a, #33513f);
+                  box-shadow: 0 0 5px rgb(51 81 63 / 30%);
+                }
+              }
+
+              .pick-meta {
+                font-size: 23px;
+                font-weight: 800;
+                color: #243524;
+                margin: 0 0 12px;
+                font-family: STKaiti, KaiTi, 'Noto Serif SC', serif;
+                letter-spacing: 2px;
+              }
+
+              .pick-content {
+                font-size: 22px;
+                font-weight: 800;
+                color: #141c12;
+                margin: 0;
+                line-height: 1.85;
+                font-family: STKaiti, KaiTi, 'Noto Serif SC', serif;
+                letter-spacing: 2px;
+              }
+            }
+
+            // 阅读全文：青玉腰牌按钮 + 描金边 + hover 上浮流光
+            .pick-hint {
+              position: relative;
+              z-index: 2;
+              display: inline-flex;
+              align-items: center;
+              gap: 10px;
+              font-size: 20px;
+              font-weight: 800;
+              color: #f3f8ea;
+              letter-spacing: 3px;
+              font-family: STKaiti, KaiTi, 'Noto Serif SC', serif;
+              margin: 14px 0 0;
+              padding: 9px 22px 11px;
+              border-radius: 6px;
+              cursor: pointer;
+              overflow: hidden;
+              isolation: isolate;
+              background:
+                linear-gradient(
+                  135deg,
+                  rgb(255 255 255 / 28%) 0%,
+                  transparent 38%
+                ),
+                linear-gradient(180deg, #6e9a80 0%, #4d7b62 45%, #335a44 100%);
+              border: 1px solid #264432;
+              box-shadow:
+                inset 0 0 0 1px rgb(232 214 150 / 75%),
+                inset 0 1px 0 rgb(255 255 255 / 35%),
+                inset 0 -3px 6px rgb(20 50 32 / 50%),
+                0 3px 0 #264432,
+                0 6px 0 #1b3225,
+                0 9px 12px rgb(30 50 32 / 32%);
+              text-shadow: 0 1px 2px rgb(20 50 32 / 60%);
+              transition:
+                transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1),
+                box-shadow 0.28s ease,
+                filter 0.28s ease;
+
+              // 流光扫过
+              &::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                z-index: -1;
+                background: linear-gradient(
+                  105deg,
+                  transparent 25%,
+                  rgb(255 255 235 / 55%) 48%,
+                  transparent 70%
+                );
+                transform: translateX(-130%);
+                transition: transform 0.7s ease;
+              }
+
+              .hint-icon {
+                font-size: 13px;
+                color: #e9d99a;
+                filter: drop-shadow(0 1px 1px rgb(30 50 32 / 60%));
+              }
+
+              .hint-arrow {
+                font-size: 22px;
+                line-height: 1;
+                color: #e9d99a;
+                transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+              }
+
+              &:hover {
+                transform: translateY(-3px);
+                filter: brightness(1.12);
+                box-shadow:
+                  inset 0 0 0 1px rgb(255 238 175 / 90%),
+                  inset 0 1px 0 rgb(255 255 255 / 50%),
+                  inset 0 -3px 6px rgb(20 50 32 / 50%),
+                  0 6px 0 #264432,
+                  0 10px 0 #1b3225,
+                  0 14px 18px rgb(30 50 32 / 42%);
+
+                &::before {
+                  transform: translateX(130%);
+                }
+
+                .hint-arrow {
+                  transform: translateX(5px);
+                }
+              }
+
+              &:active {
+                transform: translateY(2px);
+                box-shadow:
+                  inset 0 0 0 1px rgb(232 214 150 / 75%),
+                  inset 0 2px 5px rgb(20 50 32 / 60%),
+                  0 2px 0 #264432,
+                  0 4px 8px rgb(30 50 32 / 30%);
+              }
+            }
+          }
+        }
+
+        // 今日推荐：无数据占位
+        &.daily-pick.is-empty {
+          cursor: default;
+
+          .module-body.pick-empty {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 30px 18px 26px;
+            text-align: center;
+
+            .pe-seal {
+              width: 44px;
+              height: 44px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border-radius: 10px;
+              font-size: 21px;
+              font-weight: 800;
+              color: #fff;
+              font-family: STKaiti, KaiTi, 'Noto Serif SC', serif;
+              background: linear-gradient(135deg, #c8523f, #8f1f1f);
+              box-shadow:
+                0 6px 14px rgb(143 31 31 / 32%),
+                inset 0 0 0 2px rgb(255 255 255 / 55%);
+              transform: rotate(-6deg);
+            }
+
+            p {
+              margin: 0;
+              color: #23120a;
+              font-size: 20px;
+              font-weight: 800;
+              letter-spacing: 2px;
+              font-family: STKaiti, KaiTi, 'Noto Serif SC', serif;
+            }
+          }
+        }
+      }
+    }
+  }
+}

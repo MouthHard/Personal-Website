@@ -1,20 +1,8 @@
-import { ElMessage } from 'element-plus';
-
-const MUSEUM_MSG_CLASS = 'museum-message';
-const MUSEUM_MSG_Z_INDEX = 12000;
-const MUSEUM_MSG_DURATION = 2800;
+import { museumMessage } from '@/pages/Museum/components/MuseumMessage';
 
 type MsgType = 'success' | 'info' | 'warning' | 'error';
 
-const show = (type: MsgType, message: string) =>
-  ElMessage({
-    type,
-    message,
-    customClass: MUSEUM_MSG_CLASS,
-    duration: MUSEUM_MSG_DURATION,
-    showClose: true,
-    zIndex: MUSEUM_MSG_Z_INDEX,
-  });
+const show = (type: MsgType, message: string) => museumMessage[type](message);
 
 export const useMuseumMessage = () => ({
   like: {
@@ -28,7 +16,8 @@ export const useMuseumMessage = () => ({
   },
 
   follow: {
-    success: (name: string) => show('success', `已关注「${name}」，可在我的足迹查看`),
+    success: (name: string) =>
+      show('success', `已关注「${name}」，可在我的足迹查看`),
     cancel: (name: string) => show('info', `已取消关注「${name}」`),
   },
 });

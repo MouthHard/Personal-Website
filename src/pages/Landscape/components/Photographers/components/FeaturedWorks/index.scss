@@ -1,4 +1,4 @@
-@use "sass:color";
+@use 'sass:color';
 
 // ============================================
 // 空状态样式
@@ -10,7 +10,11 @@
   justify-content: center;
   padding: 6rem 2rem;
   min-height: 400px;
-  background: linear-gradient(135deg, rgba(212, 148, 58, 0.03), rgba(255, 183, 77, 0.05));
+  background: linear-gradient(
+    135deg,
+    rgba(212, 148, 58, 0.03),
+    rgba(255, 183, 77, 0.05)
+  );
   border-radius: 16px;
   border: 1px solid rgba(212, 148, 58, 0.1);
 
@@ -19,7 +23,7 @@
     height: 80px;
     margin-bottom: 2rem;
     color: rgba(212, 148, 58, 0.3);
-    
+
     svg {
       width: 100%;
       height: 100%;
@@ -113,20 +117,24 @@ $amber-soft: rgba(255, 183, 77, 1);
       content: '';
       position: absolute;
       inset: 0;
-      background: repeating-linear-gradient(90deg,
-          transparent 0px,
-          transparent 2px,
-          rgba(255, 255, 255, 0.008) 2px,
-          rgba(255, 255, 255, 0.008) 4px);
+      background: repeating-linear-gradient(
+        90deg,
+        transparent 0,
+        transparent 2px,
+        rgba(255, 255, 255, 0.008) 2px,
+        rgba(255, 255, 255, 0.008) 4px
+      );
       pointer-events: none;
       z-index: 0;
     }
 
     .film-strip-edge {
       position: relative;
-      background: linear-gradient(180deg,
-          $film-celluloid 0%,
-          color.adjust($film-celluloid, $lightness: -3%) 100%);
+      background: linear-gradient(
+        180deg,
+        $film-celluloid 0%,
+        color.adjust($film-celluloid, $lightness: -3%) 100%
+      );
       padding: 8px 0 7px;
       z-index: 1;
 
@@ -178,11 +186,13 @@ $amber-soft: rgba(255, 183, 77, 1);
     position: relative;
     padding: 14px;
     z-index: 1;
-    background: linear-gradient(180deg,
-        rgba(0, 0, 0, 0.15) 0%,
-        transparent 15%,
-        transparent 85%,
-        rgba(0, 0, 0, 0.15) 100%);
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.15) 0%,
+      transparent 15%,
+      transparent 85%,
+      rgba(0, 0, 0, 0.15) 100%
+    );
   }
 
   .scroll-dial {
@@ -205,12 +215,14 @@ $amber-soft: rgba(255, 183, 77, 1);
       width: 58px;
       height: 58px;
       border-radius: 50%;
-      background: conic-gradient(from 0deg,
-          rgba(60, 36, 18, 0.95),
-          rgba(40, 24, 12, 0.9),
-          rgba(55, 33, 16, 0.95),
-          rgba(35, 20, 10, 0.9),
-          rgba(60, 36, 18, 0.95));
+      background: conic-gradient(
+        from 0deg,
+        rgba(60, 36, 18, 0.95),
+        rgba(40, 24, 12, 0.9),
+        rgba(55, 33, 16, 0.95),
+        rgba(35, 20, 10, 0.9),
+        rgba(60, 36, 18, 0.95)
+      );
       border: 2px solid rgba(180, 120, 50, 0.5);
       box-shadow:
         0 4px 16px rgba(0, 0, 0, 0.6),
@@ -236,8 +248,20 @@ $amber-soft: rgba(255, 183, 77, 1);
           rgba(200, 150, 80, 0.45) 0deg 1.5deg,
           transparent 1.5deg 18deg
         );
-        -webkit-mask: radial-gradient(circle, transparent 18px, black 19px, black 27px, transparent 28px);
-        mask: radial-gradient(circle, transparent 18px, black 19px, black 27px, transparent 28px);
+        -webkit-mask: radial-gradient(
+          circle,
+          transparent 18px,
+          black 19px,
+          black 27px,
+          transparent 28px
+        );
+        mask: radial-gradient(
+          circle,
+          transparent 18px,
+          black 19px,
+          black 27px,
+          transparent 28px
+        );
       }
 
       &.inner-ring {
@@ -247,8 +271,20 @@ $amber-soft: rgba(255, 183, 77, 1);
           rgba(200, 150, 80, 0.35) 0deg 1deg,
           transparent 1deg 30deg
         );
-        -webkit-mask: radial-gradient(circle, transparent 9px, black 10px, black 15px, transparent 16px);
-        mask: radial-gradient(circle, transparent 9px, black 10px, black 15px, transparent 16px);
+        -webkit-mask: radial-gradient(
+          circle,
+          transparent 9px,
+          black 10px,
+          black 15px,
+          transparent 16px
+        );
+        mask: radial-gradient(
+          circle,
+          transparent 9px,
+          black 10px,
+          black 15px,
+          transparent 16px
+        );
       }
     }
 
@@ -301,12 +337,15 @@ $amber-soft: rgba(255, 183, 77, 1);
       &.left .outer-ring {
         animation: ringCW 8s linear infinite;
       }
+
       &.left .inner-ring {
         animation: ringCCW 5s linear infinite;
       }
+
       &.right .outer-ring {
         animation: ringCCW 8s linear infinite;
       }
+
       &.right .inner-ring {
         animation: ringCW 5s linear infinite;
       }
@@ -315,8 +354,7 @@ $amber-soft: rgba(255, 183, 77, 1);
 
   .works-scroll-container {
     flex: 1;
-    overflow-x: auto;
-    overflow-y: hidden;
+    overflow: auto hidden;
     scrollbar-width: none;
     -ms-overflow-style: none;
 
@@ -365,15 +403,16 @@ $amber-soft: rgba(255, 183, 77, 1);
             height: 18px;
             border-bottom: 1px solid rgba(100, 70, 30, 0.3);
             box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.1);
-            background: $film-celluloid repeating-linear-gradient(
-              to right,
-              transparent 0,
-              transparent 4px,
-              rgba(8, 5, 2, 0.85) 4px,
-              rgba(8, 5, 2, 0.85) 12px,
-              transparent 12px,
-              transparent 16px
-            );
+            background: $film-celluloid
+              repeating-linear-gradient(
+                to right,
+                transparent 0,
+                transparent 4px,
+                rgba(8, 5, 2, 0.85) 4px,
+                rgba(8, 5, 2, 0.85) 12px,
+                transparent 12px,
+                transparent 16px
+              );
           }
 
           &.bottom-edge {
@@ -381,24 +420,22 @@ $amber-soft: rgba(255, 183, 77, 1);
             height: 18px;
             border-top: 1px solid rgba(100, 70, 30, 0.3);
             box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
-            background: $film-celluloid repeating-linear-gradient(
-              to right,
-              transparent 0,
-              transparent 4px,
-              rgba(8, 5, 2, 0.85) 4px,
-              rgba(8, 5, 2, 0.85) 12px,
-              transparent 12px,
-              transparent 16px
-            );
+            background: $film-celluloid
+              repeating-linear-gradient(
+                to right,
+                transparent 0,
+                transparent 4px,
+                rgba(8, 5, 2, 0.85) 4px,
+                rgba(8, 5, 2, 0.85) 12px,
+                transparent 12px,
+                transparent 16px
+              );
           }
         }
 
         .film-gate {
           position: absolute;
-          top: 18px;
-          left: 0;
-          right: 0;
-          bottom: 18px;
+          inset: 18px 0;
           border: 1px solid rgba(0, 0, 0, 0.3);
           pointer-events: none;
           z-index: 3;
@@ -409,26 +446,27 @@ $amber-soft: rgba(255, 183, 77, 1);
             inset -2px 0 4px rgba(0, 0, 0, 0.1);
         }
 
-        img {
+        // LandscapeImage 内部 img 不带本组件 scopeId，:deep 才能命中
+        :deep(img) {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), filter 0.5s ease;
+          transition:
+            transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+            filter 0.5s ease;
           filter: contrast(1.05) saturate(1.1);
         }
 
-
         .work-overlay {
           position: absolute;
-          top: 18px;
-          left: 0;
-          right: 0;
-          bottom: 18px;
-          background: linear-gradient(180deg,
-              transparent 0%,
-              transparent 40%,
-              rgba(10, 6, 3, 0.6) 65%,
-              rgba(10, 6, 3, 0.92) 100%);
+          inset: 18px 0;
+          background: linear-gradient(
+            180deg,
+            transparent 0%,
+            transparent 40%,
+            rgba(10, 6, 3, 0.6) 65%,
+            rgba(10, 6, 3, 0.92) 100%
+          );
           display: flex;
           align-items: flex-end;
           padding: 20px;
@@ -436,12 +474,15 @@ $amber-soft: rgba(255, 183, 77, 1);
           transition: opacity 0.5s ease;
           z-index: 4;
 
-
           .work-info {
             .work-title {
               font-size: 18px;
               font-weight: 800;
-              background: linear-gradient(135deg, #fff 0%, rgba(255, 200, 120, 1) 100%);
+              background: linear-gradient(
+                135deg,
+                #fff 0%,
+                rgba(255, 200, 120, 1) 100%
+              );
               -webkit-background-clip: text;
               -webkit-text-fill-color: transparent;
               background-clip: text;
@@ -468,7 +509,7 @@ $amber-soft: rgba(255, 183, 77, 1);
             0 0 30px rgba(212, 148, 58, 0.1),
             inset 0 0 0 1px rgba(255, 255, 255, 0.04);
 
-          img {
+          :deep(img) {
             transform: scale(1.06);
             filter: contrast(1.1) saturate(1.15);
           }
@@ -525,7 +566,6 @@ $amber-soft: rgba(255, 183, 77, 1);
 }
 
 @keyframes iconGlow {
-
   0%,
   100% {
     filter: drop-shadow(0 0 8px rgba(255, 183, 77, 0.6));
@@ -537,13 +577,23 @@ $amber-soft: rgba(255, 183, 77, 1);
 }
 
 @keyframes ringCW {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes ringCCW {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(-360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(-360deg);
+  }
 }
 
 @media (max-width: 768px) {
@@ -587,13 +637,37 @@ $amber-soft: rgba(255, 183, 77, 1);
       }
 
       .outer-ring {
-        -webkit-mask: radial-gradient(circle, transparent 14px, black 15px, black 20px, transparent 21px);
-        mask: radial-gradient(circle, transparent 14px, black 15px, black 20px, transparent 21px);
+        -webkit-mask: radial-gradient(
+          circle,
+          transparent 14px,
+          black 15px,
+          black 20px,
+          transparent 21px
+        );
+        mask: radial-gradient(
+          circle,
+          transparent 14px,
+          black 15px,
+          black 20px,
+          transparent 21px
+        );
       }
 
       .inner-ring {
-        -webkit-mask: radial-gradient(circle, transparent 7px, black 8px, black 11px, transparent 12px);
-        mask: radial-gradient(circle, transparent 7px, black 8px, black 11px, transparent 12px);
+        -webkit-mask: radial-gradient(
+          circle,
+          transparent 7px,
+          black 8px,
+          black 11px,
+          transparent 12px
+        );
+        mask: radial-gradient(
+          circle,
+          transparent 7px,
+          black 8px,
+          black 11px,
+          transparent 12px
+        );
       }
 
       .dial-arrow svg {

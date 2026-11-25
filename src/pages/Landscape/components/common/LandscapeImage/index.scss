@@ -1,0 +1,114 @@
+// display:contents 让根元素不产生盒子：img 仍是父容器的直接子元素，
+// 现有 `.xxx img { width/height:100% }` 等选择器与尺寸计算完全不受影响；
+// 占位层则 absolute 覆盖最近的 positioned 父容器（图片所在容器通常已 relative）。
+.landscape-image {
+  display: contents;
+}
+
+// 真实图片的兜底尺寸：外部对 `.xxx img` 的 scoped 样式打不到组件内部 img
+// （父 scopeId 只落在根 span 上，img 带的是本组件 scopeId），若不兜底，
+// 图片加载成功后会按原始尺寸渲染（如 2848×1600）撑爆卡片容器。
+// scene 变体的父容器均为 relative/absolute + 确定高度，故可安全 absolute 铺满。
+.is-scene > img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+// 头像父容器可能是 static 的流式布局，不能 absolute；用 max 限制兜底防溢出，
+// 具体尺寸仍由外部 scoped 样式（如 .author img{width:36px}）在能命中时控制。
+.is-avatar > img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.li-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  line-height: 1.4;
+  overflow: hidden;
+  pointer-events: none;
+
+  svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// AI 占位图铺满容器，裁切方式与原 <img> 保持一致
+.li-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+// 头像容器小，cover 默认居中裁切会把风景与文案的分界线框进来；
+// 把重心对准图片右侧的文案区，「正在加载 / 加载失败」小字在头像里仍可读
+.li-photo-avatar {
+  object-position: 82% 50%;
+}
+
+// 失败态需要接收重试点击
+.li-error {
+  pointer-events: auto;
+}
+
+.li-retry {
+  position: relative;
+  z-index: 1;
+  padding: 4px 12px;
+  border: 1px solid rgb(160 189 255 / 35%);
+  border-radius: 999px;
+  background: rgb(20 30 56 / 78%);
+  color: #d6e2fb;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+
+  &:hover {
+    border-color: rgb(160 189 255 / 70%);
+    background: rgb(34 48 84 / 88%);
+  }
+
+  &:focus-visible {
+    outline: 2px solid #ffd98a;
+    outline-offset: 2px;
+  }
+}
+
+// 场景大图：AI 图已画出按钮外观，真实按钮铺满整图作透明热区保证可点
+.li-retry-hit {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: transparent;
+  font-size: 0;
+
+  &:focus-visible {
+    outline: 2px solid #ffd98a;
+    outline-offset: -3px;
+  }
+}
+
+// 头像占位与场景大图共用同一套 AI 占位图；占位层 inset:0 跟随容器，
+// 圆形头像容器自己会裁圆（方形相框如追帧旅人保持方正），这里不再强制形状

@@ -140,9 +140,9 @@
         );
         border: 1px solid rgba(218, 165, 32, 0.3);
         border-radius: 30px;
-
         animation: fadeInDown 0.8s ease-out;
         font-weight: bold;
+
         .badge-icon {
           width: 28px;
           height: 28px;
@@ -152,25 +152,25 @@
           align-items: center;
           justify-content: center;
           font-size: 16px;
-          font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', serif;
+          font-family: STKaiti, KaiTi, 'Noto Serif SC', serif;
           color: #1a1510;
         }
 
         .badge-text {
           font-size: 16px;
           color: #daa520;
-          font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', serif;
+          font-family: STKaiti, KaiTi, 'Noto Serif SC', serif;
           letter-spacing: 2px;
         }
       }
 
       .hero-title {
         font-size: clamp(36px, 6vw, 72px);
-        font-weight: 300;
         line-height: 1.3;
         margin-bottom: 20px;
         animation: fadeInUp 1s ease-out 0.2s both;
         font-weight: bold;
+
         .title-line {
           display: block;
 
@@ -347,6 +347,7 @@
         z-index: 100;
         transition: all 0.3s ease;
         margin-bottom: 20px;
+
         svg {
           width: 24px;
           height: 24px;
@@ -378,10 +379,7 @@
         // 方形波纹效果
         .back-pulse {
           position: absolute;
-          top: -2px;
-          left: -2px;
-          right: -2px;
-          bottom: -2px;
+          inset: -2px;
           border: 2px solid rgba(218, 165, 32, 0.4);
           border-radius: 30px;
           animation: squarePulse 2s ease-out infinite;
@@ -391,7 +389,6 @@
       // 侧边导航 - 书卷样式
       .sidebar-scroll {
         width: 220px;
-        flex-shrink: 0;
         display: flex;
         flex-direction: column;
         position: relative;
@@ -402,9 +399,11 @@
         box-shadow:
           4px 0 10px rgba(0, 0, 0, 1),
           -4px 0 10px rgb(0, 0, 0);
+
         &.rolled-up {
           transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
           box-shadow: none;
+
           .scroll-paper {
             max-height: 0;
             padding: 0;
@@ -695,7 +694,6 @@
           border-right: 3px groove rgba(139, 90, 43, 0.5);
           position: relative;
           overflow: hidden;
-          transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
           max-height: calc(100vh - 184px);
           padding: 25px 16px;
           height: 100%;
@@ -703,6 +701,7 @@
           transition: opacity 0.3s ease;
           z-index: 1;
           background: rgba(255, 255, 255, 0.95);
+
           // 边缘做旧效果
           &::after {
             content: '';
@@ -756,7 +755,6 @@
               display: flex;
               align-items: center;
               justify-content: center;
-
               box-shadow:
                 inset 0 1px 2px rgba(255, 255, 255, 0.5),
                 0 2px 4px rgba(0, 0, 0, 1);
@@ -810,10 +808,9 @@
               );
               border: 1px solid rgba(0, 0, 0, 0.1);
               border-radius: 10px;
-              color: #000000;
+              color: #000;
               font-size: 18px;
-              font-family:
-                'STKaiti', 'KaiTi', 'SimHei', 'Microsoft YaHei', serif;
+              font-family: STKaiti, KaiTi, SimHei, 'Microsoft YaHei', serif;
               letter-spacing: 1px;
               font-weight: bold;
               cursor: pointer;
@@ -826,13 +823,12 @@
 
               .item-icon {
                 width: 2.5rem;
-                height: 2.5rem; 
+                height: 2.5rem;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 flex-shrink: 0;
                 opacity: 0.8;
- 
               }
 
               .item-text {
@@ -1097,6 +1093,7 @@
       overflow-y: auto;
       position: relative;
       height: 100vh;
+
       &::-webkit-scrollbar {
         width: 8px;
       }
@@ -1131,12 +1128,15 @@
   100% {
     transform: translate(0, 0) rotate(0deg);
   }
+
   25% {
     transform: translate(2%, 1%) rotate(1deg);
   }
+
   50% {
     transform: translate(-1%, 2%) rotate(-1deg);
   }
+
   75% {
     transform: translate(1%, -1%) rotate(0.5deg);
   }
@@ -1147,6 +1147,7 @@
   100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(8px);
   }
@@ -1157,6 +1158,7 @@
     transform: translateX(-50%) scale(0.8);
     opacity: 1;
   }
+
   100% {
     transform: translateX(-50%) scale(1.5);
     opacity: 0;
@@ -1168,6 +1170,7 @@
     transform: scale(1);
     opacity: 1;
   }
+
   100% {
     transform: scale(1.2);
     opacity: 0;
@@ -1179,6 +1182,7 @@
     opacity: 0;
     transform: translateY(-20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -1190,6 +1194,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -1200,6 +1205,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }

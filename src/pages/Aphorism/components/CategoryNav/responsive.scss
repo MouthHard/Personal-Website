@@ -1,0 +1,244 @@
+// 分类竹简 · 兼容与适配
+// 大屏卷轴结构保留在 index.scss，这里只收窄屏尺寸：
+// 原来 24px 大字 + 24px 图标使主分类每行只能放 1 个，竹简右侧出现大片空档。
+
+@media (width <= 768px) {
+  .category-nav {
+    .category-skeleton {
+      padding: 12px 14px;
+
+      .sk-tab {
+        width: 72px;
+        height: 40px;
+
+        &:nth-child(2) {
+          width: 64px;
+        }
+
+        &:nth-child(3) {
+          width: 70px;
+        }
+
+        &:nth-child(4) {
+          width: 62px;
+        }
+
+        &:nth-child(5) {
+          width: 74px;
+        }
+
+        &:nth-child(6) {
+          width: 66px;
+        }
+      }
+
+      .sk-chip {
+        width: 54px;
+        height: 36px;
+
+        &:nth-child(2) {
+          width: 50px;
+        }
+
+        &:nth-child(3) {
+          width: 56px;
+        }
+
+        &:nth-child(4) {
+          width: 48px;
+        }
+
+        &:nth-child(5) {
+          width: 58px;
+        }
+
+        &:nth-child(6) {
+          width: 52px;
+        }
+
+        &:nth-child(7) {
+          width: 54px;
+        }
+      }
+    }
+
+    .category-empty {
+      gap: 10px;
+      padding: 24px 14px;
+
+      .ce-seal {
+        width: 46px;
+        height: 46px;
+        font-size: 22px;
+      }
+
+      .ce-text {
+        font-size: 15px;
+        letter-spacing: 1px;
+      }
+
+      .ce-retry {
+        padding: 8px 20px;
+        font-size: 14px;
+      }
+    }
+
+    .rod {
+      width: 22px;
+
+      .rod-cap {
+        height: 10px;
+      }
+
+      .rod-ring {
+        height: 5px;
+      }
+
+      .rod-stud {
+        width: 8px;
+        height: 8px;
+      }
+
+      .rod-label {
+        bottom: 18px;
+        font-size: 12px;
+        letter-spacing: 1px;
+      }
+    }
+
+    .scroll-content {
+      padding: 8px 8px 8px 10px;
+      max-height: 320px;
+
+      &::-webkit-scrollbar {
+        width: 6px;
+      }
+    }
+
+    .cord {
+      left: 8px;
+      right: 8px;
+      height: 3px;
+    }
+
+    .category-tabs {
+      justify-content: center;
+      gap: 6px;
+      margin-bottom: 6px;
+      padding: 4px 6px;
+
+      .category-tab {
+        gap: 6px;
+        min-width: 0;
+        min-height: 40px;
+        padding: 6px 10px;
+
+        svg {
+          width: 18px;
+          height: 18px;
+        }
+
+        .tab-name {
+          font-size: 16px;
+          letter-spacing: 1px;
+        }
+
+        .tab-hole {
+          width: 4px;
+          height: 4px;
+
+          &.left {
+            left: 4px;
+          }
+
+          &.right {
+            right: 4px;
+          }
+
+          &.top {
+            top: 3px;
+          }
+
+          &.bottom {
+            bottom: 3px;
+          }
+        }
+      }
+    }
+
+    .scroll-divider {
+      gap: 4px;
+      margin: 2px 0 4px;
+    }
+
+    .category-grid {
+      justify-content: center;
+      gap: 6px;
+      padding: 4px 6px;
+
+      .category-item.sub-category {
+        min-width: 54px;
+        min-height: 40px;
+        padding: 5px 6px 4px;
+
+        .item-name {
+          font-size: 15px;
+          letter-spacing: 1px;
+        }
+
+        .item-hole {
+          width: 3px;
+          height: 3px;
+
+          &.left {
+            left: 3px;
+          }
+
+          &.right {
+            right: 3px;
+          }
+
+          &.top {
+            top: 2px;
+          }
+
+          &.bottom {
+            bottom: 2px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (width <= 430px) {
+  .category-nav {
+    .category-tabs {
+      .category-tab {
+        gap: 5px;
+        min-height: 38px;
+        padding: 5px 8px;
+
+        svg {
+          width: 16px;
+          height: 16px;
+        }
+
+        .tab-name {
+          font-size: 15px;
+        }
+      }
+    }
+
+    .category-grid {
+      .category-item.sub-category {
+        min-width: 50px;
+        min-height: 38px;
+
+        .item-name {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

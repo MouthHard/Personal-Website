@@ -37,7 +37,13 @@
         <!-- 证件照-->
         <div class="id-photo-area">
           <div class="photo-border">
-            <img loading="lazy" :src="item.avatar" :alt="item.name" class="id-photo" />
+            <LandscapeImage
+              loading="lazy"
+              :src="item.avatar"
+              :alt="item.name"
+              class="id-photo"
+              variant="avatar"
+            />
           </div>
           <div class="embossed-seal"></div>
           <div v-if="item.verified" class="verified-stamp">
@@ -77,7 +83,13 @@
           <!-- 奖项区-->
           <div v-if="item.awards && item.awards.length" class="awards-line">
             <AwardIcon :stroke-width="1.5" />
-            <span v-for="award in item.awards.slice(0, 3)" :key="award" class="award-tag">{{ award }}</span>
+            <span
+              v-for="award in item.awards.slice(0, 3)"
+              :key="award"
+              class="award-tag"
+            >
+              {{ award }}
+            </span>
           </div>
         </div>
       </div>
@@ -109,30 +121,56 @@
       <!-- 标签 + 社交 + 联系 一行-->
       <div class="info-strip">
         <div class="tags-group">
-          <span v-for="tag in item.tags.slice(0, 4)" :key="tag" class="tag">{{ tag }}</span>
+          <span v-for="tag in item.tags.slice(0, 4)" :key="tag" class="tag">
+            {{ tag }}
+          </span>
         </div>
         <div class="divider-dot"></div>
         <div v-if="item.socials && item.socials.length" class="socials-group">
-          <a v-for="s in item.socials" :key="s.platform" class="social-icon" :title="s.platform">
-            <svg viewBox="0 0 24 24" fill="currentColor" v-html="s.iconPath"></svg>
+          <a
+            v-for="s in item.socials"
+            :key="s.platform"
+            class="social-icon"
+            :title="s.platform"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              v-html="s.iconPath"
+            ></svg>
           </a>
         </div>
         <div v-if="item.contact" class="divider-dot"></div>
         <div v-if="item.contact" class="contact-group">
-          <span v-if="item.contact.email" class="contact-item" :title="item.contact.email">
+          <span
+            v-if="item.contact.email"
+            class="contact-item"
+            :title="item.contact.email"
+          >
             <MailSimpleIcon :stroke-width="1.5" />
           </span>
-          <span v-if="item.contact.website" class="contact-item" :title="item.contact.website">
+          <span
+            v-if="item.contact.website"
+            class="contact-item"
+            :title="item.contact.website"
+          >
             <GlobeIcon :stroke-width="1.5" />
           </span>
-          <span v-if="item.contact.phone" class="contact-item" :title="item.contact.phone">
+          <span
+            v-if="item.contact.phone"
+            class="contact-item"
+            :title="item.contact.phone"
+          >
             <PhoneIcon :stroke-width="1.5" />
           </span>
         </div>
       </div>
 
       <!-- 作品横排3张大图-->
-      <div v-if="item.recentWorks && item.recentWorks.length > 0" class="works-row">
+      <div
+        v-if="item.recentWorks && item.recentWorks.length > 0"
+        class="works-row"
+      >
         <div class="works-label">
           <span>代表作品</span>
           <span class="works-count">{{ item.works }}</span>
@@ -143,12 +181,15 @@
             :key="idx"
             class="work-item"
           >
-            <img loading="lazy" :src="work" alt="recent work" />
+            <LandscapeImage loading="lazy" :src="work" alt="recent work" />
             <div class="work-overlay">
               <ArrowRightIcon />
             </div>
             <div
-              v-if="idx === item.recentWorks.length - 1 && item.worksCount > item.recentWorks.length"
+              v-if="
+                idx === item.recentWorks.length - 1 &&
+                item.worksCount > item.recentWorks.length
+              "
               class="work-more"
             >
               <span>+{{ item.worksCount - item.recentWorks.length }}</span>
@@ -174,7 +215,11 @@
           <CheckIcon v-else :stroke-width="2.5" />
           <span>{{ isFollowing ? '已关注' : '关注' }}</span>
         </button>
-        <button class="action-btn like-btn" :class="{ liked: isLiked }" @click.stop="toggleLike">
+        <button
+          class="action-btn like-btn"
+          :class="{ liked: isLiked }"
+          @click.stop="toggleLike"
+        >
           <HeartIcon :filled="isLiked" />
           <span>{{ isLiked ? '已赞' : '点赞' }}</span>
         </button>
@@ -193,83 +238,83 @@
 </template>
 
 <script setup lang="ts">
-import { computed, watch } from 'vue'
-import { showMessage } from '@/utils/landscape'
-import { parseCount } from '@/utils/landscape/format'
-import type { PhotographerItem } from '@/typesOfPages/landscape'
-import { useInteractionStore } from '@/stores/landscape'
-import CheckIcon from '@/pages/Landscape/icons/common/CheckIcon.vue'
-import StarIcon from '@/pages/Landscape/icons/common/StarIcon.vue'
-import LocationIcon from '@/pages/Landscape/icons/common/LocationIcon.vue'
-import ZapIcon from '@/pages/Landscape/icons/components/profile/common/ZapIcon.vue'
-import CalendarIcon from '@/pages/Landscape/icons/common/CalendarIcon.vue'
-import CameraIcon from '@/pages/Landscape/icons/common/CameraIcon.vue'
-import ImageIcon from '@/pages/Landscape/icons/common/ImageIcon.vue'
-import UsersIcon from '@/pages/Landscape/icons/common/UsersIcon.vue'
-import EyeIcon from '@/pages/Landscape/icons/common/EyeIcon.vue'
-import HeartIcon from '@/pages/Landscape/icons/common/HeartIcon.vue'
-import ArrowRightIcon from '@/pages/Landscape/icons/common/ArrowRightIcon.vue'
-import UserPlusIcon from '@/pages/Landscape/icons/common/UserPlusIcon.vue'
-import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue'
-import MessageBubbleIcon from '@/pages/Landscape/icons/components/profile/common/MessageBubbleIcon.vue'
-import GlobeIcon from '@/pages/Landscape/icons/common/GlobeIcon.vue'
-import PhoneIcon from '@/pages/Landscape/icons/common/PhoneIcon.vue'
-import BadgeIcon from '@/pages/Landscape/icons/components/profile/PhotographerCard/BadgeIcon.vue'
-import AwardIcon from '@/pages/Landscape/icons/components/profile/PhotographerCard/AwardIcon.vue'
-import MailSimpleIcon from '@/pages/Landscape/icons/common/MailIcon.vue'
+  import { computed, watch } from 'vue';
+  import { showMessage } from '@/utils/landscape';
+  import { parseCount } from '@/utils/landscape/format';
+  import type { PhotographerItem } from '@/typesOfPages/landscape';
+  import { useInteractionStore } from '@/stores/landscape';
+  import CheckIcon from '@/pages/Landscape/icons/common/CheckIcon.vue';
+  import StarIcon from '@/pages/Landscape/icons/common/StarIcon.vue';
+  import LocationIcon from '@/pages/Landscape/icons/common/LocationIcon.vue';
+  import ZapIcon from '@/pages/Landscape/icons/components/profile/common/ZapIcon.vue';
+  import CalendarIcon from '@/pages/Landscape/icons/common/CalendarIcon.vue';
+  import CameraIcon from '@/pages/Landscape/icons/common/CameraIcon.vue';
+  import ImageIcon from '@/pages/Landscape/icons/common/ImageIcon.vue';
+  import UsersIcon from '@/pages/Landscape/icons/common/UsersIcon.vue';
+  import EyeIcon from '@/pages/Landscape/icons/common/EyeIcon.vue';
+  import HeartIcon from '@/pages/Landscape/icons/common/HeartIcon.vue';
+  import ArrowRightIcon from '@/pages/Landscape/icons/common/ArrowRightIcon.vue';
+  import UserPlusIcon from '@/pages/Landscape/icons/common/UserPlusIcon.vue';
+  import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue';
+  import MessageBubbleIcon from '@/pages/Landscape/icons/components/profile/common/MessageBubbleIcon.vue';
+  import GlobeIcon from '@/pages/Landscape/icons/common/GlobeIcon.vue';
+  import PhoneIcon from '@/pages/Landscape/icons/common/PhoneIcon.vue';
+  import BadgeIcon from '@/pages/Landscape/icons/components/profile/PhotographerCard/BadgeIcon.vue';
+  import AwardIcon from '@/pages/Landscape/icons/components/profile/PhotographerCard/AwardIcon.vue';
+  import MailSimpleIcon from '@/pages/Landscape/icons/common/MailIcon.vue';
 
-const props = defineProps<{
-  item: PhotographerItem;
-  delay?: string;
-}>();
+  const props = defineProps<{
+    item: PhotographerItem;
+    delay?: string;
+  }>();
 
-const emit = defineEmits<{
-  (e: 'follow', id: string): void;
-}>();
+  const emit = defineEmits<{
+    (e: 'follow', id: string): void;
+  }>();
 
-const interactionStore = useInteractionStore()
-const isFollowing = computed(() => interactionStore.isFollowing(props.item.id))
-const isLiked = computed(() => interactionStore.isLiked(props.item.id))
-const getCounts = () => interactionStore.getCount(props.item.id)
+  const interactionStore = useInteractionStore();
+  const isFollowing = computed(() =>
+    interactionStore.isFollowing(props.item.id),
+  );
+  const isLiked = computed(() => interactionStore.isLiked(props.item.id));
+  const getCounts = () => interactionStore.getCount(props.item.id);
 
-watch(
-  () => props.item.id,
-  () => {
-    interactionStore.registerCount(props.item.id, {
-      followers: parseCount(String(props.item.followers || '0')),
-    })
-  },
-  { immediate: true },
-)
+  watch(
+    () => props.item.id,
+    () => {
+      interactionStore.registerCount(props.item.id, {
+        followers: parseCount(String(props.item.followers || '0')),
+      });
+    },
+    { immediate: true },
+  );
 
+  const toggleFollow = () => {
+    const wasFollowing = isFollowing.value;
+    const isAdded = interactionStore.toggleFollowPhotographer(props.item.id);
+    if (wasFollowing && !isAdded) {
+      showMessage.follow.cancel(props.item.name);
+    } else if (!wasFollowing && isAdded) {
+      showMessage.follow.success(props.item.name);
+    }
+    emit('follow', props.item.id);
+  };
 
-const toggleFollow = () => {
-  const wasFollowing = isFollowing.value
-  const isAdded = interactionStore.toggleFollowPhotographer(props.item.id)
-  if (wasFollowing && !isAdded) {
-    showMessage.follow.cancel(props.item.name)
-  } else if (!wasFollowing && isAdded) {
-    showMessage.follow.success(props.item.name)
-  }
-  emit('follow', props.item.id)
-}
-
-const toggleLike = () => {
-  const wasLiked = isLiked.value
-  const isAdded = interactionStore.toggleLike({
-    id: props.item.id,
-    type: 'photographer',
-    title: props.item.name,
-    image: props.item.avatar,
-    timestamp: Date.now(),
-  })
-  if (!wasLiked && isAdded) {
-    showMessage.like.success(props.item.name)
-  } else if (wasLiked && !isAdded) {
-    showMessage.like.cancel()
-  }
-}
-
+  const toggleLike = () => {
+    const wasLiked = isLiked.value;
+    const isAdded = interactionStore.toggleLike({
+      id: props.item.id,
+      type: 'photographer',
+      title: props.item.name,
+      image: props.item.avatar,
+      timestamp: Date.now(),
+    });
+    if (!wasLiked && isAdded) {
+      showMessage.like.success(props.item.name);
+    } else if (wasLiked && !isAdded) {
+      showMessage.like.cancel();
+    }
+  };
 </script>
 
 <style scoped lang="scss" src="./index.scss" />

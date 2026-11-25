@@ -12,7 +12,6 @@ $electric-bright: #60a5fa;
 $electric-glow: #93c5fd;
 $electric-deep: #1e40af;
 $electric-dark: #172554;
-
 $graphite: #2a2d35;
 $graphite-light: #3d414c;
 $graphite-bright: #5a5f6d;
@@ -26,7 +25,7 @@ $bg-2: #16203a;
 $bg-3: #1e2d4a;
 
 // 文字色
-$text-bright: #ffffff;
+$text-bright: #fff;
 $text-mid: #e2e8f0;
 $text-dim: #94a3b8;
 
@@ -35,7 +34,6 @@ $amber: #3b82f6;
 $amber-deep: #1e40af;
 $amber-dark: #172554;
 $amber-glow: #93c5fd;
-
 $steel-bright: #f1f5f9;
 $steel-light: #cbd5e1;
 $steel: #94a3b8;
@@ -52,24 +50,55 @@ $steel-black: #0f172a;
 // 铸造金属纹理 — 模拟铸件表面粗糙感 + 分型线
 @mixin cast-texture {
   background:
-    radial-gradient(circle at 15% 25%, rgba(255, 255, 255, 0.025) 0%, transparent 40%),
+    radial-gradient(
+      circle at 15% 25%,
+      rgba(255, 255, 255, 0.025) 0%,
+      transparent 40%
+    ),
     radial-gradient(circle at 85% 75%, rgba(0, 0, 0, 0.08) 0%, transparent 40%),
-    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.015) 0%, transparent 60%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, transparent 4%, transparent 96%, rgba(0, 0, 0, 0.12) 100%);
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(255, 255, 255, 0.015) 0%,
+      transparent 60%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.04) 0%,
+      transparent 4%,
+      transparent 96%,
+      rgba(0, 0, 0, 0.12) 100%
+    );
 }
 
 // 拉丝金属纹理（右侧详情面板用）
 @mixin brushed-metal {
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, transparent 50%, rgba(0, 0, 0, 0.15) 100%),
-    repeating-linear-gradient(90deg, transparent 0, transparent 1px, rgba(255, 255, 255, 0.012) 1px, rgba(255, 255, 255, 0.012) 2px);
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.04) 0%,
+      transparent 50%,
+      rgba(0, 0, 0, 0.15) 100%
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 1px,
+      rgba(255, 255, 255, 0.012) 1px,
+      rgba(255, 255, 255, 0.012) 2px
+    );
 }
 
 @mixin rivet($size: 8px) {
   width: $size;
   height: $size;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, $steel-bright, $steel-light 30%, $steel-deep 70%, $steel-void);
+  background: radial-gradient(
+    circle at 35% 35%,
+    $steel-bright,
+    $steel-light 30%,
+    $steel-deep 70%,
+    $steel-void
+  );
   box-shadow:
     inset 0 -1px 1px rgba(0, 0, 0, 0.6),
     inset 0 1px 1px rgba(255, 255, 255, 0.3),
@@ -80,7 +109,12 @@ $steel-black: #0f172a;
   width: $size;
   height: $size;
   border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, $steel-light, $steel-mid 50%, $steel-void);
+  background: radial-gradient(
+    circle at 30% 30%,
+    $steel-light,
+    $steel-mid 50%,
+    $steel-void
+  );
   box-shadow:
     inset 0 -1px 2px rgba(0, 0, 0, 0.6),
     inset 0 1px 1px rgba(255, 255, 255, 0.25),
@@ -97,8 +131,18 @@ $steel-black: #0f172a;
     background: rgba(0, 0, 0, 0.5);
     border-radius: 1px;
   }
-  &::before { width: 60%; height: 1.5px; transform: translate(-50%, -50%); }
-  &::after { width: 1.5px; height: 60%; transform: translate(-50%, -50%); }
+
+  &::before {
+    width: 60%;
+    height: 1.5px;
+    transform: translate(-50%, -50%);
+  }
+
+  &::after {
+    width: 1.5px;
+    height: 60%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 // 沉头螺栓孔 — 内六角沉头孔
@@ -107,7 +151,13 @@ $steel-black: #0f172a;
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, $graphite-bright 0%, $graphite-light 30%, $graphite 60%, $graphite-void 100%);
+  background: radial-gradient(
+    circle at 35% 35%,
+    $graphite-bright 0%,
+    $graphite-light 30%,
+    $graphite 60%,
+    $graphite-void 100%
+  );
   box-shadow:
     inset 0 1px 1px rgba(255, 255, 255, 0.2),
     inset 0 -1px 2px rgba(0, 0, 0, 0.85),
@@ -151,7 +201,6 @@ $steel-black: #0f172a;
     min-height: 0;
   }
 
-
   // ============================================
   // 左侧：3D铸造检修盖板站
   // 视觉语言：铸造石墨壳体 + 深凹安装槽 + 3D凸起检修盖板 + 沉头螺栓孔
@@ -162,11 +211,17 @@ $steel-black: #0f172a;
     flex-direction: column;
     border-radius: 12px;
     overflow: hidden;
+
     @include cast-texture;
 
     // 铸造石墨壳体 — 厚重金属铸造外壁
-    background:
-      linear-gradient(170deg, $graphite-light 0%, $graphite 25%, $graphite-dark 65%, $graphite-void 100%);
+    background: linear-gradient(
+      170deg,
+      $graphite-light 0%,
+      $graphite 25%,
+      $graphite-dark 65%,
+      $graphite-void 100%
+    );
     border: 5px solid $graphite-dark;
     border-top: 5px solid rgba($graphite-bright, 0.55);
     border-left: 5px solid rgba($graphite-light, 0.5);
@@ -194,13 +249,29 @@ $steel-black: #0f172a;
       justify-content: space-between;
       gap: 10px;
       padding: 17px 22px 15px;
+
       @include cast-texture;
 
       // 阳光从左上方斜照 — 左上明显亮，右下明显暗
       background:
-        radial-gradient(ellipse at 0% 0%, rgba($graphite-bright, 0.42) 0%, rgba($graphite-light, 0.15) 25%, transparent 65%),
-        linear-gradient(135deg, rgba($graphite-bright, 0.28) 0%, rgba($graphite-light, 0.1) 35%, transparent 60%),
-        linear-gradient(180deg, $graphite 0%, $graphite-dark 45%, $graphite-void 100%);
+        radial-gradient(
+          ellipse at 0% 0%,
+          rgba($graphite-bright, 0.42) 0%,
+          rgba($graphite-light, 0.15) 25%,
+          transparent 65%
+        ),
+        linear-gradient(
+          135deg,
+          rgba($graphite-bright, 0.28) 0%,
+          rgba($graphite-light, 0.1) 35%,
+          transparent 60%
+        ),
+        linear-gradient(
+          180deg,
+          $graphite 0%,
+          $graphite-dark 45%,
+          $graphite-void 100%
+        );
 
       // 3D 边框 — 顶/左高光（受光面）+ 底/右深暗（背光面）
       border-top: 4px solid rgba($graphite-bright, 0.55);
@@ -227,8 +298,12 @@ $steel-black: #0f172a;
         left: 0;
         width: 55%;
         height: 100%;
-        background:
-          radial-gradient(ellipse at 0% 0%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.04) 30%, transparent 70%);
+        background: radial-gradient(
+          ellipse at 0% 0%,
+          rgba(255, 255, 255, 0.1) 0%,
+          rgba(255, 255, 255, 0.04) 30%,
+          transparent 70%
+        );
         pointer-events: none;
         z-index: 2;
       }
@@ -241,7 +316,14 @@ $steel-black: #0f172a;
         right: 0;
         bottom: -6px;
         height: 2px;
-        background: linear-gradient(90deg, transparent, rgba($electric, 0.3) 15%, rgba($electric-bright, 0.6) 50%, rgba($electric, 0.3) 85%, transparent);
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba($electric, 0.3) 15%,
+          rgba($electric-bright, 0.6) 50%,
+          rgba($electric, 0.3) 85%,
+          transparent
+        );
         box-shadow: 0 0 10px rgba($electric, 0.5);
         z-index: 5;
       }
@@ -260,6 +342,7 @@ $steel-black: #0f172a;
         font-weight: 800;
         color: $text-bright;
         letter-spacing: 5px;
+
         // 蚀刻浮雕文字 — 顶部高光 + 底部暗影 + 电蓝微光
         text-shadow:
           0 1px 0 rgba($graphite-bright, 0.5),
@@ -283,9 +366,17 @@ $steel-black: #0f172a;
           background: rgba($graphite-dark, 0.6);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5);
 
-          &:nth-child(1) { animation: dotBlink 1.5s ease-in-out infinite 0s; }
-          &:nth-child(2) { animation: dotBlink 1.5s ease-in-out infinite 0.5s; }
-          &:nth-child(3) { animation: dotBlink 1.5s ease-in-out infinite 1s; }
+          &:nth-child(1) {
+            animation: dotBlink 1.5s ease-in-out infinite 0s;
+          }
+
+          &:nth-child(2) {
+            animation: dotBlink 1.5s ease-in-out infinite 0.5s;
+          }
+
+          &:nth-child(3) {
+            animation: dotBlink 1.5s ease-in-out infinite 1s;
+          }
         }
       }
 
@@ -295,7 +386,12 @@ $steel-black: #0f172a;
         align-items: center;
         gap: 2px;
         padding: 6px 14px;
-        background: linear-gradient(180deg, #000 0%, $graphite-void 50%, #000 100%);
+        background: linear-gradient(
+          180deg,
+          #000 0%,
+          $graphite-void 50%,
+          #000 100%
+        );
         border: 1px solid rgba(0, 0, 0, 0.9);
         border-top: 2px solid rgba(0, 0, 0, 0.95);
         border-bottom: 2px solid rgba($graphite-light, 0.32);
@@ -346,9 +442,16 @@ $steel-black: #0f172a;
       display: flex;
       flex-direction: column;
       gap: 16px;
+
       @include cast-texture;
-      background:
-        linear-gradient(180deg, rgba(#000, 0.94), rgba($graphite-void, 0.88) 30%, rgba($graphite-void, 0.88) 70%, rgba(#000, 0.94));
+
+      background: linear-gradient(
+        180deg,
+        rgba(#000, 0.94),
+        rgba($graphite-void, 0.88) 30%,
+        rgba($graphite-void, 0.88) 70%,
+        rgba(#000, 0.94)
+      );
       border-top: 3px solid rgba(0, 0, 0, 0.92);
       border-bottom: 2px solid rgba($graphite-light, 0.2);
 
@@ -362,11 +465,15 @@ $steel-black: #0f172a;
       scrollbar-width: thin;
       scrollbar-color: rgba($electric, 0.4) rgba(0, 0, 0, 0.3);
 
-      &::-webkit-scrollbar { width: 6px; }
+      &::-webkit-scrollbar {
+        width: 6px;
+      }
+
       &::-webkit-scrollbar-track {
         background: rgba(0, 0, 0, 0.4);
         border-radius: 3px;
       }
+
       &::-webkit-scrollbar-thumb {
         background: linear-gradient(180deg, $electric, $electric-deep);
         border-radius: 3px;
@@ -388,11 +495,16 @@ $steel-black: #0f172a;
       border-radius: 9px;
       overflow: hidden;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      border: none;
+
       @include cast-texture;
 
       // 3D 凸起铸造盖板 — 厚底边+高光顶边+侧壁
-      background: linear-gradient(180deg, $graphite-light 0%, $graphite 35%, $graphite-dark 100%);
+      background: linear-gradient(
+        180deg,
+        $graphite-light 0%,
+        $graphite 35%,
+        $graphite-dark 100%
+      );
       border: 1px solid rgba($graphite-dark, 0.85);
       border-top: 3px solid rgba($graphite-bright, 0.5);
       border-bottom: 10px solid rgba(0, 0, 0, 0.95);
@@ -415,9 +527,15 @@ $steel-black: #0f172a;
         position: absolute;
         inset: 3px 3px 10px 5px;
         border-radius: 6px;
+
         @include cast-texture;
-        background:
-          linear-gradient(180deg, rgba($graphite-bright, 0.07) 0%, transparent 30%, rgba(0, 0, 0, 0.25) 100%);
+
+        background: linear-gradient(
+          180deg,
+          rgba($graphite-bright, 0.07) 0%,
+          transparent 30%,
+          rgba(0, 0, 0, 0.25) 100%
+        );
         box-shadow:
           inset 0 3px 5px rgba(0, 0, 0, 0.5),
           inset 0 -1px 2px rgba($graphite-bright, 0.12),
@@ -434,7 +552,12 @@ $steel-black: #0f172a;
         position: absolute;
         inset: 0;
         border-radius: 9px;
-        background: radial-gradient(ellipse at center, rgba($electric, 0.25) 0%, rgba($electric, 0.08) 40%, transparent 70%);
+        background: radial-gradient(
+          ellipse at center,
+          rgba($electric, 0.25) 0%,
+          rgba($electric, 0.08) 40%,
+          transparent 70%
+        );
         opacity: 0;
         transition: opacity 0.35s ease;
         pointer-events: none;
@@ -475,7 +598,11 @@ $steel-black: #0f172a;
             letter-spacing: 1px;
             padding: 3px 10px;
             border-radius: 3px;
-            background: linear-gradient(180deg, rgba($electric-deep, 0.45), rgba($electric-dark, 0.3));
+            background: linear-gradient(
+              180deg,
+              rgba($electric-deep, 0.45),
+              rgba($electric-dark, 0.3)
+            );
             border: 1px solid rgba($electric, 0.55);
             border-top-color: rgba($electric-glow, 0.4);
             box-shadow:
@@ -483,7 +610,9 @@ $steel-black: #0f172a;
               inset 0 -1px 0 rgba(0, 0, 0, 0.3),
               0 1px 2px rgba(0, 0, 0, 0.4),
               0 0 8px rgba($electric, 0.2);
-            text-shadow: 0 0 4px rgba($electric, 0.45), 0 1px 1px rgba(0, 0, 0, 0.5);
+            text-shadow:
+              0 0 4px rgba($electric, 0.45),
+              0 1px 1px rgba(0, 0, 0, 0.5);
           }
         }
       }
@@ -501,8 +630,20 @@ $steel-black: #0f172a;
         flex-shrink: 0;
         border-radius: 4px;
         background:
-          linear-gradient(90deg, rgba($graphite-light, 0.35) 0%, transparent 12%, transparent 88%, rgba($graphite-light, 0.35) 100%),
-          linear-gradient(180deg, #000 0%, $graphite-void 30%, $graphite-void 70%, #000 100%);
+          linear-gradient(
+            90deg,
+            rgba($graphite-light, 0.35) 0%,
+            transparent 12%,
+            transparent 88%,
+            rgba($graphite-light, 0.35) 100%
+          ),
+          linear-gradient(
+            180deg,
+            #000 0%,
+            $graphite-void 30%,
+            $graphite-void 70%,
+            #000 100%
+          );
         border: 1px solid rgba(0, 0, 0, 0.9);
         border-top: 1px solid rgba($graphite-light, 0.4);
         border-bottom: 1px solid rgba($graphite-bright, 0.25);
@@ -520,7 +661,13 @@ $steel-black: #0f172a;
           width: 3px;
           height: 3px;
           border-radius: 50%;
-          background: radial-gradient(circle at 35% 35%, $graphite-bright 0%, $graphite-light 30%, $graphite 60%, $graphite-void 100%);
+          background: radial-gradient(
+            circle at 35% 35%,
+            $graphite-bright 0%,
+            $graphite-light 30%,
+            $graphite 60%,
+            $graphite-void 100%
+          );
           box-shadow:
             inset 0 1px 1px rgba(255, 255, 255, 0.2),
             inset 0 -1px 1px rgba(0, 0, 0, 0.85),
@@ -539,10 +686,25 @@ $steel-black: #0f172a;
             border-radius: 0.5px;
           }
 
-          &.bolt-tl { top: 1.5px; left: 1.5px; }
-          &.bolt-tr { top: 1.5px; right: 1.5px; }
-          &.bolt-bl { bottom: 1.5px; left: 1.5px; }
-          &.bolt-br { bottom: 1.5px; right: 1.5px; }
+          &.bolt-tl {
+            top: 1.5px;
+            left: 1.5px;
+          }
+
+          &.bolt-tr {
+            top: 1.5px;
+            right: 1.5px;
+          }
+
+          &.bolt-bl {
+            bottom: 1.5px;
+            left: 1.5px;
+          }
+
+          &.bolt-br {
+            bottom: 1.5px;
+            right: 1.5px;
+          }
         }
 
         // 轨道左端刻线（OFF 标记）
@@ -581,7 +743,13 @@ $steel-black: #0f172a;
           width: 16px;
           left: 4px;
           border-radius: 2px;
-          background: linear-gradient(180deg, $graphite-bright 0%, $graphite-light 30%, $graphite 70%, $graphite-dark 100%);
+          background: linear-gradient(
+            180deg,
+            $graphite-bright 0%,
+            $graphite-light 30%,
+            $graphite 70%,
+            $graphite-dark 100%
+          );
           border: 1px solid rgba(0, 0, 0, 0.8);
           box-shadow:
             inset 0 1px 0 rgba(255, 255, 255, 0.3),
@@ -618,7 +786,12 @@ $steel-black: #0f172a;
             right: 2px;
             height: 1.5px;
             border-radius: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35) 50%, transparent);
+            background: linear-gradient(
+              90deg,
+              transparent,
+              rgba(255, 255, 255, 0.35) 50%,
+              transparent
+            );
             transition: all 0.3s ease;
           }
         }
@@ -632,7 +805,6 @@ $steel-black: #0f172a;
         border-top-color: rgba($electric-glow, 0.45);
         border-bottom-color: rgba(0, 0, 0, 0.92);
         border-left-color: rgba($electric, 0.35);
-
         box-shadow:
           0 14px 28px rgba(0, 0, 0, 0.85),
           0 7px 14px rgba(0, 0, 0, 0.6),
@@ -650,11 +822,17 @@ $steel-black: #0f172a;
 
         // 凹面表面提亮
         &::before {
-          background:
-            linear-gradient(180deg, rgba($electric-glow, 0.09) 0%, transparent 30%, rgba(0, 0, 0, 0.25) 100%);
+          background: linear-gradient(
+            180deg,
+            rgba($electric-glow, 0.09) 0%,
+            transparent 30%,
+            rgba(0, 0, 0, 0.25) 100%
+          );
         }
 
-        .label-name { color: $text-bright; }
+        .label-name {
+          color: $text-bright;
+        }
 
         // 开关轨道微微发亮
         .toggle-switch {
@@ -683,15 +861,23 @@ $steel-black: #0f172a;
       &.active {
         border-bottom-width: 5px; // 底边收缩 = 按下
         border-color: rgba($electric, 0.65);
-        border-top-color: rgba($electric-deep, 0.7);
-        border-bottom-color: rgba($electric-glow, 0.45);
-        border-left-color: rgba($electric, 0.6);
-        border-right-color: rgba($electric-deep, 0.8);
+        border-color: rgba($electric-deep, 0.7) rgba($electric-deep, 0.8)
+          rgba($electric-glow, 0.45) rgba($electric, 0.6);
 
         // 径向渐变背景 — 中心电蓝光晕 + 深石墨底
         background:
-          radial-gradient(ellipse at 50% 40%, rgba($electric, 0.22) 0%, rgba($electric-deep, 0.12) 30%, transparent 65%),
-          linear-gradient(180deg, $graphite 0%, rgba($electric-deep, 0.18) 40%, $graphite-void 100%);
+          radial-gradient(
+            ellipse at 50% 40%,
+            rgba($electric, 0.22) 0%,
+            rgba($electric-deep, 0.12) 30%,
+            transparent 65%
+          ),
+          linear-gradient(
+            180deg,
+            $graphite 0%,
+            rgba($electric-deep, 0.18) 40%,
+            $graphite-void 100%
+          );
 
         // 多层外发光 + 强落差阴影 + 深凹陷 inset
         box-shadow:
@@ -715,9 +901,24 @@ $steel-black: #0f172a;
         // 凹面表面 — 电蓝能量纹理 + 径向光晕 + 扫描线
         &::before {
           background:
-            radial-gradient(ellipse at 50% 50%, rgba($electric, 0.18) 0%, transparent 55%),
-            repeating-linear-gradient(0deg, transparent 0, transparent 3px, rgba($electric, 0.04) 3px, rgba($electric, 0.04) 4px),
-            linear-gradient(180deg, rgba($electric, 0.12) 0%, transparent 30%, rgba(0, 0, 0, 0.35) 100%);
+            radial-gradient(
+              ellipse at 50% 50%,
+              rgba($electric, 0.18) 0%,
+              transparent 55%
+            ),
+            repeating-linear-gradient(
+              0deg,
+              transparent 0,
+              transparent 3px,
+              rgba($electric, 0.04) 3px,
+              rgba($electric, 0.04) 4px
+            ),
+            linear-gradient(
+              180deg,
+              rgba($electric, 0.12) 0%,
+              transparent 30%,
+              rgba(0, 0, 0, 0.35) 100%
+            );
           box-shadow:
             inset 0 3px 7px rgba(0, 0, 0, 0.6),
             inset 0 -2px 3px rgba($electric-glow, 0.25),
@@ -746,7 +947,13 @@ $steel-black: #0f172a;
 
           // 螺栓孔电蓝发光
           .bolt-hole {
-            background: radial-gradient(circle at 35% 35%, $electric-glow 0%, $electric 30%, $electric-deep 60%, $electric-dark 100%);
+            background: radial-gradient(
+              circle at 35% 35%,
+              $electric-glow 0%,
+              $electric 30%,
+              $electric-deep 60%,
+              $electric-dark 100%
+            );
             box-shadow:
               inset 0 1px 1px rgba(255, 255, 255, 0.4),
               inset 0 -1px 1px rgba(0, 0, 0, 0.5),
@@ -770,7 +977,13 @@ $steel-black: #0f172a;
           .toggle-knob {
             left: auto;
             right: 4px;
-            background: linear-gradient(180deg, $electric-glow 0%, $electric 30%, $electric-deep 70%, $electric-dark 100%);
+            background: linear-gradient(
+              180deg,
+              $electric-glow 0%,
+              $electric 30%,
+              $electric-deep 70%,
+              $electric-dark 100%
+            );
             border-color: rgba($electric-dark, 0.85);
             box-shadow:
               inset 0 1px 0 rgba(255, 255, 255, 0.5),
@@ -792,7 +1005,12 @@ $steel-black: #0f172a;
 
             // 顶部高光带变亮 + 脉冲动画
             &::after {
-              background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.65) 50%, transparent);
+              background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.65) 50%,
+                transparent
+              );
               animation: knobHighlightPulse 1.5s ease-in-out infinite;
             }
           }
@@ -808,16 +1026,22 @@ $steel-black: #0f172a;
     position: relative;
     display: flex;
     flex-direction: column;
+
     @include cast-texture;
+
     background:
       linear-gradient(135deg, rgba($graphite-bright, 0.06) 0%, transparent 35%),
-      linear-gradient(160deg, $graphite 0%, $graphite-dark 50%, $graphite-void 100%);
+      linear-gradient(
+        160deg,
+        $graphite 0%,
+        $graphite-dark 50%,
+        $graphite-void 100%
+      );
     border: 1px solid rgba($graphite-dark, 0.85);
     border-top: 3px solid rgba($graphite-bright, 0.45);
     border-left: 2px solid rgba($graphite-bright, 0.3);
     border-radius: 8px;
     overflow: hidden;
-
     box-shadow:
       inset 0 2px 0 rgba($graphite-bright, 0.18),
       inset 1px 0 0 rgba($graphite-bright, 0.08),
@@ -839,14 +1063,32 @@ $steel-black: #0f172a;
       overflow: hidden;
       background: $graphite-void;
       border-right: 2px solid rgba(0, 0, 0, 0.7);
-      box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.85), inset -2px 0 4px rgba(0, 0, 0, 0.5);
+      box-shadow:
+        inset 0 2px 6px rgba(0, 0, 0, 0.85),
+        inset -2px 0 4px rgba(0, 0, 0, 0.5);
 
       .frame-screw {
         @include screw(9px);
-        &.screw-tl { top: 7px; left: 7px; }
-        &.screw-tr { top: 7px; right: 7px; }
-        &.screw-bl { bottom: 7px; left: 7px; }
-        &.screw-br { bottom: 7px; right: 7px; }
+
+        &.screw-tl {
+          top: 7px;
+          left: 7px;
+        }
+
+        &.screw-tr {
+          top: 7px;
+          right: 7px;
+        }
+
+        &.screw-bl {
+          bottom: 7px;
+          left: 7px;
+        }
+
+        &.screw-br {
+          bottom: 7px;
+          right: 7px;
+        }
       }
 
       .detail-image {
@@ -862,8 +1104,18 @@ $steel-black: #0f172a;
         position: absolute;
         inset: 0;
         background:
-          linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, transparent 30%),
-          linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, transparent 30%, transparent 55%, rgba($graphite-void, 0.92) 100%);
+          linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.06) 0%,
+            transparent 30%
+          ),
+          linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.3) 0%,
+            transparent 30%,
+            transparent 55%,
+            rgba($graphite-void, 0.92) 100%
+          );
         pointer-events: none;
       }
 
@@ -871,7 +1123,12 @@ $steel-black: #0f172a;
         position: absolute;
         top: 12px;
         left: 12px;
-        background: linear-gradient(135deg, $electric 0%, $electric-deep 50%, $electric-dark 100%);
+        background: linear-gradient(
+          135deg,
+          $electric 0%,
+          $electric-deep 50%,
+          $electric-dark 100%
+        );
         border: 1px solid rgba($electric, 0.7);
         border-top-color: rgba($electric-glow, 0.8);
         border-radius: 4px;
@@ -887,7 +1144,9 @@ $steel-black: #0f172a;
           font-weight: 800;
           color: $text-bright;
           letter-spacing: 1.5px;
-          text-shadow: 0 0 6px rgba($electric-glow, 0.5), 0 1px 2px rgba(0, 0, 0, 0.4);
+          text-shadow:
+            0 0 6px rgba($electric-glow, 0.5),
+            0 1px 2px rgba(0, 0, 0, 0.4);
         }
       }
 
@@ -911,7 +1170,9 @@ $steel-black: #0f172a;
         text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
       }
 
-      &:hover .detail-image { transform: scale(1.04); }
+      &:hover .detail-image {
+        transform: scale(1.04);
+      }
     }
 
     .detail-info {
@@ -922,8 +1183,16 @@ $steel-black: #0f172a;
       flex-direction: column;
       gap: 10px;
       background:
-        linear-gradient(135deg, rgba($graphite-bright, 0.06) 0%, transparent 40%),
-        linear-gradient(180deg, rgba($graphite, 0.35), rgba($graphite-dark, 0.2));
+        linear-gradient(
+          135deg,
+          rgba($graphite-bright, 0.06) 0%,
+          transparent 40%
+        ),
+        linear-gradient(
+          180deg,
+          rgba($graphite, 0.35),
+          rgba($graphite-dark, 0.2)
+        );
       border-left: 1px solid rgba($graphite-bright, 0.12);
       box-shadow: inset 1px 0 0 rgba(0, 0, 0, 0.3);
 
@@ -935,8 +1204,16 @@ $steel-black: #0f172a;
         flex-wrap: wrap;
         padding: 10px 14px;
         background:
-          linear-gradient(135deg, rgba($graphite-bright, 0.08) 0%, transparent 40%),
-          linear-gradient(180deg, rgba($graphite, 0.6), rgba($graphite-dark, 0.45));
+          linear-gradient(
+            135deg,
+            rgba($graphite-bright, 0.08) 0%,
+            transparent 40%
+          ),
+          linear-gradient(
+            180deg,
+            rgba($graphite, 0.6),
+            rgba($graphite-dark, 0.45)
+          );
         border: 1px solid rgba($graphite-bright, 0.25);
         border-top-color: rgba($graphite-bright, 0.42);
         border-left-color: rgba($graphite-bright, 0.35);
@@ -978,10 +1255,20 @@ $steel-black: #0f172a;
           font-weight: 800;
           letter-spacing: 1px;
           flex-shrink: 0;
-          text-shadow: 0 0 8px rgba($electric, 0.5), 0 1px 2px rgba(0, 0, 0, 0.6);
+          text-shadow:
+            0 0 8px rgba($electric, 0.5),
+            0 1px 2px rgba(0, 0, 0, 0.6);
           background:
-            linear-gradient(135deg, rgba($electric-glow, 0.1) 0%, transparent 50%),
-            linear-gradient(180deg, rgba($graphite-void, 0.75), rgba(0, 0, 0, 0.55));
+            linear-gradient(
+              135deg,
+              rgba($electric-glow, 0.1) 0%,
+              transparent 50%
+            ),
+            linear-gradient(
+              180deg,
+              rgba($graphite-void, 0.75),
+              rgba(0, 0, 0, 0.55)
+            );
           border: 1px solid rgba($electric, 0.42);
           border-top-color: rgba($electric-glow, 0.55);
           border-left-color: rgba($electric, 0.35);
@@ -1008,8 +1295,16 @@ $steel-black: #0f172a;
           gap: 6px;
           padding: 4px 10px;
           background:
-            linear-gradient(135deg, rgba(251, 191, 36, 0.08) 0%, transparent 50%),
-            linear-gradient(180deg, rgba($graphite-void, 0.6), rgba(0, 0, 0, 0.4));
+            linear-gradient(
+              135deg,
+              rgba(251, 191, 36, 0.08) 0%,
+              transparent 50%
+            ),
+            linear-gradient(
+              180deg,
+              rgba($graphite-void, 0.6),
+              rgba(0, 0, 0, 0.4)
+            );
           border: 1px solid rgba(251, 191, 36, 0.3);
           border-top-color: rgba(251, 191, 36, 0.45);
           border-radius: 5px;
@@ -1021,7 +1316,9 @@ $steel-black: #0f172a;
           .rating-star {
             font-size: 16px;
             color: #fbbf24;
-            text-shadow: 0 0 10px rgba(251, 191, 36, 0.8), 0 0 4px rgba(254, 215, 170, 0.5);
+            text-shadow:
+              0 0 10px rgba(251, 191, 36, 0.8),
+              0 0 4px rgba(254, 215, 170, 0.5);
             line-height: 1;
           }
 
@@ -1030,7 +1327,9 @@ $steel-black: #0f172a;
             font-weight: 800;
             color: #fbbf24;
             font-family: 'Courier New', monospace;
-            text-shadow: 0 0 8px rgba(251, 191, 36, 0.6), 0 1px 2px rgba(0, 0, 0, 0.4);
+            text-shadow:
+              0 0 8px rgba(251, 191, 36, 0.6),
+              0 1px 2px rgba(0, 0, 0, 0.4);
             line-height: 1;
           }
 
@@ -1049,10 +1348,21 @@ $steel-black: #0f172a;
             color: $electric-glow;
             font-family: 'Courier New', monospace;
             letter-spacing: 1px;
-            text-shadow: 0 0 10px rgba($electric, 0.6), 0 0 4px rgba($electric-glow, 0.4), 0 1px 2px rgba(0, 0, 0, 0.6);
+            text-shadow:
+              0 0 10px rgba($electric, 0.6),
+              0 0 4px rgba($electric-glow, 0.4),
+              0 1px 2px rgba(0, 0, 0, 0.6);
             background:
-              linear-gradient(135deg, rgba($electric-glow, 0.18) 0%, transparent 40%),
-              linear-gradient(180deg, rgba($electric-dark, 0.45), rgba($graphite-void, 0.7));
+              linear-gradient(
+                135deg,
+                rgba($electric-glow, 0.18) 0%,
+                transparent 40%
+              ),
+              linear-gradient(
+                180deg,
+                rgba($electric-dark, 0.45),
+                rgba($graphite-void, 0.7)
+              );
             border: 1px solid rgba($electric, 0.5);
             border-top-color: rgba($electric-glow, 0.65);
             border-left-color: rgba($electric, 0.45);
@@ -1077,8 +1387,16 @@ $steel-black: #0f172a;
         text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
         padding: 10px 14px;
         background:
-          linear-gradient(135deg, rgba($graphite-bright, 0.05) 0%, transparent 50%),
-          linear-gradient(180deg, rgba($graphite-void, 0.55), rgba(0, 0, 0, 0.35));
+          linear-gradient(
+            135deg,
+            rgba($graphite-bright, 0.05) 0%,
+            transparent 50%
+          ),
+          linear-gradient(
+            180deg,
+            rgba($graphite-void, 0.55),
+            rgba(0, 0, 0, 0.35)
+          );
         border: 1px solid rgba($graphite-bright, 0.18);
         border-top-color: rgba($graphite-bright, 0.28);
         border-left-color: rgba($graphite-bright, 0.22);
@@ -1089,7 +1407,6 @@ $steel-black: #0f172a;
           inset 0 -1px 0 rgba($graphite-bright, 0.1),
           0 2px 5px rgba(0, 0, 0, 0.35);
         display: -webkit-box;
- 
         -webkit-box-orient: vertical;
         overflow: hidden;
       }
@@ -1099,8 +1416,16 @@ $steel-black: #0f172a;
         gap: 12px;
         padding: 12px 16px;
         background:
-          linear-gradient(135deg, rgba($electric-glow, 0.06) 0%, transparent 40%),
-          linear-gradient(180deg, rgba($graphite, 0.6), rgba($graphite-dark, 0.5));
+          linear-gradient(
+            135deg,
+            rgba($electric-glow, 0.06) 0%,
+            transparent 40%
+          ),
+          linear-gradient(
+            180deg,
+            rgba($graphite, 0.6),
+            rgba($graphite-dark, 0.5)
+          );
         border: 1px solid rgba($graphite-bright, 0.3);
         border-top-color: rgba($graphite-bright, 0.48);
         border-left-color: rgba($graphite-bright, 0.4);
@@ -1130,14 +1455,24 @@ $steel-black: #0f172a;
             letter-spacing: 1.5px;
             font-weight: 700;
             text-transform: uppercase;
-            text-shadow: 0 0 8px rgba($electric, 0.5), 0 1px 1px rgba(0, 0, 0, 0.4);
+            text-shadow:
+              0 0 8px rgba($electric, 0.5),
+              0 1px 1px rgba(0, 0, 0, 0.4);
             display: inline-flex;
             align-items: center;
             gap: 4px;
             padding: 2px 8px;
             background:
-              linear-gradient(135deg, rgba($electric-glow, 0.1) 0%, transparent 50%),
-              linear-gradient(180deg, rgba($electric-dark, 0.3), rgba($graphite-void, 0.5));
+              linear-gradient(
+                135deg,
+                rgba($electric-glow, 0.1) 0%,
+                transparent 50%
+              ),
+              linear-gradient(
+                180deg,
+                rgba($electric-dark, 0.3),
+                rgba($graphite-void, 0.5)
+              );
             border: 1px solid rgba($electric, 0.35);
             border-top-color: rgba($electric, 0.5);
             border-radius: 3px;
@@ -1152,11 +1487,30 @@ $steel-black: #0f172a;
             font-size: 15px;
             color: $text-bright;
             font-weight: 700;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5), 0 0 4px rgba(255, 255, 255, 0.08);
+            text-shadow:
+              0 1px 2px rgba(0, 0, 0, 0.5),
+              0 0 4px rgba(255, 255, 255, 0.08);
 
-            &[data-level="简单"] { color: #4ade80; text-shadow: 0 0 10px rgba(74, 222, 128, 0.6), 0 1px 2px rgba(0, 0, 0, 0.4); }
-            &[data-level="中等"] { color: $electric-glow; text-shadow: 0 0 10px rgba($electric, 0.6), 0 1px 2px rgba(0, 0, 0, 0.4); }
-            &[data-level="较难"] { color: #f87171; text-shadow: 0 0 10px rgba(248, 113, 113, 0.6), 0 1px 2px rgba(0, 0, 0, 0.4); }
+            &[data-level='简单'] {
+              color: #4ade80;
+              text-shadow:
+                0 0 10px rgba(74, 222, 128, 0.6),
+                0 1px 2px rgba(0, 0, 0, 0.4);
+            }
+
+            &[data-level='中等'] {
+              color: $electric-glow;
+              text-shadow:
+                0 0 10px rgba($electric, 0.6),
+                0 1px 2px rgba(0, 0, 0, 0.4);
+            }
+
+            &[data-level='较难'] {
+              color: #f87171;
+              text-shadow:
+                0 0 10px rgba(248, 113, 113, 0.6),
+                0 1px 2px rgba(0, 0, 0, 0.4);
+            }
           }
         }
       }
@@ -1174,8 +1528,15 @@ $steel-black: #0f172a;
       border-top: 1px solid rgba($graphite-bright, 0.12);
       box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.3);
 
-      &::-webkit-scrollbar { width: 5px; }
-      &::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.3); border-radius: 3px; }
+      &::-webkit-scrollbar {
+        width: 5px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 3px;
+      }
+
       &::-webkit-scrollbar-thumb {
         background: linear-gradient(180deg, $electric, $electric-deep);
         border-radius: 3px;
@@ -1203,8 +1564,16 @@ $steel-black: #0f172a;
         margin-top: auto;
         padding: 12px 16px;
         background:
-          linear-gradient(135deg, rgba($graphite-bright, 0.1) 0%, transparent 35%),
-          linear-gradient(180deg, rgba($graphite, 0.55), rgba($graphite-dark, 0.45));
+          linear-gradient(
+            135deg,
+            rgba($graphite-bright, 0.1) 0%,
+            transparent 35%
+          ),
+          linear-gradient(
+            180deg,
+            rgba($graphite, 0.55),
+            rgba($graphite-dark, 0.45)
+          );
         border: 1px solid rgba($graphite-bright, 0.32);
         border-top-color: rgba($graphite-bright, 0.5);
         border-left-color: rgba($graphite-bright, 0.4);
@@ -1218,15 +1587,22 @@ $steel-black: #0f172a;
           0 1px 0 rgba(0, 0, 0, 0.4);
       }
 
-
       .content-section {
         display: flex;
         flex-direction: column;
         gap: 10px;
         padding: 12px 16px;
         background:
-          linear-gradient(135deg, rgba($graphite-bright, 0.09) 0%, transparent 35%),
-          linear-gradient(180deg, rgba($graphite, 0.5), rgba($graphite-dark, 0.45));
+          linear-gradient(
+            135deg,
+            rgba($graphite-bright, 0.09) 0%,
+            transparent 35%
+          ),
+          linear-gradient(
+            180deg,
+            rgba($graphite, 0.5),
+            rgba($graphite-dark, 0.45)
+          );
         border: 1px solid rgba($graphite-bright, 0.3);
         border-top-color: rgba($graphite-bright, 0.48);
         border-left-color: rgba($graphite-bright, 0.38);
@@ -1245,7 +1621,9 @@ $steel-black: #0f172a;
           color: $text-bright;
           letter-spacing: 2.5px;
           text-transform: uppercase;
-          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.65), 0 0 4px rgba($electric, 0.15);
+          text-shadow:
+            0 1px 2px rgba(0, 0, 0, 0.65),
+            0 0 4px rgba($electric, 0.15);
           display: flex;
           align-items: center;
           gap: 10px;
@@ -1254,7 +1632,12 @@ $steel-black: #0f172a;
             content: '';
             width: 6px;
             height: 20px;
-            background: linear-gradient(180deg, $electric-glow 0%, $electric 50%, $electric-deep 100%);
+            background: linear-gradient(
+              180deg,
+              $electric-glow 0%,
+              $electric 50%,
+              $electric-deep 100%
+            );
             border-radius: 2px;
             box-shadow:
               0 0 12px rgba($electric, 0.85),
@@ -1272,8 +1655,16 @@ $steel-black: #0f172a;
         gap: 12px;
         padding: 11px 16px;
         background:
-          linear-gradient(135deg, rgba($electric-glow, 0.16) 0%, transparent 35%),
-          linear-gradient(180deg, rgba($electric-dark, 0.45), rgba($graphite-void, 0.7));
+          linear-gradient(
+            135deg,
+            rgba($electric-glow, 0.16) 0%,
+            transparent 35%
+          ),
+          linear-gradient(
+            180deg,
+            rgba($electric-dark, 0.45),
+            rgba($graphite-void, 0.7)
+          );
         border: 1px solid rgba($electric, 0.55);
         border-top-color: rgba($electric-glow, 0.7);
         border-left-color: rgba($electric, 0.6);
@@ -1290,15 +1681,20 @@ $steel-black: #0f172a;
         .instructor-icon {
           font-size: 18px;
           color: $electric-glow;
-          text-shadow: 0 0 12px rgba($electric, 0.85), 0 0 5px rgba($electric-glow, 0.55);
+          text-shadow:
+            0 0 12px rgba($electric, 0.85),
+            0 0 5px rgba($electric-glow, 0.55);
           line-height: 1;
           display: flex;
           align-items: center;
           justify-content: center;
           width: 32px;
           height: 32px;
-          background:
-            radial-gradient(circle at 30% 30%, rgba($electric, 0.35), rgba($graphite-dark, 0.75));
+          background: radial-gradient(
+            circle at 30% 30%,
+            rgba($electric, 0.35),
+            rgba($graphite-dark, 0.75)
+          );
           border: 1px solid rgba($electric, 0.5);
           border-top-color: rgba($electric-glow, 0.6);
           border-bottom: 2px solid rgba(0, 0, 0, 0.5);
@@ -1315,7 +1711,9 @@ $steel-black: #0f172a;
           font-size: 15px;
           font-weight: 700;
           color: $text-bright;
-          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55), 0 0 8px rgba($electric, 0.2);
+          text-shadow:
+            0 1px 2px rgba(0, 0, 0, 0.55),
+            0 0 8px rgba($electric, 0.2);
           letter-spacing: 0.3px;
         }
       }
@@ -1346,13 +1744,26 @@ $steel-black: #0f172a;
             left: 8px;
             right: 8px;
             height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            background: linear-gradient(
+              90deg,
+              transparent,
+              rgba(255, 255, 255, 0.3),
+              transparent
+            );
           }
 
           &:nth-child(1) {
             background:
-              linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, transparent 30%),
-              linear-gradient(180deg, rgba(59, 130, 246, 0.55), rgba(30, 64, 175, 0.7));
+              linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.18) 0%,
+                transparent 30%
+              ),
+              linear-gradient(
+                180deg,
+                rgba(59, 130, 246, 0.55),
+                rgba(30, 64, 175, 0.7)
+              );
             border-bottom: 4px solid rgba(0, 0, 0, 0.65);
             box-shadow:
               inset 0 1px 0 rgba(147, 197, 253, 0.45),
@@ -1376,8 +1787,16 @@ $steel-black: #0f172a;
 
           &:nth-child(2) {
             background:
-              linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, transparent 30%),
-              linear-gradient(180deg, rgba(34, 197, 94, 0.55), rgba(21, 128, 61, 0.7));
+              linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.18) 0%,
+                transparent 30%
+              ),
+              linear-gradient(
+                180deg,
+                rgba(34, 197, 94, 0.55),
+                rgba(21, 128, 61, 0.7)
+              );
             border-bottom: 4px solid rgba(0, 0, 0, 0.65);
             box-shadow:
               inset 0 1px 0 rgba(134, 239, 172, 0.45),
@@ -1401,8 +1820,16 @@ $steel-black: #0f172a;
 
           &:nth-child(3) {
             background:
-              linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, transparent 30%),
-              linear-gradient(180deg, rgba(245, 158, 11, 0.55), rgba(180, 83, 9, 0.7));
+              linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.18) 0%,
+                transparent 30%
+              ),
+              linear-gradient(
+                180deg,
+                rgba(245, 158, 11, 0.55),
+                rgba(180, 83, 9, 0.7)
+              );
             border-bottom: 4px solid rgba(0, 0, 0, 0.65);
             box-shadow:
               inset 0 1px 0 rgba(251, 191, 36, 0.45),
@@ -1424,10 +1851,18 @@ $steel-black: #0f172a;
             }
           }
 
-          &:nth-child(n+4) {
+          &:nth-child(n + 4) {
             background:
-              linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, transparent 30%),
-              linear-gradient(180deg, rgba($graphite-light, 0.85), rgba($graphite-dark, 0.85));
+              linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.12) 0%,
+                transparent 30%
+              ),
+              linear-gradient(
+                180deg,
+                rgba($graphite-light, 0.85),
+                rgba($graphite-dark, 0.85)
+              );
             border-bottom: 4px solid rgba(0, 0, 0, 0.6);
             box-shadow:
               inset 0 1px 0 rgba($graphite-bright, 0.4),
@@ -1453,8 +1888,16 @@ $steel-black: #0f172a;
           gap: 12px;
           padding: 10px 16px 10px 14px;
           background:
-            linear-gradient(135deg, rgba($electric-glow, 0.08) 0%, transparent 35%),
-            linear-gradient(180deg, rgba($graphite, 0.55), rgba($graphite-dark, 0.7));
+            linear-gradient(
+              135deg,
+              rgba($electric-glow, 0.08) 0%,
+              transparent 35%
+            ),
+            linear-gradient(
+              180deg,
+              rgba($graphite, 0.55),
+              rgba($graphite-dark, 0.7)
+            );
           border-left: 4px solid $electric;
           border-top: 1px solid rgba($graphite-bright, 0.32);
           border-bottom: 2px solid rgba(0, 0, 0, 0.55);
@@ -1484,7 +1927,9 @@ $steel-black: #0f172a;
             font-size: 15px;
             color: $text-bright;
             font-weight: 600;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55), 0 0 4px rgba($electric, 0.1);
+            text-shadow:
+              0 1px 2px rgba(0, 0, 0, 0.55),
+              0 0 4px rgba($electric, 0.1);
             letter-spacing: 0.3px;
           }
         }
@@ -1504,10 +1949,12 @@ $steel-black: #0f172a;
           top: 18px;
           bottom: 18px;
           width: 3px;
-          background: linear-gradient(180deg,
+          background: linear-gradient(
+            180deg,
             rgba($electric, 0.6) 0%,
             rgba($electric, 0.3) 50%,
-            rgba($graphite-bright, 0.18) 100%);
+            rgba($graphite-bright, 0.18) 100%
+          );
           box-shadow:
             0 0 8px rgba($electric, 0.25),
             inset 0 1px 0 rgba($electric-glow, 0.4),
@@ -1520,8 +1967,16 @@ $steel-black: #0f172a;
           gap: 10px;
           padding: 9px 14px 9px 10px;
           background:
-            linear-gradient(135deg, rgba($graphite-bright, 0.1) 0%, transparent 35%),
-            linear-gradient(180deg, rgba($graphite, 0.6), rgba($graphite-dark, 0.75));
+            linear-gradient(
+              135deg,
+              rgba($graphite-bright, 0.1) 0%,
+              transparent 35%
+            ),
+            linear-gradient(
+              180deg,
+              rgba($graphite, 0.6),
+              rgba($graphite-dark, 0.75)
+            );
           border: 1px solid rgba($graphite-bright, 0.32);
           border-top-color: rgba($graphite-bright, 0.48);
           border-bottom: 2px solid rgba(0, 0, 0, 0.55);
@@ -1543,7 +1998,11 @@ $steel-black: #0f172a;
             transform: translateY(-50%);
             width: 18px;
             height: 2px;
-            background: linear-gradient(90deg, rgba($electric, 0.5), rgba($graphite-bright, 0.2));
+            background: linear-gradient(
+              90deg,
+              rgba($electric, 0.5),
+              rgba($graphite-bright, 0.2)
+            );
             box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
           }
 
@@ -1556,17 +2015,25 @@ $steel-black: #0f172a;
             flex-shrink: 0;
             position: relative;
             z-index: 1;
-            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-            background:
-              linear-gradient(180deg,
-                rgba(255, 255, 255, 0.5) 0%,
-                $steel-bright 7%,
-                $steel-light 20%,
-                $steel 40%,
-                $steel-mid 58%,
-                $steel-deep 75%,
-                $steel-dark 88%,
-                rgba($electric, 0.4) 100%);
+            clip-path: polygon(
+              50% 0%,
+              100% 25%,
+              100% 75%,
+              50% 100%,
+              0% 75%,
+              0% 25%
+            );
+            background: linear-gradient(
+              180deg,
+              rgba(255, 255, 255, 0.5) 0%,
+              $steel-bright 7%,
+              $steel-light 20%,
+              $steel 40%,
+              $steel-mid 58%,
+              $steel-deep 75%,
+              $steel-dark 88%,
+              rgba($electric, 0.4) 100%
+            );
             box-shadow:
               0 5px 9px rgba(0, 0, 0, 0.75),
               0 2px 3px rgba(0, 0, 0, 0.55),
@@ -1583,7 +2050,12 @@ $steel-black: #0f172a;
               transform: translateX(-50%);
               width: 18px;
               height: 3px;
-              background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+              background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.8),
+                transparent
+              );
               border-radius: 50%;
               filter: blur(0.5px);
             }
@@ -1596,7 +2068,12 @@ $steel-black: #0f172a;
               transform: translateX(-50%);
               width: 14px;
               height: 2px;
-              background: linear-gradient(90deg, transparent, rgba($electric-glow, 0.55), transparent);
+              background: linear-gradient(
+                90deg,
+                transparent,
+                rgba($electric-glow, 0.55),
+                transparent
+              );
               border-radius: 50%;
               filter: blur(0.5px);
             }
@@ -1607,14 +2084,27 @@ $steel-black: #0f172a;
               justify-content: center;
               width: 22px;
               height: 25px;
-              clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-              background:
-                linear-gradient(180deg, $graphite-void 0%, $graphite-dark 45%, $graphite 100%);
+              clip-path: polygon(
+                50% 0%,
+                100% 25%,
+                100% 75%,
+                50% 100%,
+                0% 75%,
+                0% 25%
+              );
+              background: linear-gradient(
+                180deg,
+                $graphite-void 0%,
+                $graphite-dark 45%,
+                $graphite 100%
+              );
               font-size: 12px;
               font-weight: 800;
               font-family: 'Courier New', monospace;
               color: $electric-glow;
-              text-shadow: 0 0 8px rgba($electric, 0.8), 0 1px 1px rgba(0, 0, 0, 0.55);
+              text-shadow:
+                0 0 8px rgba($electric, 0.8),
+                0 1px 1px rgba(0, 0, 0, 0.55);
               box-shadow:
                 inset 0 2px 4px rgba(0, 0, 0, 0.85),
                 inset 0 -1px 1px rgba($graphite-bright, 0.3),
@@ -1637,7 +2127,6 @@ $steel-black: #0f172a;
             }
           }
 
-
           .plate-text {
             font-size: 14px;
             color: $text-bright;
@@ -1650,7 +2139,11 @@ $steel-black: #0f172a;
           &.plate-active {
             background:
               linear-gradient(135deg, rgba($electric, 0.2) 0%, transparent 35%),
-              linear-gradient(180deg, rgba($graphite, 0.6), rgba($graphite-dark, 0.75));
+              linear-gradient(
+                180deg,
+                rgba($graphite, 0.6),
+                rgba($graphite-dark, 0.75)
+              );
             border-color: rgba($electric, 0.55);
             border-top-color: rgba($electric-glow, 0.7);
             box-shadow:
@@ -1661,15 +2154,16 @@ $steel-black: #0f172a;
               0 0 14px rgba($electric, 0.22);
 
             .plate-rivet {
-              background:
-                linear-gradient(180deg,
-                  rgba(255, 255, 255, 0.55) 0%,
-                  $electric-glow 8%,
-                  $electric-bright 22%,
-                  $electric 42%,
-                  $electric-deep 62%,
-                  $electric-dark 82%,
-                  rgba($electric-glow, 0.4) 100%);
+              background: linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0.55) 0%,
+                $electric-glow 8%,
+                $electric-bright 22%,
+                $electric 42%,
+                $electric-deep 62%,
+                $electric-dark 82%,
+                rgba($electric-glow, 0.4) 100%
+              );
               box-shadow:
                 0 5px 10px rgba(0, 0, 0, 0.7),
                 0 2px 3px rgba(0, 0, 0, 0.5),
@@ -1680,10 +2174,16 @@ $steel-black: #0f172a;
                 inset -1px 0 1px rgba(0, 0, 0, 0.3);
 
               .rivet-core {
-                background:
-                  linear-gradient(180deg, $electric-dark 0%, $electric-deep 45%, $electric 100%);
+                background: linear-gradient(
+                  180deg,
+                  $electric-dark 0%,
+                  $electric-deep 45%,
+                  $electric 100%
+                );
                 color: $text-bright;
-                text-shadow: 0 0 10px rgba($electric-glow, 0.9), 0 1px 1px rgba(0, 0, 0, 0.4);
+                text-shadow:
+                  0 0 10px rgba($electric-glow, 0.9),
+                  0 1px 1px rgba(0, 0, 0, 0.4);
                 box-shadow:
                   inset 0 2px 4px rgba(0, 0, 0, 0.65),
                   inset 0 -1px 1px rgba($electric-glow, 0.4),
@@ -1691,7 +2191,6 @@ $steel-black: #0f172a;
                   inset -1px 0 1px rgba(0, 0, 0, 0.4);
               }
             }
-
           }
         }
       }
@@ -1725,7 +2224,11 @@ $steel-black: #0f172a;
             width: 5px;
             height: 5px;
             border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.5) 70%);
+            background: radial-gradient(
+              circle at 30% 30%,
+              rgba(255, 255, 255, 0.7),
+              rgba(0, 0, 0, 0.5) 70%
+            );
             box-shadow:
               inset 0 0 1px rgba(0, 0, 0, 0.6),
               0 0 2px rgba(0, 0, 0, 0.5);
@@ -1733,8 +2236,16 @@ $steel-black: #0f172a;
 
           &:not(.tag-heritage):nth-child(1) {
             background:
-              linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, transparent 30%),
-              linear-gradient(180deg, rgba(14, 165, 233, 0.55), rgba(8, 47, 73, 0.7));
+              linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.18) 0%,
+                transparent 30%
+              ),
+              linear-gradient(
+                180deg,
+                rgba(14, 165, 233, 0.55),
+                rgba(8, 47, 73, 0.7)
+              );
             box-shadow:
               inset 0 1px 0 rgba(186, 230, 253, 0.45),
               inset 0 -2px 2px rgba(0, 0, 0, 0.55),
@@ -1757,8 +2268,16 @@ $steel-black: #0f172a;
 
           &:not(.tag-heritage):nth-child(2) {
             background:
-              linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, transparent 30%),
-              linear-gradient(180deg, rgba(245, 158, 11, 0.55), rgba(180, 83, 9, 0.7));
+              linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.18) 0%,
+                transparent 30%
+              ),
+              linear-gradient(
+                180deg,
+                rgba(245, 158, 11, 0.55),
+                rgba(180, 83, 9, 0.7)
+              );
             box-shadow:
               inset 0 1px 0 rgba(254, 215, 170, 0.45),
               inset 0 -2px 2px rgba(0, 0, 0, 0.55),
@@ -1781,8 +2300,16 @@ $steel-black: #0f172a;
 
           &:not(.tag-heritage):nth-child(3) {
             background:
-              linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, transparent 30%),
-              linear-gradient(180deg, rgba(20, 184, 166, 0.55), rgba(6, 78, 59, 0.7));
+              linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.18) 0%,
+                transparent 30%
+              ),
+              linear-gradient(
+                180deg,
+                rgba(20, 184, 166, 0.55),
+                rgba(6, 78, 59, 0.7)
+              );
             box-shadow:
               inset 0 1px 0 rgba(94, 234, 212, 0.45),
               inset 0 -2px 2px rgba(0, 0, 0, 0.55),
@@ -1803,10 +2330,18 @@ $steel-black: #0f172a;
             }
           }
 
-          &:not(.tag-heritage):nth-child(n+4) {
+          &:not(.tag-heritage):nth-child(n + 4) {
             background:
-              linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, transparent 30%),
-              linear-gradient(180deg, rgba($graphite-light, 0.85), rgba($graphite-dark, 0.85));
+              linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.12) 0%,
+                transparent 30%
+              ),
+              linear-gradient(
+                180deg,
+                rgba($graphite-light, 0.85),
+                rgba($graphite-dark, 0.85)
+              );
             box-shadow:
               inset 0 1px 0 rgba($graphite-bright, 0.4),
               inset 0 -2px 2px rgba(0, 0, 0, 0.55),
@@ -1817,8 +2352,16 @@ $steel-black: #0f172a;
 
           &.tag-heritage {
             background:
-              linear-gradient(135deg, rgba($electric-glow, 0.25) 0%, transparent 30%),
-              linear-gradient(180deg, rgba($electric-deep, 0.7), rgba($electric-dark, 0.85));
+              linear-gradient(
+                135deg,
+                rgba($electric-glow, 0.25) 0%,
+                transparent 30%
+              ),
+              linear-gradient(
+                180deg,
+                rgba($electric-deep, 0.7),
+                rgba($electric-dark, 0.85)
+              );
             color: $electric-glow;
             font-weight: 800;
             box-shadow:
@@ -1828,7 +2371,9 @@ $steel-black: #0f172a;
               0 3px 7px rgba(0, 0, 0, 0.6),
               0 1px 0 rgba(0, 0, 0, 0.4),
               0 0 18px rgba($electric, 0.4);
-            text-shadow: 0 0 14px rgba($electric, 0.85), 0 1px 2px rgba(0, 0, 0, 0.5);
+            text-shadow:
+              0 0 14px rgba($electric, 0.85),
+              0 1px 2px rgba(0, 0, 0, 0.5);
 
             &:hover {
               box-shadow:
@@ -1874,9 +2419,22 @@ $steel-black: #0f172a;
 
           // ── 默认态：冷调石墨金属牌，3D凸起 ──
           background:
-            radial-gradient(ellipse at 50% 25%, rgba(255, 255, 255, 0.07) 0%, transparent 55%),
-            radial-gradient(ellipse at 50% 100%, rgba($c, 0.06) 0%, transparent 50%),
-            linear-gradient(180deg, $graphite-light 0%, $graphite 42%, $graphite-dark 100%);
+            radial-gradient(
+              ellipse at 50% 25%,
+              rgba(255, 255, 255, 0.07) 0%,
+              transparent 55%
+            ),
+            radial-gradient(
+              ellipse at 50% 100%,
+              rgba($c, 0.06) 0%,
+              transparent 50%
+            ),
+            linear-gradient(
+              180deg,
+              $graphite-light 0%,
+              $graphite 42%,
+              $graphite-dark 100%
+            );
           border-top: 2px solid rgba($graphite-bright, 0.38);
           border-bottom: 5px solid rgba(0, 0, 0, 0.88);
           border-left: 2px solid rgba($graphite-bright, 0.22);
@@ -1897,7 +2455,13 @@ $steel-black: #0f172a;
             width: 6px;
             height: 6px;
             border-radius: 50%;
-            background: radial-gradient(circle at 35% 35%, $steel-bright 0%, $steel-light 35%, $steel-deep 75%, $steel-void 100%);
+            background: radial-gradient(
+              circle at 35% 35%,
+              $steel-bright 0%,
+              $steel-light 35%,
+              $steel-deep 75%,
+              $steel-void 100%
+            );
             box-shadow:
               inset 0 -1px 1px rgba(0, 0, 0, 0.55),
               inset 0 1px 1px rgba(255, 255, 255, 0.35),
@@ -1905,8 +2469,15 @@ $steel-black: #0f172a;
             z-index: 5;
             transition: all 0.22s ease;
 
-            &.rivet-tl { top: 5px; left: 5px; }
-            &.rivet-br { bottom: 8px; right: 5px; }
+            &.rivet-tl {
+              top: 5px;
+              left: 5px;
+            }
+
+            &.rivet-br {
+              bottom: 8px;
+              right: 5px;
+            }
           }
 
           // ── 凹陷图标插座 — 冲压圆形凹槽 ──
@@ -1917,7 +2488,11 @@ $steel-black: #0f172a;
             width: 28px;
             height: 28px;
             border-radius: 50%;
-            background: radial-gradient(circle at 50% 40%, $graphite-void 0%, #000 90%);
+            background: radial-gradient(
+              circle at 50% 40%,
+              $graphite-void 0%,
+              #000 90%
+            );
             box-shadow:
               inset 0 3px 5px rgba(0, 0, 0, 0.85),
               inset 0 -1px 2px rgba(255, 255, 255, 0.04),
@@ -1938,9 +2513,22 @@ $steel-black: #0f172a;
           &:hover {
             transform: translateY(-3px);
             background:
-              radial-gradient(ellipse at 50% 25%, rgba(255, 255, 255, 0.09) 0%, transparent 55%),
-              radial-gradient(ellipse at 50% 100%, rgba($c, 0.15) 0%, transparent 55%),
-              linear-gradient(180deg, $graphite-light 0%, $graphite 42%, $graphite-dark 100%);
+              radial-gradient(
+                ellipse at 50% 25%,
+                rgba(255, 255, 255, 0.09) 0%,
+                transparent 55%
+              ),
+              radial-gradient(
+                ellipse at 50% 100%,
+                rgba($c, 0.15) 0%,
+                transparent 55%
+              ),
+              linear-gradient(
+                180deg,
+                $graphite-light 0%,
+                $graphite 42%,
+                $graphite-dark 100%
+              );
             border-top-color: rgba($c-glow, 0.4);
             box-shadow:
               0 12px 26px rgba(0, 0, 0, 0.75),
@@ -1950,10 +2538,17 @@ $steel-black: #0f172a;
               inset 0 1px 0 rgba(255, 255, 255, 0.1),
               inset 0 -2px 4px rgba(0, 0, 0, 0.45);
             color: $c-glow;
-            text-shadow: 0 0 8px rgba($c-glow, 0.6), 0 1px 2px rgba(0, 0, 0, 0.5);
+            text-shadow:
+              0 0 8px rgba($c-glow, 0.6),
+              0 1px 2px rgba(0, 0, 0, 0.5);
 
             .btn-rivet {
-              background: radial-gradient(circle at 35% 35%, $steel-bright 0%, $steel-light 30%, $c-deep 80%);
+              background: radial-gradient(
+                circle at 35% 35%,
+                $steel-bright 0%,
+                $steel-light 30%,
+                $c-deep 80%
+              );
               box-shadow:
                 inset 0 -1px 1px rgba(0, 0, 0, 0.5),
                 inset 0 1px 1px rgba(255, 255, 255, 0.4),
@@ -1962,7 +2557,11 @@ $steel-black: #0f172a;
             }
 
             .btn-icon-socket {
-              background: radial-gradient(circle at 50% 40%, rgba($c-deep, 0.5) 0%, $graphite-void 80%);
+              background: radial-gradient(
+                circle at 50% 40%,
+                rgba($c-deep, 0.5) 0%,
+                $graphite-void 80%
+              );
               box-shadow:
                 inset 0 3px 5px rgba(0, 0, 0, 0.8),
                 inset 0 -1px 2px rgba($c-glow, 0.08),
@@ -1981,7 +2580,12 @@ $steel-black: #0f172a;
               left: -100%;
               width: 60%;
               height: 100%;
-              background: linear-gradient(90deg, transparent, rgba($c-glow, 0.12), transparent);
+              background: linear-gradient(
+                90deg,
+                transparent,
+                rgba($c-glow, 0.12),
+                transparent
+              );
               animation: btnScan 1.4s ease infinite;
               z-index: 2;
               pointer-events: none;
@@ -1992,7 +2596,11 @@ $steel-black: #0f172a;
           &.is-active {
             transform: translateY(1px);
             background:
-              radial-gradient(ellipse at 50% 25%, rgba(255, 255, 255, 0.12) 0%, transparent 50%),
+              radial-gradient(
+                ellipse at 50% 25%,
+                rgba(255, 255, 255, 0.12) 0%,
+                transparent 50%
+              ),
               linear-gradient(180deg, $c-bright 0%, $c 35%, $c-deep 100%);
             border-top: 2px solid rgba($c-glow, 0.5);
             border-bottom: 4px solid rgba(0, 0, 0, 0.7);
@@ -2008,7 +2616,12 @@ $steel-black: #0f172a;
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 
             .btn-rivet {
-              background: radial-gradient(circle at 35% 35%, $c-glow 0%, $c-bright 35%, $c-deep 80%);
+              background: radial-gradient(
+                circle at 35% 35%,
+                $c-glow 0%,
+                $c-bright 35%,
+                $c-deep 80%
+              );
               box-shadow:
                 inset 0 -1px 1px rgba(0, 0, 0, 0.4),
                 inset 0 1px 1px rgba(255, 255, 255, 0.35),
@@ -2017,7 +2630,11 @@ $steel-black: #0f172a;
             }
 
             .btn-icon-socket {
-              background: radial-gradient(circle at 50% 40%, rgba(0, 0, 0, 0.4) 0%, rgba($c-deep, 0.6) 80%);
+              background: radial-gradient(
+                circle at 50% 40%,
+                rgba(0, 0, 0, 0.4) 0%,
+                rgba($c-deep, 0.6) 80%
+              );
               box-shadow:
                 inset 0 3px 5px rgba(0, 0, 0, 0.5),
                 inset 0 -1px 2px rgba($c-glow, 0.15),
@@ -2082,7 +2699,6 @@ $steel-black: #0f172a;
           }
         }
       }
-
     }
 
     &.empty-detail {
@@ -2093,10 +2709,26 @@ $steel-black: #0f172a;
 
       .empty-screw {
         @include screw(12px);
-        &.screw-tl { top: 14px; left: 14px; }
-        &.screw-tr { top: 14px; right: 14px; }
-        &.screw-bl { bottom: 14px; left: 14px; }
-        &.screw-br { bottom: 14px; right: 14px; }
+
+        &.screw-tl {
+          top: 14px;
+          left: 14px;
+        }
+
+        &.screw-tr {
+          top: 14px;
+          right: 14px;
+        }
+
+        &.screw-bl {
+          bottom: 14px;
+          left: 14px;
+        }
+
+        &.screw-br {
+          bottom: 14px;
+          right: 14px;
+        }
       }
 
       .empty-cast-plate {
@@ -2107,11 +2739,27 @@ $steel-black: #0f172a;
         gap: 14px;
         padding: 40px 36px;
         border-radius: 14px;
+
         @include cast-texture;
+
         background:
-          radial-gradient(ellipse at 50% 0%, rgba($electric, 0.1), transparent 55%),
-          radial-gradient(ellipse at 50% 100%, rgba(0, 0, 0, 0.4), transparent 50%),
-          linear-gradient(160deg, $graphite-light 0%, $graphite 40%, $graphite-dark 80%, $graphite-void 100%);
+          radial-gradient(
+            ellipse at 50% 0%,
+            rgba($electric, 0.1),
+            transparent 55%
+          ),
+          radial-gradient(
+            ellipse at 50% 100%,
+            rgba(0, 0, 0, 0.4),
+            transparent 50%
+          ),
+          linear-gradient(
+            160deg,
+            $graphite-light 0%,
+            $graphite 40%,
+            $graphite-dark 80%,
+            $graphite-void 100%
+          );
         border: 2px solid rgba($graphite-bright, 0.4);
         border-top-color: rgba($electric, 0.35);
         box-shadow:
@@ -2148,9 +2796,21 @@ $steel-black: #0f172a;
           height: 72px;
           border-radius: 50%;
           background:
-            radial-gradient(circle at 30% 25%, rgba($electric-glow, 0.3) 0%, transparent 40%),
-            radial-gradient(circle at 50% 50%, rgba($electric, 0.15) 0%, $graphite-void 75%),
-            linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, transparent 50%);
+            radial-gradient(
+              circle at 30% 25%,
+              rgba($electric-glow, 0.3) 0%,
+              transparent 40%
+            ),
+            radial-gradient(
+              circle at 50% 50%,
+              rgba($electric, 0.15) 0%,
+              $graphite-void 75%
+            ),
+            linear-gradient(
+              180deg,
+              rgba(255, 255, 255, 0.04) 0%,
+              transparent 50%
+            );
           border: 3px solid rgba($electric, 0.45);
           box-shadow:
             inset 0 2px 4px rgba($electric-glow, 0.2),
@@ -2161,8 +2821,7 @@ $steel-black: #0f172a;
 
           .empty-icon {
             color: $electric-bright;
-            filter:
-              drop-shadow(0 0 6px rgba($electric, 0.7))
+            filter: drop-shadow(0 0 6px rgba($electric, 0.7))
               drop-shadow(0 0 14px rgba($electric, 0.35));
           }
         }
@@ -2192,8 +2851,11 @@ $steel-black: #0f172a;
         gap: 10px;
         padding: 8px 18px;
         border-radius: 999px;
-        background:
-          linear-gradient(180deg, rgba($graphite-bright, 0.25), rgba($graphite-void, 0.6));
+        background: linear-gradient(
+          180deg,
+          rgba($graphite-bright, 0.25),
+          rgba($graphite-void, 0.6)
+        );
         border: 1px solid rgba($electric, 0.25);
         box-shadow:
           inset 0 1px 0 rgba(255, 255, 255, 0.08),
@@ -2204,7 +2866,12 @@ $steel-black: #0f172a;
           width: 10px;
           height: 10px;
           border-radius: 50%;
-          background: radial-gradient(circle at 35% 35%, #fde68a, #f59e0b 60%, #b45309);
+          background: radial-gradient(
+            circle at 35% 35%,
+            #fde68a,
+            #f59e0b 60%,
+            #b45309
+          );
           box-shadow:
             inset 0 -1px 1px rgba(0, 0, 0, 0.4),
             0 0 8px rgba(245, 158, 11, 0.7),
@@ -2236,7 +2903,12 @@ $steel-black: #0f172a;
             height: 100%;
             width: 35%;
             border-radius: 3px;
-            background: linear-gradient(90deg, $electric-deep, $electric, $electric-glow);
+            background: linear-gradient(
+              90deg,
+              $electric-deep,
+              $electric,
+              $electric-glow
+            );
             box-shadow: 0 0 6px rgba($electric, 0.6);
             animation: progressLoad 2.4s ease-in-out infinite;
           }
@@ -2257,8 +2929,11 @@ $steel-black: #0f172a;
           border-radius: 4px;
           letter-spacing: 1px;
           color: $electric-glow;
-          background:
-            linear-gradient(180deg, rgba($electric-dark, 0.4), rgba($graphite-void, 0.6));
+          background: linear-gradient(
+            180deg,
+            rgba($electric-dark, 0.4),
+            rgba($graphite-void, 0.6)
+          );
           border: 1px solid rgba($electric, 0.3);
           box-shadow:
             inset 0 1px 0 rgba($electric-glow, 0.15),
@@ -2270,15 +2945,16 @@ $steel-black: #0f172a;
   }
 }
 
- 
-
 // 3点闪烁（电蓝色）
 @keyframes dotBlink {
-  0%, 100% {
+  0%,
+  100% {
     background: rgba($graphite-dark, 0.6);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5);
   }
-  20%, 53% {
+
+  20%,
+  53% {
     background: $electric-glow;
     box-shadow:
       0 0 4px rgba($electric, 0.8),
@@ -2288,43 +2964,94 @@ $steel-black: #0f172a;
 
 // hover 态背光呼吸动画
 @keyframes hoverGlowBreathe {
-  0%, 100% { opacity: 0.45; }
-  50% { opacity: 0.8; }
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
 }
 
 // active 态拨块高光带脉冲动画
 @keyframes knobHighlightPulse {
-  0%, 100% { opacity: 0.65; }
-  50% { opacity: 1; }
+  0%,
+  100% {
+    opacity: 0.65;
+  }
+
+  50% {
+    opacity: 1;
+  }
 }
+
 // active 态背光呼吸动画
 @keyframes activeGlowBreathe {
-  0%, 100% { opacity: 0.85; }
-  50% { opacity: 1; }
+  0%,
+  100% {
+    opacity: 0.85;
+  }
+
+  50% {
+    opacity: 1;
+  }
 }
+
 // 按钮hover扫描线动画
 @keyframes btnScan {
-  0% { left: -100%; }
-  100% { left: 100%; }
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 100%;
+  }
 }
 
 // active 态底部LED指示灯脉冲
 @keyframes activeLedPulse {
-  0%, 100% { opacity: 0.7; }
-  50% { opacity: 1; }
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+
+  50% {
+    opacity: 1;
+  }
 }
+
 @keyframes gearSpin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes ledBlink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
 }
 
 @keyframes progressLoad {
-  0% { width: 15%; }
-  50% { width: 55%; }
-  100% { width: 15%; }
+  0% {
+    width: 15%;
+  }
+
+  50% {
+    width: 55%;
+  }
+
+  100% {
+    width: 15%;
+  }
 }

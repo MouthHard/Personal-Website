@@ -39,8 +39,8 @@
         transparent 0%,
         rgba(255, 250, 240, 0.4) 100%
       );
-
       border-radius: 10px;
+
       img {
         width: 50%;
         height: 100%;
@@ -70,7 +70,11 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        background: linear-gradient(135deg, rgba(42, 31, 20, 0.95), rgba(62, 45, 30, 0.9));
+        background: linear-gradient(
+          135deg,
+          rgba(42, 31, 20, 0.95),
+          rgba(62, 45, 30, 0.9)
+        );
         border: 1px solid rgba(139, 105, 20, 0.4);
         border-radius: 0 10px 10px 0;
         box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.4);
@@ -83,7 +87,8 @@
           height: 28px;
           z-index: 3;
 
-          &::before, &::after {
+          &::before,
+          &::after {
             content: '';
             position: absolute;
             background: rgba(212, 165, 116, 0.5);
@@ -99,21 +104,65 @@
             height: 100%;
           }
 
-          &.top-left { top: 8px; left: 8px; }
-          &.top-left::before { top: 0; left: 0; }
-          &.top-left::after { top: 0; left: 0; }
+          &.top-left {
+            top: 8px;
+            left: 8px;
+          }
 
-          &.top-right { top: 8px; right: 8px; }
-          &.top-right::before { top: 0; right: 0; }
-          &.top-right::after { top: 0; right: 0; }
+          &.top-left::before {
+            top: 0;
+            left: 0;
+          }
 
-          &.bottom-left { bottom: 8px; left: 8px; }
-          &.bottom-left::before { bottom: 0; left: 0; }
-          &.bottom-left::after { bottom: 0; left: 0; }
+          &.top-left::after {
+            top: 0;
+            left: 0;
+          }
 
-          &.bottom-right { bottom: 8px; right: 8px; }
-          &.bottom-right::before { bottom: 0; right: 0; }
-          &.bottom-right::after { bottom: 0; right: 0; }
+          &.top-right {
+            top: 8px;
+            right: 8px;
+          }
+
+          &.top-right::before {
+            top: 0;
+            right: 0;
+          }
+
+          &.top-right::after {
+            top: 0;
+            right: 0;
+          }
+
+          &.bottom-left {
+            bottom: 8px;
+            left: 8px;
+          }
+
+          &.bottom-left::before {
+            bottom: 0;
+            left: 0;
+          }
+
+          &.bottom-left::after {
+            bottom: 0;
+            left: 0;
+          }
+
+          &.bottom-right {
+            bottom: 8px;
+            right: 8px;
+          }
+
+          &.bottom-right::before {
+            bottom: 0;
+            right: 0;
+          }
+
+          &.bottom-right::after {
+            bottom: 0;
+            right: 0;
+          }
         }
 
         .pattern-strip {
@@ -123,7 +172,7 @@
           z-index: 2;
           background-image: repeating-linear-gradient(
             90deg,
-            transparent 0px,
+            transparent 0,
             transparent 6px,
             rgba(212, 165, 116, 0.5) 6px,
             rgba(212, 165, 116, 0.5) 7px,
@@ -159,8 +208,13 @@
             border-radius: 50%;
           }
 
-          &.top { top: 20px; }
-          &.bottom { bottom: 20px; }
+          &.top {
+            top: 20px;
+          }
+
+          &.bottom {
+            bottom: 20px;
+          }
         }
 
         .decoration-center {
@@ -172,29 +226,47 @@
           z-index: 2;
           position: relative;
 
-          &::before, &::after {
+          &::before,
+          &::after {
             content: '';
             position: absolute;
             width: 1.5px;
             height: 40px;
             left: 50%;
             transform: translateX(-50%);
-            background: linear-gradient(180deg, transparent, rgba(212, 165, 116, 0.4), transparent);
+            background: linear-gradient(
+              180deg,
+              transparent,
+              rgba(212, 165, 116, 0.4),
+              transparent
+            );
           }
 
-          &::before { top: -50px; }
-          &::after { bottom: -50px; }
+          &::before {
+            top: -50px;
+          }
+
+          &::after {
+            bottom: -50px;
+          }
         }
 
         .rating-badge {
           padding: 0.5rem 1.4rem;
-          background: linear-gradient(135deg, rgba(139, 90, 43, 0.85), rgba(101, 67, 33, 0.95));
+          background: linear-gradient(
+            135deg,
+            rgba(139, 90, 43, 0.85),
+            rgba(101, 67, 33, 0.95)
+          );
           border: 2px solid rgba(212, 165, 116, 0.6);
           border-radius: 4px;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(212, 165, 116, 0.2);
+          box-shadow:
+            0 4px 12px rgba(0, 0, 0, 0.4),
+            inset 0 1px 0 rgba(212, 165, 116, 0.2);
           position: relative;
 
-          &::before, &::after {
+          &::before,
+          &::after {
             content: '';
             position: absolute;
             top: 50%;
@@ -205,11 +277,16 @@
             border-radius: 50%;
           }
 
-          &::before { left: -10px; }
-          &::after { right: -10px; }
+          &::before {
+            left: -10px;
+          }
+
+          &::after {
+            right: -10px;
+          }
 
           .badge-text {
-            font-family: 'FangSong', 'STFangsong', serif;
+            font-family: fangsong, STFangsong, serif;
             font-size: 1rem;
             color: #f5e6d3;
             letter-spacing: 0.15em;
@@ -224,12 +301,18 @@
             height: 72px;
             border-radius: 50%;
             border: 3px solid rgba(212, 165, 116, 0.7);
-            background: radial-gradient(circle, rgba(139, 90, 43, 0.6), rgba(62, 45, 30, 0.8));
+            background: radial-gradient(
+              circle,
+              rgba(139, 90, 43, 0.6),
+              rgba(62, 45, 30, 0.8)
+            );
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(0, 0, 0, 0.3);
+            box-shadow:
+              0 4px 16px rgba(0, 0, 0, 0.5),
+              inset 0 0 20px rgba(0, 0, 0, 0.3);
             position: relative;
 
             &::before {
@@ -249,7 +332,7 @@
             }
 
             .seal-year {
-              font-family: 'FangSong', 'STFangsong', serif;
+              font-family: fangsong, STFangsong, serif;
               font-size: 1.35rem;
               color: #f5e6d3;
               font-weight: bold;
@@ -257,7 +340,7 @@
             }
 
             .seal-label {
-              font-family: 'FangSong', 'STFangsong', serif;
+              font-family: fangsong, STFangsong, serif;
               font-size: 0.7rem;
               color: rgba(212, 165, 116, 0.8);
               margin-top: 2px;
@@ -272,7 +355,7 @@
       .section-title {
         font-size: 2rem;
         color: #f5e6d3;
-        font-family: 'FangSong', 'STFangsong', serif;
+        font-family: fangsong, STFangsong, serif;
         text-shadow:
           0 2px 4px rgba(0, 0, 0, 0.5),
           0 0 20px rgba(212, 165, 116, 0.3);
@@ -282,6 +365,7 @@
         position: relative;
         letter-spacing: 0.1em;
         margin: 1rem 0;
+
         &::after {
           content: '☪';
           position: absolute;
@@ -374,11 +458,12 @@
       .visit-title {
         font-size: 1.4rem;
         color: #f5e6d3;
-        font-family: 'KaiTi', 'STKaiti', serif;
+        font-family: KaiTi, STKaiti, serif;
         text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
         position: relative;
         padding-left: 1rem;
-        margin: 0 0 0.75rem 0;
+        margin: 0 0 0.75rem;
+
         &::before {
           content: '';
           position: absolute;
@@ -395,6 +480,7 @@
         display: flex;
         flex-direction: column;
         gap: 0.75rem;
+
         p {
           color: #e0d0af;
           font-size: 1rem;
@@ -433,8 +519,8 @@
       .features-title {
         font-size: 1.3rem;
         color: #f5e6d3;
-        margin: 0 0 0.75rem 0;
-        font-family: 'KaiTi', 'STKaiti', serif;
+        margin: 0 0 0.75rem;
+        font-family: KaiTi, STKaiti, serif;
         text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
         position: relative;
         padding-left: 0.75rem;
@@ -536,7 +622,10 @@
       position: relative;
       transform-style: preserve-3d;
       transform: perspective(800px) rotateY(1deg);
-      transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+      transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease,
+        border-color 0.4s ease;
 
       &:hover {
         transform: perspective(800px) rotateY(0deg) translateX(4px);
@@ -552,8 +641,8 @@
       h3 {
         font-size: 1.4rem;
         color: #fff4e6;
-        margin: 0.5rem 0 1rem 0;
-        font-family: 'KaiTi', 'STKaiti', serif;
+        margin: 0.5rem 0 1rem;
+        font-family: KaiTi, STKaiti, serif;
         text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
         position: relative;
         display: flex;
@@ -567,13 +656,19 @@
           width: 1.8rem;
           height: 1.8rem;
           font-size: 0.85rem;
-          font-family: 'FangSong', 'STFangsong', serif;
+          font-family: fangsong, STFangsong, serif;
           color: #f5e6d3;
-          background: linear-gradient(135deg, rgba(139, 90, 43, 0.8), rgba(101, 67, 33, 0.9));
+          background: linear-gradient(
+            135deg,
+            rgba(139, 90, 43, 0.8),
+            rgba(101, 67, 33, 0.9)
+          );
           border: 1px solid rgba(212, 165, 116, 0.5);
           border-radius: 50%;
           flex-shrink: 0;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(212, 165, 116, 0.15);
+          box-shadow:
+            0 2px 8px rgba(0, 0, 0, 0.3),
+            inset 0 1px 0 rgba(212, 165, 116, 0.15);
           transition: transform 0.3s ease;
         }
 
@@ -599,7 +694,7 @@
         font-weight: 500;
         text-align: justify;
         position: relative;
-        margin: 0 0 0.5rem 0;
+        margin: 0 0 0.5rem;
         z-index: 1;
         text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
         transition: color 0.3s ease;

@@ -1,13 +1,22 @@
 <template>
   <div class="modal-header">
     <div class="modal-hero">
-      <img loading="lazy" :src="guide.cover" :alt="guide.title" />
+      <LandscapeImage loading="lazy" :src="guide.cover" :alt="guide.title" />
       <div class="modal-hero-overlay"></div>
       <div class="modal-hero-content">
         <div class="modal-badges">
-          <span v-if="guide.travelMode" :class="['badge', 'mode', `mode-${travelModeClass}`]">{{ guide.travelMode }}</span>
-          <span v-if="guide.sceneryTheme" class="badge theme">{{ guide.sceneryTheme }}</span>
-          <span :class="['badge', 'diff', guide.difficulty || 'intermediate']">{{ difficultyLabel }}</span>
+          <span
+            v-if="guide.travelMode"
+            :class="['badge', 'mode', `mode-${travelModeClass}`]"
+          >
+            {{ guide.travelMode }}
+          </span>
+          <span v-if="guide.sceneryTheme" class="badge theme">
+            {{ guide.sceneryTheme }}
+          </span>
+          <span :class="['badge', 'diff', guide.difficulty || 'intermediate']">
+            {{ difficultyLabel }}
+          </span>
         </div>
         <h1 class="modal-title">{{ guide.title }}</h1>
       </div>
@@ -16,10 +25,20 @@
     <div class="modal-meta-wrapper">
       <div class="modal-meta">
         <div class="meta-author">
-          <img loading="lazy" :src="guide.authorAvatar" :alt="guide.author" />
+          <LandscapeImage
+            loading="lazy"
+            :src="guide.authorAvatar"
+            :alt="guide.author"
+            variant="avatar"
+          />
           <div class="author-info">
             <span class="author-name">{{ guide.author }}</span>
-            <span v-if="guide.category" :class="['author-badge', `mode-${travelModeClass}`]">{{ guide.category }}</span>
+            <span
+              v-if="guide.category"
+              :class="['author-badge', `mode-${travelModeClass}`]"
+            >
+              {{ guide.category }}
+            </span>
           </div>
         </div>
         <div class="meta-details">
@@ -51,7 +70,12 @@
           </div>
         </div>
         <button
-          :class="['stat-block', 'interactive', `mode-${travelModeClass}`, { active: isLiked }]"
+          :class="[
+            'stat-block',
+            'interactive',
+            `mode-${travelModeClass}`,
+            { active: isLiked },
+          ]"
           @click="$emit('toggle-like')"
         >
           <ThumbUpIcon />
@@ -61,7 +85,12 @@
           </div>
         </button>
         <button
-          :class="['stat-block', 'interactive', `mode-${travelModeClass}`, { active: isLoved }]"
+          :class="[
+            'stat-block',
+            'interactive',
+            `mode-${travelModeClass}`,
+            { active: isLoved },
+          ]"
           @click="$emit('toggle-love')"
         >
           <HeartIcon />
@@ -71,7 +100,12 @@
           </div>
         </button>
         <button
-          :class="['stat-block', 'interactive', `mode-${travelModeClass}`, { active: isFavorited }]"
+          :class="[
+            'stat-block',
+            'interactive',
+            `mode-${travelModeClass}`,
+            { active: isFavorited },
+          ]"
           @click="$emit('toggle-favorite')"
         >
           <BookmarkIcon />
@@ -96,75 +130,81 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import { difficultyMap, travelModeMap, seasonMap } from '@/constants/landscape';
-import { formatNumber } from '@/utils/landscape/format';
-import CalendarIcon from '@/pages/Landscape/icons/common/CalendarIcon.vue';
-import ClockIcon from '@/pages/Landscape/icons/common/ClockIcon.vue';
-import LocationIcon from '@/pages/Landscape/icons/common/LocationIcon.vue';
-import LayersIcon from '@/pages/Landscape/icons/common/LayersIcon.vue';
-import EyeIcon from '@/pages/Landscape/icons/common/EyeIcon.vue';
-import ThumbUpIcon from '@/pages/Landscape/icons/common/ThumbUpIcon.vue';
-import HeartIcon from '@/pages/Landscape/icons/common/HeartIcon.vue';
-import BookmarkIcon from '@/pages/Landscape/icons/common/BookmarkIcon.vue';
-import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue';
+  import { computed } from 'vue';
+  import {
+    difficultyMap,
+    travelModeMap,
+    seasonMap,
+  } from '@/constants/landscape';
+  import { formatNumber } from '@/utils/landscape/format';
+  import CalendarIcon from '@/pages/Landscape/icons/common/CalendarIcon.vue';
+  import LandscapeImage from '../../../../../common/LandscapeImage/index.vue';
+  import ClockIcon from '@/pages/Landscape/icons/common/ClockIcon.vue';
+  import LocationIcon from '@/pages/Landscape/icons/common/LocationIcon.vue';
+  import LayersIcon from '@/pages/Landscape/icons/common/LayersIcon.vue';
+  import EyeIcon from '@/pages/Landscape/icons/common/EyeIcon.vue';
+  import ThumbUpIcon from '@/pages/Landscape/icons/common/ThumbUpIcon.vue';
+  import HeartIcon from '@/pages/Landscape/icons/common/HeartIcon.vue';
+  import BookmarkIcon from '@/pages/Landscape/icons/common/BookmarkIcon.vue';
+  import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue';
 
-interface Guide {
-  id: string;
-  title: string;
-  cover: string;
-  excerpt: string;
-  travelMode?: string;
-  sceneryTheme?: string;
-  location: string;
-  duration: string;
-  author: string;
-  authorAvatar?: string;
-  category: string;
-  difficulty?: 'beginner' | 'intermediate' | 'advanced';
-  season?: string;
-  publishDate?: string;
-}
+  interface Guide {
+    id: string;
+    title: string;
+    cover: string;
+    excerpt: string;
+    travelMode?: string;
+    sceneryTheme?: string;
+    location: string;
+    duration: string;
+    author: string;
+    authorAvatar?: string;
+    category: string;
+    difficulty?: 'beginner' | 'intermediate' | 'advanced';
+    season?: string;
+    publishDate?: string;
+  }
 
-interface Counts {
-  views: number;
-  likes: number;
-  loves: number;
-  favorites: number;
-  shares: number;
-}
+  interface Counts {
+    views: number;
+    likes: number;
+    loves: number;
+    favorites: number;
+    shares: number;
+  }
 
-interface Props {
-  guide: Guide;
-  counts: Counts;
-  isLiked: boolean;
-  isLoved: boolean;
-  isFavorited: boolean;
-}
+  interface Props {
+    guide: Guide;
+    counts: Counts;
+    isLiked: boolean;
+    isLoved: boolean;
+    isFavorited: boolean;
+  }
 
-const props = defineProps<Props>();
+  const props = defineProps<Props>();
 
-defineEmits<{
-  (e: 'toggle-like'): void;
-  (e: 'toggle-love'): void;
-  (e: 'toggle-favorite'): void;
-  (e: 'share'): void;
-}>();
+  defineEmits<{
+    (e: 'toggle-like'): void;
+    (e: 'toggle-love'): void;
+    (e: 'toggle-favorite'): void;
+    (e: 'share'): void;
+  }>();
 
-const difficultyLabel = computed(() => {
-  const difficulty: 'beginner' | 'intermediate' | 'advanced' = props.guide.difficulty || 'intermediate';
-  return difficultyMap[difficulty] || difficulty;
-});
+  const difficultyLabel = computed(() => {
+    const difficulty: 'beginner' | 'intermediate' | 'advanced' =
+      props.guide.difficulty || 'intermediate';
+    return difficultyMap[difficulty] || difficulty;
+  });
 
-const travelModeClass = computed(() => {
-  const mode = props.guide.travelMode || 'self-drive';
-  return travelModeMap[mode]?.class || 'default';
-});
+  const travelModeClass = computed(() => {
+    const mode = props.guide.travelMode || 'self-drive';
+    return travelModeMap[mode]?.class || 'default';
+  });
 
-const seasonLabel = computed(() => {
-  const season = props.guide.season || 'spring';
-  return seasonMap[season] || season;
-});
+  const seasonLabel = computed(() => {
+    const season = props.guide.season || 'spring';
+    return seasonMap[season] || season;
+  });
 </script>
 
 <style scoped lang="scss" src="./index.scss" />

@@ -1,9 +1,6 @@
 .edit-modal-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -39,7 +36,7 @@
 .modal-title {
   font-size: 20px;
   font-weight: 700;
-  color: #ffffff;
+  color: #fff;
   margin: 0;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
@@ -65,7 +62,7 @@
 
   &:hover {
     background: rgba(255, 255, 255, 0.2);
-    color: #ffffff;
+    color: #fff;
     transform: rotate(90deg);
   }
 
@@ -100,18 +97,19 @@
 .form-textarea {
   width: 100%;
   padding: 14px 16px;
-  background: linear-gradient(145deg, 
-    rgba(255, 255, 255, 0.08) 0%, 
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.08) 0%,
     rgba(255, 255, 255, 0.04) 100%
   );
   border: 2px solid rgba(255, 255, 255, 0.15);
   border-radius: 14px;
-  color: #ffffff;
+  color: #fff;
   font-size: 15px;
   transition: all 0.3s ease;
   outline: none;
   box-sizing: border-box;
-  box-shadow: 
+  box-shadow:
     0 2px 8px rgba(0, 0, 0, 0.15),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
 
@@ -121,8 +119,9 @@
 
   &:focus {
     border-color: rgba(255, 107, 107, 0.8);
-    background: linear-gradient(145deg, 
-      rgba(255, 107, 107, 0.15) 0%, 
+    background: linear-gradient(
+      145deg,
+      rgba(255, 107, 107, 0.15) 0%,
       rgba(255, 107, 107, 0.08) 100%
     );
     box-shadow:
@@ -134,8 +133,9 @@
 
   &:hover:not(:focus) {
     border-color: rgba(255, 255, 255, 0.25);
-    background: linear-gradient(145deg, 
-      rgba(255, 255, 255, 0.1) 0%, 
+    background: linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.1) 0%,
       rgba(255, 255, 255, 0.06) 100%
     );
   }
@@ -194,8 +194,9 @@
 }
 
 .btn-save {
-  background: linear-gradient(145deg, 
-    rgba(255, 107, 107, 0.95) 0%, 
+  background: linear-gradient(
+    145deg,
+    rgba(255, 107, 107, 0.95) 0%,
     rgba(255, 87, 87, 0.9) 100%
   );
   color: white;

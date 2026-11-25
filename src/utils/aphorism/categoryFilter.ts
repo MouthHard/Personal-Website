@@ -9,43 +9,62 @@ import type { Poem } from '@/typesOfPages/aphorism/poem';
  * 朝代到分类的映射
  * 分类：先秦、秦汉三国、魏晋南北朝、隋唐、五代十国、宋辽金、元明清、近现代
  * 诗词中的朝代保持原样，但能被对应分类筛选出来
- * 
+ *
  * 注意：每个朝代只保留一个标准名称，消除同义词
  * 如：元（不用元代）、清（不用清代）、唐（不用唐代）
  */
 const DYNASTY_TO_CATEGORY: Record<string, string[]> = {
-  '先秦': ['先秦', '春秋', '战国', '夏', '商', '西周', '东周'],
-  '秦汉三国': ['秦', '西汉', '东汉', '三国'],
-  '魏晋南北朝': ['魏', '西晋', '东晋', '魏晋', '南北朝'],
-  '隋唐': ['隋', '唐'],
-  '五代十国': ['五代十国'],
-  '宋辽金': ['北宋', '南宋', '宋', '辽', '金'],
-  '元明清': ['元', '明', '清'],
-  '近现代': ['近现代'],
+  先秦: ['先秦', '春秋', '战国', '夏', '商', '西周', '东周'],
+  秦汉三国: ['秦', '西汉', '东汉', '三国'],
+  魏晋南北朝: ['魏', '西晋', '东晋', '魏晋', '南北朝'],
+  隋唐: ['隋', '唐'],
+  五代十国: ['五代十国'],
+  宋辽金: ['北宋', '南宋', '宋', '辽', '金'],
+  元明清: ['元', '明', '清'],
+  近现代: ['近现代'],
 };
 
 /**
  * 分类名称到映射键的映射
  */
 const CATEGORY_NAME_MAP: Record<string, string> = {
-  '先秦': '先秦',
-  '秦汉三国': '秦汉三国',
-  '魏晋南北朝': '魏晋南北朝',
-  '隋唐': '隋唐',
-  '五代十国': '五代十国',
-  '宋辽金': '宋辽金',
-  '元明清': '元明清',
-  '近现代': '近现代',
+  先秦: '先秦',
+  秦汉三国: '秦汉三国',
+  魏晋南北朝: '魏晋南北朝',
+  隋唐: '隋唐',
+  五代十国: '五代十国',
+  宋辽金: '宋辽金',
+  元明清: '元明清',
+  近现代: '近现代',
 };
 
 /**
  * 体裁映射表
+ * 数据里的 form 使用全称（如「五言绝句」「长调」），此处同时保留简写别名，
+ * 避免后续数据换成简写时再次漏筛。
  */
 const FORM_MAP: Record<string, string[]> = {
-  shi: ['五绝', '七绝', '五律', '七律', '五言古诗', '七言古诗', '古体诗', '诗'],
-  ci: ['词'],
+  shi: [
+    '五绝',
+    '七绝',
+    '五律',
+    '七律',
+    '五言绝句',
+    '七言绝句',
+    '五言律诗',
+    '七言律诗',
+    '五言古诗',
+    '七言古诗',
+    '古体诗',
+    '乐府',
+    '五言',
+    '现代诗',
+    '诗经',
+    '诗',
+  ],
+  ci: ['词', '长调', '中调', '小令'],
   qu: ['散曲', '曲'],
-  'other-rhyme': ['铭', '箴', '颂', '其他韵文'],
+  'other-rhyme': ['铭', '箴', '颂', '赋', '三字经', '楚辞', '其他韵文'],
   'special-forms': ['回文诗', '藏头诗', '特殊形式'],
 };
 
@@ -53,11 +72,11 @@ const FORM_MAP: Record<string, string[]> = {
  * 中文体裁名称到映射键的映射
  */
 const FORM_NAME_MAP: Record<string, string> = {
-  '诗': 'shi',
-  '词': 'ci',
-  '曲': 'qu',
-  '其他韵文': 'other-rhyme',
-  '特殊形式': 'special-forms',
+  诗: 'shi',
+  词: 'ci',
+  曲: 'qu',
+  其他韵文: 'other-rhyme',
+  特殊形式: 'special-forms',
 };
 
 /**
@@ -83,19 +102,19 @@ const SUBJECT_TAG_MAP: Record<string, string[]> = {
  * 中文题材名称到映射键的映射
  */
 const SUBJECT_NAME_MAP: Record<string, string> = {
-  '山水田园': 'landscape',
-  '咏物': 'yongwu',
-  '咏史怀古': 'history',
-  '边塞征战': 'border',
-  '离别相思': 'farewell',
-  '垂钓闲适': 'fishing',
-  '宫怨': 'gongyuan',
-  '羁旅': 'jilv',
-  '爱情言情': 'romance',
-  '哲理': 'philosophy',
-  '励志': 'inspiration',
-  '饮酒': 'drinking',
-  '节日': 'festival',
+  山水田园: 'landscape',
+  咏物: 'yongwu',
+  咏史怀古: 'history',
+  边塞征战: 'border',
+  离别相思: 'farewell',
+  垂钓闲适: 'fishing',
+  宫怨: 'gongyuan',
+  羁旅: 'jilv',
+  爱情言情: 'romance',
+  哲理: 'philosophy',
+  励志: 'inspiration',
+  饮酒: 'drinking',
+  节日: 'festival',
 };
 
 /**
@@ -118,16 +137,16 @@ const EMOTION_TAG_MAP: Record<string, string[]> = {
  * 中文情感名称到映射键的映射
  */
 const EMOTION_NAME_MAP: Record<string, string> = {
-  '欢乐': 'joy',
-  '悲伤': 'sadness',
-  '思乡': 'nostalgia',
-  '忧愁': 'worry',
-  '愤怒': 'anger',
-  '仰慕': 'admiration',
-  '豪迈': 'heroic',
-  '恬淡': 'tranquil',
-  '孤独': 'lonely',
-  '惆怅': 'melancholy',
+  欢乐: 'joy',
+  悲伤: 'sadness',
+  思乡: 'nostalgia',
+  忧愁: 'worry',
+  愤怒: 'anger',
+  仰慕: 'admiration',
+  豪迈: 'heroic',
+  恬淡: 'tranquil',
+  孤独: 'lonely',
+  惆怅: 'melancholy',
 };
 
 /**
@@ -140,20 +159,32 @@ const SCHOOL_TAG_MAP: Record<string, string[]> = {
   gelian: ['格调派', '格律派', '肌理派'],
   tianyuan: ['山水田园诗派', '田园', '田园派'],
   biansai: ['边塞诗派', '边塞', '边塞战争'],
-  jiangxi: ['江西诗派', '韩孟诗派', '元白诗派', '江湖诗派', '四灵派', '中兴四大家', '前后七子', '公安派', '竟陵派', '性灵派', '浙西词派'],
+  jiangxi: [
+    '江西诗派',
+    '韩孟诗派',
+    '元白诗派',
+    '江湖诗派',
+    '四灵派',
+    '中兴四大家',
+    '前后七子',
+    '公安派',
+    '竟陵派',
+    '性灵派',
+    '浙西词派',
+  ],
 };
 
 /**
  * 中文流派名称到映射键的映射
  */
 const SCHOOL_NAME_MAP: Record<string, string> = {
-  '婉约派': 'tianlu',
-  '豪放派': 'haofang',
-  '清旷派': 'qingkuang',
-  '格律派': 'gelian',
-  '田园派': 'tianyuan',
-  '边塞派': 'biansai',
-  '江西诗派': 'jiangxi',
+  婉约派: 'tianlu',
+  豪放派: 'haofang',
+  清旷派: 'qingkuang',
+  格律派: 'gelian',
+  田园派: 'tianyuan',
+  边塞派: 'biansai',
+  江西诗派: 'jiangxi',
 };
 
 /**
@@ -172,12 +203,12 @@ const USAGE_MAP: Record<string, string[]> = {
  * 中文用途名称到映射键的映射
  */
 const USAGE_NAME_MAP: Record<string, string> = {
-  '启蒙读物': 'reading',
-  '科举应试': 'examination',
-  '酬唱赠答': 'friendship',
-  '咏史纪念': 'commemoration',
-  '应制': 'yingzhi',
-  '民歌': 'folk',
+  启蒙读物: 'reading',
+  科举应试: 'examination',
+  酬唱赠答: 'friendship',
+  咏史纪念: 'commemoration',
+  应制: 'yingzhi',
+  民歌: 'folk',
 };
 
 /**
@@ -259,7 +290,11 @@ export function filterPoemsByCategory(
     return poems;
   }
 
-  if (!subCategoryId || subCategoryId === 'all' || subCategoryId === '全部诗词') {
+  if (
+    !subCategoryId ||
+    subCategoryId === 'all' ||
+    subCategoryId === '全部诗词'
+  ) {
     return poems;
   }
 
@@ -289,7 +324,7 @@ export function filterPoemsByCategory(
  * @param query 搜索关键词
  * @returns 符合条件的诗词列表
  */
-interface SearchEntry {
+export interface SearchEntry {
   poem: Poem;
   text: string;
 }
@@ -299,6 +334,28 @@ interface SearchEntry {
  * 避免每次搜索对每个字段重复 toLowerCase()
  */
 let searchIndexCache: { source: Poem[]; entries: SearchEntry[] } | null = null;
+
+/** 展开创作背景对象为可检索文本片段 */
+function expandBackground(background: Poem['background']): string[] {
+  if (!background) return [];
+  return [background.era ?? '', background.creation ?? ''];
+}
+
+/** 展开赏析对象为可检索文本片段（含艺术特色、思想感情、名句赏析、文学地位） */
+function expandAppreciation(appreciation: Poem['appreciation']): string[] {
+  if (!appreciation) return [];
+  const parts = [
+    appreciation.artistic ?? '',
+    appreciation.emotion ?? '',
+    appreciation.status ?? '',
+  ];
+  if (Array.isArray(appreciation.highlightAnalysis)) {
+    for (const item of appreciation.highlightAnalysis) {
+      parts.push(item.verse ?? '', item.analysis ?? '');
+    }
+  }
+  return parts;
+}
 
 function buildSearchEntries(poems: Poem[]): SearchEntry[] {
   return poems.map((poem) => ({
@@ -310,18 +367,26 @@ function buildSearchEntries(poems: Poem[]): SearchEntry[] {
       poem.form ?? '',
       poem.content.join('\u0001'),
       (poem.tags ?? []).join('\u0001'),
-      poem.annotation ?? '',
+      Array.isArray(poem.annotation)
+        ? poem.annotation.map((a) => `${a.term}${a.explanation}`).join('\u0001')
+        : (poem.annotation ?? ''),
       poem.translation ?? '',
-      poem.background ?? '',
-      poem.appreciation ?? '',
-      poem.poetIntroduction ?? '',
+      // background / appreciation 是结构化对象，必须逐字段展开再拼接，
+      // 否则会被 join 成 "[object Object]"，导致背景与赏析正文完全搜不到
+      ...expandBackground(poem.background),
+      ...expandAppreciation(poem.appreciation),
+      poem.poetIntroduction
+        ? typeof poem.poetIntroduction === 'string'
+          ? poem.poetIntroduction
+          : Object.values(poem.poetIntroduction).join('\u0001')
+        : '',
     ]
       .join('\u0001')
       .toLowerCase(),
   }));
 }
 
-function getSearchEntries(poems: Poem[]): SearchEntry[] {
+export function getSearchEntries(poems: Poem[]): SearchEntry[] {
   if (!searchIndexCache || searchIndexCache.source !== poems) {
     searchIndexCache = { source: poems, entries: buildSearchEntries(poems) };
   }

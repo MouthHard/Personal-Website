@@ -25,14 +25,22 @@ $text-dim: #5e6c8a;
   display: flex;
   flex-direction: row;
   gap: 0.9rem;
-  padding: 1rem 1.1rem 1rem;
+  padding: 1rem 1.1rem;
   background:
     radial-gradient(ellipse at 8% 0%, rgba(0, 229, 255, 0.1), transparent 42%),
-    radial-gradient(ellipse at 92% 6%, rgba(255, 196, 0, 0.07), transparent 46%),
-    radial-gradient(ellipse at 50% 110%, rgba(26, 109, 255, 0.08), transparent 50%),
+    radial-gradient(
+      ellipse at 92% 6%,
+      rgba(255, 196, 0, 0.07),
+      transparent 46%
+    ),
+    radial-gradient(
+      ellipse at 50% 110%,
+      rgba(26, 109, 255, 0.08),
+      transparent 50%
+    ),
     linear-gradient(165deg, #081226 0%, #050d1f 55%, #03060f 100%);
   border: 1px solid rgba(0, 229, 255, 0.25);
-  border-radius: 16px 4px 16px 4px;
+  border-radius: 16px 4px;
   box-shadow:
     0 16px 48px rgba(0, 0, 0, 0.6),
     0 0 0 1px rgba(0, 229, 255, 0.06),
@@ -88,9 +96,13 @@ $text-dim: #5e6c8a;
   height: 100%;
   display: flex;
   flex-direction: column;
-  border-radius: 14px 3px 14px 3px;
+  border-radius: 14px 3px;
   background:
-    radial-gradient(ellipse at 50% 0%, rgba(0, 229, 255, 0.08), transparent 55%),
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(0, 229, 255, 0.08),
+      transparent 55%
+    ),
     linear-gradient(180deg, rgba(8, 18, 38, 0.97), rgba(4, 10, 24, 0.99));
   border: 1px solid rgba(0, 229, 255, 0.32);
   box-shadow:
@@ -106,8 +118,16 @@ $text-dim: #5e6c8a;
     position: absolute;
     inset: 0;
     background:
-      repeating-linear-gradient(0deg, transparent 0 22px, rgba(0, 229, 255, 0.025) 22px 23px),
-      repeating-linear-gradient(90deg, transparent 0 22px, rgba(0, 229, 255, 0.025) 22px 23px);
+      repeating-linear-gradient(
+        0deg,
+        transparent 0 22px,
+        rgba(0, 229, 255, 0.025) 22px 23px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent 0 22px,
+        rgba(0, 229, 255, 0.025) 22px 23px
+      );
     pointer-events: none;
     opacity: 0.7;
   }
@@ -135,6 +155,7 @@ $text-dim: #5e6c8a;
         border-right: none;
         border-bottom: none;
       }
+
       &.nav-corner-tr {
         top: 6px;
         right: 6px;
@@ -151,6 +172,7 @@ $text-dim: #5e6c8a;
       letter-spacing: 0.12em;
       line-height: 1.1;
     }
+
     .nav-sub {
       display: block;
       margin-top: 6px;
@@ -158,9 +180,10 @@ $text-dim: #5e6c8a;
       color: rgba(0, 229, 255, 0.75);
       letter-spacing: 0.32em;
       font-weight: 700;
-      font-family: 'Consolas', 'Monaco', monospace;
+      font-family: Consolas, Monaco, monospace;
       text-shadow: 0 0 8px rgba(0, 229, 255, 0.4);
     }
+
     .nav-glow {
       position: absolute;
       bottom: -1px;
@@ -171,13 +194,19 @@ $text-dim: #5e6c8a;
       filter: drop-shadow(0 0 6px $cyan);
       animation: navGlowSweep 3s ease-in-out infinite;
     }
+
     .nav-scan {
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.85), transparent);
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(0, 229, 255, 0.85),
+        transparent
+      );
       animation: navTopScan 2.8s ease-in-out infinite;
     }
   }
@@ -185,7 +214,7 @@ $text-dim: #5e6c8a;
   .nav-tree {
     flex: 1;
     overflow-y: auto;
-    padding: 0.95rem 0.6rem 0.95rem;
+    padding: 0.95rem 0.6rem;
     display: flex;
     flex-direction: column;
     gap: 0.95rem;
@@ -195,15 +224,26 @@ $text-dim: #5e6c8a;
     &::-webkit-scrollbar {
       width: 5px;
     }
+
     &::-webkit-scrollbar-track {
       background: rgba(0, 0, 0, 0.25);
       border-radius: 3px;
     }
+
     &::-webkit-scrollbar-thumb {
-      background: linear-gradient(180deg, rgba(0, 229, 255, 0.45), rgba(0, 229, 255, 0.2));
+      background: linear-gradient(
+        180deg,
+        rgba(0, 229, 255, 0.45),
+        rgba(0, 229, 255, 0.2)
+      );
       border-radius: 3px;
+
       &:hover {
-        background: linear-gradient(180deg, rgba(0, 229, 255, 0.65), rgba(0, 229, 255, 0.3));
+        background: linear-gradient(
+          180deg,
+          rgba(0, 229, 255, 0.65),
+          rgba(0, 229, 255, 0.3)
+        );
       }
     }
   }
@@ -220,12 +260,14 @@ $text-dim: #5e6c8a;
       --accent-bg: rgba(0, 229, 255, 0.18);
       --accent-glow: rgba(0, 229, 255, 0.45);
     }
+
     &.branch-green {
       --accent: #34d399;
       --accent-soft: rgba(52, 211, 153, 0.55);
       --accent-bg: rgba(52, 211, 153, 0.18);
       --accent-glow: rgba(52, 211, 153, 0.45);
     }
+
     &.branch-gold {
       --accent: #ffc400;
       --accent-soft: rgba(255, 196, 0, 0.55);
@@ -240,10 +282,13 @@ $text-dim: #5e6c8a;
       align-items: center;
       gap: 0.6rem;
       padding: 0.85rem 0.8rem 0.85rem 1.05rem;
-      border-radius: 10px 3px 10px 3px;
+      border-radius: 10px 3px;
       border: 1px solid rgba(255, 255, 255, 0.1);
-      background:
-        linear-gradient(160deg, rgba(16, 32, 60, 0.9) 0%, rgba(6, 14, 30, 0.96) 100%);
+      background: linear-gradient(
+        160deg,
+        rgba(16, 32, 60, 0.9) 0%,
+        rgba(6, 14, 30, 0.96) 100%
+      );
       color: #e8f3ff;
       font-size: 1.18rem;
       font-weight: 700;
@@ -284,7 +329,12 @@ $text-dim: #5e6c8a;
         bottom: 16%;
         width: 3px;
         border-radius: 0 2px 2px 0;
-        background: linear-gradient(180deg, transparent, var(--accent), transparent);
+        background: linear-gradient(
+          180deg,
+          transparent,
+          var(--accent),
+          transparent
+        );
         opacity: 0.4;
         transition: all 0.3s ease;
         box-shadow: 0 0 6px var(--accent-glow);
@@ -300,8 +350,11 @@ $text-dim: #5e6c8a;
         color: var(--accent);
         transition: all 0.3s ease;
         clip-path: polygon(50% 0, 96% 25%, 96% 75%, 50% 100%, 4% 75%, 4% 25%);
-        background:
-          linear-gradient(135deg, var(--accent-bg), rgba(0, 0, 0, 0.35));
+        background: linear-gradient(
+          135deg,
+          var(--accent-bg),
+          rgba(0, 0, 0, 0.35)
+        );
         filter: drop-shadow(0 0 6px var(--accent-glow));
 
         &::before {
@@ -309,9 +362,14 @@ $text-dim: #5e6c8a;
           position: absolute;
           inset: 1px;
           clip-path: polygon(50% 0, 96% 25%, 96% 75%, 50% 100%, 4% 75%, 4% 25%);
-          background: linear-gradient(160deg, rgba(8, 18, 38, 0.7), rgba(4, 10, 24, 0.9));
+          background: linear-gradient(
+            160deg,
+            rgba(8, 18, 38, 0.7),
+            rgba(4, 10, 24, 0.9)
+          );
           z-index: 0;
         }
+
         // 内部小十字准星
         &::after {
           content: '';
@@ -324,15 +382,18 @@ $text-dim: #5e6c8a;
           z-index: 0;
           animation: iconRingSpin 6s linear infinite;
         }
+
         > * {
           position: relative;
           z-index: 1;
         }
       }
+
       .branch-label {
         flex: 1;
         text-align: left;
       }
+
       // count — 科幻读数舱
       .branch-count {
         position: relative;
@@ -344,10 +405,13 @@ $text-dim: #5e6c8a;
         font-size: 0.92rem;
         font-weight: 800;
         border-radius: 12px;
-        background:
-          linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.3));
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.1),
+          rgba(0, 0, 0, 0.3)
+        );
         color: #b8c8e0;
-        font-family: 'Consolas', 'Monaco', monospace;
+        font-family: Consolas, Monaco, monospace;
         border: 1px solid rgba(255, 255, 255, 0.14);
         transition: all 0.3s ease;
         box-shadow:
@@ -356,20 +420,22 @@ $text-dim: #5e6c8a;
           0 1px 2px rgba(0, 0, 0, 0.3);
 
         .count-num {
-          text-shadow: 0 0 8px currentColor;
+          text-shadow: 0 0 8px currentcolor;
         }
       }
+
       // caret — 能量箭头
       .branch-caret {
         width: 0;
         height: 0;
         border-left: 5px solid transparent;
         border-right: 5px solid transparent;
-        border-top: 6px solid currentColor;
+        border-top: 6px solid currentcolor;
         opacity: 0.65;
         transition: transform 0.3s ease;
-        filter: drop-shadow(0 0 4px currentColor);
+        filter: drop-shadow(0 0 4px currentcolor);
       }
+
       // 表面光泽扫光
       .branch-sheen {
         position: absolute;
@@ -377,17 +443,25 @@ $text-dim: #5e6c8a;
         left: -60%;
         width: 50%;
         height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.1),
+          transparent
+        );
         transform: skewX(-18deg);
         pointer-events: none;
         transition: left 0.6s ease;
       }
 
       &:hover {
-        color: #ffffff;
+        color: #fff;
         border-color: var(--accent-soft);
-        background:
-          linear-gradient(160deg, rgba(20, 38, 70, 0.95) 0%, rgba(8, 18, 36, 0.98) 100%);
+        background: linear-gradient(
+          160deg,
+          rgba(20, 38, 70, 0.95) 0%,
+          rgba(8, 18, 36, 0.98) 100%
+        );
         box-shadow:
           0 10px 22px rgba(0, 0, 0, 0.55),
           0 0 18px var(--accent-glow),
@@ -402,11 +476,13 @@ $text-dim: #5e6c8a;
           width: 4px;
           box-shadow: 0 0 12px var(--accent);
         }
+
         .branch-icon {
           color: var(--accent);
           filter: drop-shadow(0 0 10px var(--accent));
           transform: scale(1.1) rotate(8deg);
         }
+
         .branch-sheen {
           left: 120%;
         }
@@ -418,7 +494,7 @@ $text-dim: #5e6c8a;
     }
 
     &.active .branch-head {
-      color: #ffffff;
+      color: #fff;
       border-color: var(--accent);
       background:
         linear-gradient(160deg, var(--accent-bg) 0%, rgba(6, 14, 30, 0.92) 70%),
@@ -439,15 +515,25 @@ $text-dim: #5e6c8a;
         top: 6%;
         bottom: 6%;
         width: 4px;
-        background: linear-gradient(180deg, transparent, var(--accent), var(--accent), transparent);
+        background: linear-gradient(
+          180deg,
+          transparent,
+          var(--accent),
+          var(--accent),
+          transparent
+        );
         box-shadow: 0 0 14px var(--accent);
       }
 
       .branch-icon {
         color: var(--accent);
-        filter: drop-shadow(0 0 14px var(--accent)) drop-shadow(0 0 24px var(--accent-glow));
-        background:
-          linear-gradient(135deg, var(--accent-bg), rgba(0, 0, 0, 0.3));
+        filter: drop-shadow(0 0 14px var(--accent))
+          drop-shadow(0 0 24px var(--accent-glow));
+        background: linear-gradient(
+          135deg,
+          var(--accent-bg),
+          rgba(0, 0, 0, 0.3)
+        );
         transform: scale(1.14);
         animation: branchIconPulse 2.4s ease-in-out infinite;
 
@@ -458,8 +544,11 @@ $text-dim: #5e6c8a;
       }
 
       .branch-count {
-        background:
-          linear-gradient(180deg, var(--accent-bg), rgba(0, 0, 0, 0.2));
+        background: linear-gradient(
+          180deg,
+          var(--accent-bg),
+          rgba(0, 0, 0, 0.2)
+        );
         color: var(--accent);
         border-color: var(--accent-soft);
         box-shadow:
@@ -484,7 +573,12 @@ $text-dim: #5e6c8a;
         left: 12%;
         right: 12%;
         height: 2px;
-        background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--accent),
+          transparent
+        );
         filter: drop-shadow(0 0 6px var(--accent));
         animation: branchTopFlow 2.2s ease-in-out infinite;
       }
@@ -532,9 +626,12 @@ $text-dim: #5e6c8a;
         flex-direction: column;
         gap: 0.4rem;
         padding: 0.55rem 0.5rem 0.6rem;
-        border-radius: 10px 3px 10px 3px;
-        background:
-          linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.01));
+        border-radius: 10px 3px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.035),
+          rgba(255, 255, 255, 0.01)
+        );
         border: 1px solid rgba(255, 255, 255, 0.07);
         box-shadow:
           inset 0 1px 0 rgba(255, 255, 255, 0.04),
@@ -552,7 +649,6 @@ $text-dim: #5e6c8a;
         border-bottom: 2px solid var(--accent);
         border-bottom-color: rgba(0, 229, 255, 0.22);
         margin-bottom: 0.2rem;
- 
       }
 
       .leaf {
@@ -561,9 +657,13 @@ $text-dim: #5e6c8a;
         align-items: center;
         gap: 0.6rem;
         padding: 0.62rem 0.6rem 0.62rem 0.85rem;
-        border-radius: 8px 2px 8px 2px;
+        border-radius: 8px 2px;
         border: 1px solid transparent;
-        background: linear-gradient(90deg, rgba(255, 255, 255, 0.04), transparent);
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.04),
+          transparent
+        );
         color: #dce8f8;
         font-size: 1.05rem;
         font-weight: 700;
@@ -596,10 +696,12 @@ $text-dim: #5e6c8a;
             transition: all 0.25s ease;
           }
         }
+
         .leaf-label {
           flex: 1;
           text-align: left;
         }
+
         // 迷你读数舱
         .leaf-count {
           display: inline-grid;
@@ -609,10 +711,13 @@ $text-dim: #5e6c8a;
           height: 20px;
           font-size: 0.84rem;
           border-radius: 10px;
-          background:
-            linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0.25));
+          background: linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.08),
+            rgba(0, 0, 0, 0.25)
+          );
           color: #b8c8e0;
-          font-family: 'Consolas', 'Monaco', monospace;
+          font-family: Consolas, Monaco, monospace;
           font-weight: 700;
           border: 1px solid rgba(255, 255, 255, 0.12);
           transition: all 0.25s ease;
@@ -622,7 +727,7 @@ $text-dim: #5e6c8a;
         }
 
         &:hover {
-          color: #ffffff;
+          color: #fff;
           background: linear-gradient(90deg, var(--accent-bg), transparent 80%);
           border-color: rgba(255, 255, 255, 0.14);
           transform: translateX(4px);
@@ -643,6 +748,7 @@ $text-dim: #5e6c8a;
               inset: -5px;
             }
           }
+
           .leaf-count {
             color: #e0eeff;
             border-color: rgba(255, 255, 255, 0.2);
@@ -650,7 +756,7 @@ $text-dim: #5e6c8a;
         }
 
         &.active {
-          color: #ffffff;
+          color: #fff;
           font-weight: 700;
           background:
             linear-gradient(90deg, var(--accent-bg), transparent 85%),
@@ -666,7 +772,7 @@ $text-dim: #5e6c8a;
 
           .leaf-node {
             background: var(--accent);
-            border-color: #ffffff;
+            border-color: #fff;
             box-shadow:
               0 0 14px var(--accent),
               0 0 0 3px var(--accent-bg),
@@ -679,9 +785,13 @@ $text-dim: #5e6c8a;
               animation: nodeRingPulse 1.8s ease-in-out infinite;
             }
           }
+
           .leaf-count {
-            background:
-              linear-gradient(180deg, var(--accent-bg), rgba(0, 0, 0, 0.2));
+            background: linear-gradient(
+              180deg,
+              var(--accent-bg),
+              rgba(0, 0, 0, 0.2)
+            );
             color: var(--accent);
             border: 1px solid var(--accent-soft);
             box-shadow:
@@ -723,15 +833,26 @@ $text-dim: #5e6c8a;
   &::-webkit-scrollbar {
     width: 6px;
   }
+
   &::-webkit-scrollbar-track {
     background: rgba(0, 0, 0, 0.2);
     border-radius: 3px;
   }
+
   &::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, rgba(0, 229, 255, 0.4), rgba(0, 229, 255, 0.2));
+    background: linear-gradient(
+      180deg,
+      rgba(0, 229, 255, 0.4),
+      rgba(0, 229, 255, 0.2)
+    );
     border-radius: 3px;
+
     &:hover {
-      background: linear-gradient(180deg, rgba(0, 229, 255, 0.6), rgba(0, 229, 255, 0.3));
+      background: linear-gradient(
+        180deg,
+        rgba(0, 229, 255, 0.6),
+        rgba(0, 229, 255, 0.3)
+      );
     }
   }
 }
@@ -740,61 +861,139 @@ $text-dim: #5e6c8a;
 // 动画
 // ============================================================================
 @keyframes myNeon {
-  0% { background-position: 0% 0; }
-  100% { background-position: 200% 0; }
+  0% {
+    background-position: 0% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
 }
 
 @keyframes avatarSpin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes tickSpin {
-  to { transform: rotate(-360deg); }
+  to {
+    transform: rotate(-360deg);
+  }
 }
 
 @keyframes headerScan {
-  0%, 100% { opacity: 0.4; transform: translateX(-4%); }
-  50% { opacity: 1; transform: translateX(4%); }
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: translateX(-4%);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateX(4%);
+  }
 }
 
 @keyframes navGlowSweep {
-  0%, 100% { opacity: 0.6; transform: scaleX(0.7); }
-  50% { opacity: 1; transform: scaleX(1); }
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scaleX(0.7);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
 }
 
 @keyframes navTopScan {
-  0%, 100% { opacity: 0.3; transform: translateX(-30%); }
-  50% { opacity: 1; transform: translateX(30%); }
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: translateX(-30%);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateX(30%);
+  }
 }
 
 @keyframes leafPulse {
-  0%, 100% { box-shadow: 0 0 10px var(--accent), 0 0 0 3px var(--accent-bg); }
-  50% { box-shadow: 0 0 16px var(--accent), 0 0 0 5px var(--accent-bg); }
+  0%,
+  100% {
+    box-shadow:
+      0 0 10px var(--accent),
+      0 0 0 3px var(--accent-bg);
+  }
+
+  50% {
+    box-shadow:
+      0 0 16px var(--accent),
+      0 0 0 5px var(--accent-bg);
+  }
 }
 
 @keyframes branchIconPulse {
-  0%, 100% { filter: drop-shadow(0 0 10px var(--accent)); }
-  50% { filter: drop-shadow(0 0 18px var(--accent)) drop-shadow(0 0 28px var(--accent-glow)); }
+  0%,
+  100% {
+    filter: drop-shadow(0 0 10px var(--accent));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 18px var(--accent))
+      drop-shadow(0 0 28px var(--accent-glow));
+  }
 }
 
 @keyframes iconRingSpin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes branchTopFlow {
-  0%, 100% { opacity: 0.6; transform: scaleX(0.7); }
-  50% { opacity: 1; transform: scaleX(1); }
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scaleX(0.7);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
 }
 
 @keyframes railFlow {
-  0% { top: 0; opacity: 0; }
-  30% { opacity: 1; }
-  100% { top: 70%; opacity: 0; }
+  0% {
+    top: 0;
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  100% {
+    top: 70%;
+    opacity: 0;
+  }
 }
 
 @keyframes nodeRingPulse {
-  0%, 100% { transform: scale(1); opacity: 0.7; }
-  50% { transform: scale(1.4); opacity: 0; }
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
 }
 
 // ============================================================================
@@ -813,8 +1012,7 @@ $text-dim: #5e6c8a;
 
     .nav-tree {
       flex-direction: row;
-      overflow-x: auto;
-      overflow-y: visible;
+      overflow: auto visible;
     }
 
     .tree-branch {
