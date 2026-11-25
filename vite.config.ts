@@ -61,8 +61,11 @@ export default defineConfig(({ mode }) => {
         dirs: ['src/pages/Landscape/components/common'],
         dts: 'types/components.d.ts',
       }),
-      /** 包体积可视化分析（仅本地 production 构建时生成，gh-pages 部署不需要） */
-      mode === 'production' &&
+      /**
+       * 包体积可视化分析：仅显式 `ANALYZE=true` 构建时生成。
+       * 默认不生成，避免 1.2MB 的 stats.html 随 dist 被部署到线上。
+       */
+      process.env.ANALYZE === 'true' &&
         visualizer({
           filename: 'dist/stats.html',
           gzipSize: true,
