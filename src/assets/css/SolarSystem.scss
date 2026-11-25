@@ -13,6 +13,9 @@
   --px: 0;
   --py: 0;
 
+  /* 左侧导航舱占用的横向空间：导航左偏移 + 舱宽 + 间隙，太阳系在它右侧居中 */
+  --nav-reserve: calc(clamp(1.2rem, 3.5vw, 3.5rem) + 12.4rem);
+
   position: absolute;
   z-index: 0;
   width: 100%;
@@ -131,6 +134,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-left: var(--nav-reserve);
+    padding-right: 2rem;
     perspective: 1400px;
     perspective-origin: 50% 50%;
   }
@@ -141,13 +146,21 @@
     --tilt: calc(56deg + var(--py) * 5deg);
     --roll: -9deg;
 
+    /* 太阳系直径：优先撑满视口高度，宽度则用导航让位后的剩余空间 */
+    --system-size: min(96vmin, calc(100vw - var(--nav-reserve) - 2rem));
+
+    /* 太阳直径：日冕与各行星尺寸都以它为基准等比放大 */
+    --sun-size: calc(var(--system-size) * 0.114);
+
     position: relative;
-    width: 66vmin;
-    height: 66vmin;
+    width: var(--system-size);
+    height: var(--system-size);
     border-radius: 50%;
     transform-style: preserve-3d;
-    transform: rotateZ(var(--roll)) rotateX(var(--tilt))
-      rotateY(calc(var(--px) * 7deg));
+
+    /* 透视会放大靠近镜头的一侧（画面下方），整体略上移让上下留白更均衡 */
+    transform: translateY(calc(var(--system-size) * -0.07)) rotateZ(var(--roll))
+      rotateX(var(--tilt)) rotateY(calc(var(--px) * 7deg));
     transition: transform 0.35s ease-out;
     will-change: transform;
 
@@ -165,9 +178,9 @@
       position: absolute;
       left: 50%;
       top: 50%;
-      width: 26vmin;
-      height: 26vmin;
-      margin: -13vmin 0 0 -13vmin;
+      width: calc(var(--sun-size) * 2.9);
+      height: calc(var(--sun-size) * 2.9);
+      margin: calc(var(--sun-size) * -1.45) 0 0 calc(var(--sun-size) * -1.45);
       border-radius: 50%;
       pointer-events: none;
       background: radial-gradient(
@@ -403,11 +416,11 @@
   }
 
   .orbit-3 .planet-moon {
-    --moon-radius: 2.1vmin;
+    --moon-radius: calc(var(--planet-size) * 0.62);
   }
 
   .orbit-5 .planet-moon {
-    --moon-radius: 3.6vmin;
+    --moon-radius: calc(var(--planet-size) * 0.72);
 
     animation-duration: 9s;
     animation-delay: -2.4s;
@@ -478,8 +491,8 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    width: 9vmin;
-    height: 9vmin;
+    width: var(--sun-size);
+    height: var(--sun-size);
     border-radius: 50%;
     background: url('https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/app/Sun.avif');
     background-size: 100% 100%;
@@ -500,8 +513,8 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    width: 45.75vmin;
-    height: 45.75vmin;
+    width: calc(var(--system-size) * 0.667);
+    height: calc(var(--system-size) * 0.667);
     border-radius: 50%;
     border: 0.32vmin dotted rgba(214, 200, 172, 0.4);
     box-shadow: 0 0 1.5vmin rgba(214, 200, 172, 0.06);
@@ -525,58 +538,58 @@
     }
   }
 
-  /* 公转圈序号：尺寸 / 行星大小 / 公转周期 / 自转周期 */
+  /* 公转圈序号：直径 / 行星大小均为太阳系直径的比例，整体等比放大 */
   .orbit-1 {
-    --orbit-size: 16vmin;
-    --planet-size: 2.4vmin;
+    --orbit-size: calc(var(--system-size) * 0.2);
+    --planet-size: calc(var(--system-size) * 0.0327);
     --orbit-duration: 3s;
     --orbit-delay: -0.36s;
     --spin-duration: 40s;
   }
 
   .orbit-2 {
-    --orbit-size: 24.5vmin;
-    --planet-size: 2.8vmin;
+    --orbit-size: calc(var(--system-size) * 0.333);
+    --planet-size: calc(var(--system-size) * 0.0382);
     --orbit-duration: 7.2s;
     --orbit-delay: -2.52s;
     --spin-duration: 52s;
   }
 
   .orbit-3 {
-    --orbit-size: 33vmin;
-    --planet-size: 3.4vmin;
+    --orbit-size: calc(var(--system-size) * 0.467);
+    --planet-size: calc(var(--system-size) * 0.0464);
     --orbit-duration: 12s;
     --orbit-delay: -6.96s;
     --spin-duration: 30s;
   }
 
   .orbit-4 {
-    --orbit-size: 41.5vmin;
-    --planet-size: 3vmin;
+    --orbit-size: calc(var(--system-size) * 0.6);
+    --planet-size: calc(var(--system-size) * 0.0409);
     --orbit-duration: 24s;
     --orbit-delay: -19.2s;
     --spin-duration: 34s;
   }
 
   .orbit-5 {
-    --orbit-size: 50vmin;
-    --planet-size: 5vmin;
+    --orbit-size: calc(var(--system-size) * 0.733);
+    --planet-size: calc(var(--system-size) * 0.0682);
     --orbit-duration: 144s;
     --orbit-delay: -36s;
     --spin-duration: 18s;
   }
 
   .orbit-6 {
-    --orbit-size: 58vmin;
-    --planet-size: 4.6vmin;
+    --orbit-size: calc(var(--system-size) * 0.867);
+    --planet-size: calc(var(--system-size) * 0.0627);
     --orbit-duration: 360s;
     --orbit-delay: -234s;
     --spin-duration: 22s;
   }
 
   .orbit-7 {
-    --orbit-size: 66vmin;
-    --planet-size: 3.8vmin;
+    --orbit-size: var(--system-size);
+    --planet-size: calc(var(--system-size) * 0.0518);
     --orbit-duration: 1008s;
     --orbit-delay: -453.6s;
     --spin-duration: 26s;
@@ -1094,6 +1107,16 @@
 }
 
 @media (max-width: 760px) {
+  /* 移动端导航改到底部：太阳系回到整屏居中，并按宽度收窄避开底部 dock */
+  #mainPage .trajectory {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  #mainPage .solar-plane {
+    --system-size: min(84vw, 56vh);
+  }
+
   .app-tabs {
     left: 50%;
     top: auto;
