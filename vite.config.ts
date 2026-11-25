@@ -122,6 +122,13 @@ export default defineConfig(({ mode }) => {
               }
             }
           },
+          /**
+           * 合并体积过小的 chunk。
+           * 高延迟网络下（国内访问 GitHub Pages 实测单请求 500–900ms），
+           * 几十个 0–5KB 的图标/工具 chunk 会被逐个排队，纯 RTT 就能吃掉十几秒。
+           * 合并后请求数大幅减少，代价是少量模块可能被复制进多个 chunk。
+           */
+          experimentalMinChunkSize: 20_000,
           /** 文件命名规则：带 hash 值，内容变化时 hash 变化，浏览器会重新下载 */
           chunkFileNames: 'assets/js/[name]-[hash].js',
           entryFileNames: 'assets/js/[name]-[hash].js',

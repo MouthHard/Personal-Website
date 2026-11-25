@@ -75,8 +75,13 @@
   const EXIT_DOWN_MS = 900;
   const EXIT_DELAY_MAX = 320;
 
-  /** 导航迟迟不完成的最长等待，超过就交错误页（软失败） */
+  /**
+   * 导航迟迟不完成的最长等待，超过就交错误页（软失败）。
+   * 首次进入某个应用要现下载它的全部代码块，慢网络下明显更久，给更宽的额度；
+   * 会话内再次进入时代码块与 keep-alive 都在，12s 已远超正常范围。
+   */
   const WAIT_MS = 12_000;
+  const WAIT_MS_FIRST_ENTER = 20_000;
   const DEFAULT_SHOW_DELAY = 400;
 
   const inMs = computed(() => props.duration ?? IN_MS);
@@ -156,6 +161,8 @@
   let holdTimer: number | null = null;
   let exitTimer: number | null = null;
   let waitTimer: number | null = null;
+  /** 本次导航的等待额度，由 beforeEach 按「是否首次进入该应用」决定 */
+  let waitMs = WAIT_MS;
 
   let removeBefore: (() => void) | undefined;
   let removeAfter: (() => void) | undefined;
@@ -205,7 +212,7 @@
   };
 
   /** 12s 仍没拿到内容：超时是软失败，独立错误码由错误页给出区别于故障的文案 */
-  const startWaitTimer = (): void => {
+  const startWaitTimer = (ms: number = WAIT_MS): void => {
     clearTimer(waitTimer);
     waitTimer = window.setTimeout(() => {
       waitTimer = null;
@@ -218,7 +225,7 @@
           message: `进入「${appName.value || '目标页面'}」超时，页面还在加载或网络较慢`,
         },
       });
-    }, WAIT_MS);
+    }, ms);
   };
 
   /** 帘幕开始：随机抽 4 张不重复的图 → 滑入 → 停留，动画由 CSS keyframes 驱动 */
@@ -230,7 +237,7 @@
     phase.value = 'inside';
     clearTimer(holdTimer);
     holdTimer = window.setTimeout(maybeExit, minShowTotal());
-    if (navPending) startWaitTimer();
+    if (navPending) startWaitTimer(waitMs);
   };
 
   /**
@@ -293,6 +300,7 @@
 
       // 每个应用在本会话首次进入时完整播一次；之后 chunk 与 keep-alive 都在，快切无需再遮
       const firstEnterOfApp = isAppEntry && !visitedApps.has(key);
+      waitMs = firstEnterOfApp ? WAIT_MS_FIRST_ENTER : WAIT_MS;
       if (firstEnterOfApp || showDelay.value <= 0) {
         // afterEach 走微任务，会抢先于 setTimeout(0)，故须同步触发
         beginShow();
