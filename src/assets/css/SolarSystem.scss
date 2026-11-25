@@ -204,16 +204,54 @@
     pointer-events: none;
     animation: rotate var(--orbit-duration) linear infinite;
     animation-delay: var(--orbit-delay);
+  }
 
-    /* 悬停行星时暂停公转与自转，方便瞄准与点击 */
-    &:has(.planet-slot:hover) {
-      animation-play-state: paused;
+  /* 轨道弧光：锥形渐变 + 环状遮罩，裁出一条贴着轨道环流动的光带 */
+  .orbit-arc {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.45s ease;
 
-      .planet-slot,
-      .planet-surface {
-        animation-play-state: paused;
-      }
-    }
+    /* 只保留最外圈的一细条，其余区域透明 */
+    mask: radial-gradient(
+      closest-side,
+      transparent calc(100% - 2px),
+      #000 calc(100% - 1px)
+    );
+  }
+
+  /* 亮头：短而亮，顺时针快速扫过 */
+  .orbit-arc--head {
+    background: conic-gradient(
+      from 0deg,
+      rgba(214, 242, 255, 0) 0deg,
+      rgba(222, 245, 255, 0.95) 22deg,
+      rgba(150, 210, 255, 0.4) 52deg,
+      rgba(120, 185, 255, 0) 92deg,
+      transparent 360deg
+    );
+    animation: orbit-arc-spin 5.2s linear infinite;
+  }
+
+  /* 尾巴：更长更暗，逆时针缓慢拖尾，形成迎头对流 */
+  .orbit-arc--trail {
+    mask: radial-gradient(
+      closest-side,
+      transparent calc(100% - 3px),
+      #000 calc(100% - 1px)
+    );
+    background: conic-gradient(
+      from 0deg,
+      rgba(140, 200, 255, 0) 0deg,
+      rgba(140, 200, 255, 0.5) 38deg,
+      rgba(110, 175, 255, 0.2) 118deg,
+      rgba(110, 175, 255, 0) 168deg,
+      transparent 360deg
+    );
+    animation: orbit-arc-spin 11s linear infinite reverse;
   }
 
   /* 轨道命中层：stroke 区域可交互，让圆环本身也能 hover 与点击 */
@@ -224,7 +262,7 @@
     height: 100%;
     pointer-events: none;
 
-    circle {
+    .orbit-ring {
       fill: none;
       stroke: transparent;
       stroke-width: 12px;
@@ -276,8 +314,33 @@
     background: transparent;
     cursor: pointer;
     pointer-events: auto;
-    transition: transform 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
     box-shadow: 0 0 1.1vmin rgba(120, 190, 255, 0.22);
+
+    /* 边缘流光：沿球体轮廓扫过的弧形高光，仅高亮时显现 */
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      border-radius: 50%;
+      pointer-events: none;
+      background: conic-gradient(
+        from 0deg,
+        rgba(214, 244, 255, 0) 0deg,
+        rgba(230, 249, 255, 0.95) 44deg,
+        rgba(160, 215, 255, 0) 106deg,
+        rgba(160, 215, 255, 0) 212deg,
+        rgba(230, 249, 255, 0.72) 270deg,
+        rgba(230, 249, 255, 0) 336deg
+      );
+      mask: radial-gradient(closest-side, transparent 74%, #000 86%);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      animation: orbit-arc-spin 5s linear infinite;
+    }
 
     /* 球面光照：高光与暗面固定朝向，不随纹理自转 */
     &::after {
@@ -324,11 +387,6 @@
     animation: planet-spin var(--spin-duration) linear infinite;
   }
 
-  .planet-slot:hover .planet-btn {
-    transform: scale(1.32);
-    box-shadow: 0 0 2vmin rgba(150, 210, 255, 0.6);
-  }
-
   /* 卫星：围绕行星做圆周运动的小亮点 */
   .planet-moon {
     position: absolute;
@@ -355,10 +413,15 @@
     animation-delay: -2.4s;
   }
 
-  /* 左侧分类 tab 悬停：对应行星停止公转/自转并亮起 */
-  .orbit.is-highlighted {
-    border-color: rgba(150, 205, 255, 0.5);
-    box-shadow: 0 0 2vmin rgba(110, 180, 255, 0.22);
+  /* 高亮态：左侧 tab 悬停/聚焦，或直接悬停轨道、行星，三者共用同一套光效 */
+  .orbit.is-highlighted,
+  .orbit:has(.planet-slot:hover) {
+    border-color: rgba(170, 220, 255, 0.8);
+    box-shadow:
+      0 0 0.35vmin rgba(190, 232, 255, 0.5),
+      0 0 2.6vmin rgba(110, 180, 255, 0.32),
+      0 0 6vmin rgba(80, 150, 255, 0.14),
+      inset 0 0 0.8vmin rgba(160, 215, 255, 0.16);
     animation-play-state: paused;
 
     .planet-slot,
@@ -367,13 +430,32 @@
     }
 
     .planet-btn {
-      transform: scale(1.42);
-      box-shadow: 0 0 2.4vmin rgba(150, 210, 255, 0.75);
+      transform: scale(1.55);
+      box-shadow:
+        0 0 2.2vmin rgba(165, 222, 255, 0.85),
+        0 0 4.6vmin rgba(120, 190, 255, 0.5),
+        0 0 8vmin rgba(90, 150, 255, 0.22);
+    }
+
+    .planet-btn::before {
+      opacity: 1;
     }
 
     .planet-slot::after {
       opacity: 1;
-      animation: planet-ping 2s ease-out infinite;
+      border-color: rgba(198, 236, 255, 0.95);
+      box-shadow:
+        0 0 1vmin rgba(150, 210, 255, 0.55),
+        0 0 2.4vmin rgba(110, 175, 255, 0.25);
+      animation: planet-ping 1.8s ease-out infinite;
+    }
+
+    .orbit-arc--head {
+      opacity: 1;
+    }
+
+    .orbit-arc--trail {
+      opacity: 0.7;
     }
   }
 
@@ -1211,6 +1293,17 @@
   100% {
     transform: scale(1.7);
     opacity: 0;
+  }
+}
+
+// 轨道弧光与星球边缘流光：绕自身圆心自转
+@keyframes orbit-arc-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
   }
 }
 

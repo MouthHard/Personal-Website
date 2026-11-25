@@ -47,6 +47,15 @@
                 ]"
                 @click="jumpToRouter(value.routeName)"
               >
+                <!-- 轨道弧光：高亮时沿轨道环流动的光带 -->
+                <span
+                  class="orbit-arc orbit-arc--head"
+                  aria-hidden="true"
+                ></span>
+                <span
+                  class="orbit-arc orbit-arc--trail"
+                  aria-hidden="true"
+                ></span>
                 <!-- 轨道命中层：只有圆环本身可交互，整块圆面仍然透明 -->
                 <svg
                   class="orbit-hit"
@@ -54,6 +63,7 @@
                   aria-hidden="true"
                 >
                   <circle
+                    class="orbit-ring"
                     cx="50"
                     cy="50"
                     r="60"
