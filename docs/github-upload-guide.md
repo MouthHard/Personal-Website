@@ -9,12 +9,19 @@
 > **⚠️ 每次执行之前都要检查大厂、热门、github上的项目的上传规范和项目规范，并依次来迭代我的上传文档md**
 >
 > **2026-11-24 自迭代（参考 Conventional Commits 1.0.0 / GitHub Flow 官方实践 / 主流大厂仓库规范）**：
-> - 提交信息统一 `type(scope): 描述`（scope 可选），type 用 `feat/fix/docs/style/refactor/test/chore/ci/build`，小写、祈使语气、结尾不加句号；本仓 `.husky/commit-msg` + `@commitlint/config-conventional` 已强制。
+> - 提交信息统一 `type(scope): 描述`（scope 可选），type 用 `feat/fix/docs/style/refactor/test/chore/ci/build/revert`，小写、祈使语气、结尾不加句号；本仓 `.husky/commit-msg` + `@commitlint/config-conventional` 已强制。
 > - 一个提交只做一件事（one logical change per commit），便于 revert / cherry-pick / 自动生成 changelog。
 > - 分支命名前缀与 type 对齐（`feat/**`、`fix/**`、`chore/**`），CI 触发分支 `feat/**` 已覆盖。
 > - CI 是合并门禁：typecheck / lint / stylelint / test / knip / build 任一失败都不推送，不靠 `--no-verify` 绕过。
 > - 密钥（Token / *.pem / .env*）永不入库，凭据走 git credential manager 或环境变量。
 > - **stash 基线校验**：本仓存在历史遗留 stash（`stash@{0}` 等，2026-10 前的备份），所以"提交后 stash 应为空"改为"提交后 stash 数量与提交前基线一致，且无新增 `lint-staged automatic backup`"。
+>
+> **2026-11-25 自迭代（托管迁移：GitHub Pages → 腾讯云 EdgeOne Pages）**：
+> - 主站改为 EdgeOne Pages（监听 `master` 自动构建）；`gh-pages` 降级为备用站，**不再随每次提交同步，内容会滞后**，仅在需要时手动部署。
+> - `base` 改为 `env.VITE_BASE || '/Personal-Website/'`：EdgeOne 侧用环境变量 `VITE_BASE=/` 走根路径，gh-pages 不设变量保持原子路径。
+> - `static-data/*.json` 请求附加 `?v=__BUILD_TIME__`，规避 CDN 一年期缓存。
+> - `stats.html` 改为仅 `ANALYZE=true` 构建时生成（此前 `npm run build` 会生成 1.2MB 报告并随 EdgeOne 公开部署）。
+> - 提交信息 type 补充 `revert`；命令补充 PowerShell 写法（`rm -f`、`ls` 在 PowerShell 下不可用）。
 
 ---
 
@@ -97,13 +104,13 @@ pages/ExamplePage/
 
 | 文件/目录 | 说明 | 忽略方式 | 远程是否残留 |
 |---|---|---|---|
-| `dist/` | 构建输出（只推 gh-pages 分支） | `.gitignore` | 否（已核实） |
-| `dist/stats.html` | 包体积可视化报告（仅 production 构建生成，约 2MB），不是站点资源 | 构建产物，随 dist 清理 | 否（不入库，但别发布到 gh-pages） |
+| `dist/` | 构建输出（只推 `gh-pages` 备用站分支；EdgeOne 由平台构建，不入库） | `.gitignore` | 否（已核实） |
+| `dist/stats.html` | 包体积可视化报告（约 1.2MB），不是站点资源 | `ANALYZE=true` 时才生成，默认不产出 | 否 |
 | `node_modules/` | npm 依赖 | `.gitignore` | 否（已核实） |
 | `types/auto-imports.d.ts` | Vite 自动生成 | `.gitignore` | 否 |
 | `types/components.d.ts` | Vite 自动生成 | `.gitignore` | 否 |
 
-> 构建若用 `--mode gh-pages`（非 production），不会生成 `stats.html`；用 `npm run build` 会生成，部署前需删除，避免把 2MB 报告推到 gh-pages。
+> 构建若用 `--mode gh-pages`（非 production），不会生成 `stats.html`；`ANALYZE=true` 时才会生成包体积报告，排查体积问题后再手动删除，不要随 dist 发布。
 
 #### AI 工具目录（曾误提交，现已清理）
 
@@ -167,13 +174,15 @@ pages/ExamplePage/
 >
 > **执行顺序：从上到下逐条检查，全部通过后才能 `git commit`。**
 
-```bash
+```powershell
+# 以下为 PowerShell 写法（Windows 默认）；Git Bash 可用 rm -f / ls 等价命令
+
 # ── 第1步：清理临时文件 ──
-rm -f nul .tmp-sass-check.css.map
+Remove-Item -Force -ErrorAction SilentlyContinue nul, .tmp-sass-check.css.map
 
 # ── 第2步：确认 public/test/ 不存在 ──
-# 如果存在，Vite 构建会把它复制到 dist/，导致 gh-pages 分支有 test/ 目录
-ls public/test/ 2>/dev/null && echo "⚠️ public/test/ 存在！请删除: rm -rf public/test/" || echo "✓ public/test/ 不存在"
+# 如果存在，Vite 构建会把它复制到 dist/，导致部署产物多出 test/ 目录
+if (Test-Path "public/test") { "⚠️ public/test 存在，请删除: Remove-Item -Recurse -Force public/test" } else { "✓ public/test 不存在" }
 
 # ── 第3步：预览待提交文件 ──
 git add --dry-run .
@@ -196,25 +205,30 @@ git diff HEAD              # 应该为空
 # 若 stash 数量增加，立即 git stash pop 解决冲突；历史遗留 stash 不要动
 ```
 
-### 快速检查脚本（一键执行）
+### 快速检查脚本（一键执行，PowerShell）
 
-```bash
+```powershell
 # 复制以下命令一次性执行，全部显示 ✓ 才能提交
-rm -f nul .tmp-sass-check.css.map
-echo "--- 检查1: public/test/ ---"
-ls public/test/ 2>/dev/null && echo "✗ 删除 public/test/" || echo "✓"
-echo "--- 检查2: AI工具目录未被跟踪 ---"
-git ls-files .arts .codeartsdoer .codegraph 2>/dev/null | head -1 && echo "✗ 有AI目录被跟踪" || echo "✓"
-echo "--- 检查3: dist/ 未被跟踪 ---"
-git ls-files dist/ 2>/dev/null | head -1 && echo "✗ dist被跟踪" || echo "✓"
-echo "--- 检查4: node_modules/ 未被跟踪 ---"
-git ls-files node_modules/ 2>/dev/null | head -1 && echo "✗ node_modules被跟踪" || echo "✓"
-echo "--- 检查5: 无临时文件 ---"
-git ls-files | grep -E "nul$|\.tmp-sass|\.log$" | head -1 && echo "✗ 有临时文件" || echo "✓"
-echo "--- 检查6: 索引里无大小写重复路径 ---"
-git ls-files | awk '{print tolower($0)"\t"$0}' | sort | awk -F'\t' '{if($1==p1 && $2!=p2) print "✗ 重复: "p2" <-> "$2; p1=$1; p2=$2}'
-echo "--- 检查7: 类型检查通过 ---"
-npx vue-tsc --noEmit && echo "✓ 类型检查 0 错误"
+Remove-Item -Force -ErrorAction SilentlyContinue nul, .tmp-sass-check.css.map
+"--- 检查1: public/test/ ---"
+if (Test-Path "public/test") { "✗ 删除 public/test" } else { "✓" }
+"--- 检查2: AI工具目录未被跟踪 ---"
+if (git ls-files .arts .codeartsdoer .codegraph) { "✗ 有AI目录被跟踪" } else { "✓" }
+"--- 检查3: dist/ 未被跟踪 ---"
+if (git ls-files dist) { "✗ dist被跟踪" } else { "✓" }
+"--- 检查4: node_modules/ 未被跟踪 ---"
+if (git ls-files node_modules) { "✗ node_modules被跟踪" } else { "✓" }
+"--- 检查5: 无临时文件 ---"
+if (git ls-files | Select-String -Pattern '(^|/)nul$|\.tmp-sass|\.log$') { "✗ 有临时文件" } else { "✓" }
+"--- 检查6: 索引里无大小写重复路径 ---"
+git ls-files | ForEach-Object { "$($_.ToLower())`t$_" } | Sort-Object | ForEach-Object {
+  $p = $_ -split "`t"
+  if ($p[0] -eq $lastLower -and $p[1] -ne $lastPath) { "✗ 重复: $lastPath <-> $($p[1])" }
+  $lastLower = $p[0]; $lastPath = $p[1]
+}
+"--- 检查7: 类型检查通过 ---"
+npx vue-tsc --noEmit
+if ($LASTEXITCODE -eq 0) { "✓ 类型检查 0 错误" }
 ```
 
 ---
@@ -226,9 +240,9 @@ npx vue-tsc --noEmit && echo "✓ 类型检查 0 错误"
 > 主站由 EdgeOne Pages 监听 `master` 自动构建，代码合入 `master` 后无需任何本地构建命令。
 > `gh-pages` 备用站默认不再随每次提交同步，仅在需要更新备用站时执行文末「备用站部署」。
 
-```bash
+```powershell
 # ── 提交前准备 ──
-rm -f nul .tmp-sass-check.css.map        # 0. 清理 Windows 临时文件
+Remove-Item -Force -ErrorAction SilentlyContinue nul, .tmp-sass-check.css.map   # 0. 清理 Windows 临时文件
 git status                                # 1. 查看改动，确认所有改动都是预期的
 git add --dry-run .                       # 2. 预览待提交文件（检查无临时文件/临时目录）
 
@@ -427,10 +441,10 @@ git diff HEAD                             # 应该为空
 
 ### 误提交临时文件
 
-```bash
+```powershell
 # Windows 可能产生 nul、.tmp-sass-check.css.map 等临时文件
 # 提交前先清理
-rm -f nul .tmp-sass-check.css.map
+Remove-Item -Force -ErrorAction SilentlyContinue nul, .tmp-sass-check.css.map
 
 # 临时目录（如 public/test/）加入 .gitignore
 # 若已误提交，解除跟踪：
@@ -520,4 +534,5 @@ npx vite build --mode gh-pages            # 【备用站】构建产物
 rm -f dist/stats.html                     # 【备用站】清掉包体积报告，别发布
 npx gh-pages -d dist --nojekyll -b gh-pages -m "deploy: 更新站点" \
   -r https://github.com/MouthHard/Personal-Website.git   # 【备用站】部署（禁用 -a）
+$env:ANALYZE="true"; npm run build        # 【按需】生成 dist/stats.html 体积报告（默认不生成）
 ```
