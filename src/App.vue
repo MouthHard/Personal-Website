@@ -68,10 +68,14 @@
           </div>
         </div>
 
-        <!-- 背景流星：低频掠过，给深空增加动静对比 -->
+        <!-- 背景流星雨：每颗的划痕朝向与飞行方向一致，长短明暗各不相同 -->
         <div class="meteors" aria-hidden="true">
-          <span class="meteor meteor-a"></span>
-          <span class="meteor meteor-b"></span>
+          <span
+            v-for="n in 10"
+            :key="n"
+            class="meteor"
+            :class="`meteor-${n}`"
+          ></span>
         </div>
       </div>
 

@@ -491,28 +491,136 @@
     pointer-events: none;
   }
 
+  /* 流星：--angle 同时决定划痕朝向和飞行方向，不会出现「竖线横飞」 */
   .meteor {
     position: absolute;
-    width: 1px;
-    height: 11vmin;
-    background: linear-gradient(0deg, rgba(255, 255, 255, 0.9), transparent);
-    filter: drop-shadow(0 0 3px rgba(160, 200, 255, 0.8));
+    left: var(--x, 0);
+    top: var(--y, 0);
+    width: var(--len, 10vmin);
+    height: var(--thick, 1px);
+    border-radius: 999px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(185, 215, 255, calc(var(--alpha, 0.9) * 0.4)) 48%,
+      rgba(255, 255, 255, var(--alpha, 0.9)) 100%
+    );
+    filter: drop-shadow(0 0 3px rgba(150, 195, 255, 0.7));
     opacity: 0;
-    transform: rotate(35deg);
-    animation: meteor-fall 13s linear infinite;
+    animation: meteor-fall var(--dur, 12s) linear var(--delay, 0s) infinite;
   }
 
-  .meteor-a {
-    top: 6%;
-    left: 68%;
+  /* 十颗流星：起点、角度、长度、亮度、周期全部错开，形成流星雨 */
+  .meteor-1 {
+    --angle: 32deg;
+    --x: 0%;
+    --y: 2%;
+    --len: 15vmin;
+    --travel: 145vmax;
+    --alpha: 0.95;
+    --dur: 9s;
+    --delay: 0s;
   }
 
-  .meteor-b {
-    top: 14%;
-    left: 88%;
-    height: 7vmin;
-    animation-delay: 6.5s;
-    animation-duration: 17s;
+  .meteor-2 {
+    --angle: 63deg;
+    --x: 36%;
+    --y: -6%;
+    --len: 9vmin;
+    --travel: 135vmax;
+    --alpha: 0.7;
+    --dur: 13s;
+    --delay: 3.6s;
+  }
+
+  .meteor-3 {
+    --angle: 126deg;
+    --x: 76%;
+    --y: 0%;
+    --len: 18vmin;
+    --travel: 140vmax;
+    --alpha: 1;
+    --thick: 1.5px;
+    --dur: 10.5s;
+    --delay: 6.4s;
+  }
+
+  .meteor-4 {
+    --angle: 148deg;
+    --x: 98%;
+    --y: 18%;
+    --len: 6vmin;
+    --travel: 130vmax;
+    --alpha: 0.55;
+    --dur: 15s;
+    --delay: 1.8s;
+  }
+
+  .meteor-5 {
+    --angle: 21deg;
+    --x: -8%;
+    --y: 30%;
+    --len: 12vmin;
+    --travel: 140vmax;
+    --alpha: 0.85;
+    --dur: 11.5s;
+    --delay: 8.6s;
+  }
+
+  .meteor-6 {
+    --angle: 74deg;
+    --x: 56%;
+    --y: -10%;
+    --len: 21vmin;
+    --travel: 150vmax;
+    --alpha: 0.75;
+    --thick: 1.5px;
+    --dur: 14s;
+    --delay: 5.2s;
+  }
+
+  .meteor-7 {
+    --angle: 108deg;
+    --x: 68%;
+    --y: -4%;
+    --len: 8vmin;
+    --travel: 135vmax;
+    --alpha: 0.9;
+    --dur: 8.5s;
+    --delay: 10.4s;
+  }
+
+  .meteor-8 {
+    --angle: 47deg;
+    --x: 20%;
+    --y: 8%;
+    --len: 5vmin;
+    --travel: 130vmax;
+    --alpha: 0.5;
+    --dur: 16s;
+    --delay: 7.4s;
+  }
+
+  .meteor-9 {
+    --angle: 92deg;
+    --x: 88%;
+    --y: -8%;
+    --len: 14vmin;
+    --travel: 145vmax;
+    --alpha: 0.8;
+    --dur: 17s;
+    --delay: 12.8s;
+  }
+
+  .meteor-10 {
+    --angle: 165deg;
+    --x: 102%;
+    --y: 40%;
+    --len: 10vmin;
+    --travel: 140vmax;
+    --alpha: 0.65;
+    --dur: 19s;
+    --delay: 2.4s;
   }
 }
 
@@ -555,9 +663,10 @@
     border: 1px solid transparent;
     border-radius: 1.15rem;
     background: transparent;
-    color: rgba(196, 214, 248, 0.55);
+    color: rgba(226, 238, 255, 0.9);
     font-family: inherit;
-    font-size: 0.92rem;
+    font-size: 1.04rem;
+    font-weight: 600;
     letter-spacing: 0.14em;
     text-align: left;
     cursor: pointer;
@@ -610,10 +719,10 @@
 
     .app-tab-index {
       width: 1.1rem;
-      font-size: 0.62rem;
+      font-size: 0.68rem;
       font-variant-numeric: tabular-nums;
       letter-spacing: 0;
-      opacity: 0.45;
+      opacity: 0.6;
       transition:
         color 0.3s ease,
         opacity 0.3s ease;
@@ -653,12 +762,14 @@
     .app-tab-name {
       flex: 1;
       white-space: nowrap;
+      text-shadow: 0 0 0.7rem rgba(130, 185, 255, 0.28);
       transition: transform 0.32s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
 
     /* 悬停 / 聚焦：整枚胶囊向前浮起并侧倾 */
     &.is-active {
       color: #fff;
+      font-weight: 700;
       border-color: rgba(150, 210, 255, 0.35);
       background: linear-gradient(
         90deg,
@@ -701,6 +812,7 @@
 
       .app-tab-name {
         transform: translateX(2px);
+        text-shadow: 0 0 0.9rem rgba(150, 205, 255, 0.5);
       }
     }
 
@@ -734,7 +846,7 @@
     .app-tab {
       width: auto;
       padding: 0.4rem 0.65rem;
-      font-size: 0.8rem;
+      font-size: 0.88rem;
       letter-spacing: 0.08em;
 
       .app-tab-index {
@@ -831,21 +943,25 @@
   }
 }
 
-// 流星掠过
+// 流星掠过：沿自身朝向直线飞行，亮端始终朝前
 @keyframes meteor-fall {
   0% {
     opacity: 0;
-    transform: translate3d(0, 0, 0) rotate(35deg);
+    transform: rotate(var(--angle)) translate3d(0, 0, 0);
   }
 
-  4% {
-    opacity: 0.9;
+  2% {
+    opacity: 1;
   }
 
-  14%,
+  24% {
+    opacity: 1;
+  }
+
+  32%,
   100% {
     opacity: 0;
-    transform: translate3d(-46vmin, 32vmin, 0) rotate(35deg);
+    transform: rotate(var(--angle)) translate3d(var(--travel), 0, 0);
   }
 }
 
