@@ -29,6 +29,9 @@ dist
 types/auto-imports.d.ts
 types/components.d.ts
 
+# TypeScript 增量编译缓存
+*.tsbuildinfo
+
 # Deployment packages
 *.tar.gz
 deploy-*.tar.gz

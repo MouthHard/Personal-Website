@@ -38,8 +38,12 @@ export default defineConfig(({ mode }) => {
   const isProduction = mode !== 'development';
 
   return {
-    /** 部署基础路径 */
-    base: '/Personal-Website/',
+    /**
+     * 部署基础路径
+     * GitHub Pages 走 /Personal-Website/ 子路径；
+     * 根域名托管（如 EdgeOne Pages）通过环境变量 VITE_BASE=/ 覆盖。
+     */
+    base: env.VITE_BASE || '/Personal-Website/',
 
     plugins: [
       vue(),
