@@ -216,6 +216,24 @@
     }
   }
 
+  /* 轨道命中层：stroke 区域可交互，让圆环本身也能 hover 与点击 */
+  .orbit-hit {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+
+    circle {
+      fill: none;
+      stroke: transparent;
+      stroke-width: 12px;
+      vector-effect: non-scaling-stroke;
+      pointer-events: stroke;
+      cursor: pointer;
+    }
+  }
+
   /* 行星槽：位于轨道最上端，反向旋转抵消公转与平面倾斜 */
   .planet-slot {
     position: absolute;

@@ -44,6 +44,20 @@
                 ]"
                 @click="jumpToRouter(value.routeName)"
               >
+                <!-- 轨道命中层：只有圆环本身可交互，整块圆面仍然透明 -->
+                <svg
+                  class="orbit-hit"
+                  viewBox="-10 -10 120 120"
+                  aria-hidden="true"
+                >
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="60"
+                    @mouseenter="activeTabId = value.routeId"
+                    @mouseleave="activeTabId = ''"
+                  />
+                </svg>
                 <span class="planet-slot">
                   <button
                     type="button"
