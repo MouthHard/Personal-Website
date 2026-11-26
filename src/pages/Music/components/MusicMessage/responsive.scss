@@ -1,0 +1,46 @@
+// 音乐页轻提示 · 兼容与适配
+@media (max-width: 768px) {
+  .music-msg-container {
+    top: 14px;
+    right: 12px;
+    left: 12px;
+    transform: none;
+  }
+
+  .music-msg-list {
+    gap: 8px;
+    width: 100%;
+  }
+
+  .music-msg {
+    gap: 10px;
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    padding: 10px 12px 10px 14px;
+    font-size: 14px;
+  }
+
+  .music-msg-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .music-msg-close {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .music-msg-eq i,
+  .music-msg-icon::after,
+  .music-msg-progress i {
+    animation: none;
+  }
+
+  .music-msg-enter-active,
+  .music-msg-leave-active {
+    animation: none;
+  }
+}
