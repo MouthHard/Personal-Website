@@ -1,6 +1,8 @@
-import { museumMessage } from '@/pages/Museum/components/MuseumMessage';
+import { useMuseumMessage as useMuseumMessageApi } from '@/pages/Museum/components/MuseumMessage/useMuseumMessage';
 
 type MsgType = 'success' | 'info' | 'warning' | 'error';
+
+const museumMessage = useMuseumMessageApi();
 
 const show = (type: MsgType, message: string) => museumMessage[type](message);
 

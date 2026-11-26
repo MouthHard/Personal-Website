@@ -59,8 +59,6 @@
                 <LandscapeImage :src="slide.image" loading="lazy" />
                 <div class="image-tint"></div>
                 <div class="image-vignette"></div>
-                <!-- 取景框角标：四角 L 形，随主题色 -->
-                <div class="frame-corners"></div>
                 <!-- 大序号水印：当前片的胶片帧编号 -->
                 <div
                   v-if="position === i"
@@ -112,18 +110,16 @@
                       '--my': `${parallax.y}px`,
                     }"
                   >
-                    <!-- Z3 标题排版层 -->
-                    <div class="title-block">
-                      <p class="title-kicker">FEATURED · 精选影像</p>
-                      <h3 class="slide-title">{{ slide.title }}</h3>
-                      <p class="slide-location">
-                        <LocationIcon :stroke-width="2" />
-                        {{ slide.location }}
-                      </p>
-                    </div>
-
-                    <!-- Z4 信息规格卡 -->
+                    <!-- Z4 信息规格卡：标题、定位与作者信息同处一块底板 -->
                     <div class="spec-card">
+                      <div class="title-block">
+                        <p class="title-kicker">FEATURED · 精选影像</p>
+                        <h3 class="slide-title">{{ slide.title }}</h3>
+                        <p class="slide-location">
+                          <LocationIcon :stroke-width="2" />
+                          {{ slide.location }}
+                        </p>
+                      </div>
                       <div class="spec-head">
                         <div class="author-info">
                           <span class="author-avatar">

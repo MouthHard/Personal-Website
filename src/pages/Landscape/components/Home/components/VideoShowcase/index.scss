@@ -1,3 +1,5 @@
+@use '../../../../styles/home-plate' as hp;
+
 .video-showcase {
   box-sizing: border-box;
   padding: 4rem 2rem;
@@ -583,4 +585,9 @@
   100% {
     transform: skewX(-22deg) translateX(460%);
   }
+}
+
+// 统一 3D 铭牌：暖红（覆盖旧玻璃牌匾样式）
+.video-showcase .section-header .header-plate {
+  @include hp.home-plate(#fca5a5, #fecdd3, #2b0f13, #150608);
 }

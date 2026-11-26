@@ -1,0 +1,341 @@
+// 博物馆页消息弹窗 · 文物鎏金主题
+.museum-msg-container {
+  position: fixed;
+  top: 26px;
+  left: 50%;
+  z-index: 12000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+.museum-msg-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.museum-msg {
+  --accent: 212 175 55;
+
+  position: relative;
+  isolation: isolate;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-width: 280px;
+  max-width: 460px;
+  padding: 13px 15px 13px 17px;
+  overflow: hidden;
+  color: rgb(250 243 226 / 94%);
+  font-family: STKaiti, KaiTi, 'Noto Serif SC', serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.4px;
+  cursor: default;
+  background:
+    radial-gradient(
+      120% 160% at 10% -30%,
+      rgb(212 175 55 / 16%),
+      transparent 58%
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 26px,
+      rgb(255 255 255 / 1.6%) 26px 27px
+    ),
+    linear-gradient(140deg, #1c1610 0%, #2a2116 55%, #120e08 100%);
+  border: 1px solid rgb(var(--accent) / 34%);
+  border-radius: 8px;
+  box-shadow:
+    0 10px 28px rgb(0 0 0 / 42%),
+    0 0 20px rgb(var(--accent) / 14%),
+    inset 0 1px 0 rgb(255 255 255 / 7%),
+    inset 0 0 30px rgb(0 0 0 / 30%);
+  backdrop-filter: blur(14px) saturate(130%);
+  -webkit-backdrop-filter: blur(14px) saturate(130%);
+  transform-origin: top center;
+}
+
+// 顶部鎏金细线
+.museum-msg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 4;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgb(var(--accent) / 65%),
+    rgb(255 244 214 / 85%),
+    rgb(var(--accent) / 65%),
+    transparent
+  );
+}
+
+.museum-msg-glow {
+  position: absolute;
+  top: -36px;
+  left: -24px;
+  z-index: 0;
+  width: 140px;
+  height: 120px;
+  pointer-events: none;
+  background: radial-gradient(
+    circle,
+    rgb(var(--accent) / 20%),
+    transparent 68%
+  );
+  filter: blur(5px);
+}
+
+// 四角铜框
+.museum-msg-frame {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border: 1px solid rgb(var(--accent) / 55%);
+  }
+
+  &::before {
+    top: 5px;
+    left: 5px;
+    border-right: 0;
+    border-bottom: 0;
+  }
+
+  &::after {
+    right: 5px;
+    bottom: 5px;
+    border-top: 0;
+    border-left: 0;
+  }
+}
+
+// 印章式方形图标
+.museum-msg-icon {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  color: rgb(255 250 235 / 96%);
+  background: radial-gradient(
+    circle at 34% 28%,
+    rgb(255 255 255 / 32%),
+    rgb(var(--accent) / 28%) 52%,
+    rgb(var(--accent) / 6%) 100%
+  );
+  border: 1px solid rgb(var(--accent) / 48%);
+  border-radius: 7px;
+  box-shadow:
+    0 0 14px rgb(var(--accent) / 26%),
+    inset 0 1px 0 rgb(255 255 255 / 28%);
+
+  svg {
+    filter: drop-shadow(0 0 5px rgb(var(--accent) / 75%));
+  }
+}
+
+.museum-msg-text {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+.museum-msg-accent {
+  color: rgb(var(--accent));
+  font-style: normal;
+  text-shadow: 0 0 10px rgb(var(--accent) / 45%);
+}
+
+.museum-msg-close {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  margin-left: 2px;
+  padding: 0;
+  color: rgb(255 246 222 / 55%);
+  background: rgb(255 255 255 / 7%);
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  transition:
+    background 0.25s,
+    color 0.25s,
+    transform 0.25s;
+
+  &:hover {
+    color: rgb(var(--accent));
+    background: rgb(var(--accent) / 22%);
+    transform: rotate(90deg);
+  }
+}
+
+.museum-msg-progress {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 4;
+  height: 2px;
+  overflow: hidden;
+  pointer-events: none;
+  background: rgb(255 255 255 / 5%);
+
+  i {
+    display: block;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      rgb(var(--accent) / 28%),
+      rgb(var(--accent))
+    );
+    box-shadow: 0 0 12px rgb(var(--accent) / 85%);
+    transform-origin: left center;
+    animation: museumMsgBar linear forwards;
+  }
+}
+
+// === 语义配色 ===
+.museum-msg.success {
+  --accent: 212 175 55;
+}
+
+.museum-msg.info {
+  --accent: 186 218 85;
+
+  background:
+    radial-gradient(
+      120% 160% at 10% -30%,
+      rgb(186 218 85 / 14%),
+      transparent 58%
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 26px,
+      rgb(255 255 255 / 1.6%) 26px 27px
+    ),
+    linear-gradient(140deg, #171c10 0%, #222a16 55%, #0d1008 100%);
+}
+
+.museum-msg.error {
+  --accent: 239 68 68;
+
+  background:
+    radial-gradient(
+      120% 160% at 10% -30%,
+      rgb(239 68 68 / 16%),
+      transparent 58%
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 26px,
+      rgb(255 255 255 / 1.6%) 26px 27px
+    ),
+    linear-gradient(140deg, #20100f 0%, #2e1715 55%, #120807 100%);
+}
+
+.museum-msg.warning {
+  --accent: 245 158 11;
+
+  background:
+    radial-gradient(
+      120% 160% at 10% -30%,
+      rgb(245 158 11 / 16%),
+      transparent 58%
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 26px,
+      rgb(255 255 255 / 1.6%) 26px 27px
+    ),
+    linear-gradient(140deg, #22180a 0%, #2f220e 55%, #120d05 100%);
+}
+
+// === 进出场 ===
+.museum-msg-fade-enter-active,
+.museum-msg-fade-leave-active {
+  transition: opacity 0.28s ease;
+}
+
+.museum-msg-fade-enter-from,
+.museum-msg-fade-leave-to {
+  opacity: 0%;
+}
+
+.museum-msg-enter-active {
+  animation: museumMsgDropIn 0.44s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.museum-msg-leave-active {
+  animation: museumMsgFlyOut 0.26s ease-in forwards;
+}
+
+.museum-msg-move {
+  transition: transform 0.36s ease;
+}
+
+@keyframes museumMsgDropIn {
+  0% {
+    opacity: 0%;
+    transform: translateY(-24px) scale(0.93);
+  }
+
+  62% {
+    opacity: 100%;
+    transform: translateY(3px) scale(1.008);
+  }
+
+  100% {
+    opacity: 100%;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes museumMsgFlyOut {
+  0% {
+    opacity: 100%;
+    transform: translateY(0) scale(1);
+  }
+
+  100% {
+    opacity: 0%;
+    transform: translateY(-16px) scale(0.95);
+  }
+}
+
+@keyframes museumMsgBar {
+  from {
+    transform: scaleX(1);
+  }
+
+  to {
+    transform: scaleX(0);
+  }
+}

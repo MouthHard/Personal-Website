@@ -1,0 +1,44 @@
+// 博物馆页轻提示 · 兼容与适配
+@media (max-width: 768px) {
+  .museum-msg-container {
+    top: 14px;
+    right: 12px;
+    left: 12px;
+    transform: none;
+  }
+
+  .museum-msg-list {
+    gap: 8px;
+    width: 100%;
+  }
+
+  .museum-msg {
+    gap: 10px;
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    padding: 10px 12px 10px 14px;
+    font-size: 14px;
+  }
+
+  .museum-msg-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .museum-msg-close {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .museum-msg-progress i {
+    animation: none;
+  }
+
+  .museum-msg-enter-active,
+  .museum-msg-leave-active {
+    animation: none;
+  }
+}

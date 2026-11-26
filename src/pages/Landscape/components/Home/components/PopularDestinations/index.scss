@@ -1,3 +1,5 @@
+@use '../../../../styles/home-plate' as hp;
+
 .popular-destinations {
   box-sizing: border-box;
   padding: 2rem 0;
@@ -498,6 +500,155 @@
           .btn-shine {
             animation: ticket-flash 0.9s ease;
           }
+        }
+      }
+
+      // 实体珐琅按钮：亮青色按钮面 + 厚底边，靠体积与倒角做立体，不用扫光
+      .more-btn {
+        border: 1px solid #064b5c;
+        border-radius: 14px;
+        background: linear-gradient(
+          180deg,
+          #b9fffb 0%,
+          #63e4ee 38%,
+          #1fb9d6 72%,
+          #0e8fa8 100%
+        );
+        box-shadow:
+          0 6px 0 #064e63,
+          0 12px 22px rgb(0 0 0 / 55%),
+          0 0 26px rgb(64 214 232 / 32%),
+          inset 0 2px 0 rgb(255 255 255 / 72%),
+          inset 0 -4px 8px rgb(3 56 70 / 38%);
+        transition:
+          transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
+          box-shadow 0.22s ease,
+          filter 0.22s ease;
+
+        .btn-shine {
+          display: none;
+        }
+
+        .more-text {
+          .more-label {
+            color: #02171e;
+            font-weight: 900;
+            letter-spacing: 0.06em;
+            text-shadow: none;
+          }
+
+          .more-sub {
+            color: #064a58;
+            font-weight: 800;
+            letter-spacing: 0.2em;
+            text-shadow: none;
+          }
+        }
+
+        .ticket-tear {
+          border-left-color: rgb(4 42 54 / 50%);
+
+          &::before,
+          &::after {
+            background: #0b2f3a;
+            box-shadow: inset 0 0 0 1px rgb(255 255 255 / 25%);
+          }
+        }
+
+        .ticket-stub {
+          .stamp-teeth {
+            background: repeating-conic-gradient(
+              from 0deg,
+              rgb(4 42 54 / 80%) 0deg 7deg,
+              transparent 7deg 16deg
+            );
+          }
+
+          .stamp-face {
+            background: radial-gradient(
+              circle at 34% 28%,
+              #0d4b5c 0%,
+              #062b38 60%,
+              #02161e 100%
+            );
+            box-shadow:
+              inset 0 1px 2px rgb(255 255 255 / 22%),
+              inset 0 -2px 5px rgb(0 0 0 / 60%),
+              0 2px 5px rgb(0 0 0 / 30%);
+          }
+
+          .stamp-glyph {
+            background: linear-gradient(135deg, #e6fffb, #65f0f5);
+            filter: drop-shadow(0 0 3px rgb(139 250 234 / 80%));
+          }
+        }
+
+        // 登机箭头：渐隐实心杆 + 折角箭头，深墨青描线，上缘留一线高光做浮雕
+        .ticket-route {
+          gap: 0;
+
+          .route-line {
+            width: 20px;
+            height: 3px;
+            border: 0;
+            border-radius: 3px;
+            background: linear-gradient(
+              90deg,
+              rgb(4 42 54 / 0%) 0%,
+              rgb(4 42 54 / 50%) 38%,
+              #042a36 100%
+            );
+            box-shadow: 0 1px 0 rgb(255 255 255 / 32%);
+            transition: width 0.32s ease;
+          }
+
+          .route-plane {
+            width: 8px;
+            height: 8px;
+            border: 0;
+            border-top: 2.5px solid #042a36;
+            border-right: 2.5px solid #042a36;
+            border-radius: 1px;
+            transform: rotate(45deg);
+            filter: drop-shadow(0 1px 0 rgb(255 255 255 / 32%));
+            transition: transform 0.32s cubic-bezier(0.34, 1.56, 0.64, 1);
+          }
+        }
+
+        &:hover {
+          filter: brightness(1.04);
+          transform: translateY(-2px);
+          box-shadow:
+            0 8px 0 #064e63,
+            0 16px 30px rgb(0 0 0 / 58%),
+            0 0 34px rgb(64 214 232 / 45%),
+            inset 0 2px 0 rgb(255 255 255 / 80%),
+            inset 0 -4px 8px rgb(3 56 70 / 38%);
+
+          .ticket-route {
+            .route-line {
+              width: 24px;
+              background: linear-gradient(
+                90deg,
+                rgb(4 42 54 / 0%) 0%,
+                rgb(4 42 54 / 50%) 34%,
+                #042a36 100%
+              );
+            }
+
+            .route-plane {
+              transform: translateX(2px) rotate(45deg);
+            }
+          }
+        }
+
+        &:active {
+          transform: translateY(3px);
+          box-shadow:
+            0 2px 0 #064e63,
+            0 4px 10px rgb(0 0 0 / 50%),
+            inset 0 3px 6px rgb(0 20 28 / 45%),
+            inset 0 1px 0 rgb(255 255 255 / 25%);
         }
       }
     }
@@ -1621,17 +1772,17 @@
 
   @keyframes plane-depart {
     0% {
-      transform: translateX(0);
+      transform: translateX(0) rotate(45deg);
       opacity: 1;
     }
 
     70% {
-      transform: translateX(14px);
+      transform: translateX(14px) rotate(45deg);
       opacity: 1;
     }
 
     100% {
-      transform: translateX(20px);
+      transform: translateX(20px) rotate(45deg);
       opacity: 0;
     }
   }
@@ -1657,4 +1808,9 @@
       left: 100%;
     }
   }
+}
+
+// 统一 3D 铭牌：青蓝（覆盖旧玻璃牌匾样式）
+.popular-destinations .section-header .header-plate {
+  @include hp.home-plate(#8bfafa, #b8e4ff, #081a36, #040d1c);
 }

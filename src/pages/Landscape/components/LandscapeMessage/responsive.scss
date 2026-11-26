@@ -1,0 +1,63 @@
+// 轻提示 · 兼容与适配
+// 只放媒体查询与降级规则；大屏基础样式仍保留在 index.scss。
+
+@media (max-width: 768px) {
+  .landscape-message-container {
+    top: 14px;
+    right: 12px;
+    left: 12px;
+    transform: none;
+  }
+
+  .landscape-message-list {
+    gap: 8px;
+    width: 100%;
+  }
+
+  .landscape-message {
+    gap: 10px;
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    padding: 10px 12px 10px 14px;
+    font-size: 14px;
+    border-radius: 14px;
+  }
+
+  .landscape-message-icon {
+    width: 30px;
+    height: 30px;
+
+    &::before {
+      inset: -4px;
+    }
+
+    &::after {
+      inset: -6px;
+    }
+  }
+
+  .landscape-message-close {
+    width: 22px;
+    height: 22px;
+  }
+
+  .landscape-message-decor {
+    height: 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .landscape-message-aurora::before,
+  .landscape-message-stars i,
+  .landscape-message-icon::before,
+  .landscape-message-icon::after,
+  .landscape-message-progress i {
+    animation: none;
+  }
+
+  .landscape-msg-enter-active,
+  .landscape-msg-leave-active {
+    animation: none;
+  }
+}

@@ -1,4 +1,6 @@
-import { landscapeMessage } from '@/pages/Landscape/components/LandscapeMessage';
+import { useLandscapeMessage } from '@/pages/Landscape/components/LandscapeMessage/useLandscapeMessage';
+
+const landscapeMessage = useLandscapeMessage();
 
 type ContentType = 'image' | 'video' | 'guide' | 'photographer';
 

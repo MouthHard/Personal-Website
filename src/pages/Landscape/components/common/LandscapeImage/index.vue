@@ -87,4 +87,6 @@
   </span>
 </template>
 
-<style scoped lang="scss" src="./index.scss" />
+<style scoped lang="scss">
+  @use './index.scss';
+</style>

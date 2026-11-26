@@ -811,18 +811,22 @@
         pointer-events: none;
 
         .caption-label {
-          font-size: 0.68rem;
-          font-weight: 800;
-          letter-spacing: 0.34em;
-          color: rgba(255, 168, 168, 0.52);
-          text-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
+          font-size: 0.9rem;
+          font-weight: 900;
+          letter-spacing: 0.3em;
+          color: #ffd8d8;
+          text-shadow:
+            0 1px 0 rgba(0, 0, 0, 0.85),
+            0 2px 2px rgba(0, 0, 0, 0.55),
+            0 0 14px rgba(239, 68, 68, 0.45);
         }
 
         .caption-hint {
-          font-size: 0.66rem;
-          font-weight: 600;
-          letter-spacing: 0.1em;
-          color: rgba(255, 168, 168, 0.24);
+          font-size: 0.8rem;
+          font-weight: 700;
+          letter-spacing: 0.12em;
+          color: rgba(255, 196, 196, 0.66);
+          text-shadow: 0 1px 0 rgba(0, 0, 0, 0.7);
         }
       }
 
@@ -868,8 +872,8 @@
       .rail-plate {
         position: absolute;
         inset: 0;
-        border: 1px solid rgba(255, 150, 150, 0.14);
-        border-radius: 9px;
+        border: 1px solid rgba(255, 150, 150, 0.18);
+        border-radius: 10px;
         overflow: hidden;
         background:
           linear-gradient(
@@ -879,14 +883,17 @@
             transparent 97%,
             rgba(0, 0, 0, 0.55)
           ),
-          linear-gradient(180deg, rgba(255, 172, 172, 0.09), transparent 40%),
+          linear-gradient(180deg, rgba(255, 172, 172, 0.1), transparent 40%),
           linear-gradient(180deg, #1e0b0e 0%, #0b0203 54%, #200b0e 100%);
         box-shadow:
-          inset 0 1px 0 rgba(255, 200, 200, 0.12),
-          inset 0 3px 9px rgba(0, 0, 0, 0.92),
-          inset 0 -1px 0 rgba(255, 150, 150, 0.16),
-          0 1px 0 rgba(255, 200, 200, 0.1),
-          0 12px 22px -16px rgba(0, 0, 0, 0.95);
+          inset 0 1px 0 rgba(255, 200, 200, 0.14),
+          inset 3px 0 8px rgba(0, 0, 0, 0.55),
+          inset -3px 0 8px rgba(0, 0, 0, 0.55),
+          inset 0 4px 10px rgba(0, 0, 0, 0.94),
+          inset 0 -2px 0 rgba(255, 150, 150, 0.18),
+          0 2px 0 rgba(255, 200, 200, 0.12),
+          0 4px 0 rgba(4, 1, 1, 0.9),
+          0 14px 24px -16px rgba(0, 0, 0, 0.95);
         pointer-events: none;
         transition:
           border-color 0.4s ease,
@@ -979,40 +986,52 @@
           background-color 0.26s ease;
 
         .tick-frame {
+          position: relative;
           display: block;
           width: 100%;
-          height: 20px;
+          height: 22px;
           border-radius: 3px;
 
-          // 帧窗里那道斜光，像一格胶片反出放映机的光
+          // 立体小键：顶面受光、侧面有厚度，帧窗里一道斜光像胶片反出放映机的光
           background:
             linear-gradient(
               112deg,
               transparent 34%,
-              rgba(255, 255, 255, 0.085) 47%,
+              rgba(255, 255, 255, 0.1) 47%,
               transparent 60%
+            ),
+            repeating-linear-gradient(
+              90deg,
+              rgba(255, 255, 255, 0.055) 0 1px,
+              transparent 1px 3px
             ),
             linear-gradient(
               180deg,
-              rgba(255, 168, 168, 0.28),
-              rgba(255, 118, 118, 0.08)
+              rgba(255, 198, 198, 0.5) 0%,
+              rgba(206, 88, 88, 0.28) 16%,
+              rgba(88, 24, 24, 0.5) 58%,
+              rgba(24, 6, 6, 0.94) 100%
             );
           box-shadow:
-            inset 0 1px 0 rgba(255, 226, 226, 0.24),
-            inset 0 -3px 4px rgba(0, 0, 0, 0.55),
-            0 2px 0 rgba(5, 1, 1, 0.85),
-            0 3px 7px -3px rgba(0, 0, 0, 0.85);
+            inset 0 1px 0 rgba(255, 238, 238, 0.45),
+            inset 1px 0 0 rgba(255, 200, 200, 0.14),
+            inset -1px 0 0 rgba(0, 0, 0, 0.5),
+            inset 0 -3px 5px rgba(0, 0, 0, 0.62),
+            0 3px 0 rgba(5, 1, 1, 0.92),
+            0 5px 8px -3px rgba(0, 0, 0, 0.9);
           transition: all 0.26s cubic-bezier(0.2, 0.9, 0.25, 1);
         }
 
         .tick-label {
-          font-size: 0.74rem;
-          font-weight: 800;
+          font-size: 0.86rem;
+          font-weight: 900;
           line-height: 1;
           letter-spacing: 0.02em;
-          color: rgba(255, 188, 188, 0.52);
+          color: rgba(255, 210, 210, 0.78);
           font-variant-numeric: tabular-nums;
-          text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75);
+          text-shadow:
+            0 1px 0 rgba(0, 0, 0, 0.85),
+            0 0 9px rgba(239, 68, 68, 0.25);
           transition: all 0.26s ease;
         }
 
@@ -1022,23 +1041,33 @@
             linear-gradient(
               112deg,
               transparent 32%,
-              rgba(255, 255, 255, 0.16) 45%,
+              rgba(255, 255, 255, 0.18) 45%,
               transparent 58%
+            ),
+            repeating-linear-gradient(
+              90deg,
+              rgba(255, 255, 255, 0.07) 0 1px,
+              transparent 1px 3px
             ),
             linear-gradient(
               180deg,
-              rgba(255, 162, 162, 0.44),
-              rgba(255, 110, 110, 0.18)
+              rgba(255, 190, 190, 0.68) 0%,
+              rgba(224, 108, 108, 0.42) 18%,
+              rgba(112, 32, 32, 0.55) 60%,
+              rgba(32, 8, 8, 0.95) 100%
             );
           box-shadow:
-            inset 0 1px 0 rgba(255, 230, 230, 0.28),
-            inset 0 -3px 4px rgba(0, 0, 0, 0.46),
-            0 2px 0 rgba(5, 1, 1, 0.85),
-            0 0 9px -2px rgba(239, 68, 68, 0.45);
+            inset 0 1px 0 rgba(255, 240, 240, 0.4),
+            inset 1px 0 0 rgba(255, 210, 210, 0.16),
+            inset -1px 0 0 rgba(0, 0, 0, 0.5),
+            inset 0 -3px 5px rgba(0, 0, 0, 0.5),
+            0 3px 0 rgba(5, 1, 1, 0.9),
+            0 5px 8px -3px rgba(0, 0, 0, 0.85),
+            0 0 10px -2px rgba(239, 68, 68, 0.45);
         }
 
         &.played .tick-label {
-          color: rgba(255, 206, 206, 0.66);
+          color: rgba(255, 228, 228, 0.92);
         }
 
         // 悬停：整格轻轻抬起、亮起，明确"这是可以按的"
@@ -1050,24 +1079,36 @@
               linear-gradient(
                 112deg,
                 transparent 30%,
-                rgba(255, 255, 255, 0.26) 44%,
+                rgba(255, 255, 255, 0.28) 44%,
                 transparent 58%
+              ),
+              repeating-linear-gradient(
+                90deg,
+                rgba(255, 255, 255, 0.09) 0 1px,
+                transparent 1px 3px
               ),
               linear-gradient(
                 180deg,
-                rgba(255, 186, 186, 0.72),
-                rgba(255, 110, 110, 0.34)
+                rgba(255, 214, 214, 0.85) 0%,
+                rgba(240, 132, 132, 0.6) 20%,
+                rgba(140, 44, 44, 0.6) 62%,
+                rgba(44, 12, 12, 0.95) 100%
               );
             box-shadow:
-              inset 0 1px 0 rgba(255, 244, 244, 0.4),
-              inset 0 -3px 4px rgba(0, 0, 0, 0.36),
-              0 2px 0 rgba(5, 1, 1, 0.8),
-              0 0 13px rgba(239, 68, 68, 0.45),
-              0 4px 8px -3px rgba(0, 0, 0, 0.8);
+              inset 0 1px 0 rgba(255, 248, 248, 0.55),
+              inset 1px 0 0 rgba(255, 220, 220, 0.2),
+              inset -1px 0 0 rgba(0, 0, 0, 0.45),
+              inset 0 -3px 5px rgba(0, 0, 0, 0.4),
+              0 3px 0 rgba(5, 1, 1, 0.85),
+              0 0 14px rgba(239, 68, 68, 0.5),
+              0 5px 9px -3px rgba(0, 0, 0, 0.85);
           }
 
           .tick-label {
-            color: rgba(255, 240, 240, 0.98);
+            color: #fff;
+            text-shadow:
+              0 1px 0 rgba(0, 0, 0, 0.9),
+              0 0 10px rgba(239, 68, 68, 0.55);
           }
         }
 
@@ -1090,7 +1131,7 @@
           );
 
           .tick-frame {
-            height: 26px;
+            height: 28px;
             margin-top: -6px;
             background:
               linear-gradient(
@@ -1099,18 +1140,25 @@
                 rgba(255, 255, 255, 0.42) 44%,
                 transparent 58%
               ),
+              repeating-linear-gradient(
+                90deg,
+                rgba(255, 255, 255, 0.1) 0 1px,
+                transparent 1px 3px
+              ),
               linear-gradient(180deg, #ffdada, #ff7a7a 46%, #e11d48);
             box-shadow:
               0 0 16px rgba(239, 68, 68, 0.85),
               0 0 34px rgba(239, 68, 68, 0.34),
               inset 0 1px 0 rgba(255, 252, 252, 0.68),
               inset 0 -3px 4px rgba(0, 0, 0, 0.28),
-              0 2px 0 rgba(90, 8, 20, 0.9);
+              0 3px 0 rgba(90, 8, 20, 0.95);
           }
 
           .tick-label {
-            color: #ffe2e2;
-            text-shadow: 0 0 10px rgba(239, 68, 68, 0.75);
+            color: #fff;
+            text-shadow:
+              0 1px 0 rgba(70, 4, 10, 0.9),
+              0 0 12px rgba(239, 68, 68, 0.85);
           }
         }
       }
@@ -1229,14 +1277,70 @@
     }
   }
 
+  // 切换台：一块独立的金属控制面板，承载左右拨盘、弹巢与编号窗
   .nav-dial {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1.5rem;
-    margin-top: 2rem;
+    gap: 1.6rem;
+    width: fit-content;
+    margin: 2rem auto 0;
+    padding: 0.85rem 2.4rem;
+    border-radius: 18px;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255, 200, 200, 0.09) 0%,
+        rgba(255, 200, 200, 0) 42%
+      ),
+      repeating-linear-gradient(
+        112deg,
+        rgba(255, 255, 255, 0.032) 0 1px,
+        transparent 1px 3px
+      ),
+      linear-gradient(168deg, #2c0e11 0%, #140406 52%, #260b0f 100%);
+    box-shadow:
+      0 6px 0 #080102,
+      0 8px 0 rgba(0, 0, 0, 0.45),
+      0 20px 32px -16px rgba(0, 0, 0, 0.95),
+      inset 0 1px 0 rgba(255, 210, 210, 0.2),
+      inset 0 -3px 10px rgba(0, 0, 0, 0.6),
+      inset 0 0 0 1px rgba(239, 68, 68, 0.22);
+
+    // 面板两端各一颗沉头铆钉
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 9px;
+      height: 9px;
+      margin-top: -4.5px;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle at 50% 50%,
+        #edd6d6 0 24%,
+        #a98c8c 36%,
+        #4a3434 60%,
+        #0b0203 73%,
+        transparent 78%
+      );
+      filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.6));
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    &::before {
+      left: 10px;
+    }
+
+    &::after {
+      right: 10px;
+    }
 
     .dial-btn {
+      position: relative;
       width: 54px;
       height: 54px;
       border: none;
@@ -1245,37 +1349,65 @@
       background: transparent;
       flex-shrink: 0;
 
+      // 外圈滚花金属护圈
+      &::before {
+        content: '';
+        position: absolute;
+        inset: -4px;
+        border-radius: 50%;
+        background: repeating-conic-gradient(
+          from 0deg,
+          rgba(255, 196, 196, 0.3) 0 2deg,
+          rgba(22, 5, 5, 0.96) 2deg 5deg
+        );
+        mask: radial-gradient(circle, transparent 58%, #000 61%);
+        -webkit-mask: radial-gradient(circle, transparent 58%, #000 61%);
+        pointer-events: none;
+      }
+
       .dial-btn-face {
+        position: relative;
+        z-index: 1;
         width: 100%;
         height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
-        background: radial-gradient(
-          circle at 35% 28%,
-          rgba(95, 32, 32, 0.98),
-          rgba(40, 12, 12, 0.98) 55%,
-          rgba(15, 4, 4, 1) 100%
-        );
-        border: 1.5px solid rgba(239, 68, 68, 0.38);
+        background:
+          radial-gradient(
+            circle at 34% 26%,
+            rgba(255, 218, 218, 0.36),
+            transparent 42%
+          ),
+          repeating-conic-gradient(
+            from 0deg,
+            rgba(255, 170, 170, 0.09) 0 2deg,
+            rgba(0, 0, 0, 0.2) 2deg 5deg
+          ),
+          radial-gradient(
+            circle at 40% 30%,
+            #6d2828 0%,
+            #37100f 48%,
+            #110203 100%
+          );
+        border: 1.5px solid rgba(255, 160, 160, 0.34);
         border-radius: 50%;
         color: #fca5a5;
         box-shadow:
-          0 8px 22px rgba(0, 0, 0, 0.55),
-          0 3px 8px rgba(239, 68, 68, 0.18),
-          0 0 30px rgba(239, 68, 68, 0.15),
-          inset 0 2.5px 4px rgba(255, 205, 205, 0.2),
-          inset 0 -3px 5px rgba(0, 0, 0, 0.6),
-          inset 2px 0 2px rgba(255, 185, 185, 0.07),
-          inset -2px 0 2px rgba(0, 0, 0, 0.3),
+          0 5px 0 #140303,
+          0 10px 20px rgba(0, 0, 0, 0.7),
+          0 3px 8px rgba(239, 68, 68, 0.16),
+          inset 0 2.5px 4px rgba(255, 210, 210, 0.3),
+          inset 0 -4px 7px rgba(0, 0, 0, 0.72),
+          inset 2px 0 3px rgba(255, 185, 185, 0.1),
+          inset -2px 0 3px rgba(0, 0, 0, 0.45),
           inset 0 0 0 1px rgba(239, 68, 68, 0.2);
         transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-        position: relative;
 
         svg {
-          width: 24px;
-          height: 24px;
-          filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.45));
+          width: 48px;
+          height: 48px;
+          filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.55));
         }
 
         &::before {
@@ -1283,7 +1415,10 @@
           position: absolute;
           inset: 3px;
           border-radius: 50%;
-          border: 1px solid rgba(239, 68, 68, 0.2);
+          border: 1px solid rgba(239, 68, 68, 0.22);
+          box-shadow:
+            inset 0 1px 0 rgba(255, 200, 200, 0.14),
+            0 -1px 0 rgba(0, 0, 0, 0.6);
           pointer-events: none;
         }
 
@@ -1297,7 +1432,7 @@
           border-radius: 50%;
           background: radial-gradient(
             ellipse at center,
-            rgba(255, 220, 220, 0.22),
+            rgba(255, 220, 220, 0.26),
             transparent 70%
           );
           pointer-events: none;
@@ -1305,29 +1440,49 @@
       }
 
       &:hover:not(:disabled) .dial-btn-face {
-        background: radial-gradient(
-          circle at 35% 28%,
-          rgba(252, 165, 165, 0.55),
-          rgba(239, 68, 68, 0.42) 55%,
-          rgba(150, 30, 30, 0.45) 100%
-        );
+        background:
+          radial-gradient(
+            circle at 34% 26%,
+            rgba(255, 226, 226, 0.44),
+            transparent 44%
+          ),
+          repeating-conic-gradient(
+            from 0deg,
+            rgba(255, 190, 190, 0.12) 0 2deg,
+            rgba(0, 0, 0, 0.16) 2deg 5deg
+          ),
+          radial-gradient(
+            circle at 40% 30%,
+            #8c3838 0%,
+            #4a1616 48%,
+            #190405 100%
+          );
         border-color: rgba(252, 165, 165, 0.72);
         color: #fff;
-        transform: scale(1.08);
+        transform: translateY(-2px) scale(1.05);
         box-shadow:
-          0 12px 32px rgba(239, 68, 68, 0.42),
-          0 0 44px rgba(239, 68, 68, 0.22),
-          inset 0 2.5px 4px rgba(255, 230, 230, 0.28),
-          inset 0 -3px 5px rgba(0, 0, 0, 0.45),
-          inset 0 0 14px rgba(252, 165, 165, 0.22);
+          0 7px 0 #140303,
+          0 14px 28px rgba(239, 68, 68, 0.34),
+          inset 0 2.5px 4px rgba(255, 232, 232, 0.34),
+          inset 0 -4px 7px rgba(0, 0, 0, 0.6),
+          inset 0 0 0 1px rgba(252, 165, 165, 0.24);
       }
 
       &:active:not(:disabled) .dial-btn-face {
-        transform: scale(0.95);
+        transform: translateY(1px) scale(0.96);
+        box-shadow:
+          0 2px 0 #140303,
+          0 6px 14px rgba(0, 0, 0, 0.7),
+          inset 0 2px 5px rgba(0, 0, 0, 0.55),
+          inset 0 -2px 4px rgba(255, 190, 190, 0.14);
       }
 
       &:disabled .dial-btn-face {
         opacity: 0.28;
+      }
+
+      &:disabled::before {
+        opacity: 0.3;
       }
 
       &:disabled {
@@ -1346,21 +1501,32 @@
         height: 72px;
         border-radius: 50%;
         position: relative;
-        background: radial-gradient(
-          circle at 38% 32%,
-          rgba(65, 22, 22, 0.98),
-          rgba(22, 6, 6, 0.98) 60%,
-          rgba(8, 2, 2, 1) 100%
-        );
-        border: 2px solid rgba(239, 68, 68, 0.38);
+        background:
+          radial-gradient(
+            circle at 34% 26%,
+            rgba(255, 196, 196, 0.24),
+            transparent 42%
+          ),
+          repeating-conic-gradient(
+            from 0deg,
+            rgba(255, 184, 184, 0.055) 0 1.2deg,
+            rgba(0, 0, 0, 0.2) 1.2deg 2.6deg
+          ),
+          radial-gradient(
+            circle at 42% 34%,
+            #6d2a2a 0%,
+            #33100f 48%,
+            #0d0203 100%
+          );
+        border: 2px solid rgba(239, 68, 68, 0.34);
         box-shadow:
-          0 8px 24px rgba(0, 0, 0, 0.55),
-          0 0 34px rgba(239, 68, 68, 0.2),
-          inset 0 3.5px 7px rgba(0, 0, 0, 0.65),
-          inset 0 -2.5px 5px rgba(255, 185, 185, 0.12),
-          inset 2px 0 3px rgba(255, 185, 185, 0.06),
-          inset -2px 0 3px rgba(0, 0, 0, 0.4),
-          inset 0 0 0 1px rgba(239, 68, 68, 0.16);
+          0 6px 0 #120303,
+          0 12px 26px rgba(0, 0, 0, 0.7),
+          0 4px 10px rgba(239, 68, 68, 0.14),
+          inset 0 3px 6px rgba(255, 205, 205, 0.16),
+          inset 0 -6px 10px rgba(0, 0, 0, 0.8),
+          inset 0 0 0 2px rgba(0, 0, 0, 0.45),
+          inset 0 0 0 3px rgba(255, 170, 170, 0.12);
 
         &::before {
           content: '';
@@ -1383,10 +1549,12 @@
           position: absolute;
           inset: 5px;
           border-radius: 50%;
-          border: 1px solid rgba(239, 68, 68, 0.16);
+          border: 1px solid rgba(255, 170, 170, 0.14);
           box-shadow:
-            inset 0 0 14px rgba(0, 0, 0, 0.45),
-            inset 0 2px 3px rgba(0, 0, 0, 0.3);
+            inset 0 1px 0 rgba(255, 210, 210, 0.12),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.7),
+            inset 0 0 12px rgba(0, 0, 0, 0.5),
+            0 1px 0 rgba(0, 0, 0, 0.35);
           pointer-events: none;
         }
 
@@ -1394,7 +1562,10 @@
           position: absolute;
           inset: 10px;
           border-radius: 50%;
-          border: 1px dashed rgba(239, 68, 68, 0.18);
+          border: 1px solid rgba(239, 68, 68, 0.12);
+          box-shadow:
+            inset 0 0 0 1px rgba(0, 0, 0, 0.45),
+            0 1px 0 rgba(255, 190, 190, 0.1);
           pointer-events: none;
         }
 
@@ -1414,24 +1585,45 @@
             inset: 0;
             border-radius: 50%;
             background: radial-gradient(
-              circle at 40% 35%,
-              rgba(28, 10, 10, 0.82),
-              rgba(0, 0, 0, 0.98) 70%
+              circle at 42% 34%,
+              #2e1313 0%,
+              #120404 46%,
+              #000 100%
             );
-            border: 1px solid rgba(239, 68, 68, 0.28);
+            border: 1px solid rgba(255, 150, 150, 0.22);
             box-shadow:
-              inset 0 2.5px 4px rgba(0, 0, 0, 0.8),
-              inset 0 -1px 2px rgba(255, 185, 185, 0.1),
-              inset 0 0 3px rgba(0, 0, 0, 0.6),
-              0 1px 2px rgba(0, 0, 0, 0.4);
+              inset 0 3px 5px rgba(0, 0, 0, 0.92),
+              inset 0 -2px 3px rgba(255, 170, 170, 0.16),
+              0 1px 0 rgba(255, 190, 190, 0.1),
+              0 2px 3px rgba(0, 0, 0, 0.55);
             transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+
+            // 空膛里的底火坑
+            &::after {
+              content: '';
+              position: absolute;
+              inset: 34%;
+              border-radius: 50%;
+              background: radial-gradient(
+                circle at 40% 32%,
+                rgba(140, 52, 52, 0.6),
+                rgba(12, 2, 2, 0.95) 90%
+              );
+              box-shadow:
+                inset 0 1px 1px rgba(0, 0, 0, 0.85),
+                0 1px 0 rgba(255, 170, 170, 0.1);
+              transition: opacity 0.4s ease;
+            }
           }
 
           .chamber-rim {
             position: absolute;
             inset: -2px;
             border-radius: 50%;
-            border: 1px solid rgba(239, 68, 68, 0.18);
+            border: 1px solid rgba(255, 170, 170, 0.18);
+            box-shadow:
+              0 1px 1px rgba(0, 0, 0, 0.7),
+              inset 0 1px 0 rgba(255, 210, 210, 0.16);
             transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
             pointer-events: none;
           }
@@ -1456,6 +1648,10 @@
                 inset 0 1.5px 2px rgba(255, 240, 240, 0.55),
                 inset 0 -1.5px 2px rgba(0, 0, 0, 0.25);
               animation: chamber-pulse 2s ease-in-out infinite;
+
+              &::after {
+                opacity: 0;
+              }
             }
 
             .chamber-rim {
@@ -1467,80 +1663,167 @@
 
         .ring-center-hub {
           position: absolute;
-          width: 11px;
-          height: 11px;
+          width: 12px;
+          height: 12px;
           border-radius: 50%;
           top: 50%;
           left: 50%;
-          margin: -5.5px;
+          margin: -6px;
           background: radial-gradient(
-            circle at 38% 30%,
-            #fca5a5,
-            #ef4444 50%,
-            #991b1b 100%
+            circle at 36% 28%,
+            #ffe4e4 0%,
+            #fca5a5 24%,
+            #ef4444 52%,
+            #a11b1b 78%,
+            #4d0808 100%
           );
-          border: 1px solid rgba(252, 165, 165, 0.5);
+          border: 1px solid rgba(255, 190, 190, 0.55);
           box-shadow:
-            0 0 11px rgba(239, 68, 68, 0.55),
-            0 1px 2px rgba(0, 0, 0, 0.4),
-            inset 0 1.5px 1.5px rgba(255, 225, 225, 0.45),
-            inset 0 -1px 1px rgba(0, 0, 0, 0.3);
+            0 0 12px rgba(239, 68, 68, 0.6),
+            0 2px 3px rgba(0, 0, 0, 0.55),
+            inset 0 1.5px 1.5px rgba(255, 240, 240, 0.55),
+            inset 0 -2px 3px rgba(0, 0, 0, 0.45);
         }
       }
 
-      // 编号窗：承接片头铭牌的双窗玻璃计数器，换片时数字向上滚入
+      // 编号窗：一整块机加工计数器壳体——上下胶片齿孔、四角沉头螺钉，
+      // 内嵌两扇奶白滚筒卡，换片时数字向上滚入
       .dial-center {
+        $screw: radial-gradient(
+          circle at 50% 50%,
+          #f2dcd2 0 22%,
+          #b0897f 34%,
+          #5b3a35 58%,
+          #140607 72%,
+          transparent 80%
+        );
+        $perf: radial-gradient(
+          ellipse 2.8px 1.9px at 50% 50%,
+          #120405 0 78%,
+          rgba(255, 210, 200, 0.42) 88%,
+          transparent 100%
+        );
+
+        position: relative;
         display: flex;
         align-items: center;
-        gap: 0.4rem;
+        gap: 0.6rem;
         flex-shrink: 0;
+        padding: 0.5rem 1.05rem;
+        border-radius: 13px;
         font-variant-numeric: tabular-nums;
+        background:
+          $perf 0 0 / 12px 7px repeat-x,
+          $perf 0 100% / 12px 7px repeat-x,
+          linear-gradient(
+            180deg,
+            rgba(255, 205, 196, 0.16) 0%,
+            rgba(255, 205, 196, 0) 46%
+          ),
+          repeating-linear-gradient(
+            100deg,
+            rgba(255, 255, 255, 0.04) 0 1px,
+            transparent 1px 3px
+          ),
+          linear-gradient(168deg, #4b2226 0%, #2b1114 52%, #3e1a1e 100%);
+        box-shadow:
+          0 6px 0 #0a0102,
+          0 8px 0 rgba(0, 0, 0, 0.45),
+          0 20px 30px -16px rgba(0, 0, 0, 0.95),
+          inset 0 1px 0 rgba(255, 220, 210, 0.36),
+          inset 0 -3px 9px rgba(0, 0, 0, 0.62),
+          inset 0 0 0 1px rgba(239, 96, 96, 0.32);
 
-        // 深色内凹玻璃窗 + 罩面斜反光 + 红字自发光
+        // 四角沉头螺钉
+        &::before {
+          content: '';
+          position: absolute;
+          inset: 4px;
+          z-index: 3;
+          border-radius: 9px;
+          background-image: $screw, $screw, $screw, $screw;
+          background-repeat: no-repeat;
+          background-position:
+            left 2px top 2px,
+            right 2px top 2px,
+            left 2px bottom 2px,
+            right 2px bottom 2px;
+          background-size: 7px 7px;
+          filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.7));
+          pointer-events: none;
+        }
+
+        // 奶白滚筒计数卡：圆柱受光、四边倒角、刻字压印，像机械计数器的实心滚轮
         .dial-cell {
           position: relative;
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          min-width: 2.4em;
+          min-width: 2.35em;
           height: 1.9em;
           padding: 0 0.4em;
-          border-radius: 8px;
+          border: 1px solid rgba(255, 255, 255, 0.55);
+          border-radius: 7px;
           overflow: hidden;
-          font-size: 1.5rem;
+          font-size: 1.75rem;
           font-weight: 900;
-          letter-spacing: 0.04em;
-          color: #ff9d9d;
-          background: linear-gradient(
-            180deg,
-            #0d0303 0%,
-            #050101 58%,
-            #150707 100%
-          );
+          letter-spacing: 0.03em;
+          color: #8c1a21;
+          background:
+            repeating-linear-gradient(
+              0deg,
+              rgba(120, 70, 60, 0.045) 0 1px,
+              transparent 1px 4px
+            ),
+            linear-gradient(
+              180deg,
+              #9e8d83 0%,
+              #ddcfc6 8%,
+              #fdf5ef 26%,
+              #fffbf7 42%,
+              #fbf3ed 52%,
+              #eee2da 68%,
+              #cdbbb1 88%,
+              #93827a 100%
+            );
           box-shadow:
-            inset 0 2px 5px rgba(0, 0, 0, 0.95),
-            inset 0 -1px 0 rgba(255, 176, 176, 0.16),
-            0 1px 0 rgba(255, 196, 196, 0.13),
-            0 8px 18px -10px rgba(0, 0, 0, 0.9);
-          text-shadow: 0 0 10px rgba(239, 68, 68, 0.62);
+            inset 0 2px 3px rgba(255, 255, 255, 0.9),
+            inset 0 -5px 9px rgba(70, 30, 22, 0.44),
+            inset 2px 0 3px rgba(255, 255, 255, 0.4),
+            inset -2px 0 4px rgba(70, 30, 22, 0.3),
+            0 0 0 2px #150405,
+            0 0 0 3px rgba(255, 190, 180, 0.3),
+            0 6px 0 #2c070a,
+            0 11px 18px -8px rgba(0, 0, 0, 0.95);
+          text-shadow:
+            0 1px 0 rgba(255, 255, 255, 0.95),
+            0 -1px 0 rgba(120, 25, 25, 0.35),
+            0 2px 2px rgba(80, 10, 10, 0.18);
 
-          // 玻璃罩上的一道斜反光
+          // 卡面罩光：上沿高光 + 一道斜反光
           &::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(
-              114deg,
-              rgba(255, 255, 255, 0.2) 0 22%,
-              rgba(255, 255, 255, 0.02) 40%,
-              transparent 52%
-            );
+            background:
+              linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0.3) 0%,
+                rgba(255, 255, 255, 0) 30%
+              ),
+              linear-gradient(
+                112deg,
+                rgba(255, 255, 255, 0.22) 0 14%,
+                rgba(255, 255, 255, 0) 40%
+              );
             pointer-events: none;
           }
 
           &.is-total {
-            color: rgba(255, 150, 150, 0.68);
-            text-shadow: none;
+            color: #b2807a;
+            text-shadow:
+              0 1px 0 rgba(255, 255, 255, 0.9),
+              0 -1px 1px rgba(90, 20, 20, 0.2);
 
             .dial-digit {
               animation: none;
@@ -1548,10 +1831,15 @@
           }
         }
 
+        // 分隔斜杠：金属渐变字
         .dial-separator {
-          font-size: 1.1rem;
-          font-weight: 700;
-          color: rgba(255, 128, 128, 0.45);
+          font-size: 1.35rem;
+          font-weight: 900;
+          background: linear-gradient(180deg, #ffe2e2 0%, #b03a3a 100%);
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.85));
         }
 
         // 里程表数字向上滚入
@@ -1755,7 +2043,7 @@
   .frame-outer .frame-inner .scale-bar {
     .scale-tick {
       .tick-label {
-        font-size: 0.68rem;
+        font-size: 0.8rem;
         letter-spacing: 0;
       }
     }
@@ -1859,11 +2147,18 @@
 
     .nav-dial {
       gap: 1rem;
-      margin-top: 1.5rem;
+      margin: 1.5rem auto 0;
+      padding: 0.7rem 1.4rem;
+      border-radius: 14px;
 
       .dial-btn {
         width: 42px;
         height: 42px;
+
+        .dial-btn-face svg {
+          width: 26px;
+          height: 26px;
+        }
       }
 
       .dial-display {
@@ -1874,8 +2169,16 @@
           height: 54px;
         }
 
-        .dial-center .dial-cell {
-          font-size: 1.12rem;
+        .dial-center {
+          padding: 0.45rem 0.8rem;
+
+          &::before {
+            display: none;
+          }
+
+          .dial-cell {
+            font-size: 1.3rem;
+          }
         }
       }
     }
@@ -1903,7 +2206,7 @@
       padding-bottom: 0.3rem;
 
       .caption-label {
-        font-size: 0.6rem;
+        font-size: 0.72rem;
         letter-spacing: 0.2em;
       }
     }
@@ -1929,11 +2232,23 @@
   // 极窄屏整条切换区一起收紧，并向两侧各借一点内距，给编号窗腾位置
   .frame-outer .nav-dial {
     gap: 0.45rem;
-    margin: 1.5rem -0.45rem 0;
+    margin: 1.5rem auto 0;
+    padding: 0.55rem 0.9rem;
+    border-radius: 13px;
+
+    &::before,
+    &::after {
+      display: none;
+    }
 
     .dial-btn {
       width: 36px;
       height: 36px;
+
+      .dial-btn-face svg {
+        width: 22px;
+        height: 22px;
+      }
     }
 
     .dial-display {
@@ -1945,18 +2260,25 @@
       }
 
       .dial-center {
-        gap: 0.26rem;
+        gap: 0.3rem;
+        padding: 0.42rem 0.6rem;
+        border-radius: 10px;
+
+        &::before,
+        &::after {
+          display: none;
+        }
 
         .dial-cell {
-          min-width: 2.1em;
+          min-width: 1.95em;
           height: 1.8em;
           padding: 0 0.26em;
           border-radius: 6px;
-          font-size: 0.85rem;
+          font-size: 0.95rem;
         }
 
         .dial-separator {
-          font-size: 0.78rem;
+          font-size: 0.9rem;
         }
       }
     }

@@ -22,6 +22,8 @@
           </div>
         </div>
 
+        <span class="plate-chapter" aria-hidden="true">CHAPTER · 04</span>
+
         <span class="plate-rule" aria-hidden="true"></span>
 
         <button
@@ -75,15 +77,6 @@
           </div>
 
           <span class="strip-scrim" aria-hidden="true"></span>
-
-          <div class="strip-caption">
-            <span class="caption-kicker">出 发</span>
-            <span class="caption-place">飞往 {{ activeGuide.location }}</span>
-            <span class="strip-meta">
-              <i aria-hidden="true"></i>
-              {{ captionMeta }}
-            </span>
-          </div>
 
           <!-- 取景器：四角框线 + 中心准星，照片像从取景窗里看出去 -->
           <span class="frame-corners" aria-hidden="true">
@@ -264,9 +257,17 @@
             ref="routeLineRef"
             class="route-line"
           >
-            <span class="route-tag">沿途</span>
+            <span class="route-tag">
+              <span class="route-plane" aria-hidden="true">✈</span>
+              沿途
+            </span>
             <template v-for="(point, index) in visibleRoute" :key="point.raw">
-              <span v-if="index > 0" class="route-arrow" aria-hidden="true">
+              <span
+                v-if="index > 0"
+                class="route-arrow"
+                :style="{ '--tone': toneAt(index) }"
+                aria-hidden="true"
+              >
                 →
               </span>
               <span class="route-stop" :style="{ '--tone': toneAt(index) }">
@@ -283,6 +284,7 @@
           <span class="side-head">
             <span class="side-head-mark" aria-hidden="true"></span>
             行程信息
+            <span class="side-head-sub" aria-hidden="true">TRAVEL LOG</span>
           </span>
 
           <dl class="info-rows">
@@ -299,6 +301,11 @@
               <dd :key="field.value" class="row-value">{{ field.value }}</dd>
             </div>
           </dl>
+
+          <div class="side-stub" aria-hidden="true">
+            <span class="stub-barcode"></span>
+            <span class="stub-micro">BOARDING PASS · 旅行凭据</span>
+          </div>
         </aside>
       </div>
 
@@ -334,21 +341,15 @@
                 :aria-current="index === station"
                 :aria-label="`第 ${index + 1} 站：${guide.location}${guideSubtitles[guide.id] ? `，${guideSubtitles[guide.id]}` : ''}`"
                 @click="goStation(index)"
-                @mouseenter="hoverStation(index)"
-                @focus="goStation(index)"
               >
+                <span class="gate-sheen" aria-hidden="true"></span>
                 <span class="gate-rail" aria-hidden="true"></span>
                 <span class="gate-flap" aria-hidden="true">
                   <span class="gate-no">{{ pad(index + 1) }}</span>
                   <span class="gate-seam"></span>
                 </span>
                 <span class="gate-copy">
-                  <span
-                    class="gate-name"
-                    :style="{
-                      '--name-fit': guide.location.length > 4 ? 0.8 : 1,
-                    }"
-                  >
+                  <span class="gate-name">
                     {{ guide.location }}
                   </span>
                   <span v-if="guideSubtitles[guide.id]" class="gate-sub">
@@ -414,8 +415,6 @@
 
   const page = ref(0);
   const station = ref(0);
-
-  let hoverTimer: ReturnType<typeof setTimeout> | null = null;
 
   const showShareMenu = ref(false);
   const currentShareGuide = ref<GlobalGuide | null>(null);
@@ -522,15 +521,6 @@
   const cleanDuration = computed(() =>
     (activeGuide.value?.duration || '—').replace(/(以上|左右|不等|约)$/g, ''),
   );
-
-  /** 照片左下角那行小字：季节 + 天数，都不用假数据 */
-  const captionMeta = computed(() => {
-    const g = activeGuide.value;
-    if (!g) return '';
-    const season = g.season || GUIDE_DEFAULTS.season;
-    const duration = cleanDuration.value;
-    return duration && duration !== '—' ? `${season} · ${duration}` : season;
-  });
 
   const infoFields = computed(() => {
     const g = activeGuide.value;
@@ -688,17 +678,8 @@
     station.value = index;
   };
 
-  /** 鼠标扫过登机口时不该连切几站，停在一站上超过 90ms 才触发 */
-  const hoverStation = (index: number) => {
-    if (hoverTimer) clearTimeout(hoverTimer);
-    hoverTimer = setTimeout(() => {
-      goStation(index);
-      hoverTimer = null;
-    }, 90);
-  };
-
   /**
-   * 悬停即换封面，若还没进缓存会闪一下「加载中」占位，
+   * 切换站点即换封面，若还没进缓存会闪一下「加载中」占位，
    * 提前把本页与下一页的封面塞进浏览器缓存来避开。
    */
   const preloadedCovers = new Set<string>();
@@ -883,7 +864,6 @@
   });
 
   onUnmounted(() => {
-    if (hoverTimer) clearTimeout(hoverTimer);
     if (routeRaf) cancelAnimationFrame(routeRaf);
     window.removeEventListener('resize', handleRouteResize);
     currentShareGuide.value = null;

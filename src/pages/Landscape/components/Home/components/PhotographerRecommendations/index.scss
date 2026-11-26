@@ -1,3 +1,5 @@
+@use '../../../../styles/home-plate' as hp;
+
 // 边框流光弧的旋转角度（@property 注册后才能被 keyframes 平滑插值）
 @property --gem-ring-angle {
   syntax: '<angle>';
@@ -3723,4 +3725,9 @@
     opacity: 0;
     transform: scale(0.7);
   }
+}
+
+// 统一 3D 铭牌：黄铜（覆盖旧玻璃牌匾样式）
+.photographer-recommendations .gallery-header .header-plate {
+  @include hp.home-plate(#fbbf24, #fde68a, #2a1d08, #150e03);
 }

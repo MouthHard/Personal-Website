@@ -1,3 +1,5 @@
+@use '../../../../styles/home-plate' as hp;
+
 @property --aurora-angle {
   syntax: '<angle>';
   inherits: false;
@@ -1814,4 +1816,9 @@
       transition: none;
     }
   }
+}
+
+// 统一 3D 铭牌：洋红（覆盖旧玻璃牌匾样式）
+.visual-feast-section .section-header .header-plate {
+  @include hp.home-plate(#f472b6, #fbcfe8, #2c0d20, #16060f);
 }

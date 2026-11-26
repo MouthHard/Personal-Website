@@ -171,7 +171,7 @@
 
 <script setup lang="ts">
   import { ref, computed } from 'vue';
-  import { musicMessage } from '@/pages/Music/components/MusicMessage';
+  import { useMusicMessage } from '@/pages/Music/components/MusicMessage/useMusicMessage';
   import SearchIcon from '@/pages/Music/icons/common/SearchIcon.vue';
   import CloseIcon from '@/pages/Music/icons/common/CloseIcon.vue';
   import HelpQuestionIcon from '@/pages/Music/icons/HelpCenter/HelpQuestionIcon.vue';
@@ -181,6 +181,8 @@
   import ArrowRightIcon from '@/pages/Music/icons/common/ArrowRightIcon.vue';
   import CreditCardIcon from '@/pages/Music/icons/HelpCenter/CreditCardIcon.vue';
   import DynamicPathIcon from '@/pages/Music/icons/common/DynamicPathIcon.vue';
+
+  const musicMessage = useMusicMessage();
 
   const searchKeyword = ref('');
   const activeCategory = ref('all');

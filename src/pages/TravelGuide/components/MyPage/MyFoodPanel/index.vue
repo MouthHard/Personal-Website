@@ -45,7 +45,7 @@
 
 <script setup lang="ts">
   import { computed } from 'vue';
-  import { travelGuideMessage } from '@/pages/TravelGuide/components/TravelGuideMessage';
+  import { useTravelGuideMessage } from '@/pages/TravelGuide/components/TravelGuideMessage/useTravelGuideMessage';
   import type {
     Food,
     FoodSouvenir,
@@ -61,6 +61,8 @@
   import LacquerCard from './components/LacquerCard/index.vue';
   import CapsuleCard from './components/CapsuleCard/index.vue';
   import RouteMetroLine from './components/RouteMetroLine/index.vue';
+
+  const travelGuideMessage = useTravelGuideMessage();
 
   const {
     detailVisible,
