@@ -1,3 +1,5 @@
+@use '../../../../styles/home-plate' as hp;
+
 $accent: #ff8a65;
 $accent-light: #ffab91;
 $accent-dark: #c75b39;
@@ -1238,4 +1240,9 @@ $panel: rgb(26 26 46 / 70%);
   50% {
     transform: rotate(12deg);
   }
+}
+
+// 统一 3D 铭牌：暖橙（覆盖旧玻璃牌匾样式）
+.hot-topics .section-header .title-wrapper {
+  @include hp.home-plate(#ffab91, #ffd0bf, #2a1512, #150807);
 }

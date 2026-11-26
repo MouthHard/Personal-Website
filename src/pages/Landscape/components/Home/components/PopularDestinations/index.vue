@@ -22,7 +22,7 @@
           </div>
         </div>
 
-        <span class="plate-chapter" aria-hidden="true">ATLAS · 03</span>
+        <span class="plate-chapter" aria-hidden="true">CHAPTER · 03</span>
 
         <button
           class="more-btn"
@@ -44,7 +44,6 @@
             <span class="route-line"></span>
             <span class="route-plane"></span>
           </span>
-          <span class="btn-shine"></span>
         </button>
       </div>
     </div>

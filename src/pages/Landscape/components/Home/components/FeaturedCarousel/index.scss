@@ -1,8 +1,15 @@
+@use '../../../../styles/home-plate' as hp;
+
 .featured-section {
   box-sizing: border-box;
   padding: 1rem 1.5rem;
   max-width: 70vw;
   margin: 3rem auto 2rem;
+
+  // 窄屏下 70vw 会把标题牌匾压成竖条，直接放开
+  @media (max-width: 1024px) {
+    max-width: 100%;
+  }
 
   .section-header {
     display: flex;
@@ -286,21 +293,9 @@
                 transform 0.8s ease;
             }
 
+            // 原图直出，不再压一层暗色遮罩
             .image-tint {
-              position: absolute;
-              inset: 0;
-              pointer-events: none;
-              background:
-                radial-gradient(
-                  circle at 76% 26%,
-                  var(--accent-glow) 0%,
-                  transparent 58%
-                ),
-                linear-gradient(
-                  120deg,
-                  rgba(8, 14, 26, 0.42) 0%,
-                  transparent 55%
-                );
+              display: none;
             }
 
             .image-vignette {
@@ -310,10 +305,9 @@
               pointer-events: none;
               background: linear-gradient(
                 to top,
-                rgba(4, 8, 18, 0.94) 0%,
-                rgba(4, 8, 18, 0.6) 30%,
-                rgba(4, 8, 18, 0.08) 62%,
-                transparent 100%
+                rgba(4, 8, 18, 0.82) 0%,
+                rgba(4, 8, 18, 0.38) 22%,
+                transparent 48%
               );
 
               // 暖阳光斑：从左上入光，缓慢漂移
@@ -353,33 +347,6 @@
               opacity: 0;
               transform: translate3d(-70%, 0, 0);
               animation: sun-sweep 9s cubic-bezier(0.45, 0, 0.35, 1) infinite;
-            }
-
-            // 取景框角标：四角 L 形短线，呼应主题色
-            .frame-corners {
-              position: absolute;
-              inset: 1.4rem;
-              pointer-events: none;
-              z-index: 4;
-              background:
-                linear-gradient(var(--accent), var(--accent)) left top / 26px
-                  2px no-repeat,
-                linear-gradient(var(--accent), var(--accent)) left top / 2px
-                  26px no-repeat,
-                linear-gradient(var(--accent), var(--accent)) right top / 26px
-                  2px no-repeat,
-                linear-gradient(var(--accent), var(--accent)) right top / 2px
-                  26px no-repeat,
-                linear-gradient(var(--accent), var(--accent)) left bottom / 26px
-                  2px no-repeat,
-                linear-gradient(var(--accent), var(--accent)) left bottom / 2px
-                  26px no-repeat,
-                linear-gradient(var(--accent), var(--accent)) right bottom /
-                  26px 2px no-repeat,
-                linear-gradient(var(--accent), var(--accent)) right bottom / 2px
-                  26px no-repeat;
-              opacity: 0.55;
-              filter: drop-shadow(0 0 6px var(--accent-glow));
             }
 
             // 大序号水印：胶片帧编号，衬线描边字
@@ -608,50 +575,44 @@
                 width: 100%;
                 animation: fade-up 0.6s ease-out;
 
-                // Z3 标题排版层
+                // 卡片头部：标题 / 定位，与作者信息同处一块底板
                 .title-block {
-                  transform: translate3d(var(--mx, 0), var(--my, 0), 0);
-                  transition: transform 0.25s ease-out;
+                  padding: 0.95rem 1.2rem 0.8rem;
+                  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 
                   .title-kicker {
-                    margin: 0 0 0.4rem;
-                    font-size: 0.9rem;
+                    margin: 0 0 0.3rem;
+                    font-size: 0.72rem;
                     font-weight: 700;
-                    letter-spacing: 0.3em;
+                    letter-spacing: 0.28em;
                     color: var(--accent);
-                    text-shadow: 0 0 18px var(--accent-glow);
                   }
 
                   .slide-title {
                     margin: 0;
                     font-family: 'Noto Serif SC', 'Songti SC', serif;
-                    font-size: 3rem;
+                    font-size: 2rem;
                     font-weight: 700;
                     line-height: 1.15;
                     color: #fafcff;
                     letter-spacing: 0.04em;
-                    -webkit-text-stroke: 0.6px rgba(255, 255, 255, 0.3);
                     text-shadow:
-                      0 1px 0 rgba(255, 255, 255, 0.15),
-                      0 2px 4px rgba(0, 0, 0, 0.95),
-                      0 8px 26px rgba(0, 0, 0, 0.85),
-                      0 12px 44px rgba(0, 0, 0, 0.7),
-                      0 0 52px var(--accent-glow);
+                      0 2px 6px rgba(0, 0, 0, 0.8),
+                      0 6px 18px rgba(0, 0, 0, 0.55);
                   }
 
                   .slide-location {
                     display: flex;
                     align-items: center;
-                    gap: 0.45rem;
-                    margin: 0.45rem 0 0;
-                    font-size: 1.15rem;
+                    gap: 0.4rem;
+                    margin: 0.4rem 0 0;
+                    font-size: 0.95rem;
                     font-weight: 600;
-                    color: rgba(255, 255, 255, 0.88);
-                    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+                    color: rgba(255, 255, 255, 0.82);
 
                     svg {
-                      width: 20px;
-                      height: 20px;
+                      width: 16px;
+                      height: 16px;
                       color: var(--accent);
                     }
                   }
@@ -1153,12 +1114,15 @@
             }
 
             // 景深暗示：非当前片轻微缩放压暗，当前片满亮 + 慢推
-            :deep(.carousel-slide.active .slide-image img) {
-              transform: scale(1);
-              filter: brightness(1) saturate(1);
-              animation: ken-burns 20s ease-in-out infinite alternate;
-            }
           }
+        }
+
+        // 当前片恢复原图亮度（不能写在 .slide-image 内部，否则会自嵌套成
+        // .slide-image .carousel-slide.active ... 永远匹配不到）
+        :deep(.carousel-slide.active .slide-image img) {
+          transform: scale(1);
+          filter: brightness(1) saturate(1);
+          animation: ken-burns 20s ease-in-out infinite alternate;
         }
       }
     }
@@ -1467,4 +1431,9 @@
     opacity: 1;
     transform: translate3d(12%, 8%, 0);
   }
+}
+
+// 统一 3D 铭牌：冷蓝（覆盖旧玻璃牌匾样式）
+.featured-section .section-header .header-plate {
+  @include hp.home-plate(#7dd3fc, #bcd6f5, #0b1730, #050b18);
 }
