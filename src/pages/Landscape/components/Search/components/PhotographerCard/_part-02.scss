@@ -1,0 +1,392 @@
+@use 'tokens' as *;
+
+@property --btn-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes shutterRingSpin {
+  to {
+    --btn-angle: 360deg;
+  }
+}
+
+@keyframes shutterSheen {
+  0% {
+    background-position:
+      0 0,
+      190% 0;
+  }
+
+  58%,
+  100% {
+    background-position:
+      0 0,
+      -90% 0;
+  }
+}
+
+@keyframes contactRise {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes scrimFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes cardRise {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes lampPulse {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow:
+      0 0 6px rgba($jade, 0.7),
+      0 0 12px rgba($jade, 0.3);
+  }
+
+  50% {
+    opacity: 0.78;
+    box-shadow:
+      0 0 9px rgba($jade, 0.95),
+      0 0 20px rgba($jade, 0.5);
+  }
+}
+
+// 窄卡片：收紧镜组与底盖，保证姓名、数字与按钮完整
+@container (max-width: 380px) {
+  .photographer-card {
+    .camera-shell {
+      grid-template-columns: 96px minmax(0, 1fr);
+      gap: 15px 12px;
+      padding: 12px;
+    }
+
+    .lens-bay {
+      width: 96px;
+    }
+
+    .lens-mount {
+      width: 84px;
+      height: 84px;
+
+      .lens-glass {
+        inset: 8px;
+      }
+
+      .lens-spec {
+        display: none;
+      }
+
+      .verified-seal {
+        width: 26px;
+        height: 26px;
+
+        svg {
+          width: 15px;
+          height: 15px;
+        }
+      }
+
+      .af-lamp {
+        width: 10px;
+        height: 10px;
+      }
+    }
+
+    .plate-eyebrow {
+      font-size: 8.5px;
+    }
+
+    .plate-name {
+      margin: 5px 0 8px;
+      font-size: 25px;
+    }
+
+    .plate-role {
+      padding: 3px 8px 4px;
+      font-size: 11px;
+    }
+
+    .brand-badge {
+      padding: 6px;
+
+      span {
+        display: none;
+      }
+
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    .field-note {
+      padding: 9px 10px 9px 12px;
+    }
+
+    .note-tab {
+      font-size: 8px;
+    }
+
+    .note-text {
+      font-size: 13.5px;
+    }
+
+    .film-strip {
+      gap: 6px;
+      padding: 9px 8px;
+    }
+
+    .film-frame {
+      padding: 6px 10px;
+
+      .frame-text {
+        font-size: 13.5px;
+      }
+    }
+
+    .film-tail {
+      display: none;
+    }
+
+    .meter-strip {
+      gap: 6px;
+    }
+
+    .meter-row {
+      gap: 6px;
+      padding: 8px;
+
+      .meter-dial {
+        width: 32px;
+        height: 32px;
+
+        svg {
+          width: 16px;
+          height: 16px;
+        }
+      }
+
+      .meter-value {
+        font-size: 19px;
+      }
+
+      .meter-label {
+        padding: 3px 6px;
+        font-size: 11px;
+      }
+    }
+
+    .body-foot {
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .location-plate {
+      order: 1;
+      max-width: 42%;
+      gap: 6px;
+      padding: 4px 9px 4px 4px;
+      font-size: 13.5px;
+
+      .loc-icon {
+        width: 28px;
+        height: 28px;
+
+        svg {
+          width: 15px;
+          height: 15px;
+        }
+      }
+    }
+
+    .shutter-btn {
+      order: 3;
+      flex: 1 0 100%;
+      height: 46px;
+      gap: 5px;
+      padding: 0 10px;
+      font-size: 14px;
+
+      .shutter-icon {
+        width: 17px;
+        height: 17px;
+      }
+    }
+
+    .contact-btn {
+      order: 2;
+      margin-left: auto;
+      height: 46px;
+      gap: 6px;
+      padding: 0 10px 0 6px;
+      font-size: 14px;
+
+      .contact-glyph {
+        width: 26px;
+        height: 26px;
+        padding: 4.5px;
+      }
+
+      .contact-caret {
+        width: 12px;
+        height: 12px;
+      }
+    }
+
+    .contact-sheet {
+      width: 100%;
+      padding: 10px;
+
+      .sheet-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 6px;
+        max-height: 260px;
+      }
+
+      .contact-channel {
+        gap: 8px;
+        padding: 7px 8px;
+
+        .channel-orb {
+          width: 34px;
+          height: 34px;
+
+          .channel-svg {
+            width: 20px;
+            height: 20px;
+          }
+        }
+
+        .channel-mono {
+          font-size: 12.5px;
+        }
+
+        .channel-name {
+          font-size: 13.5px;
+        }
+
+        .channel-handle {
+          font-size: 11px;
+        }
+      }
+    }
+  }
+}
+
+@container (max-width: 330px) {
+  .photographer-card {
+    .camera-shell {
+      grid-template-columns: 82px minmax(0, 1fr);
+      gap: 12px 10px;
+      padding: 10px;
+    }
+
+    .lens-bay {
+      width: 82px;
+    }
+
+    .lens-mount {
+      width: 74px;
+      height: 74px;
+    }
+
+    .plate-name {
+      font-size: 23px;
+    }
+
+    .meter-strip {
+      gap: 5px;
+    }
+
+    .meter-row {
+      gap: 5px;
+      padding: 7px;
+
+      .meter-dial {
+        width: 29px;
+        height: 29px;
+
+        svg {
+          width: 15px;
+          height: 15px;
+        }
+      }
+
+      .meter-value {
+        font-size: 17.5px;
+      }
+
+      .meter-label {
+        padding: 2px 5px;
+        font-size: 10px;
+      }
+    }
+
+    .location-plate {
+      font-size: 12.5px;
+    }
+
+    .shutter-btn {
+      height: 44px;
+      font-size: 13px;
+
+      .shutter-icon {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    .contact-btn {
+      height: 44px;
+      padding: 0 9px 0 6px;
+      font-size: 13px;
+
+      .contact-glyph {
+        width: 24px;
+        height: 24px;
+        padding: 4px;
+      }
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photographer-card {
+    animation: none;
+  }
+
+  .photographer-card *,
+  .photographer-card *::before,
+  .photographer-card *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

@@ -2,7 +2,12 @@
   <div
     :class="['coverflow-slide', { active: isActive }]"
     :style="slideStyle"
+    role="button"
+    tabindex="0"
+    :aria-label="video.title"
     @click="$emit('click')"
+    @keydown.enter.prevent="$emit('click')"
+    @keydown.space.prevent="$emit('click')"
   >
     <div class="slide-inner">
       <div class="slide-poster" @click.stop="isActive && $emit('play')">

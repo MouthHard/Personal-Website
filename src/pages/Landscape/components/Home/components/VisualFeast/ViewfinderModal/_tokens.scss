@@ -1,0 +1,37 @@
+@use 'sass:color';
+
+// 本模块共享变量与 mixin（由 index.scss 拆分而来）
+
+// ===== 方案六·旅行护照 Passport（美化增强版）=====
+
+// 深蓝皮面
+$leather-dark: #081527;
+$leather-mid: #0d2540;
+$leather-light: #1e4470;
+$leather-edge: #2a5a7c;
+
+// 烫金
+$gold-bright: #f0d488;
+$gold-mid: #d4a84b;
+$gold-dark: #c9982e;
+$gold-deep: #a87a1e;
+
+// 米白纸张
+$paper-bright: #faf5ec;
+$paper-mid: #f2ecdc;
+$paper-dark: #e6dec9;
+$paper-shadow: #c8bea5;
+
+// 油墨
+$ink-purple: #7b3fa0;
+$ink-blue: #1e5288;
+$ink-hand: #3d2e1e;
+$ink-faint: #6b5b4b;
+$ink-strong: #2a1e10;
+
+// 互动色
+$c-like: #38bdf8;
+$c-love: #ef4444;
+$c-bookmark: #22c55e;
+$c-share: #a855f7;
+$c-download: #f59e0b;

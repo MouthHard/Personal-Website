@@ -1,0 +1,431 @@
+@keyframes chamber-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 16px rgba(239, 68, 68, 0.9),
+      0 0 32px rgba(239, 68, 68, 0.5),
+      0 0 48px rgba(239, 68, 68, 0.2),
+      inset 0 1.5px 2px rgba(255, 240, 240, 0.55),
+      inset 0 -1.5px 2px rgba(0, 0, 0, 0.25);
+  }
+
+  50% {
+    box-shadow:
+      0 0 24px rgba(239, 68, 68, 1),
+      0 0 48px rgba(239, 68, 68, 0.7),
+      0 0 72px rgba(239, 68, 68, 0.3),
+      inset 0 1.5px 2px rgba(255, 245, 245, 0.75),
+      inset 0 -1.5px 2px rgba(0, 0, 0, 0.25);
+  }
+}
+
+// 走片光点：一颗高光沿片路滑向出口
+@keyframes leader-spark {
+  0% {
+    background-position: -44% 0;
+    opacity: 0;
+  }
+
+  14% {
+    opacity: 1;
+  }
+
+  86% {
+    opacity: 1;
+  }
+
+  100% {
+    background-position: 144% 0;
+    opacity: 0;
+  }
+}
+
+// 片路虚线向右走片
+@keyframes leader-run {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 11px 0;
+  }
+}
+
+// 换片时片名像场记板拍下：由虚到实、轻微下沉回位
+@keyframes slate-stamp {
+  0% {
+    opacity: 0;
+    transform: translateY(-7px) scale(1.06);
+    filter: blur(3px);
+  }
+
+  62% {
+    opacity: 1;
+    transform: translateY(1px) scale(0.995);
+    filter: blur(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+// 里程表数字向上滚入
+@keyframes odometer-roll {
+  0% {
+    opacity: 0;
+    transform: translateY(78%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// 放映机 REC 指示灯：缓慢明暗，像待机中的机器
+@keyframes lamp-rec {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow:
+      0 0 0 1px rgba(0, 0, 0, 0.7),
+      0 0 8px rgba(255, 82, 82, 0.95),
+      0 0 16px rgba(255, 82, 82, 0.34),
+      inset 0 1px 1px rgba(255, 255, 255, 0.6);
+  }
+
+  50% {
+    opacity: 0.48;
+    box-shadow:
+      0 0 0 1px rgba(0, 0, 0, 0.7),
+      0 0 4px rgba(255, 82, 82, 0.5),
+      0 0 10px rgba(255, 82, 82, 0.16),
+      inset 0 1px 1px rgba(255, 255, 255, 0.4);
+  }
+}
+
+// 场记条 hover 掠光
+@keyframes status-sweep {
+  0% {
+    opacity: 0;
+    transform: translateX(-160%) skewX(-18deg);
+  }
+
+  18% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(560%) skewX(-18deg);
+  }
+}
+
+// 胶片颗粒轻微游走，模拟放映抖动
+@keyframes grain-shift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  33% {
+    transform: translate3d(-2%, 1.5%, 0);
+  }
+
+  66% {
+    transform: translate3d(1.5%, -2%, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+// 两处漏光缓慢漂移
+@keyframes leak-drift-a {
+  0%,
+  100% {
+    opacity: 0.75;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translate3d(4%, 3%, 0) scale(1.08);
+  }
+}
+
+@keyframes leak-drift-b {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: translate3d(0, 0, 0) scale(1.05);
+  }
+
+  50% {
+    opacity: 0.95;
+    transform: translate3d(-3%, -4%, 0) scale(1);
+  }
+}
+
+// 尊重系统"减少动态效果"设置
+@media (prefers-reduced-motion: reduce) {
+  .frame-inner .frame-overlay .film-grain,
+  .frame-inner .frame-overlay .film-leak,
+  .status-bar .lamp,
+  .status-bar::after,
+  .status-bar .leader-line,
+  .status-bar .leader-spark,
+  .dial-center .dial-digit,
+  .title-text {
+    animation: none !important;
+  }
+}
+
+@media (max-width: 1440px) {
+  .frame-outer .frame-inner .scale-bar {
+    .scale-tick {
+      .tick-label {
+        font-size: 0.8rem;
+        letter-spacing: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .frame-outer {
+    padding: 5px;
+    border-radius: 18px;
+
+    .frame-inner {
+      padding: 0.75rem 1.5rem 1.25rem;
+      border-radius: 13px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .frame-outer {
+    padding: 3px;
+    border-radius: 14px;
+
+    .frame-inner {
+      padding: 0.5rem 0.75rem 1rem;
+      border-radius: 11px;
+
+      &::before,
+      &::after {
+        display: none;
+      }
+
+      .chamfer {
+        display: none;
+      }
+
+      .status-bar {
+        padding: 4px 12px;
+        margin-bottom: 0.75rem;
+        border-radius: 10px;
+
+        .bar-plate {
+          gap: 0.45rem;
+          padding: 0.4rem 0.55rem;
+          border-radius: 7px;
+        }
+
+        .lamp-cluster {
+          gap: 5px;
+          padding: 3px 6px;
+        }
+
+        .perf-strip {
+          width: 7px;
+
+          &.perf-left {
+            left: 2px;
+          }
+
+          &.perf-right {
+            right: 2px;
+          }
+        }
+
+        .title-text {
+          font-size: 1.05rem;
+        }
+      }
+
+      // 窄屏格宽不够放两位编号，只留画格本身，靠播放头指示位置
+      .scale-bar {
+        padding: 0 1.5rem;
+
+        .caption-hint {
+          display: none;
+        }
+
+        .scale-tick {
+          padding: 7px 2px 6px;
+
+          .tick-label {
+            display: none;
+          }
+
+          &.active .tick-frame {
+            height: 26px;
+            margin-top: -6px;
+          }
+        }
+
+        .rail-playhead {
+          top: 3px;
+          height: 22px;
+        }
+      }
+    }
+
+    .frame-screws {
+      display: none;
+    }
+
+    .nav-dial {
+      gap: 1rem;
+      margin: 1.5rem auto 0;
+      padding: 0.7rem 1.4rem;
+      border-radius: 14px;
+
+      .dial-btn {
+        width: 42px;
+        height: 42px;
+
+        .dial-btn-face svg {
+          width: 26px;
+          height: 26px;
+        }
+      }
+
+      .dial-display {
+        gap: 0.9rem;
+
+        .dial-ring {
+          width: 54px;
+          height: 54px;
+        }
+
+        .dial-center {
+          padding: 0.45rem 0.8rem;
+
+          &::before {
+            display: none;
+          }
+
+          .dial-cell {
+            font-size: 1.3rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+// 极窄屏（手机竖屏）：片头只留片名，编号交给下方弹筒
+@media (max-width: 480px) {
+  .frame-outer .frame-inner .status-bar {
+    .lamp-cluster,
+    .leader-line {
+      display: none;
+    }
+
+    .title-text {
+      font-size: 1rem;
+    }
+  }
+
+  .frame-outer .frame-inner .scale-bar {
+    padding: 0 1rem;
+    margin-top: 1rem;
+
+    .scale-caption {
+      padding-bottom: 0.3rem;
+
+      .caption-label {
+        font-size: 0.72rem;
+        letter-spacing: 0.2em;
+      }
+    }
+
+    .scale-rail {
+      gap: 1px;
+    }
+
+    .scale-tick {
+      padding: 5px 0;
+
+      .tick-frame {
+        height: 12px;
+        border-radius: 2px;
+      }
+
+      &.active .tick-frame {
+        height: 16px;
+      }
+    }
+  }
+
+  // 极窄屏整条切换区一起收紧，并向两侧各借一点内距，给编号窗腾位置
+  .frame-outer .nav-dial {
+    gap: 0.45rem;
+    margin: 1.5rem auto 0;
+    padding: 0.55rem 0.9rem;
+    border-radius: 13px;
+
+    &::before,
+    &::after {
+      display: none;
+    }
+
+    .dial-btn {
+      width: 36px;
+      height: 36px;
+
+      .dial-btn-face svg {
+        width: 22px;
+        height: 22px;
+      }
+    }
+
+    .dial-display {
+      gap: 0.45rem;
+
+      .dial-ring {
+        width: 44px;
+        height: 44px;
+      }
+
+      .dial-center {
+        gap: 0.3rem;
+        padding: 0.42rem 0.6rem;
+        border-radius: 10px;
+
+        &::before,
+        &::after {
+          display: none;
+        }
+
+        .dial-cell {
+          min-width: 1.95em;
+          height: 1.8em;
+          padding: 0 0.26em;
+          border-radius: 6px;
+          font-size: 0.95rem;
+        }
+
+        .dial-separator {
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+}

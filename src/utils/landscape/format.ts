@@ -7,6 +7,18 @@ export function formatNumber(num: number | string): string {
   return num.toString();
 }
 
+/**
+ * 中文计数：一万以上用「万」，一亿以上用「亿」，
+ * 与 formatNumber 的 k/w 缩写区分，用于偏中文本地化的版面。
+ */
+export function formatNumberZh(num: number | string): string {
+  if (typeof num === 'string') return formatNumberZh(parseCount(num));
+  if (num >= 100000000)
+    return (num / 100000000).toFixed(1).replace(/\.0$/, '') + '亿';
+  if (num >= 10000) return (num / 10000).toFixed(1).replace(/\.0$/, '') + '万';
+  return String(Math.round(num));
+}
+
 export function formatDuration(seconds: number): string {
   const hours = Math.floor(seconds / 3600);
   const minutes = Math.floor((seconds % 3600) / 60);

@@ -1,0 +1,512 @@
+@use 'sass:color';
+@use 'tokens' as *;
+
+// 验讫章互动数据（3×2 网格）· sticky 固定右页底部
+.stamp-grid {
+  position: sticky;
+  bottom: 0;
+  z-index: 5;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 12px 14px 20px;
+
+  // 官方签章台：暖金底 + 烫金双线边框，与周围纸张区分
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(255, 235, 180, 0.5) 0%,
+      transparent 55%
+    ),
+    linear-gradient(180deg, #f4e6c4 0%, #ecd6ac 100%);
+  border: 1.5px solid rgba(168, 122, 30, 0.5);
+  border-radius: 4px;
+  box-shadow:
+    inset 0 0 0 1px rgba(212, 168, 75, 0.4),
+    inset 0 1px 0 rgba(255, 245, 220, 0.55),
+    inset 0 -3px 6px rgba(140, 100, 40, 0.14),
+    0 -3px 10px rgba(80, 60, 20, 0.1);
+
+  // 顶部烫金分隔线（签章台顶饰）
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 14%;
+    right: 14%;
+    height: 1.5px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      $gold-mid 25%,
+      $gold-bright 50%,
+      $gold-mid 75%,
+      transparent
+    );
+    box-shadow: 0 0 5px rgba(212, 168, 75, 0.35);
+  }
+
+  .sg-cells {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  // 两行分组：上行只读/即时操作，下行可切换 active
+  .sg-cells-top {
+    margin-bottom: 2px;
+  }
+
+  .sg-cells-bottom {
+    margin-top: 10px;
+    padding-top: 12px;
+    border-top: 1px dashed rgba(212, 168, 75, 0.4);
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 8px;
+      height: 8px;
+      background: radial-gradient(circle, $gold-mid 0%, $gold-deep 100%);
+      border-radius: 50%;
+      box-shadow: 0 0 4px rgba(212, 168, 75, 0.5);
+    }
+  }
+
+  // === 自然态：虚线边框 + 普通文字（6 个统一扁平）===
+  .sg-cell {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 9px 10px;
+    border: 1.5px dashed rgba(61, 46, 30, 0.3);
+    border-radius: 5px;
+    background: linear-gradient(
+      180deg,
+      rgba(250, 245, 236, 0.5) 0%,
+      rgba(228, 220, 200, 0.35) 100%
+    );
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.28s ease;
+
+    .sc-icon {
+      width: 26px;
+      height: 26px;
+      flex-shrink: 0;
+      color: $ink-hand;
+      transition:
+        color 0.28s ease,
+        filter 0.28s ease;
+
+      :deep(svg),
+      :deep(svg *) {
+        stroke-width: 2.8;
+      }
+    }
+
+    .sc-num {
+      font-family: 'Courier New', monospace;
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: $ink-strong;
+      transition:
+        color 0.28s ease,
+        filter 0.28s ease;
+    }
+
+    .sc-text {
+      font-size: 1.06rem;
+      font-weight: 700;
+      color: $ink-hand;
+      letter-spacing: 0.05em;
+      transition:
+        color 0.28s ease,
+        text-shadow 0.28s ease;
+    }
+
+    &.sg-views {
+      cursor: default;
+    }
+
+    // 各按钮主题色（hover/active 分色用）
+    &.sg-views {
+      --ac: #1e5288;
+      --ac-glow: rgba(30, 82, 136, 0.28);
+      --ac-tint: rgba(30, 82, 136, 0.08);
+    }
+
+    &.sg-like {
+      --ac: #{$c-like};
+      --ac-glow: rgba(56, 189, 248, 0.28);
+      --ac-tint: rgba(56, 189, 248, 0.08);
+    }
+
+    &.sg-love {
+      --ac: #{$c-love};
+      --ac-glow: rgba(239, 68, 68, 0.28);
+      --ac-tint: rgba(239, 68, 68, 0.08);
+    }
+
+    &.sg-bookmark {
+      --ac: #{$c-bookmark};
+      --ac-glow: rgba(34, 197, 94, 0.28);
+      --ac-tint: rgba(34, 197, 94, 0.08);
+    }
+
+    &.sg-share {
+      --ac: #{$c-share};
+      --ac-glow: rgba(168, 85, 247, 0.28);
+      --ac-tint: rgba(168, 85, 247, 0.08);
+    }
+
+    &.sg-download {
+      --ac: #{$c-download};
+      --ac-glow: rgba(245, 158, 11, 0.28);
+      --ac-tint: rgba(245, 158, 11, 0.08);
+    }
+
+    // === Hover：蓄能充能（虚线点亮 + 主题色辉光，仍扁平，区别于 active 的 3D 金属）===
+    &:hover {
+      border-color: var(--ac);
+      background:
+        radial-gradient(ellipse at 50% 50%, var(--ac-tint) 0%, transparent 70%),
+        linear-gradient(
+          180deg,
+          rgba(252, 248, 240, 0.65) 0%,
+          rgba(235, 228, 210, 0.45) 100%
+        );
+      box-shadow:
+        0 0 12px var(--ac-glow),
+        0 0 24px var(--ac-tint),
+        inset 0 1px 0 rgba(255, 255, 255, 0.45),
+        inset 0 0 10px var(--ac-tint);
+
+      .sc-icon,
+      .sc-num {
+        color: var(--ac);
+        filter: drop-shadow(0 0 3px var(--ac-glow));
+      }
+
+      .sc-text {
+        color: var(--ac);
+      }
+    }
+
+    // 浏览只读：hover 减弱（仅边框微亮，不发光晕）
+    &.sg-views:hover {
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+
+      .sc-icon,
+      .sc-num {
+        filter: none;
+      }
+    }
+
+    // === Active：3D 金属浮雕（立体感强，白色浮雕文字，区别于 hover 的扁平辉光）===
+    // 点赞 — 钢蓝金属
+    &.sg-like.active {
+      border: 2px solid #1a4a78;
+      background:
+        radial-gradient(
+          circle at 35% 25%,
+          rgba(180, 220, 255, 0.35) 0%,
+          transparent 55%
+        ),
+        linear-gradient(180deg, #5a9ad8 0%, #2a6aa8 45%, #1a4a78 100%);
+      box-shadow:
+        0 4px 10px rgba(26, 74, 120, 0.5),
+        0 2px 4px rgba(0, 0, 0, 0.2),
+        0 0 16px rgba(56, 189, 248, 0.3),
+        inset 0 2px 3px rgba(150, 200, 250, 0.55),
+        inset 0 -2px 4px rgba(10, 30, 60, 0.5),
+        inset 1px 0 2px rgba(180, 220, 255, 0.25),
+        inset -1px 0 2px rgba(10, 30, 60, 0.35);
+
+      .sc-icon,
+      .sc-num {
+        color: #fff;
+        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4));
+      }
+
+      .sc-text {
+        color: rgba(255, 255, 255, 0.95);
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+      }
+    }
+
+    // 喜爱 — 铜红金属
+    &.sg-love.active {
+      border: 2px solid #6a1818;
+      background:
+        radial-gradient(
+          circle at 35% 25%,
+          rgba(255, 180, 180, 0.35) 0%,
+          transparent 55%
+        ),
+        linear-gradient(180deg, #d85a5a 0%, #a02828 45%, #6a1818 100%);
+      box-shadow:
+        0 4px 10px rgba(80, 10, 10, 0.5),
+        0 2px 4px rgba(0, 0, 0, 0.2),
+        0 0 16px rgba(239, 68, 68, 0.3),
+        inset 0 2px 3px rgba(255, 150, 150, 0.55),
+        inset 0 -2px 4px rgba(60, 10, 10, 0.5),
+        inset 1px 0 2px rgba(255, 180, 180, 0.25),
+        inset -1px 0 2px rgba(60, 10, 10, 0.35);
+
+      .sc-icon,
+      .sc-num {
+        color: #fff;
+        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4));
+      }
+
+      .sc-text {
+        color: rgba(255, 255, 255, 0.95);
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+      }
+    }
+
+    // 收藏 — 青铜绿金属
+    &.sg-bookmark.active {
+      border: 2px solid #1a6a2a;
+      background:
+        radial-gradient(
+          circle at 35% 25%,
+          rgba(180, 255, 200, 0.35) 0%,
+          transparent 55%
+        ),
+        linear-gradient(180deg, #4aba6a 0%, #2a8a4a 45%, #1a6a2a 100%);
+      box-shadow:
+        0 4px 10px rgba(10, 50, 20, 0.5),
+        0 2px 4px rgba(0, 0, 0, 0.2),
+        0 0 16px rgba(34, 197, 94, 0.3),
+        inset 0 2px 3px rgba(150, 250, 180, 0.55),
+        inset 0 -2px 4px rgba(10, 50, 20, 0.5),
+        inset 1px 0 2px rgba(180, 255, 200, 0.25),
+        inset -1px 0 2px rgba(10, 50, 20, 0.35);
+
+      .sc-icon,
+      .sc-num {
+        color: #fff;
+        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4));
+      }
+
+      .sc-text {
+        color: rgba(255, 255, 255, 0.95);
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+      }
+    }
+
+    // 分享/下载：鼠标按下瞬间的金属闪光（:active 伪类）
+    &.sg-share:active {
+      border: 2px solid #4a2a78;
+      background:
+        radial-gradient(
+          circle at 35% 25%,
+          rgba(200, 170, 255, 0.35) 0%,
+          transparent 55%
+        ),
+        linear-gradient(180deg, #9a7ad8 0%, #6a4aa8 45%, #4a2a78 100%);
+      box-shadow:
+        0 3px 8px rgba(40, 15, 70, 0.45),
+        inset 0 2px 3px rgba(200, 170, 255, 0.5),
+        inset 0 -2px 4px rgba(30, 10, 50, 0.5);
+
+      .sc-icon,
+      .sc-num {
+        color: #fff;
+      }
+
+      .sc-text {
+        color: rgba(255, 255, 255, 0.95);
+      }
+    }
+
+    &.sg-download:active {
+      border: 2px solid #8a6810;
+      background:
+        radial-gradient(
+          circle at 35% 25%,
+          rgba(255, 230, 160, 0.35) 0%,
+          transparent 55%
+        ),
+        linear-gradient(180deg, #d8a840 0%, #b88820 45%, #8a6810 100%);
+      box-shadow:
+        0 3px 8px rgba(80, 60, 5, 0.45),
+        inset 0 2px 3px rgba(255, 230, 160, 0.5),
+        inset 0 -2px 4px rgba(60, 45, 5, 0.5);
+
+      .sc-icon,
+      .sc-num {
+        color: #fff;
+      }
+
+      .sc-text {
+        color: rgba(255, 255, 255, 0.95);
+      }
+    }
+  }
+}
+
+// ===== 底部控制区（深蓝皮面桌垫） =====
+.pp-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  margin: 0 24px 18px;
+  padding: 13px 24px;
+  background:
+    radial-gradient(
+      ellipse at 18% 0%,
+      rgba(255, 222, 155, 0.25) 0%,
+      transparent 38%
+    ),
+    radial-gradient(ellipse at 50% 0%, $leather-mid 0%, transparent 60%),
+    linear-gradient(180deg, $leather-mid 0%, $leather-dark 100%);
+  border-radius: 5px;
+  box-shadow:
+    0 0 0 1px rgba(212, 168, 75, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.4),
+    inset 3px 0 12px rgba(255, 220, 150, 0.08),
+    inset 0 0 30px rgba(0, 0, 0, 0.15),
+    0 5px 14px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 3;
+
+  // 皮面纹理
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 5px;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent 0,
+      transparent 3px,
+      rgba(255, 255, 255, 0.018) 3px,
+      rgba(255, 255, 255, 0.018) 4px
+    );
+    pointer-events: none;
+  }
+}
+
+// 翻页导航按钮
+.pp-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border: 1px solid rgba(212, 168, 75, 0.5);
+  border-radius: 4px;
+  background:
+    linear-gradient(135deg, rgba(255, 232, 165, 0.35) 0%, transparent 50%),
+    linear-gradient(
+      180deg,
+      rgba(240, 212, 136, 0.22) 0%,
+      rgba(212, 168, 75, 0.08) 50%,
+      rgba(168, 122, 30, 0.12) 100%
+    );
+  color: $gold-bright;
+  font-family: 'Courier New', monospace;
+  font-size: 0.98rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  z-index: 2;
+  box-shadow:
+    0 3px 6px rgba(0, 0, 0, 0.25),
+    0 1px 2px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.25),
+    inset 1px 1px 3px rgba(255, 235, 170, 0.18),
+    inset -1px -1px 2px rgba(0, 0, 0, 0.15);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+
+  :deep(svg) {
+    width: 24px;
+    height: 24px;
+    filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.3));
+  }
+
+  &:hover:not(:disabled) {
+    background:
+      linear-gradient(135deg, rgba(255, 238, 175, 0.32) 0%, transparent 50%),
+      linear-gradient(
+        180deg,
+        rgba(240, 212, 136, 0.35) 0%,
+        rgba(212, 168, 75, 0.15) 50%,
+        rgba(168, 122, 30, 0.18) 100%
+      );
+    border-color: $gold-mid;
+    box-shadow:
+      0 0 16px rgba(212, 168, 75, 0.38),
+      inset 0 1px 0 rgba(255, 255, 255, 0.22),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.2),
+      inset 1px 1px 4px rgba(255, 240, 180, 0.2);
+    color: $gold-bright;
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(1px);
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.4);
+  }
+
+  &:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+}
+
+// 页码计数器
+.pp-counter {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 8px 18px;
+  border: 1px solid rgba(212, 168, 75, 0.4);
+  border-radius: 4px;
+  background:
+    linear-gradient(135deg, rgba(255, 220, 150, 0.1) 0%, transparent 50%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.3) 100%);
+  font-family: 'Courier New', monospace;
+  position: relative;
+  z-index: 2;
+  box-shadow:
+    0 0 0 1px rgba(212, 168, 75, 0.3),
+    inset 0 3px 7px rgba(0, 0, 0, 0.55),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.06),
+    inset 1px 1px 3px rgba(255, 220, 150, 0.1),
+    inset -1px -1px 2px rgba(0, 0, 0, 0.2);
+
+  .pc-current {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: $gold-bright;
+    text-shadow:
+      0 0 8px rgba(240, 212, 136, 0.6),
+      0 0 2px rgba(240, 212, 136, 0.8);
+  }
+
+  .pc-sep {
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: rgba(212, 168, 75, 0.55);
+  }
+
+  .pc-total {
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: rgba(212, 168, 75, 0.75);
+    text-shadow: 0 0 4px rgba(212, 168, 75, 0.3);
+  }
+}

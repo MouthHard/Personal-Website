@@ -515,7 +515,7 @@
   import UsersIcon from '@/pages/Landscape/icons/common/UsersIcon.vue';
   import ClockIcon from '@/pages/Landscape/icons/common/ClockIcon.vue';
   import LocationIcon from '@/pages/Landscape/icons/common/LocationIcon.vue';
-  import MessageBubbleIcon from '@/pages/Landscape/icons/components/profile/common/MessageBubbleIcon.vue';
+  import MessageBubbleIcon from '@/pages/Landscape/icons/common/MessageBubbleIcon.vue';
   import InfoIcon from '@/pages/Landscape/icons/common/InfoIcon.vue';
   import LightbulbIcon from '@/pages/Landscape/icons/common/LightbulbIcon.vue';
   import TagIcon from '@/pages/Landscape/icons/common/TagIcon.vue';

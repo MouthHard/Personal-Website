@@ -15,6 +15,7 @@
           @keyup.enter="handleSearchFromUser"
           @focus="handleFocus"
           @blur="handleBlur"
+          @click="handleFocus"
         />
         <button
           v-if="searchQuery"
@@ -303,6 +304,18 @@
     }, 200);
   };
 
+  // ESC 收起下拉（不依赖焦点位置）；输入框保持聚焦，
+  // 再次点击输入框由 @click="handleFocus" 重新展开
+  const handleDocumentKeydown = (event: KeyboardEvent) => {
+    if (event.key !== 'Escape' || !isFocused.value) return;
+    if (blurTimer) {
+      clearTimeout(blurTimer);
+      blurTimer = null;
+    }
+    isFocused.value = false;
+    isHistoryExpanded.value = false;
+  };
+
   watch(
     () => props.modelValue,
     (newVal) => {
@@ -349,6 +362,8 @@
   };
 
   onMounted(async () => {
+    document.addEventListener('keydown', handleDocumentKeydown);
+
     if (dataStore.hotTags.length === 0) {
       isHotLoading.value = true;
       try {
@@ -360,6 +375,7 @@
   });
 
   onBeforeUnmount(() => {
+    document.removeEventListener('keydown', handleDocumentKeydown);
     if (blurTimer) {
       clearTimeout(blurTimer);
       blurTimer = null;

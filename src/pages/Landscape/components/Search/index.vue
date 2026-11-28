@@ -73,17 +73,19 @@
               <span class="mark-label">{{ sort.label }}</span>
             </button>
           </div>
+          <span class="rail-wheel" aria-hidden="true"></span>
         </div>
       </div>
     </div>
 
     <div
       v-if="filteredResults.length > 0"
+      ref="gridRef"
       class="result-grid"
       :class="`cols-${gridColumns}`"
     >
       <SearchResultCard
-        v-for="item in filteredResults"
+        v-for="item in paginatedResults"
         :key="item.id"
         :item="item"
         :sort-mode="selectedSort"
@@ -95,8 +97,124 @@
       />
     </div>
 
+    <div v-if="filteredResults.length > 0" class="pagination-deck">
+      <div class="pager-main">
+        <button
+          type="button"
+          class="pager-nav"
+          :disabled="currentPage <= 1"
+          aria-label="上一页"
+          title="上一页"
+          @click="goToPage(currentPage - 1)"
+        >
+          <ChevronLeftIcon class="pager-nav-icon" />
+        </button>
+
+        <div class="pager-pages">
+          <template
+            v-for="(page, index) in pageItems"
+            :key="`${page}-${index}`"
+          >
+            <span v-if="typeof page !== 'number'" class="page-gap">…</span>
+            <button
+              v-else
+              type="button"
+              class="page-btn"
+              :class="{ active: page === currentPage }"
+              :aria-current="page === currentPage ? 'page' : undefined"
+              :aria-label="`第 ${page} 页`"
+              @click="goToPage(page)"
+            >
+              {{ page }}
+            </button>
+          </template>
+        </div>
+
+        <button
+          type="button"
+          class="pager-nav"
+          :disabled="currentPage >= totalPages"
+          aria-label="下一页"
+          title="下一页"
+          @click="goToPage(currentPage + 1)"
+        >
+          <ChevronRightIcon class="pager-nav-icon" />
+        </button>
+      </div>
+
+      <div class="pager-meta">
+        <span
+          class="page-counter"
+          :title="`第 ${currentPage} 页，共 ${totalPages} 页`"
+          aria-live="polite"
+        >
+          <span class="page-counter-label">PAGE</span>
+          <span class="page-counter-window">
+            <b :key="currentPage" class="page-counter-current">
+              <span class="page-digit">
+                {{ padPage(currentPage).charAt(0) }}
+              </span>
+              <span class="page-digit">
+                {{ padPage(currentPage).charAt(1) }}
+              </span>
+            </b>
+            <i>/</i>
+            <span class="page-counter-total">{{ padPage(totalPages) }}</span>
+          </span>
+        </span>
+
+        <div ref="sizeMenuRef" class="pager-size">
+          <span class="size-label">每页</span>
+          <div class="size-picker">
+            <button
+              ref="sizeTriggerRef"
+              type="button"
+              class="size-trigger"
+              :class="{ open: sizeMenuOpen }"
+              :aria-expanded="sizeMenuOpen"
+              aria-haspopup="listbox"
+              aria-label="选择每页显示数量"
+              @click="toggleSizeMenu"
+            >
+              <span class="size-value">{{ pageSize }} 张</span>
+              <ChevronDownIcon class="size-caret" />
+            </button>
+
+            <Transition name="size-pop">
+              <div
+                v-if="sizeMenuOpen"
+                class="size-menu"
+                role="listbox"
+                aria-label="每页数量"
+              >
+                <span class="size-menu-title">每页数量</span>
+                <button
+                  v-for="(size, index) in pageSizeOptions"
+                  :key="size"
+                  type="button"
+                  class="size-option"
+                  :class="{ active: size === pageSize }"
+                  role="option"
+                  :aria-selected="size === pageSize"
+                  :style="{ '--i': index }"
+                  @click="selectPageSize(size)"
+                >
+                  <span class="size-option-num">{{ size }}</span>
+                  <span class="size-option-unit">张</span>
+                  <CheckIcon
+                    v-if="size === pageSize"
+                    class="size-option-check"
+                  />
+                </button>
+              </div>
+            </Transition>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <SearchEmpty
-      v-else
+      v-if="filteredResults.length === 0"
       :has-keyword="hasKeyword"
       :has-active-filters="hasActiveFilters"
       @clear-keyword="clearKeyword"
@@ -118,6 +236,10 @@
   import TypeVideoIcon from '@/pages/Landscape/icons/components/search/Search/TypeVideoIcon.vue';
   import TypeGuideIcon from '@/pages/Landscape/icons/components/search/Search/TypeGuideIcon.vue';
   import TypePhotographerIcon from '@/pages/Landscape/icons/components/search/Search/TypePhotographerIcon.vue';
+  import ChevronLeftIcon from '@/pages/Landscape/icons/common/ChevronLeftIcon.vue';
+  import ChevronRightIcon from '@/pages/Landscape/icons/common/ChevronRightIcon.vue';
+  import ChevronDownIcon from '@/pages/Landscape/icons/common/ChevronDownIcon.vue';
+  import CheckIcon from '@/pages/Landscape/icons/common/CheckIcon.vue';
   import { useSearchViewData } from '@/composables/landscape';
   import { useInteractionStore } from '@/stores/landscape';
   import { useSearchHistory } from '@/composables/landscape/useSearchHistory';
@@ -140,6 +262,7 @@
   } from '@/utils/landscape';
   import type { SearchResultItem } from '@/utils/landscape';
   import ShareMenu from '../common/ShareMenu/index.vue';
+  import { useSearchPagination } from './composables/useSearchPagination';
 
   const route = useRoute();
   const router = useRouter();
@@ -163,11 +286,16 @@
 
   const selectedSort = computed(() => {
     const sort = route.query.sort;
-    return sort
+    const raw = sort
       ? Array.isArray(sort)
         ? sort[0] || 'relevance'
         : sort || 'relevance'
       : 'relevance';
+    // 摄影师没有“最新发布”维度，回退到综合推荐
+    if (raw === 'latest' && selectedType.value === 'photographer') {
+      return 'relevance';
+    }
+    return raw;
   });
 
   const gridColumns = ref(3);
@@ -188,16 +316,17 @@
       (o) => o.value === selectedSort.value,
     );
     const index = idx >= 0 ? idx : 0;
+    // 游标托座宽度上限 120px，超宽时在各自刻度段内居中
     return {
-      width: `calc((100% - 12px) / ${total})`,
-      transform: `translateX(${index * 100}%)`,
+      left: `calc(8px + (100% - 16px) * ${index} / ${total} + max(0px, ((100% - 16px) / ${total} - 120px) / 2))`,
+      width: `min(120px, calc((100% - 16px) / ${total}))`,
     };
   });
 
   const { searchImages, searchVideos, searchGuides, searchPhotographers } =
     useSearchViewData();
 
-  const mockSearchResults = computed<SearchResultItem[]>(() => {
+  const allResults = computed<SearchResultItem[]>(() => {
     const keyword = searchKeyword.value || '';
     const images = searchImages(keyword).map(convertImageToSearchResult);
     const videos = searchVideos(keyword).map(convertVideoToSearchResult);
@@ -211,9 +340,9 @@
 
   const typeCounts = computed(() => {
     const counts: Record<string, number> = {
-      all: mockSearchResults.value.length,
+      all: allResults.value.length,
     };
-    for (const item of mockSearchResults.value) {
+    for (const item of allResults.value) {
       counts[item.type] = (counts[item.type] || 0) + 1;
     }
     return counts;
@@ -223,19 +352,43 @@
 
   const filteredResults = computed(() => {
     let results = filterSearchResults(
-      mockSearchResults.value,
+      allResults.value,
       searchKeyword.value,
       selectedType.value,
     );
     return sortSearchResults(results, selectedSort.value);
   });
 
+  const gridRef = ref<HTMLElement | null>(null);
+  const sizeMenuRef = ref<HTMLElement | null>(null);
+  const sizeTriggerRef = ref<HTMLButtonElement | null>(null);
+
+  const {
+    pageSizeOptions,
+    pageSize,
+    currentPage,
+    totalPages,
+    paginatedResults,
+    pageItems,
+    padPage,
+    resetPage,
+    goToPage,
+    sizeMenuOpen,
+    toggleSizeMenu,
+    selectPageSize,
+  } = useSearchPagination(filteredResults, () => gridRef.value, {
+    sizeMenuRef,
+    sizeTriggerRef,
+  });
+
+  watch([selectedType, selectedSort, searchKeyword, pageSize], resetPage);
+
   const hasGuideCards = computed(() => {
     return filteredResults.value.some((item) => item.type === 'guide');
   });
 
   const getItemById = (id: string): SearchResultItem | undefined => {
-    return mockSearchResults.value.find((item) => String(item.id) === id);
+    return allResults.value.find((item) => String(item.id) === id);
   };
 
   const handleLike = (id: string) => {
@@ -250,8 +403,8 @@
         image: item.thumbnail,
         location: item.location,
         author: item.author || item.name,
-        authorId: (item as any).authorId,
-        authorAvatar: item.authorAvatar || (item as any).avatar,
+        authorId: item.authorId,
+        authorAvatar: item.authorAvatar || item.avatar,
       },
     );
     const isLiked = interactionStore.toggleLike(interactionItem);
@@ -274,8 +427,8 @@
         image: item.thumbnail,
         location: item.location,
         author: item.author || item.name,
-        authorId: (item as any).authorId,
-        authorAvatar: item.authorAvatar || (item as any).avatar,
+        authorId: item.authorId,
+        authorAvatar: item.authorAvatar || item.avatar,
       },
     );
 
@@ -326,8 +479,8 @@
         image: item.thumbnail,
         location: item.location,
         author: item.author || item.name,
-        authorId: (item as any).authorId,
-        authorAvatar: item.authorAvatar || (item as any).avatar,
+        authorId: item.authorId,
+        authorAvatar: item.authorAvatar || item.avatar,
       },
     );
 
@@ -371,8 +524,8 @@
     if (searchKeyword.value) query.q = searchKeyword.value;
     const t =
       overrides.type !== undefined ? overrides.type : selectedType.value;
-    const s =
-      overrides.sort !== undefined ? overrides.sort : selectedSort.value;
+    let s = overrides.sort !== undefined ? overrides.sort : selectedSort.value;
+    if (t === 'photographer' && s === 'latest') s = 'relevance';
     if (t !== 'all') query.type = t;
     if (s !== 'relevance') query.sort = s;
     return query;
@@ -431,7 +584,7 @@
   };
 
   watch(
-    mockSearchResults,
+    allResults,
     (results) => {
       if (results.length > 0) {
         debouncedRegister(results);

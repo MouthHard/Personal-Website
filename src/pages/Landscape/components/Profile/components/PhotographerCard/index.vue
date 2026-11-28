@@ -256,7 +256,7 @@
   import ArrowRightIcon from '@/pages/Landscape/icons/common/ArrowRightIcon.vue';
   import UserPlusIcon from '@/pages/Landscape/icons/common/UserPlusIcon.vue';
   import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue';
-  import MessageBubbleIcon from '@/pages/Landscape/icons/components/profile/common/MessageBubbleIcon.vue';
+  import MessageBubbleIcon from '@/pages/Landscape/icons/common/MessageBubbleIcon.vue';
   import GlobeIcon from '@/pages/Landscape/icons/common/GlobeIcon.vue';
   import PhoneIcon from '@/pages/Landscape/icons/common/PhoneIcon.vue';
   import BadgeIcon from '@/pages/Landscape/icons/components/profile/PhotographerCard/BadgeIcon.vue';

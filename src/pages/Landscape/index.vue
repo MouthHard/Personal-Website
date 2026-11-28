@@ -6,9 +6,13 @@
 
     <main class="main-content">
       <!-- 数据加载中/加载失败：星系状态组件（自身绝对定位铺满本容器并双向居中） -->
-      <StarSystemState v-if="dataLoading || dataError" :error="dataError" @retry="retryLoad" />
+      <StarSystemState
+        v-if="dataLoading || dataError"
+        :error="dataError"
+        @retry="retryLoad"
+      />
 
-      <router-view v-else  v-slot="{ Component }">
+      <router-view v-else v-slot="{ Component }">
         <keep-alive :include="cachedViewsArray" :max="5">
           <component
             :is="Component"
@@ -31,7 +35,14 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, shallowRef, computed, onMounted, watch, defineAsyncComponent } from 'vue';
+  import {
+    ref,
+    shallowRef,
+    computed,
+    onMounted,
+    watch,
+    defineAsyncComponent,
+  } from 'vue';
   import StarSystemState from './components/common/StarSystemState/index.vue';
   import {
     useLandscapeDataStore,
@@ -40,6 +51,7 @@
   import type { LandscapeItem } from '@/typesOfPages/landscape';
   import { cachedViews } from '@/constants/landscape';
   import { convertToLandscapeItem } from '@/utils/landscape';
+  import { getCategoryTagLabels } from '@/utils/landscape/search';
   import { debounce } from '@/utils/landscape/debounce';
 
   const cachedViewsArray = [...cachedViews];
@@ -91,9 +103,12 @@
     );
   };
 
-  watch(searchQuery, debounce((val: string) => {
-    debouncedQuery.value = val;
-  }, 200));
+  watch(
+    searchQuery,
+    debounce((val: string) => {
+      debouncedQuery.value = val;
+    }, 200),
+  );
 
   onMounted(async () => {
     await dataStore.ensureLoaded();
@@ -119,6 +134,9 @@
           item.title.toLowerCase().includes(lowerQuery) ||
           item.location.toLowerCase().includes(lowerQuery) ||
           item.tags.some((tag) => tag.toLowerCase().includes(lowerQuery)) ||
+          getCategoryTagLabels(item.categoryTags).some((tag) =>
+            tag.toLowerCase().includes(lowerQuery),
+          ) ||
           (item.author || '').toLowerCase().includes(lowerQuery) ||
           (item.description || '').toLowerCase().includes(lowerQuery),
       );
@@ -132,7 +150,6 @@
   };
 
   const handleUpload = (_file: File) => {
-
     showUploadModal.value = false;
   };
 </script>

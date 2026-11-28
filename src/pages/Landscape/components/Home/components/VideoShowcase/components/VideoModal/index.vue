@@ -1,7 +1,16 @@
 <template>
   <Teleport to="body">
     <Transition name="modal">
-      <div v-if="visible" class="video-modal" @click="$emit('close')">
+      <div
+        v-if="visible"
+        ref="modalRoot"
+        class="video-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-label="视频详情"
+        tabindex="-1"
+        @click="$emit('close')"
+      >
         <div class="modal-wrapper" @click.stop>
           <div class="speaker-grille"></div>
 
@@ -21,7 +30,12 @@
                     v-for="item in sortedPlaylist"
                     :key="item.id"
                     :class="['vhs-tape', { active: video?.id === item.id }]"
+                    role="button"
+                    tabindex="0"
+                    :aria-pressed="video?.id === item.id"
                     @click="$emit('select', item)"
+                    @keydown.enter.prevent="$emit('select', item)"
+                    @keydown.space.prevent="$emit('select', item)"
                   >
                     <div class="tape-body">
                       <div class="tape-reels">
@@ -55,7 +69,12 @@
                     :key="`cc-${item.type}-${item.id}`"
                     class="cc-card"
                     :class="`cc-${item.type}`"
+                    role="button"
+                    tabindex="0"
+                    :aria-label="`查看${item.title}`"
                     @click="handleRecommendSelect(item)"
+                    @keydown.enter.prevent="handleRecommendSelect(item)"
+                    @keydown.space.prevent="handleRecommendSelect(item)"
                   >
                     <div class="cc-perfs">
                       <span
@@ -329,6 +348,7 @@
   import { ref, watch, nextTick, computed } from 'vue';
   import { useRouter } from 'vue-router';
   import { formatNumber } from '@/utils/landscape/format';
+  import { useModalA11y } from '@/composables/landscape/useModalA11y';
   import { useRelatedRecommend } from '@/composables/landscape/useRelatedRecommend';
   import ConfirmDialog from '@/pages/Landscape/components/common/ConfirmDialog/index.vue';
   import LandscapeImage from '../../../../../common/LandscapeImage/index.vue';
@@ -376,6 +396,12 @@
 
   const videoPlayer = ref<HTMLVideoElement | null>(null);
   const hasStarted = ref(false);
+  const modalRoot = ref<HTMLElement | null>(null);
+
+  useModalA11y(() => props.visible, {
+    container: modalRoot,
+    onClose: () => emit('close'),
+  });
 
   const sortedPlaylist = computed(() => {
     const currentId = props.video?.id;

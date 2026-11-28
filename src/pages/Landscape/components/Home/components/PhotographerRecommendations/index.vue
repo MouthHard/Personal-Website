@@ -1,34 +1,23 @@
 <template>
   <section v-if="photographers.length > 0" class="photographer-recommendations">
     <div class="gallery-header">
-      <div class="header-plate">
-        <span class="plate-glow" aria-hidden="true"></span>
-        <span class="plate-sheen-clip" aria-hidden="true">
-          <span class="plate-sheen"></span>
-        </span>
-        <span class="plate-corner tl" aria-hidden="true"></span>
-        <span class="plate-corner tr" aria-hidden="true"></span>
-        <span class="plate-corner bl" aria-hidden="true"></span>
-        <span class="plate-corner br" aria-hidden="true"></span>
-
-        <div class="header-left">
-          <span class="title-badge" aria-hidden="true">
-            <CameraIcon />
-          </span>
-          <div class="header-text">
-            <span class="title-label">ARTISTS</span>
-            <h2 class="section-title">追帧旅人</h2>
-            <p class="section-subtitle">发现优秀的风景摄影师</p>
-          </div>
-        </div>
-
-        <span class="plate-chapter" aria-hidden="true">CHAPTER · 05</span>
-
-        <button class="more-btn" @click="handleMore">
-          <span class="film-reel" aria-hidden="true"></span>
-          <span class="btn-label">探索更多</span>
-        </button>
-      </div>
+      <SectionHeaderPlate
+        tone="amber"
+        label="ARTISTS"
+        title="追帧旅人"
+        subtitle="发现优秀的风景摄影师"
+        chapter="CHAPTER · 05"
+      >
+        <template #icon>
+          <CameraIcon />
+        </template>
+        <template #action>
+          <button class="more-btn" @click="handleMore">
+            <span class="film-reel" aria-hidden="true"></span>
+            <span class="btn-label">探索更多</span>
+          </button>
+        </template>
+      </SectionHeaderPlate>
     </div>
 
     <div class="artist-switcher">
@@ -38,8 +27,14 @@
           :key="artist.id"
           class="polaroid-card"
           :class="{ active: idx === activeIndex }"
+          role="button"
+          tabindex="0"
+          :aria-label="artist.name"
+          :aria-pressed="idx === activeIndex"
           :style="cardStyle(idx)"
           @click="switchToArtist(artist.id)"
+          @keydown.enter.prevent="switchToArtist(artist.id)"
+          @keydown.space.prevent="switchToArtist(artist.id)"
         >
           <div class="photo-area">
             <LandscapeImage
@@ -423,11 +418,14 @@
   import { parseCount, formatNumber } from '@/utils/landscape/format';
   import { convertWorkToInteractionItem as buildWorkInteractionItem } from '@/utils/landscape/interaction';
   import type { InteractionItem } from '@/typesOfPages/landscape';
+  import type { GlobalPhotographer } from '@/typesOfPages/landscape/data';
   import StarIcon from '@/pages/Landscape/icons/common/StarIcon.vue';
   import LocationIcon from '@/pages/Landscape/icons/common/LocationIcon.vue';
   import ThumbUpIcon from '@/pages/Landscape/icons/common/ThumbUpIcon.vue';
   import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue';
   import ShareMenu from '../../../common/ShareMenu/index.vue';
+  import SectionHeaderPlate from '../common/SectionHeaderPlate/index.vue';
+  import { useShareMenu } from '../../composables/useShareMenu';
   import PlayIcon from '@/pages/Landscape/icons/common/PlayIcon.vue';
   import BookIcon from '@/pages/Landscape/icons/common/BookIcon.vue';
   import ArrowRightIcon from '@/pages/Landscape/icons/common/ArrowRightIcon.vue';
@@ -493,25 +491,7 @@
   const activeTab = ref('all');
   const tabRefs = ref<HTMLElement[]>([]);
 
-  const showShareMenu = ref(false);
-  const currentShareWork = ref<WorkItem | null>(null);
-  const shareWork = computed(() => {
-    const w = currentShareWork.value;
-    if (!w) return {};
-    const type =
-      w.type === 'video'
-        ? ('video' as const)
-        : w.type === 'guide'
-          ? ('guide' as const)
-          : ('image' as const);
-    return {
-      type,
-      title: w.title,
-      description: w.excerpt,
-      cover: w.cover,
-      duration: w.duration,
-    };
-  });
+  const { visible: showShareMenu, shareWork, openShareMenu } = useShareMenu();
 
   const currentArtist = computed(() => photographers.value[activeIndex.value]);
   const total = computed(() => photographers.value.length);
@@ -703,8 +683,10 @@
 
   const convertWorkToInteractionItem = (
     work: WorkItem,
-    artist: any,
-  ): InteractionItem => {
+    artist:
+      Pick<GlobalPhotographer, 'name' | 'location' | 'rating'> | undefined,
+  ): InteractionItem | null => {
+    if (!artist) return null;
     return buildWorkInteractionItem(
       {
         ...work,
@@ -714,14 +696,15 @@
         loves: work.loves ? parseCount(work.loves) : undefined,
         favorites: work.bookmarks ? parseCount(work.bookmarks) : undefined,
         shares: work.shares ? parseCount(work.shares) : undefined,
-      } as any,
-      artist as any,
+      },
+      artist,
       (id) => interactionStore.getCount(id),
     );
   };
 
   const handleWorkLike = (work: WorkItem) => {
     const item = convertWorkToInteractionItem(work, currentArtist.value);
+    if (!item) return;
     const isAdded = interactionStore.toggleLike(item);
     if (isAdded) {
       showMessage.like.success(work.title);
@@ -732,6 +715,7 @@
 
   const handleWorkLove = (work: WorkItem) => {
     const item = convertWorkToInteractionItem(work, currentArtist.value);
+    if (!item) return;
     const isAdded = interactionStore.toggleLove(item);
     const type =
       work.type === 'photo'
@@ -748,6 +732,7 @@
 
   const handleWorkFavorite = (work: WorkItem) => {
     const item = convertWorkToInteractionItem(work, currentArtist.value);
+    if (!item) return;
     const isAdded = interactionStore.toggleFavorite(item);
     const type =
       work.type === 'photo'
@@ -763,8 +748,18 @@
   };
 
   const handleWorkShare = (work: WorkItem) => {
-    currentShareWork.value = work;
-    showShareMenu.value = true;
+    openShareMenu({
+      type:
+        work.type === 'video'
+          ? 'video'
+          : work.type === 'guide'
+            ? 'guide'
+            : 'image',
+      title: work.title,
+      description: work.excerpt,
+      cover: work.cover,
+      duration: work.duration,
+    });
   };
 
   const isWorkLiked = (id: string) => interactionStore.isLiked(getWorkId(id));

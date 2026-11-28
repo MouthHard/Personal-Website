@@ -274,7 +274,7 @@
   import ThumbUpIcon from '@/pages/Landscape/icons/common/ThumbUpIcon.vue';
   import HeartIcon from '@/pages/Landscape/icons/common/HeartIcon.vue';
   import BookmarkIcon from '@/pages/Landscape/icons/common/BookmarkIcon.vue';
-  import CommentIcon from '@/pages/Landscape/icons/components/profile/VideoCard/CommentIcon.vue';
+  import CommentIcon from '@/pages/Landscape/icons/common/MessageBubbleIcon.vue';
   import BatteryIcon from '@/pages/Landscape/icons/components/profile/VideoCard/BatteryIcon.vue';
   import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue';
   import ShareMenu from '../../../common/ShareMenu/index.vue';

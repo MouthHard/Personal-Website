@@ -1,13 +1,6 @@
 <template>
   <div ref="searchBoxRef" class="search-box">
     <div class="search-container" :class="{ focused: isFocused }">
-      <div class="geometric-bg">
-        <div class="hexagon hex-1"></div>
-        <div class="hexagon hex-2"></div>
-        <div class="line line-1"></div>
-        <div class="line line-2"></div>
-      </div>
-
       <div class="search-input-wrapper">
         <div class="icon-container">
           <SearchIcon class="search-icon" :stroke-width="2" />
@@ -22,6 +15,7 @@
           @input="handleInput"
           @focus="handleFocus"
           @blur="handleBlur"
+          @click="handleInputClick"
           @keydown="handleKeyDown"
           @keyup.enter="handleSearch"
         />
@@ -34,6 +28,8 @@
         >
           <CloseIcon :stroke-width="2.5" />
         </button>
+
+        <span class="ticket-tear" aria-hidden="true"></span>
 
         <button class="explore-btn" @click="handleSearch">
           <div class="btn-bg"></div>
@@ -50,56 +46,51 @@
 
     <transition name="dropdown">
       <div v-if="showDropdown" class="search-dropdown">
-        <!-- 搜索关键字建议（仅在有输入且有建议时显示，垂直排列） -->
-        <div
-          v-if="searchKeyword.length > 0 && suggestions.length > 0"
-          class="suggestions-section"
-        >
-          <div class="section-head">
-            <span class="head-glyph"></span>
-            <span class="head-title">搜索建议</span>
-            <span class="head-en">SUGGEST</span>
-          </div>
-          <div class="suggestion-list">
-            <button
-              v-for="(s, index) in suggestions"
-              :key="s"
-              class="suggestion-item"
-              :class="{ active: activeSuggestionIndex === index }"
-              @click.stop="handleSuggestionClick(s)"
-            >
-              <SearchIcon class="suggest-icon" :stroke-width="2" />
-              <span
-                class="suggest-text"
-                v-html="highlightMatch(s, searchKeyword)"
-              ></span>
-              <span class="suggest-enter">
-                <svg
-                  viewBox="0 0 20 14"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M13 1 L19 7 L13 13"
-                    stroke="currentColor"
-                    stroke-width="2.4"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M19 7 H1"
-                    stroke="currentColor"
-                    stroke-width="2.4"
-                    stroke-linecap="round"
-                  />
-                </svg>
-              </span>
-            </button>
-          </div>
-        </div>
-
-        <!-- 底部区域：搜索历史 + 热门搜索（始终居于下拉菜单底部） -->
+        <!-- 内容纵向排列：建议 / 历史 / 热门 -->
         <div class="dropdown-bottom">
+          <!-- 搜索关键字建议（仅在有输入且有建议时显示） -->
+          <div
+            v-if="searchKeyword.length > 0 && suggestions.length > 0"
+            class="suggestions-section"
+          >
+            <div class="section-head">
+              <span class="head-glyph"></span>
+              <span class="head-title">搜索建议</span>
+              <span class="head-en">SUGGEST</span>
+            </div>
+            <div class="suggestion-list">
+              <button
+                v-for="(s, index) in suggestions"
+                :key="s"
+                class="suggestion-item"
+                :class="{ active: activeSuggestionIndex === index }"
+                @click.stop="handleSuggestionClick(s)"
+              >
+                <span class="suggest-no">
+                  {{ String(index + 1).padStart(2, '0') }}
+                </span>
+                <SearchIcon class="suggest-icon" :stroke-width="2" />
+                <span class="suggest-text">
+                  <template
+                    v-for="(part, partIndex) in highlightParts(
+                      s,
+                      searchKeyword,
+                    )"
+                    :key="partIndex"
+                  >
+                    <mark v-if="part.match" class="highlight">
+                      {{ part.text }}
+                    </mark>
+                    <template v-else>{{ part.text }}</template>
+                  </template>
+                </span>
+                <span class="suggest-enter">
+                  <EnterArrowIcon />
+                </span>
+              </button>
+            </div>
+          </div>
+
           <!-- 搜索历史（在搜索页面始终显示，其他页面有历史才显示） -->
           <div
             v-if="
@@ -116,32 +107,34 @@
                 @mousedown.prevent
                 @click.stop="clearHistory"
               >
-                <CloseIcon />
+                <CloseIcon :stroke-width="3.2" />
                 <span>清空</span>
               </button>
             </div>
             <div class="history-tags" :class="{ expanded: showAllHistory }">
-              <button
+              <div
                 v-for="(item, index) in displayHistory"
                 :key="item"
-                class="history-tag"
-                @click.stop="handleHistoryClick(item)"
+                class="history-chip"
               >
-                <span class="tag-star"></span>
-                <span class="history-text">{{ item }}</span>
-                <span
+                <button
+                  type="button"
+                  class="history-tag"
+                  @click.stop="handleHistoryClick(item)"
+                >
+                  <span class="history-text">{{ item }}</span>
+                </button>
+                <button
+                  type="button"
                   class="history-remove-btn"
-                  role="button"
-                  tabindex="0"
                   title="删除此记录"
+                  aria-label="删除此记录"
                   @mousedown.prevent
                   @click.stop="removeHistoryAt(index)"
-                  @keydown.enter.prevent="removeHistoryAt(index)"
-                  @keydown.space.prevent="removeHistoryAt(index)"
                 >
-                  <CloseIcon />
-                </span>
-              </button>
+                  <CloseIcon :stroke-width="2.6" />
+                </button>
+              </div>
               <button
                 v-if="history.length > maxHistoryPerRow && !showAllHistory"
                 class="more-btn"
@@ -202,27 +195,6 @@
               </button>
             </div>
           </div>
-
-          <div class="dropdown-footer">
-            <span class="foot-key">
-              <i>↑</i>
-              <i>↓</i>
-              导航
-            </span>
-            <span class="foot-key">
-              <i>Enter</i>
-              确认
-            </span>
-            <span class="foot-key">
-              <i>Esc</i>
-              关闭
-            </span>
-            <span class="foot-key">
-              <i>Ctrl</i>
-              <i>K</i>
-              聚焦
-            </span>
-          </div>
         </div>
       </div>
     </transition>
@@ -232,11 +204,12 @@
 <script setup lang="ts">
   import { ref, computed, watch, onMounted, onUnmounted } from 'vue';
   import { useRoute, useRouter } from 'vue-router';
-  import SearchIcon from '../../../../icons/common/SearchIcon.vue';
-  import CompassIcon from '../../../../icons/common/CompassIcon.vue';
+  import SearchIcon from '@/pages/Landscape/icons/common/SearchIcon.vue';
+  import CompassIcon from '@/pages/Landscape/icons/common/CompassIcon.vue';
   import CloseIcon from '@/pages/Landscape/icons/common/CloseIcon.vue';
   import ChevronDownIcon from '@/pages/Landscape/icons/common/ChevronDownIcon.vue';
   import ChevronUpIcon from '@/pages/Landscape/icons/common/ChevronUpIcon.vue';
+  import EnterArrowIcon from '@/pages/Landscape/icons/components/search/SearchBox/EnterArrowIcon.vue';
   import { useSearchHistory } from '@/composables/landscape/useSearchHistory';
   import { useHotTags } from '@/composables/landscape/useHotTags';
   import { useSearchSuggestions } from '@/composables/landscape/useSearchSuggestions';
@@ -321,7 +294,6 @@
   const pushSearchQuery = (keyword: string) => {
     const sanitized = sanitizeKeyword(keyword);
     if (sanitized) {
-      addHistory(sanitized);
       router.replace({
         path: '/landscape/search',
         query: { q: sanitized },
@@ -387,6 +359,13 @@
   };
 
   const handleGlobalKeyDown = (event: KeyboardEvent) => {
+    // ESC 关闭下拉：不依赖输入框是否聚焦，焦点在下拉内也能关
+    if (event.key === 'Escape' && showDropdown.value) {
+      showDropdown.value = false;
+      activeSuggestionIndex.value = -1;
+      return;
+    }
+
     if (event.metaKey || event.ctrlKey) {
       if (event.key === 'k') {
         event.preventDefault();
@@ -409,6 +388,15 @@
   const handleFocus = () => {
     showDropdown.value = true;
     isFocused.value = true;
+  };
+
+  // ESC 关闭后输入框仍保持聚焦，再次点击不会触发 focus 事件，
+  // 因此补一个 click 处理，保证点击输入框随时能重新展开下拉
+  const handleInputClick = () => {
+    if (!showDropdown.value) {
+      showDropdown.value = true;
+      activeSuggestionIndex.value = -1;
+    }
   };
 
   const handleBlur = () => {
@@ -477,19 +465,23 @@
     executeSearch(item);
   };
 
-  const escapeHtml = (str: string): string =>
-    str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+  interface HighlightPart {
+    text: string;
+    match: boolean;
+  }
 
-  const highlightMatch = (text: string, keyword: string): string => {
-    if (!keyword) return escapeHtml(text);
-    const escaped = keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const highlightParts = (text: string, keyword: string): HighlightPart[] => {
+    const kw = keyword.trim();
+    if (!kw) return [{ text, match: false }];
+    const escaped = kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     const regex = new RegExp(`(${escaped})`, 'gi');
-    return escapeHtml(text).replace(regex, '<mark class="highlight">$1</mark>');
+    return text
+      .split(regex)
+      .filter((part) => part !== '')
+      .map((part) => ({
+        text: part,
+        match: part.toLowerCase() === kw.toLowerCase(),
+      }));
   };
 </script>
 

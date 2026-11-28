@@ -1,0 +1,8 @@
+@use 'tokens' as *;
+
+// 边框流光弧的旋转角度（@property 注册后才能被 keyframes 平滑插值）
+@property --gem-ring-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}

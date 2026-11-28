@@ -1,29 +1,17 @@
 <template>
   <section v-if="slides.length > 0" class="featured-section">
     <div class="section-header">
-      <div class="header-plate">
-        <span class="plate-glow" aria-hidden="true"></span>
-        <span class="plate-sheen-clip" aria-hidden="true">
-          <span class="plate-sheen"></span>
-        </span>
-        <span class="plate-corner tl" aria-hidden="true"></span>
-        <span class="plate-corner tr" aria-hidden="true"></span>
-        <span class="plate-corner bl" aria-hidden="true"></span>
-        <span class="plate-corner br" aria-hidden="true"></span>
-
-        <div class="header-left">
-          <span class="title-badge" aria-hidden="true">
-            <VideoIcon />
-          </span>
-          <div class="header-text">
-            <span class="title-label">FEATURED COLLECTION</span>
-            <h2 class="section-title">山河流转</h2>
-            <p class="section-subtitle">· 精选影像集</p>
-          </div>
-        </div>
-
-        <span class="plate-chapter" aria-hidden="true">CHAPTER · 01</span>
-      </div>
+      <SectionHeaderPlate
+        tone="blue"
+        label="FEATURED COLLECTION"
+        title="山河流转"
+        subtitle="· 精选影像集"
+        chapter="CHAPTER · 01"
+      >
+        <template #icon>
+          <VideoIcon />
+        </template>
+      </SectionHeaderPlate>
     </div>
 
     <div
@@ -400,6 +388,8 @@
   const totalSlides = computed(() => slides.value.length);
   type Slide = ReturnType<typeof featuredSlides>[number];
   import ShareMenu from '../../../common/ShareMenu/index.vue';
+  import SectionHeaderPlate from '../common/SectionHeaderPlate/index.vue';
+  import { useShareMenu } from '../../composables/useShareMenu';
   import LandscapeImage from '../../../common/LandscapeImage/index.vue';
   import type { InteractionItem } from '@/typesOfPages/landscape';
   import { showMessage } from '@/utils/landscape';
@@ -428,12 +418,13 @@
   const isJumping = ref(false);
   let autoPlayTimer: number | null = null;
   let resetTimer: number | null = null;
-  const showShareMenu = ref(false);
-  const currentShareSlide = ref<Slide | null>(null);
+  const { visible: showShareMenu, shareWork, openShareMenu } = useShareMenu();
   /** 指针视差位移，由 mousemove 写入，驱动标题层微动 */
   const parallax = ref({ x: 0, y: 0 });
   /** 正在迸发粒子的 slide id 集合，动画结束后移除 */
   const burstIds = ref<Record<string, boolean>>({});
+  /** 粒子迸发定时器，卸载时统一清理 */
+  const burstTimers = new Set<number>();
   /** 触屏滑动起点 X */
   let touchStartX = 0;
 
@@ -456,20 +447,6 @@
     if (i === renderSlides.value.length - 1) return 'clone-first';
     return slide.id || `slide-${i}`;
   };
-
-  const shareWork = computed(() => {
-    const slide = currentShareSlide.value;
-    if (!slide) return {};
-    return {
-      type:
-        slide.mediaType === 'video' ? ('video' as const) : ('image' as const),
-      title: slide.title,
-      cover: slide.image,
-      author: slide.author,
-      location: slide.location,
-      category: slide.category,
-    };
-  });
 
   const clearReset = (): void => {
     if (resetTimer !== null) {
@@ -589,9 +566,11 @@
     handleToggleLike(slide);
     const id = getSlideId(slide.id);
     burstIds.value[id] = true;
-    window.setTimeout(() => {
+    const timer = window.setTimeout(() => {
       delete burstIds.value[id];
+      burstTimers.delete(timer);
     }, 700);
+    burstTimers.add(timer);
   };
 
   /** 指针视差：把鼠标位置换算成 ±12px 的位移 */
@@ -626,8 +605,14 @@
   };
 
   const handleShare = (slide: Slide) => {
-    currentShareSlide.value = slide;
-    showShareMenu.value = true;
+    openShareMenu({
+      type: slide.mediaType === 'video' ? 'video' : 'image',
+      title: slide.title,
+      cover: slide.image,
+      author: slide.author,
+      location: slide.location,
+      category: slide.category,
+    });
   };
 
   const handleDownload = async (slide: Slide) => {
@@ -681,6 +666,8 @@
   onUnmounted(() => {
     pauseAutoPlay();
     clearReset();
+    burstTimers.forEach((timer) => window.clearTimeout(timer));
+    burstTimers.clear();
     window.removeEventListener('keydown', handleKeydown);
   });
 </script>

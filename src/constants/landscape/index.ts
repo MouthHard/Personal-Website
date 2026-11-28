@@ -391,7 +391,6 @@ export const ProfileSpecialtyOptions = [
 
 export const SearchPhotographerSortOptions = [
   { value: 'relevance', label: '综合推荐' },
-  { value: 'latest', label: '最新发布' },
   { value: 'followers', label: '最多关注' },
   { value: 'works', label: '最多作品' },
   { value: 'likes', label: '最多点赞' },

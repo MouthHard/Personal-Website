@@ -1,38 +1,27 @@
 <template>
   <section v-if="images.length > 0" ref="feedRef" class="visual-feast-section">
     <div class="section-header">
-      <div class="header-plate">
-        <span class="plate-glow" aria-hidden="true"></span>
-        <span class="plate-sheen-clip" aria-hidden="true">
-          <span class="plate-sheen"></span>
-        </span>
-        <span class="plate-corner tl" aria-hidden="true"></span>
-        <span class="plate-corner tr" aria-hidden="true"></span>
-        <span class="plate-corner bl" aria-hidden="true"></span>
-        <span class="plate-corner br" aria-hidden="true"></span>
-
-        <div class="header-left">
-          <span class="title-badge" aria-hidden="true">
-            <ImageIcon />
-          </span>
-          <div class="header-text">
-            <span class="title-label">GALLERY</span>
-            <h2 class="section-title">视觉盛宴</h2>
-            <p class="section-subtitle">精选全球最美风景，每一帧都是艺术品</p>
-          </div>
-        </div>
-
-        <span class="plate-chapter" aria-hidden="true">CHAPTER · 07</span>
-
-        <button class="more-btn" type="button">
-          <span class="film-holes top" aria-hidden="true"></span>
-          <span class="more-text">更多</span>
-          <span class="more-arrow" aria-hidden="true">
-            <ArrowRightIcon :stroke-width="2.4" />
-          </span>
-          <span class="film-holes bottom" aria-hidden="true"></span>
-        </button>
-      </div>
+      <SectionHeaderPlate
+        tone="pink"
+        label="GALLERY"
+        title="视觉盛宴"
+        subtitle="精选全球最美风景，每一帧都是艺术品"
+        chapter="CHAPTER · 07"
+      >
+        <template #icon>
+          <ImageIcon />
+        </template>
+        <template #action>
+          <button class="more-btn" type="button">
+            <span class="film-holes top" aria-hidden="true"></span>
+            <span class="more-text">更多</span>
+            <span class="more-arrow" aria-hidden="true">
+              <ArrowRightIcon :stroke-width="2.4" />
+            </span>
+            <span class="film-holes bottom" aria-hidden="true"></span>
+          </button>
+        </template>
+      </SectionHeaderPlate>
     </div>
 
     <div class="masonry-grid">
@@ -40,11 +29,16 @@
         v-for="(item, index) in visibleImages"
         :key="item.id"
         class="masonry-item"
+        role="button"
+        tabindex="0"
+        :aria-label="`查看${item.title}`"
         :style="{
           '--delay': `${index * 0.05}s`,
           '--card-height': getCardHeight(index),
         }"
         @click="openImageModal(item, index)"
+        @keydown.enter.prevent="openImageModal(item, index)"
+        @keydown.space.prevent="openImageModal(item, index)"
       >
         <div class="image-card">
           <span class="glass-sheen" aria-hidden="true"></span>
@@ -193,7 +187,7 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, computed, onUnmounted, nextTick, watch } from 'vue';
+  import { ref, computed, nextTick, watch } from 'vue';
   import { showMessage, createSimpleInteractionItem } from '@/utils/landscape';
   import {
     useInteractionStore,
@@ -208,6 +202,8 @@
   import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue';
   import ShareMenu from '../../../common/ShareMenu/index.vue';
   import ViewfinderModal from './ViewfinderModal/index.vue';
+  import SectionHeaderPlate from '../common/SectionHeaderPlate/index.vue';
+  import { useShareMenu } from '../../composables/useShareMenu';
   import DownloadIcon from '@/pages/Landscape/icons/common/DownloadIcon.vue';
   import EyeIcon from '@/pages/Landscape/icons/common/EyeIcon.vue';
 
@@ -229,22 +225,7 @@
     return getImageCount(img.id);
   });
 
-  const showShareMenu = ref(false);
-  const currentShareImage = ref<GlobalImage | null>(null);
-  const shareWork = computed(() => {
-    const img = currentShareImage.value;
-    if (!img) return {};
-    return {
-      type: 'image' as const,
-      title: img.title,
-      cover: img.thumbnail || img.url,
-      author: img.author,
-      date: img.date,
-      location: img.location,
-      category: img.category,
-      camera: img.camera,
-    };
-  });
+  const { visible: showShareMenu, shareWork, openShareMenu } = useShareMenu();
 
   const images = computed(() => dataStore.getAllImages());
 
@@ -273,10 +254,6 @@
       }
     });
   };
-
-  onUnmounted(() => {
-    document.body.style.overflow = '';
-  });
 
   const getGlobalId = (id: string | number) => String(id);
 
@@ -368,8 +345,16 @@
 
   const toggleImageShare = (image: GlobalImage | null) => {
     if (!image) return;
-    currentShareImage.value = image;
-    showShareMenu.value = true;
+    openShareMenu({
+      type: 'image',
+      title: image.title,
+      cover: image.thumbnail || image.url,
+      author: image.author,
+      date: image.date,
+      location: image.location,
+      category: image.category,
+      camera: image.camera,
+    });
   };
 
   const handleDownload = (image: GlobalImage | null) => {
@@ -381,12 +366,10 @@
     selectedImage.value = image;
     currentImageIndex.value = index;
     showImageModal.value = true;
-    document.body.style.overflow = 'hidden';
   };
 
   const closeImageModal = () => {
     showImageModal.value = false;
-    document.body.style.overflow = '';
   };
 
   const navigateImage = (direction: number) => {
