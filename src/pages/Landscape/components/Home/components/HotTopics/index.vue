@@ -1,29 +1,17 @@
 <template>
   <section v-if="displayedTopics.length > 0" class="hot-topics">
     <div class="section-header">
-      <div class="title-wrapper">
-        <span class="plate-glow" aria-hidden="true"></span>
-        <span class="plate-sheen-clip" aria-hidden="true">
-          <span class="plate-sheen"></span>
-        </span>
-        <span class="plate-corner tl" aria-hidden="true"></span>
-        <span class="plate-corner tr" aria-hidden="true"></span>
-        <span class="plate-corner bl" aria-hidden="true"></span>
-        <span class="plate-corner br" aria-hidden="true"></span>
-
-        <div class="header-left">
-          <span class="title-badge" aria-hidden="true">
-            <TrendIcon />
-          </span>
-          <div class="header-text">
-            <span class="title-label">LANDSCAPE THEMES</span>
-            <h2 class="section-title">万象景章</h2>
-            <p class="section-subtitle">· 风光主题</p>
-          </div>
-        </div>
-
-        <span class="plate-chapter" aria-hidden="true">CHAPTER · 02</span>
-      </div>
+      <SectionHeaderPlate
+        tone="orange"
+        label="LANDSCAPE THEMES"
+        title="万象景章"
+        subtitle="· 风光主题"
+        chapter="CHAPTER · 02"
+      >
+        <template #icon>
+          <TrendIcon />
+        </template>
+      </SectionHeaderPlate>
     </div>
 
     <div class="topics-container">
@@ -141,6 +129,7 @@
     useInteractionStore,
   } from '@/stores/landscape';
   import { parseCount, formatNumber } from '@/utils/landscape/format';
+  import SectionHeaderPlate from '../common/SectionHeaderPlate/index.vue';
   import TrendIcon from '@/pages/Landscape/icons/components/home/HotTopics/TrendIcon.vue';
   import PlayCircleIcon from '@/pages/Landscape/icons/components/home/HotTopics/PlayCircleIcon.vue';
 
@@ -151,7 +140,7 @@
   import ThumbUpIcon from '@/pages/Landscape/icons/common/ThumbUpIcon.vue';
   import BookmarkIcon from '@/pages/Landscape/icons/common/BookmarkIcon.vue';
   import ChevronDownIcon from '@/pages/Landscape/icons/common/ChevronDownIcon.vue';
-  import CommentIcon from '@/pages/Landscape/icons/components/profile/VideoCard/CommentIcon.vue';
+  import CommentIcon from '@/pages/Landscape/icons/common/MessageBubbleIcon.vue';
 
   const router = useRouter();
   const dataStore = useLandscapeDataStore();

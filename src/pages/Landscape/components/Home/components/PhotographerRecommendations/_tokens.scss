@@ -1,0 +1,52 @@
+// 本模块共享变量与 mixin（由 index.scss 拆分而来）
+
+// 抛光高光带：一道斜向镜面反光，高光边缘带按钮自身色相微染，
+// hover 时从左到右掠过（哑光石被打磨出反光），按压时定格在最亮处
+@mixin gem-sheen-band {
+  inset: 0;
+  height: auto;
+  border-radius: inherit;
+  opacity: 1;
+  background: linear-gradient(
+    104deg,
+    transparent 43%,
+    rgba(255, 255, 255, 0.1) 47%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(var(--gem-glow), 0.4) 53%,
+    rgba(255, 255, 255, 0.08) 57%,
+    transparent 60%
+  );
+  background-size: 260% 100%;
+  background-repeat: no-repeat;
+}
+
+// 边框流光弧：conic 高光 + padding 遮罩只留 1.2px 描边，
+// 角度随 @property 旋转，形成一道绕胶囊边框游走的流光
+@mixin gem-ring-orbit {
+  inset: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  padding: 1.4px;
+  opacity: 1;
+  background: conic-gradient(
+    from var(--gem-ring-angle, 0deg),
+    transparent 0 70%,
+    rgba(255, 255, 255, 0.22) 76%,
+    rgba(255, 255, 255, 1) 84%,
+    rgba(var(--gem-glow), 1) 88%,
+    transparent 93%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  filter: drop-shadow(0 0 4px rgba(var(--gem-glow), 0.9))
+    drop-shadow(0 0 1.5px rgba(255, 255, 255, 0.85));
+  animation: gem-ring-orbit 1.9s linear infinite;
+}

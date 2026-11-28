@@ -1,0 +1,175 @@
+@keyframes guide-plate-breathe {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+}
+
+@keyframes guide-plate-sheen {
+  0%,
+  58% {
+    transform: skewX(-22deg) translateX(-280%);
+  }
+
+  100% {
+    transform: skewX(-22deg) translateX(460%);
+  }
+}
+
+// 灯带竖片：翻下去后消失，露出新一站的照片
+@keyframes strip-flap {
+  0% {
+    opacity: 1;
+    transform: rotateX(0deg);
+  }
+
+  46% {
+    opacity: 1;
+    transform: rotateX(-92deg);
+  }
+
+  46.1% {
+    opacity: 0;
+    transform: rotateX(-92deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: rotateX(-92deg);
+  }
+}
+
+// 翻牌格：从上翻下来，落定时轻微回弹
+@keyframes cell-turn {
+  0% {
+    opacity: 0.25;
+    transform: rotateX(-88deg);
+  }
+
+  62% {
+    opacity: 1;
+    transform: rotateX(7deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotateX(0deg);
+  }
+}
+
+@keyframes text-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes gate-turn {
+  0% {
+    transform: rotateX(0deg);
+  }
+
+  45% {
+    transform: rotateX(-86deg);
+  }
+
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
+@keyframes icon-pop {
+  0% {
+    transform: scale(1);
+  }
+
+  38% {
+    transform: scale(1.38);
+  }
+
+  70% {
+    transform: scale(0.94);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+// 航线虚线段缓慢向前流动
+@keyframes route-dash {
+  to {
+    background-position: 8px 0;
+  }
+}
+
+// 悬停：一道斜向扫光从右往左掠过登机牌
+@keyframes gate-sheen-sweep {
+  from {
+    background-position: 140% 0;
+  }
+
+  to {
+    background-position: -40% 0;
+  }
+}
+
+// 悬停：底部跑道虚线向前滚动
+@keyframes gate-runway {
+  to {
+    background-position: 26px 0;
+  }
+}
+
+// 行程信息行悬停时的纸面反光
+@keyframes info-sheen {
+  from {
+    background-position: 150% 0;
+  }
+
+  to {
+    background-position: -40% 0;
+  }
+}
+
+// 表圈像车轮一样持续转动，离开时暂停在当前角度
+@keyframes stat-ring-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// 玻璃罩反光带：缓慢扫过一次，停一会儿再扫，像候机厅灯光在玻璃上的晃动
+@keyframes glass-sweep {
+  0%,
+  58% {
+    opacity: 0;
+    transform: skewX(-18deg) translateX(-160%);
+  }
+
+  63% {
+    opacity: 1;
+  }
+
+  86% {
+    opacity: 0.9;
+    transform: skewX(-18deg) translateX(480%);
+  }
+
+  90%,
+  100% {
+    opacity: 0;
+    transform: skewX(-18deg) translateX(480%);
+  }
+}

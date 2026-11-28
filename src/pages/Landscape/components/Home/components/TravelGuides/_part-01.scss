@@ -1,0 +1,3472 @@
+.travel-guides {
+  box-sizing: border-box;
+  padding: 4rem 2rem;
+  max-width: 70vw;
+  margin: 0 auto;
+
+  // 窄屏下 70vw 会把整页压成一条竖条，直接放开
+  @media (max-width: 1024px) {
+    max-width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    padding: 4rem 1.25rem;
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto 3rem;
+    width: 100%;
+    max-width: 920px;
+
+    .header-plate {
+      // 铭牌主体由 SectionHeaderPlate 提供，这里仅保留操作按钮样式
+      .more-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.85rem;
+        padding: 0.45rem 1.35rem 0.45rem 0.55rem;
+        position: relative;
+        border: none;
+        border-radius: 999px;
+        cursor: pointer;
+        font-family: inherit;
+        background: linear-gradient(
+          135deg,
+          rgba(34, 22, 68, 0.96) 0%,
+          rgba(16, 10, 42, 0.98) 100%
+        );
+        box-shadow:
+          0 2px 10px rgba(0, 0, 0, 0.55),
+          0 0 0 1px rgba(139, 92, 246, 0.38),
+          inset 0 1px 0 rgba(255, 255, 255, 0.09),
+          inset 0 -1px 0 rgba(0, 0, 0, 0.45);
+        transition:
+          box-shadow 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+          transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow: hidden;
+
+        &::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          border-radius: 999px;
+          background: linear-gradient(
+            115deg,
+            transparent 30%,
+            rgba(177, 144, 255, 0.14) 50%,
+            transparent 70%
+          );
+          opacity: 0;
+          transition: opacity 0.45s ease;
+          pointer-events: none;
+        }
+
+        .compass-mark {
+          position: relative;
+          width: 38px;
+          height: 38px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+
+          .compass-ring {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: conic-gradient(
+              from -45deg,
+              #d8c7ff 0deg,
+              #5c3fa8 60deg,
+              #d8c7ff 120deg,
+              #5c3fa8 180deg,
+              #d8c7ff 240deg,
+              #5c3fa8 300deg,
+              #d8c7ff 360deg
+            );
+            box-shadow:
+              0 0 0 1px rgba(0, 0, 0, 0.65),
+              inset 0 0 0 2px rgba(0, 0, 0, 0.35);
+            transition: filter 0.45s ease;
+          }
+
+          .compass-ticks {
+            position: absolute;
+            inset: 2px;
+            border-radius: 50%;
+            background: repeating-conic-gradient(
+              from 0deg,
+              rgba(216, 199, 255, 0.55) 0deg 2deg,
+              transparent 2deg 30deg
+            );
+            -webkit-mask: radial-gradient(circle, transparent 58%, #000 60%);
+            mask: radial-gradient(circle, transparent 58%, #000 60%);
+            opacity: 0.7;
+            pointer-events: none;
+          }
+
+          .compass-face {
+            position: absolute;
+            inset: 5px;
+            border-radius: 50%;
+            background: radial-gradient(
+              circle at 35% 30%,
+              rgba(190, 150, 255, 0.62) 0%,
+              rgba(86, 45, 168, 0.88) 50%,
+              rgba(28, 10, 66, 0.96) 100%
+            );
+            box-shadow:
+              inset 0 1px 2px rgba(255, 255, 255, 0.28),
+              inset 0 -2px 5px rgba(0, 0, 0, 0.65);
+          }
+
+          .compass-needle {
+            position: absolute;
+            width: 2px;
+            height: 22px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(0deg);
+            transform-origin: center center;
+            background: linear-gradient(
+              180deg,
+              #efe4ff 0%,
+              #c9b6ff 48%,
+              #4b2f8f 52%,
+              #2c1a5c 100%
+            );
+            border-radius: 1px;
+            box-shadow: 0 0 6px rgba(201, 182, 255, 0.7);
+            transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+            z-index: 1;
+          }
+
+          .compass-core {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: radial-gradient(
+              circle,
+              #fff 0%,
+              #d9c9ff 55%,
+              #4b2f8f 100%
+            );
+            box-shadow: 0 0 5px rgba(217, 201, 255, 0.9);
+            z-index: 2;
+          }
+        }
+
+        .more-text {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          line-height: 1.1;
+
+          .more-label {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #f8fafc;
+            letter-spacing: 0.06em;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+          }
+
+          .more-sub {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: #b190ff;
+            letter-spacing: 0.2em;
+            margin-top: 3px;
+          }
+        }
+
+        .more-arrow {
+          width: 18px;
+          height: 2px;
+          background: linear-gradient(90deg, transparent, #b190ff);
+          position: relative;
+          flex-shrink: 0;
+          transition:
+            width 0.4s ease,
+            background 0.4s ease;
+
+          &::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            width: 7px;
+            height: 7px;
+            border-top: 2px solid #b190ff;
+            border-right: 2px solid #b190ff;
+            transform: translateY(-50%) rotate(45deg);
+            transition: border-color 0.4s ease;
+          }
+        }
+
+        &:hover {
+          box-shadow:
+            0 6px 22px rgba(139, 92, 246, 0.42),
+            0 0 0 1px rgba(247, 215, 148, 0.6),
+            0 0 26px rgba(139, 92, 246, 0.32),
+            inset 0 1px 0 rgba(255, 255, 255, 0.13),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.4);
+
+          &::before {
+            opacity: 1;
+          }
+
+          .compass-mark .compass-ring {
+            filter: brightness(1.18) saturate(1.1);
+          }
+
+          .compass-mark .compass-needle {
+            transform: translate(-50%, -50%) rotate(200deg);
+          }
+
+          .more-arrow {
+            width: 24px;
+            background: linear-gradient(90deg, transparent, #f7d794);
+
+            &::after {
+              border-color: #f7d794;
+            }
+          }
+        }
+
+        &:active {
+          transform: scale(0.96);
+          box-shadow:
+            0 2px 8px rgba(139, 92, 246, 0.6),
+            0 0 0 1px rgba(247, 215, 148, 0.85),
+            0 0 34px rgba(139, 92, 246, 0.5),
+            inset 0 2px 5px rgba(0, 0, 0, 0.45);
+        }
+      }
+    }
+  }
+
+  // ── 翻牌屏：机场出发信息板，整块暗紫壳 + 一层层立体格片 ──
+  .flap-board {
+    --board-ink: #faf7ff;
+    --board-mute: #b3a5d6;
+    --board-violet: #c9b6ff;
+    --board-line: rgb(196 178 255 / 12%);
+
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border-radius: 16px;
+    background:
+      radial-gradient(
+        130% 80% at 10% -14%,
+        rgb(158 130 245 / 24%),
+        transparent 60%
+      ),
+      radial-gradient(
+        100% 70% at 96% 4%,
+        rgb(112 88 200 / 18%),
+        transparent 62%
+      ),
+      linear-gradient(178deg, #251c45 0%, #191230 46%, #0e0a1d 100%);
+    box-shadow:
+      0 54px 104px -34px rgb(6 3 18 / 92%),
+      0 16px 32px rgb(5 2 14 / 58%),
+      0 0 104px -42px rgb(150 110 255 / 58%),
+      inset 0 1px 0 rgb(232 222 255 / 18%),
+      inset 0 0 0 1px rgb(196 178 255 / 10%);
+
+    // 顶部一道紫色高光，让壳体有金属厚度
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0 0 auto;
+      z-index: 5;
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgb(216 200 255 / 62%) 18%,
+        rgb(236 226 255 / 78%) 50%,
+        rgb(216 200 255 / 62%) 82%,
+        transparent
+      );
+      pointer-events: none;
+    }
+
+    // 左右两侧压一道暗边，壳体像有厚度和弧度
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 4;
+      background: linear-gradient(
+        90deg,
+        rgb(7 3 16 / 52%) 0%,
+        transparent 3.4%,
+        transparent 96.6%,
+        rgb(7 3 16 / 52%) 100%
+      );
+      pointer-events: none;
+    }
+  }
+
+  // ── 玻璃罩：真实登机屏外面那层玻璃，反光带、扫描线、四角固定铆钉 ──
+  .board-glass {
+    position: absolute;
+    inset: 0;
+    z-index: 6;
+    overflow: hidden;
+    border-radius: inherit;
+    pointer-events: none;
+
+    // 缓慢扫过的镜面反光带：玻璃上晃过的天光，最像真实登机屏的一笔
+    &::before {
+      content: '';
+      position: absolute;
+      top: -24%;
+      bottom: -24%;
+      left: 0;
+      width: 30%;
+      background: linear-gradient(
+        100deg,
+        transparent,
+        rgb(255 255 255 / 6.5%) 50%,
+        transparent
+      );
+      opacity: 0;
+      transform: skewX(-18deg) translateX(-160%);
+      animation: glass-sweep 12s ease-in-out 2.4s infinite;
+    }
+
+    // 顶部玻璃反光 + 极淡扫描线（老式屏的玻璃栅格）+ 底缘压暗 + 四角铆钉
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(
+          circle 4px at 12px 12px,
+          #d9cef4 0%,
+          #7b6cae 54%,
+          #241b42 88%,
+          transparent 92%
+        ),
+        radial-gradient(
+          circle 4px at calc(100% - 12px) 12px,
+          #d9cef4 0%,
+          #7b6cae 54%,
+          #241b42 88%,
+          transparent 92%
+        ),
+        radial-gradient(
+          circle 4px at 12px calc(100% - 12px),
+          #d9cef4 0%,
+          #7b6cae 54%,
+          #241b42 88%,
+          transparent 92%
+        ),
+        radial-gradient(
+          circle 4px at calc(100% - 12px) calc(100% - 12px),
+          #d9cef4 0%,
+          #7b6cae 54%,
+          #241b42 88%,
+          transparent 92%
+        ),
+        radial-gradient(
+          120% 44% at 50% -12%,
+          rgb(255 255 255 / 9%),
+          transparent 72%
+        ),
+        repeating-linear-gradient(
+          0deg,
+          rgb(255 255 255 / 1.4%) 0 1px,
+          transparent 1px 4px
+        ),
+        radial-gradient(
+          130% 52% at 50% 114%,
+          rgb(3 1 10 / 30%),
+          transparent 64%
+        );
+    }
+  }
+
+  // ── 灯带：左边照片切成竖片逐条翻落，右边切出一块数据栏 ──
+  .board-strip {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 392px;
+    min-height: 486px;
+    background: #0c0819;
+  }
+
+  .strip-view {
+    position: relative;
+    overflow: hidden;
+  }
+
+  // 照片四周压一圈内阴影，像嵌在玻璃窗里，不是贴纸
+  .strip-view::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    box-shadow:
+      inset 0 0 0 1px rgb(232 222 255 / 12%),
+      inset 0 0 64px -12px rgb(6 3 18 / 78%);
+    pointer-events: none;
+  }
+
+  // 玻璃斜反光，让照片像压在玻璃下面
+  .strip-view::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    background: linear-gradient(
+      112deg,
+      transparent 30%,
+      rgb(255 255 255 / 8%) 42%,
+      rgb(255 255 255 / 2%) 50%,
+      transparent 62%
+    );
+    pointer-events: none;
+  }
+
+  .strip-track {
+    display: flex;
+    height: 100%;
+    perspective: 1000px;
+  }
+
+  .strip {
+    position: relative;
+    flex: 1 1 0;
+    min-width: 0;
+    overflow: hidden;
+    perspective: 1100px;
+  }
+
+  .strip-photo {
+    position: absolute;
+    top: 0;
+    left: calc(var(--i) * -100%);
+    width: calc(var(--n) * 100%);
+    height: 100%;
+
+    :deep(img) {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .strip-flap {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      #3d3263 0%,
+      #2b2249 49.4%,
+      #211a3a 50.6%,
+      #382e5c 100%
+    );
+    box-shadow: inset 0 1px 0 rgb(226 214 255 / 16%);
+    transform-origin: 50% 50%;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    animation: strip-flap 0.62s cubic-bezier(0.46, 0, 0.28, 1) both;
+    animation-delay: calc(var(--i) * 30ms);
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 50% 0 auto;
+      height: 1px;
+      background: #0a0616;
+      box-shadow: 0 1px 0 rgb(226 214 255 / 10%);
+    }
+  }
+
+  .strip-scrim {
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+    background:
+      linear-gradient(
+        180deg,
+        rgb(9 5 22 / 66%) 0%,
+        transparent 30%,
+        transparent 46%,
+        rgb(9 5 22 / 92%) 100%
+      ),
+      linear-gradient(94deg, rgb(9 5 22 / 80%) 0%, transparent 54%);
+    pointer-events: none;
+  }
+
+  // ── 灯带右侧数据栏：五行指标 + 阅读入口 ──
+  .strip-stats {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    min-width: 0;
+    padding: 26px 26px 24px;
+    overflow: hidden;
+    border-left: 1px solid var(--board-line);
+    font-family:
+      system-ui,
+      -apple-system,
+      'Segoe UI',
+      'Microsoft YaHei',
+      sans-serif;
+    background:
+      radial-gradient(
+        120% 70% at 100% 0%,
+        rgb(150 110 255 / 18%),
+        transparent 62%
+      ),
+      linear-gradient(180deg, #1c1537, #100b22 74%);
+    box-shadow: inset 1px 0 0 rgb(232 222 255 / 7%);
+  }
+
+  // 数据栏左沿一条竖导轨，像机柜的走线槽
+  .strip-stats::before {
+    content: '';
+    position: absolute;
+    top: 18px;
+    bottom: 18px;
+    left: 0;
+    width: 1px;
+    background: linear-gradient(
+      180deg,
+      transparent,
+      rgb(201 182 255 / 44%) 18%,
+      rgb(201 182 255 / 44%) 82%,
+      transparent
+    );
+    pointer-events: none;
+  }
+
+  // 数据栏上一层极淡的玻璃反光，与板身同一套亚克力语言
+  .strip-stats::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      168deg,
+      rgb(255 255 255 / 5.5%),
+      transparent 30%
+    );
+    pointer-events: none;
+  }
+
+  // 「实时数据」做成一块拧在面板上的背光铭牌：凸起卡面 + 顶光 + 厚度
+  .stats-head {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px 9px;
+    border: 1px solid rgb(196 178 255 / 24%);
+    border-radius: 7px;
+    background:
+      linear-gradient(180deg, rgb(255 255 255 / 12%), transparent 52%),
+      linear-gradient(180deg, #2f2654, #191231);
+    font-size: 17px;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    color: #fff;
+    text-shadow: 0 1px 2px rgb(8 4 18 / 45%);
+    box-shadow:
+      inset 0 1px 0 rgb(240 234 255 / 28%),
+      inset 0 -2px 4px rgb(4 2 12 / 46%),
+      0 2px 0 #120c24,
+      0 10px 18px -12px rgb(0 0 0 / 88%);
+
+    // 标题右侧拉一条渐隐导轨，和「行程信息」的横线呼应
+    &::after {
+      content: '';
+      flex: 1 1 auto;
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        rgb(201 182 255 / 24%),
+        rgb(201 182 255 / 4%),
+        transparent
+      );
+    }
+  }
+
+  .stats-list {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 9px;
+    min-height: 0;
+  }
+
+  .stat {
+    --stat-color: #c9b6ff;
+    --stat-color-2: #e3d7ff;
+
+    position: relative;
+    display: grid;
+    grid-template-columns: 38px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 12px;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 9px 13px 10px;
+    border: 1px solid
+      color-mix(in srgb, var(--stat-color) 16%, rgb(150 140 190 / 14%));
+    border-radius: 11px;
+
+    // 卡面：左上角一圈同色系反光 + 斜向玻璃光带 + 上亮下暗的亚克力底板
+    background:
+      radial-gradient(
+        120% 180% at 12% -30%,
+        color-mix(in srgb, var(--stat-color) 14%, transparent),
+        transparent 54%
+      ),
+      linear-gradient(
+        116deg,
+        transparent 44%,
+        rgb(255 255 255 / 6%) 52%,
+        transparent 60%
+      ),
+      linear-gradient(180deg, rgb(255 255 255 / 8%), transparent 46%),
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--stat-color) 16%, #120e18),
+        color-mix(in srgb, var(--stat-color) 7%, #07050a)
+      );
+    font-family: inherit;
+    text-align: left;
+    color: inherit;
+    box-shadow:
+      inset 0 1px 0 rgb(240 234 255 / 20%),
+      inset 0 -1px 0 color-mix(in srgb, var(--stat-color) 20%, transparent),
+      inset 0 -2px 5px rgb(4 2 12 / 50%),
+      inset 0 0 0 1px rgb(255 255 255 / 4%),
+      0 0 0 1px color-mix(in srgb, var(--stat-color) 8%, transparent),
+      0 1px 0 rgb(255 255 255 / 6%),
+      0 10px 20px -12px rgb(3 1 10 / 85%);
+    transition:
+      border-color 0.26s ease,
+      background-color 0.26s ease,
+      transform 0.26s cubic-bezier(0.22, 0.8, 0.3, 1),
+      box-shadow 0.26s ease;
+
+    // 左沿常驻一根色灯管，未点亮时只剩余光；悬停与点亮才拉满
+    &::before {
+      content: '';
+      position: absolute;
+      top: 9px;
+      bottom: 9px;
+      left: 0;
+      width: 3px;
+      border-radius: 0 3px 3px 0;
+      background: linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--stat-color) 82%, transparent),
+        color-mix(in srgb, var(--stat-color) 24%, transparent)
+      );
+      opacity: 0.34;
+      transform: scaleY(0.58);
+      transition:
+        opacity 0.26s ease,
+        transform 0.26s cubic-bezier(0.22, 0.8, 0.3, 1);
+    }
+
+    // 卡片下沿的厚度片，悬停时被抽出来
+    &::after {
+      content: '';
+      position: absolute;
+      right: 6px;
+      bottom: -4px;
+      left: 6px;
+      height: 6px;
+      border-radius: 0 0 8px 8px;
+      background: linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--stat-color) 26%, #1a1226),
+        color-mix(in srgb, var(--stat-color) 10%, #0b0716)
+      );
+      box-shadow: 0 6px 12px -6px rgb(0 0 0 / 90%);
+      transition:
+        right 0.26s ease,
+        bottom 0.26s ease,
+        left 0.26s ease,
+        height 0.26s ease,
+        box-shadow 0.26s ease,
+        filter 0.26s ease;
+    }
+  }
+
+  button.stat {
+    cursor: pointer;
+
+    &:hover {
+      border-color: color-mix(in srgb, var(--stat-color) 74%, transparent);
+      background:
+        radial-gradient(
+          120% 180% at 12% -30%,
+          color-mix(in srgb, var(--stat-color) 34%, transparent),
+          transparent 54%
+        ),
+        linear-gradient(
+          116deg,
+          transparent 44%,
+          rgb(255 255 255 / 11%) 52%,
+          transparent 60%
+        ),
+        linear-gradient(180deg, rgb(255 255 255 / 16%), transparent 46%),
+        linear-gradient(
+          180deg,
+          color-mix(in srgb, var(--stat-color) 36%, #251c30),
+          color-mix(in srgb, var(--stat-color) 18%, #150f20)
+        );
+      transform: translateY(-3px) scale(1.012);
+      box-shadow:
+        inset 0 1px 0 rgb(232 222 255 / 20%),
+        0 0 0 1px color-mix(in srgb, var(--stat-color) 34%, transparent),
+        0 18px 28px -16px color-mix(in srgb, var(--stat-color) 78%, transparent);
+
+      &::before {
+        opacity: 1;
+        transform: scaleY(1);
+        box-shadow: 0 0 12px
+          color-mix(in srgb, var(--stat-color) 88%, transparent);
+      }
+
+      &::after {
+        right: 2px;
+        bottom: -9px;
+        left: 2px;
+        height: 8px;
+        border-radius: 0 0 10px 10px;
+        background:
+          linear-gradient(
+            180deg,
+            rgb(255 255 255 / 52%) 0 1px,
+            transparent 2px
+          ),
+          repeating-linear-gradient(
+            90deg,
+            rgb(255 255 255 / 9%) 0 1px,
+            transparent 1px 4px
+          ),
+          radial-gradient(
+            130% 170% at 50% -50%,
+            rgb(255 255 255 / 34%),
+            transparent 64%
+          ),
+          linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--stat-color) 62%, #fff) 0%,
+            color-mix(in srgb, var(--stat-color) 40%, #2a1d3e) 44%,
+            color-mix(in srgb, var(--stat-color) 22%, #0a0614) 100%
+          );
+        box-shadow:
+          inset 0 1px 0 rgb(255 255 255 / 62%),
+          inset 0 -1px 1px rgb(0 0 0 / 55%),
+          0 0 18px color-mix(in srgb, var(--stat-color) 62%, transparent),
+          0 10px 18px -8px rgb(0 0 0 / 92%);
+      }
+
+      .stat-icon {
+        box-shadow:
+          0 0 0 1px rgb(10 6 20 / 90%),
+          0 0 0 2px color-mix(in srgb, var(--stat-color) 34%, transparent),
+          0 8px 16px -6px rgb(0 0 0 / 95%),
+          0 0 26px color-mix(in srgb, var(--stat-color) 64%, transparent);
+      }
+
+      .stat-num {
+        color: #fff;
+        transform: translateX(1px) scale(1.03);
+        text-shadow: 0 0 20px
+          color-mix(in srgb, var(--stat-color) 52%, transparent);
+        box-shadow:
+          inset 0 2px 5px rgb(0 0 0 / 88%),
+          inset 0 -1px 0 color-mix(in srgb, var(--stat-color) 44%, transparent),
+          0 1px 0 rgb(255 255 255 / 8%),
+          0 0 16px color-mix(in srgb, var(--stat-color) 28%, transparent);
+      }
+
+      .stat-label {
+        color: #fff;
+      }
+
+      .stat-bar i {
+        filter: brightness(1.18);
+      }
+    }
+
+    &:active {
+      transform: translateY(1px) scale(0.992);
+    }
+
+    &:focus-visible {
+      outline: 2px solid color-mix(in srgb, var(--stat-color) 82%, #fff);
+      outline-offset: 3px;
+    }
+  }
+
+  // 每枚图标是一枚搪瓷旅行徽章：可独立转动的金属表圈 + 珐琅面 + 镜面高光
+  .stat-icon {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #0a0712;
+    box-shadow:
+      0 0 0 1px rgb(10 6 20 / 90%),
+      0 0 0 2px color-mix(in srgb, var(--stat-color) 18%, transparent),
+      0 6px 14px -6px rgb(0 0 0 / 95%),
+      0 0 18px color-mix(in srgb, var(--stat-color) 26%, transparent);
+    transition: box-shadow 0.26s ease;
+
+    // 金属表圈独立成层：悬停时只转这一圈，里面的图标不动
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: 0;
+      inset: 0;
+      border-radius: 50%;
+      background: conic-gradient(
+        from 210deg,
+        color-mix(in srgb, var(--stat-color) 22%, #0a0712) 0deg,
+        color-mix(in srgb, var(--stat-color) 78%, #fff) 46deg,
+        color-mix(in srgb, var(--stat-color-2) 38%, #191022) 92deg,
+        color-mix(in srgb, var(--stat-color) 58%, #fff) 142deg,
+        color-mix(in srgb, var(--stat-color-2) 26%, #100b18) 196deg,
+        color-mix(in srgb, var(--stat-color) 66%, #fff) 250deg,
+        color-mix(in srgb, var(--stat-color) 18%, #0a0712) 312deg,
+        color-mix(in srgb, var(--stat-color) 78%, #fff) 360deg
+      );
+      animation: stat-ring-spin 2.4s linear infinite;
+      animation-play-state: paused;
+      will-change: transform;
+    }
+
+    // 珐琅面：内缩一圈留出表圈，镜面高光直接烘进弧面
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      inset: 3px;
+      border-radius: 50%;
+      background:
+        linear-gradient(
+          180deg,
+          rgb(255 255 255 / 42%),
+          rgb(255 255 255 / 8%) 46%,
+          transparent 66%
+        ),
+        radial-gradient(
+          circle at 32% 22%,
+          color-mix(in srgb, var(--stat-color) 62%, #fff) 0%,
+          transparent 36%
+        ),
+        radial-gradient(
+          circle at 60% 70%,
+          color-mix(in srgb, var(--stat-color-2) 38%, #161016) 0%,
+          color-mix(in srgb, var(--stat-color) 14%, #07050b) 82%
+        );
+      box-shadow:
+        inset 0 2px 2px rgb(255 255 255 / 32%),
+        inset 0 -7px 10px rgb(0 0 0 / 58%),
+        inset 0 0 0 1px color-mix(in srgb, var(--stat-color) 24%, transparent);
+    }
+
+    svg {
+      position: relative;
+      z-index: 2;
+      width: 19px;
+      height: 19px;
+      color: color-mix(in srgb, var(--stat-color) 14%, #fff);
+      filter: drop-shadow(0 1px 1px rgb(0 0 0 / 55%))
+        drop-shadow(
+          0 0 7px color-mix(in srgb, var(--stat-color) 62%, transparent)
+        );
+    }
+  }
+
+  // 悬停任意一行时表圈持续滚动，离开后停在当前角度
+  .stat:hover .stat-icon::before {
+    animation-play-state: running;
+  }
+
+  .stat-body {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    min-width: 0;
+  }
+
+  .stat-label {
+    font-size: 16px;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    color: #fff;
+    text-shadow: 0 1px 2px rgb(10 5 20 / 38%);
+    transition: color 0.26s ease;
+  }
+
+  // 凹槽轨道 + 分段灯柱，比例一眼看得出，不像一条虚点线
+  .stat-bar {
+    position: relative;
+    display: block;
+    height: 7px;
+    overflow: hidden;
+    border-radius: 4px;
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--stat-color) 42%, #0c0814),
+      color-mix(in srgb, var(--stat-color) 26%, #17102a)
+    );
+    box-shadow:
+      inset 0 1px 2px rgb(0 0 0 / 80%),
+      inset 0 -1px 0 color-mix(in srgb, var(--stat-color) 42%, transparent),
+      inset 0 0 8px color-mix(in srgb, var(--stat-color) 16%, transparent),
+      0 1px 0 rgb(255 255 255 / 8%);
+
+    i {
+      position: relative;
+      display: block;
+      height: 100%;
+      border-radius: 4px;
+      background: linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--stat-color) 62%, #fff),
+        color-mix(in srgb, var(--stat-color) 92%, #fff)
+      );
+      box-shadow:
+        0 0 14px color-mix(in srgb, var(--stat-color) 78%, transparent),
+        inset 0 1px 0 rgb(255 255 255 / 65%),
+        inset 0 -1px 1px rgb(0 0 0 / 40%);
+      transition:
+        width 0.5s cubic-bezier(0.22, 0.8, 0.3, 1),
+        filter 0.26s ease;
+
+      // 格子缝只压在点亮段上，没亮的部分是一条干净的暗槽
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(
+          90deg,
+          transparent 0 8px,
+          color-mix(in srgb, var(--stat-color) 22%, #08050f) 8px 10px
+        );
+      }
+
+      // 填充末端一颗光点，像灯柱亮到的那一格
+      &::after {
+        content: '';
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        right: 0;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: #fff;
+        box-shadow:
+          0 0 7px 1px color-mix(in srgb, var(--stat-color) 84%, transparent),
+          0 0 12px 2px color-mix(in srgb, var(--stat-color) 40%, transparent);
+        opacity: 0.9;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  // 数字嵌在仪表的暗显示窗里：内凹深底 + 顶部玻璃反光，像 LED 计数窗
+  .stat-num {
+    min-width: 4.1ch;
+    padding: 2px 10px 3px;
+    border-radius: 7px;
+    font-size: 29px;
+    font-weight: 900;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.01em;
+    text-align: right;
+    color: #fff;
+    background:
+      linear-gradient(180deg, rgb(255 255 255 / 10%) 0 30%, transparent 48%),
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--stat-color) 10%, #0a0616),
+        color-mix(in srgb, var(--stat-color) 5%, #140d22)
+      );
+    text-shadow:
+      0 0 14px color-mix(in srgb, var(--stat-color) 30%, transparent),
+      0 2px 6px rgb(0 0 0 / 55%);
+    box-shadow:
+      inset 0 2px 5px rgb(0 0 0 / 88%),
+      inset 0 -1px 0 rgb(226 214 255 / 10%),
+      0 1px 0 rgb(255 255 255 / 7%);
+    transition:
+      color 0.26s ease,
+      transform 0.26s cubic-bezier(0.22, 0.8, 0.3, 1),
+      text-shadow 0.26s ease,
+      box-shadow 0.26s ease;
+  }
+
+  // 每个功能一套独立的旅途色系：同色系内再用亮色/深色做出层次
+  .is-views {
+    --stat-color: #a9d4ff;
+    --stat-color-2: #6fb0ff;
+  }
+
+  .is-like {
+    --stat-color: #9ae65f;
+    --stat-color-2: #5fe3a6;
+  }
+
+  .is-love {
+    --stat-color: #ff7b93;
+    --stat-color-2: #ffb36b;
+  }
+
+  .is-fav {
+    --stat-color: #ffd479;
+    --stat-color-2: #ff9e2c;
+  }
+
+  .is-share {
+    --stat-color: #4fd8e8;
+    --stat-color-2: #5aa8ff;
+  }
+
+  // 点亮后整张卡切到对应色系，不再是统一的暗紫色
+  .is-like.on,
+  .is-love.on,
+  .is-fav.on {
+    border-color: color-mix(in srgb, var(--stat-color) 82%, transparent);
+    background:
+      radial-gradient(
+        130% 170% at 8% -20%,
+        color-mix(in srgb, var(--stat-color) 52%, transparent),
+        transparent 58%
+      ),
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--stat-color) 40%, #302438) 0%,
+        color-mix(in srgb, var(--stat-color) 22%, #1a1224) 100%
+      );
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 22%),
+      inset 0 -2px 0 color-mix(in srgb, var(--stat-color) 82%, transparent),
+      inset 0 0 28px color-mix(in srgb, var(--stat-color) 20%, transparent),
+      0 0 0 1px color-mix(in srgb, var(--stat-color) 38%, transparent),
+      0 14px 28px -16px color-mix(in srgb, var(--stat-color) 96%, transparent);
+
+    &::before {
+      opacity: 1;
+      transform: scaleY(1);
+      box-shadow: 0 0 14px
+        color-mix(in srgb, var(--stat-color) 90%, transparent);
+    }
+
+    .stat-label {
+      color: color-mix(in srgb, var(--stat-color) 8%, #fff);
+    }
+
+    .stat-icon svg {
+      animation: icon-pop 0.46s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .stat-icon {
+      transform: scale(1.06);
+      box-shadow:
+        0 0 0 1px rgb(255 255 255 / 26%),
+        0 0 0 2px color-mix(in srgb, var(--stat-color) 74%, transparent),
+        0 8px 18px -6px rgb(0 0 0 / 95%),
+        0 0 20px color-mix(in srgb, var(--stat-color) 82%, transparent),
+        0 0 36px color-mix(in srgb, var(--stat-color) 96%, transparent);
+
+      // 激活时表圈提亮，但不把整枚徽章照成白色
+      &::before {
+        filter: brightness(1.32) saturate(1.12);
+      }
+
+      // 点亮后仍是「有色弧面 + 一处高光」，保证白色图标有足够对比
+      &::after {
+        background:
+          linear-gradient(
+            180deg,
+            rgb(255 255 255 / 34%),
+            rgb(255 255 255 / 8%) 52%,
+            transparent 72%
+          ),
+          radial-gradient(
+            circle at 34% 18%,
+            color-mix(in srgb, var(--stat-color) 46%, #fff) 0%,
+            transparent 48%
+          ),
+          radial-gradient(
+            circle at 58% 72%,
+            color-mix(in srgb, var(--stat-color) 44%, #241b2e) 0%,
+            color-mix(in srgb, var(--stat-color) 24%, #0a0810) 88%
+          );
+        box-shadow:
+          inset 0 2px 3px rgb(255 255 255 / 34%),
+          inset 0 -8px 12px color-mix(in srgb, var(--stat-color) 20%, #000),
+          inset 0 0 0 1px rgb(255 255 255 / 22%);
+      }
+    }
+
+    .stat-icon svg {
+      color: #fff;
+      filter: drop-shadow(0 1px 2px rgb(0 0 0 / 75%))
+        drop-shadow(
+          0 0 6px color-mix(in srgb, var(--stat-color) 70%, transparent)
+        );
+    }
+
+    .stat-num {
+      color: color-mix(in srgb, var(--stat-color) 12%, #fff);
+      background:
+        linear-gradient(180deg, rgb(255 255 255 / 8%) 0 30%, transparent 48%),
+        linear-gradient(
+          180deg,
+          color-mix(in srgb, var(--stat-color) 16%, #070312),
+          color-mix(in srgb, var(--stat-color) 7%, #0c0814)
+        );
+      text-shadow: 0 0 20px
+        color-mix(in srgb, var(--stat-color) 62%, transparent);
+      box-shadow:
+        inset 0 2px 5px rgb(0 0 0 / 88%),
+        inset 0 -1px 0 color-mix(in srgb, var(--stat-color) 52%, transparent),
+        0 1px 0 rgb(255 255 255 / 8%),
+        0 0 18px color-mix(in srgb, var(--stat-color) 34%, transparent);
+    }
+  }
+
+  // 点亮后又悬停：只加深同色系，不能退回紫色
+  .is-like.on:hover,
+  .is-love.on:hover,
+  .is-fav.on:hover {
+    border-color: color-mix(in srgb, var(--stat-color) 92%, transparent);
+    background:
+      radial-gradient(
+        130% 170% at 8% -20%,
+        color-mix(in srgb, var(--stat-color) 58%, transparent),
+        transparent 58%
+      ),
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--stat-color) 50%, #392b42) 0%,
+        color-mix(in srgb, var(--stat-color) 28%, #201628) 100%
+      );
+
+    .stat-icon {
+      filter: brightness(1.03);
+    }
+
+    .stat-label {
+      color: color-mix(in srgb, var(--stat-color) 10%, #fff);
+    }
+
+    .stat-num {
+      color: color-mix(in srgb, var(--stat-color) 14%, #fff);
+    }
+  }
+
+  // 取景器：四角框线 + 中心准星，照片像从取景窗里看出去
+  .frame-corners {
+    position: absolute;
+    z-index: 4;
+    inset: 20px;
+    pointer-events: none;
+
+    i {
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      border: 2px solid rgb(240 232 255 / 52%);
+      border-radius: 2px;
+
+      &:nth-child(1) {
+        top: 0;
+        left: 0;
+        border-right: 0;
+        border-bottom: 0;
+      }
+
+      &:nth-child(2) {
+        top: 0;
+        right: 0;
+        border-bottom: 0;
+        border-left: 0;
+      }
+
+      // 左下角正好压住「出发」那行小字，空出来
+      &:nth-child(3) {
+        display: none;
+      }
+
+      &:nth-child(4) {
+        right: 0;
+        bottom: 0;
+        border-top: 0;
+        border-left: 0;
+      }
+    }
+  }
+
+  .frame-cross {
+    position: absolute;
+    z-index: 4;
+    top: 50%;
+    left: 50%;
+    width: 24px;
+    height: 24px;
+    opacity: 0.34;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      background: rgb(255 255 255 / 82%);
+    }
+
+    &::before {
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 1px;
+    }
+
+    &::after {
+      top: 0;
+      left: 50%;
+      width: 1px;
+      height: 100%;
+    }
+  }
+
+  // ── 铰链带：灯带与板身之间的一道金属条 ──
+  .board-hinge {
+    position: relative;
+    display: block;
+    height: 14px;
+    background: linear-gradient(180deg, #3d3160 0%, #241c40 52%, #151028 100%);
+    box-shadow:
+      inset 0 1px 0 rgb(226 214 255 / 26%),
+      inset 0 -1px 0 rgb(4 2 12 / 72%);
+
+    i {
+      position: absolute;
+      top: 50%;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 32% 30%, #8f7fc0, #3a2f5c 70%);
+      box-shadow:
+        inset 0 1px 0 rgb(255 255 255 / 26%),
+        0 1px 2px rgb(0 0 0 / 62%);
+      transform: translateY(-50%);
+
+      &:first-child {
+        left: 34px;
+      }
+
+      &:last-child {
+        right: 34px;
+      }
+    }
+  }
+
+  // ── 板身：左目的地与正文，右飞行信息 ──
+  .board-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 392px;
+  }
+
+  .board-main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 20px;
+    min-width: 0;
+    padding: 26px 44px 30px;
+    overflow: hidden;
+    border-right: 1px solid var(--board-line);
+
+    // 左上柔光 + 右下暗角，板面不至于一整块死平
+    background:
+      radial-gradient(
+        130% 78% at 4% -12%,
+        rgb(158 130 245 / 13%),
+        transparent 58%
+      ),
+      radial-gradient(
+        90% 70% at 96% 112%,
+        rgb(118 90 208 / 10%),
+        transparent 62%
+      );
+
+    // 左沿一排细刻度，像机柜的标尺
+    &::before {
+      content: '';
+      position: absolute;
+      top: 30px;
+      bottom: 30px;
+      left: 0;
+      width: 8px;
+      background: repeating-linear-gradient(
+        180deg,
+        rgb(196 178 255 / 26%) 0 1px,
+        transparent 1px 12px
+      );
+      pointer-events: none;
+    }
+
+    // 板身上一层极淡的玻璃反光，从左上压下来
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        176deg,
+        rgb(255 255 255 / 4.5%),
+        transparent 26%
+      );
+      pointer-events: none;
+    }
+  }
+
+  .dest-row {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .dest-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .dest-label {
+    display: inline-flex;
+    flex: 1 1 auto;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    color: #d9eff2;
+
+    // 标签与站点徽片之间一段渐隐导轨
+    &::after {
+      content: '';
+      flex: 1 1 auto;
+      height: 1px;
+      margin-left: 4px;
+      background: linear-gradient(
+        90deg,
+        rgb(111 227 220 / 26%),
+        rgb(111 227 220 / 5%),
+        transparent
+      );
+    }
+
+    // 跑道边灯：白灯帽 + 发光灯腔 + 暗灯座，向下压一片地面光斑
+    &::before {
+      content: '';
+      flex: 0 0 auto;
+      width: 9px;
+      height: 16px;
+      border-radius: 5px 5px 2px 2px;
+      background: linear-gradient(
+        180deg,
+        #fff 0 14%,
+        #c9fdf7 14% 34%,
+        #6fe3dc 34% 72%,
+        #2a9d96 72% 86%,
+        #0b3331 86% 100%
+      );
+      box-shadow:
+        inset 0 -3px 3px -1px rgb(4 34 36 / 62%),
+        0 0 0 1px rgb(180 255 245 / 34%),
+        0 0 9px rgb(111 227 220 / 82%),
+        0 0 20px rgb(111 227 220 / 38%),
+        0 5px 12px -3px rgb(111 227 220 / 30%);
+    }
+  }
+
+  // 站点号做成跑道编号牌：方角、双线内框、压字牌面、两侧固定铆钉
+  .dest-gate {
+    position: relative;
+    padding: 4px 15px 5px;
+    border: 1px solid rgb(232 222 255 / 32%);
+    border-radius: 3px;
+    background: linear-gradient(180deg, #2d2452 0%, #1a1433 62%, #120d26 100%);
+    font-size: 13.5px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    font-variant-numeric: tabular-nums;
+    color: #fff;
+    text-shadow: 0 0 12px rgb(201 182 255 / 48%);
+    box-shadow:
+      inset 0 0 0 1px rgb(8 4 18 / 88%),
+      inset 0 0 0 2px rgb(232 222 255 / 12%),
+      inset 0 1px 0 rgb(255 255 255 / 22%),
+      0 2px 0 rgb(8 4 18 / 86%),
+      0 8px 16px -10px rgb(0 0 0 / 92%);
+
+    // 两侧的金属铆钉：铭牌是拧上去的，不是贴上去的
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle at 35% 30%,
+        #d9cef4 0%,
+        #7b6cae 54%,
+        #241b42 90%
+      );
+      box-shadow:
+        inset 0 1px 1px rgb(255 255 255 / 42%),
+        0 1px 2px rgb(0 0 0 / 72%);
+      transform: translateY(-50%);
+    }
+
+    &::before {
+      left: 4px;
+    }
+
+    &::after {
+      right: 4px;
+    }
+  }
+
+  // 大字单独占一行，不再并排右侧装饰
+  .dest-body {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+  }
+
+  // 目的地格子装在一条凹进去的槽里，翻牌才像从面板里翻出来
+  .dest-flap {
+    position: relative;
+    display: flex;
+    flex: 0 1 auto;
+    flex-wrap: wrap;
+    align-self: center;
+    max-width: 100%;
+    gap: 8px;
+    padding: 9px 10px;
+    border-radius: 12px;
+    background: linear-gradient(180deg, #0a0617, #16112c);
+    box-shadow:
+      inset 0 3px 9px rgb(0 0 0 / 78%),
+      inset 0 -1px 0 rgb(111 227 220 / 12%),
+      0 1px 0 rgb(111 227 220 / 8%),
+      0 0 0 1px rgb(111 227 220 / 10%),
+      0 16px 30px -22px rgb(3 1 10 / 92%);
+    perspective: 1000px;
+
+    // 凹槽上下的金属横梁：翻牌单元真正的导轨梁，字格吊在梁间
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      right: 14px;
+      left: 14px;
+      height: 2px;
+      border-radius: 1px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgb(196 178 255 / 22%) 16%,
+        rgb(196 178 255 / 22%) 84%,
+        transparent
+      );
+      pointer-events: none;
+    }
+
+    &::before {
+      top: 3px;
+    }
+
+    &::after {
+      bottom: 3px;
+    }
+  }
+
+  .flap-cell {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-width: 0.98em;
+    padding: 3px 10px 6px;
+    border-radius: 6px;
+    background: linear-gradient(
+      180deg,
+      #463b73 0%,
+      #332a56 48.4%,
+      #251e42 51.6%,
+      #3c3264 100%
+    );
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 26%),
+      inset 0 -4px 7px rgb(4 2 12 / 38%),
+      0 3px 0 #170f2e,
+      0 5px 0 rgb(10 5 21 / 86%),
+      0 13px 24px -10px rgb(3 1 10 / 78%),
+      0 0 0 1px rgb(196 178 255 / 10%);
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+    color: var(--board-ink);
+    text-shadow: 0 3px 14px rgb(3 1 10 / 78%);
+    transform-origin: 50% 50%;
+    animation: cell-turn 0.46s cubic-bezier(0.4, 0, 0.28, 1) both;
+    animation-delay: calc(var(--i) * 42ms);
+
+    // 上半面提亮、下半面压暗，翻片的两截才有弧度
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background:
+        linear-gradient(180deg, rgb(255 255 255 / 13%), transparent 42%),
+        linear-gradient(0deg, rgb(6 3 16 / 30%), transparent 32%);
+      pointer-events: none;
+    }
+
+    // 顶面弧形镜光：字格是塑料翻片，光滑的那道反光最提质感
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 1px 1px auto;
+      height: 42%;
+      border-radius: 5px 5px 50% 50% / 5px 5px 40% 40%;
+      background: linear-gradient(180deg, rgb(255 255 255 / 15%), transparent);
+      pointer-events: none;
+    }
+  }
+
+  .cell-face {
+    position: relative;
+    z-index: 1;
+  }
+
+  .cell-seam {
+    position: absolute;
+    inset: 50% 4px auto;
+    height: 1px;
+    background: rgb(6 3 16 / 82%);
+    box-shadow: 0 1px 0 rgb(232 222 255 / 12%);
+
+    // 中缝两端的轴钉，翻牌轴才有个着落
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: -1px;
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: rgb(9 5 20 / 82%);
+      box-shadow: 0 1px 0 rgb(232 222 255 / 24%);
+    }
+
+    &::before {
+      left: 2px;
+    }
+
+    &::after {
+      right: 2px;
+    }
+  }
+
+  .board-title {
+    position: relative;
+    margin: 0;
+    padding-left: 18px;
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1.36;
+    letter-spacing: -0.005em;
+    color: #f8f5ff;
+    text-wrap: balance;
+    text-shadow: 0 3px 22px rgb(4 2 14 / 76%);
+    animation: text-rise 0.5s cubic-bezier(0.22, 0.8, 0.3, 1) both;
+
+    // 标题左侧一根发光立柱，把标题从板上"撑"起来
+    &::before {
+      content: '';
+      position: absolute;
+      top: 7px;
+      bottom: 7px;
+      left: 0;
+      width: 3px;
+      border-radius: 2px;
+      background: linear-gradient(180deg, #f0e2ff, #6f4fd0 62%, #3a2a72);
+      box-shadow:
+        0 0 14px rgb(160 130 255 / 66%),
+        inset 0 1px 0 rgb(255 255 255 / 76%);
+    }
+  }
+
+  // ── 沿途：一条凹槽导轨，站点是嵌在上面的小铭牌，两端用铆钉固定 ──
+  .route-line {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 11px;
+    margin-top: auto;
+    padding: 10px 14px 11px;
+    border: 1px solid rgb(140 200 255 / 12%);
+    border-radius: 11px;
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%238fc8ff' fill-opacity='.14' d='M2 12l20-8-6 8 6 8-20-8z'/%3E%3C/svg%3E")
+        calc(100% - 18px) 50% / 44px 44px no-repeat,
+      repeating-linear-gradient(
+          90deg,
+          rgb(140 200 255 / 10%) 0 6px,
+          transparent 6px 14px
+        )
+        50% 50% / calc(100% - 48px) 1px no-repeat,
+      linear-gradient(180deg, #0b0718, #171130);
+    box-shadow:
+      inset 0 2px 7px rgb(0 0 0 / 68%),
+      inset 0 -1px 0 rgb(140 200 255 / 9%);
+
+    // 两端的金属铆钉
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle at 35% 30%,
+        #cfe0f4 0%,
+        #6a7aa8 54%,
+        #1f2440 90%
+      );
+      box-shadow:
+        inset 0 1px 1px rgb(255 255 255 / 42%),
+        0 1px 2px rgb(0 0 0 / 72%);
+      transform: translateY(-50%);
+    }
+
+    &::before {
+      left: 5px;
+    }
+
+    &::after {
+      right: 5px;
+    }
+  }
+
+  // 不锈钢铭牌：拉丝纹 + 上棱镜面高光 + 内倒角，像铣在面板上的嵌件
+  .route-tag {
+    --tag-hi: #dce9fb;
+    --tag-top: #8294b4;
+    --tag-mid: #384156;
+    --tag-bot: #1c2130;
+
+    position: relative;
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 13px 7px 14px;
+    border: 0;
+    border-radius: 6px;
+    background:
+      repeating-linear-gradient(
+        0deg,
+        rgb(255 255 255 / 4%) 0 1px,
+        rgb(0 0 0 / 3%) 1px 3px
+      ),
+      linear-gradient(
+        180deg,
+        var(--tag-hi) 0%,
+        var(--tag-top) 8%,
+        var(--tag-mid) 34%,
+        var(--tag-bot) 100%
+      );
+    font-size: 16px;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    white-space: nowrap;
+    color: #f8fcff;
+    text-shadow:
+      0 1px 0 rgb(0 0 0 / 72%),
+      0 0 1px rgb(0 0 0 / 45%);
+    box-shadow:
+      0 0 0 1px #06050d,
+      0 0 0 2px rgb(0 0 0 / 42%),
+      inset 0 1px 0 rgb(255 255 255 / 88%),
+      inset 1px 0 0 rgb(255 255 255 / 22%),
+      inset -1px 0 0 rgb(0 0 0 / 34%),
+      inset 0 -2px 0 rgb(0 0 0 / 46%),
+      inset 0 2px 2px rgb(255 255 255 / 12%),
+      inset 0 -4px 6px rgb(0 0 0 / 26%),
+      0 2px 2px rgb(0 0 0 / 62%),
+      0 7px 12px -8px rgb(0 0 0 / 92%);
+  }
+
+  .route-plane {
+    font-size: 15px;
+    line-height: 1;
+    color: #e8f2ff;
+    text-shadow: 0 1px 0 rgb(0 0 0 / 70%);
+    transform: rotate(-12deg);
+  }
+
+  // 着色阳极氧化嵌件：拉丝面 + 立铣倒角 + 沉头螺丝，靠棱线反光不靠发光
+  .route-stop {
+    --tone: #cbbaff;
+    --stop-hi: color-mix(in srgb, var(--tone) 60%, #fbfdff);
+    --stop-top: color-mix(in srgb, var(--tone) 52%, #a8b4cc);
+    --stop-mid: color-mix(in srgb, var(--tone) 36%, #444a5e);
+    --stop-bot: color-mix(in srgb, var(--tone) 24%, #1c1828);
+
+    position: relative;
+    flex: 0 0 auto;
+    padding: 6px 13px 7px 21px;
+    border: 0;
+    border-radius: 5px 9px 9px 5px;
+    background:
+      repeating-linear-gradient(
+        0deg,
+        rgb(255 255 255 / 7%) 0 1px,
+        rgb(0 0 0 / 5%) 1px 3px
+      ),
+      linear-gradient(
+        180deg,
+        var(--stop-hi) 0%,
+        var(--stop-top) 7%,
+        var(--stop-mid) 20%,
+        var(--stop-bot) 100%
+      );
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    color: #fff;
+    text-shadow:
+      0 1px 1px rgb(0 0 0 / 82%),
+      0 0 2px rgb(0 0 0 / 55%);
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--tone) 22%, #06050d),
+      0 0 0 2px rgb(0 0 0 / 42%),
+      inset 0 1px 0 rgb(255 255 255 / 90%),
+      inset 1px 0 0 rgb(255 255 255 / 26%),
+      inset -1px 0 0 rgb(0 0 0 / 36%),
+      inset 0 -2px 0 rgb(0 0 0 / 48%),
+      inset 0 2px 2px rgb(255 255 255 / 14%),
+      inset 0 -4px 6px rgb(0 0 0 / 28%),
+      0 2px 2px rgb(0 0 0 / 64%),
+      0 7px 12px -8px rgb(0 0 0 / 92%);
+    transition:
+      transform 0.22s cubic-bezier(0.22, 0.8, 0.3, 1),
+      box-shadow 0.22s ease,
+      filter 0.22s ease;
+
+    // 沉头一字螺丝：金属圆头 + 斜槽
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 7px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background:
+        linear-gradient(
+          124deg,
+          transparent 45%,
+          rgb(6 4 12 / 88%) 45% 55%,
+          transparent 55%
+        ),
+        linear-gradient(180deg, #f4f8ff 0%, #9aa7c2 46%, #2b3145 100%);
+      box-shadow:
+        inset 0 1px 1px rgb(255 255 255 / 75%),
+        inset 0 -1px 1px rgb(0 0 0 / 62%),
+        0 1px 1px rgb(0 0 0 / 66%);
+      transform: translateY(-50%);
+    }
+
+    &:hover {
+      filter: brightness(1.08);
+      transform: translateY(-1px);
+      box-shadow:
+        0 0 0 1px color-mix(in srgb, var(--tone) 30%, #06050d),
+        0 0 0 2px rgb(0 0 0 / 42%),
+        inset 0 1px 0 rgb(255 255 255 / 96%),
+        inset 1px 0 0 rgb(255 255 255 / 32%),
+        inset -1px 0 0 rgb(0 0 0 / 36%),
+        inset 0 -2px 0 rgb(0 0 0 / 48%),
+        inset 0 2px 2px rgb(255 255 255 / 18%),
+        inset 0 -4px 6px rgb(0 0 0 / 28%),
+        0 3px 3px rgb(0 0 0 / 66%),
+        0 9px 14px -8px rgb(0 0 0 / 92%);
+    }
+  }
+
+  // 站点之间的虚线航线 + 箭头
+  .route-arrow {
+    --tone: #9fb3e8;
+
+    position: relative;
+    flex: 0 0 26px;
+    width: 26px;
+    height: 16px;
+    font-size: 0;
+    color: color-mix(in srgb, var(--tone) 62%, #fff);
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 7px;
+      left: 0;
+      height: 2px;
+      background: repeating-linear-gradient(
+        90deg,
+        currentcolor 0 4px,
+        transparent 4px 8px
+      );
+      opacity: 0.85;
+      transform: translateY(-50%);
+      animation: route-dash 1.2s linear infinite;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 0;
+      width: 6px;
+      height: 6px;
+      border-top: 2px solid currentcolor;
+      border-right: 2px solid currentcolor;
+      transform: translateY(-50%) rotate(45deg);
+    }
+  }
+
+  // 折叠计数牌：同一套金属嵌件，只是钢色不做主
+  .route-rest {
+    --rest-hi: #cdd8ea;
+    --rest-top: #737f99;
+    --rest-mid: #343c50;
+    --rest-bot: #1a1f2d;
+
+    position: relative;
+    flex: 0 0 auto;
+    padding: 5px 11px 6px;
+    border: 0;
+    border-radius: 5px 9px 9px 5px;
+    background:
+      repeating-linear-gradient(
+        0deg,
+        rgb(255 255 255 / 4%) 0 1px,
+        rgb(0 0 0 / 3%) 1px 3px
+      ),
+      linear-gradient(
+        180deg,
+        var(--rest-hi) 0%,
+        var(--rest-top) 8%,
+        var(--rest-mid) 34%,
+        var(--rest-bot) 100%
+      );
+    font-size: 15px;
+    font-weight: 900;
+    white-space: nowrap;
+    color: #eaf2ff;
+    text-shadow: 0 1px 0 rgb(0 0 0 / 70%);
+    box-shadow:
+      0 0 0 1px #06050d,
+      0 0 0 2px rgb(0 0 0 / 40%),
+      inset 0 1px 0 rgb(255 255 255 / 78%),
+      inset 1px 0 0 rgb(255 255 255 / 20%),
+      inset -1px 0 0 rgb(0 0 0 / 32%),
+      inset 0 -2px 0 rgb(0 0 0 / 44%),
+      inset 0 2px 2px rgb(255 255 255 / 12%),
+      inset 0 -4px 6px rgb(0 0 0 / 26%),
+      0 2px 2px rgb(0 0 0 / 58%),
+      0 6px 10px -8px rgb(0 0 0 / 90%);
+  }
+
+  // ── 阅读入口：铜框探险手账牌，右端嵌一枚黄铜罗盘 ──
+  .read-btn {
+    position: relative;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    width: 100%;
+    height: 62px;
+    padding: 0 14px;
+    overflow: hidden;
+    border: 1px solid rgb(216 178 108 / 78%);
+    border-radius: 14px;
+    background:
+      radial-gradient(
+        140% 190% at 14% -50%,
+        rgb(255 216 145 / 30%),
+        transparent 56%
+      ),
+      repeating-linear-gradient(
+        112deg,
+        rgb(255 255 255 / 4%) 0 1px,
+        transparent 1px 7px
+      ),
+      linear-gradient(180deg, #2c2239 0%, #1b1428 52%, #110c1b 100%);
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+    white-space: nowrap;
+    color: #ffeccd;
+    text-shadow:
+      0 1px 1px rgb(14 8 24 / 90%),
+      0 0 16px rgb(255 198 112 / 32%);
+    cursor: pointer;
+    box-shadow:
+      inset 0 1px 0 rgb(255 235 196 / 34%),
+      inset 0 0 0 1px rgb(255 222 164 / 10%),
+      inset 0 -4px 0 #0a0612,
+      inset 0 -12px 20px rgb(0 0 0 / 52%),
+      0 0 0 3px #0e0a1f,
+      0 0 0 4px rgb(201 164 92 / 30%),
+      0 18px 34px -16px rgb(0 0 0 / 96%);
+    transition:
+      transform 0.26s cubic-bezier(0.22, 0.8, 0.3, 1),
+      border-color 0.26s ease,
+      box-shadow 0.26s ease,
+      filter 0.26s ease;
+
+    // 内圈手缝线 + 四角铜铆钉
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 7px;
+      border: 1px dashed rgb(255 224 170 / 24%);
+      border-radius: 9px;
+      background:
+        radial-gradient(
+            circle 2.2px at 2px 2px,
+            #ffe8b8 0 1.1px,
+            #7d5b1e 1.2px 2.2px,
+            transparent 2.6px
+          )
+          top left / 8px 8px no-repeat,
+        radial-gradient(
+            circle 2.2px at 6px 2px,
+            #ffe8b8 0 1.1px,
+            #7d5b1e 1.2px 2.2px,
+            transparent 2.6px
+          )
+          top right / 8px 8px no-repeat,
+        radial-gradient(
+            circle 2.2px at 2px 6px,
+            #ffe8b8 0 1.1px,
+            #7d5b1e 1.2px 2.2px,
+            transparent 2.6px
+          )
+          bottom left / 8px 8px no-repeat,
+        radial-gradient(
+            circle 2.2px at 6px 6px,
+            #ffe8b8 0 1.1px,
+            #7d5b1e 1.2px 2.2px,
+            transparent 2.6px
+          )
+          bottom right / 8px 8px no-repeat;
+      pointer-events: none;
+    }
+
+    // 悬停时一道暖铜色光扫过
+    &::after {
+      content: '';
+      position: absolute;
+      top: -80%;
+      bottom: -80%;
+      left: 0;
+      width: 46%;
+      background: linear-gradient(
+        100deg,
+        transparent,
+        rgb(255 222 164 / 34%),
+        transparent
+      );
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    &:hover {
+      border-color: rgb(255 220 154 / 92%);
+      filter: brightness(1.06);
+      transform: translateY(-2px);
+      box-shadow:
+        inset 0 1px 0 rgb(255 240 208 / 44%),
+        inset 0 0 0 1px rgb(255 226 172 / 16%),
+        inset 0 -4px 0 #0a0612,
+        inset 0 -12px 20px rgb(0 0 0 / 48%),
+        0 0 0 3px #0e0a1f,
+        0 0 0 4px rgb(226 186 112 / 44%),
+        0 22px 38px -16px rgb(0 0 0 / 100%),
+        0 0 32px rgb(255 190 100 / 16%);
+
+      &::after {
+        opacity: 1;
+        animation: guide-plate-sheen 0.95s cubic-bezier(0.3, 0.2, 0.3, 1);
+      }
+
+      .read-arrow {
+        border-color: rgb(255 232 184 / 92%);
+        box-shadow:
+          inset 0 2px 5px rgb(0 0 0 / 58%),
+          inset 0 0 0 1px rgb(92 64 16 / 88%),
+          inset 0 0 16px rgb(255 224 160 / 24%),
+          0 6px 14px -4px rgb(0 0 0 / 95%),
+          0 0 26px rgb(255 202 112 / 52%);
+        transform: scale(1.06);
+
+        &::before {
+          transform: rotate(45deg);
+        }
+
+        svg {
+          transform: translateX(3px);
+        }
+      }
+    }
+
+    &:active {
+      filter: brightness(0.98);
+      transform: translateY(1px) scale(0.996);
+      box-shadow:
+        inset 0 3px 10px rgb(0 0 0 / 70%),
+        inset 0 -1px 0 rgb(255 220 160 / 18%),
+        0 0 0 3px #0e0a1f,
+        0 10px 20px -14px rgb(0 0 0 / 92%);
+    }
+
+    &:focus-visible {
+      outline: 2px solid rgb(255 222 164 / 82%);
+      outline-offset: 3px;
+    }
+  }
+
+  // 右端黄铜罗盘：刻度环 + 金属中轴，指针由原有箭头承担
+  .read-arrow {
+    position: relative;
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    color: #ffecc8;
+    border: 1px solid rgb(255 226 168 / 76%);
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 50% 46%, #2a2036 0 44%, transparent 45%),
+      conic-gradient(
+        from 20deg,
+        #f8e3ae 0deg,
+        #a67a30 36deg,
+        #f3dc9f 72deg,
+        #8a661f 122deg,
+        #e8c987 170deg,
+        #9a7229 228deg,
+        #f6e0a6 286deg,
+        #8f6b22 330deg,
+        #f8e3ae 360deg
+      );
+    box-shadow:
+      inset 0 2px 5px rgb(0 0 0 / 66%),
+      inset 0 0 0 1px rgb(92 64 16 / 90%),
+      inset 0 0 14px rgb(255 214 140 / 16%),
+      0 4px 12px -4px rgb(0 0 0 / 92%),
+      0 0 18px rgb(255 196 102 / 30%);
+    transition:
+      transform 0.36s cubic-bezier(0.22, 0.8, 0.3, 1),
+      border-color 0.28s ease,
+      box-shadow 0.28s ease;
+
+    // 罗盘刻度环
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 4px;
+      border-radius: 50%;
+      background: repeating-conic-gradient(
+        from 0deg,
+        rgb(255 235 190 / 52%) 0 1.6deg,
+        transparent 1.6deg 15deg
+      );
+      mask: radial-gradient(circle, transparent 0 64%, #000 65% 100%);
+      -webkit-mask: radial-gradient(circle, transparent 0 64%, #000 65% 100%);
+      pointer-events: none;
+      transition: transform 0.5s cubic-bezier(0.22, 0.8, 0.3, 1);
+    }
+
+    // 指针中轴铆钉
+    &::after {
+      content: '';
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #fff4d2, #8a6420);
+      box-shadow: 0 0 6px rgb(255 214 140 / 70%);
+      pointer-events: none;
+    }
+
+    svg {
+      position: relative;
+      z-index: 1;
+      width: 18px;
+      height: 18px;
+      filter: drop-shadow(0 1px 2px rgb(40 24 6 / 65%));
+      transition: transform 0.34s cubic-bezier(0.22, 0.8, 0.3, 1);
+    }
+  }
+
+  // ── 右侧飞行信息 ──
+  .board-side {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    min-width: 0;
+    padding: 26px 24px;
+    overflow: hidden;
+    background:
+      radial-gradient(
+        120% 90% at 50% -10%,
+        rgb(255 196 110 / 10%),
+        transparent 55%
+      ),
+      linear-gradient(180deg, rgb(255 196 110 / 4%), transparent 40%),
+      repeating-linear-gradient(
+        90deg,
+        rgb(255 255 255 / 2.4%) 0 1px,
+        transparent 1px 24px
+      ),
+      repeating-linear-gradient(
+        0deg,
+        rgb(255 255 255 / 2.4%) 0 1px,
+        transparent 1px 24px
+      ),
+      #130e26;
+  }
+
+  // 与「实时数据」同一块背光铭牌，换成琥珀色灯箱
+  .side-head {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 13px 10px;
+    border: 1px solid rgb(255 196 110 / 30%);
+    border-radius: 8px;
+    background:
+      linear-gradient(
+        116deg,
+        transparent 40%,
+        rgb(255 255 255 / 12%) 50%,
+        transparent 60%
+      ),
+      linear-gradient(180deg, rgb(255 255 255 / 14%), transparent 52%),
+      linear-gradient(180deg, #3f2f1f, #1d1526);
+    font-size: 15.5px;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+    color: #fdf3e4;
+    text-shadow:
+      0 1px 2px rgb(30 14 2 / 52%),
+      0 0 16px rgb(255 196 110 / 34%);
+    box-shadow:
+      inset 0 1px 0 rgb(255 238 214 / 30%),
+      inset 0 -2px 4px rgb(20 8 2 / 46%),
+      0 2px 0 #17100a,
+      0 10px 18px -12px rgb(0 0 0 / 88%);
+  }
+
+  .side-head-sub {
+    margin-left: auto;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    color: rgb(255 226 180 / 54%);
+    text-shadow: none;
+    white-space: nowrap;
+  }
+
+  // 与「目的地」同一套跑道灯，换成琥珀灯管
+  .side-head-mark {
+    position: relative;
+    width: 8px;
+    height: 16px;
+    border-radius: 4px 4px 2px 2px;
+    background: linear-gradient(
+      180deg,
+      #fffaf0 0 16%,
+      #ffe8c0 16% 38%,
+      #ffc46e 38% 74%,
+      #c07f2c 74% 86%,
+      #3a2409 86% 100%
+    );
+    box-shadow:
+      inset 0 -3px 3px -1px rgb(56 32 4 / 62%),
+      0 0 0 1px rgb(255 226 176 / 30%),
+      0 0 9px rgb(255 196 110 / 76%),
+      0 0 20px rgb(255 196 110 / 34%),
+      0 5px 12px -3px rgb(255 196 110 / 26%);
+  }
+
+  .info-rows {
+    position: relative;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    gap: 7px;
+    margin: 0;
+    padding: 12px 10px;
+    border-radius: 14px;
+
+    // 四角的金属铆钉：信息窗是拧在侧板上的整块仪表
+    background:
+      radial-gradient(
+        circle 4px at 9px 9px,
+        #f0e3c8 0%,
+        #9c8560 54%,
+        #2e2313 90%,
+        transparent 94%
+      ),
+      radial-gradient(
+        circle 4px at calc(100% - 9px) 9px,
+        #f0e3c8 0%,
+        #9c8560 54%,
+        #2e2313 90%,
+        transparent 94%
+      ),
+      radial-gradient(
+        circle 4px at 9px calc(100% - 9px),
+        #f0e3c8 0%,
+        #9c8560 54%,
+        #2e2313 90%,
+        transparent 94%
+      ),
+      radial-gradient(
+        circle 4px at calc(100% - 9px) calc(100% - 9px),
+        #f0e3c8 0%,
+        #9c8560 54%,
+        #2e2313 90%,
+        transparent 94%
+      ),
+      linear-gradient(
+        180deg,
+        rgb(8 4 18 / 44%),
+        rgb(44 32 22 / 20%) 60%,
+        rgb(8 4 18 / 30%)
+      );
+    box-shadow:
+      inset 0 2px 10px rgb(0 0 0 / 52%),
+      inset 0 0 0 1px rgb(255 196 110 / 8%),
+      inset 0 -1px 0 rgb(255 196 110 / 8%),
+      0 1px 0 rgb(255 255 255 / 5%);
+  }
+
+  .info-row {
+    --tone: #c9b6ff;
+
+    position: relative;
+    display: grid;
+    grid-template-columns: 34px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 13px;
+    border: 1px solid color-mix(in srgb, var(--tone) 18%, transparent);
+    border-radius: 11px;
+    background:
+      linear-gradient(180deg, rgb(255 255 255 / 8%), transparent 40%),
+      radial-gradient(
+        120% 160% at 12% -30%,
+        color-mix(in srgb, var(--tone) 26%, transparent),
+        transparent 56%
+      ),
+      linear-gradient(
+        155deg,
+        color-mix(in srgb, var(--tone) 13%, #1a1424),
+        color-mix(in srgb, var(--tone) 5%, #0c0912)
+      );
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 12%),
+      inset 0 -2px 0 color-mix(in srgb, var(--tone) 18%, transparent),
+      0 2px 0 color-mix(in srgb, var(--tone) 10%, #08050c),
+      0 8px 14px -10px rgb(0 0 0 / 90%);
+    transition:
+      transform 0.26s cubic-bezier(0.22, 0.8, 0.3, 1),
+      border-color 0.26s ease,
+      box-shadow 0.26s ease;
+
+    > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    // 左侧跑道灯：悬停时拉长并发光
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 2px;
+      height: 22px;
+      border-radius: 1px;
+      background: color-mix(in srgb, var(--tone) 34%, transparent);
+      transform: translateY(-50%);
+      transition:
+        height 0.26s cubic-bezier(0.22, 0.8, 0.3, 1),
+        background-color 0.26s ease,
+        box-shadow 0.26s ease;
+    }
+
+    // 悬停时扫过纸面的一道反光
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(
+        105deg,
+        transparent 42%,
+        rgb(255 255 255 / 14%) 50%,
+        transparent 58%
+      );
+      background-size: 240% 100%;
+      background-position: 150% 0;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    &:hover {
+      border-color: color-mix(in srgb, var(--tone) 52%, transparent);
+      transform: translateY(-2px);
+      box-shadow:
+        inset 0 1px 0 rgb(255 255 255 / 16%),
+        inset 0 -2px 0 color-mix(in srgb, var(--tone) 34%, transparent),
+        0 3px 0 color-mix(in srgb, var(--tone) 16%, #0a0710),
+        0 14px 22px -12px color-mix(in srgb, var(--tone) 56%, transparent),
+        0 0 0 1px color-mix(in srgb, var(--tone) 24%, transparent);
+
+      &::before {
+        height: 34px;
+        background: var(--tone);
+        box-shadow: 0 0 14px color-mix(in srgb, var(--tone) 86%, transparent);
+      }
+
+      &::after {
+        opacity: 1;
+        animation: info-sheen 0.9s ease-out;
+      }
+
+      .row-index {
+        border-color: color-mix(in srgb, var(--tone) 72%, transparent);
+        color: #fff;
+        box-shadow:
+          inset 0 2px 3px rgb(255 255 255 / 46%),
+          inset 0 -5px 9px rgb(0 0 0 / 55%),
+          0 2px 0 color-mix(in srgb, var(--tone) 20%, #0a0712),
+          0 0 18px color-mix(in srgb, var(--tone) 62%, transparent);
+      }
+
+      .row-value {
+        color: #fff;
+        border-color: color-mix(in srgb, var(--tone) 42%, transparent);
+        text-shadow:
+          0 0 20px color-mix(in srgb, var(--tone) 52%, transparent),
+          0 2px 8px rgb(0 0 0 / 65%);
+        box-shadow:
+          inset 0 2px 4px rgb(0 0 0 / 78%),
+          inset 0 -1px 0 color-mix(in srgb, var(--tone) 52%, transparent),
+          0 1px 0 rgb(255 255 255 / 10%),
+          0 0 16px color-mix(in srgb, var(--tone) 34%, transparent);
+      }
+    }
+  }
+
+  .row-index {
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid color-mix(in srgb, var(--tone) 60%, transparent);
+    border-radius: 50%;
+    background:
+      radial-gradient(
+        circle at 34% 25%,
+        rgb(255 255 255 / 86%) 0 5%,
+        color-mix(in srgb, var(--tone) 42%, #fff) 18%,
+        transparent 46%
+      ),
+      conic-gradient(
+        from 210deg,
+        color-mix(in srgb, var(--tone) 68%, #fff),
+        color-mix(in srgb, var(--tone) 28%, #241a2e),
+        color-mix(in srgb, var(--tone) 60%, #fff),
+        color-mix(in srgb, var(--tone) 18%, #151020),
+        color-mix(in srgb, var(--tone) 68%, #fff)
+      );
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 12px;
+    font-weight: 900;
+    color: #fff;
+    text-shadow:
+      0 1px 2px rgb(0 0 0 / 72%),
+      0 0 9px color-mix(in srgb, var(--tone) 40%, transparent);
+    box-shadow:
+      inset 0 2px 3px rgb(255 255 255 / 40%),
+      inset 0 -5px 9px rgb(0 0 0 / 55%),
+      0 2px 0 color-mix(in srgb, var(--tone) 22%, #0a0712),
+      0 5px 10px -5px rgb(0 0 0 / 90%),
+      0 0 12px color-mix(in srgb, var(--tone) 32%, transparent);
+    transition:
+      border-color 0.26s ease,
+      color 0.26s ease,
+      box-shadow 0.26s ease;
+  }
+
+  .row-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15.5px;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    color: #fff;
+    text-shadow: 0 1px 2px rgb(6 3 12 / 46%);
+
+    // 标签与数值之间拉一条点线引导，像真的信息牌
+    &::after {
+      content: '';
+      flex: 1 1 auto;
+      height: 1px;
+      background: repeating-linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--tone) 44%, transparent) 0 1px,
+        transparent 1px 6px
+      );
+      opacity: 0.5;
+    }
+  }
+
+  .row-value {
+    overflow: hidden;
+    margin: 0;
+    padding: 3px 10px 4px;
+    border: 1px solid color-mix(in srgb, var(--tone) 22%, transparent);
+    border-radius: 8px;
+    background:
+      linear-gradient(180deg, rgb(255 255 255 / 7%), transparent 42%),
+      linear-gradient(
+        180deg,
+        #080512,
+        color-mix(in srgb, var(--tone) 6%, #151022)
+      );
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-variant-numeric: tabular-nums;
+    color: color-mix(in srgb, var(--tone) 14%, #fdfbff);
+    text-shadow: 0 2px 10px rgb(3 1 10 / 72%);
+    box-shadow:
+      inset 0 2px 4px rgb(0 0 0 / 72%),
+      inset 0 -1px 0 color-mix(in srgb, var(--tone) 28%, transparent),
+      0 1px 0 rgb(255 255 255 / 8%),
+      0 0 12px color-mix(in srgb, var(--tone) 18%, transparent);
+    animation: cell-turn 0.5s cubic-bezier(0.4, 0, 0.28, 1) both;
+    transition:
+      color 0.26s ease,
+      border-color 0.26s ease,
+      text-shadow 0.26s ease,
+      box-shadow 0.26s ease;
+  }
+
+  .side-stub {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 2px;
+    padding: 11px 2px 0;
+    border-top: 1px dashed rgb(255 196 110 / 24%);
+  }
+
+  .stub-barcode {
+    flex: 0 0 auto;
+    width: 66px;
+    height: 20px;
+    opacity: 0.62;
+    background: repeating-linear-gradient(
+      90deg,
+      rgb(255 232 196 / 88%) 0 1px,
+      transparent 1px 3px,
+      rgb(255 232 196 / 88%) 3px 5px,
+      transparent 5px 6px,
+      rgb(255 232 196 / 88%) 6px 7px,
+      transparent 7px 10px
+    );
+    mask-image: linear-gradient(180deg, #000 0 82%, transparent 100%);
+  }
+
+  .stub-micro {
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    color: rgb(255 226 180 / 58%);
+    white-space: nowrap;
+  }
+
+  // ── 登机口：四个站点做成排开的登机牌，撕票缺口 + 翻牌序号 ──
+  .board-gates {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 22px 30px 28px;
+    border-top: 1px solid var(--board-line);
+    background:
+      repeating-linear-gradient(
+        115deg,
+        rgb(196 178 255 / 5%) 0 1px,
+        transparent 1px 24px
+      ),
+      #0b0719;
+    box-shadow:
+      inset 0 3px 9px rgb(0 0 0 / 46%),
+      inset 0 1px 0 rgb(196 178 255 / 12%);
+
+    // 计数台上一层极淡的玻璃反光，与整机同套亚克力语言
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        174deg,
+        rgb(255 255 255 / 4%),
+        transparent 24%
+      );
+      pointer-events: none;
+    }
+  }
+
+  .gates-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    color: #f2e4ea;
+  }
+
+  .gates-hint {
+    display: inline-flex;
+    flex: 1 1 auto;
+    align-items: center;
+    gap: 9px;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    color: #fdf0f4;
+    text-shadow: 0 0 16px rgb(255 143 166 / 46%);
+
+    // 与右侧「第 01 / 08 组」之间拉一条渐隐导轨
+    &::after {
+      content: '';
+      flex: 1 1 auto;
+      height: 1px;
+      margin-left: 6px;
+      background: linear-gradient(
+        90deg,
+        rgb(255 143 166 / 24%),
+        rgb(255 143 166 / 5%),
+        transparent
+      );
+    }
+
+    // 与另外两处区段标题同一套灯柱造型，换成登机口的粉色
+    &::before {
+      content: '';
+      width: 8px;
+      height: 16px;
+      border-radius: 4px 4px 2px 2px;
+      background: linear-gradient(
+        180deg,
+        #fff 0 14%,
+        #ffe3e9 14% 34%,
+        #ff8fa6 34% 72%,
+        #c25a70 72% 86%,
+        #3b1019 86% 100%
+      );
+      box-shadow:
+        inset 0 -3px 3px -1px rgb(58 12 22 / 62%),
+        0 0 0 1px rgb(255 214 224 / 30%),
+        0 0 9px rgb(255 143 166 / 78%),
+        0 0 20px rgb(255 143 166 / 34%),
+        0 5px 12px -3px rgb(255 143 166 / 26%);
+      animation: guide-plate-breathe 3.2s ease-in-out infinite;
+    }
+  }
+
+  .gates-row {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 14px;
+  }
+
+  // 地勤指令键：金属底座 + 内凹键帽 + 顶面弧形反光，按下键帽整体下沉
+  .gate-arrow {
+    position: relative;
+    padding: 10px 15px 12px;
+    overflow: hidden;
+    border: 1px solid rgb(196 178 255 / 26%);
+    border-radius: 9px;
+    background:
+      linear-gradient(180deg, rgb(255 255 255 / 14%) 0 42%, transparent 64%),
+      linear-gradient(180deg, #342a59 0%, #221b3f 54%, #141026 100%);
+    font-family: inherit;
+    font-size: 14.5px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    color: #e6dff9;
+    cursor: pointer;
+    box-shadow:
+      inset 0 1px 0 rgb(240 234 255 / 30%),
+      inset 0 -3px 0 rgb(9 5 20 / 78%),
+      0 3px 0 #0c0820,
+      0 14px 22px -14px rgb(0 0 0 / 92%);
+    transition:
+      border-color 0.24s ease,
+      background 0.24s ease,
+      color 0.24s ease,
+      transform 0.24s ease,
+      box-shadow 0.24s ease;
+
+    // 键帽顶面的弧形反光
+    &::before {
+      content: '';
+      position: absolute;
+      top: 2px;
+      right: 5px;
+      left: 5px;
+      height: 42%;
+      border-radius: 6px 6px 46% 46%;
+      background: linear-gradient(180deg, rgb(255 255 255 / 14%), transparent);
+      pointer-events: none;
+    }
+
+    &:hover:not(:disabled) {
+      border-color: rgb(201 182 255 / 66%);
+      background:
+        linear-gradient(180deg, rgb(255 255 255 / 18%) 0 42%, transparent 64%),
+        linear-gradient(180deg, #443770 0%, #2a2250 54%, #191330 100%);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow:
+        inset 0 1px 0 rgb(240 234 255 / 38%),
+        inset 0 -3px 0 rgb(9 5 20 / 70%),
+        0 5px 0 #0c0820,
+        0 18px 26px -14px rgb(150 110 255 / 88%);
+    }
+
+    &:active:not(:disabled) {
+      transform: translateY(2px);
+      box-shadow:
+        inset 0 1px 0 rgb(240 234 255 / 18%),
+        inset 0 2px 6px rgb(4 2 12 / 76%),
+        0 1px 0 #0c0820,
+        0 6px 14px -12px rgb(0 0 0 / 92%);
+    }
+
+    &:disabled {
+      border-style: dashed;
+      border-color: rgb(196 178 255 / 20%);
+      opacity: 0.34;
+      box-shadow: inset 0 1px 0 rgb(232 222 255 / 6%);
+      cursor: not-allowed;
+    }
+
+    &:focus-visible {
+      outline: 2px solid rgb(201 182 255 / 76%);
+      outline-offset: 2px;
+    }
+  }
+
+  .gate-list {
+    display: grid;
+    grid-auto-flow: column;
+
+    // 固定四等分，最后一组只剩两条时卡片也不会被拉宽
+    grid-auto-columns: calc((100% - 36px) / 4);
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .gate {
+    --tone: #c9b6ff;
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 13px 12px;
+    border: 1px solid color-mix(in srgb, var(--tone) 34%, transparent);
+    border-radius: 10px;
+
+    // 登机牌卡纸：斜向纤维纹理 + 斜向玻璃光带 + 顶部高光 + 卡纸底色
+    background:
+      linear-gradient(
+        118deg,
+        transparent 46%,
+        rgb(255 255 255 / 4.5%) 54%,
+        transparent 62%
+      ),
+      repeating-linear-gradient(
+        115deg,
+        rgb(255 255 255 / 2.2%) 0 1px,
+        transparent 1px 5px
+      ),
+      linear-gradient(180deg, rgb(255 255 255 / 10%), transparent 34%),
+      linear-gradient(
+        155deg,
+        color-mix(in srgb, var(--tone) 20%, #2a2533) 0%,
+        color-mix(in srgb, var(--tone) 10%, #191420) 52%,
+        #0d0a13 100%
+      );
+    font-family: inherit;
+    text-align: left;
+    cursor: pointer;
+    perspective: 520px;
+
+    // 纸卡厚度（0 2px 0）+ 底部投影 + 卡纸内高光，做出悬浮实体感
+    box-shadow:
+      inset 0 1px 0 rgb(240 232 255 / 26%),
+      inset 1px 0 0 rgb(255 255 255 / 7%),
+      inset -1px 0 0 rgb(0 0 0 / 26%),
+      inset 0 -2px 5px rgb(4 2 12 / 52%),
+      0 2px 0 #100a20,
+      0 3px 0 #0a0617,
+      0 16px 26px -18px color-mix(in srgb, var(--tone) 40%, rgb(3 1 10 / 94%));
+    transition:
+      border-color 0.26s ease,
+      background-color 0.26s ease,
+      transform 0.26s cubic-bezier(0.22, 0.8, 0.3, 1),
+      box-shadow 0.26s ease;
+
+    // 票根两侧的撕口
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #0b0719;
+      box-shadow: inset 0 2px 3px rgb(0 0 0 / 90%);
+      transform: translateY(-50%);
+      transition: background-color 0.26s ease;
+    }
+
+    &::before {
+      left: -6px;
+    }
+
+    &::after {
+      right: -6px;
+    }
+
+    // 悬停只在卡面上叠加扫描光，不改变底色和位置，自然态/激活态都能用
+    &:hover {
+      border-color: color-mix(in srgb, var(--tone) 50%, transparent);
+
+      .gate-sheen {
+        opacity: 1;
+        animation: gate-sheen-sweep 0.95s ease-out;
+      }
+
+      .gate-sheen::before {
+        transform: scaleX(1);
+      }
+
+      .gate-sheen::after {
+        opacity: 0.85;
+        animation: gate-runway 0.9s linear infinite;
+      }
+
+      // 左侧灯条先亮到一半，点下去再拉满
+      .gate-rail {
+        height: 34%;
+        background: linear-gradient(
+          180deg,
+          color-mix(in srgb, var(--tone) 46%, #fff),
+          var(--tone)
+        );
+        box-shadow: 0 0 12px color-mix(in srgb, var(--tone) 76%, transparent);
+      }
+
+      .gate-flap {
+        animation: gate-turn 0.5s cubic-bezier(0.4, 0, 0.28, 1);
+      }
+
+      .gate-barcode {
+        opacity: 0.46;
+      }
+    }
+
+    &:active {
+      transform: translateY(0) scale(0.992);
+    }
+
+    &.active {
+      border-color: color-mix(in srgb, var(--tone) 82%, transparent);
+      background:
+        linear-gradient(180deg, rgb(255 255 255 / 22%), transparent 50%),
+        linear-gradient(
+          155deg,
+          color-mix(in srgb, var(--tone) 48%, #3a303e) 0%,
+          color-mix(in srgb, var(--tone) 26%, #241d28) 55%,
+          color-mix(in srgb, var(--tone) 12%, #141018) 100%
+        );
+      transform: translateY(-4px) scale(1.01);
+      box-shadow:
+        inset 0 1px 0 rgb(255 255 255 / 40%),
+        inset 0 -2px 0 color-mix(in srgb, var(--tone) 50%, transparent),
+        inset 0 0 24px color-mix(in srgb, var(--tone) 16%, transparent),
+        0 4px 0 color-mix(in srgb, var(--tone) 18%, #1a131f),
+        0 0 0 1px color-mix(in srgb, var(--tone) 34%, transparent),
+        0 24px 38px -20px color-mix(in srgb, var(--tone) 82%, transparent);
+
+      .gate-rail {
+        height: 72%;
+        background: linear-gradient(
+          180deg,
+          color-mix(in srgb, var(--tone) 30%, #fff),
+          var(--tone)
+        );
+        box-shadow: 0 0 20px color-mix(in srgb, var(--tone) 96%, transparent);
+      }
+
+      .gate-flap {
+        animation: gate-turn 0.5s cubic-bezier(0.4, 0, 0.28, 1);
+        border-color: color-mix(in srgb, var(--tone) 58%, transparent);
+        box-shadow:
+          inset 0 1px 0 rgb(255 255 255 / 48%),
+          inset 0 -2px 5px rgb(4 2 12 / 55%),
+          0 2px 0 color-mix(in srgb, var(--tone) 20%, #1a151e),
+          0 3px 6px rgb(0 0 0 / 46%);
+      }
+
+      .gate-no,
+      .gate-name {
+        color: #fff;
+      }
+
+      .gate-sub {
+        color: color-mix(in srgb, var(--tone) 18%, #fff);
+        font-weight: 700;
+        text-shadow: 0 1px 3px rgb(16 8 6 / 52%);
+      }
+
+      .gate-barcode {
+        opacity: 0.5;
+      }
+    }
+
+    &:focus-visible {
+      outline: 2px solid color-mix(in srgb, var(--tone) 78%, transparent);
+      outline-offset: 3px;
+    }
+  }
+
+  // 悬停扫描层：斜向扫光 + 顶部灯带 + 底部跑道虚线，叠在任意卡面状态之上
+  .gate-sheen {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    overflow: hidden;
+    border-radius: inherit;
+    background: linear-gradient(
+      105deg,
+      transparent 40%,
+      rgb(255 255 255 / 18%) 50%,
+      transparent 60%
+    );
+    background-size: 240% 100%;
+    background-position: 140% 0;
+    box-shadow:
+      inset 0 0 0 1px color-mix(in srgb, var(--tone) 44%, transparent),
+      inset 0 0 20px color-mix(in srgb, var(--tone) 14%, transparent);
+    opacity: 0;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    transition: opacity 0.26s ease;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 8px;
+      left: 8px;
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        color-mix(in srgb, var(--tone) 72%, #fff),
+        transparent
+      );
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s cubic-bezier(0.22, 0.8, 0.3, 1);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: 16px;
+      bottom: 4px;
+      left: 16px;
+      height: 2px;
+      background: repeating-linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--tone) 78%, #fff) 0 6px,
+        transparent 6px 13px
+      );
+      mask-image: linear-gradient(
+        90deg,
+        transparent,
+        #000 18%,
+        #000 82%,
+        transparent
+      );
+      opacity: 0;
+      transition: opacity 0.26s ease;
+    }
+  }
+
+  .gate-rail {
+    position: absolute;
+    top: 50%;
+    left: -1px;
+    width: 3px;
+    height: 0;
+    border-radius: 0 2px 2px 0;
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--tone) 40%, #fff),
+      var(--tone)
+    );
+    transform: translateY(-50%);
+    transition:
+      height 0.32s cubic-bezier(0.22, 0.8, 0.3, 1),
+      box-shadow 0.32s ease;
+  }
+
+  .gate-flap {
+    position: relative;
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    box-sizing: border-box;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    border-radius: 5px;
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--tone) 24%, #3a3540) 0%,
+      color-mix(in srgb, var(--tone) 15%, #262229) 48.4%,
+      color-mix(in srgb, var(--tone) 8%, #1d1a21) 51.6%,
+      color-mix(in srgb, var(--tone) 19%, #322d38) 100%
+    );
+
+    // 翻牌格四周的金属边框 + 内凹深度 + 底部转轴厚度
+    border: 1px solid color-mix(in srgb, var(--tone) 30%, transparent);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 34%),
+      inset 1px 0 0 rgb(255 255 255 / 12%),
+      inset -1px 0 0 rgb(0 0 0 / 30%),
+      inset 0 -2px 5px rgb(4 2 12 / 60%),
+      0 2px 0 #1a1620,
+      0 3px 4px rgb(0 0 0 / 46%);
+
+    // 顶面镜光，小翻牌格也有厚度
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgb(255 255 255 / 12%),
+        transparent 46%
+      );
+      pointer-events: none;
+    }
+  }
+
+  .gate-seam {
+    position: absolute;
+    inset: 50% 3px auto;
+    height: 1px;
+    background: rgb(6 3 16 / 78%);
+    box-shadow: 0 1px 0 rgb(232 222 255 / 10%);
+  }
+
+  .gate-no {
+    position: relative;
+    z-index: 1;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    color: color-mix(in srgb, var(--tone) 44%, #f2ecff);
+    transition: color 0.26s ease;
+  }
+
+  .gate-copy {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+  }
+
+  .gate-name {
+    // 长地名允许折成两行，比截成省略号更好读
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    font-size: clamp(17px, 1.35vw, 20px);
+    font-weight: 800;
+    line-height: 1.24;
+    letter-spacing: 0.01em;
+    text-wrap: balance;
+    color: #e9e3fa;
+    transition: color 0.26s ease;
+  }
+
+  // 主题副标题：登机牌上的信息行，字号只比地点名小一档，一眼能读清
+  .gate-sub {
+    overflow: hidden;
+
+    // 右侧给票根条形码让位，长副标题用省略号收尾，不压到装饰上
+    padding-right: 15px;
+    font-size: clamp(14px, 0.95vw, 16px);
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: color-mix(in srgb, var(--tone) 62%, #cfc4e8);
+    transition: color 0.26s ease;
+  }
+
+  // 票根右下角的竖向条形码：纯装饰，做出真实登机牌的印刷细节
+  .gate-barcode {
+    position: absolute;
+    right: 6px;
+    bottom: 9px;
+    width: 13px;
+    height: 12px;
+    opacity: 0.3;
+    background: repeating-linear-gradient(
+      90deg,
+      rgb(233 224 255 / 92%) 0 1px,
+      transparent 1px 2px,
+      rgb(233 224 255 / 92%) 2px 4px,
+      transparent 4px 5px
+    );
+    mask-image: linear-gradient(180deg, #000 0 72%, transparent 100%);
+    pointer-events: none;
+    transition: opacity 0.26s ease;
+  }
+
+  .gate-code {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-left: auto;
+    padding: 4px 15px 5px;
+    border: 1px solid rgb(255 143 166 / 30%);
+    border-radius: 3px;
+    background: linear-gradient(180deg, #3a2233 0%, #251524 62%, #180d18 100%);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+    color: #ffe2ea;
+    box-shadow:
+      inset 0 0 0 1px rgb(14 6 14 / 82%),
+      inset 0 0 0 2px rgb(255 190 208 / 12%),
+      inset 0 1px 0 rgb(255 255 255 / 20%),
+      0 2px 0 rgb(12 5 12 / 86%),
+      0 8px 16px -10px rgb(0 0 0 / 92%);
+
+    // 页码牌两侧的金属铆钉，与「第 02 站」同一套
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle at 35% 30%,
+        #f6d8e0 0%,
+        #a0707e 54%,
+        #2a1418 90%
+      );
+      box-shadow:
+        inset 0 1px 1px rgb(255 255 255 / 42%),
+        0 1px 2px rgb(0 0 0 / 72%);
+      transform: translateY(-50%);
+    }
+
+    &::before {
+      left: 4px;
+    }
+
+    &::after {
+      right: 4px;
+    }
+
+    b {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 15.5px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: #fff;
+      text-shadow: 0 0 14px rgb(255 143 166 / 66%);
+    }
+  }
+
+  // ── 窄屏 ──
+  // 中等宽度下四张卡与两个文字按钮挤不进一行，按钮让到下一层分列两端，地名才能放大
+  @media (max-width: 1320px) {
+    .gates-row {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: auto auto;
+      gap: 12px;
+    }
+
+    .gate-list {
+      grid-column: 1 / -1;
+      grid-row: 1;
+    }
+
+    // 两个按钮贴着中线并成一组，像卡片下面的一条翻页器
+    .gate-arrow {
+      grid-row: 2;
+      min-width: 152px;
+    }
+
+    // 卡片独占整行，地名统一使用最大字号
+    .gate-name {
+      font-size: 20px;
+    }
+
+    .gate-arrow:first-of-type {
+      grid-column: 1;
+      justify-self: end;
+    }
+
+    .gate-arrow:last-of-type {
+      grid-column: 2;
+      justify-self: start;
+    }
+  }
+
+  @media (max-width: 1180px) {
+    .board-strip {
+      grid-template-columns: minmax(0, 1fr) 340px;
+      min-height: 456px;
+    }
+
+    .strip-stats {
+      gap: 13px;
+      padding: 22px 20px 20px;
+    }
+
+    .stat-num {
+      font-size: 25px;
+    }
+
+    .board-main {
+      padding: 24px 30px 26px;
+    }
+
+    .board-body {
+      grid-template-columns: minmax(0, 1fr) 340px;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .board-strip {
+      grid-template-columns: minmax(0, 1fr);
+      height: auto;
+    }
+
+    .board-body {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .board-main {
+      border-right: 0;
+      border-bottom: 1px solid var(--board-line);
+    }
+
+    .row-value {
+      font-size: 21px;
+    }
+
+    .stat-num {
+      font-size: 24px;
+    }
+
+    .strip-view {
+      height: 310px;
+    }
+
+    .strip-stats {
+      gap: 14px;
+      padding: 20px 22px 22px;
+      border-top: 1px solid var(--board-line);
+      border-left: 0;
+      box-shadow: inset 0 1px 0 rgb(232 222 255 / 7%);
+    }
+
+    .stats-list {
+      display: grid;
+      flex: initial;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+
+      // 五张卡两列会剩一个空格，让浏览独占一行，其余两两成对
+      .stat:first-child {
+        grid-column: 1 / -1;
+      }
+    }
+
+    .flap-cell {
+      font-size: 38px;
+      padding: 3px 9px 5px;
+    }
+
+    .board-main {
+      padding: 26px;
+    }
+
+    .board-title {
+      font-size: 22px;
+    }
+
+    .board-gates {
+      gap: 12px;
+      padding: 18px 22px 20px;
+    }
+
+    .gate-code {
+      display: none;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .strip-view {
+      height: 246px;
+    }
+
+    .strip-stats {
+      gap: 12px;
+      padding: 18px 20px 20px;
+    }
+
+    .stats-list {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .stat {
+      grid-template-columns: 30px minmax(0, 1fr) auto;
+      padding: 9px 12px 10px;
+
+      .stat-icon {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+
+        svg {
+          width: 17px;
+          height: 17px;
+        }
+      }
+    }
+
+    .stat-num {
+      font-size: 22px;
+    }
+
+    .board-hinge i {
+      &:first-child {
+        left: 20px;
+      }
+
+      &:last-child {
+        right: 20px;
+      }
+    }
+
+    .board-main {
+      padding: 22px 20px;
+    }
+
+    .dest-label {
+      font-size: 14px;
+      letter-spacing: 0.12em;
+    }
+
+    .dest-gate {
+      padding: 3px 9px 4px;
+      font-size: 12px;
+    }
+
+    .flap-cell {
+      font-size: 30px;
+      padding: 2px 8px 5px;
+    }
+
+    .board-title {
+      font-size: 19px;
+    }
+
+    .route-line {
+      padding: 12px 14px;
+      gap: 8px 10px;
+    }
+
+    .route-stop {
+      font-size: 16px;
+    }
+
+    .board-side {
+      padding: 22px 20px 24px;
+    }
+
+    .info-row {
+      grid-template-columns: 26px minmax(0, 1fr) auto;
+      gap: 10px;
+      padding: 12px 10px 13px;
+    }
+
+    .row-index {
+      width: 24px;
+      height: 24px;
+      font-size: 11px;
+    }
+
+    .row-label {
+      font-size: 13.5px;
+      letter-spacing: 0.1em;
+    }
+
+    .row-value {
+      font-size: 19px;
+    }
+
+    .board-gates {
+      gap: 10px;
+      padding: 16px 20px 18px;
+    }
+
+    .gate-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-auto-flow: row;
+      grid-column: 1 / -1;
+      grid-row: 1;
+    }
+
+    .gate {
+      gap: 10px;
+      padding: 12px 12px 12px 14px;
+
+      .gate-flap {
+        width: 32px;
+        height: 28px;
+      }
+
+      .gate-no {
+        font-size: 14px;
+      }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    // 翻片靠动画结束才让出照片，停掉动画就必须直接隐藏，否则整条灯带被灰片盖住
+    .strip-flap {
+      display: none;
+    }
+
+    .flap-cell,
+    .row-value,
+    .board-title,
+    .gate-flap,
+    .stat-icon svg,
+    .gates-hint::before {
+      animation: none;
+    }
+
+    // 玻璃反光带扫光是纯装饰，动效敏感用户直接静止
+    .board-glass::before {
+      display: none;
+    }
+  }
+}

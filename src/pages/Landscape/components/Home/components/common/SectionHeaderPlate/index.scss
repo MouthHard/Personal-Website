@@ -1,0 +1,78 @@
+@use 'sass:list';
+@use '../../../../../styles/home-plate' as hp;
+
+// 各分区主题色：亮部 / 次级亮部 / 面板基底 / 侧面厚边
+$tones: (
+  'violet': (
+    #b190ff,
+    #d3c3ff,
+    #1b1140,
+    #0d0722,
+  ),
+  'blue': (
+    #7dd3fc,
+    #bcd6f5,
+    #0b1730,
+    #050b18,
+  ),
+  'pink': (
+    #f472b6,
+    #fbcfe8,
+    #2c0d20,
+    #16060f,
+  ),
+  'red': (
+    #fca5a5,
+    #fecdd3,
+    #2b0f13,
+    #150608,
+  ),
+  'amber': (
+    #fbbf24,
+    #fde68a,
+    #2a1d08,
+    #150e03,
+  ),
+  'orange': (
+    #ffab91,
+    #ffd0bf,
+    #2a1512,
+    #150807,
+  ),
+  'cyan': (
+    #8bfafa,
+    #b8e4ff,
+    #081a36,
+    #040d1c,
+  ),
+);
+
+.header-plate {
+  @each $name, $palette in $tones {
+    &.tone-#{$name} {
+      @include hp.home-plate(
+        list.nth($palette, 1),
+        list.nth($palette, 2),
+        list.nth($palette, 3),
+        list.nth($palette, 4)
+      );
+    }
+  }
+
+  // 图标由父组件通过插槽传入，scoped 样式默认命中不到，需 :deep 约束尺寸
+  // 徽章内留出固定内边距并裁切，保证任何图标都不会贴边或溢出
+  .title-badge {
+    box-sizing: border-box;
+    padding: 0.45rem;
+    overflow: hidden;
+
+    :deep(svg) {
+      width: 2.3rem;
+      height: 2.3rem;
+      max-width: 100%;
+      max-height: 100%;
+      color: #f4f9ff;
+      filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.6));
+    }
+  }
+}

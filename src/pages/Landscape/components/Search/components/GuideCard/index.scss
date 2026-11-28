@@ -1,834 +1,1656 @@
-$green: #27ae60;
-$green-light: #6bffb8;
-$green-dark: #1e944f;
-$amber: #f59e0b;
-$amber-light: #fbbf24;
-$purple: #8b5cf6;
-$purple-light: #a78bfa;
+// 攻略卡片：摊开的地形探险图 + 野外手记
+// 左侧实景图版，右侧手记正文；行程数据压成一条地图图例条
+
+$paper-hi: #f9f2de;
+$paper: #f1e5c9;
+$paper-mid: #e8d9b7;
+$paper-deep: #decba5;
+$ink: #1a2417;
+$forest: #1f5a3d;
+$forest-deep: #184a31;
+$lake: #275570;
+$ochre: #855813;
+$violet: #4c3b78;
 
 .guide-card {
-  display: flex;
-  border-radius: 16px;
-  overflow: hidden;
   position: relative;
-  background: linear-gradient(135deg, #0d1a12 0%, #0a140e 50%, #060d08 100%);
-  border: 1px solid rgba($green, 0.2);
-  box-shadow:
-    0 8px 24px rgba(0, 0, 0, 0.5),
-    0 16px 48px rgba(0, 0, 0, 0.3),
-    0 0 0 1px rgba($green, 0.05),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: block;
+  isolation: isolate;
+  container-type: inline-size;
+  border-radius: 18px;
+  overflow: hidden;
+  color: $ink;
+  border: 1px solid rgba(128, 106, 66, 0.6);
 
+  // 纸张本体：等高线 + 网格 + 纸纹 + 单侧光照
+  background:
+    repeating-radial-gradient(
+      ellipse 44% 32% at 16% 10%,
+      transparent 0 24px,
+      rgba(82, 88, 54, 0.07) 24px 25px,
+      transparent 25px 34px
+    ),
+    repeating-radial-gradient(
+      ellipse 38% 28% at 88% 84%,
+      transparent 0 20px,
+      rgba(82, 88, 54, 0.06) 20px 21px,
+      transparent 21px 29px
+    ),
+    repeating-linear-gradient(
+      38deg,
+      rgba(112, 92, 54, 0.045) 0 1px,
+      transparent 1px 5px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(68, 82, 50, 0.07) 0 1px,
+      transparent 1px 27px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(68, 82, 50, 0.07) 0 1px,
+      transparent 1px 27px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(68, 82, 50, 0.03) 0 1px,
+      transparent 1px 6.75px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(68, 82, 50, 0.03) 0 1px,
+      transparent 1px 6.75px
+    ),
+    linear-gradient(
+      118deg,
+      transparent 26%,
+      rgba(255, 250, 218, 0.4) 34%,
+      rgba(255, 250, 218, 0.1) 42%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse 64% 44% at 14% -4%,
+      rgba(255, 252, 232, 0.95),
+      rgba(255, 243, 200, 0.35) 42%,
+      transparent 68%
+    ),
+    radial-gradient(
+      ellipse 72% 60% at 102% 108%,
+      rgba(92, 66, 28, 0.4),
+      transparent 68%
+    ),
+    linear-gradient(
+      152deg,
+      $paper-hi 0%,
+      $paper 42%,
+      $paper-mid 74%,
+      $paper-deep 100%
+    );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    inset 0 0 0 1px rgba(255, 252, 240, 0.35),
+    inset 0 -30px 46px -34px rgba(92, 70, 36, 0.6),
+    0 3px 0 -1px #d9c69c,
+    0 7px 0 -4px #c6ad7c,
+    0 30px 46px -20px rgba(0, 0, 0, 0.9),
+    0 10px 22px -12px rgba(0, 0, 0, 0.62);
+  transition:
+    transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.45s ease;
+
+  // 阳光斜射：左上高光、右下阴影、一道光束
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(
+        ellipse 44% 30% at 9% 0%,
+        rgba(255, 250, 216, 0.85),
+        transparent 70%
+      ),
+      linear-gradient(
+        124deg,
+        rgba(255, 249, 219, 0.45) 0%,
+        rgba(255, 244, 205, 0.2) 22%,
+        transparent 44%,
+        rgba(74, 56, 24, 0.16) 72%,
+        rgba(28, 22, 8, 0.36) 100%
+      );
+    background-size: 120% 120%;
+    background-position: 0% 0%;
+    transition: background-position 1.2s ease;
+  }
+
+  // 右下角卷起的纸角阴影
+  &::after {
+    content: '';
+    position: absolute;
+    right: -1px;
+    bottom: -1px;
+    z-index: 0;
+    width: 46px;
+    height: 46px;
+    pointer-events: none;
+    background: radial-gradient(
+      circle at 100% 100%,
+      rgba(104, 80, 42, 0.3),
+      rgba(104, 80, 42, 0.08) 42%,
+      transparent 68%
+    );
+  }
+
+  &:hover {
+    border-color: rgba(128, 106, 66, 0.75);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.75),
+      inset 0 0 0 1px rgba(255, 252, 240, 0.4),
+      inset 0 -30px 46px -34px rgba(92, 70, 36, 0.6),
+      0 3px 0 -1px #d9c69c,
+      0 7px 0 -4px #c6ad7c,
+      0 40px 62px -22px rgba(0, 0, 0, 0.92),
+      0 16px 30px -16px rgba(0, 0, 0, 0.6);
+
+    .plate-inner :deep(img) {
+      transform: scale(1.045);
+    }
+
+    &::before {
+      background-position: 8% 6%;
+    }
+  }
+}
+
+// 地图整饰线
+.map-frame {
+  position: absolute;
+  inset: 6px;
+  z-index: 0;
+  pointer-events: none;
+  border: 1px solid rgba(58, 72, 44, 0.32);
+  border-radius: 13px;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.3),
+    0 0 0 1px rgba(58, 72, 44, 0.05);
+}
+
+// 折痕
+.paper-crease {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.75;
+}
+
+.crease-v {
+  top: 10px;
+  bottom: 10px;
+  left: 38%;
+  width: 16px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(112, 90, 52, 0.06) 28%,
+    rgba(255, 255, 255, 0.5) 46%,
+    rgba(112, 90, 52, 0.16) 54%,
+    rgba(112, 90, 52, 0.04) 76%,
+    transparent 100%
+  );
+}
+
+.crease-h {
+  left: 14px;
+  right: 14px;
+  top: 52%;
+  height: 12px;
+  transform: translateY(-50%);
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(112, 90, 52, 0.05) 34%,
+    rgba(255, 255, 255, 0.42) 48%,
+    rgba(112, 90, 52, 0.1) 60%,
+    transparent 100%
+  );
+  opacity: 0.45;
+}
+
+// 罗盘水印（落在右侧纸面）
+.map-watermark {
+  position: absolute;
+  left: 55%;
+  top: 26%;
+  width: 180px;
+  height: 180px;
+  z-index: 0;
+  pointer-events: none;
+  color: rgba(42, 68, 46, 0.12);
+}
+
+.guide-body {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: 100%;
+}
+
+// ── 左侧图版 ─────────────────────────────────────────────
+.card-media {
+  width: 38%;
+  min-width: 0;
+  box-sizing: border-box;
+  display: flex;
+  padding: 15px 4px 13px 14px;
+  filter: drop-shadow(16px 12px 20px rgba(66, 48, 18, 0.28));
+}
+
+.photo-plate {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  transform: rotate(0.7deg);
+  transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  &:hover {
+    transform: rotate(0deg);
+  }
+}
+
+// 图版小标签
+.plate-tag {
+  position: absolute;
+  top: -8px;
+  left: 12px;
+  z-index: 5;
+  padding: 5px 11px;
+  font-size: 13.5px;
+  font-weight: 900;
+  letter-spacing: 0.09em;
+  color: $forest-deep;
+  background: linear-gradient(180deg, #fbf6e8 0%, #eee1c3 100%);
+  border: 1px solid rgba(120, 100, 60, 0.5);
+  border-radius: 2px;
+  transform: rotate(-2.5deg);
+  box-shadow:
+    0 2px 6px -3px rgba(30, 25, 10, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.plate-inner {
+  position: relative;
+  flex: 1;
+  min-height: 140px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #d8c7a2;
+  border: 1px solid rgba(96, 82, 50, 0.6);
+
+  // 外圈象牙卡纸 + 描边 + 投影，模拟压在地图上的图版
+  box-shadow:
+    0 0 0 5px #f9f3e3,
+    0 0 0 6px rgba(110, 92, 56, 0.32),
+    0 1px 0 6px rgba(255, 255, 255, 0.5),
+    0 16px 26px -16px rgba(28, 23, 8, 0.9),
+    0 4px 10px -6px rgba(28, 23, 8, 0.65);
+
+  :deep(img) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.96) contrast(1.04) brightness(0.99);
+    transition:
+      transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1),
+      filter 0.5s ease;
+  }
+
+  // 图上的坐标网格与暗角
+  .plate-grid {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+      repeating-linear-gradient(
+        0deg,
+        rgba(255, 248, 228, 0.13) 0 1px,
+        transparent 1px 30px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        rgba(255, 248, 228, 0.13) 0 1px,
+        transparent 1px 30px
+      ),
+      radial-gradient(
+        ellipse 120% 100% at 50% 40%,
+        transparent 46%,
+        rgba(18, 24, 14, 0.28) 100%
+      );
+    mix-blend-mode: soft-light;
+  }
+
+  // 图版四角定位校标
+  .plate-marks {
+    position: absolute;
+    inset: 8px;
+    z-index: 2;
+    pointer-events: none;
+    background:
+      linear-gradient(rgba(255, 246, 222, 0.9), rgba(255, 246, 222, 0.9)) left
+        top / 12px 1px no-repeat,
+      linear-gradient(rgba(255, 246, 222, 0.9), rgba(255, 246, 222, 0.9)) left
+        top / 1px 12px no-repeat,
+      linear-gradient(rgba(255, 246, 222, 0.9), rgba(255, 246, 222, 0.9)) right
+        top / 12px 1px no-repeat,
+      linear-gradient(rgba(255, 246, 222, 0.9), rgba(255, 246, 222, 0.9)) right
+        top / 1px 12px no-repeat,
+      linear-gradient(rgba(255, 246, 222, 0.9), rgba(255, 246, 222, 0.9)) left
+        bottom / 12px 1px no-repeat,
+      linear-gradient(rgba(255, 246, 222, 0.9), rgba(255, 246, 222, 0.9)) left
+        bottom / 1px 12px no-repeat,
+      linear-gradient(rgba(255, 246, 222, 0.9), rgba(255, 246, 222, 0.9)) right
+        bottom / 12px 1px no-repeat,
+      linear-gradient(rgba(255, 246, 222, 0.9), rgba(255, 246, 222, 0.9)) right
+        bottom / 1px 12px no-repeat;
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.5));
+    opacity: 0.82;
+  }
+
+  // 比例尺
+  .plate-scale {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    z-index: 3;
+    width: 54px;
+    height: 6px;
+    border: 1px solid rgba(24, 24, 14, 0.65);
+    background: repeating-linear-gradient(
+      90deg,
+      rgba(255, 250, 235, 0.96) 0 6px,
+      rgba(30, 34, 24, 0.88) 6px 12px
+    );
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
+    opacity: 0.9;
+  }
+}
+
+// 图版右下角：黄铜罗盘详情牌
+.guide-detail-btn {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 12px 8px 7px;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  color: #2b2005;
+  cursor: pointer;
+  background: linear-gradient(168deg, #fdf3cd 0%, #e4bc70 46%, #b4853a 100%);
+  border: 1px solid rgba(255, 248, 224, 0.9);
+  border-radius: 0;
+  transform: rotate(-1deg);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -3px 5px rgba(120, 78, 20, 0.4),
+    0 2px 0 #4a2f08,
+    0 6px 10px -4px rgba(10, 8, 2, 0.85);
+  text-shadow: 0 1px 0 rgba(255, 245, 214, 0.7);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease,
+    letter-spacing 0.25s ease,
+    text-shadow 0.25s ease;
+
+  // 悬停时按钮外四角浮现的黄铜包角
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    z-index: 1;
+    opacity: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(180deg, #fff6d2 0%, #e2b45f 52%, #8d5c12 100%) left top /
+        12px 3px no-repeat,
+      linear-gradient(90deg, #fff6d2 0%, #e2b45f 52%, #8d5c12 100%) left top /
+        3px 12px no-repeat,
+      linear-gradient(180deg, #fff6d2 0%, #e2b45f 52%, #8d5c12 100%) right top /
+        12px 3px no-repeat,
+      linear-gradient(90deg, #fff6d2 0%, #e2b45f 52%, #8d5c12 100%) right top /
+        3px 12px no-repeat,
+      linear-gradient(180deg, #fff6d2 0%, #e2b45f 52%, #8d5c12 100%) left
+        bottom / 12px 3px no-repeat,
+      linear-gradient(90deg, #fff6d2 0%, #e2b45f 52%, #8d5c12 100%) left
+        bottom / 3px 12px no-repeat,
+      linear-gradient(180deg, #fff6d2 0%, #e2b45f 52%, #8d5c12 100%) right
+        bottom / 12px 3px no-repeat,
+      linear-gradient(90deg, #fff6d2 0%, #e2b45f 52%, #8d5c12 100%) right
+        bottom / 3px 12px no-repeat;
+
+    // 向按钮内侧投出高度差阴影，制造悬空/包边立体感
+    filter: drop-shadow(2px 2px 2.5px rgba(30, 20, 5, 0.8))
+      drop-shadow(-2px 2px 2.5px rgba(30, 20, 5, 0.6))
+      drop-shadow(2px -2px 2.5px rgba(30, 20, 5, 0.55))
+      drop-shadow(-2px -2px 2.5px rgba(30, 20, 5, 0.55))
+      drop-shadow(0 0 3px rgba(255, 215, 120, 0.6));
+    transform: scale(0.9);
+    transition:
+      opacity 0.25s ease,
+      transform 0.3s cubic-bezier(0.2, 1.4, 0.4, 1);
+  }
+
+  // 悬停时从左向右延伸的虚线路径
+  &::after {
+    content: '';
+    position: absolute;
+    right: 12px;
+    bottom: 4px;
+    left: 34px;
+    height: 2px;
+    background-image: radial-gradient(
+      circle,
+      rgba(58, 38, 6, 0.9) 1px,
+      transparent 1.2px
+    );
+    background-size: 5px 2px;
+    opacity: 0;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition:
+      transform 0.35s ease 0.05s,
+      opacity 0.2s ease;
+  }
+
+  .compass-knob {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 22px;
+    height: 22px;
+    color: #f6ecd0;
+    background: radial-gradient(
+      circle at 34% 28%,
+      #5d7a4e 0%,
+      #2f4230 62%,
+      #16210f 100%
+    );
+    border-radius: 50%;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.35),
+      inset 0 -2px 3px rgba(0, 0, 0, 0.6),
+      0 0 0 1px rgba(60, 40, 10, 0.55),
+      0 2px 3px rgba(0, 0, 0, 0.45);
+    transition: transform 0.9s cubic-bezier(0.3, 1.5, 0.4, 1);
+
+    // 悬停时转开的方位刻度环
+    &::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border: 1px dashed rgba(255, 226, 148, 0.9);
+      border-radius: 50%;
+      opacity: 0;
+      transform: rotate(-100deg) scale(0.75);
+      transition:
+        opacity 0.3s ease,
+        transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  &:hover {
+    filter: brightness(1.05);
+    transform: rotate(0deg) translateY(-3px) scale(1.05);
+    letter-spacing: 0.14em;
+    text-shadow:
+      0 1px 0 rgba(255, 246, 216, 0.85),
+      0 0 9px rgba(255, 208, 118, 0.75);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.98),
+      inset 0 0 12px rgba(255, 228, 150, 0.45),
+      inset 0 0 14px rgba(96, 64, 18, 0.3),
+      inset 0 -3px 5px rgba(120, 78, 20, 0.35),
+      0 2px 0 #4a2f08,
+      0 14px 22px -9px rgba(10, 8, 2, 0.95),
+      0 0 22px -4px rgba(255, 205, 110, 0.8);
+
+    &::before {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    &::after {
+      opacity: 1;
+      transform: scaleX(1);
+    }
+
+    .compass-knob {
+      transform: rotate(378deg) scale(1.08);
+
+      &::before {
+        opacity: 1;
+        transform: rotate(90deg) scale(1);
+      }
+    }
+  }
+
+  &:active {
+    transform: translateY(1px);
+    box-shadow:
+      inset 0 2px 5px rgba(80, 50, 10, 0.5),
+      0 1px 0 #4a2f08,
+      0 4px 8px -5px rgba(10, 8, 2, 0.9);
+  }
+
+  &:focus-visible {
+    outline: 2px solid #7dd3fc;
+    outline-offset: 2px;
+  }
+}
+
+.plate-caption {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 2px 0;
+  color: rgba(70, 80, 58, 0.85);
+
+  svg {
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+    color: #6b5a38;
+  }
+
+  .plate-name {
+    flex: 1;
+    min-width: 0;
+    font-size: 15px;
+    font-weight: 900;
+    color: #2f3a24;
+    letter-spacing: 0.02em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .plate-caption-en {
+    font-size: 11.5px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+    color: rgba(56, 68, 44, 0.92);
+  }
+}
+
+// ── 右侧手记 ─────────────────────────────────────────────
+.card-paper {
+  width: 62%;
+  min-width: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 9px 16px 13px 8px;
+}
+
+.card-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 10px;
+  margin-bottom: 7px;
+}
+
+// 头部右侧：难度 + 日期集中成一组，标题因此可独占整行
+.header-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.type-badge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 11px 5px 6px;
+  color: $forest-deep;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 250, 0.9) 0%,
+    rgba(247, 238, 215, 0.72) 100%
+  );
+  border: 1.7px solid rgba($forest, 0.7);
+  border-radius: 4px;
+  transform: rotate(-2deg);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 0 0 1px rgba($forest, 0.2),
+    inset 0 -4px 7px -4px rgba($forest, 0.25),
+    0 2px 0 rgba(150, 128, 84, 0.45),
+    0 7px 13px -8px rgba(36, 32, 16, 0.85);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
+  // 印章内圈细线
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 2.5px;
+    border: 1px dashed rgba($forest, 0.4);
+    border-radius: 2px;
+    pointer-events: none;
+  }
+
+  .stamp-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: radial-gradient(
+      circle at 34% 28%,
+      rgba($forest, 0.28),
+      rgba($forest, 0.12) 70%
+    );
+    border: 1px solid rgba($forest, 0.55);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.6);
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  .stamp-copy {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.08;
+  }
+
+  .stamp-en {
+    font-size: 11.5px;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    color: rgba($forest-deep, 0.9);
+  }
+
+  .stamp-cn {
+    margin-top: 1px;
+    font-size: 16px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    color: $forest-deep;
+  }
+
+  &:hover {
+    transform: rotate(0deg) translateY(-1px);
+    box-shadow:
+      inset 0 0 0 1px rgba($forest, 0.24),
+      0 6px 12px -8px rgba(36, 32, 16, 0.85);
+  }
+}
+
+.difficulty-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 11px;
+  flex-shrink: 0;
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  color: $forest-deep;
+  background: rgba(255, 253, 246, 0.72);
+  border: 1px solid rgba($forest, 0.55);
+  border-radius: 3px;
+  transform: rotate(1.6deg);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -3px 6px -4px rgba(120, 96, 52, 0.35),
+    0 2px 0 rgba(168, 142, 94, 0.4),
+    0 5px 9px -6px rgba(50, 42, 22, 0.75);
+
+  .difficulty-dots {
+    display: flex;
+    gap: 2.5px;
+
+    i {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      border: 1px solid currentcolor;
+      opacity: 0.45;
+
+      &.on {
+        background: currentcolor;
+        opacity: 1;
+        box-shadow: 0 0 4px rgba($forest, 0.4);
+      }
+    }
+  }
+
+  &.beginner,
+  &.easy {
+    color: $forest;
+    border-color: rgba($forest, 0.5);
+    background: rgba($forest, 0.1);
+  }
+
+  &.intermediate,
+  &.medium {
+    color: #8a5312;
+    border-color: rgba(138, 83, 18, 0.55);
+    background: rgba(214, 143, 40, 0.16);
+
+    .difficulty-dots i.on {
+      box-shadow: 0 0 4px rgba(138, 83, 18, 0.4);
+    }
+  }
+
+  &.advanced,
+  &.hard {
+    color: #952c1e;
+    border-color: rgba(149, 44, 30, 0.55);
+    background: rgba(176, 67, 47, 0.14);
+
+    .difficulty-dots i.on {
+      box-shadow: 0 0 4px rgba(149, 44, 30, 0.4);
+    }
+  }
+}
+
+// ── 标题与日期 ────────────────────────────────────────────
+// ── 标题与描述：一张钉在地图上的野外手记纸片 ─────────────
+.content-title {
+  position: relative;
+  margin-bottom: 12px;
+  padding: 12px 16px 14px;
+  background:
+    radial-gradient(
+      ellipse 92% 68% at 6% -8%,
+      rgba(255, 255, 250, 0.98),
+      transparent 66%
+    ),
+    linear-gradient(168deg, #fffdf4 0%, #f8eed8 56%, #eddfc1 100%);
+  border: 1px solid rgba(104, 82, 44, 0.55);
+  border-radius: 5px;
+  transform: rotate(-0.35deg);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.4),
+    inset 0 -12px 18px -14px rgba(88, 64, 28, 0.55),
+    0 2px 0 -1px #e6d5b0,
+    0 14px 22px -16px rgba(36, 28, 10, 0.95);
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+
+  // 内圈虚线
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 5px;
+    border: 1px dashed rgba(120, 96, 52, 0.4);
+    border-radius: 3px;
+    pointer-events: none;
+  }
+
+  // 左上角黄铜图钉
+  .note-pin {
+    position: absolute;
+    top: -7px;
+    left: 22px;
+    z-index: 2;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle at 34% 26%,
+      #fff8da 0 2px,
+      #e4bd70 3px,
+      #a97a2c 6px,
+      #5c3d10 8px
+    );
+    box-shadow:
+      inset 0 -2px 3px rgba(70, 44, 8, 0.75),
+      0 2px 4px rgba(40, 28, 8, 0.55),
+      0 0 0 1px rgba(90, 62, 20, 0.35);
+  }
+
+  &:hover {
+    transform: rotate(0deg) translateY(-2px);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.95),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.45),
+      inset 0 -12px 18px -14px rgba(88, 64, 28, 0.5),
+      0 2px 0 -1px #e6d5b0,
+      0 20px 28px -18px rgba(36, 28, 10, 0.95);
+  }
+}
+
+.card-title {
+  margin: 0 0 9px;
+  padding-bottom: 9px;
+  border-bottom: 1px dashed rgba(112, 88, 50, 0.42);
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.32;
+  letter-spacing: 0.02em;
+  color: $ink;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.publish-date {
+  flex-shrink: 0;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1px;
+  padding: 5px 10px;
+  color: #5a4a2a;
+  background: rgba(255, 252, 242, 0.45);
+  border: 1px dashed rgba(106, 84, 48, 0.7);
+  border-radius: 3px;
+  transform: rotate(1.5deg);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 2px 0 rgba(170, 146, 100, 0.35),
+    0 5px 9px -7px rgba(50, 40, 20, 0.7);
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    opacity 0.3s ease;
+
+  .date-caption {
+    font-size: 11.5px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    color: #4a3a1e;
+    opacity: 1;
+  }
+
+  .date-value {
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+  }
+
+  &.sort-dimmed {
+    opacity: 0.5;
+  }
+
+  &.sort-highlighted {
+    color: $forest-deep;
+    background: rgba($forest, 0.12);
+    border-color: rgba($forest, 0.8);
+    box-shadow:
+      0 0 0 2px rgba($forest, 0.12),
+      0 0 12px rgba($forest, 0.24);
+  }
+}
+
+.card-description {
+  font-size: 17px;
+  line-height: 1.55;
+  font-weight: 500;
+  color: #2c3624;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+// ── 行程速览：一条地图图例条 ─────────────────────────────
+.rail-head {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 7px;
+  color: rgba(36, 48, 28, 0.95);
+
+  .rail-title {
+    font-size: 16px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+  }
+
+  .rail-en {
+    font-size: 12.5px;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    opacity: 0.8;
+  }
+
+  .rail-rule {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      rgba(58, 72, 44, 0.5),
+      rgba(58, 72, 44, 0.04)
+    );
+  }
+}
+
+.legend-rail {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  margin-bottom: 11px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 253, 246, 0.97) 0%,
+    rgba(244, 233, 209, 0.92) 100%
+  );
+  border: 1px solid rgba(84, 76, 44, 0.34);
+  border-radius: 8px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 2px 0 -1px rgba(112, 92, 52, 0.3),
+    0 3px 0 -1px rgba(112, 92, 52, 0.18),
+    0 12px 18px -14px rgba(36, 32, 18, 0.9);
+
+  // 图例条四角测绘角标
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border-radius: 5px;
+    pointer-events: none;
+    background:
+      linear-gradient(currentcolor, currentcolor) left top / 8px 1px no-repeat,
+      linear-gradient(currentcolor, currentcolor) left top / 1px 8px no-repeat,
+      linear-gradient(currentcolor, currentcolor) right bottom / 8px 1px
+        no-repeat,
+      linear-gradient(currentcolor, currentcolor) right bottom / 1px 8px
+        no-repeat;
+    color: rgba(64, 78, 48, 0.55);
+    opacity: 0.6;
+  }
+
+  .rail-cell {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    flex: 1 1 auto;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 11px 12px;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.4);
+    }
+  }
+
+  // 左列：地点 / 推荐时长 上下两格
+  .rail-stack {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 50%;
+    min-width: 0;
+
+    .rail-cell + .rail-cell {
+      border-top: 1px dashed rgba(84, 76, 44, 0.4);
+    }
+  }
+
+  // 右列：最佳时间，与左列平分宽度
+  > .rail-time {
+    flex: 1 1 50%;
+    border-left: 1px dashed rgba(84, 76, 44, 0.4);
+  }
+
+  .rail-icon {
+    width: 31px;
+    height: 31px;
+    margin-top: 1px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: var(--accent, #{$forest});
+    background: linear-gradient(180deg, #fffef9 0%, #f5ecd8 100%);
+    border: 1.5px solid rgba(108, 88, 52, 0.38);
+    box-shadow:
+      inset 0 1px 1px rgba(255, 255, 255, 0.95),
+      inset 0 -2px 4px rgba(120, 96, 60, 0.12),
+      0 1px 2px rgba(50, 42, 22, 0.25);
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  .rail-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    min-width: 0;
+  }
+
+  .rail-label {
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    color: rgba(38, 48, 28, 0.95);
+  }
+
+  .rail-value {
+    font-size: 17.5px;
+    font-weight: 900;
+    line-height: 1.4;
+    color: var(--accent-text, #{$ink});
+    overflow-wrap: anywhere;
+  }
+}
+
+.rail-location {
+  --accent: #{$violet};
+  --accent-text: #3f3364;
+}
+
+.rail-time {
+  --accent: #{$forest};
+  --accent-text: #1d4f36;
+}
+
+.rail-duration {
+  --accent: #{$ochre};
+  --accent-text: #6b470e;
+}
+
+// ── 沿途航点 ─────────────────────────────────────────────
+.waypoints {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 11px;
+  position: relative;
+
+  // 航点后的虚线路径，把空白补成地图上的行进线
+  &::after {
+    content: '';
+    flex: 1 1 40px;
+    min-width: 40px;
+    height: 1px;
+    align-self: center;
+    margin: 0 4px;
+    background: repeating-linear-gradient(
+      90deg,
+      rgba(58, 72, 44, 0.5) 0 4px,
+      transparent 4px 9px
+    );
+  }
+}
+
+.waypoint {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 12px 6px 6px;
+  white-space: nowrap;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 251, 0.6) 0 1px, transparent 1px),
+    linear-gradient(
+      180deg,
+      rgba(255, 253, 246, 0.98) 0%,
+      rgba(243, 231, 206, 0.94) 100%
+    );
+  border: 1px solid rgba(126, 100, 56, 0.5);
+  border-radius: 3px 12px 3px 3px;
+  transform: rotate(var(--tilt, -1deg));
+  transform-origin: 18% 50%;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.9) inset,
+    0 -3px 6px rgba(120, 90, 40, 0.16) inset,
+    0 2px 0 rgba(168, 142, 94, 0.7),
+    0 8px 13px -7px rgba(50, 40, 20, 0.85);
+  transition:
+    transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.35s ease;
+
+  // 内侧缝线，像一块手缝路线布标
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border: 1px dashed rgba(120, 96, 52, 0.35);
+    border-radius: 2px 10px 2px 2px;
+    pointer-events: none;
+  }
+
+  &:nth-child(2) {
+    --tilt: 0.9deg;
+  }
+
+  &:nth-child(3) {
+    --tilt: -0.5deg;
+  }
+
+  &:nth-child(n + 4) {
+    --tilt: 0.6deg;
+  }
+
+  &:hover {
+    z-index: 1;
+    transform: rotate(0deg) translateY(-3px);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.95) inset,
+      0 -3px 6px rgba(120, 90, 40, 0.12) inset,
+      0 2px 0 rgba(168, 142, 94, 0.7),
+      0 14px 20px -10px rgba(50, 40, 20, 0.9);
+
+    .waypoint-num {
+      transform: rotate(-7deg) scale(1.06);
+    }
+  }
+}
+
+.waypoint-num {
+  display: grid;
+  place-items: center;
+  min-width: 25px;
+  height: 25px;
+  padding: 0 4px;
+  border-radius: 3px;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  color: #fdfbf1;
+  background: var(--blaze, #{$ochre});
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -2px 3px rgba(0, 0, 0, 0.28),
+    0 1px 0 rgba(255, 252, 240, 0.6),
+    0 3px 5px -2px rgba(40, 30, 12, 0.55);
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.waypoint:nth-child(1) .waypoint-num {
+  --blaze: #{$forest};
+}
+
+.waypoint:nth-child(2) .waypoint-num {
+  --blaze: #{$ochre};
+}
+
+.waypoint:nth-child(3) .waypoint-num {
+  --blaze: #{$violet};
+}
+
+.waypoint-text {
+  font-size: 15px;
+  font-weight: 900;
+  color: #232c1c;
+}
+
+// ── 页脚：比例尺刻线 + 盖章按钮 + 记录者 ──────────────────
+.card-footer {
+  position: relative;
+  margin-top: auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 10px;
+  padding-top: 14px;
+
+  // 地图比例尺刻线
   &::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    height: 3px;
-    background: linear-gradient(
-      90deg,
-      $green,
-      $green-light,
-      #a8ffd0,
-      $green-light,
-      $green
-    );
-    background-size: 200% 100%;
-    animation: gradientFlow 3s ease infinite;
-    z-index: 3;
+    height: 8px;
+    pointer-events: none;
+    opacity: 0.6;
+    background:
+      repeating-linear-gradient(
+          90deg,
+          rgba(46, 60, 36, 0.75) 0 1px,
+          transparent 1px 28px
+        )
+        left bottom / 100% 8px no-repeat,
+      repeating-linear-gradient(
+          90deg,
+          rgba(46, 60, 36, 0.4) 0 1px,
+          transparent 1px 7px
+        )
+        left bottom / 100% 4px no-repeat,
+      linear-gradient(rgba(46, 60, 36, 0.5), rgba(46, 60, 36, 0.5)) left
+        bottom / 100% 1px no-repeat;
   }
 
-  &:hover {
-    transform: translateY(-6px) scale(1.01);
-    border-color: rgba($green, 0.5);
-    box-shadow:
-      0 20px 60px rgba(0, 0, 0, 0.5),
-      0 0 30px rgba($green, 0.15),
-      0 0 0 1px rgba($green, 0.2),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
-
-    .card-right :deep(img) {
-      transform: scale(1.05);
-    }
-  }
-
-  .card-left {
-    width: 65%;
+  .action-buttons {
     display: flex;
-    flex-direction: column;
-    padding: 10px;
-
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 12px;
-
-      .type-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 5px 12px;
-        border-radius: 8px;
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 0.8px;
-        text-transform: uppercase;
-        background: linear-gradient(135deg, $green 0%, $green-dark 100%);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        color: #fff;
-        box-shadow:
-          0 2px 8px rgba(0, 0, 0, 0.3),
-          0 4px 16px rgba($green, 0.4),
-          inset 0 1px 0 rgba(255, 255, 255, 0.5),
-          inset 0 -1px 0 rgba(0, 0, 0, 0.2),
-          inset 0 1px 2px rgba(255, 255, 255, 0.3);
-        transition: all 0.3s ease;
-
-        svg {
-          width: 12px;
-          height: 12px;
-          filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.3));
-        }
-
-        &:hover {
-          transform: translateY(-2px);
-          box-shadow:
-            0 4px 12px rgba(0, 0, 0, 0.4),
-            0 8px 24px rgba($green, 0.5),
-            inset 0 1px 0 rgba(255, 255, 255, 0.6),
-            inset 0 -1px 0 rgba(0, 0, 0, 0.2),
-            inset 0 1px 2px rgba(255, 255, 255, 0.4);
-        }
-      }
-
-      .difficulty-badge {
-        padding: 5px 12px;
-        border-radius: 8px;
-        font-size: 12px;
-        font-weight: 700;
-        letter-spacing: 0.5px;
-        backdrop-filter: blur(8px);
-        transition: all 0.3s ease;
-        box-shadow:
-          0 2px 8px rgba(0, 0, 0, 0.3),
-          inset 0 1px 0 rgba(255, 255, 255, 0.5),
-          inset 0 -1px 0 rgba(0, 0, 0, 0.2),
-          inset 0 1px 2px rgba(255, 255, 255, 0.6);
-
-        &.beginner,
-        &.easy {
-          background: linear-gradient(135deg, $green 0%, $green-dark 100%);
-          color: #fff;
-          border: 1px solid rgba(255, 255, 255, 0.3);
-
-          &:hover {
-            box-shadow:
-              0 4px 12px rgba(0, 0, 0, 0.4),
-              0 6px 16px rgba($green, 0.3),
-              inset 0 1px 0 rgba(255, 255, 255, 0.6),
-              inset 0 -1px 0 rgba(0, 0, 0, 0.2),
-              inset 0 1px 2px rgba(255, 255, 255, 0.7);
-          }
-        }
-
-        &.intermediate,
-        &.medium {
-          background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
-          color: #fff;
-          border: 1px solid rgba(255, 255, 255, 0.3);
-
-          &:hover {
-            box-shadow:
-              0 4px 12px rgba(0, 0, 0, 0.4),
-              0 6px 16px rgba(230, 126, 34, 0.3),
-              inset 0 1px 0 rgba(255, 255, 255, 0.6),
-              inset 0 -1px 0 rgba(0, 0, 0, 0.2),
-              inset 0 1px 2px rgba(255, 255, 255, 0.7);
-          }
-        }
-
-        &.advanced,
-        &.hard {
-          background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
-          color: #fff;
-          border: 1px solid rgba(255, 255, 255, 0.3);
-
-          &:hover {
-            box-shadow:
-              0 4px 12px rgba(0, 0, 0, 0.4),
-              0 6px 16px rgba(231, 76, 60, 0.3),
-              inset 0 1px 0 rgba(255, 255, 255, 0.6),
-              inset 0 -1px 0 rgba(0, 0, 0, 0.2),
-              inset 0 1px 2px rgba(255, 255, 255, 0.7);
-          }
-        }
-
-        &:hover {
-          transform: translateY(-2px);
-        }
-      }
-    }
-
-    .content-title {
-      margin-bottom: 12px;
-
-      .title-row {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        margin-bottom: 6px;
-      }
-
-      .card-title {
-        font-size: 17px;
-        font-weight: 800;
-        color: #fff;
-        line-height: 1.4;
-        letter-spacing: 0.3px;
-        flex: 1;
-      }
-
-      .publish-date {
-        font-size: 11px;
-        color: rgba(255, 255, 255, 0.5);
-        white-space: nowrap;
-        padding: 4px 10px;
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 6px;
-        transition: all 0.3s ease;
-
-        &.sort-dimmed {
-          opacity: 0.55;
-        }
-
-        &.sort-highlighted {
-          color: #fff;
-          font-weight: 700;
-          background: rgba($green-light, 0.18);
-          border: 1px solid rgba($green-light, 0.65);
-          box-shadow:
-            0 0 10px rgba($green-light, 0.5),
-            0 0 20px rgba($green-light, 0.25);
-          text-shadow: 0 0 6px rgba($green-light, 0.6);
-        }
-      }
-
-      .card-description {
-        font-size: 13px;
-        color: rgba(255, 255, 255, 0.6);
-        line-height: 1.6;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-      }
-    }
-
-    .guide-info {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 14px;
-
-      .info-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 5px;
-        padding: 12px 8px;
-        border-radius: 12px;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        position: relative;
-        overflow: hidden;
-
-        &::before {
-          content: '';
-          position: absolute;
-          inset: 0;
-          border-radius: 12px;
-          opacity: 0;
-          transition: opacity 0.3s ease;
-          background: linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0.08) 0%,
-            transparent 50%
-          );
-        }
-
-        &:first-child,
-        &:last-child {
-          flex: 1;
-          background: linear-gradient(
-            135deg,
-            rgba($purple, 0.18) 0%,
-            rgba($purple, 0.08) 100%
-          );
-          border: 1px solid rgba($purple, 0.3);
-          box-shadow:
-            0 3px 10px rgba($purple, 0.25),
-            inset 0 1px 0 rgba(255, 255, 255, 0.25),
-            inset 0 1px 2px rgba(255, 255, 255, 0.35);
-
-          svg {
-            color: $purple-light;
-            filter: drop-shadow(0 2px 6px rgba($purple, 0.6));
-          }
-
-          .info-value {
-            color: $purple-light;
-          }
-
-          &:hover {
-            background: linear-gradient(
-              135deg,
-              rgba($purple, 0.3) 0%,
-              rgba($purple, 0.15) 100%
-            );
-            border-color: rgba($purple, 0.5);
-            box-shadow:
-              0 6px 18px rgba($purple, 0.35),
-              inset 0 1px 0 rgba(255, 255, 255, 0.35),
-              inset 0 1px 2px rgba(255, 255, 255, 0.45);
-          }
-        }
-
-        &:nth-child(2) {
-          flex: 2;
-          background: linear-gradient(
-            135deg,
-            rgba($green, 0.22) 0%,
-            rgba($green, 0.1) 100%
-          );
-          border: 1px solid rgba($green, 0.4);
-          box-shadow:
-            0 4px 12px rgba($green, 0.3),
-            inset 0 1px 0 rgba(255, 255, 255, 0.3),
-            inset 0 1px 2px rgba(255, 255, 255, 0.4);
-
-          svg {
-            color: $green-light;
-            filter: drop-shadow(0 2px 8px rgba($green, 0.7));
-          }
-
-          .info-value {
-            color: $green-light;
-          }
-
-          &:hover {
-            background: linear-gradient(
-              135deg,
-              rgba($green, 0.35) 0%,
-              rgba($green, 0.18) 100%
-            );
-            border-color: rgba($green, 0.6);
-            box-shadow:
-              0 8px 24px rgba($green, 0.4),
-              inset 0 1px 0 rgba(255, 255, 255, 0.4),
-              inset 0 1px 2px rgba(255, 255, 255, 0.5);
-          }
-        }
-
-        svg {
-          width: 18px;
-          height: 18px;
-          transition: all 0.3s ease;
-        }
-
-        .info-label {
-          font-size: 10px;
-          color: rgba(255, 255, 255, 0.55);
-          letter-spacing: 0.6px;
-          text-transform: uppercase;
-          font-weight: 600;
-        }
-
-        .info-value {
-          font-size: 12px;
-          font-weight: 800;
-          text-align: center;
-          text-shadow: 0 0 10px rgba($green-light, 0.3);
-          transition: all 0.3s ease;
-        }
-
-        &:hover {
-          transform: translateY(-3px) scale(1.02);
-
-          &::before {
-            opacity: 1;
-          }
-
-          svg {
-            transform: scale(1.15);
-            filter: drop-shadow(0 3px 10px rgba($green, 0.8));
-          }
-
-          .info-value {
-            text-shadow: 0 0 15px rgba($green-light, 0.6);
-          }
-        }
-      }
-    }
-
-    .highlights {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 12px;
-      width: 100%;
-      min-width: 0;
-
-      .highlight-tag {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 5px 12px;
-        border-radius: 8px;
-        font-size: 11px;
-        font-weight: 700;
-        cursor: pointer;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        position: relative;
-        overflow: hidden;
-        flex-shrink: 0;
-        white-space: nowrap;
-
-        &::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: -100%;
-          width: 100%;
-          height: 100%;
-          background: linear-gradient(
-            90deg,
-            transparent,
-            rgba(255, 255, 255, 0.4),
-            transparent
-          );
-          transition: left 0.5s ease;
-          z-index: 1;
-        }
-
-        &:nth-child(1) {
-          background: linear-gradient(
-            135deg,
-            rgba(59, 130, 246, 0.28) 0%,
-            rgba(37, 99, 235, 0.15) 100%
-          );
-          border: 1px solid rgba(59, 130, 246, 0.5);
-          color: #60a5fa;
-          box-shadow:
-            0 2px 8px rgba(0, 0, 0, 0.3),
-            0 3px 10px rgba(59, 130, 246, 0.2),
-            inset 0 1px 0 rgba(255, 255, 255, 0.4),
-            inset 0 -1px 0 rgba(0, 0, 0, 0.2),
-            inset 0 1px 2px rgba(255, 255, 255, 0.5);
-
-          &:hover {
-            background: linear-gradient(
-              135deg,
-              rgba(59, 130, 246, 0.4) 0%,
-              rgba(37, 99, 235, 0.22) 100%
-            );
-            border-color: rgba(59, 130, 246, 0.7);
-            box-shadow:
-              0 4px 12px rgba(0, 0, 0, 0.4),
-              0 8px 20px rgba(59, 130, 246, 0.35),
-              inset 0 1px 0 rgba(255, 255, 255, 0.5),
-              inset 0 -1px 0 rgba(0, 0, 0, 0.2),
-              inset 0 1px 2px rgba(255, 255, 255, 0.6);
-          }
-        }
-
-        &:nth-child(2) {
-          background: linear-gradient(
-            135deg,
-            rgba(249, 115, 22, 0.28) 0%,
-            rgba(234, 88, 12, 0.15) 100%
-          );
-          border: 1px solid rgba(249, 115, 22, 0.5);
-          color: #fdba74;
-          box-shadow:
-            0 2px 8px rgba(0, 0, 0, 0.3),
-            0 3px 10px rgba(249, 115, 22, 0.2),
-            inset 0 1px 0 rgba(255, 255, 255, 0.4),
-            inset 0 -1px 0 rgba(0, 0, 0, 0.2),
-            inset 0 1px 2px rgba(255, 255, 255, 0.5);
-
-          &:hover {
-            background: linear-gradient(
-              135deg,
-              rgba(249, 115, 22, 0.4) 0%,
-              rgba(234, 88, 12, 0.22) 100%
-            );
-            border-color: rgba(249, 115, 22, 0.7);
-            box-shadow:
-              0 4px 12px rgba(0, 0, 0, 0.4),
-              0 8px 20px rgba(249, 115, 22, 0.35),
-              inset 0 1px 0 rgba(255, 255, 255, 0.5),
-              inset 0 -1px 0 rgba(0, 0, 0, 0.2),
-              inset 0 1px 2px rgba(255, 255, 255, 0.6);
-          }
-        }
-
-        &:nth-child(3) {
-          background: linear-gradient(
-            135deg,
-            rgba(139, 92, 246, 0.28) 0%,
-            rgba(124, 58, 237, 0.15) 100%
-          );
-          border: 1px solid rgba(139, 92, 246, 0.5);
-          color: #a78bfa;
-          box-shadow:
-            0 2px 8px rgba(0, 0, 0, 0.3),
-            0 3px 10px rgba(139, 92, 246, 0.2),
-            inset 0 1px 0 rgba(255, 255, 255, 0.4),
-            inset 0 -1px 0 rgba(0, 0, 0, 0.2),
-            inset 0 1px 2px rgba(255, 255, 255, 0.5);
-
-          &:hover {
-            background: linear-gradient(
-              135deg,
-              rgba(139, 92, 246, 0.4) 0%,
-              rgba(124, 58, 237, 0.22) 100%
-            );
-            border-color: rgba(139, 92, 246, 0.7);
-            box-shadow:
-              0 4px 12px rgba(0, 0, 0, 0.4),
-              0 8px 20px rgba(139, 92, 246, 0.35),
-              inset 0 1px 0 rgba(255, 255, 255, 0.5),
-              inset 0 -1px 0 rgba(0, 0, 0, 0.2),
-              inset 0 1px 2px rgba(255, 255, 255, 0.6);
-          }
-        }
-
-        &:nth-child(4) {
-          background: linear-gradient(
-            135deg,
-            rgba(16, 185, 129, 0.28) 0%,
-            rgba(5, 150, 105, 0.15) 100%
-          );
-          border: 1px solid rgba(16, 185, 129, 0.5);
-          color: #34d399;
-          box-shadow:
-            0 2px 8px rgba(0, 0, 0, 0.3),
-            0 3px 10px rgba(16, 185, 129, 0.2),
-            inset 0 1px 0 rgba(255, 255, 255, 0.4),
-            inset 0 -1px 0 rgba(0, 0, 0, 0.2),
-            inset 0 1px 2px rgba(255, 255, 255, 0.5);
-
-          &:hover {
-            background: linear-gradient(
-              135deg,
-              rgba(16, 185, 129, 0.4) 0%,
-              rgba(5, 150, 105, 0.22) 100%
-            );
-            border-color: rgba(16, 185, 129, 0.7);
-            box-shadow:
-              0 4px 12px rgba(0, 0, 0, 0.4),
-              0 8px 20px rgba(16, 185, 129, 0.35),
-              inset 0 1px 0 rgba(255, 255, 255, 0.5),
-              inset 0 -1px 0 rgba(0, 0, 0, 0.2),
-              inset 0 1px 2px rgba(255, 255, 255, 0.6);
-          }
-        }
-
-        &:hover {
-          transform: translateY(-3px) scale(1.05);
-
-          &::before {
-            left: 100%;
-          }
-        }
-      }
-    }
-
-    .guide-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 12px;
-      width: 100%;
-
-      .guide-tag {
-        display: inline-flex;
-        align-items: center;
-        padding: 4px 10px;
-        border-radius: 4px;
-        font-size: 11px;
-        font-weight: 600;
-        color: rgba(167, 139, 250, 0.9);
-        background: linear-gradient(
-          135deg,
-          rgba(167, 139, 250, 0.18),
-          rgba(139, 92, 246, 0.1)
-        );
-        border: 1px solid rgba(167, 139, 250, 0.35);
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
-        flex-shrink: 0;
-      }
-    }
-
-    .card-footer {
-      margin-top: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: 12px;
-      border-top: 1px solid rgba($green, 0.1);
-
-      .action-buttons {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 6px;
-
-        .action-btn {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 4px;
-          padding: 6px 10px;
-          background: linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0.12) 0%,
-            rgba(255, 255, 255, 0.04) 100%
-          );
-          border: 1px solid rgba(255, 255, 255, 0.25);
-          border-radius: 8px;
-          font-size: 11px;
-          font-weight: 700;
-          color: rgba(255, 255, 255, 0.85);
-          cursor: pointer;
-          transition: all 0.3s ease;
-
-          span {
-            white-space: nowrap;
-          }
-
-          &.sort-dimmed {
-            opacity: 0.55;
-          }
-
-          svg {
-            width: 14px;
-            height: 14px;
-          }
-
-          &:hover {
-            color: #fff;
-            transform: translateY(-2px);
-          }
-
-          &.like {
-            svg {
-              color: #4a90e2;
-            }
-
-            &:hover,
-            &.active {
-              background: linear-gradient(
-                180deg,
-                rgba(74, 144, 226, 0.45) 0%,
-                rgba(74, 144, 226, 0.25) 100%
-              );
-              border-color: rgba(74, 144, 226, 0.65);
-              color: #fff;
-
-              svg {
-                color: #7eb4f9;
-              }
-
-              text-shadow: 0 0 8px rgba(74, 144, 226, 0.5);
-            }
-
-            &.sort-highlighted {
-              box-shadow:
-                0 0 16px rgba(74, 144, 226, 0.6),
-                0 0 32px rgba(74, 144, 226, 0.3),
-                0 4px 16px rgba(0, 0, 0, 0.4);
-              border-color: rgba(74, 144, 226, 0.7);
-            }
-          }
-
-          &.love {
-            svg {
-              color: #ff6b6b;
-            }
-
-            &:hover,
-            &.active {
-              background: linear-gradient(
-                180deg,
-                rgba(255, 107, 107, 0.45) 0%,
-                rgba(255, 107, 107, 0.25) 100%
-              );
-              border-color: rgba(255, 107, 107, 0.65);
-              color: #fff;
-
-              svg {
-                color: #ff8a8a;
-              }
-
-              text-shadow: 0 0 8px rgba(255, 107, 107, 0.5);
-            }
-
-            &.sort-highlighted {
-              box-shadow:
-                0 0 16px rgba(255, 107, 107, 0.6),
-                0 0 32px rgba(255, 107, 107, 0.3),
-                0 4px 16px rgba(0, 0, 0, 0.4);
-              border-color: rgba(255, 107, 107, 0.7);
-            }
-          }
-
-          &.bookmark {
-            svg {
-              color: #ffd93d;
-            }
-
-            &:hover,
-            &.active {
-              background: linear-gradient(
-                180deg,
-                rgba(255, 217, 61, 0.45) 0%,
-                rgba(255, 217, 61, 0.25) 100%
-              );
-              border-color: rgba(255, 217, 61, 0.65);
-              color: #fff;
-
-              svg {
-                color: #ffe44d;
-              }
-
-              text-shadow: 0 0 8px rgba(255, 217, 61, 0.5);
-            }
-
-            &.sort-highlighted {
-              box-shadow:
-                0 0 16px rgba(255, 217, 61, 0.6),
-                0 0 32px rgba(255, 217, 61, 0.3),
-                0 4px 16px rgba(0, 0, 0, 0.4);
-              border-color: rgba(255, 217, 61, 0.7);
-            }
-          }
-
-          &.share {
-            svg {
-              color: $green-light;
-            }
-
-            &:hover {
-              background: linear-gradient(
-                180deg,
-                rgba(107, 255, 184, 0.45) 0%,
-                rgba(107, 255, 184, 0.25) 100%
-              );
-              border-color: rgba(107, 255, 184, 0.65);
-              color: #fff;
-
-              svg {
-                color: #8dffca;
-              }
-
-              text-shadow: 0 0 8px rgba(107, 255, 184, 0.5);
-            }
-
-            &.sort-highlighted {
-              box-shadow:
-                0 0 16px rgba(107, 255, 184, 0.6),
-                0 0 32px rgba(107, 255, 184, 0.3),
-                0 4px 16px rgba(0, 0, 0, 0.4);
-              border-color: rgba(107, 255, 184, 0.7);
-            }
-          }
-
-          &.views {
-            cursor: default;
-            background: linear-gradient(
-              180deg,
-              rgba($green, 0.1) 0%,
-              rgba($green, 0.05) 100%
-            );
-            border-color: rgba($green, 0.2);
-
-            svg {
-              color: $green-light;
-            }
-
-            &:hover {
-              transform: none;
-            }
-
-            &.sort-highlighted {
-              box-shadow:
-                0 0 16px rgba($green-light, 0.6),
-                0 0 32px rgba($green-light, 0.3),
-                0 4px 16px rgba(0, 0, 0, 0.4);
-              border-color: rgba($green-light, 0.7);
-            }
-          }
-        }
-      }
-
-      .author-info {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-
-        :deep(.author-avatar) {
-          width: 28px;
-          height: 28px;
-          border-radius: 50%;
-          object-fit: cover;
-          border: 2px solid rgba($green, 0.3);
-        }
-
-        .author-name {
-          font-size: 12px;
-          font-weight: 600;
-          color: rgba(255, 255, 255, 0.9);
-        }
-      }
-    }
+    flex-wrap: wrap;
+    gap: 6px;
+    min-width: 0;
   }
 
-  .card-right {
-    width: 35%;
-    position: relative;
-    overflow: hidden;
+  .action-btn {
+    --btn-ink: #4a553c;
+    --btn-deep: #2b2318;
 
-    :deep(img) {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s ease;
-      filter: brightness(0.9);
+    position: relative;
+    z-index: 0;
+    display: inline-flex;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 6px 12px;
+    font-size: 15px;
+    font-weight: 900;
+    color: #2c3624;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 253, 245, 0.9) 0%,
+      rgba(243, 232, 208, 0.78) 100%
+    );
+    border: 1px solid rgba(86, 80, 50, 0.35);
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.9) inset,
+      0 2px 0 rgba(150, 128, 84, 0.35),
+      0 4px 7px -4px rgba(40, 35, 20, 0.75);
+    transition:
+      transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1),
+      color 0.28s ease,
+      border-color 0.28s ease,
+      box-shadow 0.28s ease,
+      background 0.28s ease;
+
+    span {
+      white-space: nowrap;
     }
 
-    .image-gradient {
+    // 墨色从底部漫上来
+    &::before {
+      content: '';
       position: absolute;
       inset: 0;
+      z-index: 0;
       background: linear-gradient(
-        90deg,
-        rgba(0, 0, 0, 0.4) 0%,
-        transparent 100%
+        170deg,
+        var(--btn-ink) 0%,
+        var(--btn-deep) 100%
       );
-      pointer-events: none;
+      transform: translateY(102%);
+      transition: transform 0.32s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    span,
+    svg {
+      position: relative;
+      z-index: 1;
+    }
+
+    // 图标：小罗盘徽章
+    svg {
+      width: 14px;
+      height: 14px;
+      padding: 2px;
+      box-sizing: content-box;
+      border-radius: 50%;
+      color: var(--btn-ink);
+      background: rgba(255, 255, 255, 0.72);
+      box-shadow:
+        0 0 0 1px rgba(70, 80, 52, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+      transition:
+        color 0.28s ease,
+        background 0.28s ease,
+        box-shadow 0.28s ease,
+        transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    &.sort-dimmed {
+      opacity: 0.48;
+      filter: grayscale(0.35);
+    }
+
+    &.sort-highlighted {
+      color: var(--btn-ink);
+      border-color: var(--btn-ink);
+      box-shadow:
+        0 0 0 2px rgba(255, 252, 240, 0.7),
+        0 0 14px -2px var(--btn-ink);
+    }
+
+    &:hover {
+      transform: translateY(-2px) rotate(-1deg);
+      color: #fff8e4;
+      border-color: var(--btn-ink);
+      box-shadow:
+        0 2px 0 var(--btn-deep),
+        0 10px 16px -8px rgba(20, 15, 6, 0.9),
+        0 0 18px -6px var(--btn-ink);
+
+      &::before {
+        transform: translateY(0);
+      }
+
+      svg {
+        color: #fff2cf;
+        background: rgba(255, 255, 255, 0.18);
+        box-shadow:
+          0 0 0 1px rgba(255, 255, 255, 0.45),
+          inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        transform: rotate(-10deg) scale(1.12);
+      }
+
+      span {
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+      }
+    }
+
+    &.active {
+      color: #fffdf5;
+      background: var(--btn-ink);
+      border-color: var(--btn-ink);
+      transform: rotate(-1.5deg);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.28);
+
+      // 允许右上角徽章凸出到按钮外
+      overflow: visible;
+
+      // 已选状态本身已是实心墨色，不再需要上涌填充
+      &::before {
+        display: none;
+      }
+
+      box-shadow:
+        inset 0 2px 5px rgba(0, 0, 0, 0.32),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.18),
+        0 0 0 2px rgba(255, 246, 214, 0.78),
+        0 0 0 3px rgba(90, 66, 26, 0.35),
+        0 4px 9px -6px rgba(30, 24, 10, 0.9);
+
+      // 已选标记：左侧探出的一截加粗书签绶带
+      &::after {
+        content: '';
+        position: absolute;
+        top: -6px;
+        left: -3px;
+        z-index: 3;
+        width: 9px;
+        height: 20px;
+        background:
+          linear-gradient(
+            90deg,
+            rgba(216, 180, 255, 0.85) 0 1px,
+            transparent 1px
+          ),
+          linear-gradient(
+            112deg,
+            rgba(255, 255, 255, 0.42) 0 14%,
+            rgba(255, 255, 255, 0.1) 30%,
+            transparent 48%
+          ),
+          linear-gradient(
+            180deg,
+            #764a9b 0%,
+            #5a3579 22%,
+            #35204a 52%,
+            #170d22 78%,
+            #060309 100%
+          );
+        border-radius: 1px 1px 0 0;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 72%, 0 100%);
+        filter: drop-shadow(0 1px 1.5px rgba(40, 28, 10, 0.6));
+        animation: mark-pop 0.4s cubic-bezier(0.2, 1.4, 0.4, 1) both;
+      }
+
+      svg {
+        color: #fffdf5;
+        background: rgba(255, 255, 255, 0.16);
+        box-shadow:
+          0 0 0 1px rgba(255, 226, 150, 0.7),
+          inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      }
+
+      &:hover {
+        transform: rotate(0deg) translateY(-2px);
+        color: #fffdf5;
+      }
+    }
+
+    &.like {
+      --btn-ink: #2f5f93;
+      --btn-deep: #16324f;
+    }
+
+    &.love {
+      --btn-ink: #a1372e;
+      --btn-deep: #571812;
+    }
+
+    &.bookmark {
+      --btn-ink: #8e6512;
+      --btn-deep: #4a3305;
+    }
+
+    &.share {
+      --btn-ink: #1f5a3d;
+      --btn-deep: #0f2d1f;
+    }
+
+    &.views {
+      --btn-ink: #4a553c;
+
+      cursor: default;
+      background: rgba(255, 252, 244, 0.5);
+
+      &::before {
+        display: none;
+      }
+
+      &:hover {
+        transform: none;
+        border-color: rgba(86, 80, 50, 0.35);
+        color: #39442f;
+        box-shadow:
+          0 1px 0 rgba(255, 255, 255, 0.9) inset,
+          0 2px 4px -3px rgba(40, 35, 20, 0.75);
+
+        svg {
+          color: var(--btn-ink);
+          background: rgba(255, 255, 255, 0.72);
+          box-shadow:
+            0 0 0 1px rgba(70, 80, 52, 0.25),
+            inset 0 1px 0 rgba(255, 255, 255, 0.9);
+          transform: none;
+        }
+      }
     }
   }
 }
 
-@keyframes gradientFlow {
-  0%,
-  100% {
-    background-position: 0% 50%;
+// ── 窄卡片：图版置顶，图例条改为纵向数据行 ───────────────
+@container (max-width: 560px) {
+  .guide-body {
+    flex-direction: column;
   }
 
-  50% {
-    background-position: 100% 50%;
+  .card-media {
+    width: 100%;
+    height: 180px;
+    padding: 13px 13px 0;
+  }
+
+  .card-paper {
+    width: 100%;
+    padding: 8px 15px 14px;
+  }
+
+  .photo-plate {
+    transform: rotate(0deg);
+  }
+
+  .plate-inner {
+    min-height: 0;
+  }
+
+  .plate-caption {
+    padding-top: 6px;
+  }
+
+  .crease-v,
+  .crease-h {
+    display: none;
+  }
+
+  .map-watermark {
+    left: 42%;
+    top: 48%;
+    width: 150px;
+    height: 150px;
+  }
+
+  .card-header {
+    margin-bottom: 6px;
+  }
+
+  .content-title {
+    padding: 10px 13px 12px;
+
+    .note-pin {
+      left: 16px;
+    }
+  }
+
+  .card-title {
+    font-size: 19px;
+  }
+
+  .legend-rail {
+    flex-direction: column;
+
+    .rail-stack {
+      flex: 1 1 auto;
+    }
+
+    > .rail-time {
+      border-left: none;
+      border-top: 1px dashed rgba(84, 76, 44, 0.4);
+    }
+
+    .rail-cell {
+      padding: 10px 11px;
+    }
+  }
+
+  .rail-value {
+    font-size: 17.5px;
+  }
+
+  .waypoints::after {
+    display: none;
+  }
+
+  .card-footer {
+    flex-wrap: wrap;
+    align-items: center;
+    row-gap: 8px;
+  }
+
+  // 窄卡：互动按钮独占一行
+  .card-footer .action-buttons {
+    flex: 1 1 100%;
+  }
+
+  .card-footer .action-btn {
+    gap: 4px;
+    padding: 6px 7px;
+    font-size: 14px;
+  }
+
+  .header-meta {
+    flex: 1 1 100%;
+    justify-content: flex-end;
+  }
+
+  .guide-detail-btn {
+    gap: 6px;
+    padding: 5px 10px 7px 6px;
+    font-size: 12px;
+
+    &::after {
+      right: 10px;
+      left: 30px;
+    }
+
+    .compass-knob {
+      width: 20px;
+      height: 20px;
+
+      svg {
+        width: 12px;
+        height: 12px;
+      }
+    }
+  }
+}
+
+@container (max-width: 360px) {
+  .card-title {
+    font-size: 18px;
+  }
+
+  .stamp-en {
+    display: none;
+  }
+
+  .action-btn {
+    padding: 6px 7px;
+  }
+}
+
+@keyframes mark-pop {
+  0% {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.4);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateY(1px) scale(1.1);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }

@@ -1,0 +1,383 @@
+@use 'sass:color';
+@use 'tokens' as *;
+
+// 签证类别（含标签）
+.visa-type-tags {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 12px;
+  padding: 11px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(30, 82, 136, 0.22) 0%,
+      rgba(30, 82, 136, 0.06) 55%
+    ),
+    linear-gradient(225deg, rgba(30, 82, 136, 0.1) 0%, transparent 50%),
+    linear-gradient(180deg, rgba(255, 250, 235, 0.45) 0%, transparent 100%);
+  border-left: 5px solid $ink-blue;
+  border-radius: 0 4px 4px 0;
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.14),
+    0 2px 4px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.08),
+    inset 3px 0 4px rgba(30, 82, 136, 0.15),
+    inset 0 0 14px rgba(30, 82, 136, 0.08);
+
+  .vtt-key {
+    flex-shrink: 0;
+    font-family: 'Courier New', monospace;
+    font-size: 0.92rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: $ink-hand;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  }
+
+  .vtt-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    align-items: center;
+  }
+
+  .vtt-cat {
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.05em;
+    padding: 4px 12px;
+    background: linear-gradient(180deg, #3a6db8 0%, #1e5288 55%, #163e6e 100%);
+    border: 1px solid #0d2d52;
+    border-radius: 3px;
+    box-shadow:
+      0 2px 5px rgba(30, 82, 136, 0.4),
+      0 1px 2px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.35),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.25),
+      inset 1px 0 0 rgba(255, 255, 255, 0.15);
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
+  }
+
+  .vtt-tag {
+    position: relative;
+    display: inline-block;
+    padding: 4px 10px;
+    font-size: 0.94rem;
+    font-weight: 700;
+    color: $ink-strong;
+    background: linear-gradient(135deg, #f4e9d0 0%, #e4d4b4 45%, #ceba94 100%);
+    border: 1px solid #b8a478;
+    border-radius: 2px;
+    box-shadow:
+      0 3px 5px rgba(0, 0, 0, 0.14),
+      0 1px 2px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6),
+      inset 1px 1px 3px rgba(255, 245, 220, 0.5),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 6px;
+      height: 6px;
+      background: linear-gradient(
+        135deg,
+        transparent 50%,
+        rgba(0, 0, 0, 0.15) 50%
+      );
+      border-radius: 0 0 2px;
+    }
+  }
+
+  // 多彩标签变体——不同 tag 不同颜色，一眼可区分
+  .vtt-tag-0 {
+    background: linear-gradient(135deg, #d4ede4 0%, #a8d4c4 45%, #6fa890 100%);
+    border-color: #5a8a72;
+    color: #1e4a3a;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
+  }
+
+  .vtt-tag-1 {
+    background: linear-gradient(135deg, #f4e0c4 0%, #e4c490 45%, #c89048 100%);
+    border-color: #a8742e;
+    color: #5a3a10;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
+  }
+
+  .vtt-tag-2 {
+    background: linear-gradient(135deg, #e8d8e0 0%, #c8a8c0 45%, #9a6a8a 100%);
+    border-color: #7a4a6a;
+    color: #3a1a3a;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
+  }
+
+  .vtt-tag-3 {
+    background: linear-gradient(135deg, #d8e8c8 0%, #a8c888 45%, #6a8a4a 100%);
+    border-color: #4a6a2a;
+    color: #1a3a10;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
+  }
+}
+
+// 签发验证区
+.issue-verify {
+  margin-bottom: 14px;
+  padding: 11px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 232, 165, 0.4) 0%,
+      rgba(212, 168, 75, 0.1) 50%,
+      rgba(180, 140, 60, 0.05) 100%
+    ),
+    linear-gradient(225deg, rgba(180, 140, 60, 0.08) 0%, transparent 50%);
+  border: 1px solid rgba(180, 140, 60, 0.45);
+  border-radius: 4px;
+  box-shadow:
+    0 0 0 1px rgba(212, 168, 75, 0.2),
+    inset 0 1px 0 rgba(255, 245, 220, 0.6),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.15),
+    inset 2px 2px 10px rgba(255, 240, 200, 0.3),
+    inset 0 0 16px rgba(212, 168, 75, 0.06),
+    0 3px 8px rgba(0, 0, 0, 0.13),
+    0 1px 3px rgba(0, 0, 0, 0.08);
+  position: relative;
+  z-index: 2;
+
+  // 左侧色条（签发验证行标）
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    bottom: 10px;
+    width: 3px;
+    border-radius: 2px;
+    background: linear-gradient(180deg, #c04040 0%, #802020 100%);
+    box-shadow: 0 0 5px rgba(192, 64, 64, 0.35);
+  }
+
+  .iv-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    .iv-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      color: rgba(160, 120, 40, 0.95);
+      text-transform: uppercase;
+    }
+
+    .iv-date {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: $ink-strong;
+      letter-spacing: 0.05em;
+    }
+
+    .iv-org {
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: rgba(61, 46, 30, 0.75);
+      text-transform: uppercase;
+    }
+  }
+
+  .iv-seal {
+    flex-shrink: 0;
+    width: 54px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .iv-seal-svg {
+      width: 100%;
+      height: 100%;
+      transform: rotate(-8deg);
+      filter: drop-shadow(0 2px 3px rgba(160, 40, 40, 0.35))
+        drop-shadow(0 0 2px rgba(160, 40, 40, 0.2));
+    }
+  }
+}
+
+// 关联推荐（护照签证页风格）
+.passport-related {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 12px;
+
+  .pr-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+
+    .pr-label {
+      font-family: 'Courier New', monospace;
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: rgba(160, 120, 40, 0.95);
+      text-transform: uppercase;
+    }
+
+    .pr-count {
+      font-family: 'Courier New', monospace;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: rgba(61, 46, 30, 0.6);
+      padding: 1px 7px;
+      border: 1px solid rgba(61, 46, 30, 0.25);
+      border-radius: 10px;
+    }
+  }
+
+  .pr-track {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 4px 2px 8px;
+  }
+
+  .pr-card {
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.34, 1.15, 0.64, 1);
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1.5px solid rgba(180, 140, 60, 0.55);
+    box-shadow:
+      0 4px 10px rgba(80, 60, 20, 0.18),
+      0 1px 3px rgba(80, 60, 20, 0.12),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+
+    // 左上角金色装订点（签证贴照装饰）
+    &::before {
+      content: '';
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: radial-gradient(circle, $gold-bright 0%, $gold-deep 100%);
+      box-shadow: 0 0 4px rgba(212, 168, 75, 0.6);
+      z-index: 3;
+    }
+
+    .pr-photo {
+      position: relative;
+      width: 100%;
+      height: 190px;
+      overflow: hidden;
+      background: #1a1410;
+
+      :deep(.pr-img) {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.5s ease;
+      }
+
+      // 倾斜胶囊印章角标
+      .pr-stamp {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 4px 11px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        color: #fff;
+        border-radius: 20px;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+        box-shadow:
+          0 2px 5px rgba(0, 0, 0, 0.3),
+          inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        transform: rotate(6deg);
+        z-index: 3;
+      }
+
+      // 底部渐变遮罩 + 信息叠加（明信片风格）
+      .pr-info {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 28px 13px 12px;
+        background: linear-gradient(
+          180deg,
+          transparent 0%,
+          rgba(20, 14, 8, 0.45) 38%,
+          rgba(20, 14, 8, 0.88) 100%
+        );
+        z-index: 2;
+
+        .pr-title {
+          display: block;
+          font-size: 1.02rem;
+          font-weight: 700;
+          color: #fff;
+          line-height: 1.25;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          text-shadow: 0 1px 3px rgba(0, 0, 0, 0.65);
+          font-family: 'Courier New', monospace;
+          letter-spacing: 0.02em;
+        }
+
+        .pr-loc {
+          display: block;
+          font-size: 0.82rem;
+          color: rgba(255, 245, 220, 0.88);
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          margin-top: 3px;
+          letter-spacing: 0.04em;
+          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55);
+        }
+      }
+    }
+
+    &.pr-video .pr-stamp {
+      background: linear-gradient(135deg, #e85a5a, #8a1818);
+    }
+
+    &.pr-guide .pr-stamp {
+      background: linear-gradient(135deg, #5aba6a, #2a6a2a);
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+      border-color: rgba(212, 168, 75, 0.85);
+      box-shadow:
+        0 10px 22px rgba(80, 60, 20, 0.28),
+        0 0 16px rgba(212, 168, 75, 0.35),
+        inset 0 0 0 1px rgba(212, 168, 75, 0.5);
+
+      :deep(.pr-photo .pr-img) {
+        transform: scale(1.06);
+      }
+    }
+  }
+}

@@ -1,0 +1,2086 @@
+@use 'tokens' as *;
+
+.photographer-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  container-type: inline-size;
+  padding: 14px;
+  border-radius: 18px;
+  background:
+    radial-gradient(
+        circle at 18% 22%,
+        rgba(190, 226, 255, 0.07) 0 0.6px,
+        transparent 1.4px
+      )
+      0 0 / 5px 5px,
+    radial-gradient(
+        circle at 72% 68%,
+        rgba(0, 0, 0, 0.18) 0 0.7px,
+        transparent 1.5px
+      )
+      0 0 / 7px 7px,
+    repeating-linear-gradient(
+      118deg,
+      rgba(170, 210, 250, 0.03) 0 1px,
+      transparent 1px 4px
+    ),
+    repeating-linear-gradient(
+      28deg,
+      rgba(0, 0, 0, 0.09) 0 1px,
+      transparent 1px 6px
+    ),
+    radial-gradient(
+      ellipse 62% 48% at 14% -4%,
+      rgba(120, 190, 255, 0.22),
+      transparent 62%
+    ),
+    radial-gradient(
+      ellipse 72% 62% at 96% 112%,
+      rgba(0, 0, 0, 0.62),
+      transparent 64%
+    ),
+    linear-gradient(158deg, #2a3a52 0%, #182534 34%, #0d151f 68%, #050a10 100%);
+  border: 1.5px solid rgba(132, 188, 240, 0.55);
+  box-shadow:
+    inset 0 0 0 1px rgba(210, 235, 255, 0.12),
+    inset 0 2px 0 rgba(196, 228, 255, 0.18),
+    inset 0 -3px 8px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(0, 0, 0, 0.55),
+    0 0 0 3px rgba(30, 62, 96, 0.55),
+    0 7px 0 -3px #050a10,
+    0 26px 42px -18px rgba(0, 0, 0, 0.92),
+    0 0 42px -16px rgba(90, 170, 255, 0.22);
+  animation: cardRise 0.5s cubic-bezier(0.22, 0.8, 0.28, 1) backwards;
+
+  // 内层冰蓝细框 + 四角相框角标
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 5px;
+    z-index: 3;
+    border: 1px solid rgba(176, 216, 250, 0.28);
+    border-radius: 14px;
+    background:
+      linear-gradient(#d7ecff, #d7ecff) left top / 13px 2px no-repeat,
+      linear-gradient(#d7ecff, #d7ecff) left top / 2px 13px no-repeat,
+      linear-gradient(#d7ecff, #d7ecff) right top / 13px 2px no-repeat,
+      linear-gradient(#d7ecff, #d7ecff) right top / 2px 13px no-repeat,
+      linear-gradient(#d7ecff, #d7ecff) left bottom / 13px 2px no-repeat,
+      linear-gradient(#d7ecff, #d7ecff) left bottom / 2px 13px no-repeat,
+      linear-gradient(#d7ecff, #d7ecff) right bottom / 13px 2px no-repeat,
+      linear-gradient(#d7ecff, #d7ecff) right bottom / 2px 13px no-repeat;
+    opacity: 0.62;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+  }
+
+  // 两侧胶片齿孔
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 11px 4px;
+    z-index: 0;
+    border-radius: 13px;
+    background:
+      repeating-linear-gradient(
+          180deg,
+          transparent 0 8px,
+          rgba(160, 205, 245, 0.2) 8px 13px
+        )
+        left top / 4px 100% no-repeat,
+      repeating-linear-gradient(
+          180deg,
+          transparent 0 8px,
+          rgba(160, 205, 245, 0.2) 8px 13px
+        )
+        right top / 4px 100% no-repeat;
+    opacity: 0.7;
+    pointer-events: none;
+  }
+
+  // 顶部热靴
+  .hot-shoe {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    z-index: 8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 62px;
+    height: 11px;
+    transform: translateX(-50%);
+    border-radius: 3px 3px 1px 1px;
+    background: linear-gradient(180deg, #5f7f9e 0%, #2b4053 46%, #0a121b 100%);
+    border: 1px solid rgba(205, 232, 255, 0.5);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.32),
+      inset 0 -2px 3px rgba(0, 0, 0, 0.65),
+      0 3px 6px rgba(0, 0, 0, 0.5),
+      0 0 12px rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+
+    .shoe-rail {
+      position: absolute;
+      top: 3px;
+      bottom: 3px;
+      width: 2px;
+      border-radius: 1px;
+      background: linear-gradient(
+        180deg,
+        $brass-hi 0%,
+        $brass-mid 55%,
+        $brass-lo 100%
+      );
+      box-shadow: 0 0 3px rgba(255, 220, 150, 0.45);
+
+      &.left {
+        left: 6px;
+      }
+
+      &.right {
+        right: 6px;
+      }
+    }
+
+    .shoe-contact {
+      width: 4px;
+      height: 4px;
+      border-radius: 1px;
+      background: radial-gradient(
+        circle at 40% 35%,
+        #fff8e0 0 25%,
+        #c9a45c 60%,
+        #5b3d12 100%
+      );
+      box-shadow: 0 0 4px rgba(255, 220, 150, 0.45);
+    }
+  }
+
+  // 内舱：黄铜边框 + 深色绒面，网格排布名片信息
+  .camera-shell {
+    position: relative;
+    z-index: 2;
+    flex: 1 1 auto;
+    display: grid;
+    grid-template:
+      'lens head' auto
+      'note note' auto
+      'tags tags' auto
+      'stats stats' 1fr
+      'foot foot' auto
+      / 112px minmax(0, 1fr);
+    gap: 20px 16px;
+    padding: 15px 15px 17px;
+    border-radius: 13px;
+    border: 3.5px solid transparent;
+    background:
+      radial-gradient(
+          ellipse 90% 40% at 50% 0%,
+          rgba(120, 195, 255, 0.1),
+          transparent 62%
+        )
+        padding-box,
+      repeating-linear-gradient(
+          45deg,
+          rgba(255, 255, 255, 0.016) 0 1px,
+          transparent 1px 4px
+        )
+        padding-box,
+      repeating-linear-gradient(
+          -45deg,
+          rgba(0, 0, 0, 0.07) 0 1px,
+          transparent 1px 5px
+        )
+        padding-box,
+      linear-gradient(160deg, #1a2a3a 0%, #0f1a26 55%, #060b12 100%) padding-box,
+      linear-gradient(
+          145deg,
+          #eaf6ff 0%,
+          #9cc6e8 22%,
+          #5681a4 52%,
+          #2a435a 82%,
+          #0b1520 100%
+        )
+        border-box;
+    box-shadow:
+      inset 0 0 0 1px rgba(0, 0, 0, 0.65),
+      inset 0 4px 16px rgba(0, 0, 0, 0.6),
+      0 3px 0 #050b12,
+      0 12px 22px rgba(0, 0, 0, 0.55);
+  }
+
+  // ── 身份：光学镜组 ─────────────────────────────────────
+  .lens-bay {
+    grid-area: lens;
+    width: 112px;
+    display: flex;
+    justify-content: center;
+    padding-top: 2px;
+  }
+
+  .lens-mount {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    filter: drop-shadow(0 7px 10px rgba(0, 0, 0, 0.55));
+
+    .lens-knurl {
+      position: absolute;
+      inset: -4px;
+      z-index: 0;
+      border-radius: 50%;
+      background:
+        repeating-conic-gradient(
+          from 0deg,
+          rgba(255, 248, 222, 0.55) 0 1.4deg,
+          rgba(58, 36, 9, 0.6) 1.4deg 3.6deg
+        ),
+        conic-gradient(
+          from 0deg,
+          $brass-hi 0deg,
+          $brass 70deg,
+          $brass-lo 150deg,
+          $brass-mid 230deg,
+          $brass-hi 330deg
+        );
+      box-shadow:
+        inset 0 2px 3px rgba(255, 255, 255, 0.28),
+        inset 0 -3px 5px rgba(0, 0, 0, 0.62),
+        0 2px 0 #221607,
+        0 6px 10px rgba(0, 0, 0, 0.5);
+      transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+
+    .lens-barrel {
+      position: absolute;
+      inset: 3px;
+      z-index: 1;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle at 50% 38%,
+        #2d3a45 0%,
+        #17212a 44%,
+        #080d12 74%,
+        #03070a 100%
+      );
+      border: 1.5px solid rgba(255, 246, 214, 0.28);
+      box-shadow:
+        inset 0 2px 4px rgba(255, 255, 255, 0.14),
+        inset 0 -4px 8px rgba(0, 0, 0, 0.75),
+        0 0 0 1px rgba(0, 0, 0, 0.7);
+
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 3px;
+        border-radius: 50%;
+        border: 2px solid rgba(214, 74, 61, 0.82);
+        box-shadow:
+          0 0 6px rgba(214, 74, 61, 0.35),
+          inset 0 0 5px rgba(214, 74, 61, 0.22);
+        pointer-events: none;
+      }
+    }
+
+    .lens-glass {
+      position: absolute;
+      inset: 9px;
+      z-index: 2;
+      border-radius: 50%;
+      overflow: hidden;
+      background: #050a0e;
+      box-shadow:
+        inset 0 0 0 2px rgba(0, 0, 0, 0.85),
+        inset 0 8px 16px rgba(0, 0, 0, 0.85),
+        inset 0 -2px 6px rgba(0, 0, 0, 0.6),
+        0 0 0 1px rgba(255, 240, 200, 0.16);
+
+      :deep(.lens-photo) {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: saturate(1.08) contrast(1.04) brightness(0.98);
+        transition:
+          transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
+          filter 0.5s ease;
+      }
+    }
+
+    .glass-glare {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      background:
+        radial-gradient(
+          circle at 32% 24%,
+          rgba(255, 255, 255, 0.5) 0 6%,
+          transparent 27%
+        ),
+        linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.22) 0 16%,
+          transparent 42%
+        );
+      mix-blend-mode: screen;
+      opacity: 0.85;
+      pointer-events: none;
+      transition:
+        opacity 0.4s ease,
+        transform 0.6s ease;
+    }
+
+    .glass-vignette {
+      position: absolute;
+      inset: 0;
+      z-index: 4;
+      background: radial-gradient(
+        circle at 50% 45%,
+        transparent 46%,
+        rgba(2, 7, 10, 0.5) 76%,
+        rgba(1, 4, 6, 0.86) 100%
+      );
+      pointer-events: none;
+    }
+
+    .lens-spec {
+      position: absolute;
+      left: 50%;
+      bottom: -5px;
+      z-index: 6;
+      padding: 1px 6px;
+      transform: translateX(-50%);
+      border-radius: 2px;
+      font-family: Consolas, Monaco, monospace;
+      font-size: 8px;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      white-space: nowrap;
+      color: #fff1cc;
+      background: linear-gradient(180deg, #1a232b 0%, #080d12 100%);
+      border: 1px solid rgba(255, 226, 170, 0.34);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 236, 190, 0.2),
+        0 1px 2px rgba(0, 0, 0, 0.6);
+      pointer-events: none;
+    }
+
+    .verified-seal {
+      position: absolute;
+      right: -2px;
+      bottom: 2px;
+      z-index: 7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle at 35% 30%,
+        #d8f4ff 0 8%,
+        #48b6e8 35%,
+        #1c6fa8 74%,
+        #0b3c5e 100%
+      );
+      border: 1.5px solid rgba(255, 255, 255, 0.55);
+      box-shadow:
+        0 2px 5px rgba(0, 0, 0, 0.55),
+        0 0 10px rgba(56, 189, 248, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+
+      svg {
+        width: 16px;
+        height: 16px;
+        color: #fff;
+        filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.45));
+      }
+    }
+
+    .af-lamp {
+      position: absolute;
+      top: 1px;
+      right: 3px;
+      z-index: 7;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle at 38% 32%,
+        #c8ffe0 0 10%,
+        #34d399 42%,
+        #0f7a55 76%,
+        #063d2b 100%
+      );
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      box-shadow:
+        0 0 8px rgba($jade, 0.85),
+        0 0 16px rgba($jade, 0.4);
+      animation: lampPulse 2.4s ease-in-out infinite;
+    }
+  }
+
+  // ── 姓名铭牌 ──────────────────────────────────────────
+  .body-head {
+    grid-area: head;
+    align-self: center;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    min-width: 0;
+  }
+
+  .name-plate {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .plate-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    overflow: hidden;
+    font-family: Consolas, Monaco, monospace;
+    font-size: 9.5px;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+    line-height: 1;
+    white-space: nowrap;
+    color: rgba(255, 218, 150, 0.88);
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
+
+    &::before {
+      content: '';
+      flex: 0 0 auto;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #ff5a52;
+      box-shadow: 0 0 6px rgba(255, 90, 82, 0.85);
+    }
+  }
+
+  .plate-name {
+    margin: 6px 0 9px;
+    overflow: hidden;
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #f7fbff;
+    text-shadow:
+      0 1px 0 rgba(0, 0, 0, 0.75),
+      0 0 18px rgba(255, 214, 140, 0.16);
+  }
+
+  .plate-role {
+    display: inline-block;
+    max-width: 100%;
+    overflow: hidden;
+    padding: 4px 11px 5px;
+    transform: rotate(-0.8deg);
+    border-radius: 3px;
+    font-size: 12.5px;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    vertical-align: top;
+    color: #1a0e00;
+    background:
+      repeating-linear-gradient(
+        90deg,
+        rgba(90, 60, 16, 0.12) 0 1px,
+        transparent 1px 4px
+      ),
+      linear-gradient(
+        170deg,
+        #fff6d8 0%,
+        #e8c98e 30%,
+        #d0a75c 65%,
+        #a8792f 100%
+      );
+    border: 1px solid rgba(255, 248, 222, 0.6);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.8),
+      inset 0 -1px 2px rgba(76, 50, 13, 0.45),
+      0 1px 0 #3a2409,
+      0 2px 4px rgba(0, 0, 0, 0.4);
+    text-shadow: 0 1px 0 rgba(255, 248, 222, 0.55);
+  }
+
+  .brand-badge {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 11px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    line-height: 1;
+    color: #140b00;
+    background:
+      repeating-linear-gradient(
+        90deg,
+        rgba(90, 60, 16, 0.14) 0 1px,
+        transparent 1px 4px
+      ),
+      linear-gradient(
+        170deg,
+        #fff6d8 0%,
+        #e8c98e 26%,
+        #d0a75c 60%,
+        #a8792f 100%
+      );
+    border: 1px solid rgba(255, 248, 222, 0.6);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.8),
+      inset 0 -2px 3px rgba(76, 50, 13, 0.4),
+      0 2px 0 #3a2409,
+      0 4px 8px rgba(0, 0, 0, 0.4);
+    transition:
+      transform 0.3s ease,
+      filter 0.3s ease,
+      box-shadow 0.3s ease;
+
+    svg {
+      width: 15px;
+      height: 15px;
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.08);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.85),
+        inset 0 -2px 3px rgba(76, 50, 13, 0.4),
+        0 2px 0 #3a2409,
+        0 7px 12px rgba(0, 0, 0, 0.45);
+    }
+  }
+
+  // ── 个人简介：对焦屏 ───────────────────────────────────
+  .field-note {
+    grid-area: note;
+    position: relative;
+    padding: 12px 14px 12px 16px;
+    border-radius: 6px;
+    background:
+      repeating-linear-gradient(
+        0deg,
+        rgba(148, 197, 255, 0.035) 0 1px,
+        transparent 1px 4px
+      ),
+      radial-gradient(
+        ellipse 80% 130% at 0% 0%,
+        rgba(120, 190, 255, 0.1),
+        transparent 60%
+      ),
+      linear-gradient(160deg, rgba(20, 32, 45, 0.95), rgba(5, 9, 14, 0.98));
+    border: 1px solid rgba(150, 200, 240, 0.3);
+    border-left: 3px solid rgba(110, 190, 255, 0.8);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 200, 205, 0.15),
+      inset 0 8px 18px rgba(0, 0, 0, 0.5),
+      inset 0 -1px 0 rgba(150, 205, 245, 0.1),
+      0 3px 0 rgba(3, 7, 10, 0.9),
+      0 8px 16px rgba(0, 0, 0, 0.45);
+
+    // 顶面高光，营造镜框凸起的立体感
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0 0 auto;
+      height: 48%;
+      border-radius: 6px 6px 40% 40%;
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.07),
+        transparent
+      );
+      pointer-events: none;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 4px;
+      z-index: 2;
+      opacity: 0.3;
+      background:
+        linear-gradient(#a8d8ff, #a8d8ff) left top / 10px 1.5px no-repeat,
+        linear-gradient(#a8d8ff, #a8d8ff) left top / 1.5px 10px no-repeat,
+        linear-gradient(#a8d8ff, #a8d8ff) right top / 10px 1.5px no-repeat,
+        linear-gradient(#a8d8ff, #a8d8ff) right top / 1.5px 10px no-repeat,
+        linear-gradient(#a8d8ff, #a8d8ff) left bottom / 10px 1.5px no-repeat,
+        linear-gradient(#a8d8ff, #a8d8ff) left bottom / 1.5px 10px no-repeat,
+        linear-gradient(#a8d8ff, #a8d8ff) right bottom / 10px 1.5px no-repeat,
+        linear-gradient(#a8d8ff, #a8d8ff) right bottom / 1.5px 10px no-repeat;
+      pointer-events: none;
+    }
+
+    .note-tab {
+      position: absolute;
+      top: -8px;
+      right: 12px;
+      left: auto;
+      z-index: 3;
+      padding: 0 6px;
+      border-radius: 2px;
+      font-family: Consolas, Monaco, monospace;
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      line-height: 13px;
+      color: rgba(178, 216, 250, 0.95);
+      background: #081019;
+      border: 1px solid rgba(160, 205, 245, 0.42);
+      box-shadow:
+        inset 0 1px 0 rgba(210, 235, 255, 0.14),
+        0 1px 2px rgba(0, 0, 0, 0.6);
+    }
+  }
+
+  .note-text {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    font-size: 14.5px;
+    font-weight: 700;
+    line-height: 1.65;
+    color: rgba(233, 245, 255, 0.92);
+  }
+
+  // ── 专长：底片画格 ────────────────────────────────────
+  .film-strip {
+    grid-area: tags;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow: hidden;
+    padding: 11px 10px;
+    border-radius: 6px;
+    background:
+      linear-gradient(180deg, rgba(140, 200, 255, 0.08) 0%, transparent 34%),
+      linear-gradient(180deg, #122233 0%, #0a141f 55%, #04080d 100%);
+    border: 1px solid #2f567a;
+    box-shadow:
+      inset 0 2px 0 rgba(180, 220, 255, 0.16),
+      inset 0 3px 9px rgba(0, 0, 0, 0.85),
+      inset 0 -2px 4px rgba(0, 0, 0, 0.7),
+      0 3px 0 rgba(3, 7, 11, 0.92),
+      0 7px 14px rgba(0, 0, 0, 0.45);
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 7px;
+      z-index: 1;
+      background: radial-gradient(
+          circle at 6px 3.5px,
+          #050302 0 1.3px,
+          rgba(0, 0, 0, 0.95) 1.7px 2.2px,
+          rgba(170, 210, 250, 0.24) 2.4px 2.7px,
+          transparent 3px
+        )
+        0 0 / 12px 7px repeat-x;
+      pointer-events: none;
+    }
+
+    &::before {
+      top: 1px;
+    }
+
+    &::after {
+      bottom: 1px;
+    }
+
+    .film-frame {
+      position: relative;
+      z-index: 2;
+      display: block;
+      flex: 0 0 auto;
+      min-width: 0;
+      overflow: hidden;
+      padding: 7px 12px;
+      border-radius: 4px;
+      border: 2px solid transparent;
+      background:
+        linear-gradient(
+            160deg,
+            rgba(38, 84, 128, 0.96) 0%,
+            rgba(10, 24, 37, 0.98) 55%,
+            rgba(4, 9, 14, 1) 100%
+          )
+          padding-box,
+        linear-gradient(
+            150deg,
+            #e8f6ff 0%,
+            #9cc8ec 28%,
+            #4f7fa6 58%,
+            #1e3448 100%
+          )
+          border-box;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.2),
+        inset 0 -3px 5px rgba(0, 0, 0, 0.62),
+        0 3px 0 rgba(3, 9, 14, 0.92),
+        0 6px 10px rgba(0, 0, 0, 0.45),
+        0 0 0 1px rgba(32, 64, 96, 0.45);
+      transition:
+        transform 0.26s ease,
+        border-color 0.26s ease,
+        box-shadow 0.26s ease,
+        filter 0.26s ease;
+
+      // 上缘玻璃反光
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.16),
+          transparent 46%
+        );
+        pointer-events: none;
+      }
+
+      &:nth-child(2) {
+        transform: rotate(0.8deg);
+      }
+
+      &:nth-child(3) {
+        transform: rotate(-0.5deg);
+      }
+
+      .frame-text {
+        position: relative;
+        z-index: 1;
+        display: block;
+        overflow: hidden;
+        font-size: 15px;
+        font-weight: 900;
+        line-height: 1.35;
+        letter-spacing: 0.02em;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        color: #eff8ff;
+        text-shadow:
+          0 1px 1px rgba(0, 0, 0, 0.7),
+          0 0 6px rgba(140, 200, 255, 0.25);
+      }
+    }
+
+    .film-tail {
+      z-index: 2;
+      margin-left: auto;
+      padding-left: 10px;
+      font-family: Consolas, Monaco, monospace;
+      font-size: 9.5px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      white-space: nowrap;
+      color: rgba(170, 214, 250, 0.82);
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.7);
+      pointer-events: none;
+    }
+  }
+
+  // ── 核心读数：粉丝 / 作品 / 获赞 / 浏览 ────────────────
+  .meter-strip {
+    grid-area: stats;
+    align-self: end;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  // 测光窗：黄铜包边 + 四角铆钉 + 顶部刻度 + 掠光
+  .meter-row {
+    --accent: #{$amber-rgb};
+    --tile-base: #241810;
+
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    min-width: 0;
+    padding: 10px;
+    border-radius: 11px;
+    overflow: hidden;
+    text-align: left;
+    border: 1.5px solid transparent;
+    background:
+      radial-gradient(
+          circle at 7px 7px,
+          #f6e3b4 0 1.1px,
+          #7a5423 1.5px 2px,
+          transparent 2.7px
+        )
+        padding-box,
+      radial-gradient(
+          circle at calc(100% - 7px) 7px,
+          #f6e3b4 0 1.1px,
+          #7a5423 1.5px 2px,
+          transparent 2.7px
+        )
+        padding-box,
+      radial-gradient(
+          circle at 7px calc(100% - 7px),
+          #f6e3b4 0 1.1px,
+          #7a5423 1.5px 2px,
+          transparent 2.7px
+        )
+        padding-box,
+      radial-gradient(
+          circle at calc(100% - 7px) calc(100% - 7px),
+          #f6e3b4 0 1.1px,
+          #7a5423 1.5px 2px,
+          transparent 2.7px
+        )
+        padding-box,
+      repeating-linear-gradient(
+          90deg,
+          rgba(var(--accent), 0.42) 0 1px,
+          transparent 1px 7px
+        )
+        top center / 100% 3px no-repeat padding-box,
+      linear-gradient(155deg, rgba(255, 255, 255, 0.12), transparent 42%)
+        padding-box,
+      radial-gradient(
+          140% 130% at 100% 0%,
+          rgba(var(--accent), 0.4) 0%,
+          transparent 58%
+        )
+        padding-box,
+      linear-gradient(
+          158deg,
+          rgba(var(--accent), 0.56) 0%,
+          rgba(var(--accent), 0.28) 52%,
+          var(--tile-base) 100%
+        )
+        padding-box,
+      linear-gradient(
+          150deg,
+          #fff6d8 0%,
+          rgba(var(--accent), 0.95) 24%,
+          #8a5f1a 62%,
+          #3a2409 100%
+        )
+        border-box;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.22),
+      inset 0 -4px 8px rgba(0, 0, 0, 0.58),
+      0 3px 0 rgba(4, 2, 1, 0.92),
+      0 8px 14px rgba(0, 0, 0, 0.46),
+      0 0 16px rgba(var(--accent), 0.16);
+    transition:
+      opacity 0.3s ease,
+      filter 0.3s ease,
+      transform 0.3s ease,
+      border-color 0.3s ease,
+      box-shadow 0.3s ease;
+
+    // 掠光：hover 时扫过整个测光窗
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: linear-gradient(
+        115deg,
+        transparent 36%,
+        rgba(255, 246, 220, 0.18) 48%,
+        transparent 60%
+      );
+      transform: translateX(-135%);
+      transition: transform 0.65s cubic-bezier(0.2, 0.7, 0.2, 1);
+      pointer-events: none;
+    }
+
+    // 底部曝光刻度
+    &::after {
+      content: '';
+      position: absolute;
+      left: 9px;
+      right: 9px;
+      bottom: 2px;
+      height: 3px;
+      background: repeating-linear-gradient(
+        90deg,
+        rgba(var(--accent), 0.55) 0 1px,
+        transparent 1px 5px
+      );
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .meter-dial {
+      position: relative;
+      z-index: 1;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background:
+        repeating-conic-gradient(
+          from 0deg,
+          rgba(255, 248, 222, 0.55) 0 1.5deg,
+          rgba(58, 36, 9, 0.62) 1.5deg 4.5deg
+        ),
+        conic-gradient(
+          from 20deg,
+          $brass-hi 0deg,
+          $brass 80deg,
+          $brass-lo 170deg,
+          $brass-mid 250deg,
+          $brass-hi 360deg
+        );
+      border: 1px solid rgba(255, 246, 214, 0.55);
+      box-shadow:
+        inset 0 1px 2px rgba(255, 255, 255, 0.3),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.6),
+        0 3px 6px rgba(0, 0, 0, 0.5),
+        0 0 0 2px rgba(var(--accent), 0.2),
+        0 0 14px rgba(var(--accent), 0.4);
+      transition:
+        transform 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2),
+        box-shadow 0.35s ease;
+
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 4px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 40% 32%, #3d3025 0%, #0b0704 74%);
+        box-shadow:
+          inset 0 1px 3px rgba(0, 0, 0, 0.9),
+          0 0 0 1px rgba(0, 0, 0, 0.6),
+          0 0 10px rgba(var(--accent), 0.4);
+      }
+
+      svg {
+        position: relative;
+        z-index: 1;
+        width: 19px;
+        height: 19px;
+        color: rgb(var(--accent));
+        filter: drop-shadow(0 0 6px rgba(var(--accent), 0.85));
+        transition:
+          transform 0.35s ease,
+          filter 0.35s ease;
+      }
+    }
+
+    .meter-readout {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      min-width: 0;
+      line-height: 1;
+    }
+
+    .meter-value {
+      overflow: hidden;
+      font-family: Consolas, Monaco, monospace;
+      font-size: 22px;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      font-variant-numeric: tabular-nums;
+      color: #0c0803;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      text-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.3),
+        0 0 10px rgba(255, 255, 255, 0.12);
+      transition:
+        color 0.3s ease,
+        text-shadow 0.3s ease;
+    }
+
+    // 标签独立浅色贴纸容器，置于读数窗右侧
+    .meter-label {
+      flex: 0 0 auto;
+      margin-left: auto;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: 0.05em;
+      color: #0b0703;
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.94) 0%,
+        rgba(var(--accent), 0.68) 100%
+      );
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.95),
+        inset 0 -2px 3px rgba(60, 40, 10, 0.3),
+        0 1px 2px rgba(0, 0, 0, 0.35);
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    }
+
+    &.fans {
+      --accent: #{$amber-rgb};
+      --tile-base: #2b1d0d;
+    }
+
+    &.works {
+      --accent: #{$cyan-rgb};
+      --tile-base: #0d262b;
+    }
+
+    &.likes {
+      --accent: #{$rose-rgb};
+      --tile-base: #2c101c;
+    }
+
+    &.views {
+      --accent: #{$jade-rgb};
+      --tile-base: #0c2519;
+    }
+
+    &:hover {
+      filter: brightness(1.06);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.26),
+        inset 0 -4px 8px rgba(0, 0, 0, 0.5),
+        inset 0 0 22px rgba(var(--accent), 0.22),
+        0 4px 0 rgba(4, 2, 1, 0.92),
+        0 12px 20px rgba(0, 0, 0, 0.5),
+        0 0 26px rgba(var(--accent), 0.36);
+
+      &::before {
+        transform: translateX(135%);
+      }
+
+      .meter-dial {
+        transform: scale(1.07);
+        box-shadow:
+          inset 0 1px 2px rgba(255, 255, 255, 0.35),
+          inset 0 -2px 4px rgba(0, 0, 0, 0.55),
+          0 4px 8px rgba(0, 0, 0, 0.5),
+          0 0 0 2px rgba(var(--accent), 0.16),
+          0 0 18px rgba(var(--accent), 0.6);
+
+        svg {
+          transform: scale(1.08);
+          filter: drop-shadow(0 0 9px rgba(var(--accent), 1));
+        }
+      }
+
+      .meter-value {
+        color: #000;
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.36);
+      }
+
+      .meter-label {
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.65);
+      }
+    }
+
+    &.sort-dimmed {
+      opacity: 0.42;
+      filter: saturate(0.45);
+    }
+
+    &.sort-dimmed:hover {
+      opacity: 0.72;
+    }
+
+    &.sort-highlighted {
+      border-color: rgba(var(--accent), 0.7);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.14),
+        inset 0 0 14px rgba(var(--accent), 0.18),
+        0 0 14px rgba(var(--accent), 0.3),
+        0 2px 5px rgba(0, 0, 0, 0.4);
+
+      .meter-value {
+        color: #fff8e6;
+        text-shadow:
+          0 1px 1px rgba(0, 0, 0, 0.8),
+          0 0 12px rgba(var(--accent), 0.8);
+      }
+
+      .meter-dial {
+        box-shadow:
+          inset 0 1px 2px rgba(255, 255, 255, 0.3),
+          inset 0 -2px 3px rgba(0, 0, 0, 0.55),
+          0 0 10px rgba(var(--accent), 0.55);
+      }
+    }
+  }
+
+  // ── 底盖：GPS 铭牌 + 快门 + 联系按钮 ──────────────────
+  .body-foot {
+    grid-area: foot;
+    position: relative;
+    z-index: 9;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: 4px;
+  }
+
+  .location-plate {
+    flex: 0 1 auto;
+    min-width: 0;
+    max-width: 34%;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 12px 5px 5px;
+    border-radius: 6px;
+    font-size: 14.5px;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    color: #06121f;
+    background:
+      repeating-linear-gradient(
+        90deg,
+        rgba(30, 64, 96, 0.16) 0 1px,
+        transparent 1px 4px
+      ),
+      linear-gradient(
+        170deg,
+        #eef8ff 0%,
+        #c2ddf5 26%,
+        #86b6da 58%,
+        #4f80a8 100%
+      );
+    border: 1px solid rgba(232, 246, 255, 0.65);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.85),
+      inset 0 -2px 3px rgba(24, 52, 78, 0.45),
+      0 2px 0 #1e3448,
+      0 4px 8px rgba(0, 0, 0, 0.42);
+
+    .loc-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 40% 30%, #1e4468, #071019);
+      box-shadow:
+        inset 0 2px 3px rgba(255, 255, 255, 0.18),
+        inset 0 -1px 2px #000,
+        0 0 0 1px rgba(24, 52, 78, 0.85);
+
+      svg {
+        width: 17px;
+        height: 17px;
+        color: #e6f4ff;
+      }
+    }
+
+    .loc-text {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      text-shadow: 0 1px 0 rgba(232, 246, 255, 0.55);
+    }
+  }
+
+  .shutter-btn {
+    --btn-glow: #{$sky-rgb};
+
+    position: relative;
+    flex: 1 1 96px;
+    min-width: 84px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    height: 50px;
+    padding: 0 12px;
+    overflow: hidden;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    color: #06121f;
+    cursor: pointer;
+    background:
+      repeating-linear-gradient(
+        90deg,
+        rgba(30, 64, 96, 0.12) 0 1px,
+        transparent 1px 4px
+      ),
+      linear-gradient(
+        170deg,
+        #eef8ff 0%,
+        #b7dbf7 24%,
+        #7fb3da 52%,
+        #4a80aa 82%,
+        #2b5675 100%
+      );
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.9),
+      inset 0 -2px 3px rgba(24, 52, 78, 0.55),
+      inset 0 0 0 1px rgba(52, 100, 140, 0.3),
+      0 3px 0 #16344b,
+      0 6px 12px rgba(0, 0, 0, 0.45),
+      0 0 18px rgba($sky, 0.18);
+    transition:
+      transform 0.26s ease,
+      box-shadow 0.26s ease,
+      filter 0.26s ease,
+      background 0.3s ease,
+      color 0.3s ease;
+
+    // 面盖高光 + hover 时缓慢扫过的胶片反光
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      border-radius: inherit;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.34) 0%, transparent 46%),
+        linear-gradient(
+          105deg,
+          transparent 40%,
+          rgba(255, 255, 255, 0.42) 50%,
+          transparent 60%
+        );
+      background-repeat: no-repeat;
+      background-size:
+        100% 100%,
+        220% 100%;
+      background-position:
+        0 0,
+        185% 0;
+      pointer-events: none;
+    }
+
+    // 追光边框：hover 时沿边缘环跑的光带
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      padding: 2px;
+      border-radius: 10px;
+      background: conic-gradient(
+        from var(--btn-angle),
+        transparent 0deg 214deg,
+        rgba(255, 255, 255, 0.85) 258deg,
+        rgb(var(--btn-glow)) 292deg,
+        transparent 336deg 360deg
+      );
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      animation: shutterRingSpin 3.6s linear infinite paused;
+      pointer-events: none;
+    }
+
+    // 相机对焦框：hover 时从外向内合拢
+    .shutter-focus {
+      position: absolute;
+      inset: 4px;
+      z-index: 0;
+      border-radius: 7px;
+      background:
+        linear-gradient(
+            rgba(var(--btn-glow), 0.95),
+            rgba(var(--btn-glow), 0.95)
+          )
+          left top / 10px 2px no-repeat,
+        linear-gradient(
+            rgba(var(--btn-glow), 0.95),
+            rgba(var(--btn-glow), 0.95)
+          )
+          left top / 2px 10px no-repeat,
+        linear-gradient(
+            rgba(var(--btn-glow), 0.95),
+            rgba(var(--btn-glow), 0.95)
+          )
+          right top / 10px 2px no-repeat,
+        linear-gradient(
+            rgba(var(--btn-glow), 0.95),
+            rgba(var(--btn-glow), 0.95)
+          )
+          right top / 2px 10px no-repeat,
+        linear-gradient(
+            rgba(var(--btn-glow), 0.95),
+            rgba(var(--btn-glow), 0.95)
+          )
+          left bottom / 10px 2px no-repeat,
+        linear-gradient(
+            rgba(var(--btn-glow), 0.95),
+            rgba(var(--btn-glow), 0.95)
+          )
+          left bottom / 2px 10px no-repeat,
+        linear-gradient(
+            rgba(var(--btn-glow), 0.95),
+            rgba(var(--btn-glow), 0.95)
+          )
+          right bottom / 10px 2px no-repeat,
+        linear-gradient(
+            rgba(var(--btn-glow), 0.95),
+            rgba(var(--btn-glow), 0.95)
+          )
+          right bottom / 2px 10px no-repeat,
+        radial-gradient(
+          ellipse 66% 110% at 50% 0%,
+          rgba(var(--btn-glow), 0.16),
+          transparent 66%
+        );
+      opacity: 0;
+      transform: scale(1.09);
+      transition:
+        opacity 0.32s ease,
+        transform 0.46s cubic-bezier(0.2, 0.85, 0.25, 1.15);
+      pointer-events: none;
+    }
+
+    .shutter-led {
+      position: relative;
+      z-index: 1;
+      flex: 0 0 auto;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle at 35% 30%,
+        #e0f7ff 0 20%,
+        #38bdf8 55%,
+        #075985 100%
+      );
+      box-shadow:
+        0 0 6px rgba(56, 189, 248, 0.8),
+        0 0 0 1px rgba(0, 0, 0, 0.3);
+    }
+
+    .shutter-icon {
+      position: relative;
+      z-index: 1;
+      flex: 0 0 auto;
+      width: 19px;
+      height: 19px;
+      filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.4));
+      transition: transform 0.28s ease;
+    }
+
+    .shutter-label {
+      position: relative;
+      z-index: 1;
+      white-space: nowrap;
+      text-shadow: 0 1px 0 rgba(232, 246, 255, 0.55);
+      transition: letter-spacing 0.28s ease;
+    }
+
+    .shutter-ridges {
+      position: absolute;
+      top: 8px;
+      right: 5px;
+      bottom: 8px;
+      width: 7px;
+      border-radius: 2px;
+      opacity: 0.4;
+      background: repeating-linear-gradient(
+        90deg,
+        rgba(30, 64, 96, 0.38) 0 1px,
+        transparent 1px 3px
+      );
+      pointer-events: none;
+    }
+
+    // 共享 Hover 叠加层：光圈叶片 + 内侧对焦环，随当前状态自动换色
+    &:hover::before {
+      animation: shutterSheen 2s ease-in-out infinite;
+    }
+
+    &:hover::after {
+      opacity: 1;
+      animation-play-state: running;
+    }
+
+    &:hover .shutter-focus {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    &:active {
+      transform: scale(0.97);
+    }
+
+    &:focus-visible {
+      outline: none;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.9),
+        inset 0 -2px 3px rgba(24, 52, 78, 0.55),
+        0 0 0 2px rgba(var(--btn-glow), 0.85),
+        0 0 18px rgba(var(--btn-glow), 0.55),
+        0 3px 0 #16344b;
+    }
+
+    &.following {
+      --btn-glow: #{$sky-rgb};
+
+      color: #dff2ff;
+      background:
+        repeating-linear-gradient(
+          90deg,
+          rgba(140, 200, 255, 0.06) 0 1px,
+          transparent 1px 4px
+        ),
+        radial-gradient(
+          ellipse 72% 120% at 50% 0%,
+          rgba($sky, 0.3),
+          transparent 66%
+        ),
+        linear-gradient(170deg, #123a5a 0%, #0a2033 52%, #040c14 100%);
+      box-shadow:
+        inset 0 4px 10px rgba(0, 0, 0, 0.85),
+        inset 0 -2px 0 rgba(170, 220, 255, 0.2),
+        inset 0 0 0 2px rgba($sky, 0.42),
+        inset 0 0 24px rgba($sky, 0.18),
+        0 2px 0 #040c14,
+        0 6px 14px rgba(0, 0, 0, 0.5),
+        0 0 26px rgba($sky, 0.26);
+
+      &::before {
+        opacity: 0.22;
+      }
+
+      .shutter-led {
+        background: radial-gradient(
+          circle at 35% 30%,
+          #e0f7ff 0 16%,
+          #38bdf8 52%,
+          #075985 100%
+        );
+        box-shadow:
+          0 0 9px rgba($sky, 0.95),
+          0 0 16px rgba($sky, 0.5),
+          0 0 0 1px rgba(0, 0, 0, 0.4);
+        animation: lampPulse 2.4s ease-in-out infinite;
+      }
+
+      .shutter-icon {
+        color: #9fdcff;
+        filter: drop-shadow(0 0 5px rgba($sky, 0.75));
+      }
+
+      .shutter-label {
+        color: #dff2ff;
+        text-shadow:
+          0 1px 0 rgba(0, 0, 0, 0.65),
+          0 0 14px rgba($sky, 0.7);
+      }
+
+      .shutter-ridges {
+        opacity: 0.18;
+      }
+    }
+  }
+
+  // ── 联系我：黄铜接口按钮 + 上拉联系渠道面板 ───────────
+  .contact-btn {
+    position: relative;
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    height: 50px;
+    padding: 0 12px 0 7px;
+    overflow: hidden;
+    border: 1.5px solid transparent;
+    border-radius: 11px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    color: #dff0ff;
+    background:
+      repeating-linear-gradient(
+          90deg,
+          rgba(220, 240, 255, 0.05) 0 1px,
+          transparent 1px 4px
+        )
+        padding-box,
+      linear-gradient(170deg, #1f3a52 0%, #102333 46%, #050b12 100%) padding-box,
+      linear-gradient(
+          150deg,
+          #eaf6ff 0%,
+          #9cc8ec 30%,
+          #4f7fa6 68%,
+          #1e3448 100%
+        )
+        border-box;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.24),
+      inset 0 -2px 5px rgba(0, 0, 0, 0.68),
+      0 3px 0 rgba(5, 11, 18, 0.92),
+      0 7px 13px rgba(0, 0, 0, 0.48);
+    transition:
+      transform 0.26s ease,
+      box-shadow 0.26s ease,
+      color 0.3s ease,
+      filter 0.3s ease;
+
+    // hover 掠光
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        115deg,
+        transparent 35%,
+        rgba(255, 246, 220, 0.2) 48%,
+        transparent 61%
+      );
+      transform: translateX(-140%);
+      transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+      pointer-events: none;
+    }
+
+    .contact-glyph {
+      position: relative;
+      z-index: 1;
+      flex: 0 0 auto;
+      box-sizing: border-box;
+      width: 28px;
+      height: 28px;
+      padding: 5px;
+      border-radius: 50%;
+      color: #9fdcff;
+      background: radial-gradient(circle at 38% 30%, #1f4466 0%, #071019 74%);
+      border: 1px solid rgba(170, 216, 250, 0.35);
+      box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.2),
+        inset 0 -2px 3px rgba(0, 0, 0, 0.6),
+        0 1px 2px rgba(0, 0, 0, 0.5);
+      filter: drop-shadow(0 0 5px rgba($sky, 0.45));
+      transition:
+        transform 0.3s ease,
+        color 0.3s ease,
+        filter 0.3s ease;
+    }
+
+    .contact-label {
+      position: relative;
+      z-index: 1;
+      white-space: nowrap;
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
+    }
+
+    .contact-caret {
+      position: relative;
+      z-index: 1;
+      flex: 0 0 auto;
+      width: 13px;
+      height: 13px;
+      color: rgba(170, 216, 250, 0.72);
+      transition:
+        transform 0.3s ease,
+        color 0.3s ease;
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+      color: #f0f9ff;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.28),
+        inset 0 -2px 5px rgba(0, 0, 0, 0.6),
+        0 5px 0 rgba(5, 11, 18, 0.92),
+        0 12px 20px rgba(0, 0, 0, 0.52),
+        0 0 22px rgba($sky, 0.32);
+
+      &::before {
+        transform: translateX(140%);
+      }
+
+      .contact-glyph {
+        transform: scale(1.07);
+        color: #cfeaff;
+        filter: drop-shadow(0 0 8px rgba($sky, 0.8));
+      }
+
+      .contact-caret {
+        color: #9fdcff;
+      }
+    }
+
+    &:active {
+      transform: translateY(1px);
+      box-shadow:
+        inset 0 3px 6px rgba(0, 0, 0, 0.7),
+        inset 0 1px 0 rgba(255, 255, 255, 0.24),
+        0 1px 0 rgba(5, 11, 18, 0.92);
+    }
+
+    &.open {
+      color: #06121f;
+      background:
+        repeating-linear-gradient(
+          90deg,
+          rgba(30, 64, 96, 0.12) 0 1px,
+          transparent 1px 4px
+        ),
+        linear-gradient(
+          170deg,
+          #eef8ff 0%,
+          #b7dbf7 26%,
+          #7fb3da 56%,
+          #4a80aa 100%
+        );
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.9),
+        inset 0 -2px 3px rgba(24, 52, 78, 0.5),
+        0 3px 0 #16344b,
+        0 8px 16px rgba(0, 0, 0, 0.5),
+        0 0 22px rgba($sky, 0.34);
+
+      .contact-glyph {
+        color: #16344b;
+        background: radial-gradient(
+          circle at 38% 30%,
+          rgba(255, 255, 255, 0.72) 0%,
+          rgba(232, 246, 255, 0.16) 74%
+        );
+        border-color: rgba(24, 52, 78, 0.4);
+        box-shadow:
+          inset 0 1px 1px rgba(255, 255, 255, 0.7),
+          inset 0 -2px 3px rgba(24, 52, 78, 0.35);
+        filter: none;
+      }
+
+      .contact-caret {
+        transform: rotate(180deg);
+        color: #1e3448;
+      }
+    }
+
+    &:focus-visible {
+      outline: none;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.24),
+        0 0 0 2px rgba($sky, 0.75),
+        0 0 16px rgba($sky, 0.55),
+        0 3px 0 rgba(5, 11, 18, 0.92);
+    }
+  }
+
+  .contact-sheet {
+    position: absolute;
+    right: 0;
+    bottom: calc(100% + 13px);
+    z-index: 30;
+    width: min(100%, 380px);
+    padding: 12px;
+    border-radius: 13px;
+    background:
+      radial-gradient(
+        ellipse 88% 54% at 50% 0%,
+        rgba(120, 190, 255, 0.16),
+        transparent 62%
+      ),
+      linear-gradient(165deg, #122433 0%, #0a1520 58%, #04080d 100%);
+    border: 1.5px solid rgba(150, 205, 245, 0.45);
+    box-shadow:
+      inset 0 1px 0 rgba(210, 235, 255, 0.24),
+      inset 0 -3px 10px rgba(0, 0, 0, 0.72),
+      0 4px 0 rgba(5, 11, 18, 0.92),
+      0 22px 38px rgba(0, 0, 0, 0.7),
+      0 0 30px rgba($sky, 0.2);
+    transform-origin: bottom right;
+    animation: contactRise 0.28s cubic-bezier(0.2, 0.9, 0.25, 1.1) backwards;
+
+    .sheet-notch {
+      position: absolute;
+      right: 34px;
+      bottom: -8px;
+      width: 15px;
+      height: 15px;
+      transform: rotate(45deg);
+      background: #04080d;
+      border-right: 1.5px solid rgba(150, 205, 245, 0.45);
+      border-bottom: 1.5px solid rgba(150, 205, 245, 0.45);
+      box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .sheet-head {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 2px 4px 11px;
+      margin-bottom: 11px;
+      border-bottom: 1px solid rgba(150, 205, 245, 0.2);
+    }
+
+    .sheet-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 15px;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      color: #dff0ff;
+      text-shadow:
+        0 1px 0 rgba(0, 0, 0, 0.65),
+        0 0 10px rgba($sky, 0.3);
+
+      svg {
+        width: 17px;
+        height: 17px;
+        color: #9fdcff;
+        filter: drop-shadow(0 0 5px rgba($sky, 0.6));
+      }
+    }
+
+    .sheet-count {
+      padding: 4px 9px;
+      border-radius: 5px;
+      font-family: Consolas, Monaco, monospace;
+      font-size: 12.5px;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      color: #dff0ff;
+      background: rgba(150, 205, 245, 0.1);
+      border: 1px solid rgba(150, 205, 245, 0.32);
+      box-shadow:
+        inset 0 1px 0 rgba(210, 235, 255, 0.16),
+        0 0 10px rgba($sky, 0.15);
+      text-shadow:
+        0 1px 0 rgba(0, 0, 0, 0.6),
+        0 0 8px rgba($sky, 0.4);
+    }
+
+    .sheet-close {
+      margin-left: auto;
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      padding: 0;
+      border-radius: 7px;
+      cursor: pointer;
+      color: #9fdcff;
+      background: linear-gradient(180deg, #1f3a52 0%, #050b12 100%);
+      border: 1px solid rgba(150, 205, 245, 0.32);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.16),
+        inset 0 -2px 3px rgba(0, 0, 0, 0.5),
+        0 2px 4px rgba(0, 0, 0, 0.45);
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease,
+        box-shadow 0.25s ease;
+
+      svg {
+        width: 15px;
+        height: 15px;
+      }
+
+      &:hover {
+        color: #f0f9ff;
+        border-color: rgba(150, 205, 245, 0.65);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.2),
+          inset 0 -2px 3px rgba(0, 0, 0, 0.5),
+          0 4px 8px rgba(0, 0, 0, 0.5),
+          0 0 14px rgba($sky, 0.35);
+      }
+    }
+
+    .sheet-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 7px;
+      max-height: 302px;
+      overflow-y: auto;
+      padding-right: 2px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(150, 205, 245, 0.45) transparent;
+
+      &::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        border-radius: 3px;
+        background: rgba(150, 205, 245, 0.45);
+      }
+    }
+
+    .contact-channel {
+      --brand: 255, 255, 255;
+
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      min-width: 0;
+      padding: 8px 10px;
+      border-radius: 10px;
+      overflow: hidden;
+      font: inherit;
+      text-align: left;
+      text-decoration: none;
+      cursor: pointer;
+      appearance: none;
+      border: 1px solid transparent;
+      background:
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.13) 0%,
+            rgba(255, 255, 255, 0.02) 42%,
+            transparent 68%
+          )
+          padding-box,
+        radial-gradient(
+            120% 130% at 0% 0%,
+            rgba(var(--brand), 0.2) 0%,
+            transparent 58%
+          )
+          padding-box,
+        linear-gradient(165deg, #182634 0%, #0e1822 56%, #060b10 100%)
+          padding-box,
+        linear-gradient(
+            150deg,
+            rgba(214, 238, 255, 0.62) 0%,
+            rgba(var(--brand), 0.6) 32%,
+            #3e6386 70%,
+            #142433 100%
+          )
+          border-box;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.14),
+        inset 0 -3px 6px rgba(0, 0, 0, 0.55),
+        0 3px 0 rgba(3, 7, 11, 0.92),
+        0 6px 10px rgba(0, 0, 0, 0.42);
+      transition:
+        filter 0.22s ease,
+        box-shadow 0.22s ease;
+
+      // 掠过整枚渠道铭牌的柔光
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background: linear-gradient(
+          110deg,
+          transparent 38%,
+          rgba(255, 255, 255, 0.14) 48%,
+          transparent 58%
+        );
+        transform: translateX(-130%);
+        transition: transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1);
+        pointer-events: none;
+      }
+
+      // 钢银镜头环 + 深色玻璃芯
+      .channel-orb {
+        position: relative;
+        z-index: 1;
+        flex: 0 0 auto;
+        display: grid;
+        place-items: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 11px;
+        background:
+          repeating-conic-gradient(
+            from 0deg,
+            rgba(220, 240, 255, 0.5) 0 2deg,
+            rgba(28, 48, 64, 0.6) 2deg 5deg
+          ),
+          conic-gradient(
+            from 20deg,
+            #eaf7ff 0deg,
+            rgba(var(--brand), 0.95) 72deg,
+            #3e6386 158deg,
+            rgba(var(--brand), 0.8) 248deg,
+            #eaf7ff 360deg
+          );
+        border: 1px solid rgba(220, 240, 255, 0.6);
+        box-shadow:
+          inset 0 1px 2px rgba(255, 255, 255, 0.3),
+          inset 0 -2px 4px rgba(0, 0, 0, 0.55),
+          0 3px 6px rgba(0, 0, 0, 0.5),
+          0 0 12px rgba(var(--brand), 0.3);
+        transition: box-shadow 0.25s ease;
+
+        &::before {
+          content: '';
+          position: absolute;
+          inset: 4px;
+          border-radius: 8px;
+          background: radial-gradient(
+            circle at 38% 30%,
+            #22384b 0%,
+            #060b10 72%
+          );
+          box-shadow:
+            inset 0 2px 4px rgba(0, 0, 0, 0.9),
+            0 0 0 1px rgba(0, 0, 0, 0.6),
+            0 0 10px rgba(var(--brand), 0.34);
+        }
+      }
+
+      .channel-svg {
+        position: relative;
+        z-index: 1;
+        width: 22px;
+        height: 22px;
+        color: rgb(var(--brand));
+        filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.36));
+        transition:
+          transform 0.25s ease,
+          filter 0.25s ease;
+      }
+
+      .channel-mono {
+        position: relative;
+        z-index: 1;
+        font-family: Consolas, Monaco, monospace;
+        font-size: 13.5px;
+        font-weight: 900;
+        line-height: 1;
+        letter-spacing: -0.03em;
+        color: rgb(var(--brand));
+        text-shadow: 0 0 8px rgba(var(--brand), 0.65);
+      }
+
+      .channel-meta {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        min-width: 0;
+      }
+
+      .channel-name {
+        min-width: 0;
+        overflow: hidden;
+        font-size: 14px;
+        font-weight: 900;
+        letter-spacing: 0.01em;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        color: #fffaf0;
+        text-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
+      }
+
+      // 账号文字：暗底上用亮暖色，保证可读
+      .channel-handle {
+        min-width: 0;
+        overflow: hidden;
+        font-family: Consolas, Monaco, monospace;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0;
+        line-height: 1.1;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        color: rgba(206, 230, 250, 0.92);
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.7);
+      }
+
+      &:hover {
+        filter: brightness(1.05);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.18),
+          inset 0 -3px 6px rgba(0, 0, 0, 0.5),
+          0 3px 0 rgba(3, 7, 11, 0.92),
+          0 6px 10px rgba(0, 0, 0, 0.42),
+          0 0 18px rgba(var(--brand), 0.42);
+
+        &::before {
+          transform: translateX(130%);
+        }
+
+        .channel-orb {
+          box-shadow:
+            inset 0 1px 2px rgba(255, 255, 255, 0.34),
+            inset 0 -2px 4px rgba(0, 0, 0, 0.5),
+            0 3px 6px rgba(0, 0, 0, 0.45),
+            0 0 18px rgba(var(--brand), 0.65);
+
+          &::before {
+            box-shadow:
+              inset 0 2px 4px rgba(0, 0, 0, 0.85),
+              0 0 0 1px rgba(0, 0, 0, 0.55),
+              0 0 14px rgba(var(--brand), 0.55);
+          }
+        }
+
+        .channel-svg {
+          transform: scale(1.09);
+          filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.55));
+        }
+
+        .channel-name {
+          color: #fff;
+        }
+
+        .channel-handle {
+          color: #e6f4ff;
+        }
+      }
+
+      &:focus-visible {
+        outline: none;
+        box-shadow:
+          0 0 0 2px rgba(var(--brand), 0.6),
+          0 0 16px rgba(var(--brand), 0.45);
+      }
+    }
+  }
+
+  .contact-scrim {
+    position: absolute;
+    inset: 0;
+    z-index: 8;
+    border-radius: 13px;
+    background: rgba(4, 8, 14, 0.6);
+    backdrop-filter: blur(2px);
+    animation: scrimFade 0.2s ease;
+  }
+}

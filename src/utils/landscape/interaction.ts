@@ -1,22 +1,38 @@
-import type { InteractionItem } from '@/typesOfPages/landscape/common'
-import type { GlobalPhotographer, GlobalPhotographerWork } from '@/typesOfPages/landscape/data'
+import type { InteractionItem } from '@/typesOfPages/landscape/common';
+import type { GlobalPhotographerWork } from '@/typesOfPages/landscape/data';
 import {
   IMAGE_DEFAULTS,
   VIDEO_DEFAULTS,
   GUIDE_DEFAULTS,
   DATE_DEFAULTS,
+} from '@/constants/landscape/defaults';
 
-} from '@/constants/landscape/defaults'
+export interface WorkInteractionPhotographer {
+  name: string;
+  location: string;
+  rating: number;
+}
 
 export function convertWorkToInteractionItem(
-  work: GlobalPhotographerWork & { type?: string; excerpt?: string; duration?: string },
-  photographer: GlobalPhotographer,
-  getCounts: (id: string) => { likes: number; views: number; loves: number; favorites: number; shares: number },
+  work: GlobalPhotographerWork & {
+    type?: string;
+    excerpt?: string;
+    duration?: string;
+  },
+  photographer: WorkInteractionPhotographer,
+  getCounts: (id: string) => {
+    likes: number;
+    views: number;
+    loves: number;
+    favorites: number;
+    shares: number;
+  },
   idPrefix = '',
 ): InteractionItem {
-  const type = work.type === 'photo' ? 'image' : work.type === 'video' ? 'video' : 'guide'
-  const itemId = idPrefix ? `${idPrefix}${work.id}` : (work.id || '')
-  const c = getCounts(itemId)
+  const type =
+    work.type === 'photo' ? 'image' : work.type === 'video' ? 'video' : 'guide';
+  const itemId = idPrefix ? `${idPrefix}${work.id}` : work.id || '';
+  const c = getCounts(itemId);
 
   const baseItem: InteractionItem = {
     id: itemId,
@@ -34,10 +50,13 @@ export function convertWorkToInteractionItem(
     loves: c.loves,
     favorites: c.favorites,
     shares: c.shares,
-    duration: work.duration ? parseInt(work.duration.split(':')[0]) * 60 + parseInt(work.duration.split(':')[1]) : null,
+    duration: work.duration
+      ? parseInt(work.duration.split(':')[0]) * 60 +
+        parseInt(work.duration.split(':')[1])
+      : null,
     rating: photographer.rating,
     date: DATE_DEFAULTS.fallback,
-  }
+  };
 
   if (type === 'guide') {
     return {
@@ -67,23 +86,42 @@ export function convertWorkToInteractionItem(
       altitude: GUIDE_DEFAULTS.altitude,
       temperature: GUIDE_DEFAULTS.temperature,
       tips: GUIDE_DEFAULTS.tips,
-    }
+    };
   }
 
   return {
     ...baseItem,
     icon: type,
     quality: VIDEO_DEFAULTS.resolution,
-  }
+  };
 }
 
 export function convertSlideToInteractionItem(
-  slide: { id: string; title: string; image: string; location?: string; category?: string; mediaType?: string; icon?: string; quality?: string; duration?: number | null; author?: string; authorId?: string; authorAvatar?: string },
-  getCounts: (id: string) => { likes: number; views: number; loves: number; favorites: number; shares: number },
+  slide: {
+    id: string;
+    title: string;
+    image: string;
+    location?: string;
+    category?: string;
+    mediaType?: string;
+    icon?: string;
+    quality?: string;
+    duration?: number | null;
+    author?: string;
+    authorId?: string;
+    authorAvatar?: string;
+  },
+  getCounts: (id: string) => {
+    likes: number;
+    views: number;
+    loves: number;
+    favorites: number;
+    shares: number;
+  },
   idPrefix = '',
 ): InteractionItem {
-  const itemId = idPrefix ? `${idPrefix}${slide.id}` : String(slide.id)
-  const c = getCounts(itemId)
+  const itemId = idPrefix ? `${idPrefix}${slide.id}` : String(slide.id);
+  const c = getCounts(itemId);
   return {
     id: itemId,
     type: slide.mediaType === 'video' ? 'video' : 'image',
@@ -102,7 +140,7 @@ export function convertSlideToInteractionItem(
     author: slide.author,
     authorId: slide.authorId,
     authorAvatar: slide.authorAvatar,
-  }
+  };
 }
 
 export function createSimpleInteractionItem(
@@ -129,5 +167,5 @@ export function createSimpleInteractionItem(
     author: options.author || '',
     authorId: options.authorId,
     authorAvatar: options.authorAvatar,
-  }
+  };
 }

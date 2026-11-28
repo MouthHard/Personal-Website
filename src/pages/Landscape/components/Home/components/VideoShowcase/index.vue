@@ -1,47 +1,36 @@
 <template>
   <section v-if="videos.length > 0" class="video-showcase">
     <div class="section-header">
-      <div class="header-plate">
-        <span class="plate-glow" aria-hidden="true"></span>
-        <span class="plate-sheen-clip" aria-hidden="true">
-          <span class="plate-sheen"></span>
-        </span>
-        <span class="plate-corner tl" aria-hidden="true"></span>
-        <span class="plate-corner tr" aria-hidden="true"></span>
-        <span class="plate-corner bl" aria-hidden="true"></span>
-        <span class="plate-corner br" aria-hidden="true"></span>
-
-        <div class="header-left">
-          <span class="title-badge" aria-hidden="true">
-            <VideoIcon />
-          </span>
-          <div class="header-text">
-            <span class="title-label">CINEMA</span>
-            <h2 class="section-title">流光掠影</h2>
-            <p class="section-subtitle">用镜头记录世界</p>
-          </div>
-        </div>
-
-        <span class="plate-chapter" aria-hidden="true">CHAPTER · 06</span>
-
-        <button class="more-btn">
-          <span class="clapper">
-            <span class="clapper-top">
-              <span class="top-stripes"></span>
-            </span>
-            <span class="clapper-hinge clapper-hinge-l"></span>
-            <span class="clapper-hinge clapper-hinge-r"></span>
-            <span class="clapper-body">
-              <span class="body-glow"></span>
-              <span class="body-content">
-                <span class="more-text">更多</span>
-                <ArrowRightIcon :stroke-width="2.2" class="more-arrow" />
+      <SectionHeaderPlate
+        tone="red"
+        label="CINEMA"
+        title="流光掠影"
+        subtitle="用镜头记录世界"
+        chapter="CHAPTER · 06"
+      >
+        <template #icon>
+          <VideoIcon />
+        </template>
+        <template #action>
+          <button class="more-btn">
+            <span class="clapper">
+              <span class="clapper-top">
+                <span class="top-stripes"></span>
               </span>
-              <span class="body-engrave"></span>
+              <span class="clapper-hinge clapper-hinge-l"></span>
+              <span class="clapper-hinge clapper-hinge-r"></span>
+              <span class="clapper-body">
+                <span class="body-glow"></span>
+                <span class="body-content">
+                  <span class="more-text">更多</span>
+                  <ArrowRightIcon :stroke-width="2.2" class="more-arrow" />
+                </span>
+                <span class="body-engrave"></span>
+              </span>
             </span>
-          </span>
-        </button>
-      </div>
+          </button>
+        </template>
+      </SectionHeaderPlate>
     </div>
 
     <div class="coverflow-stage">
@@ -111,25 +100,13 @@
   import VideoFrame from './components/VideoFrame/index.vue';
   import VideoModal from './components/VideoModal/index.vue';
   import ShareMenu from '../../../common/ShareMenu/index.vue';
+  import SectionHeaderPlate from '../common/SectionHeaderPlate/index.vue';
+  import { useShareMenu } from '../../composables/useShareMenu';
 
   const interactionStore = useInteractionStore();
   const showVideoModal = ref(false);
   const selectedVideo = ref<GlobalVideo | null>(null);
-  const showShareMenu = ref(false);
-  const currentShareVideo = ref<GlobalVideo | null>(null);
-  const shareWork = computed(() => {
-    const v = currentShareVideo.value;
-    if (!v) return {};
-    return {
-      type: 'video' as const,
-      title: v.title,
-      cover: v.poster,
-      author: v.author,
-      location: v.location,
-      category: v.category,
-      duration: v.duration,
-    };
-  });
+  const { visible: showShareMenu, shareWork, openShareMenu } = useShareMenu();
   const isFollowing = computed(() => {
     const authorId = selectedVideo.value?.authorId;
     return authorId ? interactionStore.isFollowing(authorId) : false;
@@ -242,8 +219,15 @@
 
   const toggleVideoShare = (video: GlobalVideo | null) => {
     if (!video) return;
-    currentShareVideo.value = video;
-    showShareMenu.value = true;
+    openShareMenu({
+      type: 'video',
+      title: video.title,
+      cover: video.poster,
+      author: video.author,
+      location: video.location,
+      category: video.category,
+      duration: video.duration,
+    });
   };
 
   const slideStyles = computed(() => {
@@ -297,7 +281,6 @@
   const openVideoModal = (video: GlobalVideo) => {
     selectedVideo.value = video;
     showVideoModal.value = true;
-    document.body.style.overflow = 'hidden';
     nextTick(() => {
       if (videoModalRef.value?.videoPlayer) {
         videoModalRef.value.videoPlayer.play();
@@ -307,7 +290,6 @@
 
   const closeVideoModal = () => {
     showVideoModal.value = false;
-    document.body.style.overflow = '';
     if (videoModalRef.value?.videoPlayer) {
       videoModalRef.value.videoPlayer.pause();
     }

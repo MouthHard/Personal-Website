@@ -1,51 +1,40 @@
 <template>
   <section v-if="destinations.length > 0" class="popular-destinations">
     <div class="section-header">
-      <div class="header-plate">
-        <span class="plate-glow" aria-hidden="true"></span>
-        <span class="plate-sheen-clip" aria-hidden="true">
-          <span class="plate-sheen"></span>
-        </span>
-        <span class="plate-corner tl" aria-hidden="true"></span>
-        <span class="plate-corner tr" aria-hidden="true"></span>
-        <span class="plate-corner bl" aria-hidden="true"></span>
-        <span class="plate-corner br" aria-hidden="true"></span>
-
-        <div class="header-left">
-          <span class="title-badge" aria-hidden="true">
-            <CompassIcon />
-          </span>
-          <div class="header-text">
-            <span class="title-label">DESTINATIONS</span>
-            <h2 class="section-title">梦境之地</h2>
-            <p class="section-subtitle">探索世界最令人向往的旅行目的地</p>
-          </div>
-        </div>
-
-        <span class="plate-chapter" aria-hidden="true">CHAPTER · 03</span>
-
-        <button
-          class="more-btn"
-          :class="{ refreshing }"
-          aria-label="刷新目的地"
-          @click="handleMore"
-        >
-          <span class="ticket-stub" aria-hidden="true">
-            <span class="stamp-teeth"></span>
-            <span class="stamp-face"></span>
-            <span class="stamp-glyph"></span>
-          </span>
-          <span class="ticket-tear" aria-hidden="true"></span>
-          <span class="more-text">
-            <span class="more-label">刷新</span>
-            <span class="more-sub">下一站</span>
-          </span>
-          <span class="ticket-route" aria-hidden="true">
-            <span class="route-line"></span>
-            <span class="route-plane"></span>
-          </span>
-        </button>
-      </div>
+      <SectionHeaderPlate
+        tone="cyan"
+        label="DESTINATIONS"
+        title="梦境之地"
+        subtitle="探索世界最令人向往的旅行目的地"
+        chapter="CHAPTER · 03"
+      >
+        <template #icon>
+          <CompassIcon />
+        </template>
+        <template #action>
+          <button
+            class="more-btn"
+            :class="{ refreshing }"
+            aria-label="刷新目的地"
+            @click="handleMore"
+          >
+            <span class="ticket-stub" aria-hidden="true">
+              <span class="stamp-teeth"></span>
+              <span class="stamp-face"></span>
+              <span class="stamp-glyph"></span>
+            </span>
+            <span class="ticket-tear" aria-hidden="true"></span>
+            <span class="more-text">
+              <span class="more-label">刷新</span>
+              <span class="more-sub">下一站</span>
+            </span>
+            <span class="ticket-route" aria-hidden="true">
+              <span class="route-line"></span>
+              <span class="route-plane"></span>
+            </span>
+          </button>
+        </template>
+      </SectionHeaderPlate>
     </div>
 
     <div ref="rollRootRef" class="scroll-gallery" :class="{ refreshing }">
@@ -159,6 +148,7 @@
   import { ref, computed, watch, onMounted, onUnmounted } from 'vue';
   import { useRouter } from 'vue-router';
 
+  import SectionHeaderPlate from '../common/SectionHeaderPlate/index.vue';
   import CompassIcon from '@/pages/Landscape/icons/common/CompassIcon.vue';
   import EyeIcon from '@/pages/Landscape/icons/common/EyeIcon.vue';
   import LocationIcon from '@/pages/Landscape/icons/common/LocationIcon.vue';

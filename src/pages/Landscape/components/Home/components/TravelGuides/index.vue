@@ -1,50 +1,38 @@
 <template>
   <section v-if="guides.length > 0" class="travel-guides">
     <div class="section-header">
-      <div class="header-plate">
-        <span class="plate-glow" aria-hidden="true"></span>
-        <span class="plate-sheen-clip" aria-hidden="true">
-          <span class="plate-sheen"></span>
-        </span>
-        <span class="plate-corner tl" aria-hidden="true"></span>
-        <span class="plate-corner tr" aria-hidden="true"></span>
-        <span class="plate-corner bl" aria-hidden="true"></span>
-        <span class="plate-corner br" aria-hidden="true"></span>
-
-        <div class="header-left">
-          <span class="title-badge" aria-hidden="true">
-            <BookIcon />
-          </span>
-          <div class="header-text">
-            <span class="title-label">旅途档案</span>
-            <h2 class="section-title">行者手记</h2>
-            <p class="section-subtitle">发现世界的每一个角落</p>
-          </div>
-        </div>
-
-        <span class="plate-chapter" aria-hidden="true">CHAPTER · 04</span>
-
-        <span class="plate-rule" aria-hidden="true"></span>
-
-        <button
-          class="more-btn"
-          aria-label="查看更多指南攻略"
-          @click="handleMore"
-        >
-          <span class="compass-mark" aria-hidden="true">
-            <span class="compass-ring"></span>
-            <span class="compass-ticks"></span>
-            <span class="compass-face"></span>
-            <span class="compass-needle"></span>
-            <span class="compass-core"></span>
-          </span>
-          <span class="more-text">
-            <span class="more-label">更多</span>
-            <span class="more-sub">攻略</span>
-          </span>
-          <span class="more-arrow" aria-hidden="true"></span>
-        </button>
-      </div>
+      <SectionHeaderPlate
+        tone="violet"
+        label="旅途档案"
+        title="行者手记"
+        subtitle="发现世界的每一个角落"
+        chapter="CHAPTER · 04"
+        rule
+      >
+        <template #icon>
+          <BookIcon />
+        </template>
+        <template #action>
+          <button
+            class="more-btn"
+            aria-label="查看更多指南攻略"
+            @click="handleMore"
+          >
+            <span class="compass-mark" aria-hidden="true">
+              <span class="compass-ring"></span>
+              <span class="compass-ticks"></span>
+              <span class="compass-face"></span>
+              <span class="compass-needle"></span>
+              <span class="compass-core"></span>
+            </span>
+            <span class="more-text">
+              <span class="more-label">更多</span>
+              <span class="more-sub">攻略</span>
+            </span>
+            <span class="more-arrow" aria-hidden="true"></span>
+          </button>
+        </template>
+      </SectionHeaderPlate>
     </div>
 
     <!-- 翻牌屏：机场出发信息板 -->
@@ -382,12 +370,15 @@
   import { ref, onMounted, onUnmounted, computed, watch, nextTick } from 'vue';
   import { useRouter } from 'vue-router';
   import { showMessage } from '@/utils/landscape';
+  import { formatNumberZh as fmtCount } from '@/utils/landscape/format';
   import EyeIcon from '@/pages/Landscape/icons/common/EyeIcon.vue';
   import ThumbUpIcon from '@/pages/Landscape/icons/common/ThumbUpIcon.vue';
   import HeartIcon from '@/pages/Landscape/icons/common/HeartIcon.vue';
   import BookmarkIcon from '@/pages/Landscape/icons/common/BookmarkIcon.vue';
   import ShareIcon from '@/pages/Landscape/icons/common/ShareIcon.vue';
   import ShareMenu from '../../../common/ShareMenu/index.vue';
+  import SectionHeaderPlate from '../common/SectionHeaderPlate/index.vue';
+  import { useShareMenu } from '../../composables/useShareMenu';
   import ChevronRightIcon from '@/pages/Landscape/icons/common/ChevronRightIcon.vue';
   import BookIcon from '@/pages/Landscape/icons/common/BookIcon.vue';
 
@@ -416,24 +407,7 @@
   const page = ref(0);
   const station = ref(0);
 
-  const showShareMenu = ref(false);
-  const currentShareGuide = ref<GlobalGuide | null>(null);
-  const shareWork = computed(() => {
-    const g = currentShareGuide.value;
-    if (!g) return {};
-    return {
-      type: 'guide' as const,
-      title: g.title,
-      description: g.excerpt,
-      cover: g.cover,
-      author: g.author,
-      date: g.date,
-      location: g.location,
-      category: g.typeName || g.category,
-      rating: g.rating,
-      readTime: g.readTime,
-    };
-  });
+  const { visible: showShareMenu, shareWork, openShareMenu } = useShareMenu();
 
   const guides = computed(() => dataStore.getAllGuides());
   const pageCount = computed(() =>
@@ -503,12 +477,6 @@
     }
     return result;
   });
-
-  /** 数字按中文习惯写：一万以上用「万」，其余直接写阿拉伯数字，避免 2.8k 这种洋缩写 */
-  const fmtCount = (value: number) =>
-    value >= 10000
-      ? `${(value / 10000).toFixed(1).replace(/\.0$/, '')}万`
-      : String(Math.round(value));
 
   /** 目的地拆成单字，一个字一格翻牌 */
   const destChars = computed(() =>
@@ -739,7 +707,7 @@
       date: guide.date || DATE_DEFAULTS.fallback,
       isEditorPick: guide.id === '1',
       season: guide.season || GUIDE_DEFAULTS.season,
-      duration: guide.duration || '7天',
+      duration: null,
       transport: guide.transport || GUIDE_DEFAULTS.transport,
       budget: guide.budget || GUIDE_DEFAULTS.budget,
       audience: guide.audience || '摄影爱好者、户外探险者',
@@ -769,27 +737,24 @@
         { name: '减光镜', required: false },
         { name: '备用电池', required: true },
       ],
-      safety: guide.safety || [
-        {
-          type: 'warning' as const,
-          title: '天气预警',
-          content: '关注当地天气预报，避免恶劣天气出行',
-        },
-        {
-          type: 'info' as const,
-          title: '装备建议',
-          content: '携带保暖衣物、防滑鞋、急救包',
-        },
-      ],
+      safety: guide.safety?.length
+        ? guide.safety.map((text) => ({
+            type: 'info' as const,
+            title: '安全提示',
+            content: text,
+          }))
+        : GUIDE_DEFAULTS.safety,
       altitude: guide.altitude || GUIDE_DEFAULTS.altitude,
       temperature: guide.temperature || GUIDE_DEFAULTS.temperature,
-      tips: guide.tips || [
-        '建议提前至少3个月规划行程',
-        '热门景点需要提前预约门票',
-        '尊重当地文化和习俗',
-        '保护环境，不要留下垃圾',
-      ],
-    } as any;
+      tips: guide.tips?.length
+        ? guide.tips.map((tip) => tip.content)
+        : [
+            '建议提前至少3个月规划行程',
+            '热门景点需要提前预约门票',
+            '尊重当地文化和习俗',
+            '保护环境，不要留下垃圾',
+          ],
+    };
   };
 
   const isFavorited = (id: string) =>
@@ -828,8 +793,18 @@
   };
 
   const handleShare = (guide: GlobalGuide) => {
-    currentShareGuide.value = guide;
-    showShareMenu.value = true;
+    openShareMenu({
+      type: 'guide',
+      title: guide.title,
+      description: guide.excerpt,
+      cover: guide.cover,
+      author: guide.author,
+      date: guide.date,
+      location: guide.location,
+      category: guide.typeName || guide.category,
+      rating: guide.rating,
+      readTime: guide.readTime,
+    });
   };
 
   const handleCardClick = (guide: GlobalGuide) => {
@@ -866,7 +841,6 @@
   onUnmounted(() => {
     if (routeRaf) cancelAnimationFrame(routeRaf);
     window.removeEventListener('resize', handleRouteResize);
-    currentShareGuide.value = null;
   });
 
   const getDisplayLoves = (guide: GlobalGuide) =>

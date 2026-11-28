@@ -1,0 +1,45 @@
+// 本模块共享变量与 mixin（由 index.scss 拆分而来）
+// 黄铜拉丝面 + 螺钉 + 顶沿刻线：游标托座与移动端选中铜牌共用
+@mixin brass-plate {
+  background:
+    radial-gradient(
+      circle at 8px 50%,
+      rgba(255, 253, 236, 0.85) 0 0.8px,
+      rgba(90, 60, 16, 0.55) 1.4px,
+      transparent 2.6px
+    ),
+    radial-gradient(
+      circle at calc(100% - 8px) 50%,
+      rgba(255, 253, 236, 0.85) 0 0.8px,
+      rgba(90, 60, 16, 0.55) 1.4px,
+      transparent 2.6px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 250, 224, 0.6) 0 1.5px,
+      transparent 1.5px calc(100% - 1.5px),
+      rgba(255, 250, 224, 0.6) calc(100% - 1.5px)
+    ),
+    repeating-linear-gradient(
+        90deg,
+        rgba(76, 50, 13, 0.26) 0 1px,
+        transparent 1px 7px
+      )
+      5px 2px / calc(100% - 10px) 3px no-repeat,
+    linear-gradient(
+      180deg,
+      #fff8dd 0%,
+      #f5d896 16%,
+      #dcae56 44%,
+      #b0832f 70%,
+      #855a1a 100%
+    );
+  border: 1px solid rgba(255, 246, 214, 0.62);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.85),
+    inset 0 -2px 3px rgba(76, 50, 13, 0.6),
+    inset 0 0 0 1px rgba(122, 83, 24, 0.32),
+    0 3px 0 #4b320f,
+    0 6px 12px rgba(0, 0, 0, 0.55),
+    0 0 18px rgba(34, 211, 238, 0.16);
+}

@@ -1,6 +1,16 @@
-import type { SocialLink, ContactInfo } from './common'
+import type { SocialLink, ContactInfo, ContactChannel } from './common';
 
-type WorkType = 'photo' | 'video' | 'guide' | 'panorama' | 'timelapse' | 'aerial' | 'longexp' | 'startrail' | 'hdr' | 'macro';
+type WorkType =
+  | 'photo'
+  | 'video'
+  | 'guide'
+  | 'panorama'
+  | 'timelapse'
+  | 'aerial'
+  | 'longexp'
+  | 'startrail'
+  | 'hdr'
+  | 'macro';
 
 interface WorkPreview {
   id?: string;
@@ -16,47 +26,47 @@ interface WorkPreview {
 }
 
 export interface Photographer {
-  id: string
-  name: string
-  avatar: string
-  title: string
-  bio?: string
-  location?: string
-  works: number | string
-  followers: number | string
-  views?: string
-  likes?: string
-  tags?: string[]
-  verified?: boolean
-  isFollowing?: boolean
-  recentWorks?: string[]
-  socials?: SocialLink[]
-  contact?: ContactInfo
-  experience?: string
-  equipment?: string | string[]
-  rating?: number
-  onlineStatus?: 'online' | 'offline'
-  joinDate?: string
-  awards?: string[]
-  category?: string
-  banner?: string
-  website?: string
+  id: string;
+  name: string;
+  avatar: string;
+  title: string;
+  bio?: string;
+  location?: string;
+  works: number | string;
+  followers: number | string;
+  views?: string;
+  likes?: string;
+  tags?: string[];
+  verified?: boolean;
+  isFollowing?: boolean;
+  recentWorks?: string[];
+  socials?: SocialLink[];
+  contact?: ContactInfo;
+  contacts?: ContactChannel[];
+  experience?: string;
+  equipment?: string | string[];
+  rating?: number;
+  onlineStatus?: 'online' | 'offline';
+  joinDate?: string;
+  awards?: string[];
+  category?: string;
+  banner?: string;
+  website?: string;
   socialLinks?: {
-    instagram?: string
-    youtube?: string
-    twitter?: string
-    weibo?: string
-  }
-  createdAt?: string
-  updatedAt?: string
-  isFavorite?: boolean
-  isOnline?: boolean
-  isPro?: boolean
-  lastActive?: string
-  workTypes?: (WorkType | string)[]
-  worksPreview?: WorkPreview[] | string[]
-  worksCount?: string
-  bookmarks?: string
-  joinTime?: string
+    instagram?: string;
+    youtube?: string;
+    twitter?: string;
+    weibo?: string;
+  };
+  createdAt?: string;
+  updatedAt?: string;
+  isFavorite?: boolean;
+  isOnline?: boolean;
+  isPro?: boolean;
+  lastActive?: string;
+  workTypes?: (WorkType | string)[];
+  worksPreview?: WorkPreview[] | string[];
+  worksCount?: string;
+  bookmarks?: string;
+  joinTime?: string;
 }
-

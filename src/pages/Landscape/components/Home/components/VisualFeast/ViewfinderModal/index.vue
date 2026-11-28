@@ -1,149 +1,21 @@
 <template>
   <Teleport to="body">
-    <div v-if="visible" class="vf-modal" @click="emit('close')">
+    <div
+      v-if="visible"
+      ref="modalRoot"
+      class="vf-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-label="图片详情"
+      tabindex="-1"
+      @click="emit('close')"
+    >
       <!-- 深蓝皮面封皮装饰边 -->
       <div class="passport-cover" @click.stop>
         <!-- 烫金头部（国徽+标题+编号 横排） -->
         <div class="cover-header">
           <div class="cover-emblem">
-            <svg viewBox="0 0 60 60" class="emblem-svg">
-              <!-- 外圈双线 -->
-              <circle
-                cx="30"
-                cy="30"
-                r="28"
-                fill="none"
-                stroke="#d4a84b"
-                stroke-width="1.3"
-              />
-              <circle
-                cx="30"
-                cy="30"
-                r="25"
-                fill="none"
-                stroke="#d4a84b"
-                stroke-width="0.5"
-                opacity="0.7"
-              />
-              <!-- 左麦穗秆 -->
-              <path
-                d="M30 48 Q23 40 18 24"
-                fill="none"
-                stroke="#d4a84b"
-                stroke-width="0.8"
-                opacity="0.85"
-              />
-              <!-- 左麦粒 -->
-              <g fill="#d4a84b" opacity="0.85">
-                <ellipse
-                  cx="25"
-                  cy="42"
-                  rx="1.1"
-                  ry="2.2"
-                  transform="rotate(-25 25 42)"
-                />
-                <ellipse
-                  cx="22"
-                  cy="36"
-                  rx="1.1"
-                  ry="2.2"
-                  transform="rotate(-35 22 36)"
-                />
-                <ellipse
-                  cx="19"
-                  cy="30"
-                  rx="1.1"
-                  ry="2.2"
-                  transform="rotate(-45 19 30)"
-                />
-                <ellipse
-                  cx="18"
-                  cy="25"
-                  rx="1.1"
-                  ry="2.2"
-                  transform="rotate(-55 18 25)"
-                />
-              </g>
-              <!-- 左麦芒 -->
-              <g stroke="#d4a84b" stroke-width="0.4" opacity="0.5" fill="none">
-                <path d="M25 42 L23 38" />
-                <path d="M22 36 L20 32" />
-                <path d="M19 30 L17 26" />
-              </g>
-              <!-- 右麦穗秆 -->
-              <path
-                d="M30 48 Q37 40 42 24"
-                fill="none"
-                stroke="#d4a84b"
-                stroke-width="0.8"
-                opacity="0.85"
-              />
-              <!-- 右麦粒 -->
-              <g fill="#d4a84b" opacity="0.85">
-                <ellipse
-                  cx="35"
-                  cy="42"
-                  rx="1.1"
-                  ry="2.2"
-                  transform="rotate(25 35 42)"
-                />
-                <ellipse
-                  cx="38"
-                  cy="36"
-                  rx="1.1"
-                  ry="2.2"
-                  transform="rotate(35 38 36)"
-                />
-                <ellipse
-                  cx="41"
-                  cy="30"
-                  rx="1.1"
-                  ry="2.2"
-                  transform="rotate(45 41 30)"
-                />
-                <ellipse
-                  cx="42"
-                  cy="25"
-                  rx="1.1"
-                  ry="2.2"
-                  transform="rotate(55 42 25)"
-                />
-              </g>
-              <!-- 右麦芒 -->
-              <g stroke="#d4a84b" stroke-width="0.4" opacity="0.5" fill="none">
-                <path d="M35 42 L37 38" />
-                <path d="M38 36 L40 32" />
-                <path d="M41 30 L43 26" />
-              </g>
-              <!-- 中心五角星 -->
-              <path
-                d="M30 14 L32.2 21 L39.5 21 L33.6 25.5 L35.8 32.5 L30 28 L24.2 32.5 L26.4 25.5 L20.5 21 L27.8 21 Z"
-                fill="#d4a84b"
-                opacity="0.95"
-              />
-              <!-- 底部绶带 -->
-              <path
-                d="M16 47 Q30 53 44 47 L44 49 Q30 55 16 49 Z"
-                fill="#d4a84b"
-                opacity="0.25"
-              />
-              <path
-                d="M16 47 Q30 53 44 47"
-                fill="none"
-                stroke="#d4a84b"
-                stroke-width="0.8"
-                opacity="0.7"
-              />
-              <path
-                d="M16 49 Q30 55 44 49"
-                fill="none"
-                stroke="#d4a84b"
-                stroke-width="0.6"
-                opacity="0.5"
-              />
-              <!-- 中心圆点 -->
-              <circle cx="30" cy="30" r="1.8" fill="#d4a84b" opacity="0.6" />
-            </svg>
+            <CoverEmblemIcon />
           </div>
           <div class="cover-title-en">PASSPORT</div>
           <div class="cover-title-zh">护&#12288;照</div>
@@ -187,139 +59,7 @@
                 </div>
 
                 <!-- 紫色钢印 SVG 圆形章（缺墨/双印/粗糙化） -->
-                <svg viewBox="0 0 100 100" class="visa-stamp">
-                  <defs>
-                    <filter
-                      id="StampRough"
-                      x="-6%"
-                      y="-6%"
-                      width="112%"
-                      height="112%"
-                    >
-                      <feTurbulence
-                        type="fractalNoise"
-                        baseFrequency="0.9"
-                        numOctaves="2"
-                        result="noise"
-                      />
-                      <feDisplacementMap
-                        in="SourceGraphic"
-                        in2="noise"
-                        scale="2"
-                      />
-                    </filter>
-                  </defs>
-                  <g filter="url(#StampRough)">
-                    <!-- 外圈主印（缺墨断续） -->
-                    <circle
-                      cx="50"
-                      cy="50"
-                      r="46"
-                      fill="none"
-                      stroke="#9b5fc8"
-                      stroke-width="2"
-                      opacity="0.88"
-                      stroke-dasharray="62 7 42 6 50 9 36 5"
-                    />
-                    <!-- 外圈副印（偏移双印） -->
-                    <circle
-                      cx="51.5"
-                      cy="49"
-                      r="46"
-                      fill="none"
-                      stroke="#9b5fc8"
-                      stroke-width="1.4"
-                      opacity="0.38"
-                      stroke-dasharray="50 12 45 8 40 6"
-                    />
-                    <!-- 内圈 -->
-                    <circle
-                      cx="50"
-                      cy="50"
-                      r="38"
-                      fill="none"
-                      stroke="#9b5fc8"
-                      stroke-width="1"
-                      opacity="0.72"
-                      stroke-dasharray="72 6 50 8 40 5"
-                    />
-                    <!-- 顶部弧线 -->
-                    <path
-                      d="M50 14 A36 36 0 0 1 86 50"
-                      fill="none"
-                      stroke="#9b5fc8"
-                      stroke-width="0.8"
-                      opacity="0.62"
-                      stroke-dasharray="22 4 16 3"
-                    />
-                    <!-- 中心星 -->
-                    <path
-                      d="M50 30 L52 34 L56 32 L53 36 L57 38 L52 37 L50 41 L48 37 L43 38 L47 36 L44 32 L48 34 Z"
-                      fill="#9b5fc8"
-                      opacity="0.8"
-                    />
-                    <!-- 文字主印 -->
-                    <text
-                      x="50"
-                      y="40"
-                      text-anchor="middle"
-                      font-size="11"
-                      font-weight="700"
-                      fill="#9b5fc8"
-                      opacity="0.92"
-                      letter-spacing="1"
-                    >
-                      VISA
-                    </text>
-                    <text
-                      x="50"
-                      y="54"
-                      text-anchor="middle"
-                      font-size="9"
-                      font-weight="700"
-                      fill="#9b5fc8"
-                      opacity="0.88"
-                      letter-spacing="0.5"
-                    >
-                      CHINA
-                    </text>
-                    <text
-                      x="50"
-                      y="68"
-                      text-anchor="middle"
-                      font-size="8"
-                      fill="#9b5fc8"
-                      opacity="0.78"
-                    >
-                      2026
-                    </text>
-                    <!-- 文字副印（偏移） -->
-                    <text
-                      x="51.5"
-                      y="41"
-                      text-anchor="middle"
-                      font-size="11"
-                      font-weight="700"
-                      fill="#9b5fc8"
-                      opacity="0.32"
-                      letter-spacing="1"
-                    >
-                      VISA
-                    </text>
-                    <text
-                      x="51.5"
-                      y="55"
-                      text-anchor="middle"
-                      font-size="9"
-                      font-weight="700"
-                      fill="#9b5fc8"
-                      opacity="0.28"
-                      letter-spacing="0.5"
-                    >
-                      CHINA
-                    </text>
-                  </g>
-                </svg>
+                <VisaStampIcon />
                 <!-- 矩形入境章 -->
                 <div class="entry-stamp">
                   <span class="es-port">PORT OF ENTRY</span>
@@ -439,79 +179,7 @@
                 <span class="iv-org">EXIT-ENTRY ADMIN</span>
               </div>
               <div class="iv-seal">
-                <svg viewBox="0 0 60 60" class="iv-seal-svg">
-                  <defs>
-                    <filter
-                      id="SealRough"
-                      x="-6%"
-                      y="-6%"
-                      width="112%"
-                      height="112%"
-                    >
-                      <feTurbulence
-                        type="fractalNoise"
-                        baseFrequency="0.85"
-                        numOctaves="2"
-                        result="noise"
-                      />
-                      <feDisplacementMap
-                        in="SourceGraphic"
-                        in2="noise"
-                        scale="1.2"
-                      />
-                    </filter>
-                  </defs>
-                  <g filter="url(#SealRough)">
-                    <circle
-                      cx="30"
-                      cy="30"
-                      r="26"
-                      fill="none"
-                      stroke="#a02828"
-                      stroke-width="1.6"
-                      opacity="0.45"
-                      stroke-dasharray="58 6 40 5 36 4"
-                    />
-                    <circle
-                      cx="30"
-                      cy="30"
-                      r="22"
-                      fill="none"
-                      stroke="#a02828"
-                      stroke-width="0.8"
-                      opacity="0.3"
-                      stroke-dasharray="50 5 38 4"
-                    />
-                    <path
-                      d="M30 15 L31.8 20 L36.5 19 L32.8 22.5 L34.8 27 L30 24.5 L25.2 27 L27.2 22.5 L23.5 19 L28.2 20 Z"
-                      fill="#a02828"
-                      opacity="0.4"
-                    />
-                    <text
-                      x="30"
-                      y="36"
-                      text-anchor="middle"
-                      font-size="7"
-                      font-weight="700"
-                      fill="#a02828"
-                      opacity="0.5"
-                      letter-spacing="0.8"
-                    >
-                      APPROVED
-                    </text>
-                    <text
-                      x="30"
-                      y="43"
-                      text-anchor="middle"
-                      font-size="6"
-                      fill="#a02828"
-                      opacity="0.38"
-                      letter-spacing="0.5"
-                    >
-                      签 发
-                    </text>
-                  </g>
-                </svg>
+                <IvSealIcon />
               </div>
             </div>
 
@@ -527,7 +195,12 @@
                   :key="`pr-${item.type}-${item.id}`"
                   class="pr-card"
                   :class="`pr-${item.type}`"
+                  role="button"
+                  tabindex="0"
+                  :aria-label="`查看${item.title}`"
                   @click="handleRecommendSelect(item)"
+                  @keydown.enter.prevent="handleRecommendSelect(item)"
+                  @keydown.space.prevent="handleRecommendSelect(item)"
                 >
                   <div class="pr-photo">
                     <LandscapeImage
@@ -652,6 +325,9 @@
 
 <script setup lang="ts">
   import { computed, ref } from 'vue';
+  import IvSealIcon from '@/pages/Landscape/icons/components/home/VisualFeast/ViewfinderModal/IvSealIcon.vue';
+  import VisaStampIcon from '@/pages/Landscape/icons/components/home/VisualFeast/ViewfinderModal/VisaStampIcon.vue';
+  import CoverEmblemIcon from '@/pages/Landscape/icons/components/home/VisualFeast/ViewfinderModal/CoverEmblemIcon.vue';
   import { useRouter } from 'vue-router';
   import ConfirmDialog from '@/pages/Landscape/components/common/ConfirmDialog/index.vue';
   import { formatNumber } from '@/utils/landscape/format';
@@ -663,6 +339,7 @@
   import type { GlobalImage } from '@/typesOfPages/landscape/data';
 
   import { useRelatedRecommend } from '@/composables/landscape/useRelatedRecommend';
+  import { useModalA11y } from '@/composables/landscape/useModalA11y';
   import ThumbUpIcon from '@/pages/Landscape/icons/common/ThumbUpIcon.vue';
   import HeartIcon from '@/pages/Landscape/icons/common/HeartIcon.vue';
   import BookmarkIcon from '@/pages/Landscape/icons/common/BookmarkIcon.vue';
@@ -704,6 +381,13 @@
 
   const interactionStore = useInteractionStore();
   const dataStore = useLandscapeDataStore();
+
+  const modalRoot = ref<HTMLElement | null>(null);
+
+  useModalA11y(() => props.visible, {
+    container: modalRoot,
+    onClose: () => emit('close'),
+  });
 
   const photographer = computed(() => {
     const authorId = props.image?.authorId;

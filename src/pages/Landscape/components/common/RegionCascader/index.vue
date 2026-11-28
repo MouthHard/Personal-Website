@@ -9,19 +9,7 @@
       <span class="rc-value" :class="{ 'is-placeholder': !labelText }">
         {{ labelText || placeholder }}
       </span>
-      <svg
-        class="rc-arrow"
-        viewBox="0 0 24 24"
-        width="16"
-        height="16"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path d="M6 9 L12 15 L18 9" />
-      </svg>
+      <ArrowDownIcon class="rc-arrow" />
       <span
         v-if="clearable && innerValue.length"
         class="rc-clear"
@@ -44,17 +32,7 @@
             @click="selectProvince(opt)"
           >
             <span>{{ opt.label }}</span>
-            <svg
-              v-if="opt.children?.length"
-              viewBox="0 0 24 24"
-              width="14"
-              height="14"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path d="M9 6 L15 12 L9 18" />
-            </svg>
+            <ArrowRightIcon v-if="opt.children?.length" />
           </div>
         </div>
         <div v-if="activeChildren.length" class="rc-col rc-col-city">
@@ -75,6 +53,8 @@
 
 <script setup lang="ts">
   import { computed, ref, watch } from 'vue';
+  import ArrowDownIcon from '@/pages/Landscape/icons/components/common/RegionCascader/ArrowDownIcon.vue';
+  import ArrowRightIcon from '@/pages/Landscape/icons/components/common/RegionCascader/ArrowRightIcon.vue';
 
   interface Option {
     value: string;

@@ -1,0 +1,1839 @@
+@use 'tokens' as *;
+
+.video-card {
+  position: relative;
+  container-type: inline-size;
+  padding: 15px;
+  border-radius: 22px;
+  background:
+    radial-gradient(
+        circle at 18% 22%,
+        rgba(255, 224, 178, 0.07) 0 0.6px,
+        transparent 1.4px
+      )
+      0 0 / 5px 5px,
+    radial-gradient(
+        circle at 72% 68%,
+        rgba(0, 0, 0, 0.18) 0 0.7px,
+        transparent 1.5px
+      )
+      0 0 / 7px 7px,
+    repeating-linear-gradient(
+      118deg,
+      rgba(255, 216, 165, 0.035) 0 1px,
+      transparent 1px 4px
+    ),
+    repeating-linear-gradient(
+      28deg,
+      rgba(0, 0, 0, 0.09) 0 1px,
+      transparent 1px 6px
+    ),
+    radial-gradient(
+      ellipse 60% 46% at 14% -4%,
+      rgba(255, 203, 140, 0.22),
+      transparent 62%
+    ),
+    radial-gradient(
+      ellipse 70% 60% at 96% 112%,
+      rgba(0, 0, 0, 0.55),
+      transparent 64%
+    ),
+    linear-gradient(158deg, #4a2b19 0%, #362014 34%, #23120b 68%, #160b06 100%);
+  border: 1.5px solid rgba(255, 214, 162, 0.26);
+  box-shadow:
+    inset 0 2px 0 rgba(255, 226, 178, 0.22),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.55),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.35),
+    0 7px 0 -3px #140a05,
+    0 26px 42px -18px rgba(0, 0, 0, 0.92),
+    0 0 44px -16px rgba(255, 170, 96, 0.22);
+  transition:
+    transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.45s ease;
+  animation: cardRise 0.5s cubic-bezier(0.22, 0.8, 0.28, 1) backwards;
+
+  // 缝线
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 7px;
+    z-index: 3;
+    border: 1.5px dashed rgba(246, 216, 168, 0.42);
+    border-radius: 16px;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.16);
+    pointer-events: none;
+  }
+
+  // 皮面掠光
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 6;
+    border-radius: inherit;
+    background: linear-gradient(
+      115deg,
+      transparent 36%,
+      rgba(255, 228, 178, 0.1) 45%,
+      transparent 54%
+    );
+    background-size: 240% 100%;
+    background-position: 120% 0;
+    opacity: 0;
+    pointer-events: none;
+    transition:
+      opacity 0.4s ease,
+      background-position 0.9s ease;
+  }
+
+  &:hover {
+    box-shadow:
+      inset 0 2px 0 rgba(255, 226, 178, 0.26),
+      inset 0 -3px 6px rgba(0, 0, 0, 0.5),
+      inset 0 0 0 1px rgba(0, 0, 0, 0.35),
+      0 10px 0 -3px #140a05,
+      0 36px 54px -18px rgba(0, 0, 0, 0.95),
+      0 0 56px -14px rgba(255, 170, 96, 0.3);
+
+    &::after {
+      opacity: 1;
+      background-position: -20% 0;
+    }
+
+    .film-gate :deep(.landscape-image > img) {
+      transform: scale(1.05);
+      filter: saturate(1.12) brightness(1.05);
+    }
+
+    .gate-sheen {
+      opacity: 1;
+      transform: translateX(340%) rotate(10deg);
+    }
+
+    .play-overlay {
+      opacity: 1;
+    }
+
+    .shutter-button {
+      transform: scale(1.06);
+
+      &::before {
+        opacity: 0.85;
+        transform: scale(1);
+        animation: shutterPulse 1.8s ease-in-out infinite;
+      }
+    }
+
+    .date-ticket {
+      transform: rotate(0deg);
+    }
+
+    .case-corners i {
+      filter: drop-shadow(0 4px 5px rgba(0, 0, 0, 0.7)) brightness(1.06);
+    }
+
+    .progress-head {
+      filter: brightness(1.25);
+    }
+  }
+
+  // 四角黄铜护角
+  .case-corners {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    pointer-events: none;
+
+    i {
+      position: absolute;
+      width: 27px;
+      height: 27px;
+      background: linear-gradient(
+        140deg,
+        $brass-hi 0%,
+        $brass 26%,
+        $brass-mid 58%,
+        $brass-lo 100%
+      );
+      border: 1px solid rgba(255, 248, 222, 0.5);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.7),
+        inset 0 -2px 3px rgba(58, 36, 9, 0.65),
+        0 3px 6px rgba(0, 0, 0, 0.55);
+      filter: drop-shadow(0 3px 4px rgba(0, 0, 0, 0.6));
+      transition: filter 0.4s ease;
+
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 3px;
+        border-radius: inherit;
+        border: 1px solid rgba(90, 60, 16, 0.5);
+        background: linear-gradient(
+          150deg,
+          rgba(255, 250, 228, 0.35) 0%,
+          transparent 44%,
+          rgba(90, 60, 16, 0.18) 100%
+        );
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 6px;
+        height: 6px;
+        margin: -3px 0 0 -3px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle at 35% 30%,
+          #fff9e6 0 0.8px,
+          #d8ad5f 1.4px,
+          #6b4614 2.4px
+        );
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.55);
+      }
+
+      &.tl {
+        top: 3px;
+        left: 3px;
+        border-radius: 18px 4px 4px;
+      }
+
+      &.tr {
+        top: 3px;
+        right: 3px;
+        border-radius: 4px 18px 4px 4px;
+      }
+
+      &.bl {
+        bottom: 3px;
+        left: 3px;
+        border-radius: 4px 4px 4px 18px;
+      }
+
+      &.br {
+        bottom: 3px;
+        right: 3px;
+        border-radius: 4px 4px 18px;
+      }
+    }
+  }
+
+  // 内舱：黄铜边框 + 深色毛毡内衬
+  .camera-shell {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    border-radius: 13px;
+    overflow: hidden;
+    border: 5px solid transparent;
+    background:
+      radial-gradient(
+          ellipse 90% 40% at 50% 0%,
+          rgba(125, 211, 252, 0.06),
+          transparent 62%
+        )
+        padding-box,
+      repeating-linear-gradient(
+          45deg,
+          rgba(255, 255, 255, 0.018) 0 1px,
+          transparent 1px 4px
+        )
+        padding-box,
+      repeating-linear-gradient(
+          -45deg,
+          rgba(0, 0, 0, 0.07) 0 1px,
+          transparent 1px 5px
+        )
+        padding-box,
+      linear-gradient(160deg, #17232f 0%, #0b141d 55%, #050a10 100%) padding-box,
+      linear-gradient(
+          145deg,
+          $brass-hi 0%,
+          $brass 22%,
+          $brass-mid 52%,
+          $brass-lo 82%,
+          #4b320f 100%
+        )
+        border-box;
+    box-shadow:
+      inset 0 0 0 1px rgba(0, 0, 0, 0.65),
+      inset 0 4px 16px rgba(0, 0, 0, 0.6),
+      0 3px 0 #2a1a06,
+      0 12px 22px rgba(0, 0, 0, 0.55);
+  }
+
+  .card-top {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      'type date'
+      'title title';
+    align-items: center;
+    gap: 9px 8px;
+    padding: 12px 12px 11px;
+
+    .reel-chip {
+      grid-area: type;
+      justify-self: start;
+    }
+
+    .title-slate {
+      grid-area: title;
+    }
+
+    .date-ticket {
+      grid-area: date;
+      justify-self: end;
+    }
+  }
+
+  // 类型徽标：金属胶片盘，悬停时盘芯向前走一格
+  .reel-chip {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    justify-self: start;
+    transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+
+    .reel {
+      position: relative;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      background:
+        radial-gradient(
+            circle at 50% 34%,
+            rgba(255, 255, 255, 0.18),
+            transparent 58%
+          )
+          padding-box,
+        radial-gradient(
+            circle at 50% 52%,
+            #3a4e63 0%,
+            #1c2a38 58%,
+            #0a131c 100%
+          )
+          padding-box,
+        conic-gradient(
+            from 20deg,
+            $brass-hi 0deg,
+            $brass 60deg,
+            $brass-lo 140deg,
+            $brass-mid 210deg,
+            #fff2c8 300deg,
+            $brass-hi 360deg
+          )
+          border-box;
+      box-shadow:
+        inset 0 2px 3px rgba(255, 255, 255, 0.2),
+        inset 0 -5px 9px rgba(0, 0, 0, 0.6),
+        0 3px 0 #2a1a06,
+        0 6px 10px rgba(0, 0, 0, 0.5);
+
+      .reel-rotor {
+        position: absolute;
+        inset: 0;
+        transition: transform 0.7s cubic-bezier(0.3, 1.4, 0.4, 1);
+
+        i {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          width: 8px;
+          height: 8px;
+          margin: -4px;
+          border-radius: 50%;
+          background: radial-gradient(
+            circle at 40% 32%,
+            #03080e 0 55%,
+            #0b1620 100%
+          );
+          box-shadow:
+            inset 0 1px 2px rgba(0, 0, 0, 0.95),
+            0 0 0 1px rgba(255, 226, 180, 0.16);
+
+          &:nth-child(1) {
+            transform: rotate(0deg) translateY(-10px);
+          }
+
+          &:nth-child(2) {
+            transform: rotate(72deg) translateY(-10px);
+          }
+
+          &:nth-child(3) {
+            transform: rotate(144deg) translateY(-10px);
+          }
+
+          &:nth-child(4) {
+            transform: rotate(216deg) translateY(-10px);
+          }
+
+          &:nth-child(5) {
+            transform: rotate(288deg) translateY(-10px);
+          }
+        }
+      }
+
+      .reel-hub {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 11px;
+        height: 11px;
+        margin: -5.5px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle at 38% 30%,
+          #fff6d8 0 1px,
+          #e3ba6c 2px,
+          #8a601c 62%,
+          #4b320f 100%
+        );
+        box-shadow:
+          0 0 0 1px rgba(58, 36, 9, 0.7),
+          0 1px 2px rgba(0, 0, 0, 0.6);
+
+        &::after {
+          content: '';
+          position: absolute;
+          inset: 3px;
+          border-radius: 50%;
+          background: radial-gradient(circle at 40% 35%, #0a121b, #04090f 100%);
+        }
+      }
+
+      .reel-lamp {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 2;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.45);
+        background: radial-gradient(
+          circle at 35% 30%,
+          #ff9a9c 0%,
+          #ff4d4f 55%,
+          #a81418 100%
+        );
+        box-shadow:
+          0 0 8px rgba(255, 77, 79, 0.85),
+          0 0 14px rgba(255, 77, 79, 0.4);
+      }
+    }
+
+    .reel-label {
+      font-size: 16px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      line-height: 1;
+      color: #fff4d6;
+      text-shadow:
+        0 1px 0 rgba(0, 0, 0, 0.7),
+        0 0 12px rgba(255, 214, 140, 0.55);
+    }
+
+    &:hover {
+      transform: translateY(-1px);
+
+      .reel-rotor {
+        transform: rotate(72deg);
+      }
+    }
+  }
+
+  // 标题：场记板铭牌，顶部一道斜纹拍板
+  .title-slate {
+    position: relative;
+    display: block;
+    max-width: 100%;
+    margin: 0;
+    padding: 21px 16px 13px;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid rgba(227, 186, 108, 0.24);
+    background:
+      radial-gradient(
+        ellipse 100% 160% at 18% 0%,
+        rgba(255, 236, 190, 0.1),
+        transparent 62%
+      ),
+      repeating-linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.015) 0 1px,
+        transparent 1px 4px
+      ),
+      linear-gradient(160deg, #132030 0%, #0b141f 55%, #060c14 100%);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 236, 190, 0.2),
+      inset 0 -3px 8px rgba(0, 0, 0, 0.55),
+      0 3px 0 #03070c,
+      0 8px 14px rgba(0, 0, 0, 0.45);
+    transition: border-color 0.3s ease;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 7px;
+      background: repeating-linear-gradient(
+        135deg,
+        #e8eff8 0 15px,
+        #0a1119 15px 30px
+      );
+      opacity: 0.9;
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.65);
+      pointer-events: none;
+    }
+  }
+
+  .slate-title {
+    display: block;
+    font-size: 21px;
+    font-weight: 800;
+    line-height: 1.24;
+    letter-spacing: 0.01em;
+    color: #f2f8ff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-shadow:
+      0 1px 0 rgba(0, 0, 0, 0.7),
+      0 0 18px rgba(255, 214, 140, 0.16);
+  }
+
+  // 日期：旅行票根，打孔 + 撕线 + 打字机字面
+  .date-ticket {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 11px 6px 9px;
+    border-radius: 3px;
+    background:
+      radial-gradient(
+        circle at 82% 16%,
+        rgba(163, 64, 44, 0.1),
+        transparent 55%
+      ),
+      radial-gradient(
+        circle at 14% 88%,
+        rgba(120, 80, 30, 0.14),
+        transparent 52%
+      ),
+      repeating-linear-gradient(
+        0deg,
+        rgba(120, 80, 30, 0.05) 0 1px,
+        transparent 1px 3px
+      ),
+      linear-gradient(160deg, #f9efd9 0%, #f0e0c2 52%, #e0cba4 100%);
+    border: 1px solid rgba(255, 250, 235, 0.75);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.9),
+      inset 0 -2px 4px rgba(120, 80, 30, 0.22),
+      0 3px 0 #a98a58,
+      0 7px 12px rgba(0, 0, 0, 0.5);
+    transform: rotate(-2deg);
+    transition:
+      opacity 0.3s ease,
+      transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+      box-shadow 0.3s ease,
+      filter 0.3s ease;
+
+    // 撕线
+    &::before {
+      content: '';
+      position: absolute;
+      left: 21px;
+      top: 5px;
+      bottom: 5px;
+      border-left: 1px dashed rgba(140, 100, 50, 0.45);
+      pointer-events: none;
+    }
+
+    // 打孔
+    .ticket-hole {
+      width: 7px;
+      height: 7px;
+      margin-left: 1px;
+      border-radius: 50%;
+      background: #101c27;
+      box-shadow:
+        inset 0 1px 2px rgba(0, 0, 0, 0.9),
+        0 0 0 1px rgba(120, 80, 30, 0.25),
+        0 1px 0 rgba(255, 255, 255, 0.55);
+    }
+
+    .ticket-body {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 1px;
+      padding-left: 12px;
+    }
+
+    .ticket-label {
+      font-family: Consolas, Monaco, monospace;
+      font-size: 7.5px;
+      font-weight: 800;
+      letter-spacing: 0.24em;
+      line-height: 1;
+      color: #a3402c;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+    }
+
+    .ticket-date {
+      font-family: 'Courier New', Consolas, monospace;
+      font-size: 13.5px;
+      font-weight: 700;
+      line-height: 1.15;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 0.01em;
+      color: #3a2a18;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    }
+
+    &:hover {
+      transform: rotate(0deg) translateY(-2px);
+      filter: brightness(1.04);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.95),
+        inset 0 -2px 4px rgba(120, 80, 30, 0.22),
+        0 5px 0 #a98a58,
+        0 10px 16px rgba(0, 0, 0, 0.55);
+    }
+
+    &.sort-dimmed {
+      opacity: 0.45;
+      filter: grayscale(0.2);
+    }
+
+    &.sort-highlighted {
+      opacity: 1;
+      border-color: rgba(255, 255, 255, 0.95);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 1),
+        inset 0 -2px 4px rgba(120, 80, 30, 0.2),
+        0 3px 0 #a98a58,
+        0 0 0 2px rgba(255, 226, 170, 0.55),
+        0 0 22px rgba(255, 200, 120, 0.5);
+
+      .ticket-date {
+        color: #251905;
+      }
+    }
+  }
+
+  // 取景框：胶片画格，上下带齿孔
+  .film-gate {
+    position: relative;
+    margin: 0 10px;
+    aspect-ratio: 2.1 / 1;
+    border-radius: 9px;
+    overflow: hidden;
+    background: linear-gradient(180deg, #0b1524 0%, #04090f 100%);
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 226, 170, 0.3),
+      inset 0 0 0 3px rgba(0, 0, 0, 0.6),
+      inset 0 5px 20px rgba(0, 0, 0, 0.85),
+      inset 0 -3px 10px rgba(0, 0, 0, 0.7),
+      0 1px 0 rgba(255, 236, 190, 0.16),
+      0 12px 22px -10px rgba(0, 0, 0, 0.9);
+
+    :deep(.landscape-image > img) {
+      filter: saturate(1.06) contrast(1.02);
+      transition:
+        transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
+        filter 0.5s ease;
+    }
+
+    .gate-vignette {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background:
+        linear-gradient(
+          156deg,
+          rgba(255, 255, 255, 0.1) 0%,
+          rgba(255, 255, 255, 0.02) 18%,
+          transparent 32%
+        ),
+        linear-gradient(180deg, rgba(3, 8, 14, 0.42) 0%, transparent 22%),
+        linear-gradient(0deg, rgba(3, 8, 14, 0.5) 0%, transparent 26%);
+      pointer-events: none;
+    }
+
+    // 放映机光束扫过
+    .gate-sheen {
+      position: absolute;
+      top: -60%;
+      bottom: -60%;
+      left: -80%;
+      width: 60%;
+      z-index: 3;
+      background: linear-gradient(
+        100deg,
+        transparent,
+        rgba(255, 255, 255, 0.18),
+        transparent
+      );
+      transform: rotate(10deg);
+      opacity: 0;
+      pointer-events: none;
+      transition:
+        transform 0.9s ease,
+        opacity 0.3s ease;
+    }
+
+    // 上下胶片齿孔
+    .gate-perfs {
+      position: absolute;
+      inset: 0;
+      z-index: 4;
+      pointer-events: none;
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 8px;
+        background:
+          radial-gradient(
+              circle at 8px 50%,
+              rgba(220, 240, 255, 0.32) 0 2.2px,
+              transparent 2.6px
+            )
+            0 0 / 16px 100% repeat-x,
+          linear-gradient(180deg, rgba(3, 7, 12, 0.96), rgba(3, 7, 12, 0.84));
+      }
+
+      &::before {
+        top: 0;
+      }
+
+      &::after {
+        bottom: 0;
+      }
+    }
+
+    // 片窗四角黄铜铆钉
+    .gate-studs {
+      position: absolute;
+      inset: 0;
+      z-index: 7;
+      pointer-events: none;
+
+      i {
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle at 35% 30%,
+          #fff9e6 0 0.8px,
+          #d8ad5f 1.5px,
+          #6b4614 2.6px
+        );
+        box-shadow:
+          0 1px 2px rgba(0, 0, 0, 0.7),
+          0 0 0 1px rgba(58, 36, 9, 0.5);
+      }
+
+      i:nth-child(1) {
+        top: 4px;
+        left: 4px;
+      }
+
+      i:nth-child(2) {
+        top: 4px;
+        right: 4px;
+      }
+
+      i:nth-child(3) {
+        bottom: 4px;
+        left: 4px;
+      }
+
+      i:nth-child(4) {
+        right: 4px;
+        bottom: 4px;
+      }
+    }
+
+    .rec-mark {
+      position: absolute;
+      top: 13px;
+      left: 12px;
+      z-index: 6;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 9px 3px 8px;
+      border-radius: 4px;
+      font-family: Consolas, Monaco, monospace;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.18em;
+      color: #fff0f0;
+      background: linear-gradient(
+        180deg,
+        rgba(26, 6, 8, 0.86),
+        rgba(6, 2, 4, 0.9)
+      );
+      border: 1px solid rgba(255, 92, 92, 0.5);
+      backdrop-filter: blur(4px);
+      text-shadow:
+        0 1px 1px rgba(0, 0, 0, 0.8),
+        0 0 8px rgba(255, 92, 92, 0.5);
+
+      .rec-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #ff4d4f;
+        box-shadow: 0 0 8px rgba(255, 77, 79, 0.9);
+        animation: recBlink 1.6s ease-in-out infinite;
+      }
+    }
+
+    .spec-chip {
+      position: absolute;
+      top: 13px;
+      right: 12px;
+      z-index: 6;
+      padding: 3px 9px;
+      border-radius: 4px;
+      font-family: Consolas, Monaco, monospace;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      color: #ecfdff;
+      background: linear-gradient(
+        180deg,
+        rgba(3, 12, 19, 0.9),
+        rgba(1, 5, 9, 0.93)
+      );
+      border: 1px solid rgba(125, 211, 252, 0.45);
+      backdrop-filter: blur(4px);
+      text-shadow:
+        0 1px 1px rgba(0, 0, 0, 0.7),
+        0 0 10px rgba(34, 211, 238, 0.8);
+    }
+
+    .play-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(2, 7, 12, 0.32);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+
+    // 快门按钮：黄铜滚花圈 + 深色玻璃键面
+    .shutter-button {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      background:
+        radial-gradient(
+            ellipse 60% 40% at 50% 20%,
+            rgba(255, 255, 255, 0.22),
+            transparent 70%
+          )
+          padding-box,
+        radial-gradient(
+            circle at 50% 46%,
+            #22344a 0%,
+            #101d2d 52%,
+            #050c15 100%
+          )
+          padding-box,
+        conic-gradient(
+            from 0deg,
+            $brass-hi 0deg,
+            $brass-mid 70deg,
+            $brass-hi 140deg,
+            $brass 220deg,
+            $brass-lo 300deg,
+            $brass-hi 360deg
+          )
+          border-box;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.26),
+        inset 0 -4px 8px rgba(0, 0, 0, 0.6),
+        0 8px 26px rgba(0, 0, 0, 0.65),
+        0 0 22px rgba(34, 211, 238, 0.22);
+      transition: transform 0.3s ease;
+
+      &::before {
+        content: '';
+        position: absolute;
+        inset: -7px;
+        border-radius: 50%;
+        border: 1.5px solid rgba(255, 217, 138, 0.55);
+        opacity: 0;
+        transform: scale(0.9);
+        transition:
+          opacity 0.3s ease,
+          transform 0.3s ease;
+        pointer-events: none;
+      }
+
+      svg {
+        width: 24px;
+        height: 24px;
+        margin-left: 3px;
+        color: #e6f8ff;
+        filter: drop-shadow(0 0 9px rgba(125, 211, 252, 0.85));
+      }
+    }
+
+    // 时长：胶片计数器小窗
+    .duration-counter {
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      z-index: 6;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 11px;
+      border-radius: 5px;
+      font-family: Consolas, Monaco, monospace;
+      font-size: 15px;
+      font-weight: 900;
+      font-variant-numeric: tabular-nums;
+      color: #fff8e8;
+      background: linear-gradient(
+        180deg,
+        rgba(6, 12, 19, 0.96),
+        rgba(2, 6, 10, 0.97)
+      );
+      border: 1px solid rgba(255, 226, 170, 0.42);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 236, 190, 0.26),
+        0 2px 8px rgba(0, 0, 0, 0.55),
+        0 0 12px rgba(255, 190, 100, 0.18);
+      text-shadow:
+        0 1px 1px rgba(0, 0, 0, 0.7),
+        0 0 8px rgba(255, 214, 140, 0.45);
+      backdrop-filter: blur(6px);
+
+      .duration-dot {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: #f5c469;
+        box-shadow: 0 0 6px rgba(245, 196, 105, 0.9);
+      }
+    }
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 14px 12px;
+  }
+
+  .body-info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .slate-note {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.6;
+    color: rgba(215, 235, 252, 0.64);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+
+  // 关键词标签：皮质行李牌，缝线 + 黄铜气眼
+  .card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    .film-tag {
+      --tag-leather: #7a4a2a;
+      --tag-leather-hi: #a06a42;
+      --tag-leather-lo: #3f2312;
+
+      position: relative;
+      padding: 7px 12px 7px 20px;
+      border-radius: 3px;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: #f7ecd8;
+      background:
+        radial-gradient(
+            circle at 20% 30%,
+            rgba(255, 240, 210, 0.16) 0 0.6px,
+            transparent 1.2px
+          )
+          0 0 / 4px 4px,
+        linear-gradient(
+          160deg,
+          var(--tag-leather-hi) 0%,
+          var(--tag-leather) 48%,
+          var(--tag-leather-lo) 100%
+        );
+      border: 1px solid rgba(255, 224, 170, 0.28);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 226, 180, 0.35),
+        inset 0 -3px 6px rgba(0, 0, 0, 0.4),
+        0 2px 0 #1d0f07,
+        0 6px 10px rgba(0, 0, 0, 0.45);
+      text-shadow:
+        0 1px 1px rgba(0, 0, 0, 0.65),
+        0 0 6px rgba(0, 0, 0, 0.2);
+      transform: rotate(-1.4deg);
+      transition:
+        transform 0.26s ease,
+        filter 0.26s ease,
+        box-shadow 0.26s ease;
+
+      // 缝线
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 3px;
+        border: 1px dashed rgba(255, 232, 190, 0.42);
+        border-radius: 2px;
+        pointer-events: none;
+      }
+
+      // 黄铜气眼
+      &::after {
+        content: '';
+        position: absolute;
+        left: 7px;
+        top: 50%;
+        width: 9px;
+        height: 9px;
+        margin-top: -4.5px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle at 40% 35%,
+          #2a1a0b 0 45%,
+          #c9a55f 52%,
+          #f4e2b4 70%,
+          #7a5416 100%
+        );
+        box-shadow:
+          0 0 0 1px rgba(58, 36, 9, 0.75),
+          0 0 6px rgba(255, 210, 140, 0.3);
+      }
+
+      &:nth-child(2) {
+        --tag-leather: #2f5f58;
+        --tag-leather-hi: #4c8a80;
+        --tag-leather-lo: #15302c;
+
+        transform: rotate(1deg);
+      }
+
+      &:nth-child(3) {
+        --tag-leather: #6f2f3d;
+        --tag-leather-hi: #9b4d5d;
+        --tag-leather-lo: #37151c;
+
+        transform: rotate(-0.4deg);
+      }
+
+      &:hover {
+        transform: rotate(0deg) translateY(-3px);
+        filter: brightness(1.12);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 236, 200, 0.4),
+          inset 0 -3px 6px rgba(0, 0, 0, 0.4),
+          0 2px 0 #1d0f07,
+          0 9px 14px rgba(0, 0, 0, 0.5);
+      }
+    }
+  }
+
+  // 地点：黄铜压印铭牌
+  .location-plate {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    align-self: flex-start;
+    max-width: 100%;
+    padding: 6px 13px 6px 6px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    color: #1a0f02;
+    background:
+      repeating-linear-gradient(
+        90deg,
+        rgba(90, 60, 16, 0.16) 0 1px,
+        transparent 1px 4px
+      ),
+      linear-gradient(
+        170deg,
+        #fff6d8 0%,
+        #e8c98e 26%,
+        #d0a75c 58%,
+        #a8792f 100%
+      );
+    border: 1px solid rgba(255, 248, 222, 0.65);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.8),
+      inset 0 -2px 3px rgba(76, 50, 13, 0.45),
+      0 2px 0 #3a2409,
+      0 5px 10px rgba(0, 0, 0, 0.45);
+    transform: rotate(-0.6deg);
+    transition:
+      transform 0.3s ease,
+      filter 0.3s ease,
+      box-shadow 0.3s ease;
+
+    .loc-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 40% 30%, #5c3c12, #2a1a06);
+      box-shadow:
+        inset 0 2px 3px rgba(255, 255, 255, 0.15),
+        inset 0 -1px 2px #000,
+        0 0 0 1px rgba(58, 36, 9, 0.8);
+
+      svg {
+        width: 13px;
+        height: 13px;
+        color: #f7e6bb;
+      }
+    }
+
+    .loc-text {
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      text-shadow: 0 1px 0 rgba(255, 248, 222, 0.55);
+    }
+
+    &:hover {
+      transform: rotate(0deg) translateY(-2px);
+      filter: brightness(1.08);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.85),
+        inset 0 -2px 3px rgba(76, 50, 13, 0.45),
+        0 2px 0 #3a2409,
+        0 8px 14px rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  // 控制面板：一段 35mm 胶片，四个画格 + 胶卷罐
+  .card-footer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin: 0 10px;
+    padding: 12px 10px;
+    border-radius: 3px;
+    background:
+      linear-gradient(
+        114deg,
+        rgba(255, 255, 255, 0.09) 0%,
+        rgba(255, 255, 255, 0.03) 20%,
+        transparent 36%
+      ),
+      linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.4) 0%,
+        transparent 7%,
+        transparent 93%,
+        rgba(0, 0, 0, 0.4) 100%
+      ),
+      repeating-linear-gradient(
+        90deg,
+        rgba(255, 236, 200, 0.03) 0 1px,
+        transparent 1px 7px
+      ),
+      radial-gradient(
+        ellipse 120% 80% at 50% -20%,
+        rgba(255, 190, 120, 0.1),
+        transparent 62%
+      ),
+      linear-gradient(180deg, #33251a 0%, #1b120c 46%, #0a0603 100%);
+    border: 1px solid #4a3624;
+    border-top-color: rgba(255, 226, 170, 0.34);
+    border-bottom-color: #050302;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 244, 220, 0.16),
+      inset 0 0 0 2px rgba(0, 0, 0, 0.55),
+      inset 0 3px 9px rgba(0, 0, 0, 0.85),
+      inset 0 -2px 6px rgba(0, 0, 0, 0.7),
+      0 1px 0 rgba(255, 226, 170, 0.08),
+      0 3px 0 #180f09,
+      0 5px 0 #0b0603,
+      0 11px 18px rgba(0, 0, 0, 0.6);
+
+    // 上下齿孔
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      left: 6px;
+      right: 6px;
+      height: 7px;
+      z-index: 2;
+      background: radial-gradient(
+          circle at 7.5px 3.5px,
+          #050302 0 1.2px,
+          rgba(0, 0, 0, 0.95) 1.6px 2.1px,
+          rgba(255, 238, 205, 0.26) 2.35px 2.6px,
+          rgba(0, 0, 0, 0.4) 2.9px 3.1px,
+          transparent 3.3px
+        )
+        0 0 / 15px 7px repeat-x;
+      pointer-events: none;
+    }
+
+    &::before {
+      top: 2px;
+    }
+
+    &::after {
+      bottom: 2px;
+    }
+  }
+
+  .action-group {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: stretch;
+    gap: 5px;
+  }
+
+  // 胶片画格按钮：暗色负片画格 + 放映机光扫
+  .action-btn {
+    --tone: 125, 211, 252;
+    --tone-deep: 56, 189, 248;
+
+    position: relative;
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    padding: 0;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    color: inherit;
+
+    .key-face {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      width: 100%;
+      height: 50px;
+      padding: 0 8px;
+      border-radius: 3px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 236, 200, 0.3);
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.1) 0%,
+          rgba(255, 255, 255, 0.025) 22%,
+          transparent 40%
+        ),
+        repeating-linear-gradient(
+          0deg,
+          rgba(255, 255, 255, 0.02) 0 1px,
+          transparent 1px 3px
+        ),
+        radial-gradient(
+          ellipse 80% 60% at 50% 24%,
+          rgba(255, 255, 255, 0.09),
+          transparent 70%
+        ),
+        linear-gradient(160deg, #30241a 0%, #1b130d 52%, #0c0805 100%);
+      box-shadow:
+        inset 0 0 0 1px rgba(0, 0, 0, 0.55),
+        inset 0 2px 5px rgba(0, 0, 0, 0.68),
+        inset 0 -1px 0 rgba(255, 240, 210, 0.08),
+        inset 0 -3px 6px rgba(0, 0, 0, 0.4),
+        0 1px 0 rgba(255, 236, 200, 0.1),
+        0 2px 3px rgba(0, 0, 0, 0.45);
+      transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        filter 0.3s ease;
+
+      // 悬停：相机自动对焦取景框
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 5px;
+        z-index: 2;
+        opacity: 0;
+        transform: scale(1.16);
+        background:
+          linear-gradient(#f7e3bb, #f7e3bb) left top / 9px 1.5px no-repeat,
+          linear-gradient(#f7e3bb, #f7e3bb) left top / 1.5px 9px no-repeat,
+          linear-gradient(#f7e3bb, #f7e3bb) right top / 9px 1.5px no-repeat,
+          linear-gradient(#f7e3bb, #f7e3bb) right top / 1.5px 9px no-repeat,
+          linear-gradient(#f7e3bb, #f7e3bb) left bottom / 9px 1.5px no-repeat,
+          linear-gradient(#f7e3bb, #f7e3bb) left bottom / 1.5px 9px no-repeat,
+          linear-gradient(#f7e3bb, #f7e3bb) right bottom / 9px 1.5px no-repeat,
+          linear-gradient(#f7e3bb, #f7e3bb) right bottom / 1.5px 9px no-repeat;
+        filter: drop-shadow(0 0 4px rgba(255, 214, 140, 0.8));
+        transition:
+          opacity 0.25s ease,
+          transform 0.35s cubic-bezier(0.2, 0.9, 0.25, 1.2);
+        pointer-events: none;
+      }
+
+      // 曝光指示方块
+      &::after {
+        content: '';
+        position: absolute;
+        top: 4px;
+        right: 5px;
+        width: 6px;
+        height: 6px;
+        border-radius: 1px;
+        background: linear-gradient(
+          145deg,
+          #5a472f 0%,
+          #2a1e13 55%,
+          #0d0906 100%
+        );
+        box-shadow:
+          inset 0 1px 0 rgba(255, 244, 220, 0.3),
+          inset 0 -1px 0 rgba(0, 0, 0, 0.7),
+          0 1px 0 rgba(255, 236, 200, 0.12),
+          0 1px 2px rgba(0, 0, 0, 0.6);
+        transition:
+          background 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+
+      svg {
+        position: relative;
+        z-index: 1;
+        width: 19px;
+        height: 19px;
+        color: rgba(var(--tone), 0.92);
+        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.6));
+        transition:
+          transform 0.3s ease,
+          filter 0.3s ease,
+          color 0.3s ease;
+      }
+    }
+
+    // 画格下方的片边手写数
+    .count {
+      position: relative;
+      z-index: 1;
+      flex: 0 0 auto;
+      font-family: Consolas, Monaco, monospace;
+      font-size: 19px;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: 0.01em;
+      color: #f4e4c4;
+      white-space: nowrap;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+      transition:
+        color 0.3s ease,
+        text-shadow 0.3s ease;
+    }
+
+    &:hover {
+      .key-face {
+        border-color: rgba(255, 226, 180, 0.55);
+        box-shadow:
+          inset 0 0 0 1px rgba(0, 0, 0, 0.5),
+          inset 0 2px 6px rgba(0, 0, 0, 0.6),
+          inset 0 0 16px rgba(var(--tone), 0.16),
+          inset 0 -1px 0 rgba(255, 240, 210, 0.1),
+          0 0 16px rgba(var(--tone), 0.32);
+
+        &::before {
+          opacity: 1;
+          transform: scale(1);
+          animation: focusBreathe 2.4s ease-in-out 0.35s infinite;
+        }
+      }
+
+      .key-face::after {
+        background: linear-gradient(
+          145deg,
+          #fff 0%,
+          rgb(var(--tone)) 45%,
+          rgba(var(--tone), 0.85) 100%
+        );
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.8),
+          inset 0 -1px 0 rgba(0, 0, 0, 0.35),
+          0 0 6px rgb(var(--tone)),
+          0 0 12px rgba(var(--tone), 0.7);
+        animation: afBlink 1.1s ease-in-out infinite;
+      }
+
+      .key-face svg {
+        color: rgb(var(--tone));
+        transform: scale(1.08);
+        filter: drop-shadow(0 0 8px rgba(var(--tone), 0.9));
+      }
+
+      .count {
+        color: #fff6e2;
+        text-shadow:
+          0 1px 1px rgba(0, 0, 0, 0.75),
+          0 0 8px rgba(var(--tone), 0.5);
+      }
+    }
+
+    &:active {
+      .key-face {
+        filter: brightness(0.88) contrast(1.08);
+        box-shadow:
+          inset 0 3px 7px rgba(0, 0, 0, 0.78),
+          inset 0 -1px 0 rgba(255, 240, 210, 0.06);
+      }
+    }
+
+    &:focus-visible {
+      outline: none;
+
+      .key-face {
+        box-shadow:
+          inset 0 2px 5px rgba(0, 0, 0, 0.6),
+          0 0 0 2px rgba(var(--tone), 0.7),
+          0 0 14px rgba(var(--tone), 0.45);
+      }
+    }
+
+    &.active {
+      .key-face {
+        border-color: rgba(255, 226, 180, 0.72);
+        background:
+          linear-gradient(
+            150deg,
+            rgba(255, 255, 255, 0.22) 0%,
+            rgba(255, 255, 255, 0.05) 24%,
+            transparent 42%
+          ),
+          radial-gradient(
+            ellipse 90% 70% at 50% 18%,
+            rgba(255, 240, 200, 0.4),
+            transparent 72%
+          ),
+          linear-gradient(
+            165deg,
+            rgba(var(--tone), 0.55) 0%,
+            rgba(var(--tone-deep), 0.35) 45%,
+            #1a120d 100%
+          );
+        box-shadow:
+          inset 0 0 0 1px rgba(0, 0, 0, 0.4),
+          inset 0 2px 6px rgba(0, 0, 0, 0.4),
+          inset 0 -2px 8px rgba(255, 240, 200, 0.16),
+          inset 0 0 20px rgba(var(--tone), 0.42),
+          0 0 22px rgba(var(--tone), 0.45),
+          0 4px 10px rgba(0, 0, 0, 0.5);
+      }
+
+      .key-face::after {
+        background: linear-gradient(
+          145deg,
+          #fff 0%,
+          rgb(var(--tone)) 45%,
+          rgba(var(--tone), 0.85) 100%
+        );
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.8),
+          inset 0 -1px 0 rgba(0, 0, 0, 0.35),
+          0 0 6px rgb(var(--tone)),
+          0 0 12px rgba(var(--tone), 0.7);
+      }
+
+      .key-face svg {
+        color: #fff;
+        animation: frameExpose 0.5s ease;
+        filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
+      }
+
+      .count {
+        color: #fff8e8;
+        text-shadow:
+          0 1px 1px rgba(0, 0, 0, 0.75),
+          0 0 10px rgba(var(--tone), 0.6);
+      }
+    }
+
+    &.love {
+      --tone: 251, 113, 133;
+      --tone-deep: 225, 29, 72;
+    }
+
+    &.bookmark {
+      --tone: 251, 191, 36;
+      --tone-deep: 202, 138, 4;
+    }
+
+    &.share {
+      --tone: 52, 211, 153;
+      --tone-deep: 5, 150, 105;
+    }
+
+    &.sort-dimmed {
+      opacity: 0.38;
+    }
+
+    &.sort-highlighted .key-face {
+      border-color: rgba(var(--tone), 0.6);
+      box-shadow:
+        inset 0 0 0 1px rgba(0, 0, 0, 0.5),
+        inset 0 2px 5px rgba(0, 0, 0, 0.6),
+        inset 0 0 12px rgba(var(--tone), 0.2),
+        0 0 0 1px rgba(var(--tone), 0.35),
+        0 0 16px rgba(var(--tone), 0.42);
+    }
+  }
+
+  // 浏览量：卷在片仓外的 35mm 胶卷罐（金属罐身 + 米色标签）
+  .tape-counter {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1px;
+    flex-shrink: 0;
+    align-self: center;
+    width: 84px;
+    min-width: 84px;
+    min-height: 86px;
+    padding: 6px;
+    border-radius: 3px;
+    border: 1px solid #3a2a1c;
+    background: linear-gradient(
+      90deg,
+      #0b0705 0%,
+      #2a3a46 18%,
+      #4a6072 42%,
+      #22323e 70%,
+      #0b141b 100%
+    );
+    box-shadow:
+      inset 2px 0 3px rgba(255, 255, 255, 0.16),
+      inset -4px 0 7px rgba(0, 0, 0, 0.65),
+      0 3px 0 #080402,
+      0 6px 10px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    transition:
+      opacity 0.3s ease,
+      box-shadow 0.3s ease;
+
+    // 罐身金属高光
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 9px;
+      width: 3px;
+      background: linear-gradient(
+        180deg,
+        transparent,
+        rgba(255, 255, 255, 0.35),
+        transparent
+      );
+      filter: blur(1px);
+      pointer-events: none;
+    }
+
+    // 米色胶卷标签
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 5px 4px;
+      border-radius: 2px;
+      background:
+        linear-gradient(180deg, #a3402c 0 3px, transparent 3px),
+        radial-gradient(
+          circle at 80% 20%,
+          rgba(163, 64, 44, 0.08),
+          transparent 55%
+        ),
+        repeating-linear-gradient(
+          0deg,
+          rgba(120, 80, 30, 0.05) 0 1px,
+          transparent 1px 3px
+        ),
+        linear-gradient(160deg, #f7ecd6 0%, #ead8b6 100%);
+      border: 1px solid rgba(255, 250, 235, 0.7);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.8),
+        0 1px 3px rgba(0, 0, 0, 0.5);
+      pointer-events: none;
+    }
+
+    .counter-top {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+
+      svg {
+        width: 15px;
+        height: 15px;
+        color: #a3402c;
+      }
+    }
+
+    .counter-digits {
+      font-family: 'Courier New', Consolas, monospace;
+      font-size: 19px;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 0.01em;
+      color: #2a1c0d;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    }
+
+    .counter-label {
+      position: relative;
+      z-index: 1;
+      font-family: Consolas, Monaco, monospace;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      color: #a3402c;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.55);
+    }
+
+    &.sort-dimmed {
+      opacity: 0.42;
+    }
+
+    &.sort-highlighted {
+      box-shadow:
+        inset 2px 0 3px rgba(255, 255, 255, 0.16),
+        inset -4px 0 7px rgba(0, 0, 0, 0.65),
+        0 0 0 1px rgba(255, 226, 170, 0.5),
+        0 0 16px rgba(255, 200, 120, 0.4);
+    }
+  }
+
+  // 观看进度：黄铜刻度尺
+  .progress-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px 14px 12px;
+  }
+
+  .progress-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+
+    .progress-label {
+      font-family: Consolas, Monaco, monospace;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      color: #ffe9c2;
+      text-shadow: 0 0 8px rgba(255, 206, 120, 0.4);
+    }
+
+    .progress-text {
+      font-size: 15px;
+      font-weight: 800;
+      color: #fff4da;
+      white-space: nowrap;
+      text-shadow: 0 0 10px rgba(255, 206, 120, 0.35);
+    }
+  }
+
+  .progress-bar {
+    position: relative;
+    height: 12px;
+    border-radius: 2px;
+    overflow: hidden;
+    background: linear-gradient(180deg, #0c1a24 0%, #07121a 100%);
+    border: 1px solid rgba(227, 186, 108, 0.35);
+    box-shadow:
+      inset 0 2px 5px rgba(0, 0, 0, 0.9),
+      0 1px 0 rgba(255, 244, 210, 0.12);
+
+    // 刻度
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 1px;
+      z-index: 3;
+      background:
+        repeating-linear-gradient(
+            90deg,
+            rgba(255, 236, 190, 0.42) 0 1px,
+            transparent 1px 10px
+          )
+          0 100% / 100% 5px repeat-x,
+        repeating-linear-gradient(
+            90deg,
+            rgba(255, 236, 190, 0.16) 0 1px,
+            transparent 1px 5px
+          )
+          0 100% / 100% 3px repeat-x;
+      pointer-events: none;
+    }
+
+    .progress-fill {
+      position: relative;
+      z-index: 2;
+      display: block;
+      height: 100%;
+      border-radius: 1px;
+      background: linear-gradient(90deg, #6b4714 0%, #c08f3d 60%, #f4dfa8 100%);
+      box-shadow:
+        0 0 10px rgba(255, 205, 120, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.35);
+      transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .progress-head {
+      position: absolute;
+      right: -2px;
+      top: 50%;
+      width: 3px;
+      height: 16px;
+      transform: translateY(-50%);
+      border-radius: 2px;
+      background: linear-gradient(180deg, #fff6d8, #c08f3d);
+      box-shadow:
+        0 0 8px rgba(255, 214, 140, 0.8),
+        0 0 14px rgba(255, 190, 90, 0.45);
+      transition: filter 0.3s ease;
+    }
+  }
+
+  // 卡片够宽时，场记板回到两枚铭牌中间
+  @container (min-width: 470px) {
+    .card-top {
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      grid-template-areas: 'type title date';
+      gap: 10px;
+    }
+
+    .title-slate {
+      padding: 19px 16px 11px;
+    }
+
+    .slate-title {
+      font-size: 20px;
+    }
+  }
+
+  @container (max-width: 380px) {
+    .slate-title {
+      font-size: 18px;
+    }
+
+    .card-footer {
+      gap: 6px;
+      padding: 8px 8px 9px;
+    }
+
+    .tape-counter {
+      width: 74px;
+      min-width: 74px;
+      min-height: 80px;
+      padding: 5px;
+    }
+
+    .detail-btn {
+      width: 66px;
+      min-height: 80px;
+      padding: 26px 4px 7px;
+
+      .clapper-text {
+        font-size: 14px;
+      }
+
+      .clapper-go {
+        width: 24px;
+        height: 24px;
+
+        svg {
+          width: 14px;
+          height: 14px;
+        }
+      }
+    }
+
+    .tape-counter .counter-digits {
+      font-size: 17px;
+    }
+
+    .tape-counter .counter-label {
+      font-size: 9px;
+    }
+
+    .film-tag {
+      font-size: 12px;
+      padding: 6px 10px 6px 18px;
+    }
+
+    .action-btn .count {
+      font-size: 16px;
+    }
+
+    .action-btn .key-face {
+      height: 46px;
+      gap: 5px;
+      padding: 0 5px;
+    }
+  }
+}
